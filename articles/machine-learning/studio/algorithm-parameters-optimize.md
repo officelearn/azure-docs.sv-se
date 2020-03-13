@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 33705d0c9f2f405be733fd21c88cb83e96aec781
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168972"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218275"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Välj parametrar för att optimera algoritmerna i Azure Machine Learning Studio (klassisk)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 I det här avsnittet beskrivs hur du väljer rätt aktiv parameter för en algoritm i Azure Machine Learning Studio (klassisk). De flesta maskininlärningsalgoritmer har parametrar för att konfigurera. När du tränar en modell, måste du ange värden för dessa parametrar. Effekt av den tränade modellen beror på Modellparametrar som du väljer. Processen för att hitta den optimala uppsättningen parametrar kallas *modell val*.
 
@@ -41,7 +43,7 @@ Du kan definiera parameteruppsättning modellen initieringen steget. Parameter f
 
 ![Tvåklassförhöjt beslutsträd, enskild parameter](./media/algorithm-parameters-optimize/fig2.png)
 
- Alternativt kan du definiera de maximala och minsta punkterna i rutnätet och det totala antalet punkter som ska genereras med **use Range Builder**. Som standard skapas parametrarnas värden på en linjär skala. Men om **logg skalan** är markerad genereras värdena i logg skalan (det vill säga förhållandet mellan intilliggande punkter är konstant i stället för deras skillnader). Du kan definiera ett intervall för heltalsparametrar, med hjälp av ett bindestreck. Till exempel ”1-10” innebär att alla heltal mellan 1 och 10 (båda inkluderande) utgör parameteruppsättningen. Blandat läge stöds också. Till exempel parametern värdet ”1-10, 20, 50” omfattar 1-10, 20, heltal och 50.
+ Alternativt kan du definiera de maximala och minsta punkterna i rutnätet och det totala antalet punkter som ska genereras med **use Range Builder**. Som standard skapas parametrarnas värden på en linjär skala. Men om **logg skalan** är markerad genereras värdena i logg skalan (det vill säga förhållandet mellan intilliggande punkter är konstant i stället för deras skillnader). Du kan definiera ett intervall för heltalsparametrar, med hjälp av ett bindestreck. Till exempel innebär "1-10" att alla heltal mellan 1 och 10 (båda) utgör parameter uppsättningen. Blandat läge stöds också. Parametern "1-10, 20, 50" skulle till exempel omfatta heltal som är 1-10, 20 och 50.
 
 ![Tvåklassförhöjt beslutsträd, intervallet för parametern](./media/algorithm-parameters-optimize/fig3.png)
 

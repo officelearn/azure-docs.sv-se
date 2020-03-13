@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e51f6ad25ca81431eab0561926b6bf065abaa508
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bd8c472aa659bec31440292e20328865b1cb531
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383783"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79134535"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Vad är API:et för bildsökning i Bing?
 
@@ -33,7 +33,7 @@ API:et för bildsökning i Bing tillhandahåller sökresultat med bara bilder, m
 | [Filtrera och begränsa bildresultat](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Filtrera de bilder Bing returnerar genom att redigera frågeparametrarna.                                                                                                       |
 | [Beskär, ändra storlek och visa miniatyrer](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails)                                                | Redigera och visa miniatyrer för de bilder som returneras med bildsökningen i Bing.                                                                                      |
 | [Pivotera och expandera användarsökfrågor](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | Utöka sökfunktionen genom att inkludera och visa Bing-föreslagna sökord för frågor.                                                                    |
-| [Hämta populära bilder](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | Anpassa en sökning efter populära bilder från hela världen.                                                                                                          |
+| [Hämta populära bilder](trending-images.md)                                                                     | Anpassa en sökning efter populära bilder från hela världen.                                                                                                          |
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -55,9 +55,9 @@ För att komma igång snabbt med din första API-begäran kan du lära dig att:
 * [Skicka sökfrågor till Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/quickstarts/csharp) med hjälp av REST API eller
 * [Begära och filtrera](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart) bilderna som Bing returnerar med hjälp av SDK:et.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
+* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) av API:er för Bing-sökning. 
 
 * Referensavsnittet för [API:et för bildsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) innehåller information om API:ets slutpunkter, rubriker, API-svar och frågeparametrar.
 

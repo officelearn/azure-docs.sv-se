@@ -3,12 +3,12 @@ title: Python Developer-referens för Azure Functions
 description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 6c625c050652ffac568ac45b06af7a853c75c8c2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 30f40db33b6aa8b40202c023f301265565257180
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358061"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276691"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -394,7 +394,18 @@ För lokal utveckling underhålls program inställningarna [i filen Local. Setti
 
 ## <a name="python-version"></a>Python-version 
 
-Azure Functions stöder för närvarande både python 3.6. x och 3.7. x (officiella CPython-distributioner). När den körs lokalt använder körningen den tillgängliga python-versionen. Om du vill begära en speciell python-version när du skapar din Function-app i Azure, använder du alternativet `--runtime-version` i kommandot [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) . Versions ändring är endast tillåten vid skapande av Funktionsapp.  
+Azure Functions stöder följande python-versioner:
+
+| Funktions version | Python<sup>*</sup> -versioner |
+| ----- | ----- |
+| 3.x | 3.8<br/>3.7<br/>3.6 |
+| 2x | 3.7<br/>3.6 |
+
+<sup>*</sup> Officiella CPython-distributioner
+
+Om du vill begära en speciell python-version när du skapar din Function-app i Azure, använder du alternativet `--runtime-version` i kommandot [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) . Functions runtime-versionen anges av alternativet `--functions-version`. Python-versionen ställs in när Function-appen skapas och kan inte ändras.  
+
+När den körs lokalt använder körningen den tillgängliga python-versionen. 
 
 ## <a name="package-management"></a>Pakethantering
 

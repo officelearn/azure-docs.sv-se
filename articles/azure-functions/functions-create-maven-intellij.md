@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7003dc19a7bfc405809de91534028aba8e0416c5
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913250"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136858"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Skapa din första Azure-funktion med Java och IntelliJ
 
@@ -46,7 +46,7 @@ Om du vill utveckla en funktion med Java och IntelliJ installerar du följande p
 1. I fönstret **Lägg till archetype** fyller du i fälten enligt följande:
     - _Multiport: com_. Microsoft. Azure
     - _ArtifactId_: Azure-Functions-archetype
-    - _Version_: Använd den senaste versionen **1,22** från [den centrala lagrings platsen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - _Version_: kontrol lera och Använd den senaste versionen från [den centrala lagrings platsen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![skapa ett Maven-projekt från archetype i IntelliJ idé](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Välj **OK**och välj sedan **Nästa**.
 1. Ange information om det aktuella projektet och välj **Slutför**.

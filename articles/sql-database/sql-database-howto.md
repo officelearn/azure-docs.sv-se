@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 11/14/2019
-ms.openlocfilehash: e45baba74d7bf752718e5e36a148a91987cd3ffb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: c3f7b33e4b42b08334cfb687024985c878dc3713
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082432"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209430"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Använda Azure SQL Database
 
@@ -43,7 +43,7 @@ I det här avsnittet hittar du olika guider, skript och förklaringar som kan hj
 
 - [Manuell justering](sql-database-performance-guidance.md)
 - [Använd DMV: er för att övervaka prestanda](sql-database-monitoring-with-dmvs.md)
-- [Använd Query Store för att övervaka prestanda](sql-database-operate-query-store.md)
+- [Använd Query Store för att övervaka prestanda](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Felsöka prestanda med Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
 - [Använd Intelligent Insights diagnostikloggar](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [Övervaka minnes intern OLTP-rymd](sql-database-in-memory-oltp-monitoring.md)

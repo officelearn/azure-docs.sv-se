@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: bb6ad1f131d1299ce1e076fee70e6640e3bdf20a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: f42be2a3075d313a490703562761a5df13542c85
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373571"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279226"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -340,7 +340,7 @@ Om *www.contoso.com* till exempel anges i inställningen **värd namn** , ändra
 
 ## <a name="back-end-pool"></a>Serverdelspool
 
-Du kan peka en backend-pool till fyra typer av Server dels medlemmar: en viss virtuell dator, en skalnings uppsättning för virtuella datorer, en IP-adress/FQDN eller en app service. Varje backend-pool kan peka på flera medlemmar av samma typ. Det finns inte stöd för att peka på medlemmar av olika typer i samma backend-pool.
+Du kan peka en backend-pool till fyra typer av Server dels medlemmar: en viss virtuell dator, en skalnings uppsättning för virtuella datorer, en IP-adress/FQDN eller en app service. 
 
 När du har skapat en backend-pool måste du associera den med en eller flera regler för begäran-routning. Du måste också konfigurera hälso avsökningar för varje backend-pool på din Application Gateway. När ett villkor för en regel för anslutningsbegäran uppfylls, vidarebefordrar Application Gateway trafiken till de felfria servrarna (som fastställs av hälso avsökningarna) i motsvarande backend-pool.
 

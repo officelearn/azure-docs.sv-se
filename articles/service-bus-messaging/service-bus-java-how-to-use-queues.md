@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 71afce335910e4d42fb3d67f6d443510a6599b8b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 25471f2cab4362d270638ee49ed8d1840aa5cdfa
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918330"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213029"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Snabb start: använda Azure Service Bus köer med Java för att skicka och ta emot meddelanden
 
@@ -124,7 +124,7 @@ Det primära sättet att ta emot meddelanden från en kö är att använda ett *
 När du använder **ReceiveAndDelete** -läget är ta emot en enda åtgärd – det vill säga när Service Bus tar emot en läsbegäran för ett meddelande i en kö, markerar det meddelandet som förbrukat och returnerar det till programmet. **ReceiveAndDelete** -läget (som är standard läget) är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande i händelse av ett fel. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran.
 Eftersom Service Bus har markerat meddelandet som förbrukat, när programmet startas om och börjar förbruka meddelanden igen, har det fått meddelandet som förbrukades innan kraschen.
 
-I **PeekLock** -läge blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Complete ()** för det mottagna meddelandet. När Service Bus ser det **fullständiga anropet ()** , markeras meddelandet som förbrukat och tas bort från kön. 
+I **PeekLock** -läge blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Complete ()** för det mottagna meddelandet. När Service Bus ser det **fullständiga anropet ()** , markeras meddelandet som förbrukat och tas bort från kön. 
 
 Följande exempel visar hur meddelanden kan tas emot och bearbetas med **PeekLock** -läge (inte standard läget). Exemplet nedan använder callback-modellen med en registrerad meddelande hanterare och bearbetar meddelanden när de anländer till vår `TestQueue`. Det här läget anropar **Complete ()** automatiskt när återanropet returnerar normalt och anropar **överge ()** om motringningen genererar ett undantag. 
 

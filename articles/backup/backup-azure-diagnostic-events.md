@@ -3,12 +3,12 @@ title: Använda diagnostikinställningar för Recovery Services valv
 description: En artikel som beskriver hur du använder de gamla och nya diagnostikloggar för Azure Backup
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e3919d120e5f741af6cd30dd27e5a1dfa2b06cf2
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583953"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136947"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services-valv
 
@@ -56,7 +56,9 @@ När data flödar in på arbets ytan LA skapas dedikerade tabeller för var och 
 
 Traditionellt har alla säkerhetskopierade diagnostikdata för ett valv funnits i en enskild händelse med namnet "AzureBackupReport". De sex händelser som beskrivs ovan är i själva verket en nedbrytning av alla data som finns i AzureBackupReport. 
 
-För närvarande fortsätter vi att stödja AzureBackupReport-händelsen för bakåtkompatibilitet, i de fall där användare har befintliga anpassade frågor om den här händelsen, till exempel anpassade logg aviseringar, anpassade visualiseringar osv. Vi rekommenderar dock att du väljer nya händelser för alla nya diagnostikinställningar i valvet eftersom detta gör att det blir mycket enklare att arbeta med logg frågor, vilket ger bättre identifiering av scheman och deras struktur, förbättrar prestandan för båda inmatningarna svars tid och fråge tider. Stöd för att använda Azure-diagnostik läge kommer slutligen att gå ut och därmed välja nya händelser kan du undvika komplexa migreringar vid ett senare tillfälle.
+För närvarande fortsätter vi att stödja AzureBackupReport-händelsen för bakåtkompatibilitet, i de fall där användare har befintliga anpassade frågor om den här händelsen, till exempel anpassade logg aviseringar, anpassade visualiseringar osv. **Vi rekommenderar dock att du flyttar till de nya händelserna så tidigt som möjligt**, eftersom det gör att det blir mycket enklare att arbeta med logg frågor, vilket ger bättre möjlighet att identifiera scheman och deras struktur, ger bättre prestanda för både svars tid och fråge tider. **Stöd för att använda Azure-diagnostik läge kommer slutligen att gå ut och därmed välja nya händelser kan du undvika komplexa migreringar vid ett senare tillfälle**.
+
+Använd Azure Backup inbyggda principen för att lägga till en ny diagnostisk inställning med de 6 nya händelserna, för alla valv i en angiven omfattning: [Konfigurera valvets diagnostikinställningar i skala](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
 Du kan välja att skapa separata diagnostikinställningar för AzureBackupReport och de sex nya händelserna tills du har migrerat alla anpassade frågor för att använda data från de nya tabellerna. Bilden nedan visar ett exempel på ett valv med två diagnostikinställningar. Den första inställningen med namnet **Setting1** skickar data för AzureBackupReport-händelsen till en La-arbetsyta i AzureDiagnostics-läge. Den andra inställningen, med namnet **Setting2** , skickar data från de sex nya Azure Backup händelser till en La-arbetsyta i resurs särskilt läge.
 

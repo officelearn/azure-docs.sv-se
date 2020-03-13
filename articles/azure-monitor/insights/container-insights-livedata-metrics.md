@@ -3,12 +3,12 @@ title: Visa mått i real tid med Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs real tids visningen av mått utan att använda kubectl med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404937"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216599"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Visa mått i real tid
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller en detaljerad översikt och hjälper dig att förs
 
 Om du vill ha hjälp med att ställa in eller felsöka funktionen Live data (för hands version) läser du vår [installations guide](container-insights-livedata-setup.md).
 
-## <a name="how-it-works"></a>Så här fungerar det 
+## <a name="how-it-works"></a>Hur det fungerar 
 
 Funktionen Live data (för hands version) har direkt åtkomst till Kubernetes-API: et och ytterligare information om Authentication Model finns [här](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
@@ -34,7 +34,7 @@ Den här funktionen utför en avsöknings åtgärd mot Mät slut punkterna (inkl
 
 Avsöknings intervallet konfigureras från List rutan **uppsättnings intervall** så att du kan ställa in sökning efter nya data varje 1, 5, 15 och 30 sekunder. 
 
-![Gå in i list rutan för Live-avsöknings intervall](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
+![Gå in i list rutan för Live-avsöknings intervall](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.png)
 
 >[!IMPORTANT]
 >Vi rekommenderar att du ställer in avsöknings intervallet på en sekund medan du felsöker ett problem under en kort tids period. Dessa förfrågningar kan påverka tillgängligheten och begränsningen av Kubernetes-API: et i klustret. Konfigurera därefter om till ett längre avsöknings intervall. 

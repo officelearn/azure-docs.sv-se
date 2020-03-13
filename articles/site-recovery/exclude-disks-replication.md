@@ -4,11 +4,11 @@ description: Så här undantar du diskar från replikering till Azure med Azure 
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363213"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281852"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exkludera diskar från haveri beredskap
 

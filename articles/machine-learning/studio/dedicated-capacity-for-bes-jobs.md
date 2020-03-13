@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 0bb4157ff77ef57f377ba0c6a08bfe8529f663f4
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 618bc5719e3629d37567d8ac77594e7734f82a09
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169276"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204434"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Azure Batch tjänst för Azure Machine Learning Studio (klassiska) jobb
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Machine Learning Batch-Pool bearbetning ger kundhanterad scale för Azure Machine Learning Batch Execution Service. Klassiska batch behandling i samband med maskininlärning äger rum i en miljö med flera innehavare, vilket begränsar antalet samtidiga jobb som du kan skicka och jobb ställs i kö för först in först ut. Den här osäkerheten innebär att det går inte att korrekt förutse när jobbet ska köras.
 
@@ -111,4 +113,4 @@ Vi rekommenderar att du avsöka jobbstatus för att avgöra när du jobb är kla
 
 | **Använda bearbetning av batch-pool när**    | **Använd klassisk batchbearbetning när**  |
 |---|---|
-|Du måste köra ett stort antal jobb<br>Eller<br/>Du behöver veta att dina jobb ska köras omedelbart<br/>Eller<br/>Behöver du garanterat dataflöde. Exempelvis måste köra ett antal jobb i en angiven tidsperiod och vill skala ut dina beräkningsresurser som uppfyller dina behov.    | Du kör några jobb<br/>Och<br/> Du behöver inte de jobb som ska köras omedelbart |
+|Du måste köra ett stort antal jobb<br>Eller<br/>Du behöver veta att dina jobb ska köras omedelbart<br/>Eller<br/>Behöver du garanterat dataflöde. Exempelvis måste köra ett antal jobb i en angiven tidsperiod och vill skala ut dina beräkningsresurser som uppfyller dina behov.    | Du kör några jobb<br/>Och<br/> Du behöver inte köra jobben direkt |

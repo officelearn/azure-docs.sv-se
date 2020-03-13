@@ -3,12 +3,12 @@ title: Visa real tids data (för hands version) med Azure Monitor för behållar
 description: Den här artikeln beskriver real tids visningen av Kubernetes-loggar, händelser och Pod mått utan att använda kubectl i Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404760"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216549"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Så här visar du Kubernetes-loggar, händelser och Pod-mått i real tid
 
@@ -26,7 +26,7 @@ Om du vill ha hjälp med att ställa in eller felsöka funktionen Live data (fö
 
 ## <a name="live-data-preview-functionality-overview"></a>Översikt över Live data (för hands version)
 
-### <a name="search"></a>Sök
+### <a name="search"></a>Söka
 
 ![Filter exempel för Live data konsol fönster](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -84,7 +84,7 @@ När du har autentiserat visas konsol fönstret Live data (förhands granskning)
     
 Om objektet du har valt är en behållare väljer du alternativet **händelser** i rutan. Om du har valt en nod, POD eller kontrollant väljs Visa händelser automatiskt. 
 
-    ![Controller properties pane view events](./media/container-insights-livedata-overview/controller-properties-live-events.png)  
+![Fönstret Egenskaper för kontroll panelen Visa händelser](./media/container-insights-livedata-overview/controller-properties-live-event.png)  
 
 Rutans rubrik visar namnet på pod som behållaren är grupperad med.
 
@@ -113,6 +113,6 @@ När du har autentiserat visas konsol fönstret Live data (förhands granskning)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill lära dig hur du använder Azure Monitor och övervaka andra aspekter av AKS-klustret går [visa Azure Kubernetes Service health](container-insights-analyze.md).
+- Om du vill fortsätta lära dig hur du använder Azure Monitor och övervakar andra aspekter av ditt AKS-kluster kan du läsa mer i [Visa Azure Kubernetes service Health](container-insights-analyze.md).
 
 - Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att skapa aviseringar, visualiseringar eller utföra ytterligare analyser av klustren.

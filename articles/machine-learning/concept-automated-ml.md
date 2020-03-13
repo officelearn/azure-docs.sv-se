@@ -11,11 +11,11 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
 ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127193"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283893"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 

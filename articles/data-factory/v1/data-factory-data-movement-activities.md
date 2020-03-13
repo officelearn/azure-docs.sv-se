@@ -13,11 +13,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356311"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281891"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Flytta data med hjälp av kopierings aktivitet
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]

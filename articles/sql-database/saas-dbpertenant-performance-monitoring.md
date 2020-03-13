@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e2e752ec37f71ea501dcee586e7daf0fc950919d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 34c50795567615637e31446ad3dc51a5e1b355f6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822238"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214456"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app med flera innehavare
 
@@ -34,10 +34,10 @@ I den här självstudiekursen får du lära du dig att:
 > * Etablerar en andra elastisk pool för att belastningsutjämna databasaktiviteten
 
 
-Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
+Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 * Wingtip biljetter SaaS-databasen per klient-app distribueras. Om du vill distribuera på mindre än fem minuter, se [distribuera och utforska Wingtip-biljetter SaaS-databas per klient program](saas-dbpertenant-get-started-deploy.md)
-* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introduktion till SaaS prestanda hanterings mönster
 
@@ -52,11 +52,11 @@ Pooler och databaser i pooler bör övervakas för att se till att de ligger ino
 * För att undvika att behöva övervaka prestanda manuellt är det mest effektivt att **Ange aviseringar som utlöses när databaser eller pooler avviker utanför de normala intervallen**.
 * För att svara på kortsiktiga variationer i en Pools sammanlagda beräknings storlek **kan poolens eDTU-nivå skalas upp eller ned**. Om de här variationerna inträffar på regelbunden eller förutsägbar basis, **kan skalning av poolen schemaläggas att ske automatiskt**. Du kan exempelvis skala ned när du vet att din arbetsbelastning är lätt, på nätter eller helger till exempel.
 * För att svara på mer långsiktiga variationer eller förändringar av antalet databaser, **kan enskilda databaser flyttas till andra pooler**.
-* För att svara på kortsiktiga ökningar i *enskilda* **databaser kan enskilda databaser tas bort från en pool och tilldelas en individuell beräknings storlek**. När belastningen minskar, kan databasen returneras till poolen. När detta är känt i förväg kan databaser flyttas för förebyggande syfte för att säkerställa att databasen alltid har de resurser som krävs, och för att undvika påverkan på andra databaser i poolen. Om det här kravet är förutsägbart, till exempel en plats där ett populärt evenemang skapar en rusning efter biljetter, kan det här hanteringsbeteendet integreras i programmet.
+* För att svara på kortsiktiga ökningar i *enskilda* **databaser kan enskilda databaser tas bort från en pool och tilldelas en individuell beräknings storlek**. När belastningen minskar, kan databasen returneras till poolen. När detta är känt i förväg kan databaser flyttas förebyggande syfte för att säkerställa att databasen alltid har de resurser som krävs, och för att undvika påverkan på andra databaser i poolen. Om det här kravet är förutsägbart, till exempel en plats där ett populärt evenemang skapar en rusning efter biljetter, kan det här hanteringsbeteendet integreras i programmet.
 
 [Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL Database, finns övervakning och avisering tillgängligt för databaser och pooler. Den här inbyggda övervakningen och aviseringen är resurs bestämd, så det är praktiskt att använda för ett fåtal resurser, men är inte särskilt användbart när du arbetar med många resurser.
 
-För stora volymer, där du arbetar med många resurser, kan [Azure Monitor loggar](saas-dbpertenant-log-analytics.md) användas. Det här är en separat Azure-tjänst som ger analys över genererade diagnostikloggar och telemetri som samlats in i en Log Analytics-arbetsyta. Azure Monitor loggar kan samla in telemetri från många tjänster och använda för att fråga och ange aviseringar.
+För stora volymer, där du arbetar med många resurser, kan [Azure Monitor loggar](saas-dbpertenant-log-analytics.md) användas. Det här är en separat Azure-tjänst som ger analys över utgivna loggar som samlas in i en Log Analytics-arbetsyta. Azure Monitor loggar kan samla in telemetri från många tjänster och använda för att fråga och ange aviseringar.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip-biljetterna SaaS-databas per klient program skript
 
@@ -74,7 +74,7 @@ Om du redan har skapat en batch med klienter i en tidigare självstudie går du 
 
 Skriptet distribuerar 17 klienter på mindre än fem minuter.
 
-Skriptet *New-TenantBatch* använder en kapslad eller länkad uppsättning [Resource Manager](../azure-resource-manager/index.yml) -mallar som skapar en batch med klienter, som som standard kopierar databasen **basetenantdb** på katalog servern för att skapa nya klient databaser. registrerar dessa i katalogen och initierar slutligen dem med klient organisations namnet och platstyp. Detta är konsekvent med hur appen etablerar en ny klient. Ändringar som görs i *basetenantdb* tillämpas på alla nya klienter som tillhandahålls därefter. I [själv studie kursen om schema hantering](saas-tenancy-schema-management.md) kan du se hur du gör schema ändringar i *befintliga* klient databaser (inklusive *basetenantdb* -databasen).
+Det *nya-TenantBatch-* skriptet använder en kapslad eller länkad uppsättning [Resource Manager](../azure-resource-manager/index.yml) -mallar som skapar en batch med klienter, som som standard kopierar databasen **basetenantdb** på katalog servern för att skapa nya klient databaser, registrerar dem i katalogen och sedan initierar dem med klient organisations namn och platstyp. Detta är konsekvent med hur appen etablerar en ny klient. Ändringar som görs i *basetenantdb* tillämpas på alla nya klienter som tillhandahålls därefter. I [själv studie kursen om schema hantering](saas-tenancy-schema-management.md) kan du se hur du gör schema ändringar i *befintliga* klient databaser (inklusive *basetenantdb* -databasen).
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>Simulera användning på alla klientdatabaser
 
@@ -177,7 +177,7 @@ Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och fly
    1. Klicka på **Lägg till databaser** för att se en lista över databaser på servern som kan läggas till i *Pool2*.
    1. Välj 10 databaser för att flytta dem till den nya poolen och klicka sedan på **Välj**. Om du har kört belastnings generatorn vet tjänsten redan att prestanda profilen kräver en större pool än standard storleken 50 eDTU och rekommenderar att du börjar med en 100 eDTU-inställning.
 
-      ![Rekommenderade](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![rekommenderade](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
    1. I den här självstudien lämnar du standardvärdet 50 eDTU: er och klickar på **Välj** igen.
    1. Välj **OK** för att skapa den nya poolen och flytta de markerade databaserna till den.
@@ -206,7 +206,7 @@ Den här övningen simulerar effekten av att Contosos konserthall upplever en h�
 
 1. Granska övervaknings diagrammet för **elastisk pool** och leta efter den ökade användningen av pool-eDTU. Efter någon minut sätter den högre belastningen in och du borde snabbt se att poolen når 100% användning.
 2. Kontrol lera visningen av **Elastic Database Monitoring** , som visar de hetaste databaserna under den senaste timmen. *Contosoconcerthall* -databasen bör snart visas som en av de fem hetaste databaserna.
-3. **Klicka på diagrammet för övervakning av elastiska databaser** så öppnas sidan **databas resurs användning** där du kan övervaka någon av databaserna. På så sätt kan du isolera visningen för *contosoconcerthall* -databasen.
+3. **Klicka på diagrammet för övervakning av elastiska databaser** **chart** så öppnas sidan **databas resurs användning** där du kan övervaka någon av databaserna. På så sätt kan du isolera visningen för *contosoconcerthall* -databasen.
 4. Klicka på **contosoconcerthall**i listan över databaser.
 5. Klicka på **pris nivå (skala DTU: er)** för att öppna sidan **Konfigurera prestanda** där du kan ange en fristående beräknings storlek för databasen.
 6. Klicka på **Standard**-fliken för att öppna skalningsalternativen på standardnivån.

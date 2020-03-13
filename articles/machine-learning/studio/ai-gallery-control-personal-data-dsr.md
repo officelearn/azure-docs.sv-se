@@ -11,14 +11,16 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: a4ce383959b10836791ea065ffe8a9c243f6ad0d
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168994"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204553"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visa och ta bort i produkten användardata från Azure AI-galleriet
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Du kan visa och ta bort i produkten användardata från Azure AI-galleriet med hjälp av gränssnittet eller AI-galleriet Catalog API: et. Den här artikeln visar hur du gör.
 
@@ -30,9 +32,9 @@ Du kan visa och ta bort i produkten användardata från Azure AI-galleriet med h
 
 Du kan visa objekt som du har publicerat via webbplatsen Azure AI-galleriet Användargränssnittet. Användare kan visa både offentliga och olistade lösningar, projekt, experiment och andra publicerade objekt:
 
-1.  Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
-3.  Profilsidan visas alla objekt som publicerats i galleriet, inklusive olistade poster.
+1.    Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
+3.    Profilsidan visas alla objekt som publicerats i galleriet, inklusive olistade poster.
 
 ## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Använd AI-galleriet Catalog-API: et för att visa dina data
 
@@ -43,9 +45,9 @@ Katalogen svar returneras i JSON-format.
 ### <a name="get-an-author-id"></a>Hämta ett författare-ID
 ID: T för författaren baseras på den e-postadress som används vid publicering till Azure AI-galleriet. Den ändrar inte:
 
-1.  Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
-3.  URL: en i adress fältet visar det alfanumeriska ID: t efter `authorId=`. Till exempel för URL: en: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1.    Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
+3.    URL: en i adress fältet visar det alfanumeriska ID: t efter `authorId=`. Till exempel för URL: en: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     Författar-ID: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
@@ -55,12 +57,12 @@ Du behöver en åtkomsttoken för att visa olistade myndigheter via Catalog-API:
 
 För att få en åtkomsttoken måste du kontrol lera `DataLabAccessToken` rubriken för en HTTP-begäran som webbläsaren gör till katalog-API: et när du är inloggad:
 
-1.  Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
-3.  Öppna webbläsarens utvecklingsverktyg fönster genom att trycka på F12, Välj fliken nätverk och uppdatera sidan. 
+1.    Logga in på [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Klicka på profilbild i det övre högra hörnet och sedan namnet på kontot för att läsa in din profilsida.
+3.    Öppna webbläsarens utvecklingsverktyg fönster genom att trycka på F12, Välj fliken nätverk och uppdatera sidan. 
 4. Filtrera begär anden i sträng *katalogen* genom att skriva i text rutan filter.
-5.  I begär anden till URL: en `https://catalog.cortanaanalytics.com/entities`letar du upp en GET-begäran och väljer fliken *sidhuvud* . Rulla ned *till avsnittet begärandehuvuden* .
-6.  Under rubriken `DataLabAccessToken` är den alfanumeriska token. För att skydda dina data, dela inte denna token.
+5.    I begär anden till URL: en `https://catalog.cortanaanalytics.com/entities`letar du upp en GET-begäran och väljer fliken *sidhuvud* . Rulla ned *till avsnittet begärandehuvuden* .
+6.    Under rubriken `DataLabAccessToken` är den alfanumeriska token. För att skydda dina data, dela inte denna token.
 
 ### <a name="view-user-information"></a>Visa information om användare
 Använd det författar-ID som du fick i föregående steg, Visa information i en användares profil genom att ersätta `[AuthorId]` i följande URL:
@@ -84,7 +86,7 @@ Om du vill visa publicerade entiteter går du till följande URL och ersätter `
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
-Några exempel:
+Exempel:
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'
 
@@ -92,9 +94,9 @@ Några exempel:
 
 Den här frågan visar endast de offentliga enheter. Om du vill visa alla enheter, inklusive olistade som ger åtkomst token hämtas från föregående avsnitt.
 
-1.  Använd ett verktyg som [Postman](https://www.getpostman.com)och skapa en HTTP GET-begäran till katalog-URL: en enligt beskrivningen i [Hämta din](#get-your-access-token)åtkomsttoken.
-2.  Skapa ett HTTP Request-huvud med namnet `DataLabAccessToken`, med värdet inställt på åtkomsttoken.
-3.  Skicka HTTP-begäran.
+1.    Använd ett verktyg som [Postman](https://www.getpostman.com)och skapa en HTTP GET-begäran till katalog-URL: en enligt beskrivningen i [Hämta din](#get-your-access-token)åtkomsttoken.
+2.    Skapa ett HTTP Request-huvud med namnet `DataLabAccessToken`, med värdet inställt på åtkomsttoken.
+3.    Skicka HTTP-begäran.
 
 > [!TIP]
 > Om olistade entiteter inte visas i svar från Catalog-API: et, användaren kanske har en ogiltig eller har upphört att gälla åtkomst-token. Logga ut från Azure AI Gallery och upprepa sedan stegen i [Hämta](#get-your-access-token) åtkomsttoken för att förnya token. 

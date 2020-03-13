@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc8a62bd75a01cb6b7184cb52585c4f8b08cadb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 145439ebedd2ddf7c081339146010c66f37fe1af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378254"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136542"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera distribution av lösenordsskyddad autentisering i Azure Active Directory
 
@@ -130,7 +130,7 @@ Se [metod tips för en pilot](https://aka.ms/deploymentplans) på sidan distribu
 
 ## <a name="plan-passwordless-authentication-with-the-microsoft-authenticator-app"></a>Planera lösenordsbaserad autentisering med Microsoft Authenticator-appen
 
-Microsoft Authenticator-appen är en kostnads fri nedladdning från Google Play eller Apple App Store. [Läs mer om att ladda ned Microsoft Authenticator-appen](https://www.microsoft.com/account/authenticator?cmp=h66ftb_42hbak). Låt användarna ladda ned Microsoft Authenticator-appen. och följ anvisningarna för att aktivera telefon inloggning. 
+Microsoft Authenticator-appen är en kostnads fri nedladdning från Google Play eller Apple App Store. [Läs mer om att ladda ned Microsoft Authenticator-appen](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Låt användarna ladda ned Microsoft Authenticator-appen. och följ anvisningarna för att aktivera telefon inloggning. 
 
 Det sätter en iOS-eller Android-telefon till en stark, lösen ords rik autentiseringsuppgift. Användarna loggar in på valfri plattform eller webbläsare genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till det som visas på telefonen och sedan använda biometrik eller en PIN-kod för att bekräfta. [Se information om hur Microsoft Authenticator-appen fungerar](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless#user-using-microsoft-authenticator-for-passwordless-sign-in). 
 

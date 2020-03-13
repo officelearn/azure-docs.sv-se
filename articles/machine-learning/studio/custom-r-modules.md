@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 35046d33a85eaed913454f188f2a4526715526a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 5b8dab14a9416795eccef1f71988a048c8bedb48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168787"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218171"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio (klassisk)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 I det här avsnittet beskrivs hur du skapar och distribuerar en anpassad R Studio (klassisk). Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa. Det illustrerar hur du skapar filer som definierar en modul och hur du registrerar modulen för distribution i en Machine Learning-arbetsyta. Element och attribut som används i definitionen för anpassad modul sedan beskrivs i detalj. Hur du använder extra funktioner och filer och flera utdata diskuteras också. 
 
@@ -200,7 +202,7 @@ Om du till exempel vill ändra den anpassade modulen **Lägg till rader** för a
     </Ports> 
 
 
-Och returnerar listan över objekt i en lista i rätt ordning i ”CustomAddRows.R”:
+Och returnerar listan över objekt i en lista i rätt ordning i ' CustomAddRows. R ':
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) { 
         if (swap) { dataset <- rbind(dataset2, dataset1)) } 
@@ -284,9 +286,9 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
   * **allowedTypes** – filtrerar kolumn typerna som du kan välja mellan. Giltiga värden är: 
     
     * Numeric
-    * Boolesk
+    * Boolean
     * Kategoriska
-    * Sträng
+    * String
     * Label (Etikett)
     * Funktion
     * Poäng
@@ -333,11 +335,11 @@ En modul-parameter definieras med det underordnade elementet **arg** i **argumen
 Alla filer som placeras i ZIP-filen för anpassade modulen ska vara tillgängliga för användning under körningstid. Alla finns katalogstrukturer bevaras. Det innebär att filkälla fungerar likadant lokalt och i den Azure Machine Learning Studio (klassiska) körningen. 
 
 > [!NOTE]
-> Observera att alla filer extraheras till ”src'-katalogen så att alla sökvägar ska ha ' src /' prefix.
+> Observera att alla filer extraheras till "src"-katalogen så att alla sökvägar ska ha prefixet "src/".
 > 
 > 
 
-Anta exempelvis att du vill ta bort alla rader med NAs från datauppsättningen, och även ta bort alla dubblettrader innan du genererar i CustomAddRows och du redan har skrivit en R-funktion som gör detta i en fil RemoveDupNARows.R:
+Anta till exempel att du vill ta bort alla rader med NAs från data uppsättningen och även ta bort eventuella dubblettrader innan du lägger till dem i CustomAddRows och att du redan har skrivit en R-funktion som gör det i en fil RemoveDupNARows. R:
 
     RemoveDupNARows <- function(dataFrame) {
         #Remove Duplicate Rows:
@@ -359,7 +361,7 @@ Du kan styra den extra filen RemoveDupNARows.R i funktionen CustomAddRows:
         return (dataset)
     }
 
-Ladda sedan upp en zip-fil som innehåller ”CustomAddRows.R', 'CustomAddRows.xml' och 'RemoveDupNARows.R” som en anpassad R-modul.
+Sedan laddar du upp en zip-fil som innehåller "CustomAddRows. R", "CustomAddRows. xml" och "RemoveDupNARows. R" som en anpassad R-modul.
 
 ## <a name="execution-environment"></a>Körningsmiljö
 Körnings miljön för R-skriptet använder samma version av R som modulen **köra R-skript** och kan använda samma standard paket. Du kan också lägga till ytterligare R-paket till din anpassade modulen genom att inkludera dem i en anpassad modul zip-paketet. Bara läsa in dem i ditt R-skript som du använder i din egen R-miljö. 

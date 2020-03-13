@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 9afac1adef801956f176dd339c795e2df533a2c7
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169120"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204190"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Utföra analyser med Azure Machine Learning Studio (klassisk) med hjälp av en lokal SQL Server-databas
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Ofta företag som fungerar med lokala data vill dra nytta av skalan och flexibilitet med molnet för sina maskininlärningsarbetsbelastningar. Men de vill inte störa deras aktuella affärsprocesser och arbetsflöden genom att flytta sina lokala data till molnet. Azure Machine Learning Studio (klassisk) har nu stöd för att läsa data från en lokal SQL Server-databas och sedan träna och värdera en modell med dessa data. Du har inte längre att manuellt kopiera och synkronisera data mellan molnet och den lokala servern. I stället kan modulen **Importera data** i Azure Machine Learning Studio (klassisk) nu läsa direkt från den lokala SQL Server databasen för dina utbildnings-och Poäng uppgifter.
 
@@ -43,7 +45,7 @@ Data Factory lokal Integration Runtime har följande krav:
 * Data Factory lokala Integration kräver en 64-bitars operativsystem med .NET Framework 4.6.1 eller senare.
 * Versioner för Windows-operativsystemet är Windows 10, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
 * Den rekommenderade konfigurationen för den IR-datorn är minst 2 GHz, processor med 4 kärnor, 8GB RAM-minne och 80GB disk.
-* Om värddatorn i viloläge, svara IR inte på begäranden. Därför kan konfigurera en lämplig energischema på datorn innan du installerar i IR. Om datorn är konfigurerad för att viloläge, visas ett meddelande i IR-installationen.
+* Om värddatorn försätts i vilo läge svarar IR inte på data begär Anden. Därför kan konfigurera en lämplig energischema på datorn innan du installerar i IR. Om datorn är konfigurerad för att viloläge, visas ett meddelande i IR-installationen.
 * Eftersom Kopieringsaktivitet inträffar med en frekvens för specifika följer samma mönster med högsta och inaktivitetstid också i Resursanvändning (processor, minne) på datorn. Resursutnyttjande beror också kraftigt på mängden data som flyttas. När flera kopia jobb pågår, ska du se resursanvändningen gå upp under Högbelastningstider. Den lägsta konfigurationen som anges ovan är tekniskt sett tillräcklig, du har en konfiguration med fler resurser än den lägsta konfigurationen beroende på dina specifika belastningen för dataförflyttning.
 
 Tänk på följande när du ställer in och använder en Data Factory lokal Integration Runtime:
@@ -51,7 +53,7 @@ Tänk på följande när du ställer in och använder en Data Factory lokal Inte
 * Du kan installera endast en instans av IR på en dator.
 * Du kan använda en enda IR för flera lokala datakällor.
 * Du kan ansluta flera IRs på olika datorer till samma lokala datakällan.
-* Du konfigurerar en IRs för endast en arbets yta i taget. IRs kan för närvarande inte delas mellan arbetsytor.
+* Du konfigurerar en IRs för endast en arbets yta i taget. För närvarande kan inte IRs delas mellan arbets ytor.
 * Du kan konfigurera flera IRs för en enda arbetsyta. Du kanske till exempel vill använda en IR som är ansluten till dina test data källor under utveckling och en produktions-IR när du är redo att operationalisera.
 * IR behöver inte finnas på samma dator som datakällan. Men att närmare datakällan minskar tid som gatewayen ska ansluta till datakällan. Vi rekommenderar att du installerar IR på en dator som skiljer sig från det som är värd för den lokala datakällan, så att gatewayen och datakällan inte konkurrerar om resurser.
 * Om du redan har en IR-installation på datorn som hanterar Power BI eller Azure Data Factory scenarier installerar du en separat IR för Azure Machine Learning Studio (klassisk) på en annan dator.
@@ -118,7 +120,7 @@ Det första steget är att skapa och konfigurera gatewayen för att få åtkomst
 Detta slutför installations processen för gateway i Azure Machine Learning Studio (klassisk).
 Du är nu redo att använda dina lokala data.
 
-Du kan skapa och konfigurera flera gateways i Studio (klassisk) för varje arbets yta. Du kan till exempel ha en gateway som du vill ansluta till dina datakällor för test under utvecklingen och en annan gateway för dina datakällor för produktion. Azure Machine Learning Studio (klassisk) ger dig flexibiliteten att konfigurera flera gateways beroende på din företags miljö. För närvarande du kan inte dela en gateway mellan arbetsytor och endast en gateway kan installeras på en dator. Mer information finns i [Flytta data mellan lokala källor och molnet med data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
+Du kan skapa och konfigurera flera gateways i Studio (klassisk) för varje arbets yta. Du kan till exempel ha en gateway som du vill ansluta till dina datakällor för test under utvecklingen och en annan gateway för dina datakällor för produktion. Azure Machine Learning Studio (klassisk) ger dig flexibiliteten att konfigurera flera gateways beroende på din företags miljö. För närvarande kan du inte dela en gateway mellan arbets ytorna och bara en gateway kan installeras på en enda dator. Mer information finns i [Flytta data mellan lokala källor och molnet med data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Steg 2: Använda gatewayen för att läsa data från en lokal datakälla
 När du har konfigurerat gatewayen kan du lägga till en modul för att **Importera data** till ett experiment som indata från den lokala SQL Server databasen.

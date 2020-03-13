@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 4684daf2a1095a40c478170be37edcae788868ef
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548619"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284842"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Egenskaperna för IoT Edge agenten och IoT Edge Hub-modulen är dubbla
 
@@ -36,27 +36,27 @@ Modul två för IoT Edge agenten kallas `$edgeAgent` och koordinerar kommunikati
 | schemaVersion | Måste vara ”1.0” | Ja |
 | Runtime.Type | Måste vara ”docker” | Ja |
 | runtime.settings.minDockerVersion | Inställt på den lägsta Docker-versionen som krävs av den här distributionen manifest | Ja |
-| runtime.settings.loggingOptions | En stringified-JSON som innehåller loggnings alternativen för IoT Edge agent-behållaren. [Alternativ för docker-loggning](https://docs.docker.com/engine/admin/logging/overview/) | Inga |
-| runtime.settings.registryCredentials<br>. {registryId} .username | Användarnamnet för behållarregistret. Användarnamnet är vanligtvis registernamnet för Azure Container Registry.<br><br> Autentiseringsuppgifter för registret krävs för bilder i en privat modul. | Inga |
-| runtime.settings.registryCredentials<br>. {registryId} .password | Lösenordet för behållarregistret. | Inga |
-| runtime.settings.registryCredentials<br>. {registryId} .address | Adressen till behållarregistret. För Azure Container Registry är adressen vanligt vis *{Registry Name}. azurecr. io*. | Inga |  
+| runtime.settings.loggingOptions | En stringified-JSON som innehåller loggnings alternativen för IoT Edge agent-behållaren. [Docker-loggnings alternativ](https://docs.docker.com/engine/admin/logging/overview/) | Nej |
+| runtime.settings.registryCredentials<br>. {registryId} .username | Användarnamnet för behållarregistret. Användarnamnet är vanligtvis registernamnet för Azure Container Registry.<br><br> Autentiseringsuppgifter för registret krävs för bilder i en privat modul. | Nej |
+| runtime.settings.registryCredentials<br>. {registryId} .password | Lösenordet för behållarregistret. | Nej |
+| runtime.settings.registryCredentials<br>. {registryId} .address | Adressen till behållarregistret. För Azure Container Registry är adressen vanligt vis *{Registry Name}. azurecr. io*. | Nej |  
 | systemModules.edgeAgent.type | Måste vara ”docker” | Ja |
 | systemModules.edgeAgent.settings.image | URI för avbildningen av IoT Edge agenten. IoT Edge-agenten kan för närvarande inte uppdatera sig själv. | Ja |
-| systemModules.edgeAgent.settings<br>.createOptions | En stringified-JSON som innehåller alternativen för att skapa IoT Edge agent-behållaren. [Alternativ för att skapa docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Inga |
+| systemModules.edgeAgent.settings<br>.createOptions | En stringified-JSON som innehåller alternativen för att skapa IoT Edge agent-behållaren. [Alternativ för Docker-skapande](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nej |
 | systemModules.edgeAgent.configuration.id | ID för den distribution som har distribuerat den här modulen. | IoT Hub anger den här egenskapen när manifestet tillämpas med hjälp av en distribution. Inte en del av ett manifest för distribution. |
 | systemModules.edgeHub.type | Måste vara ”docker” | Ja |
 | systemModules.edgeHub.status | Måste vara ”körs” | Ja |
 | systemModules.edgeHub.restartPolicy | Måste vara ”alltid” | Ja |
 | systemModules.edgeHub.settings.image | URI för avbildningen av IoT Edge Hub. | Ja |
-| systemModules.edgeHub.settings<br>.createOptions | En stringified-JSON som innehåller alternativen för att skapa IoT Edge Hub-behållaren. [Alternativ för att skapa docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Inga |
+| systemModules.edgeHub.settings<br>.createOptions | En stringified-JSON som innehåller alternativen för att skapa IoT Edge Hub-behållaren. [Alternativ för Docker-skapande](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nej |
 | systemModules.edgeHub.configuration.id | ID för den distribution som har distribuerat den här modulen. | IoT Hub anger den här egenskapen när manifestet tillämpas med hjälp av en distribution. Inte en del av ett manifest för distribution. |
 | moduler. {moduleId} .version | En användardefinierad sträng som representerar versionen av den här modulen. | Ja |
 | moduler. {moduleId} .type | Måste vara ”docker” | Ja |
-| moduler. {moduleId} .status | {”körs” \| ”stoppad”} | Ja |
+| moduler. {moduleId} .status | {"kör" \| "stoppad"} | Ja |
 | moduler. {moduleId} .restartPolicy | {"aldrig" \| "vid fel" \| "på-ohälsosam" \| "Always"} | Ja |
-| moduler. {moduleId}. imagePullPolicy | {"på-skapa" \| aldrig "} | Inga |
+| moduler. {moduleId}. imagePullPolicy | {"på-skapa" \| aldrig "} | Nej |
 | modules.{moduleId}.settings.image | URI: N i modulen avbildningen. | Ja |
-| moduler. {moduleId}.settings.createOptions | En Stringified.json med alternativ för att skapa behållaren modulen. [Alternativ för att skapa docker](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Inga |
+| moduler. {moduleId}.settings.createOptions | En Stringified.json med alternativ för att skapa behållaren modulen. [Alternativ för Docker-skapande](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Nej |
 | moduler. {moduleId}.configuration.id | ID för den distribution som har distribuerat den här modulen. | IoT Hub anger den här egenskapen när manifestet tillämpas med hjälp av en distribution. Inte en del av ett manifest för distribution. |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent rapporterade egenskaper
@@ -77,10 +77,10 @@ I följande tabell innehåller inte information som kopieras från önskade egen
 | Egenskap | Beskrivning |
 | -------- | ----------- |
 | lastDesiredVersion | Detta heltal refererar till den senaste versionen av önskade egenskaper som bearbetas av IoT Edge agenten. |
-| lastDesiredStatus.code | Den här status koden refererar till de senast önskade egenskaperna som visas av IoT Edge agenten. Tillåtna värden: `200` lyckas, `400` ogiltig konfiguration, `412` ogiltig schemaversion `417` önskade egenskaper är tomma, `500` misslyckades |
+| lastDesiredStatus.code | Den här status koden refererar till de senast önskade egenskaperna som visas av IoT Edge agenten. Tillåtna värden: `200` lyckades, `400` ogiltig konfiguration, `412` ogiltig schema version, `417` de önskade egenskaperna är tomma, `500` misslyckades |
 | lastDesiredStatus.description | Beskrivning av status |
-| devicehealth koppla | `healthy` Om Körningsstatus för alla moduler är antingen `running` eller `stopped`, `unhealthy` annars |
-| configurationHealth. {deploymentId} .health | `healthy` Om Körningsstatus för alla moduler som angetts för distributionen {deploymentId} är antingen `running` eller `stopped`, `unhealthy` annars |
+| devicehealth koppla | `healthy` om körnings status för alla moduler är antingen `running` eller `stopped`, `unhealthy` annars |
+| configurationHealth. {deploymentId} .health | `healthy` om körnings status för alla moduler som anges av distributionen {deploymentId} antingen `running` eller `stopped`, `unhealthy` annars |
 | runtime.platform.OS | Rapportering av det operativsystem som körs på enheten |
 | Runtime.Platform.Architecture | Rapporteringsarkitektur Processorn på enheten |
 | systemModules.edgeAgent.runtimeStatus | Den rapporterade statusen för IoT Edge agent: {"kör" \| "ej felfri"} |
@@ -107,7 +107,7 @@ Modulerna för IoT Edge Hub kallas `$edgeHub` och koordinerar kommunikationen me
 | Egenskap | Beskrivning | Krävs i distributionen manifestet |
 | -------- | ----------- | -------- |
 | schemaVersion | Måste vara ”1.0” | Ja |
-| vägar. {routeName} | En sträng som representerar en IoT Edge Hub-väg. Mer information finns i [deklarera vägar](module-composition.md#declare-routes). | Den `routes` element kan vara närvarande men tom. |
+| vägar. {routeName} | En sträng som representerar en IoT Edge Hub-väg. Mer information finns i [deklarera vägar](module-composition.md#declare-routes). | `routes`-elementet kan finnas men vara tomt. |
 | storeAndForwardConfiguration.timeToLiveSecs | Tiden i sekunder som IoT Edge hubben bevarar meddelanden om de är frånkopplade från routning slut punkter, oavsett om de IoT Hub eller en lokal modul. Värdet kan vara valfritt positivt heltal. | Ja |
 
 ## <a name="edgehub-reported-properties"></a>EdgeHub rapporterade egenskaper
@@ -115,12 +115,12 @@ Modulerna för IoT Edge Hub kallas `$edgeHub` och koordinerar kommunikationen me
 | Egenskap | Beskrivning |
 | -------- | ----------- |
 | lastDesiredVersion | Detta heltal refererar till den senaste versionen av önskade egenskaper som bearbetas av IoT Edge Hub. |
-| lastDesiredStatus.code | Status koden som refererar till de senaste önskade egenskaperna som visas av IoT Edge Hub. Tillåtna värden: `200` lyckas, `400` ogiltig konfiguration, `500` misslyckades |
+| lastDesiredStatus.code | Status koden som refererar till de senaste önskade egenskaperna som visas av IoT Edge Hub. Tillåtna värden: `200` lyckades, `400` ogiltig konfiguration `500` misslyckades |
 | lastDesiredStatus.description | Text Beskrivning av statusen. |
-| -klienter. {enhet eller moduleId} .status | Statusen för den här enheten eller modulen. Möjliga värden {”ansluten” \| ”frånkopplad”}. Endast modulen identiteter kan vara i frånkopplat läge. Underordnade enheter som ansluter till IoT Edge Hub visas bara när de är anslutna. |
+| -klienter. {enhet eller moduleId} .status | Statusen för den här enheten eller modulen. Möjliga värden {"Connected" \| "frånkopplad"}. Endast modulen identiteter kan vara i frånkopplat läge. Underordnade enheter som ansluter till IoT Edge Hub visas bara när de är anslutna. |
 | -klienter. {enhet eller moduleId} .lastConnectTime | Senaste gången då enheten eller modulen anslöts. |
 | -klienter. {enhet eller moduleId} .lastDisconnectTime | Senaste gången enheten eller modulen kopplades från. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du använder dessa egenskaper för att bygga ut distribution manifesten i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).
+Information om hur du använder dessa egenskaper för att bygga distributions manifest finns i [förstå hur IoT Edge moduler kan användas, konfigureras och återanvändas](module-composition.md).

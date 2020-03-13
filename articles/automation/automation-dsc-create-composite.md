@@ -10,12 +10,12 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c060462a84b197cdd0aec1beecc0b4d4807feb49
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 05f0a81a738688df15ea9060071d9e266b54b7d2
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030111"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136663"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Konvertera konfigurationer till sammansatta resurser
 
@@ -47,7 +47,7 @@ Du börjar med [punkt källa](https://blogs.technet.microsoft.com/heyscriptinggu
 I stället för att köra konfigurationen för att generera en MOF-fil använder du funktionen som tillhandahålls av CompositeResource-modulen för att automatisera en konvertering.
 Cmdleten läser in innehållet i konfigurationen, hämtar listan över parametrar och genererar en ny modul med allt du behöver.
 
-När du har genererat en modul kan du öka versionen och lägga till viktig information varje gång du gör ändringar och publicera den till din egen [PowerShellGet-lagringsplats](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
+När du har genererat en modul kan du öka versionen och lägga till viktig information varje gång du gör ändringar och publicera den till din egen [PowerShellGet-lagringsplats](https://powershellexplained.com/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
 När du har skapat en sammansatt resurspool som innehåller din konfiguration (eller flera konfigurationer) kan du använda dem i den sammanställnings bara [redigerings upplevelsen](/azure/automation/compose-configurationwithcompositeresources) i Azure, eller lägga till dem i [DSC-konfigurations skript](/powershell/scripting/dsc/configurations/configurations) för att generera MOF-filer och [överföra MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.

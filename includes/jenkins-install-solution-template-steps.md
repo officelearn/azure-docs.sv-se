@@ -4,12 +4,12 @@ ms.service: jenkins
 ms.topic: include
 ms.date: 03/03/2020
 ms.author: tarcher
-ms.openlocfilehash: 2468dc72881755a2990e8ddf8112d7fe27f64f4d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: e9b8ad7a7fcc499f8760b56e6a737be8a6a9e06c
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274881"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79199820"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -86,4 +86,4 @@ Om du stöter på buggar med Jenkins-lösningsmallen kan du rapportera problemet
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägga till virtuella Azure-datorer som Jenkins-agenter](/azure/jenkins-azure-vm-agents)
+> [Lägga till virtuella Azure-datorer som Jenkins-agenter](/azure/jenkins/jenkins-azure-vm-agents)

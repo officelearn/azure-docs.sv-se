@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: d78828b2e439668dbc0cd8567560a709256dad5f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359100"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217015"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Utforma virtuella nätverk med NAT-gateway-resurser (offentlig för hands version)
 
@@ -31,10 +31,6 @@ NAT-gateway-resurser ingår i [Virtual Network NAT](nat-overview.md) och tillhan
 </p>
 
 *Bild: Virtual Network NAT för utgående till Internet*
-
-
->[!NOTE] 
->Virtual Network NAT är tillgängligt som offentlig för hands version för tillfället. För närvarande är det bara tillgängligt i en begränsad uppsättning [regioner](nat-overview.md#region-availability). Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="how-to-deploy-nat"></a>Så här distribuerar du NAT
 
@@ -147,7 +143,7 @@ Läs det här avsnittet för att bekanta dig med att tänka på när du utformar
 
 ### <a name="cost-optimization"></a>Kostnadsoptimering
 
-[Tjänst slut punkter](virtual-network-service-endpoints-overview.md) och [privat länk](../private-link/private-link-overview.md) är två alternativ för att överväga för att optimera kostnader där NAT inte behövs.  All trafik som dirigeras till tjänstens slut punkter eller privata länkar bearbetas inte av det virtuella nätverkets NAT.  
+[Tjänst slut punkter](virtual-network-service-endpoints-overview.md) och [privat länk](../private-link/private-link-overview.md) är alternativ för att överväga att optimera kostnader. NAT behövs inte för de här tjänsterna. Trafik som riktas mot tjänst slut punkter eller privat länk bearbetas inte av det virtuella nätverkets NAT.  
 
 Tjänst slut punkter binder Azure-tjänsteresurser till ditt virtuella nätverk och styr åtkomsten till dina Azure-tjänst resurser. När du till exempel använder Azure Storage ska du använda en tjänst slut punkt för lagring för att undvika att data som bearbetas NAT debiteras. Tjänstens slut punkter är kostnads fria.
 
@@ -335,37 +331,33 @@ En SNAT-port är tillgänglig för åter användning till samma mål-IP-adress o
 ## <a name="limitations"></a>Begränsningar
 
 - NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
-- IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med IPv6-prefix.
+- IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med ett IPv6-prefix.
 - NSG Flow-loggning stöds inte när NAT används.
 - NAT kan inte omfatta flera virtuella nätverk.
 
-## <a name="preview-participation"></a>Förhandsgranska deltagande
-
-Följ [anvisningarna för att aktivera din prenumeration](nat-overview.md#public-preview-participation).
 
 ## <a name="feedback"></a>Feedback
 
-Vi vill veta hur vi kan förbättra tjänsten. Dela din [feedback om den offentliga för hands versionen](https://aka.ms/natfeedback) med oss.  Och du kan föreslå och rösta på det vi ska bygga nästa på [UserVoice för NAT](https://aka.ms/natuservoice).
+Vi vill veta hur vi kan förbättra tjänsten. Föreslå och rösta på det vi ska bygga nästa på [UserVoice för NAT](https://aka.ms/natuservoice).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [NAT för virtuella nätverk](nat-overview.md).
 * Lär dig mer om [mått och aviseringar för NAT gateway-resurser](nat-metrics.md).
 * Lär dig mer om att [Felsöka resurser för NAT-gateway](troubleshoot-nat.md).
-* [Berätta för oss vad du ska bygga härnäst för Virtual Network NAT i UserVoice](https://aka.ms/natuservoice).
-* [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).
 * Självstudie för att verifiera NAT-gateway
-  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md),
-  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md),
+  - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
+  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
   - [Portal](tutorial-create-validate-nat-gateway-cli.md)
 * Snabb start för distribution av en NAT-gateway-resurs
-  - [Azure CLI](./quickstart-create-nat-gateway-cli.md),
-  - [PowerShell](./quickstart-create-nat-gateway-powershell.md),
-  - [Portal](./quickstart-create-nat-gateway-portal.md).
+  - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
+  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
+  - [Portal](./quickstart-create-nat-gateway-portal.md)
 * Lär dig mer om resurs-API för NAT-gateway
-  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways),
-  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest),
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway).
+  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+
 * Lär dig mer om [tillgänglighets zoner](../availability-zones/az-overview.md).
 * Läs mer om [standard Load Balancer](../load-balancer/load-balancer-standard-overview.md).
 * Lär dig mer om [tillgänglighets zoner och standard Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md).

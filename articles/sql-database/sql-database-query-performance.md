@@ -1,6 +1,6 @@
 ---
 title: Query Performance Insight
-description: Fråga prestanda övervakning identifierar de mest processor krävande frågorna för en Azure SQL-databas.
+description: Fråga prestanda övervakningen identifierar de mest processor krävande och långvariga frågorna för enskilda databaser och databaser i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,35 +10,31 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/03/2019
-ms.openlocfilehash: 56daca0aa817d03298bad971506402739d71482e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/10/2020
+ms.openlocfilehash: f5998fde6659715de4fcb533cb0f41a8939b1c48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821242"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214049"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight för Azure SQL Database
 
-Att hantera och justera prestanda för Relations databaser har expertis och tid. Query Performance Insight är en del av den Azure SQL Database smarta prestanda produkt linjen. Det hjälper dig att ägna mindre tid åt att felsöka databas prestanda genom att tillhandahålla:
+Query Performance Insight ger intelligent frågekörning för databaser i en och samma databas. Det hjälper dig att identifiera de främsta resurserna för resursanvändning och långvariga frågor i din arbets belastning. Detta hjälper dig att hitta frågorna för att optimera för att förbättra den totala arbets Belastningens prestanda och effektivt använda den resurs som du betalar för. Query Performance Insight hjälper dig att ägna mindre tid åt att felsöka databas prestanda genom att tillhandahålla:
 
-* Djupare insikt i förbrukningen av dina databas resurser (DTU).
-* Information om de främsta databas frågorna efter processor, varaktighet och antal körningar (möjliga justerings förslag för prestanda förbättringar).
-* Möjlighet att öka detalj nivån till information om en fråga, för att visa frågetexten och historik över resursutnyttjande.
-* Anteckningar som visar prestanda rekommendationer från [SQL Database Advisor](sql-database-advisor.md).
+* Djupare insikt i förbrukningen av dina databas resurser (DTU)
+* Information om de främsta databas frågorna efter processor, varaktighet och antal körningar (möjliga justerings förslag för prestanda förbättringar)
+* Möjlighet att öka detalj nivån till information om en fråga för att visa frågetexten och historik för resursutnyttjande
+* Anteckningar som visar prestanda rekommendationer från [databas rådgivare](sql-database-advisor.md)
 
 ![Query Performance Insight](./media/sql-database-query-performance/opening-title.png)
 
-> [!TIP]
-> För grundläggande prestanda övervakning med Azure SQL Database rekommenderar vi Query Performance Insight. Observera produkt begränsningarna som publicerats i den här artikeln. För avancerad övervakning av databas prestanda i hög skala rekommenderar vi [Azure SQL-analys](../azure-monitor/insights/azure-sql.md). Den har inbyggd intelligens för automatisk prestanda fel sökning. För att automatiskt justera några av de vanligaste prestanda problemen i databasen rekommenderar vi [Automatisk justering](sql-database-automatic-tuning.md).
-
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För Query Performance Insight krävs att [frågearkivet](https://msdn.microsoft.com/library/dn817826.aspx) är aktivt på databasen. Den aktive ras automatiskt för alla Azure SQL-databaser som standard. Om Frågearkivet inte körs uppmanas du i Azure Portal att aktivera det.
 
 > [!NOTE]
-> Om meddelandet "Frågearkivet har inte kon figurer ATS korrekt på den här databasen" visas i portalen, se [optimera konfigurationen för frågearkivet](#optimize-the-query-store-configuration-for-query-performance-insight).
->
+> Om meddelandet "Frågearkivet har inte kon figurer ATS korrekt på den här databasen" visas i portalen, se [optimera konfigurationen för frågearkivet](#optimize-the-query-store-configuration).
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -65,6 +61,11 @@ Query Performance Insight är enkelt att använda:
 
 > [!NOTE]
 > För att SQL Database ska kunna återge informationen i Query Performance Insight måste Query Store samla in några timmar data. Om databasen inte har någon aktivitet eller om Frågearkivet inte var aktiv under en viss period, kommer diagrammet att vara tomt när Query Performance Insight visar tidsintervallet. Du kan aktivera Query Store när som helst om det inte körs. Mer information finns i [metod tips för Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+>
+
+För rekommendationer för databas prestanda väljer du [rekommendationer](sql-database-advisor.md) på bladet Query Performance Insight navigering.
+
+![Fliken rekommendationer](./media/sql-database-query-performance/ia.png)
 
 ## <a name="review-top-cpu-consuming-queries"></a>Granska de mest processor krävande frågorna
 
@@ -72,9 +73,9 @@ Som standard visar Query Performance Insight de fem främsta processor krävande
 
 1. Markera eller avmarkera enskilda frågor för att inkludera eller exkludera dem från diagrammet med hjälp av kryss rutor.
 
-    Den översta raden visar den totala DTU-procenten för databasen. Staplarna visar processor procent som de valda frågorna förbrukade under det valda intervallet. Om t. ex. den **senaste veckan** har marker ATS representerar varje stapel en dag.
+   Den översta raden visar den totala DTU-procenten för databasen. Staplarna visar processor procent som de valda frågorna förbrukade under det valda intervallet. Om t. ex. den **senaste veckan** har marker ATS representerar varje stapel en dag.
 
-    ![Vanligaste frågorna](./media/sql-database-query-performance/top-queries.png)
+   ![Vanligaste frågorna](./media/sql-database-query-performance/top-queries.png)
 
    > [!IMPORTANT]
    > Den DTU-rad som visas sammanställs till ett maximalt förbruknings värde inom en timmes period. Den är avsedd för en hög nivå jämförelse endast med statistik för körning av frågor. I vissa fall kan DTU-användningen verka för hög jämfört med de frågor som körs, men det kanske inte är fallet.
@@ -166,7 +167,7 @@ Så här identifierar du tids krävande frågor:
    * **Max** söker efter frågor där körnings tiden är max för hela observations intervallet.
    * **AVG** hittar den genomsnittliga körnings tiden för alla fråge körningar och visar de översta för dessa genomsnitt.
 
-   ![Frågans varaktighet](./media/sql-database-query-performance/top-duration.png)
+   ![Frågevaraktighet](./media/sql-database-query-performance/top-duration.png)
 
 5. Välj knappen **gå >** för att se den anpassade vyn.
 
@@ -217,7 +218,7 @@ I vissa fall, på grund av zoomnings nivån, är det möjligt att anteckningarna
 
 Att korrelera frågor och prestanda justerings åtgärder kan hjälpa dig att bättre förstå din arbets belastning.
 
-## <a name="optimize-the-query-store-configuration-for-query-performance-insight"></a>Optimera konfigurationen för Frågearkivet för Query Performance Insight
+## <a name="optimize-the-query-store-configuration"></a>Optimera konfigurationen för Frågearkivet
 
 När du använder Query Performance Insight kan du se följande fel meddelanden i Frågearkivet:
 
@@ -260,7 +261,7 @@ Vi rekommenderar att du ställer in alla principer för att **automatiskt** och 
 
 Öka storleken på Frågearkivet genom att ansluta till en databas via [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) eller Azure Portal och köra följande fråga. (Ersätt `YourDB` med databas namnet.)
 
-```T-SQL
+```SQL
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 ```
@@ -274,16 +275,6 @@ När du använder de här inställningarna kommer du slutligen att göra Frågea
     ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
 ```
 
-## <a name="summary"></a>Sammanfattning
-
-Query Performance Insight hjälper dig att förstå effekten av frågans arbets belastning och hur den relaterar till användningen av databas resurser. Med den här funktionen får du lära dig mer om de mest krävande frågorna i databasen och du hittar frågor för att optimera innan de blir ett problem.
-
 ## <a name="next-steps"></a>Nästa steg
 
-* För rekommendationer för databas prestanda väljer du [rekommendationer](sql-database-advisor.md) på bladet Query Performance Insight navigering.
-
-    ![Fliken rekommendationer](./media/sql-database-query-performance/ia.png)
-
-* Överväg att aktivera [Automatisk justering](sql-database-automatic-tuning.md) för vanliga prestanda problem i databasen.
-* Lär dig hur [intelligent Insights](sql-database-intelligent-insights.md) kan hjälpa dig att automatiskt felsöka databas prestanda problem.
-* Överväg att använda [Azure SQL-analys]( ../azure-monitor/insights/azure-sql.md) för avancerad prestanda övervakning av en stor flotta av SQL-databaser, elastiska pooler och hanterade instanser med inbyggd intelligens.
+Överväg att använda [Azure SQL-analys](../azure-monitor/insights/azure-sql.md) för avancerad prestanda övervakning av en stor flotta av databaser med enkel och pool, elastiska pooler, hanterade instanser och instans databaser.

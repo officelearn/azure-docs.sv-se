@@ -10,17 +10,18 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: ba792c225c9875bbad50e3fb460c84ed012ce615
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 58ccd63e16382aca8e16eb67efba951a055eb254
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169097"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217842"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>Fel söknings guide: skapa och ansluta till en Azure Machine Learning Studio (klassisk)-arbets yta
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 Den här guiden innehåller lösningar för några vanliga utmaningar när du konfigurerar Azure Machine Learning Studio (klassiska) arbets ytor.
-
-
 
 ## <a name="workspace-owner"></a>Arbets ytans ägare
 Om du vill öppna en arbets yta i Machine Learning Studio (klassisk) måste du vara inloggad på det Microsoft-konto som du använde för att skapa arbets ytan, eller så måste du ta emot en inbjudan från ägaren för att ansluta till arbets ytan. Från Azure Portal kan du hantera arbets ytan, vilket inkluderar möjligheten att konfigurera åtkomst.

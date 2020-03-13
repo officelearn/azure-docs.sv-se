@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: juliako
-ms.openlocfilehash: c90278eccf889595378d3b6b07de2468910c660c
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 5b05cd31a1747da0170556003e7a8534752e2fde
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79080884"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137202"
 ---
 # <a name="use-the-azure-portal-to-create-a-media-services-account"></a>Använd Azure Portal för att skapa ett Media Services konto
 
@@ -54,8 +54,6 @@ Du behöver ett Azure-konto för att slutföra den här självstudien. Mer infor
     
 1. Välj **PIN-kod för instrumentpanelen** för att se förloppet för kontodistributionen.
 1. Klicka på **Skapa** längst ned i formuläret.
-   
-    När kontot har skapats läses översiktssidan in. I den strömmande slut punkts tabellen får kontot en standard slut punkt för direkt uppspelning i **stoppat** tillstånd. 
 
     När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av **standardtyp** till i kontot med tillståndet **Stoppad**. Om du vill börja strömma ditt innehåll och dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och [dynamisk kryptering](content-protection-overview.md), måste den strömmande slut punkten från vilken du vill strömma innehåll vara i **Kör** tillstånd. 
 

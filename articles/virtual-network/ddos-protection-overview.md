@@ -1,13 +1,9 @@
 ---
-title: Azure DDoS Protection standard översikt | Microsoft Docs
+title: Azure DDoS Protection standard översikt
 description: Läs mer om tjänsten Azure DDoS Protection.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 0b0052d58ab4f950467902c4b177e844c9bc498d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6392c1a128032670ae9d43a1f23c59194c2964bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905187"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279785"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection standard översikt
 
-Distribuerade överbelastningsattacker (DDoS) är några av de största tillgänglighets- och säkerhetsproblemen för kunder som flyttar sina program till molnet. En DDoS-attack syftar till att göra slut på ett programs resurser, så att programmet blir otillgängligt för behöriga användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet.
+Distribuerade överbelastningsattacker (DDoS) är några av de största tillgänglighets- och säkerhetsproblemen för kunder som flyttar sina program till molnet. Ett DDoS-angrepp försöker att belasta ett programs resurser, vilket gör programmet otillgängligt för legitima användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet.
 
 Azure DDoS Protection, kombinerat med bästa praxis för program design, ger försvar mot DDoS-attacker. Azure DDoS Protection tillhandahåller följande tjänst nivåer:
 
@@ -37,13 +33,13 @@ Azure DDoS Protection, kombinerat med bästa praxis för program design, ger fö
 |Automatiska attack åtgärder                    |Ja                                   |Ja                                           |
 |Tillgänglighets garanti                          |Azure-region                          |Program                                   |
 |Principer för minskning                             |Justerad för Azure Traffic regions volym |Anpassat för program trafik volym          |
-|Mått och aviseringar                                |Inga                                    |Real tids angrepps mått & diagnostikloggar via Azure Monitor                                 |
-|Minsknings rapporter                              |Inga                                    |Publicera minsknings rapporter för attacker                |
-|Skydds flödes loggar                            |Inga                                    |NRT logg ström för SIEM-integrering           |
-|Anpassningar av migreringsprocessen                 |Inga                                    |Engagera DDoS-experter                           |
+|Mått & varningar                                |Nej                                    |Real tids angrepps mått & diagnostikloggar via Azure Monitor                                 |
+|Minsknings rapporter                              |Nej                                    |Publicera minsknings rapporter för attacker                |
+|Skydds flödes loggar                            |Nej                                    |NRT logg ström för SIEM-integrering           |
+|Anpassningar av migreringsprocessen                 |Nej                                    |Engagera DDoS-experter                           |
 |Support                                         |Bästa ansträngning                           |Åtkomst till DDoS-experter under en aktiv attack|
 |SLA                                             |Azure-region                          |Program garanti & kostnads skydd       |
-|Prissättning                                         |Kostnadsfri                                  |Månatlig & användning baserat                         |
+|Priser                                         |Kostnadsfri                                  |Månatlig & användning baserat                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Typer av DDoS-attacker som DDoS Protection standard åtgärder
 

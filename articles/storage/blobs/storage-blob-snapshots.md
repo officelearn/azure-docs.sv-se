@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 09/06/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fb2da8acb0aa4d105f23ab5d1ad42f08a6ae722c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d9650db601426cef195c27e6eb874ec26cf13bb8
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595258"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137687"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Skapa och hantera en BLOB-ögonblicksbild i .NET
 
-En ögonblicks bild är en skrivskyddad version av en blob som tas vid en tidpunkt. Ögonblicks bilder är användbara för att säkerhetskopiera blobbar. Den här artikeln visar hur du skapar och hanterar BLOB-ögonblicksbilder med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage/client).
+En ögonblicks bild är en skrivskyddad version av en blob som tas vid en tidpunkt. Ögonblicks bilder är användbara för att säkerhetskopiera blobbar. Den här artikeln visar hur du skapar och hanterar BLOB-ögonblicksbilder med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-blob-snapshots"></a>Om BLOB-ögonblicksbilder
 

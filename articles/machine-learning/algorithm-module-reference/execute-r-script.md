@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 1cf8c208e83950706278e2cff5d13951393eec8f
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037123"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140781"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
@@ -97,13 +97,16 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-När pipelinen har skickats kan du förhandsgranska bilden i den högra panelen i modulen ![överförd bild](media/module/upload-image-in-r-script.png)
+När pipelinen har skickats kan du förhandsgranska bilden i den högra panelen i modulen
+
+[!div class="mx-imgBorder"]
+![Uppladdad – avbildning](media/module/upload-image-in-r-script.png)
 
 ## <a name="how-to-configure-execute-r-script"></a>Så här konfigurerar du kör R-skript
 
 **Skriptet kör R-skript** innehåller exempel kod som du kan använda som utgångs punkt. Konfigurera modulen **Kör R-skript** genom att ange en uppsättning indata och kod att köra.
 
-![R-modul](media/module/upload-image-in-r-script.png)
+![R-modul](media/module/execute-r-script.png)
 
 Data uppsättningar som lagras i designern konverteras automatiskt till en R data-ram när de läses in med den här modulen.
 
@@ -123,25 +126,25 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
 
     För att hjälpa dig att komma igång fylls text rutan **R-skript** i förväg med exempel kod, som du kan redigera eller ersätta.
     
-```R
-# R version: 3.5.1
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+    ```R
+    # R version: 3.5.1
+    # The script MUST contain a function named azureml_main
+    # which is the entry point for this module.
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a R DataFrame
-#   Param<dataframe2>: a R DataFrame
-azureml_main <- function(dataframe1, dataframe2){
-  print("R script run.")
+    # The entry point function can contain up to two input arguments:
+    #   Param<dataframe1>: a R DataFrame
+    #   Param<dataframe2>: a R DataFrame
+    azureml_main <- function(dataframe1, dataframe2){
+    print("R script run.")
 
-  # If a zip file is connected to the third input port, it is
-  # unzipped under "./Script Bundle". This directory is added
-  # to sys.path.
+    # If a zip file is connected to the third input port, it is
+    # unzipped under "./Script Bundle". This directory is added
+    # to sys.path.
 
-  # Return datasets as a Named List
-  return(list(dataset1=dataframe1, dataset2=dataframe2))
-}
-```
+    # Return datasets as a Named List
+    return(list(dataset1=dataframe1, dataset2=dataframe2))
+    }
+    ```
 
  * Skriptet måste innehålla en funktion med namnet `azureml_main`, vilket är start punkten för den här modulen.
 
@@ -174,9 +177,9 @@ Det finns många sätt som du kan använda för att utöka din pipeline med hjä
 
 Modulen **Kör R-skript** stöder godtyckliga r-skriptfiler som indata. För att göra det måste de överföras till din arbets yta som en del av ZIP-filen.
 
-1. Om du vill ladda upp en ZIP-fil som innehåller R-kod till din arbets yta, klickar du på **ny**, **data uppsättning**och väljer sedan alternativet **från lokal fil** och **zip-fil** .  
+1. Om du vill ladda upp en ZIP-fil som innehåller R-kod till din arbets yta går du till till gångs sidan för **data uppsättningar** , klickar på **skapa data uppsättning**och väljer sedan alternativet **från lokal fil** och alternativet **fil** data mängd typ.  
 
-1. Kontrol lera att den zippade filen är tillgänglig i listan med **sparade data uppsättningar** .
+1. Kontrol lera att den zippade filen är tillgänglig i listan **mina data uppsättningar** under **data uppsättnings** kategori i det vänstra modul trädet.
 
 1.  Anslut data uppsättningen till **skript paketets** indataport.
 

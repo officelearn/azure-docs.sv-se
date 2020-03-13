@@ -8,12 +8,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 32ccc5ad236c87d3609798a8432db14ee440d067
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 7b1c7825beb769b610d661cb9644fc3f3919d548
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064571"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139070"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>Data visualisering med Azure Datautforskaren 
 
@@ -42,6 +42,10 @@ Azure Datautforskaren ger möjlighet att ansluta till [Microsoft Excel](https://
 ## <a name="grafana"></a>Grafana
 
 [Grafana](https://grafana.com) tillhandahåller ett Azure datautforskaren-plugin-program som gör att du kan visualisera data från Azure datautforskaren. Du [konfigurerar Azure datautforskaren som en data källa för Grafana och visualiserar sedan data](/azure/data-explorer/grafana). 
+
+## <a name="kibana"></a>Kibana
+
+Azure Datautforskaren ger möjlighet att ansluta till [Kibana (sidan Discover)](https://www.elastic.co/guide/en/kibana/6.8/discover.html) med K2Bridge, en anslutning med öppen källkod. Du [konfigurerar Azure datautforskaren som en data källa för Kibana och visualiserar sedan data](/azure/data-explorer/k2bridge).
 
 ## <a name="odbc-connector"></a>ODBC-anslutningsapp
 

@@ -8,16 +8,16 @@ ms.date: 08/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 9b3dba0041b38d9d59a10eaf80592bab91f65b98
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ffa69980f020580376aea447f40ac615f26cf03
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600285"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135895"
 ---
 # <a name="copy-a-blob-with-net"></a>Kopiera en blob med .NET
 
-Den här artikeln visar hur du kopierar en blob med ett Azure Storage-konto. Det visar också hur du avbryter en asynkron kopierings åtgärd. Exempel koden använder [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage/client).
+Den här artikeln visar hur du kopierar en blob med ett Azure Storage-konto. Det visar också hur du avbryter en asynkron kopierings åtgärd. Exempel koden använder [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-copying-blobs"></a>Om att kopiera blobar
 

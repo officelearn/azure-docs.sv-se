@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 70f905d15c69876ced56c25ec92f858bb15b7d36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c95ed6dde3c00c0688ccfd58565fd112427c8899
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372218"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135946"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Skapa eller ta bort en behållare i Azure Storage med .NET
 
-Blobbar i Azure Storage ordnas i behållare. Innan du kan ladda upp en BLOB måste du först skapa en behållare. Den här artikeln visar hur du skapar och tar bort behållare med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage/client).
+Blobbar i Azure Storage ordnas i behållare. Innan du kan ladda upp en BLOB måste du först skapa en behållare. Den här artikeln visar hur du skapar och tar bort behållare med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="name-a-container"></a>Namnge en behållare
 
@@ -37,7 +37,7 @@ Anropa en av följande metoder för att skapa en behållare:
 
 - [Skapa](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
-- [createIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
+- [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
 
 Metoderna **create** och **CreateAsync** genererar ett undantag om det redan finns en behållare med samma namn.
@@ -185,7 +185,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Skapa container åtgärd](/rest/api/storageservices/create-container)
 - [Åtgärd för att ta bort container](/rest/api/storageservices/delete-container)

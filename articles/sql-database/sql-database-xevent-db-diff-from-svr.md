@@ -3,7 +3,7 @@ title: Utökade händelser
 description: Beskriver utökade händelser (XEvents) i Azure SQL Database och hur Event-sessioner skiljer sig något från Event-sessioner i Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822303"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213946"
 ---
 # <a name="extended-events-in-sql-database"></a>Utökade händelser i SQL Database
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -34,7 +34,7 @@ Mer information om utökade händelser för Azure SQL Database och Microsoft SQL
 - [Snabbstart: utökade händelser i SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Utökade händelser](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här avsnittet förutsätter att du redan har kunskaper om:
 
@@ -65,7 +65,7 @@ Relaterade ämnen innehåller två kod exempel:
     - Fas 1 är PowerShell för att skapa en Azure Storage-behållare.
     - Fas 2 är Transact-SQL som använder Azure Storage container.
 
-## <a name="transact-sql-differences"></a>Transact-SQL-skillnader
+## <a name="transact-sql-differences"></a>Skillnader i Transact-SQL
 
 
 - När du kör kommandot [skapa händelsesessionen](https://msdn.microsoft.com/library/bb677289.aspx) på SQL Server använder du **on-Server** -satsen. Men SQL Database du använder **on Database** -satsen i stället.
@@ -91,7 +91,7 @@ Funktionen utökade händelser stöds av flera [katalogvyer](https://msdn.micros
 
 I Microsoft SQL Server har liknande katalogvy-vyer namn som inkluderar *. Server\_* i stället för *. Database-\_* . Namn mönstret liknar **sys. server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nya vyer för dynamisk hantering [(DMV: er)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Nya vyer för dynamisk hantering [(DMV: er)](https://msdn.microsoft.com/library/ms188754.aspx)
 
 Azure SQL Database har [dynamiska Management views (DMV: er)](https://msdn.microsoft.com/library/bb677293.aspx) som stöder utökade händelser. DMV: er anger om *aktiva* Event-sessioner.
 
@@ -142,7 +142,7 @@ SELECT
 ```
 
 
-<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
+<a name="AzureXEventsTargets" id="AzureXEventsTargets"></a>&nbsp;
 
 ## <a name="targets-for-your-sql-database-event-sessions"></a>Mål för dina SQL Database Event-sessioner
 

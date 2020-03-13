@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3dfe0f8788275dd4403b6c9cad99a8eb09e479b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d23849df75d1ab239eb269b462abb21df196e7e5
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274717"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138509"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Ändra namn eller logo typ för ett företags program i Azure Active Directory
 
@@ -42,7 +42,7 @@ Det är enkelt att ändra namn eller logo typ för ett anpassat företags progra
 7. I fil väljaren väljer du den fil som du vill använda som ny logo typ. Namnet på filen visas i rutan under den aktuella logo typ bilden.
 
    > [!NOTE]
-   > För Azure krävs att logo bilden är en PNG-fil och den använder gränser för bredd, höjd och fil storlek.
+   > För Azure krävs att logo bilden är en PNG-fil och den använder gränser för bredd, höjd och fil storlek. Anpassade logo typer måste vara exakt 215 &times; 215 bild punkter i storlek och vara i PNG-format. Vi rekommenderar att du använder en solid färg bakgrund utan genomskinlighet i din program logo typ för att visa användare.
 8. Välj **Spara**. Om du väljer en ny logo typ, ändras **logo** fältets bild så att den återspeglar den nya logo typ filen.
 
 ## <a name="next-steps"></a>Nästa steg

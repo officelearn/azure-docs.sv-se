@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384845"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254487"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Installera uppdatering 1,1 på din virtuella StorSimple-matris
 

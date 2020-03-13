@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 243086ddaae47eba20eea6877fe6d7f8f9889290
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117497"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203499"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Använda namngiven enhets igenkänning i Textanalys
 
@@ -182,14 +182,13 @@ API för textanalys är tillstånds lös. Inga data lagras i ditt konto och resu
 
 Alla POST-förfrågningar returnerar ett JSON-formaterat svar med ID och identifierade egenskaper för entiteten.
 
-Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data.
-
+Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data. På grund av stöd för flerspråkig och emoji kan svaret innehålla text förskjutningar. Mer information finns i [så här bearbetar du text förskjutningar](../concepts/text-offsets.md) .
 
 #### <a name="version-30-preview"></a>[Version 3,0 – för hands version)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>Exempel på v3-svar
 
-Version 3 innehåller separata slut punkter för NER-och enhets länkning. Svaren för båda åtgärderna nedan.
+Version 3 innehåller separata slut punkter för NER-och enhets länkning. Svaren för båda åtgärderna nedan. 
 
 #### <a name="example-ner-response"></a>Exempel på NER-svar
 

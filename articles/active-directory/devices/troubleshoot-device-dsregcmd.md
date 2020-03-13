@@ -11,27 +11,27 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7fed7cf5f38f9f7677126aff92492ccacd6e12
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 676a1dd2435d17db2151bdf21f1989e7f182701b
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707952"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136491"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Felsöka enheter med kommandot dsregcmd
 
 Dsregcmd/status-verktyget måste köras som ett domän användar konto.
 
-## <a name="device-state"></a>Enhetens tillstånd
+## <a name="device-state"></a>Enhets tillstånd
 
 I det här avsnittet visas status parametrar för enhets anslutning. I tabellen nedan visas villkoren för enheten i olika anslutnings tillstånd.
 
-| AzureAdJoined | EnterpriseJoined | DomainJoined | Enhetens tillstånd |
+| AzureAdJoined | EnterpriseJoined | DomainJoined | Enhets tillstånd |
 | ---   | ---   | ---   | ---   |
-| JA | NO | NO | Azure AD-ansluten |
-| NO | NO | JA | Domänanslutna |
-| JA | NO | JA | Hybrid AD-ansluten |
-| NO | JA | JA | Lokala DRS-anslutna |
+| Ja | NO | NO | Azure AD-ansluten |
+| NO | NO | Ja | Domänanslutna |
+| Ja | NO | Ja | Hybrid AD-ansluten |
+| NO | Ja | Ja | Lokala DRS-anslutna |
 
 > [!NOTE]
 > Workplace Join (Azure AD-registrerad) visas i avsnittet "användar tillstånd"
@@ -54,7 +54,7 @@ I det här avsnittet visas status parametrar för enhets anslutning. I tabellen 
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Information om enhet
+## <a name="device-details"></a>Enhets information
 
 Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas enhets identifierings information som lagras i molnet.
 
@@ -81,7 +81,7 @@ Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutnin
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>Information om klientorganisation
+## <a name="tenant-details"></a>Klient information
 
 Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas vanliga klient uppgifter när en enhet är ansluten till Azure AD.
 
@@ -136,7 +136,7 @@ Det här avsnittet innehåller status för olika attribut för den användare so
 - **WorkplaceJoined:** -anges till "Ja" om registrerade Azure AD-konton har lagts till i enheten i den aktuella ntuser-kontexten.
 - **WamDefaultSet:** -Ställ in på Ja om ett standard-webbkonto för WAM skapas för den inloggade användaren. Det här fältet kan visa ett fel om dsreg/status körs i administratörs kontexten. 
 - **WamDefaultAuthority:** -inställt på "organisationer" för Azure AD.
-- **WamDefaultId:** -always https://login.microsoft.com för Azure AD.
+- **WamDefaultId:** -always https://login.microsoft.comför Azure AD.
 - **WamDefaultGUID:** -WAM-providerns (Azure AD/Microsoft-konto) GUID för standard-WAM-webbkontot. 
 
 ### <a name="sample-user-state-output"></a>Exempel på utdata från användar tillstånd
@@ -211,8 +211,16 @@ Det här avsnittet utför olika tester för att hjälpa till att diagnostisera k
 - **AD-konfiguration test:** -test läser och verifierar om SCP-objektet har kon figurer ATS korrekt i den lokala AD-skogen. Fel i det här testet skulle sannolikt leda till kopplings fel i identifierings fasen med felkoden 0x801c001d.
 - **DRS identifierings test:** -test hämtar DRS-slutpunkterna från slut punkten för identifiering av metadata och utför en användar sfär förfrågan. Fel i det här testet skulle sannolikt leda till kopplings fel i identifierings fasen.
 - **DRS anslutnings test:** -test utför grundläggande anslutnings test till DRS-slutpunkten.
-- **Test för token-hämtning:** -test försöker hämta en Azure AD-autentiseringstoken om användar klienten är federerad. Fel i det här testet skulle sannolikt leda till kopplings fel i auth-fasen. Om autentiseringen Miss lyckas försöker synkroniseringen bli reserv, om inte återställningen uttryckligen inaktive ras med en register nyckel.
-- **Återgå till Sync – Anslut:** -ange till "aktive rad" om register nyckeln för att förhindra återställningen till att synkronisera koppling med auth-HAVERIer inte finns. Det här alternativet är tillgängligt från Windows 10 1803 och senare.
+- **Test för token-hämtning:** -test försöker hämta en Azure AD-autentiseringstoken om användar klienten är federerad. Fel i det här testet skulle sannolikt leda till kopplings fel i auth-fasen. Om autentiseringen Miss lyckas försöker synkroniseringen bli reserv, om inte återställningen uttryckligen inaktive ras med register nyckel inställningarna nedan.
+```
+    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+    Value: FallbackToSyncJoin
+    Type:  REG_DWORD
+    Value: 0x0 -> Disabled
+    Value: 0x1 -> Enabled
+    Default (No Key): Enabled
+ ```
+- **Återgå till Sync – Anslut:** -Ställ in på "aktive rad" om register nyckeln ovan, för att förhindra återställningen till synkronisering med auth-haverier, inte finns. Det här alternativet är tillgängligt från Windows 10 1803 och senare.
 - **Tidigare registrering:** -tid då föregående anslutnings försök gjordes. Endast misslyckade anslutnings försök loggas.
 - **Fel fas:** -fasen för den koppling där den avbröts. Möjliga värden är för kontroll, identifiering, auth, Join.
 - **Klient felkod:** -klient fel kod som returnerades (HRESULT).

@@ -1,22 +1,22 @@
 ---
 title: Översikt över Azure blockchain service
 description: Översikt över Azure blockchain-tjänsten
-ms.date: 11/21/2019
+ms.date: 03/12/2020
 ms.topic: overview
-ms.reviewer: janders
-ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: ravastra
+ms.openlocfilehash: b9f5deb501fb93327fa5d5cfcfd5bb583ed6135e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387385"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205075"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Vad är Azure Blockchain Service?
 
 Azure blockchain service är en fullständigt hanterad redovisnings tjänst som gör det möjligt för användarna att växa och hantera blockchain-nätverk i stor skala i Azure. Genom att tillhandahålla enhetlig kontroll för både infrastruktur hantering och blockchain Network-styrning tillhandahåller Azure blockchain service:
 
 * Enkel nätverks distribution och åtgärder
-* Inbyggd konsortiumhantering
+* Inbyggd konsortiums hantering
 * Utveckla smarta kontrakt med välbekanta utvecklingsverktyg
 
 Azure blockchain-tjänsten har utformats för att stödja flera redovisnings protokoll. För närvarande ger den stöd för Ethereum- [kvorumet](https://www.goquorum.com/) med hjälp av [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) enighet-mekanismen.
@@ -29,7 +29,7 @@ Distribution av Azure blockchain-tjänsten görs via Azure Portal, Azure CLI ell
 
 ### <a name="performance-and-service-tiers"></a>Prestanda-och tjänst nivåer
 
-Azure blockchain-tjänsten erbjuder två service nivåer: *Basic* och *standard*. Varje nivå erbjuder olika prestanda och funktioner för att stödja enkla utvecklings-och test arbets belastningar upp till storskaligt skalade produktions blockchain-distributioner. Båda nivåerna inkluderar minst en Transaction-nod och en validator-nod (Basic) eller två verifierade noder (standard).
+Azure blockchain-tjänsten erbjuder två service nivåer: *Basic* och *standard*. Varje nivå erbjuder olika prestanda och funktioner för att stödja enkla utvecklings-och test arbets belastningar upp till storskaligt skalade produktions blockchain-distributioner. Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer. Båda nivåerna inkluderar minst en Transaction-nod och en validator-nod (Basic) eller två verifierade noder (standard). 
 
 ![Prisnivåer](./media/overview/pricing-tiers.png)
 
@@ -49,7 +49,7 @@ Dessutom tillhandahåller Azure blockchain-tjänsten omfattande mått genom Azur
 
 Via Azure Log Analytics kan användare visa loggar relaterade till kvorum-redovisningen eller annan viktig information, till exempel försöks anslutningar till Transaction-noderna.
 
-## <a name="built-in-consortium-management"></a>Inbyggd konsortiumhantering
+## <a name="built-in-consortium-management"></a>Inbyggd konsortiums hantering
 
 När du distribuerar din första blockchain-medlem kan du antingen ansluta eller skapa en ny konsortium.  Ett konsortium är en logisk grupp som används för att hantera styrningen och anslutningen mellan blockchain-medlemmar som Transact i en process med flera parter.  Azure blockchain-tjänsten tillhandahåller inbyggda styrnings kontroller genom fördefinierade smarta kontrakt som avgör vilka åtgärder som medlemmar i konsortiet kan vidta.  Dessa styrnings kontroller kan anpassas efter behov av konsortiets administratör. När du skapar ett nytt konsortium är din blockchain-medlem standard administratör för konsortiet, vilket gör det möjligt att bjuda in andra parter att delta i konsortiet.  Du kan bara ansluta till ett konsortium om du har bjudits in tidigare.  När du ansluter till ett konsortium är din blockchain-medlem underkastad styrnings kontrollerna som införts av konsortiets administratör.
 
@@ -77,7 +77,7 @@ Engagera med Microsoft-tekniker och Azure blockchain community-experter.
 
 * [Azure blockchain MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
+* [Stackspill](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
 ## <a name="next-steps"></a>Nästa steg
 

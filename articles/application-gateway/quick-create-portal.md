@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 03/09/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3ce726b858dc31f42a07d56c11330544df3861f1
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 17adc800bd5a2ae53e27350c7e0d588eaeee4a8f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669272"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241404"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -119,7 +119,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 
 4. På fliken **backend-mål** väljer du **MyBackendPool** för **Server dels målet**.
 
-5. För **http-inställningen**väljer du **Skapa ny** för att skapa en ny http-inställning. HTTP-inställningen avgör hur routningsregler fungerar. I fönstret **Lägg till en HTTP-inställning** som öppnas anger du *myHTTPSetting* som **namn på http-inställningen**. Acceptera standardvärdena för de andra inställningarna i fönstret **Lägg till en HTTP-inställning** och välj sedan **Lägg till** för att återgå till fönstret **Lägg till regel för routning** . 
+5. För **http-inställningen**väljer du **Skapa ny** för att skapa en ny http-inställning. HTTP-inställningen avgör hur routningsregler fungerar. I fönstret **Lägg till en HTTP-inställning** som öppnas anger du *MyHTTPSetting* som **http-inställnings namn** och *80* för **backend-porten**. Acceptera standardvärdena för de andra inställningarna i fönstret **Lägg till en HTTP-inställning** och välj sedan **Lägg till** för att återgå till fönstret **Lägg till regel för routning** . 
 
      ![Skapa ny Application Gateway: HTTP-inställning](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
 
@@ -146,13 +146,14 @@ Det gör du genom att:
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
 1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**. Fönstret **Nytt** visas.
-2. Välj **Compute** och välj sedan **Windows Server 2016 Data Center** i listan **populär** . Sidan **Skapa en virtuell dator** visas.<br>Application Gateway kan dirigera trafik till vilken typ av virtuell dator som helst som används i dess backend-pool. I det här exemplet använder du ett Windows Server 2016 Data Center.
+2. Välj **Windows Server 2016 Data Center** i listan **populär** . Sidan **Skapa en virtuell dator** visas.<br>Application Gateway kan dirigera trafik till vilken typ av virtuell dator som helst som används i dess backend-pool. I det här exemplet använder du ett Windows Server 2016 Data Center.
 3. Ange dessa värden på fliken **Grundläggande inställningar** för följande inställningar för virtuella datorer:
 
     - **Resurs grupp**: Välj **myResourceGroupAG** som resurs grupps namn.
     - **Namn på virtuell dator**: ange *myVM* som namn på den virtuella datorn.
+    - **Region**: Välj samma region där du skapade Application Gateway.
     - **Användar**namn: Skriv *azureuser* som administratörs användar namn.
-    - **Lösen ord**: Ange lösen ordet.
+    - **Lösen ord**: Ange ett lösen ord.
 4. Godkänn de andra standardinställningarna och välj sedan **Nästa: diskar**.  
 5. Godkänn standardvärdena på fliken **diskar** och välj sedan **Nästa: nätverk**.
 6. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Godkänn de andra standardinställningarna och välj sedan **Nästa: hantering**.<br>Application Gateway kan kommunicera med instanser utanför det virtuella nätverk som det finns i, men du måste se till att det finns en IP-anslutning.
@@ -168,7 +169,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
     ![Installera anpassat tillägg](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Kör följande kommando för att installera IIS på den virtuella datorn: 
+2. Kör följande kommando för att installera IIS på den virtuella datorn. Ändra *plats* parametern om det behövs: 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -192,11 +193,13 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
 3. Välj **myBackendPool**.
 
-4. Välj **Virtuell dator** i listrutan under **Mål**.
+4. Under **backend-mål**, **måltyp**väljer du **virtuell dator** i den nedrullningsbara listan.
 
-5. Under **VIRTUELL DATOR** och **NÄTVERKSGRÄNSSNITT** väljer du de virtuella datorerna **myVM** och **myVM2** och deras associerade nätverksgränssnitt i listrutorna.
+5. Under **mål**väljer du de virtuella **MyVM** -och **myVM2** -datorerna och deras associerade nätverks gränssnitt från List rutorna.
 
-    ![Lägga till serverdelsservrar](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
+
+   > [!div class="mx-imgBorder"]
+   > ![lägga till backend-servrar](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
 6. Välj **Spara**.
 
@@ -204,13 +207,15 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-IIS krävs inte för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd IIS för att testa programgatewayen:
+Även om IIS inte krävs för att skapa programgatewayen installerar du den i den här snabb starten för att kontrol lera om Azure har skapat programgatewayen. Använd IIS för att testa programgatewayen:
 
 1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** .![registrerar den offentliga IP-adressen för Application Gateway](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) eller så kan du välja **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och sedan välja den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
-2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
+2. Kopiera den offentliga IP-adressen och klistra in den i adress fältet i webbläsaren för att söka efter IP-adressen.
 3. Kontrol lera svaret. Ett giltigt svar verifierar att Application Gateway har skapats och kan ansluta till Server delen.
 
    ![Testa programgateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+
+   Uppdatera webbläsaren flera gånger och du bör se anslutningar till både myVM och myVM2.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

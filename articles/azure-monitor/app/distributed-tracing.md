@@ -6,12 +6,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 49e61a7677007c52d1a584c4b49ccaadc3a02df3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: d9f67250a232d4666e4655f83e9bdc7622754331
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669598"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136748"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
@@ -33,12 +33,12 @@ Att aktivera distribuerad spårning mellan tjänsterna i ett program är lika en
 
 Application Insights SDK: er för .NET, .NET Core, Java, Node. js och Java Script all stöder distribuerad spårning internt. Instruktioner för att installera och konfigurera varje Application Insights SDK finns nedan:
 
-* [NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
+* [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
-* [Python (för hands version)](opencensus-python.md)
+* [Python](opencensus-python.md)
 
 När du har installerat och konfigurerat rätt Application Insights SDK samlas spårnings information automatiskt in för populära ramverk, bibliotek och tekniker med SDK-beroenden automatiskt insamlare. En fullständig lista över tekniker som stöds finns i [den beroende automatiska insamlings dokumentationen](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
@@ -48,7 +48,7 @@ När du har installerat och konfigurerat rätt Application Insights SDK samlas s
 
 Utöver Application Insights SDK: er Application Insights även stöd för distribuerad spårning via [openräkning](https://opencensus.io/). Openräkning är en öppen källkod, en oberoende, en enda distribution av bibliotek, som tillhandahåller statistik insamling och distribuerad spårning för tjänster. Den gör det också möjligt för communityn för öppen källkod att aktivera distribuerad spårning med populära tekniker som Redis, memcached eller MongoDB. [Microsoft samarbetar om openräkning med flera andra övervaknings-och moln partner](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-[Python (för hands version)](opencensus-python.md) 
+[Python](opencensus-python.md) 
 
 Webbplatsen för opensite innehåller API-referens dokumentation för [python](https://opencensus.io/api/python/trace/usage.html) och [Go](https://godoc.org/go.opencensus.io), samt olika guider för att använda openräkning. 
 

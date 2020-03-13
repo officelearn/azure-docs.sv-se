@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3c22f63b7085c7ab8d6b54e383528568dc9c12e7
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 9ae8f5072573dcc91dd3e8bdcd08968790f6444d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917041"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205213"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Rotera certifikat i Azure Kubernetes service (AKS)
 
@@ -37,7 +37,7 @@ AKS genererar och använder följande certifikat, certifikat utfärdare och tjä
 * `kubectl` klienten har ett certifikat för att kommunicera med AKS-klustret.
 
 > [!NOTE]
-> AKS-kluster som skapats före mars 2019 har certifikat som upphör att gälla efter två år. Alla kluster som skapats efter mars 2019 eller ett kluster som har sina certifikat roterade har certifikat som upphör att gälla efter 30 år. Du kan kontrol lera när klustret har skapats genom att använda `kubectl get nodes` för att se *ålder* för dina nodkonfigurationer.
+> AKS-kluster som skapats före mars 2019 har certifikat som upphör att gälla efter två år. Alla kluster som skapats efter mars 2019 eller ett kluster som har sina certifikat roterade har kluster certifikat utfärdarens certifikat som upphör att gälla efter 30 år. Alla andra certifikat upphör att gälla efter två år. Du kan kontrol lera när klustret har skapats genom att använda `kubectl get nodes` för att se *ålder* för dina nodkonfigurationer.
 > 
 > Dessutom kan du kontrol lera förfallo datumet för klustrets certifikat. Följande kommando visar till exempel certifikat informationen för *myAKSCluster* -klustret.
 > ```console
@@ -65,7 +65,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Det kan ta upp till 30 minuter innan `az aks rotate-certs` har slutförts. Om kommandot Miss lyckas innan du slutför ska du använda `az aks show` för att kontrol lera att klustrets status är *certifikats rotation*. Om klustret är i ett felaktigt tillstånd kör du `az aks rotate-certs` för att rotera dina certifikat igen.
 
-Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl`-kommando. Eftersom du inte har uppdaterat de certifikat som används av `kubectl`visas ett fel meddelande.  Några exempel:
+Kontrol lera att de gamla certifikaten inte längre är giltiga genom att köra ett `kubectl`-kommando. Eftersom du inte har uppdaterat de certifikat som används av `kubectl`visas ett fel meddelande.  Exempel:
 
 ```console
 $ kubectl get no
@@ -78,7 +78,7 @@ Uppdatera certifikatet som används av `kubectl` genom att köra `az aks get-cre
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl`-kommando som nu kommer att lyckas. Några exempel:
+Kontrol lera att certifikaten har uppdaterats genom att köra ett `kubectl`-kommando som nu kommer att lyckas. Exempel:
 
 ```console
 kubectl get no

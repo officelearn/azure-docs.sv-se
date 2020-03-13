@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 79a7b157d5daf8940aba454808c65ed433cfe29c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 4cf918abae51ca330054ef86e57095d29a21a37a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168999"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204536"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analysera kund omsättning med Azure Machine Learning Studio (klassisk)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## <a name="overview"></a>Översikt
 Den här artikeln visar en referens implementering av ett analys projekt för kund omsättning som har skapats med hjälp av Azure Machine Learning Studio (klassisk). I den här artikeln diskuterar vi associerade allmän modeller för att lösa problemen med industriell kundomsättning holistiskt. Vi också mäta riktighet modeller som skapas med hjälp av Machine Learning och utvärdera anvisningarna för ytterligare utveckling.  
 

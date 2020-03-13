@@ -1,6 +1,6 @@
 ---
-title: Importera exporten av Azure IoT Hub enhets identiteter | Microsoft Docs
-description: Använda Azure IoT service SDK för att utföra Mass åtgärder mot identitets registret för att importera och exportera enhets identiteter. Med import åtgärder kan du skapa, uppdatera och ta bort enhets identiteter i bulk.
+title: Import/export av Azure IoT Hub enhets identiteter | Microsoft Docs
+description: Använda Azure IoT service SDK för att köra Mass åtgärder mot identitets registret för att importera och exportera enhets identiteter. Med import åtgärder kan du skapa, uppdatera och ta bort enhets identiteter i bulk.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d217025a847c33ceff49feac22023f80fde2b109
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429263"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218425"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub enhets identiteter i bulk
 
@@ -26,7 +26,6 @@ Import-och export åtgärder sker i samband med *jobb* som gör att du kan köra
 Klassen **RegistryManager** innehåller metoderna **ExportDevicesAsync** och **ImportDevicesAsync** som använder **jobb** ramverket. Med dessa metoder kan du exportera, importera och synkronisera hela identitet registret för IoT Hub.
 
 I det här avsnittet beskrivs hur du använder **RegistryManager** -klassen och- **jobb** systemet för att utföra Mass import och export av enheter till och från en IoT Hubs identitets register. Du kan också använda Azure-IoT Hub Device Provisioning Service för att möjliggöra Zero Touch-etablering, just-in-Time-etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i dokumentationen för [etablerings tjänsten](/azure/iot-dps).
-
 
 ## <a name="what-are-jobs"></a>Vad är jobb?
 

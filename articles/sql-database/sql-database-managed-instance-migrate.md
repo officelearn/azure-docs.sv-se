@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828081"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208932"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instans migrering till Azure SQL Database Hanterad instans
 
@@ -72,14 +72,14 @@ Några av de parametrar som du behöver mäta i SQL Server-instansen är:
 - Övervaka arbets belastning och fråga prestanda eller din SQL Server instans genom att undersöka vyer för dynamisk hantering eller Frågearkivet om du migrerar från SQL Server 2016 + version. Identifiera Genomsnittlig varaktighet och CPU-användning för de viktigaste frågorna i arbets belastningen för att jämföra dem med de frågor som körs på den hanterade instansen.
 
 > [!Note]
-> Om du upptäcker eventuella problem med arbets belastningen på SQL Server, till exempel hög processor användning, konstant minnes belastning, tempdb-eller parametrization-problem, bör du försöka lösa dem på käll SQL Servers instansen innan du tar bas linjen och migreringen. Att migrera kända problem till ett nytt system migh orsakar oväntade resultat och ogiltig validering av prestanda jämförelse.
+> Om du upptäcker eventuella problem med arbets belastningen på SQL Server, till exempel hög processor användning, konstant minnes belastning, tempdb-eller Parameterisering-problem, bör du försöka lösa dem på käll SQL Servers instansen innan du tar bas linjen och migreringen. Att migrera kända problem till ett nytt system migh orsakar oväntade resultat och ogiltig validering av prestanda jämförelse.
 
 Som ett resultat av den här aktiviteten bör du ha dokumenterade genomsnitts-och topp värden för processor-, minnes-och IO-användning i ditt käll system, samt genomsnittlig och maximal varaktighet och CPU-användning för de dominerande och de mest kritiska frågorna i arbets belastningen. Du bör använda de här värdena senare för att jämföra arbets Belastningens prestanda på en hanterad instans med bas linje prestanda för arbets belastningen på käll SQL Server.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Distribuera till en hanterad instans med optimal storlek
 
 Den hanterade instansen är skräddarsydd för lokala arbets belastningar som planerar att flytta till molnet. Den introducerar en [ny inköps modell](sql-database-service-tiers-vcore.md) som ger större flexibilitet när du väljer rätt resurs nivå för dina arbets belastningar. I den lokala världen är du förmodligen van att ändra storlek på dessa arbets belastningar med hjälp av fysiska kärnor och IO-bandbredd. Inköps modellen för en hanterad instans baseras på virtuella kärnor, eller "virtuella kärnor", med ytterligare lagring och IO tillgängligt separat. VCore-modellen är ett enklare sätt att förstå dina beräknings krav i molnet jämfört med vad du använder lokalt. Med den nya modellen kan du anpassa mål miljön i molnet till rätt storlek. Några allmänna rikt linjer som kan hjälpa dig att välja rätt tjänst nivå och egenskaper beskrivs här:
-- Baserat på den grundläggande processor användningen kan du etablera en hanterad instans som matchar antalet kärnor som du använder på SQL Server, med tanke på att CPU-egenskaperna kan behöva skalas för att matcha [VM-egenskaper där hanterad instans är installerad ](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- Baserat på den grundläggande processor användningen kan du etablera en hanterad instans som matchar antalet kärnor som du använder på SQL Server, med tanke på att CPU-egenskaperna kan behöva skalas för att matcha [VM-egenskaper där hanterad instans är installerad](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 - Baserat på den grundläggande minnes användningen väljer [du tjänst nivån som har motsvarande minne](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). Mängden minne kan inte väljas direkt så du måste välja den hanterade instansen med mängden virtuella kärnor som har motsvarande minne (till exempel 5,1 GB/vCore i Gen5). 
 - Baserat på bas linjens IO-svars tid för fil under systemet väljer du mellan Generell användning (fördröjning större än 5ms) och Affärskritisk tjänst nivåer (latens under 3 MS).
 - Baserat på baseline-genomflöde förallokerar du storleken på data eller loggfiler för att få förväntad IO-prestanda.
@@ -113,13 +113,13 @@ Den hanterade instansen stöder följande flyttnings alternativ för databasen (
 
 [Azure Database migration service (DMS)](../dms/dms-overview.md) är en fullständigt hanterad tjänst som är utformad för att möjliggöra sömlös migrering från flera databas källor till Azure-dataplattformar med minimal stillestånds tid. Den här tjänsten effektiviserar de uppgifter som krävs för att flytta befintliga tredje parter och SQL Server databaser till Azure. Distributions alternativ i offentlig för hands version innehåller databaser i Azure SQL Database och SQL Server databaser på en virtuell Azure-dator. DMS är den rekommenderade metoden för migrering för företagets arbets belastningar.
 
-Om du använder SQL Server Integration Services (SSIS) på din SQL Server lokalt stöder inte DMS ännu migrering av SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men du kan etablera Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) som ska skapa en ny SSISDB i en hanterad instans och sedan kan du distribuera paketen på nytt, se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Om du använder SQL Server Integration Services (SSIS) på din SQL Server lokalt, stöder inte DMS ännu inte migrering av SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men du kan etablera Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF) som skapar en ny SSISDB i en hanterad instans och sedan kan distribuera paketen på nytt, se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Mer information om det här scenariot och konfigurations stegen för DMS finns i [migrera din lokala databas till hanterad instans med DMS](../dms/tutorial-sql-server-to-managed-instance.md).  
 
 ### <a name="native-restore-from-url"></a>Intern återställning från URL
 
-ÅTERSTÄLLNING av interna säkerhets kopieringar (. bak-filer) som tas från SQL Server lokala eller [SQL Server på virtuella datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/), finns på [Azure Storage](https://azure.microsoft.com/services/storage/), är en av de viktigaste funktionerna i distributions alternativet för hanterade instanser som möjliggör snabb och enkel offline migrering av databas.
+ÅTERSTÄLLNING av interna säkerhets kopieringar (. bak-filer) som tagits från SQL Server lokalt eller [SQL Server på virtuella datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/)finns på [Azure Storage](https://azure.microsoft.com/services/storage/), är en av de viktigaste funktionerna i distributions alternativet hanterad instans som möjliggör snabb och enkel migrering av databasen.
 
 Följande diagram ger en övergripande översikt över processen:
 

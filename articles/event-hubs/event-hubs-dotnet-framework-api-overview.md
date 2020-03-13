@@ -9,16 +9,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: f67351fa38543504d63dbf8d86c9537feea24a4f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b14759ed39037bfa172366a2ed8f8ca089786ec6
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312625"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137619"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Översikt över Event Hubs .NET Framework API
 
-I den här artikeln sammanfattas några av de viktigaste Azure-Event Hubs [.NET Framework klient-API: er](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Det finns två kategorier: hanterings-och körnings-API: er. API: er för körning består av alla åtgärder som behövs för att skicka och ta emot ett meddelande. Med hanterings åtgärder kan du hantera ett Event Hubs enhets tillstånd genom att skapa, uppdatera och ta bort entiteter.
+I den här artikeln sammanfattas några av de viktigaste Azure-Event Hubs [.NET Framework klient-API: er](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Det finns två kategorier: hanterings-och körnings-API: er. API: er för körning består av alla åtgärder som behövs för att skicka och ta emot ett meddelande. Med hanterings åtgärder kan du hantera ett Event Hubs enhets tillstånd genom att skapa, uppdatera och ta bort entiteter.
 
 [Övervaknings scenarier](event-hubs-metrics-azure-monitor.md) omfattar både hantering och körnings tid. Detaljerad referens dokumentation om .NET-API: er finns i API-referenserna [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.net standard](/dotnet/api/microsoft.azure.eventhubs)och [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) .
 
@@ -26,7 +26,7 @@ I den här artikeln sammanfattas några av de viktigaste Azure-Event Hubs [.NET 
 
 Om du vill utföra följande hanterings åtgärder måste du ha behörighet att **Hantera** i Event Hubs namnrymd:
 
-### <a name="create"></a>Create
+### <a name="create"></a>Skapa
 
 ```csharp
 // Create the event hub
@@ -35,7 +35,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### <a name="update"></a>Uppdatering
+### <a name="update"></a>Uppdatera
 
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
@@ -184,4 +184,4 @@ Mer information om scenarier i händelsehubbar finns i följande länkar:
 .NET API-referenser finns här:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-* [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
+* [Microsoft. Azure. EventHubs. EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)

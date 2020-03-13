@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6c737af85e2a7205dca6a56174dfda565da1410d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: a76852a6e3cc5ffcdfcac62ce29fe47c97af3df1
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304399"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136167"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Rekommendationer och metod tips för Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ Beakta följande rekommendationer under implementerings fasen.
 
 |  |  |
 |--|--|
-| Redigera anpassade principer med Azure AD B2C-tillägget för Visual Studio Code | Hämta Visual Studio Code och detta community-integrerade [tillägg från Visual Studio Code Marketplace]((https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)). Även om det inte är en officiell Microsoft-produkt innehåller Azure AD B2C tillägget för Visual Studio Code flera funktioner som hjälper dig att arbeta med anpassade principer enklare. |
+| Redigera anpassade principer med Azure AD B2C-tillägget för Visual Studio Code | Hämta Visual Studio Code och detta community-integrerade [tillägg från Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). Även om det inte är en officiell Microsoft-produkt innehåller Azure AD B2C tillägget för Visual Studio Code flera funktioner som hjälper dig att arbeta med anpassade principer enklare. |
 | Lär dig hur du felsöker Azure AD B2C | Lär dig hur du [felsöker anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) under utveckling. Lär dig hur ett normalt autentiseringsschema ser ut och använder verktyg för att identifiera avvikelser och fel. Använd till exempel [Application Insights](troubleshoot-with-application-insights.md) för att granska utgående loggar för användar resor. |
 | Utnyttja vårt bibliotek med beprövade anpassade princip mönster | Hitta [exempel](https://github.com/azure-ad-b2c/samples) för flera utökade Azure AD B2C användar resor för kund identitets-och åtkomst hantering (CIAM). |
 

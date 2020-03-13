@@ -1,6 +1,6 @@
 ---
-title: 'Konfigurera en app för åtkomst till webb-API: er – Microsoft Identity Platform | Azure'
-description: Lär dig hur du konfigurerar en app som har registrerats på Microsoft Identity Platform att inkludera omdirigerings-URI, autentiseringsuppgifter eller behörigheter för åtkomst till webb-API:er.
+title: 'Snabb start: få åtkomst till webb-API: er för appen – Microsoft Identity Platform | Azure'
+description: 'I den här snabb starten ska du konfigurera en app som har registrerats med Microsoft Identity Platform för att inkludera omdirigerings-URI: er, autentiseringsuppgifter eller behörigheter för åtkomst till webb'
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,82 +8,64 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/07/2019
+ms.date: 03/09/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 32691892ccae31541855f47bd8274aa28b6dc185
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5e628626f2db49ff67d6d7ab425a3a19870b1ebd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704297"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240900"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabb start: Konfigurera ett klient program för åtkomst till webb-API: er
 
-För att ett webbklientprogram eller ett konfidentiellt webbprogram ska kunna delta i ett flöde för auktoriseringsbeviljande (och hämta en åtkomsttoken) måste det kunna etablera säkra autentiseringsuppgifter. Standardmetoden för autentisering som stöds av Azure-portalen är klient-ID + hemlig nyckel.
+I den här snabb starten lägger du till omdirigerings-URI: er, autentiseringsuppgifter eller behörigheter för åtkomst till webb-API: er för programmet Ett webb-eller konfidentiellt klient program måste upprätta säkra autentiseringsuppgifter för att delta i ett flöde för utfärdande av auktorisering som kräver autentisering. Standardmetoden för autentisering som stöds av Azure-portalen är klient-ID + hemlig nyckel. Appen erhåller en åtkomsttoken under den här processen.
 
-Dessutom, innan en klient kan komma åt ett webb-API som görs tillgängligt av ett resursprogram (till exempel Microsoft Graph API) säkerställer ramverket för medgivande att klienten det behörighetsbeviljande som krävs, baserat på de begärda behörigheterna. Som standard kan alla appar välja behörigheter från Microsoft Graph API. [Graph API-behörigheten ”Logga in och läs användarprofil”](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) väljs som standard. Du kan välja mellan [två typer av behörigheter](developer-glossary.md#permissions) för varje önskat webb-API:
+Innan en klient kan komma åt ett webb-API som exponeras av ett resurs program, t. ex. Microsoft Graph-API, ser medgivande ramverket till att klienten erhåller den behörighets beviljande som krävs för de begärda behörigheterna. Som standard kan alla program begära behörigheter från Microsoft Graph-API: et.
 
-* **Programbehörigheter** – Klientprogrammet behöver komma åt webb-API:et direkt som sig självt (ingen användarkontext). Den här typen av behörighet kräver administratörens godkännande och är inte heller tillgängligt för offentliga klientprogram (dator eller mobil).
-* **Delegerade behörigheter** – Klientprogrammet behöver komma åt webb-API:et som den inloggade användaren men med åtkomst som begränsas av den valda behörigheten. Den här typen av behörighet kan beviljas av en användare såvida inte behörigheten kräver administratörens godkännande.
+## <a name="prerequisites"></a>Förutsättningar
 
-  > [!NOTE]
-  > Att lägga till en delegerad behörighet till ett program ger automatiskt medgivande till användare i klientorganisationen. Användarna måste fortfarande manuellt ge medgivande för de tillagda delegerade behörigheterna vid körning såvida inte administratören beviljas medgivande för alla användares räkning.
-
-I den här snabbstarten visas hur du konfigurerar din app för att:
-
-* [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
-* [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
-* [Ändra konto typer som stöds](#modify-supported-account-types)
-* [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
-* [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
-
-## <a name="prerequisites"></a>Krav
-
-Innan du börjar kontrollerar du att följande krav är uppfyllda:
-
-* Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md) som stöds, vilket är viktigt att förstå när du skapar appar som måste användas av andra användare eller appar.
-* Ha en klientorganisation som har program som är registrerade till den.
-  * Om du inte har några registrerade appar kan du [få information om hur du registrerar appar på Microsoft Identity Platform](quickstart-register-app.md).
+* Slut för ande av [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md).
+* Granskning av [behörigheter och medgivande i Microsoft Identity Platform-slutpunkten](v2-permissions-and-consent.md).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
 
-Innan du kan konfigurera appen gör du följande:
-
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
-1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
-1. Sök efter och välj **Azure Active Directory**. 
-1. I den vänstra rutan väljer du **Appregistreringar**.
-1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
-1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er:
-    * [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
-    * [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
-    * [Ändra konto typer som stöds](#modify-supported-account-types)
-    * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
-    * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
+1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet. Ange din portal-session till den Azure AD-klient som du vill använda.
+1. Sök efter och välj **Azure Active Directory**. Under **Hantera**väljer du **Appregistreringar**.
+1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du programmets **Översikt** eller huvud registrerings sidan.
 
-## <a name="add-redirect-uris-to-your-application"></a>Lägga till omdirigerings-URI:er för appen
+Använd följande procedurer för att konfigurera ditt program för att få åtkomst till webb-API: er.
 
-Lägga till en omdirigerings-URI för appen:
+## <a name="add-redirect-uris-to-your-application"></a>Lägg till omdirigerings-URI: er i ditt program
 
-1. På appens **översiktssida** väljer du avsnittet **Autentisering**.
-1. Gör följande för att lägga till en anpassad omdirigerings-URI för webbappar och offentliga klientprogram:
-   1. Leta reda på avsnittet **Omdirigerings-URI**.
-   1. Välj den typ av app du skapar **webb** eller **offentlig klient (mobil och dator)** .
-   1. Ange omdirigerings-URI för appen.
-      * För webbappar anger du grundläggande URL för appen. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
-      * För offentliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifik för ditt program, till exempel: `https://MyFirstApp`.
+Du kan lägga till anpassade omdirigerings-URI: er och föreslagna omdirigerings-URI: er Så här lägger du till en anpassad omdirigerings-URI för webb-och offentliga klient program:
 
-1. Gör följande för att välja mellan föreslagna omdirigerings-URI:er för offentliga klienter (mobil, dator):
-    1. Leta reda på avsnittet för **föreslagna omdirigerings-URI:er för offentliga klienter (mobil, dator)** .
-    1. Välj en eller flera lämpliga omdirigerings-URI:er med hjälp av kryssrutorna. Du kan också ange en anpassad omdirigerings-URI. Om du inte är säker på vad du ska använda kan du läsa biblioteks dokumentationen.
+1. På sidan **Översikt över** appen väljer du **autentisering**.
+1. Hitta **omdirigerings-URI: er**. Du kan behöva välja **Växla till den gamla upplevelsen**.
+1. Välj den typ av program som du skapar: **webb** eller **offentlig klient/ursprunglig (mobil & Desktop)** .
+1. Ange omdirigerings-URI för appen.
 
-Det finns vissa begränsningar som gäller för omdirigerings-URI: er. Läs mer om [begränsningar och begränsningar för omdirigering av URI](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+   * För webbappar anger du grundläggande URL för appen. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
+   * För offentliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifik för ditt program, till exempel: `https://MyFirstApp`.
+1. Välj **Spara**.
+
+Följ dessa steg om du vill välja mellan föreslagna omdirigerings-URI: er för offentliga klienter:
+
+1. På sidan **Översikt över** appen väljer du **autentisering**.
+1. Hitta **föreslagna omdirigerings-URI: er för offentliga klienter (mobil, stationär dator)** . Du kan behöva välja **Växla till den gamla upplevelsen**.
+1. Välj en eller flera omdirigerings-URI: er för ditt program. Du kan också ange en anpassad omdirigerings-URI. Om du inte är säker på vad du ska använda kan du läsa biblioteks dokumentationen.
+1. Välj **Spara**.
+
+Vissa begränsningar gäller för omdirigerings-URI: er. Mer information finns i [OMDIRIGERA URI/svars-URL begränsningar och begränsningar](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+
 > [!NOTE]
 > Testa de nya inställningarna för **autentisering** där du kan konfigurera inställningar för ditt program baserat på den plattform eller enhet som du vill använda som mål.
 >
-> Om du vill se den här vyn väljer du **testa den nya upplevelsen** från vyn **standardautentiserings** -sida.
+> Om du vill se den här vyn väljer du **testa den nya upplevelsen** från sidan **autentisering** .
 >
 > ![Klicka på "prova den nya upplevelsen" för att se vyn plattforms konfiguration](./media/quickstart-update-azure-ad-app-preview/authentication-try-new-experience-cropped.png)
 >
@@ -93,28 +75,27 @@ Det finns vissa begränsningar som gäller för omdirigerings-URI: er. Läs mer 
 
 Beroende på vilket program du registrerar finns det några ytterligare inställningar som du kan behöva konfigurera, till exempel:
 
-* **Utloggnings-URL**
+* **Utloggnings-URL**.
 * För appar med en sida kan du aktivera **implicit beviljande** och välja de token som du vill att behörighets slut punkten ska utfärda.
-* För skrivbordsappar som hämtar token med integrerad Windows-autentisering, enhets kod flöde eller användar namn/lösen ord i avsnittet **standard klient typ** konfigurerar du inställningen **behandla program som offentlig klient** till **Ja**.
+* För skrivbordsappar som hämtar token genom att använda integrerad Windows-autentisering, enhets kod flöde eller användar namn/lösen ord i avsnittet **standard klient typ** , ställer du in inställningen **behandla program som offentlig klient** på **Ja**.
 * För äldre appar som använde Live SDK för att integrera med Microsoft-konto-tjänsten konfigurerar du **Live SDK-stöd**. Nya appar behöver inte den här inställningen.
-* **Standard klient typ**
+* **Standard klient typ**.
+* **Konto typer som stöds**.
 
 ### <a name="modify-supported-account-types"></a>Ändra konto typer som stöds
 
 De **konto typer som stöds** anger vem som kan använda programmet eller åtkomst till API: et.
 
-När du har [konfigurerat de konto typer som stöds](quickstart-register-app.md) när du ursprungligen registrerade programmet kan du bara ändra den här inställningen med hjälp av program manifest redigeraren om:
+Om du har konfigurerat de konto typer som stöds när du registrerade programmet kan du bara ändra den här inställningen med hjälp av program manifest redigeraren om:
 
-* Du ändrar konto typer från **AzureADMyOrg** eller **AzureADMultipleOrgs** till **AzureADandPersonalMicrosoftAccount**eller vice versa.
-* Du ändrar konto typer från **AzureADMyOrg** till **AzureADMultipleOrgs**eller vice versa.
+* Du ändrar konto typer från **AzureADMyOrg** eller **AzureADMultipleOrgs** till **AzureADandPersonalMicrosoftAccount**, eller till ett annat sätt runt, eller
+* Du ändrar konto typer från **AzureADMyOrg** till **AzureADMultipleOrgs**eller tvärtom.
 
-Ändra de konto typer som stöds för en befintlig registrerad app:
-
-* Se [Konfigurera program manifestet](reference-app-manifest.md) och uppdatera `signInAudience`-nyckeln.
+Om du vill ändra de konto typer som stöds för en befintlig app-registrering uppdaterar du `signInAudience` nyckeln. Mer information finns i [Konfigurera applikations manifestet](reference-app-manifest.md#configure-the-app-manifest).
 
 ## <a name="configure-platform-settings-for-your-application"></a>Konfigurera plattforms inställningar för ditt program
 
-[![konfigurera inställningar för appen baserat på plattformen eller enheten](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
+![Konfigurera inställningar för din app baserat på plattformen eller enheten](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations.png)
 
 Om du vill konfigurera program inställningar baserat på plattformen eller enheten är du mål:
 
@@ -124,93 +105,108 @@ Om du vill konfigurera program inställningar baserat på plattformen eller enhe
 
 1. Ange inställnings informationen baserat på den plattform som du har valt.
 
-   | Plattform                | Choices              | Konfigurationsinställningar            |
-   |-------------------------|----------------------|-----------------------------------|
-   | **Webbprogram**    | **Webb**              | Ange **omdirigerings-URI** för programmet. |
-   | **Mobil program** | **iOS**              | Ange appens **paket-ID**, som du hittar i Xcode i info. plist eller skapa inställningar. Genom att lägga till paket-ID: t skapas automatiskt en omdirigerings-URI för programmet. |
-   |                         | **Android**          | * Ange appens **paket namn**, som du hittar i filen AndroidManifest. xml.<br/>* Generera och ange **signaturens hash-värde**. När du lägger till signaturens hash skapas automatiskt en omdirigerings-URI för programmet.  |
-   | **Desktop + enheter**   | **Desktop + enheter** | Valfritt. Välj en av de rekommenderade **omdirigerings-URI: erna** om du skapar appar för Station ära datorer och enheter.<br/>Valfritt. Ange en **anpassad omdirigerings-URI**, som används som den plats där Azure AD omdirigerar användare som svar på autentiseringsbegäranden. Till exempel för .NET Core-program där du vill ha interaktionen använder du `https://localhost`. |
+   | Plattform                | Konfigurationsinställningar            |
+   |-------------------------|-----------------------------------|
+   | **Webb**              | Ange **omdirigerings-URI** för programmet. |
+   | **iOS/macOS**              | Ange **programpaket-ID: t**, som du hittar i Xcode i info. plist eller skapa inställningar. Genom att lägga till paket-ID: t skapas automatiskt en omdirigerings-URI för programmet. |
+   | **Android**          | Ange **namnet**på Appaketet, som du hittar i filen AndroidManifest. xml.<br/>Generera och ange **signaturens hash-värde**. När du lägger till signaturens hash skapas automatiskt en omdirigerings-URI för programmet.  |
+   | **Mobil-och skriv bords program**  | Valfri. Välj en av de rekommenderade **omdirigerings-URI: erna** om du skapar appar för Station ära datorer och enheter.<br/>Valfri. Ange en **anpassad omdirigerings-URI**, som används som den plats där Azure AD omdirigerar användare som svar på autentiseringsbegäranden. Till exempel för .NET Core-program där du vill ha interaktionen använder du `https://localhost`. |
 
    > [!IMPORTANT]
-   > För mobila program som inte använder det senaste MSAL-biblioteket eller som inte använder en Service Broker måste du konfigurera omdirigerings-URI: erna för dessa program i **Desktop +-enheter**.
+   > För mobila program som inte använder det senaste MSAL (Microsoft Authentication Library) eller inte använder en Service Broker måste du konfigurera omdirigerings-URI: erna för dessa program i **Desktop +-enheter**.
 
-1. Beroende på vilken plattform du väljer kan det finnas ytterligare inställningar som du kan konfigurera. För **Web** Apps kan du:
-    * Lägg till fler omdirigerings-URI
-    * Konfigurera **implicit beviljande** för att välja de token som du vill ska utfärdas av behörighets slut punkten:
-        * För appar med en sida väljer du båda **åtkomst-tokens** och **ID-token**
-        * För Web Apps väljer du **ID-token**
+Beroende på vilken plattform du väljer kan det finnas ytterligare inställningar som du kan konfigurera. För **Web** Apps kan du:
+
+* Lägg till fler omdirigerings-URI
+* Konfigurera **implicit beviljande** för att välja de token som du vill ska utfärdas av behörighets slut punkten:
+
+  * För appar med en sida väljer du båda **åtkomst-tokens** och **ID-token**
+  * För Web Apps väljer du **ID-token**
 
 ## <a name="add-credentials-to-your-web-application"></a>Lägga till autentiseringsuppgifter i webbappen
 
-Så här lägger du till en autentiseringsuppgift för webbappen:
+Lägg till ett certifikat eller skapa en klient hemlighet för att lägga till en autentiseringsuppgift i ditt webb program. Så här lägger du till ett certifikat:
 
-1. På appens **översiktssida** väljer du avsnittet för **certifikat och hemligheter**.
+1. På sidan **Översikt över** appen väljer du avsnittet **certifikat & hemligheter** .
+1. Välj **Ladda upp certifikat**.
+1. Välj den fil som du vill ladda upp. Den måste vara någon av följande filtyper: .cer, .pem eller .crt.
+1. Välj **Lägg till**.
 
-1. Gör följande för att lägga till ett certifikat:
+Så här lägger du till en klient hemlighet:
 
-    1. Välj **Ladda upp certifikat**.
-    1. Välj den fil som du vill ladda upp. Den måste vara någon av följande filtyper: .cer, .pem eller .crt.
-    1. Välj **Lägg till**.
-
-1. Gör följande för att lägga till en klienthemlighet:
-
-    1. Välj **Ny klienthemlighet**.
-    1. Lägg till en beskrivning för din klienthemlighet.
-    1. Välj en varaktighet.
-    1. Välj **Lägg till**.
+1. På sidan **Översikt över** appen väljer du avsnittet **certifikat & hemligheter** .
+1. Välj **Ny klienthemlighet**.
+1. Lägg till en beskrivning för din klienthemlighet.
+1. Välj en varaktighet.
+1. Välj **Lägg till**.
 
 > [!NOTE]
 > Kolumnen längst till höger innehåller nyckelvärdet när du har sparat konfigurationsändringarna. **Se till att kopiera värdet** för användning i din klientprogramkod eftersom den inte är tillgänglig när du har lämnat den här sidan.
 
 ## <a name="add-permissions-to-access-web-apis"></a>Lägga till behörigheter för att få åtkomst till webb-API:er
 
-Så lägger du till behörigheter för att komma åt resurs-API:er från klienten:
+[Behörigheten Graph API inloggning och läsa användar profil](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) är markerad som standard. Du kan välja mellan [två typer av behörigheter](developer-glossary.md#permissions) för varje webb-API:
 
-1. På appens **översiktssida** väljer du **API-behörigheter**.
-1. Under avsnittet **konfigurerade behörigheter** väljer du knappen **Lägg till en behörighet** .
+* **Program behörigheter**. Klient programmet måste ha åtkomst till webb-API: et direkt, utan användar kontext. Den här typen av behörighet kräver administratörs medgivande. Den här behörigheten är inte tillgänglig för Skriv bords-och mobil klient program.
+* **Delegerade behörigheter**. Klientprogrammet behöver komma åt webb-API:et som den inloggade användaren men med åtkomst som begränsas av den valda behörigheten. Den här typen av behörighet kan beviljas av en användare såvida inte behörigheten kräver administratörens godkännande.
+
+  > [!NOTE]
+  > Att lägga till en delegerad behörighet till ett program ger automatiskt medgivande till användare i klientorganisationen. Användarna måste fortfarande manuellt ge medgivande för de tillagda delegerade behörigheterna vid körning såvida inte administratören beviljas medgivande för alla användares räkning.
+
+Så här lägger du till behörigheter för åtkomst till resurs-API: er från klienten:
+
+1. På sidan **Översikt över** app väljer du **API-behörigheter**.
+1. Under **konfigurerade behörigheter**väljer du **Lägg till en behörighet**.
 1. Som standard kan du i vyn välja mellan **Microsoft-API:er**. Välj det avsnitt med API:er du är intresserad av:
-    * **Microsoft-API:er** – Du kan välja behörigheter för Microsoft-API:er som Microsoft Graph.
-    * **API:er som min organisation använder** – Du kan välja behörigheter för API:er som har exponerats av din organisation, eller API som din organisation har integrerats med.
-    * **Mina API:er** – Du kan välja behörigheter för API:er som du har exponerat.
+
+    * **Microsoft API: er**. Låter dig välja behörigheter för Microsoft API: er som Microsoft Graph.
+    * **API: er som min organisation använder**. Låter dig välja behörigheter för API: er som din organisation exponerar, eller API: er som din organisation har integrerat med.
+    * **Mina API: er**. Låter dig välja behörigheter för de API: er som du exponerar.
+
 1. När du har valt API:er visas sidan **Begär API-behörigheter**. Om API:et exponerar både delegerade programbehörigheter. Välj vilken typ av behörighet som appen behöver.
-1. Välj **Lägg till behörigheter** när du är klar. Du återgår till sidan **API-behörigheter**, där behörigheterna har sparats och lagts till i tabellen.
+1. Välj **Lägg till behörigheter** när du är klar.
+
+Du kommer tillbaka till sidan **API-behörigheter** . Behörigheterna har sparats och lagts till i tabellen.
 
 ## <a name="understanding-api-permissions-and-admin-consent-ui"></a>Förstå API-behörigheter och gränssnitt för administratörs medgivande
 
 ### <a name="configured-permissions"></a>Konfigurerade behörigheter
 
-I det här avsnittet visas de behörigheter som uttryckligen har kon figurer ATS för programobjektet (\the-behörigheter som ingår i appens obligatoriska resurs åtkomst lista). Du kan lägga till eller ta bort behörigheter från den här tabellen. Som administratör kan du också bevilja/återkalla administratörs medgivande för en uppsättning behörigheter för API: er eller enskilda behörigheter i det här avsnittet.
+I det här avsnittet visas de behörigheter som uttryckligen har kon figurer ATS för programobjektet. De här behörigheterna är en del av appens obligatoriska resurs åtkomst lista. Du kan lägga till eller ta bort behörigheter från den här tabellen. Som administratör kan du också bevilja eller återkalla administratörs medgivande för en uppsättning behörigheter för API eller enskilda behörigheter.
 
 ### <a name="other-permissions-granted"></a>Andra behörigheter som har beviljats
 
-Om ditt program är registrerat i en klient kan du se ytterligare ett avsnitt med rubriken **andra behörigheter som har beviljats för klient organisationen**. I det här avsnittet visas behörigheter som har beviljats för klienten, men som inte uttryckligen har kon figurer ATS för programobjektet (t. ex. behörigheter som har begärts dynamiskt och godkänts). Det här avsnittet visas bara om det finns minst en behörighet som gäller.
+Om ditt program är registrerat i en klient kan du se ytterligare ett avsnitt med rubriken **andra behörigheter som har beviljats för klient organisationen**. Det här avsnittet visar behörigheter som har beviljats för klienten som inte har kon figurer ATS uttryckligen för programobjektet. Dessa behörigheter begärdes dynamiskt och samtyckde. Det här avsnittet visas bara om det finns minst en behörighet som gäller.
 
 Du kan lägga till en uppsättning behörigheter för API: er eller enskilda behörigheter som visas i det här avsnittet i avsnittet **konfigurerade behörigheter** . Som administratör kan du också återkalla administratörs medgivande för enskilda API: er eller behörigheter i det här avsnittet.
 
 ### <a name="admin-consent-button"></a>Knappen administratörs medgivande
 
-Om ditt program är registrerat i en klient organisation visas knappen **tilldela administratörs medgivande för innehavare** . Den kommer att inaktive ras om du inte är administratör eller om inga behörigheter har kon figurer ATS för programmet.
-Med den här knappen kan en administratör enkelt bevilja administrativt medgivande till de behörigheter som har kon figurer ATS för programmet. När du klickar på knappen administratörs medgivande startas ett nytt fönster med en uppstarts-prompt som visar alla konfigurerade behörigheter.
+Om ditt program är registrerat i en klient visas knappen **tilldela administratörs medgivande för klient** . Den inaktive ras om du inte är administratör eller om inga behörigheter har kon figurer ATS för programmet.
+Med den här knappen kan en administratör bevilja administrativt medgivande till de behörigheter som har kon figurer ATS för programmet. När du klickar på knappen administratörs medgivande startas ett nytt fönster med en uppstarts-prompt som visar alla konfigurerade behörigheter.
 
 > [!NOTE]
 > Det finns en fördröjning mellan behörigheter som konfigureras för programmet och de visas i frågan om medgivande. Om du inte ser alla konfigurerade behörigheter i medgivande meddelandet stänger du den och startar den igen.
 
-Om du har behörighet som har beviljats men inte har kon figurer ATS, uppmanas du att välja hur du ska hantera dessa behörigheter när du klickar på knappen administratörs medgivande. Du kan lägga till dem i konfigurerade behörigheter, eller så kan du ta bort dem.
+Om du har behörighet som har beviljats men inte kon figurer ATS, kommer du att be dig att hantera dessa behörigheter. Du kan lägga till dem i konfigurerade behörigheter, eller så kan du ta bort dem.
 
-Medgivande meddelandet ger möjlighet att **godkänna** eller **avbryta**. Om du väljer **Godkänn**beviljas administratörs medgivande. Om du väljer **Avbryt**beviljas inte administratörs medgivande och du får ett fel meddelande om att medgivande har avböjts.
+Medgivande meddelandet ger möjlighet att **godkänna** eller **avbryta**. Välj **acceptera** för att bevilja administratörs tillåtelse. Om du väljer **Avbryt**beviljas inte administratörs medgivande. Ett fel meddelande om att medgivande har nekats.
 
 > [!NOTE]
-> Det uppstår en fördröjning mellan att bevilja administratörs tillåtelse (att välja **acceptera** i medgivande meddelandet) och statusen för administratörs medgivande visas i användar gränssnittet.
+> Det uppstår en fördröjning mellan att bevilja administratörs medgivande genom att välja **acceptera** i medgivande frågan och statusen för det administrativa medgivande som återspeglas i portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om dessa andra relaterade snabbstarter för apphantering:
+Gå vidare till nästa artikel om du vill lära dig hur du exponerar webb-API: er.
+> [!div class="nextstepaction"]
+> [Snabb start: Konfigurera ett program för att exponera webb-API: er](quickstart-configure-app-expose-web-apis.md)
 
-* [Registrera ett program på Microsoft Identity Platform](quickstart-register-app.md)
-* [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
-* [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)
-* [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)
+* Mer information om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem finns i [Programobjekt och tjänsthuvudnamnsobjekt](app-objects-and-service-principals.md).
 
-Mer information om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem finns i [Programobjekt och tjänsthuvudnamnsobjekt](app-objects-and-service-principals.md).
+* Mer information om de varumärkesriktlinjer som du bör använda när du utvecklar program med Azure Active Directory finns i [Varumärkesriktlinjer för program](howto-add-branding-in-azure-ad-apps.md).
 
-Mer information om de varumärkesriktlinjer som du bör använda när du utvecklar program med Azure Active Directory finns i [Varumärkesriktlinjer för program](howto-add-branding-in-azure-ad-apps.md).
+* [Snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md)
+
+* [Snabb start: ändra de konton som stöds av ett program](quickstart-modify-supported-accounts.md)
+
+* [Snabb start: ta bort ett program som är registrerat med Microsoft Identity Platform](quickstart-remove-app.md)

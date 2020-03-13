@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 1d9f148351e4ce12d6f6bcd699cdd74e94ba09ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: dd7f6d0760f2b848435e7c77657e261517d29dd8
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358107"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276912"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -27,7 +27,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-I det här exemplet ersätter du `<RESOURCE_GROUP>` med din resurs grupp och `<PLAN_NAME>` med ett namn för din plan som är unik i resurs gruppen. Ange ett [`<REGION>`som stöds ](#regions). Om du vill skapa en Premium-plan som stöder Linux inkluderar du alternativet `--is-linux`.
+I det här exemplet ersätter du `<RESOURCE_GROUP>` med din resurs grupp och `<PLAN_NAME>` med ett namn för din plan som är unik i resurs gruppen. Ange ett [`<REGION>`som stöds ](https://azure.microsoft.com/global-infrastructure/services/?products=functions). Om du vill skapa en Premium-plan som stöder Linux inkluderar du alternativet `--is-linux`.
 
 När planen har skapats kan du använda [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) för att skapa din Function-app. I portalen skapas både planen och appen på samma tidpunkt. Ett exempel på ett fullständigt Azure CLI-skript finns i [skapa en Function-app i en Premium-plan](scripts/functions-cli-create-premium-plan.md).
 
@@ -99,44 +99,42 @@ Att köra på en dator med mer minne innebär inte alltid att din Function-app k
 
 Till exempel begränsas en JavaScript Function-app av standard minnes gränsen i Node. js. Om du vill öka den här fasta minnes gränsen lägger du till appens inställning `languageWorkers:node:arguments` med värdet `--max-old-space-size=<max memory in MB>`.
 
-## <a name="regions"></a>Regioner
+## <a name="region-max-scale-out"></a>Region, Max skala ut
 
-Nedan finns de regioner som stöds för varje operativ system.
+Nedan visas de maximala skalnings värden som stöds för närvarande för en enskild plan i varje region och OS-konfiguration. Om du vill begära en ökning öppnar du ett support ärende.
+
+Se den fullständiga regionala tillgängligheten för funktioner här: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australien, centrala| ✔<sup>1</sup> | |
-|Australien, centrala 2| ✔<sup>1</sup> | |
-|Australien, östra| ✔ | ✔<sup>1</sup> |
-|Australien, sydöstra | ✔ | ✔<sup>1</sup> |
-|Brasilien, södra| ✔<sup>2</sup> | ✔<sup>1</sup> |
-|Kanada, centrala| ✔ | ✔<sup>1</sup> |
-|USA, centrala| ✔ | ✔<sup>1</sup> |
-|Asien, östra| ✔ | ✔<sup>1</sup> |
-|USA, östra | ✔ | ✔<sup>1</sup> |
-|USA, östra 2| ✔ | ✔<sup>1</sup> |
-|Frankrike, centrala| ✔ | ✔<sup>1</sup> |
-|Tyskland, västra centrala| ✔ | |
-|Japan, östra| ✔ | ✔<sup>1</sup> |
-|Japan, västra| ✔ | ✔<sup>1</sup> |
-|Sydkorea, centrala| ✔ | ✔<sup>1</sup> |
-|USA, norra centrala| ✔ | ✔<sup>1</sup> |
-|Europa, norra| ✔ | ✔<sup>1</sup> |
-|Östra Norge| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|USA, södra centrala| ✔ | ✔<sup>1</sup> |
-|Indien, södra | ✔ | |
-|Sydostasien| ✔ | ✔<sup>1</sup> |
-|Storbritannien, södra| ✔ | ✔<sup>1</sup> |
-|Storbritannien, västra| ✔ | ✔<sup>1</sup> |
-|Europa, västra| ✔ | ✔<sup>1</sup> |
-|Indien, västra| ✔ | ✔<sup>1</sup> |
-|USA, västra centrala| ✔<sup>1</sup> | ✔<sup>1</sup> |
-|USA, västra| ✔ | ✔<sup>1</sup> |
-|USA, västra 2| ✔ | ✔<sup>1</sup> |
-
-<sup>1</sup> Högsta skala begränsad till 20 instanser.  
-<sup>2</sup> Högsta skala begränsad till 60 instanser.
-
+|Australien, centrala| 20 | Inte tillgänglig |
+|Australien, centrala 2| 20 | Inte tillgänglig |
+|Australien, östra| 100 | 20 |
+|Australien, sydöstra | 100 | 20 |
+|Brasilien, södra| 60 | 20 |
+|Kanada, centrala| 100 | 20 |
+|USA, centrala| 100 | 20 |
+|Asien, östra| 100 | 20 |
+|USA, östra | 100 | 20 |
+|USA, östra 2| 100 | 20 |
+|Frankrike, centrala| 100 | 20 |
+|Tyskland, västra centrala| 100 | Inte tillgänglig |
+|Japan, östra| 100 | 20 |
+|Japan, västra| 100 | 20 |
+|Sydkorea, centrala| 100 | 20 |
+|USA, norra centrala| 100 | 20 |
+|Europa, norra| 100 | 20 |
+|Östra Norge| 20 | 20 |
+|USA, södra centrala| 100 | 20 |
+|Indien, södra | 100 | Inte tillgänglig |
+|Sydostasien| 100 | 20 |
+|Storbritannien, södra| 100 | 20 |
+|Storbritannien, västra| 100 | 20 |
+|Europa, västra| 100 | 20 |
+|Indien, västra| 100 | 20 |
+|USA, västra centrala| 20 | 20 |
+|USA, västra| 100 | 20 |
+|USA, västra 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Nästa steg
 

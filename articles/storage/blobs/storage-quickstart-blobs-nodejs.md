@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b53896896ecd4b0e577e8d2c5ec13e00ce6fab30
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e68e91d90846ab77b994b53be7a84a9dd8bc5a25
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191936"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241040"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script V12 SDK i Node. js
 
@@ -118,7 +118,7 @@ Azure Blob Storage är optimerat för att lagra enorma mängder ostrukturerade d
 
 Följande diagram visar relationen mellan de här resurserna.
 
-![Diagram över blobblagringens arkitektur](./media/storage-blob-introduction/blob1.png)
+![Diagram över blobblagringens arkitektur](./media/storage-blobs-introduction/blob1.png)
 
 Använd följande JavaScript-klasser för att interagera med dessa resurser:
 

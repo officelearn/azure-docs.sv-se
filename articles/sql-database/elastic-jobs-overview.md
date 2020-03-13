@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 633c3ffc8e266087c88116a15c43469727a9a50d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133652"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214483"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
 
@@ -35,7 +35,7 @@ Om du inte har använt elastiska jobb kan du [läsa mer om jobb automatiserings 
 
 1. Skapa en autentiseringsuppgift för jobb körning i *jobb databasen* med hjälp av [PowerShell](elastic-jobs-powershell.md) eller [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
 2. Definiera mål gruppen (databaserna som du vill köra jobbet mot) med hjälp av [PowerShell](elastic-jobs-powershell.md) eller [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Skapa autentiseringsuppgifter för en jobbagent i varje databas som jobbet ska köras mot [(lägg till användaren (eller rollen) till varje databas i gruppen)](sql-database-control-access.md). Exempel finns i [PowerShell-självstudien](elastic-jobs-powershell.md).
+3. Skapa autentiseringsuppgifter för en jobbagent i varje databas som jobbet ska köras mot [(lägg till användaren (eller rollen) till varje databas i gruppen)](sql-database-manage-logins.md). Exempel finns i [PowerShell-självstudien](elastic-jobs-powershell.md).
 4. Skapa ett jobb med hjälp av [PowerShell](elastic-jobs-powershell.md) eller [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Lägg till jobbsteg med [PowerShell](elastic-jobs-powershell.md) eller [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 6. Kör ett jobb med [PowerShell](elastic-jobs-powershell.md#run-the-job) eller [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).

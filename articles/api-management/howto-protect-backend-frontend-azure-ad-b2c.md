@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: fde48d63bd343fbed1f82e60819131ffb043a795
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ae776fc3fb1f9eb4b7fa9747f2769dcccb25e042
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967639"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136354"
 ---
 # <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Skydda SPA-backend med OAuth 2,0, Azure Active Directory B2C och Azure API Management
 
@@ -250,7 +250,7 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
 
    > [!NOTE]
    > Följande avsnitt är valfritt och gäller inte för **förbruknings** nivån, som inte stöder Developer-portalen.
-   > Om du inte tänker använda Developer-portalen eller inte kan använda den eftersom du använder förbruknings nivån kan du hoppa över det här steget och gå direkt till ["skapa Java Script Spa för att använda API: et"](##build-the-javascript-spa-to-consume-the-api).
+   > Om du inte tänker använda Developer-portalen eller inte kan använda den eftersom du använder förbruknings nivån kan du hoppa över det här steget och gå direkt till ["skapa Java Script Spa för att använda API: et"](#build-the-javascript-spa-to-consume-the-api).
 
 ## <a name="optional-configure-the-developer-portal"></a>Valfritt Konfigurera Developer-portalen
 

@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 8e29061becd9eb82dd04f3ed0db787542b29cbc7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: c087814d74032bfc39310690cb31e258fdb1e41e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363866"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247935"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -190,7 +190,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 | VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. |Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM-agenten](#vm-agent). |
 | **Felkod**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverkskommunikation. | <ol><li> Öppna Registereditorn genom att köra **regedit. exe** i förhöjd läge. <li> Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft**. <li> Lägg till följande nyckel för varje .NET Framework som finns i register nyckeln: <br> **SchUseStrongCrypto "= DWORD: 00000001**. </ol>|
 | **Felkod**: ExtensionVCRedistInstallationFailure <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det C++ inte gick att installera Visual redistributable för Visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.  |
-
+| **Felkod**: UserErrorRequestDisallowedByPolicy <BR> **Fel meddelande**: en ogiltig princip har kon figurer ATS på den virtuella datorn som förhindrar ögonblicks bild åtgärden. | Om du har en Azure Policy som [styr Taggar i din miljö](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)kan du antingen överväga att ändra principen från en [neka](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) -förändring till en [ändrings funktion](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)eller skapa resurs gruppen manuellt enligt det [namngivnings schema som krävs av Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 ## <a name="jobs"></a>Jobb
 
 | Felinformation | Lösning |

@@ -80,6 +80,8 @@
           items:
             - name: Begränsa åtkomst med virtuellt nätverk (förhandsversion)
               href: container-registry-vnet.md
+            - name: Integrera med Azure Private Link (förhandsversion)
+              href: container-registry-private-link.md
             - name: Åtkomst bakom en brandvägg
               href: container-registry-firewall-access-rules.md
             - name: Autentisering
@@ -102,8 +104,10 @@
               href: container-registry-repository-scoped-permissions.md
             - name: Förtroende för innehåll
               href: container-registry-content-trust.md
-            - name: Avbildningsgenomsökning med Security Center (förhandsversion)
+            - name: Avbildningsgenomsökning med Security Center
               href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+            - name: Kryptera registerdata (förhandsversion)
+              href: container-registry-customer-managed-keys.md
         - name: Register och andra Azure-tjänster
           expanded: false
           items:

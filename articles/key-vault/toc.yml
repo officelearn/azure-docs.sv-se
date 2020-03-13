@@ -125,6 +125,8 @@
       href: event-grid-tutorial.md
     - name: Ta emot meddelanden via Event Grid och Logic Apps
       href: event-grid-logicapps.md
+    - name: Rotera hemligheter för resurser med en användare
+      href: tutorial-rotation.md
     - name: Integrera med Azure Policy
       href: azure-policy.md
     - name: Integrera med Azure Private Link Service (förhandsversion)

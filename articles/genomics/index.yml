@@ -1,27 +1,37 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Microsoft Genomics
+summary: Upptäck hur Microsoft Genomics kan användas för genomsekvensering med hjälp av en molnimplementering av BWA (Burrows-Wheeler Aligner) och GATK (Genome Analysis Toolkit) för sekundär analys.
 metadata:
   title: Dokumentation om Microsoft Genomics
-  meta.description: Learn how Microsoft Genomics can power genome sequencing using a cloud implementation of the Burrows-Wheeler Aligner (BWA) and the Genome Analysis Toolkit (GATK) for secondary analysis.
+  description: Upptäck hur Microsoft Genomics kan användas för genomsekvensering med hjälp av en molnimplementering av BWA (Burrows-Wheeler Aligner) och GATK (Genome Analysis Toolkit) för sekundär analys.
   services: genomics
-  author: grhuynh
-  manager: cgronlun
-  ms.author: grhuynh
   ms.service: genomics
   ms.topic: landing-page
-  ms.date: 12/07/2017
-abstract:
-  description: Upptäck hur Microsoft Genomics kan användas för genomsekvensering med hjälp av en molnimplementering av BWA (Burrows-Wheeler Aligner) och GATK (Genome Analysis Toolkit) för sekundär analys.
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Skicka ett arbetsflöde genom Microsoft Genomics-tjänsten.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/helix-blue-orange.svg
-            text: Skicka ett arbetsflöde
-            href: quickstart-run-genomics-workflow-portal
+  author: grhuynh
+  ms.author: grhuynh
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 36b5898aca2f019351aaeda8438fb6771a09b6c4
+  ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/12/2020
+  ms.locfileid: "79137049"
+landingContent:
+- title: Kom igång
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Microsoft Genomics?
+      url: overview-what-is-genomics.md
+    - text: Vanliga frågor
+      url: frequently-asked-questions-genomics.md
+  - linkListType: quickstart
+    links:
+    - text: Kör ett exempelarbetsflöde
+      url: quickstart-run-genomics-workflow-portal.md
+  - linkListType: how-to-guide
+    links:
+    - text: Använda FASTQ-fil som indata
+      url: quickstart-input-pair-fastq.md
+    - text: Använda BAM-fil som indata
+      url: quickstart-input-bam.md

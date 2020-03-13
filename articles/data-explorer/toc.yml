@@ -154,6 +154,8 @@
           href: sisense.md
         - name: Redash
           href: redash.md
+        - name: Kibana (K2Bridge-anslutningsprogram)
+          href: k2bridge.md
     - name: Skydda
       items:
         - name: Hantera klustersäkerhet

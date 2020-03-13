@@ -4,7 +4,11 @@
   items:
     - name: Om Azure Bastion
       href: bastion-overview.md
-- name: Instruktionsguider
+- name: Snabbstarter
+  items:
+    - name: Skapa en Bastion-värd från VM-inställningar
+      href: quickstart-host-portal.md
+- name: Anvisningar
   items:
     - name: Skapa en Bastion-värd
       items:

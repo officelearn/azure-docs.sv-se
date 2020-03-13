@@ -97,6 +97,8 @@
       href: concepts-security.md
     - name: Tjänst
       href: concepts-service.md
+    - name: Förstå IP-adresser för DPS
+      href: iot-dps-understand-ip-address.md
     - name: TPM-attestering
       href: concepts-tpm-attestation.md
     - name: Symmetrisk nyckelattestering
@@ -127,6 +129,8 @@
           href: how-to-manage-dps-with-cli.md
         - name: 'Kontrollera åtkomst till Provisioning Service-API:er'
           href: how-to-control-access.md
+        - name: Konfigurera IP-filtrering
+          href: iot-dps-ip-filtering.md
     - name: Etablera IoT Edge-enheter
       items:
         - name: Linux

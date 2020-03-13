@@ -161,6 +161,9 @@
         - name: Galleridata
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
+        - name: Ladda ned anteckningsböcker
+          displayName: export
+          href: download-notebooks-data.md
 - name: Referens
   items:
     - name: Algoritm- och modulreferens

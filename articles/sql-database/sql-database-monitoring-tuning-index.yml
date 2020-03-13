@@ -10,13 +10,13 @@ metadata:
   ms.collection: performance
   author: CarlRabeler
   ms.author: carlrab
-  ms.date: 01/25/2020
-  ms.openlocfilehash: 9ef3980b61f60deaa929c932cecc093a82025cbd
-  ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+  ms.date: 03/10/2020
+  ms.openlocfilehash: 43f74ea126ab7e028b39a86e2eb1edad4cae41a2
+  ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/26/2020
-  ms.locfileid: "76756631"
+  ms.lasthandoff: 03/13/2020
+  ms.locfileid: "79208897"
 landingContent:
 - title: Om övervakning och prestandajustering
   linkLists:
@@ -28,14 +28,20 @@ landingContent:
     links:
     - text: Spelbok för övervakning av Microsoft Azure Database
       url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
-- title: Samla in mått och loggar
+- title: Intelligenta prestandarekommendationer
   linkLists:
   - linkListType: concept
     links:
-    - text: Mått- och diagnostikloggning
-      url: sql-database-metrics-diag-logging.md
-    - text: Förstå prestandadiagnostikloggen
-      url: sql-database-intelligent-insights-use-diagnostics-log.md
+    - text: Rekommendationer för SQL Database Advisor-justering
+      url: sql-database-advisor.md
+    - text: Automatisk inställning
+      url: sql-database-automatic-tuning.md
+    - text: Query Performance Insight
+      url: sql-database-query-performance.md
+  - linkListType: video
+    links:
+    - text: Automatisk inställning
+      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 - title: Resursbegränsningar
   linkLists:
   - linkListType: concept
@@ -52,50 +58,46 @@ landingContent:
       url: sql-database-managed-instance-resource-limits.md
     - text: Resursbegränsningar för pooler med hanterade instanser
       url: sql-database-instance-pools.md#instance-pools-resource-limitations
-- title: Komma igång – Azure-portalen
+- title: Intelligent prestandaanalys
   linkLists:
   - linkListType: overview
     links:
-    - text: Övervaka och finjustera med AI
-      url: sql-database-performance.md
+    - text: Intelligent Insights med AI
+      url: sql-database-intelligent-insights.md
   - linkListType: concept
     links:
-    - text: Rekommendationer för SQL Database Advisor-justering
-      url: sql-database-advisor.md
-    - text: Query Performance Insight
-      url: sql-database-query-performance.md
+    - text: Mått- och diagnostikloggning
+      url: sql-database-metrics-diag-logging.md
+    - text: Förstå prestandadiagnostikloggen
+      url: sql-database-intelligent-insights-use-diagnostics-log.md
     - text: Azure SQL-analys
       url: ../azure-monitor/insights/azure-sql.md
-    - text: Intelligent Insights
-      url: sql-database-intelligent-insights.md
     - text: Identifierbara prestandamönster
       url: sql-database-intelligent-insights-troubleshoot-performance.md
-    - text: Automatisk inställning
-      url: sql-database-automatic-tuning.md
+    - text: Intelligent frågebearbetning
+      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
   - linkListType: video
     links:
     - text: Intelligent Insights
       url: https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player
-    - text: Automatisk inställning
-      url: https://channel9.msdn.com/Shows/Azure-Friday/Improve-Azure-SQL-Database-Performance-with-Automatic-Tuning/player
 - title: Manuell prestandajustering
   linkLists:
   - linkListType: overview
     links:
-    - text: Vägledning för manuell prestandajustering
-      url: sql-database-performance-guidance.md
+    - text: Identifiera problem med frågeprestanda
+      url: sql-database-identify-query-performance-issues.md
   - linkListType: concept
     links:
+    - text: Övervaka DMV-användning
+      url: sql-database-monitoring-with-dmvs.md
+    - text: Program- och databasjustering
+      url: sql-database-performance-guidance.md
     - text: Använda Query Store
       url: https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store
-    - text: Använda DMV:er
-      url: sql-database-monitoring-with-dmvs.md
     - text: Använda utökade händelser
       url: sql-database-xevent-db-diff-from-svr.md
     - text: Prestandadiagnostik för hyperskala
       url: sql-database-hyperscale-performance-diagnostics.md
-    - text: Intelligent frågebearbetning
-      url: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing
 - title: Resursskalning
   linkLists:
   - linkListType: overview

@@ -392,14 +392,22 @@
       items:
         - name: Kopiera data med Kopiera aktivitet
           href: copy-activity-overview.md
+        - name: Övervaka kopieringsaktivitet
+          href: copy-activity-monitoring.md
         - name: Ta bort filer med hjälp av Ta bort aktivitet
           href: delete-activity.md
         - name: Kopiera data-verktyg
           href: copy-data-tool.md
         - name: Stöd för format och komprimering
           href: supported-file-formats-and-compression-codecs.md
-        - name: Prestanda- och justering
-          href: copy-activity-performance.md
+        - name: Kopiera aktivitetsprestanda
+          items:
+            - name: Vägledning om prestanda och skalbarhet
+              href: copy-activity-performance.md
+            - name: Felsöka prestanda
+              href: copy-activity-performance-troubleshooting.md
+            - name: Prestandafunktioner
+              href: copy-activity-performance-features.md
         - name: 'Bevara metadata och ACL:er'
           href: copy-activity-preserve-metadata.md
         - name: Schema- och typmappning
@@ -689,6 +697,8 @@
       href: frequently-asked-questions.md
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=data-factory'
+    - name: Blogg
+      href: 'https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#'
     - name: Ställ en fråga – MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
     - name: Ställ en fråga – Stack Overflow

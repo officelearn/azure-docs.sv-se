@@ -50,6 +50,8 @@
       href: named-entity-types.md
     - name: Stöd för språk och region
       href: language-support.md
+    - name: Offsets för text
+      href: concepts/text-offsets.md
 - name: Anvisningar
   items:
     - name: 'Anropa API:t för textanalys'

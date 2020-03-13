@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 6342e6a75c8397712e028874b4d727bf3d6f5ff4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 98326d23f5aca1264bc47168cc25b427c3db331d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087123"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135963"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
@@ -52,8 +52,8 @@ HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-
 | |Python 2,7|Python 3.5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|SAKNAS|
-|Livy|Standard är inställt på 2,7|SAKNAS|
+|Spark|Standard är inställt på 2,7|Ej tillämpligt|
+|Livy|Standard är inställt på 2,7|Ej tillämpligt|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt
@@ -74,12 +74,38 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
     Du kan söka i [paket indexet](https://pypi.python.org/pypi) efter den fullständiga listan med tillgängliga paket. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som gjorts tillgängliga via [Conda-falska](https://conda-forge.org/feedstocks/).
 
-    -   `seaborn` är det paket namn som du vill installera.
-    -   `-n py35new` ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
+    Använd kommandot nedan om du vill installera ett bibliotek med den senaste versionen:
+    
+    - Använd Conda-kanal:
 
-    ```bash
-    sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
-    ```
+        -   `seaborn` är det paket namn som du vill installera.
+        -   `-n py35new` ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
+        ```
+
+    - Eller Använd PyPi lagrings platsen, ändra `seaborn` och `py35new` motsvarande:
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        ```        
+
+    Använd kommandot nedan om du vill installera ett bibliotek med en angiven version:
+
+    - Använd Conda-kanal:
+
+        -   `numpy=1.16.1` är det paket namn och den version som du vill installera.
+        -   `-n py35new` ange namnet på den virtuella miljön som du nyss skapade. Se till att ändra namnet på motsvarande sätt baserat på hur du skapar den virtuella miljön.
+
+        ```bash
+        sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
+        ```
+
+    - Eller Använd PyPi lagrings platsen, ändra `numpy==1.16.1` och `py35new` motsvarande:
+
+        ```bash
+        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        ```
 
     Om du inte känner till namnet på den virtuella miljön kan du använda SSH till Head-noden i klustret och köra `/usr/bin/anaconda/bin/conda info -e` för att visa alla virtuella miljöer.
 

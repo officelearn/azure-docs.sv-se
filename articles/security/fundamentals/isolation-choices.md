@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
 ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756168"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280318"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 Med Azure kan du köra program och virtuella datorer (VM) på en delad fysisk infrastruktur. Ett av de viktigaste ekonomiska motivationen att köra program i en moln miljö är möjligheten att distribuera kostnaden för delade resurser mellan flera kunder. Den här övningen av flera innehavare förbättrar effektiviteten genom att Multiplexing-resurser delas mellan olika kunder med låga kostnader. Tyvärr introduceras risken för att dela fysiska servrar och andra infrastruktur resurser för att köra känsliga program och virtuella datorer som tillhör en godtycklig och potentiellt skadlig användare.
@@ -321,7 +321,7 @@ Azure-distributionen har flera lager av nätverks isolering. Följande diagram v
 
 [Undernät](../../virtual-network/virtual-networks-overview.md) erbjuder ett extra isolerings lager med i virtuellt nätverk baserat på IP-intervall. IP-adresser i det virtuella nätverket kan du dela upp ett virtuellt nätverk i flera undernät för organisation och säkerhet. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverks säkerhets gruppen (NSG: er)](../../virtual-network/virtual-networks-overview.md) för att tillåta eller neka nätverks trafik till en virtuell dator instans baserat på regler som kon figurer ATS i åtkomst kontrol listan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [alternativ för nätverks isolering för datorer i virtuella Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Detta omfattar det klassiska klient-och Server dels scenariot där datorer i ett visst Server dels nätverk eller under nätverk bara kan tillåta att vissa klienter eller andra datorer ansluter till en viss slut punkt baserat på en lista över tillåtna IP-adresser.
 

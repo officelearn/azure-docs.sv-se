@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ca3df9e68e1d7e82675a6765f0320d42599a63da
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d9cf78f3cc5399a9e974cd9b4f0b3f24c80dacce
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943646"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214128"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Azures säkerhets bas linje för Azure SQL Database
 
@@ -238,13 +238,12 @@ https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
 
 Dessutom kan du strömma Azure SQL Diagnostics-telemetri till Azure SQL-analys, en moln lösning som övervakar prestanda för Azure SQL-databaser, elastiska pooler och hanterade instanser i stor skala och över flera prenumerationer. Det kan hjälpa dig att samla in och visualisera Azure SQL Database prestanda mått och har inbyggd intelligens för fel sökning av prestanda.
 
-
 Konfigurera granskning för Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-auditing
 
 
-Samla in plattforms loggar och-mått med Azure Monitor:
+Samla in mått och resurs loggar med Azure Monitor:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 

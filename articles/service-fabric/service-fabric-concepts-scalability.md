@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378931"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282567"
 ---
 # <a name="scaling-in-service-fabric"></a>Skalning i Service Fabric
 Azure Service Fabric gör det enkelt att bygga skalbara program genom att hantera tjänsterna, partitionerna och replikerna på noderna i ett kluster. Att köra många arbets belastningar på samma maskin vara möjliggör maximal resursutnyttjande, men ger också flexibilitet när det gäller hur du väljer att skala dina arbets belastningar. Den här kanalen 9-videon beskriver hur du kan bygga skalbara mikrotjänster-program:

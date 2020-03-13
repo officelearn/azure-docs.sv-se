@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/10/2020
-ms.openlocfilehash: 52eb3bdb463389d075421661610b5ee94d14d77d
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3370c7ebb8e0253543e6b9cb6ce7614811fb5bd0
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037062"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140798"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -114,7 +114,10 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 }
 ```
 
-När pipelinen har skickats kan du förhandsgranska bilden i den högra panelen i modulen ![överförd bild](media/module/upload-image-in-python-script.png)
+När pipelinen har skickats kan du förhandsgranska bilden i den högra panelen i modulen
+
+[!div class="mx-imgBorder"]
+![Uppladdad – avbildning](media/module/upload-image-in-python-script.png)
 
 ## <a name="how-to-configure-execute-python-script"></a>Så här konfigurerar du kör Python-skript
 
@@ -132,7 +135,7 @@ När pipelinen har skickats kan du förhandsgranska bilden i den högra panelen 
 
     ![Köra python-indatamängds karta](media/module/python-module.png)
 
-4. Om du vill inkludera nya python-paket eller-kod lägger du till den zippade filen som innehåller de här anpassade resurserna i **skript paket**. Indata till **skript paket** måste vara en zippad fil som överförs till din arbets yta som en fil typs data uppsättning. 
+4. Om du vill inkludera nya python-paket eller-kod lägger du till den zippade filen som innehåller de här anpassade resurserna i **skript paket**. Indata till **skript paket** måste vara en zippad fil som överförs till din arbets yta som en fil typs data uppsättning. Du kan ladda upp data uppsättningen på sidan **data uppsättningar** till gång och du kan dra och släppa data uppsättnings modulen från listan **mina data uppsättningar** i den vänstra modulens träd design sida. 
 
     Alla filer som finns i det överförda zippade arkivet kan användas under pipeline-körningen. Om arkivet innehåller en katalog struktur bevaras strukturen, men du måste lägga en katalog med namnet **src** till sökvägen.
 

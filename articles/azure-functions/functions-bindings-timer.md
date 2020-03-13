@@ -8,11 +8,11 @@ ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
 ms.openlocfilehash: f4fdf25fa1403b8429e7ad7e7fc644d0355b1324
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373692"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277159"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -304,7 +304,7 @@ Eller skapa en app-inställning för din Function-app med namnet `WEBSITE_TIME_Z
 
 När du använder `WEBSITE_TIME_ZONE`justeras tiden för tid ändringar i den angivna tids zonen, t. ex. sommar tid. 
 
-## <a name="timespan"></a>Tidsintervall
+## <a name="timespan"></a>TimeSpan
 
  En `TimeSpan` kan bara användas för en Function-app som körs i en App Service-plan.
 

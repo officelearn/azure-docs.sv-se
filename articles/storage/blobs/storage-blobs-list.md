@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 02/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b51016b1b73b51cd1f1ec827f05fc9a93dd4cb38
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: eb62883859a3efeb1c05deb38d8a40fba76e9cdf
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650715"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137928"
 ---
 # <a name="list-blobs-with-net"></a>Lista blobbar med .NET
 
 När du listar blobbar från din kod kan du ange ett antal alternativ för att hantera hur resultat returneras från Azure Storage. Du kan ange antalet resultat som ska returneras i varje uppsättning resultat och sedan hämta de efterföljande uppsättningarna. Du kan ange ett prefix för att returnera blobbar vars namn börjar med den tecken eller strängen. Du kan också lista blobbar i en plan struktur eller hierarkiskt. En hierarkisk lista returnerar blobbar som om de var ordnade i mappar. 
 
-Den här artikeln visar hur du listar blobbar med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage/client).  
+Den här artikeln visar hur du listar blobbar med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## <a name="understand-blob-listing-options"></a>Förstå List alternativ för BLOB
 

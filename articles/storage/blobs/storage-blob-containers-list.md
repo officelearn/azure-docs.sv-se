@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4ac8fe2e5bf1c338fa67619a675225eb80256c3f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690998"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135912"
 ---
 # <a name="list-blob-containers-with-net"></a>Lista BLOB-behållare med .NET
 
-När du listar behållarna i ett Azure Storage konto från din kod kan du ange ett antal alternativ för att hantera hur resultaten returneras från Azure Storage. Den här artikeln visar hur du visar behållare med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage/client).  
+När du listar behållarna i ett Azure Storage konto från din kod kan du ange ett antal alternativ för att hantera hur resultaten returneras från Azure Storage. Den här artikeln visar hur du visar behållare med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
 
 ## <a name="understand-container-listing-options"></a>Förstå alternativ för behållar lista
 
@@ -98,7 +98,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Lista behållare](/rest/api/storageservices/list-containers2)
 [räkna upp BLOB-resurser](/rest/api/storageservices/enumerating-blob-resources)

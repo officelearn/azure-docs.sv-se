@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544274"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138543"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
@@ -103,7 +103,8 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
 
 
 >[!IMPORTANT] 
-> IsMemberOf-filtret stöds inte för närvarande.
+> - IsMemberOf-filtret stöds inte för närvarande.
+> - LIKA med och inte lika med stöds inte för attribut med flera värden
 
 9. Du kan också upprepa steg 7-8 om du vill lägga till fler omfångs satser.
 

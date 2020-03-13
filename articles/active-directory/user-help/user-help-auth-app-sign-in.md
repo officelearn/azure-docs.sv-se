@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78297857"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138951"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Logga in på dina konton med Microsoft Authenticator-appen
 
@@ -112,7 +112,7 @@ På en iOS-enhet:
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Logga in med tvåstegsverifiering för ditt konto
 
-Du måste ange ditt användar namn och lösen ord i den enhet som du loggar in på och sedan välja om den Microsoft Authenticator appen tar emot Microsoft Authenticator-appen. På en Android-enhet hittar du dessa verifierings koder på skärmen konton. På en iOS-enhet hittar du dessa verifierings koder på skärmen **konton** eller i hel skärms läge för ett konto, beroende på typ av konto. Du aktiverar tvåstegsverifiering för ditt konto som en del av processen för att lägga till kontot i Microsoft Authenticator-appen.
+Med den vanliga autentiseringsmetoden med två faktorer måste du ange ditt användar namn och lösen ord i den enhet som du loggar in på. Sedan öppnar du Microsoft Authenticator-appen och skriver den slumpmässigt genererade koden för ditt konto i rutan **Ange kod** . På en Android-enhet hittar du dessa verifierings koder på skärmen **konton** . På en iOS-enhet hittar du dessa verifierings koder på skärmen **konton** eller i hel skärms läge för ett konto, beroende på typ av konto. Du aktiverar tvåstegsverifiering för ditt konto som en del av processen för att lägga till kontot i Microsoft Authenticator-appen.
 
 >[!Note]
 >Om du inte ser ditt arbets-eller skol konto eller ditt personliga konto på skärmen **konton** i Microsoft Authenticator-appen, innebär det att du inte har lagt till kontot i Microsoft Authenticator-appen. Information om hur du lägger till ditt konto finns i [Lägg till ditt arbets-eller skol konto](user-help-auth-app-add-work-school-account.md) eller [Lägg till dina personliga konton](user-help-auth-app-add-personal-ms-account.md).

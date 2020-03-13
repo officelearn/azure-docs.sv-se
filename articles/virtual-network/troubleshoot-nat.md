@@ -1,6 +1,6 @@
 ---
-title: Felsök problem med Azure Virtual Network NAT-anslutning
-titleSuffix: Azure Virtual Network NAT troubleshooting
+title: Felsöka Azure Virtual Network NAT-anslutning
+titleSuffix: Azure Virtual Network
 description: Felsök problem med Virtual Network NAT.
 services: virtual-network
 documentationcenter: na
@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: c629b3425cd095a6ac9d305b5cd6de58ed9d572a
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 43e6853fd5e7583883f79e70c8dbcd558f137834
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78674319"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79202169"
 ---
-# <a name="troubleshoot-azure-virtual-network-nat-connectivity-problems"></a>Felsök problem med Azure Virtual Network NAT-anslutning
+# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Felsöka Azure Virtual Network NAT-anslutning
 
 Den här artikeln hjälper administratörer att diagnostisera och lösa anslutnings problem när de använder Virtual Network NAT.
-
->[!NOTE] 
->Virtual Network NAT är tillgängligt som offentlig för hands version för tillfället. För närvarande är det bara tillgängligt i en begränsad uppsättning [regioner](nat-overview.md#region-availability). Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="problems"></a>Problem
 
@@ -54,7 +51,7 @@ Ofta är rotor saken av SNAT-belastning ett antimönster för hur utgående ansl
 
 #### <a name="design-patterns"></a>Designmönster
 
-Dra alltid nytta av anslutnings åter användning och anslutningspoolen närhelst det är möjligt.  Dessa mönster undviker problem med resurs överbelastningen och ger ett förutsägbart, tillförlitligt och skalbart beteende. Primitiver för dessa mönster finns i många utvecklings bibliotek och ramverk.
+Dra alltid nytta av anslutnings åter användning och anslutningspoolen närhelst det är möjligt.  De här mönstren kommer att undvika problem med resurs överbelastning och resultera i förutsägbara beteenden. Primitiver för dessa mönster finns i många utvecklings bibliotek och ramverk.
 
 _**Lösning:**_ Använd lämpliga mönster
 
@@ -110,7 +107,7 @@ Granska avsnittet om [SNAT-inblåsning](#snat-exhaustion) i den här artikeln.
 
 #### <a name="azure-infrastructure"></a>Azure-infrastruktur
 
-Även om Azure övervakar och arbetar med sin infrastruktur med fantastiska försiktighet kan det uppstå tillfälliga fel eftersom det inte finns någon garanti för att överföringen är förlustfri.  Använd design mönster som tillåter SYN återöverföringar för TCP-program. Använd anslutnings-timeout tillräckligt stor för att tillåta TCP-dataöverföring för att minska den tillfälliga påverkan som orsakas av ett förlorat SYN-paket.
+Azure övervakar och arbetar med sin infrastruktur med gott om service. Tillfälliga fel kan uppstå, det finns ingen garanti för att överföringen är förlustfri.  Använd design mönster som tillåter SYN återöverföringar för TCP-program. Använd anslutnings-timeout tillräckligt stor för att tillåta TCP-dataöverföring för att minska den tillfälliga påverkan som orsakas av ett förlorat SYN-paket.
 
 _**Lösa**_
 
@@ -122,20 +119,20 @@ Vi rekommenderar inte artificiellt minska TCP-anslutningens tids gräns eller ju
 
 #### <a name="public-internet-transit"></a>offentlig Internet överföring
 
-Sannolikheten för tillfälliga haverier ökar med en längre sökväg till målet och fler mellanliggande system. Det förväntas att tillfälliga problem kan öka i frekvens över [Azure-infrastrukturen](#azure-infrastructure). 
+Risken för tillfälliga haverier ökar med en längre sökväg till målet och fler mellanliggande system. Det förväntas att tillfälliga haverier kan öka i frekvens över [Azure-infrastrukturen](#azure-infrastructure). 
 
 Följ samma rikt linjer som i avsnittet föregående [Azure-infrastruktur](#azure-infrastructure) .
 
 #### <a name="internet-endpoint"></a>Internet slut punkt
 
-Föregående avsnitt gäller utöver de överväganden som rör Internet slut punkten som din kommunikation upprättas med. Andra faktorer som kan påverka anslutningen lyckas är:
+Föregående avsnitt gäller, tillsammans med Internet slut punkten som kommunikationen upprättas med. Andra faktorer som kan påverka anslutningen lyckas är:
 
 * trafik hantering på mål sidan, inklusive
 - API-hastighet som begränsas av mål Sidan
 - DDoS-åtgärder för volym begränsning eller transport skikt
 * brand vägg eller andra komponenter på målet 
 
-Normalt är paket insamlingarna på källan samt destination (om de är tillgängliga) för att fastställa vad som sker.
+Paket som samlas in på källan och målet (om det är tillgängligt) måste vanligt vis ta reda på vad som sker.
 
 _**Lösa**_
 
@@ -147,9 +144,11 @@ _**Lösa**_
 
 #### <a name="tcp-resets-received"></a>Mottagna TCP-reuppsättningar
 
-Om du söker efter TCP-återställningar (TCP-paket) som tagits emot på den virtuella käll datorn kan de genereras av NAT-gatewayen på den privata sidan för flöden som inte är identifierade som pågående.  En möjlig orsak är att TCP-anslutningen har nått tids gränsen för inaktivitet.  Du kan justera tids gränsen för inaktivitet från 4 minuter till upp till 120 minuter.
+NAT-gatewayen genererar TCP-återställning på den virtuella käll datorn för trafik som inte är identifierad som pågående.
 
-TCP-återställning genereras inte på den offentliga sidan av NAT-gatewayens resurser. Om du får TCP-återställningar på mål sidan, genereras de av den virtuella käll datorns stack och inte NAT-gateway-resursen.
+En möjlig orsak är att TCP-anslutningen har nått tids gränsen för inaktivitet.  Du kan justera tids gränsen för inaktivitet från 4 minuter till upp till 120 minuter.
+
+TCP-återställning genereras inte på den offentliga sidan av NAT-gatewayens resurser. TCP-återställning på mål sidan genereras av den virtuella käll datorn, inte NAT-gateway-resursen.
 
 _**Lösa**_
 
@@ -158,7 +157,7 @@ _**Lösa**_
 
 ### <a name="ipv6-coexistence"></a>IPv6-samexistens
 
-[Virtual Network NAT](nat-overview.md) stöder IPv4 UDP-och TCP-protokoll och distribution i ett [undernät med IPv6-prefix stöds inte](nat-overview.md#limitations).
+[Virtual Network NAT](nat-overview.md) stöder IPv4 UDP-och TCP-protokoll och distribution på ett [undernät med ett IPv6-prefix stöds inte](nat-overview.md#limitations).
 
 _**Lösning:**_ Distribuera NAT-gateway i ett undernät utan IPv6-prefix.
 

@@ -3,12 +3,12 @@ title: Hantera Azure Recovery Services-valv och-servrar
 description: I den här artikeln lär du dig hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b57d6eff5f5dfa2163962a47eee079d7e26257b5
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586452"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136964"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -49,7 +49,7 @@ Kraven för den här artikeln är: en Azure-prenumeration, ett Recovery Services
 I avsnittet övervakning visas resultaten av fördefinierade **säkerhets aviseringar** och **säkerhets kopierings jobb** frågor. Övervaknings panelerna innehåller uppdaterad information om:
 
 * Kritiska och varnings aviseringar för säkerhets kopierings jobb (under de senaste 24 timmarna)
-* Status före kontroll för virtuella Azure-datorer – fullständig information om för hands kontrollen finns i [säkerhets kopierings bloggen på status för säkerhets kopierings kontroll](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/).
+* Status före kontroll för virtuella Azure-datorer. Fullständig information om för kontroll status finns i [säkerhets kopierings kontrollens status](#backup-pre-check-status).
 * De säkerhets kopierings jobb som pågår och jobb som har misslyckats (under de senaste 24 timmarna).
 
 Användnings panelerna tillhandahåller:
@@ -62,6 +62,22 @@ Klicka på panelerna (förutom lagring av säkerhets kopior) för att öppna den
 ![Menyn säkerhetskopiera aviseringar filtrerade för kritiska varningar](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
 Menyn för säkerhets kopierings aviseringar i bilden ovan filtreras efter: status är aktiv, allvarlighets grad är kritisk och tiden är de föregående 24 timmarna.
+
+### <a name="backup-pre-check-status"></a>Status för säkerhets kopierings kontroll
+
+Säkerhets kopierings kontroller kontrol lera den virtuella datorns konfiguration för problem som kan påverka säkerhets kopieringar. De sammanställer den här informationen så att du kan visa den direkt från instrument panelen för Recovery Services valv och ge rekommendationer för korrigerande åtgärder för att säkerställa en lyckad filkonsekvent eller programkonsekvent säkerhets kopiering. De behöver ingen infrastruktur och har ingen ytterligare kostnad.  
+
+Säkerhetskopiera innan kontroller körs som en del av de schemalagda säkerhets kopierings åtgärderna för dina virtuella Azure-datorer. De ingår i något av följande tillstånd:
+
+* **Överfört**: det här läget anger att konfigurationen av den virtuella datorn ska leda till lyckade säkerhets kopieringar och att ingen korrigerings åtgärd behöver vidtas.
+* **Varning**! det här läget anger ett eller flera problem i den virtuella datorns konfiguration som *kan* leda till säkerhets kopierings fel. Det innehåller *rekommenderade* steg för att säkerställa att säkerhets kopieringen har slutförts. Om du till exempel inte har installerat den senaste virtuella dator agenten kan säkerhets kopieringen sluta fungera. Den här situationen skulle ge ett varnings tillstånd.
+* **Kritiskt**: det här läget anger ett eller flera kritiska problem i den virtuella datorns *konfiguration som leder* till säkerhets kopierings fel och som innehåller de steg som *krävs* för att säkerställa att säkerhets kopieringen är klar. Ett nätverks problem som orsakas av en uppdatering av NSG-reglerna för en virtuell dator innebär till exempel att säkerhets kopieringen Miss lyckas eftersom den förhindrar att den virtuella datorn kommunicerar med Azure Backup tjänsten. Den här situationen skulle ge ett kritiskt tillstånd.
+
+Följ stegen nedan för att börja lösa eventuella problem som rapporter ATS av säkerhets kopierings kontroller för säkerhets kopior av virtuella datorer på Recovery Services valvet.
+
+* Välj panelen för att **kontrol lera status för säkerhets kopiering (virtuella Azure-datorer)** på instrument panelen i Recovery Services Vault.
+* Välj en virtuell dator med en säkerhets kopierings status, antingen **kritisk** eller **Varning**. Den här åtgärden öppnar fönstret **information om virtuell dator** .
+* Välj meddelande fönstret överst i fönstret för att visa beskrivningen av konfigurations problemet och stegen.
 
 ## <a name="manage-backup-alerts"></a>Hantera säkerhets kopierings aviseringar
 
@@ -217,7 +233,7 @@ Du kan visa en åtgärd eller alla åtgärder. Det går inte att välja två ell
 * Alla åtgärder
 * Registrera dig
 * Konfigurera säkerhetskopiering
-* Backup
+* Säkerhetskopiering
 * Återställ
 * Inaktivera säkerhets kopiering
 * Ta bort säkerhetskopieringsdata
@@ -272,4 +288,3 @@ Panelen lagring av säkerhets kopior på instrument panelen visar förbrukad lag
 
 * [Återställa Windows Server eller Windows-klient från Azure](backup-azure-restore-windows-server.md)
 * Mer information om Azure Backup finns i [Azure Backup översikt](backup-introduction-to-azure-backup.md)
-

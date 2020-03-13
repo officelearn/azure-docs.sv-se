@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e83ecb3888ed4b19933233f3ab511d1e86fb37af
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721582"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136998"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med Sök resultat i Azure Kognitiv sökning
 Den här artikeln innehåller vägledning om hur du implementerar standard element på en Sök resultat sida, till exempel totala antal, dokument hämtning, sorterings ordning och navigering. Sid-relaterade alternativ som bidrar med data eller information till dina Sök Resultat anges genom [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) begär Anden som skickas till din Azure kognitiv sökning-tjänst. 
@@ -25,7 +25,7 @@ Om du snabbt vill skapa en Sök sida för din klient kan du utforska följande a
 + Använd [Application Generator](search-create-app-portal.md) i portalen för att skapa en HTML-sida med ett sökfält, en fasett med en navigering och ett resultat område.
 + Skapa en fungerande klient genom att följa anvisningarna för att [skapa din första app i C# ](tutorial-csharp-create-first-app.md) självstudien.
 
-Flera kod exempel innehåller ett klient dels gränssnitt som du hittar här: [New York-jobb demonstrations app](https://azjobsdemo.azurewebsites.net/), [JavaScript-exempel kod med en Live Demo webbplats](https://github.com/liamca/azure-search-javascript-samples)och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Flera kod exempel innehåller ett klient dels gränssnitt som du hittar här: [New York-jobb demonstrations app](https://aka.ms/azjobsdemo), [JavaScript-exempel kod med en Live Demo webbplats](https://github.com/liamca/azure-search-javascript-samples)och [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > En giltig begäran innehåller ett antal element, till exempel en tjänst-URL och sökväg, HTTP-verb, `api-version`och så vidare. För det kortfattat trimmade vi exemplen för att markera bara den syntax som är relevant för sid brytning. Mer information om syntax för begäran finns i [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice).

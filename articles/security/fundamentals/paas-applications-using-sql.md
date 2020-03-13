@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: f7d993799fed637fbec55afc8f06d90c8fc6910f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b0a4627d377f5fa9ca997d1cc96bc38b0a6c37f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726785"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217226"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Metod tips för att skydda PaaS-databaser i Azure
 
@@ -48,7 +48,7 @@ Azure SQL-databaser kan konfigureras för att använda en av två typer av auten
 - Använder inneslutna databas användare för att autentisera identiteter på databas nivå.
 - Stöder tokenbaserad autentisering för program som ansluter till SQL Database.
 - Stöder domän federation med Active Directory Federation Services (AD FS) (ADFS) eller autentisering med intern användare/lösenordsautentisering för en lokal Azure AD utan domän-synkronisering.
-- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal Authentication, som innehåller [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). I MFA används stark autentisering via en rad enkla verifieringsalternativ – telefonsamtal, SMS, smarta kort med PIN-kod eller avisering i mobilappen. Mer information finns i [Universal Authentication with SQL Database och SQL Data Warehouse](../../sql-database/sql-database-ssms-mfa-authentication.md).
+- Stöder anslutningar från SQL Server Management Studio som använder Active Directory Universal Authentication, som inkluderar [Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/multi-factor-authentication). I MFA används stark autentisering via en rad enkla verifieringsalternativ – telefonsamtal, SMS, smarta kort med PIN-kod eller avisering i mobilappen. Mer information finns i [Universal Authentication with SQL Database och SQL Data Warehouse](../../sql-database/sql-database-ssms-mfa-authentication.md).
 
 Mer information om Azure AD-autentisering finns i:
 
@@ -68,7 +68,7 @@ SQL Database standard begränsningar för käll-IP-adress tillåter åtkomst fr�
 
 Mer information om Azure SQL-brandväggen och IP-begränsningar finns i:
 
-- [Azure SQL Database och SQL Data Warehouse åtkomst kontroll](../../sql-database/sql-database-control-access.md)
+- [Azure SQL Database och SQL Data Warehouse åtkomst kontroll](../../sql-database/sql-database-manage-logins.md)
 - [Azure SQL Database och SQL Data Warehouse brand Väggs regler](../../sql-database/sql-database-firewall-configure.md)
 
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ca4051e56f7d51ac7ac5fbe534cb8fc536d64a68
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b43169b59425e97b0aa614eb64a5c86c20179a8d
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368693"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136824"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Azure Maps Android SDK
 
@@ -273,7 +273,7 @@ En fullständig lista över språk som stöds och nationella vyer beskrivs [här
 Lär dig hur du lägger till överläggs data på kartan:
 
 > [!div class="nextstepaction"]
-> [Lägga till ett symbol lager i en Android-karta](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
+> [Lägga till ett symbol lager i en Android-karta](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Lägga till former i en Android-karta](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)

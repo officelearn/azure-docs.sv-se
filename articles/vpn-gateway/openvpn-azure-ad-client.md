@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: fc48b0ae9cf4162b4b9abba14c6e909ca091fd23
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3559a139ff89c949ee691310ae25af7d6950abdf
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251604"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138968"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar: Azure AD-autentisering
 
@@ -116,19 +116,19 @@ Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatisk
 
 1. På Start sidan för VPN-klienten väljer du **VPN-inställningar**.
 
-    ![Disk](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+    ![disk](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
 2. Välj **Ja** i dialog rutan Växla appar.
 
-    ![Disk](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+    ![disk](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
 3. Kontrol lera att den anslutning som du vill ange inte redan är ansluten, markera sedan profilen och markera kryss rutan **Anslut automatiskt** .
 
-    ![Disk](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+    ![disk](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
 4. Välj **Anslut** för att initiera VPN-anslutningen.
 
-    ![Disk](./media/openvpn-azure-ad-client/auto/auto4.jpg)
+    ![disk](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
 ## <a name="diagnose"></a>Diagnostisera anslutnings problem
 
@@ -184,6 +184,10 @@ Du kan ändra den hämtade profil-XML-filen och lägga till **\<dnsservers >\<dn
 </clientconfig>
 </azvpnprofile>
 ```
+
+> [!NOTE]
+> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all`. Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) i PowerShell.
+>
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade vägar i VPN-klienten?
 

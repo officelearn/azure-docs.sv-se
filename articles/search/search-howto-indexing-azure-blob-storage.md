@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 32912f0aef91bd4a7c831a82d1e83f00a1e0f131
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379564"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283113"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -256,8 +256,8 @@ De konfigurations parametrar som beskrivs ovan gäller för alla blobbar. Ibland
 
 | Egenskapsnamn | Egenskaps värde | Förklaring |
 | --- | --- | --- |
-| AzureSearch_Skip |”true” |Instruerar BLOB-indexeraren att helt hoppa över blobben. Varken metadata eller innehålls extrahering görs. Detta är användbart när en viss BLOB Miss lyckas upprepade gånger och avbryter indexerings processen. |
-| AzureSearch_SkipContent |”true” |Detta motsvarar `"dataToExtract" : "allMetadata"` inställningen som beskrivs [ovan](#PartsOfBlobToIndex) omfattas av en viss blob. |
+| AzureSearch_Skip |"true" |Instruerar BLOB-indexeraren att helt hoppa över blobben. Varken metadata eller innehålls extrahering görs. Detta är användbart när en viss BLOB Miss lyckas upprepade gånger och avbryter indexerings processen. |
+| AzureSearch_SkipContent |"true" |Detta motsvarar `"dataToExtract" : "allMetadata"` inställningen som beskrivs [ovan](#PartsOfBlobToIndex) omfattas av en viss blob. |
 
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>Hantera fel
@@ -289,16 +289,56 @@ Du kan också fortsätta att indexera om fel inträffar när som helst, antingen
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Identifiering och borttagning av stegvis indexering
+
 När du konfigurerar en BLOB-indexerare så att den körs enligt ett schema, indexerar den bara om de ändrade blobbar som fastställs av blobens `LastModified` tidsstämpel.
 
 > [!NOTE]
 > Du behöver inte ange en princip för ändrings identifiering – stegvis indexering aktive ras automatiskt.
 
-Använd en "mjuk borttagning"-metod för att stödja borttagning av dokument. Om du tar bort Blobbarna till höger tas inte motsvarande dokument bort från Sök indexet. Använd i stället följande steg:  
+Använd en "mjuk borttagning"-metod för att stödja borttagning av dokument. Om du tar bort Blobbarna till höger tas inte motsvarande dokument bort från Sök indexet.
 
-1. Lägg till en anpassad metadata-egenskap i blobben för att ange Azure-Kognitiv sökning att den tas bort logiskt
-2. Konfigurera en princip för att upptäcka en mjuk borttagning på data källan
-3. När indexeraren har bearbetat blobben (som visas i indexerings status-API: et) kan du ta bort blobben fysiskt
+Det finns två sätt att implementera metoden för mjuk borttagning. Båda beskrivs nedan.
+
+### <a name="native-blob-soft-delete-preview"></a>Intern BLOB-mjuk borttagning (förhands granskning)
+
+> [!IMPORTANT]
+> Stöd för intern BLOB-mjuk borttagning är i för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2019-05-06 – för hands version](https://docs.microsoft.com/azure/search/search-api-preview) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
+
+I den här metoden ska du använda den inbyggda funktionen för [mjuk borttagning av BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) som erbjuds av Azure Blob Storage. Om data källan har en inbyggd princip uppsättning för mjuk borttagning och indexeraren hittar en blob som har överförts till ett mjukt borttaget tillstånd, tar indexeraren bort dokumentet från indexet.
+
+Använd följande steg:
+1. Aktivera [inbyggd mjuk borttagning för Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Vi rekommenderar att du anger bevarande principen till ett värde som är mycket högre än schemats intervall schema. På det här sättet är det mycket tid för indexeraren att bearbeta de mjuka borttagna blobarna om det uppstår ett problem med att köra indexeraren eller om du har ett stort antal dokument att indexera. Azure Kognitiv sökning-indexerare tar bara bort ett dokument från indexet om det bearbetar blobben när det är i ett mjukt borttaget tillstånd.
+1. Konfigurera en intern identifierings princip för mjuk borttagning av BLOB på data källan. Ett exempel visas nedan. Eftersom den här funktionen är i för hands version måste du använda REST API för förhands granskning.
+1. Kör indexeraren eller Ställ in indexeraren så att den körs enligt ett schema. När indexeraren kör och bearbetar blobben tas dokumentet bort från indexet.
+
+    ```
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    {
+        "name" : "blob-datasource",
+        "type" : "azureblob",
+        "credentials" : { "connectionString" : "<your storage connection string>" },
+        "container" : { "name" : "my-container", "query" : null },
+        "dataDeletionDetectionPolicy" : {
+            "@odata.type" :"#Microsoft.Azure.Search.NativeBlobSoftDeleteDeletionDetectionPolicy"
+        }
+    }
+    ```
+
+#### <a name="reindexing-undeleted-blobs"></a>Omindexerade blobar som inte har raderats
+
+Om du tar bort en BLOB från Azure Blob Storage med inbyggd mjuk borttagning aktive rad på ditt lagrings konto, övergår bloben till ett mjukt borttaget tillstånd och ger dig möjlighet att ångra borttagningen av bloben inom kvarhållningsperioden. När en Azure Kognitiv sökning-datakälla har en inbyggd princip för mjuk borttagning av BLOB och indexeraren bearbetar en mjuk borttagen BLOB tas dokumentet bort från indexet. Om bloben senare tas bort, kommer indexeraren **inte** alltid att indexera om denna blob. Detta beror på att indexeraren bestämmer vilka blobbar som ska indexeras baserat på blobens `LastModified` tidsstämpel. När en mjuk borttagen BLOB tas bort `LastModified` tidsstämpeln inte uppdateras, så om indexeraren redan har bearbetat blobbar med `LastModified` tidsstämplar senare än den borttagna bloben indexeras inte den icke borttagna blobben. För att se till att en ångrad BLOB indexeras om, bör du spara om metadata för denna blob. Du behöver inte ändra metadata, men om du sparar om metadata uppdateras blobens `LastModified` tidstämpel så att indexeraren vet att den måste indexera om denna blob.
+
+### <a name="soft-delete-using-custom-metadata"></a>Mjuk borttagning med anpassade metadata
+
+I den här metoden ska du använda en anpassad metadata-egenskap för att ange när ett dokument ska tas bort från Sök indexet.
+
+Använd följande steg:
+
+1. Lägg till en anpassad metadata-egenskap i blobben för att indikera Azure-Kognitiv sökning att den tas bort logiskt.
+1. Konfigurera en princip för identifiering av mjuk borttagnings kolumner på data källan. Ett exempel visas nedan.
+1. När indexeraren har bearbetat blobben och tagit bort dokumentet från indexet kan du ta bort bloben för Azure Blob Storage.
 
 Följande princip anser till exempel att en BLOB tas bort om den har en egenskap för metadata som `IsDeleted` med värdet `true`:
 
@@ -310,13 +350,17 @@ Följande princip anser till exempel att en BLOB tas bort om den har en egenskap
         "name" : "blob-datasource",
         "type" : "azureblob",
         "credentials" : { "connectionString" : "<your storage connection string>" },
-        "container" : { "name" : "my-container", "query" : "my-folder" },
+        "container" : { "name" : "my-container", "query" : null },
         "dataDeletionDetectionPolicy" : {
             "@odata.type" :"#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",     
             "softDeleteColumnName" : "IsDeleted",
             "softDeleteMarkerValue" : "true"
         }
-    }   
+    }
+
+#### <a name="reindexing-undeleted-blobs"></a>Omindexerade blobar som inte har raderats
+
+Om du ställer in en princip för att ta bort en mjuk borttagnings kolumn på data källan lägger du till den anpassade metadata-egenskapen i en blob med värdet markör och kör sedan indexeraren, så tas dokumentet bort från indexet. Om du vill Omindexera dokumentet, ändrar du bara värdet för mjuk borttagning av metadata för den blobben och kör om indexeraren.
 
 ## <a name="indexing-large-datasets"></a>Indexera stora data uppsättningar
 

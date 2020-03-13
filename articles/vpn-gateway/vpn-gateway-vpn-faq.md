@@ -5,16 +5,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016756"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279889"
 ---
-# <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
+# <a name="vpn-gateway-faq"></a>Vanliga frågor och svar för VPN Gateway
 
 ## <a name="connecting"></a>Ansluta till virtuella nätverk
 
@@ -66,14 +66,14 @@ Principbaserade gateways implementerar principbaserade VPN:er. Principbaserade V
 
 ### <a name="what-is-a-route-based-dynamic-routing-gateway"></a>Vad är en routningsbaserad gateway (dynamisk routning)?
 
-Routningsbaserade gateways implementerar routningsbaserade VPN:er. Routningsbaserade VPN:er använder ”vägar” i IP-vidarebefordringen eller i routningstabellen för att dirigera paket till sina respektive tunnelgränssnitt. Tunnelgränssnitten krypterar eller dekrypterar sedan paketen in och ut från tunnlarna. Principen eller trafikväljaren för routningsbaserade VPN:er konfigureras som alla-till-alla (eller jokertecken).
+Routningsbaserade gateways implementerar routningsbaserade VPN:er. Ruttbaserade VPN:er använder "rutter" i IP-vidarebefordrings- eller routningstabeller för att dirigera paket till sina motsvarande tunnelgränssnitt. Tunnelgränssnitten krypterar eller dekrypterar sedan paketen in och ut från tunnlarna. Principen eller trafikväljaren för routningsbaserade VPN:er konfigureras som alla-till-alla (eller jokertecken).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Kan jag uppdatera min principbaserade VPN-gateway till routing-based?
 
 Nej. En Azure VNet Gateway-typ kan inte ändras från principbaserad till Route-baserad eller på annat sätt. Gatewayen måste tas bort och återskapas, en process som tar cirka 60 minuter. IP-adressen till gatewayen bevaras inte och inte heller den i förväg delade nyckeln (PSK).
 1. Ta bort alla anslutningar som är associerade med gatewayen som ska tas bort.
 1. Ta bort gatewayen:
-   - [Azure-portalen](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell-klassisk](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Skapa en ny Gateway av den typ som du vill ha och slutför VPN-installationen](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
@@ -168,6 +168,10 @@ Detta är ett förväntat beteende för principbaserade VPN-gatewayer (även kal
 Vi har stöd för Routning och fjärråtkomst (RRAS) i Windows Server 2012 för plats-till-plats-konfiguration mellan flera platser.
 
 Andra VPN-programlösningar bör fungera med vår gateway så länge de uppfyller branschens standardimplementeringar för IPsec. Kontakta leverantören av programvaran för konfigurations- och supportinstruktioner.
+
+## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>Hur gör jag för att ändra autentiseringstypen för mina punkt-till-plats-anslutningar?
+
+Du kan ändra autentiseringsmetoden för punkt-till-plats-anslutningar genom att gå till avsnittet **punkt-till-plats-konfiguration** under VPN gateway och markera önskad alternativ knapp. De aktuella alternativen är **Azure-certifikat, RADIUS-autentisering och Azure Active Directory**. Observera att aktuella klienter **kanske inte kan ansluta** efter ändringen tills den nya profilen har laddats ned och kon figurer ATS på klienten.
 
 ## <a name="P2S"></a>Punkt-till-plats använder ursprunglig Azure-certifikatautentisering
 

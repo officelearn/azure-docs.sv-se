@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 17ed10d424d606091bd2b7d6f3e325955c48a5a2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c66b521b5cd75825fcafe07b24d5d527c45f5153
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894206"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79135929"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Hantera behållar egenskaper och metadata med .NET
 
-BLOB-behållare stöder system egenskaper och användardefinierade metadata, förutom de data som de innehåller. Den här artikeln visar hur du hanterar system egenskaper och användardefinierade metadata med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage/client).
+BLOB-behållare stöder system egenskaper och användardefinierade metadata, förutom de data som de innehåller. Den här artikeln visar hur du hanterar system egenskaper och användardefinierade metadata med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-properties-and-metadata"></a>Om egenskaper och metadata
 
@@ -128,7 +128,7 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Hämta container egenskaper-åtgärd](/rest/api/storageservices/get-container-properties)
 - [Ange metadata åtgärd för container](/rest/api/storageservices/set-container-metadata)

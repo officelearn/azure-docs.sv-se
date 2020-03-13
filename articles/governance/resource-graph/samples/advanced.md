@@ -4,11 +4,11 @@ description: Använd Azure Resource Graph för att köra vissa avancerade frågo
 ms.date: 12/05/2019
 ms.topic: sample
 ms.openlocfilehash: 604b60482514dcc9249f25d30ebde00a5232fc96
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385215"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238407"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exempel på avancerade resurs diagram frågor
 

@@ -94,7 +94,7 @@
         - name: Åtkomstkontroll
           items:
             - name: Översikt
-              href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+              href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Säkerhet på kolumnnivå
               href: column-level-security.md
             - name: Säkerhet på radnivå

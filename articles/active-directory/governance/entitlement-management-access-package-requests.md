@@ -17,11 +17,11 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: addc7db2aa2f0f9ba16438d2a31d6c7cc6bfa49e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376583"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261923"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa begär Anden för ett Access-paket i hantering av Azure AD-rättigheter
 

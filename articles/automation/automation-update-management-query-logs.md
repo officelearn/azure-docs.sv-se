@@ -3,14 +3,14 @@ title: Fråga Azure Uppdateringshantering-loggar
 description: I den här artikeln beskrivs hur du frågar loggarna efter Uppdateringshantering i Log Analytics-arbetsytan.
 services: automation
 ms.subservice: update-management
-ms.date: 01/10/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5a1979b0e714f35694999c04e1f890b710d54ac9
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: f31168d47f31d8e740c95cb3d9e449f473cc78dc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867072"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216850"
 ---
 # <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Fråga efter uppdaterings poster för Uppdateringshantering i Azure Monitor loggar
 
@@ -39,11 +39,11 @@ En post med en typ av `RequiredUpdate` skapas som representerar uppdateringar so
 | TenantId | Unik identifierare som representerar organisations instansen av Azure Active Directory. | 
 | TimeGenerated | Datum och tid då posten skapades. | 
 | Typ | *Uppdatering* | 
-| UpdateClassification | Anger vilken typ av uppdateringar som kan tillämpas. För Windows:<br> *Kritiska uppdateringar*<br> *Säkerhets uppdateringar*<br> *Samlade uppdateringar*<br> *Funktions paket*<br> *Service Pack*<br> *Definitionsuppdateringar*<br> *Verktyg*<br> *Uppdateringar*. För Linux:<br> *Kritiska uppdateringar och säkerhets uppdateringar*<br> *Övrigt* |
-| UpdateSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Mindre*<br> *Viktigt*<br> *Måttlig*<br> *Låg* |
+| UpdateClassification | Anger vilken typ av uppdateringar som kan tillämpas. För Windows:<br> *Kritiska uppdateringar*<br> *Säkerhets uppdateringar*<br> *Samlade uppdateringar*<br> *Funktions paket*<br> *Service Pack*<br> *Definitions uppdateringar*<br> *Verktyg*<br> *Uppdateringar*. För Linux:<br> *Kritiska uppdateringar och säkerhets uppdateringar*<br> *Övrigt* |
+| UpdateSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Mindre*<br> *Viktigt*<br> *Måttlig*<br> *Börjar* |
 | UpdateTitle | Uppdateringens rubrik.|
 
-### <a name="update"></a>Uppdatering
+### <a name="update"></a>Uppdatera
 
 En post med en typ av `Update` skapas som representerar tillgängliga uppdateringar och deras installations status för en dator. Dessa poster har egenskaper i följande tabell:
 
@@ -55,12 +55,12 @@ En post med en typ av `Update` skapas som representerar tillgängliga uppdaterin
 | Dator | Fullständigt kvalificerat domän namn för rapporterings datorn. |
 | ComputerEnvironment | *Azure* eller *icke-Azure*. |
 | MSRCBulletinID | Säkerhetsbulletin ID-nummer | 
-| MSRCSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Mindre*<br> *Viktigt*<br> *Måttlig*<br> *Låg* |  
+| MSRCSeverity | Allvarlighets grad för säkerhets problemet. Värden är:<br> *Mindre*<br> *Viktigt*<br> *Måttlig*<br> *Börjar* |  
 | KBID | Kunskaps bas artikel-ID för Windows Update. |
 | ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
 | UpdateID | Unikt ID för program uppdateringen. |
 | RevisionNumber | Revisions numret för en bestämd revision av en uppdatering. |
-| Valfritt | *Sant* eller *falskt* | 
+| Valfri | *Sant* eller *falskt* | 
 | RebootBehavior | Omstarts beteendet efter installation/avinstallation av en uppdatering. |
 | _ResourceId | Unik identifierare för den resurs som posten är associerad med. |
 | Typ | *Uppdatering* |
@@ -70,7 +70,7 @@ En post med en typ av `Update` skapas som representerar tillgängliga uppdaterin
 | SourceSystem | *OperationsManager* | 
 | TimeGenerated | Datum och tid då posten skapades. | 
 | SourceComputerId | Unik identifierare som representerar käll datorn. | 
-| Titel | Uppdateringens rubrik. |
+| Rubrik | Uppdateringens rubrik. |
 | PublishedDate (UTC) | Det datum då uppdateringen är redo att laddas ned och installeras från Windows Update.  |
 | UpdateState | Uppdateringens aktuella tillstånd. | 
 | Produkt | De produkter som uppdateringen gäller för. |
@@ -127,7 +127,7 @@ En post med en typ av `UpdateRunProgress` skapas som tillhandahåller uppdaterin
 | SubscriptionId | Unik identifierare för Azure-prenumerationen. | 
 | SucceededOnRetry | Visar när uppdaterings körningen misslyckades för det första försöket och den aktuella åtgärden är ett försök att försöka igen. |
 | TimeGenerated | Datum och tid då posten skapades. |
-| Titel | Uppdateringens rubrik. |
+| Rubrik | Uppdateringens rubrik. |
 | Typ | *UpdateRunProgress* |
 | UpdateId | Unikt ID för program uppdateringen. |
 | VMUUID | Unik identifierare för den virtuella datorn. |
@@ -144,8 +144,8 @@ En post med en typ av `UpdateSummary` skapas som tillhandahåller uppdaterings S
 | CriticalUpdatesMissing | Antalet kritiska uppdateringar som är tillämpliga. | 
 | ManagementGroupName | Namnet på den Operations Manager hanterings gruppen eller Log Analytics arbets ytan. |
 | NETRuntimeVersion | Versionen av .NET Framework installerad på Windows-datorn. |
-| OldestMissingSecurityUpdateBucket | | 
-| OldestMissingSecurityUpdateInDays | |
+| OldestMissingSecurityUpdateBucket | Värden är:<br> *Senaste*<br> *för 30 dagar sedan*<br> *för 60 dagar sedan*<br> *Tidigare* | 
+| OldestMissingSecurityUpdateInDays | Totalt antal dagar för den äldsta uppdateringen som har identifierats som tillämpligt och som inte har installerats. |
 | OsVersion | Operativ systemets version. |
 | OtherUpdatesMissing | Antal identifierade uppdateringar som saknas. |
 | Resurs |  Namn på resursen. | 
@@ -192,7 +192,7 @@ Heartbeat
 På en Windows-dator kan du granska följande information för att verifiera agent anslutningen med Azure Monitor loggar:
 
 1. Öppna **Microsoft Monitoring Agent**i kontroll panelen. På fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Log Analytics**.
-2. Öppna händelse loggen i Windows. Gå till **program-och tjänst loggar \ Operations Manager** och Sök efter händelse-ID 3000 och händelse-ID 5002 från käll **tjänst anslutningen**. Dessa händelser anger att datorn har registrerats på Log Analytics-arbetsytan och tar emot konfigurationen.
+2. Öppna händelse loggen i Windows. Gå till **program-och tjänst loggar \ Operations Manager** och Sök efter händelse-ID 3000 och händelse-ID 5002 från käll **tjänst anslutningen**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfiguration.
 
 Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 

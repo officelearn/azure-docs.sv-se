@@ -4,11 +4,11 @@ description: Lär dig hur du skapar en Resource Manager-mall för ett Service Fa
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.openlocfilehash: a00f2bc505acd89d9fb9488565b6235bf7d146ba
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78396646"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258881"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Skapa en Service Fabric Cluster Resource Manager-mall
 

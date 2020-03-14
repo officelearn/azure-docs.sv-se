@@ -4,17 +4,17 @@ description: Azure Storage skyddar dina data genom att automatiskt kryptera dem 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 02/05/2020
+ms.date: 03/09/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 86d6a63601036abdde4ee7ae73114566d749feca
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.openlocfilehash: d28a342359114e05545f15624a86a17f7d0d3365
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129989"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268371"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage kryptering för vilande data
 
@@ -65,7 +65,7 @@ Som standard använder ditt lagrings konto Microsoft-hanterade krypterings nyckl
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Kundhanterade nycklar med Azure Key Vault
 
-Du kan hantera Azure Storage kryptering på lagrings kontots nivå med dina egna nycklar. När du anger en kundhanterad nyckel på lagrings kontots nivå används nyckeln för att skydda och kontrol lera åtkomsten till rot krypterings nyckeln för lagrings kontot som i sin tur används för att kryptera och dekryptera alla blob-och fildata. Kundhanterade nycklar ger större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data.
+Du kan hantera Azure Storage kryptering på lagrings kontots nivå med dina egna nycklar. När du anger en kundhanterad nyckel på lagrings kontots nivå används nyckeln för att skydda och kontrol lera åtkomsten till rot krypterings nyckeln för det lagrings konto som i sin tur används för att kryptera och dekryptera alla blob-och fildata. Kundhanterade nycklar ger större flexibilitet för att hantera åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data.
 
 Du måste använda Azure Key Vault för att lagra dina Kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Lagrings kontot och nyckel valvet måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
@@ -102,7 +102,7 @@ Information om hur du använder Kundhanterade nycklar med Azure Key Vault för A
 
 Om du vill aktivera Kundhanterade nycklar på ett lagrings konto måste du använda en Azure Key Vault för att lagra dina nycklar. Du måste aktivera både den **mjuka borttagningen** och **Rensa inte** egenskaperna i nyckel valvet.
 
-Endast RSA-nycklar med storleken 2048 stöds med Azure Storage kryptering. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Endast RSA-nycklar stöds med Azure Storage kryptering. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 ### <a name="rotate-customer-managed-keys"></a>Rotera Kundhanterade nycklar
 
@@ -112,7 +112,31 @@ Rotation av nyckeln utlöser inte Omkryptering av data i lagrings kontot. Det kr
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Återkalla åtkomst till Kundhanterade nycklar
 
-Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du PowerShell eller Azure CLI. Mer information finns i [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) eller [Azure Key Vault CLI](/cli/azure/keyvault). Att återkalla åtkomsten på ett effektivt sätt blockerar åtkomsten till alla data i lagrings kontot, eftersom krypterings nyckeln inte är tillgänglig via Azure Storage.
+Du kan när som helst återkalla lagrings kontots åtkomst till den Kundhanterade nyckeln. När åtkomst till Kundhanterade nycklar har återkallats, eller när nyckeln har inaktiverats eller tagits bort, kan klienterna inte anropa åtgärder som läser från eller skriver till en BLOB eller dess metadata. Försök att anropa någon av följande åtgärder Miss lyckas med felkoden 403 (tillåts inte) för alla användare:
+
+- [Lista blobar](/rest/api/storageservices/list-blobs), när de anropas med parametern `include=metadata` i begärande-URI
+- [Hämta BLOB](/rest/api/storageservices/get-blob)
+- [Hämta BLOB-egenskaper](/rest/api/storageservices/get-blob-properties)
+- [Hämta BLOB-metadata](/rest/api/storageservices/get-blob-metadata)
+- [Ange BLOB-metadata](/rest/api/storageservices/set-blob-metadata)
+- [Ögonblicks bilds-BLOB](/rest/api/storageservices/snapshot-blob)vid anrop med `x-ms-meta-name` begär ande huvudet
+- [Kopiera BLOB](/rest/api/storageservices/copy-blob)
+- [Kopiera BLOB från URL](/rest/api/storageservices/copy-blob-from-url)
+- [Ange BLOB-nivå](/rest/api/storageservices/set-blob-tier)
+- [Spärra block](/rest/api/storageservices/put-block)
+- [Skicka block från URL](/rest/api/storageservices/put-block-from-url)
+- [Lägg till block](/rest/api/storageservices/append-block)
+- [Lägg till block från URL](/rest/api/storageservices/append-block-from-url)
+- [Lägg till BLOB](/rest/api/storageservices/put-blob)
+- [Placerings sida](/rest/api/storageservices/put-page)
+- [Lägg till sida från URL](/rest/api/storageservices/put-page-from-url)
+- [BLOB för stegvis kopiering](/rest/api/storageservices/incremental-copy-blob)
+
+Om du vill anropa dessa åtgärder igen återställer du åtkomsten till den Kundhanterade nyckeln.
+
+Alla data åtgärder som inte listas i det här avsnittet kan fortsätta efter att Kundhanterade nycklar har återkallats eller att en nyckel har inaktiverats eller tagits bort.
+
+Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du [PowerShell](storage-encryption-keys-powershell.md#revoke-customer-managed-keys) eller [Azure CLI](storage-encryption-keys-cli.md#revoke-customer-managed-keys).
 
 ### <a name="customer-managed-keys-for-azure-managed-disks-preview"></a>Kundhanterade nycklar för Azure Managed disks (för hands version)
 
@@ -122,11 +146,11 @@ Kundhanterade nycklar är också tillgängliga för hantering av kryptering av A
 
 Klienter som begär förfrågningar mot Azure Blob Storage har möjlighet att tillhandahålla en krypterings nyckel på en enskild begäran. Inklusive krypterings nyckeln på begäran ger detaljerad kontroll över krypterings inställningarna för Blob Storage-åtgärder. Kundspecifika nycklar (för hands version) kan lagras i Azure Key Vault eller i en annan nyckel lagrings plats.
 
-Ett exempel som visar hur du anger en kundbaserad nyckel på en begäran till Blob Storage finns i [Ange en kundbaserad nyckel på en begäran till Blob Storage med .net](../blobs/storage-blob-customer-provided-key.md). 
+Ett exempel som visar hur du anger en kundbaserad nyckel på en begäran till Blob Storage finns i [Ange en kundbaserad nyckel på en begäran till Blob Storage med .net](../blobs/storage-blob-customer-provided-key.md).
 
 ### <a name="encrypting-read-and-write-operations"></a>Kryptera Läs-och skriv åtgärder
 
-När ett klient program tillhandahåller en krypterings nyckel på begäran utför Azure Storage kryptering och dekryptering transparent vid läsning och skrivning av BLOB-data. Azure Storage skriver en SHA-256-hash av krypterings nyckeln bredvid blobens innehåll. Hashen används för att kontrol lera att alla efterföljande åtgärder mot blobben använder samma krypterings nyckel. 
+När ett klient program tillhandahåller en krypterings nyckel på begäran utför Azure Storage kryptering och dekryptering transparent vid läsning och skrivning av BLOB-data. Azure Storage skriver en SHA-256-hash av krypterings nyckeln bredvid blobens innehåll. Hashen används för att kontrol lera att alla efterföljande åtgärder mot blobben använder samma krypterings nyckel.
 
 Azure Storage lagrar eller hanterar inte den krypterings nyckel som klienten skickar med begäran. Nyckeln ignoreras säkert så snart krypterings-eller dekrypterings processen har slutförts.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 28d37ba6796799ea27bbd5338247a504ea82388f
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: ff1b37c3053ffa91dcb432cd97a7dd6fd71dad1c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970461"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250431"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
@@ -81,7 +81,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 > [!NOTE]
 > Den nya Azure Disk Encryption-implementeringen stöds för RHEL OS och datadisk för RHEL7 avbildningar enligt principen betala per användning.  
 >
-> ADE stöds också för RHEL-egna prenumerations guld bilder, men endast **efter** att prenumerationen har registrerats. Mer information finns i [Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
+> ADE stöds också för RHEL-egna prenumerations guld bilder, men endast **efter** att prenumerationen har registrerats. Mer information finns i [Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure](../workloads/redhat/byos.md#encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images)
 
 ## <a name="additional-vm-requirements"></a>Ytterligare krav för virtuell dator
 

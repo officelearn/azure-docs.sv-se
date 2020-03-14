@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: daa302e9be026157b464a12998f3faa52526aba6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358641"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270945"
 ---
 # <a name="add-and-manage-lab-users"></a>Lägg till och hantera labbanvändare
 Den här artikeln beskriver hur du lägger till användare i labbet, registrerar dem i labbet, styr antalet timmar som de kan använda den virtuella datorn och mer. 
@@ -144,7 +144,7 @@ Det gör du genom att följa dessa steg:
 ## <a name="student-accounts"></a>Elev konton
 Om du vill lägga till studenter i ett klass rums labb använder du sina e-postkonton. Följande typer av e-postkonton kan användas:
 
-- Ett student-e-postkonto som tillhandahålls av ditt universitets Office 365 Azure Active Directory (AAD). 
+- Ett student-e-postkonto som tillhandahålls av ditt universitets Office 365-Azure Active Directory. 
 - Ett Microsoft-e-postkonto, till exempel `@outlook.com`, `@hotmail.com`, `@msn.com`eller `@live.com`.
 - Ett e-postkonto som inte kommer från Microsoft, till exempel ett som tillhandahålls av Yahoo eller Google. Dessa typer av konton måste dock länkas till ett Microsoft-konto.
 - Ett GitHub-konto. Kontot måste vara länkat till ett Microsoft-konto.
@@ -173,6 +173,14 @@ På sidan **inloggnings alternativ** väljer du logga in **med GitHub**.
 ![Logga in med GitHub-länk](../media/how-to-configure-student-usage/signin-github.png)
 
 Slutligen uppmanas de att skapa en Microsoft-konto som är länkad till sitt GitHub-konto. Det sker automatiskt när studenten väljer **Nästa**.  Studenten är sedan omedelbart inloggad och ansluten till klass rummets labb.
+
+## <a name="export-list-of-users-to-a-csv-file"></a>Exportera lista över användare till en CSV-fil
+
+1. Växla till fliken **användare** .
+2. Välj **...** (ellips) i verktygsfältet och välj sedan **exportera CSV**. 
+
+    ![Exportera lista över användare](../media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
+
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

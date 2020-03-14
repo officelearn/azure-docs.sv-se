@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394388"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274767"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Prestanda data källor för Windows och Linux i Azure Monitor
 Prestanda räknare i Windows och Linux ger inblick i prestanda för maskin varu komponenter, operativ system och program.  Azure Monitor kan samla in prestanda räknare med frekventa intervall för analys i nära real tid (NRT), förutom att samla in prestanda data för analys och rapportering på längre sikt.
@@ -25,7 +25,7 @@ När du först konfigurerar Windows-eller Linux-prestandaräknare för en ny arb
 
 För prestanda räknare i Windows kan du välja en angiven instans för varje prestanda räknare. För prestanda räknare för Linux används instansen för varje räknare som du väljer för alla underordnade räknare för den överordnade räknaren. I följande tabell visas de vanliga instanser som är tillgängliga för prestanda räknare för både Linux och Windows.
 
-| Instansnamn | Description |
+| Instansnamn | Beskrivning |
 | --- | --- |
 | \_total |Totalt antal instanser |
 | \* |Alla instanser |
@@ -73,7 +73,7 @@ Varje objekt eller kategori av prestanda mått som ska samlas in bör definieras
 
 Parametrarna i det här elementet beskrivs i följande tabell.
 
-| Parametrar | Description |
+| Parametrar | Beskrivning |
 |:--|:--|
 | objekt\_namn | Objekt namn för samlingen. |
 | instans\_regex |  Ett *reguljärt uttryck* som definierar vilka instanser som ska samlas in. Värdet: `.*` anger alla instanser. Om du bara vill samla in processor mått för \_total instans kan du ange `_Total`. Om du bara vill samla in process mått för crond-eller sshd-instanser kan du ange: `(crond\|sshd)`. |
@@ -86,7 +86,7 @@ I följande tabell visas de objekt och räknare som du kan ange i konfigurations
 | Objektnamn | Räknar namn |
 |:--|:--|
 | Logisk Disk | Kostnads fri noder i procent |
-| Logisk Disk | Ledigt utrymme i procent |
+| Logisk Disk | % ledigt utrymme |
 | Logisk Disk | % Använda noder i procent |
 | Logisk Disk | Använt utrymme i procent |
 | Logisk Disk | Disk – lästa byte/sek |
@@ -129,7 +129,7 @@ I följande tabell visas de objekt och räknare som du kan ange i konfigurations
 | Processor | % I/o-vänte tid |
 | Processor | % Trevligt tid |
 | Processor | Privilegie rad tid i procent |
-| Processor | Tid i procent för processor |
+| Processor | % processortid |
 | Processor | Användar tid i procent |
 | System | Ledigt fysiskt minne |
 | System | Ledigt utrymme i växlingsfiler |
@@ -180,9 +180,9 @@ Azure Monitor samlar in alla angivna prestanda räknare med angivet exempel inte
 ## <a name="performance-record-properties"></a>Egenskaper för prestanda post
 Prestanda poster har en typ av **prestanda** och har egenskaperna i följande tabell.
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| Computer |Datorn där händelsen har samlats in från. |
+| Dator |Datorn där händelsen har samlats in från. |
 | CounterName |Namn på prestanda räknaren |
 | CounterPath |Fullständig sökväg till räknaren i form \\\\\<dator >\\objekt (instans)\\räknare. |
 | CounterValue |Räknarens numeriska värde. |
@@ -199,9 +199,9 @@ Prestanda poster har en typ av **prestanda** och har egenskaperna i följande ta
 ## <a name="log-queries-with-performance-records"></a>Logga frågor med prestanda poster
 Följande tabell innehåller olika exempel på logg frågor som hämtar prestanda poster.
 
-| Söka i data | Description |
+| Fråga | Beskrivning |
 |:--- |:--- |
-| Perf |Alla prestanda data |
+| Prest |Alla prestanda data |
 | Perf &#124; där dator = = "Min Dator" |Alla prestanda data från en viss dator |
 | Perf &#124; där CounterName = = "Aktuell diskkölängd" |Alla prestanda data för en viss räknare |
 | Perf &#124; WHERE ObjectName = = "processor" och CounterName = = "% processor tid" och instancename = = "_Total" &#124; sammanfatta AVGCPU = AVG (CounterValue) efter dator |Genomsnittlig CPU-belastning på alla datorer |

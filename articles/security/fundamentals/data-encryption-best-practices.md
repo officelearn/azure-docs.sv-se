@@ -4,7 +4,7 @@ description: Den här artikeln innehåller en uppsättning metod tips för data 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: c5bf62f434b2095f7200b5562c38c252a0195c5b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389959"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79243502"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för datasäkerhet och kryptering i Azure
 Den här artikeln beskriver metod tips för data säkerhet och kryptering.
@@ -108,7 +108,7 @@ Följande är metod tips som är speciella för att använda Azure VPN Gateway, 
 **Information**: Använd [punkt-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-point-to-site-create).
 
 **Bästa praxis**: flytta större data uppsättningar över en dedikerad WAN-länk med hög hastighet.   
-**Information**: Använd [ExpressRoute](/azure/expressroute/expressroute-introduction). Om du väljer att använda ExpressRoute kan du också kryptera data på program nivå med hjälp av [SSL/TLS](https://support.microsoft.com/kb/257591) eller andra protokoll för ytterligare skydd.
+**Information**: Använd [ExpressRoute](/azure/expressroute/expressroute-introduction). Om du väljer att använda ExpressRoute kan du också kryptera data på program nivå med hjälp av SSL/TLS eller andra protokoll för ytterligare skydd.
 
 **Bästa praxis**: interagera med Azure Storage via Azure Portal.   
 **Information**: alla transaktioner sker via https. Du kan också använda [lagrings REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) över HTTPS för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/).

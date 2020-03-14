@@ -9,21 +9,23 @@ ms.topic: conceptual
 author: peterclu
 ms.author: amlstudiodocs
 ms.date: 01/18/2019
-ms.openlocfilehash: ee4ef451888638c0ba33d7938c88b836b28f3fe5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f7146db33368877b8eb029e106559477376c5953
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894630"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217895"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Få support och utbildning för Azure Machine Learning Studio (klassisk)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Den här artikeln innehåller information om hur du kan lära dig mer om Azure Machine Learning Studio (klassisk) och få support för dina problem och frågor.
 
 ## <a name="learn-more-about-studio-classic"></a>Läs mer om Studio (klassisk)
 
 Se våra utbildnings resurser:
-+ [Självstudier och instruktionsartiklar](../studio/index.yml) 
++ [Självstudier och instruktions artiklar](../studio/index.yml) 
 + [Videor om data vetenskap för nybörjare](../studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) 
 + [Algoritm lathund blad](../studio/algorithm-cheat-sheet.md) 
 
@@ -39,6 +41,6 @@ Kolla in dessa Supportresurser:
 
 + **Användar forum**: Ställ frågor, besvara frågor och Anslut till andra användare i det [Azure Machine Learning Studio (klassiska) support forum på MSDN](https://aka.ms/aml-forum-studio).
 
-+ **Stackspill**: Gå till Azure Machine Learning-communityn på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) märkta med ”Azure-Machine Learning”.
++ **Stack Overflow**: besök Azure Machine Learning community på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) taggade med "Azure-Machine-Learning".
 
 + **Dela produkt förslag** och funktions förfrågningar i vår [Azure Machine Learning feedback-kanal](https://feedback.azure.com/forums/257792-machine-learning). Om du vill dela din feedback väljer du knappen **produkt feedback** i slutet av varje artikel.

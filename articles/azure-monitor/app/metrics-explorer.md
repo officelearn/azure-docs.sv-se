@@ -4,11 +4,11 @@ description: Hur du tolkar diagram i metriska Utforskaren och hur du anpassar et
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368281"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275898"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Utforska mått i Application Insights
 Mått i [Application Insights][start] mäts värden och antalet händelser som skickas i telemetri från ditt program. De hjälper dig att identifiera prestanda problem och se trender i hur ditt program används. Det finns en mängd standard mått och du kan också skapa egna anpassade mått och händelser.

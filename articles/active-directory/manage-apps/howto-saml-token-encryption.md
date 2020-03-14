@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73148639"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365874"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Gör så här: Konfigurera Azure AD SAML token Encryption (för hands version)
+# <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Gör så här: Konfigurera Azure AD SAML-token-kryptering
 
 > [!NOTE]
 > Token Encryption är en Azure Active Directory (Azure AD) Premium-funktion. Mer information om Azure AD-utgåvor, funktioner och priser finns i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -71,7 +71,7 @@ Du kan lägga till det offentliga certifikatet i program konfigurationen i Azure
 
     ![Importera. CER-filen som innehåller X. 509-certifikatet](./media/howto-saml-token-encryption/import-certificate-small.png)
 
-1. När certifikatet har importer ATS och den privata nyckeln har kon figurer ATS för användning på program Sidan aktiverar du kryptering genom att välja **...** bredvid tumavtrycket och väljer sedan **Aktivera token-kryptering** från alternativen i List Rute meny.
+1. När certifikatet har importer ATS och den privata nyckeln har kon figurer ATS för användning på program Sidan aktiverar du kryptering genom att välja **...** bredvid tumavtrycket och väljer sedan **Aktivera token-kryptering** från alternativen i list menyn.
 
 1. Välj **Ja** för att bekräfta aktiveringen av token Encryption-certifikatet.
 
@@ -123,26 +123,21 @@ När du konfigurerar en inloggnings information med Graph, PowerShell eller i pr
 
 ### <a name="to-configure-token-encryption-using-powershell"></a>Konfigurera token-kryptering med PowerShell
 
-Den här funktionen kommer snart. 
+1. Använd den senaste Azure AD PowerShell-modulen för att ansluta till din klient organisation.
 
-<!--
-1. Use the latest Azure AD PowerShell module to connect to your tenant.
-
-1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
+1. Ange krypterings inställningarna för token med kommandot **[set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** .
 
     ```
     Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
-1. Read the token encryption settings using the following commands.
+1. Läs inställningarna för token-kryptering med följande kommandon.
 
     ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
-
--->
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Konfigurera token-kryptering med hjälp av applikations manifestet
 

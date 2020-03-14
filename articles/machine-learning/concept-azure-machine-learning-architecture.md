@@ -11,11 +11,11 @@ author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
 ms.openlocfilehash: 39e6e9d500a398fd34b8b61727dee8bf11da7430
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78893255"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270490"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 

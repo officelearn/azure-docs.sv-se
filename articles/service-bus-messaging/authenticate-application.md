@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: aschhab
 ms.openlocfilehash: 6a78e4d81921fae8dcb325e9d72df1eee7b99a3b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395626"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259297"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autentisera och auktorisera ett program med Azure Active Directory åtkomst till Azure Service Bus entiteter
 Azure Service Bus stöder användning av Azure Active Directory (Azure AD) för att auktorisera begär anden till Service Bus entiteter (köer, ämnen, prenumerationer eller filter). Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, grupp eller ett program tjänst objekt. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).

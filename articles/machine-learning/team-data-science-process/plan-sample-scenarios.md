@@ -12,11 +12,11 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393425"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251627"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenarier för avancerade analyser i Azure Machine Learning
 I den här artikeln beskrivs olika exempel data källor och mål scenarier som kan hanteras av [TDSP (Team data science process)](overview.md). TDSP erbjuder en systematisk metod för team att samarbeta med att skapa intelligenta program. De scenarier som presenteras här visar alternativ som är tillgängliga i bearbetning av arbetsflödet som beror på den dataegenskaper, datakällor och mål-databaser i Azure.

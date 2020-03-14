@@ -4,16 +4,16 @@ description: Lär dig hur du laddar upp en virtuell hård disk till en Azure-han
 services: virtual-machines,storage
 author: roygara
 ms.author: rogarana
-ms.date: 09/20/2019
+ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 2a5bfec08546d6cf00b1e04017b3879db8f016ee
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: f2eb0f59d460fbf8d6595db658bb3f5f9c4a6ad0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970346"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365857"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Ladda upp en virtuell hård disk till Azure med Azure CLI
 
@@ -28,7 +28,7 @@ För närvarande stöds direkt uppladdning för standard hård diskar, standard 
 - Ladda ned den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure CLI](/cli/azure/install-azure-cli).
 - En VHD-fil, lagrad lokalt
-- Om du tänker Ladda upp en virtuell hård disk från en lokal plats: en virtuell hård disk som [har förberetts för Azure](../windows/prepare-for-upload-vhd-image.md), lagrad lokalt.
+- Om du tänker Ladda upp en virtuell hård disk från en lokal plats: en fast storleks-VHD som [har förberetts för Azure](../windows/prepare-for-upload-vhd-image.md), lagrad lokalt.
 - Eller en hanterad disk i Azure om du vill utföra en kopierings åtgärd.
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
@@ -79,8 +79,6 @@ Den här uppladdningen har samma data flöde som motsvarande [standard-hårddisk
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
 ```
-
-Om din SAS går ut under uppladdningen och du inte har anropat `revoke-access` ännu, kan du hämta en ny SAS för att fortsätta med överföringen med `grant-access`.
 
 När uppladdningen är klar och du inte längre behöver skriva mer data till disken ska du återkalla SAS. Att återkalla SAS ändrar statusen för den hanterade disken och låter dig ansluta disken till en virtuell dator.
 

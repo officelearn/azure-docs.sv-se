@@ -7,11 +7,11 @@ ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358326"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249521"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.

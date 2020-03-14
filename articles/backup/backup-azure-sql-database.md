@@ -3,16 +3,23 @@ title: Säkerhetskopiera SQL Server-databaser till Azure
 description: Den här artikeln beskriver hur du säkerhetskopierar SQL Server till Azure. Den här artikeln beskriver även återställning av SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 7305a75852deac466028e6278fca76626d8c1820
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273246"
+ms.locfileid: "79297500"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
-SQL Server-databaser är kritiska arbetsbelastningar som kräver ett lågt mål för återställningspunkt (RPO) och långsiktig kvarhållning. Du kan säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med [Azure Backup](backup-overview.md).
+[Azure Backup](backup-overview.md) erbjuder en strömmande, specialiserad lösning för att säkerhetskopiera SQL Server som körs i virtuella Azure-datorer. Den här lösningen anpassas med Azure Backup fördelarna med en säkerhets kopiering med noll-infrastruktur, långsiktig kvarhållning och central hantering. Den ger också följande fördelar specifikt för SQL Server:
+
+1. Säkerhets kopiering av arbets belastningar som har stöd för alla säkerhets kopierings typer – fullständig, differentiell och logg
+2. 15-min återställnings punkt (återställnings punkt mål) med frekventa logg säkerhets kopior
+3. Tidpunkts återställning till en sekund
+4. Säkerhets kopiering och återställning av en enskild databas nivå
+
+Om du vill visa de scenarier för säkerhets kopiering och återställning som vi stöder idag, se [support mat ris](backup-azure-sql-database.md#scenario-support).
 
 ## <a name="backup-process"></a>Säkerhets kopierings process
 

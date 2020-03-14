@@ -8,11 +8,11 @@ ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391050"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248598"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in Azure-plattforms loggar i Log Analytics arbets yta i Azure Monitor
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. I den här artikeln beskrivs hur du samlar in resurs loggar på en Log Analytics arbets yta som gör att du kan analysera den med andra övervaknings data som samlas in i Azure Monitor loggar med kraftfulla logg frågor och även för att utnyttja andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. 

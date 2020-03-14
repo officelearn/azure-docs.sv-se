@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: a05a2bf81a278322bc4e07ed959aedb828c39b73
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f2f0b277fb9dc6270e9015b5bf3205cc8aceaa0a
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815470"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371247"
 ---
 # <a name="what-is-speech-translation"></a>Vad är talöversättning?
 
@@ -23,7 +23,7 @@ Tal översättning från Speech service möjliggör real tids-, tal-till-tal-och
 
 Microsofts översättnings motor drivs av två olika metoder: statistisk maskin översättning (SMT) och neurala Machine Translation (NMT). SMT använder avancerad statistisk analys för att uppskatta de bästa möjliga översättningarna med några få ord. Med NMT används neurala-nätverk för att tillhandahålla mer exakta, naturligt förekommande översättningar genom att använda den fullständiga kontexten för meningar för att översätta ord.
 
-Idag använder Microsoft NMT för översättning till de flesta populära språken. Alla [språk som är tillgängliga för tal till talöversättning](language-support.md#speech-translation) drivs av NMT. Tal till text translation kan använda SMT eller NMT beroende på språkparet. När mål språket stöds av NMT, är den fullständiga översättningen NMT. När mål språket inte stöds av NMT, är översättningen en hybrid av NMT och SMT, med engelska som en "Pivot"-lösning mellan de två språken.
+Idag använder Microsoft NMT för översättning till de flesta populära språken. Alla [språk som är tillgängliga för översättning av tal till tal](language-support.md#speech-translation) drivs av NMT. Tal till text translation kan använda SMT eller NMT beroende på språkparet. När mål språket stöds av NMT, är den fullständiga översättningen NMT. När mål språket inte stöds av NMT, är översättningen en hybrid av NMT och SMT, med engelska som en "Pivot"-lösning mellan de två språken.
 
 ## <a name="core-features"></a>Kärn funktioner
 
@@ -59,7 +59,7 @@ Om dina program, verktyg eller produkter använder [Translator Speech API](https
 
 * [Migrera från Translator Speech API till tal tjänsten](how-to-migrate-from-translator-speech-api.md)
 
-## <a name="reference-docs"></a>Referensdokument
+## <a name="reference-docs"></a>Referens dokument
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Tal enheter SDK](speech-devices-sdk.md)

@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 87798c93bbc1098daea2f7258a3af3e26bb4bb93
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358893"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283919"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referens guide för att använda funktioner i uttryck för Azure Logic Apps och energi automatisering
 
@@ -4520,7 +4520,7 @@ Och returnerar följande resultat: `"http"`
 
 <a name="utcNow"></a>
 
-### <a name="utcnow"></a>utcNow
+### <a name="utcnow"></a>UtcNow
 
 Returnera den aktuella tidsstämpeln.
 

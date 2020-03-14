@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356463"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280240"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 

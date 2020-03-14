@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 7356f627c8a85cb89f3900e1af84d5e0a7d4be17
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 9af7b471210ca3cc69428e68aef4aafaee159344
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096199"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299081"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Konfigurera replikering i en Azure SQL Database Hanterad instans databas
 
@@ -42,7 +42,6 @@ Transaktionsreplikering är i offentlig för hands version på [Azure SQL Databa
 
 Att konfigurera en hanterad instans så att den fungerar som en utgivare och/eller en distributör kräver:
 
-- Att den hanterade instansen inte deltar i en geo-replikeringsrelation-relation.
 - Att utgivarens hanterade instans finns i samma virtuella nätverk som distributören och prenumeranten eller att [vNet-peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) har upprättats mellan de virtuella nätverken i alla tre entiteter. 
 - Anslutningen använder SQL-autentisering mellan replikeringsdeltagare.
 - En Azure Storage konto resurs för replikeringens arbets katalog.

@@ -1,6 +1,6 @@
 ---
-title: Använd StorSimple 8000-serien sammanfattning av enhet | Microsoft Docs
-description: Beskriver sammanfattningsbladet för StorSimple-tjänsten och förklarar hur du använder den för att övervaka hälsotillståndet för din StorSimple-lösning.
+title: Använda enhets Sammanfattning för StorSimple 8000-serien | Microsoft Docs
+description: Beskriver bladet StorSimple service Summary och förklarar hur du använder det för att övervaka hälso tillståndet för din StorSimple-lösning.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,77 +15,77 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60633202"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267656"
 ---
-# <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Använda sammanfattningsbladet för tjänsten för enhet i StorSimple 8000-serien
+# <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Använd bladet tjänst Sammanfattning för StorSimple 8000-serien het
 
 ## <a name="overview"></a>Översikt
 
-Sammanfattningsbladet för StorSimple Device Manager-tjänsten innehåller en sammanfattning av alla enheter som är anslutna till StorSimple Device Manager-tjänsten, markera de enheter som behöver åtgärdas av en systemadministratör. Den här självstudien introducerar sammanfattningsbladet för tjänsten, förklarar instrumentpanelens innehåll och funktionen och beskrivs vilka aktiviteter som du kan utföra från den här sidan.
+Bladet StorSimple Enhetshanteraren tjänst sammanfattning innehåller en sammanfattningsvy över alla enheter som är anslutna till StorSimple Enhetshanteraren-tjänsten, vilket markerar de enheter som behöver en system administratörs uppmärksamhet. I den här självstudien presenterar vi bladet för tjänst sammanfattning, förklarar instrument panelens innehåll och funktion och beskriver de uppgifter som du kan utföra från den här sidan.
 
-![Sammanfattning av tjänst](./media/storsimple-8000-service-dashboard/service-summary1.png)
+![Tjänst Sammanfattning](./media/storsimple-8000-service-dashboard/service-summary1.png)
 
 
 ## <a name="management-commands"></a>Kommandon för hantering
 
-I StorSimple sammanfattningsbladet för tjänsten, kan du se alternativ för att hantera din StorSimple Device Manager-tjänst och StorSimple 8000-serieenheter som är registrerade på den här tjänsten. Du kan se kommandon för hantering överst på bladet och till vänster.
+På bladet StorSimple service Summary ser du alternativen för att hantera din StorSimple Enhetshanteraren-tjänst och de StorSimple 8000-serie enheter som är registrerade för den här tjänsten. Du ser hanterings kommandona överst på bladet och på den vänstra sidan.
 
 ![Kommandofältet](./media/storsimple-8000-service-dashboard/service-summary2.png)
 
-Använd dessa alternativ för att utföra olika åtgärder som lägger till resurser eller volymer eller övervaka de olika jobb som körs på StorSimple-enheter.
+Använd de här alternativen för att utföra olika åtgärder, till exempel lägga till resurser eller volymer, eller övervaka de olika jobben som körs på StorSimple-enheterna.
 
 
 ## <a name="essentials"></a>Essentials
 
-Området essentials samlar in några av de viktiga egenskaperna som resursgruppens namn, plats och prenumeration som StorSimple Device Manager skapades.
+I avsnittet Essentials samlas några av de viktiga egenskaperna, till exempel, resurs gruppen, platsen och prenumerationen där din StorSimple Enhetshanteraren skapades.
 
 ![Essentials](./media/storsimple-8000-service-dashboard/service-summary3.png)
 
-## <a name="storsimple-device-manager-service-summary"></a>Sammanfattning av StorSimple Device Manager-tjänst
+## <a name="storsimple-device-manager-service-summary"></a>Sammanfattning av StorSimple Enhetshanteraren-tjänsten
 
-* Den **aviseringar** panel ger en ögonblicksbild av alla aktiva aviseringar över alla enheter, grupperat efter allvarlighetsgrad.
+* Panelen **aviseringar** innehåller en ögonblicks bild av alla aktiva aviseringar på alla enheter, grupperade efter aviserings allvarlighets grad.
 
-    ![Ikonen aviseringar](./media/storsimple-8000-service-dashboard/service-summary4.png)
+    ![Panelen Aviseringar](./media/storsimple-8000-service-dashboard/service-summary4.png)
 
-    Om du klickar på panelen öppnas den **aviseringar** bladet där du kan klicka på en enskild varning att visa ytterligare information om den här aviseringen, inklusive alla rekommenderade åtgärder. Du kan även radera aviseringen om problemet har lösts.
+    Om du klickar på panelen öppnas **varnings** bladet där du kan klicka på en enskild avisering om du vill visa mer information om aviseringen, inklusive eventuella rekommenderade åtgärder. Du kan också ta bort aviseringen om problemet har lösts.
 
-    ![Klicka på panelen för aviseringar](./media/storsimple-8000-service-dashboard/service-summary8.png)
+    ![Klicka på aviserings panelen](./media/storsimple-8000-service-dashboard/service-summary8.png)
 
-* Den **kapacitet** panel visar visar den primära lagringen som är upprättad och återstående på alla enheter i förhållande till det totala lagringsutrymmet som är tillgängliga på alla enheter. **Etablerade** refererar till det lagringsutrymme som är förberedd och är allokerad för användning, **återstående** refererar till den återstående kapacitet som kan etableras på alla enheter.
+* Panelen **kapacitet** visar den primära lagring som tillhandahålls och är kvar på alla enheter i förhållande till det totala lagrings utrymmet som är tillgängligt på alla enheter. Med avseende på den mängd lagrings utrymme som är för beredd och tilldelad för användning **, refererar** **återstående** till den återstående kapacitet som kan tillhandahållas på alla enheter.
 
-    ![Kapacitet panel](./media/storsimple-8000-service-dashboard/service-summary6.png)
+    ![Kapacitets panel](./media/storsimple-8000-service-dashboard/service-summary6.png)
 
-    Den **återstående Nivåindelad** kapacitet är den tillgängliga kapaciteten som kan etableras inklusive molnet, medan den **återstående lokala** är den kapacitet kvar på diskar som är kopplade till StorSimple 8000 enheter i serien.
+    Den **återstående** kapacitets kapaciteten är den tillgängliga kapacitet som kan tillhandahållas inklusive molnet, medan **återstående lokala** är kapaciteten kvar på diskarna som är anslutna till StorSimple 8000-serie enheterna.
 
 
-* I den **användning** diagrammet, du kan se mått som är relevanta för dina enheter. Du kan visa den primära lagringen som används på alla enheter och den molnlagring som används av enheter under de senaste 7 dagarna standard tidsperiod. 
+* I **användnings** diagrammet kan du se relevanta mått för dina enheter. Du kan visa det primära lagrings utrymmet som används på alla enheter och moln lagring som förbrukas av enheter under de senaste 7 dagarna, standard tids perioden. 
 
     ![Användningsikonen](./media/storsimple-8000-service-dashboard/service-summary7.png) 
 
-    Välj en annan tidsskala genom att använda den **redigera** alternativ i det övre högra hörnet av diagrammet.
+    Om du vill välja en annan tids skala använder du alternativet **Redigera** i det övre högra hörnet i diagrammet.
 
-     ![Klicka på användningsikonen](./media/storsimple-8000-service-dashboard/service-summary10.png)
+     ![Klicka på panelen användning](./media/storsimple-8000-service-dashboard/service-summary10.png)
 
-     ![Exportera diagramdata](./media/storsimple-8000-service-dashboard/service-summary11.png)
+     ![Exportera diagram data](./media/storsimple-8000-service-dashboard/service-summary11.png)
 
-* Den **enheter** panelen innehåller en sammanfattning av antalet enheter i StorSimple 8000-serien i StorSimple-Enhetshanteraren grupperade efter enhetens status. 
+* Panelen **enheter** innehåller en översikt över antalet StorSimple 8000-serie enheter i din StorSimple-Enhetshanteraren grupperade efter enhets status. 
 
-    ![Panel för enheter](./media/storsimple-8000-service-dashboard/service-summary5.png)
+    ![Panelen enheter](./media/storsimple-8000-service-dashboard/service-summary5.png)
 
-    Klicka på den här panelen för att öppna den **enheter** listan bladet och klicka sedan på en enskild enhet att visa detaljerad information om sammanfattningen för enheter som är specifik för enheten. Du kan också utföra specifika åtgärder från en given enhet sammanfattningsbladet. Mer information om sammanfattningsbladet för enheten går du till [sammanfattningsbladet för Device](storsimple-8000-device-dashboard.md).
+    Klicka på den här panelen för att öppna bladet **med enhets listan och** klicka sedan på en enskild enhet för att öka detalj nivån för enhetens Sammanfattning. Du kan också utföra enhetsspecifika åtgärder från ett angivet enhets sammanfattnings blad. Mer information om bladet enhets sammanfattning finns på [bladet enhets Sammanfattning](storsimple-8000-device-dashboard.md).
 
-    ![Klicka på panelen för enheter](./media/storsimple-8000-service-dashboard/service-summary9.png)
+    ![Klicka på enhets panelen](./media/storsimple-8000-service-dashboard/service-summary9.png)
 
-## <a name="view-the-activity-logs"></a>Visa aktivitetsloggar
+## <a name="view-the-activity-logs"></a>Visa aktivitets loggarna
 
-Om du vill visa de olika åtgärderna som utförs inom din StorSimple Device Manager klickar du på den **aktivitetsloggar** länk på vänster sida av din sammanfattningsbladet för StorSimple-tjänsten. Då kommer du till den **aktivitetsloggar** bladet, där du kan se en sammanfattning av de senaste genomförda transaktioner.
+Om du vill visa de olika åtgärder som utförs i StorSimple Enhetshanteraren klickar du på länken **aktivitets loggar** till vänster på bladet StorSimple service Summary. Då går du till bladet **aktivitets loggar** där du kan se en sammanfattning av de senaste åtgärderna som utförts.
 
 ![Aktivitetsloggar](./media/storsimple-8000-service-dashboard/activity-logs1.png)
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Lär dig mer om hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

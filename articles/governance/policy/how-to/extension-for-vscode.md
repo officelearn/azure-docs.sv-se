@@ -1,14 +1,14 @@
 ---
 title: Azure Policy tillägg för Visual Studio Code
 description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio Code för att leta upp Resource Manager-alias.
-ms.date: 11/04/2019
+ms.date: 03/07/2020
 ms.topic: how-to
-ms.openlocfilehash: 48ef098cf970b5128185c40c92f8bb02ad8d9698
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0e9123f2975bda0d61e9d6e9bf894ecd359e6c5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873122"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264679"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
 
@@ -21,7 +21,7 @@ Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattfo
 > [!NOTE]
 > Ändringar som görs lokalt i principer som visas i Azure Policy-tillägget för Visual Studio Code synkroniseras inte med Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
@@ -82,7 +82,7 @@ Första gången du loggar in, läses endast standard prenumerations resurser och
 
    - Kommando palett: 
 
-     I meny raden går du till **visa** > - **kommando paletten**och anger **Azure policy: Välj prenumerationer**.
+     I meny raden går du till **visa** > **Command-paletten**och anger **Azure: Välj prenumerationer**.
 
    - Fönster fot
 

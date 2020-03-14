@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394440"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282047"
 ---
 # <a name="testability-actions"></a>Test åtgärder
 För att simulera en otillförlitlig infrastruktur ger Azure Service Fabric dig, utvecklaren med olika metoder för att simulera olika verkliga problem och tillstånds över gångar. De visas som testnings åtgärder. Åtgärderna är de lågnivå-API: er som orsakar en speciell fel inmatning, tillstånds över gång eller validering. Genom att kombinera dessa åtgärder kan du skriva omfattande test scenarier för dina tjänster.

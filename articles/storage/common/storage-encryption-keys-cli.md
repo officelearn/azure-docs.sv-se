@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 03/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bf21cd27fa290b9b9b863803aef043eccc815573
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: fcb4636263843143e685de2e3d2a27bf87cc5a90
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912705"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137415"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI
 
@@ -120,11 +120,21 @@ När du skapar en ny version av en nyckel måste du uppdatera lagrings kontot f�
 
 Om du vill ändra den nyckel som används för Azure Storage-kryptering kan du anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) som visas i [Konfigurera kryptering med Kundhanterade nycklar](#configure-encryption-with-customer-managed-keys) och ange det nya nyckel namnet och versionen. Om den nya nyckeln finns i ett annat nyckel valv uppdaterar du även Key Vault-URI: n.
 
+## <a name="revoke-customer-managed-keys"></a>Återkalla Kundhanterade nycklar
+
+Om du tror att en nyckel kan ha komprometterats kan du återkalla Kundhanterade nycklar genom att ta bort åtkomst principen för nyckel valvet. Om du vill återkalla en kundhanterad nyckel anropar du kommandot [AZ Key Vault Delete-policy](/cli/azure/keyvault#az-keyvault-delete-policy) , som du ser i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
+
+```azurecli-interactive
+az keyvault delete-policy \
+    --name <key-vault> \
+    --object-id $storage_account_principal
+```
+
 ## <a name="disable-customer-managed-keys"></a>Inaktivera Kundhanterade nycklar
 
-När du inaktiverar Kundhanterade nycklar krypteras ditt lagrings konto med Microsoft-hanterade nycklar. Du inaktiverar Kundhanterade nycklar genom att anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) och ange `--encryption-key-source parameter` `Microsoft.Storage`, som du ser i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
+När du inaktiverar Kundhanterade nycklar är ditt lagrings konto återigen krypterat med Microsoft-hanterade nycklar. Du inaktiverar Kundhanterade nycklar genom att anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) och ange `--encryption-key-source parameter` `Microsoft.Storage`, som du ser i följande exempel. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
-```powershell
+```azurecli-interactive
 az storage account update
     --name <storage-account> \
     --resource-group <resource_group> \

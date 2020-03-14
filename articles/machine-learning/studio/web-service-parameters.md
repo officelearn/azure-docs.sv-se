@@ -12,15 +12,18 @@ ms.subservice: studio
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 984d2e02ff75df459275fd10e313a4950c8d79c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6ddd9603f22bd3820d18be020b9c620cf06aa42
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432182"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204417"
 ---
 # <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Använd Azure Machine Learning Studio (klassiska) webb tjänst parametrar
-En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med konfigurerbara parametrar. I vissa fall kan du ändra beteendet modulen medan webbtjänsten körs. *Web tjänstparametrar* gör att du kan göra detta. 
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+En Azure Machine Learning-webbtjänst skapas genom att publicera ett experiment som innehåller moduler med konfigurerbara parametrar. I vissa fall kan du ändra beteendet modulen medan webbtjänsten körs. Med *webb tjänst parametrar* kan du göra det här. 
 
 Ett vanligt exempel är att konfigurera modulen [Importera data][reader] så att användaren av den publicerade webb tjänsten kan ange en annan data källa när webb tjänsten nås. Eller konfigurera modulen [Exportera data][writer] så att du kan ange ett annat mål. Några andra exempel är att ändra antalet bitar för modulens [hash][feature-hashing] -modul eller antalet önskade funktioner för modulen för [filtrerings-baserade funktions val][filter-based-feature-selection] . 
 
@@ -38,7 +41,7 @@ Du kan bestämma om du vill ange ett standardvärde för parametrarna för webbt
 API-dokumentationen för webbtjänsten innehåller information för web service användaren om hur du anger parametrarna för webbtjänsten programmässigt vid åtkomst till webbtjänsten.
 
 > [!NOTE]
-> API-dokumentationen för en klassisk webb tjänst tillhandahålls via länken **API-hjälp sida** på **instrument panelen** för webb tjänster i Machine Learning Studio (klassisk). API-dokumentationen för en ny webbtjänst är tillgängligt via den [Azure Machine Learning Web Services](https://services.azureml.net/Quickstart) portalen på den **förbruka** och **Swagger API** sidor för webbplatsen tjänsten.
+> API-dokumentationen för en klassisk webb tjänst tillhandahålls via länken **API-hjälp sida** på **instrument panelen** för webb tjänster i Machine Learning Studio (klassisk). API-dokumentationen för en ny webb tjänst tillhandahålls via [Azure Machine Learning Web Services-](https://services.azureml.net/Quickstart) portalen på API-sidorna **konsumera** och **Swagger** för din webb tjänst.
 > 
 > 
 
@@ -48,33 +51,33 @@ Vi kan till exempel anta att vi har ett experiment med en modul för [export av 
 1. I Machine Learning Studio (klassisk) klickar du på modulen [Exportera data][writer] för att markera den. Egenskaperna visas i fönstret egenskaper till höger om arbetsytan för experimentet.
 2. Ange vilken lagringstyp:
    
-   * Under **ange datamålet**, Välj ”Azure Blob Storage”.
-   * Under **ange autentiseringstyp**, Välj ”konto”.
+   * Under **ange data mål väljer du**Azure Blob Storage.
+   * Under **Ange Autentiseringstyp väljer du**"konto".
    * Ange kontoinformationen för Azure blob storage. 
 
-3. Klicka på ikonen till höger om den **sökväg till blob som börjar med behållare parametern**. Det ser ut så här:
+3. Klicka på ikonen till höger om **sökvägen till bloben som börjar med container parametern**. Det ser ut så här:
    
    ![Web Service-parametern ikon](./media/web-service-parameters/icon.png)
    
    Välj ”ange som web service parameter”.
    
-   En post läggs till under **Webbtjänstparametrar** längst ned i fönstret Egenskaper med namnet ”sökväg till blob som börjar med behållare”. Det här är den webb tjänst parameter som nu är associerad med den här parametern för [export data][writer] modul.
-4. Att byta namn på parametrarna för webbtjänsten, klickar du på namnet, anger du ”Blob sökvägen”, och tryck på den **RETUR** nyckel. 
-5. Om du vill ange ett standardvärde för parametern Web Service, klickar du på ikonen till höger om namnet, Välj ”ge standardvärdet”, ange ett värde (till exempel ”container1/output1.csv”), och tryck på den **RETUR** nyckel.
+   En post läggs till under **webb tjänst parametrar** längst ned i fönstret Egenskaper med namnet "path to BLOB Start with container". Det här är den webb tjänst parameter som nu är associerad med den här parametern för [export data][writer] modul.
+4. Om du vill byta namn på parametern för webb tjänsten klickar du på namnet, anger "blobb Sök väg" och trycker på **RETUR** -tangenten. 
+5. Ange ett standardvärde för webb tjänst parametern genom att klicka på ikonen till höger om namnet, välj "Ange standardvärde", ange ett värde (till exempel "container1/output1. csv") och tryck på **RETUR** -tangenten.
    
    ![Web Service-Parameter](./media/web-service-parameters/parameter.png)
 6. Klicka på **Run** (Kör). 
-7. Klicka på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]** eller **distribuera webbtjänsten [nyhet]** att distribuera webbtjänsten.
+7. Klicka på **distribuera webb tjänst** och välj **distribuera webb tjänst [klassisk]** eller **distribuera webb tjänst [ny]** för att distribuera webb tjänsten.
 
 > [!NOTE] 
-> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
+> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webb tjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
 
 Användaren av webb tjänsten kan nu ange ett nytt mål för modulen [Exportera data][writer] vid åtkomst till webb tjänsten.
 
 ## <a name="more-information"></a>Mer information
-Ett mer detaljerat exempel finns i [Webbtjänstparametrar](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) post i den [Machine Learning Blog](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Ett mer detaljerat exempel finns i posten [Web Service Parameters](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) i [Machine Learning blogg](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-Mer information om hur du använder en Machine Learning-webbtjänst finns i [hur du använder en Azure Machine Learning-webbtjänst](consume-web-services.md).
+Mer information om hur du kommer åt en Machine Learning-webbtjänst finns i [så här använder du en Azure Machine Learning-webb tjänst](consume-web-services.md).
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

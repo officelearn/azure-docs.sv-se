@@ -18,11 +18,11 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085527"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262456"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Gör så här: Konfigurera SSO på macOS och iOS
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616032"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271114"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub frågesyntaxen för meddelanderoutning
 
@@ -66,7 +66,7 @@ Program egenskaperna är användardefinierade strängar som kan läggas till i m
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper används med sitt namn och ska inte föregås av den `$`symbolen. Om ett program egenskaps namn börjar med `$`, kommer IoT Hub söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Några exempel: 
+En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper används med sitt namn och ska inte föregås av den `$`symbolen. Om ett program egenskaps namn börjar med `$`, kommer IoT Hub söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Exempel: 
 
 Så här frågar du efter system egenskapen contentEncoding 
 

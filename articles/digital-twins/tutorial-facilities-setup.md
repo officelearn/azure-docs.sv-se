@@ -9,14 +9,16 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 878b64fe6dd491adbb61c4c74cf4a5fc039858cd
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163049"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371417"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digitals förhands granskning och konfigurera ett spatial diagram
+
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
 Du kan använda Azure Digital-förhands gransknings tjänsten för att samla ihop människor, platser och enheter i ett sammanhängande avstånds system. Den här serien med självstudier visar hur du använder Azure Digital Twins för att identifiera rumsbeläggning med optimala förhållanden för temperatur och luftkvalitet. 
 
@@ -38,7 +40,7 @@ I de här kurserna används och ändras samma exempel som i [snabbstarten för a
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har ett Azure-konto skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- En Azure-prenumeration. Om du inte har ett Azure-konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - .NET Core SDK. Azure Digital Twins-exemplen som används i dessa självstudier är skrivna i C#. Se till att installera [.NET Core SDK version 2.1.403 eller senare](https://www.microsoft.com/net/download) på utvecklingsdatorn för att skapa och köra exemplet. Kontrollera att rätt version är installerad på datorn genom att köra `dotnet --version` i ett kommandofönster.
 
@@ -147,7 +149,7 @@ Filen **provisionSample.yaml** innehåller följande noder:
 
 - **spaces** (utrymmen): I Digital Twins-objektmodellen representerar `spaces` de fysiska platserna. Varje utrymme har en `Type`&mdash;, till exempel Region, Venue (Plats) eller en Customer (Kund)&mdash;och ett eget `Name`. Utrymmen kan tillhöra andra utrymmen som skapar en hierarkisk struktur. Filen provisionSample.yaml har en rumslig graf av en föreställd byggnad. Observera den logiska kapslingen av utrymmen av typen `Floor` i `Venue`, `Area` på en våning och `Room`-noderna i ett område. 
 
-- **devices** (enheter): Utrymmen kan innehålla `devices`, som är fysiska eller virtuella enheter som hanterar ett antal sensorer. Till exempel kan en enhet vara en användares telefon, en Raspberry Pi-sensor eller en gateway. I den föreställda byggnaden i exemplet kan du observera hur rummet med namnet **Focus Room** innehåller en **Raspberry Pi 3 A1**-enhet. Varje enhetsnod identifieras med ett unikt `hardwareId`, som är hårdkodat i exemplet. Om du vill konfigurera det här exemplet för faktisk produktion ersätter du dessa med värden från konfigurationen.  
+- **devices** (enheter): Utrymmen kan innehålla `devices`, som är fysiska eller virtuella enheter som hanterar ett antal sensorer. En enhet kan till exempel vara en användares telefon, en Raspberry Pi-sensor POD eller en gateway. I den föreställda byggnaden i exemplet kan du observera hur rummet med namnet **Focus Room** innehåller en **Raspberry Pi 3 A1**-enhet. Varje enhetsnod identifieras med ett unikt `hardwareId`, som är hårdkodat i exemplet. Om du vill konfigurera det här exemplet för faktisk produktion ersätter du dessa med värden från konfigurationen.  
 
 - **sensors** (sensorer): en enhet kan innehålla flera `sensors`. De kan identifiera och registrera fysiska förändringar som temperatur, rörelse och batterinivå. Varje sensornod har unikt identifierats av ett `hardwareId`, hårdkodat här. För en faktisk app ersätter du dessa med hjälp av de unika identifierarna för sensorerna i konfigurationen. Filen provisionSample.yaml har två sensorer för att registrera *Motion* (Rörelse) och *CarbonDioxide* (Koldioxid). Lägg till en annan sensor för att registrera *Temperature* (Temperatur) genom att lägga till följande rader, nedanför raderna för CarbonDioxide-sensorn (Koldioxidsensorn). Dessa finns i provisionSample. yaml som kommenterade linjer. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad. 
 

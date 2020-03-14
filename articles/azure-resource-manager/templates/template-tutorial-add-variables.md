@@ -5,18 +5,18 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7b0ed16f95281fc793b2d350f3ed45386e52d407
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765511"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370675"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Självstudie: Lägg till variabler i Resource Manager-mallen
 
 I den här självstudien får du lära dig hur du lägger till en variabel i mallen. Variabler fören klar dina mallar genom att göra det möjligt att skriva ett uttryck en gång och återanvända det i hela mallen. Den här självstudien tar **7 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om functions](template-tutorial-add-functions.md), men det är inte obligatoriskt.
 
@@ -56,7 +56,7 @@ Nu ska vi distribuera mallen. Att distribuera den här mallen är enklare än ti
 
 Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,10 +67,10 @@ New-AzResourceGroupDeployment `
   -storageSKU Standard_LRS
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addnamevariable \
   --resource-group myResourceGroup \
   --template-file $templateFile \

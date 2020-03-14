@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 1ae3caa2d1f90bbbae1070d95d676eb206a361a0
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647356"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371230"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella Azure Cognitive Services-nätverk
 
@@ -27,19 +27,19 @@ Ett program som har åtkomst till en Cognitive Services-resurs när nätverks re
 > * Begäran bör härstamma från en tjänst som körs i ett Azure-Virtual Network (VNet) i listan över tillåtna undernät för mål Cognitive Services kontot. Slut punkten i begär Anden som kommer från VNet måste anges som den [anpassade under domänen](cognitive-services-custom-subdomains.md) för ditt Cognitive Services-konto.
 > * Eller så måste begäran härstamma från en lista över tillåtna IP-adresser.
 >
-> Begär Anden som blockeras inkluderar de från andra Azure-tjänster, från Azure Portal, från loggnings-och mått tjänster och så vidare.
+> Begäranden som blockeras är de från andra Azure-tjänster från Azure-portalen från loggning och mått tjänster, och så vidare.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>Scenarier
 
-För att skydda din Cognitive Services-resurs bör du först konfigurera en regel för att neka åtkomst till trafik från alla nätverk (inklusive Internet trafik) som standard. Sedan bör du konfigurera regler som beviljar åtkomst till trafik från vissa virtuella nätverk. Med den här konfigurationen kan du bygga en säker nätverks gränser för dina program. Du kan också konfigurera regler för att bevilja åtkomst till trafik från Välj offentliga IP-adressintervall för Internet, aktivera anslutningar från vissa Internet-eller lokala klienter.
+För att skydda din Cognitive Services-resurs bör du först konfigurera en regel för att neka åtkomst till trafik från alla nätverk (inklusive Internet trafik) som standard. Sedan bör du konfigurera regler som beviljar åtkomst till trafik från vissa virtuella nätverk. Den här konfigurationen kan du skapa en säker nätverksgräns för dina program. Du kan också konfigurera regler för att bevilja åtkomst till trafik från Välj offentliga IP-adressintervall för Internet, aktivera anslutningar från vissa Internet-eller lokala klienter.
 
-Nätverks regler tillämpas på alla nätverks protokoll till Azure Cognitive Services, inklusive REST och WebSocket. Om du vill komma åt data med hjälp av verktyg som Azure test-konsoler måste explicita nätverks regler konfigureras. Du kan använda nätverks regler för befintliga Cognitive Services-resurser eller när du skapar nya Cognitive Services resurser. När nätverks reglerna tillämpas tillämpas de för alla begär Anden.
+Nätverks regler tillämpas på alla nätverks protokoll till Azure Cognitive Services, inklusive REST och WebSocket. Om du vill komma åt data med hjälp av verktyg som Azure test-konsoler måste explicita nätverks regler konfigureras. Du kan använda nätverks regler för befintliga Cognitive Services-resurser eller när du skapar nya Cognitive Services resurser. När nätverket regler, är de tillämpas för alla förfrågningar.
 
 ## <a name="supported-regions-and-service-offerings"></a>Regioner och tjänst erbjudanden som stöds
 
-Stöd för virtuella nätverk för Cognitive Services är begränsat till *EUAP för Kanarie-centrala USA* *, Västeuropa och* *västra USA 2* Azure-regioner. Dessutom stöder inte alla kognitiva tjänst erbjudanden virtuella nätverk. Följande kognitiva tjänst erbjudanden tillåter användningen av virtuella nätverk. Om tjänst erbjudandet inte visas i listan, har det inte stöd för virtuella nätverk.
+Stöd för virtuella nätverk för Cognitive Services nedan är begränsat till *centrala USA EUAP*, *södra centrala USA*, *östra USA*, *västra USA 2*, *Nord Europa*, *norra*Europa, *västra Europa*, *centrala Indien*, *östra Australien*, *västra USA*och *US gov, Virginia* Azure-regioner. Om tjänst erbjudandet inte visas i listan, har det inte stöd för virtuella nätverk.
 
 > [!div class="checklist"]
 > * [Avvikelse detektor](./anomaly-detector/index.yml)
@@ -51,19 +51,40 @@ Stöd för virtuella nätverk för Cognitive Services är begränsat till *EUAP 
 > * [LUIS](./luis/index.yml)
 > * [Personanpassare](./personalizer/index.yml)
 > * [Textanalys](./text-analytics/index.yml)
+> * [QnA Maker](./qnamaker/index.yml)
 
-## <a name="change-the-default-network-access-rule"></a>Ändra standard regel för nätverks åtkomst
+Stöd för virtuella nätverk för Cognitive Services i listan nedan är begränsat till *centrala USA-EUAP*, *södra centrala* *USA, USA*, *västra USA 2*, *globala*och *US gov, Virginia* Azure-regioner.
+> [!div class="checklist"]
+> * [Talöversättning](./translator/index.yml)
 
-Som standard accepterar Cognitive Services-resurser anslutningar från klienter i ett nätverk. Om du vill begränsa åtkomsten till valda nätverk måste du först ändra standard åtgärden.
+## <a name="service-tags"></a>Service märken
+Förutom att stödja tjänst slut punkter för virtuella nätverk för tjänsterna ovan stöder Cognitive Services också ett service tag för konfiguration av utgående nätverks regler. Följande tjänster ingår i CognitiveServicesManagement-tjänst tag gen.
+> [!div class="checklist"]
+> * [Avvikelse detektor](./anomaly-detector/index.yml)
+> * [Visuellt innehåll](./computer-vision/index.yml)
+> * [Content Moderator](./content-moderator/index.yml)
+> * [Custom Vision](./custom-vision-service/index.yml)
+> * [Vändning](./face/index.yml)
+> * [Formulär igenkänning](./form-recognizer/index.yml)
+> * [LUIS](./luis/index.yml)
+> * [Personanpassare](./personalizer/index.yml)
+> * [Textanalys](./text-analytics/index.yml)
+> * [QnA Maker](./qnamaker/index.yml)
+> * [Talöversättning](./translator/index.yml)
+> * [Tjänst för taligenkänning](./speech-service/index.yml)
+
+## <a name="change-the-default-network-access-rule"></a>Ändra standardåtkomstregel för nätverk
+
+Som standard accepterar Cognitive Services-resurser anslutningar från klienter i ett nätverk. För att begränsa åtkomsten till valda nätverk, måste du först ändra standardåtgärden.
 
 > [!WARNING]
-> Om du gör ändringar i nätverks reglerna kan det påverka dina programs möjlighet att ansluta till Azure Cognitive Services. Om du anger standard nätverks regeln till **neka** blockeras alla åtkomst till data, om inte vissa nätverks regler som **beviljar** åtkomst också tillämpas. Se till att bevilja åtkomst till alla tillåtna nätverk med nätverks regler innan du ändrar standard regeln för att neka åtkomst. Om du tillåter att du listar IP-adresser för ditt lokala nätverk måste du lägga till alla möjliga offentliga IP-adresser från ditt lokala nätverk.
+> Om du gör ändringar i nätverks reglerna kan det påverka dina programs möjlighet att ansluta till Azure Cognitive Services. Om du anger standard nätverks regeln till **neka** blockeras alla åtkomst till data, om inte vissa nätverks regler som **beviljar** åtkomst också tillämpas. Glöm inte att bevilja åtkomst till några tillåtna nätverk med hjälp av regler innan du ändrar Standardregeln för att neka åtkomst. Om du tillåter att du listar IP-adresser för ditt lokala nätverk måste du lägga till alla möjliga offentliga IP-adresser från ditt lokala nätverk.
 
-### <a name="managing-default-network-access-rules"></a>Hantera standard regler för nätverks åtkomst
+### <a name="managing-default-network-access-rules"></a>Hantera åtkomstreglerna för standardnätverket
 
 Du kan hantera standard regler för nätverks åtkomst för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -78,7 +99,7 @@ Du kan hantera standard regler för nätverks åtkomst för Cognitive Services r
 
 1. Välj **Spara** för att tillämpa ändringarna.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Installera [Azure PowerShell](/powershell/azure/install-az-ps) och [Logga](/powershell/azure/authenticate-azureps)in eller Välj **prova**.
 
@@ -92,7 +113,7 @@ Du kan hantera standard regler för nätverks åtkomst för Cognitive Services r
     (Get-AzCognitiveServicesAccountNetworkRuleSet @parameters).DefaultAction
     ```
 
-1. Ange standard regeln för att neka nätverks åtkomst som standard.
+1. Ange Standardregeln för att neka åtkomst som standard.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -103,7 +124,7 @@ Du kan hantera standard regler för nätverks åtkomst för Cognitive Services r
     Update-AzCognitiveServicesAccountNetworkRuleSet @parameters
     ```
 
-1. Ange standard regeln för att tillåta nätverks åtkomst som standard.
+1. Ange Standardregeln som tillåter åtkomst till nätverket som standard.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -114,7 +135,7 @@ Du kan hantera standard regler för nätverks åtkomst för Cognitive Services r
     Update-AzCognitiveServicesAccountNetworkRuleSet @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. Installera [Azure CLI](/cli/azure/install-azure-cli) och [Logga](/cli/azure/authenticate-azure-cli)in, eller Välj **prova**.
 
@@ -126,7 +147,7 @@ Du kan hantera standard regler för nätverks åtkomst för Cognitive Services r
         --query networkRuleSet.defaultAction
     ```
 
-1. Ange standard regeln för att neka nätverks åtkomst som standard.
+1. Ange Standardregeln för att neka åtkomst som standard.
 
     ```azurecli-interactive
     az cognitiveservices account update \
@@ -134,7 +155,7 @@ Du kan hantera standard regler för nätverks åtkomst för Cognitive Services r
         --default-action Deny
     ```
 
-1. Ange standard regeln för att tillåta nätverks åtkomst som standard.
+1. Ange Standardregeln som tillåter åtkomst till nätverket som standard.
 
     ```azurecli-interactive
     az cognitiveservices account update \
@@ -161,11 +182,11 @@ Cognitive Services resurs och de virtuella nätverk som beviljats åtkomst kan f
 > [!NOTE]
 > Konfiguration av regler som beviljar åtkomst till undernät i virtuella nätverk som ingår i en annan Azure Active Directory klient stöds för närvarande bara via PowerShell-, CLI-och REST-API: er. Sådana regler kan inte konfigureras via Azure Portal, men de kan visas i portalen.
 
-### <a name="managing-virtual-network-rules"></a>Hantera virtuella nätverks regler
+### <a name="managing-virtual-network-rules"></a>Hantera virtuella Nätverksregler
 
 Du kan hantera virtuella nätverks regler för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -200,11 +221,11 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
 
 1. Välj **Spara** för att tillämpa ändringarna.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Installera [Azure PowerShell](/powershell/azure/install-az-ps) och [Logga](/powershell/azure/authenticate-azureps)in eller Välj **prova**.
 
-1. Lista över virtuella nätverks regler.
+1. Lista över virtuella Nätverksregler.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -223,7 +244,7 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
         -ServiceEndpoint "Microsoft.CognitiveServices" | Set-AzVirtualNetwork
     ```
 
-1. Lägg till en nätverks regel för ett virtuellt nätverk och undernät.
+1. Lägg till en regel för ett virtuellt nätverk och undernät.
 
     ```azurepowershell-interactive
     $subParameters = @{
@@ -243,7 +264,7 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
     > [!TIP]
     > Om du vill lägga till en nätverks regel för ett undernät i ett virtuellt nätverk som tillhör en annan Azure AD-klient använder du en fullständigt kvalificerad **VirtualNetworkResourceId** -parameter i formatet "/Subscriptions/Subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-Name/subnets/Subnet-Name".
 
-1. Ta bort en nätverks regel för ett virtuellt nätverk och undernät.
+1. Ta bort en regel för ett virtuellt nätverk och undernät.
 
     ```azurepowershell-interactive
     $subParameters = @{
@@ -260,11 +281,11 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. Installera [Azure CLI](/cli/azure/install-azure-cli) och [Logga](/cli/azure/authenticate-azure-cli)in, eller Välj **prova**.
 
-1. Lista över virtuella nätverks regler.
+1. Lista över virtuella Nätverksregler.
 
     ```azurecli-interactive
     az cognitiveservices account network-rule list \
@@ -279,7 +300,7 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
     --vnet-name "myvnet" --service-endpoints "Microsoft.CognitiveServices"
     ```
 
-1. Lägg till en nätverks regel för ett virtuellt nätverk och undernät.
+1. Lägg till en regel för ett virtuellt nätverk och undernät.
 
     ```azurecli-interactive
     $subnetid=(az network vnet subnet show \
@@ -297,7 +318,7 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
     > 
     > Du kan använda parametern **Subscription** för att hämta Undernäts-ID: t för ett VNet som tillhör en annan Azure AD-klient.
 
-1. Ta bort en nätverks regel för ett virtuellt nätverk och undernät.
+1. Ta bort en regel för ett virtuellt nätverk och undernät.
 
     ```azurecli-interactive
     $subnetid=(az network vnet subnet show \
@@ -314,33 +335,33 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
 > [!IMPORTANT]
 > Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
 
-## <a name="grant-access-from-an-internet-ip-range"></a>Bevilja åtkomst från ett Internet-IP-intervall
+## <a name="grant-access-from-an-internet-ip-range"></a>Bevilja åtkomst från ett internet IP-intervall
 
 Du kan konfigurera Cognitive Services-resurser för att tillåta åtkomst från vissa offentliga Internet-IP-adressintervall. Den här konfigurationen beviljar åtkomst till vissa tjänster och lokala nätverk, vilket effektivt blockerar allmän Internet trafik.
 
 Ange tillåtna Internet adress intervall med [CIDR-notering](https://tools.ietf.org/html/rfc4632) i formuläret `16.17.18.0/24` eller som enskilda IP-adresser som `16.17.18.19`.
 
    > [!Tip]
-   > Små adress intervall som använder sig av prefixlängden "/31" eller "/32" stöds inte. Dessa intervall ska konfigureras med hjälp av enskilda IP-adressintervall.
+   > Små adressintervall med hjälp av ”/ 31” eller ”/ 32” prefix storlekar inte stöds. Dessa områden ska konfigureras med regler för enskilda IP-adress.
 
 IP-nätverks regler tillåts endast för **offentliga Internet** -IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med `10.*`, `172.16.*` - `172.31.*`och `192.168.*`.
 
    > [!NOTE]
    > IP-nätverksanslutningar har ingen påverkan på begär Anden som kommer från samma Azure-region som den Cognitive Services resursen. Använd [regler för virtuella nätverk](#grant-access-from-a-virtual-network) för att tillåta begäran om samma region.
 
-Endast IPV4-adresser stöds för tillfället. Varje Cognitive Services-resurs har stöd för upp till 100 IP-nätverksnummer som kan kombineras med [regler för virtuella nätverk](#grant-access-from-a-virtual-network).
+Endast IPV4-adresser stöds just nu. Varje Cognitive Services-resurs har stöd för upp till 100 IP-nätverksnummer som kan kombineras med [regler för virtuella nätverk](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Konfigurera åtkomst från lokala nätverk
 
-Om du vill bevilja åtkomst från dina lokala nätverk till din Cognitive Services-resurs med en IP-nätverks regel måste du identifiera de Internet adresser som IP-adresser används i nätverket. Kontakta nätverks administratören om du behöver hjälp.
+Om du vill bevilja åtkomst från dina lokala nätverk till din Cognitive Services-resurs med en IP-nätverks regel måste du identifiera de Internet adresser som IP-adresser används i nätverket. Kontakta nätverksadministratören om du behöver hjälp.
 
 Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md) lokalt för offentlig peering eller Microsoft-peering måste du identifiera NAT-IP-adresserna. För offentlig peering använder varje ExpressRoute-krets som standard två NAT-IP-adresser. Varje används för Azure-tjänstetrafik när trafiken går in Microsoft Azure nätverkets stamnät. De NAT-IP-adresser som används för Microsoft-peering är antingen kunden eller tillhandahålls av tjänst leverantören. Om du vill tillåta åtkomst till dina tjänstresurser måste du tillåta dessa offentliga IP-adresser i resursens IP-brandväggsinställning. För att kunna hitta ExpressRoute-kretsens IP-adresser för offentlig peering [öppnar du ett supportärende hos ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via Azure-portalen. Lär dig mer om [NAT för ExpressRoute offentliga peering och Microsoft-peering.](../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering)
 
-### <a name="managing-ip-network-rules"></a>Hantera IP-nätverks regler
+### <a name="managing-ip-network-rules"></a>Hantera regler för IP-nätverk
 
 Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Portal, PowerShell eller Azure CLI.
 
-# <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. Gå till den Cognitive Services resurs som du vill skydda.
 
@@ -358,11 +379,11 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
 
 1. Välj **Spara** för att tillämpa ändringarna.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 1. Installera [Azure PowerShell](/powershell/azure/install-az-ps) och [Logga](/powershell/azure/authenticate-azureps)in eller Välj **prova**.
 
-1. Lista IP-nätverksnummer.
+1. Regler för lista över IP-nätverk.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -383,7 +404,7 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
     Add-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-1. Lägg till en nätverks regel för ett IP-adressintervall.
+1. Lägg till en regel för ett IP-adressintervall.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -394,7 +415,7 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
     Add-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-1. Ta bort en nätverks regel för en enskild IP-adress.
+1. Ta bort en regel för en enskild IP-adress.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -405,7 +426,7 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-1. Ta bort en nätverks regel för ett IP-adressintervall.
+1. Ta bort en regel för ett IP-adressintervall.
 
     ```azurepowershell-interactive
     $parameters = @{
@@ -416,11 +437,11 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
     Remove-AzCognitiveServicesAccountNetworkRule @parameters
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. Installera [Azure CLI](/cli/azure/install-azure-cli) och [Logga](/cli/azure/authenticate-azure-cli)in, eller Välj **prova**.
 
-1. Lista IP-nätverksnummer.
+1. Regler för lista över IP-nätverk.
 
     ```azurecli-interactive
     az cognitiveservices account network-rule list \
@@ -435,7 +456,7 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
         --ip-address "16.17.18.19"
     ```
 
-1. Lägg till en nätverks regel för ett IP-adressintervall.
+1. Lägg till en regel för ett IP-adressintervall.
 
     ```azurecli-interactive
     az cognitiveservices account network-rule add \
@@ -443,7 +464,7 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
         --ip-address "16.17.18.0/24"
     ```
 
-1. Ta bort en nätverks regel för en enskild IP-adress.
+1. Ta bort en regel för en enskild IP-adress.
 
     ```azurecli-interactive
     az cognitiveservices account network-rule remove \
@@ -451,7 +472,7 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
         --ip-address "16.17.18.19"
     ```
 
-1. Ta bort en nätverks regel för ett IP-adressintervall.
+1. Ta bort en regel för ett IP-adressintervall.
 
     ```azurecli-interactive
     az cognitiveservices account network-rule remove \

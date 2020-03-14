@@ -7,13 +7,13 @@ ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/18/2018
-ms.openlocfilehash: b22d40e29d2150592f2753edd789458fbf25911f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.date: 03/11/2020
+ms.openlocfilehash: 6384416c2feef3c9a9517bce08374a7667eb5d6b
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355878"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369071"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Snabb start: använda Azure cache för Redis med ett .NET Framework-program
 
@@ -49,8 +49,7 @@ Ersätt `<access-key>` med primärnyckeln för cachen.
 
 I Visual Studio klickar du på **Arkiv** > **Nytt** > **Projekt**.
 
-Under **Visual C#** klickar du på det **klassiska Windows-skrivbordet** och klicka sedan på **Konsolapp** och **OK** för att skapa ett nytt konsolprogram.
-
+Välj **konsol program (.NET Framework)** och **bredvid** Konfigurera appen. Ange ett **projekt namn** och klicka på **skapa** för att skapa ett nytt konsol program.
 
 <a name="configure-the-cache-clients"></a>
 
@@ -128,7 +127,7 @@ Lägg till följande kod för procedur `Main` för klass `Program` för ditt kon
         {
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            IDatabase cache = Connection.GetDatabase();
 
             // Perform cache operations using the cache object...
 

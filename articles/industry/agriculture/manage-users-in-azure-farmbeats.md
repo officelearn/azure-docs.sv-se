@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-umha
-ms.openlocfilehash: 208a302a0702a5c4de4d194c9e72f562aaf758c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 47da8146d3984982a9024b3bd084a1ab384c944f
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79271699"
+ms.locfileid: "79298792"
 ---
 # <a name="manage-users"></a>Hantera användare
 
@@ -18,7 +18,7 @@ Azure FarmBeats innehåller användar hantering för personer som är en del av 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure FarmBeats-installation krävs. Mer information finns i [Installera Azure-FarmBeats](install-azure-farmbeats.md).
+- Installation av Azure-FarmBeats krävs. Mer information finns i [Installera Azure-FarmBeats](install-azure-farmbeats.md).
 - E-ID för de användare som du vill lägga till eller ta bort från din Azure FarmBeats-instans.
 
 ## <a name="manage-azure-farmbeats-users"></a>Hantera Azure FarmBeats-användare
@@ -26,6 +26,8 @@ Azure FarmBeats innehåller användar hantering för personer som är en del av 
 Azure FarmBeats använder Azure AD för autentisering, åtkomst kontroll och roller. Du kan lägga till användare i Azure AD-klienten som användare i Azure FarmBeats.
 
 > [!NOTE]
+> Om en användare inte är en Azure AD-innehavaradministratör följer du anvisningarna i avsnittet **Lägg till Azure AD-användare** för att slutföra installationen.
+
 > Om en användare som du försöker lägga till som en Azure FarmBeats-användare inte finns i Azure AD-klienten, slutför du installationen genom att följa anvisningarna i avsnittet "Lägg till Azure AD-användare".
 
 Azure FarmBeats stöder två typer av användar roller:
@@ -63,7 +65,7 @@ Ta bort användare från Azure FarmBeats-systemet:
 ## <a name="add-azure-ad-users"></a>Lägg till Azure AD-användare
 
 > [!NOTE]
-> Azure FarmBeats-användare måste finnas i Azure AD-klienten innan du kan tilldela dem till program och roller. Om en användare som du vill lägga till i Azure-FarmBeats inte redan finns i Azure AD-klienten, följer du anvisningarna i det här avsnittet. Om användaren finns i Azure AD-klienten kan du hoppa över dessa instruktioner.
+> Azure FarmBeats-användare måste finnas i Azure AD-klienten innan du tilldelar dem till program och roller. Om en användare inte finns i Azure AD-klienten följer du anvisningarna i det här avsnittet. Hoppa över instruktionerna om det redan finns en användare i Azure AD-klienten.
 
 Gör följande för att lägga till användare i Azure AD:
 

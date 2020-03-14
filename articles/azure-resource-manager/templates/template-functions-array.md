@@ -4,11 +4,11 @@ description: Beskriver de funktioner som används i en Azure Resource Manager ma
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380641"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273701"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Matris-och objekt funktioner för Azure Resource Manager mallar
 

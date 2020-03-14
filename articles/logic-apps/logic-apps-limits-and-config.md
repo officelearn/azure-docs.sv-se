@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 03/12/2020
 ms.openlocfilehash: 418be090e7ff78ec0089c115c9884ffeffdda871
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126879"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284023"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -300,7 +300,7 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 
 * För att stödja anrop som dina Logi Kap par direkt gör med [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-förfrågningar, ställer du in brand väggen med alla [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av den Logic Apps tjänsten, baserat på de regioner där dina Logi Kap par finns. De här adresserna visas under de **inkommande** och **utgående** rubrikerna i det här avsnittet och sorteras efter region.
 
-* För att stödja anrop som [Microsoft-hanterade anslutningar](../connectors/apis-list.md) gör ställer du in brand väggen med alla [utgående](#outbound) IP-adresser som används av de här anslutningarna, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under den **utgående** rubriken i det här avsnittet och sorteras efter region.
+* För att stödja anrop som [Microsoft-hanterade anslutningar](../connectors/apis-list.md) gör ställer du in brand väggen *all* med alla [utgående](#outbound) IP-adresser som används av de här anslutningarna, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under den **utgående** rubriken i det här avsnittet och sorteras efter region.
 
 * Om du vill aktivera kommunikation för logi Kap par som körs i en integrerings tjänst miljö (ISE) ser du till att du [öppnar dessa portar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 

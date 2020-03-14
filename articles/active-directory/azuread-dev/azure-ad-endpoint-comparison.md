@@ -13,11 +13,11 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.openlocfilehash: d910a76397a40a14d960b59f60561cbee470f5c4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78357224"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263691"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför uppdatera till Microsoft-identitetsplattformen (v2.0)?
 

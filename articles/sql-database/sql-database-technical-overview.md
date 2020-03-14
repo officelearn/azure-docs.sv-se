@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: fd9e41418eac670bd1cb52be40dbd25c17af6fac
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360078"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255696"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Vad är tjänsten Azure SQL Database?
 
@@ -68,7 +68,7 @@ SQL Database erbjuder följande inköps modeller:
 Azure SQL Database erbjuder tre tjänst nivåer som är utformade för olika typer av program:
 - [Generell användning/standard](sql-database-service-tier-general-purpose.md) service nivå som är avsedd för vanliga arbets belastningar. Det erbjuder budgetorienterade balanserade beräknings-och lagrings alternativ.
 - [Affärskritisk/Premium](sql-database-service-tier-business-critical.md) Service Tier som är utformad för OLTP-program med hög transaktions hastighet och I/O för lägsta svars tid. Den ger den högsta återhämtningen till problem genom att använda flera isolerade repliker.
-- [Storskalig](sql-database-service-tier-hyperscale.md) Service Tier som är utformad för mycket stor OLTP-databas och möjlighet att skala lagrings utrymme och skala automatiskt. 
+- [Storskalig](sql-database-service-tier-hyperscale.md) Service Tier som är utformad för mycket stor OLTP-databas och möjlighet att skala lagrings utrymme och skala automatiskt.    
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 
@@ -76,7 +76,7 @@ För många företag och appar räcker det att kunna skapa enkla databaser och r
 
    ![Bild som visar elastiska pooler i Basic-, standard-och Premium-versioner](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Med elastiska pooler behöver du inte fokusera på att reglera databasprestanda upp och ner när behovet av resurser varierar. Pooldatabaserna förbrukar den elastiska poolens prestandaresurser efter behov. Pooldatabaser förbrukar, men överskrider inte begränsningarna i poolen. Dina kostnader förblir förutsägbara även om den individuella databasanvändningen inte är det.
+Med elastiska pooler behöver du inte fokusera på att slå upp och ned prestanda för att utföra resurser. Pooldatabaserna förbrukar den elastiska poolens prestandaresurser efter behov. Databaser i pooler förbrukar, men överskrider inte begränsningarna i poolen, så dina kostnader är förutsägbara även om den enskilda databas användningen inte är det.
 
 Du kan [lägga till och ta bort databaser i poolen](sql-database-elastic-pool-manage-portal.md)och skala din app från en fåtal databaser till tusentals, allt inom en budget som du styr. Du kan också kontrol lera minimi-och Max resurserna som är tillgängliga för databaser i poolen, för att säkerställa att ingen databas i poolen använder alla pool resurser och att varje databas i poolen har en garanterad minimal mängd resurser. Mer information om design mönster för SaaS-program (program vara som en tjänst) som använder elastiska pooler finns i [design mönster för SaaS-program med flera innehavare med SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
@@ -95,7 +95,7 @@ Azure SQL Database tillhandahåller avancerade övervaknings-och fel söknings f
  - De inbyggda övervaknings funktioner som tillhandahålls av den senaste versionen av SQL Server Database Engine. De gör att du kan hitta prestanda insikter i real tid. 
  - PaaS övervaknings funktioner som tillhandahålls av Azure och som hjälper dig att övervaka och felsöka ett stort antal databas instanser.
 
-[Query Store](sql-database-operate-query-store.md), en inbyggd SQL Server övervaknings funktion, registrerar prestanda för dina frågor i real tid och gör det möjligt att identifiera potentiella prestanda problem och de främsta resurs förbrukarna. Automatisk justering och rekommendationer ger råd om frågor med försämrat prestanda och saknade eller duplicerade index. Med automatisk justering i SQL Database kan du antingen manuellt tillämpa skript som kan åtgärda problemen eller låta SQL Database tillämpa korrigeringen. SQL Database kan också testa och kontrol lera att korrigeringen ger viss förmån och behålla eller återställa ändringen beroende på resultatet. Förutom fråge Arkiv och automatiska justerings funktioner kan du använda standard [DMV: er och XEvent](sql-database-monitoring-with-dmvs.md) för att övervaka arbets Belastningens prestanda.
+[Query Store](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store), en inbyggd SQL Server övervaknings funktion, registrerar prestanda för dina frågor i real tid och gör det möjligt att identifiera potentiella prestanda problem och de främsta resurs förbrukarna. Automatisk justering och rekommendationer ger råd om frågor med försämrat prestanda och saknade eller duplicerade index. Med automatisk justering i SQL Database kan du antingen manuellt tillämpa skript som kan åtgärda problemen eller låta SQL Database tillämpa korrigeringen. SQL Database kan också testa och kontrol lera att korrigeringen ger viss förmån och behålla eller återställa ändringen beroende på resultatet. Förutom fråge Arkiv och automatiska justerings funktioner kan du använda standard [DMV: er och XEvent](sql-database-monitoring-with-dmvs.md) för att övervaka arbets Belastningens prestanda.
 
 Azure innehåller [inbyggda verktyg för prestanda övervakning](sql-database-performance.md) och [avisering](sql-database-insights-alerts-portal.md) , kombinerat med prestanda klassificeringar som gör att du kan övervaka status för tusentals databaser. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ned baserat på dina aktuella eller planerade prestanda behov. Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
@@ -157,7 +157,7 @@ Det finns två automatiska justerings aspekter [i SQL Database](sql-database-aut
 
 ### <a name="adaptive-query-processing"></a>Anpassningsbar frågebearbetning
 
-Du kan använda [anpassad bearbetning av frågor](/sql/relational-databases/performance/intelligent-query-processing), inklusive överlagrad körning av tabell värdes funktioner med flera instruktioner, återkoppling av minnes bidrag i batch-läge och anpassningsbara kopplingar i batch-läge. De olika funktionerna med anpassningsbar frågebearbetning tillämpar liknande ”Läs och anpassa”-teknik, vilket bidrar till förmågan att hantera prestandaproblem som berör historiskt olösbara optimeringsproblem.
+Du kan använda [anpassad bearbetning av frågor](/sql/relational-databases/performance/intelligent-query-processing), inklusive överlagrad körning av tabell värdes funktioner med flera instruktioner, återkoppling av minnes bidrag i batch-läge och anpassningsbara kopplingar i batch-läge. Var och en av dessa funktioner för anpassad bearbetning av frågor gäller liknande "lär och anpassa"-tekniker, vilket hjälper ytterligare att lösa prestanda problem som är relaterade till tidigare indrags bara frågor om problemlösning.
 
 ## <a name="advanced-security-and-compliance"></a>Avancerad säkerhet och efterlevnad
 

@@ -5,18 +5,18 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: dd89d41e0980afcef30e11fac3ce5583f439662f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773186"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370720"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Självstudie: Lägg till taggar i din Resource Manager-mall
 
 I den här självstudien får du lära dig hur du lägger till taggar i resurser i mallen. Med [taggar](../management/tag-resources.md) kan du logiskt organisera dina resurser. De märkes värden som visas i kostnads rapporter. Den här självstudien tar **8 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om snabb starts mallar](template-tutorial-quickstart-template.md), men det är inget krav.
 
@@ -44,7 +44,7 @@ Det är dags att distribuera mallen och titta på resultaten.
 
 Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -56,10 +56,10 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addtags \
   --resource-group myResourceGroup \
   --template-file $templateFile \

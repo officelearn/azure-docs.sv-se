@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: cc8ccbbde56b57af684ad47840002a846bdcd8c0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0af476b69f2effd836fe76d62059259076c16f53
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827956"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214163"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade för flera innehavare i en SaaS-app med flera innehavare
 
@@ -33,10 +33,10 @@ I den här självstudiekursen får du lära du dig att:
 > * Skala upp databasen som svar på den ökade databas belastningen
 > * Etablera en klient organisation i en databas för en enda klient
 
-Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
+Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 * Wingtip biljetter SaaS-appen för flera klient organisationer har distribuerats. Om du vill distribuera på mindre än fem minuter läser du [distribuera och utforska Wingtip-biljetterna SaaS-databas program för flera innehavare](saas-multitenantdb-get-started-deploy.md)
-* Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell ska ha installerats. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introduktion till SaaS prestanda hanterings mönster
 
@@ -47,11 +47,11 @@ Hantering av databasprestanda innebär kompilering och analys av prestandadata f
 * För att undvika att behöva övervaka prestanda manuellt är det mest effektivt att **Ange aviseringar som utlöses när databaser avviker utanför de normala intervallen**.
 * För att kunna svara på kortsiktiga variationer i beräknings storleken för en databas **kan DTU-nivån skalas upp eller ned**. Om denna variation inträffar regelbundet eller förutsägbart, **kan skalning av databasen schemaläggas att ske automatiskt**. Du kan exempelvis skala ned när du vet att din arbetsbelastning är lätt, på nätter eller helger till exempel.
 * För att svara på långsiktiga variationer eller ändringar i klient organisationerna **kan enskilda klienter flyttas till en annan databas**.
-* För att svara på kortsiktiga ökningar i en *enskild* klient belastning **kan enskilda klienter tas bort från en databas och tilldelas en individuell beräknings storlek**. När belastningen har minskat kan klienten sedan returneras till databasen för flera innehavare. När detta är känt i förväg, kan klienterna flyttas för förebyggande syfte för att säkerställa att databasen alltid har de resurser som krävs, och för att undvika påverkan på andra klienter i databasen för flera innehavare. Om det här kravet är förutsägbart, till exempel en plats där ett populärt evenemang skapar en rusning efter biljetter, kan det här hanteringsbeteendet integreras i programmet.
+* För att svara på kortsiktiga ökningar i en *enskild* klient belastning **kan enskilda klienter tas bort från en databas och tilldelas en individuell beräknings storlek**. När belastningen har minskat kan klienten sedan returneras till databasen för flera innehavare. När detta är känt i förväg, kan klienterna flyttas förebyggande syfte för att säkerställa att databasen alltid har de resurser som krävs, och för att undvika påverkan på andra klienter i databasen med flera innehavare. Om det här kravet är förutsägbart, till exempel en plats där ett populärt evenemang skapar en rusning efter biljetter, kan det här hanteringsbeteendet integreras i programmet.
 
 [Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL Database, övervakning och avisering är tillgängligt i databaser. Den här inbyggda övervakningen och aviseringen är resurs bestämd, så det är praktiskt att använda för ett fåtal resurser, men det är inte praktiskt när du arbetar med många resurser.
 
-För stora volymer, där du arbetar med många resurser, kan [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) användas. Det här är en separat Azure-tjänst som ger analys över genererade diagnostikloggar och telemetri som samlats in i en Log Analytics-arbetsyta. Azure Monitor loggar kan samla in telemetri från många tjänster och använda för att fråga och ange aviseringar.
+För stora volymer, där du arbetar med många resurser, kan [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) användas. Det här är en separat Azure-tjänst som ger analys över utgivna loggar som samlas in i en Log Analytics-arbetsyta. Azure Monitor loggar kan samla in telemetri från många tjänster och använda för att fråga och ange aviseringar.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip-biljetterna SaaS källkod och skript för databas program för flera innehavare
 

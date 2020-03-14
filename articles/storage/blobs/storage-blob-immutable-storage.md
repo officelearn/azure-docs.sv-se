@@ -9,18 +9,20 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 55dbcc15afb12c03c98fb8d6e4e7f4acb269f620
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: a980c7bd068a463956191eece43ec1be233e7890
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79255566"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367626"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
 Oföränderlig lagring för Azure Blob Storage gör det möjligt för användare att lagra affärs kritiska data objekt i en mask (Skriv en gång, läsa många). Det här läget gör att data inte kan raderas och inte kan ändras för ett användardefinierat intervall. För varaktigheten för kvarhållningsintervallet kan blobbar skapas och läsas, men kan inte ändras eller tas bort. Oföränderlig lagring är tillgängligt för generell användning v1, General-Purpose v2, BlobStorage och BlockBlobStorage-konton i alla Azure-regioner.
 
 Information om hur du ställer in och rensar juridiska undantag eller skapar en tidsbaserad bevarande princip med hjälp av Azure Portal, PowerShell eller Azure CLI finns i [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md).
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="about-immutable-blob-storage"></a>Om oföränderligt Blob Storage
 

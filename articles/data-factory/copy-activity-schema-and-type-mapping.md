@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386831"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260818"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktivitet
 

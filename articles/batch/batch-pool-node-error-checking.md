@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 95f7d4d03fbac6ec7c27630f1210ef999ddc776c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484136"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369275"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sök efter fel i pooler och noder
 
@@ -137,8 +137,21 @@ Storleken på den tillfälliga enheten beror på storleken på den virtuella dat
 
 För filer som skrivs ut av varje aktivitet kan en kvarhållningsperiod anges för varje aktivitet som avgör hur länge originalfilerna sparas innan de rensas automatiskt. Retentions tiden kan minskas för att minska lagrings kraven.
 
-Om det tillfälliga disk utrymmet har fyllts kommer noden att sluta köra aktiviteter för närvarande. I framtiden rapporteras ett [Node-fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) .
+Om den temporära disken tar slut på utrymme (eller ligger mycket nära att det tar slut på utrymme) flyttas noden till [oanvändbart](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) tillstånd och ett nodfel (Använd länken redan där) rapporteras om att disken är full.
 
+### <a name="what-to-do-when-a-disk-is-full"></a>Vad du gör när en disk är full
+
+Ta reda på varför disken är full: om du inte är säker på vad som tar upp utrymme på noden, rekommenderar vi att du fjärransluter till noden och undersöker manuellt var utrymmet har försvunnit. Du kan också använda [API: erna för batch-lista](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) för att undersöka filer i grupphanterade mappar (till exempel Uppgiftsutdata). Observera att detta API endast listar filer i de grupper som hanteras av gruppen och om dina aktiviteter har skapat filer någon annan stans kommer de inte att visas.
+
+Kontrol lera att alla data som du behöver har hämtats från noden eller laddats upp till ett varaktigt lager. All minskning av diskens fullständiga problem innebär att ta bort data för att frigöra utrymme.
+
+### <a name="recovering-the-node"></a>Återställer noden
+
+1. Om poolen är en [C. loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) -pool kan du återställa noden via [batch-avbildningen-API](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage). Då rensas hela disken. Reimage stöds inte för närvarande för [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) -pooler.
+
+2. Om poolen är en [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration)kan du ta bort noden från poolen med hjälp av API: [et Remove Nodes](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Sedan kan du växa poolen igen för att ersätta den felaktiga noden med en ny.
+
+3.  Ta bort gamla slutförda jobb eller gamla slutförda uppgifter vars uppgifts data fortfarande finns på noderna. En ledtråd för vilka jobb/uppgifter-data finns på noderna du kan titta på i [RecentTasks-samlingen](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) på noden eller på [filer på noden](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Om du tar bort jobbet raderas alla aktiviteter i jobbet och om du tar bort uppgifterna i jobbet utlöses data i aktivitets katalogerna på noden, vilket frigör utrymme. När du har frigjort tillräckligt med utrymme kan du starta om noden och den ska flyttas från "oanvändbar"-tillstånd och till "inaktive rad" igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

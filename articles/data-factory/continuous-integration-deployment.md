@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 7c9f22d27351b0f57c5a0158821f347073ae60b4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dc0da82447b5df0735b16f46298a2f473ee61ea0
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187816"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371383"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -60,7 +60,7 @@ Nedan visas ett exempel på en översikt över CI/CD-livscykeln i en Azure-dataf
 
    ![Bygg en egen mall](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Välj **Läs in fil**och välj sedan den genererade Resource Manager-mallen.
+1. Välj **Läs in fil**och välj sedan den genererade Resource Manager-mallen. Detta är den **arm_template. JSON** -fil som finns i. zip-filen som exporterades i steg 1.
 
    ![Redigera mall](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -171,7 +171,7 @@ Det finns två sätt att hantera hemligheter:
 
     Parameter filen måste också finnas i publicerings grenen.
 
--  Lägg till en [Azure Key Vault aktivitet](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) före Azure Resource Manager distributions aktivitet som beskrivs i föregående avsnitt:
+1. Lägg till en [Azure Key Vault aktivitet](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) före Azure Resource Manager distributions aktivitet som beskrivs i föregående avsnitt:
 
     1.  På fliken **aktiviteter** skapar du en ny uppgift. Sök efter **Azure Key Vault** och Lägg till det.
 
@@ -179,9 +179,9 @@ Det finns två sätt att hantera hemligheter:
 
     ![Lägg till en Key Vault uppgift](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-   #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Bevilja behörighet till Azure pipelines-agenten
+#### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Bevilja behörighet till Azure pipelines-agenten
 
-   Azure Key Vault aktiviteten kan Miss Miss kan ett fel meddelande om nekad åtkomst om rätt behörigheter inte har angetts. Hämta loggarna för versionen och leta upp den. ps1-fil som innehåller kommandot för att ge behörighet till Azure pipelines-agenten. Du kan köra kommandot direkt. Du kan också kopiera ägar-ID: t från filen och lägga till åtkomst principen manuellt i Azure Portal. `Get` och `List` är de lägsta behörigheter som krävs.
+Azure Key Vault aktiviteten kan Miss Miss kan ett fel meddelande om nekad åtkomst om rätt behörigheter inte har angetts. Hämta loggarna för versionen och leta upp den. ps1-fil som innehåller kommandot för att ge behörighet till Azure pipelines-agenten. Du kan köra kommandot direkt. Du kan också kopiera ägar-ID: t från filen och lägga till åtkomst principen manuellt i Azure Portal. `Get` och `List` är de lägsta behörigheter som krävs.
 
 ### <a name="update-active-triggers"></a>Uppdatera aktiva utlösare
 
@@ -471,7 +471,10 @@ Om du är i GIT-läge kan du åsidosätta standard egenskaperna i Resource Manag
 * Du använder automatiserad CI/CD och du vill ändra vissa egenskaper under distributionen av Resource Manager, men egenskaperna är inte parameterstyrda som standard.
 * Fabriken är så stor att Resource Manager-standardmallen är ogiltig eftersom den har fler än det högsta tillåtna antalet parametrar (256).
 
-Om du under dessa omständigheter vill åsidosätta standard mal len Parameterisering skapar du en fil med namnet arm-Template-Parameters-definition. json i mappen som anges som rotmapp för git-integreringen för Data Factory. Du måste använda det exakta fil namnet. Data Factory läser filen från den gren som du är närvarande på i Azure Data Factory portalen, inte bara från samarbets grenen. Du kan skapa eller redigera filen från en privat gren, där du kan testa dina ändringar genom att välja **Exportera arm-mall** i användar gränssnittet. Sedan kan du slå samman filen till samarbets grenen. Om ingen fil hittas används standard mal len.
+Om du under dessa omständigheter vill åsidosätta standard mal len Parameterisering skapar du en fil med namnet **arm-Template-Parameters-definition. JSON** i mappen som anges som rotmapp för git-integreringen för Data Factory. Du måste använda det exakta fil namnet. Data Factory läser filen från den gren som du är närvarande på i Azure Data Factory portalen, inte bara från samarbets grenen. Du kan skapa eller redigera filen från en privat gren, där du kan testa dina ändringar genom att välja **Exportera arm-mall** i användar gränssnittet. Sedan kan du slå samman filen till samarbets grenen. Om ingen fil hittas används standard mal len.
+
+> [!NOTE]
+> En anpassad Parameterisering-mall ändrar inte gränsen för ARM-mallparameter på 256. Du kan välja och minska antalet parameter egenskaper.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Syntax för en anpassad parameter fil
 
@@ -657,7 +660,7 @@ Följande är den aktuella standard Parameterisering-mallen. Om du bara behöver
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
-            "poolName": "=",
+                    "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",

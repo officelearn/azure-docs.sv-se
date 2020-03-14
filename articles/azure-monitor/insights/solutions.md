@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360907"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275209"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaknings lösningar i Azure Monitor
 Övervaknings lösningar utnyttjar tjänster i Azure för att ge ytterligare insyn i driften av ett visst program eller en viss tjänst. Den här artikeln innehåller en kort översikt över övervakning av lösningar i Azure och information om hur du använder och installerar dem.

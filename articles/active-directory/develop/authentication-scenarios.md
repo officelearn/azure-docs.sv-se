@@ -13,12 +13,12 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3ec965318da1361454b4a6bb78ed7147562b5fea
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77195003"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138526"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -50,9 +50,9 @@ Azure AD tillhandahåller också Azure Active Directory B2C så att organisation
 
 Säkerhetstoken innehåller information om användare och appar. Azure AD använder JSON-baserade token (JWTs) som innehåller anspråk.
 
-Ett anspråk tillhandahåller intyg om en entitet, till exempel ett [klient program](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) eller en [resurs ägare](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner)), till en annan entitet, till exempel en [resurs Server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server).
+Ett anspråk ger intyg om en entitet, till exempel ett [klient program](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application) eller en [resurs ägare](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-owner), till en annan entitet, till exempel en [resurs Server](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#resource-server).
 
-Anspråk är namn/värde-par som vidarebefordrar fakta om ämnets token. Ett anspråk kan till exempel innehålla fakta om säkerhets objekt som autentiserats av [auktoriseringsservern](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server)). De anspråk som förekommer i en specifik token är beroende av många saker, inklusive typen av token, vilken typ av autentiseringsuppgift som används för att autentisera ämnet, program konfigurationen och så vidare.
+Anspråk är namn/värde-par som vidarebefordrar fakta om ämnets token. Ett anspråk kan till exempel innehålla fakta om säkerhets objekt som autentiserats av [auktoriseringsservern](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#authorization-server). De anspråk som förekommer i en specifik token är beroende av många saker, inklusive typen av token, vilken typ av autentiseringsuppgift som används för att autentisera ämnet, program konfigurationen och så vidare.
 
 Program kan använda anspråk för olika uppgifter, till exempel:
 

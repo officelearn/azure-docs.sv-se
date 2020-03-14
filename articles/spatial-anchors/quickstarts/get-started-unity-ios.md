@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 37a82c4001dd42a4cfbbb9dabec29f28359afd75
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381376"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240592"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Snabb start: skapa en enhets-iOS-app med avstånds ankare för Azure
 

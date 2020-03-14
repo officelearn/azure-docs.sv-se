@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 62e8c174cd10a003657093b805291e003a9ede1b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 0ff7eff2465f187c25c58b429db752decc38ffc4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79244061"
+ms.locfileid: "79298047"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -180,6 +180,8 @@ Azure reserverar vissa IP-adresser i varje undernät och de här adresserna kan 
 Förutom de IP-adresser som används av Azure VNET-infrastrukturen använder varje API Management-instans i under nätet två IP-adresser per enhet av Premium-SKU eller en IP-adress för Developer-SKU: n. Varje instans reserverar en ytterligare IP-adress för den externa belastningsutjämnaren. När du distribuerar till ett internt virtuellt nätverk kräver det ytterligare en IP-adress för den interna belastningsutjämnaren.
 
 Beräkningen ovanför under nätets minsta storlek, där API Management kan distribueras är/29, vilket ger tre användbara IP-adresser.
+
+För varje extra skalnings enhet med API Management krävs ytterligare två IP-adresser.
 
 ## <a name="routing"></a> Routning
 + En belastningsutjämnad offentlig IP-adress (VIP) är reserverad för att ge åtkomst till alla tjänst slut punkter.

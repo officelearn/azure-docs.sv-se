@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 2d5bd8ea1cd8ce643e0bef8ae319d53a574ad2b4
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: cee49124a7547399889e425008a8580b9b25945a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168530"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217988"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importera dina utbildnings data till Azure Machine Learning Studio (klassisk) från olika data källor
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Om du vill använda dina egna data i Machine Learning Studio (klassisk) för att utveckla och träna en förutsägelse analys lösning kan du använda data från: 
 
@@ -64,10 +66,10 @@ Du kan uttryckligen ange eller ändra rubriker och data typer för kolumner med 
 
 Följande data typer kan identifieras av Studio (klassisk):
 
-* Sträng
+* String
 * Integer
 * Double-värde
-* Boolesk
+* Boolean
 * DateTime
 * Tidsintervall
 

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 03/11/2020
+ms.openlocfilehash: 6e0c98cffef06fb6d6345fc2b23bbc22715909b4
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646701"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370193"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
 
@@ -26,12 +26,13 @@ Det finns flera beroenden som kräver inkommande trafik. Inkommande hanterings t
 
 De utgående trafik beroendena för HDInsight är nästan helt definierade med FQDN, som inte har statiska IP-adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper (NSG: er) inte kan användas för att låsa utgående trafik från ett kluster. Adresserna ändras ofta nog för att det inte går att konfigurera regler baserat på den aktuella namn matchningen och använda den för att konfigurera NSG-regler.
 
-Lösningen för att skydda utgående adresser är att använda en brand Väggs enhet som kan styra utgående trafik baserat på domän namn. Azure-brandväggen kan begränsa utgående HTTP-och HTTPS-trafik baserat på FQDN för mål-eller [FQDN-taggarna](https://docs.microsoft.com/azure/firewall/fqdn-tags).
+Lösningen för att skydda utgående adresser är att använda en brand Väggs enhet som kan styra utgående trafik baserat på domän namn. Azure-brandväggen kan begränsa utgående HTTP-och HTTPS-trafik baserat på FQDN för mål-eller [FQDN-taggarna](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurera Azure-brandvägg med HDInsight
 
 En sammanfattning av stegen för att låsa bort från din befintliga HDInsight med Azure Firewall är:
 
+1. Skapa ett undernät.
 1. Skapa en brand vägg.
 1. Lägg till program regler i brand väggen
 1. Lägg till nätverks regler i brand väggen.
@@ -77,7 +78,7 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
-    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. net | Ersätt `storage_account_name` med ditt faktiska lagrings konto namn. Om klustret backas upp av WASB lägger du till en regel för WASB. Om du bara vill använda HTTPS-anslutningar kontrollerar du att ["säker överföring krävs"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverat på lagrings kontot. |
+    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. net | Ersätt `storage_account_name` med ditt faktiska lagrings konto namn. Om klustret backas upp av WASB lägger du till en regel för WASB. Om du bara vill använda HTTPS-anslutningar kontrollerar du att ["säker överföring krävs"](../storage/common/storage-require-secure-transfer.md) är aktiverat på lagrings kontot. |
 
    ![Rubrik: Ange information om program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -110,7 +111,7 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
     **Avsnittet service Tags**
 
-    | Namn | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Anteckningar |
+    | Namn | Protokoll | Källadresser | Service märken | Mål portar | Anteckningar |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik, om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
 
@@ -182,7 +183,7 @@ Mer information om skalnings gränserna för Azure-brandväggen och begär Anden
 
 ## <a name="access-to-the-cluster"></a>Åtkomst till klustret
 
-När brand väggen har kon figurer ATS kan du använda den interna slut punkten (`https://CLUSTERNAME-int.azurehdinsight.net`) för att komma åt Ambari inifrån VNET.
+När brand väggen har kon figurer ATS kan du använda den interna slut punkten (`https://CLUSTERNAME-int.azurehdinsight.net`) för att få åtkomst till Ambari inifrån det virtuella nätverket.
 
 Om du vill använda den offentliga slut punkten (`https://CLUSTERNAME.azurehdinsight.net`) eller SSH-slutpunkten (`CLUSTERNAME-ssh.azurehdinsight.net`) kontrollerar du att du har rätt vägar i routningstabellen och NSG-regler för att undvika problemet med asymmetrisk routning som beskrivs [här](../firewall/integrate-lb.md). I det här fallet måste du tillåta klientens IP-adress i reglerna för inkommande NSG och även lägga till den i den användardefinierade routningstabellen med nästa hopp uppsättning som `internet`. Om detta inte är korrekt konfigurerat visas ett timeout-fel.
 
@@ -201,7 +202,7 @@ I föregående instruktioner kan du konfigurera Azure-brandväggen för att begr
 
 ### <a name="service-endpoint-capable-dependencies"></a>Tjänst slut punkt kompatibla beroenden
 
-| **Slutpunkt** |
+| **Endpoint** |
 |---|
 | Azure SQL |
 | Azure Storage |
@@ -209,9 +210,9 @@ I föregående instruktioner kan du konfigurera Azure-brandväggen för att begr
 
 #### <a name="ip-address-dependencies"></a>IP-adress beroenden
 
-| **Slutpunkt** | **Detaljer** |
+| **Endpoint** | **Detaljer** |
 |---|---|
-| \*:123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
+| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
 | IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | Detta är HDInsight-tjänsten |
 | AAD – DS privata IP-adresser för ESP-kluster |
 | \*: 16800 för aktivering av KMS-Windows |
@@ -222,7 +223,7 @@ I föregående instruktioner kan du konfigurera Azure-brandväggen för att begr
 > [!Important]
 > Listan nedan innehåller bara några av de viktigaste FQDN-namnen. Du kan hämta den fullständiga listan över FQDN: er för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
 
-| **Slutpunkt**                                                          |
+| **Endpoint**                                                          |
 |---|
 | azure.archive.ubuntu.com:80                                           |
 | security.ubuntu.com:80                                                |

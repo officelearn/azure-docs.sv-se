@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613796"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260168"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk gränser
 
@@ -72,15 +72,15 @@ Här följer storleken på de Azure-objekt som kan skrivas. Se till att alla fil
 
 | Objekt typ för Azure | Standardgräns                                             |
 |-------------------|-----------------------------------------------------------|
-| Blockblob        | ~ 4,75 TiB                                                 |
+| Blockera BLOB        | ~ 4,75 TiB                                                 |
 | Sid-BLOB         | 8 TiB <br> (Alla filer som laddats upp i sid-BLOB-format måste vara 512 byte justerade, annars Miss lyckas överföringen. <br> Både VHD och VHDX är 512 byte-justerade.) |
 |Azure Files        | 1 TiB <br> Max. resurs storleken är 5 TiB     |
-| Managed Disks     |4 TiB <br> Mer information om storlek och begränsningar finns i: <li>[Skalbarhets mål för Managed disks](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
+| Hanterade diskar     |4 TiB <br> Mer information om storlek och begränsningar finns i: <li>[Skalbarhets mål för Managed disks](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Konventioner för Azure Block Blob, Page blob och namngivning av filer
 
-| Enhet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
+| Entitet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Behållar namn för Block-Blob och Page BLOB <br> Fileshare-namn för Azure Files | Måste vara ett giltigt DNS-namn som är mellan 3 och 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Får bara innehålla gemena bokstäver, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
 | Katalog-och fil namn för Azure Files     |<li> Skift läges känsligt, SKIFT läges okänsligt och får inte överskrida 255 tecken. </li><li> Kan inte sluta med snedstreck (/). </li><li>Om den anges tas den bort automatiskt. </li><li> Följande tecken är inte tillåtna: <code>" \\ / : \| < > * ?</code></li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Otillåtna Sök vägs tecken för URL är inte tillåtna. Kod punkter som \\uE000 är inte giltiga Unicode-tecken. Vissa ASCII-eller Unicode-tecken, t. ex. styr tecken (0x00 till 0x1F, \\u0081 osv.), är inte heller tillåtna. För regler som styr Unicode-strängar i HTTP/1.1 se RFC 2616, avsnitt 2,2: Basic rules och RFC 3987. </li><li> Följande fil namn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, klock $, punkt tecken (.) och två punkt tecken (..).</li>|
@@ -88,7 +88,7 @@ Här följer storleken på de Azure-objekt som kan skrivas. Se till att alla fil
 
 ## <a name="managed-disk-naming-conventions"></a>Namn konventioner för hanterade diskar
 
-| Enhet | Konventioner                                             |
+| Entitet | Konventioner                                             |
 |-------------------|-----------------------------------------------------------|
 | Hanterade disk namn       | <li> Namnet måste vara mellan 1 och 80 tecken långt. </li><li> Namnet måste börja med en bokstav eller en siffra, sluta med en bokstav, en siffra eller ett under streck. </li><li> Namnet får bara innehålla bokstäver, siffror, under streck, punkter eller bindestreck. </li><li>   Namnet får inte innehålla blank steg eller `/`.                                              |
 

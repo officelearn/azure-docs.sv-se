@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: e8266e5750a14542e7f115e021daa40b2b0bf8f6
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 245bcac81189ac8aa63f81fbe4ed30655a457bc8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79130015"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371902"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrera Azure Data Lake Storage från gen1 till Gen2
 
@@ -132,7 +132,8 @@ Detta är det enklaste mönstret.
 
 4. Inaktivera gen1.
 
-![Mönster för hiss och Skift](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
+> [!div class="mx-imgBorder"]
+> mönster för ![hiss och Shift](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
 
 #### <a name="considerations-for-using-the-lift-and-shift-pattern"></a>Att tänka på när du använder mönster för hiss och Skift
 
@@ -152,7 +153,8 @@ Detta är det enklaste mönstret.
 
 4. Inaktivera gen1.
 
-![Mönster för stegvis kopiering](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
+> [!div class="mx-imgBorder"]
+> ![stegvis kopierings mönster](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
 #### <a name="considerations-for-using-the-incremental-copy-pattern"></a>Att tänka på när du använder det stegvisa kopierings mönstret:
 
@@ -172,7 +174,8 @@ Detta är det enklaste mönstret.
 
 4. Stoppa alla skrivningar till gen1 och inaktivera gen1.
 
-![Mönster för dubbel pipeline](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
+> [!div class="mx-imgBorder"]
+> mönster för ![dubbla pipeliner](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
 #### <a name="considerations-for-using-the-dual-pipeline-pattern"></a>Att tänka på när du använder dubbla pipeline-mönster:
 
@@ -190,7 +193,8 @@ Detta är det enklaste mönstret.
 
 4. Inaktivera gen1.
 
-![Dubbelriktat mönster](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
+> [!div class="mx-imgBorder"]
+> ![dubbelriktat mönster](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)
 
 #### <a name="considerations-for-using-the-bi-directional-sync-pattern"></a>Att tänka på när du använder dubbelriktat Sync-mönster:
 

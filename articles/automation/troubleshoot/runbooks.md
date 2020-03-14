@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: abe159221846c4820ba9750f62bdbc814521ecc4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 8fd2f808169a0615e1ad5ca338823e3a8e3212ff
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252745"
+ms.locfileid: "79297857"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 
@@ -609,7 +609,7 @@ Kör som-konton kanske inte har samma behörigheter för Azure-resurser som ditt
 
 ### <a name="issues-passing-parameters-into-webhooks"></a>Problem med att skicka parametrar till Webhooks
 
-Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](../automation-webhooks.md#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### <a name="issues-using-az-modules"></a>Problem med AZ-moduler
 
@@ -630,7 +630,7 @@ Kör som-konton kanske inte har samma behörigheter för Azure-resurser som ditt
 
 ### <a name="passing-parameters-into-webhooks"></a>Skicka parametrar till webhooks
 
-Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters-used-when-the-webhook-starts-a-runbook).
 
 ### <a name="using-az-modules"></a>Använda Az-moduler
 

@@ -1,35 +1,36 @@
 ---
 title: 'Självstudie: ML pipelines för batch-Poäng'
 titleSuffix: Azure Machine Learning
-description: I den här självstudien skapar du en maskin inlärnings pipeline för att köra batch-bedömning i en bild klassificerings modell i Azure Machine Learning. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på din expertis – maskin inlärning – i stället för på infrastruktur och automatisering.
+description: I den här självstudien skapar du en maskin inlärnings pipeline för att utföra en batch-bedömning i en bild klassificerings modell. Azure Machine Learning kan du fokusera på maskin inlärning i stället för infrastruktur och automatisering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
-ms.reviewer: trbye
-ms.date: 02/10/2020
-ms.openlocfilehash: cb99861a53c6802598cf925121f1821f74e7d76f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.reviewer: laobri
+ms.date: 03/11/2020
+ms.openlocfilehash: bfa39d4a508412322f0caec36d557c3fc6775090
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78354920"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238652"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Självstudie: Bygg en Azure Machine Learning pipeline för batch-Poäng
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här självstudien använder du en pipeline i Azure Machine Learning för att köra ett batch-bedömnings jobb. I exemplet används den förtränade inlagan [(convolutional neurala](https://arxiv.org/abs/1512.00567) Network Tensorflow Model för att klassificera omärkta bilder. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt som du kan använda för att utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst.
+Lär dig hur du skapar en pipeline i Azure Machine Learning att köra ett batch-bedömnings jobb. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på maskin inlärning i stället för infrastruktur och automatisering. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt som du kan använda för att utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst. 
 
-Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på din expertis – maskin inlärning – i stället för på infrastruktur och automatisering. [Läs mer om maskin inlärnings pipeliner](concept-ml-pipelines.md).
+Exemplet använder en förtränad in(convolutionalt neurala [-](https://arxiv.org/abs/1512.00567) nätverks modell som implementerats i Tensorflow för att klassificera omärkta bilder. [Läs mer om maskin inlärnings pipeliner](concept-ml-pipelines.md).
 
 I den här självstudien slutför du följande uppgifter:
 
 > [!div class="checklist"]
-> * Konfigurera arbets ytan och hämta exempel data
-> * Skapa data objekt för att hämta och mata ut data
+> * Konfigurera arbetsyta 
+> * Hämta och lagra exempel data
+> * Skapa data mängds objekt för att hämta och mata ut data
 > * Ladda ned, Förbered och registrera modellen på din arbets yta
 > * Etablera beräknings mål och skapa ett bedömnings skript
 > * Använd `ParallelRunStep`-klassen för asynkron batch-Poäng
@@ -57,7 +58,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-datastore-for-sample-images"></a>Skapa ett data lager för exempel bilder
+## <a name="create-a-datastore-for-sample-images"></a>Skapa ett data lager för exempel bilder
 
 På `pipelinedata`-kontot hämtar du ImageNet för utvärdering av offentliga data från `sampledata` offentliga BLOB-behållaren. Anropa `register_azure_blob_container()` för att göra data tillgängliga för arbets ytan under namnet `images_datastore`. Ange sedan standard data lagret för arbets ytan som utdata-datalager. Använd utdata-datalagret för att räkna ut utdata i pipelinen.
 
@@ -73,7 +74,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 def_data_store = ws.get_default_datastore()
 ```
 
-## <a name="create-data-objects"></a>Skapa data objekt
+## <a name="create-dataset-objects"></a>Skapa data mängds objekt
 
 När du skapar pipeliner används `Dataset` objekt för att läsa data från data lager för arbets ytor och `PipelineData` objekt används för att överföra mellanliggande data mellan pipeline-steg.
 
@@ -259,7 +260,7 @@ def run(mini_batch):
 > [!TIP]
 > Pipelinen i den här självstudien har bara ett steg och skriver utdata till en fil. I pipeline för flera steg använder du också `ArgumentParser` för att definiera en katalog för att skriva utdata som indata för efterföljande steg. Ett exempel på att skicka data mellan flera pipeline-steg med hjälp av `ArgumentParser` design mönstret finns i [antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
-## <a name="build-and-run-the-pipeline"></a>Skapa och kör pipelinen
+## <a name="build-the-pipeline"></a>Bygg pipelinen
 
 Innan du kör pipelinen skapar du ett-objekt som definierar python-miljön och skapar de beroenden som `batch_scoring.py`-skriptet kräver. Det nödvändiga huvud beroendet är Tensorflow, men du kan också installera `azureml-defaults` för bakgrunds processer. Skapa ett `RunConfiguration`-objekt med hjälp av beroenden. Ange också Docker och Docker-GPU-stöd.
 
@@ -324,7 +325,7 @@ batch_score_step = ParallelRunStep(
 
 En lista över alla klasser du kan använda för olika steg typer finns i [steg paketet](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
 
-### <a name="run-the-pipeline"></a>Köra en pipeline
+## <a name="run-the-pipeline"></a>Köra en pipeline
 
 Kör nu pipelinen. Skapa först ett `Pipeline`-objekt med hjälp av din arbets ytans referens och det pipeline-steg som du skapade. Parametern `steps` är en matris med steg. I det här fallet finns det bara ett steg för batch-poäng. Placera stegen i den här matrisen för att bygga pipeliner som har flera steg.
 

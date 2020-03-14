@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e17112cbe2a494a585cd5a09c36cfe449d3d433c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249213"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365823"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Vanliga fel och fel söknings steg för Azure Active Directory Domain Services
 
@@ -30,7 +30,7 @@ Om du har problem med att aktivera Azure AD DS kan du läsa följande vanliga fe
 
 | **Exempel på fel meddelande** | **Upplösning** |
 | --- |:--- |
-| *Namnet addscontoso.com används redan i det här nätverket. Ange ett namn som inte används.* |[Domän namns konflikt i det virtuella nätverket](troubleshoot.md#domain-name-conflict) |
+| *Namnet aaddscontoso.com används redan i det här nätverket. Ange ett namn som inte används.* |[Domän namns konflikt i det virtuella nätverket](troubleshoot.md#domain-name-conflict) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet som heter "Azure AD Domain Services Sync". Ta bort programmet som heter "Azure AD Domain Services Sync" och försök sedan Aktivera domän tjänster för Azure AD-klienten.* |[Domän tjänster har inte tillräcklig behörighet för Azure AD Domain Services Sync-programmet](troubleshoot.md#inadequate-permissions) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Domän tjänst programmet i din Azure AD-klient har inte de behörigheter som krävs för att aktivera domän tjänster. Ta bort programmet med program identifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan att aktivera Domain Services för din Azure AD-klient.* |[Domän tjänst programmet har inte kon figurer ATS korrekt i din Azure AD-klient](troubleshoot.md#invalid-configuration) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Microsoft Azure AD programmet är inaktiverat i din Azure AD-klient. Aktivera programmet med program identifieraren 00000002-0000-0000-C000-000000000000 och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Microsoft Graph programmet är inaktiverat i din Azure AD-klient](troubleshoot.md#microsoft-graph-disabled) |

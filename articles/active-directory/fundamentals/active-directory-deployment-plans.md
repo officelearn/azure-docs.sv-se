@@ -13,11 +13,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 17e6708225262349d56c6e261895882e9c31677f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378270"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262222"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.

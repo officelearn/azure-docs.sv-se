@@ -5,14 +5,14 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 20d07be99aa2f9881218f8d581ac8d429a1fe4d0
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705623"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298809"
 ---
-# <a name="troubleshoot"></a>Felsökning
+# <a name="troubleshoot"></a>Felsöka
 
 Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats.
 
@@ -51,7 +51,7 @@ Information om hur du hämtar loggar finns i avsnittet ["samla in loggar manuell
 
 **Korrigerande åtgärd**:
 
-1. Se till att du har utfört partner registreringen korrekt – du kan kontrol lera detta genom att gå till Datahub-Swagger, navigera till/partner-API, göra en get-och kontrol lera om partnern är registrerad. Om inte följer du [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
+1. Se till att du har utfört partner registreringen korrekt – du kan kontrol lera detta genom att gå till Datahub-Swagger, navigera till/partner-API, göra en get-och kontrol lera om partnern är registrerad. Annars följer du [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
 2. Kontrol lera att du har använt rätt format för telemetri-meddelande:
 
 ```json
@@ -65,11 +65,11 @@ Information om hur du hämtar loggar finns i avsnittet ["samla in loggar manuell
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -119,14 +119,14 @@ När du tar bort en enhet kan du stöta på något av följande vanliga fel scen
 2. Ta bort den aktuella enheten.  
 
     > [!NOTE]
-    > Du kan inte ta bort en enhet om sensorer är kopplade till den. Mer information om hur du tar bort tillhör ande sensorer finns i avsnittet "ta bort sensor" i [Hämta sensor data från sensor partner](get-sensor-data-from-sensor-partner.md).
+    > Du kan inte ta bort en enhet om sensorer är kopplade till den. Mer information om hur du tar bort tillhör ande sensorer finns i avsnittet **ta bort sensor** i [Hämta sensor data från sensor partner](get-sensor-data-from-sensor-partner.md).
 
 
 ## <a name="issues-with-jobs"></a>Problem med jobb
 
 ### <a name="farmbeats-internal-error"></a>Internt FarmBeats-fel
 
-**Meddelande**: "FarmBeats internt fel, se fel söknings guiden för mer information."
+**Meddelande**: "FarmBeats internt fel, se fel söknings guiden för mer information".
 
 **Korrigerande åtgärd**: det här problemet kan bero på ett tillfälligt fel i data pipelinen. Skapa jobbet igen. Om felet kvarstår kan du lägga till fel meddelandet i ett inlägg i FarmBeats-forumet eller kontakta FarmBeatsSupport@microsoft.com.
 
@@ -138,13 +138,13 @@ När du tar bort en enhet kan du stöta på något av följande vanliga fel scen
 
 **Meddelande**: "Det gick inte att hitta matchande användare".
 
-**Korrigerande åtgärd**: kontrol lera e-postadressen som du försöker lägga till en roll tilldelning för. E-post-ID: t måste vara en exakt matchning av det ID som är registrerat för den användaren i Active Directory. Om felet kvarstår kan du lägga till fel meddelandet i ett inlägg i FarmBeats-forumet eller kontakta FarmBeatsSupport@microsoft.com.
+**Korrigerande åtgärd**: kontrol lera e-postadressen som du försöker lägga till en roll tilldelning för. E-post-ID: t måste vara en exakt matchning av ID: t som har registrerats för den användaren i Active Directory. Om felet kvarstår kan du lägga till fel meddelandet i ett inlägg i FarmBeats-forumet eller kontakta FarmBeatsSupport@microsoft.com.
 
 ### <a name="unable-to-log-in-to-accelerator"></a>Det gick inte att logga in på Accelerator
 
 **Meddelande**: "fel: du har inte behörighet att anropa tjänsten. Kontakta administratören för auktorisering. "
 
-**Korrigerande åtgärd**: be administratören att ge dig åtkomst till FarmBeats-distributionen. Detta kan göras genom att göra ett inlägg i RoleAssignment-API: erna eller via Access Control i fönstret **Inställningar** i Accelerator.  
+**Korrigerande åtgärd**: be administratören ge dig åtkomst till FarmBeats-distributionen. Detta kan göras genom att göra ett inlägg i RoleAssignment-API: erna eller via Access Control i fönstret **Inställningar** i Accelerator.  
 
 Om du redan har beviljats åtkomst och har det här felet kan du försöka igen genom att uppdatera sidan. Om felet kvarstår kan du lägga till fel meddelandet i ett inlägg i FarmBeats-forumet eller kontakta FarmBeatsSupport@microsoft.com.
 
@@ -163,6 +163,7 @@ Om felet kvarstår kan du lägga till fel meddelandet i ett inlägg i FarmBeats-
 **Problem**: FarmBeats Accelerator visar inte den senaste versionen, även efter att du har uppgraderat FarmBeatsDeployment.
 
 **Korrigerande åtgärd**: det här felet uppstår på grund av beständiga service Worker i webbläsaren. Gör följande:
+
 1. Stäng alla flikar för webbläsare som har en Accelerator öppen och Stäng webbläsarfönstret.
 2. Starta en ny instans av webbläsaren och Läs in Accelerator-URI igen. Den här åtgärden läser in den nya versionen av Accelerator.
 
@@ -175,6 +176,7 @@ Om felet kvarstår kan du lägga till fel meddelandet i ett inlägg i FarmBeats-
 **Korrigerande åtgärd**:
 
 Gör något av följande:
+
 - Kör installations programmet för att uppgradera Datahub med rätt användar namn och lösen ord.
 - Kör det misslyckade jobbet igen eller kör ett satellit index jobb för ett datum intervall på 5 till 7 dagar och kontrol lera sedan för att se om jobbet lyckades.
 
@@ -198,6 +200,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 1. Om ett jobb eller en pipeline Miss lyckas eftersom underhåll utförs, skicka om jobbet efter en stund. 
 
    Information om planerade eller oplanerade aktiviteter finns i [Copernicus öppna Access Hub nyhets](https://scihub.copernicus.eu/news/) webbplats.  
+
 2. Kör det misslyckade jobbet igen eller kör ett satellit index jobb för ett datum intervall på 5 till 7 dagar och kontrol lera sedan för att se om jobbet lyckades.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: högsta antalet anslutningar har uppnåtts
@@ -207,6 +210,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 **Betydelse**: om ett jobb Miss lyckas eftersom det maximala antalet anslutningar har uppnåtts, används samma kontroll konto i en annan program distribution.
 
 **Korrigerande åtgärd**: prova något av följande:
+
 * Skapa ett nytt Sentinel-konto och kör sedan installations programmet igen för att uppgradera Datahub med ett nytt kontroll användar namn och lösen ord.  
 * Kör det misslyckade jobbet igen eller kör ett satellit index jobb för ett datum intervall på 5 till 7 dagar och kontrol lera sedan för att se om jobbet lyckades.
 
@@ -218,6 +222,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 1. Om ett jobb eller en pipeline Miss lyckas eftersom underhåll utförs, skicka om jobbet efter en stund. 
 
    Information om planerade eller oplanerade aktiviteter finns i [Copernicus öppna Access Hub nyhets](https://scihub.copernicus.eu/news/) webbplats.  
+
 2. Kör det misslyckade jobbet igen eller kör ett satellit index jobb för ett datum intervall på 5 till 7 dagar och kontrol lera sedan för att se om jobbet lyckades.
 
 ## <a name="collect-logs-manually"></a>Samla in loggar manuellt
@@ -225,6 +230,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 [Installera och distribuera Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
 ### <a name="collect-azure-data-factory-job-logs-in-datahub"></a>Samla in Azure Data Factory jobb loggar i Datahub
+
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
 

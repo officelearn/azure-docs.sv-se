@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: e6b2f73540a0af7ed9c12469406a77d1bed8a2b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79270009"
+ms.locfileid: "79296973"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Följande mått kan läggas till en körning vid utbildning ett experiment. Om d
 |Typ| Python-funktion | Anteckningar|
 |----|:----|:----|
 |Skalära värden |Funktionen:<br>`run.log(name, value, description='')`<br><br>Exempel:<br>Run.log (”Precision”, 0,95) |Logga en numeriska eller Anslutningssträngens värde ska köras med det angivna namnet. Logga ett mått på en körning gör det måttet som ska lagras i den kör posten i experimentet.  Du kan logga samma mått flera gånger inom en körning resultatet ses som en vektor för att mått.|
-|Listor|Funktionen:<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Run.log_list (”noggrannhet” [0,6, 0,7, 0.87]) | Logga in en lista med värden ska köras med det angivna namnet.|
+|Visar en lista över|Funktionen:<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Run.log_list (”noggrannhet” [0,6, 0,7, 0.87]) | Logga in en lista med värden ska köras med det angivna namnet.|
 |Rad|Funktionen:<br>`run.log_row(name, description=None, **kwargs)`<br>Exempel:<br>Run.log_row (”Y över X” x = 1, y = 0.4) | Om du använder *log_row* skapas ett mått med flera kolumner enligt beskrivningen i kwargs. Varje namngivna parametern genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tupel eller flera gånger i en slinga för att generera en fullständig tabell.|
 |Tabell|Funktionen:<br>`run.log_table(name, value, description='')`<br><br>Exempel:<br>Run.log_table (”Y över X”, {”x”: [1, 2, 3], ”y”: [0,6, 0,7, 0,89 tum]}) | Logga ett katalogobjekt ska köras med det angivna namnet. |
 |Avbildningar|Funktionen:<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>`run.log_image("ROC", plot=plt)` | Logga in en avbildning kör posten. Använd log_image för att logga en fil eller en matplotlib ritning körningen.  Dessa avbildningar är synlig och jämförbar i posten kör.|
@@ -58,76 +58,27 @@ Innan du lägger till loggning och skicka ett experiment, måste du ställa in a
 
 1. Läs in arbetsytan. Mer information om hur du anger arbets ytans konfiguration finns i [konfigurations filen för arbets ytan](how-to-configure-environment.md#workspace).
 
-   ```python
-   from azureml.core import Experiment, Run, Workspace
-   import azureml.core
-  
-   ws = Workspace.from_config()
-   ```
-  
+[! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? namn = load_ws)]
+
+
 ## <a name="option-1-use-start_logging"></a>Alternativ 1: Använd start_logging
 
 **start_logging** skapar en interaktiv körning för användning i scenarier som Notebooks. Alla mått som är inloggad under sessionen har lagts till den kör posten i experimentet.
 
 I följande exempel träna en enkel modell sklearn upphöjning lokalt i en lokal Jupyter-anteckningsbok. Mer information om hur du skickar experiment till olika miljöer finns i [Konfigurera beräknings mål för modell utbildning med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets).
 
-1. Skapa ett inlärningsskript i en lokal Jupyter-anteckningsbok. 
+### <a name="load-the-data"></a>Läs in data
 
-   ```python
-   # load diabetes dataset, a well-known small dataset that comes with scikit-learn
-   from sklearn.datasets import load_diabetes
-   from sklearn.linear_model import Ridge
-   from sklearn.metrics import mean_squared_error
-   from sklearn.model_selection import train_test_split
-   from sklearn.externals import joblib
+I det här exemplet används diabetes-datauppsättningen, en välkänd liten data uppsättning som medföljer scikit-information. Den här cellen läser in data uppsättningen och delar den i slumpmässiga inlärnings-och test uppsättningar.
 
-   X, y = load_diabetes(return_X_y = True)
-   columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
-   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-   data = {
-      "train":{"X": X_train, "y": y_train},        
-      "test":{"X": X_test, "y": y_test}
-   }
-   reg = Ridge(alpha = 0.03)
-   reg.fit(data['train']['X'], data['train']['y'])
-   preds = reg.predict(data['test']['X'])
-   print('Mean Squared Error is', mean_squared_error(preds, data['test']['y']))
-   joblib.dump(value = reg, filename = 'model.pkl');
-   ```
+[! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? namn = load_data)]
 
-2. Lägg till experiment uppföljning med Azure Machine Learning SDK och ladda upp en beständiga modell i experiment körnings posten. Följande kod lägger till taggar, loggar, och laddar upp en modellfil till körningen av experimentet.
+### <a name="add-tracking"></a>Lägg till spårning
+Lägg till experiment uppföljning med Azure Machine Learning SDK och ladda upp en beständiga modell i experiment körnings posten. Följande kod lägger till taggar, loggar, och laddar upp en modellfil till körningen av experimentet.
 
-   ```python
-    # Get an experiment object from Azure Machine Learning
-    experiment = Experiment(workspace=ws, name="train-within-notebook")
-    
-    # Create a run object in the experiment
-    run =  experiment.start_logging()
-    # Log the algorithm parameter alpha to the run
-    run.log('alpha', 0.03)
-    
-    # Create, fit, and test the scikit-learn Ridge regression model
-    regression_model = Ridge(alpha=0.03)
-    regression_model.fit(data['train']['X'], data['train']['y'])
-    preds = regression_model.predict(data['test']['X'])
-    
-    # Output the Mean Squared Error to the notebook and to the run
-    print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
-    run.log('mse', mean_squared_error(data['test']['y'], preds))
-    
-    # Save the model to the outputs directory for capture
-    model_file_name = 'outputs/model.pkl'
-    
-    joblib.dump(value = regression_model, filename = model_file_name)
-    
-    # upload the model file explicitly into artifacts 
-    run.upload_file(name = model_file_name, path_or_stream = model_file_name)
-    
-    # Complete the run
-    run.complete()
-   ```
+[! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? namn = create_experiment)]
 
-    Skriptet slutar med ```run.complete()```, vilket markerar kör som slutfört.  Den här funktionen används vanligtvis i interaktiva notebook-scenarier.
+Skriptet slutar med ```run.complete()```, vilket markerar kör som slutfört.  Den här funktionen används vanligtvis i interaktiva notebook-scenarier.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Alternativ 2: Använd ScriptRunConfig
 
@@ -137,94 +88,23 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
 
 1. Skapa ett utbildnings skript `train.py`.
 
-   ```python
-   # train.py
-
-   import os
-   from sklearn.datasets import load_diabetes
-   from sklearn.linear_model import Ridge
-   from sklearn.metrics import mean_squared_error
-   from sklearn.model_selection import train_test_split
-   from azureml.core.run import Run
-   from sklearn.externals import joblib
-
-   import numpy as np
-
-   #os.makedirs('./outputs', exist_ok = True)
-
-   X, y = load_diabetes(return_X_y = True)
-
-   run = Run.get_context()
-
-   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
-   data = {"train": {"X": X_train, "y": y_train},
-          "test": {"X": X_test, "y": y_test}}
-
-   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-   alphas = mylib.get_alphas()
-
-   for alpha in alphas:
-      # Use Ridge algorithm to create a regression model
-      reg = Ridge(alpha = alpha)
-      reg.fit(data["train"]["X"], data["train"]["y"])
-
-      preds = reg.predict(data["test"]["X"])
-      mse = mean_squared_error(preds, data["test"]["y"])
-      # log the alpha and mse values
-      run.log('alpha', alpha)
-      run.log('mse', mse)
-
-      model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
-      # save model in the outputs folder so it automatically get uploaded
-      with open(model_file_name, "wb") as file:
-          joblib.dump(value = reg, filename = model_file_name)
-
-      # upload the model file explicitly into artifacts 
-      run.upload_file(name = model_file_name, path_or_stream = model_file_name)
-
-      # register the model
-      #run.register_model(file_name = model_file_name)
-
-      print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
-  
-   ```
+   [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 2. `train.py` skript referenser `mylib.py` som gör att du kan hämta en lista över de alpha-värden som ska användas i Ridge-modellen.
 
-   ```python
-   # mylib.py
-  
-   import numpy as np
-
-   def get_alphas():
-      # list of numbers from 0.0 to 1.0 with a 0.05 interval
-      return np.arange(0.0, 1.0, 0.05)
-   ```
+   [! code-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
 3. Konfigurera en lokal miljö med användarhanterade.
 
-   ```python
-   from azureml.core.environment import Environment
-    
-   # Editing a run configuration property on-fly.
-   user_managed_env = Environment("user-managed-env")
-    
-   user_managed_env.python.user_managed_dependencies = True
-    
-   # You can choose a specific Python environment by pointing to a Python path 
-   #user_managed_env.python.interpreter_path = '/home/johndoe/miniconda3/envs/myenv/bin/python'
-   ```
+   [! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? namn = user_managed_env)]
+
 
 4. Skicka ```train.py``` skriptet som ska köras i den användar hanterade miljön. Hela skriptets mapp skickas för utbildning, inklusive ```mylib.py```-filen.
 
-   ```python
-   from azureml.core import ScriptRunConfig
-    
-   exp = Experiment(workspace=ws, name="train-on-local")
-   src = ScriptRunConfig(source_directory='./', script='train.py')
-   src.run_config.environment = user_managed_env
-   run = exp.submit(src)
-   ```
+   [! Notebook – python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = src)] [! Notebook-python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? namn = kör)]
+
+
+
 
 ## <a name="manage-a-run"></a>Hantera en körning
 

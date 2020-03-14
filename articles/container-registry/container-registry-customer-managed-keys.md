@@ -4,12 +4,12 @@ description: Lär dig mer om kryptering – resten av Azure Container Registry o
 ms.topic: article
 ms.date: 03/10/2020
 ms.custom: ''
-ms.openlocfilehash: 8bce77c776fe088e5c317f02cd2757738a287069
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 7bfc4e9a73280ab330efbeeba51a5dcb0a80da10
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096481"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365349"
 ---
 # <a name="encryption-using-customer-managed-keys"></a>Kryptering med Kundhanterade nycklar
 
@@ -27,6 +27,7 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 
 * Du kan för närvarande endast aktivera den här funktionen när du skapar ett register.
 * När du har aktiverat en kundhanterad nyckel i ett register kan du inte inaktivera den.
+* [Innehålls förtroende](container-registry-content-trust.md) stöds för närvarande inte i ett register som är krypterat med en kundhanterad nyckel.
 * I ett register som är krypterat med en kundhanterad nyckel behålls kör loggar för [ACR-aktiviteter](container-registry-tasks-overview.md) för närvarande endast i 24 timmar. Om du behöver behålla loggarna under en längre period, se rikt linjer för att [Exportera och lagra aktivitets körnings loggar](container-registry-tasks-logs.md#alternative-log-storage).
 
 ## <a name="prerequisites"></a>Förutsättningar

@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 5831f83d8cd38cc07c64fdc398405c3a70935485
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 85bae9bfc10460b51935c6eb1e14e3a3dd816a8c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169094"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217804"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Migrera analyser från Excel till Azure Machine Learning Studio (klassisk)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 > *Kate Baroni* och *ben Båtman* är Enterprise Solution Architects i Microsofts Expert Center för data insikter. I den här artikeln beskriver de deras erfarenhet av att migrera en befintlig Regressions analys till en molnbaserad lösning med hjälp av Azure Machine Learning Studio (klassisk).
 
@@ -54,8 +56,8 @@ I början utförde Excel-modellen klart modellen Studio (klassisk):
 |  | Excel | Studio (klassisk) |
 | --- |:---:|:---:|
 | Prestanda | | |
-| <ul style="list-style-type: none;"><li>Justerad R-kvadrat</li></ul> |0.96 |Saknas |
-| <ul style="list-style-type: none;"><li>Koefficienten för <br />Bestämning</li></ul> |Saknas |0.78<br />(låg exakthet) |
+| <ul style="list-style-type: none;"><li>Justerad R-kvadrat</li></ul> |0.96 |Ej tillämpligt |
+| <ul style="list-style-type: none;"><li>Koefficienten för <br />Bestämning</li></ul> |Ej tillämpligt |0.78<br />(låg exakthet) |
 | Medelvärde för absolut fel |$9,5 m |$19.4 m |
 | Medelvärde för absolut fel (%) |6.03% |12.2% |
 
@@ -73,13 +75,13 @@ När vi använde rekommendationerna har vi uppnått samma bas linje prestanda i 
 | --- |:---:|:---:|:---:|
 | Namngett värde |Faktiska värden (numeriska) |det |det |
 | Learner |Excel-> data analys-> regression |Linjär regression. |Linjär regression |
-| Alternativ för att lära |Saknas |Appar |vanliga minsta kvadratmetoden<br />L2 = 0,005 |
+| Alternativ för att lära |Ej tillämpligt |Appar |vanliga minsta kvadratmetoden<br />L2 = 0,005 |
 | Datauppsättning |26 rader, 3 funktioner, 1 etikett. Alla numeriska. |det |det |
 | Dela: träna |Excel tränade på de första 18 raderna och testats på de sista 8 raderna. |det |det |
 | Dela: testa |Excel Regressions formel som tillämpas på de sista 8 raderna |det |det |
 | **Prestanda** | | | |
-| Justerad R-kvadrat |0.96 |Saknas | |
-| Effektiv bestämning |Saknas |0.78 |0.952049 |
+| Justerad R-kvadrat |0.96 |Ej tillämpligt | |
+| Effektiv bestämning |Ej tillämpligt |0.78 |0.952049 |
 | Medelvärde för absolut fel |$9,5 m |$19.4 m |$9,5 m |
 | Medelvärde för absolut fel (%) |<span style="background-color: 00FF00;">6,03%</span> |12.2% |<span style="background-color: 00FF00;">6,03%</span> |
 

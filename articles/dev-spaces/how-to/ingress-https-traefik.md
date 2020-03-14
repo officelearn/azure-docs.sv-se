@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Lär dig hur du konfigurerar Azure dev Spaces för att använda en anpassad traefik ingångs kontroll och konfigurera HTTPS med den här ingångs styrenheten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
-ms.openlocfilehash: 6cac50ea9caeea42b0a7522dbeb5039a8461dd2c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 125e055ba2b2c9ccbd7b9e53d02850aa6a0e6350
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389656"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366044"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Använd en anpassad traefik ingångs kontroll och konfigurera HTTPS
 
@@ -29,14 +29,14 @@ Den här artikeln visar hur du konfigurerar Azure dev Spaces för att använda e
 
 Anslut till klustret med [kubectl][kubectl], Kubernetes kommando rads klient. För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster använder du kommandot [az aks get-credentials][az-aks-get-credentials]. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem.
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKS
 ```
 
 Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl get][kubectl-get] för att returnera en lista över klusternoderna.
 
 ```console
-$ kubectl get nodes
+kubectl get nodes
 NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
@@ -81,7 +81,7 @@ traefik   LoadBalancer   10.0.205.78   MY_EXTERNAL_IP   80:32484/TCP,443:30620/T
 
 Lägg till en *A* -post i DNS-zonen med den externa IP-adressen för traefik-tjänsten med [AZ Network DNS Record-set A Add-Record][az-network-dns-record-set-a-add-record].
 
-```console
+```azurecli
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \

@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387573"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281202"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Flytta data från Teradata med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -61,7 +61,7 @@ Följande avsnitt innehåller information om JSON-egenskaper som används för a
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning av JSON-element som är speciella för Teradata-länkade tjänster.
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **OnPremisesTeradata** |Ja |
 | server |Namnet på Teradata-servern. |Ja |
@@ -82,7 +82,7 @@ De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten var
 
 När källan är av typen **RelationalSource** (som innehåller Teradata) är följande egenskaper tillgängliga i avsnittet **typeProperties** :
 
-| Egenskap | Beskrivning | Tillåtna värden | Obligatoriskt |
+| Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | query |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: Välj * från tabellen tabell. |Ja |
 
@@ -296,24 +296,24 @@ När du flyttar data till Teradata används följande mappningar från Teradata-
 | ByteInt |Int16 |
 | decimaltal |decimaltal |
 | Double-värde |Double-värde |
-| Heltal |Int32 |
+| Integer |Int32 |
 | Tal |Double-värde |
 | SmallInt |Int16 |
 | Datum |DateTime |
-| Tid |TimeSpan |
+| Tid |Tidsintervall |
 | Time With Time Zone |String |
 | Tidsstämpel |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
-| Interval Day |TimeSpan |
-| Interval Day To Hour |TimeSpan |
-| Interval Day To Minute |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Interval Hour |TimeSpan |
-| Interval Hour To Minute |TimeSpan |
-| Interval Hour To Second |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
-| Interval Second |TimeSpan |
+| Interval Day |Tidsintervall |
+| Interval Day To Hour |Tidsintervall |
+| Interval Day To Minute |Tidsintervall |
+| Interval Day To Second |Tidsintervall |
+| Interval Hour |Tidsintervall |
+| Interval Hour To Minute |Tidsintervall |
+| Interval Hour To Second |Tidsintervall |
+| Interval Minute |Tidsintervall |
+| Interval Minute To Second |Tidsintervall |
+| Interval Second |Tidsintervall |
 | Interval Year |String |
 | Interval Year To Month |String |
 | Interval Month |String |

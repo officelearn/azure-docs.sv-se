@@ -15,11 +15,11 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.openlocfilehash: d47ed3a4cd4fbdcb69b956d3c8418f70a71cf44f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375654"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263145"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 

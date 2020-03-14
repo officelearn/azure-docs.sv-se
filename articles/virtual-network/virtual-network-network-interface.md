@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
 ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356734"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244945"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverks gränssnitt
 

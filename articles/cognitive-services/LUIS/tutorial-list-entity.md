@@ -1,22 +1,14 @@
 ---
 title: 'Självstudie: lista entitet – LUIS'
-titleSuffix: Azure Cognitive Services
 description: Hämta data som matchar en fördefinierad lista med objekt. Varje objekt i listan kan ha synonymer som också matchar exakt
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/12/2020
+ms.openlocfilehash: 1cfeccbd54e8ef8ec315d53fc7a766760c92a0d1
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297415"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Självstudie: Hämta exakta text matchade data från en uttryck med list-entitet
 
@@ -42,7 +34,7 @@ En listentitet är ett bra alternativ för den här typen av data när:
 
 * Datavärdena är en känd uppsättning.
 * Uppsättningen inte överskrider de högsta [gränserna](luis-boundaries.md) för LUIS för den här entitetstypen.
-* Texten i yttrandet stämmer exakt med en synonym eller det kanoniska namnet. LUIS använder inte listan för något mer än exakta textmatchningar. Ordstamsigenkänning, plural och andra variationer kan inte lösas enbart med en listentitet. Om du vill hantera variationer bör du överväga att använda ett [mönster](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
+* Texten i uttryck är inte Skift läges känslig med en synonym eller ett kanoniskt namn. LUIS använder inte listan bortom matchningen. Ordstamsigenkänning, plural och andra variationer kan inte lösas enbart med en listentitet. Om du vill hantera variationer bör du överväga att använda ett [mönster](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) med valfri textsyntax.
 
 > [!CAUTION]
 > Om du inte är säker på om du vill att en lista entitet eller en enhet med en fras lista ska vara en beskrivare, är den bästa och mest flexibla metoden att använda en enhet som har lärts med en fras lista som en beskrivning. Med den här metoden kan LUIS lära sig och utöka värdena för de data som ska extraheras.
@@ -72,7 +64,7 @@ Exempel på primärt namn och synonymer är:
 |Kanoniskt namn|Synonymer|
 |--|--|
 |Djup skål|djup<br>djup skål crust<br>tjock<br>tjocka crust|
-|Panorera|reguljära<br>originalspråket<br>gängse<br>vanliga crust<br>Ursprunglig crust<br>normal crust|
+|Alleuropeiska|Reguljära<br>originalspråket<br>gängse<br>vanliga crust<br>Ursprunglig crust<br>normal crust|
 |Loc|fyllda crust|
 |Tunn|tunn crust<br>skalning<br>skalnings crust|
 

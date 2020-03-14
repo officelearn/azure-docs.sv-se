@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/28/2019
-ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 7316415a0f0c423a8a37477020a4ffd0ec044d73
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78269062"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369479"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -83,6 +83,7 @@ SecurityEvent
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
 | summarize count() by FileHash, FilePath
+| where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```
 
 Frågor som innehåller [WHERE](/azure/kusto/query/whereoperator) -satser i en utvärderad kolumn i stället för kolumner som är fysiskt närvarande i data uppsättningen förlorar effektiviteten. Filtrering av utvärderade kolumner förhindrar vissa system optimeringar när stora mängder data hanteras.

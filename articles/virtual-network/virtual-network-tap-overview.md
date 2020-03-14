@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
 ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373238"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279616"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
@@ -56,7 +56,7 @@ Följande bild visar hur det virtuella nätverket trycker på Works. Du kan läg
 
 ![Hur det virtuella nätverket trycker på Works](./media/virtual-network-tap/architecture.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du skapar ett virtuellt nätverk trycker du på en bekräftelse som du har registrerat i förhands granskningen och har en eller flera virtuella datorer som skapats med [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) distributions modell och en partner lösning för att aggregera trafiken i samma Azure-region. Om du inte har en partner lösning i ditt virtuella nätverk, se [partner lösningar](#virtual-network-tap-partner-solutions) för att distribuera en. Du kan använda samma virtuella nätverk för att aggregera trafik från flera nätverks gränssnitt i samma eller olika prenumerationer. Om de övervakade nätverks gränssnitten finns i olika prenumerationer måste prenumerationerna vara kopplade till samma Azure Active Directory-klient. Dessutom kan de övervakade nätverks gränssnitten och mål slut punkten för att aggregera trafikövervakningen vara i peer-kopplat virtuella nätverk i samma region. Om du använder den här distributions modellen kontrollerar du att [peering av virtuella nätverk](virtual-network-peering-overview.md) är aktiverat innan du konfigurerar det virtuella nätverket.
 

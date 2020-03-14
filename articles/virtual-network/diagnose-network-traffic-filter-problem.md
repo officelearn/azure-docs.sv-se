@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388869"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79279759"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera ett problem med nätverks trafik filter för virtuella datorer
 

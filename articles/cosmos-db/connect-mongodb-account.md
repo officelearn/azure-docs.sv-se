@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 0f2cd1b7228f2cc9cadb84232222f658a512a81f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373846"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246856"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Anslut ett MongoDB-program till Azure Cosmos DB
 Lär dig hur du ansluter MongoDB-appen till en Azure Cosmos DB med hjälp av en MongoDB-anslutningssträng. Du kan sedan använda en Azure Cosmos-databas som datalager för din MongoDB-app. 

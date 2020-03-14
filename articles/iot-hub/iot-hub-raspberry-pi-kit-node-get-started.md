@@ -2,20 +2,20 @@
 title: Ansluta Raspberry Pi till Azure IoT Hub i molnet (Node. js)
 description: Lär dig hur du konfigurerar och ansluter Raspberry Pi till Azure IoT Hub för Raspberry Pi för att skicka data till Azure Cloud Platform i den här självstudien.
 author: wesmc7777
-manager: philmea
+manager: eliotgra
 keywords: Azure IoT Raspberry Pi, Raspberry Pi IoT Hub, Raspberry Pi skicka data till molnet, Raspberry Pi till molnet
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 03/13/2020
 ms.author: wesmc
-ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c32ae73f065aa5cd1d0dabec421d354684fbb3c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457111"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371517"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ansluta Raspberry Pi till Azure IoT Hub (Node. js)
 
@@ -78,7 +78,7 @@ Följande objekt är valfria:
 > [!NOTE]
 > Om du inte har de valfria objekten kan du använda simulerade sensor data.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
+## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -202,20 +202,20 @@ Aktivera PI med mikrousb-kabeln och strömförsörjningen. Använd Ethernet-kabe
 3. Klona exempel programmet.
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
+   git clone https://github.com/Azure-Samples/azure-iot-samples-node.git
    ```
 
 4. Installera alla paket för exemplet. Installationen inkluderar Azure IoT-enhetens SDK, BME280 sensor Library och kabel PI-biblioteket.
 
    ```bash
-   cd iot-hub-node-raspberrypi-client-app
+   cd azure-iot-samples-node/iot-hub/Tutorials/RaspberryPiApp
    npm install
    ```
 
    > [!NOTE]
    >Det kan ta flera minuter att slutföra installations processen, beroende på din nätverks anslutning.
 
-### <a name="configure-the-sample-application"></a>Konfigurera exempel programmet
+### <a name="configure-the-sample-application"></a>Konfigurera exempelprogrammet
 
 1. Öppna konfigurations filen genom att köra följande kommandon:
 
@@ -244,9 +244,9 @@ Kör exempel programmet genom att köra följande kommando:
    > [!NOTE]
    > Se till att du kopierar – klistra in enhets anslutnings strängen i enkla citat tecken.
 
-Du bör se följande utdata som visar de sensordata och de meddelanden som skickas till din IoT-hubb.
+Du bör se följande utdata som visar sensor data och meddelanden som skickas till din IoT-hubb.
 
-![Resultat – sensordata som skickas från Raspberry Pi till din IoT-hubb](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
+![Utdata-sensor data som skickats från Raspberry Pi till din IoT-hubb](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Läs meddelanden som tagits emot av hubben
 

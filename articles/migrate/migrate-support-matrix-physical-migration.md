@@ -4,11 +4,11 @@ description: Läs mer om stöd för migrering av fysiska servrar i Azure Migrate
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: e55cf6dddbc8dafd33b444e4a0dbe378d807aea1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388989"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269554"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Support mat ris för fysisk server-migrering
 

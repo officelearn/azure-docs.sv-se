@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c12e14b8b842e3ccf9f2bf9e0ab783d8852ee69b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659721"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259869"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om program prestanda för Web Apps i Azure
 
@@ -92,8 +92,9 @@ Information om kvoter och begränsningar finns i [App Service gränser](../azure
 Som standard inaktive ras Web Apps om de är inaktiva under en angiven tids period. På så sätt kan systemet Spara resurser. Nack delen är att svaret på den första begäran efter att webbappen har inaktiverats är längre, så att webbappen kan läsa in och börja betjäna svar. I tjänst prenumerationerna Basic och standard kan du aktivera inställningen **Always on** för att hålla appen alltid inläst. Detta eliminerar längre inläsnings tider när appen är inaktiv. Så här ändrar du inställningen **Always on** :
 
 1. I Azure Portal går du till din webbapp.
-2. Välj **program inställningar**.
-3. För **Always on**väljer du **på**.
+2. Välj **konfiguration**
+3. Välj **allmänna inställningar**.
+4. För **Always on**väljer du **på**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>Hur gör jag för att du aktivera spårning av misslyckade förfrågningar?
 

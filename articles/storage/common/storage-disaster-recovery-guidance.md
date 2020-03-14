@@ -10,18 +10,20 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8442d3f7ed3e73dc5d7358a9bc1d3ee31d7668cd
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: f7a8f6d0d3ab3b456c41128da9b689f6b7eda0f7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78894529"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365379"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Haveri beredskap och konto redundans (för hands version)
 
 Microsoft strävar efter att se till att Azure-tjänster alltid är tillgängliga. Oplanerade drifts avbrott kan dock uppstå. Om ditt program kräver återhämtning rekommenderar Microsoft att använda Geo-redundant lagring, så att dina data kopieras till en andra region. Dessutom bör kunderna ha en katastrof återställnings plan för hantering av ett regionalt tjänst avbrott. En viktig del av en katastrof återställnings plan förbereder att redundansväxla till den sekundära slut punkten i händelse av att den primära slut punkten blir otillgänglig.
 
 Azure Storage stöder redundans av konton (för hands version) för geo-redundanta lagrings konton. Med konto redundans kan du initiera redundansväxlingen för ditt lagrings konto om den primära slut punkten blir otillgänglig. Redundansväxlingen uppdaterar den sekundära slut punkten för att bli den primära slut punkten för ditt lagrings konto. När redundansväxlingen är klar kan klienter börja skriva till den nya primära slut punkten.
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 Den här artikeln beskriver koncepten och processen som är inblandade i ett konto för redundans och beskriver hur du förbereder ditt lagrings konto för återställning med minsta möjliga mängd kund påverkan. Information om hur du startar en redundansväxling av ett konto i Azure Portal eller PowerShell finns i [initiera en konto redundansväxling (för hands version)](storage-initiate-account-failover.md).
 
@@ -124,7 +126,7 @@ Granska ytterligare överväganden som beskrivs i det här avsnittet för att f�
 
 #### <a name="storage-account-containing-archived-blobs"></a>Lagrings konto som innehåller arkiverade blobbar
 
-Lagrings konton som innehåller arkiverade blobbar stöder redundans av konton. När redundansväxlingen är klar, för att konvertera kontot tillbaka till GRS eller RA-GRS, måste alla archieved-blobbar omextraheras till en online-nivå först.
+Lagrings konton som innehåller arkiverade blobbar stöder redundans av konton. När redundansväxlingen är klar måste du automatiskt konvertera tillbaka kontot till GRS eller RA-GRS alla arkiverade blobbar till en online-nivå först.
 
 #### <a name="storage-resource-provider"></a>Lagringsresursprovider
 

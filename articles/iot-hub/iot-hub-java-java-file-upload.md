@@ -10,11 +10,11 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.openlocfilehash: fcc2013f67c6e91182979a9bcab683894088a1d5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397174"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79284530"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>Ladda upp filer från enheten till molnet med IoT Hub (Java)
 

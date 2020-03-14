@@ -3,12 +3,12 @@ title: Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 93ee900eb936bdc3f03c96d0b1196227d05dd03f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: c30a1d1b30fcc7a12449b44d35704b3b43daa385
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78668802"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247909"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -43,8 +43,6 @@ Läs mer om säkerhets kopiering [med en säkerhets kopierings Server](backup-ar
 
 **Åtgärd** | **Support**
 --- | ---
-Aktivera säkerhets kopiering när du skapar en virtuell Windows Azure-dator | Stöds för: <br/><br/> – Windows Server 2019 (Data Center/Data Center Core/standard) <br/><br/> – Windows Server 2016 (Data Center/Data Center Core/standard) <br/><br/> – Windows Server 2012 R2 (Data Center/standard) <br/><br/> – Windows Server 2008 R2 (RTM och SP1 standard)
-Aktivera säkerhets kopiering när du skapar en virtuell Linux-dator | Stöds för:<br/><br/> -Ubuntu Server: 18,04, 17,10, 17,04, 16,04 (LTS), 14,04 (LTS)<br/><br/> -Red Hat: RHEL 6,7, 6,8, 6,9, 7,2, 7,3, 7,4<br/><br/> -SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> -CentOS: 6,9, 7,3<br/><br/> -Oracle Linux: 6,7, 6,8, 6,9, 7,2, 7,3
 Säkerhetskopiera en virtuell dator som är avstängd/offline-VM | Stöds.<br/><br/> Ögonblicks bilden är krasch-konsekvent, inte en app-konsekvent.
 Säkerhetskopiera diskar efter migrering till Managed disks | Stöds.<br/><br/> Säkerhets kopieringen fortsätter att fungera. Ingen åtgärd krävs.
 Säkerhetskopiera hanterade diskar efter aktivering av resurs grupps lås | Stöds inte.<br/><br/> Azure Backup kan inte ta bort de äldre återställnings punkterna och säkerhets kopieringarna kommer att Miss lyckas när den maximala gränsen för återställnings punkter har nåtts.

@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
 ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372053"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278043"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar kluster i en Premium Azure-cache för Redis-instansen.

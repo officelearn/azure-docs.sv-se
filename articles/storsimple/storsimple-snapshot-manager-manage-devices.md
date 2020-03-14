@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365859"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254695"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Använda StorSimple Snapshot Manager för att ansluta och hantera StorSimple-enheter
 ## <a name="overview"></a>Översikt

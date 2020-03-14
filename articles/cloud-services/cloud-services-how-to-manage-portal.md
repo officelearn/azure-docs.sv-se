@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360913"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247532"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Hantera Cloud Services i Azure Portal
 I **Cloud Servicess** delen av Azure Portal kan du:

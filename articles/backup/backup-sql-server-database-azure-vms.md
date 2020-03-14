@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 7a6bae3a850b5e67af8da80a06b862e7e2e7561d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5b10907738feeecbec06669175e82578f2915f92
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393133"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273337"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -97,6 +97,10 @@ Tillåta IP-intervall | Inga ytterligare kostnader | Komplext att hantera efters
 Använda NSG service-Taggar | Enklare att hantera när intervall ändringar slås samman automatiskt <br/><br/> Inga ytterligare kostnader <br/><br/> | Kan endast användas med NSG: er <br/><br/> Ger åtkomst till hela tjänsten
 Använd Azure Firewall FQDN-Taggar | Enklare att hantera eftersom nödvändiga FQDN-namn hanteras automatiskt | Kan endast användas med Azure brand vägg
 Använda en HTTP-proxy | En enda punkt i Internet åtkomst till virtuella datorer <br/> | Ytterligare kostnader för att köra en virtuell dator med proxy-programvaran <br/> Inga publicerade FQDN-adresser, Tillåt regler gäller för ändringar i Azure IP-adress
+
+#### <a name="private-endpoints"></a>Privata slut punkter
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Rikt linjer för namngivning av databaser för Azure Backup
 

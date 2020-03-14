@@ -11,17 +11,22 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 07/02/2019
-ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/09/2020
+ms.openlocfilehash: 6fdfbce6dce2428a8f2757b0755e6f982f02240f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360269"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256424"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
+> [!NOTE]
+> Den här artikeln gäller för Azure SQL Server och för både SQL Database och SQL Data Warehouse databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 
-I den här artikeln beskrivs Azure SQL Database och SQL Data Warehouse anslutnings arkitektur samt hur olika komponenter fungerar för att dirigera trafik till din instans av Azure SQL. Dessa anslutnings komponenter fungerar för att dirigera nätverks trafik till Azure SQL Database eller SQL Data Warehouse med klienter som ansluter inifrån Azure och med klienter som ansluter från utanför Azure. Den här artikeln innehåller också skript exempel för att ändra hur anslutningen sker och de överväganden som rör ändring av inställningarna för standard anslutning.
+> [!IMPORTANT]
+> Den här artikeln gäller *inte* för **Azure SQL Database Hanterad instans**. Se [anslutnings arkitekturen för en hanterad instans](sql-database-managed-instance-connectivity-architecture.md).
+
+Den här artikeln förklarar arkitekturen i olika komponenter som dirigerar nätverks trafik till Azure SQL Database eller SQL Data Warehouse. Den förklarar också olika anslutnings principer och hur de påverkar klienter som ansluter från Azure och klienter som ansluter utanför Azure. 
 
 ## <a name="connectivity-architecture"></a>Anslutningsarkitektur
 
@@ -39,13 +44,13 @@ Följande steg beskriver hur en anslutning upprättas till en Azure SQL-databas:
 
 Azure SQL Database stöder följande tre alternativ för anslutnings princip inställningen för en SQL Database-Server:
 
-- **Omdirigera (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen, vilket leder till minskad svars tid och bättre data flöde. För att anslutningar ska kunna använda detta läge klienter måste
-   - Tillåt inkommande och utgående kommunikation från klienten till alla Azure IP-adresser i regionen på portarna i intervallet 11000 11999.  
-   - Tillåt inkommande och utgående kommunikation från klienten till Azure SQL Database Gateway-IP-adresser på port 1433.
+- **Omdirigera (rekommenderas):** Klienter upprättar anslutningar direkt till noden som är värd för databasen, vilket leder till minskad svars tid och bättre data flöde. För att anslutningar ska kunna använda det här läget måste klienterna:
+   - Tillåt utgående kommunikation från klienten till alla Azure IP-adresser i regionen på portarna i intervallet 11000 11999. Använd tjänst taggarna för SQL för att göra det enklare att hantera.  
+   - Tillåt utgående kommunikation från klienten till Azure SQL Database Gateway-IP-adresser på port 1433.
 
-- **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database gatewayer, vilket leder till ökad latens och minskat data flöde. För att anslutningar ska kunna använda detta läge måste klienterna tillåta inkommande och utgående kommunikation från klienten till Azure SQL Database Gateway-IP-adresser på port 1433.
+- **Proxy:** I det här läget är alla anslutningar via proxy via Azure SQL Database gatewayer, vilket leder till ökad latens och minskat data flöde. För att anslutningar ska kunna använda det här läget måste klienterna tillåta utgående kommunikation från klienten till Azure SQL Database Gateway-IP-adresser på port 1433.
 
-- **Standard:** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen till antingen `Proxy` eller `Redirect`. Standard principen är`Redirect` för alla klient anslutningar som har sitt ursprung i Azure (t. ex. från en virtuell Azure-dator) och `Proxy`för alla klient anslutningar som kommer från utsidan (t. ex. anslutningar från din lokala arbets Station).
+- **Standard:** Detta är anslutnings principen som används på alla servrar när den har skapats, såvida du inte uttryckligen ändrar anslutnings principen till antingen `Proxy` eller `Redirect`. Standard principen är`Redirect` för alla klient anslutningar som har sitt ursprung i Azure (till exempel från en virtuell Azure-dator) och `Proxy`för alla klient anslutningar som kommer från utsidan (till exempel anslutningar från din lokala arbets Station).
 
  Vi rekommenderar starkt `Redirect` anslutnings princip via `Proxy` anslutnings princip för lägsta latens och högsta data flöde. Du måste dock uppfylla de ytterligare kraven för att tillåta nätverks trafik enligt beskrivningen ovan. Om klienten är en virtuell Azure-dator kan du göra detta med hjälp av nätverks säkerhets grupper (NSG) med [service märken](../virtual-network/security-overview.md#service-tags). Om klienten ansluter från en lokal arbets Station kan du behöva arbeta med nätverks administratören för att tillåta nätverks trafik via företags brand väggen.
 
@@ -101,6 +106,8 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Sydkorea, södra          | 52.231.200.86      |
 | USA, norra centrala     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa, norra         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| Östra Norge          | 51.120.96.0        |
+| Norge, väst          | 51.120.216.0       |
 | Sydafrika, norra   | 102.133.152.0      |
 | Sydafrika, västra    | 102.133.24.0       |
 | USA, södra centrala     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
@@ -115,78 +122,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | USA, västra 2            | 13.66.226.202      |
 |                      |                    |
 
-## <a name="change-azure-sql-database-connection-policy"></a>Ändra Azure SQL Database anslutnings princip
 
-Om du vill ändra Azure SQL Database anslutnings princip för en Azure SQL Database-Server använder [du kommandot](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) för att ansluta.
-
-- Om din anslutnings princip är inställd på `Proxy`, flödar alla nätverks paket via Azure SQL Database Gateway. För den här inställningen behöver du bara tillåta utgående till Azure SQL Database Gateway-IP. Att använda en inställning av `Proxy` har mer latens än en inställning av `Redirect`.
-- Om din anslutnings princip anger `Redirect`, flödar alla nätverks paket direkt till databas klustret. För den här inställningen måste du tillåta utgående till flera IP-adresser.
-
-## <a name="script-to-change-connection-settings-via-powershell"></a>Skript för att ändra anslutnings inställningar via PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Följande skript kräver Azure PowerShell- [modulen](/powershell/azure/install-az-ps).
-
-Följande PowerShell-skript visar hur du ändrar anslutnings principen.
-
-```powershell
-# Get SQL Server ID
-$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
-
-# Set URI
-$id="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
-
-# Update connection policy
-Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
-```
-
-## <a name="script-to-change-connection-settings-via-azure-cli"></a>Skript för att ändra anslutnings inställningar via Azure CLI
-
-> [!IMPORTANT]
-> Det här skriptet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI i ett bash-gränssnitt
-
-> [!IMPORTANT]
-> Det här skriptet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-Följande CLI-skript visar hur du ändrar anslutnings principen i ett bash-gränssnitt.
-
-```azurecli-interactive
-# Get SQL Server ID
-sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
-
-# Set URI
-ids="$sqlserverid/connectionPolicies/Default"
-
-# Get current connection policy
-az resource show --ids $ids
-
-# Update connection policy
-az resource update --ids $ids --set properties.connectionType=Proxy
-```
-
-### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI från en kommando tolk i Windows
-
-> [!IMPORTANT]
-> Det här skriptet kräver [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
-Följande CLI-skript visar hur du ändrar anslutnings principen från en kommando tolk i Windows (med Azure CLI installerat).
-
-```azurecli
-# Get SQL Server ID and set URI
-FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
-
-# Get current connection policy
-az resource show --ids %sqlserverid%
-
-# Update connection policy
-az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
-```
 
 ## <a name="next-steps"></a>Nästa steg
 

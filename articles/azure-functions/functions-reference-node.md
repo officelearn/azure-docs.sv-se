@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med hjälp av Java Script.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 345df8e1ea88caa6f8dbe941245c1f989c3e81c6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356067"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276834"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -363,6 +363,7 @@ Objektet `context.res` (Response) har följande egenskaper:
 | _sidhuvud_ | Ett objekt som innehåller svarshuvuden.             |
 | _isRaw_   | Anger att formateringen hoppas över för svaret.    |
 | _statusfältet_  | HTTP-statuskod för svaret.                     |
+| _cookies_ | En matris med HTTP-cookie-objekt som anges i svaret. Ett HTTP-cookie-objekt har en `name`, `value`och andra cookie-egenskaper, till exempel `maxAge` eller `sameSite`. |
 
 ### <a name="accessing-the-request-and-response"></a>Åtkomst till begäran och svar 
 

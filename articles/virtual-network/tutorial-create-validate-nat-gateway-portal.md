@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 4baf12533bed523c81ff41a81975f5bf5b918ac2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3468dd72ff47c895ee4df6ed4308aabab92c33f1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250810"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216950"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal-and-test-the-nat-service"></a>Självstudie: skapa en NAT-gateway med hjälp av Azure Portal och testa NAT-tjänsten
 
 I den här självstudien skapar du en NAT-gateway för att tillhandahålla utgående anslutning för virtuella datorer i Azure. Om du vill testa NAT-gatewayen distribuerar du en virtuell käll-och mål dator. Du testar NAT-gatewayen genom att göra utgående anslutningar till en offentlig IP-adress från källan till den virtuella mål datorn.  I den här självstudien distribueras källa och mål i två olika virtuella nätverk i samma resurs grupp för enkelhetens skull.
-
->[!NOTE] 
->Azure Virtual Network NAT är tillgängligt som en offentlig för hands version för tillfället och är tillgänglig i en begränsad uppsättning [regioner](./nat-overview.md#region-availability). Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -315,7 +312,6 @@ Granska mått i Azure Monitor för att se hur NAT-tjänsten fungerar. Diagnostis
 - Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure Portal](./quickstart-create-nat-gateway-portal.md).
-- [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 

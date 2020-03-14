@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 311ce34a4b5cfbb9a54a285094dac34c7dd5a225
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b6b11242831e68787fe225d4d0b66638f1388de6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126555"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297993"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -156,6 +156,12 @@ Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsare
     </expose-headers>
 </cors>
 ```
+
+Använd CORS i det globala omfånget för att säkerställa att den är aktive rad för alla API: er.
+
+1. Gå till **alla API:** er i avsnittet **API: er** i din API Management-tjänst i Azure Portal.
+2. Klicka på ikonen **</>** i avsnittet **inkommande bearbetning** .
+3. Infoga principen i avsnittet **<inbound>** i XML-filen. Kontrol lera att **<origin>** svärdet matchar din utvecklares Portals domän.
 
 > [!NOTE]
 > 

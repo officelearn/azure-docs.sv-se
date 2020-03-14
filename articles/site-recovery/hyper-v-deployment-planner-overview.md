@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/29/2019
+ms.date: 3/13/2020
 ms.author: mayg
-ms.openlocfilehash: 72b1311227f5c9f9efc35b2940d3c843a21dc261
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954020"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368731"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Om Distributionshanteraren för Azure Site Recovery för haveri beredskap för Hyper-V till Azure
 
@@ -59,7 +59,7 @@ Du kan se följande information i verktyget:
 
 **Beräknad kostnad för haveriberedskap till Azure**
 * Uppskattad total kostnad för haveriberedskap till Azure: databearbetning, lagring, nätverk och Azure Site Recovery-licenskostnader
-* Detaljerad analys av kostnader per virtuell dator
+* Detaljerad analys av faktiska kostnader per virtuell dator
 
 
 
@@ -68,7 +68,7 @@ Du kan se följande information i verktyget:
 >Eftersom användningen troligtvis ökar med tiden utförs alla föregående verktygsberäkningar med en 30-procentig tillväxtfaktor för arbetsbelastningens egenskaper, och den 95:e percentilen används för alla profileringsmått (läs-/skriv-IOPS, omsättning och så vidare). Båda parametrarna (tillväxtfaktorn och percentilberäkningen) kan konfigureras. Om du vill veta mer om tillväxtfaktor, se avsnittet ”Överväganden för tillväxtfaktorer”. Mer information om percentilvärdet finns i avsnittet ”Percentilvärdet som används för beräkningen”.
 >
 
-## <a name="support-matrix"></a>Stödmatris
+## <a name="support-matrix"></a>Supportmatris
 
 | | **VMware till Azure** |**Hyper-V till Azure**|**Azure till Azure**|**Hyper-V till sekundär plats**|**VMware till sekundär plats**
 --|--|--|--|--|--
@@ -77,14 +77,14 @@ Version som stöds | vCenter 6,7, 6,5, 6,0 eller 5,5| Windows Server 2016, Windo
 Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|
 Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Azure Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
 
-\* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden Get Throughput gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
+\* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner.  Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Verktyget har tre huvudfaser för Hyper-V: hämta listan med virtuella datorer, utför profilering och generera rapporten. Det finns också ett fjärde alternativ som endast beräknar dataflödet. I följande tabell visas kraven för den server där de olika faserna ska köras:
 
 | Serverkrav | Beskrivning |
 |---|---|
-|Hämta listan med virtuella datorer, utför profilering och mäta dataflödet |<ul><li>Operativsystem: Microsoft Windows Server 2016 eller Microsoft Windows Server 2012 R2 </li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure från den här servern</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsatt 1 000 virtuella datorer med ett medeltal av de tre diskar vardera, profilerade under 30 dagar)</li><li>Den virtuella dator som du kör Distributionshanteraren för Azure Site Recovery från måste läggas till i listan TrustedHosts på alla Hyper-V-servrar.</li><li>Alla Hyper-V-servrar som ska profileras måste läggas till i listan TrustedHosts för den klient-VM från vilken verktyget körs. [Läs mer om att lägga till servrar i listan TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Verktyget måste köras med administratörsbehörighet från PowerShell eller i kommandotolken på klienten.</ul></ul>|
+|Hämta listan med virtuella datorer, utför profilering och mäta dataflödet |<ul><li>Operativsystem: Microsoft Windows Server 2016 eller Microsoft Windows Server 2012 R2 </li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet åtkomst till Azure (*. blob.core.windows.net) från den här servern, port 443<br>[Detta är valfritt. Du kan välja att tillhandahålla tillgänglig bandbredd under rapportgenerering manuellt.]</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsatt 1 000 virtuella datorer med ett medeltal av de tre diskar vardera, profilerade under 30 dagar)</li><li>Den virtuella dator som du kör Distributionshanteraren för Azure Site Recovery från måste läggas till i listan TrustedHosts på alla Hyper-V-servrar.</li><li>Alla Hyper-V-servrar som ska profileras måste läggas till i listan TrustedHosts för den klient-VM från vilken verktyget körs. [Läs mer om att lägga till servrar i listan TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Verktyget måste köras med administratörsbehörighet från PowerShell eller i kommandotolken på klienten.</ul></ul>|
 | Rapportgenerering | En Windows-dator eller Windows Server med Microsoft Excel 2013 eller senare |
 | Användarbehörigheter | Administratörskonto för åtkomst till Hyper-V kluster/Hyper-V-värd under åtgärden att hämta listan med virtuella datorer samt profilering.<br>Alla värdar som ska profileras måste ha ett domänadministratörskonto med samma autentiseringsuppgifter, som användarnamn och lösenord
  |

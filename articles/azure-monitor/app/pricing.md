@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: f871dfa5bd3c1feb6a89fcff3fb9d95442e72986
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: b782477fd29b34eda70813fc2aff29157f02acb3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368283"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275950"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -28,9 +28,9 @@ Prissättningen för [Azure Application insikter][start] är en modell där **du
 
 [Webbtester med flera steg](../../azure-monitor/app/availability-multistep.md) debiteras ytterligare en kostnad. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder. Det finns ingen separat avgift för *ping-test* av en enda sida. Telemetri från ping-test och multi-Step-tester debiteras på samma sätt som andra telemetri från din app.
 
-## <a name="estimating-the-costs-to-manage-your-application"></a>Beräkna kostnaderna för att hantera ditt program 
+## <a name="estimating-the-costs-to-manage-your-application"></a>Beräkna kostnaderna för att hantera ditt program
 
-Om du inte använder Application Insights än kan du använda [pris Kalkylatorn för Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att beräkna kostnaden för att använda Application Insights. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor panelen. Bläddra nedåt på sidan för att Azure Monitor och välj Application Insights i list rutan typ.  Här kan du ange det antal GB data som du förväntar dig att samla in per månad, så att frågan är hur mycket data som Application Insights Samla in övervakningen av ditt program. 
+Om du inte använder Application Insights än kan du använda [pris Kalkylatorn för Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att beräkna kostnaden för att använda Application Insights. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor panelen. Bläddra nedåt på sidan för att Azure Monitor och välj Application Insights i list rutan typ.  Här kan du ange det antal GB data som du förväntar dig att samla in per månad, så att frågan är hur mycket data som Application Insights Samla in övervakningen av ditt program.
 
 Det finns två sätt att hantera detta: användning av standard övervakning och anpassningsbar sampling, som är tillgängligt i ASP.NET SDK, eller för att beräkna din sannolika data inmatning baserat på vad andra liknande kunder har sett.
 
@@ -42,25 +42,25 @@ För SDK: er som inte stöder anpassningsbar sampling kan du använda [provtagni
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Lär dig från vilka liknande kunder samlar in
 
-I pris Kalkylatorn för Azure-övervakning för Application Insights, om du aktiverar funktionen beräkna data volym baserat på program aktivitet, kan du ange indata om ditt program (begär Anden per månad och sid visningar per månad, om du kommer att samla in telemetri på klient sidan) och visar sedan kalkylatorn information om median och nittionde percentils mängden data som samlas in av liknande program. Dessa program sträcker sig över ett Application Insights konfigurations intervall (t. ex. att vissa har standard [sampling](../../azure-monitor/app/sampling.md), har ingen sampling osv.), så du har fortfarande kontrollen att minska mängden data som du matar in långt under median nivån med hjälp av sampling. Men det här är en utgångs punkt för att förstå vad andra, liknande kunder ser. 
+I pris Kalkylatorn för Azure-övervakning för Application Insights, om du aktiverar funktionen beräkna data volym baserat på program aktivitet, kan du ange indata om ditt program (begär Anden per månad och sid visningar per månad, om du kommer att samla in telemetri på klient sidan) och visar sedan kalkylatorn information om median och nittionde percentils mängden data som samlas in av liknande program. Dessa program sträcker sig över ett Application Insights konfigurations intervall (t. ex. att vissa har standard [sampling](../../azure-monitor/app/sampling.md), har ingen sampling osv.), så du har fortfarande kontrollen att minska mängden data som du matar in långt under median nivån med hjälp av sampling. Men det här är en utgångs punkt för att förstå vad andra, liknande kunder ser.
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Förstå din användning och beräkna kostnader
 
-Application Insights är det enkelt att förstå vad dina kostnader sannolikt kommer att baseras på de senaste användnings mönstren. Kom igång genom att gå till sidan **användning och uppskattade kostnader** i Azure Portal för resursen Application Insights: 
+Application Insights är det enkelt att förstå vad dina kostnader sannolikt kommer att baseras på de senaste användnings mönstren. Kom igång genom att gå till sidan **användning och uppskattade kostnader** i Azure Portal för resursen Application Insights:
 
 ![Välj prissättning](./media/pricing/pricing-001.png)
 
 A. Granska din data volym för månaden. Detta omfattar alla data som tas emot och bevaras (efter alla [samplingar](../../azure-monitor/app/sampling.md)) från Server-och klient program och från tillgänglighets test.  
 B. En separat avgift görs för [webbtester med flera steg](../../azure-monitor/app/availability-multistep.md). (Detta omfattar inte test av enkel tillgänglighet, som ingår i data volym avgiften.)  
 C. Visa data volym trender för den senaste månaden.  
-D. Aktivera [sampling](../../azure-monitor/app/sampling.md)av data inmatning.   
+D. Aktivera [sampling](../../azure-monitor/app/sampling.md)av data inmatning.
 E. Ange daglig data volyms kap.  
 
 (Observera att alla priser som visas i skärm bilder i den här artikeln endast är till exempel syfte. För aktuella priser i din valuta och region, se [Application Insights priser][pricing].)
 
-Om du vill undersöka Application Insightss användningen mer djup, öppnar du sidan **mått** , lägger till måttet "data punkts volym" och väljer sedan alternativet *Använd delning* för att dela data efter "telemetri objekt typ". 
+Om du vill undersöka Application Insightss användningen mer djup, öppnar du sidan **mått** , lägger till måttet "data punkts volym" och väljer sedan alternativet *Använd delning* för att dela data efter "telemetri objekt typ".
 
-Application Insights avgifter läggs till på din Azure-faktura. Du kan se information om din Azure-faktura i **fakturerings** avsnittet i Azure Portal eller på [Azures fakturerings Portal](https://account.windowsazure.com/Subscriptions). 
+Application Insights avgifter läggs till på din Azure-faktura. Du kan se information om din Azure-faktura i **fakturerings** avsnittet i Azure Portal eller på [Azures fakturerings Portal](https://account.windowsazure.com/Subscriptions).
 
 ![På den vänstra menyn väljer du fakturering](./media/pricing/02-billing.png)
 
@@ -73,12 +73,16 @@ Om du vill veta mer om dina data volymer väljer du **mått** för din Applicati
 
 ### <a name="queries-to-understand-data-volume-details"></a>Frågor för att förstå data volym information
 
+Det finns två metoder för att undersöka data volymer för Application Insights. Det första använder aggregerad information i `systemEvents` tabellen och den andra använder egenskapen `_BilledSize` som är tillgänglig för varje inmatad händelse.
+
+#### <a name="using-aggregated-data-volume-information"></a>Använda information om sammanställd data volym
+
 Du kan till exempel använda tabellen `systemEvents` för att se data volymen som matats in under de senaste 24 timmarna med frågan:
 
 ```kusto
-systemEvents 
+systemEvents
 | where timestamp >= ago(24h)
-| where type == "Billing" 
+| where type == "Billing"
 | extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
 | extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
 | summarize sum(BillingTelemetrySizeInBytes)
@@ -87,9 +91,9 @@ systemEvents
 Om du vill se ett diagram med data volym (i byte) efter datatyp under de senaste 30 dagarna kan du använda:
 
 ```kusto
-systemEvents 
+systemEvents
 | where timestamp >= startofday(ago(30d))
-| where type == "Billing" 
+| where type == "Billing"
 | extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
 | extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
@@ -97,35 +101,38 @@ systemEvents
 
 Observera att den här frågan kan användas i en [Azure logg avisering](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) för att konfigurera aviseringar på data volymer.  
 
-Om du vill veta mer om dina data ändringar för telemetri kontrollerar vi antalet händelser efter typ med hjälp av frågan:
+Om du vill veta mer om dina telemetridata, kan vi hämta antalet händelser efter typ med hjälp av frågan:
 
 ```kusto
-systemEvents 
+systemEvents
 | where timestamp >= startofday(ago(30d))
-| where type == "Billing" 
+| where type == "Billing"
 | extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
-| summarize count() by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
-```
-
-Om liknande ändringar visas i antal som visas på volymen i byte, kan vi fokusera på data typerna för händelser som visar ökade antal.  Om det till exempel observeras att antalet beroenden har ökat här är en fråga för att förstå vilka åtgärder som är ansvariga för ökningen:
-
-```kusto
-dependencies 
-| where timestamp >= startofday(ago(30d))
-| summarize count() by operation_Name, bin(timestamp, 1d)  
+| summarize count() by BillingTelemetryType, bin(timestamp, 1d)
 | render barchart  
 ```
 
+#### <a name="using-data-size-per-event-information"></a>Använda data storlek per händelse information
 
-## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visa Application Insights användning på din Azure-faktura 
+Om du vill veta mer om källan till dina data volymer kan du använda egenskapen `_BilledSize` som finns på varje inmatad händelse.
+
+Om du till exempel vill titta på vilka åtgärder som genererar mest data volym under de senaste 30 dagarna, kan vi summera `_BilledSize` för alla beroende händelser:
+
+```kusto
+dependencies
+| where timestamp >= startofday(ago(30d))
+| summarize sum(_BilledSize) by operation_Name
+| render barchart  
+```
+
+## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visa Application Insights användning på din Azure-faktura
 
 Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurs typ (till Microsoft. insikter/komponenter för Application Insights) kan du spåra dina utgifter.
 
 Du kan få mer förståelse för användningen genom att [Ladda ned din användning från Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
-I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID" som innehåller Microsoft. Insights/komponenter.  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID" som innehåller Microsoft. Insights/komponenter.  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
-
-## <a name="managing-your-data-volume"></a>Hantera din data volym 
+## <a name="managing-your-data-volume"></a>Hantera din data volym
 
 Mängden data som du skickar kan hanteras med hjälp av följande tekniker:
 
@@ -139,7 +146,7 @@ Mängden data som du skickar kan hanteras med hjälp av följande tekniker:
  
 * **Dagligt tak**: när du skapar en Application Insights-resurs i Azure Portal anges den dagliga gränsen till 100 GB/dag. När du skapar en Application Insights resurs i Visual Studio är standardvärdet liten (endast 32,3 MB/dag). Standardvärdet för dagligt tak är inställt för att under lätta testning. Det är avsett att användaren får den dagliga gränsen innan du distribuerar appen till produktion. 
 
-    Den största gränsen är 1 000 GB/dag om du inte begär en högre gräns för ett program med hög trafik. 
+    Den största gränsen är 1 000 GB/dag om du inte begär en högre gräns för ett program med hög trafik.
     
     Varnings meddelanden om den dagliga gränsen skickas till konton som är medlemmar i dessa roller för din Application Insights-resurs: "ServiceAdmin", "AccountAdmin", "innehavaradministratör", "ägare".
 
@@ -157,7 +164,7 @@ I stället för att använda den dagliga volym gränsen använder du [sampling](
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
 
-Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
+Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör övervägas varsamt eftersom du inte kan övervaka dina resurser när gränsen har uppnåtts.
 
 ### <a name="set-the-daily-cap"></a>Ange dagligt tak
 
@@ -165,7 +172,15 @@ Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera*
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-003.png)
 
-Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är egenskapen att ändra `dailyQuota`.  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och den dagliga Cap-`warningThreshold`. 
+Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är egenskapen att ändra `dailyQuota`.  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och den dagliga Cap-`warningThreshold`.
+
+### <a name="create-alerts-for-the-daily-cap"></a>Skapa aviseringar för det dagliga taket
+
+Application Insights dagliga tak skapar en händelse i Azure Activity kog när de inmatade data volymerna träffar varnings nivån eller den dagliga gräns nivån.  Du kan [skapa en avisering baserat på dessa aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Signal namnen för dessa händelser är:
+
+* Varnings tröskeln för dagliga tak för Application Insights komponent har nåtts
+
+* Application Insights komponents dagliga tak har uppnåtts
 
 ## <a name="sampling"></a>Samling
 [Sampling](../../azure-monitor/app/sampling.md) är en metod för att minska den hastighet som telemetri skickas till din app, samtidigt som du behåller möjligheten att hitta relaterade händelser under diagnostiska sökningar. Du behåller också korrekta antal händelser.
@@ -191,21 +206,21 @@ Använd en [analys fråga](analytics.md)för att identifiera den faktiska sampli
     | summarize 100/avg(itemCount) by bin(timestamp, 1h)
     | render areachart
 
-I varje kvarhållen post anger `itemCount` antalet ursprungliga poster som den representerar. Det är lika med 1 + antalet tidigare borttagna poster. 
+I varje kvarhållen post anger `itemCount` antalet ursprungliga poster som den representerar. Det är lika med 1 + antalet tidigare borttagna poster.
 
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
-Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
+Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar.
 
 Om du vill ändra kvarhållning går du till sidan **användning och uppskattade kostnader** från Application Insights resursen och väljer alternativet **data kvarhållning** :
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
 
-Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för scenarier som rör kompatibilitet. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. Den dagliga återställnings tiden för data volymens Cap kan konfigureras med hjälp av Azure Resource Manager för att ange parametern `dailyQuotaResetTime`. 
+Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för scenarier som rör kompatibilitet. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. Den dagliga återställnings tiden för data volymens Cap kan konfigureras med hjälp av Azure Resource Manager för att ange parametern `dailyQuotaResetTime`.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Avgifter för data överföring med Application Insights
 
-Att skicka data till Application Insights kan medföra avgifter för data bandbredd. Som det beskrivs i [prissättnings sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)är data överföringen mellan Azure-tjänster som finns i två regioner debiterad som utgående data överföring enligt normal taxa. Inkommande data överföring är kostnads fri. Den här avgiften är dock väldigt liten (några%) jämfört med kostnaderna för Application Insights logg data inmatning. Därför bör du kontrol lera kostnaderna för Log Analytics behöver fokusera på din inmatade data volym och vi har vägledning som hjälper dig att förstå den [här](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume).   
+Att skicka data till Application Insights kan medföra avgifter för data bandbredd. Som det beskrivs i [prissättnings sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)är data överföringen mellan Azure-tjänster som finns i två regioner debiterad som utgående data överföring enligt normal taxa. Inkommande data överföring är kostnads fri. Den här avgiften är dock väldigt liten (några%) jämfört med kostnaderna för Application Insights logg data inmatning. Därför bör du kontrol lera kostnaderna för Log Analytics behöver fokusera på din inmatade data volym och vi har vägledning som hjälper dig att förstå den [här](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume).
 
 ## <a name="limits-summary"></a>Sammanfattning av gränser
 
@@ -217,12 +232,12 @@ Om du vill inaktivera de dagliga e-postmeddelandena för volym tak går du till 
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Pris nivå för Legacy Enterprise (per nod)
 
-För tidiga antaganden av Azure Application insikter finns det fortfarande två möjliga pris nivåer: Basic och Enterprise. Den grundläggande pris nivån är densamma som beskrivs ovan och är standard nivån. Den innehåller alla funktioner på företags nivå utan extra kostnad. Basic-nivån faktureras främst på mängden data som matas in. 
+För tidiga antaganden av Azure Application insikter finns det fortfarande två möjliga pris nivåer: Basic och Enterprise. Den grundläggande pris nivån är densamma som beskrivs ovan och är standard nivån. Den innehåller alla funktioner på företags nivå utan extra kostnad. Basic-nivån faktureras främst på mängden data som matas in.
 
 > [!NOTE]
 > Dessa äldre pris nivåer har bytt namn. Pris nivån för företaget kallas nu **per nod** och den grundläggande pris nivån kallas nu **per GB**. Dessa nya namn används nedan och i Azure Portal.  
 
-Nivån per nod (tidigare företag) har en avgift per nod och varje nod får en daglig data tilldelning. I pris nivån per nod debiteras du för inmatade data utöver den mängd som ingår. Om du använder Operations Management Suite bör du välja nivån per nod. 
+Nivån per nod (tidigare företag) har en avgift per nod och varje nod får en daglig data tilldelning. I pris nivån per nod debiteras du för inmatade data utöver den mängd som ingår. Om du använder Operations Management Suite bör du välja nivån per nod.
 
 För aktuella priser i din valuta och region, se [Application Insights priser](https://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -231,7 +246,7 @@ För aktuella priser i din valuta och region, se [Application Insights priser](h
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Per nod-och Operations Management Suite-prenumerations rättigheter
 
-Kunder som köper Operations Management Suite E1 och E2 kan få Application Insights per nod som ytterligare en komponent utan extra kostnad som [tidigare](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)meddelats. Mer specifikt innehåller varje enhet av Operations Management Suite E1 och E2 en rättighet till en nod i Application Insights per nod-nivå. Varje Application Insights nod innehåller upp till 200 MB data som matas in per dag (separat från Log Analytics data inmatning), med 90 dagars data kvarhållning utan extra kostnad. Nivån beskrivs mer detaljerat längre fram i artikeln. 
+Kunder som köper Operations Management Suite E1 och E2 kan få Application Insights per nod som ytterligare en komponent utan extra kostnad som [tidigare](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)meddelats. Mer specifikt innehåller varje enhet av Operations Management Suite E1 och E2 en rättighet till en nod i Application Insights per nod-nivå. Varje Application Insights nod innehåller upp till 200 MB data som matas in per dag (separat från Log Analytics data inmatning), med 90 dagars data kvarhållning utan extra kostnad. Nivån beskrivs mer detaljerat längre fram i artikeln.
 
 Eftersom den här nivån bara gäller för kunder med en Operations Management Suite-prenumeration, ser kunder som inte har någon Operations Management Suite-prenumeration inget alternativ för att välja den här nivån.
 
@@ -249,7 +264,7 @@ Eftersom den här nivån bara gäller för kunder med en Operations Management S
 * En data volym tilldelning på 200 MB per dag anges för varje nod som identifieras (med en timkostnad). Oanvänd data tilldelning överförs inte från en dag till nästa.
   * Om du väljer pris nivån per nod får varje prenumeration en daglig mängd data baserat på antalet noder som skickar telemetri till Application Insights resurser i den prenumerationen. Så om du har fem noder som skickar data hela dagen har du en pool med 1 GB som tillämpas på alla Application Insights resurser i den prenumerationen. Det spelar ingen roll om vissa noder skickar mer data än andra noder eftersom inkluderade data delas mellan alla noder. Om den Application Insights resurserna tar emot mer data än vad som ingår i den dagliga data tilldelningen för den här prenumerationen, gäller data avgifter per GB överanvändning. 
   * Den dagliga data tilldelningen beräknas som antalet timmar under dagen (med UTC) som varje nod skickar telemetri dividerat med 24 multiplicerat med 200 MB. Så om du har fyra noder som skickar telemetri under 15 av dygnets 24 timmar blir de inkluderade data för den dagen ((4 &#215; 15)/24) &#215; 200 MB = 500 MB. Till priset 2,30 USD per GB för data överanvändning skulle avgiften bli 1,15 USD om noderna skickar 1 GB data som dag.
-  * Dag traktamentet per nod delas inte med program som du har valt nivån per GB för. Outnyttjad justering överförs inte från dag till dag. 
+  * Dag traktamentet per nod delas inte med program som du har valt nivån per GB för. Outnyttjad justering överförs inte från dag till dag.
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exempel på hur du bestämmer antalet distinkta noder
 
@@ -257,20 +272,19 @@ Eftersom den här nivån bara gäller för kunder med en Operations Management S
 |:---------------------------------------|:----------------:|
 | 1 program med 3 Azure App Service instanser och 1 virtuell server | 4 |
 | 3 program som körs på två virtuella datorer; Application Insights resurser för dessa program finns i samma prenumeration och i per nod-nivå | 2 | 
-| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13.33 | 
+| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13.33 |
 | Moln tjänster med 1-arbets roll och 1 webbroll, varje som kör 2 instanser | 4 | 
 | Ett Azure Service Fabric-kluster med 5 noder som kör 50 mikrotjänster; varje mikrotjänst som kör 3 instanser | 5|
 
 * Den exakta beräkningen av noder beror på vilken Application Insights SDK ditt program använder. 
-  * I SDK-versionerna 2,2 och senare rapporterar både Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) och [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) rapporten varje program värd som en nod. Exempel är dator namnet för fysiska servrar och virtuella dator värdar eller instans namnet för Cloud Services.  Det enda undantaget är ett program som bara använder [.net Core](https://dotnet.github.io/) och Application Insights Core SDK. I så fall rapporteras bara en nod för alla värdar eftersom värd namnet inte är tillgängligt. 
-  * För tidigare versioner av SDK fungerar [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) som nyare SDK-versioner, men [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) rapporterar bara en nod, oavsett antalet program värdar. 
-  * Om programmet använder SDK: n för att ange **roleInstance** till ett anpassat värde, används som standard samma värde för att fastställa antalet noder. 
-  * Om du använder en ny SDK-version med en app som kör från klient datorer eller mobila enheter kan antalet noder returnera ett tal som är stort (på grund av det stora antalet klient datorer eller mobila enheter). 
+  * I SDK-versionerna 2,2 och senare rapporterar både Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) och [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) rapporten varje program värd som en nod. Exempel är dator namnet för fysiska servrar och virtuella dator värdar eller instans namnet för Cloud Services.  Det enda undantaget är ett program som bara använder [.net Core](https://dotnet.github.io/) och Application Insights Core SDK. I så fall rapporteras bara en nod för alla värdar eftersom värd namnet inte är tillgängligt.
+  * För tidigare versioner av SDK fungerar [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) som nyare SDK-versioner, men [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) rapporterar bara en nod, oavsett antalet program värdar.
+  * Om programmet använder SDK: n för att ange **roleInstance** till ett anpassat värde, används som standard samma värde för att fastställa antalet noder.
+  * Om du använder en ny SDK-version med en app som kör från klient datorer eller mobila enheter kan antalet noder returnera ett tal som är stort (på grund av det stora antalet klient datorer eller mobila enheter).
 
 ## <a name="automation"></a>Automation
 
 Du kan skriva ett skript för att ställa in pris nivån med hjälp av Azure Resource Management. [Lär dig mer](powershell.md#price).
-
 
 ## <a name="next-steps"></a>Nästa steg
 

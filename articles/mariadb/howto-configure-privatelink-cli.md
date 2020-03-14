@@ -1,19 +1,19 @@
 ---
-title: Privat länk för Azure Database for MariaDB (förhands granskning) CLI-installations metod
+title: Privat länk – Azure CLI – Azure Database for MariaDB
 description: Lär dig hur du konfigurerar privat länk för Azure Database for MariaDB från Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: b2d9fb9d4dc8268c0be45f8a6f24759a7be58427
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c28c5494c1cff2c198a94ea6b92003ae74ee2c8e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561807"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371808"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MariaDB (för hands version) med CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MariaDB med CLI
 
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. I den här artikeln får du lära dig hur du använder Azure CLI för att skapa en virtuell dator i en Azure-Virtual Network och en Azure Database for MariaDB-server med en privat Azure-slutpunkt.
 
@@ -58,7 +58,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Skapa VM 
+## <a name="create-the-vm"></a>Skapa den virtuella datorn 
 Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
 ```azurecli-interactive
 az vm create \
@@ -170,10 +170,10 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Anslutningens namn| Välj önskat anslutnings namn.|
+    | Anslutningsnamn| Välj önskat anslutnings namn.|
     | Värdnamn | Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
     | Användarnamn | Ange användar namn som *username@servername* som anges när MariaDB-servern skapas. |
-    | Lösenord | Ange ett lösen ord som angavs när MariaDB-servern skapades. |
+    | lösenord | Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     ||
 
 5. Välj **Testa anslutning** eller **OK**.

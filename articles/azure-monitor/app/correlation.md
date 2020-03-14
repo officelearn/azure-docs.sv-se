@@ -7,11 +7,11 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367666"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276132"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Telemetri korrelation i Application Insights
 
@@ -45,7 +45,7 @@ Du kan analysera den resulterande Telemetrin genom att köra en fråga:
 
 Observera i resultaten att alla telemetridata delar rot `operation_Id`. När ett AJAX-anrop görs från sidan, tilldelas ett nytt unikt ID (`qJSXU`) till beroende telemetri och ID: t för sid visningar används som `operation_ParentId`. Serverbegäran använder sedan Ajax-ID: t som `operation_ParentId`.
 
-| ItemType   | namn                      | ID           | operation_ParentId | operation_Id |
+| itemType   | namn                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sid visningar   | Pappers sida                |              | STYz               | STYz         |
 | beroende | Hämta/Home/Stock           | qJSXU        | STYz               | STYz         |

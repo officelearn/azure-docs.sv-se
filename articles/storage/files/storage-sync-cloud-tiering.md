@@ -8,11 +8,11 @@ ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362392"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268098"
 ---
 # <a name="cloud-tiering-overview"></a>Översikt över moln nivåer
 Moln nivåer är en valfri funktion i Azure File Sync där ofta använda filer cachelagras lokalt på servern medan alla andra filer är i nivå av Azure Files baserat på princip inställningar. När en fil skiktas, ersätter Azure File Sync fil system filtret (StorageSync. sys) filen lokalt med en pekare eller referens punkt. Referens punkten representerar en URL till filen i Azure Files. En fil med flera nivåer har både attributet "offline" och attributet FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS som har angetts i NTFS så att tredjepartsprogram kan identifiera nivåbaserade filer på ett säkert sätt.

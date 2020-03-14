@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 17505084095eb8fbe46c20c7aa226131e128b286
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 36b15b41279edc60d337a7ba70abe2ca64d4bc7f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79127444"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371604"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Skapa klient- och värdpool
 
@@ -145,7 +145,7 @@ Exempel på RAW-fel:
 
 Åtgärda detta genom att göra följande:
 
-1. Öppna Azure Portal och gå till bladet **virtuella nätverk** .
+1. Öppna Azure Portal och gå till fliken **virtuella nätverk** .
 2. Hitta ditt VNET och välj **DNS-servrar**.
 3. Menyn DNS-servrar bör visas på höger sida av skärmen. På menyn väljer du **anpassad**.
 4. Kontrol lera att de DNS-servrar som anges under anpassad matchning av domänkontrollanten eller Active Directorys domänen. Om du inte ser din DNS-server kan du lägga till den genom att ange dess värde i fältet **Lägg till DNS-Server** .

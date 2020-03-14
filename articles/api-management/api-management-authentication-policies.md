@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374343"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280331"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).

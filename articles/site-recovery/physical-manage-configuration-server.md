@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367119"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257789"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurations servern för haveri beredskap för fysiska servrar
 

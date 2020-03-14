@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-ms.date: 12/19/2018
-ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/10/2020
+ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802920"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214014"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Övervaka prestanda Azure SQL Database med hjälp av vyer för dynamisk hantering
 
@@ -28,7 +28,7 @@ SQL Database delvis stöder tre kategorier med vyer för dynamisk hantering:
 - Vyer för dynamisk hantering i körnings läge.
 - Transaktionsskyddade vyer för dynamisk hantering.
 
-Detaljerad information om vyer för dynamisk hantering finns i [vyer och funktioner i dynamisk hantering (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) i SQL Server Books Online. 
+Detaljerad information om vyer för dynamisk hantering finns i [vyer och funktioner i dynamisk hantering (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) i SQL Server Books Online.
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -40,6 +40,17 @@ GRANT VIEW DATABASE STATE TO database_user;
 ```
 
 I en instans av lokala SQL Server returnerar vyer för dynamisk hantering information om Server tillstånd. I SQL Database returnerar de bara information om din aktuella logiska databas.
+
+Den här artikeln innehåller en samling av DMV-frågor som du kan köra med hjälp av SQL Server Management Studio eller Azure Data Studio för att identifiera följande typer av frågor om prestanda:
+
+- [Identifiera frågor som rör överdriven CPU-förbrukning](#identify-cpu-performance-issues)
+- [PAGELATCH_ * och WRITE_LOG väntar på IO-Flask halsar](#identify-io-performance-issues)
+- [PAGELATCH_ * väntar på att bytTempDB konkurrens orsakades](#identify-tempdb-performance-issues)
+- [RESOURCE_SEMAHPORE väntar på att vänta på minnes tilldelnings problem](#identify-memory-grant-wait-performance-issues)
+- [Identifiera databas-och objekt storlekar](#calculating-database-and-objects-sizes)
+- [Hämtar information om aktiva sessioner](#monitoring-connections)
+- [Hämta information om resursanvändning för hela systemet och databasen](#monitor-resource-use)
+- [Hämtar information om frågans prestanda](#monitoring-query-performance)
 
 ## <a name="identify-cpu-performance-issues"></a>Identifiera problem med processor prestanda
 
@@ -56,11 +67,11 @@ Använd följande fråga för att identifiera Top-frågans hash-värden:
 ```sql
 PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
 SELECT TOP 10 GETDATE() runtime, *
-FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
-     FROM(SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
+FROM (SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu_Time_Ms', SUM(logical_reads) 'Total_Request_Logical_Reads', MIN(start_time) 'Earliest_Request_start_Time', COUNT(*) 'Number_Of_Requests', SUBSTRING(REPLACE(REPLACE(MIN(query_stats.statement_text), CHAR(10), ' '), CHAR(13), ' '), 1, 256) AS "Statement_Text"
+    FROM (SELECT req.*, SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1) AS statement_text
           FROM sys.dm_exec_requests AS req
-               CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
-     GROUP BY query_hash) AS t
+                CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST ) AS query_stats
+    GROUP BY query_hash) AS t
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
@@ -72,14 +83,14 @@ Använd följande fråga för att identifiera dessa frågor:
 PRINT '--top 10 Active CPU Consuming Queries by sessions--';
 SELECT TOP 10 req.session_id, req.start_time, cpu_time 'cpu_time_ms', OBJECT_NAME(ST.objectid, ST.dbid) 'ObjectName', SUBSTRING(REPLACE(REPLACE(SUBSTRING(ST.text, (req.statement_start_offset / 2)+1, ((CASE statement_end_offset WHEN -1 THEN DATALENGTH(ST.text)ELSE req.statement_end_offset END-req.statement_start_offset)/ 2)+1), CHAR(10), ' '), CHAR(13), ' '), 1, 512) AS statement_text
 FROM sys.dm_exec_requests AS req
-     CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
+    CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) AS ST
 ORDER BY cpu_time DESC;
 GO
 ```
 
 ### <a name="the-cpu-issue-occurred-in-the-past"></a>PROCESSOR problemet inträffade tidigare
 
-Om problemet inträffade tidigare och du vill utföra rotor Saks analys, använder du [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med databas åtkomst kan använda T-SQL för att fråga efter Query Store-data.  Standardkonfigurationer för Query Store använder en kornig het på 1 timme.  Använd följande fråga för att titta på aktivitet för frågor med hög CPU-användning. Den här frågan returnerar de högsta 15 processor krävande frågorna.  Kom ihåg att ändra `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+Om problemet inträffade tidigare och du vill utföra rotor Saks analys, använder du [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med databas åtkomst kan använda T-SQL för att fråga efter Query Store-data. Standardkonfigurationer för Query Store använder en kornig het på 1 timme. Använd följande fråga för att titta på aktivitet för frågor med hög CPU-användning. Den här frågan returnerar de högsta 15 processor krävande frågorna. Kom ihåg att ändra `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -512,7 +523,7 @@ Du kan också övervaka användningen med följande två vyer:
 - [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdm_db_resource_stats"></a>sys. dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 Du kan använda [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) -vyn i varje SQL-databas. I vyn **sys. dm_db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
 
@@ -612,7 +623,7 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
 
    | Genomsnittlig CPU-procent | Högsta processor procent |
    | --- | --- |
-   | 24,5 |100,00 |
+   | 24.5 |100.00 |
 
     Den genomsnittliga CPU: n är ungefär ett kvartal av gränsen för beräknings storlek, vilket skulle passa in i databasens beräknings storlek. Men det maximala värdet visar att databasen når gränsen för beräknings storleken. Behöver du flytta till nästa högre beräknings storlek? Titta på hur många gånger din arbets belastning når 100 procent och jämför den sedan med databasens arbets belastnings mål.
 
@@ -635,19 +646,19 @@ För elastiska pooler kan du övervaka individuella databaser i poolen med de te
 
 Om du vill se antalet samtidiga förfrågningar kör du den här Transact-SQL-frågan på SQL-databasen:
 
-    ```sql
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R;
-    ```
+```sql
+SELECT COUNT(*) AS [Concurrent_Requests]
+FROM sys.dm_exec_requests R;
+```
 
 Om du vill analysera arbets belastningen för en lokal SQL Server databas ändrar du den här frågan för att filtrera på den angivna databasen som du vill analysera. Om du till exempel har en lokal databas med namnet databas, returnerar denna Transact-SQL-fråga antalet samtidiga begär anden i databasen:
 
-    ```sql
-    SELECT COUNT(*) AS [Concurrent_Requests]
-    FROM sys.dm_exec_requests R
-    INNER JOIN sys.databases D ON D.database_id = R.database_id
-    AND D.name = 'MyDatabase';
-    ```
+```sql
+SELECT COUNT(*) AS [Concurrent_Requests]
+FROM sys.dm_exec_requests R
+INNER JOIN sys.databases D ON D.database_id = R.database_id
+AND D.name = 'MyDatabase';
+```
 
 Detta är bara en ögonblicks bild vid en enskild tidpunkt. För att få en bättre förståelse för arbets belastningen och krav för samtidiga begär Anden måste du samla in många prover över tid.
 
@@ -664,16 +675,20 @@ Om flera klienter använder samma anslutnings sträng, autentiserar tjänsten va
 
 Om du vill se antalet aktuella aktiva sessioner kör du den här Transact-SQL-frågan på SQL-databasen:
 
-    SELECT COUNT(*) AS [Sessions]
-    FROM sys.dm_exec_connections
+```sql
+SELECT COUNT(*) AS [Sessions]
+FROM sys.dm_exec_connections
+```
 
 Om du analyserar en lokal SQL Server arbets belastning ändrar du frågan så att den fokuserar på en speciell databas. Den här frågan hjälper dig att fastställa möjliga sessions behov för databasen om du överväger att flytta den till Azure SQL Database.
 
-    SELECT COUNT(*)  AS [Sessions]
-    FROM sys.dm_exec_connections C
-    INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
-    INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-    WHERE D.name = 'MyDatabase'
+```sql
+SELECT COUNT(*) AS [Sessions]
+FROM sys.dm_exec_connections C
+INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
+INNER JOIN sys.databases D ON (D.database_id = S.database_id)
+WHERE D.name = 'MyDatabase'
+```
 
 De här frågorna returnerar ett antal tidpunkter. Om du samlar flera prover över tid har du den bästa förståelsen av din sessions användning.
 
@@ -687,22 +702,22 @@ Långsamma eller tids krävande frågor kan använda stora system resurser. Det 
 
 I följande exempel returneras information om de fem främsta frågorna som rangordnas med Genomsnittlig CPU-tid. I det här exemplet sammanställs frågorna utifrån deras fråge-hash, så att logiskt likvärdiga frågor grupperas efter deras ackumulerade resursförbrukning.
 
-    ```sql
-    SELECT TOP 5 query_stats.query_hash AS "Query Hash",
-       SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
-       MIN(query_stats.statement_text) AS "Statement Text"
-    FROM
-       (SELECT QS.*,
+```sql
+SELECT TOP 5 query_stats.query_hash AS "Query Hash",
+    SUM(query_stats.total_worker_time) / SUM(query_stats.execution_count) AS "Avg CPU Time",
+     MIN(query_stats.statement_text) AS "Statement Text"
+FROM
+    (SELECT QS.*,
         SUBSTRING(ST.text, (QS.statement_start_offset/2) + 1,
-        ((CASE statement_end_offset
-           WHEN -1 THEN DATALENGTH(ST.text)
-           ELSE QS.statement_end_offset END
-           - QS.statement_start_offset)/2) + 1) AS statement_text
-    FROM sys.dm_exec_query_stats AS QS
-    CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
-    GROUP BY query_stats.query_hash
-    ORDER BY 2 DESC;
-    ```
+            ((CASE statement_end_offset
+                WHEN -1 THEN DATALENGTH(ST.text)
+                ELSE QS.statement_end_offset END
+            - QS.statement_start_offset)/2) + 1) AS statement_text
+FROM sys.dm_exec_query_stats AS QS
+CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
+GROUP BY query_stats.query_hash
+ORDER BY 2 DESC;
+```
 
 ### <a name="monitoring-blocked-queries"></a>Övervaka blockerade frågor
 
@@ -712,25 +727,25 @@ Långsamma eller långvariga frågor kan bidra till överdriven resurs förbrukn
 
 En ineffektiv frågeplan kan också öka CPU-förbrukningen. I följande exempel används [sys. dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) -vyn för att avgöra vilken fråga som använder den mest kumulativa processorn.
 
-    ```sql
-    SELECT
-       highest_cpu_queries.plan_handle,
-       highest_cpu_queries.total_worker_time,
-       q.dbid,
-       q.objectid,
-       q.number,
-       q.encrypted,
-       q.[text]
-    FROM
-       (SELECT TOP 50
+```sql
+SELECT
+    highest_cpu_queries.plan_handle,
+    highest_cpu_queries.total_worker_time,
+    q.dbid,
+    q.objectid,
+    q.number,
+    q.encrypted,
+    q.[text]
+FROM
+    (SELECT TOP 50
         qs.plan_handle,
         qs.total_worker_time
     FROM
         sys.dm_exec_query_stats qs
-    ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
-    CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
-    ORDER BY highest_cpu_queries.total_worker_time DESC;
-    ```
+ORDER BY qs.total_worker_time desc) AS highest_cpu_queries
+CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
+ORDER BY highest_cpu_queries.total_worker_time DESC;
+```
 
 ## <a name="see-also"></a>Se även
 

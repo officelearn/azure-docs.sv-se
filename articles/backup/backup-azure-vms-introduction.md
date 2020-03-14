@@ -3,16 +3,22 @@ title: Om Säkerhetskopiering av virtuella Azure-datorer
 description: I den här artikeln lär du dig hur tjänsten Azure Backup säkerhetskopierar virtuella Azure-datorer och hur du följer bästa praxis.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 67ff06e882ec61dff58922606469ac27a8bbf7fd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273220"
+ms.locfileid: "79297365"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
 Den här artikeln beskriver hur [tjänsten Azure Backup](backup-introduction-to-azure-backup.md) säkerhetskopierar virtuella datorer i Azure.
+
+Azure Backup tillhandahåller oberoende och isolerade säkerhets kopior för att skydda mot oavsiktlig förstöring av data på dina virtuella datorer. Säkerhets kopior lagras i ett Recovery Services valv med inbyggd hantering av återställnings punkter. Konfiguration och skalning är enkla, säkerhets kopieringar optimeras och du kan enkelt återställa efter behov.
+
+Som en del av säkerhets kopieringen [tas en ögonblicks bild](#snapshot-creation)och data överförs till Recovery Services valvet utan påverkan på produktions arbets belastningar. Ögonblicks bilden innehåller olika nivåer av konsekvens, enligt beskrivningen [här](#snapshot-consistency).
+
+Azure Backup också har specialiserade erbjudanden för databas arbets belastningar som [SQL Server](backup-azure-sql-database.md) och [SAP HANA](sap-hana-db-about.md) som är medvetna om arbets belastning, erbjuder 15 minuters återställnings punkt mål (återställnings punkt mål) och tillåter säkerhets kopiering och återställning av enskilda databaser.
 
 ## <a name="backup-process"></a>Säkerhets kopierings process
 
@@ -66,7 +72,7 @@ Azure Backup tar ögonblicks bilder enligt schema för säkerhets kopiering.
   - Om för skripten och post-skripten körs korrekt, Azure Backup markerar återställnings punkten som programkonsekvent. Men när du använder anpassade skript är du i slut änden ansvarig för programmets konsekvens.
   - [Läs mer](backup-azure-linux-app-consistent.md) om hur du konfigurerar skript.
 
-### <a name="snapshot-consistency"></a>Ögonblicks bilds konsekvens
+## <a name="snapshot-consistency"></a>Ögonblicks bilds konsekvens
 
 I följande tabell förklaras de olika typerna av ögonblicks bilds konsekvens:
 

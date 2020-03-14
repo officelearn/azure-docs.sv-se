@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: skapa, träna och publicera kunskaps bas – QnA Maker'
 description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar för att besvara frågor QnA Maker.
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 02/08/2020
-ms.openlocfilehash: a4c4d9b2e8f4b816510fb35a75b3c9b8b2afa5e2
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108723"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220582"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -154,6 +154,5 @@ Mer information:
 
 * [Markdown-format i svar](../reference-markdown-format.md)
 * QnA Maker [data källor](../concepts/knowledge-base.md).
-* [Konfigurations inställningar för bot-resurser](../tutorials/create-qna-bot.md).
 
 

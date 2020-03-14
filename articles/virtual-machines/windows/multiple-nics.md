@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
 ms.openlocfilehash: 20a595e1386a8d33c919ad4ff151d65e30b31eda
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383181"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249989"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Skapa och hantera en virtuell Windows-dator som har flera nätverkskort
 Virtuella datorer i Azure kan ha flera virtuella nätverkskort (NIC) anslutna till dem. Ett vanligt scenario är att ha olika undernät för klient dels-och backend-anslutningar. Du kan associera flera nätverkskort på en virtuell dator till flera undernät, men dessa undernät måste finnas i samma virtuella nätverk (vNet). Den här artikeln beskriver hur du skapar en virtuell dator som har flera nätverkskort kopplade till sig. Du lär dig också hur du lägger till eller tar bort nätverkskort från en befintlig virtuell dator. Olika [VM-storlekar](sizes.md) har stöd för olika antal nätverkskort, så storleken på den virtuella datorn.

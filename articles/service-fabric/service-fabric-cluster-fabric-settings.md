@@ -4,11 +4,11 @@ description: I den här artikeln beskrivs de infrastruktur inställningar och de
 ms.topic: reference
 ms.date: 08/30/2019
 ms.openlocfilehash: 01f8eb861a1fc53ad95a95d7695df8e4b5b8a2ab
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393257"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258842"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).

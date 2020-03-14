@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: b-juche
 ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381303"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274065"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registrera dig för Azure NetApp Files
 

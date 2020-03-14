@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
-ms.openlocfilehash: 729fd776321a90257289dcf92f13079a8206d9d9
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 3c4634526e1f4f7d2ef03cfbacbfc472ddb4cdff
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78927350"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365920"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Snabb start: Använd Node. js för att ansluta och fråga efter data från Azure Cosmos DB SQL API-konto
 
@@ -121,7 +121,7 @@ Följande kodfragment är alla hämtade från filen _app.js_.
 - Välj behållare/samling för "objekt".
 
   ```javascript
-  const container = await client.databases(containerId);
+  const container = await database.container(containerId);
   ```
 
 - Markera alla objekt i behållaren "Items".

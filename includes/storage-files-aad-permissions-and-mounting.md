@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 7246a072c1bf2253b822fca53b0b69700c66221d
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 23550c83e76631e44d5036e0a038f01b61a79f1b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565284"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208237"
 ---
 ## <a name="assign-access-permissions-to-an-identity"></a>Tilldela åtkomst behörigheter till en identitet
 
@@ -26,14 +26,14 @@ Vi har introducerat tre inbyggda Azure-roller för att bevilja behörigheter på
 - **Lagrings fil data SMB dela utökad deltagare** tillåter Läs-, Skriv-, borttagnings-och ändrings-NTFS-behörigheter i Azure Storage fil resurser över SMB.
 
 > [!IMPORTANT]
-> Fullständig administrativ kontroll av en fil resurs, inklusive möjligheten att tilldela en roll till en identitet, kräver att du använder lagrings konto nyckeln. Administrativ kontroll stöds inte med autentiseringsuppgifter för Azure AD.
+> Fullständig administrativ kontroll av en fil resurs, inklusive möjligheten att bli ägare till en fil, kräver att du använder lagrings konto nyckeln. Administrativ kontroll stöds inte med autentiseringsuppgifter för Azure AD.
 
 Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå.
 
 > [!NOTE]
 > Kom ihåg att synkronisera dina AD-autentiseringsuppgifter till Azure AD om du planerar att använda AD för autentisering. Hash-synkronisering av lösen ord från AD till Azure AD är valfri. Behörigheten på resurs nivå kommer att beviljas den Azure AD-identitet som synkroniseras från AD.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 Följ dessa steg om du vill tilldela en RBAC-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
 
 1. I Azure Portal går du till fil resursen eller [skapar en fil resurs](../articles/storage/files/storage-how-to-create-file-share.md).

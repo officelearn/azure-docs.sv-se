@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
 ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031637"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260610"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 

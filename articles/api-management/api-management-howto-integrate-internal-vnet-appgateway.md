@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 129f407dd66b32ea097daf4ed9110ffbba23660c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 2b8cf66afa1d8aa592d5755ebab70cd6ad2e75fd
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017607"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298067"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt VNET med Application Gateway
 
-## <a name="overview"></a> Översikt
+## <a name="overview"> </a> Översikt
 
 API Managements tjänsten kan konfigureras i en Virtual Network i internt läge, vilket gör den endast tillgänglig från Virtual Network. Azure Application Gateway är en PAAS-tjänst som tillhandahåller en Layer-7-belastningsutjämnare. Den fungerar som en omvänd proxy-tjänst och tillhandahåller en brand vägg för webbaserade program (WAF).
 
@@ -35,7 +35,7 @@ Om du kombinerar API Management som har skapats i ett internt virtuellt nätverk
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -55,7 +55,7 @@ I det första installations exemplet hanteras bara dina API: er från din Virtua
 
 ![URL-väg](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a> Innan du börjar
+## <a name="before-you-begin"> </a> Innan du börjar
 
 * Kontrollera att du använder den senaste versionen av Azure PowerShell. Se installations anvisningarna vid [installationen Azure PowerShell](/powershell/azure/install-az-ps). 
 
@@ -69,7 +69,7 @@ I det första installations exemplet hanteras bara dina API: er från din Virtua
 * **Anpassad hälso avsökning:** Application Gateway används som standard IP-baserade avsökningar för att ta reda på vilka servrar i BackendAddressPool som är aktiva. Tjänsten API Management svarar bara på begär Anden med rätt värd huvud, och därför fungerar inte standard avsökningarna. En anpassad hälso avsökning måste definieras för att hjälpa Application Gateway att fastställa att tjänsten är aktiv och att den vidarebefordrar begär Anden.
 * **Anpassade domän certifikat:** För att få åtkomst till API Management från Internet måste du skapa en CNAME-mappning av sitt värdnamn till Application Gateway DNS-namn på klient sidan. Detta säkerställer att värd namns huvudet och certifikatet som skickas till Application Gateway som vidarebefordras till API Management är ett APIM som kan identifieras som giltigt. I det här exemplet ska vi använda två certifikat – för Server delen och för Developer-portalen.  
 
-## <a name="overview-steps"></a> Steg som krävs för att integrera API Management och Application Gateway
+## <a name="overview-steps"> </a> Steg som krävs för att integrera API Management och Application Gateway
 
 1. Skapa en resursgrupp för Resource Manager.
 2. Skapa en Virtual Network, ett undernät och en offentlig IP-adress för Application Gateway. Skapa ett annat undernät för API Management.
@@ -84,7 +84,7 @@ I det första installations exemplet hanteras bara dina API: er från din Virtua
 I den här guiden kommer vi också att exponera **utvecklings portalen** för externa mål grupper via Application Gateway. Det krävs ytterligare steg för att skapa en utvecklares Portals lyssnare, avsökning, inställningar och regler. Alla detaljer finns i respektive steg.
 
 > [!WARNING]
-> Om du använder autentisering med Azure AD eller tredje part, aktiverar du funktionen [cookie-baserad sessionsgräns](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) i Application Gateway.
+> Om du använder autentisering med Azure AD eller tredje part, aktiverar du funktionen [cookie-baserad sessionsgräns](../application-gateway/features.md#session-affinity) i Application Gateway.
 
 > [!WARNING]
 > Om du vill förhindra att Application Gateway WAF avbryter hämtningen av OpenAPI-specifikationen i Developer-portalen måste du inaktivera brand Väggs regeln `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
@@ -120,7 +120,7 @@ $location = "West US"           # Azure region
 New-AzResourceGroup -Name $resGroupName -Location $location
 ```
 
-Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standardplats för resurser i resursgruppen. Se till att alla kommandon för att skapa en Application Gateway använder samma resurs grupp.
+Azure Resource Manager kräver att alla resursgrupper definierar en plats. Detta används som standardplatsen för resurser i resursgruppen. Se till att alla kommandon för att skapa en Application Gateway använder samma resurs grupp.
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Skapa en Virtual Network och ett undernät för Application Gateway
 
@@ -363,10 +363,10 @@ Application Gatewayens DNS-namn ska användas för att skapa en CNAME-post som p
 Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-## <a name="summary"></a> Sammanfattning
+## <a name="summary"> </a> Sammanfattning
 Azure API Management som kon figurer ATS i ett VNET tillhandahåller ett enda Gateway-gränssnitt för alla konfigurerade API: er, oavsett om de finns lokalt eller i molnet. Genom att integrera Application Gateway med API Management får du flexibiliteten att selektivt aktivera specifika API: er som kan nås via Internet, samt att tillhandahålla en brand vägg för webbaserade program som en klient del till din API Management-instans.
 
-## <a name="next-steps"></a> Nästa steg
+## <a name="next-steps"> </a> Nästa steg
 * Läs mer om Azure Application Gateway
   * [Översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway brand vägg för webbaserade program](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

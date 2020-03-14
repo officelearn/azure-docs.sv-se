@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/14/2019
+ms.date: 3/13/2020
 ms.author: swmachan
-ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 4180dc6127fb2d31465400b1b25fb7e2d68f4754
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123065"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369173"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v 3.0
 
@@ -58,17 +58,74 @@ Det finns tre huvuden som du kan använda för att autentisera din prenumeration
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
 |Auktorisering|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Använd med Cognitive Services multi-service-prenumeration om du skickar en hemlig nyckel för flera tjänster.*<br/>Värdet är regionen för multi-service-prenumerationen. Det här värdet är valfritt när du inte använder en prenumeration med flera tjänster.|
+|Ocp-Apim-Subscription-Region|*Använd med Cognitive Services flera tjänst-och regional Translator-resurser.*<br/>Värdet är regionen för resursen för flera tjänst-eller regionala översättare. Det här värdet är valfritt när du använder en global translator-resurs.|
 
 ###  <a name="secret-key"></a>Hemlig nyckel
 Det första alternativet är att autentisera med hjälp av `Ocp-Apim-Subscription-Key`-huvudet. Lägg till `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` sidhuvudet i din begäran.
 
-### <a name="authorization-token"></a>Autentiseringstoken
+#### <a name="authenticating-with-a-global-resource"></a>Autentisera med en global resurs
+
+När du använder en [Global Translator-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)måste du inkludera en rubrik för att anropa Translator-API: et.
+
+|Rubriker|Beskrivning|
+|:-----|:----|
+|OCP-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
+
+Här är en exempel förfrågan om att anropa Translator-API: et med hjälp av den globala Translator-resursen
+
+```curl
+// Pass secret key using headers
+curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+#### <a name="authenticating-with-a-regional-resource"></a>Autentisera med en regional resurs
+
+När du använder en [lokal översättare-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
+Det finns 2 huvuden som du behöver anropa Translator-API: et.
+
+|Rubriker|Beskrivning|
+|:-----|:----|
+|OCP-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
+|Ocp-Apim-Subscription-Region| Värdet är den region där Translator-resursen finns. |
+
+Här är en exempel förfrågan om att anropa Translator-API: et med hjälp av den regionala Translator-resursen
+
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://api.cognitive.microsoft.com/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
+
+#### <a name="authenticating-with-a-multi-service-resource"></a>Autentisering med en resurs med flera tjänster
+
+När du använder en kognitiv tjänsts resurs för flera tjänster. På så sätt kan du använda en enskild hemlig nyckel för att autentisera begär Anden för flera tjänster. 
+
+När du använder en hemlig nyckel för flera tjänster måste du inkludera två autentiseringsscheman med din begäran. Det finns 2 huvuden som du behöver anropa Translator-API: et.
+
+|Rubriker|Beskrivning|
+|:-----|:----|
+|OCP-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din multi-service-resurs.|
+|Ocp-Apim-Subscription-Region| Värdet är regionen för flera tjänst resurser. |
+
+Region krävs för multi-service text API-prenumerationen. Den region du väljer är den enda region som du kan använda för text översättning när du använder prenumerations nyckeln för flera tjänster och måste vara samma region som du valde när du registrerade dig för din prenumeration på flera tjänster via Azure Portal.
+
+Tillgängliga regioner är `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`och `southafricanorth`.
+
+Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key`måste du ange region med Frågeparametern `Subscription-Region`.
+
+### <a name="authenticating-with-an-access-token"></a>Autentisera med en åtkomsttoken
 Alternativt kan du byta hemlig nyckel för en åtkomsttoken. Denna token ingår i varje begäran som `Authorization` huvud. Om du vill hämta en autentiseringstoken gör du en `POST` begäran till följande URL:
 
-| Miljö     | URL för autentiseringstjänst                                |
+| Resurstyp     | URL för autentiseringstjänst                                |
 |-----------------|-----------------------------------------------------------|
-| Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Global          | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Regional eller multi-service | `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
 Här är exempel begär Anden om att hämta en token som har fått en hemlig nyckel:
 
@@ -88,22 +145,29 @@ Authorization: Bearer <Base64-access_token>
 
 En autentiseringstoken är giltig i 10 minuter. Token ska återanvändas när du gör flera anrop till Translator-API: erna. Men om programmet skickar begär anden till Translator-API under en längre tid måste programmet begära en ny åtkomsttoken med jämna mellanrum (till exempel var 8: e minut).
 
-### <a name="multi-service-subscription"></a>Prenumeration på flera tjänster
+## <a name="virtual-network-support"></a>Virtual Network support
 
-Alternativet senaste autentisering är att använda en kognitiv tjänsts prenumeration på flera tjänster. På så sätt kan du använda en enskild hemlig nyckel för att autentisera begär Anden för flera tjänster. 
+Translator-tjänsten är nu tillgänglig med Virtual Network funktioner i begränsade regioner (`WestUS2`, `EastUS`, `SouthCentralUS`, `WestUS`, `Central US EUAP`, `global`). Om du vill aktivera Virtual Network kan du läsa [Konfigurera Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
-När du använder en hemlig nyckel för flera tjänster måste du inkludera två autentiseringsscheman med din begäran. Den första skickar den hemliga nyckeln, den andra anger den region som är associerad med din prenumeration. 
-* `Ocp-Apim-Subscription-Key`
-* `Ocp-Apim-Subscription-Region`
+När du har aktiverat den här funktionen måste du använda den anpassade slut punkten för att anropa Translator-API: et. Du kan inte använda den globala Translator-slutpunkten ("api.cognitive.microsofttranslator.com") och du kan inte autentisera med en åtkomsttoken.
 
-Region krävs för multi-service text API-prenumerationen. Den region du väljer är den enda region som du kan använda för text översättning när du använder prenumerations nyckeln för flera tjänster och måste vara samma region som du valde när du registrerade dig för din prenumeration på flera tjänster via Azure Portal.
+Du hittar den anpassade slut punkten när du har skapat [Translator-resursen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 
-Tillgängliga regioner är `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`och `southafricanorth`.
+|Rubriker|Beskrivning|
+|:-----|:----|
+|OCP-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
+|Ocp-Apim-Subscription-Region| Värdet är den region där Translator-resursen finns. Det här värdet är valfritt om resursen är `global`|
 
-Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key`måste du ange region med Frågeparametern `Subscription-Region`.
+Här är en exempel förfrågan om att anropa Translator-API: et med den anpassade slut punkten
 
-Om du använder en Bearer-token måste du hämta token från regionens slut punkt: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
-
+```curl
+// Pass secret key and region using headers
+curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translator/text/v3.0/translate?api-version=3.0&to=es" \
+     -H "Ocp-Apim-Subscription-Key:<your-key>" \
+     -H "Ocp-Apim-Subscription-Region:<your-region>" \
+     -H "Content-Type: application/json" \
+     -d "[{'Text':'Hello, what is your name?'}]"
+```
 
 ## <a name="errors"></a>Fel
 
@@ -124,7 +188,7 @@ Till exempel skulle en kund med en kostnads fri utvärderings prenumeration få 
 ```
 Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga fel koder är:
 
-| Programmera | Beskrivning |
+| Kod | Beskrivning |
 |:----|:-----|
 | 400000| En av begärda indata är inte giltiga.|
 | 400001| Parametern "scope" är ogiltig.|

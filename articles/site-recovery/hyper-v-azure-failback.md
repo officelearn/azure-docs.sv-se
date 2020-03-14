@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
 ms.openlocfilehash: 4b005ae308576db6fd26fcf079161430b266ec3f
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498180"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281787"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Köra en återställning efter fel för virtuella Hyper-V-datorer
 

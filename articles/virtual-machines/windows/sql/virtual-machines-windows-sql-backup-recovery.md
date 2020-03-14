@@ -15,13 +15,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
 ms.openlocfilehash: e4c126bbac73accb984f1040a7fea1740d919233
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100538"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249781"
 ---
-# <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Säkerhetskopiering och återställning för SQL Server i Azure Virtual Machines
+# <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Säkerhets kopiering och återställning av SQL Server i Azure Virtual Machines
 
 Den här artikeln innehåller rikt linjer för alternativ för säkerhets kopiering och återställning som är tillgängliga för SQL Server som körs på en virtuell Windows-dator i Azure. Azure Storage behåller tre kopior av varje Azure VM-disk för att garantera skydd mot data förlust eller fysiska data skador. Till skillnad från lokalt behöver du inte fokusera på maskin varu problem. Du bör dock fortfarande säkerhetskopiera SQL Server-databaser för att skydda mot program-eller användar fel, till exempel oavsiktliga data infogningar eller borttagningar. I den här situationen är det viktigt att kunna återställa till en viss tidpunkt.
 
@@ -62,15 +62,15 @@ Mer information om hur du konfigurerar automatisk säkerhets kopiering för virt
 
 [Azure Backup](/azure/backup/) tillhandahåller en funktion för säkerhets kopiering av företags klass för SQL Server som körs i virtuella Azure-datorer. Alla säkerhets kopior lagras och hanteras i ett Recovery Services valv. Det finns flera fördelar som den här lösningen ger, särskilt för företag:
 
-- **Ingen säkerhets kopia av infrastruktur**: Du behöver inte hantera säkerhets kopierings servrar eller lagrings platser.
-- **Skala**: Skydda flera virtuella SQL-datorer och tusentals databaser.
-- **Betala per**användning: Den här funktionen är en separat tjänst som tillhandahålls av Azure Backup, men som med alla Azure-tjänster betalar du bara för det du använder.
-- **Central hantering och övervakning**: Hantera alla dina säkerhets kopior centralt, inklusive andra arbets belastningar som Azure Backup stöder, från en enda instrument panel i Azure.
-- **Princip driven säkerhets kopiering och kvarhållning**: Skapa standard principer för säkerhets kopiering för regelbundna säkerhets kopieringar. Upprätta bevarande principer för att upprätthålla säkerhets kopieringar i flera år.
-- **Stöd för SQL Always on**: Identifiera och skydda en SQL Server alltid på konfigurationen och respektera inställningen för säkerhets kopiering av tillgänglighets grupp för säkerhets kopiering.
-- **15-minuters återställnings punkt mål (återställnings punkt mål)** : Konfigurera säkerhets kopieringar av SQL Transaction-loggar upp till var 15: e minut.
+- **Ingen säkerhets kopia av infrastrukturen**: du behöver inte hantera säkerhets kopierings servrar eller lagrings platser.
+- **Skala**: skydda flera virtuella SQL-datorer och tusentals databaser.
+- **Betala per**användning: den här funktionen är en separat tjänst som tillhandahålls av Azure Backup, men som med alla Azure-tjänster betalar du bara för det du använder.
+- **Central hantering och övervakning: Central hantering**av alla dina säkerhets kopior, inklusive andra arbets belastningar som Azure Backup stöder, från en enda instrument panel i Azure.
+- **Princip driven säkerhets kopiering och kvarhållning**: skapa standard principer för säkerhets kopiering för regelbundna säkerhets kopieringar. Upprätta bevarande principer för att upprätthålla säkerhets kopieringar i flera år.
+- **Stöd för SQL Always on**: identifiera och skydda en SQL Server alltid på konfigurationen och respektera inställningarna för säkerhets kopiering av tillgänglighets grupp för säkerhets kopiering.
+- **15 minuters återställnings punkt mål (återställnings punkt mål)** : Konfigurera säkerhets kopior av SQL-transaktionsloggar upp till var 15: e
 - **Tidpunkt för återställning**: Använd portalen för att återställa databaser till en viss tidpunkt utan att manuellt återställa flera fullständiga, differentiella och logg säkerhets kopior.
-- **Sammanställda e-postaviseringar för felen**: Konfigurera konsoliderade e-postaviseringar för eventuella problem.
+- **Sammanställda e-postaviseringar för haverier**: Konfigurera konsoliderade e-postaviseringar för eventuella problem.
 - **Rollbaserad åtkomst kontroll**: Bestäm vem som kan hantera säkerhets kopierings-och återställnings åtgärder via portalen.
 
 För en snabb översikt över hur det fungerar tillsammans med en demo, se följande videoklipp:
@@ -101,7 +101,7 @@ Ett exempel på hur du manuellt skapar en fullständig säkerhets kopia av datab
 
 Från och med SQL Server 2012 SP1 CU2 kan du säkerhetskopiera och återställa direkt till Microsoft Azure Blob Storage, som även kallas säkerhets kopiering till URL. SQL Server 2016 introducerade även följande förbättringar för den här funktionen:
 
-| 2016-förbättringar | Information |
+| 2016-förbättringar | Detaljer |
 | --- | --- |
 | **Striping** |När du säkerhetskopierar till Microsoft Azure Blob Storage stöder SQL Server 2016 säkerhets kopiering till flera blobbar för att aktivera säkerhets kopiering av stora databaser, upp till högst 12,8 TB. |
 | **Säkerhets kopiering av ögonblicks bild** |Genom att använda Azure-ögonblicksbilder ger SQL Server säkerhets kopiering av fil ögonblicks bilder nästan omedelbara säkerhets kopieringar och snabba återställningar av databasfiler lagrade med Azure Blob Storage-tjänsten. Med den här funktionen kan du förenkla säkerhets kopierings-och återställnings principerna. Säkerhets kopiering av fil-ögonblicks bilder stöder även återställning av tidpunkter. Mer information finns i [ögonblicks bilder av säkerhets kopior för databasfiler i Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure). |
@@ -149,6 +149,6 @@ I följande tabell sammanfattas funktionerna för varje säkerhets kopierings-oc
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du planerar distributionen av SQL Server på en virtuell Azure-dator kan du hitta etablerings vägledning i följande guide: [Hur du etablerar en virtuell Windows SQL Server-dator i Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+Om du planerar distributionen av SQL Server på en virtuell Azure-dator kan du hitta etablerings vägledning i följande guide: [så här etablerar du en virtuell Windows SQL Server-dator i Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
 
 Även om säkerhets kopiering och återställning kan användas för att migrera dina data, finns det potentiellt enklare sökvägar för datamigrering för att SQL Server på en virtuell Azure-dator. En fullständig beskrivning av alternativen och rekommendationerna för migrering finns i [Migrera en databas till SQL Server på en virtuell Azure-dator](virtual-machines-windows-migrate-sql.md).

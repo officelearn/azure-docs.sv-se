@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
 ms.openlocfilehash: 32fa54ef0d8eccaf8745ee37cb028d4f3c6d73eb
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650886"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247298"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Övervaka, ta emot och skicka händelser med Azure Event Hubs och Azure Logic Apps
 
@@ -33,7 +33,7 @@ Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../lo
 
 För att se till att din Logi Kap par kan komma åt din Händelsehubben, kontrol lera dina behörigheter och hämta anslutnings strängen för ditt Event Hubs namn område.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Gå till din Event Hubs- *namnrymd*, inte en speciell händelsehubben. 
 
@@ -74,7 +74,7 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya h�
 
    ![Egenskaper för utlösare](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger.png)
 
-   | Egenskap | Krävs | Description |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Händelsehubben-namn** | Ja | Namnet på Händelsehubben som du vill övervaka |
    | **Innehållstyp** | Nej | Händelsens innehålls typ. Standardvärdet är `application/octet-stream`. |
@@ -86,7 +86,7 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya h�
 
    **Ytterligare egenskaper**
 
-   | Egenskap | Krävs | Description |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Innehålls schema** | Nej | JSON Content schema för de händelser som ska läsas från Händelsehubben. Om du till exempel anger innehålls schemat kan du utlösa Logic app för de händelser som matchar schemat. |
    | **Minsta partitionsnyckel** | Nej | Ange det minsta [partitions](../event-hubs/event-hubs-features.md#partitions) -ID som ska läsas. Som standard är alla partitioner lästa. |
@@ -130,7 +130,7 @@ Välj den här åtgärden i listan åtgärder: **skicka händelse-Event Hubs**
 
    ![Välj Event Hub-namn och ange händelse innehåll](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
-   | Egenskap | Krävs | Description |
+   | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Händelsehubben-namn** | Ja | Händelsehubben dit du vill skicka händelsen |
    | **Innehåll** | Nej | Innehållet för den händelse som du vill skicka |
@@ -152,7 +152,7 @@ Välj den här åtgärden i listan åtgärder: **skicka händelse-Event Hubs**
 
 1. När du uppmanas att ange anslutnings information anger du följande information:
 
-   | Egenskap | Krävs | Värde | Description |
+   | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
    | **Anslutningsnamn** | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
    | **Event Hubs namnrymd** | Ja | <*Event – Hub-namespace*> | Välj det Event Hubs namn område som du vill använda. |

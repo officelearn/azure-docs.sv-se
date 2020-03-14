@@ -7,11 +7,11 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358991"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278121"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.

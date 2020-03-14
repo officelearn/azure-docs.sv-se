@@ -4,11 +4,11 @@ description: Hitta, skapa, hantera och ta bort projekt i Azure Migrate.
 ms.topic: how-to
 ms.date: 02/17/2020
 ms.openlocfilehash: a49595f0580e71048239d5c5d8f4d1a66e24fe6d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392740"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269645"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Skapa och hantera Azure Migrate-projekt
 

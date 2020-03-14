@@ -5,18 +5,18 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1db391f42aeb4fdf80baf001150f845daef3bf4f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7e4282802c287becf9ccb036ba0063d3c48bc332
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773213"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370771"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Självstudie: Lägg till mallar i Resource Manager-mallen
 
 I den här självstudien får du lära dig hur du lägger till [mallar](template-functions.md) i mallen. Du använder funktioner för att dynamiskt konstruera värden. Förutom dessa funktioner som tillhandahålls av systemet kan du också skapa [användardefinierade funktioner](./template-user-defined-functions.md). Den här självstudien tar **7 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om parametrar](template-tutorial-add-parameters.md), men det är inte obligatoriskt.
 
@@ -48,7 +48,7 @@ I de föregående självstudierna skapade du ett lagrings konto i östra USA, me
 
 Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -58,10 +58,10 @@ New-AzResourceGroupDeployment `
   -storageName "{new-unique-name}"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addlocationparameter \
   --resource-group myResourceGroup \
   --template-file $templateFile \

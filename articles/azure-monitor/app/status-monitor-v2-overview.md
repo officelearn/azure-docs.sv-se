@@ -6,11 +6,11 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381572"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275716"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights agent för lokala servrar
 

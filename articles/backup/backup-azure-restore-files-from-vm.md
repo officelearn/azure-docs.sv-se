@@ -4,11 +4,11 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363891"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273311"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 

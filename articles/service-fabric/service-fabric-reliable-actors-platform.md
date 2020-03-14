@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
 ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391879"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282307"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Hur Reliable Actors använder Service Fabrics plattformen
 I den här artikeln förklaras hur Reliable Actors fungerar på Azure Service Fabric-plattformen. Reliable Actors köras i ett ramverk som är värd för en implementering av en tillstånds känslig tillförlitlig tjänst som kallas *aktörs tjänst*. Aktörs tjänsten innehåller alla komponenter som krävs för att hantera livs cykeln och meddelande sändning för dina aktörer:

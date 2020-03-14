@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL data kryptering med en kundhanterad nyckel
+title: Data kryptering med kundhanterad nyckel-Azure Database for MySQL
 description: Azure Database for MySQL data kryptering med en kundhanterad nyckel kan du Bring Your Own Key (BYOK) för data skydd i vila. Det gör det också möjligt för organisationer att implementera separering av uppgifter i hanteringen av nycklar och data.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a97fee619858aa024ff208b72d3b2594c30d2fd5
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210439"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299132"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL data kryptering med en kundhanterad nyckel
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 03/13/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0fd016e02c579f4e7230bd18d363cfe9a64c88eb
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79244269"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366112"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhets överväganden för att få åtkomst till appar via fjärr anslutning med Azure AD-programproxy
 
@@ -81,13 +81,9 @@ Program vara som inte har uppdaterats har fortfarande konton för ett stort anta
 
 För att förbättra säkerheten för program som publiceras av Azure AD-programproxy blockerar vi webb robot robotarna från att indexera och arkivera dina program. Varje gången en robot försöker hämta robotens inställningar för en publicerad app, svarar programproxyn med en robots. txt-fil som innehåller `User-agent: * Disallow: /`.
 
-### <a name="ddos-prevention"></a>DDOS skydd
+#### <a name="azure-ddos-protection-service"></a>Azure DDoS Protection-tjänst
 
-Program som publiceras via programproxyn skyddas mot DDOS-attacker (distributed denial of Service).
-
-Tjänsten Application Proxy övervakar den mängd trafik som försöker komma åt dina program och nätverk. Om antalet enheter som begär fjärråtkomst till dina program är toppar, begränsar Microsoft åtkomsten till nätverket. 
-
-Microsoft bevakar trafik mönster för enskilda program och för din prenumeration som helhet. Om ett program får högre än vanliga begär Anden nekas förfrågningar om åtkomst till programmet under en kort tids period. Om du får högre än vanliga begär anden i hela prenumerationen nekas förfrågningar om åtkomst till någon av dina appar. Detta förebyggande åtgärder förhindrar att dina program servrar överbelastas av förfrågningar om fjärråtkomst, så att dina lokala användare kan fortsätta att komma åt sina appar. 
+Program som publiceras via programproxyn skyddas mot DDoS-attacker (distributed denial of Service). **Azure DDoS Protection** är en tjänst som erbjuds med Azure-plattformen för att skydda dina Azure-resurser från denial of Service-attacker. Den **grundläggande** tjänst nivån aktive ras automatiskt, vilket ger Always trafik övervakning och real tids skydd av vanliga attacker på nätverks nivå. En **standard** nivå är också tillgänglig, och erbjuder ytterligare funktioner för minskning som är specifika för Azure Virtual Network-resurser. Mer information finns i [Azure DDoS Protection standard översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Under huven
 

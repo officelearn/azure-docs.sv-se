@@ -2,21 +2,21 @@
 title: Kryptering på Server sidan av Azure Managed Disks – PowerShell
 description: Azure Storage skyddar dina data genom att kryptera dem i vila innan du sparar dem i lagrings kluster. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av dina hanterade diskar, eller så kan du använda Kundhanterade nycklar för att hantera kryptering med dina egna nycklar.
 author: roygara
-ms.date: 01/10/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: f3ce439f3e8c2290539e088402c2636974d37821
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 0541b12d73cc5b5f7fdf713c759069e2ecbd8c18
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898851"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299639"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på Server sidan av Azure Managed disks
 
-Azure Managed disks krypterar automatiskt dina data som standard när de sparas i molnet. Kryptering på Server sidan skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Data i Azure Managed disks krypteras transparent med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel.   
+Azure Managed disks krypterar automatiskt dina data som standard när de sparas i molnet. Kryptering på Server sidan skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Data i Azure Managed disks krypteras transparent med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel.
 
 Kryptering påverkar inte prestandan hos hanterade diskar. Krypteringen kostar inget extra.
 
@@ -30,18 +30,22 @@ I följande avsnitt beskrivs de olika alternativen för nyckel hantering i stör
 
 ## <a name="platform-managed-keys"></a>Plattforms hanterade nycklar
 
-Som standard använder hanterade diskar plattforms hanterade krypterings nycklar. Från och med den 10 juni 2017 krypteras alla nya hanterade diskar, ögonblicks bilder, bilder och nya data som skrivs till befintliga hanterade diskar automatiskt i vila med plattforms hanterade nycklar. 
+Som standard använder hanterade diskar plattforms hanterade krypterings nycklar. Från och med den 10 juni 2017 krypteras alla nya hanterade diskar, ögonblicks bilder, bilder och nya data som skrivs till befintliga hanterade diskar automatiskt i vila med plattforms hanterade nycklar.
 
 ## <a name="customer-managed-keys"></a>Kundhanterade nycklar
 
 Du kan välja att hantera kryptering på nivån för varje hanterad disk med dina egna nycklar. Kryptering på Server sidan för Managed disks med Kundhanterade nycklar ger en integrerad upplevelse med Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../../key-vault/key-vault-hsm-protected-keys.md) till Key Vault eller generera nya RSA-nycklar i Azure Key Vault. Azure Managed disks hanterar kryptering och dekryptering på ett helt transparent sätt med hjälp av [Kuvert kryptering](../../storage/common/storage-client-side-encryption.md#encryption-and-decryption-via-the-envelope-technique). Den krypterar data med hjälp av en [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256-baserad data krypterings nyckel (DEK), som i sin tur skyddas med hjälp av dina nycklar. Du måste bevilja åtkomst till hanterade diskar i Key Vault för att kunna använda dina nycklar för att kryptera och dekryptera DEK. Detta gör att du får fullständig kontroll över dina data och nycklar. Du kan när som helst inaktivera dina nycklar eller återkalla åtkomsten till hanterade diskar. Du kan också granska krypterings nyckel användningen med Azure Key Vault övervakning så att endast hanterade diskar eller andra betrodda Azure-tjänster får åtkomst till dina nycklar.
+
+För Premium SSD, standard-SSD och standard-HDD: när du inaktiverar eller tar bort din nyckel stängs alla virtuella datorer med diskar som använder den nyckeln automatiskt. Efter detta kommer de virtuella datorerna inte att vara användbara om inte nyckeln är aktive rad igen eller om du tilldelar en ny nyckel.
+
+När du inaktiverar eller tar bort en nyckel för Ultra disk stängs alla virtuella datorer med Ultra disks med hjälp av nyckeln inte automatiskt. När du har avallokerat och startat om de virtuella datorerna slutar diskarna att använda nyckeln och de virtuella datorerna kommer inte att vara online igen. Om du vill ta de virtuella datorerna online igen måste du tilldela en ny nyckel eller aktivera den befintliga nyckeln.
 
 Följande diagram visar hur hanterade diskar använder Azure Active Directory och Azure Key Vault för att göra förfrågningar med hjälp av kundhanterad nyckel:
 
 ![Arbets flöde för hanterade diskar och Kundhanterade nycklar. En administratör skapar en Azure Key Vault, skapar en disk krypterings uppsättning och konfigurerar disk krypterings uppsättningen. Uppsättningen är kopplad till en virtuell dator, vilket gör att disken kan använda Azure AD för att autentisera](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
-I följande lista förklaras diagrammet i ännu mer detalj:
+I följande lista beskrivs diagrammet i detalj:
 
 1. En Azure Key Vault administratör skapar nyckel valvs resurser.
 1. Key Vault-administratören importerar antingen sina RSA-nycklar för att Key Vault eller generera nya RSA-nycklar i Key Vault.
@@ -56,15 +60,14 @@ Information om hur du återkallar åtkomst till Kundhanterade nycklar finns i [A
 
 ### <a name="supported-regions"></a>Regioner som stöds
 
-Det finns för närvarande endast stöd för följande regioner:
-
-- Tillgänglig som ett GA-erbjudande i USA, västra USA 2, södra centrala USA, Storbritannien, södra regioner.
-- Tillgängligt som en offentlig för hands version i regionerna västra centrala USA, östra USA 2, centrala Kanada och Europa, norra.
+[!INCLUDE [virtual-machines-disks-encryption-regions](../../../includes/virtual-machines-disks-encryption-regions.md)]
 
 ### <a name="restrictions"></a>Begränsningar
 
 För närvarande har Kundhanterade nycklar följande begränsningar:
 
+- Om den här funktionen är aktive rad för disken kan du inte inaktivera den.
+    Om du behöver kringgå detta måste du [Kopiera alla data](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) till en helt annan hanterad disk som inte använder Kundhanterade nycklar.
 - Endast ["mjuka" och "hårda" RSA-nycklar](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) med storleken 2080 stöds, inga andra nycklar eller storlekar.
 - Diskar som har skapats från anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar måste krypteras med samma Kundhanterade nycklar och måste finnas i samma prenumeration.
 - Ögonblicks bilder som har skapats från diskar som är krypterade med kryptering på Server sidan och Kundhanterade nycklar måste vara krypterade med samma Kundhanterade nycklar.
@@ -97,26 +100,26 @@ För närvarande har Kundhanterade nycklar följande begränsningar:
     $key = Add-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName -Destination $keyDestination  
     ```
 
-1.  Skapa en instans av en DiskEncryptionSet. 
+1.    Skapa en instans av en DiskEncryptionSet. 
     
-    ```powershell
-    $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
+        ```powershell
+        $desConfig=New-AzDiskEncryptionSetConfig -Location $LocationName -SourceVaultId $keyVault.ResourceId -KeyUrl $key.Key.Kid -IdentityType SystemAssigned
+        
+        $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
+        ```
 
-    $des=New-AzDiskEncryptionSet -Name $diskEncryptionSetName -ResourceGroupName $ResourceGroupName -InputObject $desConfig 
-    ```
+1.    Ge DiskEncryptionSet-resursen åtkomst till nyckel valvet.
 
-1.  Ge DiskEncryptionSet-resursen åtkomst till nyckel valvet.
-
-    > [!NOTE]
-    > Det kan ta några minuter för Azure att skapa identiteten för din DiskEncryptionSet i din Azure Active Directory. Om du får ett fel meddelande som "det går inte att hitta Active Directory-objektet" när du kör följande kommando, väntar du några minuter och försöker igen.
-    
-    ```powershell
-    $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
-     
-    Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-     
-    New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
-    ```
+        > [!NOTE]
+        > Det kan ta några minuter för Azure att skapa identiteten för din DiskEncryptionSet i din Azure Active Directory. Om du får ett fel meddelande som "det går inte att hitta Active Directory-objektet" när du kör följande kommando, väntar du några minuter och försöker igen.
+        
+        ```powershell
+        $identity = Get-AzADServicePrincipal -DisplayName myDiskEncryptionSet1  
+         
+        Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ObjectId $des.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+         
+        New-AzRoleAssignment -ResourceName $keyVaultName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.KeyVault/vaults" -ObjectId $des.Identity.PrincipalId -RoleDefinitionName "Reader" 
+        ```
 
 #### <a name="create-a-vm-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Skapa en virtuell dator med en Marketplace-avbildning, kryptera operativ system och data diskar med Kundhanterade nycklar
 

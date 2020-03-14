@@ -9,16 +9,16 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 6baf9d4edba9ba8db008c5c6a8d7af6832ba3273
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 578d076dfc2fc383051c0c3a8528cdbb0fbcdb15
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591242"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208785"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-microsoft-azure-sql-database"></a>Fel sökning av anslutnings problem och andra fel med Microsoft Azure SQL Database
 
-Du får felmeddelanden när anslutningen till Azure SQL Database misslyckas. Dessa anslutnings problem kan orsakas av Azure SQL Database omkonfiguration, brand Väggs inställningar, tids gräns för anslutning, felaktig inloggnings information eller fel vid användning av metod tips och design rikt linjer under [program design] ( sql-database-develop-overview.md) process. Om max gränsen på vissa Azure SQL Database resurser nås kan du dessutom inte ansluta till Azure SQL Database.
+Du får felmeddelanden när anslutningen till Azure SQL Database misslyckas. Dessa anslutnings problem kan orsakas av Azure SQL Database omkonfiguration, brand Väggs inställningar, tids gräns för anslutning, felaktig inloggnings information eller fel vid användning av metod tips och design rikt linjer under [programmets design](sql-database-develop-overview.md) process. Om max gränsen på vissa Azure SQL Database resurser nås kan du dessutom inte ansluta till Azure SQL Database.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Tillfälliga fel fel meddelanden (40197, 40613 och andra)
 
@@ -316,7 +316,7 @@ Följande fel är relaterade till att skapa och använda elastiska pooler:
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Den elastiska poolen har nått sin lagrings gräns. Lagrings användningen för den elastiska poolen får inte överskrida (% d) MB. Försök att skriva data till en databas när lagrings gränsen för den elastiska poolen har nåtts. Information om resurs gränser finns i: <br/>&bull; &nbsp;[DTU-baserade gränser för elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-baserade gränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). <br/> |Överväg att öka DTU: er och/eller lägga till lagring till den elastiska poolen om det är möjligt för att öka lagrings gränsen, minska lagrings utrymmet som används av enskilda databaser i den elastiska poolen eller ta bort databaser från den elastiska poolen. För skalning av elastiska pooler, se [skala elastiska pool resurser](sql-database-elastic-pool-scale.md).|
 | 10929 | 16 |% S minsta garanti är% d, max gränsen är% d och den aktuella användningen för databasen är% d. Servern är dock för närvarande upptagen för att stödja begär Anden som är större än% d för den här databasen. Information om resurs gränser finns i: <br/>&bull; &nbsp;[DTU-baserade gränser för elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-baserade gränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). <br/> Annars kan du försöka igen senare. DTU/vCore min per databas; Max per databas för DTU/vCore. Det totala antalet samtidiga arbetare (begär Anden) över alla databaser i den elastiska poolen försökte överskrida poolens gräns. |Överväg att öka DTU: er-eller virtuella kärnor för den elastiska poolen om det är möjligt för att öka arbets gränsen, eller ta bort databaser från den elastiska poolen. |
-| 40844 | 16 |Databasen% ls på servern% LS är en% LS Edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopierings relation.  |Saknas |
+| 40844 | 16 |Databasen% ls på servern% LS är en% LS Edition-databas i en elastisk pool och kan inte ha en kontinuerlig kopierings relation.  |Ej tillämpligt |
 | 40857 | 16 |Det gick inte att hitta någon elastisk pool för servern:% ls, namn på elastisk pool:% ls. Den angivna elastiska poolen finns inte på den angivna servern. | Ange ett giltigt namn på elastisk pool. |
 | 40858 | 16 |Den elastiska poolen% LS finns redan på servern:% ls. Den angivna elastiska poolen finns redan på den angivna SQL Database servern. | Ange ett nytt namn på elastisk pool. |
 | 40859 | 16 |Den elastiska poolen stöder inte tjänst nivån% ls. Den angivna tjänst nivån stöds inte för etablering av elastisk pool. |Ange rätt utgåva eller lämna tjänst nivån tom för att använda standard tjänst nivån. |

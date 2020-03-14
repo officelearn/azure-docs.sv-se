@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 1857c1154af5e3de72803f297e8a3151b0dd7aeb
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78330982"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297092"
 ---
 # <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
 
@@ -72,7 +72,7 @@ Det finns två typer av streaming-inmatningar som stöds:
 
 ## <a name="limitations"></a>Begränsningar
 
-* Strömnings inmatning stöder inte [databas markörer](/azure/kusto/management/databasecursor) eller [data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/tables#create-ingestion-mapping) . 
+* Strömnings inmatning stöder inte [databas markörer](/azure/kusto/management/databasecursor) eller [data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/create-ingestion-mapping-command) . 
 * Strömnings kapacitet och kapacitets skalning med ökad storlek på virtuella datorer och kluster. Samtidiga inmatningar är begränsade till sex inmatningar per kärna. För till exempel 16 core-SKU: er, till exempel D14 och L16, är den maximala belastningen som stöds 96 samtidiga inmatningar. För två kärn SKU: er, till exempel D11, är den maximala belastningen 12 samtidiga inmatningar.
 * Data storleks begränsningen per inmatnings förfrågan är 4 MB.
 * Schema uppdateringar, till exempel skapande och ändring av tabeller och inmatnings mappningar, kan ta upp till fem minuter för strömnings tjänsten.

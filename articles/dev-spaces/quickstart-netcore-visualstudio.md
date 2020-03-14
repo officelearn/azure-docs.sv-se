@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: d3eaa3869c79852d1e598cae76e1dac81c08cdc2
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245037"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137979"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio & .NET Core – Azure dev Spaces
 
@@ -94,7 +94,9 @@ Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-I exemplet ovan är den offentliga URL: en http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. Navigera till tjänstens offentliga URL och interagera med tjänsten som körs i ditt utvecklings utrymme.
+I exemplet ovan är den offentliga URL: en http://default.webfrontend.1234567890abcdef1234.eus.azds.io/. 
+
+Välj **Felsök** och **Starta fel sökning**. Efter några sekunder startar tjänsten och Visual Studio öppnar en webbläsare med tjänstens offentliga URL. Om en webbläsare inte öppnas automatiskt går du till tjänstens offentliga URL i en webbläsare och interagerar med tjänsten som körs i ditt utvecklings utrymme.
 
 Den här processen kan ha inaktiverat offentlig åtkomst till din tjänst. Om du vill aktivera offentlig åtkomst kan du uppdatera [ingress-värdet i *Values. yaml*][ingress-update].
 
@@ -106,7 +108,7 @@ Om Visual Studio fortfarande är anslutet till ditt dev-utrymme klickar du på k
 ViewData["Message"] = "Your application description page in Azure.";
 ```
 
-Spara ändringarna och starta tjänsten med hjälp av **Azure dev Spaces** från List rutan Start Inställningar. Öppna tjänstens offentliga URL i en webbläsare och klicka på *om*. Observera att det uppdaterade meddelandet visas.
+Spara ändringarna och välj **Felsök** och **Starta fel sökning**. Efter några sekunder startar tjänsten och Visual Studio öppnar en webbläsare med tjänstens offentliga URL. Om en webbläsare inte öppnas automatiskt navigerar du till tjänstens offentliga URL i en webbläsare och klickar på *om*. Observera att det uppdaterade meddelandet visas.
 
 I stället för att bygga om och omdistribuera en ny behållar avbildning varje tids kods redigering görs, kompilerar Azure dev Spaces stegvis om koden i den befintliga behållaren för att ge en snabbare redigerings-/fel söknings slinga.
 

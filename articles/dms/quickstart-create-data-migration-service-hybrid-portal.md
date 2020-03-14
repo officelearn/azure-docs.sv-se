@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 01/21/2019
-ms.openlocfilehash: 8dba12fc2c3777c2c45315f1805fa7ec8f1d8b83
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 03/13/2020
+ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255043"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370244"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Snabb start: skapa en instans i hybrid läge med Azure Portal & Azure Database Migration Service
 
@@ -146,7 +146,7 @@ Du måste skapa ett Azure App registrerings-ID som den lokala hybrid Worker kan 
 7. Installera Azure Database Migration Service hybrid Worker på din lokala server genom att köra följande kommando:
 
     ```
-    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms
+    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms -d
     ```
 
     > [!NOTE]

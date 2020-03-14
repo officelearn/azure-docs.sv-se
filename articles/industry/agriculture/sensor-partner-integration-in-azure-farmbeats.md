@@ -5,18 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e4b2e7c40295d134fe24def0f140bc8097c21250
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 48a2ed5e4774ac07b4b8fa72a5ee0be86811cfb2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132833"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298741"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
 Den här artikeln innehåller information om Azure FarmBeats **Translator** -komponenten som möjliggör integrering av sensor partner.
 
-Med den här komponenten kan partners integrera med FarmBeats med hjälp av FarmBeats-API: er för data hubb och skicka kundenhets data och telemetri till FarmBeats data Hub. När data är tillgängliga i FarmBeats visualiseras de med FarmBeats-acceleratorn och kan användas för data fusion och för att skapa maskin inlärnings-och artificiell Intelligence-modeller.
+Med den här komponenten kan partners integrera med FarmBeats med hjälp av FarmBeats Datahub-API: er och skicka kund enhets data och telemetri till FarmBeats Datahub. När data är tillgängliga i FarmBeats visualiseras de med FarmBeats-acceleratorn och kan användas för data fusion och för att skapa maskin inlärnings-och artificiell Intelligence-modeller.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -50,7 +50,7 @@ FarmBeats använder Microsoft Azure Active Directory autentisering. Azure App 
 
 Mer information finns i [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-FarmBeats-datahubben använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
+FarmBeats Datahub använder Bearer-autentisering, som behöver följande autentiseringsuppgifter:
    - Klientorganisations-ID
    - Klienthemlighet
    - Klient-ID:t
@@ -85,14 +85,14 @@ access_token = token_response.get('accessToken') 
 
 **Rubriker för HTTP-begäran**
 
-Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats data Hub.
+Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-anrop till FarmBeats Datahub.
 
 
 **Huvud** | **Beskrivning och exempel**
 --- | ---
-Content-Type | Formatet för begäran (innehålls typ: program/<format>). För FarmBeats API: er för data hubb är formatet JSON. Innehålls typ: Application/JSON
+Content-Type | Formatet för begäran (innehålls typ: program/<format>). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
 Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare < åtkomst-token >
-Godkänn | Svars formatet. För FarmBeats API: er för data hubb är formatet JSON. Acceptera: Application/JSON
+Godkänn | Svars formatet. För FarmBeats Datahub-API: er är formatet JSON. Acceptera: Application/JSON
 
 **API-begäranden**
 
@@ -119,7 +119,7 @@ JSON är ett gemensamt språk oberoende data format som ger en enkel text repres
 
 ## <a name="metadata-specifications"></a>Specifikationer för metadata
 
-FarmBeats-datahubben har följande API: er som gör det möjligt för enhets partner att skapa och hantera metadata för enheter eller sensorer.
+FarmBeats Datahub har följande API: er som gör det möjligt för enhets partner att skapa och hantera metadata för enheter eller sensorer.
 
 - /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som antingen är gateway eller nod.
 - /**enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
@@ -230,11 +230,11 @@ Det kanoniska meddelande formatet är följande:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }
@@ -304,7 +304,7 @@ När kunderna har köpt och distribuerat enheter eller sensorer kan de komma åt
 
 ## <a name="unlink-farmbeats"></a>Ta bort länk till FarmBeats
 
-Enhets partner kan göra det möjligt för kunder att ta bort länkar till en befintlig FarmBeats-integrering. Borttagning av alla enhets-eller sensor-metadata som skapades i FarmBeats-datahubben tar bort FarmBeats. Att ta bort länkar gör följande:
+Enhets partner kan göra det möjligt för kunder att ta bort länkar till en befintlig FarmBeats-integrering. Borttagning av alla enhets-eller sensor-metadata som skapades i FarmBeats-Datahub tas inte bort när FarmBeats tas bort. Att ta bort länkar gör följande:
 
    - Stoppar telemetri-flöde.
    - Tar bort och raderar integrerings uppgifterna på enhets partnern.

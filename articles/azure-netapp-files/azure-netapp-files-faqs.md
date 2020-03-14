@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: b-juche
-ms.openlocfilehash: b76edb2d0db806d8ff4935d2b093fee3c2bb34d7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 0713f59889962960b4f3ad5eba58ddb7b32e95ff
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248546"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369751"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -60,7 +60,7 @@ Alla Azure NetApp Files volymer krypteras med hjälp av FIPS 140-2-standarden. A
 
 Nyckel hantering för Azure NetApp Files hanteras av tjänsten. En unik data krypterings nyckel för XTS-AES-256 genereras för varje volym. En krypterings nyckel hierarki används för att kryptera och skydda alla volym nycklar. Dessa krypterings nycklar visas aldrig eller rapporteras inte i okrypterat format. Krypterings nycklarna tas bort omedelbart när en volym tas bort.
 
-För närvarande stöds inte användar hanterade nycklar (ta med dina egna nycklar).
+Stöd för användar hanterade nycklar (ta med dina egna nycklar) med hjälp av Azure Dedicated HSM är tillgängligt på ett kontrollerat sätt i USA, östra, amerikanska West2 och USA, södra centrala regionerna.  Kunden kan begära åtkomst på anffeedback@microsoft.com, och eftersom kapacitet är tillgängligt kommer begäran att godkännas.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Kan jag konfigurera princip reglerna för NFS-export för att kontrol lera åtkomsten till Azure NetApp Files tjänstens monterings mål?
 

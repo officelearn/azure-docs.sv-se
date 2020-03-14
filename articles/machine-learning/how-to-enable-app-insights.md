@@ -9,18 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 11/12/2019
-ms.openlocfilehash: 34aba3c00ac0026abebbdfc93143aa5e7f788e8b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.date: 03/12/2020
+ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268486"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136201"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Övervaka och samla in data från ML webb tjänst slut punkter
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du samlar in data från och övervakar modeller som har distribuerats till webb tjänst slut punkter i Azure Kubernetes service (AKS) eller Azure Container Instances (ACI) genom att aktivera Azure Application insikter. Förutom att samla in data och svar för slutpunkten kan du övervaka:
+I den här artikeln får du lära dig hur du samlar in data från och övervakar modeller som har distribuerats till webb tjänst slut punkter i Azure Kubernetes service (AKS) eller Azure Container Instances (ACI) genom att aktivera Azure Application insikter via 
+* [Python-SDK för Azure Machine Learning](#python)
+* [Azure Machine Learning Studio](#studio) på https://ml.azure.com
+
+Förutom att samla in en slut punkts utdata och svar kan du övervaka:
 
 * Begär ande frekvens, svars tider och felaktiga frekvenser
 * Beroende frekvens, svars tider och felaktiga frekvenser
@@ -31,9 +35,10 @@ I den här artikeln får du lära dig hur du samlar in data från och övervakar
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
+* Om du inte har en Azure-prenumeration kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag
 
 * En lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat en Azure Machine Learning-arbetsyta. Information om hur du får dessa krav finns i så här [konfigurerar du en utvecklings miljö](how-to-configure-environment.md)
+
 * En tränad modell för maskininlärning för distribution till Azure Kubernetes Service (AKS) eller Azure Container-instans (ACI). Om du inte har något kan du läsa själv studie kursen [träna bild klassificerings modell](tutorial-train-models-with-aml.md)
 
 ## <a name="web-service-metadata-and-response-data"></a>Metadata och svars data för webb tjänst
@@ -42,6 +47,8 @@ I den här artikeln får du lära dig hur du samlar in data från och övervakar
 > Azure Application Insights loggar bara nytto laster på upp till 64 kB. Om den här gränsen nås loggas bara de senaste utflödena av modellen. 
 
 Metadata och svar på tjänsten – som motsvarar metadata för webb tjänsten och modellens förutsägelser – loggas i Azure Application Insights-spår under meddelande `"model_data_collection"`. Du kan fråga Azure Application insikter direkt för att komma åt dessa data eller konfigurera en [kontinuerlig export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) till ett lagrings konto för längre kvarhållning eller ytterligare bearbetning. Modell data kan sedan användas i Azure Machine Learning för att konfigurera etiketter, omskolning, bedömning, data analys eller annan användning. 
+
+<a name="python"></a>
 
 ## <a name="use-python-sdk-to-configure"></a>Använd python SDK för att konfigurera 
 
@@ -86,11 +93,27 @@ Om du vill inaktivera Azure Application insikter använder du följande kod:
 <service_name>.update(enable_app_insights=False)
 ```
 
+<a name="studio"></a>
+
+## <a name="use-azure-machine-learning-studio-to-configure"></a>Använd Azure Machine Learning Studio för att konfigurera
+
+Du kan också aktivera Azure Application insikter från Azure Machine Learning Studio när du är redo att distribuera din modell med de här stegen.
+
+1. Logga in på din arbets yta på https://ml.azure.com/
+1. Gå till **modeller** och välj vilken modell du vill distribuera
+1. Välj **+ distribuera**
+1. Fyll i formuläret **distribuera modell**
+1. Expandera menyn **Avancerat**
+
+    ![Distribuera formulär](./media/how-to-enable-app-insights/deploy-form.png)
+1. Välj **aktivera Application Insights diagnostik och data insamling**
+
+    ![Aktivera App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
 ## <a name="evaluate-data"></a>Utvärdera data
 Din tjänsts data lagras i ditt Azure Application Insights-konto inom samma resurs grupp som Azure Machine Learning.
 Visa den:
 
-1. Gå till arbets ytan Azure Machine Learning i [Azure Machine Learning Studio](https://ml.azure.com) och klicka på Application Insights länk
+1. Gå till arbets ytan Azure Machine Learning i [Azure Portal](https://ms.portal.azure.com/) och klicka på Application Insights länken
 
     [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 

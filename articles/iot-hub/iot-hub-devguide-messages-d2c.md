@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: ff50d972ad9590fb70dbcf67e21f8b5dc8c32fad
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d10744f2536cdf89115cdccd0bea6f1e5155774c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748053"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370465"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -75,6 +75,9 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
+> [!NOTE]
+> Om ditt lagrings konto har brand Väggs konfigurationer som begränsar IoT Hubens anslutning, bör du överväga att använda [Microsofts betrodda första part undantag](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (tillgängligt i utvalda regioner för IoT Hub med hanterad tjänst identitet).
+
 Om du vill skapa ett Azure Data Lake Gen2 lagrings konto skapar du ett nytt v2-lagrings konto och väljer *aktiverat* i fältet *hierarkisk namnrymd* på fliken **Avancerat** , som du ser i följande bild:
 
 ![Välj Azure date Lake Gen2-lagring](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
@@ -84,9 +87,17 @@ Om du vill skapa ett Azure Data Lake Gen2 lagrings konto skapar du ett nytt v2-l
 
 Service Bus köer och ämnen som används som IoT Hub slut punkter får inte ha **sessioner** eller **dubblettidentifiering** aktiverade. Om något av dessa alternativ är aktiverat visas slut punkten som **ej nåbar** i Azure Portal.
 
-### <a name="event-hubs"></a>Händelsehubbar
+> [!NOTE]
+> Om din Service Bus-resurs har brand Väggs konfigurationer som begränsar IoT Hubens anslutning, bör du överväga att använda [Microsofts betrodda första part undantag](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing) (tillgängligt i utvalda regioner för IoT Hub med hanterad tjänst identitet).
+
+
+### <a name="event-hubs"></a>Event Hubs
 
 Förutom den inbyggda-Event Hubs-kompatibla slut punkten kan du också dirigera data till anpassade slut punkter av typen Event Hubs. 
+
+> [!NOTE]
+> Om din Event Hub-resurs har brand Väggs konfigurationer som begränsar IoT Hubens anslutning, bör du överväga att använda [Microsofts betrodda första part undantag](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) (tillgängligt i utvalda regioner för IoT Hub med hanterad tjänst identitet).
+
 
 ## <a name="reading-data-that-has-been-routed"></a>Läser data som har dirigerats
 
@@ -104,6 +115,7 @@ Använd följande självstudier om du vill lära dig mer om att läsa meddelande
 
 * Läsa från [Service Bus ämnen](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
 
+
 ## <a name="fallback-route"></a>Reserv väg
 
 Reserv vägen skickar alla meddelanden som inte uppfyller frågevillkor på någon av de befintliga vägarna till de inbyggda Event Hubs (**meddelanden/händelser**) som är kompatibla med [Event Hubs](/azure/event-hubs/). Om meddelanderoutning är aktiverat kan du aktivera reserv väg funktionen. När en väg har skapats slutar data flöda till den inbyggda slut punkten, om inte en väg skapas till den slut punkten. Om det inte finns några vägar till den inbyggda slut punkten och en återställnings väg är aktive rad skickas endast meddelanden som inte matchar några frågevillkor i vägar till den inbyggda slut punkten. Om alla befintliga vägar tas bort måste återställnings vägen vara aktive rad för att ta emot alla data vid den inbyggda slut punkten.
@@ -112,7 +124,7 @@ Du kan aktivera/inaktivera återställnings vägen på bladet Azure Portal-> med
 
 ## <a name="non-telemetry-events"></a>Händelser som inte är telemetri
 
-Förutom telemetri, möjliggör meddelanderoutning även sändning av enhets dubbla ändrings händelser, livs cykel händelser för enheter och digitala dubbla ändrings händelser (i offentlig för hands version). Om en väg till exempel skapas med data källa inställt på **enhet dubbla ändrings händelser**skickar IoT Hub meddelanden till slut punkten som innehåller ändringen i enheten. På liknande sätt skickar IoT Hub ett meddelande som anger om enheten har tagits bort eller skapats, om en väg skapas med data källa inställt på **enhetens livs cykel händelser**. Som en del av IoT- [Plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)kan en utvecklare skapa vägar med data källa inställt på **digitala dubbla ändrings händelser** och IoT Hub skicka meddelanden när en digital delad [egenskap](../iot-pnp/iot-plug-and-play-glossary.md) har ställts in eller ändrats, en [digital, dubbel ](../iot-pnp/iot-plug-and-play-glossary.md)byts ut eller när en ändrings händelse inträffar för den underliggande enheten.
+Förutom telemetri, möjliggör meddelanderoutning även sändning av enhets dubbla ändrings händelser, livs cykel händelser för enheter och digitala dubbla ändrings händelser (i offentlig för hands version). Om en väg till exempel skapas med data källa inställt på **enhet dubbla ändrings händelser**skickar IoT Hub meddelanden till slut punkten som innehåller ändringen i enheten. På liknande sätt skickar IoT Hub ett meddelande som anger om enheten har tagits bort eller skapats, om en väg skapas med data källa inställt på **enhetens livs cykel händelser**. Som en del av IoT- [Plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md)kan en utvecklare skapa vägar med data källa inställt på **digitala dubbla ändrings händelser** och IoT Hub skickar meddelanden när en digital enhets [egenskap](../iot-pnp/iot-plug-and-play-glossary.md) har angetts eller ändrats, en [digital](../iot-pnp/iot-plug-and-play-glossary.md) enhet byts ut eller när en ändrings händelse inträffar för den underliggande enheten.
 
 [IoT Hub integreras också med Azure Event Grid](iot-hub-event-grid.md) för att publicera enhets händelser som stöder real tids integrering och automatisering av arbets flöden baserat på dessa händelser. Se viktiga [skillnader mellan meddelanderoutning och event Grid](iot-hub-event-grid-routing-comparison.md) för att se vilka som fungerar bäst för ditt scenario.
 

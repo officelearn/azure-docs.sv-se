@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 64aeaf412bc8af242a9d3184a3c1f0fa0ee4809e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: e3d2673ba52ba0cca36e2a999558313b64716ade
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243333"
+ms.locfileid: "79299622"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Vanliga frågor om Virtuella Windows-datorer
 Den här artikeln behandlar några vanliga frågor om virtuella Windows-datorer som skapats i Azure med hjälp av distributions modellen Resource Manager. Linux-versionen av det här avsnittet finns i [vanliga frågor och svar om virtuella Linux-datorer](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -41,7 +41,7 @@ Upprätta en fjärr anslutning med hjälp av Anslutning till fjärrskrivbord (RD
 
 Om du har problem med fjärr skrivbord kan du läsa [Felsök fjärr skrivbords anslutningar till en Windows-baserad virtuell Azure-dator](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Om du är bekant med Hyper-V kanske du letar efter ett verktyg som liknar VMConnect. Azure tillhandahåller inget liknande verktyg eftersom konsolåtkomst till en virtuell dator inte stöds.
+Om du är bekant med Hyper-V kan du söka efter ett verktyg som liknar VMConnect. Azure erbjuder inget liknande verktyg eftersom det inte finns stöd för konsol åtkomst till en virtuell dator.
 
 ## <a name="can-i-use-the-temporary-disk-the-d-drive-by-default-to-store-data"></a>Kan jag använda den temporära disken (enheten D: som standard) för att lagra data?
 Använd inte den tillfälliga disken för att lagra data. Det är bara tillfällig lagring, så du riskerar att förlora data som inte kan återställas. Data förlust kan uppstå när den virtuella datorn flyttas till en annan värd. Storleksändring av en virtuell dator, uppdatering av värden eller ett maskinvarufel på värden är några av orsakerna till att en virtuell dator kan flyttas.
@@ -75,7 +75,7 @@ Ja. Om du snabbt vill skapa en virtuell Linux-dator för att testa, se [skapa en
 Ja, det är nu möjligt. Den virtuella datorn måste först stoppas. Sedan kan du lägga till eller ta bort ett nätverkskort (om det inte är det sista NÄTVERKSKORTet på den virtuella datorn). 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Finns det några dator namns krav?
-Ja. Dator namnet får innehålla högst 15 tecken. Se [namn konventions regler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#sample-naming-convention) för mer information om hur du namnger dina resurser.
+Ja. Dator namnet får innehålla högst 15 tecken. Se [namn konventions regler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) för mer information om hur du namnger dina resurser.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Finns det några resurs grupp namns krav?
 Ja. Resurs gruppens namn får innehålla högst 90 tecken. Se [namn konventions regler och begränsningar](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming) för mer information om resurs grupper.

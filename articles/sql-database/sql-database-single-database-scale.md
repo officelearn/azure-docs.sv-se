@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 940baf219f1b3994585472f0eed9d171ba319d4e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: 92d6dccec3ce6483072a81c8739b65e81ce2c7fe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359921"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268579"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala enkla databas resurser i Azure SQL Database
 
@@ -106,10 +106,11 @@ Du debiteras för varje timme som det finns en databas med den högsta tjänst n
 
 ### <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
-- Lagrings utrymmet kan allokeras till max storleks gränsen med 1 GB steg. Det minsta konfigurerbara data lagrings utrymmet är 5 GB
-- Lagring för en enskild databas kan tillhandahållas genom att öka eller minska dess Max storlek med [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
-- SQL Database automatiskt allokerar 30% av ytterligare lagrings utrymme för loggfilerna och 32 GB per vCore för TempDB, men inte överskrida 384GB. TempDB finns på en ansluten SSD på alla tjänst nivåer.
-- Priset för lagring för en enskild databas är summan av data lagring och logg lagrings mängd multiplicerat med tjänst nivåns lagrings enhets pris. Kostnaden för TempDB ingår i vCore-priset. Mer information om priset för extra lagring finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
+- Lagringen kan tillhandahållas till max storleks gränsen för data lagring med 1 GB steg. Det minsta konfigurerbara data lagrings utrymmet är 1 GB. Se dokumentations sidor för resurs gränser för [enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md) för data lagring Max storleks gränser i varje tjänst mål.
+- Data lagring för en enskild databas kan tillhandahållas genom att öka eller minska dess Max storlek med hjälp av [Azure Portal](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update)eller [REST API](https://docs.microsoft.com/rest/api/sql/databases/update). Om värdet för maximal storlek anges i byte, måste det vara en multipel av 1 GB (1073741824 byte).
+- Mängden data som kan lagras i datafilerna för en databas begränsas av den konfigurerade maximala storleken för data lagring. Förutom lagringen allokerar SQL Database automatiskt 30% mer lagrings utrymme som ska användas för transaktions loggen.
+- SQL Database tilldelar automatiskt 32 GB per vCore för `tempdb`-databasen. `tempdb` finns på den lokala SSD-lagringen på alla tjänst nivåer.
+- Priset för lagring för en enskild databas eller en elastisk pool är summan av data lagrings-och transaktions logg lagrings belopp multiplicerat med tjänst nivåns lagrings enhets pris. Kostnaden för `tempdb` ingår i priset. Mer information om lagrings priset finns [SQL Database prissättning](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).

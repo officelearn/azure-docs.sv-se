@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
+title: Data kryptering med kundhanterad nyckel-Azure Database for PostgreSQL-enskild server
 description: Azure Database for PostgreSQL data kryptering med enskild server med en kundhanterad nyckel kan du Bring Your Own Key (BYOK) för data skydd i vila. Det gör det också möjligt för organisationer att implementera separering av uppgifter i hanteringen av nycklar och data.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 20e01e681c382e3c9c69f76c95a90f709f409d6a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198708"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297030"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
@@ -32,9 +32,9 @@ Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög ti
 Data kryptering för Azure Database for PostgreSQL enskild server ger följande fördelar:
 
 * Data åtkomsten styrs helt av dig genom möjligheten att ta bort nyckeln och göra databasen otillgänglig 
-*   Fullständig kontroll över nyckel livs cykeln, inklusive rotation av nyckeln för att passa företags principer
-*   Central hantering och organisation av nycklar i Azure Key Vault
-*   Möjlighet att implementera separering av uppgifter mellan säkerhets chefer och DBA-och system administratörer
+*    Fullständig kontroll över nyckel livs cykeln, inklusive rotation av nyckeln för att passa företags principer
+*    Central hantering och organisation av nycklar i Azure Key Vault
+*    Möjlighet att implementera separering av uppgifter mellan säkerhets chefer och DBA-och system administratörer
 
 ## <a name="terminology-and-description"></a>Terminologi och beskrivning
 

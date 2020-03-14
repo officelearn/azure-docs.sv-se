@@ -3,17 +3,17 @@ title: Ladda upp en virtuell hård disk till Azure med Azure PowerShell
 description: Lär dig hur du laddar upp en virtuell hård disk till en Azure-hanterad disk och kopierar en hanterad disk över flera regioner med hjälp av Azure PowerShell via direkt uppladdning.
 author: roygara
 ms.author: rogarana
-ms.date: 05/06/2019
+ms.date: 03/13/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 8a7e5243428eb88a2757b675c7d66dbfb3c66a30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 883fea1e25ded26c35e96d11edd8f417e96db30e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459978"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369564"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Ladda upp en virtuell hård disk till Azure med Azure PowerShell
 
@@ -23,11 +23,11 @@ Om du tillhandahåller en säkerhets kopierings lösning för virtuella IaaS-dat
 
 För närvarande stöds direkt uppladdning för standard hård diskar, standard SSD och Premium SSD-hanterade diskar. Det stöds ännu inte för Ultra SSD.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ladda ned den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure PowerShell-modul](/powershell/azure/install-Az-ps).
-- Om du tänker Ladda upp en virtuell hård disk från en lokal plats: en virtuell hård disk som [har förberetts för Azure](prepare-for-upload-vhd-image.md), lagrad lokalt.
+- Om du tänker Ladda upp en virtuell hård disk från en lokal plats: en fast storleks-VHD som [har förberetts för Azure](prepare-for-upload-vhd-image.md), lagrad lokalt.
 - Eller en hanterad disk i Azure om du vill utföra en kopierings åtgärd.
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
@@ -76,8 +76,6 @@ Den här uppladdningen har samma data flöde som motsvarande [standard-hårddisk
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
-
-Om din sa upphör att gälla under uppladdningen och du inte har anropat `revoke-access` ännu kan du hämta en ny säkerhets Association för att fortsätta med överföringen med `grant-access`.
 
 När uppladdningen är klar och du inte längre behöver skriva mer data till disken ska du återkalla SAS. Att återkalla SAS ändrar statusen för den hanterade disken och låter dig ansluta disken till en virtuell dator.
 

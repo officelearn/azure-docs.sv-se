@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 01fde82e69917f59f6519524c4c8828feb84a4f9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 1f068c9d98a827afd16da01bdc40cbb6ca5dc465
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795974"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297840"
 ---
 # <a name="expose-a-websocket-server-to-application-gateway"></a>Exponera en WebSocket-Server för Application Gateway
 
-Som beskrivs i dokumentationen för Application Gateway v2 – den [innehåller inbyggt stöd för WebSocket-och http/2-protokollen](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic). Observera att för både Application Gateway och Kubernetes ingress – det finns ingen användar konfigurerbar inställning för att selektivt aktivera eller inaktivera WebSocket-stöd.
+Som beskrivs i dokumentationen för Application Gateway v2 – den [innehåller inbyggt stöd för WebSocket-och http/2-protokollen](features.md#websocket-and-http2-traffic). Observera att för både Application Gateway och Kubernetes ingress – det finns ingen användar konfigurerbar inställning för att selektivt aktivera eller inaktivera WebSocket-stöd.
 
 I Kubernetes Deployment YAML nedan visas den minsta konfiguration som används för att distribuera en WebSocket-Server, vilket är samma som att distribuera en vanlig webb server:
 ```yaml
@@ -75,7 +75,7 @@ spec:
               servicePort: 80
 ```
 
-Med tanke på att alla krav uppfylls och du har en Application Gateway som styrs av en Kubernetes ingress i din AKS, skulle distributionen ovan leda till att en WebSockets-Server exponeras på port 80 i Application Gateway offentliga IP och `ws.contoso.com` domänsuffix.
+Med tanke på att alla krav uppfylls och du har en Application Gateway som styrs av en Kubernetes ingress i din AKS, skulle distributionen ovan leda till att en WebSockets-Server exponeras på port 80 i Application Gateway offentliga IP-adress och `ws.contoso.com`-domänen.
 
 Följande spiral-kommando testar distributionen av WebSocket-servern:
 ```sh

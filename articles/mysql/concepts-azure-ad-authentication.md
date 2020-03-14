@@ -1,17 +1,17 @@
 ---
-title: Active Directory autentisering – Azure Database for MySQL-enskild server
-description: Lär dig mer om begreppen för Azure Active Directory för autentisering med Azure Database for MySQL-enskild server
+title: Active Directory autentisering – Azure Database for MySQL
+description: Lär dig mer om begreppen för Azure Active Directory för autentisering med Azure Database for MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: eb26bc09ce273280b55a023c563427b5b323ace9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76706107"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299030"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -47,7 +47,7 @@ Använd följande process för att konfigurera och använda Azure Active Directo
 
 Följande diagram på hög nivå sammanfattar hur autentisering fungerar med Azure AD-autentisering med Azure Database for MySQL. Pilarna visar kommunikations vägar.
 
-![autentiseringspaket][1]
+![Autentiseringspaket][1]
 
 ## <a name="administrator-structure"></a>Administratörs struktur
 
@@ -90,7 +90,7 @@ När du har autentiserat mot Active Directory kan du hämta en token. Denna toke
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du skapar och fyller i Azure AD och sedan konfigurerar Azure AD med Azure Database for MySQL finns i [Konfigurera och logga in med Azure AD för Azure Database for MySQL](howto-configure-sign-in-azure-ad-authentication.md).
-- En översikt över inloggningar och databas användare för Azure Database for MySQL finns [i Skapa användare i Azure Database for MySQL-enskild server](howto-create-users.md).
+- En översikt över inloggningar och databas användare för Azure Database for MySQL finns [i Skapa användare i Azure Database for MySQL](howto-create-users.md).
 
 <!--Image references-->
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6a70e52771828de6cc9fad7998097d70c28a64fd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 9f9f7f709d31967e892900ccb25657a5963c0379
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238820"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370227"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Självstudie: skapa en klient i Windows Virtual Desktop
 
@@ -82,7 +82,7 @@ Så här tilldelar du program rollen TenantCreator:
 3. Välj **Användare och grupper**. Du kan se att administratören som beviljade medgivande till programmet redan visas i listan med **standard åtkomst** rollen som tilldelats. Detta är inte tillräckligt för att skapa en Windows-klient för virtuella skriv bord. Fortsätt följa dessa instruktioner för att lägga till **TenantCreator** -rollen till en användare.
    
    ![En skärm bild av de användare och grupper som har tilldelats för att hantera företags programmet "Windows Virtual Desktop". Skärm bilden visar bara en tilldelning, vilket är för "standard åtkomst".](media/tenant-default-access.png)
-4. Välj **Lägg till användare**och välj sedan **användare och grupper** på bladet **Lägg till tilldelning** .
+4. Välj **Lägg till användare**och välj sedan **användare och grupper** på fliken **Lägg till tilldelning** .
 5. Sök efter ett användar konto som ska skapa din Windows-klient för virtuella skriv bord. För enkelhetens skull kan detta vara det globala administratörs kontot.
    - Om du använder en Microsoft Identity-Provider som contosoadmin@live.com eller contosoadmin@outlook.comkanske du inte kan logga in på Windows Virtual Desktop. Vi rekommenderar att du använder ett domänbaserat konto som admin@contoso.com eller admin@contoso.onmicrosoft.com i stället.
 

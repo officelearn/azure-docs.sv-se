@@ -9,16 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 892f8bb24da00f1bd5827725f40fdc4359be0937
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9d05677ec47851557594ef47499da653accad141
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906537"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370482"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Mappa en anpassad domän till en Azure Blob Storage-slutpunkt
 
 Du kan mappa en anpassad domän till en BLOB service-slutpunkt eller en [statisk webbplats](storage-blob-static-website.md) slut punkt. 
+
+[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > Den här mappningen fungerar bara för under domäner (till exempel: `www.contoso.com`). Om du vill att webb slut punkten ska vara tillgänglig på rot domänen (till exempel: `contoso.com`) måste du använda Azure CDN. Vägledning finns i avsnittet [Mappa en anpassad domän med https aktiverat](#enable-https) i den här artikeln. Eftersom du går till avsnittet i den här artikeln för att aktivera rot domänen för din anpassade domän, är steget i avsnittet för att aktivera HTTPS valfritt. 
@@ -231,7 +233,7 @@ Om du till exempel vill komma åt ett webb formulär i behållaren mina *former*
 
 Om du vill ta bort en anpassad domän mappning avregistrerar du den anpassade domänen. Använd någon av följande procedurer.
 
-#### <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+#### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Om du vill ta bort den anpassade domän inställningen gör du följande:
 
@@ -246,7 +248,7 @@ Om du vill ta bort den anpassade domän inställningen gör du följande:
 
 När den anpassade domänen har tagits bort visas ett Portal meddelande om att ditt lagrings konto har uppdaterats
 
-#### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+#### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du vill ta bort en anpassad domän registrering använder du kommandot [AZ Storage Account Update](https://docs.microsoft.com/cli/azure/storage/account) CLI och anger sedan en tom sträng (`""`) för värdet för argumentet `--custom-domain`.
 
@@ -268,7 +270,7 @@ Om du vill ta bort en anpassad domän registrering använder du kommandot [AZ St
       --custom-domain ""
   ```
 
-#### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

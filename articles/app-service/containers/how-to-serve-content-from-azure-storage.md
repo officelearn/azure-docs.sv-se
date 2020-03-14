@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 79a4e423f7a2b6570234c958ac833cdf5c6a75e4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121412"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297925"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Hantera innehåll från Azure Storage i App Service på Linux
 
@@ -25,7 +25,7 @@ Den här guiden visar hur du kopplar Azure Storage till App Service i Linux. Fö
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 eller senare).
 - En befintlig [App Service i Linux-appen](https://docs.microsoft.com/azure/app-service/containers/).
 - Ett [Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
-- En [Azure-filresurs och katalog](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
+- En [Azure-filresurs och katalog](../../storage/files/storage-how-to-use-files-cli.md).
 
 
 ## <a name="limitations-of-azure-storage-with-app-service"></a>Begränsningar för Azure Storage med App Service
@@ -70,7 +70,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 Azure Storage kan monteras med appar för flera behållare med hjälp av anpassade-ID. Om du vill visa namnet på ID för anpassad identitet kör [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-I filen *filen Docker. yml* mappar du `volumes` alternativet för att `custom-id`. Några exempel:
+I filen *filen Docker. yml* mappar du `volumes` alternativet för att `custom-id`. Exempel:
 
 ```yaml
 wordpress:

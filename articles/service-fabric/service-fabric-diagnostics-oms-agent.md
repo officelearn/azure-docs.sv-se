@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 8c8978a0114caf57d01f7add0bd9357c5d0775dc
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609952"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366753"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Prestanda övervakning med Azure Monitor loggar
 
@@ -33,17 +33,17 @@ Det bästa sättet att lägga till Log Analytics agent i klustret är via de API
 
 3. Klicka på **Windows-servrar** om du skapar ett Windows-kluster och **Linux-servrar** om du skapar ett Linux-kluster. På den här sidan visas din `workspace ID` och `workspace key` (visas som primär nyckel i portalen). Du behöver båda för nästa steg.
 
-4. Kör kommandot för att installera Log Analytics agenten på klustret med hjälp av `vmss extension set`-API: et i din Cloud Shell:
+4. Kör kommandot för att installera Log Analytics agenten på klustret med hjälp av `vmss extension set` API:
 
     För ett Windows-kluster:
 
-    ```sh
+    ```azurecli
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
     För ett Linux-kluster:
 
-    ```sh
+    ```azurecli
     az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
@@ -53,7 +53,7 @@ Det bästa sättet att lägga till Log Analytics agent i klustret är via de API
 
 5. Detta bör ta mindre än 15 min för att lägga till agenten i noderna. Du kan kontrol lera att agenterna har lagts till med hjälp av `az vmss extension list` API:
 
-    ```sh
+    ```azurecli
     az vmss extension list --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType>
     ```
 

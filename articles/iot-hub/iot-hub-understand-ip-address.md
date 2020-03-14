@@ -7,16 +7,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772152"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367575"
 ---
 # <a name="iot-hub-ip-addresses"></a>IoT Hub IP-adresser
 
-IP-adressprefix för IoT Hub offentliga slut punkter publiceras regelbundet under _AzureIoTHub_ [service tag](../virtual-network/service-tags-overview.md). Du kan använda dessa IP-adressprefix för att kontrol lera anslutningen mellan IoT Hub och dina enheter eller nätverks till gångar för att implementera en mängd olika mål för nätverks isolering:
+IP-adressprefix för IoT Hub offentliga slut punkter publiceras regelbundet under _AzureIoTHub_ [service tag](../virtual-network/service-tags-overview.md).
+
+> [!NOTE]
+> För enheter som distribueras i lokala nätverk stöder Azure IoT Hub VNET-anslutning med privata slut punkter. Mer information finns i [IoT Hub stöd för VNet](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) .
+
+
+Du kan använda dessa IP-adressprefix för att kontrol lera anslutningen mellan IoT Hub och dina enheter eller nätverks till gångar för att implementera en mängd olika mål för nätverks isolering:
 
 | Mål | Tillämpliga scenarier | Metoden |
 |------|-----------|----------|
@@ -26,7 +32,7 @@ IP-adressprefix för IoT Hub offentliga slut punkter publiceras regelbundet unde
 
 
 
-## <a name="best-practices"></a>Bästa metoder
+## <a name="best-practices"></a>Bästa praxis
 
 * När du lägger till Tillåt-regler i enhetens brand Väggs konfiguration, är det bäst att tillhandahålla vissa [portar som används av tillämpliga protokoll](./iot-hub-devguide-protocols.md#port-numbers).
 

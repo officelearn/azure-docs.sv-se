@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: ede607191604fbedd4b36523fae18ef1a7a5a2e0
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 457b2d2211ea1ba5fa36cec4b7e9a214f5bcad77
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925712"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367099"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 
@@ -23,8 +23,8 @@ I följande tabell beskrivs en kort beskrivning av varje data ström med dess be
 | Fel |Felmeddelande avsett för användaren. Till skillnad från ett undantag fortsätter Runbook efter ett fel meddelande som standard. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
 | Felsökning |Meddelanden avsedda för en interaktiv användare. Bör inte användas i Runbooks. |Skrivs inte till jobb historik |Visas inte i fönstret Testa utdata |
 | Resultat |Objekt som ska användas av andra runbooks. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
-| Pågår |Poster som genereras automatiskt före och efter varje aktivitet i runbook. Runbooken bör inte försöka skapa egna status poster eftersom de är avsedda för en interaktiv användare. |Skrivs till jobb historiken endast om förlopps loggning har Aktiver ATS för Runbook |Visas inte i fönstret Testa utdata |
-| Utförlig |Meddelanden som ger allmän eller felsöknings information. |Skrivs till jobb historiken endast om utförlig loggning har Aktiver ATS för Runbook |Visas endast i fönstret för testning av utdata om *$VerbosePreference* har värdet **Fortsätt** i Runbook |
+| Förlopp |Poster som genereras automatiskt före och efter varje aktivitet i runbook. Runbooken bör inte försöka skapa egna status poster eftersom de är avsedda för en interaktiv användare. |Skrivs till jobb historiken endast om förlopps loggning har Aktiver ATS för Runbook |Visas inte i fönstret Testa utdata |
+| Utförlig |Meddelanden som ger allmän eller felsöknings information. |Skrivs till jobb historiken endast om utförlig loggning har Aktiver ATS för Runbook |Visas endast i fönstret för testutdata om `VerbosePreference` variabeln är inställd på Fortsätt i Runbook |
 | Varning |Varningsmeddelande avsett för användaren. |Skrivs till jobb historik |Visas i fönstret Testa utdata |
 
 >[!NOTE]
@@ -84,10 +84,10 @@ När du har publicerat runbooken och innan du startar den, måste du också akti
 
 Följande är exempel på utdata av data typer:
 
-* System. String
-* System.Int32
-* System.Collections.Hashtable
-* Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine
+* `System.String`
+* `System.Int32`
+* `System.Collections.Hashtable`
+* `Microsoft.Azure.Commands.Compute.Models.PSVirtualMachine`
 
 #### <a name="declare-output-data-type-in-a-workflow"></a>Deklarerar utdata-datatyp i ett arbets flöde
 
@@ -118,11 +118,11 @@ Här är den grundläggande logiken i **AuthenticateTo-Azure-** runbooken.<br> E
 
 Runbooken innehåller den Utdatatyp `Microsoft.Azure.Commands.Profile.Models.PSAzureContext`, som returnerar egenskaperna för autentiseringsinställningarna.<br> Exempel](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) ![Runbook-utdatatypen
 
-Även om denna Runbook är enkel, finns det ett konfigurations objekt som kan anropas här. Den senaste aktiviteten kör cmdleten **Write-output** för att skriva profil data till en variabel med ett PowerShell-uttryck för parametern *InputObject* . Den här parametern krävs för **Write-output**.
+Även om denna Runbook är enkel, finns det ett konfigurations objekt som kan anropas här. Den senaste aktiviteten kör cmdleten `Write-Output` för att skriva profil data till en variabel med ett PowerShell-uttryck för parametern `Inputobject`. Den här parametern krävs för `Write-Output`.
 
 Den andra runbooken i det här exemplet, med namnet **test-ChildOutputType**, definierar bara två aktiviteter.<br> ![exempel på underordnad Utdatatyp Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-Den första aktiviteten anropar **AuthenticateTo-Azure-** runbooken. Den andra aktiviteten kör **Write-Verbose-** cmdlet: en med **data källan** inställd på **aktivitets utdata**. Dessutom anges **fält Sök vägen** till **context. Subscription. SubscriptionName**, kontext resultatet från **AuthenticateTo-Azure-** runbooken.<br> ![data källa för Write-Verbose-cmdlet-parameter](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
+Den första aktiviteten anropar **AuthenticateTo-Azure-** runbooken. Den andra aktiviteten kör `Write-Verbose`-cmdleten med **data källan** inställd på **aktivitets utdata**. Dessutom anges **fält Sök vägen** till **context. Subscription. SubscriptionName**, kontext resultatet från **AuthenticateTo-Azure-** runbooken.<br> ![data källa för Write-Verbose-cmdlet-parameter](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
 Resultatet är namnet på prenumerationen.<br> ![Test-ChildOutputType Runbook-resultat](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
@@ -134,7 +134,7 @@ Till skillnad från utdataströmmen skickar meddelande strömmar information til
 
 Varnings-och fel strömmar loggar problem som inträffar i en Runbook. Azure Automation skriver dessa strömmar till jobb historiken när en runbook körs. Automation innehåller strömmar i fönstret testutdata i Azure Portal när en Runbook testas. 
 
-Som standard fortsätter en Runbook att köras efter en varning eller ett fel. Du kan ange att din Runbook ska inaktive ras vid en varning eller ett fel genom att ange en [inställnings variabel](#preference-variables) i Runbook innan du skapar meddelandet. Om du t. ex. vill göra så att runbooken pausas vid ett fel eftersom det sker vid ett undantag anger du *$ErrorActionPreference* variabeln som ska **stoppas**.
+Som standard fortsätter en Runbook att köras efter en varning eller ett fel. Du kan ange att din Runbook ska inaktive ras vid en varning eller ett fel genom att ange en [inställnings variabel](#preference-variables) i Runbook innan du skapar meddelandet. Om du t. ex. vill göra så att runbooken pausas vid ett fel eftersom det sker vid ett undantag anger du `ErrorActionPreference` variabeln som ska stoppas.
 
 Skapa en varning eller ett fel meddelande med hjälp av cmdleten [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) eller [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) . Aktiviteter kan också skriva till varnings-och fel strömmar.
 
@@ -156,9 +156,9 @@ Den utförliga meddelande strömmen stöder allmän information om Runbook-åtg�
 
 Som standard lagrar jobb historiken inte utförliga meddelanden från publicerade Runbooks av prestanda skäl. Om du vill lagra utförliga meddelanden använder du fliken Azure Portal **Konfigurera** med inställningen **Logga utförliga poster** för att konfigurera dina publicerade Runbooks att logga utförliga meddelanden. Aktivera det här alternativet endast att felsöka en runbook. I de flesta fall bör du behålla standardinställningen att inte logga utförliga poster.
 
-När du [testar en Runbook](automation-testing-runbook.md)visas inte utförliga meddelanden även om runbooken har kon figurer ATS för att logga utförliga poster. Om du vill visa utförliga meddelanden när du [testar en Runbook](automation-testing-runbook.md)måste du ange variabeln $VerbosePreference för att fortsätta. Med den variabel uppsättningen visas utförliga meddelanden i fönstret Testa utdata i Azure Portal.
+När du [testar en Runbook](automation-testing-runbook.md)visas inte utförliga meddelanden även om runbooken har kon figurer ATS för att logga utförliga poster. Om du vill visa utförliga meddelanden när du [testar en Runbook](automation-testing-runbook.md)måste du ange variabeln `VerbosePreference` för att fortsätta. Med den variabel uppsättningen visas utförliga meddelanden i fönstret Testa utdata i Azure Portal.
 
-Skapa ett utförligt meddelande med hjälp av [Write-Verbose-](https://technet.microsoft.com/library/hh849951.aspx) cmdleten.
+Följande kod skapar ett utförligt meddelande med hjälp av [Write-Verbose-](https://technet.microsoft.com/library/hh849951.aspx) cmdleten.
 
 ```powershell
 #The following line creates a verbose message.
@@ -181,9 +181,9 @@ Du kan ställa in vissa variabler för Windows PowerShell- [Inställningar](http
 
 | Variabel | Standardvärde | Giltiga värden |
 |:--- |:--- |:--- |
-| WarningPreference |Fortsätt |Stoppa<br>Fortsätt<br>SilentlyContinue |
-| ErrorActionPreference |Fortsätt |Stoppa<br>Fortsätt<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |Stoppa<br>Fortsätt<br>SilentlyContinue |
+| `WarningPreference` |Fortsätt |Stoppa<br>Fortsätt<br>SilentlyContinue |
+| `ErrorActionPreference` |Fortsätt |Stoppa<br>Fortsätt<br>SilentlyContinue |
+| `VerbosePreference` |SilentlyContinue |Stoppa<br>Fortsätt<br>SilentlyContinue |
 
 I nästa tabell visas beteendet för de preferens variabel värden som är giltiga i Runbooks.
 
@@ -201,7 +201,7 @@ Du kan visa information om ett Runbook-jobb i Azure Portal på fliken **jobb** f
 
 ### <a name="retrieve-runbook-output-and-messages-in-windows-powershell"></a>Hämta Runbook-utdata och meddelanden i Windows PowerShell
 
-I Windows PowerShell kan du hämta utdata och meddelanden från en Runbook med hjälp av cmdleten [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) . Denna cmdlet kräver jobbets ID och har en parameter med namnet *Stream* där du kan ange den data ström som ska hämtas. Du kan ange ett värde för den här **parametern för att** hämta alla strömmar för jobbet.
+I Windows PowerShell kan du hämta utdata och meddelanden från en Runbook med hjälp av cmdleten [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) . Denna cmdlet kräver jobbets ID och innehåller en parameter med namnet `Stream` där du kan ange den data ström som ska hämtas. Du kan ange ett värde för den här parametern för att hämta alla strömmar för jobbet.
 
 I följande exempel startas en exempel-runbook och väntar sedan tills den är klar. När runbook har slutfört körningen samlar skriptet in Runbook-utdata från jobbet.
 

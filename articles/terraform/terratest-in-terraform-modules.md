@@ -3,12 +3,12 @@ title: Självstudie – testa terraform-moduler i Azure med Terratest
 description: Lär dig hur du använder Terratest för att testa Terraform-modulerna.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 41f7f9c00f626cf622ea781f01da6db1f46cd805
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 687a793af2b9b75efe463b042d121c32f18974d6
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158960"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370805"
 ---
 # <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>Självstudie: testa terraform-moduler i Azure med Terratest
 
@@ -26,7 +26,7 @@ Vi tittade på alla de mest populära testningsinfrastrukturerna och valde [Terr
 - **Alla testfall skrivs i Go**. De flesta utvecklare som använder Terraform är Go-utvecklare. Om du är Go-utvecklare behöver du inte lära dig något annat programmeringsspråk för att använda Terratest. Dessutom är Go och Terraform de enda beroenden som krävs för att du ska kunna köra testfall i Terratest.
 - **Den här infrastrukturen är mycket utökningsbar**. Du kan utöka ytterligare funktioner ovanpå Terratest, till exempel Azure-specifika funktioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här praktiska artikeln är plattformsoberoende. Du kan köra de kodexempel som vi använder i den här artikeln på Windows, Linux eller MacOS. 
 
@@ -248,14 +248,17 @@ func TestUT_StorageAccountName(t *testing.T) {
 
 För att köra enhetstesterna slutför du följande steg i kommandoraden:
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
-GoPath/src/staticwebpage$ cd test
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage/test$ go test -run TestUT_StorageAccountName
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in test cases
+cd test
+go fmt
+go test -run TestUT_StorageAccountName
 ```
 
 Det traditionella Go-testresultatet returneras efter cirka en minut.
@@ -369,21 +372,24 @@ func TestIT_HelloWorldExample(t *testing.T) {
 
 För att köra integreringstesterna slutför du följande steg i kommandoraden:
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in test cases
-GoPath/src/staticwebpage$ cd test
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage/test$ go test -run TestIT_HelloWorldExample
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in test cases
+cd test
+go fmt
+go test -run TestIT_HelloWorldExample
 ```
 
 Det traditionella Go-testresultatet returneras efter cirka två minuter. Du kan även köra båda enhetstesterna samt integreringstesterna genom att köra de här kommandona:
 
 ```shell
-GoPath/src/staticwebpage/test$ go fmt
-GoPath/src/staticwebpage/test$ go test
+go fmt
+go test
 ```
 
 Integreringstester tar mycket längre tid än enhetstester (två minuter för ett integreringsfall jämfört med en minut för fem enhetsfall). Men det är ditt beslut om du vill använda enhetstester eller integreringstester i ett scenario. Normalt föredrar vi att använda enhetstester för komplex logik med hjälp av Terraform HCL-funktioner. Vi använder vanligtvis integreringstester för slutpunkt till slutpunkt-perspektivet för användare.
@@ -496,13 +502,16 @@ func Clean() error {
 
 Du kan använda följande kommandon för att köra en fullständig testsvit. Koden liknar de körande stegen som vi använde i ett tidigare avsnitt. 
 
+```azurecli
+az login    # Required when no service principal environment variables are present
+```
+
 ```shell
-$ cd [Your GoPath]/src/staticwebpage
-GoPath/src/staticwebpage$ dep init    # Run only once for this folder
-GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
-GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
-GoPath/src/staticwebpage$ mage
+cd [Your GoPath]/src/staticwebpage
+dep init    # Run only once for this folder
+dep ensure  # Required to run if you imported new packages in magefile or test cases
+go fmt      # Only required when you change the magefile
+mage
 ```
 
 Du kan ersätta den sista kommandoraden med ytterligare mage-steg. Du kan till exempel använda `mage unit` eller `mage clean`. Det är en bra idé att bädda in `dep`-kommandon och `az login` i mage-filen. Vi visar inte koden här. 

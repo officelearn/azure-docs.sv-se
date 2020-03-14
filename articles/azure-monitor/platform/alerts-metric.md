@@ -4,14 +4,14 @@ description: Lär dig hur du använder Azure Portal eller CLI för att skapa, Vi
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 02/16/2020
+ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: 5452f67a9da9a71a72c9387bc3e62d6735929984
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79249014"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369394"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, Visa och hantera mått aviseringar med hjälp av Azure Monitor
 
@@ -136,7 +136,7 @@ I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings reg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa mått aviseringar med hjälp av Azure Resource Manager mallar](../../azure-monitor/platform/alerts-enable-template.md).
+- [Skapa mått aviseringar med hjälp av Azure Resource Manager mallar](../../azure-monitor/platform/alerts-metric-create-templates.md).
 - [Förstå hur mått aviseringar fungerar](alerts-metric-overview.md).
 - [Lär dig hur mått aviseringar med dynamiskt tröskelvärde fungerar](alerts-dynamic-thresholds.md).
 - [Förstå webbhook-schemat för mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

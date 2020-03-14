@@ -1,6 +1,6 @@
 ---
 title: Webhook-aktivitet i Azure Data Factory
-description: Webhook-aktiviteten fortsätter inte att köra pipelinen förrän den validerar den bifogade data uppsättningen med vissa villkor som användaren anger.
+description: Webhook-aktiviteten fortsätter inte att köra pipelinen förrän den verifierar den bifogade data uppsättningen med vissa villkor som användaren anger.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 8c52bb21276071581a83fb3ee6a3a4a31ba0bb4a
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: ced2279878ee2eb361ec7338647418658e411513
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399997"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213005"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Webhook-aktivitet i Azure Data Factory
-Du kan använda en webhook-aktivitet för att styra körningen av pipeliner via din anpassade kod. Med webhook-aktiviteten kan kunder anropa en slut punkt och skicka en återanrops-URL. Pipeline-körningen väntar på att återanropet ska anropas innan nästa aktivitet fortsätter.
+
+En webhook-aktivitet kan styra körningen av pipeliner via din anpassade kod. Med webhook-aktiviteten kan kundernas kod anropa en slut punkt och skicka den till en återanrops-URL. Pipeline-körningen väntar på motringningen innan den fortsätter till nästa aktivitet.
 
 ## <a name="syntax"></a>Syntax
 
@@ -48,34 +49,31 @@ Du kan använda en webhook-aktivitet för att styra körningen av pipeliner via 
 
 ```
 
-
 ## <a name="type-properties"></a>Typ egenskaper
-
-
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namn på Web Hook-aktiviteten | String | Ja |
-typ | Måste vara inställd på **webhook**. | String | Ja |
-metod | REST API-metod för mål slut punkten. | Sträng. Typer som stöds: POST | Ja |
-url | Mål slut punkt och sökväg | Sträng (eller uttryck med resultType för sträng). | Ja |
-sidhuvud | Huvuden som skickas till begäran. Om du till exempel vill ange språk och typ på en begäran: "huvuden": {"Accept-language": "en-US", "innehålls typ": "Application/JSON"}. | Sträng (eller uttryck med resultType för sträng) | Ja, innehålls typ rubrik krävs. "huvuden": {"Content-Type": "Application/JSON"} |
-brödtext | Representerar den nytto last som skickas till slut punkten. | Giltig JSON (eller uttryck med resultType för JSON). Se schemat för nytto lasten för begäran i [nytto Last schema](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0) avsnittet. | Ja |
-autentisering | Autentiseringsmetod som används för att anropa slut punkten. Typer som stöds är Basic eller ClientCertificate. Mer information finns i avsnittet [Authentication](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0) . Om autentisering inte krävs utelämnar du den här egenskapen. | Sträng (eller uttryck med resultType för sträng) | Nej |
-timeout | Hur länge aktiviteten ska vänta på att &#39;callBackUri&#39; anropas. Hur länge aktiviteten ska vänta tills "callBackUri" anropas. Standardvärdet är 10mins ("00:10:00"). Format är TimeSpan, t. ex. d. hh: mm: SS | String | Nej |
-Rapportera status vid motringning | Tillåter användaren att rapportera den misslyckade statusen för webhook-aktiviteten som markerar aktiviteten som misslyckad | Boolean | Nej |
+**Namn** | Namnet på webhook-aktiviteten. | String | Ja |
+**typ** | Måste vara inställt på "webhook". | String | Ja |
+**metodsignatur** | REST API metod för mål slut punkten. | Sträng. Den typ som stöds är "POST". | Ja |
+**adresser** | Mål slut punkten och sökvägen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Ja |
+**sidhuvud** | Huvuden som skickas till begäran. Här är ett exempel som anger språk och typ på en begäran: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Ja. Ett `Content-Type` rubrik som `"headers":{ "Content-Type":"application/json"}` krävs. |
+**brödtext** | Representerar den nytto last som skickas till slut punkten. | Giltigt JSON eller ett uttryck med **resultType** -värdet för JSON. Se [nytto Last schema för begäran](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) om schemat för nytto lasten för begäran. | Ja |
+**anspråksautentisering** | Autentiseringsmetoden som används för att anropa slut punkten. De typer som stöds är "grundläggande" och "ClientCertificate". Mer information finns i [Autentisering](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Om autentisering inte krävs utelämnar du den här egenskapen. | En sträng eller ett uttryck med **resultType** -värdet för en sträng. | Nej |
+**standardvärde** | Hur länge aktiviteten väntar på att återanropet som anges av **callBackUri** ska anropas. Standardvärdet är 10 minuter ("00:10:00"). Värdena har formatet TimeSpan *d*. *HH*:*mm*:*SS*. | String | Nej |
+**Rapportera status vid motringning** | Låter en användare rapportera den misslyckade statusen för en webhook-aktivitet. | Boolean | Nej |
 
 ## <a name="authentication"></a>Autentisering
 
-Nedan visas autentiseringstyper som stöds i webhook-aktiviteten.
+En webhook-aktivitet stöder följande typer av autentisering.
 
 ### <a name="none"></a>Ingen
 
-Om autentisering inte krävs inkluderar du inte egenskapen "Authentication".
+Om autentisering inte krävs ska du inte inkludera egenskapen **Authentication** .
 
 ### <a name="basic"></a>Basic
 
-Ange användar namn och lösen ord som ska användas med grundläggande autentisering.
+Ange det användar namn och lösen ord som ska användas med grundläggande autentisering.
 
 ```json
 "authentication":{
@@ -87,7 +85,7 @@ Ange användar namn och lösen ord som ska användas med grundläggande autentis
 
 ### <a name="client-certificate"></a>Klient certifikat
 
-Ange Base64-kodat innehåll för en PFX-fil och lösen ordet.
+Ange det Base64-kodade innehållet i en PFX-fil och ett lösen ord.
 
 ```json
 "authentication":{
@@ -99,7 +97,7 @@ Ange Base64-kodat innehåll för en PFX-fil och lösen ordet.
 
 ### <a name="managed-identity"></a>Hanterad identitet
 
-Ange resurs-URI för vilken åtkomsttoken ska begäras med hjälp av den hanterade identiteten för data fabriken. Använd `https://management.azure.com/`för att anropa Azure Resource Management-API: et. Mer information om hur hanterade identiteter fungerar finns på [översikts sidan hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview).
+Använd Data Factory: s hanterade identitet för att ange den resurs-URI som åtkomsttoken begärs för. Använd `https://management.azure.com/`för att anropa Azure Resource Management-API: et. Mer information om hur hanterade identiteter fungerar finns i [Översikt över hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {
@@ -113,22 +111,22 @@ Ange resurs-URI för vilken åtkomsttoken ska begäras med hjälp av den hantera
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-Azure Data Factory skickar ytterligare en egenskap "callBackUri" i bröd texten till URL-slutpunkten och förväntar sig att denna URI anropas innan timeout-värdet har angetts. Om URI: n inte anropas, kommer aktiviteten att Miss förväntas med status stängningsåtgärd.
+Data Factory skickar ytterligare egenskapen **callBackUri** i texten som skickas till URL-slutpunkten. Data Factory förväntar sig att denna URI ska anropas före det angivna tids gräns värdet. Om URI: n inte anropas, Miss lyckas aktiviteten med statusen "stängningsåtgärd".
 
-Webhook-aktiviteten Miss lyckas när anropet till den anpassade slut punkten Miss lyckas. Eventuella fel meddelanden kan läggas till i bröd texten i återanropet och användas i en efterföljande aktivitet.
+Webhook-aktiviteten Miss lyckas när anropet till den anpassade slut punkten Miss lyckas. Eventuella fel meddelanden kan läggas till i återanrops texten och användas i en senare aktivitet.
 
-För varje REST API anrop kommer klienten att göra en timeout om slut punkten inte svarar om 1 min. Detta är standard metod för http-användning. För att åtgärda det här problemet måste du implementera 202-mönstret i det här fallet där slut punkten returnerar 202 (accepterad) och klienten avsöker.
+För varje REST API-anrop har klienten nått tids gränsen om slut punkten inte svarar inom en minut. Det här är en standard metod för HTTP-användning. För att åtgärda det här problemet implementerar du ett 202-mönster. I det aktuella fallet returnerar slut punkten 202 (accepterad) och klient avsökningarna.
 
-Det finns inte något att göra med tids gränsen för 1 min-timeout för begäran. Som ska användas för att vänta på callbackUri.
+Tids gränsen på en minut på begäran har inget att göra med aktivitetens tids gräns. Den senare används för att vänta på återanropet som anges av **callbackUri**.
 
-Texten som skickas tillbaka till återanrops-URI: n måste vara giltig JSON. Du måste ange innehålls typ rubriken till `application/json`.
+Texten som skickas tillbaka till återanrops-URI: n måste vara giltig JSON. Ange `Content-Type` rubriken till `application/json`.
 
-När du använder alternativet rapportera status vid motringning måste du lägga till följande kodfragment i texten när du gör motringningen:
+När du använder egenskapen **rapportera status på motringning** måste du lägga till följande kod i bröd texten när du gör återanropet:
 
-```
+```json
 {
     "Output": {
-        // output object will be used in activity output
+        // output object is used in activity output
         "testProp": "testPropValue"
     },
     "Error": {
@@ -136,15 +134,13 @@ När du använder alternativet rapportera status vid motringning måste du lägg
         "ErrorCode": "testErrorCode",
         "Message": "error message to show in activity error"
     },
-    "StatusCode": "403" // when status code is >=400, activity will be marked as failed
+    "StatusCode": "403" // when status code is >=400, activity is marked as failed
 }
 ```
 
-
-
 ## <a name="next-steps"></a>Nästa steg
 
-Se andra kontroll flödes aktiviteter som stöds av Data Factory:
+Se följande kontroll flödes aktiviteter som stöds av Data Factory:
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)

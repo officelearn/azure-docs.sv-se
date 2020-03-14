@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 0fe83b8e28b96f1d89a7c98cfe86a6e924f1bc49
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 59c8b31dcc8594d2cafb2db7832e290b01026f60
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566353"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367592"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Geospatiala och geospatiala JSON-plats data i Azure Cosmos DB
 
@@ -25,7 +25,10 @@ Den här artikeln ger en introduktion till geospatiala funktionerna i Azure Cosm
 
 Spatialdata beskriver position och formen på objekt i utrymmet. I de flesta program motsvarar dessa objekt på jorden och geospatiala data. Rumsliga data kan användas för att representera platsen för en person, en plats i närheten eller ens en stad eller en sjö gränser. Vanliga användningsområden ofta omfattar närhetsförfrågningar, till exempel, ”hitta alla kaféer nära min aktuella plats”.
 
-Azure Cosmos DB SQL API har stöd för **geografi** data typen. **Geografi** typen representerar data i ett system för Round-jordens koordinater.
+Azure Cosmos DB SQL API har stöd för två spatiala data typer: data typen **Geometry** och **geografi** data typen.
+
+- **Geometri** typen representerar data i ett Euclidean (flat)-koordinatsystem
+- **Geografi** typen representerar data i ett system för Round-jordens koordinater.
 
 ## <a name="supported-data-types"></a>Data typer som stöds
 
@@ -70,7 +73,11 @@ Spatiala data typer kan bäddas in i ett Azure Cosmos DB-dokument som visas i de
 }
 ```
 
-### <a name="points-in-geography-coordinate-system"></a>Punkter i geografi system
+### <a name="points-in-a-geometry-coordinate-system"></a>Punkter i ett geometri koordinat system
+
+För data typen **Geometry** anger netjson-specifikationen den vågräta axeln först och den lodräta axeln.
+
+### <a name="points-in-a-geography-coordinate-system"></a>Punkter i ett geografiskt koordinatsystem
 
 För geografi data typen anger **geografi** specifikation longitud först och Latitude Second. Som i andra program för mappning, longitud och latitud är vinklar och representeras i grader. Longitudvärden mäts från nollmeridianen och är mellan-180 grader och 180.0 grader, och värdena för latitud mäts från ekvatorn och är mellan-90.0 grader och 90.0 grader.
 
@@ -125,20 +132,20 @@ En **multipolygon** är en matris med noll eller flera polygoner. **Multipolygon
 ```json
 {
     "type":"MultiPolygon",
-    "coordinates":[ [
+    "coordinates":[[[
         [52.0, 12.0],
         [53.0, 12.0],
         [53.0, 13.0],
         [52.0, 13.0],
         [52.0, 12.0]
-    ],
-    [
+        ]],
+        [[
         [50.0, 0.0],
         [51.0, 0.0],
         [51.0, 5.0],
         [50.0, 5.0],
         [50.0, 0.0]
-    ] ]
+        ]]]
 }
 ```
 

@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Dokumentation om värd
+title: Dokumentation om värdar
 summary: Tal tjänst behållare är tillgängliga för både tal-till-text-och text till tal-scenarier, som omfattar standard eller anpassade modeller.
 metadata:
   title: Dokumentation – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
@@ -10,32 +10,32 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: ead45759891d4b2a41a380c88cf32f4e504b6e2c
-  ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+  ms.openlocfilehash: ff12c357ba273c6965b11db4eabc1890925439be
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/28/2020
-  ms.locfileid: "77920883"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79366708"
 landingContent:
-- title: Kom igång
+- title: Om värd tjänster
   linkLists:
   - linkListType: concept
     links:
-    - text: Tal tjänst behållare
+    - text: Installera och kör tal behållare
       url: speech-container-howto.md
-    - text: Tal tjänst behållare med Kubernetes
+    - text: Tal behållare med Kubernetes och Helm
       url: speech-container-howto-on-premises.md
-    - text: Tal tjänst behållare på Azure Container Instances
+    - text: Tal behållare på Azure Container instances
       url: deploy-speech-on-container-instances.md
-- title: Steg-för-steg-guider
+- title: Skapa och konfigurera
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Skapa en Azure tal-resurs
       url: get-started.md#new-resource
-    - text: Konfigurera containrar
+    - text: Konfigurera tal behållare
       url: speech-container-configuration.md
 - title: Referens
   linkLists:
@@ -43,5 +43,5 @@ landingContent:
     links:
     - text: Regioner som stöds
       url: regions.md
-    - text: Suveräna moln
+    - text: Nationella moln
       url: sovereign-clouds.md

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 93681813c12f0df99909c849e57153e7a64c78fb
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381226"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299319"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, vilket möjliggör synkronisering av flera platser och moln nivåer. En lokal server måste därför vara ansluten till Internet. En IT-administratör måste bestämma den bästa sökvägen för att servern ska kunna komma åt Azure Cloud Services.
@@ -144,6 +144,55 @@ För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filr
 > - https:\//kailani.one.microsoft.com (primär slut punkt: USA, västra)
 > - https:\//kailani1.one.microsoft.com (parad failover-över region: USA, östra)
 > - https:\//tm-kailani.one.microsoft.com (identifierings-URL för den primära regionen)
+
+### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista över tillåtna Azure File Sync IP-adresser
+Om din lokala brand vägg kräver att du lägger till vissa IP-adresser till en lista över tillåtna för att ansluta till Azure File Sync, kan du lägga till följande IP-adressintervall baserat på de regioner som du ansluter till.
+
+| Region | IP-adressintervall |
+|--------|-------------------|
+| USA, centrala | 52.176.149.179/32, 20.37.157.80/29 |
+| USA, östra 2 | 40.123.47.110/32, 20.41.5.144/29 |
+| USA, östra | 104.41.148.238/32, 20.42.4.248/29 |
+| USA, norra centrala | 65.52.62.167/32, 40.80.188.24/29 |
+| USA, södra centrala | 104.210.219.252/32, 13.73.248.112/29 |
+| USA, västra 2 | 52.183.27.204/32, 20.42.131.224/29 |
+| USA, västra centrala | 52.161.25.233/32, 52.150.139.104/29 |
+| USA, västra | 40.112.150.67/32, 40.82.253.192/29 |
+| Kanada, centrala | 52.228.42.41/32, 52.228.81.248/29 |
+| Kanada, östra | 52.235.36.119/32, 40.89.17.232/29 |
+| Brasilien, södra | 191.237.253.115/32, 191.235.225.216/29 |
+| Europa, norra | 40.113.94.67/32, 20.38.85.152/29 |
+| Europa, västra | 104.40.191.8/32, 20.50.1.0/29 |
+| Frankrike, centrala | 52.143.166.54/32, 20.43.42.8/29 |
+| Frankrike, södra | 52.136.131.99/32, 51.105.88.248/29 |
+| Storbritannien, södra | 51.140.67.72/32, 51.104.25.224/29 |
+| Storbritannien, västra | 51.140.202.34/32, 51.137.161.240/29 |
+| Schweiz, norra | 51.107.48.224/29 |
+| Schweiz, västra | 51.107.144.216/29 |
+| Norge, väst | 51.120.224.216/29 |
+| Östra Norge | 51.120.40.224/29 |
+| Asien, östra | 23.102.225.54/32, 20.189.108.56/29 |
+| Sydostasien | 13.76.81.46/32, 20.43.131.40/29 |
+| Australien, centrala | 20.37.224.216/29 |
+| Australien, centrala 2 | 20.36.120.216/29 |
+| Australien, östra | 13.75.153.240/32, 20.37.195.96/29 |
+| Australien, sydöstra | 13.70.176.196/32, 20.42.227.128/29 |
+| Indien, södra | 104.211.231.18/32, 20.41.193.160/29 |
+| Indien, västra | 52.136.48.216/29 |
+| Japan, östra | 104.41.161.113/32, 20.43.66.0/29 |
+| Japan, västra | 23.100.106.151/32, 40.80.57.192/29 |
+| Sydkorea, centrala | 52.231.67.75/32, 20.41.65.184/29 |
+| Sydkorea, södra | 52.231.159.38/32, 40.80.169.176/29 |
+| USA DoD, östra | 20.140.72.152/29 |
+| US Gov, Arizona | 20.140.64.152/29 |
+| US Gov, Arizona | 52.244.75.224/32, 52.244.79.140/32 |
+| USA Gov, Iowa | 52.244.79.140/32, 52.244.75.224/32 |
+| US Gov, Texas | 52.238.166.107/32, 52.238.79.29/32 |
+| US Gov, Virginia | 13.72.17.152/32, 52.227.153.92/32 |
+| Sydafrika, norra | 102.133.175.72/32 |
+| Sydafrika, västra | 102.133.75.173/32, 102.133.56.128/29, 20.140.48.216/29 |
+| Förenade Arabemiraten Central | 20.45.71.151/32, 20.37.64.216/29, 20.140.48.216/29 |
+| Förenade Arabemiraten, norra | 40.123.216.130/32, 20.38.136.224/29, 20.140.56.136/29 |
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testa nätverks anslutningen till tjänstens slut punkter
 När en server har registrerats med den Azure File Sync tjänsten kan test-StorageSyncNetworkConnectivity-cmdleten och ServerRegistration. exe användas för att testa kommunikationen med alla URL: er som är speciella för den här servern. Den här cmdleten kan hjälpa till att felsöka när ofullständig kommunikation förhindrar att servern fungerar fullt ut med Azure File Sync och kan användas för att finjustera konfigurationer för proxy och brand väggar.

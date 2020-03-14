@@ -1,5 +1,5 @@
 ---
-title: Om tal enheter SDK-Speech service
+title: Tal enheter SDK – tal service
 titleSuffix: Azure Cognitive Services
 description: 'Kom igång med SDK: N för tal-enheter. Tal tjänsten fungerar med en mängd olika enheter och ljud källor. Tal Devices SDK är ett redan utformad bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.'
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 40179c7d421a26fd9a77b435668f75ec6fde8ab1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136981"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370652"
 ---
-# <a name="about-the-speech-devices-sdk"></a>Om Speech Devices SDK
+# <a name="what-is-the-speech-devices-sdk"></a>Vad är det för tal enheter SDK?
 
-[Tal tjänsten](overview.md) fungerar med en mängd olika enheter och ljud källor. Nu kan dra du ditt talprogram till nästa nivå med matchande maskinvara och programvara. Tal Devices SDK är ett pretuned bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.
+[Tal tjänsten](overview.md) fungerar med en mängd olika enheter och ljud källor. Nu kan dra du ditt talprogram till nästa nivå med matchande maskinvara och programvara. Tal Devices SDK är ett redan utformad bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.
 
 Med hjälp av tal Devices SDK kan du:
 

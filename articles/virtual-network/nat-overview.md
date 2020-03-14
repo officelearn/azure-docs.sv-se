@@ -1,5 +1,6 @@
 ---
 title: Vad är Azure Virtual Network NAT?
+titlesuffix: Azure Virtual Network
 description: Översikt över Virtual Network NAT-funktioner, resurser, arkitektur och implementering. Lär dig hur Virtual Network NAT fungerar och hur du använder resurser för NAT-gateway i molnet.
 services: virtual-network
 documentationcenter: na
@@ -13,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: d8ecabab596612b443f1eb0a50fd550fdc474c43
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359255"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370822"
 ---
-# <a name="what-is-virtual-network-nat-public-preview"></a>Vad är Virtual Network NAT (offentlig för hands version)?
+# <a name="what-is-virtual-network-nat"></a>Vad är Virtual Network NAT?
 
 Virtual Network NAT (Network Address Translation) fören klar endast utgående Internet-anslutning för virtuella nätverk. När den konfigureras i ett undernät använder all utgående anslutning dina angivna statiska offentliga IP-adresser.  Utgående anslutningar är möjlig utan belastningsutjämnare eller offentliga IP-adresser som är direkt anslutna till virtuella datorer. NAT är fullständigt hanterat och mycket flexibelt.
 
@@ -36,10 +37,6 @@ Virtual Network NAT (Network Address Translation) fören klar endast utgående I
 
 
 *Bild: Virtual Network NAT*
-
-
->[!NOTE] 
->Virtual Network NAT är tillgängligt som offentlig för hands version för tillfället. För närvarande är det bara tillgängligt i en begränsad uppsättning [regioner](#region-availability). Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Statiska IP-adresser för utgående
 
@@ -125,48 +122,6 @@ Du kan övervaka hur din NAT fungerar genom flerdimensionella mått som visas i 
 
 Vid allmän tillgänglighet är NAT-datasökvägen minst 99,9% tillgänglig.
 
-## <a name = "region-availability"></a>Tillgänglighet för regioner
-
-NAT är för närvarande tillgängligt i följande regioner:
-
-- Västeuropa
-- Japan, östra
-- USA, östra 2
-- USA, Västra
-- USA, västra 2
-- USA, västra centrala
-
-## <a name = "enable-preview"></a>Offentlig för hands versions medverkan
-
-Prenumerationer måste registreras för att tillåta deltagande i den offentliga för hands versionen.  Deltagande kräver en två stegs process och instruktioner finns nedan för Azure CLI och Azure PowerShell.  Det kan ta flera minuter att slutföra aktiveringen.
-
-### <a name="azure-cli"></a>Azure CLI
-
-1. registrera prenumeration för offentlig för hands version
-
-    ```azurecli-interactive
-      az feature register --namespace Microsoft.Network --name AllowNatGateway
-    ```
-
-2. Aktivera registrering
-
-    ```azurecli-interactive
-      az provider register --namespace Microsoft.Network
-    ```
-
-### <a name="azure-powershell"></a>Azure PowerShell
-
-1. registrera prenumeration för offentlig för hands version
-
-    ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowNatGateway
-    ```
-
-2. Aktivera registrering
-
-    ```azurepowershell-interactive
-      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="pricing"></a>Priser
 
@@ -180,7 +135,9 @@ NAT-gateway faktureras med två separata mätare:
 Resurs timmar konton för den varaktighet under vilken en NAT-gateway-resurs finns.
 Bearbetade data konton för all trafik som bearbetas av en NAT-gateway-resurs.
 
-Under den offentliga för hands versionen rabatteras priserna med 50%.
+## <a name="availability"></a>Tillgänglighet
+
+Virtual Network NAT och NAT-gateway-resursen är tillgänglig i alla Azures offentliga moln [regioner](https://azure.microsoft.com/global-infrastructure/regions/).
 
 ## <a name="support"></a>Support
 
@@ -188,12 +145,13 @@ NAT stöds via normala Support kanaler.
 
 ## <a name="feedback"></a>Feedback
 
-Vi vill veta hur vi kan förbättra tjänsten. Dela din [feedback om den offentliga för hands versionen](https://aka.ms/natfeedback) med oss.  Och du kan föreslå och rösta på det vi ska bygga nästa på [UserVoice för NAT](https://aka.ms/natuservoice).
+Vi vill veta hur vi kan förbättra tjänsten. Föreslå och rösta på det vi ska bygga nästa på [UserVoice för NAT](https://aka.ms/natuservoice).
+
 
 ## <a name="limitations"></a>Begränsningar
 
-* NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
-* IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med IPv6-prefix.
+* NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser. Grundläggande resurser, t. ex. Basic Load Balancer, och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
+* IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med ett IPv6-prefix.
 * NSG Flow-loggning stöds inte när NAT används.
 * NAT kan inte omfatta flera virtuella nätverk.
 
@@ -201,4 +159,4 @@ Vi vill veta hur vi kan förbättra tjänsten. Dela din [feedback om den offentl
 
 * Lär dig om [NAT gateway-resurs](./nat-gateway-resource.md).
 * [Berätta för oss vad du ska bygga härnäst för Virtual Network NAT i UserVoice](https://aka.ms/natuservoice).
-* [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).
+

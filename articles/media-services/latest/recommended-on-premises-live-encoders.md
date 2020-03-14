@@ -9,14 +9,14 @@ ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 60f9209129c75e329b283045d19b4b5140b40ec2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 3b7a75ac1c0876d562dc49e9253fe734475a551a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268200"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298962"
 ---
-# <a name="recommended-on-premises-live-streaming-encoders"></a>Rekommenderade lokala Live streaming-kodare
+# <a name="tested-on-premises-live-streaming-encoders"></a>Testade lokala direkt uppspelnings kodare
 
 I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (kanal) en pipeline för bearbetning av direktuppspelat innehåll. Live-händelsen tar emot direktsända indata strömmar på ett av två sätt.
 
@@ -24,10 +24,12 @@ I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/
 
     Om du använder data strömmar med flera bit hastigheter för direkt sändnings händelse måste videons GOP storlek och videofragmenten på olika bit hastigheter synkroniseras för att undvika oväntad beteende på uppspelnings sidan.
 
-  > [!NOTE]
+  > [!TIP]
   > Att använda en direkt metod är det mest ekonomiska sättet att göra Direktsänd strömning.
  
 * En lokal Live-kodare skickar en data ström med en bit hastighet till den direktsända händelse som är aktive rad för att utföra direktsänd kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Live-händelsen utför sedan direktsänd kodning av den inkommande data strömmen med en bit hastighet till en anpassningsbar video ström med flera bit hastigheter.
+
+I den här artikeln beskrivs testade lokala direkt uppspelnings kodare. Instruktioner för hur du verifierar din lokala Live-kodare finns i [Verifiera din lokala kodare](become-on-premises-encoder-partner.md)
 
 Detaljerad information om Live encoding med Media Services finns i [direkt uppspelning med Media Services v3](live-streaming-overview.md).
 
@@ -99,8 +101,8 @@ Om du vill spela upp innehåll måste både ljud-och video strömmar finnas. Det
 
 ## <a name="see-also"></a>Se även
 
-[Bli en lokal Encoder-partner](become-on-premises-encoder-partner.md)
+[Direktsänd strömning med Media Services v3](live-streaming-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Direktsänd strömning med Media Services v3](live-streaming-overview.md)
+[Så här verifierar du din kodare](become-on-premises-encoder-partner.md)

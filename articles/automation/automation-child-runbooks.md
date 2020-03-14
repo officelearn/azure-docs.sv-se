@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 42362a170f493afd51a5d4ee139620ad25b54e79
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246551"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367371"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Underordnade Runbooks i Azure Automation
 
@@ -35,13 +35,13 @@ Vilka Runbook-typer kan anropa varandra?
 
 * En [PowerShell-Runbook](automation-runbook-types.md#powershell-runbooks) och en [grafisk Runbook](automation-runbook-types.md#graphical-runbooks) kan anropa varandra på samma sätt som båda är PowerShell-baserade.
 * En [PowerShell Workflow-Runbook](automation-runbook-types.md#powershell-workflow-runbooks) och en grafisk PowerShell Workflow-Runbook kan anropa varandra, eftersom båda är PowerShell-arbetsflöde-baserade.
-* PowerShell-typerna och PowerShell-arbetsflödet kan inte anropa varandra på samma rad och måste använda **Start-AzAutomationRunbook**.
+* PowerShell-typerna och PowerShell-arbetsflödes typerna kan inte anropa varandra på samma rad och måste använda `Start-AzAutomationRunbook`.
 
 När sker publicerings ordningen?
 
 Publicerings ordningen för Runbooks är bara av betydelse för PowerShell-arbetsflöde och grafiska PowerShell-arbetsflöden.
 
-När en Runbook anropar en underordnad eller PowerShell-underordnad Runbook med hjälp av infogad körning används namnet på runbooken. Namnet måste börja med **.\\** för att ange att skriptet finns i den lokala katalogen.
+När en Runbook anropar en underordnad eller PowerShell-underordnad Runbook med hjälp av infogad körning används namnet på runbooken. Namnet måste börja med `.\\` för att ange att skriptet finns i den lokala katalogen.
 
 ### <a name="example"></a>Exempel
 
@@ -62,15 +62,15 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 ## <a name="starting-a-child-runbook-using-a-cmdlet"></a>Starta en underordnad Runbook med en cmdlet
 
 > [!IMPORTANT]
-> Om din Runbook anropar en underordnad Runbook med cmdleten **Start-AzAutomationRunbook** med parametern *wait* och underordnad Runbook genererar ett objekt resultat kan åtgärden stöta på ett fel. Undvik felet genom att se [underordnade Runbooks med objekt utdata](troubleshoot/runbooks.md#child-runbook-object) för att lära dig hur du implementerar logiken för att söka efter resultat med hjälp av cmdleten [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) .
+> Om din Runbook anropar en underordnad Runbook med `Start-AzAutomationRunbook`-cmdlet: en med parametern `Wait` och den underordnade Runbook skapar ett objekt resultat kan åtgärden stöta på ett fel. Undvik felet genom att se [underordnade Runbooks med objekt utdata](troubleshoot/runbooks.md#child-runbook-object) för att lära dig hur du implementerar logiken för att söka efter resultat med hjälp av cmdleten [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) .
 
-Du kan använda **Start-AzAutomationRunbook** för att starta en Runbook enligt beskrivningen i [för att starta en Runbook med Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Det finns två användnings lägen för denna cmdlet. I ett läge returnerar cmdleten jobb-ID när jobbet skapas för den underordnade runbooken. I det andra läget, som skriptet tillåter genom att ange parametern *wait* , väntar cmdleten tills det underordnade jobbet är klart och returnerar utdata från den underordnade runbooken.
+Du kan använda `Start-AzAutomationRunbook` för att starta en Runbook enligt beskrivningen i [för att starta en Runbook med Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). Det finns två användnings lägen för denna cmdlet. I ett läge returnerar cmdleten jobb-ID när jobbet skapas för den underordnade runbooken. I det andra läget, som skriptet tillåter genom att ange parametern *wait* , väntar cmdleten tills det underordnade jobbet är klart och returnerar utdata från den underordnade runbooken.
 
 Jobbet från en underordnad Runbook som startades med en cmdlet körs separat från det överordnade Runbook-jobbet. Detta leder till fler jobb än att starta Runbook infogat och gör jobbet svårare att spåra. Överordnad kan starta fler än en underordnad Runbook asynkront utan att vänta på att de ska slutföras. För att den här parallella körningen ska anropa de underordnade Runbooks som infogas, måste den överordnade runbooken använda det [parallella nyckelordet](automation-powershell-workflow.md#parallel-processing).
 
-Underordnade Runbook-utdata återgår inte till överordnad Runbook tillförlitlig på grund av tids inställning. Dessutom kanske variabler som *$VerbosePreference*, *$WarningPreference*och andra inte sprids till underordnade Runbooks. För att undvika dessa problem kan du starta de underordnade Runbooks som separata Automation-jobb med hjälp av **Start-AzAutomationRunbook** med parametern *wait* . Den här tekniken blockerar den överordnade runbooken tills den underordnade runbooken har slutförts.
+Underordnade Runbook-utdata återgår inte till överordnad Runbook tillförlitlig på grund av tids inställning. Dessutom kanske variabler som `$VerbosePreference`, `$WarningPreference`och andra inte sprids till underordnade Runbooks. För att undvika dessa problem kan du starta de underordnade Runbooks som separata Automation-jobb med `Start-AzAutomationRunbook` med parametern `Wait`. Den här tekniken blockerar den överordnade runbooken tills den underordnade runbooken har slutförts.
 
-Om du inte vill att den överordnade runbooken ska blockeras vid väntan kan du starta den underordnade runbooken med **Start-AzAutomationRunbook** utan parametern *wait* . I det här fallet måste din Runbook använda [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) för att vänta på att jobbet ska slutföras. Det måste också använda [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) och [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) för att hämta resultaten.
+Om du inte vill att den överordnade runbooken ska blockeras vid väntan kan du starta den underordnade runbooken med `Start-AzAutomationRunbook` utan parametern `Wait`. I det här fallet måste din Runbook använda [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) för att vänta på att jobbet ska slutföras. Det måste också använda [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) och [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) för att hämta resultaten.
 
 Parametrar för en underordnad Runbook som startas med en cmdlet anges som en hash-modul enligt beskrivningen i [Runbook-parametrar](start-runbooks.md#runbook-parameters). Endast enkla data typer kan användas. Om runbooken har en parameter med en komplex datatyp, det måste den anropas infogad.
 
@@ -80,7 +80,7 @@ Om jobb inom samma Automation-konto fungerar med fler än en prenumeration kan d
 
 ### <a name="example"></a>Exempel
 
-I följande exempel startar en underordnad Runbook med parametrar och väntar sedan på att den ska slutföras med cmdleten **Start-AzAutomationRunbook** med parametern *wait* . När det är klart samlar exemplet in cmdlet-utdata från den underordnade runbooken. Om du vill använda **Start-AzAutomationRunbook**måste skriptet autentisera till din Azure-prenumeration.
+I följande exempel startar en underordnad Runbook med parametrar och väntar sedan på att den ska slutföras med hjälp av `Start-AzAutomationRunbook`-cmdlet: en med parametern `Wait`. När det är klart samlar exemplet in cmdlet-utdata från den underordnade runbooken. Om du vill använda `Start-AzAutomationRunbook`måste skriptet autentisera till din Azure-prenumeration.
 
 ```azurepowershell-interactive
 # Ensure that the runbook does not inherit an AzContext

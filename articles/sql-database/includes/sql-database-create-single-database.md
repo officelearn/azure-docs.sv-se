@@ -3,89 +3,177 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 02/14/2020
+ms.date: 03/10/2020
 ms.author: mathoma
 ms.reviewer: vanto
-ms.openlocfilehash: d800d273cce995c618422a3a9d0934b2657e6ef5
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c1ca87b6e7b8afb50522e73107707e15782a0a91
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194314"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79200198"
 ---
-I det här steget ska du skapa en Azure SQL Database enskild databas. 
+I det här steget skapar du en Azure SQL Database-Server och en enkel databas som använder AdventureWorksLT exempel data. Du kan skapa databasen med hjälp av Azure Portal menyer och skärmar, eller genom att använda ett Azure CLI-eller PowerShell-skript i Azure Cloud Shell.
 
-> [!IMPORTANT]
-> Se till att konfigurera brand Väggs regler för användning av den offentliga IP-adressen för den dator som du använder för att slutföra den här artikeln.
->
-> Mer information finns i [skapa en brand Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa vilken IP-adress som används för brand Väggs regeln på server nivå för datorn se [skapa en brand vägg på server nivå](../sql-database-server-level-firewall-rule.md).  
+Alla metoder är att ställa in en brand Väggs regel på server nivå för att tillåta den offentliga IP-adressen för den dator som du använder för att få åtkomst till servern. Mer information om hur du skapar Server brand Väggs regler finns i [skapa en brand vägg på server nivå](../sql-database-server-level-firewall-rule.md). Du kan också ange brand Väggs regler på databas nivå. Se [skapa en brand Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database). 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
+Så här skapar du en resurs grupp, SQL Server och en enkel databas i Azure Portal:
 
-1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
-2. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa ytterligare information om de olika databaserna genom att välja **Visa information** på panelen **databaser** .
-3. Välj **skapa**:
+1. Logga in på [portalen](https://portal.azure.com).
+1. I Sök fältet söker du efter och väljer **Azure SQL**.
+1. På **Azure SQL** -sidan väljer du **Lägg till**. 
+   
+   ![Lägg till i Azure SQL](../media/sql-database-single-database-get-started/sqldbportal.png)
+   
+1. På sidan **Välj alternativ för SQL-distribution** väljer du panelen **SQL-databaser** med **en enda databas** under **resurs typ**. Du kan visa mer information om de olika databaserna genom att välja **Visa information**.
+1. Välj **Skapa**.
+   
+   ![Skapa en enkel databas](../media/sql-database-single-database-get-started/create-single-database.png)
+   
+1. På fliken **grundläggande** i formuläret **skapa SQL-databas** går du till **projekt information**och väljer rätt Azure- **prenumeration** om den inte redan är markerad.
+1. Under **resurs grupp**väljer du **Skapa ny**, anger *myResourceGroup*och väljer **OK**.
+1. Under **databas information**anger du *mySampleDatabase*som **databas namn** .
+1. För **Server**väljer du **Skapa ny**och fyller i det **nya server** formuläret enligt följande:
+   - **Server namn**: ange *SQLServer*och några tecken för unikhet.
+   - **Inloggning för Server administratör**: ange *azureuser*.
+   - **Lösen ord**: Ange ett lösen ord som uppfyller kraven och ange det igen i fältet **Bekräfta lösen ord** .
+   - **Plats**: list rutan och välj en plats, t. ex. **(US) östra USA**.
+   
+   Välj **OK**.
+   
+   ![Ny server](../media/sql-database-single-database-get-started/new-server.png)
+   
+   Registrera inloggning och lösen ord för Server administratören så att du kan logga in på servern och databaserna. Om du glömmer ditt inloggnings namn eller lösen ord kan du hämta inloggnings namnet eller återställa lösen ordet på **SQL Server** -sidan när databasen har skapats. Öppna **SQL Server** -sidan genom att välja Server namnet på sidan databas **Översikt** .
+   
+1. Under **Compute + Storage**, om du vill konfigurera om standardvärdena, väljer du **Konfigurera databas**.
+   
+   På sidan **Konfigurera** kan du välja att:
+   - Ändra **beräknings nivån** från **etablerad** till **Server**lös.
+   - Granska och ändra inställningarna för **virtuella kärnor** och **data Max storlek**.
+   - Välj **ändra konfiguration** för att ändra maskin varu genereringen.
+   
+   När du har gjort ändringarna väljer du **tillämpa**.
+   
+1. Välj **Nästa: nätverk** längst ned på sidan.
+   
+   ![Ny SQL-databas – fliken grundläggande](../media/sql-database-single-database-get-started/new-sql-database-basics.png)
+   
+1. På fliken **nätverk** under **anslutnings metod**väljer du **offentlig slut punkt**. 
+1. Under **brand Väggs regler**anger du **Lägg till aktuell klient-IP-adress** till **Ja**.
+1. Välj **Nästa: ytterligare inställningar** längst ned på sidan.
+   
+   ![Fliken nätverk](../media/sql-database-single-database-get-started/networking.png)
+   
+   Mer information om brand Väggs inställningar finns i [ge Azure-tjänster och-resurser åtkomst till den här servern](../sql-database-networkaccess-overview.md) och [lägga till en privat slut punkt](../../private-link/private-endpoint-overview.md).
+   
+1. På fliken **ytterligare inställningar** , i avsnittet **data källa** , för att **använda befintliga data**, väljer du **exempel**.
+1. Välj **Granska + skapa** längst ned på sidan.
+   
+   ![Fliken Ytterligare inställningar](../media/sql-database-single-database-get-started/additional-settings.png)
+   
+1. När du har granskat inställningarna väljer du **skapa**.
 
-   ![Skapa en enkel databas](../media/sql-database-get-started-portal/create-single-database.png)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-4. På fliken **grundläggande** i avsnittet **projekt information** skriver eller väljer du följande värden:
+Du kan skapa en Azure-resurs grupp, SQL Server och en enkel databas med hjälp av Azures kommando rads gränssnitt (Azure CLI). Om du inte vill använda Azure Cloud Shell [installerar du Azure CLI](/cli/azure/install-azure-cli) på datorn.
 
-   - **Prenumeration**: list rutan och välj rätt prenumeration om den inte visas.
-   - **Resurs grupp**: Välj **Skapa ny**, skriv `myResourceGroup`och välj **OK**.
+Om du vill köra följande kod exempel i Azure Cloud Shell väljer du **testa det** i namn listen kod exempel. När Cloud Shell öppnas väljer du **Kopiera** i namn listen kod exempel och klistrar in kod exemplet i Cloud Shells fönstret. I koden ersätter du `<Subscription ID>` med ditt Azure-prenumerations-ID och för `$startip` och `$endip`ersätter du `0.0.0.0` med den offentliga IP-adressen för den dator som du använder.
 
-     ![Ny SQL-databas – fliken grundläggande](../media/sql-database-get-started-portal/new-sql-database-basics.png)
+Följ anvisningarna på skärmen för att logga in på Azure och kör koden. 
 
-5. I avsnittet **databas information** skriver eller väljer du följande värden:
+Du kan också använda Azure Cloud Shell från Azure Portal genom att välja Cloud Shells ikonen i det översta fältet. 
+   
+   ![Azure Cloud Shell](../media/sql-database-single-database-get-started/cloudshell.png)
+   
+Första gången du använder Cloud Shell i portalen väljer du **bash** i **välkomst** dialog rutan. Efterföljande sessioner kommer att använda Azure CLI i en bash-miljö, eller så kan du välja **bash** från Cloud Shell kontroll fältet. 
 
-   - **Databas namn**: Ange `mySampleDatabase`.
-   - **Server**: Välj **Skapa ny**, ange följande värden och välj sedan **Välj**.
-       - **Server namn**: typ `mysqlserver`; tillsammans med en del siffror för unikhet.
-       - **Inloggning för Server administratör**: Skriv `azureuser`.
-       - **Lösen ord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
-       - **Plats**: Välj en plats i list rutan, till exempel `West US`.
+Följande Azure CLI-kod skapar en Azure-resurs grupp, SQL Server, enkel databas och brand Väggs regel för åtkomst till servern. Se till att du registrerar de genererade resurs grupperna och Server namnen, så att du kan hantera dessa resurser senare.
 
-         ![Ny server](../media/sql-database-get-started-portal/new-server.png)
+```azurecli-interactive
+#!/bin/bash
 
-      > [!IMPORTANT]
-      > Skriv ned serveradministratörens inloggning och lösenord så att du kan logga in på servern och databaserna till denna och andra snabbstarter. Om du glömmer din inloggning eller ditt lösenord kan du hämta inloggningsnamnet eller återställa lösenordet på **SQLServer**-sidan. För att öppna **SQLServer**-sidan väljer du servernamnet i databasens **översiktssida** när databasen har skapats.
+# Sign in to Azure and set execution context (if necessary)
+az login
+az account set --subscription <Subscription ID>
 
-   - **Vill du använda elastisk SQL-pool**: Välj alternativet **Nej** .
-   - **Compute + Storage**: Välj **Konfigurera databas**. 
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup-$RANDOM
+location=westus2
 
-     ![SQL Database information](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+# Set an admin login and password for your database
+adminlogin=azureuser
+password=Azure1234567
 
-   - Välj **etablerad**.  Du kan också välja **Server** lös för att skapa en databas utan server.
+# Set a logical server name that is unique in the system
+servername=server-$RANDOM
 
-     ![Etablerade Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
+# Set the ip address range that can access your database
+startip=0.0.0.0
+endip=0.0.0.0
 
-   - Granska inställningarna för **virtuella kärnor**och **data Max storlek**. Ändra dem efter behov. 
-     - Alternativt kan du också välja **ändra konfiguration** för att ändra maskin varu genereringen.
-   - Välj **Använd**.
+# Create a resource group
+az group create \
+    --name $resourceGroupName \
+    --location $location
 
-6. Välj fliken **nätverk** och bestäm om du vill tillåta att [**Azure-tjänster och-resurser får åtkomst till den här servern**](../sql-database-networkaccess-overview.md)eller lägga till en [privat slut punkt](../../private-link/private-endpoint-overview.md).
+# Create a logical server in the resource group
+az sql server create \
+    --name $servername \
+    --resource-group $resourceGroupName \
+    --location $location  \
+    --admin-user $adminlogin \
+    --admin-password $password
 
-   ![Fliken nätverk](../media/sql-database-get-started-portal/create-database-networking.png)
+# Configure a firewall rule for the server
+az sql server firewall-rule create \
+    --resource-group $resourceGroupName \
+    --server $servername \
+    -n AllowYourIp \
+    --start-ip-address $startip \
+    --end-ip-address $endip
 
-7. Välj fliken **ytterligare inställningar** . 
-8. I avsnittet **data källa** , under **Använd befintliga data**, väljer du `Sample`.
+# Create a gen5 2 vCore database in the server
+az sql db create \
+    --resource-group $resourceGroupName \
+    --server $servername \
+    --name mySampleDatabase \
+    --sample-name AdventureWorksLT \
+    --edition GeneralPurpose \
+    --family Gen5 \
+    --capacity 2 \
+```
 
-   ![Ytterligare SQL DB-inställningar](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
+I föregående kod används följande Azure CLI-kommandon:
 
-   > [!IMPORTANT]
-   > Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
+| Kommando | Beskrivning |
+|---|---|
+| [AZ-konto uppsättning](/cli/azure/account?view=azure-cli-latest#az-account-set) | Anger att en prenumeration är den aktuella aktiva prenumerationen. | 
+| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
+| [AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Skapar en servers brand Väggs regler. | 
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Skapar en databas. | 
 
-9. Lämna resten av värdena som standard och välj **Granska + skapa** längst ned i formuläret.
-10. Granska de slutgiltiga inställningarna och välj **skapa**.
-
-11. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen.
+Mer Azure SQL Database Azure CLI-exempel finns i [Azure CLI-exempel](../sql-database-cli-samples.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+Du kan skapa en Azure-resurs grupp, SQL Server och en enkel databas med Windows PowerShell. Om du inte vill använda Azure Cloud Shell [installerar du modulen Azure PowerShell](/powershell/azure/install-az-ps).
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Skapa en resurs grupp och en enkel databas med PowerShell.
+Om du vill köra följande kod exempel i Azure Cloud Shell väljer du **testa det** i kod namn listen. När Cloud Shell öppnas väljer du **Kopiera** i namn listen kod exempel och klistrar in kod exemplet i Cloud Shells fönstret. I koden ersätter du `<Subscription ID>` med ditt Azure-prenumerations-ID och för `$startIp` och `$endIp`ersätter du `0.0.0.0` med den offentliga IP-adressen för den dator som du använder. 
+
+Följ anvisningarna på skärmen för att logga in på Azure och kör koden. 
+
+Du kan också använda Azure Cloud Shell från Azure Portal genom att välja Cloud Shells ikonen i det översta fältet. 
+   
+   ![Azure Cloud Shell](../media/sql-database-single-database-get-started/cloudshell.png)
+   
+Första gången du använder Cloud Shell från portalen väljer du **PowerShell** i **välkomst** dialog rutan. Efterföljande sessioner kommer att använda PowerShell, eller så kan du välja den från Cloud Shell kontroll fältet. 
+
+Följande PowerShell-kod skapar en Azure-resurs grupp, SQL Server, enkel databas och brand Väggs regel för åtkomst till servern. Se till att du registrerar de genererade resurs grupperna och Server namnen, så att du kan hantera dessa resurser senare.
 
    ```powershell-interactive
    # Set variables for your server and database
@@ -93,18 +181,16 @@ Skapa en resurs grupp och en enkel databas med PowerShell.
    $resourceGroupName = "myResourceGroup-$(Get-Random)"
    $location = "West US"
    $adminLogin = "azureuser"
-   $password = "PWD27!"+(New-Guid).Guid
+   $password = "Azure1234567"
    $serverName = "mysqlserver-$(Get-Random)"
    $databaseName = "mySampleDatabase"
 
    # The ip address range that you want to allow to access your server 
-   # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
    $startIp = "0.0.0.0"
    $endIp = "0.0.0.0"
 
    # Show randomized variables
    Write-host "Resource group name is" $resourceGroupName 
-   Write-host "Password is" $password  
    Write-host "Server name is" $serverName 
 
    # Connect to Azure
@@ -147,56 +233,15 @@ Skapa en resurs grupp och en enkel databas med PowerShell.
    $database
    ```
 
-Den här delen av artikeln använder följande PowerShell-cmdlets:
+Föregående kod använder dessa PowerShell-cmdlet: ar:
 
 | Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Skapar en brand Väggs regel för en logisk server. | 
-| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en ny Azure SQL Database enskild databas. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en Azure SQL Database enskild databas. | 
 
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Skapa en resurs grupp och en enkel databas med AZ CLI.
-
-   ```azurecli-interactive
-   #!/bin/bash
-   # set variables
-   $subscription = "<subscriptionID>"
-   $randomIdentifier = $(Get-Random)
-
-   $resourceGroup = "resource-$randomIdentifier"
-   $location = "East US"
-   
-   $login = "sampleLogin"
-   $password = "samplePassword123!"
-
-   $server = "server-$randomIdentifier"
-   $database = "database-$randomIdentifier"
-  
-   az login # connect to Azure
-   az account set -s $subscription # set subscription context for the Azure account
-
-   echo "Creating resource group..."
-   az group create --name $resourceGroup --location $location
-
-   echo "Creating primary logical server..."
-   az sql server create --name $server --resource-group $resourceGroup --location $location --admin-user $login --admin-password $password
-
-   echo "Creating a gen5 2 vCore database..."
-   az sql db create --resource-group $resourceGroup --server $server --name $database --sample-name AdventureWorksLT --edition GeneralPurpose --family Gen5 --capacity 2
-   ```
-
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
-
-| Kommando | Anteckningar |
-|---|---|
-| [AZ-konto uppsättning](/cli/azure/account?view=azure-cli-latest#az-account-set) | Anger att en prenumeration är den aktuella aktiva prenumerationen. | 
-| [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Skapar en SQL Database-server som är värd för enkla databaser och elastiska pooler. |
-| [AZ SQL Server-brandvägg-regel skapa](/cli/azure/sql/server/firewall-rule) | Skapar en servers brand Väggs regler. | 
-| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Skapar en databas. | 
-
+Mer Azure SQL Database PowerShell-exempel finns i [Azure PowerShell exempel](../sql-database-powershell-samples.md).
 
 ---

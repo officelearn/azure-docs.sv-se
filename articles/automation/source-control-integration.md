@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: eef67ca8111983adb4d9994894ba215240daee6f
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: b0eed8fe9d548ee54698d187e192960bb3b44e44
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78253733"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368816"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
@@ -33,10 +33,10 @@ Azure Automation stöder tre typer av käll kontroll:
 
 * Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
 * Ett [Kör som-konto](manage-runas-account.md)
-* De [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto, inklusive modulen **AZ. Accounts** (AZ-modul motsvarande AzureRM. Profile)
+* De [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto, inklusive `Az.Accounts`-modulen (AZ-modul motsvarande `AzureRM.Profile`)
 
 > [!NOTE]
-> Jobb för synkronisering av käll kontroll körs under användarens Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.
+> Synkroniseringsjobb för käll kontroll körs under användarens Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.
 
 ## <a name="configuring-source-control"></a>Konfigurera käll kontroll
 
@@ -54,15 +54,15 @@ Använd den här proceduren för att konfigurera käll kontroll med Azure Portal
 
 3. Ett webbläsarfönster öppnas och du blir ombedd att logga in. Följ anvisningarna för att slutföra autentiseringen.
 
-4. På sidan **käll kontroll sammanfattning** använder du fälten för att fylla i egenskaperna för käll kontroll som definierats nedan. Klicka på **Spara** när du är färdig. 
+4. På sidan käll kontroll sammanfattning använder du fälten för att fylla i egenskaperna för käll kontroll som definierats nedan. Klicka på **Spara** när du är färdig. 
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
     |Namn på käll kontroll     | Ett eget namn för käll kontrollen. Namnet får bara innehålla bokstäver och siffror.        |
-    |Typ av käll kontroll     | Typ av käll kontroll mekanism. De tillgängliga alternativen är:</br> GitHub</br>Azure-databaser (git)</br> Azure-databaser (TFVC)        |
+    |Typ av käll kontroll     | Typ av käll kontroll mekanism. De tillgängliga alternativen är:</br> * GitHub</br>* Azure-databaser (git)</br> * Azure-databaser (TFVC)        |
     |Databas     | Namn på databasen eller projektet. De första 200-databaserna hämtas. Om du vill söka efter en lagrings plats skriver du namnet i fältet och klickar på **Sök på GitHub**.|
     |Ligger     | Gren att hämta källfilerna från. Förgrenings inriktning är inte tillgängligt för käll kontroll typen TFVC.          |
-    |Mappsökväg     | Mapp som innehåller Runbooks som ska synkroniseras, till exempel/Runbooks. Endast Runbooks i den angivna mappen synkroniseras. Rekursion stöds inte.        |
+    |Mappsökväg     | Mapp som innehåller Runbooks som ska synkroniseras, till exempel **/Runbooks**. Endast Runbooks i den angivna mappen synkroniseras. Rekursion stöds inte.        |
     |Automatisk synkronisering<sup>1</sup>     | Inställning som aktiverar eller inaktiverar automatisk synkronisering när ett genomförande görs i käll kontrollens lagrings plats.        |
     |Publicera Runbook     | Inställning av på om Runbooks publiceras automatiskt efter synkronisering från käll kontroll och av annat sätt.           |
     |Beskrivning     | Text som anger ytterligare information om käll kontrollen.        |
@@ -72,7 +72,7 @@ Använd den här proceduren för att konfigurera käll kontroll med Azure Portal
    ![Översikt över käll kontroll](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Din inloggning för käll kontrollens lagrings plats kan skilja sig från din inloggning för Azure Portal. Se till att du är inloggad med rätt konto för käll kontrollens lagrings plats när du konfigurerar käll kontroll. Om det finns en tvivel öppnar du en ny flik i webbläsaren, loggar ut från visualstudio.com eller github.com och försöker ansluta till käll kontrollen igen.
+> Inloggningen för käll kontrollens lagrings plats kan skilja sig från din inloggning för Azure Portal. Se till att du är inloggad med rätt konto för käll kontrollens lagrings plats när du konfigurerar käll kontroll. Om det finns en tvivel öppnar du en ny flik i webbläsaren, loggar ut från **VisualStudio.com** eller **GitHub.com**och försöker ansluta till käll kontrollen igen.
 
 ### <a name="configure-source-control----powershell"></a>Konfigurera käll kontroll – PowerShell
 
@@ -109,13 +109,13 @@ I följande tabell definieras de lägsta PAT-behörigheter som krävs för GitHu
 
 |Omfång  |Beskrivning  |
 |---------|---------|
-|**lagringsplats**     |         |
-|lagrings platsen: status     | Status för åtkomst genomförande         |
-|repo_deployment      | Åtkomst distributions status         |
-|public_repo     | Åtkomst till offentliga databaser         |
-|**administratör: repo_hook**     |         |
-|Skriv: repo_hook     | Skriv databas-hookar         |
-|Läs: repo_hook|Läsa databas-hookar|
+|**`repo`**     |         |
+|`repo:status`     | Status för åtkomst genomförande         |
+|`repo_deployment`      | Åtkomst distributions status         |
+|`public_repo`     | Åtkomst till offentliga databaser         |
+|**`admin:repo_hook`**     |         |
+|`write:repo_hook`     | Skriv databas-hookar         |
+|`read:repo_hook`|Läsa databas-hookar|
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Lägsta PAT-behörigheter för Azure databaser
 
@@ -134,9 +134,9 @@ I följande lista definieras de lägsta PAT-behörigheter som krävs för Azure 
 
 ## <a name="synchronizing"></a>Synkronisera
 
-Gör följande för att synkronisera med käll kontroll. 
+Följ dessa steg för att synkronisera med käll kontroll. 
 
-1. Välj källan från tabellen på **käll kontroll** sidan. 
+1. Välj källan från tabellen på käll kontroll sidan. 
 
 2. Starta synkroniseringsprocessen genom att klicka på **Starta synkronisering** . 
 
@@ -178,7 +178,7 @@ Gör följande för att synkronisera med käll kontroll.
 
     ```
 
-6. Ytterligare loggning är tillgängligt genom att välja **alla loggar** på sidan **Översikt över synkronisering av käll kontroll** . Dessa ytterligare logg poster kan hjälpa dig att felsöka problem som kan uppstå när du använder käll kontroll.
+6. Ytterligare loggning är tillgängligt genom att välja **alla loggar** på sidan Översikt över synkronisering av käll kontroll. Dessa ytterligare logg poster kan hjälpa dig att felsöka problem som kan uppstå när du använder käll kontroll.
 
 ## <a name="disconnecting-source-control"></a>Kopplar från käll kontrollen
 
@@ -188,11 +188,11 @@ Så här kopplar du bort från en lagrings plats för käll kontroll:
 
 2. Välj den metod för käll kontroll som ska tas bort. 
 
-3. Klicka på **ta bort**på sidan **Översikt över käll kontroll** .
+3. Klicka på **ta bort**på sidan Översikt över käll kontroll.
 
 ## <a name="handling-encoding-issues"></a>Hantera kodnings problem
 
-Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare kan kodnings problem uppstå. Läs mer om den här situationen i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
 ## <a name="updating-the-pat"></a>Uppdaterar PAT
 

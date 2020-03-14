@@ -8,24 +8,27 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: d217025a847c33ceff49feac22023f80fde2b109
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79218425"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371587"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importera och exportera IoT Hub enhets identiteter i bulk
 
 Varje IoT-hubb har ett identitets register som du kan använda för att skapa resurser per enhet i tjänsten. I identitets registret kan du också kontrol lera åtkomsten till de enhets riktade slut punkterna. I den här artikeln beskrivs hur du importerar och exporterar enhets identiteter i bulk till och från ett identitets register. Om du vill se ett fungerande C# exempel i och lära dig hur du kan använda den här funktionen när du klonar en hubb till en annan region, se [hur du klonar en IoT Hub](iot-hub-how-to-clone.md).
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+> [!NOTE]
+> IoT Hub har nyligen lagt till stöd för virtuellt nätverk i ett begränsat antal regioner. Den här funktionen skyddar import-och export åtgärder och eliminerar behovet av att skicka nycklar för autentisering.  I början är stödet för virtuellt nätverk endast tillgängligt i följande regioner: *WestUS2*, *öster*och *usasödracentrala*. Mer information om stöd för virtuella nätverk och API-anrop för att implementera det finns i [IoT Hub stöd för virtuella nätverk](virtual-network-support.md).
 
 Import-och export åtgärder sker i samband med *jobb* som gör att du kan köra Mass åtgärder mot en IoT-hubb.
 
 Klassen **RegistryManager** innehåller metoderna **ExportDevicesAsync** och **ImportDevicesAsync** som använder **jobb** ramverket. Med dessa metoder kan du exportera, importera och synkronisera hela identitet registret för IoT Hub.
 
 I det här avsnittet beskrivs hur du använder **RegistryManager** -klassen och- **jobb** systemet för att utföra Mass import och export av enheter till och från en IoT Hubs identitets register. Du kan också använda Azure-IoT Hub Device Provisioning Service för att möjliggöra Zero Touch-etablering, just-in-Time-etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i dokumentationen för [etablerings tjänsten](/azure/iot-dps).
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>Vad är jobb?
 
@@ -83,6 +86,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+> [!NOTE]
+> Om ditt lagrings konto har brand Väggs konfigurationer som begränsar IoT Hubens anslutning, bör du överväga att använda [Microsofts betrodda första part undantag](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (tillgängligt i utvalda regioner för IoT Hub med hanterad tjänst identitet).
+
 
 ## <a name="device-importexport-job-limits"></a>Utskrifts gränser för enhets import/export
 

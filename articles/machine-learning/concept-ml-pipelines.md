@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 3f1d0e13d9b76c7ef06edb953b59ebfa73c302de
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355353"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79296854"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -204,6 +204,12 @@ De främsta fördelarna med att använda pipeliner för dina Machine Learning-ar
 |**Spårning och versions hantering**|I stället för att manuellt spåra data och resultat Sök vägar när du itererar, använder du pipelines SDK för att explicit namnge och version av data källor, indata och utdata. Du kan också hantera skript och data separat för ökad produktivitet.|
 | **Modulariteten** | Genom att avgränsa områden och isolera ändringar kan program vara utvecklas snabbare med högre kvalitet. | 
 |**Samarbete**|Pipelines gör det möjligt för data experter att samar beta över alla områden i design processen för maskin inlärning, samtidigt som de kan arbeta med pipeline-steg samtidigt.|
+
+### <a name="choosing-the-proper-pipelinestep-subclass"></a>Välja rätt PipelineStep-underklass
+
+`PythonScriptStep` är den mest flexibla underklassen för den abstrakta `PipelineStep`. Andra underklasser, till exempel `EstimatorStep` underklasser och `DataTransferStep` kan utföra vissa uppgifter med mindre kod. Till exempel kan en `EstimatorStep` skapas genom att bara skicka ett namn för steget, ett `Estimator`och ett beräknings mål. Eller så kan du åsidosätta indata och utdata, pipeline-parametrar och argument. Mer information finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md). 
+
+`DataTransferStep` gör det enkelt att flytta data mellan data källor och mottagare. Koden för att göra detta manuellt är enkel men upprepad. I stället kan du bara skapa en `DataTransferStep` med ett namn, referenser till en data källa och en data mottagare och ett beräknings mål. Den bärbara datorn [Azure Machine Learning pipeline med DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) demonstrerar den här flexibiliteten.
 
 ## <a name="modules"></a>Moduler
 

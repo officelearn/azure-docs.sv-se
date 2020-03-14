@@ -1,17 +1,17 @@
 ---
-title: Data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure Portal
+title: Data kryptering – Azure Portal – för Azure Database for PostgreSQL-enskild server
 description: Lär dig hur du konfigurerar och hanterar data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure Portal.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 6028f5e618b4b480a2259241fc2380f0200cebc6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: fe4c69787b606c601d2dc8b31cadc6dcf57458da
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78898356"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297075"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Data kryptering för Azure Database for PostgreSQL enskild server med hjälp av Azure Portal
 

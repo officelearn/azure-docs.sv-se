@@ -11,65 +11,53 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: ed33d50da84347f55d355802e7767c8477c30e87
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 03/10/2020
+ms.openlocfilehash: 31bd47128a272e75d7021180b536fe6bf7420f55
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482148"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299302"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas
 
-I den här snabb starten använder du [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) för att ansluta till en Azure SQL-databas. Därefter kör du Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Du kan använda SSMS för att hantera all SQL-infrastruktur, från SQL Server till SQL Database för Microsoft Windows.  
+I den här snabb starten får du lära dig hur du använder SQL Server Management Studio (SSMS) för att ansluta till en Azure SQL-databas och köra vissa frågor.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
+För att slutföra den här snabb starten krävs följande objekt:
 
-  || Enskild databas | Hanterad instans |
-  |:--- |:--- |:---|
-  | Skapa| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
-  |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
-  |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms/).
+- Exempel databasen AdventureWorksLT. Om du behöver en fungerande kopia av AdventureWorksLT-databasen skapar du en genom att slutföra snabb starten för att [skapa en Azure SQL Database](sql-database-single-database-get-started.md) .
+    - Skripten i den här artikeln är skrivna för att använda AdventureWorksLT-databasen. Om du använder en hanterad instans måste du antingen importera AdventureWorks-databasen till en instans databas eller ändra skripten i den här artikeln för att använda Wide World Importers-databasen.
 
-  > [!IMPORTANT]
-  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
-
-## <a name="install-the-latest-ssms"></a>Installera den senaste SSMS
-
-Innan du börjar ska du kontrol lera att du har installerat de senaste [SSMS][ssms-install-latest-84g].
+Om du bara vill köra vissa ad hoc-frågor utan att installera SSMS, se [snabb start: använd Azure portalens Frågeredigeraren för att fråga en SQL-databas](sql-database-connect-query-portal.md).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
-Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
+Hämta anslutnings informationen du behöver för att ansluta till databasen. Du behöver det fullständigt kvalificerade Server namnet eller värd namnet, databas namnet och inloggnings informationen för att slutföra den här snabb starten.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
+2. Gå till den **SQL-databas** eller **SQL-hanterade instans** som du vill fråga.
 
-3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På sidan **Översikt** kopierar du det fullständigt kvalificerade Server namnet. Den finns bredvid **Server namnet** för en enskild databas, eller det fullständigt kvalificerade Server namnet bredvid **värd** för en hanterad instans. Det fullständigt kvalificerade namnet ser ut så här: *servername.Database.Windows.net*, förutom att det har det faktiska Server namnet.
 
 ## <a name="connect-to-your-database"></a>Ansluta till databasen
 
-Anslut till din Azure SQL Database-server i SMSS.
+I SSMS ansluter du till din Azure SQL Database-Server.
 
 > [!IMPORTANT]
 > En Azure SQL Database-server avlyssnar port 1433. För att anslutning ska kunna ske till en SQL Database-server inifrån en företagsbrandvägg måste brandväggen ha den här porten öppen.
->
 
-1. Öppna SSMS. Dialogrutan **Anslut till server** visas.
+1. Öppna SSMS.
 
-2. Ange följande information:
+2. Dialogrutan **Anslut till server** visas. Ange följande information:
 
    | Inställning      | Föreslaget värde    | Beskrivning |
    | ------------ | ------------------ | ----------- |
    | **Servertyp** | Databasmotor | Obligatoriskt värde. |
-   | **Servernamn** | Fullständigt kvalificerat servernamn | Ungefär så här: **mynewserver20170313.database.windows.net**. |
+   | **Servernamn** | Fullständigt kvalificerat servernamn | Något som liknar: **servername.Database.Windows.net**. |
    | **Autentisering** | SQL Server-autentisering | Den här självstudien använder SQL-autentisering. |
    | **Inloggning** | Serveradministratörskontots användar-ID | Användar-ID från det serveradministratörskonto som användes när servern skapades. |
    | **Lösenord** | Serveradministratörskontots lösenord | Lösenord från det serveradministratörskonto som användes när servern skapades. |
@@ -77,23 +65,23 @@ Anslut till din Azure SQL Database-server i SMSS.
 
    ![Anslut till server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Välj **Alternativ** i dialogrutan **Anslut till server**. I list rutan **Anslut till databas** väljer du **mySampleDatabase**. Om du lämnar List rutan till standard, görs anslutningen till **Master** -databasen.
+3. Välj **Alternativ** i dialogrutan **Anslut till server**. I den nedrullningsbara menyn **Anslut till databas** väljer du **mySampleDatabase**. När du har slutfört snabb starten i [avsnittet krav](#prerequisites) skapas en AdventureWorksLT-databas med namnet mySampleDatabase. Om din arbets kopia av AdventureWorks-databasen har ett annat namn än mySampleDatabase, väljer du den i stället.
 
    ![ansluta till databas på server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
 4. Välj **Anslut**. Fönstret Object Explorer öppnas.
 
-5. Om du vill se databasens objekt expanderar du **Databaser** och **mySampleDatabase**.
+5. Om du vill visa databasens objekt expanderar du **databaser** och expanderar sedan noden databas.
 
    ![mySampleDatabase-objekt](./media/sql-database-connect-query-ssms/connected.png)  
 
-## <a name="query-data"></a>Frågedata
+## <a name="query-data"></a>Söka i data
 
 Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-koden för att fråga efter de 20 viktigaste produkterna efter kategori.
 
 1. I Object Explorer högerklickar du på **mySampleDatabase**. Välj sedan **Ny fråga**. Ett nytt frågefönster öppnas som är anslutet till din databas.
 
-2. Klistra in den här SQL-frågan i frågefönstret.
+2. Klistra in följande SQL-fr åga i frågefönstret:
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -102,15 +90,15 @@ Kör den här [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transac
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. I verktygsfältet väljer du **Kör** för att hämta data från tabellerna `Product` och `ProductCategory`.
+3. I verktygsfältet väljer du **Kör** för att köra frågan och hämta data från `Product` och `ProductCategory` tabeller.
 
     ![fråga för att hämta data från tabell produkter och ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
-## <a name="insert-data"></a>Infoga data
+### <a name="insert-data"></a>Infoga data
 
 Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL-koden för att skapa en ny produkt i tabellen `SalesLT.Product`.
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -133,9 +121,9 @@ Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transac
 
 2. Välj **Kör** för att infoga en ny rad i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)** .
 
-## <a name="view-the-result"></a>Visa resultatet
+#### <a name="view-the-result"></a>Visa resultatet
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
    ```sql
    SELECT * FROM [SalesLT].[Product]
@@ -146,11 +134,11 @@ Kör den här [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transac
 
    ![resultat av produkt tabell fråga](./media/sql-database-connect-query-ssms/result.png)
 
-## <a name="update-data"></a>Uppdatera data
+### <a name="update-data"></a>Uppdatera data
 
 Kör den här [uppdateringen](https://msdn.microsoft.com/library/ms177523.aspx) av Transact-SQL-koden för att ändra din nya produkt.
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt föregående fråga med denna som returnerar den nya posten som skapades tidigare:
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -160,11 +148,11 @@ Kör den här [uppdateringen](https://msdn.microsoft.com/library/ms177523.aspx) 
 
 2. Välj **Kör** för att uppdatera den angivna raden i `Product`-tabellen. Fönstret **Meddelanden** visas **(1 rad påverkas)** .
 
-## <a name="delete-data"></a>Ta bort data
+### <a name="delete-data"></a>Ta bort data
 
 Kör den här [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL-koden för att ta bort din nya produkt.
 
-1. Ersätt den tidigare frågan med denna.
+1. Ersätt den föregående frågan med denna.
 
    ```sql
    DELETE FROM [SalesLT].[Product]
@@ -184,7 +172,3 @@ Kör den här [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transac
 - Mer information om att ansluta och ställa frågor med Java finns i [Ansluta och fråga med Java](sql-database-connect-query-java.md).
 - Mer information om att ansluta och ställa frågor med Python finns i [Ansluta och fråga med Python](sql-database-connect-query-python.md).
 - Mer information om att ansluta och ställa frågor med Ruby finns i [Ansluta och fråga med Ruby](sql-database-connect-query-ruby.md).
-
-<!-- Article link references. -->
-
-[ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms

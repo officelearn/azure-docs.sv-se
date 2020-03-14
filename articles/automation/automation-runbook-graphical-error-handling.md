@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4f975af233973ce5fac75ca46e334af5d91e8edc
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f1aa605b3e6f32b260ea4a9eee9c056277fcd12d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246280"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367082"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Felhantering i Azure Automation grafiska runbooks
 
@@ -48,7 +48,7 @@ Den rekommenderade metoden är att skapa en dedikerad fel hanterings-Runbook med
 1. Skickar ett meddelande om det här problemet.
 2. Startar en annan Runbook som automatiskt etablerar en ny virtuell dator i stället.
 
-En lösning är att ha en fellänk i Runbook som pekar på en aktivitet som hanterar steg ett. Runbooken kan till exempel ansluta **Skriv varnings-** cmdlet: en till en aktivitet för steg två, till exempel cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
+En lösning är att ha en fellänk i Runbook som pekar på en aktivitet som hanterar steg ett. Runbooken kan till exempel ansluta `Write-Warning`-cmdlet till en aktivitet för steg två, till exempel cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) .
 
 Du kan också generalisera detta beteende för användning i många runbooks genom att placera dessa två aktiviteter i en separat Runbook för fel hantering. Innan den ursprungliga runbooken anropar den här fel hanterings runbooken kan den skapa ett anpassat meddelande från dess data och sedan skicka det som en parameter till den fel hanterings-runbooken.
 
@@ -60,9 +60,9 @@ När du har aktiverat konfigurations inställningen måste din Runbook skapa en 
 
 I följande exempel hämtar en Runbook en variabel som innehåller dator namnet på en virtuell dator. Den försöker sedan starta den virtuella datorn med nästa aktivitet.<br><br> ![Exempel på fel hantering av Automation-Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-**Get-AutomationVariable** -aktiviteten och cmdleten [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) har kon figurer ATS för att konvertera undantag till fel. Om det uppstår problem med att hämta variabeln eller att starta den virtuella datorn genererar koden fel.<br><br> ![Automation Runbook Error-hantering aktivitets inställningar](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
+`Get-AutomationVariable`-aktiviteten och cmdleten [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) har kon figurer ATS för att konvertera undantag till fel. Om det uppstår problem med att hämta variabeln eller att starta den virtuella datorn genererar koden fel.<br><br> ![Automation Runbook Error-hantering aktivitets inställningar](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png).
 
-Fel länkar flödar från dessa aktiviteter till en enskild **fel hanterings** kod aktivitet. Den här aktiviteten har kon figurer ATS med ett enkelt PowerShell-uttryck som använder nyckelordet **Throw** för att stoppa bearbetningen, tillsammans med `$Error.Exception.Message` för att hämta meddelandet som beskriver det aktuella undantaget.<br><br> ![Automation Runbook fel hanterings kod exempel](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+Fel länkar flödar från dessa aktiviteter till en enda `error management` kod aktivitet. Den här aktiviteten har kon figurer ATS med ett enkelt PowerShell-uttryck som använder nyckelordet `throw` för att stoppa bearbetningen, tillsammans med `$Error.Exception.Message` för att hämta meddelandet som beskriver det aktuella undantaget.<br><br> ![Automation Runbook fel hanterings kod exempel](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

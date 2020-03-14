@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: fde8829da3e523ced44143db0dee6b93cf9152bd
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 466f870f257ca4d93764cbfdb4208e8cf1f75553
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147769"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205046"
 ---
-# <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto (för hands version)
+# <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
 Med hjälp av en privat Azure-länk kan du ansluta till ett Azure Cosmos-konto via en privat slut punkt. Den privata slut punkten är en uppsättning privata IP-adresser i ett undernät i det virtuella nätverket. Du kan sedan begränsa åtkomsten till ett Azure Cosmos-konto via privata IP-adresser. När en privat länk kombineras med begränsade NSG-principer bidrar den till att minska risken för data exfiltrering. Mer information om privata slut punkter finns i artikeln [Azure Private Link](../private-link/private-link-overview.md) .
 
@@ -22,6 +22,9 @@ Med privat länk kan användarna få åtkomst till ett Azure Cosmos-konto inifr�
 Du kan ansluta till ett Azure Cosmos-konto som kon figurer ATS med en privat länk med hjälp av metoden för automatisk eller manuell godkännande. Läs mer i avsnittet om [godkännande av arbets flöde](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) i dokumentationen för privat länk. 
 
 I den här artikeln beskrivs stegen för att skapa en privat slut punkt. Det förutsätter att du använder metoden för automatiskt godkännande.
+
+> [!NOTE]
+> Stöd för privata slut punkter är för närvarande allmänt tillgängligt i regioner som stöds för anslutnings läge för gateway. För direkt läge är det tillgängligt som en förhands gransknings funktion.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -33,7 +36,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 
    ![Val för att skapa en privat slut punkt i Azure Portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
 
-1. I fönstret **skapa en privat slut punkt (för hands version) – grunderna** anger eller väljer du följande information:
+1. I fönstret **skapa en privat slut punkt – grundläggande** anger eller väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -57,7 +60,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
     |||
 
 1. Välj **Nästa: konfiguration**.
-1. I **skapa en privat slut punkt (för hands version) – konfiguration**, anger eller väljer du den här informationen:
+1. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -349,7 +352,7 @@ Använd följande kod för att skapa en Resource Manager-mall med namnet "Privat
         },
         "VNetId": {
             "type": "string"
-        }       
+        }        
     },
     "resources": [
         {
@@ -374,7 +377,7 @@ Använd följande kod för att skapa en Resource Manager-mall med namnet "Privat
                     "id": "[parameters('VNetId')]"
                 }
             }
-        }       
+        }        
     ]
 }
 ```
@@ -391,7 +394,7 @@ Använd följande kod för att skapa en Resource Manager-mall med namnet "Privat
         },
         "IPAddress": {
             "type":"string"
-        }       
+        }        
     },
     "resources": [
          {
@@ -406,7 +409,7 @@ Använd följande kod för att skapa en Resource Manager-mall med namnet "Privat
                     }
                 ]
             }
-        }   
+        }    
     ]
 }
 ```
@@ -548,29 +551,13 @@ Följande situationer och resultat är möjliga när du använder en privat län
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Uppdatera en privat slut punkt när du lägger till eller tar bort en region
 
-Om du lägger till eller tar bort regioner i ett Azure Cosmos-konto måste du lägga till eller ta bort DNS-poster för det kontot. Uppdatera dessa ändringar i enlighet med den privata slut punkten med hjälp av följande steg:
-
-1. När Azure Cosmos DB-administratören lägger till eller tar bort regioner, får nätverks administratören ett meddelande om väntande ändringar. För den privata slut punkten som är mappad till ett Azure Cosmos-konto ändras värdet för egenskapen `ActionsRequired` från `None` till `Recreate`. Sedan uppdaterar nätverks administratören den privata slut punkten genom att utfärda en skicka-begäran med samma Resource Manager-nyttolast som användes för att skapa den.
-
-1. När den privata slut punkten har uppdaterats kan du uppdatera under nätets privata DNS-zon så att den återspeglar de tillagda eller borttagna DNS-posterna och deras motsvarande privata IP-adresser.
+Om du lägger till eller tar bort regioner i ett Azure Cosmos-konto måste du lägga till eller ta bort DNS-poster för det kontot. När regionerna har lagts till eller tagits bort kan du uppdatera under nätets privata DNS-zon så att den återspeglar de tillagda eller borttagna DNS-posterna och deras motsvarande privata IP-adresser.
 
 Anta till exempel att du distribuerar ett Azure Cosmos-konto i tre regioner: "västra USA", "Central USA" och "Västeuropa". När du skapar en privat slut punkt för ditt konto reserveras fyra privata IP-adresser i under nätet. Det finns en IP-adress för var och en av de tre regionerna och det finns en IP-adress för global/region-oberoende-slutpunkten.
 
-Senare kan du lägga till en ny region (till exempel "USA, östra") till Azure Cosmos-kontot. Den nya regionen är som standard inte tillgänglig från den befintliga privata slut punkten. Azure Cosmos-konto administratören bör uppdatera den privata slut punkts anslutningen innan du får åtkomst till den från den nya regionen. 
+Senare kan du lägga till en ny region (till exempel "USA, östra") till Azure Cosmos-kontot. När du har lagt till den nya regionen måste du lägga till en motsvarande DNS-post till antingen din privata DNS-zon eller din anpassade DNS.
 
-När du kör kommandot ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` innehåller kommandots utdata `actionsRequired`-parametern. Den här parametern har angetts till `Recreate`. Det här värdet anger att den privata slut punkten ska uppdateras. Därefter kör Azure Cosmos-konto administratören `Set-AzPrivateEndpoint`-kommandot för att utlösa uppdateringen av den privata slut punkten.
-
-```powershell
-$pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
-
-Set-AzPrivateEndpoint -PrivateEndpoint $pe
-```
-
-En ny privat IP reserveras automatiskt i under nätet under den här privata slut punkten. Värdet för `actionsRequired` blir `None`. Om du inte har någon privat DNS zon integrering (med andra ord, om du använder en anpassad privat DNS-zon) måste du konfigurera din privata DNS-zon för att lägga till en ny DNS-post för den privata IP-adressen som motsvarar den nya regionen.
-
-Du kan använda samma steg när du tar bort en region. Den borttagna regionens privata IP-adress återtas automatiskt och `actionsRequired`-flaggan blir `None`. Om du inte har någon privat integrering av DNS-zonen måste du konfigurera din privata DNS-zon för att ta bort DNS-posten för den borttagna regionen.
-
-DNS-poster i den privata DNS-zonen tas inte bort automatiskt när en privat slut punkt tas bort eller en region från Azure Cosmos-kontot tas bort. Du måste ta bort DNS-posterna manuellt.
+Du kan använda samma steg när du tar bort en region. När du har tagit bort regionen måste du ta bort motsvarande DNS-post från antingen din privata DNS-zon eller din anpassade DNS.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
@@ -582,6 +569,8 @@ Följande begränsningar gäller när du använder en privat länk med ett Azure
   > Om du vill skapa en privat slut punkt, se till att både det virtuella nätverket och Azure Cosmos-kontot finns i regioner som stöds.
 
 * När du använder en privat länk med ett Azure Cosmos-konto med hjälp av en anslutning via direkt läge, kan du bara använda TCP-protokollet. HTTP-protokollet stöds inte ännu.
+
+* Stöd för privata slut punkter är för närvarande allmänt tillgängligt i regioner som stöds för anslutnings läge för gateway. För direkt läge är det tillgängligt som en förhands gransknings funktion.
 
 * När du använder Azure Cosmos DBs API för MongoDB-konton stöds en privat slut punkt för konton på Server version 3,6 (det vill säga konton som använder slut punkten i formatet `*.mongo.cosmos.azure.com`). Privat länk stöds inte för konton på Server version 3,2 (det vill säga konton som använder slut punkten i formatet `*.documents.azure.com`). Om du vill använda en privat länk bör du migrera gamla konton till den nya versionen.
 

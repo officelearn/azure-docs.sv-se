@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 3ded20f37a394e6adf726ad40c01aa36d41e4e8d
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245231"
+ms.locfileid: "79299353"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Metod tips för Azure för nätverks säkerhet
 I den här artikeln beskrivs en samling Azure Best Practices för att förbättra nätverks säkerheten. Dessa bästa metoder är härledda från vår erfarenhet av Azure-nätverk och våra kunders upplevelser som du själv har.
@@ -122,7 +122,7 @@ Perimeternätverk är användbara eftersom du kan fokusera din hantering av nät
 
 Baserat på begreppet noll förtroende som nämnts tidigare rekommenderar vi att du använder ett perimeternätverk för alla hög säkerhets distributioner för att förbättra nivån på nätverks säkerhet och åtkomst kontroll för dina Azure-resurser. Du kan använda Azure eller en lösning från tredje part för att tillhandahålla ett extra säkerhets lager mellan dina till gångar och Internet:
 
-- Inbyggda Azure-kontroller. [Azure-brandväggen](/azure/firewall/overview) och [brand väggen för webbaserade program i Application Gateway](/azure/application-gateway/overview#web-application-firewall) ger grundläggande säkerhet med en fullständigt tillstånds känslig brand vägg som en tjänst, inbyggd hög tillgänglighet, obegränsad moln skalbarhet, FQDN-filtrering, stöd för OWASP Core Rule Set och enkel konfiguration och konfiguration.
+- Inbyggda Azure-kontroller. [Azure-brandväggen](/azure/firewall/overview) och [brand väggen för webbaserade program i Application Gateway](../../application-gateway/features.md#web-application-firewall) ger grundläggande säkerhet med en fullständigt tillstånds känslig brand vägg som en tjänst, inbyggd hög tillgänglighet, obegränsad moln skalbarhet, FQDN-filtrering, stöd för OWASP Core Rule Set och enkel konfiguration och konfiguration.
 - Erbjudanden från tredje part. Sök på [Azure Marketplace](https://azuremarketplace.microsoft.com/) efter nästa generations brand vägg (NGFW) och andra tredjepartsprogram som tillhandahåller välbekanta säkerhets verktyg och avsevärt förbättrade nätverks säkerhets nivåer. Konfigurationen kan vara mer komplex, men ett erbjudande från tredje part kan göra att du kan använda befintliga funktioner och färdighetsuppsättningar.
 
 ## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Undvik att exponera Internet med dedikerade WAN-länkar

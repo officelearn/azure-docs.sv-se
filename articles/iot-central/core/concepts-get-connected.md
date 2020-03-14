@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 85403442119f73b363fee98a9c225b9c0ec18119
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e67a8f6b9cc175932b09e6f576148656dd9da9ba
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026866"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298826"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Anslut till Azure IoT Central
 
@@ -194,6 +194,9 @@ När en riktig enhet ansluter till ditt IoT Central-program ändras enhetens sta
     - Enheter som inte registrerats manuellt på sidan **enheter** är anslutna till giltiga autentiseringsuppgifter men utan att ange mall-ID vid registreringen.  
 Operatören kan koppla en enhet till en mall från sidan **enheter** med knappen **migrera** .
 
+## <a name="best-practices"></a>Bästa praxis 
+1.  När du använder DPS för att ansluta enheter till IoT Central kontrollerar du att enhets anslutnings strängen (IoT Hub) inte är sparad eller cachelagrad. För att återansluta enheter går du igenom det reguljära DPS-enhetens registrerings flöde för att få rätt anslutnings sträng för enheten. Om anslutnings strängen cachelagras körs enhetens program vara i risken för att en inaktuell anslutnings sträng används i scenarier där IoT Central har uppdaterat den underliggande Azure-IoT Hub. 
+
 ## <a name="sdk-support"></a>SDK-stöd
 
 Azure-enhetens SDK: er erbjuder det enklaste sättet för dig att implementera enhets koden. Följande enhets-SDK: er är tillgängliga:
@@ -213,7 +216,7 @@ All enhets kommunikation med IoT Hub använder följande IoT Hub anslutnings alt
 
 I följande tabell sammanfattas hur Azure IoT Central enhets funktioner mappas till IoT Hub funktioner:
 
-| Utforska IoT Central | Azure IoT Hub |
+| Azure IoT Central | Azure IoT Hub |
 | ----------- | ------- |
 | Mått: telemetri | Meddelanden från enhet till moln |
 | Enhetsegenskaper | Enhetens dubbla rapporterade egenskaper |

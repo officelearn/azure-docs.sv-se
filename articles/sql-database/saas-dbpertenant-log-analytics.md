@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: eca2dbe7589fdc7d59a84d21ecf59749d986ade9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7429a9d5e9a803f0e9a6f900c5d81e77e7477a48
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826417"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214493"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Konfigurera och använda Azure Monitor loggar med flera innehavare SQL Database SaaS-appen
 
@@ -30,7 +30,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Installera och konfigurera Azure Monitor loggar.
 > * Använd Azure Monitor loggar för att övervaka pooler och databaser.
 
-Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
+Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
 * Wingtip-biljetterna SaaS Database-per-klient-app distribueras. Mer information om hur du distribuerar på mindre än fem minuter finns i [distribuera och utforska Wingtip Ticket SaaS Database-användarspecifika program](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
@@ -41,7 +41,7 @@ I [självstudien om prestanda övervakning och hantering](saas-dbpertenant-perfo
 
 För Azure SQL Database är övervakning och avisering tillgänglig på databaser och pooler i Azure Portal. Den här inbyggda övervakningen och aviseringen är praktisk, men det är också resurs särskilt. Det innebär att det är mindre bra att övervaka stora installationer eller att tillhandahålla en enhetlig vy över resurser och prenumerationer.
 
-I scenarier med stora volymer kan du använda Azure Monitor loggar för övervakning och avisering. Azure Monitor är en separat Azure-tjänst som möjliggör analys av diagnostikloggar och telemetri som samlas in i en arbets yta från potentiellt många tjänster. Azure Monitor-loggar innehåller ett inbyggt frågespråk och data visualiserings verktyg som tillåter drift data analys. SQL Analytics-lösningen innehåller flera fördefinierade elastiska pooler och databas övervakning och aviseringar och frågor. Azure Monitor loggar innehåller också en anpassad vy designer.
+I scenarier med stora volymer kan du använda Azure Monitor loggar för övervakning och avisering. Azure Monitor är en separat Azure-tjänst som möjliggör analys över loggar som samlats in i en arbets yta från potentiellt många tjänster. Azure Monitor-loggar innehåller ett inbyggt frågespråk och data visualiserings verktyg som tillåter drift data analys. SQL Analytics-lösningen innehåller flera fördefinierade elastiska pooler och databas övervakning och aviseringar och frågor. Azure Monitor loggar innehåller också en anpassad vy designer.
 
 OMS-arbetsytor kallas nu för Log Analytics-arbetsytor. Log Analytics arbets ytor och analys lösningar som är öppna i Azure Portal. Azure Portal är den nyare åtkomst punkten, men det kan vara vad som ligger bakom Operations Management Suite-portalen i vissa områden.
 
@@ -93,7 +93,7 @@ I den här övningen öppnar du Log Analytics arbets ytan i Azure Portal för at
 
 1. Välj panelen **Azure SQL-analys** för att öppna den.
 
-    ![Översikts panel](media/saas-dbpertenant-log-analytics/overview.png)
+    ![Översiktspanel](media/saas-dbpertenant-log-analytics/overview.png)
 
 1. Vyerna i lösningen rullas åt sidan, med sin egen inre rullnings List längst ned. Uppdatera sidan om det behövs.
 
@@ -128,7 +128,7 @@ I den här övningen öppnar du Log Analytics arbets ytan i Azure Portal för at
 
 1. Gå tillbaka till arbets ytan Log Analytics och välj **OMS-portalen** för att öppna arbets ytan där.
 
-    ![Log Analytics arbets yta](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Log Analytics-arbetsyta](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
 I arbets ytan Log Analytics kan du utforska logg-och mått data ytterligare. 
 

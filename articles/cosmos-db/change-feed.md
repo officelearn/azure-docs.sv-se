@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: bf36c0697b5e30c77610d30475be20adc18810cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 898dfe7a619981b93af98effa942fdecbeb42dde
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445595"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368136"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändra feed i Azure Cosmos DB – översikt
 
-Ändra stöd för feed i Azure Cosmos DB fungerar genom att lyssna på en Azure Cosmos-behållare för eventuella ändringar. Funktionen returnerar sedan den sorterade listan över dokument som ändrats i den ordning de ändrades. Ändringarna är beständiga, kan bearbetas asynkront och inkrementellt, och utdata kan distribueras bland en eller flera konsumenter för parallell bearbetning. 
+Stödet för ändringsflöde i Azure Cosmos DB fungerar genom att lyssna efter ändringar på en Azure Cosmos-container. Funktionen returnerar sedan den sorterade listan över dokument som ändrats i den ordning de ändrades. Ändringarna är beständiga, kan bearbetas asynkront och inkrementellt, och utdata kan distribueras bland en eller flera konsumenter för parallell bearbetning. 
 
 Azure Cosmos DB är passar bra för IoT, spel, återförsäljnings, och operativa loggningsprogram. Ett vanliga designmönster i dessa program är att använda ändringar av data för att utlösa ytterligare åtgärder. Exempel på ytterligare åtgärder:
 
@@ -33,20 +33,24 @@ Azure Cosmos DB är passar bra för IoT, spel, återförsäljnings, och operativ
 
 Den här funktionen stöds för närvarande av följande Azure Cosmos DB API: er och klient-SDK: er.
 
-| **Klientdrivrutiner** | **Azure CLI** | **SQL-API** | **Azure Cosmos DB s API för Cassandra** | **Azure Cosmos DB s API för MongoDB** | **Gremlin-API**|**Table API** |
+| **Klient driv rutiner** | **Azure CLI** | **SQL-API** | **Azure Cosmos DB s API för Cassandra** | **Azure Cosmos DB s API för MongoDB** | **Gremlin-API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Ej tillämpligt | Ja | Ja | Ja | Ja | Inga |
-|Java|Ej tillämpligt|Ja|Ja|Ja|Ja|Inga|
-|Python|Ej tillämpligt|Ja|Ja|Ja|Ja|Inga|
-|Noden/JS|Ej tillämpligt|Ja|Ja|Ja|Ja|Inga|
+| .NET | Ej tillämpligt | Ja | Ja | Ja | Ja | Nej |
+|Java|Ej tillämpligt|Ja|Ja|Ja|Ja|Nej|
+|Python|Ej tillämpligt|Ja|Ja|Ja|Ja|Nej|
+|Noden/JS|Ej tillämpligt|Ja|Ja|Ja|Ja|Nej|
 
 ## <a name="change-feed-and-different-operations"></a>Ändringsfeed och olika åtgärder
 
-Idag kan du se alla åtgärder i den ändringsflödet. Funktionen där du kan kontrollera ändringsflödet, för specifika åtgärder som endast uppdateringar och inte infogningar inte är tillgänglig ännu. Du kan lägga till en ”mjuk markör” på för uppdateringar och filtrera utifrån som vid bearbetning av objekten i den ändringsflödet. För närvarande logga inte ändringsfeed borttagningar. På liknande sätt som i föregående exempel, du kan lägga till en mjuk markör på de objekt som tas bort, t.ex, du kan lägga till ett attribut i objektet kallas ”borttagen” och ge den värdet ”true” och ange TTL på objektet, så att den kan tas bort automatiskt. Du kan läsa ändrings flödet för historiska objekt (den senaste ändringen som motsvarar objektet, det innehåller inte mellanliggande ändringar), till exempel objekt som har lagts till fem år sedan. Om objektet inte tas bort. Du kan läsa ändringen feed ur ursprunget behållarens.
+Idag kan du se alla åtgärder i den ändringsflödet. Funktionen där du kan kontrollera ändringsflödet, för specifika åtgärder som endast uppdateringar och inte infogningar inte är tillgänglig ännu. Du kan lägga till en "mjuk markör" på objektet för uppdateringar och filter baserat på det när du bearbetar objekt i ändrings flödet. Den aktuella ändrings flödet loggar inte borttagningar. På liknande sätt som i föregående exempel, du kan lägga till en mjuk markör på de objekt som tas bort, t.ex, du kan lägga till ett attribut i objektet kallas ”borttagen” och ge den värdet ”true” och ange TTL på objektet, så att den kan tas bort automatiskt. Du kan läsa ändrings flödet för historiska objekt (den senaste ändringen som motsvarar objektet, det innehåller inte mellanliggande ändringar), till exempel objekt som har lagts till fem år sedan. Om objektet inte tas bort. Du kan läsa ändringen feed ur ursprunget behållarens.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Sortera ordningen på objekten i ändringsfeed
 
-Ändra flödesobjekt kommer i den ordning som deras ändringstid. Den här sorteringsordningen garanteras per logisk partitionsnyckel.
+Ändra flödesobjekt kommer i den ordning som deras ändringstid. Den här sorterings ordningen garanteras per logisk partitionsnyckel.
+
+### <a name="consistency-level"></a>Konsekvens nivå
+
+När du förbrukar ändrings flödet i en eventuell konsekvens nivå, kan det finnas dubbla händelser i-mellan efterföljande Läs åtgärder för ändrings flöden (den sista händelsen i en Läs åtgärd visas som första av nästa).
 
 ### <a name="change-feed-in-multi-region-azure-cosmos-accounts"></a>Ändringsflödet i Azure Cosmos-konton för flera regioner
 
@@ -70,13 +74,13 @@ Till exempel med ändringsflödet utföra du följande uppgifter effektivt:
 
 * Uppdatera ett cacheminne, uppdatera ett sökindex eller uppdatera ett informationslager med data som lagras i Azure Cosmos DB.
 
-* Implementera en programnivå data lagringsnivåer och arkivering, till exempel lagra ”frekventa data” i Azure Cosmos DB och föråldrade ”kalla data” till andra lagringssystem, till exempel [Azure Blob Storage](../storage/common/storage-introduction.md).
+* Implementera data skiktning och arkivering på program nivå, till exempel lagra "heta data" i Azure Cosmos DB och åldras från "kalla data" till andra lagrings system, till exempel [Azure Blob Storage](../storage/common/storage-introduction.md).
 
 * Utföra noll driftstopp migreringar till en annan Azure-Cosmos-konto eller en annan Azure Cosmos-behållare med en annan logisk partitionsnyckel.
 
-* Implementera [lambda-arkitekturen](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) med Azure Cosmos DB, Azure Cosmos DB stöder där både i realtid, batch och frågan som betjänar lager, vilket gör att lambda-arkitektur med låg total Ägandekostnad.
+* Implementera [lambda-arkitektur](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) med hjälp av Azure Cosmos DB, där Azure Cosmos DB stöder både real tids-, batch-och frågebaserade lager, vilket möjliggör lambda-arkitektur med låg ägande kostnad.
 
-* Tar emot och lagring av händelsedata från enheter, sensorer, infrastruktur och program och bearbetar dessa händelser i realtid, till exempel med hjälp av [Spark](../hdinsight/spark/apache-spark-overview.md).  Följande bild visar hur du kan implementera lambda-arkitektur med Azure Cosmos DB via ändringsfeed:
+* Ta emot och lagra händelse data från enheter, sensorer, infrastruktur och program och bearbeta dessa händelser i real tid, till exempel med hjälp av [Spark](../hdinsight/spark/apache-spark-overview.md).  Följande bild visar hur du kan implementera lambda-arkitektur med Azure Cosmos DB via ändringsfeed:
 
 ![Azure Cosmos DB-baserade lambda-pipeline för skrivbelastning och frågeprestanda](./media/change-feed/lambda.png)
 
@@ -84,7 +88,7 @@ Till exempel med ändringsflödet utföra du följande uppgifter effektivt:
 
 Här följer några scenarier som du enkelt kan implementera med ändringsfeed:
 
-* I din [serverlös](https://azure.microsoft.com/solutions/serverless/) webb- eller mobilappar, kan du spåra händelser, t.ex alla ändringar till din kunds profil, inställningar eller deras plats och aktivera vissa åtgärder, till exempel skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](change-feed-functions.md).
+* [I dina webb-](https://azure.microsoft.com/solutions/serverless/) eller mobilappar kan du spåra händelser som alla ändringar i kundens profil, inställningar eller deras plats och utlösa vissa åtgärder, till exempel skicka push-meddelanden till sina enheter med hjälp av [Azure Functions](change-feed-functions.md).
 
 * Om du använder Azure Cosmos DB för att skapa ett spel, kan du, till exempel använda ändringsflödet att implementera i realtid rankningslistor baserat på poäng från färdiga spel.
 
@@ -93,7 +97,7 @@ Här följer några scenarier som du enkelt kan implementera med ändringsfeed:
 
 Du kan arbeta med ändringsflödet med hjälp av följande alternativ:
 
-* [Med hjälp av ändringen feed med Azure Functions](change-feed-functions.md)
+* [Använda ändra feed med Azure Functions](change-feed-functions.md)
 * [Använda Change feed med Change feed processor](change-feed-processor.md) 
 
 Ändringsfeed är tillgängliga för varje logisk partitionsnyckel i behållaren och den kan distribueras på en eller flera konsumenter för parallell bearbetning, enligt bilden nedan.
@@ -104,9 +108,9 @@ Du kan arbeta med ändringsflödet med hjälp av följande alternativ:
 
 * Ändringsfeed aktiveras som standard för alla Azure Cosmos-konton.
 
-* Du kan använda din [etablerat dataflöde](request-units.md) för att läsa från den ändringsflödet, precis som andra Azure Cosmos DB åtgärder, i någon av de regioner som associeras med din Azure Cosmos-databas.
+* Du kan använda ditt [etablerade data flöde](request-units.md) för att läsa från ändrings flödet, precis som andra Azure Cosmos DB åtgärder, i någon av de regioner som är kopplade till din Azure Cosmos-databas.
 
-* Ändringsflöde innehåller INSERT och update-åtgärder som utförs för objekt i behållaren. Du kan avbilda borttagningar genom att ange en ”mjuk borttagning”-flagga i dina objekt (till exempel dokument) i stället för borttagningar. Du kan också ange en begränsad utgångstiden för dina objekt med den [TTL funktionen](time-to-live.md). Exempel: 24 timmar och Använd värdet för egenskapen att samla in tas bort. Med den här lösningen har att bearbeta ändringarna inom ett kortare tidsintervall än TTL giltighetsperiod. 
+* Ändringsflöde innehåller INSERT och update-åtgärder som utförs för objekt i behållaren. Du kan avbilda borttagningar genom att ange en ”mjuk borttagning”-flagga i dina objekt (till exempel dokument) i stället för borttagningar. Alternativt kan du ange en begränsad förfallo period för dina objekt med TTL- [funktionen](time-to-live.md). Exempel: 24 timmar och Använd värdet för egenskapen att samla in tas bort. Med den här lösningen har att bearbeta ändringarna inom ett kortare tidsintervall än TTL giltighetsperiod. 
 
 * Varje ändring till ett objekt visas exakt en gång i den ändringsflödet och klienterna måste hantera kontrollpunkter logiken. Om du vill undvika komplexiteten med att hantera kontroll punkter, tillhandahåller Change feed-processorn automatisk kontroll punkt och "minst en gång"-semantik. Se [använda ändra feed med Change feed processor](change-feed-processor.md).
 
@@ -130,6 +134,6 @@ Inbyggd Apache Cassandra tillhandahåller registrering av ändrings data (CDC), 
 
 Du kan nu fortsätta att lära dig mer om ändringsfeed i följande artiklar:
 
-* [Alternativ för att läsa ändringsflödet](read-change-feed.md)
-* [Med hjälp av ändringen feed med Azure Functions](change-feed-functions.md)
+* [Alternativ för att läsa ändrings flöde](read-change-feed.md)
+* [Använda ändra feed med Azure Functions](change-feed-functions.md)
 * [Använda Change feed processor](change-feed-processor.md)

@@ -15,20 +15,19 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f4084532ac370880df69d825927240c297dd371
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: e812e1b03637a3ecd7a45f02664c4e3547f1aef1
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129900"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79138985"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GitHub
 
 I den här självstudien får du lära dig hur du integrerar GitHub med Azure Active Directory (Azure AD). När du integrerar GitHub med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till GitHub.
-* Gör det möjligt för användarna att logga in automatiskt till GitHub med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Kontroll i Azure AD som har åtkomst till din GitHub företags moln organisation.
+* Hantera åtkomst till din GitHub företags moln organisation på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -45,7 +44,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 * GitHub stöder **IDP**-initierad enkel inloggning
 
-* GitHub stöder [**automatisk** användaretablering](github-provisioning-tutorial.md)
+* GitHub stöder [ **automatiserad** användar etablering (organisatoriska inbjudningar)](github-provisioning-tutorial.md)
 * När du har konfigurerat GitHub kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-github-from-the-gallery"></a>Lägga till GitHub från galleriet

@@ -15,11 +15,11 @@ ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837419"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238708"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
@@ -68,9 +68,9 @@ Skapa en CNAME-post med underdomänen cdnverify:
 
     | Källa                    | Typ  | Mål                     |
     |---------------------------|-------|---------------------------------|
-    | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
+    | cdnverify. www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
-    - Källa: Ange ditt anpassade domän namn, inklusive under domänen cdnverify i följande format: cdnverify.&lt;anpassade domän namnet&gt;. Till exempel cdnverify.www.contoso.com.
+    - Källa: Ange ditt anpassade domän namn, inklusive under domänen cdnverify i följande format: cdnverify.&lt;anpassade domän namnet&gt;. Till exempel cdnverify. www.contoso.com.
 
     - Typ: Ange *CNAME*.
 
@@ -94,7 +94,7 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
     - Type (Typ): Använd det förvalda värdet *CNAME*.
 
-    - Host (Värd): Ange underdomänen för din anpassade domän, inklusive underdomännamnet cdnverify. Till exempel cdnverify.www.
+    - Host (Värd): Ange underdomänen för din anpassade domän, inklusive underdomännamnet cdnverify. Till exempel cdnverify. www.
 
     - Points to (Pekar på): Ange värdnamnet för CDN-slutpunkten, inklusive underdomännamnet cdnverify. Till exempel cdnverify.contoso.azureedge.net. 
 
@@ -134,7 +134,7 @@ När du har registrerat din anpassade domän kan du lägga till den i din CDN-sl
    Azure verifierar att det finns en CNAME-post för det anpassade domännamnet som du har angett. Om CNAME är korrekt verifieras din anpassade domän. 
 
    Det kan ta lite tid innan inställningarna för den nya anpassade domänen sprids till alla CDN-gränsnoder: 
-    - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom tio minuter. 
+    - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom 10 minuter. 
     - För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
     - För **Azure CDN Standard från Verizon**- och **Azure CDN Premium från Verizon**-profiler slutförs spridningen vanligtvis inom 10 minuter.   
 
@@ -162,7 +162,7 @@ Skapa en CNAME-post för den anpassade domänen:
 
     | Källa          | Typ  | Mål           |
     |-----------------|-------|-----------------------|
-    | < www. contoso. com > | CNAME | contoso.azureedge.net |
+    | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
    - Källa: Ange ditt anpassade domän namn (till exempel www\.contoso.com).
 

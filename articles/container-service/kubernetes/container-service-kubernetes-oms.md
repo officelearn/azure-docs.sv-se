@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3cb500d2f00d6657420d7f294a7318b339e1f81e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 02d04076ccc41d243a493838667f5e8cc6bfa5ac
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271076"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371162"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>FÖRÅLDRAD Övervaka ett Azure Container Service kluster med Log Analytics
 
@@ -21,15 +21,15 @@ ms.locfileid: "76271076"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här genom gången förutsätter vi att du har [skapat ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Det förutsätter också att du har `az` Azure CLI och `kubectl` verktyg installerat.
 
 Du kan testa om du har installerat `az`-verktyget genom att köra:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Om du inte har installerat `az`-verktyget finns det instruktioner [här](https://github.com/azure/azure-cli#installation).
@@ -38,21 +38,24 @@ Du kan också använda [Azure Cloud Shell](https://docs.microsoft.com/azure/clou
 Du kan testa om du har installerat `kubectl`-verktyget genom att köra:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Om du inte har `kubectl` installerat kan du köra:
-```console
-$ az acs kubernetes install-cli
+
+```azurecli
+az acs kubernetes install-cli
 ```
 
 För att testa om du har Kubernetes-nycklar som är installerade i kubectl-verktyget kan du köra:
+
 ```console
-$ kubectl get nodes
+kubectl get nodes
 ```
 
 Om ovanstående kommando fel uppstår måste du installera Kubernetes-kluster nycklar i kubectl-verktyget. Du kan göra det med följande kommando:
-```console
+
+```azurecli
 RESOURCE_GROUP=my-resource-group
 CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
@@ -83,7 +86,7 @@ Här är [filen DAEMONSET yaml](https://github.com/Microsoft/OMS-docker/tree/mas
 När du har lagt till din arbetsyte-ID och nyckel för DaemonSet-konfigurationen kan du installera Log Analytics agenten på klustret med kommando rads verktyget `kubectl`:
 
 ```console
-$ kubectl create -f oms-daemonset.yaml
+kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Installera Log Analytics-agenten med en Kubernetes-hemlighet
@@ -94,16 +97,24 @@ För att skydda din Log Analytics arbetsyte-ID och nyckel kan du använda Kubern
   - Hemlig mall - hemlighet template.yaml
     - DaemonSet YAML File-omsagent-DS-hemligheter. yaml
 - Kör skriptet. Skriptet kommer att fråga efter Log Analytics arbetsyte-ID och primär nyckel. Infoga det och skriptet skapar en hemlig yaml-fil så att du kan köra den.
-  ```
-  #> sudo bash ./secret-gen.sh
+
+  ```console
+  sudo bash ./secret-gen.sh
   ```
 
-  - Skapa hemligheterna Pod genom att köra följande: ```kubectl create -f omsagentsecret.yaml```
+  - Skapa hemligheter pod genom att köra följande:
+
+     ```console
+     kubectl create -f omsagentsecret.yaml
+     ```
 
   - Du kan kontrollera genom att köra följande:
 
+  ```console
+  kubectl get secrets
   ```
-  root@ubuntu16-13db:~# kubectl get secrets
+
+  ```output
   NAME                  TYPE                                  DATA      AGE
   default-token-gvl91   kubernetes.io/service-account-token   3         50d
   omsagent-secret       Opaque                                2         1d
@@ -121,7 +132,11 @@ För att skydda din Log Analytics arbetsyte-ID och nyckel kan du använda Kubern
   KEY:    88 bytes
   ```
 
-  - Skapa din omsagent daemon-set genom att köra ```kubectl create -f omsagent-ds-secrets.yaml```
+  - Skapa din omsagent daemon-uppsättning genom att köra följande:
+  
+  ```console
+  kubectl create -f omsagent-ds-secrets.yaml
+  ```
 
-### <a name="conclusion"></a>Slutsats
+### <a name="conclusion"></a>Sammanfattning
 Klart! Efter några minuter bör du kunna se data som flödar till din Log Analytics-instrumentpanel.

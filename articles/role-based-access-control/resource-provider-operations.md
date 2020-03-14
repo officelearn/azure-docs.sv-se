@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2020
+ms.date: 03/12/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9b3a1175b5e22b787c62365d3b113e02ec1d1326
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6b0d967dad250b06988865cde2f4ce11367f8acb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361912"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245777"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Åtgärder för Azure Resource Manager Resource Provider
 
@@ -448,10 +448,9 @@ Azure-tjänst: [API Management](../api-management/index.yml)
 > | Åtgärd | Microsoft. API Management/Service/Gateway/Read | Visar en lista med gateways som registrerats med tjänst instansen. eller hämtar information om den gateway som anges av dess identifierare. |
 > | Åtgärd | Microsoft. API Management/Service/Gateway/Write | Skapar eller uppdaterar en gateway som ska användas i API Management-instansen. eller uppdaterar informationen om den gateway som anges med dess identifierare. |
 > | Åtgärd | Microsoft. API Management/Service/Gateways/Delete | Tar bort en angiven Gateway. |
-> | Åtgärd | Microsoft. API Management/Service/Gateways/nycklar/åtgärd | Hämtar Gateway-nycklar. |
-> | Åtgärd | Microsoft. API Management/Service/Gateways/regeneratePrimaryKey/åtgärd | Återskapar den primära Gateway-nyckeln invalidationg alla tokens som skapats med den. |
-> | Åtgärd | Microsoft. API Management/Service/Gateways/regenerateSecondaryKey/åtgärd | Återskapar en sekundär Gateway-nyckel invalidationg alla tokens som skapats med den. |
-> | Åtgärd | Microsoft. API Management/Service/Gateways/token/Action | Hämtar autentiseringstoken för delad åtkomst för gatewayen. |
+> | Åtgärd | Microsoft. API Management/Service/Gateways/Listnycklar/åtgärd | Hämtar Gateway-nycklar. |
+> | Åtgärd | Microsoft. API Management/Service/Gateways/regenerateKey/åtgärd | Återskapar den angivna Gateway-nyckeln invalidationg alla tokens som skapats med den. |
+> | Åtgärd | Microsoft. API Management/Service/Gateways/generateToken/åtgärd | Hämtar autentiseringstoken för delad åtkomst för gatewayen. |
 > |  | **tjänst/Gateway/API: er** |  |
 > | Åtgärd | Microsoft. API Management/Service/Gateways/API/Read | Visar en samling med API: er som är associerade med en gateway. |
 > | Åtgärd | Microsoft. API Management/Service/Gateways/API: er/skriva | Lägger till ett API till den angivna gatewayen. |
@@ -483,7 +482,7 @@ Azure-tjänst: [API Management](../api-management/index.yml)
 > | Åtgärd | Microsoft. API Management/Service/namedValues/Read | Visar en lista med namngivna värden som definierats inom en tjänst instans. eller hämtar information om det namngivna värde som anges av dess identifierare. |
 > | Åtgärd | Microsoft. API Management/Service/namedValues/Write | Skapar eller uppdaterar ett namngivet värde. eller uppdaterar det angivna namngivna värdet. |
 > | Åtgärd | Microsoft. API Management/Service/namedValues/Delete | Tar bort ett angivet namngivet värde från API Management tjänst instansen. |
-> | Åtgärd | Microsoft. API Management/Service/namedValues/listSecrets/Action | Hämtar hemligheterna för det namngivna värdet som anges av dess identifierare. |
+> | Åtgärd | Microsoft. API Management/Service/namedValues/listValue/Action | Hämtar hemligheten för det namngivna värdet som anges av dess identifierare. |
 > |  | **tjänst-networkstatus** |  |
 > | Åtgärd | Microsoft. API Management/Service/networkstatus/Read | Hämtar nätverks åtkomst status för resurser som tjänsten är beroende av. |
 > |  | **tjänst/meddelanden** |  |
@@ -809,6 +808,18 @@ Azure-tjänst: [automatisering](../automation/index.yml)
 > | Åtgärd | Microsoft. Automation/automationAccounts/Nodes/Reports/Content/Read | Läser Azure Automation DSC-rapportens innehåll |
 > |  | **automationAccounts/objectDataTypes/Fields** |  |
 > | Åtgärd | Microsoft. Automation/automationAccounts/objectDataTypes/Fields/Read | Hämtar Azure Automation TypeFields |
+> |  | **automationAccounts/privateEndpointConnectionProxies** |  |
+> | Åtgärd | Microsoft. Automation/automationAccounts/privateEndpointConnectionProxies/Read | Läser Azure Automation proxy för anslutning till privat slutpunkt |
+> | Åtgärd | Microsoft. Automation/automationAccounts/privateEndpointConnectionProxies/Write | Skapar en Azure Automation privat slut punkts anslutnings-proxy |
+> | Åtgärd | Microsoft. Automation/automationAccounts/privateEndpointConnectionProxies/validate/Action | Verifiera en begäran om privat slut punkts anslutning (certifikat verifiering) |
+> | Åtgärd | Microsoft. Automation/automationAccounts/privateEndpointConnectionProxies/Delete | Ta bort en Azure Automation privat slut punkts anslutnings-proxy |
+> |  | **automationAccounts/privateEndpointConnectionProxies/operationResults** |  |
+> | Åtgärd | Microsoft. Automation/automationAccounts/privateEndpointConnectionProxies/operationResults/Read | Hämta Azure Automation åtgärds resultat för privata slut punkts proxy. |
+> |  | **automationAccounts/privateEndpointConnections** |  |
+> | Åtgärd | Microsoft. Automation/automationAccounts/privateEndpointConnections/Read | Hämta Azure Automation status för privat slut punkt anslutning |
+> | Åtgärd | Microsoft. Automation/automationAccounts/privateEndpointConnections/Write | Godkänna eller avvisa en Azure Automation privat slut punkts anslutning |
+> |  | **automationAccounts/privateLinkResources** |  |
+> | Åtgärd | Microsoft. Automation/automationAccounts/privateLinkResources/Read | Läser grupp information för privata slut punkter |
 > |  | **automationAccounts/python2Packages** |  |
 > | Åtgärd | Microsoft. Automation/automationAccounts/python2Packages/Read | Hämtar ett Azure Automation python 2-paket |
 > | Åtgärd | Microsoft.Automation/automationAccounts/python2Packages/write | Skapar eller uppdaterar ett Azure Automation python 2-paket |
@@ -910,6 +921,8 @@ Azure-tjänst: Core
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.AzureStack/register/action | Registrerar prenumeration med Microsoft. AzureStack Resource Provider |
+> |  | **cloudManifestFiles** |  |
+> | Åtgärd | Microsoft. AzureStack/cloudManifestFiles/Read | Hämtar moln manifest filen |
 > |  | **Åtgärder** |  |
 > | Åtgärd | Microsoft.AzureStack/Operations/read | Hämtar egenskaper för en resurs leverantörs åtgärd |
 > |  | **registreringar** |  |
@@ -927,8 +940,6 @@ Azure-tjänst: Core
 > | Åtgärd | Microsoft. AzureStack/registreringar/produkter/getProducts/åtgärd | Hämtar en lista över Azure Stack Marketplace-produkter |
 > | Åtgärd | Microsoft. AzureStack/registreringar/produkter/getProduct/åtgärd | Hämtar Azure Stack Marketplace-produkt |
 > | Åtgärd | Microsoft. AzureStack/registreringar/produkter/uploadProductLog/åtgärd | Registrera Azure Stack Marketplace produkt åtgärds status och tidsstämpel |
-> |  | **verificationKeys** |  |
-> | Åtgärd | Microsoft. AzureStack/verificationKeys/getCurrentKey/Action | Hämtar den aktuella versionen av Azure Stack offentlig nyckel för signering |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -1010,6 +1021,7 @@ Azure-tjänst: [Cost Management + fakturering](../cost-management-billing/index.
 > | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/Write |  |
 > | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/Read |  |
 > | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/Write |  |
+> | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/Write |  |
 > |  | **billingAccounts/billingProfiles/billingPermissions** |  |
 > | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/billingPermissions/Read |  |
 > |  | **billingAccounts/billingProfiles/kunder** |  |
@@ -1019,6 +1031,7 @@ Azure-tjänst: [Cost Management + fakturering](../cost-management-billing/index.
 > |  | **billingAccounts/billingProfiles/invoiceSections** |  |
 > | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/invoiceSections/Write |  |
 > | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/invoiceSections/Read |  |
+> | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/invoiceSections/Write |  |
 > |  | **billingAccounts/billingProfiles/invoiceSections/billingPermissions** |  |
 > | Åtgärd | Microsoft. fakturering/billingAccounts/billingProfiles/invoiceSections/billingPermissions/Read |  |
 > |  | **billingAccounts/billingProfiles/invoiceSections/billingSubscriptions** |  |
@@ -1263,14 +1276,6 @@ Azure-tjänst: [Content Delivery Network](../cdn/index.yml)
 > | Åtgärd | Microsoft. CDN/CheckNameAvailability/åtgärd |  |
 > | Åtgärd | Microsoft.Cdn/ValidateProbe/action |  |
 > | Åtgärd | Microsoft. CDN/CheckResourceUsage/åtgärd |  |
-> |  | **cdnwebapplicationfirewallmanagedrulesets** |  |
-> | Åtgärd | Microsoft. CDN/cdnwebapplicationfirewallmanagedrulesets/Read |  |
-> | Åtgärd | Microsoft. CDN/cdnwebapplicationfirewallmanagedrulesets/Write |  |
-> | Åtgärd | Microsoft. CDN/cdnwebapplicationfirewallmanagedrulesets/Delete |  |
-> |  | **cdnwebapplicationfirewallpolicies** |  |
-> | Åtgärd | Microsoft. CDN/cdnwebapplicationfirewallpolicies/Read |  |
-> | Åtgärd | Microsoft. CDN/cdnwebapplicationfirewallpolicies/Write |  |
-> | Åtgärd | Microsoft. CDN/cdnwebapplicationfirewallpolicies/Delete |  |
 > |  | **edgenodes** |  |
 > | Åtgärd | Microsoft.Cdn/edgenodes/read |  |
 > | Åtgärd | Microsoft. CDN/edgenodes/Write |  |
@@ -1279,10 +1284,6 @@ Azure-tjänst: [Content Delivery Network](../cdn/index.yml)
 > | Åtgärd | Microsoft. CDN/operationresults/Read |  |
 > | Åtgärd | Microsoft. CDN/operationresults/Write |  |
 > | Åtgärd | Microsoft. CDN/operationresults/Delete |  |
-> |  | **operationresults/cdnwebapplicationfirewallpolicyresults** |  |
-> | Åtgärd | Microsoft. CDN/operationresults/cdnwebapplicationfirewallpolicyresults/Read |  |
-> | Åtgärd | Microsoft. CDN/operationresults/cdnwebapplicationfirewallpolicyresults/Write |  |
-> | Åtgärd | Microsoft. CDN/operationresults/cdnwebapplicationfirewallpolicyresults/Delete |  |
 > |  | **operationresults/profileresults** |  |
 > | Åtgärd | Microsoft.Cdn/operationresults/profileresults/read |  |
 > | Åtgärd | Microsoft.Cdn/operationresults/profileresults/write |  |
@@ -1306,6 +1307,10 @@ Azure-tjänst: [Content Delivery Network](../cdn/index.yml)
 > | Åtgärd | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/delete |  |
 > | Åtgärd | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/DisableCustomHttps/action |  |
 > | Åtgärd | Microsoft.Cdn/operationresults/profileresults/endpointresults/customdomainresults/EnableCustomHttps/action |  |
+> |  | **operationresults/profileresults/endpointresults/origingroupresults** |  |
+> | Åtgärd | Microsoft. CDN/operationresults/profileresults/endpointresults/origingroupresults/Read |  |
+> | Åtgärd | Microsoft. CDN/operationresults/profileresults/endpointresults/origingroupresults/Write |  |
+> | Åtgärd | Microsoft. CDN/operationresults/profileresults/endpointresults/origingroupresults/Delete |  |
 > |  | **operationresults/profileresults/endpointresults/originresults** |  |
 > | Åtgärd | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/read |  |
 > | Åtgärd | Microsoft. CDN/operationresults/profileresults/endpointresults/originresults/Write |  |
@@ -1335,6 +1340,10 @@ Azure-tjänst: [Content Delivery Network](../cdn/index.yml)
 > | Åtgärd | Microsoft. CDN/profiler/slut punkter/customdomains/Delete |  |
 > | Åtgärd | Microsoft.Cdn/profiles/endpoints/customdomains/DisableCustomHttps/action |  |
 > | Åtgärd | Microsoft.Cdn/profiles/endpoints/customdomains/EnableCustomHttps/action |  |
+> |  | **profiler/slut punkter/origingroups** |  |
+> | Åtgärd | Microsoft. CDN/profiler/slut punkter/origingroups/Read |  |
+> | Åtgärd | Microsoft. CDN/profiler/slut punkter/origingroups/Write |  |
+> | Åtgärd | Microsoft. CDN/profiler/slut punkter/origingroups/Delete |  |
 > |  | **profiler/slut punkter/ursprung** |  |
 > | Åtgärd | Microsoft. CDN/profiler/slut punkter/ursprung/läsa |  |
 > | Åtgärd | Microsoft. CDN/profiler/slut punkter/ursprung/Skriv |  |
@@ -1756,6 +1765,7 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
+> | Åtgärd | Microsoft. CognitiveServices/register/åtgärd | Prenumerations registrerings åtgärd |
 > | Åtgärd | Microsoft. CognitiveServices/register/åtgärd | Registrerar prenumeration för Cognitive Services |
 > | Åtgärd | Microsoft.CognitiveServices/checkDomainAvailability/action | Läser tillgängliga SKU: er för en prenumeration. |
 > | Åtgärd | Microsoft. CognitiveServices/register/åtgärd | Registrerar prenumeration för Cognitive Services |
@@ -2447,6 +2457,8 @@ Azure-tjänst: [container Registry](../container-registry/index.yml)
 > | Åtgärd | Microsoft.ContainerRegistry/registries/queueBuild/action | Skapar en ny version utifrån parametrarna för begäran och lägger till den i versions kön. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/listBuildSourceUploadUrl/action | Hämta URL-plats för överföring av källa för ett behållar register. |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/scheduleRun/action | Schemalägg en körning mot ett behållar register. |
+> |  | **register/agentpools** |  |
+> | Åtgärd | Microsoft. ContainerRegistry/register/agentpools/listQueueStatus/åtgärd | Lista all köstatus för en agentpoolegenskap för ett behållar register. |
 > |  | **register/artefakter** |  |
 > | Åtgärd | Microsoft. ContainerRegistry/register/artefakter/ta bort | Ta bort artefakt i ett behållar register. |
 > |  | **register/versioner** |  |
@@ -2510,6 +2522,8 @@ Azure-tjänst: [container Registry](../container-registry/index.yml)
 > | Åtgärd | Microsoft. ContainerRegistry/register/scopeMaps/operationStatuses/Read | Hämtar en asynkron åtgärds status för en omfattnings karta. |
 > |  | **register/signering** |  |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/sign/write | Push/pull-metadata för innehålls förtroende för ett behållar register. |
+> |  | **register/taskruns** |  |
+> | Åtgärd | Microsoft. ContainerRegistry/register/taskruns/listDetails/åtgärd | Visa en lista med alla Detaljer för en taskrun för ett behållar register. |
 > |  | **register/uppgifter** |  |
 > | Åtgärd | Microsoft.ContainerRegistry/registries/tasks/read | Hämtar en uppgift för ett behållar register eller listar alla aktiviteter. |
 > | Åtgärd | Microsoft. ContainerRegistry/register/uppgifter/Skriv | Skapar eller uppdaterar en uppgift för ett behållar register. |
@@ -2812,6 +2826,9 @@ Azure-tjänst: [Azure Databricks](../azure-databricks/index.yml)
 > | Åtgärd | Microsoft. Databricks/arbets ytor/ta bort | Tar bort en Databricks-arbetsyta. |
 > | Åtgärd | Microsoft. Databricks/arbets ytor/refreshPermissions/åtgärd | Uppdatera behörigheter för en arbets yta |
 > | Åtgärd | Microsoft. Databricks/arbets ytor/updateDenyAssignment/åtgärd | Uppdatera neka tilldelning inte åtgärder för en hanterad resurs grupp för en arbets yta |
+> | Åtgärd | Microsoft. Databricks/arbets ytor/refreshWorkspaces/åtgärd | Uppdatera en arbets yta med ny information som URL |
+> |  | **arbets ytor/dbWorkspaces** |  |
+> | Åtgärd | Microsoft. Databricks/arbets ytor/dbWorkspaces/Write | Initierar Databricks-arbetsytan (endast intern) |
 > |  | **arbets ytor/providrar/Microsoft. Insights/diagnosticSettings** |  |
 > | Åtgärd | Microsoft. Databricks/arbets ytor/providers/Microsoft. Insights/diagnosticSettings/Read | Ställer in tillgängliga diagnostikinställningar för arbets ytan Databricks |
 > | Åtgärd | Microsoft. Databricks/arbets ytor/providers/Microsoft. Insights/diagnosticSettings/Write | Lägg till eller ändra diagnostikinställningar. |
@@ -3470,7 +3487,7 @@ Azure-tjänst: [Azure Database for PostgreSQL](../postgresql/index.yml)
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar disagnostic-inställningen för resursen |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > |  | **servrar/providers/Microsoft. Insights/logDefinitions** |  |
-> | Åtgärd | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Hämtar de tillgängliga loggarna för postgres-servrar |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read | Hämtar de tillgängliga loggarna för PostgreSQL-servrar |
 > |  | **servrar/providers/Microsoft. Insights/metricDefinitions** |  |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för databaser |
 > |  | **servrar/queryTexts** |  |
@@ -3506,7 +3523,7 @@ Azure-tjänst: [Azure Database for PostgreSQL](../postgresql/index.yml)
 > | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar disagnostic-inställningen för resursen |
 > | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
 > |  | **serversv2/providers/Microsoft. Insights/logDefinitions** |  |
-> | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Hämtar de tillgängliga loggarna för postgres-servrar |
+> | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read | Hämtar de tillgängliga loggarna för PostgreSQL-servrar |
 > |  | **serversv2/providers/Microsoft. Insights/metricDefinitions** |  |
 > | Åtgärd | Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för databaser |
 
@@ -3597,6 +3614,7 @@ Azure-tjänst: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning ser
 > | Åtgärd | Microsoft. Devices/iotHubs/listnycklar/Action | Hämta alla IotHub-nycklar |
 > | Åtgärd | Microsoft.Devices/iotHubs/exportDevices/Action | Exportera enheter |
 > | Åtgärd | Microsoft. Devices/iotHubs/importDevices/Action | Importera enheter |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnectionsApproval/Action | Godkänna eller avvisa en anslutning till en privat slutpunkt |
 > |  | **iotHubs/certifikat** |  |
 > | Åtgärd | Microsoft. Devices/iotHubs/certificates/Read | Hämtar certifikatet |
 > | Åtgärd | Microsoft. Devices/iotHubs/certificates/Write | Skapa eller uppdatera certifikat |
@@ -3611,6 +3629,10 @@ Azure-tjänst: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning ser
 > |  | **IotHubs/diagnosticSettings** |  |
 > | Åtgärd | Microsoft. Devices/IotHubs/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för resursen |
 > | Åtgärd | Microsoft. Devices/IotHubs/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för resursen |
+> |  | **iotHubs/digitalTwinsLinks** |  |
+> | Åtgärd | Microsoft. Devices/iotHubs/digitalTwinsLinks/Write |  |
+> | Åtgärd | Microsoft. Devices/iotHubs/digitalTwinsLinks/Read |  |
+> | Åtgärd | Microsoft. Devices/iotHubs/digitalTwinsLinks/Delete |  |
 > |  | **iotHubs/eventGridFilters** |  |
 > | Åtgärd | Microsoft.Devices/iotHubs/eventGridFilters/Write | Skapa nytt eller uppdatera befintligt Event Grid filter |
 > | Åtgärd | Microsoft.Devices/iotHubs/eventGridFilters/Read | Hämtar Event Grids filtret |
@@ -3631,6 +3653,21 @@ Azure-tjänst: [IoT Hub](../iot-hub/index.yml), [IoT Hub Device Provisioning ser
 > | Åtgärd | Microsoft.Devices/IotHubs/metricDefinitions/read | Hämtar tillgängliga mått för IotHub-tjänsten |
 > |  | **iotHubs/operationresults** |  |
 > | Åtgärd | Microsoft. Devices/iotHubs/operationresults/Read | Hämta åtgärds resultat (föråldrat API) |
+> |  | **iotHubs/privateEndpointConnectionProxies** |  |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnectionProxies/validate/Action | Verifierar inmatade anslutningar för privat slutpunkt vid skapande |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnectionProxies/Read | Hämtar egenskaper för angiven privat slut punkts anslutnings proxy |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnectionProxies/Write | Skapar eller uppdaterar en anslutning till en privat slut punkt |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnectionProxies/Delete | Tar bort en befintlig anslutning till en privat slut punkt |
+> |  | **iotHubs/privateEndpointConnectionProxies/operationResults** |  |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnectionProxies/operationResults/Read | Hämta resultatet av en asynkron åtgärd på en anslutning till en privat slut punkt |
+> |  | **iotHubs/privateEndpointConnections** |  |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnections/Read | Hämtar egenskaper för angiven privat slut punkts anslutning |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnections/Delete | Tar bort en befintlig privat slut punkts anslutning |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnections/Write | Skapar eller uppdaterar en privat slut punkts anslutning |
+> |  | **iotHubs/privateEndpointConnections/operationResults** |  |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateEndpointConnections/operationResults/Read | Hämta resultatet av en asynkron åtgärd på en privat slut punkts anslutning |
+> |  | **iotHubs/privateLinkResources** |  |
+> | Åtgärd | Microsoft. Devices/iotHubs/privateLinkResources/Read | Hämtar privata länk resurser för IotHub |
 > |  | **iotHubs/quotaMetrics** |  |
 > | Åtgärd | Microsoft. Devices/iotHubs/quotaMetrics/Read | Hämta kvot mått |
 > |  | **iotHubs/routning** |  |
@@ -4121,6 +4158,17 @@ Azure-tjänst: [Event Grid](../event-grid/index.yml)
 > | Åtgärd | Microsoft. EventGrid/Domains/Delete | Ta bort en domän |
 > | Åtgärd | Microsoft. EventGrid/Domains/Listnycklar/Action | Lista nycklar för en domän |
 > | Åtgärd | Microsoft. EventGrid/Domains/regenerateKey/Action | Återskapa nyckel för en domän |
+> |  | **domäner/privateEndpointConnectionProxies** |  |
+> | Åtgärd | Microsoft. EventGrid/Domains/privateEndpointConnectionProxies/validate/Action | Verifiera PrivateEndpointConnectionProxies för domäner |
+> | Åtgärd | Microsoft. EventGrid/Domains/privateEndpointConnectionProxies/Read | Läs PrivateEndpointConnectionProxies för domäner |
+> | Åtgärd | Microsoft. EventGrid/Domains/privateEndpointConnectionProxies/Write | Skriv PrivateEndpointConnectionProxies för domäner |
+> | Åtgärd | Microsoft. EventGrid/Domains/privateEndpointConnectionProxies/Delete | Ta bort PrivateEndpointConnectionProxies för domäner |
+> |  | **domäner/privateEndpointConnections** |  |
+> | Åtgärd | Microsoft. EventGrid/Domains/privateEndpointConnections/Read | Läs PrivateEndpointConnections för domäner |
+> | Åtgärd | Microsoft. EventGrid/Domains/privateEndpointConnections/Write | Skriv PrivateEndpointConnections för domäner |
+> | Åtgärd | Microsoft. EventGrid/Domains/privateEndpointConnections/Delete | Ta bort PrivateEndpointConnections för domäner |
+> |  | **domäner/privateLinkResources** |  |
+> | Åtgärd | Microsoft. EventGrid/Domains/privateLinkResources/Read | Hämta eller Visa PrivateLinkResources för domäner |
 > |  | **domäner/providers/Microsoft. Insights/logDefinitions** |  |
 > | Åtgärd | Microsoft. EventGrid/Domains/providers/Microsoft. Insights/logDefinitions/Read | Tillåter åtkomst till diagnostikloggar |
 > |  | **domäner/providers/Microsoft. Insights/metricDefinitions** |  |
@@ -4160,12 +4208,56 @@ Azure-tjänst: [Event Grid](../event-grid/index.yml)
 > | Åtgärd | Microsoft. EventGrid/Operations/Read | Visa en lista över EventGrid-åtgärder. |
 > |  | **operationsStatus** |  |
 > | Åtgärd | Microsoft.EventGrid/operationsStatus/read | Läs status för en åtgärd |
+> |  | **partnerNamespaces** |  |
+> | Åtgärd | Microsoft. EventGrid/partnerNamespaces/Write | Skapa eller uppdatera ett partner namn område |
+> | Åtgärd | Microsoft. EventGrid/partnerNamespaces/Read | Läs ett namn område för partner |
+> | Åtgärd | Microsoft. EventGrid/partnerNamespaces/Delete | Ta bort ett partner namn område |
+> | Åtgärd | Microsoft. EventGrid/partnerNamespaces/Listnycklar/Action | Lista nycklar för ett namn område för partner |
+> | Åtgärd | Microsoft. EventGrid/partnerNamespaces/regenerateKey/Action | Återskapa nyckel för ett namn område för partner |
+> |  | **partnerNamespaces/eventChannels** |  |
+> | Åtgärd | Microsoft. EventGrid/partnerNamespaces/eventChannels/Read | Läsa en händelse kanal |
+> | Åtgärd | Microsoft. EventGrid/partnerNamespaces/eventChannels/Write | Skapa eller uppdatera en händelse kanal |
+> | Åtgärd | Microsoft. EventGrid/partnerNamespaces/eventChannels/Delete | Ta bort en händelse kanal |
+> |  | **partnerRegistrations** |  |
+> | Åtgärd | Microsoft. EventGrid/partnerRegistrations/Write | Skapa eller uppdatera en partner registrering |
+> | Åtgärd | Microsoft. EventGrid/partnerRegistrations/Read | Läs en partner registrering |
+> | Åtgärd | Microsoft. EventGrid/partnerRegistrations/Delete | Ta bort en partner registrering |
+> |  | **partnerTopics** |  |
+> | Åtgärd | Microsoft. EventGrid/partnerTopics/Read | Läs avsnittet om ett partner |
+> | Åtgärd | Microsoft. EventGrid/partnerTopics/Write | Skapa eller uppdatera ett partner ämne |
+> | Åtgärd | Microsoft. EventGrid/partnerTopics/Delete | Ta bort ett partner ämne |
+> | Åtgärd | Microsoft. EventGrid/partnerTopics/Activate/åtgärd | Avsnittet Aktivera partner |
+> | Åtgärd | Microsoft. EventGrid/partnerTopics/Deactivate/åtgärd | Avsnittet Inaktivera partner |
+> |  | **SKU** |  |
+> | Åtgärd | Microsoft. EventGrid/SKU/läsa | Läs tillgängliga SKU-definitioner för Event Grid-resurser |
+> |  | **systemTopics** |  |
+> | Åtgärd | Microsoft. EventGrid/systemTopics/Read | Avsnittet om att läsa ett system |
+> | Åtgärd | Microsoft. EventGrid/systemTopics/Write | Skapa eller uppdatera ett system ämne |
+> | Åtgärd | Microsoft. EventGrid/systemTopics/Delete | Ta bort ett system ämne |
+> |  | **systemTopics/providers/Microsoft. Insights/diagnosticSettings** |  |
+> | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för system ämnen |
+> | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för system ämnen |
+> |  | **systemTopics/providers/Microsoft. Insights/logDefinitions** |  |
+> | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/logDefinitions/Read | Tillåter åtkomst till diagnostikloggar |
+> |  | **systemTopics/providers/Microsoft. Insights/metricDefinitions** |  |
+> | Åtgärd | Microsoft. EventGrid/systemTopics/providers/Microsoft. Insights/metricDefinitions/Read | Hämtar tillgängliga mått för system ämnen |
 > |  | **avsnitt** |  |
 > | Åtgärd | Microsoft. EventGrid/ämnen/skriva | Skapa eller uppdatera ett ämne |
 > | Åtgärd | Microsoft. EventGrid/ämnen/läsa | Läs ett ämne |
 > | Åtgärd | Microsoft. EventGrid/ämnen/Delete | Ta bort ett ämne |
 > | Åtgärd | Microsoft.EventGrid/topics/listKeys/action | Lista nycklar för ett ämne |
 > | Åtgärd | Microsoft.EventGrid/topics/regenerateKey/action | Återskapa nyckel för ett ämne |
+> |  | **ämnen/privateEndpointConnectionProxies** |  |
+> | Åtgärd | Microsoft. EventGrid/ämnen/privateEndpointConnectionProxies/validate/Action | Verifiera PrivateEndpointConnectionProxies för ämnen |
+> | Åtgärd | Microsoft. EventGrid/ämnen/privateEndpointConnectionProxies/Read | Läs PrivateEndpointConnectionProxies för ämnen |
+> | Åtgärd | Microsoft. EventGrid/ämnen/privateEndpointConnectionProxies/Write | Skriv PrivateEndpointConnectionProxies för ämnen |
+> | Åtgärd | Microsoft. EventGrid/ämnen/privateEndpointConnectionProxies/Delete | Ta bort PrivateEndpointConnectionProxies för ämnen |
+> |  | **ämnen/privateEndpointConnections** |  |
+> | Åtgärd | Microsoft. EventGrid/ämnen/privateEndpointConnections/Read | Läs PrivateEndpointConnections för ämnen |
+> | Åtgärd | Microsoft. EventGrid/ämnen/privateEndpointConnections/Write | Skriv PrivateEndpointConnections för ämnen |
+> | Åtgärd | Microsoft. EventGrid/ämnen/privateEndpointConnections/Delete | Ta bort PrivateEndpointConnections för ämnen |
+> |  | **ämnen/privateLinkResources** |  |
+> | Åtgärd | Microsoft. EventGrid/ämnen/privateLinkResources/Read | Läs PrivateLinkResources för ämnen |
 > |  | **ämnen/providers/Microsoft. Insights/diagnosticSettings** |  |
 > | Åtgärd | Microsoft. EventGrid/ämnen/providers/Microsoft. Insights/diagnosticSettings/Read | Hämtar den diagnostiska inställningen för ämnen |
 > | Åtgärd | Microsoft. EventGrid/ämnen/providers/Microsoft. Insights/diagnosticSettings/Write | Skapar eller uppdaterar den diagnostiska inställningen för ämnen |
@@ -4259,6 +4351,11 @@ Azure-tjänst: [Event Hubs](../event-hubs/index.yml)
 > | Åtgärd | Microsoft.EventHub/namespaces/networkrulesets/delete | Ta bort VNET-regel resurs |
 > |  | **namnrymder/operationresults** |  |
 > | Åtgärd | Microsoft. EventHub/Namespaces/operationresults/Read | Hämta status för namn områdes åtgärd |
+> |  | **namnrymder/privateEndpointConnectionProxies** |  |
+> | Åtgärd | Microsoft. EventHub/Namespaces/privateEndpointConnectionProxies/validate/Action | Verifiera proxy för anslutning till privat slutpunkt |
+> | Åtgärd | Microsoft. EventHub/Namespaces/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Åtgärd | Microsoft. EventHub/Namespaces/privateEndpointConnectionProxies/Write | Skapa Proxy för anslutning till privat slutpunkt |
+> | Åtgärd | Microsoft. EventHub/Namespaces/privateEndpointConnectionProxies/Delete | Ta bort proxy för privat slut punkt anslutning |
 > |  | **namnrymder/providers/Microsoft. Insights/diagnosticSettings** |  |
 > | Åtgärd | Microsoft. EventHub/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Read | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Åtgärd | Microsoft. EventHub/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Write | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
@@ -4885,6 +4982,8 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft. Insights/mina arbets böcker/läsa | Läs en privat arbets bok |
 > |  | **Åtgärder** |  |
 > | Åtgärd | Microsoft. Insights/åtgärder/läsa | Läs åtgärder |
+> |  | **PrivateLinkScopeOperationStatuses** |  |
+> | Åtgärd | Microsoft. Insights/PrivateLinkScopeOperationStatuses/Read | Läs en privat länk omfattnings åtgärds status |
 > |  | **PrivateLinkScopes** |  |
 > | Åtgärd | Microsoft. Insights/PrivateLinkScopes/Read | Läs en privat länk omfattning |
 > | Åtgärd | Microsoft. Insights/PrivateLinkScopes/Write | Skapa eller uppdatera ett privat länk omfång |
@@ -5630,6 +5729,7 @@ Azure-tjänst: Core
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Marketplace/register/action | Registrerar Microsoft. Marketplace-resurs leverantör i prenumerationen. |
+> | Åtgärd | Microsoft. Marketplace/privateStores/åtgärd | Uppdaterar PrivateStore. |
 > |  | **offerTypes/utgivare/erbjudanden/planer/avtal** |  |
 > | Åtgärd | Microsoft. Marketplace/offerTypes/utgivare/erbjudanden/planer/avtal/Läs | Returnerar ett avtal. |
 > | Åtgärd | Microsoft. Marketplace/offerTypes/utgivare/erbjudanden/planer/avtal/Skriv | Accepterar ett signerat avtal. |
@@ -5637,6 +5737,13 @@ Azure-tjänst: Core
 > | Åtgärd | Microsoft. Marketplace/offerTypes/utgivare/erbjudanden/planer/konfigurationer/läsa | Returnerar en config. |
 > | Åtgärd | Microsoft. Marketplace/offerTypes/utgivare/erbjudanden/planer/konfigurationer/Skriv åtgärder | Sparar en konfig. |
 > | Åtgärd | Microsoft. Marketplace/offerTypes/utgivare/erbjudanden/planer/konfigurationer/importImage/åtgärd | Importerar en avbildning till slutanvändarens ACR. |
+> |  | **privateStores** |  |
+> | Åtgärd | Microsoft. Marketplace/privateStores/Write | Skapar PrivateStore. |
+> | Åtgärd | Microsoft. Marketplace/privateStores/Delete | Tar bort PrivateStore. |
+> | Åtgärd | Microsoft. Marketplace/privateStores/erbjudande/åtgärd | Uppdaterings erbjudande i PrivateStore. |
+> |  | **privateStores/erbjudanden** |  |
+> | Åtgärd | Microsoft. Marketplace/privateStores/erbjuder/Skriv | Skapar erbjudande i PrivateStore. |
+> | Åtgärd | Microsoft. Marketplace/privateStores/erbjudande/ta bort | Tar bort erbjudandet från PrivateStore. |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -5988,6 +6095,10 @@ Azure-tjänst [: Virtual Network](../virtual-network/index.yml), [Load Balancer]
 > | Åtgärd | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Read | Hämtar en Application Gateway WAF-princip |
 > | Åtgärd | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Write | Skapar en Application Gateway WAF-princip eller uppdaterar en Application Gateway WAF-princip |
 > | Åtgärd | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Delete | Tar bort en Application Gateway WAF-princip |
+> |  | **applicationRuleCollections** |  |
+> | Åtgärd | Microsoft. Network/applicationRuleCollections/Read | Hämtar Azure Firewall-ApplicationRuleCollection |
+> | Åtgärd | Microsoft. Network/applicationRuleCollections/Write | CreatesOrUpdates Azure Firewall ApplicationRuleCollection |
+> | Åtgärd | Microsoft. Network/applicationRuleCollections/Delete | Tar bort Azure Firewall ApplicationRuleCollection |
 > |  | **applicationSecurityGroups** |  |
 > | Åtgärd | Microsoft. Network/applicationSecurityGroups/joinIpConfiguration/Action | Ansluter en IP-konfiguration till program säkerhets grupper. Det går inte att avisera. |
 > | Åtgärd | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Kopplar en säkerhets regel till program säkerhets grupper. Det går inte att avisera. |
@@ -6259,6 +6370,22 @@ Azure-tjänst [: Virtual Network](../virtual-network/index.yml), [Load Balancer]
 > | Åtgärd | Microsoft. Network/locations/usages/Read | Hämtar användnings statistik för resurser |
 > |  | **platser/virtualNetworkAvailableEndpointServices** |  |
 > | Åtgärd | Microsoft. Network/locations/virtualNetworkAvailableEndpointServices/Read | Hämtar en lista över tillgängliga Virtual Network slut punkts tjänster |
+> |  | **natRuleCollections** |  |
+> | Åtgärd | Microsoft. Network/natRuleCollections/Read | Hämtar Azure Firewall-NatRuleCollection |
+> | Åtgärd | Microsoft. Network/natRuleCollections/Write | CreatesOrUpdates Azure Firewall NatRuleCollection |
+> | Åtgärd | Microsoft. Network/natRuleCollections/Delete | Tar bort Azure Firewall NatRuleCollection |
+> |  | **networkExperimentProfiles** |  |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/Read | Hämta en Internet Analyzer-profil |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/Write | Skapa eller uppdatera en Internet Analyzer-profil |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/Delete | Ta bort en Internet Analyzer-profil |
+> |  | **networkExperimentProfiles/experiment** |  |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/experiment/Read | Hämta ett Internet Analyzer-test |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/experiment/Write | Skapa eller uppdatera ett Internet Analyzer-test |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/experiment/Delete | Ta bort ett Internet Analyzer-test |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/experiment/timeseries/Action | Hämta tids serier för Internet Analyzer-test |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/experiment/latencyScorecard/Action | Hämta svars tid för ett Internet Analyzer-test |
+> |  | **networkExperimentProfiles/preconfiguredEndpoints** |  |
+> | Åtgärd | Microsoft. Network/networkExperimentProfiles/preconfiguredEndpoints/Read | Hämta en Internet Analyzer-profils förkonfigurerade slut punkter |
 > |  | **networkIntentPolicies** |  |
 > | Åtgärd | Microsoft.Network/networkIntentPolicies/read | Hämtar en beskrivning av princip för nätverks avsikt |
 > | Åtgärd | Microsoft.Network/networkIntentPolicies/write | Skapar en princip för nätverks avsikt eller uppdaterar en befintlig princip för nätverks avsikt |
@@ -6287,6 +6414,10 @@ Azure-tjänst [: Virtual Network](../virtual-network/index.yml), [Load Balancer]
 > | Åtgärd | Microsoft.Network/networkProfiles/setContainers/action | Anger behållare |
 > | Åtgärd | Microsoft.Network/networkProfiles/removeContainers/action | Tar bort behållare |
 > | Åtgärd | Microsoft.Network/networkProfiles/setNetworkInterfaces/action | Anger behållarens nätverks gränssnitt |
+> |  | **networkRuleCollections** |  |
+> | Åtgärd | Microsoft. Network/networkRuleCollections/Read | Hämtar Azure Firewall-NetworkRuleCollection |
+> | Åtgärd | Microsoft. Network/networkRuleCollections/Write | CreatesOrUpdates Azure Firewall NetworkRuleCollection |
+> | Åtgärd | Microsoft. Network/networkRuleCollections/Delete | Tar bort Azure Firewall NetworkRuleCollection |
 > |  | **networkSecurityGroups** |  |
 > | Åtgärd | Microsoft.Network/networkSecurityGroups/read | Hämtar en definition för nätverks säkerhets grupp |
 > | Åtgärd | Microsoft.Network/networkSecurityGroups/write | Skapar en nätverks säkerhets grupp eller uppdaterar en befintlig nätverks säkerhets grupp |
@@ -7030,6 +7161,18 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADFActivityRun/read | Läsa data från tabellen ADFActivityRun |
 > |  | **arbets ytor/fråga/ADFPipelineRun** |  |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADFPipelineRun/read | Läsa data från tabellen ADFPipelineRun |
+> |  | **arbets ytor/fråga/ADFSSISIntegrationRuntimeLogs** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/ADFSSISIntegrationRuntimeLogs/läsa | Läsa data från tabellen ADFSSISIntegrationRuntimeLogs |
+> |  | **arbets ytor/fråga/ADFSSISPackageEventMessageContext** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/ADFSSISPackageEventMessageContext/läsa | Läsa data från tabellen ADFSSISPackageEventMessageContext |
+> |  | **arbets ytor/fråga/ADFSSISPackageEventMessages** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/ADFSSISPackageEventMessages/läsa | Läsa data från tabellen ADFSSISPackageEventMessages |
+> |  | **arbets ytor/fråga/ADFSSISPackageExecutableStatistics** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/ADFSSISPackageExecutableStatistics/läsa | Läsa data från tabellen ADFSSISPackageExecutableStatistics |
+> |  | **arbets ytor/fråga/ADFSSISPackageExecutionComponentPhases** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/ADFSSISPackageExecutionComponentPhases/läsa | Läsa data från tabellen ADFSSISPackageExecutionComponentPhases |
+> |  | **arbets ytor/fråga/ADFSSISPackageExecutionDataStatistics** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/ADFSSISPackageExecutionDataStatistics/läsa | Läsa data från tabellen ADFSSISPackageExecutionDataStatistics |
 > |  | **arbets ytor/fråga/ADFTriggerRun** |  |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/ADFTriggerRun/read | Läsa data från tabellen ADFTriggerRun |
 > |  | **arbets ytor/fråga/ADReplicationResult** |  |
@@ -7052,14 +7195,30 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AmlComputeJobEvent/läsa | Läsa data från tabellen AmlComputeJobEvent |
 > |  | **arbets ytor/fråga/ApiManagementGatewayLogs** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/ApiManagementGatewayLogs/läsa | Läsa data från tabellen ApiManagementGatewayLogs |
+> |  | **arbets ytor/fråga/AppAvailabilityResults** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppAvailabilityResults/läsa | Läsa data från tabellen AppAvailabilityResults |
+> |  | **arbets ytor/fråga/AppBrowserTimings** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppBrowserTimings/läsa | Läsa data från tabellen AppBrowserTimings |
 > |  | **arbets ytor/fråga/AppCenterError** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppCenterError/läsa | Läsa data från tabellen AppCenterError |
+> |  | **arbets ytor/fråga/AppDependencies** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppDependencies/läsa | Läsa data från tabellen AppDependencies |
+> |  | **arbets ytor/fråga/AppEvents** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppEvents/läsa | Läsa data från tabellen AppEvents |
 > |  | **arbets ytor/fråga/ApplicationInsights** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/ApplicationInsights/läsa | Läsa data från tabellen ApplicationInsights |
+> |  | **arbets ytor/fråga/AppMetrics** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppMetrics/läsa | Läsa data från tabellen AppMetrics |
+> |  | **arbets ytor/fråga/AppPageViews** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppPageViews/läsa | Läsa data från tabellen AppPageViews |
+> |  | **arbets ytor/fråga/AppPerformanceCounters** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppPerformanceCounters/läsa | Läsa data från tabellen AppPerformanceCounters |
 > |  | **arbets ytor/fråga/AppPlatformLogsforSpring** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppPlatformLogsforSpring/läsa | Läsa data från tabellen AppPlatformLogsforSpring |
 > |  | **arbets ytor/fråga/AppPlatformSystemLogs** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppPlatformSystemLogs/läsa | Läsa data från tabellen AppPlatformSystemLogs |
+> |  | **arbets ytor/fråga/AppRequests** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppRequests/läsa | Läsa data från tabellen AppRequests |
 > |  | **arbets ytor/fråga/AppServiceAppLogs** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppServiceAppLogs/läsa | Läsa data från tabellen AppServiceAppLogs |
 > |  | **arbets ytor/fråga/AppServiceAuditLogs** |  |
@@ -7072,6 +7231,10 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppServiceFileAuditLogs/läsa | Läsa data från tabellen AppServiceFileAuditLogs |
 > |  | **arbets ytor/fråga/AppServiceHTTPLogs** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppServiceHTTPLogs/läsa | Läsa data från tabellen AppServiceHTTPLogs |
+> |  | **arbets ytor/fråga/AppSystemEvents** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppSystemEvents/läsa | Läsa data från tabellen AppSystemEvents |
+> |  | **arbets ytor/fråga/AppTraces** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AppTraces/läsa | Läsa data från tabellen AppTraces |
 > |  | **arbets ytor/fråga/AuditLogs** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AuditLogs/läsa | Läsa data från tabellen AuditLogs |
 > |  | **arbets ytor/fråga/AutoscaleEvaluationsLog** |  |
@@ -7086,6 +7249,8 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AzureActivity/läsa | Läsa data från tabellen AzureActivity |
 > |  | **arbets ytor/fråga/AzureAssessmentRecommendation** |  |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AzureAssessmentRecommendation/read | Läsa data från tabellen AzureAssessmentRecommendation |
+> |  | **arbets ytor/fråga/AzureDiagnostics** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/AzureDiagnostics/läsa | Läsa data från tabellen AzureDiagnostics |
 > |  | **arbets ytor/fråga/AzureMetrics** |  |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | Läsa data från tabellen AzureMetrics |
 > |  | **arbets ytor/fråga/BaiClusterEvent** |  |
@@ -7424,6 +7589,8 @@ Azure-tjänst: [Azure Monitor](../azure-monitor/index.yml)
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/SPAssessmentRecommendation/läsa | Läsa data från tabellen SPAssessmentRecommendation |
 > |  | **arbets ytor/fråga/SQLAssessmentRecommendation** |  |
 > | Åtgärd | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | Läsa data från tabellen SQLAssessmentRecommendation |
+> |  | **arbets ytor/fråga/SqlDataClassification** |  |
+> | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/SqlDataClassification/läsa | Läsa data från tabellen SqlDataClassification |
 > |  | **arbets ytor/fråga/SQLQueryPerformance** |  |
 > | Åtgärd | Microsoft. OperationalInsights/arbets ytor/fråga/SQLQueryPerformance/läsa | Läsa data från tabellen SQLQueryPerformance |
 > |  | **arbets ytor/fråga/SqlThreatProtectionLoginAudits** |  |
@@ -7784,6 +7951,21 @@ Azure-tjänst: [Site Recovery](../site-recovery/index.yml)
 > |  | **Valv/monitoringConfigurations** |  |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Hämtar meddelande konfigurationen för Recovery Services-valvet. |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Konfigurerar e-postaviseringar till Recovery Services-valvet. |
+> |  | **Valv/privateEndpointConnectionProxies** |  |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/Delete | Hämta alla skydds bara behållare |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/läsa | Hämta alla skydds bara behållare |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/validate/åtgärd | Hämta alla skydds bara behållare |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/Write | Hämta alla skydds bara behållare |
+> |  | **Valv/privateEndpointConnectionProxies/operationResults** |  |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/operationResults/Read | Hämta alla skydds bara behållare |
+> |  | **Valv/privateEndpointConnectionProxies/operationsStatus** |  |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnectionProxies/operationsStatus/Read | Hämta alla skydds bara behållare |
+> |  | **Valv/privateEndpointConnections** |  |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnections/Write | Hämta alla skydds bara behållare |
+> |  | **Valv/privateEndpointConnections/operationResults** |  |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnections/operationResults/Read | Hämta alla skydds bara behållare |
+> |  | **Valv/privateEndpointConnections/operationsStatus** |  |
+> | Åtgärd | Microsoft. recoveryservices/valv/privateEndpointConnections/operationsStatus/Read | Hämta alla skydds bara behållare |
 > |  | **Valv/registeredIdentities** |  |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | Du kan använda åtgärden registrera tjänst behållare för att registrera en behållare med återställnings tjänsten. |
 > | Åtgärd | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | Med åtgärden Hämta behållare kan du hämta de behållare som är registrerade för en resurs. |
@@ -8008,6 +8190,11 @@ Azure-tjänst: [Azure Relay](../service-bus-relay/relay-what-is-it.md)
 > | Åtgärd | Microsoft. Relay/namnrymder/networkrulesets/Delete | Ta bort VNET-regel resurs |
 > |  | **namnrymder/operationresults** |  |
 > | Åtgärd | Microsoft. Relay/namnrymder/operationresults/Read | Hämta status för namn områdes åtgärd |
+> |  | **namnrymder/privateEndpointConnectionProxies** |  |
+> | Åtgärd | Microsoft. relä/namnrymder/privateEndpointConnectionProxies/verifiera/åtgärd | Verifiera proxy för anslutning till privat slutpunkt |
+> | Åtgärd | Microsoft. Relay/namnrymder/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Åtgärd | Microsoft. Relay/namnrymder/privateEndpointConnectionProxies/Write | Skapa Proxy för anslutning till privat slutpunkt |
+> | Åtgärd | Microsoft. Relay/namnrymder/privateEndpointConnectionProxies/Delete | Ta bort proxy för privat slut punkt anslutning |
 > |  | **namnrymder/providers/Microsoft. Insights/diagnosticSettings** |  |
 > | Åtgärd | Microsoft. Relay/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Read | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Åtgärd | Microsoft. Relay/Namespaces/providers/Microsoft. Insights/diagnosticSettings/Write | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
@@ -8043,6 +8230,8 @@ Azure-tjänst: [Azure Service Health](../service-health/index.yml)
 > | Åtgärd | Microsoft.ResourceHealth/AvailabilityStatuses/read | Hämtar tillgänglighets status för alla resurser i det angivna omfånget |
 > |  | **AvailabilityStatuses/aktuell** |  |
 > | Åtgärd | Microsoft.ResourceHealth/AvailabilityStatuses/current/read | Hämtar tillgänglighets status för den angivna resursen |
+> |  | **emergingissues** |  |
+> | Åtgärd | Microsoft. ResourceHealth/emergingissues/Read | Få nya problem med Azure-tjänster |
 > |  | **planering** |  |
 > | Åtgärd | Microsoft.ResourceHealth/events/read | Hämta Service Health händelser för den aktuella prenumerationen |
 > |  | **healthevent** |  |
@@ -8216,6 +8405,9 @@ Azure-tjänst: [Security Center](../security-center/index.yml)
 > |  | **utvärderingar** |  |
 > | Åtgärd | Microsoft. Security/assessments/Read | Få säkerhets utvärderingar i din prenumeration |
 > | Åtgärd | Microsoft. Security/Assessment/Write | Skapa eller uppdatera säkerhets utvärderingar i din prenumeration |
+> |  | **autoProvisioningSettings** |  |
+> | Åtgärd | Microsoft. Security/autoProvisioningSettings/Read | Hämta inställningen för automatisk etablering av säkerhet för prenumerationen |
+> | Åtgärd | Microsoft. Security/autoProvisioningSettings/Write | Skapa eller uppdatera inställningen för automatisk etablering av säkerhet för prenumerationen |
 > |  | **complianceResults** |  |
 > | Åtgärd | Microsoft. Security/complianceResults/Read | Hämtar kompabilitets resultat för resursen |
 > |  | **informationProtectionPolicies** |  |
@@ -8406,6 +8598,11 @@ Azure-tjänst: [Service Bus](../service-bus/index.md)
 > | Åtgärd | Microsoft.ServiceBus/namespaces/networkrulesets/delete | Ta bort VNET-regel resurs |
 > |  | **namnrymder/operationresults** |  |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/operationresults/read | Hämta status för namn områdes åtgärd |
+> |  | **namnrymder/privateEndpointConnectionProxies** |  |
+> | Åtgärd | Microsoft. Service Bus/Namespaces/privateEndpointConnectionProxies/validate/Action | Verifiera proxy för anslutning till privat slutpunkt |
+> | Åtgärd | Microsoft. Service Bus/namnrymder/privateEndpointConnectionProxies/Read | Hämta anslutnings proxy för privat slutpunkt |
+> | Åtgärd | Microsoft. Service Bus/namnrymder/privateEndpointConnectionProxies/Write | Skapa Proxy för anslutning till privat slutpunkt |
+> | Åtgärd | Microsoft. Service Bus/Namespaces/privateEndpointConnectionProxies/Delete | Ta bort proxy för privat slut punkt anslutning |
 > |  | **namnrymder/providers/Microsoft. Insights/diagnosticSettings** |  |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Hämta lista över resurs beskrivningar för namn rymds diagnostiska inställningar |

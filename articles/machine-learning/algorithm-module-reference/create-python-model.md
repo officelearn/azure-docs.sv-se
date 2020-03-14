@@ -1,7 +1,7 @@
 ---
 title: 'Skapa python-modell: modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder Create python modell-modellen i Azure Machine Learning för att skapa anpassade modeller eller data bearbetnings moduler.
+description: Lär dig hur du använder modulen skapa python-modell i Azure Machine Learning för att skapa en anpassad modell eller data bearbetnings modul.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,111 +9,113 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 26bcd855dbe2ea85df9fb6aca74f8b52e8ce8e46
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 929938bba9c9512ecfd663a540cf4a7ebbf68e2b
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268905"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371825"
 ---
-# <a name="create-python-model"></a>Skapa Python-modell
+# <a name="create-python-model-module"></a>Skapa python modell-modul
 
 I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
-Lär dig hur du använder modulen **skapa python-modell** för att skapa en modell som inte är tränad från ett Python-skript. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learning designer-miljön. 
+Lär dig hur du använder modulen skapa python-modell för att skapa en modell som inte är tränad från ett Python-skript. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learning designer-miljön. 
 
-När du har skapat modellen kan du använda [träna modell](train-model.md) för att träna modellen på en data uppsättning, t. ex. en annan elev i Azure Machine Learning. Den tränade modellen kan skickas till [Poäng modell](score-model.md) för att använda modellen för att göra förutsägelser. Den tränade modellen kan sedan sparas och poängsättnings arbets flödet kan publiceras som en webb tjänst.
+När du har skapat modellen kan du använda [träna modell](train-model.md) för att träna modellen på en data uppsättning, t. ex. en annan elev i Azure Machine Learning. Den tränade modellen kan skickas till [Poäng modell](score-model.md) för att göra förutsägelser. Sedan kan du spara den tränade modellen och publicera bedömnings arbets flödet som en webb tjänst.
 
 > [!WARNING]
-> För närvarande går det inte att skicka resultatet av en python-modell för att [utvärdera modellen](evaluate-model.md). Om du behöver utvärdera en modell kan du skriva anpassat Python-skript och köra det med hjälp av modulen [Kör Python-skript](execute-python-script.md) .  
+> För närvarande går det inte att skicka resultatet av en python-modell för att [utvärdera modellen](evaluate-model.md). Om du behöver utvärdera en modell kan du skriva ett anpassat Python-skript och köra det med hjälp av modulen [Kör Python-skript](execute-python-script.md) .  
 
 
-## <a name="how-to-configure-create-python-model"></a>Konfigurera skapande av python-modell
+## <a name="configure-the-module"></a>Konfigurera modulen
 
-Användningen av den här modulen kräver en mellanliggande eller expert kunskap om python. Modulen stöder användning av valfri elev som ingår i python-paketen som redan har installerats i Azure Machine Learning. Se förinstallerade python-paket lista i [Kör Python-skript](execute-python-script.md).
+Användningen av den här modulen kräver en mellanliggande eller expert kunskap om python. Modulen stöder användning av valfri elev som ingår i python-paketen som redan har installerats i Azure Machine Learning. Se listan med förinstallerade python-paket i [köra Python-skript](execute-python-script.md).
   
 
-I den här artikeln visas hur du använder **create python-modellen** med en enkel pipeline. Nedan visas diagrammet i pipelinen.
+Den här artikeln visar hur du använder **create python-modellen** med en enkel pipeline. Här är ett diagram över pipelinen:
 
-![Skapa python-modell](./media/module/create-python-model.png)
+![Diagram över skapa python-modell](./media/module/create-python-model.png)
 
-1.  Klicka på **skapa python-modell**, redigera skriptet för att implementera modellerings-eller data hanterings processen. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learnings miljön.
+1. Välj **skapa python-modell**och redigera skriptet för att implementera modellerings-eller data hanterings processen. Du kan basera modellen på valfri elev som ingår i ett python-paket i Azure Machine Learnings miljön.
 
+   Följande exempel kod för Naive Bayes-klassificeraren i två klasser använder det populära *sklearn* -paketet:
 
-    Nedan visas en exempel kod för Naive Bayes-klassificeraren i två klasser med hjälp av det populära *sklearn* -paketet.
+   ```Python
 
-```Python
-
-# The script MUST define a class named AzureMLModel.
-# This class MUST at least define the following three methods:
-    # __init__: in which self.model must be assigned,
-    # train: which trains self.model, the two input arguments must be pandas DataFrame,
-    # predict: which generates prediction result, the input argument and the prediction result MUST be pandas DataFrame.
-# The signatures (method names and argument names) of all these methods MUST be exactly the same as the following example.
-
-
-import pandas as pd
-from sklearn.naive_bayes import GaussianNB
+   # The script MUST define a class named AzureMLModel.
+   # This class MUST at least define the following three methods:
+       # __init__: in which self.model must be assigned,
+       # train: which trains self.model, the two input arguments must be pandas DataFrame,
+       # predict: which generates prediction result, the input argument and the prediction result MUST be pandas DataFrame.
+   # The signatures (method names and argument names) of all these methods MUST be exactly the same as the following example.
 
 
-class AzureMLModel:
-    def __init__(self):
-        self.model = GaussianNB()
-        self.feature_column_names = list()
-
-    def train(self, df_train, df_label):
-        self.feature_column_names = df_train.columns.tolist()
-        self.model.fit(df_train, df_label)
-
-    def predict(self, df):
-        return pd.DataFrame(
-            {'Scored Labels': self.model.predict(df[self.feature_column_names]), 
-             'probabilities': self.model.predict_proba(df[self.feature_column_names])[:, 1]}
-        )
+   import pandas as pd
+   from sklearn.naive_bayes import GaussianNB
 
 
-```
+   class AzureMLModel:
+       def __init__(self):
+           self.model = GaussianNB()
+           self.feature_column_names = list()
+
+       def train(self, df_train, df_label):
+           self.feature_column_names = df_train.columns.tolist()
+           self.model.fit(df_train, df_label)
+
+       def predict(self, df):
+           return pd.DataFrame(
+               {'Scored Labels': self.model.predict(df[self.feature_column_names]), 
+                'probabilities': self.model.predict_proba(df[self.feature_column_names])[:, 1]}
+           )
 
 
-2. Anslut den **skapa python modell** -modul som du nyss skapade **till en modell** och **Poäng modell**
+   ```
 
-3. Om du behöver utvärdera modellen lägger du till ett [Kör Python-skript](execute-python-script.md) och redigerar python-skriptet för att implementera utvärderingen.
+1. Anslut den **skapa python modell** -modul som du nyss skapade för att **träna modell** och **Poäng modell**.
 
-Nedan visas en exempel utvärderings kod.
+1. Om du behöver utvärdera modellen lägger du till en [köra python-skriptfil](execute-python-script.md) och redigerar python-skriptet.
 
-```Python
+   Följande skript är exempel på utvärderings kod:
+
+   ```Python
 
 
-# The script MUST contain a function named azureml_main
-# which is the entry point for this module.
+   # The script MUST contain a function named azureml_main
+   # which is the entry point for this module.
 
-# imports up here can be used to 
-import pandas as pd
+   # imports up here can be used to 
+   import pandas as pd
 
-# The entry point function can contain up to two input arguments:
-#   Param<dataframe1>: a pandas.DataFrame
-#   Param<dataframe2>: a pandas.DataFrame
-def azureml_main(dataframe1 = None, dataframe2 = None):
+   # The entry point function can contain up to two input arguments:
+   #   Param<dataframe1>: a pandas.DataFrame
+   #   Param<dataframe2>: a pandas.DataFrame
+   def azureml_main(dataframe1 = None, dataframe2 = None):
     
-    from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score, roc_curve
-    import pandas as pd
-    import numpy as np
+       from sklearn.metrics import accuracy_score, precision_score, recall_score, roc_auc_score, roc_curve
+       import pandas as pd
+       import numpy as np
     
-    scores = dataframe1.ix[:, ("income", "Scored Labels", "probabilities")]
-    ytrue = np.array([0 if val == '<=50K' else 1 for val in scores["income"]])
-    ypred = np.array([0 if val == '<=50K' else 1 for val in scores["Scored Labels"]])    
-    probabilities = scores["probabilities"]
+       scores = dataframe1.ix[:, ("income", "Scored Labels", "probabilities")]
+       ytrue = np.array([0 if val == '<=50K' else 1 for val in scores["income"]])
+       ypred = np.array([0 if val == '<=50K' else 1 for val in scores["Scored Labels"]])    
+       probabilities = scores["probabilities"]
     
-    accuracy, precision, recall, auc = \
-    accuracy_score(ytrue, ypred),\
-    precision_score(ytrue, ypred),\
-    recall_score(ytrue, ypred),\
-    roc_auc_score(ytrue, probabilities)
+       accuracy, precision, recall, auc = \
+       accuracy_score(ytrue, ypred),\
+       precision_score(ytrue, ypred),\
+       recall_score(ytrue, ypred),\
+       roc_auc_score(ytrue, probabilities)
     
-    metrics = pd.DataFrame();
-    metrics["Metric"] = ["Accuracy", "Precision", "Recall", "AUC"];
-    metrics["Value"] = [accuracy, precision, recall, auc]
+       metrics = pd.DataFrame();
+       metrics["Metric"] = ["Accuracy", "Precision", "Recall", "AUC"];
+       metrics["Value"] = [accuracy, precision, recall, auc]
     
-    return metrics,
+       return metrics,
 
-```
+   ```
+
+## <a name="next-steps"></a>Nästa steg
+
+Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/29/2020
-ms.openlocfilehash: 091ca4d632d89405d85c66e264aff9867979fcd4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 03/13/2020
+ms.openlocfilehash: b83828c3c78913598c103730e11222969fe1fddb
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905225"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370176"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -65,38 +65,3 @@ HDInsight fortsätter att göra kluster tillförlitlighet och prestanda förbät
 
 ## <a name="component-version-change"></a>Komponent versions ändring
 Ingen komponent versions ändring för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 AD HDInsight 3,6 här.
-
-## <a name="known-issues"></a>Kända problem
-
-Från och med den 29 januari 2020 uppstår ett aktivt problem där du kan få ett fel meddelande när du försöker använda en Jupyter Notebook. Använd stegen nedan för att åtgärda problemet. Du kan också se det här [MSDN-inlägget](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) eller det här [StackOverflow-inlägget](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) för uppdaterad information eller ställa frågor till fler frågor. Den här sidan kommer att uppdateras när problemet åtgärdas.
-
-**Kompileringsfel**
-
-* ValueError: kan inte konvertera antecknings boken till v5 eftersom den versionen inte finns
-* Ett fel uppstod vid inläsning av antecknings boken. Med den här versionen kan du läsa in Notebook format v4 eller tidigare
-
-**Orsak** 
-
-Filen _version. py på klustret har uppdaterats till 5. x. x i stället för 4.4. x. # # eller Ambari måste startas om.
-
-**Lösning**
-
-Om du skapar en ny Jupyter-anteckningsbok och får ett av de fel som anges ovan utför du följande steg för att åtgärda problemet.
-
-1. Öppna Ambari i en webbläsare genom att gå till `https://CLUSTERNAME.azurehdinsight.net`, där kluster namn är namnet på klustret.
-1. I Ambari klickar du på **Jupyter**på den vänstra menyn och sedan på **tjänst åtgärder**klickar du på **stoppa**.
-1. SSH till klustrets huvudnoden där Jupyter-tjänsten körs.
-1. Öppna följande fil/usr/bin/Anaconda/lib/python2.7/site-packages/nbformat/_version. py i sudo-läge.
-1. Kontrol lera värdet för version_info.
-1. Om värdet för version_info är inställt på: 
-
-    version_info = (5, 0, 3)
-
-    Ändra sedan posten till: 
-    
-    version_info = (4, 4, 0)
-
-    Och spara filen. 
-
-    Om version_info redan har angetts till (4, 4, 0) fortsätter du till nästa steg eftersom endast Ambari måste startas om, inga ytterligare ändringar krävs.
-1. Gå tillbaka till Ambari och klicka på **starta om alla**i **tjänst åtgärder**.

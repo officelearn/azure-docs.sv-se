@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 915aca0e95fce05f74477b526de047c829c7f512
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 49b576fd511d17616880e5d981fd3f649de797df
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890407"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367932"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Snabb start: köra Apache Hive frågor i Azure HDInsight med Apache Zeppelin
 
@@ -21,9 +21,9 @@ I den här snabb starten får du lära dig hur du använder Apache Zeppelin för
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-An-HDInsight interaktiv fråga-kluster. Se [skapa kluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) för att skapa ett HDInsight-kluster.  Se till att välja kluster typen **interaktiv fråga** .
+An-HDInsight interaktiv fråga-kluster. Se [skapa kluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) för att skapa ett HDInsight-kluster.  Se till att välja kluster typen **interaktiv fråga** .
 
 ## <a name="create-an-apache-zeppelin-note"></a>Skapa en Apache Zeppelin-anteckning
 

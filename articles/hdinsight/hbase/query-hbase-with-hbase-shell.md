@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Fråga Apache HBase i Azure HDInsight – HBase Shell'
+title: 'Snabb start: fråga Apache HBase i Azure HDInsight – HBase Shell'
 description: I den här snabb starten får du lära dig hur du använder Apache HBase-gränssnittet för att köra apache HBase-frågor.
 keywords: hdinsight,hadoop,HBase
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 033227f085cd23c5fa26313cb4a2816070676560
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 572262cbece26171f9a67bf073906fa2dfd4d8e1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076431"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371077"
 ---
-# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Snabbstart: Fråga Apache HBase i Azure HDInsight med HBase Shell
+# <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Snabb start: fråga Apache HBase i Azure HDInsight med HBase Shell
 
 I den här snabb starten får du lära dig hur du använder Apache HBase Shell för att skapa en HBase-tabell, infogar data och sedan frågar tabellen.
 
@@ -24,7 +24,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett Apache HBase-kluster. Se [skapa kluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) för att skapa ett HDInsight-kluster.  Se till att du väljer kluster typen **HBase** .
+* Ett Apache HBase-kluster. Se [skapa kluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) för att skapa ett HDInsight-kluster.  Se till att du väljer kluster typen **HBase** .
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -40,31 +40,31 @@ I HBase (en implementering av [Cloud BigTable](https://cloud.google.com/bigtable
 
 Du kan använda SSH för att ansluta till HBase-kluster och sedan använda Apache HBase Shell för att skapa HBase-tabeller, infoga data och fråga efter data.
 
-1. Använd `ssh` kommandot för att ansluta till ditt HBase-kluster. Redigera kommandot nedan genom att ersätta `CLUSTERNAME` med namnet på klustret och ange sedan kommandot:
+1. Använd `ssh` kommando för att ansluta till ditt HBase-kluster. Redigera kommandot nedan genom att ersätta `CLUSTERNAME` med namnet på klustret och ange sedan kommandot:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Använd `hbase shell` kommandot för att starta det interaktiva HBase-gränssnittet. Ange följande kommando i SSH-anslutningen:
+2. Använd `hbase shell` kommando för att starta det interaktiva HBase-gränssnittet. Ange följande kommando i SSH-anslutningen:
 
     ```bash
     hbase shell
     ```
 
-3. Använd `create` kommandot för att skapa en HBase-tabell med två kolumn serier. Ange följande kommando:
+3. Använd `create`-kommandot för att skapa en HBase-tabell med två kolumn serier. Ange följande kommando:
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. Använd `list` kommandot för att visa en lista över alla tabeller i HBase. Ange följande kommando:
+4. Använd `list` kommando för att visa en lista över alla tabeller i HBase. Ange följande kommando:
 
     ```hbase
     list
     ```
 
-5. Använd `put` kommandot för att infoga värden i en angiven kolumn i en angiven rad i en viss tabell. Ange följande kommando:
+5. Använd `put`-kommandot för att infoga värden i en angiven kolumn i en angiven rad i en viss tabell. Ange följande kommando:
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -73,7 +73,7 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda Apach
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
     ```
 
-6. Använd `scan` kommandot för att genomsöka och `Contacts` returnera tabell data. Ange följande kommando:
+6. Använd `scan`-kommandot för att söka igenom och returnera `Contacts` tabell data. Ange följande kommando:
 
     ```hbase
     scan 'Contacts'
@@ -85,27 +85,27 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda Apach
     get 'Contacts', '1000'
     ```
 
-    Du ser liknande resultat som när du `scan` använder kommandot eftersom det bara finns en rad.
+    Du ser liknande resultat som när du använder kommandot `scan` eftersom det bara finns en rad.
 
-8. Använd `delete` kommandot för att ta bort ett cell värde i en tabell. Ange följande kommando:
+8. Använd `delete` kommando för att ta bort ett cell värde i en tabell. Ange följande kommando:
 
     ```hbase
     delete 'Contacts', '1000', 'Office:Address'
     ```
 
-9. Använd `disable` kommandot för att inaktivera tabellen. Ange följande kommando:
+9. Använd `disable`-kommandot för att inaktivera tabellen. Ange följande kommando:
 
     ```hbase
     disable 'Contacts'
     ```
 
-10. Använd `drop` kommandot för att släppa en tabell från HBase. Ange följande kommando:
+10. Använd `drop` kommando för att släppa en tabell från HBase. Ange följande kommando:
 
     ```hbase
     drop 'Contacts'
     ```
 
-11. Använd `exit` kommandot för att stoppa det interaktiva HBase-gränssnittet. Ange följande kommando:
+11. Använd `exit` kommando för att stoppa det interaktiva HBase-gränssnittet. Ange följande kommando:
 
     ```hbase
     exit

@@ -10,66 +10,54 @@ metadata:
   layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 50027fde619d4e69fdbb181544d23dba4a9cf144
-  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.openlocfilehash: 369213485934236a05ecb3fcb458bdd28fd76136
+  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/09/2020
-  ms.locfileid: "78943336"
+  ms.lasthandoff: 03/14/2020
+  ms.locfileid: "79365567"
 landingContent:
-- title: Kom igång
+- title: Om röst assistenter
   linkLists:
   - linkListType: overview
     links:
-    - text: Lösningar för röst assistent
+    - text: Vad är röstassistent?
       url: voice-assistants.md
-    - text: Om anpassade kommandon
+    - text: Vad är en app för anpassade kommandon?
       url: custom-commands.md
-    - text: Om direkt linje tal
+    - text: Vad är Direct Line Speech?
       url: direct-line-speech.md
   - linkListType: reference
     links:
-    - text: Priser
-      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
     - text: Vanliga frågor och svar om röstassistenter
       url: faq-voice-assistants.md
-- title: Anpassat nyckelord
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Anpassat nyckelord
-      url: speech-devices-sdk-create-kws.md
-  - linkListType: reference
-    links:
-    - text: Rikt linjer för anpassad namngivning av nyckelord
-      url: speech-devices-sdk-kws-guidelines.md
-- title: Anpassade kommandon
+    - text: Priser för röst assistenter
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+- title: Utveckla med anpassade kommandon
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Skapa ett anpassat kommando (förhandsversion)
+    - text: Skapa en app för anpassade kommandon
       url: quickstart-custom-speech-commands-create-new.md
-    - text: Skapa ett anpassat kommando med parametrar (förhandsversion)
+    - text: Skapa ett anpassat kommando med parametrar
       url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Använd anpassade kommandon med anpassad röst (förhandsversion)
+    - text: Använd anpassade kommandon med anpassad röst
       url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Använda anpassade kommandon med Speech SDK (förhandsversion)
+    - text: Använd anpassade kommandon med talet SDK
       url: quickstart-custom-speech-commands-speech-sdk.md
   - linkListType: how-to-guide
     links:
-    - text: Anpassade kommandon med tal-SDK
+    - text: Utföra kommandon från en klient
       url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Utföra anpassade kommandon med Speech SDK
-      url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Lägga till parametervalidering till ett anpassat kommando
+    - text: Lägg till parameter validering
       url: how-to-custom-speech-commands-validations.md
-    - text: Lägga till en bekräftelse till ett anpassat kommando
+    - text: Lägg till en bekräftelse
       url: how-to-custom-speech-commands-confirmations.md
-    - text: Lägga till en korrigering i ett steg till ett anpassat kommando
+    - text: Lägg till en enstaka stegs korrigering
       url: how-to-custom-speech-commands-one-step-correction.md
-- title: Direct Line Speech
+- title: Utveckla med direkt linje tal
   linkLists:
   - linkListType: quickstart
     links:
@@ -83,3 +71,13 @@ landingContent:
     links:
     - text: Röstaktivera din robot med Speech SDK
       url: tutorial-voice-enable-your-bot-speech-sdk.md
+- title: Utveckla med anpassat nyckelord
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa ett anpassat nyckelord
+      url: speech-devices-sdk-create-kws.md
+  - linkListType: reference
+    links:
+    - text: Rikt linjer för anpassad namngivning av nyckelord
+      url: speech-devices-sdk-kws-guidelines.md

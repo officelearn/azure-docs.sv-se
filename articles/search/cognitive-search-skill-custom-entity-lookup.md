@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 8674438032ebd925296c95e9ffa0a2a0b95322f1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651346"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79369785"
 ---
-#    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad enhets sökning av kognitiva kunskaper (för hands version)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad enhets sökning av kognitiva kunskaper (för hands version)
 
 > [!IMPORTANT] 
 > Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för Portal eller .NET SDK.
@@ -36,25 +36,25 @@ Microsoft. färdigheter. text. CustomEntityLookupSkill
 
 Parametrar är Skift läges känsliga.
 
-| Parameternamn     | Description |
+| Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| entitiesDefinitionUri | Sökväg till en JSON-eller CSV-fil som innehåller all mål text som ska matchas mot. Den här definitionen av entiteten läses i början av en indexerare-körning. alla uppdateringar av filen Mid-Run kommer inte att realiseras förrän efterföljande körningar. Den här konfigurationen måste vara tillgänglig via HTTPS. Se formatet för [anpassad definition av entitet](#custom-entity-definition-format) "nedan för förväntat CSV-eller JSON-schema.|
+| entitiesDefinitionUri    | Sökväg till en JSON-eller CSV-fil som innehåller all mål text som ska matchas mot. Den här definitionen av entiteten läses i början av en indexerare-körning. alla uppdateringar av filen Mid-Run kommer inte att realiseras förrän efterföljande körningar. Den här konfigurationen måste vara tillgänglig via HTTPS. Se formatet för [anpassad definition av entitet](#custom-entity-definition-format) "nedan för förväntat CSV-eller JSON-schema.|
 |inlineEntitiesDefinition | Definitioner av infogade JSON-enheter. Den här parametern ersätter parametern entitiesDefinitionUri om den finns. Högst 10 KB konfiguration kan anges infogas. Se [definitionen av anpassade entiteter](#custom-entity-definition-format) nedan för förväntat JSON-schema. |
-|defaultLanguageCode |  Valfritt Språk koden för den inmatade text som används för att Tokenize och avgränsa inmatade text. Följande språk stöds: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (`en`). Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.  |
+|defaultLanguageCode |    Valfritt Språk koden för den inmatade text som används för att Tokenize och avgränsa inmatade text. Följande språk stöds: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (`en`). Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.  |
 
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Inmatat namn      | Description                   |
+| Inmatat namn      | Beskrivning                   |
 |---------------|-------------------------------|
 | text          | Den text som ska analyseras.          |
-| languageCode  | Valfri. Standardvärdet är `"en"`.  |
+| languageCode    | Valfri. Standardvärdet är `"en"`.  |
 
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
 
 
-| Namn på utdata     | Description                   |
+| Namn på utdata      | Beskrivning                   |
 |---------------|-------------------------------|
 | poster | En matris med objekt som innehåller information om de matchningar som hittades, och relaterade metadata. Varje entitet som identifieras kan innehålla följande fält:  <ul> <li> *namn*: entiteten på den översta nivån har identifierats. Entiteten representerar "normaliserad" form. </li> <li> *ID*: en unik identifierare för entiteten som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *Beskrivning*: Beskrivning av entitet som definieras av användaren i definitions formatet för den anpassade entiteten. </li> <li> *Typ:* Entitetstyp som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *undertyp:* Undertyp för entitet som definieras av användaren i definitions formatet för den anpassade entiteten.</li>  <li> *matchar*: samling som beskriver var och en av matchningarna för den entiteten i käll texten. Varje matchning kommer att ha följande medlemmar: </li> <ul> <li> *text*: den obehandlade text matchningen från käll dokumentet. </li> <li> *offset*: den plats där matchningen påträffades i texten. </li> <li> *längd*: den matchade textens längd. </li> <li> *matchDistance*: antalet tecken som skiljer matchningen från det ursprungliga enhets namnet eller aliaset.  </li> </ul> </ul>
   |
@@ -143,11 +143,11 @@ Ett mer avancerat exempel på en JSON-definition kan alternativt ange ID, beskri
 
 Tabellerna nedan beskriver de olika konfigurations parametrar som du kan ange när du definierar de entiteter som ska matchas i mer information:
 
-|  Fältnamn  |        Description  |
+|  Fältnamn  |        Beskrivning  |
 |--------------|----------------------|
-| name | Enhets beskrivningen på den översta nivån. Matchningar i färdighets utmatningen grupperas efter det här namnet och ska motsvara "normaliserad" form för den text som hittas.  |
+| namn | Enhets beskrivningen på den översta nivån. Matchningar i färdighets utmatningen grupperas efter det här namnet och ska motsvara "normaliserad" form för den text som hittas.  |
 | beskrivning  | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
-| type | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| typ | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
 | undertyp | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
 | id | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
 | caseSensitive | Valfritt Standardvärdet är false. Booleskt värde som anger om jämförelser med entitetsnamnet ska vara känslig för Skift läge. Exempel på SKIFT läges okänsliga matchningar av "Microsoft" kan vara: Microsoft, microSoft, MICROSOFT |
@@ -156,7 +156,7 @@ Tabellerna nedan beskriver de olika konfigurations parametrar som du kan ange n�
 | defaultFuzzyEditDistance | Valfritt Ändrar standardvärdet för fuzzy Edit för den här entiteten. Det kan användas för att ändra standardvärdet för alla alias fuzzyEditDistance-värden. |
 | alias | Valfritt En matris med komplexa objekt som kan användas för att ange alternativa stavningar eller synonymer till rot enhetens namn. |
 
-| Egenskaper för alias | Description |
+| Egenskaper för alias | Beskrivning |
 |------------------|-------------|
 | text  | Den alternativa stavningen eller representationen av ett visst mål enhets namn.  |
 | caseSensitive | Valfritt Fungerar på samma sätt som rot entiteten "caseSensitive" ovan, men gäller endast detta alias. |
@@ -168,7 +168,7 @@ Tabellerna nedan beskriver de olika konfigurations parametrar som du kan ange n�
 I vissa fall kan det vara bekvämare att ange en lista med anpassade entiteter som matchar direkt i kunskaps definitionen. I så fall kan du använda ett liknande JSON-format för det som beskrivs ovan, men det finns i kunskaps definitionen.
 Endast konfigurationer som är mindre än 10 KB i storlek (serialiserad storlek) kan definieras infogade. 
 
-##  <a name="sample-definition"></a>Exempel definition
+##    <a name="sample-definition"></a>Exempel definition
 
 En exempel kunskaps definition som använder ett infogat format visas nedan:
 
@@ -231,7 +231,7 @@ Alternativt, om du bestämmer dig för att tillhandahålla en pekare till defini
 
 ```
 
-##  <a name="sample-input"></a>Exempel på inmatade
+##    <a name="sample-input"></a>Exempel på inmatade
 
 ```json
 {
@@ -248,7 +248,7 @@ Alternativt, om du bestämmer dig för att tillhandahålla en pekare till defini
 }
 ```
 
-##  <a name="sample-output"></a>Exempel på utdata
+##    <a name="sample-output"></a>Exempel på utdata
 
 ```json
   { 
@@ -296,7 +296,13 @@ Alternativt, om du bestämmer dig för att tillhandahålla en pekare till defini
   } 
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="errors-and-warnings"></a>Fel och varningar
+
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Varning: maximal kapacitet har nåtts för matchningar och alla ytterligare dubbla matchningar hoppas över.
+
+Den här varningen genereras om antalet matchningar som har identifierats är större än det högsta tillåtna antalet. I det här fallet slutar vi att inkludera dubbletter av matchningar. Om detta inte är acceptabelt kan du ange ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att vi kan hjälpa dig med ditt enskilda användnings fall.
+
+## <a name="see-also"></a>Se även
 
 + [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

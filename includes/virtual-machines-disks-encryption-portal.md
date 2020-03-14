@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8d68d2e83bba055e92b99ee9294daf6f2395d8dc
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206316"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299536"
 ---
 ### <a name="portal"></a>Portal
 
@@ -49,9 +49,14 @@ Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurse
 
 #### <a name="setting-up-your-disk-encryption-set"></a>Konfigurera din disk krypterings uppsättning
 
-Om du vill skapa och konfigurera disk krypterings uppsättningar måste du använda följande länk: https://aka.ms/diskencryptionsets. Det går inte att skapa disk krypterings uppsättning ännu i den globala Azure Portal.
+Om du vill skapa och konfigurera disk krypterings uppsättningar måste du använda följande länk: https://aka.ms/diskencryptionsets. Om du befinner dig i Microsoft Azure Government regionerna måste du använda den här länken i stället: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff). Det går inte att skapa disk krypterings uppsättning ännu i den globala Azure Portal.
 
-1. Öppna [länken disk krypterings uppsättningar](https://aka.ms/diskencryptionsets).
+1. Öppna länken disk krypterings uppsättningar som är lämplig för din region:
+
+    Offentliga regioner: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Azure Government regioner: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    
 1. Välj **+ Lägg till**.
 
     ![Skärm bild av disk krypterings portalens huvud skärm. Markera knappen Lägg till](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
@@ -77,7 +82,12 @@ Två meddelanden bör visas och lyckas. På så sätt kan du använda disk krypt
 Nu när du har skapat och konfigurerat nyckel valvet och disk krypterings uppsättningen kan du distribuera en virtuell dator med hjälp av krypteringen.
 Processen för distribution av virtuella datorer liknar standard distributions processen, de enda skillnaderna är att du måste distribuera den virtuella datorn i samma region som dina andra resurser och du väljer att använda en kundhanterad nyckel.
 
-1. Öppna [länken disk krypterings uppsättningar](https://aka.ms/diskencryptionsets).
+1. Öppna länken disk krypterings uppsättningar som är lämplig för din region:
+
+    Offentliga regioner: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Azure Government regioner: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+
 1. Sök efter **Virtual Machines** och välj **+ Lägg** till för att skapa en virtuell dator.
 1. På fliken **grundläggande** väljer du samma region som disk krypterings uppsättning och Azure Key Vault.
 1. Fyll i de andra värdena på fliken **grundläggande** som du vill.
@@ -97,7 +107,12 @@ Om du vill hantera och konfigurera disk kryptering på befintliga diskar måste 
 > [!CAUTION]
 > Att aktivera disk kryptering på alla diskar som är anslutna till en virtuell dator kräver att du stoppar den virtuella datorn.
 
-1. Öppna [länken disk krypterings uppsättningar](https://aka.ms/diskencryptionsets).
+1. Öppna länken disk krypterings uppsättningar som är lämplig för din region:
+
+    Offentliga regioner: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+
+    Azure Government regioner: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    
 1. Navigera till en virtuell dator som finns i samma region som en av disk krypterings uppsättningarna.
 1. Öppna den virtuella datorn och välj **stoppa**.
 

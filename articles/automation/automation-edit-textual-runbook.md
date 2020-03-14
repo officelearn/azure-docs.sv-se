@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c00ab8a5e0d307d89ae483db55bdb0b1258ae6a4
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 72aefb8de57e27718b14dba6a6d82deb8b63466f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78246411"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367286"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Redigera text-Runbooks i Azure Automation
 
@@ -59,7 +59,7 @@ Använd följande procedur för att öppna en Runbook för redigering i text red
 
 ### <a name="insert-an-asset-into-a-runbook"></a>Infoga en till gång i en Runbook
 
-1. Placera markören där du vill placera koden för underordnad Runbook på arbets ytan i text redigeraren.
+1. Placera markören där du vill placera koden för underordnad Runbook i arbets ytans kontroll i text redigeraren.
 2. Expandera noden **till gångar** i biblioteks kontrollen.
 3. Expandera noden för önskad till gångs typ.
 4. Högerklicka på namnet på den till gång som du vill infoga och välj **Lägg till i arbets ytan**. För [variabel till gångar](automation-variables.md)väljer du antingen **Lägg till "Hämta variabel" på arbets ytan** eller **Lägg till "ange variabel" på arbets ytan**, beroende på om du vill hämta eller ange variabeln.
@@ -67,7 +67,7 @@ Använd följande procedur för att öppna en Runbook för redigering i text red
 
 ## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Redigera en Azure Automation Runbook med hjälp av Windows PowerShell
 
-Om du vill redigera en Runbook med Windows PowerShell kan du använda valfri redigerare och spara runbooken i en ". ps1"-fil. Du kan använda cmdleten [export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) för att hämta innehållet i runbooken. Du kan använda cmdleten [import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) för att ersätta den befintliga utkast-runbooken med den ändrade.
+Om du vill redigera en Runbook med Windows PowerShell kan du använda valfri redigerare och spara runbooken i en **. ps1** -fil. Du kan använda cmdleten [export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) för att hämta innehållet i runbooken. Du kan använda cmdleten [import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) för att ersätta den befintliga utkast-runbooken med den ändrade.
 
 ### <a name="retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Hämta innehållet i en Runbook med hjälp av Windows PowerShell
 

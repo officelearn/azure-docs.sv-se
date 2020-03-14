@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c1af4b0dac4b50e01b62b02f606be9fdd89d2ad1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278888"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367337"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -72,7 +72,7 @@ I följande exempel har cmdleten [Get-AzVM](https://docs.microsoft.com/powershel
 
 #### <a name="parameter-values"></a>Parameter värden
 
-När du anger ett värde för en parameter väljer du en data källa för att avgöra hur värdet anges. De data källor som är tillgängliga för en viss parameter beror på giltiga värden för den parametern. **Null** är till exempel inte ett tillgängligt alternativ för en parameter som inte tillåter Null-värden.
+När du anger ett värde för en parameter väljer du en data källa för att avgöra hur värdet anges. De data källor som är tillgängliga för en viss parameter beror på giltiga värden för den parametern. Null är till exempel inte ett tillgängligt alternativ för en parameter som inte tillåter Null-värden.
 
 | Datakälla | Beskrivning |
 |:--- |:--- |
@@ -88,7 +88,7 @@ När du anger ett värde för en parameter väljer du en data källa för att av
 
 #### <a name="optional-additional-parameters"></a>Valfria ytterligare parametrar
 
-Alla cmdlets har möjlighet att ange ytterligare parametrar. Detta är PowerShell-vanliga parametrar eller andra anpassade parametrar. Den grafiska redigeraren visar en text ruta där du kan ange parametrar med PowerShell-syntax. Om du till exempel vill använda den *utförliga* gemensamma parametern ska du ange `-Verbose:$True`.
+Alla cmdlets har möjlighet att ange ytterligare parametrar. Detta är PowerShell-vanliga parametrar eller andra anpassade parametrar. Den grafiska redigeraren visar en text ruta där du kan ange parametrar med PowerShell-syntax. Om du till exempel vill använda parametern `Verbose` common bör du ange `-Verbose:$True`.
 
 ### <a name="retry-activity"></a>Försök igen-aktivitet
 
@@ -102,14 +102,14 @@ Villkoret för återförsök är ett PowerShell-uttryck som utvärderas efter va
 
 ![Fördröjning för nytt aktivitets försök](media/automation-graphical-authoring-intro/retry-condition.png)
 
-Villkoret för återförsök kan använda en variabel med namnet *RetryData* som ger åtkomst till information om aktiviteternas återförsök. Den här variabeln har egenskaperna i följande tabell:
+Villkoret för återförsök kan använda en variabel med namnet `RetryData` som ger till gång till information om aktiviteternas återförsök. Den här variabeln har egenskaperna i följande tabell:
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| NumberOfAttempts |Antal gånger som aktiviteten har körts. |
-| Resultat |Utdata från den senaste körningen av aktiviteten. |
-| TotalDuration |Förfluten tid sedan aktiviteten startades första gången. |
-| StartedAt |Tid (i UTC-format) när aktiviteten startades första gången. |
+| `NumberOfAttempts` |Antal gånger som aktiviteten har körts. |
+| `Output` |Utdata från den senaste körningen av aktiviteten. |
+| `TotalDuration` |Förfluten tid sedan aktiviteten startades första gången. |
+| `StartedAt` |Tid (i UTC-format) när aktiviteten startades första gången. |
 
 Följande är exempel på villkor för aktivitets återförsök.
 
@@ -136,7 +136,7 @@ När du har konfigurerat ett villkor för återförsök för en aktivitet inneh�
 
 En skript kontroll för arbets flöde är en särskild aktivitet som accepterar PowerShell-eller PowerShell Workflow-skript, beroende på vilken typ av grafisk Runbook som ska redige ras. Den här kontrollen innehåller funktioner som kanske inte är tillgängliga på annat sätt. Den kan inte ta emot parametrar, men den kan använda variabler för aktivitets utdata och indataparametrar för Runbook. Alla utdata för aktiviteten läggs till i data bussen. Ett undantag är utdata utan utgående länk, vilket innebär att utdata läggs till i Runbook-resultatet.
 
-Till exempel utför följande kod datum beräkningar med en Runbook-variabel med namnet *NumberOfDays*. Därefter skickas ett beräknat DateTime-värde som utdata som ska användas av efterföljande aktiviteter i runbooken.
+Till exempel utför följande kod datum beräkningar med hjälp av en Run Book variabel med namnet `NumberOfDays`. Därefter skickas ett beräknat DateTime-värde som utdata som ska användas av efterföljande aktiviteter i runbooken.
 
 ```powershell-interactive
 $DateTimeNow = (Get-Date).ToUniversalTime()
@@ -167,9 +167,9 @@ En grafisk Runbook börjar med aktiviteter som inte har någon inkommande länk.
 
 ### <a name="link-conditions"></a>Länk villkor
 
-När du anger ett villkor för en länk körs mål aktiviteten bara om villkoret matchar sant. Du använder vanligt vis en *ActivityOutput* -variabel i ett villkor för att hämta utdata från käll aktiviteten.
+När du anger ett villkor för en länk körs mål aktiviteten bara om villkoret matchar sant. Du använder vanligt vis en `ActivityOutput` variabel i ett villkor för att hämta utdata från käll aktiviteten.
 
-För en pipeline-länk måste du ange ett villkor för ett enskilt objekt. Runbooken utvärderar villkoret för varje objekts utdata av käll aktiviteten. Sedan körs mål aktiviteten för varje objekt som uppfyller villkoret. Med en käll aktivitet av **Get-AzVM**kan du till exempel använda följande syntax för en villkorlig pipeline-länk för att bara hämta virtuella datorer i resurs gruppen med namnet Grupp1.
+För en pipeline-länk måste du ange ett villkor för ett enskilt objekt. Runbooken utvärderar villkoret för varje objekts utdata av käll aktiviteten. Sedan körs mål aktiviteten för varje objekt som uppfyller villkoret. Med en käll aktivitet av `Get-AzVM`kan du till exempel använda följande syntax för en villkorlig pipeline-länk för att bara hämta virtuella datorer i resurs gruppen med namnet Grupp1.
 
 ```powershell-interactive
 $ActivityOutput['Get Azure VMs'].Name -match "Group1"
@@ -181,7 +181,7 @@ Ta till exempel med följande aktivitets uppsättning i vår **Starta VM** -Runb
 
 ![Villkorlig länk med sekvenser](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)
 
-Runbooken använder tre olika sekvenser som verifierar värdena för indataparametrarna *VMName* och *ResourceGroupName* för att fastställa vilken åtgärd som ska vidtas. Möjliga åtgärder är starta en enskild virtuell dator, starta alla virtuella datorer i resurs gruppen eller starta alla virtuella datorer i en prenumeration. Följande är villkors logiken för nummerföljden mellan **Anslut till Azure** och **Hämta en enda virtuell dator**:
+I Runbook används tre olika sekvenser som verifierar värdena i indataparametrarna `VMName` och `ResourceGroupName` för att fastställa vilken åtgärd som ska vidtas. Möjliga åtgärder är starta en enskild virtuell dator, starta alla virtuella datorer i resurs gruppen eller starta alla virtuella datorer i en prenumeration. För sekvenser-länken mellan `Connect to Azure` och `Get single VM`är följande villkors logik:
 
 ```powershell-interactive
 <#
@@ -196,11 +196,11 @@ Both VMName and ResourceGroupName runbook input parameters have values
 
 När du använder en villkorlig länk filtreras data som är tillgängliga från käll aktiviteten till andra aktiviteter i grenen av villkoret. Om en aktivitet är källa till flera länkar beror de data som är tillgängliga för aktiviteter i varje gren på villkoret i länken som ansluter till grenen.
 
-**Start-AzVM** -aktiviteten i runbooken nedan startar till exempel alla virtuella datorer. Det har två villkorliga länkar. Den första villkorliga länken använder uttrycket `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` för att filtrera om **Start-AzVM-** aktiviteten har slutförts. Den andra villkorliga länken använder uttrycket `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true` för att filtrera om **Start-AzVm-** aktiviteten inte kan starta den virtuella datorn.
+`Start-AzVM` aktivitet i runbooken nedan startar till exempel alla virtuella datorer. Det har två villkorliga länkar. Den första villkorliga länken använder uttrycket `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` för att filtrera om `Start-AzVM` aktiviteten har slutförts. Den andra villkorliga länken använder uttrycket `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true` för att filtrera om `Start-AzVm` aktivitet inte kan starta den virtuella datorn.
 
 ![Exempel på villkorlig länk](media/automation-graphical-authoring-intro/runbook-conditional-links.png)
 
-Alla aktiviteter som följer den första länken och använder aktivitets utdata från **Get-AzureVM** hämtar bara de virtuella datorer som startades vid tidpunkten då **Get-AzureVM** kördes. Alla aktiviteter som följer den andra länken får bara de virtuella datorer som stoppades vid tidpunkten då **Get-AzureVM** kördes. Alla aktiviteter som följer den tredje länken hämtar alla virtuella datorer oavsett deras körnings tillstånd.
+Alla aktiviteter som följer den första länken och använder aktivitets resultatet från `Get-AzureVM` hämtar bara de virtuella datorer som startades vid den tidpunkt då `Get-AzureVM` kördes. Alla aktiviteter som följer den andra länken får bara de virtuella datorer som stoppades vid den tidpunkt då `Get-AzureVM` kördes. Alla aktiviteter som följer den tredje länken hämtar alla virtuella datorer oavsett deras körnings tillstånd.
 
 ### <a name="junctions"></a>Knut punkter
 
@@ -232,7 +232,7 @@ Den första mekanismen använder en data källa för aktivitets utdata för att 
 
 ![aktivitetens utdata](media/automation-graphical-authoring-intro/activity-output-datasource-revised20165.png)
 
-Den andra data åtkomst metoden hämtar utdata för en aktivitet i en data källa för PowerShell-uttryck eller en arbets flödes skript aktivitet med en *ActivityOutput* -variabel med hjälp av syntaxen som visas nedan. Om utdata är ett objekt kan din Runbook ange en enda egenskap.
+Den andra data åtkomst metoden hämtar utdata för en aktivitet i en data källa för PowerShell-uttryck eller en arbets flödes skript aktivitet med en `ActivityOutput` variabel med hjälp av syntaxen som visas nedan. Om utdata är ett objekt kan din Runbook ange en enda egenskap.
 
 ```powershell-interactive
 $ActivityOutput['Activity Label']
@@ -245,7 +245,7 @@ Du kan ställa in [kontroll punkter](automation-powershell-workflow.md#checkpoin
 
 ![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-Kontroll punkter är bara aktiverade i grafiska PowerShell Workflow-Runbooks och är inte tillgängliga i grafiska runbooks. Om Runbook använder Azure-cmdlets bör den följa alla kontroll punkts aktiviteter med en **Connect-AzAccount** -aktivitet. Åtgärden Anslut används om Runbook-flödet har pausats och måste startas om från den här kontroll punkten på en annan arbetare.
+Kontroll punkter är bara aktiverade i grafiska PowerShell Workflow-Runbooks och är inte tillgängliga i grafiska runbooks. Om Runbook använder Azure-cmdlets bör den följa alla kontroll punkts aktiviteter med en `Connect-AzAccount`-aktivitet. Åtgärden Anslut används om Runbook-flödet har pausats och måste startas om från den här kontroll punkten på en annan arbetare.
 
 ## <a name="runbook-input-and-output"></a>Indata och utdata för Runbook
 
@@ -255,7 +255,7 @@ En Runbook kräver indata från en användare som startar runbooken via Azure Po
 
 Runbooken accepterar ininformation genom att definiera en eller flera indataparametrar. Användaren anger värden för dessa parametrar varje gång som Runbook startar. När användaren startar en Runbook med hjälp av Azure Portal, uppmanas användaren att ange värden för varje indataparameter som stöds av runbooken.
 
-När du redigerar din Runbook kan du komma åt dess indataparametrar genom att klicka på knappen för **indata och utdata** i Runbook-verktygsfältet. Då öppnas kontroll av indata och utdata där du kan redigera en befintlig indataparameter eller skapa en ny genom att klicka på **Lägg till indata**.
+När du redigerar din Runbook kan du komma åt dess indataparametrar genom att klicka på **indata och utdata** i Runbook-verktygsfältet. Då öppnas kontroll av indata och utdata där du kan redigera en befintlig indataparameter eller skapa en ny genom att klicka på **Lägg till indata**.
 
 ![Lägg till inmatare](media/automation-graphical-authoring-intro/runbook-edit-add-input.png)
 
@@ -266,8 +266,8 @@ Varje indataparameter definieras av egenskaperna i följande tabell:
 | Namn | Krävs. Parameterns namn. Namnet måste vara unikt inom runbooken. Det måste börja med en bokstav och får bara innehålla bokstäver, siffror och under streck. Namnet får inte innehålla blank steg. |
 | Beskrivning |Valfri. Beskrivning av syftet med indataparametern. |
 | Typ | Valfri. Datatyp förväntas för parametervärdet. Azure Portal ger en lämplig kontroll för data typen för varje parameter när du uppmanas att ange indata. Parameter typer som stöds är sträng, Int32, Int64, decimal, Boolean, DateTime och Object. Om du inte väljer någon datatyp används strängen som standard.|
-| Obligatorisk | Valfri. Inställning som anger om ett värde måste anges för parametern. Om du väljer **Ja**måste du ange ett värde när Runbook startas. Om du väljer **Nej**krävs inget värde när runbooken startas och ett standardvärde kan användas. Det går inte att starta runbooken om du inte anger något värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
-| Standardvärde | Valfri. Det värde som används för en parameter om det inte skickas i när runbooken startas. Om du vill ange ett standardvärde väljer du **anpassad**. Välj **ingen** om du inte vill ange något standardvärde. |
+| Obligatorisk | Valfri. Inställning som anger om ett värde måste anges för parametern. Om du väljer `yes`måste ett värde anges när runbooken startas. Om du väljer `no`krävs inget värde när runbooken startas och ett standardvärde kan användas. Det går inte att starta runbooken om du inte anger något värde för varje obligatorisk parameter som inte har något definierat standardvärde. |
+| Standardvärde | Valfri. Det värde som används för en parameter om det inte skickas i när runbooken startas. Om du vill ange ett standardvärde väljer du `Custom`. Välj `None` om du inte vill ange något standardvärde. |
 
 ### <a name="runbook-output"></a>Utdata från Runbooks
 
@@ -304,7 +304,7 @@ else { "Weekday" }
 
 ### <a name="activity-output"></a>aktivitetens utdata
 
-Om du vill använda utdata från en tidigare aktivitet i din Runbook använder du variabeln *ActivityOutput* med följande syntax.
+Om du vill använda utdata från en tidigare aktivitet i din Runbook använder du variabeln `ActivityOutput` med följande syntax.
 
 ```powershell-interactive
 $ActivityOutput['Activity Label'].PropertyName
@@ -332,7 +332,7 @@ Runbooken kan använda utdata från en aktivitet i ett mer komplext uttryck, til
 
 Använd [jämförelse operatorer](https://technet.microsoft.com/library/hh847759.aspx) för att jämföra värden eller bestämma om ett värde matchar ett angivet mönster. En jämförelse returnerar värdet true eller false.
 
-Följande villkor avgör till exempel om den virtuella datorn från en aktivitet med namnet **Get-AzureVM** har stoppats för tillfället.
+Följande villkor avgör till exempel om den virtuella datorn från en aktivitet med namnet `Get-AzureVM` har stoppats för tillfället.
 
 ```powershell-interactive
 $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
@@ -344,7 +344,7 @@ Följande villkor avgör om samma virtuella dator är i något annat tillstånd 
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-Du kan koppla flera villkor i din Runbook med hjälp av en [logisk operator](https://technet.microsoft.com/library/hh847789.aspx), som **-och** eller **-eller**. Följande villkor kontrollerar till exempel om den virtuella datorn i föregående exempel är i tillståndet **stoppad** **eller stoppad**.
+Du kan koppla flera villkor i din Runbook med hjälp av en [logisk operator](https://technet.microsoft.com/library/hh847789.aspx), till exempel `-and` eller `-or`. Följande villkor kontrollerar till exempel om den virtuella datorn i föregående exempel är i tillståndet Stoppad eller stoppad.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -369,7 +369,7 @@ $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
 $h
 ```
 
-I följande exempel används utdata från en aktivitet som kallas **Hämta Twitter-anslutning** för att fylla i en hash-tabellen.
+I följande exempel används utdata från en aktivitet med namnet `Get Twitter Connection` för att fylla i en hash-tabellen.
 
 ```powershell-interactive
 @{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
@@ -380,30 +380,30 @@ I följande exempel används utdata från en aktivitet som kallas **Hämta Twitt
 
 ## <a name="authenticating-to-azure-resources"></a>Autentisera till Azure-resurser
 
-Runbooks i Azure Automation som hanterar Azure-resurser kräver autentisering till Azure. [Kör som-kontot](automation-create-runas-account.md), som även kallas för tjänstens huvud namn, är standard mekanismen som en Automation-Runbook använder för att få åtkomst till Azure Resource Manager resurser i din prenumeration. Du kan lägga till den här funktionen i en grafisk Runbook genom att lägga till **AzureRunAsConnection** -anslutnings till gången, som använder PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) -cmdleten på arbets ytan. Du kan också lägga till cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Det här scenariot illustreras i följande exempel.
+Runbooks i Azure Automation som hanterar Azure-resurser kräver autentisering till Azure. [Kör som-kontot](automation-create-runas-account.md), som även kallas för tjänstens huvud namn, är standard mekanismen som en Automation-Runbook använder för att få åtkomst till Azure Resource Manager resurser i din prenumeration. Du kan lägga till den här funktionen i en grafisk Runbook genom att lägga till `AzureRunAsConnection` anslutnings till gång, som använder PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) -cmdleten på arbets ytan. Du kan också lägga till cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Det här scenariot illustreras i följande exempel.
 
 ![Aktiviteter för kör som-autentisering](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
-**Aktiviteten hämta kör som-anslutning**eller **Get-AutomationConnection**har kon figurer ATS med en konstant värde data källa med namnet **AzureRunAsConnection**.
+`Get Run As Connection` aktivitet, eller `Get-AutomationConnection`, har kon figurer ATS med en data källa med konstant värde med namnet `AzureRunAsConnection`.
 
 ![Konfiguration av kör som-anslutning](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)
 
-Nästa aktivitet, **Connect-AzAccount**, lägger till det autentiserade kör som-kontot för användning i runbooken.
+Nästa aktivitet, `Connect-AzAccount`, lägger till det autentiserade kör som-kontot för användning i runbooken.
 
 ![Anslut AzAccount parameter uppsättning](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
 
 >[!NOTE]
->För PowerShell-Runbooks är **Add-AzAccount** och **Add-AzureRMAccount** alias för **Connect-AzAccount**. Observera att dessa alias inte är tillgängliga för dina grafiska runbooks. En grafisk Runbook kan bara använda **Connect-AzAccount** .
+>För PowerShell-Runbooks är `Add-AzAccount` och `Add-AzureRMAccount` alias för `Connect-AzAccount`. Observera att dessa alias inte är tillgängliga för dina grafiska runbooks. En grafisk Runbook kan bara använda `Connect-AzAccount` sig själv.
 
-För parameter fälten, **APPLICATIONID**, **CERTIFICATETHUMBPRINT**och **TENANTID**anger du namnet på egenskapen för fält Sök vägen, eftersom aktiviteten matar ut ett objekt med flera egenskaper. Annars Miss lyckas den vid försök att autentisera när runbooken körs. Det här är vad du behöver för att autentisera din Runbook med kör som-kontot.
+För parameter fälten **APPLICATIONID**, **CERTIFICATETHUMBPRINT**och **TENANTID**anger du namnet på egenskapen för fält Sök vägen, eftersom aktiviteten matar ut ett objekt med flera egenskaper. Annars Miss lyckas den vid försök att autentisera när runbooken körs. Det här är vad du behöver för att autentisera din Runbook med kör som-kontot.
 
-Vissa prenumeranter skapar ett Automation-konto med hjälp av ett [Azure AD-användarkonto](automation-create-aduser-account.md) för att hantera den klassiska Azure-distributionen eller för Azure Resource Manager resurser. För att upprätthålla bakåtkompatibilitet för de här prenumeranterna är den autentiseringsmekanism som används i din Runbook en **Add-AzureAccount** -cmdlet med en [Credential-till gång](automation-credentials.md). Till gången representerar en Active Directory användare med åtkomst till Azure-kontot.
+Vissa prenumeranter skapar ett Automation-konto med hjälp av ett [Azure AD-användarkonto](automation-create-aduser-account.md) för att hantera den klassiska Azure-distributionen eller för Azure Resource Manager resurser. För att upprätthålla bakåtkompatibilitet för de här prenumeranterna är den autentiseringsmekanism som används i din Runbook `Add-AzureAccount`-cmdlet med en [referens till gång](automation-credentials.md). Till gången representerar en Active Directory användare med åtkomst till Azure-kontot.
 
-Du kan aktivera den här funktionen för din grafiska Runbook genom att lägga till en inloggnings till gång till arbets ytan, följt av en **Add-AzureAccount** -aktivitet som använder den här autentiseringsuppgiften för att få till gång till den. Se följande exempel.
+Du kan aktivera den här funktionen för din grafiska Runbook genom att lägga till en inloggnings till gång på arbets ytan, följt av en `Add-AzureAccount` aktivitet som använder sig av inloggnings uppgifterna för den aktuella ingången. Se följande exempel.
 
 ![Autentiserings aktiviteter](media/automation-graphical-authoring-intro/authentication-activities.png)
 
-Runbooken måste autentisera vid start och efter varje kontroll punkt. Därför måste du använda en **Add-AzureAccount-** aktivitet efter en **kontroll punkt – arbets flödes** aktivitet. Du behöver inte använda ytterligare en aktivitet för autentiseringsuppgifter.
+Runbooken måste autentisera vid start och efter varje kontroll punkt. Därför måste du använda en `Add-AzureAccount` aktivitet efter en `Checkpoint-Workflow` aktivitet. Du behöver inte använda ytterligare en aktivitet för autentiseringsuppgifter.
 
 ![aktivitetens utdata](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 

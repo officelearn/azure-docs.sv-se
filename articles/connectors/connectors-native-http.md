@@ -1,30 +1,47 @@
 ---
-title: Anropa HTTP-och HTTPS-slutpunkter
-description: Skicka utgående begär anden till HTTP-och HTTPS-slutpunkter med hjälp av Azure Logic Apps
+title: Anropa tjänst slut punkter med HTTP eller HTTPS
+description: Skicka utgående HTTP-eller HTTPS-begäranden till tjänst slut punkter från Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8aefe851708c0b8d8780d03e4364e034e783bf4a
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118013"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79297224"
 ---
-# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Skicka utgående anrop till HTTP-eller HTTPS-slutpunkter med hjälp av Azure Logic Apps
+# <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Anropa tjänst slut punkter via HTTP eller HTTPS från Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http-utlösaren eller åtgärden kan du skapa automatiserade uppgifter och arbets flöden som regelbundet skickar begär anden till http-eller https-slutpunkter. Använd den inbyggda [begär ande utlösaren eller svars åtgärden](../connectors/connectors-native-reqres.md)för att ta emot och svara på inkommande http-eller https-anrop i stället.
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda http-utlösaren eller åtgärden kan du skapa automatiserade uppgifter och arbets flöden som skickar begär anden till tjänstens slut punkter via http eller https. Du kan till exempel övervaka tjänst slut punkten för din webbplats genom att kontrol lera slut punkten enligt ett angivet schema. När den angivna händelsen inträffar i slut punkten, till exempel om din webbplats går nedåt, utlöser händelsen din Logic app-arbetsflöde och kör åtgärderna i det arbets flödet. Om du vill ta emot och svara på inkommande HTTPS-anrop i stället använder du den inbyggda [begär ande utlösaren eller svars åtgärden](../connectors/connectors-native-reqres.md).
 
-Du kan till exempel övervaka tjänst slut punkten för din webbplats genom att kontrol lera slut punkten enligt ett angivet schema. När en viss händelse inträffar vid den slut punkten, till exempel om din webbplats går ned, utlöser händelsen din Logic app-arbetsflöde och kör de angivna åtgärderna.
+> [!NOTE]
+> Baserat på mål slut punktens kapacitet stöder HTTP-anslutaren Transport Layer Security (TLS 1,0), 1,1 och 1,2. Logic Apps förhandlar med slut punkten genom att använda den högsta version som stöds. Om slut punkten till exempel stöder 1,2 använder anslutnings tjänsten 1,2 först. Annars använder anslutnings tjänsten den näst högsta version som stöds.
 
-Om du vill kontrol lera eller *avsöka* en slut punkt enligt ett regelbundet schema kan du använda http-utlösaren som det första steget i arbets flödet. Vid varje kontroll skickar utlösaren ett anrop eller en *begäran* till slut punkten. Svaret på slut punkten avgör om din Logic Apps-arbetsflöde körs. Utlösaren passerar allt innehåll från svar till åtgärder i din Logic app.
+Om du vill kontrol lera eller *polla* en slut punkt i ett återkommande schema [lägger du till http-utlösaren](#http-trigger) som det första steget i arbets flödet. Varje gången som utlösaren kontrollerar slut punkten anropar utlösaren eller skickar en *begäran* till slut punkten. Svaret på slut punkten avgör om din Logic Apps-arbetsflöde körs. Utlösaren skickar allt innehåll från slut punktens svar till åtgärder i din Logic app.
 
-Du kan använda HTTP-åtgärden som andra steg i arbets flödet för att anropa slut punkten när du vill. Svaret på slut punkten avgör hur arbets flödets återstående åtgärder ska köras.
+[Lägg till HTTP-åtgärden](#http-action)om du vill anropa en slut punkt från någon annan plats i arbets flödet. Svaret på slut punkten avgör hur arbets flödets återstående åtgärder ska köras.
 
-Baserat på mål slut punktens kapacitet stöder HTTP-anslutaren Transport Layer Security (TLS 1,0), 1,1 och 1,2. Logic Apps förhandlar med slut punkten genom att använda den högsta version som stöds. Om slut punkten till exempel stöder 1,2 använder anslutaren 1,2 först. Annars använder anslutnings tjänsten den näst högsta version som stöds.
+> [!IMPORTANT]
+> Om en HTTP-utlösare eller åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade begär ande meddelandet utan att visa någon varning eller ett fel:
+>
+> * `Accept-*`
+> * `Allow`
+> * `Content-*` med dessa undantag: `Content-Disposition`, `Content-Encoding`och `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Host`
+> * `Last-Modified`
+> * `Origin`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Även om Logic Apps inte hindrar dig från att spara Logi Kap par som använder en HTTP-utlösare eller en åtgärd med dessa huvuden, Logic Apps ignorerar dessa huvuden.
+
+Den här artikeln visar hur du lägger till en HTTP-utlösare eller åtgärd i din Logic app-arbetsflöde.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -36,13 +53,15 @@ Baserat på mål slut punktens kapacitet stöder HTTP-anslutaren Transport Layer
 
 * Den Logic-app från vilken du vill anropa mål slut punkten. Börja med HTTP-utlösaren genom att [skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda HTTP-åtgärden startar du din Logic-app med valfri utlösare som du vill använda. I det här exemplet används HTTP-utlösaren som det första steget.
 
+<a name="http-trigger"></a>
+
 ## <a name="add-an-http-trigger"></a>Lägg till en HTTP-utlösare
 
 Den här inbyggda utlösaren gör ett HTTP-anrop till den angivna URL: en för en slut punkt och returnerar ett svar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din tomma Logic-app i Logic App Designer.
+1. Logga in på [Azure Portal](https://portal.azure.com). Öppna din tomma Logic-app i Logic App Designer.
 
-1. Under **Välj en åtgärd**i rutan Sök anger du "http" som filter. Välj **http-** utlösare i listan **utlösare** .
+1. Välj **inbyggd i**rutan Sök i designer. I sökrutan anger du `http` som ditt filter. Välj **http-** utlösare i listan **utlösare** .
 
    ![Välj HTTP-utlösare](./media/connectors-native-http/select-http-trigger.png)
 
@@ -63,11 +82,13 @@ Den här inbyggda utlösaren gör ett HTTP-anrop till den angivna URL: en för e
 
 1. Kom ihåg att spara din Logic app när du är klar. I verktygsfältet designer väljer du **Spara**.
 
+<a name="http-action"></a>
+
 ## <a name="add-an-http-action"></a>Lägg till en HTTP-åtgärd
 
 Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för en slut punkt och returnerar ett svar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Öppna din Logic app i Logic App Designer.
+1. Logga in på [Azure Portal](https://portal.azure.com). Öppna din Logic app i Logic App Designer.
 
    I det här exemplet används HTTP-utlösaren som det första steget.
 
@@ -75,7 +96,7 @@ Den här inbyggda åtgärden gör ett HTTP-anrop till den angivna URL: en för e
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. Under **Välj en åtgärd**i rutan Sök anger du "http" som filter. Välj **http-** åtgärd i listan **åtgärder** .
+1. Under **Välj en åtgärd**väljer du **inbyggt**. I sökrutan anger du `http` som ditt filter. Välj **http-** åtgärd i listan **åtgärder** .
 
    ![Välj HTTP-åtgärd](./media/connectors-native-http/select-http-action.png)
 
@@ -163,7 +184,7 @@ Här är mer information om utdata från en HTTP-utlösare eller åtgärd som re
 | 200 | OK |
 | 202 | Accepted |
 | 400 | Felaktig förfrågan |
-| 401 | Ej auktoriserad |
+| 401 | Behörighet saknas |
 | 403 | Förbjudet |
 | 404 | Hittades inte |
 | 500 | Internt serverfel. Ett okänt fel uppstod. |

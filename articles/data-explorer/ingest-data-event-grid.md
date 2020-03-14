@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 47870410741cf96e289014fab5a9c2eab26759b1
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: ec218b1638183db463ff09488c988cad64d78c6d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096413"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370448"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Mata in blobbar i Azure Datautforskaren genom att prenumerera på Event Grid meddelanden
 
@@ -69,7 +69,7 @@ Skapa en tabell i Azure Datautforskaren där Event Hubs ska skicka data. Skapa t
 
 1. Kopiera följande kommando till fönstret och välj **Kör** för att skapa den tabell (TestTable) som ska ta emot inmatade data.
 
-    ```Kusto
+    ```kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
     ```
 
@@ -77,7 +77,7 @@ Skapa en tabell i Azure Datautforskaren där Event Hubs ska skicka data. Skapa t
 
 1. Kopiera följande kommando till fönstret och välj **Kör** för att mappa inkommande JSON-data till kolumnnamnen och datatyperna i tabellen (TestTable).
 
-    ```Kusto
+    ```kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.TimeStamp"},{"column":"Value","path":"$.Value"},{"column":"Source","path":"$.Source"}]'
     ```
 
@@ -130,11 +130,11 @@ Vi kommer att arbeta med ett litet kommandoskript som utfärdar några grundläg
 
 Spara data i en fil och ladda upp den med det här skriptet:
 
-```Json
+```json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
 ```
 
-```bash
+```azurecli
 #!/bin/bash
 ### A simple Azure Storage example script
 
@@ -195,14 +195,14 @@ Du kommer att kunna ändra principen vid ett senare tillfälle om det behövs. I
 
 1. För att kontrollera hur många meddelanden som nått databasen hittills kör du följande fråga i testdatabasen.
 
-    ```Kusto
+    ```kusto
     TestTable
     | count
     ```
 
 1. Kör följande fråga i testdatabasen för att se innehållet i meddelandena.
 
-    ```Kusto
+    ```kusto
     TestTable
     ```
 

@@ -1,19 +1,19 @@
 ---
-title: Privat länk för Azure Database for MySQL (förhands granskning) CLI-installations metod
+title: Privat länk – Azure CLI – Azure Database for MySQL
 description: Lär dig hur du konfigurerar privat länk för Azure Database for MySQL från Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d9a401bfbf1f0c63995c8f7773abb6e8e874e7e
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f83f52f1c1800803c5e1d47f1931f7b13b2c11de
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561705"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368051"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MySQL (för hands version) med CLI
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MySQL med CLI
 
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. I den här artikeln får du lära dig hur du använder Azure CLI för att skapa en virtuell dator i en Azure-Virtual Network och en Azure Database for MySQL-server med en privat Azure-slutpunkt.
 
@@ -54,7 +54,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Skapa VM 
+## <a name="create-the-vm"></a>Skapa den virtuella datorn 
 Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
 ```azurecli-interactive
 az vm create \
@@ -167,10 +167,10 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Anslutningens namn| Välj önskat anslutnings namn.|
+    | Anslutningsnamn| Välj önskat anslutnings namn.|
     | Värdnamn | Välj *mydemoserver.privatelink.mysql.Database.Azure.com* |
     | Användarnamn | Ange användar namn som *username@servername* som anges när MySQL-servern skapas. |
-    | Lösenord | Ange ett lösen ord som anges när MySQL-servern skapas. |
+    | lösenord | Ange ett lösen ord som anges när MySQL-servern skapas. |
     ||
 
 5. Välj Anslut.

@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648433"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253239"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -116,7 +116,7 @@ Med filtret **kategori** kan du välja något av följande filter:
 - ApplicationManagement
 - Autentisering
 - Auktorisering
-- Kontakta
+- Kontakt
 - Enhet
 - DeviceConfiguration
 - DirectoryManagement
@@ -124,7 +124,7 @@ Med filtret **kategori** kan du välja något av följande filter:
 - GroupManagement
 - KerberosDomain
 - Hantering av
-- Etikett
+- Label (Etikett)
 - Annat
 - PermissionGrantPolicy
 - Princip
@@ -147,7 +147,7 @@ Med **mål** filtret kan du söka efter ett visst mål genom att starta namnet e
 Med filtret **initierad av** kan du definiera vad en aktörs namn eller ett universellt huvud namn (UPN) börjar med. Namnet och UPN är Skift läges känsliga.
 
 Med filtret för **datum intervall** kan du definiera en tidsram för de data som returneras.  
-Möjliga värden är:
+Möjliga värden:
 
 - 7 dagar
 - 24 timmar

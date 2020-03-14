@@ -3,7 +3,7 @@ title: Övervaka XTP minnes lagring
 description: Uppskatta och övervaka XTP minnes användning, kapacitet; Lös kapacitets fel 41823
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: d67a6d151f65252faab40f8f7289fe9e884eff17
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22ff83b1ccd009624082e45073123a45006df70f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689810"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209442"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Övervaka minnes intern OLTP-lagring
 

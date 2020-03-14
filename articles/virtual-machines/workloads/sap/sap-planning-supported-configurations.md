@@ -13,17 +13,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28a9de63bb04a95fc2e655b05727963feaa3ec40
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 564c648a550b41017ffc684ca19ff03612fc63d3
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599189"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137636"
 ---
-# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-arbetsbelastningar i scenarier med virtuella Azure-datorer som stöds
+# <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>SAP-arbetsbelastning på en virtuell Azure-dator – scenarier som stöds
 Genom att utforma SAP NetWeaver, Business One, `Hybris` eller S/4HANA Systems arkitektur i Azure öppnas många olika möjligheter för olika arkitekturer och verktyg som du kan använda för att komma till en skalbar, effektiv och hög tillgänglig distribution. Även om det är beroende av det operativ system eller DBMS som används, finns det några begränsningar. Dessutom stöds inte alla scenarier som stöds lokalt på samma sätt i Azure. Det här dokumentet leder till konfigurationer med stöd för icke-hög tillgänglighet och konfigurationer med hög tillgänglighet och arkitekturer med enbart virtuella Azure-datorer. För scenarier som stöds med [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)kan du läsa artikeln [om vilka scenarier som stöds för Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario). 
 
 
@@ -66,7 +66,8 @@ Den här typen av DBMS-distribution stöds för:
 - SQL Server i Windows
 - IBM DB2. Hitta information i artikeln [flera instanser (Linux, UNIX)](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.dbobj.doc/doc/c0004904.html)
 - För Oracle. Mer information finns i [SAP support note #1778431](https://launchpad.support.sap.com/#/notes/1778431) och relaterade SAP-anteckningar
-- För SAP HANA, flera instanser på en virtuell dator, kan SAP anropa den här distributions metoden MCOS. Mer information finns i SAP-artikeln [flera SAP HANA system på en värd (MCOS)](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/en-US/b2751fd43bec41a9a14e01913f1edf18.html)
+- För SAP HANA, flera instanser på en virtuell dator, kan SAP anropa den här distributions metoden MCOS. Mer information finns i SAP-artikeln [flera SAP HANA system på en värd (MCOS)] (https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/2.0.02/
+- /b2751fd43bec41a9a14e01913f1edf18.html)
 
 Genom att köra flera databas instanser på en värd måste du kontrol lera att de olika instanserna inte konkurrerar om resurser och därmed överskrida de fysiska resurs gränserna för den virtuella datorn. Detta gäller särskilt för minne där du måste använda minnet för alla instanser som delar den virtuella datorn kan allokera. Det kan också vara sant för de processor resurser som de olika databas instanserna kan utnyttja. Alla DBMS som nämns har konfigurationer som tillåter begränsad minnesallokering och processor resurser på en instans nivå.
 För att ha stöd för en sådan konfiguration för virtuella Azure-datorer förväntas det att de diskar eller volymer som används för loggfilerna data och logg/gör om för de databaser som hanteras av de olika instanserna är separata. Eller med andra ord data eller logg/gör om loggfiler för databaser som hanteras av en annan DBMS-instans ska inte dela samma diskar eller volymer. 
@@ -121,6 +122,8 @@ För virtuella Azure-datorer stöds följande konfigurationer för hög tillgän
 
 > [!IMPORTANT]
 > För inget av scenarierna som beskrivs ovan, stöder vi konfigurationer av flera DBMS-instanser på en virtuell dator. Innebär i varje fall att endast en databas instans kan distribueras per virtuell dator och skyddas med de metoder för hög tillgänglighet som beskrivs. Det finns **inte** stöd för att skydda flera DBMS-instanser under samma Windows-eller pacemaker-redundanskluster vid den här tidpunkten. Oracle data Guard stöds även för enskilda instanser per distributions fall för virtuella datorer. 
+
+Olika databas system kan vara värdar för flera databaser under en DBMS-instans. I händelse av SAP HANA kan flera databaser finnas i flera databas behållare (MDC). De här konfigurationerna stöds för de fall där dessa konfigurationer för flera databaser arbetar inom en kluster resurs för växling vid fel. Konfigurationer som inte stöds är fall där flera kluster resurser krävs. För konfigurationer där du vill definiera flera SQL Server tillgänglighets grupper under en SQL Server instans.
 
 
 ![DBMS HA-konfiguration](./media/sap-planning-supported-configurations/database-high-availability-configuration.png)

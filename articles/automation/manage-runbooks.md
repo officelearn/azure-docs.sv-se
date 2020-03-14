@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ad8c05b3347ed4741d574a5e6bcc1d928db08411
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278381"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366844"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera Runbooks i Azure Automation
 
@@ -33,7 +33,7 @@ Du kan skapa en ny Runbook i Azure Automation med någon av Azure-portalerna ell
 
 ### <a name="create-a-runbook-with-powershell"></a>Skapa en Runbook med PowerShell
 
-Du kan använda cmdleten [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) för att skapa en tom [PowerShell Workflow-Runbook](automation-runbook-types.md#powershell-workflow-runbooks). Använd *typ* parametern för att ange en av de definierade Runbook-typerna för **New-AzAutomationRunbook**.
+Du kan använda cmdleten [New-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) för att skapa en tom [PowerShell Workflow-Runbook](automation-runbook-types.md#powershell-workflow-runbooks). Använd parametern `Type` för att ange en av de Runbook-typer som definierats för `New-AzAutomationRunbook`.
 
 I följande exempel visas hur du skapar en ny tom Runbook.
 
@@ -75,7 +75,7 @@ Du kan använda följande procedur för att importera en skript fil till Azure A
 
 ### <a name="import-a-runbook-from-a-script-file-with-windows-powershell"></a>Importera en runbook från en skriptfil med Windows PowerShell
 
-Använd cmdleten [import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) för att importera en skript fil som ett utkast till en PowerShell-Runbook för arbets flöde. Om runbooken redan finns, Miss lyckas importen om du inte använder *Force* -parametern med cmdleten.
+Använd cmdleten [import-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) för att importera en skript fil som ett utkast till en PowerShell-Runbook för arbets flöde. Om runbooken redan finns, Miss lyckas importen om du inte använder parametern `Force` med cmdleten.
 
 I följande exempel visas hur du importerar en skript fil till en Runbook.
 
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testa en Runbook
 
-När du testar en runbook körs [utkast versionen](#publish-a-runbook) och alla åtgärder som den utför slutförs. Ingen jobb historik skapas, men data strömmarna för [utdata](automation-runbook-output-and-messages.md#output-stream) och [fel](automation-runbook-output-and-messages.md#message-streams) visas i fönstret Testa utdata. Meddelanden till [utförlig data ström](automation-runbook-output-and-messages.md#message-streams) visas endast i fönstret utdata om variabeln *VerbosePreference* ] (Automation-Runbook-output-and-Messages. MD # Preference-variabler) är inställd på **Fortsätt**.
+När du testar en runbook körs [utkast versionen](#publish-a-runbook) och alla åtgärder som den utför slutförs. Ingen jobb historik skapas, men data strömmarna för [utdata](automation-runbook-output-and-messages.md#output-stream) och [fel](automation-runbook-output-and-messages.md#message-streams) visas i fönstret Testa utdata. Meddelanden till [utförlig data ström](automation-runbook-output-and-messages.md#message-streams) visas endast i fönstret utdata om variabeln `VerbosePreference` (Automation-Runbook-output-and-Messages. MD # Preference-variabler) är inställd på Fortsätt.
 
 Även om utkastet körs körs inte runbooken normalt och utför alla åtgärder mot resurser i miljön. Därför bör du bara testa Runbooks på icke-produktions resurser.
 

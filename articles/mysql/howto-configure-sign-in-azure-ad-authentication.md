@@ -1,17 +1,17 @@
 ---
-title: Använd Azure Active Directory-Azure Database for MySQL-enskild server
-description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) för autentisering med Azure Database for MySQL-enskild server
+title: Använd Azure Active Directory-Azure Database for MySQL
+description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) för autentisering med Azure Database for MySQL
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: bb3a8c94b377fb9c9150945ec4cf5980e006dd34
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110604"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299013"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
@@ -46,7 +46,7 @@ När du har konfigurerat administratören kan du nu logga in:
 
 Följande diagram på hög nivå sammanfattar arbets flödet för att använda Azure AD-autentisering med Azure Database for MySQL:
 
-![autentiseringspaket][1]
+![Autentiseringspaket][1]
 
 Vi har utformat Azure AD-integreringen så att den fungerar med vanliga MySQL-verktyg som MySQL CLI, som inte är Azure AD-medvetna och som endast stöder användar namn och lösen ord vid anslutning till MySQL. Vi skickar Azure AD-token till det lösen ord som visas i bilden ovan.
 
@@ -205,7 +205,7 @@ De flesta driv rutiner stöds, men se till att använda inställningarna för at
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska de övergripande begreppen för [Azure Active Directory-autentisering med Azure Database for MySQL-enskild server](concepts-azure-ad-authentication.md)
+* Granska de övergripande begreppen för [Azure Active Directory autentisering med Azure Database for MySQL](concepts-azure-ad-authentication.md)
 
 <!--Image references-->
 

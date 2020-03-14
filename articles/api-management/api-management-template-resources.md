@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c3b6123c63bf530463379a175745ef86baf2c5a3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374417"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249508"
 ---
 # <a name="azure-api-management-template-resources"></a>Resurser för Azure API Management-mallar
 Azure API Management tillhandahåller följande typer av resurser som du kan använda i Developer Portal-mallarna.  
@@ -301,7 +301,7 @@ Följande lokaliserings alternativ stöds:
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|Kunna. Resurs ägarens användar namn.|  
 |OAuth2UnsupportedTokenType|Tokentyp{0}stöds inte.|  
 |OAuth2InvalidState|Ogiltigt svar från auktoriseringsservern|  
-|OAuth2GrantType_AuthorizationCode|Auktoriseringskod|  
+|OAuth2GrantType_AuthorizationCode|auktoriseringskod|  
 |OAuth2GrantType_Implicit|Uttrycklig|  
 |OAuth2GrantType_ClientCredentials|Klientautentiseringsuppgifter|  
 |OAuth2GrantType_ResourceOwnerPassword|Resurs ägar lösen ord|  

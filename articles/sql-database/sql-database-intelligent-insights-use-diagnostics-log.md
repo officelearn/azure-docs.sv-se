@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 12/19/2018
-ms.openlocfilehash: 8272867f5b6144b92dbffcf96cc539eb82f75801
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/10/2020
+ms.openlocfilehash: bb62b087451140261aee7aaa2fab0de14ea36283
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587359"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79209454"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd loggen Intelligent Insights Azure SQL Database prestanda diagnostik
 
-Den här sidan innehåller information om hur du använder den Azure SQL Database loggen för prestandadiagnostik som genereras av [intelligent Insights](sql-database-intelligent-insights.md), dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
+Den här sidan innehåller information om hur du använder den Azure SQL Database loggen för prestandadiagnostik som genereras av [intelligent Insights](sql-database-intelligent-insights.md), dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-azure-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 ## <a name="log-header"></a>Logg huvud
 
@@ -47,8 +47,8 @@ Egenskapen elastisk pool (elasticPoolName_s) anger vilken elastisk pool database
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
 "intervalEndTme_t":"2017-9-25 12:00", // end of the issue reported time stamp
-"elasticPoolName_s" : "", // resource elastic pool (if applicable) 
-"databaseName_s" : "db_name",  // database name
+"elasticPoolName_s" : "", // resource elastic pool (if applicable)
+"databaseName_s" : "db_name", // database name
 "issueId_d" : 1525, // unique ID of the issue detected
 "status_s" : "Active" // status of the issue – possible values: "Active", "Verifying", and "Complete"
 ```
@@ -64,7 +64,7 @@ Identifierade prestanda problem rapporteras med följande egenskaps struktur fö
 "impact" : 1 to 3, // impact of the issue detected, possible values 1-3 (1 low, 2 moderate, 3 high impact)
 "category" : "Detectable performance pattern", // performance issue detected, see the table
 "details": <Details outputted> // details of an issue (see the table)
-}] 
+}]
 ```
 
 Identifierade prestanda mönster och information som returneras av diagnostikloggar finns i följande tabell.
@@ -105,7 +105,7 @@ I följande logg exempel upptäcktes frågan med hash-0x9102EXZ4 för att få en
 
 ```json
 "impact" : [{
-"entity" : { 
+"entity" : {
 "Type" : "Query", // type of entity - query
 "Value" : "query hash value", // for example "0x9102EXZ4" query hash value },
 "Metric" : "DurationIncreaseSeconds", // measured metric and the measurement unit (in this case seconds)
@@ -137,10 +137,8 @@ Den sista delen av Intelligent Insights prestanda loggen avser den automatiserad
 Du kan använda Intelligent Insights prestanda logg med [Azure Monitor loggar]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Lär dig mer om [intelligent Insights](sql-database-intelligent-insights.md) begrepp.
 - Lär dig hur du [felsöker Azure SQL Database prestanda problem med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Lär dig hur du [övervakar Azure SQL Database med hjälp av Azure SQL-analys](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
-
-
-

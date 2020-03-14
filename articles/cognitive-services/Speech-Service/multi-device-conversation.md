@@ -1,5 +1,5 @@
 ---
-title: Om konversation med flera enheter (för hands version) – tal service
+title: Konversation med flera enheter (för hands version) – tal service
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 03/11/2020
 ms.author: dapine
-ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: b3802e66b0ba5a68c898e69ec64b01edce1541c1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560821"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371366"
 ---
-# <a name="about-multi-device-conversation-preview"></a>Om konversationer med flera enheter (för hands version)
+# <a name="what-is-multi-device-conversation-preview"></a>Vad är en konversation med flera enheter (för hands version)?
 
 **Med en konversation med flera enheter** blir det enkelt att skapa en röst-eller textkonversation mellan flera klienter och koordinera meddelanden som skickas mellan dem.
 
@@ -75,8 +75,8 @@ Varje klient kan skicka ljud-eller snabb meddelanden. Tjänsten använder tal ig
 En **konversation** är en session som en användare startar för att de andra deltagande användarna ska kunna ansluta. Alla klienter ansluter till konversationen med en **konversations kod**på fem bokstäver.
 
 Varje konversation skapar metadata som innehåller:
--   Tidsstämpel för när konversationen startades och avslutades
--   Lista över alla deltagare i konversationen som innehåller varje användares valda smek namn och primärt språk för tal-eller text indata.
+-    Tidsstämpel för när konversationen startades och avslutades
+-    Lista över alla deltagare i konversationen som innehåller varje användares valda smek namn och primärt språk för tal-eller text indata.
 
 
 Det finns två typer av användare i en konversation: **värd** och **deltagare**.

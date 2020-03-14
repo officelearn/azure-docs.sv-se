@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c99cb15ef6874ef0efecb15eb99443904491209
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 420775fee36df900ce95718e58fee145de3a9f53
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79278459"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366997"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -71,14 +71,14 @@ Hämta skriptet **New-OnPremiseHybridWorker. ps1** från [PowerShell-galleriet](
 
 | Parameter | Status | Beskrivning |
 | --------- | ------ | ----------- |
-| *AAResourceGroupName* | Obligatorisk | Namnet på resurs gruppen som är kopplad till ditt Automation-konto. |
-| *AutomationAccountName* | Obligatorisk | Namnet på ditt Automation-konto.
-| *Certifiering* | Valfri | De autentiseringsuppgifter som ska användas när du loggar in i Azure-miljön. |
-| *HybridGroupName* | Obligatorisk | Namnet på en Hybrid Runbook Worker grupp som du anger som mål för de Runbooks som har stöd för det här scenariot. |
-| *OMSResourceGroupName* | Valfri | Namnet på resurs gruppen för Log Analytics arbets ytan. Om den här resurs gruppen inte anges används värdet för *AAResourceGroupName* . |
-| *SubscriptionID* | Obligatorisk | Identifieraren för den Azure-prenumeration som är kopplad till ditt Automation-konto. |
-| *TenantID* | Valfri | Identifieraren för den klient organisation som är kopplad till ditt Automation-konto. |
-| *WorkspaceName* | Valfri | Namnet på Log Analytics arbets ytan. Om du inte har en Log Analytics arbets yta, skapar skriptet och konfigurerar ett. |
+| `AAResourceGroupName` | Obligatorisk | Namnet på resurs gruppen som är kopplad till ditt Automation-konto. |
+| `AutomationAccountName` | Obligatorisk | Namnet på ditt Automation-konto.
+| `Credential` | Valfri | De autentiseringsuppgifter som ska användas när du loggar in i Azure-miljön. |
+| `HybridGroupName` | Obligatorisk | Namnet på en Hybrid Runbook Worker grupp som du anger som mål för de Runbooks som har stöd för det här scenariot. |
+| `OMSResourceGroupName` | Valfri | Namnet på resurs gruppen för Log Analytics arbets ytan. Om den här resurs gruppen inte anges används värdet för `AAResourceGroupName`. |
+| `SubscriptionID` | Obligatorisk | Identifieraren för den Azure-prenumeration som är kopplad till ditt Automation-konto. |
+| `TenantID` | Valfri | Identifieraren för den klient organisation som är kopplad till ditt Automation-konto. |
+| `WorkspaceName` | Valfri | Namnet på Log Analytics arbets ytan. Om du inte har en Log Analytics arbets yta, skapar skriptet och konfigurerar ett. |
 
 > [!NOTE]
 > När du aktiverar lösningar stöder Azure Automation bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
@@ -89,7 +89,7 @@ Hämta skriptet **New-OnPremiseHybridWorker. ps1** från [PowerShell-galleriet](
 
 ### <a name="step-3---run-the-powershell-script"></a>Steg 3 – kör PowerShell-skriptet
 
-I kommando rads gränssnittet för PowerShell bläddrar du till den mapp som innehåller skriptet som du har laddat ned. Ändra värdena för parametrarna *AutomationAccountName*, *AAResourceGroupName*, *OMSResourceGroupName*, *HybridGroupName*, *SubscriptionID*och *WorkspaceName*. Kör sedan skriptet.
+I kommando rads gränssnittet för PowerShell bläddrar du till den mapp som innehåller skriptet som du har laddat ned. Ändra värdena för parametrarna `AutomationAccountName`, `AAResourceGroupName`, `OMSResourceGroupName`, `HybridGroupName`, `SubscriptionID`och `WorkspaceName`. Kör sedan skriptet.
 
 Du uppmanas att autentisera med Azure när du har kört skriptet. Du måste logga in med ett konto som är medlem i rollen prenumerations administratörer och som är medadministratör för prenumerationen.
 
@@ -149,7 +149,7 @@ Använd följande steg för att slutföra Agent installationen och installatione
 
 ### <a name="step-4---install-the-runbook-environment-and-connect-to-azure-automation"></a>Steg 4 – installera Runbook-miljön och Anslut till Azure Automation
 
-När du konfigurerar en agent att rapportera till en Log Analytics arbets yta, push-överför lösningen i **HybridRegistration** PowerShell-modulen, som innehåller cmdleten **Add-HybridRunbookWorker** . Använd den här cmdleten för att installera Runbook-miljön på datorn och registrera den med Azure Automation.
+När du konfigurerar en agent att rapportera till en Log Analytics arbets yta, push-överför lösningen i `HybridRegistration` PowerShell-modulen som innehåller `Add-HybridRunbookWorker`-cmdleten. Använd den här cmdleten för att installera Runbook-miljön på datorn och registrera den med Azure Automation.
 
 Öppna en PowerShell-session i administratörs läge och kör följande kommandon för att importera modulen.
 
@@ -158,7 +158,7 @@ cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\
 Import-Module .\HybridRegistration.psd1
 ```
 
-Kör nu cmdleten **Add-HybridRunbookWorker** med följande syntax.
+Kör nu `Add-HybridRunbookWorker`-cmdleten med hjälp av följande syntax.
 
 ```powershell-interactive
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
@@ -168,18 +168,18 @@ Du kan hämta den information som krävs för den här cmdleten från sidan Hant
 
 ![Sidan hantera nycklar](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* För parametern *GroupName* använder du namnet på Hybrid Runbook Workers gruppen. Om den här gruppen redan finns i Automation-kontot, läggs den aktuella datorn till i den. Om den här gruppen inte finns läggs den till.
-* För parametern *Endpoint* använder du **URL** -posten på sidan Hantera nycklar.
-* För parametern *token* använder du posten **primär åtkomst nyckel** på sidan Hantera nycklar.
-* Om det behövs anger du *utförlig* parameter för att få information om installationen.
+* För parametern `GroupName` använder du namnet på Hybrid Runbook Workers gruppen. Om den här gruppen redan finns i Automation-kontot, läggs den aktuella datorn till i den. Om den här gruppen inte finns läggs den till.
+* För parametern `EndPoint` använder du **URL** -posten på sidan Hantera nycklar.
+* För parametern `Token` använder du posten **primär åtkomst nyckel** på sidan Hantera nycklar.
+* Om det behövs anger du `Verbose` parametern för att få information om installationen.
 
 ### <a name="step-5----install-powershell-modules"></a>Steg 5 – installera PowerShell-moduler
 
 Runbooks kan använda alla aktiviteter och cmdletar som definierats i modulerna som är installerade i din Azure Automation-miljö. Eftersom dessa moduler inte distribueras automatiskt till lokala datorer måste du installera dem manuellt. Undantaget är Azure-modulen. Den här modulen installeras som standard och ger åtkomst till cmdletar för alla Azure-tjänster och-aktiviteter för Azure Automation.
 
-Eftersom det primära syftet med Hybrid Runbook Worker-funktionen är att hantera lokala resurser, behöver du förmodligen installera modulerna som stöder dessa resurser, i synnerhet **PowerShellGet** -modulen. Information om hur du installerar Windows PowerShell-moduler finns i [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Eftersom det primära syftet med Hybrid Runbook Worker-funktionen är att hantera lokala resurser, behöver du förmodligen installera modulerna som stöder dessa resurser, särskilt `PowerShellGet` modulen. Information om hur du installerar Windows PowerShell-moduler finns i [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
 
-Moduler som är installerade måste finnas på en plats som refereras av *PSModulePath* -miljövariabeln så att hybrid Worker kan importera dem automatiskt. Mer information finns [i installera moduler i PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Moduler som är installerade måste finnas på en plats som refereras av `PSModulePath`-miljövariabeln så att hybrid Worker kan importera dem automatiskt. Mer information finns [i installera moduler i PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
 
 ## <a name="next-steps"></a>Nästa steg
 

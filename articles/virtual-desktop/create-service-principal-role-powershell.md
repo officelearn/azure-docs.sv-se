@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5bdc51f47a170922d4fc33e8538695af29e5159c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 61b5017609d99f2f0074c67d3838cf351ea38bea
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128125"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79365431"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudie: skapa tjänstens huvud namn och roll tilldelningar med hjälp av PowerShell
 
@@ -113,4 +113,4 @@ När du har loggat in ser du till att allt fungerar genom att testa några Windo
 När du har skapat tjänstens huvud namn och tilldelat rollen som en roll i din Windows-klient för virtuella datorer kan du använda den för att skapa en adresspool. Om du vill veta mer om värdar för pooler fortsätter du till självstudien för att skapa en adresspool i Windows Virtual Desktop.
 
  > [!div class="nextstepaction"]
- > [Självstudie för Windows virtuell Skriv bords värd](./create-host-pools-azure-marketplace.md)
+ > [Skapa en värdpool med Azure Marketplace](./create-host-pools-azure-marketplace.md)

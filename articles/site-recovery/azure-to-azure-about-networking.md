@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/23/2020
+ms.date: 3/13/2020
 ms.author: sutalasi
-ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5dcae83714ee3693288abf54afe8df7bb55dd578
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79258166"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371451"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
 
@@ -52,6 +52,8 @@ Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgåend
 login.microsoftonline.com | Krävs för auktorisering och autentisering till Site Recovery tjänst-URL: er.
 *.hypervrecoverymanager.windowsazure.com | Krävs så att kommunikationen mellan Site Recoverys tjänsten kan ske från den virtuella datorn.
 *.servicebus.windows.net | Krävs så att Site Recovery övervakning och diagnostikdata kan skrivas från den virtuella datorn.
+*.vault.azure.net | Tillåter åtkomst att aktivera replikering för ADE-aktiverade virtuella datorer via portalen
+*. automation.ext.azure.com | Gör det möjligt att aktivera automatisk uppgradering av mobilitets agenten för ett replikerat objekt via portalen
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Utgående anslutning för IP-adressintervall
 
@@ -63,6 +65,8 @@ Om du använder en NSG för att kontrol lera utgående anslutningar måste dessa
 - Skapa Azure Active Directory en NSG-baserad [(AAD) service tag](../virtual-network/security-overview.md#service-tags) -regel för att tillåta åtkomst till alla IP-adresser som motsvarar AAD
 - Skapa en EventsHub service tag-baserad NSG-regel för mål regionen, vilket ger åtkomst till Site Recovery övervakning.
 - Skapa en AzureSiteRecovery service tag-baserad NSG-regel för att tillåta åtkomst till Site Recovery tjänst i vilken region som helst.
+- Skapa en AzureKeyVault service tag-baserad NSG-regel. Detta krävs endast för att aktivera replikering av ADE-aktiverade virtuella datorer via portalen.
+- Skapa en GuestAndHybridManagement service tag-baserad NSG-regel. Detta krävs endast för att aktivera automatisk uppgradering av mobilitets agenten för ett replikerat objekt via portalen.
 - Vi rekommenderar att du skapar de nödvändiga NSG-reglerna på en test-NSG och kontrollerar att det inte finns några problem innan du skapar reglerna på en produktions NSG.
 
 ## <a name="example-nsg-configuration"></a>Exempel på NSG-konfiguration

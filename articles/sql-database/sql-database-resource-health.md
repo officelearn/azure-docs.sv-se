@@ -1,9 +1,9 @@
 ---
 title: Använd Azure Resource Health för att övervaka databas hälsa
-description: Använd Azure Resource Health för att övervaka SQL Database hälsa, hjälper dig att diagnostisera och få support när ett Azure-problem påverkar dina SQL-resurser.
+description: Använd Azure Resource Health för att övervaka hälsan för SQL-databas, hjälper dig att diagnostisera och få support när ett problem med Azure påverkar dina SQL-resurser.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,14 +11,14 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 1cf14c9e133b7e6e3e0b5219eb9e16bd3a0178dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e19e904b47d69444b491dd88ffe49ff812aafc3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821164"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208875"
 ---
-# <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Använd Resource Health för att felsöka anslutningarna för Azure SQL Database
+# <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Använda Resource Health felsökning av anslutningar för Azure SQL Database
 
 ## <a name="overview"></a>Översikt
 
@@ -26,11 +26,11 @@ ms.locfileid: "73821164"
 
 ![Översikt](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
-## <a name="health-checks"></a>Hälso kontroller
+## <a name="health-checks"></a>Hälsokontroller
 
-Resource Health fastställer hälso tillståndet för din SQL-resurs genom att undersöka lyckade och misslyckade inloggningar till resursen. För närvarande undersöker Resource Health för din SQL DB-resurs bara inloggnings fel på grund av systemfel och inte användar fel. Resource Healths status uppdateras var 1-2: e minut.
+Resource Health avgör hälsotillståndet för din SQL-resurs genom att undersöka lyckade och misslyckade av inloggningar till resursen. Resource Health för SQL DB undersöker för närvarande endast misslyckade inloggningar på grund av systemfel och inte användarfel. Resource Health-status uppdateras var 1 – 2 minuter.
 
-## <a name="health-states"></a>Hälso tillstånd
+## <a name="health-states"></a>Hälsotillstånd
 
 ### <a name="available"></a>Tillgängligt
 
@@ -40,37 +40,37 @@ Statusen **tillgänglig** innebär att Resource Health inte har identifierat inl
 
 ### <a name="degraded"></a>Degraderad
 
-Statusen **Degraderad** innebär att Resource Health har identifierat mestadels lyckade inloggningar, men också några misslyckade. Detta är de flesta sannolika tillfälliga inloggnings fel. För att minska effekten av anslutnings problem som orsakas av tillfälliga inloggnings fel ska du implementera [logik för omförsök](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) i koden.
+Statusen **Degraderad** innebär att Resource Health har identifierat mestadels lyckade inloggningar, men också några misslyckade. Det här är mest sannolika tillfälliga inloggningsfel. För att minska effekten av anslutnings problem som orsakas av tillfälliga inloggnings fel ska du implementera [logik för omförsök](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) i koden.
 
 ![Degraderad](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>Inte tillgänglig
 
-Statusen **otillgänglig** innebär att Resource Health har identifierat konsekventa inloggnings försök till din SQL-resurs. Kontakta supporten om resursen är i detta tillstånd under en längre tid.
+Statusen **otillgänglig** innebär att Resource Health har identifierat konsekventa inloggnings försök till din SQL-resurs. Om resursen är i det här tillståndet under en längre period, kontakta supporten.
 
 ![Inte tillgänglig](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
 ### <a name="unknown"></a>Okänt
 
-Hälso tillståndet för **okänd** indikerar att Resource Health inte har tagit emot information om den här resursen i mer än 10 minuter. Även om denna status inte är en slutgiltig indikation på resursens tillstånd, är det en viktig data punkt i fel söknings processen. Om resursen körs som förväntat ändras statusen för resursen till tillgänglig efter några minuter. Om du har problem med resursen kan den okända hälso statusen föreslå att en händelse i plattformen påverkar resursen.
+Hälso tillståndet för **okänd** indikerar att Resource Health inte har tagit emot information om den här resursen i mer än 10 minuter. Denna status inte är en slutgiltig indikation på resursens tillstånd, är det en viktig datapunkt i felsökningen. Om resursen körs som förväntat, ändras status för resursen till tillgänglig efter ett par minuter. Om du har problem med resursen kan okänd hälsostatus föreslå att en händelse i plattformen påverkar resursen.
 
 ![Okänt](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Historisk information
 
-Du kan komma åt upp till 14 dagar hälso historik i avsnittet hälso historik i Resource Health. Avsnittet innehåller även orsaken till stillestånds tiden (när det är tillgängligt) för de stillestånds tider som rapporteras av Resource Health. För närvarande visar Azure avbrottstid för din SQL-databasresurs med upp till två minuters kornighet. Den faktiska avbrottstiden är förmodligen mindre än en minut – genomsnittet är 8 sekunder.
+Du kan komma åt upp till 14 dagar efter hälsohistorik i avsnittet hälsotillstånd historik i Resource Health. Avsnittet innehåller också driftstopp orsaken (i förekommande fall) för stilleståndstider som rapporterats av Resource Health. För närvarande visar Azure avbrottstid för din SQL-databasresurs med upp till två minuters kornighet. Den faktiska avbrottstiden är förmodligen mindre än en minut – genomsnittet är 8 sekunder.
 
-### <a name="downtime-reasons"></a>Orsaker till stillestånds tid
+### <a name="downtime-reasons"></a>Nedtid orsaker
 
-När din SQL Database upplever stillestånds tid, utförs analysen för att fastställa en orsak. När det är tillgängligt rapporteras stillestånds orsaken i avsnittet hälso historik i Resource Health. Orsaker till stillestånd publiceras vanligen 30 minuter efter en händelse.
+Analysen utförs för att fastställa en anledning när avbrott inträffar i din SQL-databas. När det är tillgängligt, rapporteras driftstopp orsaken i avsnittet Hälsohistorik i Resource Health. Orsaker till stillestånd publiceras vanligen 30 minuter efter en händelse.
 
 #### <a name="planned-maintenance"></a>Planerat underhåll
 
-Azure-infrastrukturen utför regelbundet planerat underhåll – uppgradering av maskin-eller program varu komponenter i data centret. Medan databasen genomgår underhåll kan SQL avsluta vissa befintliga anslutningar och neka nya. De inloggnings fel som uppstod under planerat underhåll är vanligt vis tillfälliga och [nya omprövnings logik](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) bidrar till att minska påverkan. Om du fortsätter att uppleva inloggnings fel kan du kontakta supporten.
+Azure-infrastrukturen utför regelbundet planerat underhåll – uppgradering av maskin- eller komponenter i datacentret. När databasen genomgår underhåll, kan SQL avsluta vissa befintliga anslutningar och vägra nya. De inloggnings fel som uppstod under planerat underhåll är vanligt vis tillfälliga och [nya omprövnings logik](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) bidrar till att minska påverkan. Kontakta supporten om du fortsätter att uppleva fel vid inloggningen undviks.
 
 #### <a name="reconfiguration"></a>Omkonfiguration
 
-Omkonfigurationer betraktas som tillfälliga villkor och förväntas av tiden. Dessa händelser kan utlösas av belastnings utjämning eller program varu-eller maskin varu problem. Alla klient produktions program som ansluter till en moln databas bör implementera en robust logik för anslutnings [försök](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), eftersom det skulle hjälpa till att minimera dessa situationer och bör vanligt vis göra felen transparent för slutanvändaren.
+Reconfigurations betraktas som tillfälliga villkor och förväntas från tid till annan. De här händelserna kan utlösas av load balancing eller eller maskinvara fel. Alla klient produktions program som ansluter till en moln databas bör implementera en robust logik för anslutnings [försök](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors), eftersom det skulle hjälpa till att minimera dessa situationer och bör vanligt vis göra felen transparent för slutanvändaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

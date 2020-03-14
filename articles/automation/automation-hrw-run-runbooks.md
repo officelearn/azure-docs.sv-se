@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: c67fff32770446cac3adef8af50c9e5733077bc7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 9b9196cde45686e42d1baf7faedf94bdb73acccc
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372630"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367067"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Köra Runbooks på en Hybrid Runbook Worker
 
@@ -29,7 +29,7 @@ När de använder icke-Azure-resurser kan Runbooks som körs på en Hybrid Runbo
 
 Som standard körs Runbooks på den lokala datorn. För Windows körs de i kontexten för det lokala system kontot. För Linux körs de i kontexten för det särskilda användar kontot **nxautomation**. I båda fallen måste Runbooks ge sin egen autentisering till resurser som de har åtkomst till.
 
-Du kan använda [autentiseringsuppgifter](automation-credentials.md) och [certifikat](automation-certificates.md) till gångar i din Runbook med cmdletar som gör att du kan ange autentiseringsuppgifter så att runbooken kan autentiseras för olika resurser. I följande exempel visas en del av en Runbook som startar om en dator. Den hämtar autentiseringsuppgifter från en inloggnings till gång och namnet på datorn från en variabel till gång och använder sedan dessa värden med cmdleten **Restart-Computer** .
+Du kan använda [autentiseringsuppgifter](automation-credentials.md) och [certifikat](automation-certificates.md) till gångar i din Runbook med cmdletar som gör att du kan ange autentiseringsuppgifter så att runbooken kan autentiseras för olika resurser. I följande exempel visas en del av en Runbook som startar om en dator. Den hämtar autentiseringsuppgifter från en inloggnings till gång och namnet på datorn från en variabel till gång och använder sedan dessa värden med `Restart-Computer`-cmdleten.
 
 ```powershell
 $Cred = Get-AutomationPSCredential -Name "MyCredential"
@@ -38,7 +38,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-Du kan också använda en [InlineScript](automation-powershell-workflow.md#inlinescript) -aktivitet. Med InlineScript kan du köra kodblock på en annan dator med autentiseringsuppgifter som anges av [parametern PSCredential common](/powershell/module/psworkflow/about/about_workflowcommonparameters).
+Du kan också använda en [InlineScript](automation-powershell-workflow.md#inlinescript) -aktivitet. med `InlineScript` kan du köra kodblock på en annan dator med autentiseringsuppgifter som anges av den [gemensamma parametern PSCredential](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### <a name="run-as-account"></a>Kör som-konto
 
@@ -63,9 +63,9 @@ Använd följande procedur för att ange ett Kör som-konto för en Hybrid Runbo
 
 Hybrid Runbook Worker på Azure Virtual Machines kan använda hanterade identiteter för Azure-resurser för att autentisera till Azure-resurser. Användning av hanterade identiteter för Azure-resurser i stället för kör som-konton ger fördelar eftersom du inte behöver:
 
-* Exportera kör som-certifikatet och importera det sedan till Hybrid Runbook Worker
-* Förnya certifikatet som används av kör som-kontot
-* Hanterar Kör som-anslutningsobjektet i Runbook-koden
+* Exportera kör som-certifikatet och importera det sedan till Hybrid Runbook Worker.
+* Förnya certifikatet som används av kör som-kontot.
+* Hanterar Kör som-anslutningsobjektet i Runbook-koden.
 
 Följ nästa steg för att använda en hanterad identitet för Azure-resurser på en Hybrid Runbook Worker.
 
@@ -73,7 +73,7 @@ Följ nästa steg för att använda en hanterad identitet för Azure-resurser p�
 2. Konfigurera hanterade identiteter för Azure-resurser på den virtuella datorn. Se [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
 3. Ge VM-åtkomst till en resurs grupp i Resource Manager. Se [använda en Windows VM-systemtilldelad hanterad identitet för åtkomst till Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
 4. Installera hybrid Runbook Worker på den virtuella datorn. Se [distribuera en Windows-hybrid Runbook Worker](automation-windows-hrw-install.md).
-5. Uppdatera runbooken så att den använder cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) med parametern *Identity* för att autentisera till Azure-resurser. Den här konfigurationen minskar behovet av att använda ett Kör som-konto och utföra den associerade konto hanteringen.
+5. Uppdatera runbooken så att den använder cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0) med parametern `Identity` för att autentisera till Azure-resurser. Den här konfigurationen minskar behovet av att använda ett Kör som-konto och utföra den associerade konto hanteringen.
 
 ```powershell
     # Connect to Azure using the managed identities for Azure resources identity configured on the Azure VM that is hosting the hybrid runbook worker
@@ -84,7 +84,7 @@ Följ nästa steg för att använda en hanterad identitet för Azure-resurser p�
 ```
 
 > [!NOTE]
-> `Connect-AzAccount -Identity` fungerar för en Hybrid Runbook Worker som använder en tilldelad identitet och en enda användare som tilldelats identiteten. Om du använder flera användare tilldelade identiteter på Hybrid Runbook Worker, måste din Runbook ange *accountid* -parametern för **Connect-AzAccount** för att välja en användardefinierad identitet.
+> `Connect-AzAccount -Identity` fungerar för en Hybrid Runbook Worker som använder en tilldelad identitet och en enda användare som tilldelats identiteten. Om du använder flera användare tilldelade identiteter på Hybrid Runbook Worker, måste din Runbook ange *accountid* -parametern för `Connect-AzAccount` för att välja en användardefinierad identitet.
 
 ### <a name="runas-script"></a>Kör som-konto för Automation
 
@@ -160,13 +160,13 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 ```
 
 >[!NOTE]
->För PowerShell-Runbooks är **Add-AzAccount** och **Add-AzureRMAccount** alias för **Connect-AzAccount**. Om du inte ser **Connect-AzAccount**när du söker i biblioteks objekt kan du använda **Add-AzAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
+>För PowerShell-Runbooks är `Add-AzAccount` och `Add-AzureRMAccount` alias för `Connect-AzAccount`. När du söker i biblioteks objekt, om du inte ser `Connect-AzAccount`, kan du använda `Add-AzAccount`, eller så kan du uppdatera dina moduler i ditt Automation-konto.
 
 För att slutföra förberedelse av kör som-kontot:
 
 1. Spara **export-RunAsCertificateToHybridWorker-** runbooken till datorn med tillägget **. ps1** .
 2. Importera den till ditt Automation-konto.
-3. Redigera runbooken och ändra värdet för *lösen ords* variabeln o ditt eget lösen ord. 
+3. Redigera runbooken och ändra värdet för `Password` Variable o ditt eget lösen ord. 
 4. Publicera runbooken.
 5. Kör runbooken och fokusera på Hybrid Runbook Worker grupp som kör och autentiserar Runbooks med hjälp av kör som-kontot. 
 6. Granska jobb strömmen för att se att den rapporterar försöket att importera certifikatet till den lokala datorns Arkiv och följer med flera rader. Detta beteende beror på hur många Automation-konton du definierar i din prenumeration och graden av lyckade autentisering.
@@ -177,7 +177,7 @@ Azure Automation hanterar jobb i hybrid Runbook Worker något annorlunda än job
 
 För en långvarig Runbook vill du se till att den är flexibel för möjlig omstart, till exempel om den dator som är värd för den virtuella datorn startas om. Om den Hybrid Runbook Worker värddatorn startar om, körs pågående Runbook-jobb från början eller från den senaste kontroll punkten för PowerShell Workflow-Runbooks. När ett Runbook-jobb har startats om fler än tre gånger pausas det.
 
-Kom ihåg att jobb för Hybrid Runbook Worker körs under det lokala system kontot på Windows eller **nxautomation** -kontot i Linux. För Linux måste du se till att **nxautomation** -kontot har åtkomst till den plats där Runbook-modulerna lagras. När du använder cmdleten [install-module](/powershell/module/powershellget/install-module) , måste du ange **allusers** för *omfattnings* parametern för att säkerställa att **nxautomation** -kontot har åtkomst. Mer information om PowerShell på Linux finns i [kända problem för PowerShell på andra plattformar än Windows-plattformar](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
+Kom ihåg att jobb för Hybrid Runbook Worker körs under det lokala system kontot på Windows eller **nxautomation** -kontot i Linux. För Linux måste du se till att **nxautomation** -kontot har åtkomst till den plats där Runbook-modulerna lagras. När du använder cmdleten [install-module](/powershell/module/powershellget/install-module) måste du ange allusers för parametern `Scope` för att kontrol lera att **nxautomation** -kontot har åtkomst. Mer information om PowerShell på Linux finns i [kända problem för PowerShell på andra plattformar än Windows-plattformar](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
 ## <a name="starting-a-runbook-on-a-hybrid-runbook-worker"></a>Starta en Runbook på en Hybrid Runbook Worker
 
@@ -185,14 +185,14 @@ Om du [startar en Runbook i Azure Automation](automation-starting-a-runbook.md) 
 
 När du startar en Runbook i Azure Portal visas alternativet **kör på** där du kan välja **Azure** eller **hybrid Worker**. Om du väljer **hybrid Worker**kan du välja hybrid Runbook Workers gruppen i en listruta.
 
-Använd parametern *RunOn* med cmdleten **Start-AzureAutomationRunbook** . I följande exempel används Windows PowerShell för att starta en Runbook med namnet **test-Runbook** på en hybrid Runbook Worker grupp med namnet MyHybridGroup.
+Använd parametern `RunOn` med `Start-AzureAutomationRunbook`-cmdleten. I följande exempel används Windows PowerShell för att starta en Runbook med namnet **test-Runbook** på en hybrid Runbook Worker grupp med namnet MyHybridGroup.
 
 ```azurepowershell-interactive
 Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 > [!NOTE]
-> Parametern *RunOn* har lagts till i **Start-AzureAutomationRunbook** i version 0.9.1 till och av Microsoft Azure PowerShell. Du bör [Ladda ned den senaste versionen](https://azure.microsoft.com/downloads/) om du har en tidigare installerad. Installera bara den här versionen på den arbets station där du startar runbooken från PowerShell. Du behöver inte installera det på den Hybrid Runbook Worker datorn om du inte tänker starta Runbooks från den här datorn.
+> Parametern `RunOn` lades till i `Start-AzureAutomationRunbook` i version 0.9.1 till och av Microsoft Azure PowerShell. Du bör [Ladda ned den senaste versionen](https://azure.microsoft.com/downloads/) om du har en tidigare installerad. Installera bara den här versionen på den arbets station där du startar runbooken från PowerShell. Du behöver inte installera det på den Hybrid Runbook Worker datorn om du inte tänker starta Runbooks från den här datorn.
 
 ## <a name="working-with-signed-runbooks-on-a-windows-hybrid-runbook-worker"></a>Arbeta med signerade Runbooks på en Windows-Hybrid Runbook Worker
 
@@ -285,7 +285,7 @@ Om du vill skapa GPG-nyckelring och nyckel par använder du Hybrid Runbook Worke
 
 ### <a name="make-the-keyring-available-to-the-hybrid-runbook-worker"></a>Gör nyckel ringen tillgänglig för Hybrid Runbook Worker
 
-När nyckel ringen har skapats, gör den tillgänglig för Hybrid Runbook Worker. Ändra inställnings filen `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` att inkludera följande exempel kod under avsnittet fil **[Work-tillval]** .
+När nyckel ringen har skapats, gör den tillgänglig för Hybrid Runbook Worker. Ändra inställnings filen **/var/opt/Microsoft/omsagent/State/automationworker/DIY/Worker.conf** så att följande exempel kod ingår i avsnittet fil `[worker-optional]`.
 
 ```bash
 gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx

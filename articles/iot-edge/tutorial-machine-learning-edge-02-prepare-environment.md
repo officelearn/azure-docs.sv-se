@@ -4,16 +4,16 @@ description: 'Självstudie: Förbered din miljö för utveckling och distributio
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 1/23/2020
+ms.date: 3/12/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9809a9b4d644a1fa11fe9cce1cbd35b037206b29
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 42c776d4d6c3973e7c222c9c9adf3e5105f6c84f
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944282"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79296818"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>Självstudie: Konfigurera en miljö för maskin inlärning på IoT Edge
 
@@ -189,12 +189,13 @@ Som en del av att skapa IoT-hubben skapade även skriptet som vi körde i föreg
 
 1. Expandera avsnittet **lagring** :
 
-   ![Kontrol lera att turbofandevicestorage finns i listan med anpassade slut punkter](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   ![Kontrol lera att turbofanDeviceStorage finns i listan med anpassade slut punkter](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
 
-   Vi ser **turbofandevicestorage** finns i listan med anpassade slut punkter. Observera följande egenskaper för den här slut punkten:
+   Vi ser **turbofanDeviceStorage** finns i listan med anpassade slut punkter. Observera följande egenskaper för den här slut punkten:
 
    * Den pekar på den Blob Storage-behållare som du skapade med namnet `devicedata` som anges efter **container namn**.
    * Dess **fil namns format** har partition som det sista elementet i namnet. Vi hittar det här formatet är enklare för de fil åtgärder som vi ska göra med Azure Notebooks senare i självstudien.
+   * Dess **status** bör vara felfri.
 
 1. Välj fliken **vägar** .
 

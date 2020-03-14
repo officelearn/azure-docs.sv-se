@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b29dbd7a034123b17b34b1c0fd4c8649e30810bd
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 7cd989d944a35af8b1fd932643826e1aedd03962
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128170"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370210"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files
 
@@ -73,7 +73,7 @@ För att komma igång måste du konfigurera ett Azure NetApp Files-konto.
 7. Välj **Azure NetApp Files** i Sök resultaten och välj sedan **skapa**.
 
 8. Välj knappen **Lägg till**.
-9. När bladet **nytt NetApp-konto** öppnas anger du följande värden:
+9. När fliken **nytt NetApp-konto** öppnas anger du följande värden:
 
     - I **namn**anger du namnet på NetApp-kontot.
     - För **prenumeration**väljer du prenumerationen för det lagrings konto som du ställer in i steg 4 i den nedrullningsbara menyn.
@@ -92,7 +92,7 @@ Skapa sedan en ny kapacitets grupp:
 1. Gå till Azure NetApp Files-menyn och välj ditt nya konto.
 2. I menyn konto väljer du **kapacitets grupper** under lagrings tjänsten.
 3. Välj **Lägg till pool**.
-4. När bladet **ny pool med kapacitet** öppnas anger du följande värden:
+4. När fliken **ny pool för kapacitet** öppnas anger du följande värden:
 
     - I **namn**anger du ett namn för den nya kapacitets gruppen.
     - För **service nivå**väljer du önskat värde på den nedrullningsbara menyn. Vi rekommenderar **Premium** för de flesta miljöer.
@@ -127,7 +127,7 @@ Därefter måste du skapa en ny volym.
 
 1. Välj **volymer**och välj sedan **Lägg till volym**.
 
-2. När bladet **skapa en volym** öppnas anger du följande värden:
+2. När fliken **skapa en volym** öppnas anger du följande värden:
 
     - Ange ett namn på den nya volymen för **volym namn**.
     - För **kapacitets grupp**väljer du den kapacitets uppsättning som du nyss skapade på den nedrullningsbara menyn.

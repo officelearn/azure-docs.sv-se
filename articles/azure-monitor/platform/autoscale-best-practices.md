@@ -5,11 +5,11 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374178"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248923"
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Azure Monitor autoskalning gäller endast för [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)-, [Cloud Services](https://azure.microsoft.com/services/cloud-services/)-, [App Service-Web Apps-](https://azure.microsoft.com/services/app-service/web/)och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -109,7 +109,7 @@ Det finns dessutom en återkommande profil uppsättning för måndag. Den är in
 
 När autoskalning växlar tillbaka till standard profilen kontrollerar den först om minimi-och Max villkoren är uppfyllda. Om antalet instanser är 12, skalas det till 10, vilket är det högsta tillåtna antalet för standard profilen.
 
-![inställningar för autoskalning](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
+![Inställningar för autoskalning](./media/autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Överväganden för skalning när flera regler har kon figurer ATS i en profil
 

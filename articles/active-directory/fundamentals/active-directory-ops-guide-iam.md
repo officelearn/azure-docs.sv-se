@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 36b3857f8827f8a33e5fc0981b22a49128f7c193
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535332"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298622"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Referens guide för Azure Active Directory identitets-och åtkomst hanterings åtgärder
 
@@ -170,7 +170,7 @@ Om du för närvarande använder ett verktyg, till exempel [Microsoft Identity M
 Resurs ägare kan tro att gruppen **alla användare** endast innehåller **företags anställda** när de faktiskt kan innehålla både **företags anställda** och **gäster**. Därför bör du vara särskilt försiktig när du använder gruppen **alla användare** för program tilldelning och beviljar åtkomst till resurser som SharePoint-innehåll eller program.
 
 > [!IMPORTANT]
-> Om gruppen **alla användare** är aktive rad och används för principer för villkorlig åtkomst, app eller resurs tilldelning, se till att [skydda gruppen](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) om du inte vill att den ska innehålla gäst användare. Dessutom bör du åtgärda licens tilldelningarna genom att skapa och tilldela till grupper som bara innehåller **företags anställda** . Å andra sidan, om du ser att gruppen **alla användare** är aktive rad men inte används för att bevilja åtkomst till resurser, se till att organisationens operativa vägledning är att avsiktligt använda gruppen (som omfattar både **företags anställda** och **gäster**).
+> Om gruppen **alla användare** är aktive rad och används för principer för villkorlig åtkomst, app eller resurs tilldelning, se till att [skydda gruppen](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) om du inte vill att den ska innehålla gäst användare. Dessutom bör du åtgärda licens tilldelningarna genom att skapa och tilldela till grupper som bara innehåller **företags anställda** . Å andra sidan, om du ser att gruppen **alla användare** är aktive rad men inte används för att bevilja åtkomst till resurser, se till att organisationens operativa vägledning är att avsiktligt använda gruppen (som omfattar både **företags anställda** och **gäster**).
 
 ### <a name="automated-user-provisioning-to-apps"></a>Automatiserad användar etablering för appar
 

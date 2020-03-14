@@ -4,12 +4,12 @@ description: Använd Azure Functions för att schemalägga en aktivitet som ansl
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972242"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79366825"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
@@ -17,7 +17,7 @@ Den här artikeln visar hur du använder Azure Functions för att skapa ett sche
 
 Om det är första gången du arbetar med C# funktioner bör du läsa [Azure Functions C# Developer-referensen](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Slutför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) för att skapa en lokal Function-app som är riktad mot version 2. x eller en senare version av körnings miljön. Du måste också ha publicerat projektet till en Function-app i Azure.
 
@@ -29,7 +29,7 @@ Om det är första gången du arbetar med C# funktioner bör du läsa [Azure Fun
 
 Du måste hämta anslutnings strängen för den databas som du skapade när du har skapat [en Azure SQL-databas i Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **SQL-databaser** på den vänstra menyn och välj din databas på sidan SQL- **databaser** .
 
@@ -43,7 +43,7 @@ En funktionsapp är värd för körningen av dina funktioner i Azure. Som bästa
 
 Du måste ha publicerat din app tidigare på Azure. [Publicera din Function-app till Azure](functions-develop-vs.md#publish-to-azure)om du inte redan gjort det.
 
-1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **publicera** > **hantera program inställningar.** ... Välj **Lägg till inställning**, i **nytt inställnings namn för appen**, skriv `sqldb_connection`och välj **OK**.
+1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **publicera** > **Redigera Azure App Service inställningar**. Välj **Lägg till inställning**, i **nytt inställnings namn för appen**, skriv `sqldb_connection`och välj **OK**.
 
     ![Program inställningar för Function-appen.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 

@@ -1,23 +1,23 @@
 ---
-title: Så här uppfyller du anpassade kommandon på klienten med talet SDK
+title: Så här uppfyller du kommandon från en klient med talet SDK
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln förklarar vi hur du hanterar anpassade kommando aktiviteter på klienten med talet SDK.
+description: I den här artikeln förklarar vi hur du hanterar anpassade kommando aktiviteter på en klient med tal-SDK.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/12/2020
 ms.author: donkim
-ms.openlocfilehash: b55bb1c8379cf0a80a95aa0ba1a29297154d5831
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156513"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367757"
 ---
-# <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Gör så här: utföra kommandon på klienten med talet SDK (för hands version)
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Utföra kommandon från en klient med talet SDK (för hands version)
 
 För att slutföra uppgifter med hjälp av ett anpassat kommando program kan du skicka anpassade nytto laster till en ansluten klient enhet.
 
@@ -26,7 +26,7 @@ I den här artikeln får du:
 - Definiera och skicka en anpassad JSON-nyttolast från programmet för anpassade kommandon
 - Ta emot och visualisera det anpassade JSON-nyttolasten C# från ett UWP-program för tal-SDK
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - En Azure-prenumerations nyckel för tal service
@@ -131,7 +131,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>Prova
+## <a name="try-it-out"></a>Prova det
 
 1. Starta programmet
 1. Välj Aktivera mikrofon

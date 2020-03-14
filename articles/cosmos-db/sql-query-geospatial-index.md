@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: 2cf682a404154b9c1bb94680b3adb673892c1c72
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566379"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137911"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexera geospatiala data med Azure Cosmos DB
 
@@ -25,6 +25,44 @@ Om du anger en indexerings princip som innehåller rums index för/* (alla sökv
 > Azure Cosmos DB stöder indexering av punkter, lin Est rings, polygoner och multipolygoner
 >
 >
+
+## <a name="modifying-geospatial-data-type"></a>Ändra Geospatial datatyp
+
+I din behållare anger `geospatialConfig` hur geospatiala data ska indexeras. Du bör ange ett `geospatialConfig` per container: geografi eller geometri. Om inget värde `geospatialConfig` anges används data typen geografi som standard. När du ändrar `geospatialConfig`kommer alla befintliga geospatiala data i behållaren att indexeras om.
+
+> [!NOTE]
+> Azure Cosmos DB stöder för närvarande endast ändringar i geospatialConfig i .NET SDK i version 3,6 och senare.
+>
+
+Här är ett exempel på hur du ändrar den geospatiala data typen till `geometry` genom att ange egenskapen `geospatialConfig` och lägga till en **boundingBox**:
+
+```csharp
+    //Retrieve the container's details
+    ContainerResponse containerResponse = await client.GetContainer("db", "spatial").ReadContainerAsync();
+    //Set GeospatialConfig to Geometry
+    GeospatialConfig geospatialConfig = new GeospatialConfig(GeospatialType.Geometry);
+    containerResponse.Resource.GeospatialConfig = geospatialConfig;
+    // Add a spatial index including the required boundingBox
+    SpatialPath spatialPath = new SpatialPath
+            {  
+                Path = "/locations/*",
+                BoundingBox = new BoundingBoxProperties(){
+                    Xmin = 0,
+                    Ymin = 0,
+                    Xmax = 10,
+                    Ymax = 10
+                }
+            };
+    spatialPath.SpatialTypes.Add(SpatialType.Point);
+    spatialPath.SpatialTypes.Add(SpatialType.LineString);
+    spatialPath.SpatialTypes.Add(SpatialType.Polygon);
+    spatialPath.SpatialTypes.Add(SpatialType.MultiPolygon);
+
+    containerResponse.Resource.IndexingPolicy.SpatialIndexes.Add(spatialPath);
+
+    // Update container with changes
+    await client.GetContainer("db", "spatial").ReplaceContainerAsync(containerResponse.Resource);
+```
 
 ## <a name="geography-data-indexing-examples"></a>Exempel på geografi data indexering
 
@@ -58,11 +96,64 @@ Följande JSON-kodfragment visar en indexerings princip där spatial indexering 
 
 > [!NOTE]
 > Om platsen GeoJSON värde inom dokumentet är skadad eller ogiltig, få sedan inte indexera för spatial frågor. Du kan validera plats värden med hjälp av ST_ISVALID och ST_ISVALIDDETAILED.
->
->
->
 
 Du kan också [ändra indexerings principen](how-to-manage-indexing-policy.md) med hjälp av Azure CLI, POWERSHELL eller SDK.
+
+## <a name="geometry-data-indexing-examples"></a>Exempel på geometri data indexering
+
+Med data typen **Geometry** , som liknar data typen geografi, måste du ange relevanta sökvägar och typer att indexera. Dessutom måste du också ange en `boundingBox` i indexerings principen för att ange det önskade områden som ska indexeras för den angivna sökvägen. Varje Geospatial sökväg kräver en egen`boundingBox`.
+
+Avgränsnings rutan består av följande egenskaper:
+
+- **xMin**: den minsta indexerade x-koordinaten
+- **yMin**: den minsta indexerade y-koordinaten
+- **Xmax**: den maximalt indexerade x-koordinaten
+- **yMax**: den maximalt indexerade y-koordinaten
+
+En avgränsnings ruta krävs eftersom geometriska data upptar ett plan som kan vara oändligt. Rums index kräver dock ett begränsat utrymme. För **geografi** data typen är jordens kant linjen och du behöver inte ange någon avgränsnings ruta.
+
+Du bör skapa en avgränsnings ruta som innehåller alla (eller de flesta) data. Endast åtgärder som beräknas för de objekt som är helt inne i avgränsnings rutan kommer att kunna använda rums indexet. Du bör inte göra den begränsade avgränsnings rutan betydligt större än nödvändigt eftersom detta påverkar frågans prestanda negativt.
+
+Här är ett exempel på en indexerings princip som indexerar **geometri** data med **geospatialConfig** inställt på `geometry`:
+
+```json
+ {
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ],
+    "spatialIndexes": [
+        {
+            "path": "/locations/*",
+            "types": [
+                "Point",
+                "LineString",
+                "Polygon",
+                "MultiPolygon"
+            ],
+            "boundingBox": {
+                "xmin": -10,
+                "ymin": -20,
+                "xmax": 10,
+                "ymax": 20
+            }
+        }
+    ]
+}
+```
+
+Index principen ovan har en **boundingBox** av (-10, 10) för x-koordinater och (-20, 20) för y-koordinater. Behållaren med index principen ovan kommer att indexera alla punkter, polygoner, multipolygoner och lin Est rings som är helt inom den här regionen.
+
+> [!NOTE]
+> Om du försöker lägga till en indexerings princip med en **boundingBox** till en behållare med data typen `geography`, kommer den att Miss Förslut. Du bör ändra behållarens **geospatialConfig** till `geometry` innan du lägger till en **boundingBox**. Du kan lägga till data och ändra resten av din indexerings princip (t. ex. sökvägar och typer) antingen före eller efter att du väljer den geospatiala data typen för behållaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

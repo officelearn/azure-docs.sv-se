@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: a711303b95eb4acb9c226ce052466bf65d15a038
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c9fc60549d895129af56f289c6247dcb377b973b
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612771"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298681"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -68,7 +68,7 @@ Det certifikat som du begär eller skapar måste uppfylla följande krav. Din ha
 * **Nyckel användning** – certifikatet måste konfigureras för *digitala signaturer* och *nyckelchiffrering*.
 * **Certifikat syfte** – certifikatet måste vara giltigt för SSL-serverautentisering.
 
-I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med cmdleten [New-SelfSignedCertificate][New-SelfSignedCertificate] . Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *aaddscontoso.com*:
+Det finns flera tillgängliga verktyg för att skapa ett självsignerat certifikat, till exempel OpenSSL, knapp verktyg, MakeCert, [New-SelfSignedCertificate-][New-SelfSignedCertificate] cmdlet osv. I den här självstudien ska vi skapa ett självsignerat certifikat för säker LDAP med cmdleten [New-SelfSignedCertificate][New-SelfSignedCertificate] . Öppna ett PowerShell-fönster som **administratör** och kör följande kommandon. Ersätt *$dnsName* variabeln med DNS-namnet som används av din egen hanterade domän, till exempel *aaddscontoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -142,7 +142,7 @@ Innan du kan använda det digitala certifikatet som skapades i föregående steg
 1. Eftersom det här certifikatet används för att dekryptera data bör du kontrol lera åtkomsten noggrant. Ett lösen ord kan användas för att skydda användningen av certifikatet. Utan rätt lösen ord kan certifikatet inte tillämpas på en tjänst.
 
     På sidan **säkerhet** väljer du alternativet för **lösen ord** för att skydda *. PFX* -certifikatfil. Ange och bekräfta ett lösen ord och välj sedan **Nästa**. Det här lösen ordet används i nästa avsnitt för att aktivera säker LDAP för din Azure AD DS-hanterade domän.
-1. På sidan **fil som ska exporteras** anger du det fil namn och den plats där du vill exportera certifikatet, till exempel *C:\Users\accountname\azure-AD-DS.pfx*.
+1. På sidan **fil som ska exporteras** anger du det fil namn och den plats där du vill exportera certifikatet, till exempel *C:\Users\accountname\azure-AD-DS.pfx*. Anteckna lösen ordet och platsen för *. PFX* -fil som denna information krävs i nästa steg.
 1. På sidan Granska väljer du **Slutför** för att exportera certifikatet till en *. PFX* -certifikatfil. En bekräftelse dialog ruta visas när certifikatet har exporter ATS.
 1. Lämna MMC öppet för användning i följande avsnitt.
 
@@ -215,13 +215,13 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
     |-----------------------------------|--------------|
     | Källa                            | IP-adresser |
     | Käll-IP-adresser/CIDR-intervall | En giltig IP-adress eller ett giltigt intervall för din miljö |
-    | Source port ranges                | *            |
+    | Källportintervall                | *            |
     | Mål                       | Alla          |
-    | Målportsintervall           | 636          |
-    | Protocol                          | TCP          |
-    | Åtgärd                            | Allow        |
+    | Målportintervall           | 636          |
+    | Protokoll                          | TCP          |
+    | Åtgärd                            | Tillåt        |
     | Prioritet                          | 401          |
-    | Name                              | AllowLDAPS   |
+    | Namn                              | AllowLDAPS   |
 
 1. När du är klar väljer du **Lägg till** för att spara och tillämpa regeln.
 

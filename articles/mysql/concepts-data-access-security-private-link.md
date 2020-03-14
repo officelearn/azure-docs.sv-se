@@ -1,19 +1,19 @@
 ---
-title: Privat länk för Azure Database for MySQL (förhands granskning)
+title: Privat länk – Azure Database for MySQL
 description: Lär dig hur en privat länk fungerar för Azure Database for MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: d9738a1dca39e1b43f690bd65ff05d20b6a94fa1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/10/2020
+ms.openlocfilehash: c2cc4986542404281424286882c046dec39f5daf
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897512"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371298"
 ---
-# <a name="private-link-for-azure-database-for-mysql-preview"></a>Privat länk för Azure Database for MySQL (förhands granskning)
+# <a name="private-link-for-azure-database-for-mysql"></a>Privat länk för Azure Database for MySQL
 
 Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en privat slut punkt. Azures privata länk placerar Azure-tjänster i ditt privata Virtual Network (VNet). PaaS-resurser kan nås med hjälp av den privata IP-adressen precis som vilken annan resurs som helst i VNet.
 
@@ -53,14 +53,11 @@ Med privat länk kan du aktivera åtkomst mellan platser till den privata slut p
 
 Privata slut punkter krävs för att aktivera privat länk. Detta kan göras med hjälp av följande instruktions guider.
 
-* [Azure-portalen](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
+* [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Godkännande process
-När nätverks administratören skapar den privata slut punkten (PE) kan MySQL-administratören hantera den privata slut punkts anslutningen (PEC) för att Azure Database for MySQL.
-
-> [!NOTE]
-> Azure Database for MySQL stöder för närvarande automatiskt godkännande för den privata slut punkten.
+När nätverks administratören skapar den privata slut punkten (PE) kan MySQL-administratören hantera den privata slut punkts anslutningen (PEC) för att Azure Database for MySQL. Denna uppdelning av uppgifter mellan nätverks administratören och DBA är användbar för hantering av den Azure Database for MySQL anslutningen. 
 
 * Navigera till Azure Database for MySQL server-resursen i Azure Portal. 
     * Välj anslutningar för privata slut punkter i det vänstra fönstret
@@ -109,6 +106,19 @@ Följande situationer och resultat är möjliga när du använder en privat län
 * Om du konfigurerar offentlig trafik eller en tjänst slut punkt och skapar privata slut punkter, auktoriseras olika typer av inkommande trafik av motsvarande typ av brand Väggs regel.
 
 * Om du inte konfigurerar någon offentlig trafik eller tjänst slut punkt och du skapar privata slut punkter kan Azure Database for MySQL endast nås via de privata slut punkterna. Om du inte konfigurerar offentlig trafik eller en tjänst slut punkt efter att alla godkända privata slut punkter har avvisats eller tagits bort, kommer ingen trafik att kunna komma åt Azure Database for MySQL.
+
+## <a name="deny-public-access-for-azure-database-for-mysql"></a>Neka offentlig åtkomst för Azure Database for MySQL
+
+Om du bara vill använda privata slut punkter för att komma åt sina Azure Database for MySQL, kan du inaktivera inställningen alla offentliga slut punkter (t. ex. [brand Väggs regler](concepts-firewall-rules.md) och [VNet-slutpunkter](concepts-data-access-and-security-vnet.md)) genom att ange den **nekade konfigurationen för offentlig nätverks åtkomst** på databas servern. 
+
+När den här inställningen är inställd på *Ja*, tillåts bara anslutningar via privata slut punkter till din Azure Database for MySQL. När den här inställningen är inställd på *Nej*kan klienter ansluta till din Azure Database for MySQL baserat på inställningarna för brand väggen eller VNet-tjänstens slut punkt. När värdet för åtkomst till privat nätverk har angetts kan du dessutom inte lägga till och/eller uppdatera befintliga brand Väggs regler för brand vägg och VNet-tjänst.
+
+> [!Note]
+> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL-enskild server stöder Generell användning och minnesoptimerade pris nivåer.
+>
+> Den här inställningen påverkar inte SSL-och TLS-konfigurationer för Azure Database for MySQL.
+
+Information om hur du ställer in **neka offentlig nätverks åtkomst** för din Azure Database for MySQL från Azure Portal finns i [så här konfigurerar du neka offentlig nätverks åtkomst](howto-deny-public-network-access.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

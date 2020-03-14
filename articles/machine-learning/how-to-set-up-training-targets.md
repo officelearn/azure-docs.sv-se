@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 209ed755a7ef83b67170ef75911f93cdda742caa
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78354983"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368204"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -154,15 +154,30 @@ Använd Azure-Data Science Virtual Machine (DSVM) som den virtuella Azure-dator 
 
 1. **Bifoga**: om du vill koppla en befintlig virtuell dator som ett beräknings mål måste du ange det fullständigt kvalificerade domän namnet (FQDN), användar namnet och lösen ordet för den virtuella datorn. I exemplet ersätter du \<FQDN > med det offentliga domän namnet för den virtuella datorn eller den offentliga IP-adressen. Ersätt \<användar namn > och \<lösen ord > med SSH-användarnamnet och lösen ordet för den virtuella datorn.
 
+    > [!IMPORTANT]
+    > Följande Azure-regioner har inte stöd för att koppla en virtuell dator med den offentliga IP-adressen för den virtuella datorn. Använd i stället Azure Resource Manager-ID: t för den virtuella datorn med parametern `resource_id`:
+    >
+    > * USA, Östra
+    > * USA, västra 2
+    > * USA, södra centrala
+    >
+    > Resurs-ID: t för den virtuella datorn kan konstrueras med prenumerations-ID, resurs grupp namn och namn på virtuell dator med följande sträng format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`.
+
+
    ```python
    from azureml.core.compute import RemoteCompute, ComputeTarget
 
    # Create the compute config 
    compute_target_name = "attach-dsvm"
-   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   attach_config = RemoteCompute.attach_configuration(address='<fqdn>',
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
+   # If in US East, US West 2, or US South Central, use the following instead:
+   # attach_config = RemoteCompute.attach_configuration(resource_id='<resource_id>',
+   #                                                 ssh_port=22,
+   #                                                 username='<username>',
+   #                                                 password="<password>")
 
    # If you authenticate with SSH keys instead, use this code:
    #                                                  ssh_port=22,
@@ -198,6 +213,15 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
 
 1. **Bifoga**: om du vill ansluta ett HDInsight-kluster som ett beräknings mål måste du ange värdnamn, användar namn och lösen ord för HDInsight-klustret. I följande exempel använder SDK för att koppla ett kluster till din arbetsyta. I exemplet ersätter du \<kluster namn > med namnet på klustret. Ersätt \<användar namn > och \<lösen ord > med SSH-användarnamnet och lösen ordet för klustret.
 
+    > [!IMPORTANT]
+    > Följande Azure-regioner har inte stöd för att bifoga ett HDInsight-kluster med den offentliga IP-adressen för klustret. Använd i stället Azure Resource Manager-ID: t för klustret med parametern `resource_id`:
+    >
+    > * USA, Östra
+    > * USA, västra 2
+    > * USA, södra centrala
+    >
+    > Resurs-ID för klustret kan konstrueras med prenumerations-ID, resurs grupps namn och kluster namn med följande sträng format: `/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`.
+
    ```python
    from azureml.core.compute import ComputeTarget, HDInsightCompute
    from azureml.exceptions import ComputeTargetException
@@ -208,6 +232,11 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
+    # If you are in US East, US West 2, or US South Central, use the following instead:
+    # attach_config = HDInsightCompute.attach_configuration(resource_id='<resource_id>',
+    #                                                      ssh_port=22, 
+    #                                                      username='<ssh-username>', 
+    #                                                      password='<ssh-pwd>')
     hdi_compute = ComputeTarget.attach(workspace=ws, 
                                        name='myhdi', 
                                        attach_configuration=attach_config)
@@ -234,9 +263,9 @@ Azure Batch används för att köra storskaliga parallella program och HPC-progr
 
 Om du vill bifoga Azure Batch som ett beräknings mål måste du använda Azure Machine Learning SDK och ange följande information:
 
--   **Azure Batch Compute Name**: ett eget namn som ska användas för data bearbetningen inom arbets ytan
--   **Azure Batch konto namn**: namnet på det Azure Batch kontot
--   **Resurs grupp**: den resurs grupp som innehåller det Azure Batch kontot.
+-    **Azure Batch Compute Name**: ett eget namn som ska användas för data bearbetningen inom arbets ytan
+-    **Azure Batch konto namn**: namnet på det Azure Batch kontot
+-    **Resurs grupp**: den resurs grupp som innehåller det Azure Batch kontot.
 
 Följande kod visar hur du kopplar Azure Batch som ett beräknings mål:
 

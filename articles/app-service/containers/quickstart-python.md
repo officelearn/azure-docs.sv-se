@@ -6,12 +6,12 @@ ms.date: 10/22/2019
 ms.custom: cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 567e87b43c3fc3d7d2fb0c894ced53c89a133978
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 607cc0e5cd8236badfc1e5e591efda20d4fb669b
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524071"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368272"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -90,7 +90,7 @@ Azure CLI innehåller många praktiska kommandon som du använder från en lokal
 
 Om du vill köra Azure-kommandon i Azure CLI måste du först logga in med kommandot `az login`. Det här kommandot öppnar en webbläsare för att samla in dina autentiseringsuppgifter.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -101,7 +101,7 @@ az login
 Kör följande `az webapp up` kommando i mappen *python-dok-Hello-World* som innehåller exempel koden. Ersätt `<app-name>` med ett globalt unikt namn på appen (*giltiga tecken är `a-z`, `0-9`och `-`* ). Ersätt också `<location-name>` med en Azure-region, till exempel **Central**, **asienöstra**, **westeurope**, **koreasödra**, **centrala**, **Kanada**och så vidare. (Du kan hämta en lista över tillåtna regioner för ditt Azure-konto genom att köra kommandot [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) .)
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -157,7 +157,7 @@ Spara dina ändringar och avsluta redigeraren.
 
 Distribuera om appen med följande `az webapp up` kommando med samma kommando som du använde för att distribuera appen första gången, och ersätta `<app-name>` och `<location-name>` med samma namn som du använde tidigare. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -174,13 +174,13 @@ Du kan komma åt konsol loggarna som genereras inifrån appen och den behållare
 
 Börja med att aktivera behållar loggning genom att köra följande kommando i en Terminal, och ersätt `<app-name>` med namnet på din app och `<resource-group-name>` med namnet på den resurs grupp som visas i utdata för `az webapp up` kommandot som du använde (till exempel "appsvc_rg_Linux_centralus"):
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 När behållar loggning har Aktiver ATS kör du följande kommando för att Visa logg strömmen:
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -217,7 +217,7 @@ I de föregående stegen skapade du Azure-resurser i en resursgrupp. Resurs grup
 
 Om du inte tror att du behöver dessa resurser i framtiden tar du bort resurs gruppen genom att köra följande kommando och ersätter `<resource-group-name>` med resurs gruppen som visas i utdata från kommandot `az webapp up`, till exempel "appsvc_rg_Linux_centralus". Det kan ta en minut att slutföra kommandot.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

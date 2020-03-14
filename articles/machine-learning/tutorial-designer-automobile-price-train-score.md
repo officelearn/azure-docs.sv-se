@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/04/2020
-ms.openlocfilehash: ed3667ada834437e81ffdcb9161c2a726fe6a6dc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.date: 03/12/2020
+ms.openlocfilehash: 3a857c145959c1bcde169e95369ef0bea327dfaf
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79238666"
+ms.locfileid: "79296990"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -168,6 +168,12 @@ Din data uppsättning har fortfarande värden som saknas efter att du tagit bort
 
 1. Välj modulen **Rensa data som saknas** .
 
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **Redigera kolumn**.
+
+1. I fönstret **kolumner som ska rensas** visas expanderar du den nedrullningsbara menyn bredvid **Inkludera**. Markera, **alla kolumner**
+
+1. Välj **Spara**
+
 1. I informations fönstret för moduler till höger om arbets ytan väljer du **ta bort hela raden** under **rensnings läge**.
 
 1. I informations fönstret för moduler till höger om arbets ytan markerar du rutan **kommentar** och anger *ta bort saknade värde rader*. 
@@ -213,9 +219,11 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
 
 1. Välj **regressions** > **linjär regression**och dra den till pipeline-arbetsytan.
 
-1. Leta upp och dra modulen **träna modell** till pipeline-arbetsytan. 
-
 1. Anslut utdata från modulen **linjär regression** till vänster indata för modulen **träna modell** .
+
+1. I modulen modul expanderar du **träna modul-modul**och drar modulen **träna modell** till arbets ytan.
+
+1. Välj modulen **träna modell** och dra den till pipeline-arbetsytan.
 
 1. Anslut övnings data utmatningen (den vänstra porten) för modulen **dela data** till rätt indata för modulen **träna modell** .
     
@@ -224,8 +232,6 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
 
     ![Skärm bild som visar korrekt konfiguration av modulen träna modell. Modulen linjär regression ansluter till den vänstra porten för modulen träna modell och modulen dela data ansluts till rätt port för träna modell](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
-1. I modulen modul expanderar du **träna modul-modul**och drar modulen **träna modell** till arbets ytan.
-
 1. Välj modulen **träna modell** .
 
 1. I informations fönstret för moduler till höger om arbets ytan väljer du **Redigera kolumn** väljare.
@@ -233,6 +239,9 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
 1. I dialog rutan **etikett kolumn** expanderar du den nedrullningsbara menyn och väljer **kolumn namn**. 
 
 1. I text rutan anger du *pris* för att ange det värde som din modell ska förutsäga.
+
+    >[!IMPORTANT]
+    > Se till att du anger kolumn namnet exakt. Lägg inte till versala **priser**. 
 
     Din pipeline bör se ut så här:
 
@@ -260,7 +269,7 @@ Använd modulen **utvärdera modell** för att utvärdera hur bra din modell bev
 
 ## <a name="run-the-pipeline"></a>Köra en pipeline
 
-Nu när din pipeline är all konfiguration kan du skicka en pipeline-körning för att träna din Machine Learning-modell. Du kan skicka en pipeline-körning när som helst medan du skapar pipelines i designern. Du kan göra detta för att kontrol lera ditt arbete när du går och kontrol lera att dina pipeline-funktioner fungerar som förväntat.
+Nu när din pipeline är all konfiguration kan du skicka en pipeline-körning för att träna din Machine Learning-modell. Du kan skicka en pipeline-körning när som helst medan du skapar pipelines i designern. Du kan göra detta för att kontrol lera ditt arbete när du går för att kontrol lera att din pipeline fungerar som förväntat.
 
 1. Välj **Skicka**på arbets ytans överkant.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 6ce78ca19458b497980cf2cfc374f787d3a5d9f5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 01abcc961d1c2ad9d3e2cf35f82e62929bc2fb89
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276987"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371145"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>FÖRÅLDRAD Använda Kubernetes-webbgränssnittet med Azure Container Service
 
@@ -21,7 +21,7 @@ ms.locfileid: "76276987"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här genom gången förutsätter vi att du har [skapat ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
@@ -29,8 +29,8 @@ Det förutsätter också att du har installerat Azure CLI och `kubectl` verktyg.
 
 Du kan testa om du har installerat `az`-verktyget genom att köra:
 
-```console
-$ az --version
+```azurecli
+az --version
 ```
 
 Om du inte har installerat `az`-verktyget finns det instruktioner [här](https://github.com/azure/azure-cli#installation).
@@ -38,13 +38,13 @@ Om du inte har installerat `az`-verktyget finns det instruktioner [här](https:/
 Du kan testa om du har installerat `kubectl`-verktyget genom att köra:
 
 ```console
-$ kubectl version
+kubectl version
 ```
 
 Om du inte har `kubectl` installerat kan du köra:
 
-```console
-$ az acs kubernetes install-cli
+```azurecli
+az acs kubernetes install-cli
 ```
 
 ## <a name="overview"></a>Översikt
@@ -52,8 +52,8 @@ $ az acs kubernetes install-cli
 ### <a name="connect-to-the-web-ui"></a>Anslut till webb gränssnittet
 Du kan starta Kubernetes-webbgränssnittet genom att köra:
 
-```console
-$ az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
+```azurecli
+az acs kubernetes browse -g [Resource Group] -n [Container service instance name]
 ```
 
 Detta bör öppna en webbläsare som kon figurer ATS för att kommunicera med en säker proxy som ansluter din lokala dator till Kubernetes-webbgränssnittet.
@@ -107,7 +107,7 @@ Förutom att köra dina behållare har Kubernetes-gränssnittet skapat en extern
 
 I det vänstra navigerings fönstret klickar du på **tjänster** för att visa alla tjänster (det får bara finnas en).
 
-![Kubernetes-tjänster](./media/container-service-kubernetes-ui/service-deployed.png)
+![Kubernetes Services](./media/container-service-kubernetes-ui/service-deployed.png)
 
 I den vyn bör du se en extern slut punkt (IP-adress) som har allokerats till din tjänst.
 Om du klickar på den här IP-adressen bör du se din nginx-behållare som körs bakom belastningsutjämnaren.

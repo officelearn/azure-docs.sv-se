@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/12/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 5a0856bb2fc73b7095b0b2552efe0ccc91ae3f59
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 1f5658c6fa52caa67de1f60c50048014dd77af13
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241726"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371345"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
 
@@ -44,7 +44,6 @@ Använd Textanalys klient bibliotek för att utföra:
 
 > [!IMPORTANT]
 > * Den här snabb starten är endast till för version `3.0-preview` av Textanalys-klient biblioteket, som innehåller en offentlig för hands version för bättre [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
->    * Se till att du bara följer anvisningarna för den version som du använder.
 > * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]

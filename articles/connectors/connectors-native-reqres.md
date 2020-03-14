@@ -1,20 +1,20 @@
 ---
-title: Ta emot och svara på HTTPS-anrop
-description: Hantera HTTPS-begäranden och händelser i real tid med hjälp av Azure Logic Apps
+title: Ta emot och svara på anrop med hjälp av HTTPS
+description: Hantera inkommande HTTPS-begäranden från externa tjänster med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/12/2020
 tags: connectors
-ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: d65b81f18d4dcb0ee97a21a7edec885e308bd8d4
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79247285"
+ms.locfileid: "79297311"
 ---
-# <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-anrop genom att använda Azure Logic Apps
+# <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda begär ande utlösare eller svars åtgärd kan du skapa automatiserade uppgifter och arbets flöden som tar emot och svarar på inkommande HTTPS-begäranden. Du kan till exempel ha din Logic-app:
 
@@ -202,6 +202,19 @@ Här är mer information om utdata från begär ande utlösare:
 Du kan använda svars åtgärden för att svara med en nytto Last (data) till en inkommande HTTPS-begäran, men endast i en Logic-app som utlöses av en HTTPS-begäran. Du kan lägga till svars åtgärden när som helst i arbets flödet. Mer information om den underliggande JSON-definitionen för den här utlösaren finns i [Åtgärds typen svar](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
 Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Annars, om din Logic app inte innehåller någon svars åtgärd, returnerar din Logic app omedelbart ett `202 ACCEPTED` svar till anroparen.
+
+> [!IMPORTANT]
+> Om en svars åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade svarsmeddelandet utan att visa någon varning eller ett fel meddelande:
+>
+> * `Allow`
+> * `Content-*` med dessa undantag: `Content-Disposition`, `Content-Encoding`och `Content-Type`
+> * `Cookie`
+> * `Expires`
+> * `Last-Modified`
+> * `Set-Cookie`
+> * `Transfer-Encoding`
+>
+> Även om Logic Apps inte hindrar dig från att spara Logic Apps som har en svars åtgärd med dessa huvuden, ignorerar Logic Apps dessa huvuden.
 
 1. I Logic App Designer, under steget där du vill lägga till en svars åtgärd väljer du **nytt steg**.
 

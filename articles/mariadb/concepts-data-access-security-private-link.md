@@ -1,21 +1,21 @@
 ---
-title: Privat länk för Azure Database for MariaDB (förhands granskning)
+title: Privat länk – Azure Database for MariaDB
 description: Lär dig hur en privat länk fungerar för Azure Database for MariaDB.
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 92d7522c8382ded182c5f482df3f3d917b4b3a14
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 03/10/2020
+ms.openlocfilehash: b05a202537492fe54a76cf40a3b15987e099a7e3
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982386"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367728"
 ---
-# <a name="private-link-for-azure-database-for-mariadb-preview"></a>Privat länk för Azure Database for MariaDB (förhands granskning)
+# <a name="private-link-for-azure-database-for-mariadb"></a>Privat länk för Azure Database for MariaDB
 
-Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en privat slut punkt. Azures privata länk placerar Azure-tjänster i ditt privata Virtual Network (VNet). PaaS-resurser kan nås med hjälp av den privata IP-adressen precis som vilken annan resurs som helst i VNet.
+Med privat länk kan du skapa privata slut punkter för Azure Database for MariaDB och sedan flytta Azure-tjänster i ditt privata Virtual Network (VNet). Den privata slut punkten visar en privat IP-adress som du kan använda för att ansluta till din Azure Database for MariaDB databas server precis som vilken annan resurs som helst i VNet.
 
 Om du vill ha en lista över PaaS Services som stöder funktionen för privat länk läser du [dokumentationen](https://docs.microsoft.com/azure/private-link/index)om den privata länken. En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) och undernät.
 
@@ -53,15 +53,12 @@ Med privat länk kan du aktivera åtkomst mellan platser till den privata slut p
 
 Privata slut punkter krävs för att aktivera privat länk. Detta kan göras med hjälp av följande instruktions guider.
 
-* [Azure-portalen](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
+* [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mariadb/howto-configure-privatelink-cli)
 
 ### <a name="approval-process"></a>Godkännande process
 
-När nätverks administratören skapar den privata slut punkten (PE) kan administratören hantera privat slut punkts anslutning (PEC) för att Azure Database for MariaDB.
-
-> [!NOTE]
-> Azure Database for MariaDB stöder för närvarande automatiskt godkännande för den privata slut punkten.
+När nätverks administratören skapar den privata slut punkten (PE) kan administratören hantera privat slut punkts anslutning (PEC) för att Azure Database for MariaDB. Denna uppdelning av uppgifter mellan nätverks administratören och DBA är användbar för hantering av den Azure Database for MariaDB anslutningen. 
 
 * Navigera till Azure Database for MariaDB Server-resursen i Azure Portal. 
     * Välj anslutningar för privata slut punkter i det vänstra fönstret
@@ -110,6 +107,19 @@ Följande situationer och resultat är möjliga när du använder en privat län
 * Om du konfigurerar offentlig trafik eller en tjänst slut punkt och skapar privata slut punkter, auktoriseras olika typer av inkommande trafik av motsvarande typ av brand Väggs regel.
 
 * Om du inte konfigurerar någon offentlig trafik eller tjänst slut punkt och du skapar privata slut punkter kan Azure Database for MariaDB endast nås via de privata slut punkterna. Om du inte konfigurerar offentlig trafik eller en tjänst slut punkt efter att alla godkända privata slut punkter har avvisats eller tagits bort, kommer ingen trafik att kunna komma åt Azure Database for MariaDB.
+
+## <a name="deny-public-access-for-azure-database-for-mariadb"></a>Neka offentlig åtkomst för Azure Database for MariaDB
+
+Om du bara vill använda privata slut punkter för att komma åt sina Azure Database for MariaDB, kan du inaktivera inställningen alla offentliga slut punkter ([brand Väggs regler](concepts-firewall-rules.md) och [VNet-tjänstens slut punkter](concepts-data-access-security-vnet.md)) genom att ange inställningen **neka offentlig nätverks åtkomst** på databas servern. 
+
+När den här inställningen är inställd på *Ja*, tillåts bara anslutningar via privata slut punkter till din Azure Database for MariaDB. När den här inställningen är inställd på *Nej*kan klienter ansluta till din Azure Database for MariaDB baserat på inställningarna för brand väggen eller VNet-tjänstens slut punkt. När värdet för åtkomst till privat nätverk har angetts kan du dessutom inte lägga till och/eller uppdatera befintliga brand Väggs regler för brand vägg och VNet-tjänst.
+
+> [!Note]
+> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL-enskild server stöder Generell användning och minnesoptimerade pris nivåer.
+>
+> Den här inställningen påverkar inte SSL-och TLS-konfigurationer för Azure Database for MariaDB.
+
+Information om hur du ställer in **neka offentlig nätverks åtkomst** för din Azure Database for MariaDB från Azure Portal finns i [så här konfigurerar du neka offentlig nätverks åtkomst](howto-deny-public-network-access.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

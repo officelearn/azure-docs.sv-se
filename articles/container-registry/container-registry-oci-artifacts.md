@@ -4,14 +4,14 @@ description: Skicka och ta emot OCI-artefakter (Open container Initiative) med e
 author: SteveLasker
 manager: gwallace
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 03/11/2020
 ms.author: stevelas
-ms.openlocfilehash: cb58a7ed51ae15d33ffdbb616c9b32ef03bcbfb7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 2c6b66b635a2513ccc19e0352414d18d8389fef1
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456253"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79371060"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Push-överför och hämta en OCI-artefakt med ett Azure Container Registry
 
@@ -66,10 +66,20 @@ echo "Here is an artifact!" > artifact.txt
 
 Använd kommandot `oras push` för att skicka den här text filen till registret. I följande exempel skickas exempel text filen till `samples/artifact` lagrings platsen. Registret identifieras med det fullständigt kvalificerade register namnet *myregistry.azurecr.io* (alla gemener). Artefakten är taggad `1.0`. Artefakten har en odefinierad typ som standard identifieras av *medie typ* strängen som följer fil namnet `artifact.txt`. Se [OCI-artefakter](https://github.com/opencontainers/artifacts) för ytterligare typer. 
 
+**Linux**
+
 ```bash
 oras push myregistry.azurecr.io/samples/artifact:1.0 \
     --manifest-config /dev/null:application/vnd.unknown.config.v1+json \
     ./artifact.txt:application/vnd.unknown.layer.v1+txt
+```
+
+**Windows**
+
+```cmd
+.\oras.exe push myregistry.azurecr.io/samples/artifact:1.0 ^
+    --manifest-config NUL:application/vnd.unknown.config.v1+json ^
+    .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
 Utdata för en lyckad push ser ut ungefär så här:

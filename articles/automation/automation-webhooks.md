@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 043350db2c5372fc81fbb2b68155a4ac75457208
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8cb641f95e7327e80f42df86a56eba8c34e7e598
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373428"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79367031"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation Runbook med en webhook
 
@@ -39,37 +39,37 @@ I följande tabell beskrivs de egenskaper som du måste konfigurera för en webh
 
 En webhook kan definiera värden för Runbook-parametrar som används när Runbook startas. Webhooken måste innehålla värden för alla obligatoriska Runbook-parametrar och kan innehålla värden för valfria parametrar. Ett parameter värde som har kon figurer ATS för en webhook kan ändras även när webhook har skapats. Flera webhook-länkar till en enda Runbook kan båda använda olika värden för Runbook-parametrar. När en klient startar en Runbook med en webhook kan den inte åsidosätta de parameter värden som definierats i webhooken.
 
-För att ta emot data från klienten stöder runbooken en enda parameter med namnet *WebhookData*. Den här parametern definierar ett objekt som innehåller data som klienten inkluderar i en POST-begäran.
+För att ta emot data från klienten stöder runbooken en enda parameter med namnet `WebhookData`. Den här parametern definierar ett objekt som innehåller data som klienten inkluderar i en POST-begäran.
 
 ![Egenskaper för WebhookData](media/automation-webhooks/webhook-data-properties.png)
 
-*WebhookData* -parametern har följande egenskaper:
+Parametern `WebhookData` har följande egenskaper:
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| WebhookName | Webhookens namn. |
-| RequestHeader | Hash-tabellen som innehåller rubrikerna för inkommande POST-begäran. |
-| RequestBody | Brödtext i inkommande POST-begäran. Den här texten behåller all dataformatering, till exempel String, JSON, XML eller form-kodad. Runbooken måste skrivas för att fungera med det data format som förväntas. |
+| `WebhookName` | Webhookens namn. |
+| `RequestHeader` | Hash-tabellen som innehåller rubrikerna för inkommande POST-begäran. |
+| `RequestBody` | Brödtext i inkommande POST-begäran. Den här texten behåller all dataformatering, till exempel String, JSON, XML eller form-kodad. Runbooken måste skrivas för att fungera med det data format som förväntas. |
 
-Det finns ingen konfiguration av webhook som krävs för att stödja *WebhookData* -parametern och det krävs ingen Runbook för att acceptera den. Om runbooken inte definierar parametern ignoreras all information om begäran som skickas från klienten.
+Det krävs ingen konfiguration av webhook för att stödja `WebhookData`-parametern och det krävs ingen Runbook för att acceptera den. Om runbooken inte definierar parametern ignoreras all information om begäran som skickas från klienten.
 
 > [!NOTE]
 > När du anropar en webhook bör klienten alltid lagra alla parameter värden, om anropet Miss lyckas. Om det uppstår ett nätverks avbrott eller anslutnings problem kan programmet inte hämta misslyckade webhook-anrop.
 
-Om du anger ett värde för *WebhookData* vid skapande av webhook, åsidosätts det när webhooken startar runbooken med data från klient post förfrågan. Detta inträffar även om programmet inte innehåller några data i begär ande texten. 
+Om du anger ett värde för `WebhookData` vid skapande av webhook, åsidosätts det när webhooken startar runbooken med data från klient POST förfrågan. Detta inträffar även om programmet inte innehåller några data i begär ande texten. 
 
-Om du startar en Runbook som definierar *WebhookData* med en annan mekanism än en webhook, kan du ange ett värde för *WebhookData* som Runbook känner igen. Värdet ska vara ett objekt med samma [Egenskaper](#webhook-properties) som parametern *WebhookData* så att runbooken kan arbeta med det precis som det fungerar med de faktiska *WebhookData* -objekten som skickas av en webhook.
+Om du startar en Runbook som definierar `WebhookData` använder en annan mekanism än en webhook, kan du ange ett värde för `WebhookData` som Runbook känner igen. Det här värdet ska vara ett objekt med samma [Egenskaper](#webhook-properties) som parametern `WebhookData` så att runbooken kan arbeta med den precis som det fungerar med faktiska `WebhookData` objekt som skickas av en webhook.
 
 Om du till exempel startar följande Runbook från Azure Portal och vill skicka några exempel på webhook-data för testning måste du skicka data i JSON i användar gränssnittet.
 
 ![WebhookData-parameter från UI](media/automation-webhooks/WebhookData-parameter-from-UI.png)
 
-I nästa Runbook-exempel ska vi definiera följande egenskaper *WebhookData*:
+I nästa Runbook-exempel definierar vi följande egenskaper för `WebhookData`:
 
 * **WebhookName**: MyWebhook
 * **RequestBody**: `*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
 
-Nu skickar vi följande JSON-objekt i användar gränssnittet för parametern *WebhookData* . Det här exemplet, med vagn returer och rad matnings tecken, matchar formatet som skickas från en webhook.
+Nu skickar vi följande JSON-objekt i användar gränssnittet för parametern `WebhookData`. Det här exemplet, med vagn returer och rad matnings tecken, matchar formatet som skickas från en webhook.
 
 ```json
 {"WebhookName":"mywebhook","RequestBody":"[\r\n {\r\n \"ResourceGroup\": \"vm01\",\r\n \"Name\": \"vm01\"\r\n },\r\n {\r\n \"ResourceGroup\": \"vm02\",\r\n \"Name\": \"vm02\"\r\n }\r\n]"}
@@ -84,7 +84,7 @@ Nu skickar vi följande JSON-objekt i användar gränssnittet för parametern *W
 
 Säkerheten för en webhook är beroende av sekretessen för dess URL, som innehåller en säkerhetstoken som gör att webhooken kan anropas. Azure Automation utför ingen autentisering för en begäran så länge den har gjorts till rätt URL. Därför bör dina klienter inte använda Webhooks för Runbooks som utför mycket känsliga åtgärder utan att använda alternativa metoder för att verifiera begäran.
 
-Du kan inkludera logik i en Runbook för att avgöra om den anropas av en webhook. Låt runbooken kontrol lera egenskapen **WebhookName** för parametern *WebhookData* . Runbooken kan utföra ytterligare verifiering genom att söka efter viss information i egenskaperna **RequestHeader** och **RequestBody** .
+Du kan inkludera logik i en Runbook för att avgöra om den anropas av en webhook. Låt runbooken kontrol lera egenskapen `WebhookName` för parametern `WebhookData`. Runbooken kan utföra ytterligare verifiering genom att söka efter viss information i `RequestHeader` och `RequestBody` egenskaper.
 
 En annan strategi är att låta Runbook utföra en del validering av ett externt villkor när den får en webhook-begäran. Anta till exempel att en Runbook som anropas av GitHub när som helst är en ny incheckning av en GitHub-lagringsplats. Runbooken kan ansluta till GitHub för att kontrol lera att ett nytt genomförande har skett innan du fortsätter.
 
@@ -108,13 +108,13 @@ Använd följande procedur för att skapa en ny webhook som är länkad till en 
 
 ## <a name="using-a-webhook"></a>Använda en webhook
 
-Om du vill använda en webhook när den har skapats måste klienten utfärda en HTTP POST-begäran med URL: en för webhooken. Syntax:
+Om du vill använda en webhook när den har skapats måste klienten utfärda en HTTP `POST`-begäran med URL: en för webhooken. Syntax:
 
 ```http
 http://<Webhook Server>/token?=<Token Value>
 ```
 
-Klienten får en av följande retur koder från POST-begäran.
+Klienten får en av följande retur koder från `POST` begäran.
 
 | Kod | Text | Beskrivning |
 |:--- |:--- |:--- |
@@ -147,7 +147,7 @@ Du kan utöka en webhook som inte har nått sin förfallo tid. Så här utökar 
 Följande exempel-Runbook accepterar webhook-data och startar de virtuella datorer som anges i begär ande texten. Om du vill testa denna Runbook klickar du på **skapa en Runbook**i Automation-kontot under **Runbooks**. Om du inte vet hur du skapar en Runbook, se [skapa en Runbook](automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> För icke-grafiska PowerShell-Runbooks är **Add-AzAccount** och **Add-AzureRMAccount** alias för [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
+> För icke-grafiska PowerShell-Runbooks är `Add-AzAccount` och `Add-AzureRMAccount` alias för [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
 
 ```powershell
 param
@@ -219,7 +219,7 @@ $response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $heade
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-I följande exempel visas bröd texten i begäran som är tillgänglig för runbooken i egenskapen **RequestBody** för *WebhookData*. Det här värdet är formaterat i JSON för att vara kompatibelt med det format som finns i bröd texten i begäran.
+I följande exempel visas bröd texten i begäran som är tillgänglig för runbooken i egenskapen `RequestBody` för `WebhookData`. Det här värdet är formaterat i JSON för att vara kompatibelt med det format som finns i bröd texten i begäran.
 
 ```json
 [

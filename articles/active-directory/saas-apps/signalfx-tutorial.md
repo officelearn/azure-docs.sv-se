@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8ba01ea8a443c4f8a3a8e7b911dcc605ee61ea
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 149718dcd325ef6bd6a6754ba100ffdc34be0a07
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78967692"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136422"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SignalFx
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur du integrerar SignalFx med Azure 
 * Gör det möjligt för användarna att logga in automatiskt till SignalFx med sina Azure AD-konton. särskilt
 * Hantera dina konton på en plats (Azure Portal).
 
-Mer information om SaaS program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
+Mer information om SaaS program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -57,7 +57,7 @@ Använd de här anvisningarna för att lägga till SignalFx-programmet i listan 
 1. Välj **företags program**och välj sedan **alla program**.
 1. Välj **Nytt program**.
 1. I avsnittet **Lägg till från galleriet** i sökrutan anger du och väljer **SignalFx**.
-    * Du kan behöva vänta några minuter för att programmet ska läggas till i din klient organisation.
+     * Du kan behöva vänta några minuter för att programmet ska läggas till i din klient organisation.
 1. Lämna Azure Portal öppen och öppna sedan en ny webb-flik.    
 
 ## <a name="step-2-begin-signalfx-sso-configuration"></a>Steg 2: starta SignalFx SSO-konfiguration
@@ -175,7 +175,7 @@ Läs följande information om hur du testar SSO, samt förväntningar för att l
 
 - [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

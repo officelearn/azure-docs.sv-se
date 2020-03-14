@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd33d85ee0aac4808c343af088d4db1a0dc963e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: eed839c277156046ff9b7d97c6e87636a0822889
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767780"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79299336"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk justering för att övervaka frågor och förbättra arbets Belastningens prestanda
 
@@ -34,7 +34,14 @@ Automatisk justering kan aktive ras på servern eller databas nivån via [Azure 
 
 På server nivå kan du välja att ärva konfigurationen för automatisk justering från "Azure-standardvärden" eller att inte ärva konfigurationen. Standardinställningarna för Azure är FORCE_LAST_GOOD_PLAN aktiverat, CREATE_INDEX är aktiverat och DROP_INDEX har inaktiverats.
 
-### <a name="azure-portal"></a>Azure portal
+> [!IMPORTANT]
+> Från och med mars kommer 2020 ändringar i Azure-standardvärden för automatisk justering att gälla enligt följande:
+>
+> - Nya Azure-standardvärden är FORCE_LAST_GOOD_PLAN = Enabled, CREATE_INDEX = disabled och DROP_INDEX = inaktive rad.
+> - Befintliga servrar utan inställningar för automatisk justering konfigureras automatiskt för att ärva nya Azure-standardvärden. Detta gäller för alla kunder som för närvarande har Server inställningar för automatisk justering i ett odefinierat tillstånd.
+> - Nya servrar som skapas konfigureras automatiskt för att ärva nya Azure-standardvärden (till skillnad från tidigare när konfigurationen för automatisk justering var i ett odefinierat tillstånd när en ny server skapas).
+
+### <a name="azure-portal"></a>Azure Portal
 
 Om du vill aktivera automatisk justering på Azure SQL Database logisk **Server**navigerar du till servern i Azure Portal och väljer sedan **Automatisk justering** i menyn.
 
@@ -60,7 +67,7 @@ Med Azure SQL Database kan du individuellt ange konfigurationen för automatisk 
 > Den allmänna rekommendationen är att hantera konfigurationen för automatisk justering på **Server nivå** så att samma konfigurations inställningar kan tillämpas automatiskt på alla databaser. Konfigurera automatisk justering endast på en enskild databas om du behöver att databasen har andra inställningar än andra som ärver inställningar från samma server.
 >
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Om du vill aktivera automatisk justering på en **enskild databas**går du till databasen i Azure Portal och väljer **Automatisk justering**.
 
@@ -72,7 +79,7 @@ Observera att DROP_INDEX alternativ för tillfället inte är kompatibelt med pr
 
 När du har valt önskad konfiguration klickar du på **Använd**.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>Rest-API
 
 Lär dig mer om hur du använder REST API för automatisk justering i en enskild databas finns i [SQL Database automatisk uppdatering av uppdatering och hämta HTTP-metoder](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 

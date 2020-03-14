@@ -8,28 +8,22 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 8658bc44e41f61e717cf228a6d8e7cee6b477022
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5e323d8faa19ceb0712aa6183df17740ce2a0a1d
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264958"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370395"
 ---
 # <a name="public-preview-service-limits"></a>Tjänstbegränsningar för allmän förhandsversion
 
-I den offentliga för hands versionen har Azure Digitals-dubbla, följande tillfälliga prenumeration, instans och hastighets begränsningar.
+[!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Dessa begränsningar finns för att förenkla inlärningen av den nya tjänsten och dess många funktioner.
-
-> [!NOTE]
-> Dessa gränser kommer att höjas eller tas bort av allmän tillgänglighet (GA).
+I den offentliga för hands versionen har Azure Digitals-dubbla, följande tillfälliga prenumeration, instans och hastighets begränsningar för befintliga kunder. Dessa begränsningar finns för att förenkla inlärningen av den nya tjänsten och dess många funktioner, och kommer att ökas eller tas bort av allmän tillgänglighet (GA).
 
 ## <a name="per-subscription-limits"></a>Begränsningar per prenumeration
 
-Under den offentliga för hands versionen kan varje Azure-prenumeration bara skapa eller köra en Azure Digital-instans i taget.
-
-> [!TIP]
-> Om du tar bort din instans kan du skapa en ny.
+Under den offentliga för hands versionen kan varje Azure-prenumeration bara skapa eller köra en Azure Digital-instans i taget. Om du tar bort din instans kan du skapa en ny.
 
 ## <a name="per-instance-limits"></a>Gränser per instans
 
@@ -71,7 +65,7 @@ Följande gränser anger det totala antalet användardefinierade funktions anrop
 Följande begränsar det totala antalet meddelanden som dina enheter kan skicka till din Azure Digital-instansen:
 
 - 100 meddelanden per sekund över alla enheter
--   25 meddelanden per sekund per enhet
+-    25 meddelanden per sekund per enhet
 
 ## <a name="next-steps"></a>Nästa steg
 

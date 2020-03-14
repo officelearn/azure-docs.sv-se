@@ -1,6 +1,6 @@
 ---
 title: Bli en lokal Encoder-partner – Azure Media Services
-description: Bli en lokal Encoder-partner med Azure Media Services.
+description: Den här artikeln beskriver hur du verifierar dina lokala kodare för direkt uppspelning.
 services: media-services
 author: johndeu
 manager: johndeu
@@ -8,18 +8,20 @@ ms.author: johndeu
 ms.date: 03/02/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6b00e430f960195e1badd2a73f9291997b94c833
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f98d9942f8c30f06b0144503b056c1e8a393ae52
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252979"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298639"
 ---
-# <a name="become-an-on-premises-encoder-partner"></a>Bli en lokal Encoder-partner
+# <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Så här verifierar du din lokala Live streaming-kodare
 
 Som en Azure Media Services lokal Encoder-partner Media Services befordrar din produkt genom att rekommendera din kodare till företags kunder. För att bli en lokal Encoder-partner måste du kontrol lera kompatibiliteten för din lokala kodare med Media Services. Det gör du genom att utföra följande verifieringar.
 
-### <a name="pass-through-live-event-verification"></a>Direkt händelse verifiering
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="pass-through-live-event-verification"></a>Direkt händelse verifiering
 
 1. Kontrol lera att **slut punkten för direkt uppspelning** körs i ditt Media Services konto. 
 2. Skapa och starta direkt **sändnings** evenemanget. <br/> Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
@@ -38,7 +40,7 @@ Som en Azure Media Services lokal Encoder-partner Media Services befordrar din p
 15. Återställ Live händelse tillstånd när du har skapat varje exempel.
 16. Upprepa steg 5 till och med 15 för alla konfigurationer som stöds av kodaren (med och utan AD-signalering, under texter eller olika kodnings hastigheter).
 
-### <a name="live-encoding-live-event-verification"></a>Live-kodning av Live-händelse
+## <a name="live-encoding-live-event-verification"></a>Live-kodning av Live-händelse
 
 1. Kontrol lera att **slut punkten för direkt uppspelning** körs i ditt Media Services konto. 
 2. Skapa och starta Live **encoding** Live-händelsen. <br/> Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
@@ -57,17 +59,17 @@ Som en Azure Media Services lokal Encoder-partner Media Services befordrar din p
 15. Återställ Live händelse tillstånd när du har skapat varje exempel.
 16. Upprepa steg 5 till och med 15 för alla konfigurationer som stöds av kodaren (med och utan AD-signalering, under texter eller olika kodnings hastigheter).
 
-### <a name="longevity-verification"></a>Longevity-verifiering
+## <a name="longevity-verification"></a>Longevity-verifiering
 
 Följ samma steg som i direkt [sändnings händelse verifiering](#pass-through-live-event-verification) , förutom steg 11. <br/>I stället för 10 minuter kan du köra din Live-kodare i en vecka eller längre. Använd en spelare som [Azure Media Player](https://aka.ms/azuremediaplayer) för att se direkt uppspelningen från tid till gång (eller till en arkiverad till gång) för att säkerställa att uppspelningen inte har några synliga fel.
 
-### <a name="email-your-recorded-settings"></a>E-posta dina inspelade inställningar
+## <a name="email-your-recorded-settings"></a>E-posta dina inspelade inställningar
 
 Skicka e-post till dina inspelade inställningar och Live Archive-parametrarna för att Azure Media Services vid amshelp@microsoft.com som ett meddelande om att alla själv verifierings kontroller har slutförts. Ta även med din kontakt information för alla följare. Du kan kontakta Azure Media Servicess teamet och få frågor om den här processen.
 
 ## <a name="see-also"></a>Se även
 
-[Rekommenderade lokala Live-kodare](recommended-on-premises-live-encoders.md)
+[Testade lokala kodare](recommended-on-premises-live-encoders.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: f42be2a3075d313a490703562761a5df13542c85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: ef82d748b67db736bc2294089cd92edd2adde4a7
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279226"
+ms.locfileid: "79297971"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -127,7 +127,7 @@ Välj HTTP eller HTTPS:
 
 - Om du väljer HTTP är trafiken mellan klienten och programgatewayen okrypterad.
 
-- Välj HTTPS om du vill ha [SSL-terminering](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssltls-termination) eller [slut punkt till slut punkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Trafiken mellan klienten och programgatewayen är krypterad. Och SSL-anslutningen avslutas i Application Gateway. Om du vill ha SSL-kryptering från slut punkt till slut punkt måste du välja HTTPS och konfigurera **Server delens http** -inställning. Detta säkerställer att trafiken krypteras igen när den överförs från Application Gateway till Server delen.
+- Välj HTTPS om du vill ha [SSL-terminering](features.md#secure-sockets-layer-ssltls-termination) eller [slut punkt till slut punkt SSL-kryptering](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Trafiken mellan klienten och programgatewayen är krypterad. Och SSL-anslutningen avslutas i Application Gateway. Om du vill ha SSL-kryptering från slut punkt till slut punkt måste du välja HTTPS och konfigurera **Server delens http** -inställning. Detta säkerställer att trafiken krypteras igen när den överförs från Application Gateway till Server delen.
 
 Om du vill konfigurera SSL-terminering och SSL-kryptering från slut punkt till slut punkt måste du lägga till ett certifikat i lyssnaren för att Application Gateway ska kunna härleda en symmetrisk nyckel. Detta styrs av specifikationen för SSL-protokollet. Den symmetriska nyckeln används för att kryptera och dekryptera trafiken som skickas till gatewayen. Gateway-certifikatet måste vara i PFX-format (personal information Exchange). Med det här formatet kan du exportera den privata nyckeln som gatewayen använder för att kryptera och dekryptera trafiken.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 80d8f176d3a4af82a6b93e1af430d914c47bfff6
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
-ms.translationtype: HT
+ms.openlocfilehash: d47fdb9461786d80d65ee2448cc983a7a8348ff2
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79137364"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79298775"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -20,36 +20,35 @@ Att mata in historiska data från Sakernas Internet-resurser (IoT) som enheter o
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du fortsätter med den här artikeln måste du kontrol lera att du har installerat FarmBeats och samlat in historiska data från dina IoT-enheter.
-Du måste också aktivera partner åtkomst som anges i följande steg.
+Innan du fortsätter med den här artikeln måste du kontrol lera att du har installerat FarmBeats och samlat in historiska data från dina IoT-enheter. Du måste också aktivera partner åtkomst som anges i följande steg.
 
 ## <a name="enable-partner-access"></a>Aktivera partner åtkomst
 
 Du måste aktivera partner integrering till din Azure FarmBeats-instans. Det här steget skapar en klient som har åtkomst till din Azure FarmBeats-instans som din enhets partner och ger dig följande värden som krävs i följande steg:
 
-- API-slut punkt: Detta är Datahub-URL, till exempel https://\<Datahub >. azurewebsites. net.
+- API-slut punkt: Detta är Datahub-URL, till exempel https://\<Datahub >. azurewebsites. net
 - Klient-ID:t
 - Klientorganisations-ID
 - Klienthemlighet
 - EventHub-anslutningssträng
 
-Följ de här stegen.
+Följ de här stegen:
 
 >[!NOTE]
 > Du måste vara administratör för att utföra följande steg.
 
 1. Hämta [zip-filen](https://aka.ms/farmbeatspartnerscriptv2)och extrahera den till den lokala enheten. Det kommer att finnas en fil i zip-filen.
-2. Logga in på https://portal.azure.com/ och gå till Azure Active Directory-> App-registreringar
+2. Logga in på https://portal.azure.com/ och gå till **Azure Active Directory** > **app-registreringar**.
 
-3. Klicka på den app-registrering som skapades som en del av din FarmBeats-distribution. Det får samma namn som din FarmBeats-Datahub.
+3. Välj den **app-registrering** som skapades som en del av din FarmBeats-distribution. Det får samma namn som din FarmBeats-Datahub.
 
-4. Klicka på "exponera ett API" – > på Lägg till ett klient program och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera "auktorisera omfång". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
+4. Välj **exponera ett API** > Välj **Lägg till ett klient program** och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera **auktoriserat omfång**. Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra följande steg:
 
 5. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure Portal.
 
     ![Azure Portal verktygsfält](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Kontrol lera att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
+6. Se till att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
 
     ![Inställning för PowerShell-verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -59,9 +58,9 @@ Följ de här stegen.
 
 8. Gå till den katalog där filen laddades upp. Som standard laddas filerna upp till hem katalogen under användar namnet.
 
-9. Kör följande skript. Skriptet frågar efter klient-ID som kan hämtas från översikts sidan för Azure Active Directory->.
+9. Kör följande skript. Skriptet frågar efter klient-ID, som kan hämtas från **Azure Active Directory** > **översikts sida**.
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
     ./generatePartnerCredentials.ps1   
 
@@ -70,9 +69,12 @@ Följ de här stegen.
 10. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
 ## <a name="create-device-or-sensor-metadata"></a>Skapa metadata för enhet eller sensor
 
- Nu när du har de autentiseringsuppgifter som krävs kan du definiera enheten och sensorer. Du gör detta genom att skapa metadata genom att anropa FarmBeats-API: er. Observera att du måste anropa API: erna som den klient app som du skapade i ovanstående avsnitt
+ Nu när du har de autentiseringsuppgifter som krävs kan du definiera enheten och sensorer. Du gör detta genom att skapa metadata genom att anropa FarmBeats-API: er. Se till att anropa API: erna som den klient app som du skapade i avsnittet ovan.
 
- FarmBeats Datahub har följande API: er som möjliggör skapande och hantering av enhets-eller sensor-metadata. Observera att du som partner har åtkomst till att läsa, skapa och uppdatera metadata. **Delete tillåts inte av en partner.**
+ FarmBeats Datahub har följande API: er som möjliggör skapande och hantering av enhets-eller sensor-metadata.
+
+ > [!NOTE]
+ > Som partner har du bara åtkomst till att läsa, skapa och uppdatera metadata. **borttagnings alternativet är begränsat till partnern.**
 
 - /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som är antingen en gateway eller en nod.
 - /**enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
@@ -284,7 +286,7 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 \"description\": \"Test Device 123\"}" *
 ```
 
-Nedan visas en exempel kod i python. Observera att åtkomsttoken som används i det här exemplet är samma som vi fick under autentiseringen
+Nedan visas en exempel kod i python. Den åtkomsttoken som används i det här exemplet är samma som tas emot under autentiseringen.
 
 ```python
 import requests
@@ -347,11 +349,11 @@ Konvertera det historiska sensor data formatet till ett kanoniskt format som Azu
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<values>"
         }
       ]
     }
@@ -408,8 +410,10 @@ Här är ett exempel på ett telemetri-meddelande:
 
 **Korrigerande åtgärd**:
 
-1. Se till att du har utfört partner registreringen korrekt – du kan kontrol lera detta genom att gå till Datahub-Swagger, navigera till/partner-API, göra en get-och kontrol lera om partnern är registrerad. Om inte följer du [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
+1. Se till att du har utfört lämplig partner registrering – du kan kontrol lera detta genom att gå till Datahub-Swagger, navigera till/partner API, göra en get-och kontrol lera om partnern är registrerad. Annars följer du [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
+
 2. Se till att du har skapat metadata (DeviceModel, enhet, SensorModel, sensor) med hjälp av partner klientens autentiseringsuppgifter.
+
 3. Kontrol lera att du har använt rätt format för telemetri (som anges nedan):
 
 ```json
@@ -423,11 +427,11 @@ Här är ett exempel på ett telemetri-meddelande:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": <value>
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
         }
       ]
     }

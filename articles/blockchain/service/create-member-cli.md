@@ -1,15 +1,15 @@
 ---
 title: Skapa en Azure blockchain service-medlem – Azure CLI
 description: Skapa en Azure blockchain service-medlem för ett blockchain-konsortium med hjälp av Azure CLI.
-ms.date: 01/23/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 703444b6077c2301e1ffec77c8096fb76ddaa731
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.reviewer: ravastra
+ms.openlocfilehash: 0a3cf3d7c7f3dc0b8ece6fd6a466e42ae970b61c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759934"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214741"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Snabb start: skapa en Azure blockchain-tjänst blockchain-medlem med Azure CLI
 
@@ -35,7 +35,7 @@ az group create \
                  --location westus2
 ```
 
-## <a name="create-a-blockchain-member"></a>Skapa en blockkedjemedlem
+## <a name="create-a-blockchain-member"></a>Skapa en blockchain-medlem
 
 En Azure blockchain-tjänst medlem är en blockchain-nod i ett privat konsortium blockchain-nätverk. När du konfigurerar en medlem kan du skapa eller ansluta till ett konsortiums nätverk. Du behöver minst en medlem för ett konsortiums nätverk. Antalet blockchain-medlemmar som krävs av deltagarna beror på ditt scenario. Konsortiet deltagare kan ha en eller flera blockchain-medlemmar eller de kan dela medlemmar med andra deltagare. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
 
@@ -55,10 +55,10 @@ az resource create \
 | **resurs grupp** | Resurs grupp namn där Azure blockchain service-resurser skapas. Använd den resurs grupp som du skapade i föregående avsnitt.
 | **Namn** | Ett unikt namn som identifierar din Azure blockchain service blockchain-medlem. Namnet används för den offentliga slut punktens adress. Till exempel `myblockchainmember.blockchain.azure.com`.
 | **Plats** | Azure-region där blockchain-medlemmen skapas. Till exempel `westus2`. Välj den plats som är närmast dina användare eller dina andra Azure-program.
-| **Lösenord** | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.
+| **ords** | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.
 | **Consortium** | Namnet på konsortiet att ansluta till eller skapa. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
 | **consortiumAccountPassword** | Konto lösen ordet för konsortiet kallas även medlems kontots lösen ord. Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.
-| **skuName** | Nivå typ. Använd S0 för standard och B0 för Basic.
+| **skuName** | Nivå typ. Använd S0 för standard och B0 för Basic. Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer.
 
 Det tar cirka 10 minuter att skapa blockchain-medlemmen och de resurser som stöds.
 

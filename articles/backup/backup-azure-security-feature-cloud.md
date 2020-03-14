@@ -3,12 +3,12 @@ title: Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: f89d9ab3ef373ecd9a7d15ef4ec9b2109750f8de
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395527"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248078"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
 
@@ -178,24 +178,23 @@ Följ de här stegen:
 1. Följ stegen för att [inaktivera mjuk borttagning](#disabling-soft-delete).
 2. Gå till ditt valv i Azure Portal, gå till **säkerhets kopierings objekt**och välj den mjuka BORTTAGNA virtuella datorn.
 
-![Välj Mjuk borttagning av virtuell dator](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+   ![Välj Mjuk borttagning av virtuell dator](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 3. Välj alternativet **ångra borttagning**.
 
-![Välj ångra borttagning](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-
+   ![Välj ångra borttagning](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
 4. Ett fönster visas. Välj **ångra borttagning**.
 
-![Välj ångra borttagning](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+   ![Välj ångra borttagning](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
 5. Välj **ta bort säkerhetskopierade data** om du vill ta bort säkerhetskopierade data permanent.
 
-![Välj Ta bort säkerhets kopierings data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Välj Ta bort säkerhets kopierings data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Ange namnet på det säkerhetskopierade objektet för att bekräfta att du vill ta bort återställnings punkterna.
 
-![Ange namnet på det säkerhetskopierade objektet](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Ange namnet på det säkerhetskopierade objektet](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. Om du vill ta bort säkerhetskopierade data för objektet väljer du **ta bort**. Ett meddelande visas där du vet att säkerhets kopierings data har tagits bort.
 
@@ -268,6 +267,10 @@ Med Azure Backup kan du säkerhetskopiera Azure-Virtual Machines som innehåller
 ### <a name="backup-of-encrypted-vms"></a>Säkerhetskopiera krypterade virtuella datorer
 
 Du kan säkerhetskopiera och återställa virtuella Windows-eller Linux Azure-datorer (VM: ar) med krypterade diskar med hjälp av tjänsten Azure Backup. Instruktioner finns i [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).
+
+## <a name="private-endpoints"></a>Privata slut punkter
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="other-security-features"></a>Andra säkerhetsfunktioner
 

@@ -10,18 +10,18 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/25/2019
-ms.openlocfilehash: c00ed0b0ee24028e0a9e90f3fd3707e4a545ace6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: 401383f2d483836bf725051810d78167869f7b22
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78926059"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283503"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig de två sätt som du kan använda för att använda [Azure Machine Learning data uppsättningar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) i träning för fjärrkörning utan att oroa dig om anslutnings strängar eller data Sök vägar.
+I den här artikeln får du lära dig två sätt att använda [Azure Machine Learning data uppsättningar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) i en testnings utbildning för fjärrkörning utan att behöva oroa dig om anslutnings strängar eller data Sök vägar.
 
 - Alternativ 1: om du har strukturerade data skapar du en TabularDataset och använder den direkt i ditt utbildnings skript.
 
@@ -33,7 +33,7 @@ Azure Machine Learning data uppsättningar ger en sömlös integrering med Azure
 
 För att skapa och träna med data uppsättningar behöver du:
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 

@@ -9,11 +9,11 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379768"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241586"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]

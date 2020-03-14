@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117162"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259479"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 

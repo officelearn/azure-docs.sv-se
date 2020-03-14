@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 775ff6b3ba003bed22ccd5a42cb4da005c4dbb69
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082187"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253694"
 ---
 # <a name="what-is-risk"></a>Vad är risk?
 

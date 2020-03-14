@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
 ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121813"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244815"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -49,7 +49,7 @@ Ja. Du kan distribuera en [virtuell nätverks installation i WAN Optimization](h
 ### <a name="what-tools-do-i-use-to-create-a-vnet"></a>Vilka verktyg använder jag för att skapa ett virtuellt nätverk?
 Du kan använda följande verktyg för att skapa eller konfigurera ett VNet:
 
-* Azure-portalen
+* Azure Portal
 * PowerShell
 * Azure CLI
 * En nätverks konfigurations fil (netcfg – endast för klassisk virtuella nätverk). Se artikeln [Konfigurera ett VNet med hjälp av en nätverks konfigurations fil](virtual-networks-using-network-configuration-file.md) .
@@ -309,7 +309,7 @@ Ja. Samma virtuella nätverk tryck på resurs kan användas för att sammanstäl
 
 Det virtuella nätverkets tryck är i för hands version. Det finns inget service nivå avtal för för hands versionen. Kapaciteten bör inte användas för produktions arbets belastningar. När en virtuell dators nätverks gränssnitt är aktiverat med en tryck konfiguration, används samma resurser på Azure-värden som tilldelas den virtuella datorn för att skicka produktions trafiken för att utföra speglings funktionen och skicka de speglade paketen. Välj rätt storlek på den virtuella [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -eller [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) -datorn för att säkerställa att tillräckliga resurser är tillgängliga för den virtuella datorn för att skicka produktions trafiken och den speglade trafiken.
 
-### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Stöds accelererat nätverk för [Linux](create-vm-accelerated-networking-cli.md) eller [Windows](create-vm-accelerated-networking-powershell.md) med virtuellt nätverk?
+### <a name="is-accelerated-networking-for-linux-or-windows-supported-with-virtual-network-tap"></a>Stöds accelererat nätverk för [Linux](create-vm-accelerated-networking-cli.md) eller [Windows](create-vm-accelerated-networking-powershell.md) med virtuellt nätverk?
 
 Du kommer att kunna lägga till en tryck konfiguration på ett nätverks gränssnitt som är kopplat till en virtuell dator som är aktiverat med accelererat nätverk. Men prestandan och svars tiden på den virtuella datorn kommer att påverkas genom att du lägger till tryck på konfiguration eftersom avlastning för spegling av trafik för närvarande inte stöds av Azure accelererat nätverk.
 
@@ -407,7 +407,7 @@ Det finns ingen gräns för det totala antalet VNet-slutpunkter i ett virtuellt 
 |Azure SQL Data Warehouse|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
-|Azure händelsehubb|   128|
+|Azure Event Hub|   128|
 |Azure Service Bus| 128|
 |Azure Data Lake Store v1|  100|
  

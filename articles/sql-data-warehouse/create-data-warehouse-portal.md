@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
 ms.openlocfilehash: 6966932e95ff538de4b2f9be1ac06516311a0919
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128727"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241082"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Snabb start: skapa och fråga en Synapse SQL-pool med hjälp av Azure Portal
 

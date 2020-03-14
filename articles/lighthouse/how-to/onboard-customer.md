@@ -4,11 +4,11 @@ description: Lär dig att publicera en kund till Azure-delegerad resurs hanterin
 ms.date: 01/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7cf0ff1d64603215a9607f5a25ebc4077f9fa9da
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78925258"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79270685"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 

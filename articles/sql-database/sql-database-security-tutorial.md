@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9e3c5c12157a007bcad59a78b4623ff4d5a0041f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818025"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238834"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Självstudie: skydda en enskild databas eller en databas i en pool
 
@@ -42,7 +42,7 @@ Mer information finns i artiklarna [Säkerhetsöversikt för Azure SQL Database]
 > [!TIP]
 > Följande Microsoft Learn modul hjälper dig att lära dig kostnads fritt om hur du [skyddar dina Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -149,7 +149,7 @@ Information om hur du konfigurerar Azure AD finns i:
 
 ## <a name="manage-database-access"></a>Hantera databasåtkomst
 
-Hantera åtkomst till databasen genom att lägga till användare i databasen eller tillåta användaråtkomst med säkra anslutningssträngar. Anslutningssträngar är användbara för externa program. Mer information finns i [Azure SQL-åtkomstkontroll](sql-database-control-access.md) och [AD-autentisering](sql-database-aad-authentication.md).
+Hantera åtkomst till databasen genom att lägga till användare i databasen eller tillåta användaråtkomst med säkra anslutningssträngar. Anslutningssträngar är användbara för externa program. Mer information finns i [Hantera inloggningar och användar konton](sql-database-manage-logins.md) och [AD-autentisering](sql-database-aad-authentication.md).
 
 Välj autentiseringstyp för databasen för att lägga till användare:
 

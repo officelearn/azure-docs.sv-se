@@ -11,13 +11,13 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4f31c5583671ed3441e1a3f0f53c8518e550080a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580737"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283555"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
+# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning-arbetsytor i Azure-portalen
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln skapar du, visar och tar bort [**Azure Machine Learning arbets ytor**](concept-workspace.md) i Azure Portal för [Azure Machine Learning](overview-what-is-azure-ml.md).  Portalen är det enklaste sättet att komma igång med arbets ytor, men när du behöver ändra eller krav på Automation-höjning kan du också skapa och ta bort arbets ytor [med hjälp av CLI](reference-azure-machine-learning-cli.md), [med python-kod](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) eller [via vs Code-tillägget](tutorial-setup-vscode-extension.md).
@@ -40,7 +40,7 @@ Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har e
 
 1. Ange följande information för att konfigurera din nya arbets yta:
 
-   Fält|Beskrivning 
+   Field|Beskrivning 
    ---|---
    Namn på arbets yta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra. Namnet på arbets ytan är Skift läges okänsligt.
    Prenumeration |Ange den prenumeration som du vill använda.

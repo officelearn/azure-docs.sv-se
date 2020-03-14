@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
 ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376479"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239142"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 

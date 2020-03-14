@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/24/2019
-ms.openlocfilehash: 6b5c5d46003c995ae0e853809e2283e8502615bc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/12/2020
+ms.openlocfilehash: 50575fdae75addb4bf2bcb4c7222d35b0e19d080
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388328"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281696"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 
@@ -189,6 +189,7 @@ Om du vill kopiera data från SQL Server anger du käll typen i kopierings aktiv
 | sqlReaderQuery |Använda anpassade SQL-frågan för att läsa data. Ett exempel är `select * from MyTable`. |Nej |
 | sqlReaderStoredProcedureName |Den här egenskapen är namnet på den lagrade procedur som läser data från käll tabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
 | storedProcedureParameters |De här parametrarna är för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. |Nej |
+| isolationLevel | Anger transaktions låsnings beteendet för SQL-källan. Tillåtna värden är: **ReadCommitted** (standard), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Mer information finns i [det här dokumentet](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | Nej |
 
 **Poäng till Anmärkning:**
 
@@ -517,7 +518,7 @@ När du kopierar data från och till SQL Server, används följande mappningar f
 | smallmoney |decimaltal |
 | sql_variant |Objekt |
 | text |String, Char[] |
-| time |Tidsintervall |
+| time |TimeSpan |
 | tidsstämpel |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |

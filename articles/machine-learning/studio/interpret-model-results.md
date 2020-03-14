@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 2d13385b63802bc0037c3fbe32cd38ed5caaf1c6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168589"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218071"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Tolka modell resultat i Azure Machine Learning Studio (klassisk)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 I det här avsnittet beskrivs hur du visualiserar och tolkar förutsägelse resultat i Azure Machine Learning Studio (klassisk). När du har tränat en modell och gjort förutsägelser ovanpå den ("score modellen"), måste du förstå och tolka resultatet av förutsägelsen.
 
 

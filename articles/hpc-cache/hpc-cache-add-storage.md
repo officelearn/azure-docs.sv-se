@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: rohogue
 ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990614"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271894"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -148,9 +148,9 @@ I den här tabellen sammanfattas skillnaderna mellan användnings modeller:
 
 | Användnings modell | Cacheläge | Verifiering på Server Sidan | Maximal Skriv åtgärds fördröjning |
 | ---- | ---- | ---- | ---- |
-| Läs tung, sällan skrivna skrivningar | Läsa | Aldrig | Inget |
+| Läs tung, sällan skrivna skrivningar | Läsa | Aldrig | Ingen |
 | Större än 15% skrivningar | Läs/skriv | Aldrig | 1 timme |
-| Klienterna kringgår cachen | Läsa | 30 sekunder | Inget |
+| Klienterna kringgår cachen | Läsa | 30 sekunder | Ingen |
 
 ## <a name="next-steps"></a>Nästa steg
 

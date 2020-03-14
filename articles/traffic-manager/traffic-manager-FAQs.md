@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: bc318aff0dad7d7fdff16df549c013927ef0e799
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386914"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254370"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -43,7 +43,7 @@ Som förklaras i [hur Traffic Manager fungerar](../traffic-manager/traffic-manag
 
 Ytterligare undersökning bör därför fokuseras på programmet.
 
-HTTP-värd rubriken som skickas från klientens webbläsare är den vanligaste orsaken till problem. Kontrol lera att programmet har kon figurer ATS för att acceptera rätt värd huvud för det domän namn som du använder. För slut punkter som använder Azure App Service, se [Konfigurera ett anpassat domän namn för en webbapp i Azure App Service med Traffic Manager](../app-service/web-sites-traffic-manager-custom-domain-name.md).
+HTTP-värd rubriken som skickas från klientens webbläsare är den vanligaste orsaken till problem. Kontrol lera att programmet har kon figurer ATS för att acceptera rätt värd huvud för det domän namn som du använder. För slut punkter som använder Azure App Service, se [Konfigurera ett anpassat domän namn för en webbapp i Azure App Service med Traffic Manager](../app-service/configure-domain-traffic-manager.md).
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Vilken prestanda påverkas om du använder Traffic Manager?
 
@@ -145,9 +145,9 @@ Slutanvändarens enheter använder vanligt vis en DNS-matchare för att göra DN
 
 De IP-adresser som ska associeras med en slut punkt kan anges på två sätt. Först kan du använda den fyr punktavgränsade decimal oktetten med en start-och slut adress för att ange intervallet (till exempel 1.2.3.4-5.6.7.8 eller 3.4.5.6-3.4.5.6). Sedan kan du använda CIDR-noteringen för att ange intervallet (till exempel 1.2.3.0/24). Du kan ange flera intervall och kan använda båda Notations typerna i en intervall uppsättning. Några begränsningar gäller.
 
--   Du får inte överlappa adress intervall eftersom varje IP-adress måste mappas till en enda slut punkt
--   Start adressen får inte vara större än slut adressen
--   Om CIDR-noteringen används måste IP-adressen före "/" vara start adressen för intervallet (till exempel 1.2.3.0/24 är giltigt men 1.2.3.4.4/24 är ogiltigt)
+-    Du får inte överlappa adress intervall eftersom varje IP-adress måste mappas till en enda slut punkt
+-    Start adressen får inte vara större än slut adressen
+-    Om CIDR-noteringen används måste IP-adressen före "/" vara start adressen för intervallet (till exempel 1.2.3.0/24 är giltigt men 1.2.3.4.4/24 är ogiltigt)
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Hur kan jag ange en återställnings slut punkt när jag använder under näts dirigering?
 
@@ -382,25 +382,25 @@ När en fråga tas emot mot en profil hittar Traffic Manager först den slut pun
 
 För profiler med någon annan routningsmetod än multivärde:
 
-|Begäran om inkommande fråga|    Slut punkts typ|  Svar har angetts|
+|Begäran om inkommande fråga|     Slut punkts typ|     Svar har angetts|
 |--|--|--|
-|HELST |  A / AAAA / CNAME |  Mål slut punkt| 
-|A |    A / CNAME | Mål slut punkt|
-|A |    AAAA |  Inga DATA |
-|AAAA | AAAA / CNAME |  Mål slut punkt|
-|AAAA | A | Inga DATA |
-|CNAME |    CNAME | Mål slut punkt|
-|CNAME  |A/AAAA | Inga DATA |
+|HELST |    A / AAAA / CNAME |    Mål slut punkt| 
+|A |    A / CNAME |    Mål slut punkt|
+|A |    AAAA |    Inga DATA |
+|AAAA |    AAAA / CNAME |    Mål slut punkt|
+|AAAA |    A |    Inga DATA |
+|CNAME |    CNAME |    Mål slut punkt|
+|CNAME     |A/AAAA |    Inga DATA |
 |
 
 För profiler med routningsmetod inställd på multivärde:
 
-|Begäran om inkommande fråga|    Slut punkts typ | Svar har angetts|
+|Begäran om inkommande fråga|     Slut punkts typ |    Svar har angetts|
 |--|--|--|
-|HELST |  Blandning av A och AAAA | Mål slut punkter|
-|A |    Blandning av A och AAAA | Endast mål slut punkter av typen A|
-|AAAA   |Blandning av A och AAAA|     Endast mål slut punkter av typen AAAA|
-|CNAME |    Blandning av A och AAAA | Inga DATA |
+|HELST |    Blandning av A och AAAA |    Mål slut punkter|
+|A |    Blandning av A och AAAA |    Endast mål slut punkter av typen A|
+|AAAA    |Blandning av A och AAAA|     Endast mål slut punkter av typen AAAA|
+|CNAME |    Blandning av A och AAAA |    Inga DATA |
 
 ### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Kan jag använda en profil med IPv4/IPv6-adresserade slut punkter i en kapslad profil?
 

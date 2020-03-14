@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: d3f8696388a33a8ea112aae438c6bbe9af520c61
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390136"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220835"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i LUIS-portalen eller via LUIS redigerings- [API: er](developer-reference-resource.md).

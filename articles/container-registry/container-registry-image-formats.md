@@ -4,11 +4,11 @@ description: Lär dig mer om innehålls format som stöds av Azure Container Reg
 ms.topic: article
 ms.date: 08/30/2019
 ms.openlocfilehash: ab915385f46f83c7b655acd1a48d66df84b50653
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455016"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247012"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Innehålls format som stöds i Azure Container Registry
 

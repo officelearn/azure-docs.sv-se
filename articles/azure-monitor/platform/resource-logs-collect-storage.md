@@ -8,11 +8,11 @@ ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
 ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394942"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274221"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arkivera Azures resurs loggar till lagrings kontot
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av.  Den här artikeln beskriver hur du samlar in plattforms loggar till ett Azure Storage-konto för att spara data för arkivering.

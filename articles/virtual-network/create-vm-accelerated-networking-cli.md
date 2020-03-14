@@ -17,11 +17,11 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: eb44163922e318d17d675143ca2d6a3a1fa4ed75
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363539"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245088"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Skapa en virtuell Linux-dator med accelererat nätverk med Azure CLI
 
@@ -65,7 +65,7 @@ Mer information om VM-instanser finns i [storlekar för virtuella Linux-datorer]
 ### <a name="custom-images"></a>Anpassade avbildningar
 Om du använder en anpassad avbildning, och din avbildning har stöd för accelererat nätverk, måste du se till att de nödvändiga driv rutinerna fungerar med Mellanox ConnectX-3-och ConnectX-4 LX-nätverkskort på Azure.
 
-### <a name="regions"></a>Regions
+### <a name="regions"></a>Regioner
 Tillgängligt i alla offentliga Azure-regioner och Azure Government moln.
 
 <!-- ### Network interface creation 

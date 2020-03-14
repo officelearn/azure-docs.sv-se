@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: dapine
 ms.openlocfilehash: 7265cd0e2d292a2d8cc7273d2746348629ec4a06
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79081858"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219636"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -112,25 +112,25 @@ Behållar avbildningar för tal finns i följande Container Registry.
 
 # <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | Tal till text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
 # <a name="custom-speech-to-text"></a>[Custom Speech till text](#tab/cstt)
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | Custom Speech till text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
 # <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | Text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 # <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
-| Container | Lagringsplats |
+| Container | Databas |
 |-----------|------------|
 | Anpassad text till tal | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
 

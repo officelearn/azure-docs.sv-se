@@ -17,12 +17,12 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 650e5fb5d0b2c5522a70944991e9e49037c3b4fa
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 94cddf097f2a9e51f061909f6bdd3dcd82f18bfe
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226942"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262534"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
@@ -43,7 +43,7 @@ Mer information finns i så här [registrerar du en app](quickstart-register-app
 
 När appen har registrerats kommunicerar appen med Microsoft Identity Platform genom att skicka begär anden till slut punkten. Vi tillhandahåller ramverk för öppen källkod och bibliotek som hanterar information om dessa förfrågningar. Du kan också välja att implementera autentiseringsmetoden själv genom att skapa begär anden till dessa slut punkter:
 
-```
+```HTTP
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
@@ -62,7 +62,7 @@ Om du vill se hur det här scenariot fungerar kan du prova något av kod exemple
 
 För webb program (.NET, PHP, Java, ruby, python, Node) som användaren har åtkomst till via en webbläsare kan du använda [OpenID Connect](active-directory-v2-protocols.md) för användar inloggning. I OpenID Connect tar webbappen emot en ID-token. En ID-token är en säkerhetstoken som verifierar användarens identitet och ger information om användaren i form av anspråk:
 
-```
+```JSON
 // Partial raw ID token
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
@@ -91,7 +91,7 @@ Förutom enkel inloggning kan en webbapp ha åtkomst till en annan webb tjänst,
 
 Du kan använda Microsoft Identity Platform-slutpunkten för att skydda webb tjänster, till exempel appens RESTful-webb-API. Webb-API: er kan implementeras på flera olika plattformar och på olika språk. De kan också implementeras med HTTP-utlösare i Azure Functions. I stället för ID-tokens och sessionscookies använder ett webb-API en OAuth 2,0-åtkomsttoken för att skydda dess data och för att autentisera inkommande begär Anden. Anroparen för ett webb-API lägger till en åtkomsttoken i Authorization-huvudet för en HTTP-begäran, så här:
 
-```
+```HTTP
 GET /api/items HTTP/1.1
 Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
@@ -121,7 +121,7 @@ I det här flödet tar appen emot en auktoriseringskod från slut punkten för M
 
 ## <a name="daemons-and-server-side-apps"></a>Daemon och appar på Server Sidan
 
-Appar som har långvariga processer eller som fungerar utan interaktion med en användare behöver också ett sätt att komma åt skyddade resurser, till exempel webb-API: er. Dessa appar kan autentisera och hämta token genom att använda appens identitet, i stället för en användares delegerade identitet, med flödet OAuth 2,0-klientautentiseringsuppgifter. Du kan bevisa appens identitet med hjälp av en klient hemlighet eller ett certifikat. Mer information finns i [autentisera till Microsoft Identity Platform i daemon-appar med certifikat](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
+Appar som har långvariga processer eller som fungerar utan interaktion med en användare behöver också ett sätt att komma åt skyddade resurser, till exempel webb-API: er. Dessa appar kan autentisera och hämta token genom att använda appens identitet, i stället för en användares delegerade identitet, med flödet OAuth 2,0-klientautentiseringsuppgifter. Du kan bevisa appens identitet med hjälp av en klient hemlighet eller ett certifikat. Mer information finns i [.net Core daemon-konsolens program med hjälp av Microsoft Identity Platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
 
 I det här flödet samverkar appen direkt med `/token` slut punkten för att få åtkomst:
 

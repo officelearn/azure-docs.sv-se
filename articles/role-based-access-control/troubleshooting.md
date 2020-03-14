@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
 ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980992"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245530"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
@@ -56,7 +56,7 @@ Den här artikeln besvarar vanliga frågor om rollbaserad åtkomst kontroll (RBA
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Roll tilldelningar med okänt säkerhets objekt
 
-Om du tilldelar en roll till ett säkerhets objekt (användare, grupp, tjänstens huvud namn eller hanterad identitet) och senare tar bort säkerhets objekt utan att ta bort roll tilldelningen, visas säkerhets objekt typen för roll tilldelningen som **okänd**. Följande skärmbild visar ett exempel i Azure-portalen. Säkerhetsobjektets namn anges som en **borttagen identitet** och **identiteten finns inte längre**. 
+Om du tilldelar en roll till ett säkerhets objekt (användare, grupp, tjänstens huvud namn eller hanterad identitet) och senare tar bort säkerhets objekt utan att ta bort roll tilldelningen, visas säkerhets objekt typen för roll tilldelningen som **okänd**. Följande skärm bild visar ett exempel i Azure Portal. Säkerhetsobjektets namn anges som en **borttagen identitet** och **identiteten finns inte längre**. 
 
 ![Resurs grupp för webb program](./media/troubleshooting/unknown-security-principal.png)
 
@@ -149,8 +149,8 @@ De här objekten kräver **Skriv** åtkomst till den **App Service plan** som mo
 De här objekten kräver **Skriv** åtkomst till hela **resurs gruppen** som innehåller din webbplats:  
 
 * SSL-certifikat och bindningar (SSL-certifikat kan delas mellan platser i samma resurs grupp och Geo-plats)  
-* Varningsregler  
-* inställningar för autoskalning  
+* Aviseringsregler  
+* Inställningar för autoskalning  
 * Application Insights-komponenter  
 * Webbtester  
 
@@ -171,7 +171,7 @@ Dessa kräver **Skriv** behörighet till både den **virtuella datorn**och **res
 
 * Tillgänglighetsuppsättning  
 * Belastningsutjämnad uppsättning  
-* Varningsregler  
+* Aviseringsregler  
 
 Om du inte kan komma åt någon av dessa paneler kan du be administratören om deltagar åtkomst till resurs gruppen.
 

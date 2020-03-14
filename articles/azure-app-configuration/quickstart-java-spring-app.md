@@ -10,12 +10,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: 2521adfda731c06c879f5cfeb6283567228bf664
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 7b89696e60189a8ab2585f8511be32ddaa89e826
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919370"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216784"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabb start: skapa en Java våren-app med Azure App konfiguration
 
@@ -185,7 +185,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Java våren-app. Mer information finns i [våren på Azure](https://docs.microsoft.com/java/azure/spring-framework/). Fortsätt till nästa självstudie om du vill lära dig hur du använder en Azure-hanterad identitet för att effektivisera åtkomst till app-konfigurationen.
+I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Java våren-app. Mer information finns i [våren på Azure](https://docs.microsoft.com/java/azure/spring-framework/). Fortsätt till nästa självstudie om du vill lära dig hur du aktiverar din Java våren-app för att dynamiskt uppdatera konfigurations inställningar.
 
 > [!div class="nextstepaction"]
-> [Hanterad identitets integrering](./howto-integrate-azure-managed-service-identity.md)
+> [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-java-spring-app.md)

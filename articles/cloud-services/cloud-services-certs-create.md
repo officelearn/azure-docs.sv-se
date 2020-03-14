@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355786"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248143"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Översikt över certifikat för Azure Cloud Services
 Certifikat används i Azure för moln tjänster ([tjänst certifikat](#what-are-service-certificates)) och för autentisering med hanterings-API: et ([hanterings certifikat](#what-are-management-certificates)). Det här avsnittet innehåller en allmän översikt över båda certifikat typerna, hur du [skapar](#create) och distribuerar dem till Azure.

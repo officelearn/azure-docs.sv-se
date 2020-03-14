@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 03/13/2020
 ms.author: pafarley
-ms.openlocfilehash: a641893fece37c759480ab31f505b1673f50e2b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 666b70ba8b632cb2cadf20de384e3e615acb2b3d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973619"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203595"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Snabb start: prova Content Moderator på webben
 
 I den här snabb starten använder du verktyget för Content Moderator granskning online för att testa de grundläggande funktionerna i Content Moderator utan att behöva skriva någon kod. Om du vill integrera den här tjänsten i appen snabbare, se de andra snabb starterna i avsnittet [Nästa steg](#next-steps) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En webbläsare
 
@@ -32,9 +32,23 @@ Verktyget Content Moderator granskning är ett webbaserat verktyg som gör det m
 
 ## <a name="create-a-review-team"></a>Skapa ett granskningsteam
 
-Skapa sedan en gransknings grupp. I ett arbets scenario är det här gruppen med personer som manuellt kommer att granska tjänstens kontroll beslut. För tillfället behöver du bara skapa ett grupp namn. Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
+Skapa sedan en gransknings grupp. I ett arbets scenario är det här gruppen med personer som manuellt kommer att granska tjänstens kontroll beslut. Om du vill skapa ett team måste du välja en **region**och ange ett **grupp namn** och ett **Team-ID**. Om du vill bjuda in kollegor till teamet kan du göra det genom att ange deras e-postadresser här.
 
-![Bjud in grupp medlem](images/QuickStart-2-small.png)
+> [!NOTE]
+> **Team namn** är ett eget namn för gransknings teamet. Detta är det namn som visas i Azure Portal. **Team-ID: t** är det som används för att identifiera program mässigt för gransknings teamet.
+
+> [!div class="mx-imgBorder"]
+> ![Bjud in grupp medlem](images/create-team.png)
+
+Om du väljer att kryptera data med hjälp av en kundhanterad nyckel (CMK) uppmanas du att ange **resurs-ID** för din Content moderator-resurs på E0 pris nivå. Den resurs du anger måste vara ny. 
+
+> [!div class="mx-imgBorder"]
+> ![Bjud in grupp medlem med CMK](images/create-team-cmk.png)
+
+Om du försöker återanvända en Content Moderator resurs visas den här varningen: 
+
+> [!div class="mx-imgBorder"]
+> ![CMK Miss lyckas](images/create-team-cmk-fail.png)
 
 ## <a name="upload-sample-content"></a>Ladda upp exempel innehåll
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 10ea15168d61d5e73aff976ef641e07b6327dbca
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5146878adf10e452f38fecb115ec40792ffa84f3
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604577"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79140005"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Aviserings verifiering (EICAR Test fil) i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
@@ -75,8 +75,7 @@ Mer information om integreringen av Azure Kubernetes service och Azure Security 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln förklaras processen för aviseringsverifiering. Nu när du är bekant med den här verifieringen kan du titta på följande artiklar:
 
+* [Verifiera Azure Key Vault hot identifiering i Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Hantera och svara på säkerhets aviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) – lär dig hur du hanterar aviseringar och svarar på säkerhets incidenter i Security Center.
 * [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
 * [Förstå säkerhets aviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) – lär dig mer om de olika typerna av säkerhets aviseringar.
-* [Azure Security Center fel söknings guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) – lär dig hur du felsöker vanliga problem i Security Center.
-* [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure.

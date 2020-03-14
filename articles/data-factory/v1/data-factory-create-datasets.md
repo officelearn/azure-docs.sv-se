@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 18a5e11d2341fb020fc442d2f9ce7c1d44de9d0a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384777"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260441"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Data uppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -81,7 +81,7 @@ I följande tabell beskrivs egenskaperna i ovanstående JSON:
 | --- | --- | --- | --- |
 | namn |Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Ja |Ej tillämpligt |
 | typ |Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typ](#Type). |Ja |Ej tillämpligt |
-| structure |Schema för data uppsättningen.<br/><br/>Mer information finns i [data uppsättnings struktur](#Structure). |Nej |Ej tillämpligt |
+| struktur |Schema för data uppsättningen.<br/><br/>Mer information finns i [data uppsättnings struktur](#Structure). |Nej |Ej tillämpligt |
 | typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure Blob, Azure SQL-tabell). Mer information om de typer som stöds och deras egenskaper finns i [data uppsättnings typ](#Type). |Ja |Ej tillämpligt |
 | extern | Boolesk flagga för att ange om en data uppsättning uttryckligen skapas av en Data Factory-pipeline eller inte. Om indata-datauppsättningen för en aktivitet inte produceras av den aktuella pipelinen anger du den här flaggan till true. Ange den här flaggan till true för indata-datauppsättningen för den första aktiviteten i pipelinen.  |Nej |false |
 | availability | Definierar bearbetnings fönstret (till exempel varje timme eller varje dag) eller segmenterings modellen för data uppsättnings produktionen. Varje enhet med data som konsumeras och skapas av en aktivitets körning kallas för en data sektor. Om tillgänglighet för en data uppsättning för utdata anges till daglig (frekvens-dag, intervall-1) skapas en sektor varje dag. <br/><br/>Mer information finns i tillgänglighet för data uppsättningar. <br/><br/>Mer information om den data uppsättnings segment modellen finns i artikeln om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Ja |Ej tillämpligt |

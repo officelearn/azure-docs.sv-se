@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 031423d72aecacc1feed692aaa32bcd1ff7efbab
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372874"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282710"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -127,6 +127,10 @@ Security Center ger hot skydd på olika nivåer:
 
 Dessutom övervakar vårt globala team av säkerhets forskare det hot landskapet. De lägger till maskinvaruspecifika aviseringar och sårbarheter när de upptäcks.
 
+> [!TIP]
+> Du kan simulera behållar aviseringar genom att följa anvisningarna i [det här blogg inlägget](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+
+
 
 
 
@@ -209,6 +213,9 @@ Mer information finns i:
 * [Listan med aviseringar om skydd mot hot för Azure Storage](alerts-reference.md#alerts-azurestorage)
 
 
+> [!TIP]
+> Du kan simulera Azure Storage aviseringar genom att följa anvisningarna i [det här blogg inlägget](https://techcommunity.microsoft.com/t5/azure-security-center/validating-atp-for-azure-storage-detections-in-azure-security/ba-p/1068131).
+
 
 
 
@@ -266,7 +273,7 @@ Om du har en licens för Azure WAF strömmas dina WAF-aviseringar till Security 
 
 DDoS-attacker (distributed denial of Service) är kända för att vara lätta att köra. De har blivit ett bra säkerhets problem, särskilt om du flyttar dina program till molnet. 
 
-En DDoS-attack syftar till att göra slut på ett programs resurser, så att programmet blir otillgängligt för behöriga användare. DDoS-attacker kan rikta in sig på alla slut punkter som kan nås via Internet.
+Ett DDoS-angrepp försöker att belasta ett programs resurser, vilket gör programmet otillgängligt för legitima användare. DDoS-attacker kan rikta in sig på alla slut punkter som kan nås via Internet.
 
 Du kan skydda dig mot DDoS-attacker genom att köpa en licens för Azure DDoS Protection och se till att du följer metod tips för program design. DDoS Protection tillhandahåller olika tjänst nivåer. Mer information finns i [Azure DDoS Protection översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 

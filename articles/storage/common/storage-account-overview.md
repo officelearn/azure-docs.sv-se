@@ -10,11 +10,11 @@ ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355823"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269125"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 

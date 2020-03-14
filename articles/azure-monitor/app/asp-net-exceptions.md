@@ -4,11 +4,11 @@ description: Fånga undantag från ASP.NET-appar tillsammans med telemetri för 
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.openlocfilehash: 24b7acfa6610c2040daf0f7d8d25f25391140303
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375065"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276236"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
 Undantag i din Live-webbapp rapporteras av [Application Insights](../../azure-monitor/app/app-insights-overview.md). Du kan korrelera misslyckade förfrågningar med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.

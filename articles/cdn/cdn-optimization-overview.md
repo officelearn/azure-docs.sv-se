@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: da8f17da9225da1d2b92bd8515d645bce9a1bbaa
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394372"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252121"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimera Azure CDN för typen av innehålls leverans
 

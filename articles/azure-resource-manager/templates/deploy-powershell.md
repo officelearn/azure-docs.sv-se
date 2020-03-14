@@ -4,11 +4,11 @@ description: Använd Azure Resource Manager och Azure PowerShell för att distri
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: c31cde9d3023c49a03f4a7a6c434c16405c88bea
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121938"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273883"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuera resurser med Resource Manager-mallar och Azure PowerShell
 
@@ -36,7 +36,7 @@ För närvarande stöds endast distributioner av hanterings grupper via REST API
 
 I exemplen i den här artikeln används resurs grupps distributioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en mall för att distribuera. Om du inte redan har ett kan du hämta och spara en exempel-mall från lagrings platsen för Azure snabb starts [mal len](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . Det lokala fil namnet som används i den här artikeln är **c:\MyTemplates\azuredeploy.JSON**.
 

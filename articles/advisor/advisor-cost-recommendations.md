@@ -3,12 +3,12 @@ title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443130"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259700"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Minska tjänste kostnaderna med Azure Advisor
 
@@ -47,9 +47,12 @@ Azure Advisor identifierar Azure Data Factory pipeliner som Miss söker upprepad
 ## <a name="use-standard-snapshots-for-managed-disks"></a>Använd standard ögonblicks bilder för Managed Disks
 Vi rekommenderar att du lagrar ögonblicksbilder i Standard Storage, oavsett den överordnade diskens lagringstyp. Det gör att du kan att spara 60 % av kostnaderna. Det här alternativet är standard alternativet för Managed Disks ögonblicks bilder. Azure Advisor identifierar ögonblicks bilder som lagras Premium Storage och rekommenderar att du migrerar din ögonblicks bild från Premium till standard lagring. [Läs mer om priser för Managed disks](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
+## <a name="utilize-lifecycle-management"></a>Använda livscykelhantering
+Azure Advisor använder intelligens för Azure Blob Storage-objekt antal, Total storlek och transaktioner för att identifiera om ett eller flera av dina lagrings konton passar bäst för att aktivera livs cykel hantering för att hantera data på nivån. Du uppmanas att skapa livs cykel hanterings regler för att automatiskt anpassa dina data till häftig eller arkivera för att optimera dina lagrings kostnader samtidigt som dina data lagras i Azure Blob Storage för programkompatibilitet.
+
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Få åtkomst till kostnads rekommendationer i Azure Advisor
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Sök efter och välj [**Advisor**](https://aka.ms/azureadvisordashboard) från vilken sida som helst.
 

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368170"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79263925"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösen ord?
 
@@ -63,7 +63,7 @@ Om du vill använda tillbakaskrivning av lösen ord måste du ha en av följande
 > [!WARNING]
 > Fristående Office 365-licens planer *stöder inte "självbetjäning för återställning av lösen ord/ändra/Lås upp med lokal tillbakaskrivning"* och kräver att du har en av de föregående planerna för att den här funktionen ska fungera.
 
-## <a name="how-password-writeback-works"></a>Så här fungerar tillbakaskrivning av lösen ord
+## <a name="how-password-writeback-works"></a>Så fungerar tillbakaskrivning av lösenord
 
 När en federerad eller lösenordsskyddad hash-användare försöker återställa eller ändra sitt lösen ord i molnet inträffar följande åtgärder:
 

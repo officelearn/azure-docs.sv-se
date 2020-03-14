@@ -6,28 +6,28 @@ ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650661"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248455"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition-funktioner
 Det här avsnittet innehåller signaturerna för alla funktioner som stöds i en CreateUiDefinition.
 
-Om du vill använda en funktion omger du deklarationen med hakparenteser. Ett exempel:
+Om du vill använda en funktion omger du deklarationen med hakparenteser. Exempel:
 
 ```json
 "[function()]"
 ```
 
-Strängar och andra funktioner kan refereras till som parametrar för en funktion, men strängarna måste omges av enkla citat tecken. Ett exempel:
+Strängar och andra funktioner kan refereras till som parametrar för en funktion, men strängarna måste omges av enkla citat tecken. Exempel:
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-I förekommande fall kan du referera till egenskaperna för resultatet av en funktion med hjälp av punkt operatorn. Ett exempel:
+I förekommande fall kan du referera till egenskaperna för resultatet av en funktion med hjälp av punkt operatorn. Exempel:
 
 ```json
 "[func().prop1]"
@@ -36,7 +36,7 @@ I förekommande fall kan du referera till egenskaperna för resultatet av en fun
 ## <a name="referencing-functions"></a>Referenser till funktioner
 Dessa funktioner kan användas för att referera till utdata från egenskaperna eller kontexten för en CreateUiDefinition.
 
-### <a name="basics"></a>Om
+### <a name="basics"></a>om
 Returnerar värdena för ett element som definieras i steget grundläggande.
 
 I följande exempel returneras utdata från elementet med namnet `foo` i grundläggande steg:
@@ -84,7 +84,7 @@ I följande exempel returneras `"ftw"`:
 "[substring('azure-ftw!!!1one', 6, 3)]"
 ```
 
-### <a name="replace"></a>ersätta
+### <a name="replace"></a>bytt
 Returnerar en sträng i vilken alla förekomster av den angivna strängen i den aktuella strängen ersätts med en annan sträng.
 
 I följande exempel returneras `"Everything is awesome!"`:
@@ -102,7 +102,7 @@ Följande exempel kan returnera `"c7bc8bdc-7252-4a82-ba53-7c468679a511"`:
 "[guid()]"
 ```
 
-### <a name="tolower"></a>ToLower
+### <a name="tolower"></a>toLower
 Returnerar en sträng som har konverterats till gemener.
 
 I följande exempel returneras `"foobar"`:
@@ -111,7 +111,7 @@ I följande exempel returneras `"foobar"`:
 "[toLower('FOOBAR')]"
 ```
 
-### <a name="toupper"></a>ToUpper
+### <a name="toupper"></a>toUpper
 Returnerar en sträng konverterad till versaler.
 
 I följande exempel returneras `"FOOBAR"`:
@@ -123,7 +123,7 @@ I följande exempel returneras `"FOOBAR"`:
 ## <a name="collection-functions"></a>Samlings funktioner
 Dessa funktioner kan användas med samlingar, t. ex. JSON-strängar, matriser och objekt.
 
-### <a name="contains"></a>contains
+### <a name="contains"></a>innehåller
 Returnerar `true` om en sträng innehåller den angivna under strängen, om en matris innehåller det angivna värdet, eller om ett objekt innehåller den angivna nyckeln.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
@@ -189,7 +189,7 @@ I följande exempel returneras `2`:
 "[length(steps('foo').element1)]"
 ```
 
-### <a name="empty"></a>tomt
+### <a name="empty"></a>saknas
 Returnerar `true` om strängen, matrisen eller objektet är null eller tomt.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
@@ -327,7 +327,7 @@ I följande exempel returneras `{"key1": "foobar"}`:
 "[take(steps('foo').element1, 1)]"
 ```
 
-### <a name="skip"></a>hoppa över
+### <a name="skip"></a>Ignorera
 Hoppar över ett angivet antal element i en samling och returnerar sedan de återstående elementen.
 
 #### <a name="example-1-string"></a>Exempel 1: sträng
@@ -362,7 +362,7 @@ I följande exempel returneras `{"key2": "raboof"}`:
 ## <a name="logical-functions"></a>Logiska funktioner
 Dessa funktioner kan användas i villkor. Vissa funktioner kanske inte stöder alla typer av JSON-data.
 
-### <a name="equals"></a>är lika med
+### <a name="equals"></a>equals
 Returnerar `true` om båda parametrarna har samma typ och värde. Den här funktionen stöder alla JSON-datatyper.
 
 I följande exempel returneras `true`:
@@ -383,7 +383,7 @@ I följande exempel returneras `false`:
 "[equals('abc', ['a', 'b', 'c'])]"
 ```
 
-### <a name="less"></a>mindre än
+### <a name="less"></a>minskad
 Returnerar `true` om den första parametern är strikt mindre än den andra parametern. Den här funktionen stöder endast parametrar av typen Number och String.
 
 I följande exempel returneras `true`:
@@ -398,7 +398,7 @@ I följande exempel returneras `false`:
 "[less('9', '10')]"
 ```
 
-### <a name="lessorequals"></a>mindre än eller lika med
+### <a name="lessorequals"></a>lessOrEquals
 Returnerar `true` om den första parametern är mindre än eller lika med den andra parametern. Den här funktionen stöder endast parametrar av typen Number och String.
 
 I följande exempel returneras `true`:
@@ -422,7 +422,7 @@ I följande exempel returneras `true`:
 "[greater('9', '10')]"
 ```
 
-### <a name="greaterorequals"></a>större än eller lika med
+### <a name="greaterorequals"></a>Större
 Returnerar `true` om den första parametern är större än eller lika med den andra parametern. Den här funktionen stöder endast parametrar av typen Number och String.
 
 I följande exempel returneras `true`:
@@ -461,7 +461,7 @@ I följande exempel returneras `true`:
 "[or(equals(0, 0), greater(1, 2))]"
 ```
 
-### <a name="not"></a>inte
+### <a name="not"></a>Ogiltigt
 Returnerar `true` om parametern evalueras till `false`. Den här funktionen stöder endast parametrar av typen Boolean.
 
 I följande exempel returneras `true`:
@@ -545,7 +545,7 @@ I följande exempel returneras `"{"foo":"bar"}"`:
 "[string({\"foo\":\"bar\"})]"
 ```
 
-### <a name="bool"></a>bool
+### <a name="bool"></a>booleska
 Konverterar parametern till ett booleskt värde. Den här funktionen stöder parametrar av typen Number, String och Boolean. Precis som booleska värden i Java Script returnerar alla värden utom `0` eller `'false'` `true`.
 
 I följande exempel returneras `true`:
@@ -635,7 +635,7 @@ I följande exempel returneras `"https://portal.azure.com/"`:
 "[decodeUriComponent('https%3A%2F%2Fportal.azure.com%2F')]"
 ```
 
-## <a name="math-functions"></a>Matematikfunktioner
+## <a name="math-functions"></a>Matematiska funktioner
 ### <a name="add"></a>add
 Adderar två tal och returnerar resultatet.
 
@@ -687,7 +687,7 @@ I följande exempel returneras `2`:
 "[mod(6, 4)]"
 ```
 
-### <a name="min"></a>min.
+### <a name="min"></a>min
 Returnerar det lilla talet av de två talen.
 
 I följande exempel returneras `1`:
@@ -741,7 +741,7 @@ I följande exempel returneras `4`:
 "[ceil(3.14)]"
 ```
 
-## <a name="date-functions"></a>Datumfunktioner
+## <a name="date-functions"></a>Datum funktioner
 ### <a name="utcnow"></a>UtcNow
 Returnerar en sträng i ISO 8601-formatet för aktuellt datum och aktuell tid på den lokala datorn.
 

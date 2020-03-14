@@ -5,11 +5,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
 ms.openlocfilehash: 514f1d6631a70301589943ddb7920ca3c9c46062
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609229"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257698"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Köra en redundansväxling från en lokal plats till Azure
 
@@ -46,7 +46,7 @@ Kör återställnings planens redundans på följande sätt:
 1. I Site Recovery-valvet väljer du **återställnings planer** > *recoveryplan_name*.
 2. Klicka på **redundans**.
 
-    ![växling vid fel](./media/site-recovery-failover/Failover.png)
+    ![Redundans](./media/site-recovery-failover/Failover.png)
 
 3. Lämna standardvärdet om du replikerar till Azure i **redundansväxlingen** > **redundans**.
 4. I **redundans**väljer du en **återställnings punkt** att redundansväxla.
@@ -80,7 +80,7 @@ Du kan köra en planerad redundansväxling för virtuella Hyper-V-datorer.
 
 Det finns ett antal jobb som är kopplade till redundans.
 
-![växling vid fel](./media/site-recovery-failover/FailoverJob.png)
+![Redundans](./media/site-recovery-failover/FailoverJob.png)
 
 - **Krav kontroll**: säkerställer att alla villkor som krävs för redundans är uppfyllda.
 - **Redundans**: bearbetar data så att en virtuell Azure-dator kan skapas från den. Om du har valt den **senaste** återställnings punkten skapas en återställnings punkt utifrån de data som har skickats till tjänsten.

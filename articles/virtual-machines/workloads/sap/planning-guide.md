@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7349c22a2478020c9ac79655ad1e7c23c4cf5034
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 6fef1829e008b58f50546e9e6e7ad2ccee037224
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78892945"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245270"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -495,9 +495,17 @@ Mer information om prissättning finns i artikeln [Azure-Virtual Machines](https
 
 Dessutom erbjuder Azure koncepten för en dedikerad värd. Med det dedikerade värd konceptet får du mer kontroll över de uppdaterings cykler som utförs av Azure. Du kan använda uppdaterings tiden enligt dina egna scheman. Det här erbjudandet riktar sig specifikt till kunder med arbets belastning som kanske inte följer den normala arbets belastnings cykeln. Läs artikeln [Azures dedikerade värd](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)för att läsa mer om begreppen i Azures dedikerade erbjudande. Att använda det här erbjudandet stöds för SAP-arbetsbelastningar och används av flera SAP-kunder som vill ha mer kontroll över korrigering av infrastruktur och eventuella underhålls planer för Microsoft. För ytterligare information om hur Microsoft underhåller och uppdaterar Azure-infrastrukturen som är värd för virtuella datorer, kan du läsa artikeln [underhåll för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates).
 
+#### <a name="generation-1-and-generation-2-virtual-machines"></a>Virtuella datorer i generation 1 och generation 2
+Microsofts hypervisor kan hantera två olika generationer av virtuella datorer. Dessa format kallas **generation 1** och **generation 2**. **Generation 2** introducerades i år 2012 med Windows Server 2012 hypervisor. Azure startade med virtuella datorer i generation 1. När du distribuerar virtuella Azure-datorer är standardvärdet fortfarande att använda generation 1-formatet. Under tiden kan du även distribuera generation 2 VM-format. Artikel [stödet för virtuella datorer i generation 2 på Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) visar en lista över virtuella Azure-datorer som kan distribueras som generation 2 VM. Den här artikeln innehåller också viktiga funktions skillnader för virtuella datorer i generation 2 eftersom de kan köras i privata moln i Hyper-V och Azure. Mer viktigt den här artikeln visar även funktions skillnader mellan virtuella datorer i generation 1 och virtuella datorer i generation 2, som de körs i Azure. 
+
+> [!NOTE]
+> Det finns funktions skillnader i generation 1 och generation 2 virtuella datorer som körs i Azure. Läs artikeln [stöd för virtuella datorer i generation 2 på Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) för att se en lista över dessa skillnader.  
+ 
+Det går inte att flytta en befintlig virtuell dator från en generation till den andra generationen. Om du vill ändra den virtuella datorns generation måste du distribuera en ny virtuell dator med den generation som du vill och installera om den program vara som du kör på den virtuella datorn av generationen. Detta påverkar endast den virtuella datorns virtuella hård disk avbildning och har ingen inverkan på data diskarna eller anslutna NFS-eller SMB-resurser. Data diskar, NFS-eller SMB-resurser som ursprungligen tilldelades till, till exempel på en virtuell dator i generation 1
+
+För tillfället kommer du att stöta på det här problemet särskilt mellan virtuella datorer i Azure M-serien och virtuella datorer i Mv2-serien. På grund av begränsningar i VM-formatet för generation 1 kunde inte de stora virtuella datorerna i Mv2-serien erbjudas i generation 1-format, men krävs endast i generation 2. På den andra sidan är VM-serien i M-serien inte aktive rad för att distribueras i generation 2. Det innebär att du måste ändra storlek mellan virtuella datorer i M-serien och Mv2-serien för att kunna installera om program varan på en virtuell dator som mål för den andra VM-serien. Microsoft arbetar så att du kan distribuera virtuella datorer i M-serien för distributioner i generation 2. Distribuera virtuella datorer i M-serien som generation 2-datorer i framtiden, kommer att göra det möjligt att se till att det blir mindre att ändra storlek på flera virtuella datorer i M-serien och Mv2. I båda riktningarna kan du antingen ändra storlek från M-serien till större virtuella datorer i Mv2-serien eller ned storlek från större virtuella datorer i Mv2-serien till mindre virtuella datorer i M-serien. Dokumentationen kommer att uppdateras så snart virtuella datorer i M-serien kan distribueras som virtuella datorer i generation 2.    
 
  
-
 
 ### <a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Lagring: Microsoft Azure Storage och data diskar
 Microsoft Azure Virtual Machines använder olika lagrings typer. När du implementerar SAP på Azure Virtual Machine-tjänster är det viktigt att förstå skillnaderna mellan dessa två huvud typer av lagring:

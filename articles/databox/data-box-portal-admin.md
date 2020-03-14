@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/07/2019
 ms.author: alkohli
 ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987473"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79259999"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Använd Azure Portal för att administrera Azure Data Box och Azure Data Box Heavy
 
@@ -53,7 +53,7 @@ Följ stegen nedan om du vill klona en order.
 Klonen skapas på några minuter och portalen uppdateras och visar den nya ordern.
 
 
-## <a name="delete-order"></a>Ta bort beställning
+## <a name="delete-order"></a>Ta bort en order
 
 Du kanske vill ta bort en order när den har verkställts. Ordern innehåller din personliga information, till exempel namn, adress och kontaktuppgifter. Den här personliga informationen tas bort när ordern tas bort.
 
@@ -77,7 +77,7 @@ Följ stegen nedan om du behöver ladda ned en fraktsedel.
 
     ![Ladda ned adressetikett](media/data-box-portal-admin/download-shipping-label.png)
 
-2.  Med det här alternativet laddas följande returfraktsedel ned. Spara etiketten och skriv ut den. Vik och sätt in etiketten i den genomskinliga fickan på enheten. Se till att etiketten syns tydligt. Ta bort eventuella klistermärken som finns på enheten från föregående leverans.
+2.  Med det här alternativet laddas följande returfraktsedel ned. Spara etiketten och skriv ut den. Vik och infoga etiketten i ta bort fläns på enheten. Se till att etiketten syns tydligt. Ta bort eventuella klistermärken som finns på enheten från föregående leverans.
 
     ![Exempel på fraktsedel](media/data-box-portal-admin/example-shipping-label.png)
 
@@ -200,11 +200,11 @@ När enhetens status ändras i portalen meddelas du via e-post.
 |Orderstatus |Beskrivning |
 |---------|---------|
 |Beställt     | En beställning har gjorts. <br>Om enheten är tillgänglig identifierar Microsoft en enhet för leverans och förbereder enheten. <br> Om enheten inte är tillgänglig omedelbart bearbetas ordern när enheten blir tillgänglig. Ordern kan ta flera dagar till några månader att behandla. Om ordern inte kan uppfyllas inom 90 dagar annulleras den och du får ett meddelande.         |
-|Bearbetat     | Orderbearbetningen har slutförts. Enligt din order förbereds enheten för leverans i datacentret.         |
+|Bearbetad     | Orderbearbetningen har slutförts. Enligt din order förbereds enheten för leverans i datacentret.         |
 |Skickat     | Beställningen har skickats. Använd det spårnings-ID som visas i din order i portalen för att spåra leveransen.        |
 |Levererade     | Försändelsen har levererats till den adress som angetts i ordern.        |
 |Hämtat     |Din returleverans har hämtats och genomsökts av transportören.         |
-|Mottagning     | Enheten tas emot och genomsöks vid Azure-datacentret. <br> När leveransen kontrolleras startar enhetsöverföringen.      |
+|Mottaget     | Enheten tas emot och genomsöks vid Azure-datacentret. <br> När leveransen kontrolleras startar enhetsöverföringen.      |
 |Datakopiering     | Data kopieras. Spåra kopieringsprocessen för din order i Azure-portalen. <br> Vänta tills datakopieringen är klar. |
 |Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
 |Slutfört med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Se [exempel på kopierings loggar när överföringen är klar med fel](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |

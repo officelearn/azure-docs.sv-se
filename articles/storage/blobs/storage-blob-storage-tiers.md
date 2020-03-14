@@ -9,11 +9,11 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368720"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255514"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv lag rings nivåer
 
@@ -140,7 +140,7 @@ I det här avsnittet visas följande scenarier med hjälp av Azure Portal och Po
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Ändra standardåtkomstnivå för ett GPv2- eller Blob Storage-konto
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Sök efter och välj **alla resurser**i Azure Portal.
@@ -155,7 +155,7 @@ I det här avsnittet visas följande scenarier med hjälp av Azure Portal och Po
 
 ![Ändra lagrings konto nivå](media/storage-tiers/account-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Följande PowerShell-skript kan användas för att ändra konto nivån. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -168,7 +168,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ---
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Ändra nivån för en BLOB i ett GPv2-eller Blob Storage-konto
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Sök efter och välj **alla resurser**i Azure Portal.
@@ -185,7 +185,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![Ändra lagrings konto nivå](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Följande PowerShell-skript kan användas för att ändra BLOB-nivån. Variabeln `$rgName` måste initieras med resurs gruppens namn. `$accountName` variabeln måste initieras med ditt lagrings konto namn. `$containerName`-variabeln måste initieras med ditt container namn. `$blobName`-variabeln måste initieras med ditt BLOB-namn. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

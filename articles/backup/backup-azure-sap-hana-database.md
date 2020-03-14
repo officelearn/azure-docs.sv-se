@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: a5fd09e0e487d103e8bd78964c11b572a62e28fa
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: deedd4d2553b3b06f76f698fdb2425a8d3878d23
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382428"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248065"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -88,6 +88,10 @@ Tillåta IP-intervall | Inga ytterligare kostnader | Komplext att hantera efters
 Använda NSG service-Taggar | Enklare att hantera när intervall ändringar slås samman automatiskt <br/><br/> Inga ytterligare kostnader <br/><br/> | Kan endast användas med NSG: er <br/><br/> Ger åtkomst till hela tjänsten
 Använd Azure Firewall FQDN-Taggar | Enklare att hantera eftersom nödvändiga FQDN-namn hanteras automatiskt | Kan endast användas med Azure brand vägg
 Använda en HTTP-proxy | Detaljerad kontroll i proxyn över lagrings-URL: er tillåts <br/><br/> En enda punkt i Internet åtkomst till virtuella datorer <br/><br/> Ändringar i Azure IP-adress ingår inte | Ytterligare kostnader för att köra en virtuell dator med proxy-programvaran
+
+#### <a name="private-endpoints"></a>Privata slut punkter
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

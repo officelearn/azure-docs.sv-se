@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
 ms.openlocfilehash: f49396331a31f7ca9eaf453dc8bf6880da2e0da8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613864"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265485"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Hantera en Azure Data Box Edge-enhet via Windows PowerShell
 

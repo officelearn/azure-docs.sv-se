@@ -9,11 +9,11 @@ ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
 ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152082"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244646"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurera aktiva, aktiva S2S VPN-anslutningar med Azure VPN-gatewayer
 

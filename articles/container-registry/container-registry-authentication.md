@@ -4,11 +4,11 @@ description: Autentiseringsalternativ för ett privat Azure Container Registry, 
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 5459ac29c1264b18404cb2863b9d4209907ac029
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361519"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247051"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autentisera med ett Azure Container Registry
 

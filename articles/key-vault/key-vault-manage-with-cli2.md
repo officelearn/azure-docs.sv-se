@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 642cc42a9853fe0a93a40ca65652b6dc5fcd8d40
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195285"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239464"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Hantera Key Vault med Azure CLI 
 

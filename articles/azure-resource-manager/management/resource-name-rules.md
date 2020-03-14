@@ -4,11 +4,11 @@ description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391176"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273922"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -239,7 +239,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Utskrifts | Resursgrupp | 3–24 | Alfanumeriska tecken, bindestreck, under streck och punkter. |
+> | utskrifts | Resursgrupp | 3–24 | Alfanumeriska tecken, bindestreck, under streck och punkter. |
 
 ## <a name="microsoftdatabricks"></a>Microsoft. Databricks
 
@@ -383,7 +383,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Utskrifts | Resursgrupp | 2–64 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. |
+> | utskrifts | Resursgrupp | 2–64 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 

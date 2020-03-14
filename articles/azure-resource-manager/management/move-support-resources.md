@@ -4,11 +4,11 @@ description: Visar en lista över de Azure-resurs typer som kan flyttas till en 
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 8ab194ad240e4f3e0994314ef9ade3bc7159cf81
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387702"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273935"
 ---
 # <a name="move-operation-support-for-resources"></a>Åtgärds stöd för flytt av resurser
 Den här artikeln visar om en Azure-resurs har stöd för flytt åtgärden. Den innehåller också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -308,7 +308,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ---------- |
 > | kluster | Nej | Nej |
 > | fileservers | Nej | Nej |
-> | Utskrifts | Nej | Nej |
+> | utskrifts | Nej | Nej |
 > | arbets ytor | Nej | Nej |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
@@ -570,7 +570,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | Utskrifts | Nej | Nej |
+> | utskrifts | Nej | Nej |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
@@ -843,7 +843,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | Utskrifts | Ja | Ja |
+> | utskrifts | Ja | Ja |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -1328,7 +1328,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | entityqueries | Nej | Nej |
 > | incidenter | Nej | Nej |
 > | officeconsents | Nej | Nej |
-> | standardklient | Nej | Nej |
+> | settings | Nej | Nej |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
@@ -1359,7 +1359,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | managedclusters | Nej | Nej |
 > | nätet | Nej | Nej |
 > | secretstores | Nej | Nej |
-> | volymer | Nej | Nej |
+> | volumes | Nej | Nej |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
@@ -1370,7 +1370,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | gatewayer | Ja | Ja |
 > | nätet | Ja | Ja |
 > | hemligheter | Ja | Ja |
-> | volymer | Ja | Ja |
+> | volumes | Ja | Ja |
 
 ## <a name="microsoftservices"></a>Microsoft. Services
 

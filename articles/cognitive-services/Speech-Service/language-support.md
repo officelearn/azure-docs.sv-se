@@ -12,11 +12,11 @@ ms.date: 03/09/2020
 ms.author: dapine
 ms.custom: seodec18
 ms.openlocfilehash: 11149019c609079bb22e043c3aaad7df9ec8393d
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943357"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219812"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Språk-och region stöd för tal tjänsten
 

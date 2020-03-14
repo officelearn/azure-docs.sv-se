@@ -14,11 +14,11 @@ ms.date: 08/22/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
 ms.openlocfilehash: 11b61612a261b32e2d15b5dc70005b18aa112ed4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659857"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240347"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Samla in data från en Windows-dator i en hybrid miljö med Azure Monitor
 
@@ -36,7 +36,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
 
-    ![Azure-portalen](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
+    ![Azure Portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Välj **skapa**och välj sedan alternativ för följande objekt:
 

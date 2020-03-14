@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361740"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264926"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -50,7 +50,15 @@ Ja. En ExpressRoute-krets när har konfigurerat, kan du komma åt tjänster inom
 
 ### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>Hur annonseras virtuella nätverk på ExpressRoute privata peering?
 
-ExpressRoute-gatewayen kommer att annonsera *adress utrymmet* för det virtuella Azure-nätverket. du kan inte inkludera/exkludera på under näts nivån. Det är alltid det virtuella nätverkets adress utrymme som annonseras. Om VNet-peering används och peer-allokerat VNet har aktiverat "Använd fjärran sluten Gateway", annonseras även adress utrymmet för peer-allokerat VNet.
+ExpressRoute-gatewayen annonserar *adress utrymmet* för det virtuella Azure-nätverket. du kan inte inkludera/exkludera på under näts nivån. Det är alltid det virtuella nätverkets adress utrymme som annonseras. Om VNet-peering används och peer-allokerat VNet har aktiverat "Använd fjärran sluten Gateway", annonseras även adress utrymmet för peer-allokerat VNet.
+
+### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Hur många prefix kan annonseras från ett VNet till lokalt på ExpressRoute privata peering?
+
+Det finns högst 200 prefix som annonseras på en enskild ExpressRoute-anslutning eller via VNet-peering med hjälp av Gateway-överföring. Om du till exempel har 199 adress utrymmen på ett enskilt VNet som är anslutet till en ExpressRoute-krets, annonseras alla 199 av dessa prefix till lokalt. Alternativt, om du har ett VNet aktiverat för att tillåta Gateway-överföring med 1 adress utrymme och 150 ekrar som är aktiverade med alternativet "Tillåt fjärran sluten Gateway", kommer det virtuella nätverk som distribueras med gatewayen att annonsera 151-prefix till lokalt.
+
+### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>Vad händer om jag överskrider prefixlängden för en ExpressRoute-anslutning?
+
+Anslutningen mellan ExpressRoute-kretsen och gatewayen (och peer-virtuella nätverk som använder Gateway-överföring, om tillämpligt) går nedåt. Den återupprättas när prefixlängden inte längre överskrids.  
 
 ### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>Kan jag filtrera vägar som kommer från mitt lokala nätverk?
 

@@ -16,15 +16,15 @@ ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 67cfb04f67e3454bde25969b634116f2871cbeb5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064747"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238344"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Självstudie: Skapa och hantera virtuella Azure-nätverk för virtuella Windows-datorer med Azure PowerShell
 
-Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med en databasserverdel, men det distribueras inte något program i självstudien. I den här självstudiekursen får du lära du dig att:
+Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med en databasserverdel, men det distribueras inte något program i självstudien. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk och ett undernät

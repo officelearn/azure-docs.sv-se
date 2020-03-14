@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389698"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272089"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernels för Jupyter Notebook på Apache Spark kluster i Azure HDInsight
 
@@ -71,7 +71,7 @@ Här är några av fördelarna med att använda de nya kernelerna med Jupyter No
 
    | Magic | Exempel | Beskrivning |
    | --- | --- | --- |
-   | Hjälp |`%%help` |Genererar en tabell med alla tillgängliga MAGICS med exempel och beskrivning |
+   | hjälp |`%%help` |Genererar en tabell med alla tillgängliga MAGICS med exempel och beskrivning |
    | info |`%%info` |Visar sessionsinformation för den aktuella livy-slutpunkten |
    | konfigurera |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Konfigurerar parametrar för att skapa en session. Force-flaggan (-f) är obligatorisk om en session redan har skapats, vilket säkerställer att sessionen släpps och återskapas. Titta på [LIVY post/sessions Request-brödtext](https://github.com/cloudera/livy#request-body) för en lista över giltiga parametrar. Parametrar måste skickas in som en JSON-sträng och måste vara på nästa rad efter Magic, som visas i kolumnen exempel. |
    | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Kör en Hive-fråga mot sqlContext. Om parametern `-o` skickas, sparas resultatet av frågan i den lokala python-kontexten%% som en [Pandas](https://pandas.pydata.org/) -dataframe. |

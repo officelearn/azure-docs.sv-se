@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: b427319fdba634ea3c61681baa30547450709dc1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390460"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250782"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Design överväganden för skalnings uppsättningar
 I den här artikeln beskrivs design överväganden för Virtual Machine Scale Sets. Information om vad Virtual Machine Scale Sets finns i [Översikt över Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).

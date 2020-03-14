@@ -10,14 +10,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: d0e9fff56949125c5fa797e0e4ef7e1183448dd0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: cbe01ee9b8edeab349db484cea6c25dca32bf213
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168577"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218015"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio (klassiska) webb tjänster med API Management
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 ## <a name="overview"></a>Översikt
 Den här guiden visar hur du snabbt kommer igång med API Management för att hantera dina Azure Machine Learning Studio (klassiska) webb tjänster.
 
@@ -35,7 +38,7 @@ Du behöver följande för att slutföra den här guiden:
 
 Du kan hantera din Azure Machine Learning-webbtjänst med en API Management-instans.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **+ Skapa en resurs**.
 3. Skriv ”API management” i sökrutan och välj ”API management”-resursen.
 4. Klicka på **Skapa**.
@@ -166,7 +169,7 @@ När en åtgärd har anropats visar Developer-portalen den **begärda URL:** en 
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Bilaga A – skapa och testa en enkel AzureML webbtjänsten
 ### <a name="creating-the-experiment"></a>Skapa experimentet
-Nedan visas stegen för att skapa ett enkelt AzureML-experiment och distribuera den som en webbtjänst. Tar för web-tjänst som indata för en kolumn med valfri text och returnerar en uppsättning funktioner som representeras som heltal. Några exempel:
+Nedan visas stegen för att skapa ett enkelt AzureML-experiment och distribuera den som en webbtjänst. Tar för web-tjänst som indata för en kolumn med valfri text och returnerar en uppsättning funktioner som representeras som heltal. Exempel:
 
 | Text | Hashade Text |
 | --- | --- |
@@ -245,9 +248,9 @@ Den här guiden visar en fungerande Python-exemplet. Du måste ändra den med **
 
     import urllib2
     import json
-    workspace = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE WORKSPACE ID>"
-    service = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE SERVICE ID>"
-    api_key = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE API KEY>"
+    workspace = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE WORKSPACE ID>"
+    service = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE SERVICE ID>"
+    api_key = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE API KEY>"
     data = {
     "Inputs": {
         "input1": {

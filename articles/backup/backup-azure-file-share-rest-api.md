@@ -4,11 +4,11 @@ description: Lär dig hur du använder REST API för att säkerhetskopiera Azure
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393181"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248104"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Säkerhetskopiera Azure-filresurs med Azure Backup via REST API
 

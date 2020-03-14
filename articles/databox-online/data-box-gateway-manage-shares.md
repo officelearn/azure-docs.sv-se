@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9284400254860b47f3aea6de5c79ab4c2a77f199
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384590"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79265446"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Använda Azur-portalen för att hantera resurser i Azure Data Box Gateway 
 
@@ -45,9 +45,12 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
 3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
-4. Ange ett **Lagringskonto** där resursen ska placeras. En container skapas på lagringskontot med resursnamnet om containern inte redan finns. Om containern redan finns används den befintliga containern.
+4. Ange ett **Lagringskonto** där resursen ska placeras. En container skapas på lagringskontot med resursnamnet om containern inte redan finns. Om containern redan finns används den befintliga containern.  
 
 5. Välj **lagringstjänst** – blockblob, sidblob eller filer. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I det här fallet vill vi till exempel att data ska lagras som blob-block i Azure, därför väljer vi **Blockblob**. Om du väljer **Sidblob** måste du kontrollera att dina data är justerade för 512 byte. Till exempel är en VHDX alltid justerad för 512 byte.
+
+   > [!IMPORTANT]
+   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Det här steget beror på om du skapar en SMB- eller en NFS-resurs.
     - **Om du skapar en SMB-resurs** – I fältet för **lokal användare med fullständig behörighet** väljer du mellan **Skapa ny** eller **Använd befintlig**. Om du skapar en ny lokal användare anger du **användarnamn**, **lösenord** och sedan bekräfta lösenord. Detta tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
@@ -89,21 +92,21 @@ Med uppdateringsfunktionen kan du uppdatera innehållet i en lokal resurs. När 
 
 Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
-1.  Gå till **Resurser** i Azure-portalen. Välj och klicka på den resurs som du vill uppdatera.
+1.   Gå till **Resurser** i Azure-portalen. Välj och klicka på den resurs som du vill uppdatera.
 
     ![Välja resurs](media/data-box-gateway-manage-shares/refresh-1.png)
 
-2.  Klicka på **Uppdatera**. 
+2.   Klicka på **Uppdatera**. 
 
     ![Klicka på Uppdatera](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.  Klicka på **Ja** när du uppmanas att bekräfta åtgärden. Ett jobb startas för att uppdatera innehållet i den lokala resursen. 
+3.   Klicka på **Ja** när du uppmanas att bekräfta åtgärden. Ett jobb startas för att uppdatera innehållet i den lokala resursen. 
 
     ![Bekräfta uppdatering](media/data-box-gateway-manage-shares/refresh-3.png)
  
-4.  Medan uppdateringen pågår nedtonas uppdateringsalternativet i snabbmenyn. Klicka på meddelandet för jobbet för att visa jobbstatus för uppdateringen.
+4.   Medan uppdateringen pågår nedtonas uppdateringsalternativet i snabbmenyn. Klicka på meddelandet för jobbet för att visa jobbstatus för uppdateringen.
 
-5.  Tiden för att uppdatera bestäms av antalet filer i Azure-containern samt filerna på enheten. När uppdateringen är klar uppdateras tidsstämpeln för resursen. Även om uppdateringen delvis har misslyckats anses åtgärden ha lyckats och tidsstämpeln uppdateras. 
+5.   Tiden för att uppdatera bestäms av antalet filer i Azure-containern samt filerna på enheten. När uppdateringen är klar uppdateras tidsstämpeln för resursen. Även om uppdateringen delvis har misslyckats anses åtgärden ha lyckats och tidsstämpeln uppdateras. 
 
     ![Uppdaterad tidsstämpel](media/data-box-gateway-manage-shares/refresh-4.png)
  

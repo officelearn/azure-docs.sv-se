@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: f6366f162cb09898b694b14440718401c57c0adf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390524"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251042"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Arbeta med kanaler som tar emot Live-dataströmmar med flera bit hastigheter från lokala kodare
 
@@ -222,7 +222,7 @@ Här följer andra överväganden om hur du arbetar med kanaler och relaterade k
 * Som standard kan du bara lägga till fem kanaler till ditt Media Services-konto. Mer information finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
 * Du faktureras bara när din kanal är i **Kör** tillstånd. Mer information finns i avsnittet om [kanal tillstånd och fakturering](media-services-live-streaming-with-onprem-encoders.md#states) .
 
-## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
+## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="feedback"></a>Feedback

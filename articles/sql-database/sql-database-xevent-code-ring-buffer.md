@@ -3,7 +3,7 @@ title: Buffert kod för XEvent-ring
 description: Innehåller ett kod exempel för Transact-SQL som är enkelt och snabbt med hjälp av målet för ringbufferten, i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: monitor
+ms.subservice: performance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 7adffac045ddb2ba369993b1b805e3ce2304fb38
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822321"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213972"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring buffertens mål kod för utökade händelser i SQL Database
 
@@ -40,7 +40,7 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 7. Släpper målet för ringbufferten för att frigöra resurser.
 8. Släpper händelsesessionen och demonstrations tabellen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * Alla databaser du kan skapa en tabell i.
@@ -54,10 +54,10 @@ I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
 
 ## <a name="code-sample"></a>Kodexempel
 
-Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden _database i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Till exempel:
+Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden _database i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Exempel:
 
 * sys. dm_xe<strong>_database</strong>_session_targets
-* sys. dm_xe_session_targets
+* sys.dm_xe_session_targets
 
 &nbsp;
 

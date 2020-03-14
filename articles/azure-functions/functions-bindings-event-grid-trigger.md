@@ -7,11 +7,11 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 2027629e1e9e297c97cbf40485ebe7dc2e3e6c0d
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368966"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277731"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Event Grid utlösare för Azure Functions
 
@@ -21,7 +21,7 @@ Information om konfiguration och konfigurations information finns i [översikten
 
 ## <a name="example"></a>Exempel
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Ett exempel på en HTTP-utlösare finns i [ta emot händelser till en HTTP-slutpunkt](../event-grid/receive-events.md).
 
@@ -76,7 +76,7 @@ namespace Company.Function
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen.
 
@@ -128,7 +128,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
@@ -159,7 +159,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen.
 
@@ -200,7 +200,7 @@ def main(event: func.EventGridEvent):
     logging.info('Python EventGrid trigger processed an event: %s', result)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Det här avsnittet innehåller följande exempel:
 
@@ -269,7 +269,7 @@ I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtim
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd attributet [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
@@ -285,19 +285,19 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 Ett fullständigt exempel finns i C# exemplet.
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
 
 Attribut stöds inte av C# skript.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Attribut stöds inte av Java Script.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Attribut stöds inte av python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Med [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/EventGridTrigger.java) -anteckningen kan du konfigurera en Event Grid bindning genom att ange konfigurations värden. Se avsnittet [exempel](#example) och [konfiguration](#configuration) för mer information.
 
@@ -315,7 +315,7 @@ I följande tabell förklaras de egenskaper för bindnings konfigurationen som d
 
 ## <a name="usage"></a>Användning
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I Azure Functions 1. x kan du använda följande parameter typer för utlösaren Event Grid:
 
@@ -329,7 +329,7 @@ I Azure Functions 2. x och högre kan du också välja att använda följande pa
 > [!NOTE]
 > I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`visas ett "föråldrat" meddelande som gör att du kan använda `Microsoft.Azure.EventGrid.Models.EventGridEvent` i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och fullständigt kvalificerar `EventGridEvent` typ namnet genom att prefixet med `Microsoft.Azure.EventGrid.Models`.
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C#Över](#tab/csharp-script)
 
 I Azure Functions 1. x kan du använda följande parameter typer för utlösaren Event Grid:
 
@@ -343,15 +343,15 @@ I Azure Functions 2. x och högre kan du också välja att använda följande pa
 > [!NOTE]
 > I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`visas ett "föråldrat" meddelande som gör att du kan använda `Microsoft.Azure.EventGrid.Models.EventGridEvent` i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och fullständigt kvalificerar `EventGridEvent` typ namnet genom att prefixet med `Microsoft.Azure.EventGrid.Models`. Information om hur du refererar till NuGet-paket i C# en-skript funktion finns i [använda NuGet-paket](functions-reference-csharp.md#using-nuget-packages)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen `name` i *Function. JSON* -filen.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen *. JSON* -filens `name`, som `func.EventGridEvent`.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Händelse instansen Event Grid är tillgänglig via den parameter som är kopplad till attributet `EventGridTrigger`, skriven som en `EventSchema`. Se [exemplet](#example) för mer information.
 
@@ -399,7 +399,7 @@ Förklaringar av vanliga och event-/regionsspecifika egenskaper finns i [händel
 
 Om du vill börja ta emot Event Grid HTTP-begäranden skapar du en Event Grid-prenumeration som anger slut punkts-URL: en som anropar funktionen.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer du **Lägg till Event Grid prenumeration**.
 

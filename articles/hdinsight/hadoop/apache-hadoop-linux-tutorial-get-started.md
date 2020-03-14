@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.openlocfilehash: b554fcd4d4175aeac88df14eebbbaf4a8ba49f4c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361363"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79241236"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Snabb start: skapa Apache Hadoop kluster i Azure HDInsight med Resource Manager-mall
 

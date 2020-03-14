@@ -1,6 +1,6 @@
 ---
 title: Inbyggda Azure-roller för Azure RBAC
-description: Beskriver de inbyggda Azure-rollerna för rollbaserad åtkomst kontroll i Azure (Azure RBAC). Visar en lista över åtgärder, NotActions, DataActions och NotDataActions.
+description: I den här artikeln beskrivs de inbyggda Azure-rollerna för rollbaserad åtkomst kontroll (RBAC) i Azure. Den listar åtgärder, NotActions, DataActions och NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/18/2020
+ms.date: 03/12/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b7b944880074b64f6a9e66e177082e52632e9c9d
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 5b6da05f07636f6a6dde16cf6d8061629a72adfa
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205899"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281111"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda Azure-roller
 
-[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) har flera inbyggda Azure-roller som du kan tilldela till användare, grupper, tjänstens huvud namn och hanterade identiteter. Roll tilldelningar är hur du styr åtkomsten till Azure-resurser. Om de inbyggda rollerna inte uppfyller organisationens specifika behov kan du skapa egna [Azure-anpassade roller](custom-roles.md).
+[Rollbaserad åtkomst kontroll (RBAC) i Azure](overview.md) har flera inbyggda Azure-roller som du kan tilldela till användare, grupper, tjänstens huvud namn och hanterade identiteter. Roll tilldelningar är hur du styr åtkomsten till Azure-resurser. Om de inbyggda rollerna inte uppfyller organisationens specifika behov kan du skapa egna [Azure-anpassade roller](custom-roles.md).
 
-Den här artikeln innehåller de inbyggda rollerna för Azure-resurser, som alltid utvecklas. För att få de senaste rollerna använder du [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list). Om du letar efter administratörs roller för Azure Active Directory, se [Administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Den här artikeln innehåller de inbyggda rollerna för Azure-resurser, som alltid utvecklas. För att få de senaste rollerna använder du [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list). Om du letar efter administratörs roller för Azure Active Directory (Azure AD) kan du läsa [behörigheter för administratörs roll i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="descriptions-and-ids"></a>Beskrivningar och ID: n
 
-Följande tabell innehåller en kort beskrivning och det unika ID: t för varje inbyggd roll. Klicka på roll namnet om du vill se en lista över `Actions`, `NotActions`, `DataActions`och `NotDataActions` för varje roll. Information om vad dessa åtgärder betyder och hur de tillämpas på hanterings-och data planen finns i [förstå roll definitioner för Azure-resurser](role-definitions.md).
+Följande tabell innehåller en kort beskrivning och det unika ID: t för varje inbyggd roll. Välj roll namnet om du vill se en lista över `Actions`, `NotActions`, `DataActions`och `NotDataActions` för varje roll. Information om vad dessa åtgärder betyder och hur de tillämpas på hanterings-och data planen finns i [förstå roll definitioner för Azure-resurser](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
@@ -1059,7 +1059,7 @@ Låter dig hantera klassiska virtuella datorer, men inte åtkomst till dem, inte
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they’re connected to.",
+  "description": "Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "name": "d73bb868-a0df-4d4d-bd69-98a00b01fccb",
   "permissions": [
@@ -2052,7 +2052,7 @@ Låter dig hantera SQL-hanterade instanser och nödvändig nätverks konfigurati
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage SQL Managed Instances and required network configuration, but can’t give access to others.",
+  "description": "Lets you manage SQL Managed Instances and required network configuration, but can't give access to others.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "name": "4939a1f6-9ae0-4e48-a1e0-f2cbe897382d",
   "permissions": [
@@ -3853,10 +3853,7 @@ Kan hantera skiss definitioner, men tilldela dem inte.
 
 ### <a name="blueprint-operator"></a>Skiss operator
 
-Kan tilldela befintliga publicerade ritningar, men kan inte skapa nya ritningar. 
-
-> [!NOTE] 
-> Detta fungerar endast om tilldelningen görs med en tilldelad hanterad identitet.
+Kan tilldela befintliga publicerade ritningar, men kan inte skapa nya ritningar. OBS! detta fungerar endast om tilldelningen görs med en tilldelad hanterad identitet.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -4316,6 +4313,8 @@ Kan läsa alla övervaknings data och redigera övervaknings inställningar. Se 
 > | Microsoft. WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 > | Microsoft. AlertsManagement/smartDetectorAlertRules/* |  |
+> | Microsoft. AlertsManagement/actionRules/* |  |
+> | Microsoft. AlertsManagement/smartGroups/* |  |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |
@@ -4359,7 +4358,9 @@ Kan läsa alla övervaknings data och redigera övervaknings inställningar. Se 
         "Microsoft.Support/*",
         "Microsoft.WorkloadMonitor/monitors/*",
         "Microsoft.WorkloadMonitor/notificationSettings/*",
-        "Microsoft.AlertsManagement/smartDetectorAlertRules/*"
+        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
+        "Microsoft.AlertsManagement/actionRules/*",
+        "Microsoft.AlertsManagement/smartGroups/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -5322,7 +5323,7 @@ Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "name": "426e0c7f-0c7e-4658-b36f-ff54d6c29b45",
   "permissions": [
@@ -5376,7 +5377,7 @@ Kan visa CDN-slutpunkter, men kan inte göra ändringar.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN endpoints, but can’t make changes.",
+  "description": "Can view CDN endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "name": "871e35f6-b5c1-49cc-a043-bde969a0f2cd",
   "permissions": [
@@ -5430,7 +5431,7 @@ Kan hantera CDN-profiler och deras slut punkter, men kan inte bevilja åtkomst t
   "assignableScopes": [
     "/"
   ],
-  "description": "Can manage CDN profiles and their endpoints, but can’t grant access to other users.",
+  "description": "Can manage CDN profiles and their endpoints, but can't grant access to other users.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "name": "ec156ff8-a8d1-4d15-830c-5b80698ca432",
   "permissions": [
@@ -5484,7 +5485,7 @@ Kan visa CDN-profiler och deras slut punkter, men kan inte göra ändringar.
   "assignableScopes": [
     "/"
   ],
-  "description": "Can view CDN profiles and their endpoints, but can’t make changes.",
+  "description": "Can view CDN profiles and their endpoints, but can't make changes.",
   "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8f96442b-4075-438f-813d-ad51ab4019af",
   "name": "8f96442b-4075-438f-813d-ad51ab4019af",
   "permissions": [
@@ -5731,7 +5732,7 @@ Azure Sentinel-deltagare
 > | **Åtgärder** |  |
 > | Microsoft. SecurityInsights/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med ny motor. |
-> | Microsoft.OperationalInsights/workspaces/read | Hämtar en befintlig arbets yta |
+> | Microsoft. OperationalInsights/arbets ytor/*/Read | Visa Log Analytics-data |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
 > | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/läsa | Köra frågor över data i arbets ytan |
@@ -5763,7 +5764,7 @@ Azure Sentinel-deltagare
       "actions": [
         "Microsoft.SecurityInsights/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5797,7 +5798,8 @@ Azure Sentinel-läsare
 > | **Åtgärder** |  |
 > | Microsoft. SecurityInsights/*/Read |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med ny motor. |
-> | Microsoft.OperationalInsights/workspaces/read | Hämtar en befintlig arbets yta |
+> | Microsoft. OperationalInsights/arbets ytor/*/Read | Visa Log Analytics-data |
+> | Microsoft. OperationalInsights/arbets ytor/LinkedServices/Read | Hämta länkade tjänster för den aktuella arbets ytan. |
 > | Microsoft. OperationalInsights/arbets ytor/savedSearches/Read | Hämtar en sparad Sök fråga |
 > | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
 > | Microsoft. OperationalInsights/arbets ytor/fråga/läsa | Köra frågor över data i arbets ytan |
@@ -5829,7 +5831,8 @@ Azure Sentinel-läsare
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
+        "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
         "Microsoft.OperationalInsights/workspaces/query/read",
@@ -5863,8 +5866,9 @@ Azure Sentinel-svarare
 > | **Åtgärder** |  |
 > | Microsoft. SecurityInsights/*/Read |  |
 > | Microsoft. SecurityInsights/Cases/* |  |
+> | Microsoft. SecurityInsights/incidenter/* |  |
 > | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med ny motor. |
-> | Microsoft.OperationalInsights/workspaces/read | Hämtar en befintlig arbets yta |
+> | Microsoft. OperationalInsights/arbets ytor/*/Read | Visa Log Analytics-data |
 > | Microsoft. OperationalInsights/arbets ytor/data källor/läsa | Hämta data källor under en arbets yta. |
 > | Microsoft. OperationalInsights/arbets ytor/savedSearches/Read | Hämtar en sparad Sök fråga |
 > | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
@@ -5897,8 +5901,9 @@ Azure Sentinel-svarare
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/cases/*",
+        "Microsoft.SecurityInsights/incidents/*",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
-        "Microsoft.OperationalInsights/workspaces/read",
+        "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
         "Microsoft.OperationalInsights/workspaces/savedSearches/read",
         "Microsoft.OperationsManagement/solutions/read",
@@ -6655,6 +6660,7 @@ Kan visa säkerhets kopierings tjänster, men kan inte göra ändringar
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Hämtar åtgärds status för en specifik åtgärd |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista alla säkerhets avsikter för säkerhets kopiering |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användnings information för ett Recovery Services-valv. |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validera funktioner |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |
@@ -6709,7 +6715,8 @@ Kan visa säkerhets kopierings tjänster, men kan inte göra ändringar
         "Microsoft.RecoveryServices/operations/read",
         "Microsoft.RecoveryServices/locations/operationStatus/read",
         "Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read",
-        "Microsoft.RecoveryServices/Vaults/usages/read"
+        "Microsoft.RecoveryServices/Vaults/usages/read",
+        "Microsoft.RecoveryServices/locations/backupValidateFeatures/action"
       ],
       "notActions": [],
       "dataActions": [],

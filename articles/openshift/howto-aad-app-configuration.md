@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381437"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280539"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
 
@@ -92,15 +92,20 @@ Mer information om hur du skapar ett nytt Azure AD-program finns i [Registrera e
 
 ## <a name="add-api-permissions"></a>Lägg till API-behörigheter
 
-1. I avsnittet **Hantera** klickar du på **API-behörigheter**.
-2. Klicka på **Lägg till behörighet** och välj **Azure Active Directory graf** sedan **delegerade behörigheter**. 
-3. Expandera **användare** i listan nedan och aktivera **användaren. Läs** behörighet. Om **User. Read** är aktiverat som standard, se till att det är den **Azure Active Directory Graph** behörighet **användare. Läs**, *inte* **Microsoft Graph** behörighets **användare. Läs**.
+[//]: # (Ändra inte till Microsoft Graph. Den fungerar inte med Microsoft Graph.)
+1. I avsnittet **Hantera** klickar du på **API-behörigheter**
+2. Klicka på **Lägg till behörighet** och välj **Azure Active Directory graf** sedan **delegerade behörigheter**.
+> [!NOTE]
+> Se till att du har valt "Azure Active Directory Graf" och inte "Microsoft Graph"-panelen.
+
+3. Expandera **användare** i listan nedan och aktivera **användaren. Läs** behörighet. Om **User. Read** är aktiverat som standard, se till att det är **Azure Active Directory Graph** behörighet **User. Read**.
 4. Rulla upp och välj **program behörigheter**.
-5. Expandera **katalogen** i listan nedan och aktivera **Directory. ReadAll**
+5. Expandera **katalogen** i listan nedan och aktivera **Directory. ReadAll**.
 6. Klicka på **Lägg till behörigheter** för att acceptera ändringarna.
 7. Panelen API-behörigheter bör nu visa både *User. Read* och *Directory. ReadAll*. Observera varningen i kolumnen **admin medgivande som krävs** bredvid *Directory. ReadAll*.
 8. Om du är *administratör för Azure-prenumeration*klickar du på **bevilja administratörs medgivande för *prenumerations namn***  nedan. Om du inte är *administratör för Azure-prenumerationen*ber du ditt medgivande från administratören.
-![skärm bild av panelen API-behörigheter. Behörigheter för User. Read och Directory. ReadAll har lagts till, administratörs medgivande krävs för Directory. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+
+![Skärm bild av panelen API-behörigheter. User. Read och Directory. ReadAll-behörigheter lades till, administratörs medgivande krävs för Directory. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
 > Synkronisering av gruppen kluster administratörer fungerar bara när medgivande har beviljats. En grön cirkel visas med en bock markering och ett meddelande "beviljat *prenumerations namn*" i kolumnen *admin medgivande krävs* .

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
 ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365932"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254656"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Använd StorSimple Snapshot Manager för att visa och hantera volymer
 ## <a name="overview"></a>Översikt

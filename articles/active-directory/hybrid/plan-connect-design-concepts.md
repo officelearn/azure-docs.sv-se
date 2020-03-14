@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376013"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253889"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: utforma begrepp
 Syftet med det här dokumentet är att beskriva områden som måste ses över under implementeringen av Azure AD Connect. Det här dokumentet är ett djupgående att ta del av vissa områden och dessa begrepp beskrivs kortfattat i andra dokument.

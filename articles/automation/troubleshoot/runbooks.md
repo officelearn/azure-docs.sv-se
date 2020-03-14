@@ -8,34 +8,38 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9786129207ead804bdd6c9439dc82168959e7db9
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
-ms.translationtype: MT
+ms.openlocfilehash: abe159221846c4820ba9750f62bdbc814521ecc4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128857"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252745"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 
 När du har problem med att köra Runbooks i Azure Automation kan du använda följande steg för att diagnostisera problemen.
 
-1. **Se till att Runbook-skriptet körs på den lokala datorn:**  Se PowerShell- [dokumenten](/powershell/scripting/overview) eller [python-dokumenten](https://docs.python.org/3/) för språk referens-och inlärnings moduler.
+1. **Se till att Runbook-skriptet körs korrekt på den lokala datorn.** 
 
-   Att köra skriptet lokalt kan identifiera och lösa vanliga fel, till exempel:
+    Se PowerShell- [dokumenten](/powershell/scripting/overview) eller [python-dokumenten](https://docs.python.org/3/) för språk referens-och inlärnings moduler. Att köra skriptet lokalt kan identifiera och lösa vanliga fel, till exempel:
 
-   - **Moduler som saknas**
-   - **Syntaxfel**
-   - **Logic-fel**
+      * Moduler som saknas
+      * Syntaxfel
+      * Logic-fel
 
-2. **Undersök** [fel strömmar](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) för Runbook för vissa meddelanden och jämför dem med felen nedan.
+2. **Undersök [fel strömmar](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output)för Runbook.**
 
-3. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Om din Runbook importerar några moduler, se till att de är tillgängliga för ditt Automation-konto med hjälp av stegen som anges i [importera moduler](../shared-resources/modules.md#import-modules). Uppdatera dina moduler till den senaste versionen genom att följa anvisningarna i [Uppdatera Azure-moduler i Azure Automation](..//automation-update-azure-modules.md). Mer felsöknings information finns i [Felsöka moduler](shared-resources.md#modules).
+    Titta på dessa strömmar för vissa meddelanden och jämför dem med de fel som dokumenteras i den här artikeln.
 
-Om din Runbook har pausats eller om oväntade fel uppstår:
+3. **Se till att noderna och automation-arbetsytan har de moduler som krävs.** 
 
-* [Kontrol lera jobb status](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) definierar Runbook-status och vissa möjliga orsaker.
-* [Lägg till ytterligare utdata](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
-* [Hantera eventuella undantag](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) som genereras av ditt jobb.
+    Om din Runbook importerar några moduler kontrollerar du att de är tillgängliga för ditt Automation-konto med hjälp av stegen i [importera moduler](../shared-resources/modules.md#import-modules). Uppdatera dina moduler till den senaste versionen genom att följa anvisningarna i [Uppdatera Azure-moduler i Azure Automation](..//automation-update-azure-modules.md). Mer felsöknings information finns i [Felsöka moduler](shared-resources.md#modules).
+
+4. **Gör om din Runbook är inaktive rad eller inte fungerar som den ska.**
+
+    * [Kontrol lera jobb status](https://docs.microsoft.com/azure/automation/automation-runbook-execution#job-statuses) definierar Runbook-status och vissa möjliga orsaker.
+    * [Lägg till ytterligare utdata](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
+    * [Hantera eventuella undantag](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) som genereras av ditt jobb.
 
 ## <a name="login-azurerm"></a>Scenario: kör login-AzureRMAccount för att logga in
 
@@ -53,12 +57,12 @@ Det här felet kan inträffa om du inte använder ett Kör som-konto eller om k�
 
 Det här felet har två primära orsaker:
 
-* Olika versioner av AzureRM-moduler.
+* Det finns olika versioner av AzureRM-eller AZ-modulen.
 * Du försöker komma åt resurser i en separat prenumeration.
 
 ### <a name="resolution"></a>Lösning
 
-Om du får det här felet när du har uppdaterat en AzureRM-modul bör du uppdatera alla dina AzureRM-moduler till samma version.
+Om du får det här felet när du har uppdaterat en AzureRM-eller AZ-modul bör du uppdatera alla moduler till samma version.
 
 Om du försöker komma åt resurser i en annan prenumeration kan du följa stegen nedan för att konfigurera behörigheter.
 
@@ -66,12 +70,10 @@ Om du försöker komma åt resurser i en annan prenumeration kan du följa stege
   ![kopiera program-ID och tumavtryck](../media/troubleshoot-runbooks/collect-app-id.png)
 1. Gå till prenumerationens Access Control där Automation-kontot inte finns och Lägg till en ny roll tilldelning.
   ![Åtkomstkontroll](../media/troubleshoot-runbooks/access-control.png)
-1. Lägg till det program-ID som du samlade in i föregående steg. Välj deltagar behörighet.
+1. Lägg till det program-ID som samlats in tidigare. Välj deltagar behörighet.
    ![lägga till roll tilldelning](../media/troubleshoot-runbooks/add-role-assignment.png)
-1. Kopiera prenumerations namnet för nästa steg.
-1. Du kan nu använda följande Runbook-kod för att testa behörigheterna från ditt Automation-konto till den andra prenumerationen.
-
-    Ersätt "\<CertificateThumbprint-\>" med värdet som du kopierade i steg #1 och värdet "\<SubscriptionName\>" som du kopierade i steg #4.
+1. Kopiera namnet på prenumerationen.
+1. Du kan nu använda följande Runbook-kod för att testa behörigheterna från ditt Automation-konto till den andra prenumerationen. Ersätt `"\<CertificateThumbprint\>"` med värdet som du kopierade i steg 1. Ersätt `"\<SubscriptionName\>"` med värdet som du kopierade i steg 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -92,7 +94,7 @@ Om du försöker komma åt resurser i en annan prenumeration kan du följa stege
 
 ### <a name="issue"></a>Problem
 
-Du får följande fel meddelande när du arbetar med cmdleten **Select-AzureSubscription** eller **Select-AzureRmSubscription** :
+Du får följande fel meddelande när du arbetar med `Select-AzureSubscription`-eller `Select-AzureRmSubscription`-cmdlet:
 
 ```error
 The subscription named <subscription name> cannot be found.
@@ -102,17 +104,17 @@ The subscription named <subscription name> cannot be found.
 
 Det här felet kan inträffa om:
 
-* Prenumerations namnet är inte giltigt
+* Prenumerations namnet är inte giltigt.
 * Den Azure Active Directory användare som försöker hämta prenumerations informationen har inte kon figurer ATS som administratör för prenumerationen.
 
 ### <a name="resolution"></a>Lösning
 
-Vidta följande steg för att avgöra om du har autentiserat till Azure och har åtkomst till den prenumeration som du försöker välja:
+Följ stegen nedan för att avgöra om du har autentiserats för Azure och har åtkomst till den prenumeration som du försöker välja.
 
-1. Testa skriptet utanför Azure Automation för att se till att det fungerar fristående.
-2. Kontrol lera att du kör cmdleten **Add-AzureAccount** innan du kör cmdleten **Select-AzureSubscription** .
+1. Kontrol lera att skriptet fungerar fristående genom att testa det utanför Azure Automation.
+2. Kontrol lera att skriptet kör `Add-AzureAccount` cmdlet innan du kör `Select-AzureSubscription`-cmdlet: en.
 3. Lägg till `Disable-AzureRmContextAutosave –Scope Process` i början av din Runbook. Detta cmdlet-anrop garanterar att alla autentiseringsuppgifter endast gäller för körningen av den aktuella runbooken.
-4. Om det här fel meddelandet fortfarande visas ändrar du koden genom att lägga till parametern *AzureRmContext* för cmdleten **Add-AzureAccount** och sedan köra koden.
+4. Om det här fel meddelandet fortfarande visas ändrar du koden genom att lägga till parametern `AzureRmContext` för `Add-AzureAccount`-cmdlet och sedan köra koden.
 
    ```powershell
    Disable-AzureRmContextAutosave –Scope Process
@@ -137,7 +139,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 ### <a name="cause"></a>Orsak
 
-Om du har Multi-Factor Authentication på ditt Azure-konto kan du inte använda en Azure Active Directory användare för att autentisera till Azure. I stället måste du använda ett certifikat eller ett huvud namn för tjänsten för att autentisera till Azure.
+Om du har Multi-Factor Authentication på ditt Azure-konto kan du inte använda en Azure Active Directory användare för att autentisera till Azure. I stället måste du använda ett certifikat eller ett huvud namn för tjänsten för att autentisera.
 
 ### <a name="resolution"></a>Lösning
 
@@ -163,7 +165,7 @@ At line:16 char:1
 
 ### <a name="cause"></a>Orsak
 
-Det här felet orsakas av både AzureRM-och AZ-cmdletar i en Runbook. Det inträffar när du importerar `Az` innan du importerar `AzureRM`.
+Det här felet orsakas av både AzureRM-och AZ-modulens cmdlets i en Runbook. Det inträffar när du importerar AZ-modulen innan du importerar AzureRM-modulen.
 
 ### <a name="resolution"></a>Lösning
 
@@ -185,9 +187,12 @@ Det här felet kan orsakas av att inaktuella Azure-moduler används.
 
 ### <a name="resolution"></a>Lösning
 
-Det här felet kan lösas genom att uppdatera dina Azure-moduler till den senaste versionen.
+Du kan lösa det här felet genom att uppdatera Azure-moduler till den senaste versionen. 
 
-I ditt Automation-konto klickar du på **moduler**och sedan på **Uppdatera Azure-moduler**. Uppdateringen tar ungefär 15 minuter efter att du har slutfört körningen av den Runbook som misslyckades. Mer information om hur du uppdaterar dina moduler finns [i Uppdatera Azure-moduler i Azure Automation](../automation-update-azure-modules.md).
+1. I ditt Automation-konto klickar du på **moduler**och **uppdaterar sedan Azure-moduler**. 
+2. Uppdateringen tar ungefär 15 minuter. Kör den Runbook som misslyckades när den är klar.
+
+Mer information om hur du uppdaterar dina moduler finns [i Uppdatera Azure-moduler i Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="runbook-auth-failure"></a>Scenario: Runbooks fungerar inte vid hantering av flera prenumerationer
 
@@ -201,7 +206,7 @@ Runbooken använder inte rätt kontext vid körning.
 
 ### <a name="resolution"></a>Lösning
 
-Prenumerations kontexten kan gå förlorad när du anropar flera Runbooks. För att säkerställa att prenumerations kontexten skickas till Runbooks skickar du kontexten till cmdlet: en i parametern *AzureRmContext* . Använd cmdleten **disable-AzureRmContextAutosave** med **process** omfånget för att säkerställa att de angivna autentiseringsuppgifterna endast används för den aktuella runbooken.
+Prenumerations kontexten kan gå förlorad när en Runbook anropar flera Runbooks. För att säkerställa att prenumerations kontexten skickas till runbooks, måste klientens Runbook skicka kontexten till `Start-AzureRmAutomationRunbook`-cmdleten i `AzureRmContext`-parametern. Använd `Disable-AzureRmContextAutosave`-cmdleten med parametern `Scope` inställd på `Process` för att säkerställa att de angivna autentiseringsuppgifterna endast används för den aktuella runbooken. Mer information finns i [arbeta med flera prenumerationer](../automation-runbook-execution.md#working-with-multiple-subscriptions).
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -228,8 +233,6 @@ Start-AzureRmAutomationRunbook `
     –Parameters $params –wait
 ```
 
-Mer information finns i [arbeta med flera prenumerationer](../automation-runbook-execution.md#working-with-multiple-subscriptions).
-
 ## <a name="not-recognized-as-cmdlet"></a>Scenario: termen känns inte igen som namnet på en cmdlet, funktion, skript
 
 ### <a name="issue"></a>Problem
@@ -237,29 +240,29 @@ Mer information finns i [arbeta med flera prenumerationer](../automation-runbook
 Din Runbook Miss lyckas med ett fel som liknar följande exempel:
 
 ```error
-The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
 ### <a name="cause"></a>Orsak
 
-Detta fel kan bero på följande orsaker:
+Det här felet kan inträffa av följande orsaker:
 
 * Modulen som innehåller cmdleten importeras inte till Automation-kontot.
 * Modulen som innehåller cmdleten importeras men är inaktuell.
 
 ### <a name="resolution"></a>Lösning
 
-Det här felet kan lösas genom att utföra en av följande uppgifter:
+Utför en av följande åtgärder för att lösa det här felet. 
 
-Om modulen är en Azure-modul läser [du så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md) för att lära dig hur du uppdaterar dina moduler i ditt Automation-konto.
+* En Azure-modul finns i [så här uppdaterar du Azure PowerShell-moduler i Azure Automation](../automation-update-azure-modules.md) för att lära dig hur du uppdaterar dina moduler i ditt Automation-konto.
 
-Om det är en separat modul kontrollerar du att modulen har importer ATS till ditt Automation-konto.
+* För en icke-Azure-modul kontrollerar du att modulen har importer ATS till ditt Automation-konto.
 
 ## <a name="job-attempted-3-times"></a>Scenario: ett försök gjordes att starta Runbook-jobbet tre gånger, men det gick inte att starta varje gång
 
 ### <a name="issue"></a>Problem
 
-Din Runbook Miss lyckas med följande fel.
+Din Runbook Miss lyckas med följande fel:
 
 ```error
 The job was tried three times but it failed
@@ -273,7 +276,7 @@ Felet beror på ett av följande problem:
 
 * Nätverks platser. Azure-sand lådor är begränsade till 1000 samtidiga nätverks platser. Se [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-* Modulen är inkompatibel. Beroenden för modulen kan vara felaktiga. I det här fallet returnerar din Runbook vanligt vis ett **kommando som inte hittas** eller **inte kan binda parameter** meddelandet.
+* Modulen är inkompatibel. Beroenden för modulen kan vara felaktiga. I det här fallet returnerar din Runbook vanligt vis ett `Command not found`-eller `Cannot bind parameter`-meddelande.
 
 * Ingen autentisering med Active Directory för sandbox. Din Runbook försökte anropa en körbar fil eller under process som körs i en Azure-sandbox. Det finns inte stöd för att konfigurera Runbooks för autentisering med Azure AD med hjälp av Azure Active Directory Authentication Library (ADAL).
 
@@ -285,17 +288,17 @@ Felet beror på ett av följande problem:
 
 * Modulen är inkompatibel. Uppdatera dina Azure-moduler genom att följa stegen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
 
-* Ingen autentisering med ADAL för sandbox. När du autentiserar till Azure AD med en Runbook kontrollerar du att Azure AD-modulen är tillgänglig i ditt Automation-konto. Se till att ge kör som-kontot de behörigheter som krävs för att utföra de uppgifter som Runbook automatiserar.
+* Ingen autentisering med Active Directory för sandbox. När du autentiserar till Azure AD med en Runbook kontrollerar du att Azure AD-modulen är tillgänglig i ditt Automation-konto. Se till att ge kör som-kontot de behörigheter som krävs för att utföra de uppgifter som Runbook automatiserar.
 
   Om din Runbook inte kan anropa en körbar fil eller under process som körs i en Azure-sandbox, använder du runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker begränsas inte av de minnes-och nätverks gränser som Azure-sandbox har.
 
-* För mycket undantags data. Det finns en gräns på jobbets utgående data ström. Se till att din Runbook innesluter anrop till en körbar fil eller under process i ett try/catch-block. Om åtgärderna genererar ett undantag ska koden skriva meddelandet från undantaget till en Automation-variabel. Den här tekniken förhindrar att meddelandet skrivs in i utdataströmmen för jobb.
+* För mycket undantags data. Det finns en gräns på jobbets utgående data ström. Se till att din Runbook avstår anrop till en körbar fil eller under process med hjälp av `try`-och `catch`-block. Om åtgärderna genererar ett undantag ska koden skriva meddelandet från undantaget till en Automation-variabel. Den här tekniken förhindrar att meddelandet skrivs in i utdataströmmen för jobb.
 
 ## <a name="sign-in-failed"></a>Scenario: det gick inte att logga in på Azure-kontot
 
 ### <a name="issue"></a>Problem
 
-Du får ett av följande fel när du arbetar med cmdleten **Add-AzureAccount** eller **Connect-AzureRmAccount** :
+Du får ett av följande fel när du arbetar med `Add-AzureAccount`-eller `Connect-AzureRmAccount`-cmdlet:
 
 ```error
 Unknown_user_type: Unknown User Type
@@ -307,14 +310,14 @@ No certificate was found in the certificate store with thumbprint
 
 ### <a name="cause"></a>Orsak
 
-Det här felet uppstår om inloggnings namnet för autentiseringsuppgiften inte är giltigt. Det här felet kan också inträffa om det användar namn och lösen ord som du använde för att konfigurera inloggnings uppgifterna för Automation inte är giltiga.
+Felen uppstår om inloggnings namnet är ogiltigt. De kan också inträffa om det användar namn och lösen ord som du använde för att konfigurera inloggnings uppgifterna för Automation inte är giltiga.
 
 ### <a name="resolution"></a>Lösning
 
 Ta reda på vad som är fel genom att följa stegen nedan:
 
-1. Kontrol lera att du inte har några specialtecken. Dessa tecken innehåller **\@** tecknet i namnet på den Automation-autentiseringsuppgifter som du använder för att ansluta till Azure.
-2. Kontrol lera att du kan använda det användar namn och lösen ord som lagras i Azure Automation autentiseringsuppgiften i din lokala PowerShell ISE-redigerare. Du kan kontrol lera att användar namnet och lösen ordet är korrekta genom att köra följande cmdlets i PowerShell ISE:
+1. Kontrol lera att du inte har några specialtecken. Dessa tecken innehåller `\@` tecknet i namnet på den Automation-autentiseringsuppgifter som du använder för att ansluta till Azure.
+2. Kontrol lera om du kan använda det användar namn och lösen ord som lagras i Azure Automation autentiseringsuppgiften i din lokala PowerShell ISE-redigerare. Kör följande cmdlets i PowerShell ISE.
 
    ```powershell
    $Cred = Get-Credential
@@ -324,9 +327,9 @@ Ta reda på vad som är fel genom att följa stegen nedan:
    Connect-AzureRmAccount –Credential $Cred
    ```
 
-3. Om autentiseringen Miss lyckas lokalt innebär det att du inte har konfigurerat dina Azure Active Directory autentiseringsuppgifter korrekt. Läs om hur du [autentiserar till Azure med hjälp av Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogg inlägg för att få Azure Active Directorys konto rätt konfigurerat.
+3. Om autentiseringen Miss lyckas lokalt har du inte konfigurerat dina Azure Active Directory autentiseringsuppgifter korrekt. Läs igenom [autentiseringen till Azure med hjälp av Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogg inlägget för att få Azure Active Directorys konto rätt konfigurerat.
 
-4. Om det ser ut som ett tillfälligt fel kan du försöka lägga till logik för återförsök för autentisering för att göra autentiseringen stabilare.
+4. Om felet verkar vara tillfälligt kan du försöka lägga till logik för återförsök för autentisering för att göra autentiseringen stabilare.
 
    ```powershell
    # Get the connection "AzureRunAsConnection"
@@ -354,7 +357,7 @@ Ta reda på vad som är fel genom att följa stegen nedan:
 
 ### <a name="issue"></a>Problem
 
-Du får följande fel meddelande när du anropar en underordnad Runbook med `-Wait` växel och utdataströmmen innehåller ett objekt:
+Du får följande fel meddelande när du anropar en underordnad Runbook med parametern `Wait` och utdataströmmen innehåller ett objekt:
 
 ```error
 Object reference not set to an instance of an object
@@ -362,7 +365,7 @@ Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Orsak
 
-**Start-AzureRmAutomationRunbook** hanterar inte utdataströmmen korrekt om data strömmen innehåller objekt.
+`Start-AzureRmAutomationRunbook` hanterar inte utdataströmmen korrekt om data strömmen innehåller objekt.
 
 ### <a name="resolution"></a>Lösning
 
@@ -408,9 +411,9 @@ Om din Runbook är ett PowerShell-arbetsflöde lagrar den komplexa objekt i ett 
 
 ### <a name="resolution"></a>Lösning
 
-Följande tre lösningar löser problemet:
+Åtgärda problemet med någon av följande lösningar.
 
-* Om du flyttar komplexa objekt från en cmdlet till en annan omsluter du dessa cmdletar i en InlineScript.
+* Om du flyttar komplexa objekt från en cmdlet till en annan kan du omsluta dessa cmdletar i en `InlineScript`-aktivitet.
 * Skicka det namn eller värde som du behöver från det komplexa objektet i stället för att skicka hela objektet.
 * Använd en PowerShell-Runbook i stället för en PowerShell Workflow-Runbook.
 
@@ -430,12 +433,12 @@ Felet uppstår när jobb körningen överskrider den kostnads fria kvoten på 50
 
 ### <a name="resolution"></a>Lösning
 
-Om du vill använda mer än 500 minuters bearbetning per månad måste du ändra din prenumeration från den kostnads fria nivån till Basic-nivån. Du kan uppgradera till nivån Basic genom att utföra följande steg:
+Om du vill använda mer än 500 minuters bearbetning per månad ändrar du din prenumeration från den kostnads fria nivån till Basic-nivån.
 
 1. Logga in på din Azure-prenumeration.
 2. Välj det Automation-konto som ska uppgraderas.
 3. Klicka på **Inställningar**och sedan på **priser**.
-4. Klicka på **Aktivera** på sidan längst ned för att uppgradera ditt konto till **Basic** -nivån.
+4. Klicka på **Aktivera** på sidan längst ned för att uppgradera ditt konto till Basic-nivån.
 
 ## <a name="cmdlet-not-recognized"></a>Scenario: cmdleten känns inte igen när en Runbook kördes
 
@@ -453,11 +456,11 @@ Det här felet beror på att PowerShell-motorn inte kan hitta den cmdlet som du 
 
 ### <a name="resolution"></a>Lösning
 
-Någon av följande lösningar löser problemet:
+Åtgärda problemet med någon av följande lösningar.
 
 * Kontrol lera att du har angett rätt cmdlet-namn.
-* Kontrol lera att cmdleten finns i ditt Automation-konto och att det inte finns några konflikter. Du kan kontrol lera om cmdleten finns genom att öppna en Runbook i redigerings läge och söka efter den cmdlet som du vill söka efter i biblioteket eller köra `Get-Command <CommandName>`. När du har verifierat att cmdleten är tillgänglig för kontot och att det inte finns något namn i konflikt med andra cmdletar eller Runbooks, lägger du till cmdleten på arbets ytan och kontrollerar att du använder en giltig parameter uppsättning i din Runbook.
-* Om du har en namn konflikt och cmdleten är tillgänglig i två olika moduler kan du lösa det här problemet genom att använda det fullständigt kvalificerade namnet för cmdleten. Du kan till exempel använda **ModuleName\CmdletName**.
+* Se till att cmdleten finns i ditt Automation-konto och att det inte finns några konflikter. Du kan kontrol lera om cmdleten finns genom att öppna en Runbook i redigerings läge och söka efter den cmdlet som du vill söka efter i biblioteket, eller köra `Get-Command <CommandName>`. När du har verifierat att cmdleten är tillgänglig för kontot och att det inte finns något namn i konflikt med andra cmdletar eller Runbooks, lägger du till cmdleten på arbets ytan och kontrollerar att du använder en giltig parameter uppsättning i din Runbook.
+* Om du har en namn konflikt och cmdleten är tillgänglig i två olika moduler, löser du problemet genom att använda det fullständigt kvalificerade namnet för cmdleten. Du kan till exempel använda `ModuleName\CmdletName`.
 * Om du kör en Runbook lokalt i en hybrid Worker-grupp kontrollerar du att modulen och cmdleten är installerade på den dator som är värd för Hybrid Worker.
 
 ## <a name="long-running-runbook"></a>Scenario: en tids krävande Runbook slutförs inte
@@ -478,17 +481,15 @@ Runbooken kördes över den gräns på 3 timmar som tillåts av rättvis resurs 
 
 ### <a name="resolution"></a>Lösning
 
-En rekommenderad lösning är att köra runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+En rekommenderad lösning är att köra runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker begränsas inte av den 3 timmars verkliga resurs-Runbook-gränsen som Azure-sandbox har. Runbooks som körs på Hybrid Runbook Worker bör utvecklas för att stödja omstarts beteenden om det uppstår oväntade problem med lokal infrastruktur.
 
-Hybrid Worker begränsas inte av den 3 timmars verkliga resurs-Runbook-gränsen som Azure-sandbox har. Runbooks som körs på Hybrid Runbook Worker bör utvecklas för att stödja omstarts beteenden om det uppstår oväntade problem med lokal infrastruktur.
-
-Ett annat alternativ är att optimera runbooken genom att skapa [underordnade Runbooks](../automation-child-runbooks.md). Om din Runbook upprepas genom samma funktion på flera resurser, till exempel i en databas åtgärd på flera databaser, kan du flytta funktionen till en underordnad Runbook. Varje underordnad runbook körs parallellt i en separat process. Det här beteendet minskar den totala tiden som den överordnade runbooken slutförs.
+En annan lösning är att optimera runbooken genom att skapa [underordnade Runbooks](../automation-child-runbooks.md). Om din Runbook upprepas genom samma funktion på flera resurser, till exempel i en databas åtgärd på flera databaser, kan du flytta funktionen till en underordnad Runbook. Varje underordnad runbook körs parallellt i en separat process. Det här beteendet minskar den totala tiden som den överordnade runbooken slutförs.
 
 PowerShell-cmdletar som aktiverar det underordnade Runbook-scenariot är:
 
-[Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) – med denna cmdlet kan du starta en Runbook och skicka parametrar till Runbook
+* [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook). Med den här cmdleten kan du starta en runbook och skicka parametrar till runbooken.
 
-[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) – om det finns åtgärder som måste utföras efter att den underordnade Runbook-flödet har slutförts kan du kontrol lera jobb status för varje underordnad i denna cmdlet.
+* [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob). Om det finns åtgärder som måste utföras efter att den underordnade Runbook-flödet har slutförts kan du kontrol lera jobb status för varje underordnad i den här cmdleten.
 
 ## <a name="expired webhook"></a>Scenario: status: 400 Felaktig begäran vid anrop till en webhook
 
@@ -506,13 +507,13 @@ Webhooken som du försöker anropa är antingen inaktive rad eller har upphört 
 
 ### <a name="resolution"></a>Lösning
 
-Om webhooken är inaktive rad kan du återaktivera webhooken via Azure Portal. När en webhook har upphört att gälla måste webhooken tas bort och återskapas. Du kan bara [förnya en webhook](../automation-webhooks.md#renew-webhook) om den inte redan har gått ut.
+Om webhooken är inaktive rad kan du återaktivera webhooken via Azure Portal. Om webhooken har upphört att gälla måste du ta bort och återskapa den. Du kan bara [förnya en webhook](../automation-webhooks.md#renew-webhook) om den inte redan har gått ut.
 
 ## <a name="429"></a>Scenario: 429: den begärda frekvensen är för stor...
 
 ### <a name="issue"></a>Problem
 
-Du får följande fel meddelande när du kör cmdleten **Get-AzureRmAutomationJobOutput** :
+Du får följande fel meddelande när du kör cmdleten `Get-AzureRmAutomationJobOutput`:
 
 ```error
 429: The request rate is currently too large. Please try again
@@ -524,10 +525,11 @@ Felet kan uppstå när jobbets utdata hämtas från en Runbook som har många [u
 
 ### <a name="resolution"></a>Lösning
 
-Det finns två sätt att lösa det här felet:
+Gör något av följande för att lösa det här felet.
 
 * Redigera runbooken och minska antalet jobb strömmar som den avger.
-* Minska antalet strömmar som ska hämtas när cmdleten körs. Om du vill följa det här beteendet kan du ange värdet för *Stream* -parametern för **Get-AzureRmAutomationJobOutput** -cmdlet: en så att endast utgående strömmar hämtas. 
+
+* Minska antalet strömmar som ska hämtas när cmdleten körs. Om du vill göra detta kan du ange värdet för parametern `Stream` för `Get-AzureRmAutomationJobOutput`-cmdlet: en så att endast utgående strömmar hämtas. 
 
 ## <a name="cannot-invoke-method"></a>Scenario: PowerShell-jobbet Miss lyckas med felet: det går inte att anropa metoden
 
@@ -547,8 +549,8 @@ Det här felet kan tyda på att Runbooks som körs i en Azure-sandbox inte kan k
 
 Det finns två sätt att lösa det här felet.
 
-* I stället för att använda **Start-Job**använder du **Start-AzureRmAutomationRunbook** för att starta runbooken.
-* Om din Runbook har det här fel meddelandet kan du försöka köra det på en Hybrid Runbook Worker.
+* I stället för att använda `Start-Job`använder du `Start-AzureRmAutomationRunbook` för att starta runbooken.
+* Försök att köra runbooken på en Hybrid Runbook Worker.
 
 Mer information om det här beteendet och andra beteenden för Azure Automation runbooks finns i [Runbook-beteende](../automation-runbook-execution.md#runbook-behavior).
 
@@ -556,17 +558,17 @@ Mer information om det här beteendet och andra beteenden för Azure Automation 
 
 ### <a name="issue"></a>Problem
 
-Om du kör **sudo** -kommandot för ett Linux-hybrid Runbook Worker hämtas en oväntad prompt för ett lösen ord.
+Om du kör `sudo`-kommandot för ett Linux-Hybrid Runbook Worker hämtas en oväntad prompt för ett lösen ord.
 
 ### <a name="cause"></a>Orsak
 
-**Nxautomationuser** -kontot för Log Analytics agent för Linux har inte kon figurer ATS korrekt i sudoers-filen. Hybrid Runbook Worker behöver lämplig konfiguration av konto behörigheter och andra data så att de kan signera Runbooks på Linux Runbook Worker.
+**Nxautomationuser** -kontot för Log Analytics agent för Linux har inte kon figurer ATS korrekt i **sudoers** -filen. Hybrid Runbook Worker behöver lämplig konfiguration av konto behörigheter och andra data så att de kan signera Runbooks på Linux Runbook Worker.
 
 ### <a name="resolution"></a>Lösning
 
 * Kontrol lera att den Hybrid Runbook Worker har den körbara filen GnuPG (GPG) på datorn.
 
-* Verifiera konfigurationen av **nxautomationuser** -kontot i sudoers-filen. Se [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
+* Verifiera konfigurationen av **nxautomationuser** -kontot i **sudoers** -filen. Se [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md)
 
 ## <a name="scenario-cmdlet-failing-in-pnp-powershell-runbook-on-azure-automation"></a>Scenario: cmdleten fungerar inte i PnP PowerShell-Runbook på Azure Automation
 
@@ -576,7 +578,7 @@ När en Runbook skriver ett PnP-genererat objekt till Azure Automation utdata di
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet uppstår vanligt vis när Azure Automation bearbetar Runbooks som anropar PnP PowerShell-cmdlets, till exempel **Add-pnplistitem**, utan att fånga in retur objekt.
+Det här problemet uppstår vanligt vis när Azure Automation bearbetar Runbooks som anropar PnP PowerShell-cmdlet: ar, till exempel `add-pnplistitem`, utan att fånga returnerade objekt.
 
 ### <a name="resolution"></a>Lösning
 
@@ -601,7 +603,7 @@ I avsnitten nedan visas andra vanliga fel som ger stöd för att hjälpa dig att
 
 Om du kör jobb på en Hybrid Runbook Worker i stället för i Azure Automation kan du behöva [Felsöka själva hybrid Worker](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
 
-### <a name="runbook-fails-with-no-permission-or-some-variation"></a>Runbook misslyckas med ”Ingen behörighet” eller liknande
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>Runbook Miss lyckas utan behörighet eller viss variation
 
 Kör som-konton kanske inte har samma behörigheter för Azure-resurser som ditt aktuella konto. Se till att ditt kör som-konto har [åtkomst behörighet till alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i skriptet.
 

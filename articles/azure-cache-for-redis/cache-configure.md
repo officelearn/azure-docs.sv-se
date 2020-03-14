@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356439"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79278745"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.

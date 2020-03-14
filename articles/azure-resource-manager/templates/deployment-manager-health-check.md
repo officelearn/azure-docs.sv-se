@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
 ms.openlocfilehash: aa99bdfcbc2f42ae81bdd55c266bcd7d87808031
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78388158"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273805"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducera distribution av hälso integration till Azure Deployment Manager (offentlig för hands version)
 

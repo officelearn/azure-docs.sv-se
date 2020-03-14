@@ -4,11 +4,11 @@ description: Sök och filtrera RAW-telemetri som skickas av din webbapp.
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368319"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79275989"
 ---
 # <a name="using-search-in-application-insights"></a>Använda Sök i Application Insights
 

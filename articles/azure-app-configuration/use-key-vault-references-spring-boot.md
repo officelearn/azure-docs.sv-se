@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: d1fb963753577e9518d93262f9c9c7a1cf984005
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b6b6d10165eed331c397e17a18e382b095e1f74f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656015"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79216747"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Självstudie: använda Key Vault referenser i en Java våren-app
 
@@ -82,7 +82,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Lägg till en Key Vault referens till app-konfigurationen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj sedan den instans av app konfigurations arkiv som du skapade i snabb starten.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj sedan den instans av app konfigurations arkiv som du skapade i snabb starten.
 
 1. Välj **konfigurations Utforskaren**.
 
@@ -110,7 +110,6 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"

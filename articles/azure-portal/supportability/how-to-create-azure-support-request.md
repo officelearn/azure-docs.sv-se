@@ -9,18 +9,18 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: kfollis
-ms.openlocfilehash: 6218a1089352ce9ee3e2d1d10f3282e64eae8c51
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 28a29bbb94f63657a69e873bb8f969e96ee92c76
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547667"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248494"
 ---
-# <a name="how-to-create-an-azure-support-request"></a>Skapa en supportförfrågan för Azure
+# <a name="how-to-create-an-azure-support-request"></a>Skapa en supportbegäran för Azure
 
 ## <a name="overview"></a>Översikt
 
-Azure-kunder kan skapa och hantera support förfrågningar i [Azure Portal](https://portal.azure.com).
+Med Azure kan du skapa och hantera support förfrågningar, även kallade support biljetter. Du kan skapa och hantera begär anden i [Azure Portal](https://portal.azure.com), som beskrivs i den här artikeln. Du kan också skapa och hantera förfrågningar program mässigt med hjälp av [Azures support biljett REST API](/rest/api/support).
 
 > [!NOTE]
 > Azure Portal-URL: en är unik för det Azure-moln där din organisation har distribuerats.
@@ -43,13 +43,13 @@ Du kan få **Hjälp + Support** i Azure Portal. Den finns på Azure Portal-menyn
 
 ### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
-Om du vill skapa en supportbegäran måste du vara administratör eller ha tilldelats rollen [support begär ande deltagare](../../role-based-access-control/built-in-roles.md#support-request-contributor) .
+Om du vill skapa en supportbegäran måste du vara administratör eller tilldelad rollen [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) på prenumerations nivå.
 
 ### <a name="go-to-help--support-from-the-global-header"></a>Gå till hjälp + support från den globala rubriken
 
 Så här startar du en supportbegäran var som helst i Azure Portal:
 
-1. Välj **?** -ikonen i den globala rubriken. Välj sedan **Hjälp + Support**.
+1. Välj **?** i den globala rubriken. Välj sedan **Hjälp + Support**.
 
    ![Hjälp och support](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -88,7 +88,7 @@ På fliken **grundläggande** i den **nya support förfrågan**använder du sele
 
 När du har samlat in grundläggande information visar vi lösningar som du kan prova på egen hand. I vissa fall kan vi till och med köra en snabb diagnostik. Lösningar skrivs av Azure-tekniker och kommer att lösa de vanligaste problemen.
 
-### <a name="details"></a>Information
+### <a name="details"></a>Detaljer
 
 Sedan samlar vi in ytterligare information om problemet. Att tillhandahålla grundlig och detaljerad information i det här steget hjälper oss att skicka support förfrågan till rätt agent.
 
@@ -98,7 +98,7 @@ När vi har all information om problemet väljer du hur du får support. I avsni
 
 Fyll sedan i avsnittet **kontakt information** så att vi kan kontakta dig.
 
-### <a name="review--create"></a>Granska och skapa
+### <a name="review--create"></a>Granska + skapa
 
 Slutför all nödvändig information på varje flik och välj sedan **Granska + skapa**. Kontrol lera den information som du skickar till supporten. Gå tillbaka till en flik och gör en ändring om det behövs. När du är nöjd med att support förfrågan är klar väljer du **skapa**.
 

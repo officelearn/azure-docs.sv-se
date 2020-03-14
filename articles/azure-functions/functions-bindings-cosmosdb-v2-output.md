@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 9360a90b457f99cb9c15deda80dce8233069100d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606560"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79277770"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Cosmos DB utgående bindning för Azure Functions 2. x
 
@@ -565,8 +565,8 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     | Saknas | måste anges till `cosmosDB`.        |
-|**riktning**     | Saknas | måste anges till `out`.         |
+|**typ**     | Saknas | Måste anges till `cosmosDB`.        |
+|**riktning**     | Saknas | Måste anges till `out`.         |
 |**Namn**     | Saknas | Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
 |**Databas** | **Databas**|Den databas som innehåller den samling där dokumentet skapas.     |
 |**Samling** |**Samling**  | Namnet på den samling där dokumentet skapas. |
@@ -574,6 +574,8 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**partitionKey**|**PartitionKey** |När `CreateIfNotExists` är true definierar den partitionens nyckel Sök väg för den skapade samlingen.|
 |**collectionThroughput**|**CollectionThroughput**| När `CreateIfNotExists` har värdet True definierar [data flödet](../cosmos-db/set-throughput.md) för den skapade samlingen.|
 |**connectionStringSetting**    |**ConnectionStringSetting** |Namnet på den appinställning som innehåller din Azure Cosmos DB-anslutningssträng.        |
+|**preferredLocations**| **PreferredLocations**| Valfritt Definierar önskade platser (regioner) för geo-replikerade databas konton i Azure Cosmos DBs tjänsten. Värdena ska vara kommaavgränsade. Till exempel "östra USA, södra centrala USA, norra Europa". |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| Valfritt När det är inställt på `true` tillsammans med `PreferredLocations`kan den utnyttja [flera regioner](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) i Azure Cosmos DB-tjänsten. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -611,7 +613,7 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 }
 ```
 
-|Egenskap  |Standard | Beskrivning |
+|Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
 |GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och `Gateway`|
 |Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|

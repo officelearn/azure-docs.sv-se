@@ -16,11 +16,11 @@ ms.date: 12/10/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 244965da4e22c0808fd1ea9088aa182b27eaf484
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375524"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253382"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Skapa, Visa och ta bort en användardefinierad hanterad identitet med hjälp av Azure Resource Manager
 

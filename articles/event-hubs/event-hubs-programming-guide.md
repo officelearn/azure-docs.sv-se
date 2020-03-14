@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/15/2020
 ms.author: shvija
 ms.openlocfilehash: d958c2d32c16874676f46bb216067fe2d7bbe784
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945612"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280981"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Programmerings guide för .NET för Azure Event Hubs (äldre Microsoft. Azure. EventHubs-paket)
 Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).

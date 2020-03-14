@@ -15,11 +15,11 @@ ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abd6b13dc56f8f948d50e2b3564712ed8f5b1476
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376430"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253395"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Tilldela användare och grupper till ett program i Azure Active Directory
 Den här artikeln visar hur du tilldelar användare eller grupper till ett program i Azure Active Directory (AD Azure). Användare måste först tilldelas till ett program innan en administratör kan ge dem åtkomst för att göra följande:

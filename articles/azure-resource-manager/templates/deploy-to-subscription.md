@@ -2,23 +2,17 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: 1ec761a8136d631c60a7a2021f5462dbf3d7f790
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: 1a76e41b4b2264bc535752e8f765b3303080abbd
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78926103"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248416"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
-Normalt distribuerar du Azure-resurser till en resurs grupp i din Azure-prenumeration. Men du kan också skapa resurser på:
-
-* prenumerations nivå (som beskrivs i den här artikeln)
-* [hanterings grupps nivå](deploy-to-management-group.md)
-* [klient organisations nivå](deploy-to-tenant.md)
-
-Du använder distributioner på prenumerations nivå för att vidta åtgärder som är begripliga på den nivån, till exempel att skapa resurs grupper eller tilldela [rollbaserad åtkomst kontroll](../../role-based-access-control/overview.md).
+För att förenkla hanteringen av resurser i din Azure-prenumeration kan du definiera och tilldela [principer](../../governance/policy/overview.md) eller [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md) i prenumerationen. Med mallar på prenumerations nivå kan du tillämpa principer och tilldela roller i prenumerationen. Du kan också skapa resurs grupper och distribuera resurser.
 
 Om du vill distribuera mallar på prenumerations nivån använder du Azure CLI, PowerShell eller REST API. Azure Portal har inte stöd för distribution på prenumerations nivån.
 
@@ -46,10 +40,10 @@ För mallar använder du:
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-För parameter-filer använder du:
+Schemat för en parameter fil är detsamma för alla distributions omfång. För parameter-filer använder du:
 
 ```json
-https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
+https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>Distributions kommandon
@@ -387,5 +381,4 @@ New-AzSubscriptionDeployment `
 * Information om hur du tilldelar roller finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
 * Ett exempel på distribution av arbets ytans inställningar för Azure Security Center finns i [deployASCwithWorkspaceSettings. JSON](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Du hittar exempel på mallar på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md).
-* En lista över tillgängliga funktioner i en mall finns i [Template Functions](template-functions.md).
+* Du kan också distribuera mallar på [hanterings grupp nivå](deploy-to-management-group.md) och [klient nivå](deploy-to-tenant.md).

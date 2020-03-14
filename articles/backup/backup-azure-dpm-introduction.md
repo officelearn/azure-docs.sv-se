@@ -4,11 +4,11 @@ description: I den här artikeln lär du dig att förbereda för säkerhets kopi
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381502"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273467"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 

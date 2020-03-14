@@ -13,19 +13,16 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1317ea6526a28c5d71dce1a3c25b2fd05f5e446b
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 9402960927f56092e226ab81bd3e6ede0cf6a52d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271296"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79202206"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Snabb start: skapa en NAT-gateway med Azure CLI
 
 Den här snabb starten visar hur du använder Azure Virtual Network NAT-tjänsten. Du skapar en NAT-gateway för att tillhandahålla utgående anslutning för en virtuell dator i Azure. 
-
->[!NOTE] 
->Azure Virtual Network NAT är tillgängligt som en offentlig för hands version för tillfället och är tillgänglig i en begränsad uppsättning [regioner](https://azure.microsoft.com/global-infrastructure/regions/). Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -236,6 +233,5 @@ Granska mått i Azure Monitor för att se hur NAT-tjänsten fungerar. Diagnostis
 - Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure CLI](./quickstart-create-nat-gateway-cli.md).
 - Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure PowerShell](./quickstart-create-nat-gateway-powershell.md).
 - Snabb start för att distribuera [NAT gateway-resurs med hjälp av Azure Portal](./quickstart-create-nat-gateway-portal.md).
-- [Ge feedback om den offentliga för hands versionen](https://aka.ms/natfeedback).
 > [!div class="nextstepaction"]
 

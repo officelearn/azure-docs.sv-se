@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385080"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79220197"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Språk-och region stöd för API för nyhetssökning i Bing
 
@@ -47,7 +47,7 @@ För en lista över lands-/region koder som du kan ange i `cc` Frågeparametern,
 |Nya Zeeland|Svenska|en NZ|
 |Filippinerna|Svenska|en-PH|
 |Singapore|Svenska|en-SG|
-|USA|Svenska|en-US|
+|USA|Svenska|sv-SE|
 |Svenska|Redovisningsjournalmallar|en-WW|
 |Svenska|Redovisningsjournalmallar|en-XA|
 |Sydafrika|Svenska|en-ZA|
@@ -64,7 +64,7 @@ För en lista över lands-/region koder som du kan ange i `cc` Frågeparametern,
 |Schweiz|Franska|fr CH|
 |Frankrike|Franska|fr-FR|  
 |Italien|Italienska|IT-IT|
-|Hongkong SAR|Traditionell kinesiska|zh-HK|  
+|Hongkong|Traditionell kinesiska|zh-HK|  
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Japan|Japanska|ja-JP|  
 |Korea|Koreanska|ko-KR|  
@@ -72,7 +72,7 @@ För en lista över lands-/region koder som du kan ange i `cc` Frågeparametern,
 |Folkrepubliken Kina|Kinesiska|zh-CN|  
 |Brasilien|Portugisiska|pt-BR|
 |Ryssland|Ryska|ru-RU|  
-|Sverige|Svenska|SV-SE|  
+|Sverige|Svenska|sv-SE|  
 |Turkiet|Turkiska|TR-TR|  
 
 ## <a name="supported-markets-for-news-endpoint"></a>Marknader som stöds för diskussions grupps slut punkt
@@ -86,7 +86,7 @@ För en lista över lands-/region koder som du kan ange i `cc` Frågeparametern,
 |Tyskland|Tyska|de-DE|
 |Australien|Svenska|SV-Australien|
 |Storbritannien|Svenska|en-GB|
-|USA|Svenska|en-US|
+|USA|Svenska|sv-SE|
 |Svenska|Redovisningsjournalmallar|en-WW|
 |Chile|Spanska|es-CL|
 |Mexiko|Spanska|es-MX|
@@ -108,7 +108,7 @@ För en lista över lands-/region koder som du kan ange i `cc` Frågeparametern,
 |Tyskland|Tyska|de-DE|
 |Australien|Svenska|SV-Australien|
 |Storbritannien|Svenska|en-GB|
-|USA|Svenska|en-US|
+|USA|Svenska|sv-SE|
 |Kanada|Svenska|en CA: N|
 |Indien|Svenska|en Indien|
 |Frankrike|Franska|fr-FR|
@@ -135,7 +135,7 @@ Följande är de lands-/regionkoder som du kan ange i parametern `cc` fråga. Li
 |Finland|FI|  
 |Frankrike|FR|  
 |Tyskland|DE|  
-|Hongkong SAR|HK|  
+|Hongkong|HK|  
 |Indien|IN|  
 |Indonesien|ID|  
 |Italien|IT|  

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9970894436107ab51c2ad2d31aa1e14a3e6b5778
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 0a54d7490fb306bfbc8e1b111e7b7d64c09d2292
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356503"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276613"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -153,12 +153,10 @@ Skalnings enheten för Azure Functions är Function-appen. När funktions progra
 Skalning kan variera beroende på ett antal faktorer och skala på olika sätt beroende på vilken utlösare och vilket språk som valts. Det finns några erna för skalnings beteenden som kan vara medvetna om:
 
 * En enda Function-app skalar bara ut till högst 200 instanser. En enskild instans kan bearbeta mer än ett meddelande eller en begäran i taget, så det finns ingen angiven gräns för antalet samtidiga körningar.
-* För HTTP-utlösare allokeras nya instanser bara högst en gång var 1: a sekund.
-* För icke-HTTP-utlösare allokeras nya instanser bara högst en gång var 30: e sekund.
-
-Olika utlösare kan också ha olika skalnings gränser samt dokumenterade nedan:
-
-* [Händelsehubb](functions-bindings-event-hubs-trigger.md#scaling)
+* För HTTP-utlösare allokeras nya instanser, högst en gång per sekund.
+* För icke-HTTP-utlösare allokeras nya instanser, högst en gång var 30: e sekund. Skalning är snabbare när du kör i en [Premium-plan](#premium-plan).
+* För Service Bus utlösare använder du _Hantera_ rättigheter för resurser för den mest effektiva skalningen. Med _avlyssnings_ rättigheter är skalning inte lika tillförlitligt eftersom köns längd inte kan användas för att informera om skalnings beslut. Mer information om hur du ställer in rättigheter i Service Bus åtkomst principer finns i [auktoriseringsprincipen för delad åtkomst](../service-bus-messaging/service-bus-sas.md#shared-access-authorization-policies).
+* För Event Hub-utlösare, se [vägledningen för skalning](functions-bindings-event-hubs-trigger.md#scaling) i referens artikeln. 
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Metod tips och mönster för skalbara appar
 

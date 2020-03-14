@@ -4,11 +4,11 @@ description: Azure Policy definitioner har olika effekter som avgör hur efterle
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78355064"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281189"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
 

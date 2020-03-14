@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
 ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373752"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79280058"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt

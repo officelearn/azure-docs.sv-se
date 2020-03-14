@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: jeconnoc
-ms.openlocfilehash: 0e47bde280e9483f3c265e0d3147eadcbb128612
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: 778943dad9a04632797d5d9165b6f1f9a3eb9850
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344168"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248260"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner
 
@@ -26,7 +26,7 @@ Ett regionalt par består av två regioner i samma geografi. Azure serialiserar 
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Vissa Azure-tjänster kan dra nytta av kopplade regioner för att säkerställa affärs kontinuiteten och skydda mot data förlust.  Azure tillhandahåller flera [lagrings lösningar](/storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) som kan dra nytta av kopplade regioner för att säkerställa data tillgänglighet. [Azure Geo-redundant lagring](/storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replikerar till exempel data till en sekundär region automatiskt, vilket säkerställer att data är varaktiga även i händelse av att det inte går att återskapa den primära regionen. 
+Vissa Azure-tjänster kan dra nytta av kopplade regioner för att säkerställa affärs kontinuiteten och skydda mot data förlust.  Azure tillhandahåller flera [lagrings lösningar](./storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) som kan dra nytta av kopplade regioner för att säkerställa data tillgänglighet. [Azure Geo-redundant lagring](./storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replikerar till exempel data till en sekundär region automatiskt, vilket säkerställer att data är varaktiga även i händelse av att det inte går att återskapa den primära regionen. 
 
 Observera att alla Azure-tjänster inte replikerar data automatiskt, eller att alla Azure-tjänster automatiskt kommer tillbaka från en felaktig region till dess par.  I sådana fall måste återställning och replikering konfigureras av kunden.
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390465"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79250756"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Avsluta avisering för instanser av skalnings uppsättningar för virtuella Azure-datorer
 Skalnings uppsättnings instanser kan välja att ta emot meddelanden om instans avslutning och ange en fördefinierad fördröjnings-timeout för åtgärden avsluta. Uppsägnings meddelandet skickas via Azure Metadata Service – [schemalagda händelser](../virtual-machines/windows/scheduled-events.md), som innehåller aviseringar för och fördröjning av påverkan på åtgärder som omstarter och omdistribueras. Lösningen lägger till en annan händelse – Avbryt – till listan över Schemalagda händelser och den associerade fördröjningen av händelsen avbryts beror på fördröjningen som anges av användarna i deras skal uppsättnings modell konfigurationer.

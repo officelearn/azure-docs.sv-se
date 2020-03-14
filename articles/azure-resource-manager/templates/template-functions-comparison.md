@@ -4,11 +4,11 @@ description: Beskriver de funktioner som används i en Azure Resource Manager-ma
 ms.topic: conceptual
 ms.date: 09/05/2017
 ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356345"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248715"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Jämförelse funktioner för Azure Resource Manager mallar
 
@@ -22,7 +22,7 @@ Resource Manager innehåller flera funktioner för att göra jämförelser i din
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="equals"></a>är lika med
+## <a name="equals"></a>equals
 `equals(arg1, arg2)`
 
 Kontrollerar om två värden är lika med varandra.

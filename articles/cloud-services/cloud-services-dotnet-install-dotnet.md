@@ -10,29 +10,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: tagore
-ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c830dc0ee38ad808579a62274e3db87d0696e099
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360998"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214710"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installera .NET på Azure Cloud Services-roller
 Den här artikeln beskriver hur du installerar versioner av .NET Framework som inte ingår i Azures gäst operativ system. Du kan använda .NET på gäst operativ systemet för att konfigurera webb-och arbets roller för moln tjänsten.
 
-Du kan till exempel installera .NET-4.6.2 på gäst operativ system familj 4, som inte ingår i någon version av .NET 4,6. (Gäst operativ system familjen 5 levereras med .NET 4,6.) Den senaste informationen om Azure-gästens OS-versioner finns i [nyheter om Azure gäst operativ system](cloud-services-guestos-update-matrix.md). 
+Du kan till exempel installera .NET Framework 4.6.2 på gäst operativ system familj 4, som inte ingår i någon version av .NET Framework 4,6. (Gäst operativ system familjen 5 levereras med .NET Framework 4,6.) Den senaste informationen om Azure-gästens OS-versioner finns i [nyheter om Azure gäst operativ system](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->Azure SDK 2,9 innehåller en begränsning för distribution av .NET 4,6 på gäst operativ system familj 4 eller tidigare. En korrigering för begränsningen finns på den [Microsoft docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) webbplatsen.
+>Azure SDK 2,9 innehåller en begränsning för distribution av .NET Framework 4,6 i gäst operativ system familj 4 eller tidigare. En korrigering för begränsningen finns på den [Microsoft docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) webbplatsen.
 
 Om du vill installera .NET på dina webb-och arbets roller inkluderar du .NET-webb installations programmet som en del av ditt moln tjänst projekt. Starta installations programmet som en del av rollens start aktiviteter. 
 
 ## <a name="add-the-net-installer-to-your-project"></a>Lägg till .NET-installations programmet i projektet
 Om du vill ladda ned webb installations programmet för .NET Framework väljer du den version som du vill installera:
 
-* [.NET 4,8-webb installations program](https://dotnet.microsoft.com/download/thank-you/net48)
-* [.NET 4.7.2 Web Installer](https://go.microsoft.com/fwlink/?LinkId=863262)
-* [.NET 4.6.2 Web Installer](https://www.microsoft.com/download/details.aspx?id=53345)
+* [.NET Framework 4,8-webb installations program](https://dotnet.microsoft.com/download/thank-you/net48)
+* [.NET Framework 4.7.2 Web Installer](https://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET Framework 4.6.2 Web Installer](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Så här lägger du till installations programmet för en *webb* roll:
   1. I **Solution Explorer**, under **roller** i ditt moln tjänst projekt, högerklickar du på din *webb* roll och väljer **Lägg till** > **ny mapp**. Skapa en mapp med namnet **bin**.
@@ -44,7 +44,7 @@ Så här lägger du till installations programmet för en *arbets* roll:
 När filer läggs till på det här sättet i mappen roll innehåll läggs de automatiskt till i moln tjänst paketet. Filerna distribueras sedan till en konsekvent plats på den virtuella datorn. Upprepa den här processen för varje webb-och arbets roll i moln tjänsten så att alla roller har en kopia av installations programmet.
 
 > [!NOTE]
-> Du bör installera .NET-4.6.2 på din moln tjänst roll även om ditt program är mål för .NET 4,6. Gäst operativ systemet innehåller kunskaps bas [uppdateringen 3098779](https://support.microsoft.com/kb/3098779) och [uppdatering 3097997](https://support.microsoft.com/kb/3097997). Problem kan uppstå när du kör dina .NET-program om .NET 4,6 installeras ovanpå kunskaps bas uppdateringarna. Undvik dessa problem genom att installera .NET-4.6.2 i stället för version 4,6. Mer information finns i [Knowledge Base-artikeln 3118750](https://support.microsoft.com/kb/3118750) och [4340191](https://support.microsoft.com/kb/4340191).
+> Du bör installera .NET Framework 4.6.2 på din moln tjänst roll även om ditt program är mål .NET Framework 4,6. Gäst operativ systemet innehåller kunskaps bas [uppdateringen 3098779](https://support.microsoft.com/kb/3098779) och [uppdatering 3097997](https://support.microsoft.com/kb/3097997). Problem kan uppstå när du kör dina .NET-program om .NET Framework 4,6 installeras ovanpå kunskaps bas uppdateringarna. Undvik dessa problem genom att installera .NET Framework 4.6.2 i stället för version 4,6. Mer information finns i [Knowledge Base-artikeln 3118750](https://support.microsoft.com/kb/3118750) och [4340191](https://support.microsoft.com/kb/4340191).
 > 
 > 
 
@@ -82,7 +82,7 @@ Du kan använda Start åtgärder för att utföra åtgärder innan en roll start
 
 2. Skapa en fil med namnet **install. cmd** och Lägg till följande installations skript i filen.
 
-   Skriptet kontrollerar om den angivna versionen av .NET Framework redan har installerats på datorn genom att fråga registret. Om .NET-versionen inte är installerad öppnas .NET-webb installations programmet. För att hjälpa till att felsöka eventuella problem loggar skriptet all aktivitet till filen startuptasklog – (aktuellt datum och tid). txt som lagras i lokal **InstallLogs** -lagring.
+   Skriptet kontrollerar om den angivna versionen av .NET Framework redan har installerats på datorn genom att fråga registret. Om .NET Framework-versionen inte är installerad öppnas .NET Framework webb installations program. För att hjälpa till att felsöka eventuella problem loggar skriptet all aktivitet till filen startuptasklog – (aktuellt datum och tid). txt som lagras i lokal **InstallLogs** -lagring.
    
    > [!IMPORTANT]
    > Använd en enkel text redigerare, t. ex. Windows Anteckningar, för att skapa install. cmd-filen. Om du använder Visual Studio för att skapa en textfil och ändrar tillägget till. cmd, kan filen fortfarande innehålla ett tecken för UTF-8-byte. Det här märket kan orsaka ett fel när den första raden i skriptet körs. Undvik det här felet genom att göra den första raden i skriptet en REM-instruktion som kan hoppas över av bearbetningen av byte ordern. 

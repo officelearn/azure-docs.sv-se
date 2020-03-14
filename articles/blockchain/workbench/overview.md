@@ -4,12 +4,12 @@ description: Översikt över Azure blockchain Workbench Preview och dess funktio
 ms.date: 09/05/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 88c162539e5d0480d7f938c674b96c2f396774e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 162626ba2303ab04bd2963a5add61c556615ebec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75387079"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203652"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Vad är Azure Blockchain Workbench?
 
@@ -29,7 +29,7 @@ Azure Blockchain Workbench innehåller ett webbprogram och REST API:er för att 
 
 Du kan integrera med befintliga system genom att använda Blockchain Workbench REST API:er och meddelandebaserade API:er. API:erna tillhandahåller ett gränssnitt som gör det möjligt att ersätta eller använda flera tekniker för distribuerad redovisning, lagring och databaserbjudanden.
 
-Blockchain Workbench kan omvandla meddelanden som skickats till dess meddelandebaserade API och skapa transaktioner i ett format som förväntas av blockkedjans egna API.  Workbench kan logga in och vidarebefordra transaktioner till lämplig blockkedja. 
+Blockchain Workbench kan omvandla meddelanden som skickas till dess meddelandebaserade API för att bygga transaktioner i ett format som förväntas av den blockchain inbyggda API: et.  Workbench kan logga in och vidarebefordra transaktioner till lämplig blockkedja. 
 
 Workbench levererar automatiskt händelser till Service Bus och Event Grid så att meddelanden kan skickas till underordnade konsumenter. Utvecklarna kan integrera med endera av dessa meddelandesystem för att driva transaktioner och studera resultaten.
 
@@ -57,7 +57,7 @@ Engagera med Microsoft-tekniker och Azure blockchain community-experter.
 
 * [Azure blockchain MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
+* [Stackspill](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## <a name="next-steps"></a>Nästa steg
 

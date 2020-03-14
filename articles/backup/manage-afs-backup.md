@@ -4,11 +4,11 @@ description: I den här artikeln beskrivs vanliga uppgifter för att hantera och
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382529"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247662"
 ---
 # <a name="manage-azure-file-share-backups"></a>Hantera säkerhetskopior av Azure-filresurser
 

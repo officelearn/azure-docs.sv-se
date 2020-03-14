@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376241"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79261624"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect synkronisering: förstå arkitekturen
 I det här avsnittet beskrivs den grundläggande arkitekturen för Azure AD Connect Sync. I många aspekter liknar de föregående aktiviteter MIIS 2003, ILM 2007 och FIM 2010. Azure AD Connect Sync är utvecklingen av dessa tekniker. Om du är bekant med någon av dessa tidigare tekniker är innehållet i det här avsnittet bekant för dig också. Om du inte har använt synkronisering igen är det här avsnittet för dig. Det är dock inte nödvändigt att veta mer om det här ämnet för att göra anpassningar till Azure AD Connect Sync (kallas Synkroniseringsmotorn i det här avsnittet).

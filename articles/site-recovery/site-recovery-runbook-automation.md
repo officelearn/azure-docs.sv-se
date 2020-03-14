@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
 ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173485"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257490"
 ---
-# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation runbooks i återställnings planer
+# <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägga till Azure Automation Runbook-rutiner i återställningsplaner
 
 I den här artikeln beskrivs hur du integrerar Azure Automation runbooks för att utöka [Azure Site Recovery](site-recovery-overview.md) återställnings planer. Vi visar dig hur du automatiserar grundläggande uppgifter som annars skulle behöva åtgärdas manuellt och hur du konverterar en multi-Step-återställning till en åtgärd med enkel klickning.
 
-## <a name="recovery-plans"></a>Återställnings planer 
+## <a name="recovery-plans"></a>Återställningsplaner 
 
 Du kan använda återställnings planer när du växlar över lokala datorer eller virtuella Azure-datorer. Med återställnings planer kan du definiera en systematisk återställnings process som definierar hur datorer växlar över och hur de startar och återställer efter redundansväxlingen. 
 
@@ -99,7 +99,7 @@ Aman- [Sharma finns ett](http://harvestingclouds.com) användbart exempel på et
 
 - Om du inte har använt Azure Automation kan du [Registrera dig](https://azure.microsoft.com/services/automation/) och [Hämta exempel skript](https://azure.microsoft.com/documentation/scripts/).
 - Se till att Automation-kontot har följande moduler:
-    - AzureRM. Profile
+    - AzureRM.profile
     - AzureRM.Resources
     - AzureRM.Automation
     - AzureRM.Network

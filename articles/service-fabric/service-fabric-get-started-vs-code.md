@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 67846293257661a4f7a907d76402d2e98c339225
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361247"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258491"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric för Visual Studio Code
 
@@ -48,7 +48,7 @@ Följande krav måste vara installerade för Java-utveckling:
 Följande krav måste vara installerade för .NET Core/C# utveckling:
 
 * [.Net Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 eller senare)
-* [för Visual Studio Code (drivs av OmniSharp) vs Code Extension C# ](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) Krävs för att C# felsöka tjänster. Du kan installera genom att klicka på ikonen tillägg i **aktivitets fältet** i vs Code och söka efter tillägget eller från vs Code Marketplace.
+* [för Visual Studio Code (drivs av OmniSharp) vs Code Extension C# ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Krävs för att C# felsöka tjänster. Du kan installera genom att klicka på ikonen tillägg i **aktivitets fältet** i vs Code och söka efter tillägget eller från vs Code Marketplace.
 
 ## <a name="setup"></a>Konfiguration
 

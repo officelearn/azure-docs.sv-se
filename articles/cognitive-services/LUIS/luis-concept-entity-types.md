@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
 ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393851"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79221033"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entiteter och deras syfte i LUIS
 
@@ -58,7 +58,7 @@ Tänk på följande 4 yttranden:
 
 |Yttrande|Avsikten förutse|Extraherade enheter|Förklaring|
 |--|--|--|--|
-|Hjälp|Hjälp|-|Inget att extrahera.|
+|Hjälp|hjälp|-|Inget att extrahera.|
 |Skicka något|sendSomething|-|Inget att extrahera. Modellen har inte tränats att extrahera `something` i den här kontexten och det finns ingen mottagare.|
 |Skicka Bob a present|sendSomething|`Bob`, `present`|Modellen har tränats med en [personName](luis-reference-prebuilt-person.md) -fördefinierad entitet som har extraherat namnet `Bob`. En enhet som har registrerats av enheten har använts för att extrahera `present`.|
 |Skicka Bob en ruta med choklad|sendSomething|`Bob`, `box of chocolates`|De två viktiga data bitarna `Bob` och `box of chocolates`har extraherats av entiteter.|

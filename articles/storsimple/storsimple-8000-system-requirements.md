@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963332"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267669"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000-seriens program vara, hög tillgänglighet och nätverks krav
 
@@ -63,13 +63,13 @@ Följande program varu krav gäller för de valfria StorSimple-komponenterna (St
 
 Din StorSimple-enhet är en låst enhet. Portar måste dock öppnas i brand väggen för att tillåta iSCSI-, moln-och hanterings trafik. I följande tabell visas de portar som måste öppnas i brand väggen. I den här tabellen avser *i* eller *inkommande* den riktning som inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din StorSimple-enhet skickar data externt, utöver distributionen: till exempel utgående till Internet.
 
-| Port nr<sup>1, 2</sup> | In eller ut | Port omfång | Obligatorisk | Anteckningar |
+| Port nr<sup>1, 2</sup> | In eller ut | Port omfång | Krävs | Anteckningar |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Utdata |WAN |Nej |<ul><li>Utgående port används för Internet åtkomst för att hämta uppdateringar.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Utdata |WAN |Ja |<ul><li>Utgående port används för att komma åt data i molnet.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li><li>Den här porten används också både på styrenheten för skräp insamling.</li></ul> |
-| UDP 53 (DNS) |Utdata |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad DNS-server. |
-| UDP 123 (NTP) |Utdata |WAN |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad NTP-server. |
-| TCP 9354 |Utdata |WAN |Ja |Den utgående porten används av StorSimple-enheten för att kommunicera med StorSimple Enhetshanteraren-tjänsten. |
+| TCP 80 (HTTP)<sup>3</sup> |Genomför |Wide |Nej |<ul><li>Utgående port används för Internet åtkomst för att hämta uppdateringar.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |Genomför |Wide |Ja |<ul><li>Utgående port används för att komma åt data i molnet.</li><li>Den utgående webbproxyn är användare konfigurerbar.</li><li>Om du vill tillåta system uppdateringar måste den här porten också vara öppen för styrenhetens fasta IP-adresser.</li><li>Den här porten används också både på styrenheten för skräp insamling.</li></ul> |
+| UDP 53 (DNS) |Genomför |Wide |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad DNS-server. |
+| UDP 123 (NTP) |Genomför |Wide |I vissa fall, Se kommentarer. |Den här porten krävs bara om du använder en Internetbaserad NTP-server. |
+| TCP 9354 |Genomför |Wide |Ja |Den utgående porten används av StorSimple-enheten för att kommunicera med StorSimple Enhetshanteraren-tjänsten. |
 | 3260 (iSCSI) |I |LAN |Nej |Den här porten används för att få åtkomst till data via iSCSI. |
 | 5985 |I |LAN |Nej |Inkommande port används av StorSimple Snapshot Manager för att kommunicera med StorSimple-enheten.<br>Den här porten används också när du fjärransluter till Windows PowerShell för StorSimple över HTTP. |
 | 5986 |I |LAN |Nej |Den här porten används vid fjärr anslutning till Windows PowerShell för StorSimple över HTTPS. |
@@ -98,31 +98,31 @@ Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, b
 
 | URL-mönster | Komponent/funktion | Enhets-IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager-tjänst<br>Microsoft Azure Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten |Molnbaserade nätverks gränssnitt |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |StorSimple Device Manager-tjänsten<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänst |Molnbaserade nätverks gränssnitt |
 | `https://*.backup.windowsazure.com` |Enhetsregistrering |Endast DATA 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Återkallande av certifikat |Molnbaserade nätverks gränssnitt |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure Storage-konton och-övervakning |Molnbaserade nätverks gränssnitt |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servrar<br> |Kontrollant endast fasta IP-adresser |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Kontrollant endast fasta IP-adresser |
-| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Supportpaket |Molnbaserade nätverks gränssnitt |
+| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Support paket |Molnbaserade nätverks gränssnitt |
 
 #### <a name="url-patterns-for-azure-government-portal"></a>URL-mönster för Azure Government Portal
 
 | URL-mönster | Komponent/funktion | Enhets-IP |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager-tjänst<br>Microsoft Azure Access Control Service<br>Azure Service Bus<br>Autentiseringstjänsten |Molnbaserade nätverks gränssnitt |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |StorSimple Device Manager-tjänsten<br>Access Control Service<br>Azure Service Bus<br>Autentiseringstjänst |Molnbaserade nätverks gränssnitt |
 | `https://*.backup.windowsazure.us` |Enhetsregistrering |Endast DATA 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Återkallande av certifikat |Molnbaserade nätverks gränssnitt |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure Storage-konton och-övervakning |Molnbaserade nätverks gränssnitt |
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update servrar<br> |Kontrollant endast fasta IP-adresser |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |Kontrollant endast fasta IP-adresser |
-| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Supportpaket |Molnbaserade nätverks gränssnitt |
+| `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Support paket |Molnbaserade nätverks gränssnitt |
 
 ### <a name="routing-metric"></a>Flödes mått
 
 Ett Dirigerings mått är kopplat till gränssnitten och den gateway som dirigerar data till de angivna nätverken. Routnings mått används av routningsprotokollet för att beräkna den bästa sökvägen till ett specifikt mål, om det lär sig att flera sökvägar finns på samma mål. Ju lägre vägens mått, desto högre prioritet.
 
-Om flera nätverks gränssnitt och gatewayer har kon figurer ATS för kanal trafik i kontexten för StorSimple, kommer routing-måtten att tas i spel för att avgöra i vilken ordning gränssnitten ska användas. Dirigerings måtten kan inte ändras av användaren. Du kan dock använda `Get-HcsRoutingTable` cmdleten för att skriva ut routningstabellen (och mått) på din StorSimple-enhet. Mer information om Get-HcsRoutingTable-cmdleten i [fel sökning av StorSimple-distribution](storsimple-troubleshoot-deployment.md).
+Om flera nätverks gränssnitt och gatewayer har kon figurer ATS för kanal trafik i kontexten för StorSimple, kommer routing-måtten att tas i spel för att avgöra i vilken ordning gränssnitten ska användas. Dirigerings måtten kan inte ändras av användaren. Du kan dock använda `Get-HcsRoutingTable`-cmdlet: en för att skriva ut routningstabellen (och mått) på din StorSimple-enhet. Mer information om Get-HcsRoutingTable-cmdleten i [fel sökning av StorSimple-distribution](storsimple-troubleshoot-deployment.md).
 
 Algoritmen för routnings mått som används för uppdatering 2 och senare versioner kan förklaras på följande sätt.
 
@@ -147,17 +147,17 @@ Algoritmen för routnings mått som används för uppdatering 2 och senare versi
   
     Överväg en StorSimple-enhet med två moln aktiverade nätverks gränssnitt, data 0 och data 5. Data 1 till data 4 är moln-inaktiverade men har en konfigurerad Gateway. Den ordning i vilken trafik dirigeras för den här enheten blir:
   
-    *Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+    *Data 0 (1) > data 5 (6) > data 1 (20) > data 2 (30) > data 3 (40) > data 4 (50)*
   
     *Siffrorna i parentesen visar respektive routing-mått.*
   
     Om data 0 Miss lyckas kommer moln trafiken att dirigeras genom data 5. Med tanke på att en gateway har kon figurer ATS på alla andra nätverk, om både data 0 och data 5 var felaktiga, så går moln trafiken igenom data 1.
 * Om ett moln aktiverat nätverks gränssnitt Miss lyckas, är 3 försök igen med 30 sekunders fördröjning för att ansluta till gränssnittet. Om alla återförsök inte fungerar dirigeras trafiken till nästa tillgängliga molnbaserade gränssnitt som fastställs av routningstabellen. Om alla moln aktiverade nätverks gränssnitten Miss fungerar växlar enheten över till den andra styrenheten (ingen omstart i det här fallet).
 * Om det uppstår ett VIP-haveri för ett iSCSI-aktiverat nätverks gränssnitt kommer det att finnas tre återförsök med en fördröjning på 2 sekunder. Det här beteendet har inte samma resultat som tidigare versioner. Om alla iSCSI-nätverks gränssnitten Miss lyckas sker en redundansväxling (åtföljd av en omstart).
-* En avisering aktive ras också på din StorSimple-enhet när ett VIP-haveri inträffar. Mer information finns i [snabb referens](storsimple-8000-manage-alerts.md)för aviseringar.
+* En avisering aktive ras också på din StorSimple-enhet när ett VIP-haveri inträffar. Mer information finns i [snabb referens för aviseringar](storsimple-8000-manage-alerts.md).
 * Vid nya försök prioriteras iSCSI i molnet.
   
-    Ta följande som exempel: En StorSimple-enhet har två nätverks gränssnitt aktiverade, data 0 och data 1. Data 0 är moln-aktiverat medan data 1 är både molnet och iSCSI-aktiverat. Inga andra nätverks gränssnitt på den här enheten har Aktiver ATS för molnet eller iSCSI.
+    Tänk på följande exempel: en StorSimple-enhet har två nätverks gränssnitt aktiverade, data 0 och data 1. Data 0 är moln-aktiverat medan data 1 är både molnet och iSCSI-aktiverat. Inga andra nätverks gränssnitt på den här enheten har Aktiver ATS för molnet eller iSCSI.
   
     Om data 1 Miss lyckas, eftersom det är det sista iSCSI-användargränssnittet, leder det till en styrenhets växling till data 1 på den andra styrenheten.
 
@@ -168,13 +168,13 @@ Utöver de nätverks krav som ställs för den optimala prestandan för din Stor
 * Se till att din StorSimple-enhet har en dedikerad 40 Mbit/s-bandbredd (eller mer) tillgänglig hela tiden. Den här bandbredden ska inte delas (eller så bör allokeringen garanteras genom användning av QoS-principer) med andra program.
 * Se till att nätverks anslutningen till Internet alltid är tillgänglig. Sporadiska eller otillförlitliga Internet anslutningar till enheterna, inklusive ingen Internet anslutning alls, leder till en konfiguration som inte stöds.
 * Isolera iSCSI-och moln trafiken genom att ha särskilda nätverks gränssnitt på din enhet för iSCSI-och moln åtkomst. Mer information finns i så här [ändrar du nätverks gränssnitt](storsimple-8000-modify-device-config.md#modify-network-interfaces) på din StorSimple-enhet.
-* Använd inte en LACP-konfiguration (Link Aggregation Control Protocol) för dina nätverks gränssnitt. Detta är en konfiguration som inte stöds.
+* Använd inte en LACP-konfiguration (Link Aggregation Control Protocol) för dina nätverks gränssnitt. Konfigurationen stöds inte.
 
 ## <a name="high-availability-requirements-for-storsimple"></a>Krav på hög tillgänglighet för StorSimple
 
 Den maskin varu plattform som ingår i StorSimple-lösningen har tillgänglighets-och Tillförlitlighets funktioner som ger en grund för en hög tillgänglig, feltolerant lagrings infrastruktur i ditt data Center. Det finns dock krav och bästa praxis som du bör följa för att säkerställa tillgängligheten för din StorSimple-lösning. Innan du distribuerar StorSimple bör du noggrant läsa igenom följande krav och metod tips för StorSimple-enheten och anslutna värddatorer.
 
-Om du vill ha mer information om övervakning och underhåll av maskin varu komponenter för din StorSimple-enhet går du till [använda StorSimple Enhetshanteraren-tjänsten för att övervaka maskin varu komponenter och status](storsimple-8000-monitor-hardware-status.md) och [StorSimple maskin varu komponent utbyte ](storsimple-8000-hardware-component-replacement.md).
+Om du vill ha mer information om övervakning och underhåll av maskin varu komponenter för din StorSimple-enhet går du till [använda StorSimple Enhetshanteraren-tjänsten för att övervaka maskin varu komponenter och](storsimple-8000-monitor-hardware-status.md) [byte och StorSimple](storsimple-8000-hardware-component-replacement.md).
 
 ### <a name="high-availability-requirements-and-procedures-for-your-storsimple-device"></a>Krav och procedurer för hög tillgänglighet för din StorSimple-enhet
 

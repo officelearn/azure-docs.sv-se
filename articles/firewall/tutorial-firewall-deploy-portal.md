@@ -9,11 +9,11 @@ ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77558890"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239576"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure Firewall via Azure Portal
 
@@ -105,10 +105,10 @@ Skapa nu de virtuella hopp- och arbetsbelastningsdatorerna och placera dem i res
    |Inställning  |Värde  |
    |---------|---------|
    |Resursgrupp     |**Test-VB-RG**|
-   |Virtuellt datornamn     |**SRV-hoppa**|
+   |Namn på virtuell dator     |**SRV-hoppa**|
    |Region     |Samma som föregående|
    |Administratörens användar namn     |**azureuser**|
-   |Lösenord     |**Azure123456!**|
+   |lösenord     |**Azure123456!**|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **Tillåt valda portar**.
 5. I fältet **Välj inkommande portar** väljer du **RDP (3389)** .

@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: e6e1144043cbbbc8124785351e1e56a776b84527
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383741"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269359"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Använda lagrade procedurer i SQL Data Warehouse
 Tips för att implementera lagrade procedurer i Azure SQL Data Warehouse för att utveckla lösningar.

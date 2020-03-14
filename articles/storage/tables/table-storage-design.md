@@ -5,15 +5,15 @@ services: storage
 author: SnehaGunda
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387143"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255150"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Utforma skalbara och högpresterande tabeller
 
@@ -140,19 +140,8 @@ I tabelltjänsten är Entitetsgrupptransaktioner (EGTs) bara inbyggd mekanism f�
 EGTs introducerar också en potentiell kompromiss som du kan använda för att utvärdera i din design. Det innebär att om du använder fler partitioner ökar programmets skalbarhet eftersom Azure har fler möjligheter för belastnings Utjämnings begär Anden mellan noder. Men att använda fler partitioner kan begränsa möjligheten för ditt program att utföra atomiska transaktioner och upprätthålla stark konsekvens för dina data. Dessutom finns det vissa skalbara mål på nivån för en partition som kan begränsa data flödet för transaktioner som du kan förväntar dig för en enda nod. Mer information om skalbarhets mål för Azure standard Storage-konton finns i [skalbarhets mål för standard lagrings konton](../common/scalability-targets-standard-account.md). Mer information om skalbarhets mål för Table service finns i skalbarhets- [och prestanda mål för Table Storage](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Överväganden för kapacitet
-I följande tabell beskrivs några av de viktigaste värdena som du bör känna till när du skapar en Table service lösning:  
 
-| Total kapacitet för ett Azure storage-konto | 500 TB |
-| --- | --- |
-| Antalet tabeller i ett Azure storage-konto |Begränsas bara av kapaciteten för storage-konto |
-| Antalet partitioner i en tabell |Begränsas bara av kapaciteten för storage-konto |
-| Antal entiteter i en partition |Begränsas bara av kapaciteten för storage-konto |
-| Storleken på en enskild entitet |Upp till 1 MB med högst 255 egenskaper (inklusive **PartitionKey**, **RowKey**och **tidsstämpel**) |
-| Storlek på **PartitionKey** |En sträng upp till 1 KB stora |
-| Storlek på **RowKey** |En sträng upp till 1 KB stora |
-| Storleken på en Entitetsgrupp-transaktion |En transaktion får innehålla högst 100 entiteter och nyttolasten måste vara mindre än 4 MB i storlek. En entitet kan bara uppdatera en gång i en EGT. |
-
-Mer information finns i [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Så här fungerar datamodellen för Table Storage).  
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## <a name="cost-considerations"></a>Kostnadsöverväganden
 Table Storage är relativt billigt, men du bör inkludera kostnads uppskattningar för både kapacitets användning och antalet transaktioner som en del av din utvärdering av en Table service lösning. I många fall är det dock ett giltigt tillvägagångs sätt att lagra denormaliserade eller duplicerade data för att förbättra prestandan eller skalbarheten för din lösning. Mer information om priser finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).  

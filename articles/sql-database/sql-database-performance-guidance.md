@@ -1,24 +1,24 @@
 ---
-title: Vägledning för prestandajustering
-description: Lär dig hur du använder rekommendationer för att manuellt finjustera dina Azure SQL Database frågans prestanda.
+title: Vägledning för prestanda justering för program och databaser
+description: Lär dig mer om att finjustera databas program och databaser för prestanda i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: carlrab; jrasnick
+ms.date: 03/10/2020
+ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382392"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255956"
 ---
-# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Justera prestanda för manuell prestanda i Azure SQL Database
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Justera program och databaser för prestanda i Azure SQL Database
 
 När du har identifierat ett prestanda problem som du följer SQL Database är den här artikeln utformad för att hjälpa dig:
 
@@ -232,6 +232,10 @@ Du kan granska **sys. resource_stats** för att avgöra om resursen för ett tes
 
 Om en arbets belastning har en uppsättning upprepade frågor, är det ofta klokt att samla in och validera den optimala planen för dina prenumerations val eftersom den innehåller den minsta resurs storleks enhet som krävs för att vara värd för databasen. När du har verifierat det kan du ibland undersöka planerna för att hjälpa dig att se till att de inte försämras. Du kan lära dig mer om [frågetipset (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
+### <a name="very-large-database-architectures"></a>Mycket stora databas arkitekturer
+
+Före lanseringen av den [storskaliga](sql-database-service-tier-hyperscale.md) tjänst nivån för enskilda databaser i Azure SQL Database, använder kunderna kapacitets gränser för enskilda databaser. Dessa kapacitets gränser finns fortfarande för databaser i pooler i elastiska pooler och instans databaser i hanterade instanser. I följande två avsnitt diskuteras två alternativ för att lösa problem med mycket stora databaser i Azure SQL Database när du inte kan använda den storskaliga tjänst nivån.
+
 ### <a name="cross-database-sharding"></a>Horisontell partitionering mellan databaser
 
 Eftersom Azure SQL Database körs på råvaru maskin vara, är kapacitets gränserna för en enskild databas lägre än för en traditionell lokal SQL Server-installation. Vissa kunder använder horisontell partitionering-tekniker för att sprida databas åtgärder över flera databaser när åtgärderna inte ryms inom gränserna för en enskild databas i Azure SQL Database. De flesta kunder som använder horisontell partitionering-tekniker i Azure SQL Database dela sina data på en enskild dimension över flera databaser. För den här metoden måste du förstå att OLTP-programmen ofta utför transaktioner som endast gäller för en rad eller en liten grupp rader i schemat.
@@ -243,7 +247,7 @@ Om en databas till exempel har kund namn, order och beställnings information (t
 
 Även om databas horisontell partitionering inte minskar den sammanställda resurs kapaciteten för en lösning, är det mycket effektivt att stödja mycket stora lösningar som sprids över flera databaser. Varje databas kan köras med en annan beräknings storlek för att stödja mycket stora, "effektiva" databaser med höga resurs krav.
 
-### <a name="functional-partitioning"></a>Funktionell partitionering
+#### <a name="functional-partitioning"></a>Funktionell partitionering
 
 SQL Server användare kombinerar ofta många funktioner i en enskild databas. Om ett program exempelvis har logik för att hantera inventering för en butik, kan den databasen ha logik kopplad till inventering, spåra inköps order, lagrade procedurer och indexerade eller materialiserade vyer som hanterar månads rapportering. Den här tekniken gör det lättare att administrera databasen för åtgärder som säkerhets kopiering, men du måste också ändra maskin varans storlek för att hantera belastningen för alla funktioner i ett program.
 

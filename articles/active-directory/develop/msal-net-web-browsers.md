@@ -14,11 +14,11 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377376"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262742"
 ---
 # <a name="using-web-browsers-msalnet"></a>Använda webbläsare (MSAL.NET)
 
@@ -45,15 +45,15 @@ I allmänhet rekommenderar vi att du använder plattforms standarden och det är
 
 ### <a name="at-a-glance"></a>Snabbt
 
-| Samband        | Inbäddning | System | Default |
+| Samband        | inbäddning | System | Default |
 | ------------- |-------------| -----| ----- |
-| .NET Classic     | Ja | Ja ^ | Inbäddning |
+| .NET Classic     | Ja | Ja ^ | inbäddning |
 | .NET Core     | Nej | Ja ^ | System |
 | .NET Standard | Nej | Ja ^ | System |
-| UWP | Ja | Nej | Inbäddning |
+| UWP | Ja | Nej | inbäddning |
 | Xamarin.Android | Ja | Ja  | System |
 | Xamarin.iOS | Ja | Ja  | System |
-| Xamarin. Mac| Ja | Nej | Inbäddning |
+| Xamarin. Mac| Ja | Nej | inbäddning |
 
 ^ Kräver "http://localhost" omdirigerings-URI
 
@@ -149,7 +149,7 @@ Det finns vissa visuella skillnader mellan inbäddad webbvy och systemets webbl�
 
 **Interaktiv inloggning med MSAL.NET med hjälp av den inbäddade webbvy:**
 
-![Inbäddning](media/msal-net-web-browsers/embedded-webview.png)
+![inbäddning](media/msal-net-web-browsers/embedded-webview.png)
 
 **Interaktiv inloggning med MSAL.NET med hjälp av system webbläsare:**
 

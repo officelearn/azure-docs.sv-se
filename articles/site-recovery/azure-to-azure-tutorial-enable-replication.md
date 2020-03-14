@@ -6,20 +6,20 @@ ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759797"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238918"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera katastrof återställning för virtuella Azure-datorer
 
 [Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här självstudiekursen får du lära du dig att:
+Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella Azure-datorer genom att replikera dem från en Azure-region till en annan. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * skapar ett Recovery Services-valv
+> * Skapa ett Recovery Services-valv
 > * Verifiera målresursuppsättningar
 > * Konfigurera utgående nätverks anslutning för virtuella datorer
 > * Aktivera replikering för en virtuell dator
@@ -27,14 +27,14 @@ Den här självstudien visar hur du konfigurerar haveri beredskap för virtuella
 > [!NOTE]
 > Den här artikeln innehåller instruktioner för distribution av haveriberedskap med de enklaste inställningarna. Om du vill lära dig mer om anpassade inställningar kan du läsa artiklarna i [avsnittet How to](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
 - Granska [arkitekturen och komponenterna för scenariot](concepts-azure-to-azure-architecture.md).
 - Granska [support kraven](site-recovery-support-matrix-azure-to-azure.md) innan du börjar.
 
-## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
 
 Skapa valvet i valfri region, utom i källregionen.
 

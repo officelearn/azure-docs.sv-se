@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550952"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79239786"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Självstudie: skapa nätverks anslutningar och tillhandahålla kraft till Azure FXT Edge-noden
 
@@ -25,7 +25,7 @@ I den här kursen lär du dig:
 > * Så här dirigerar du kablar genom kabel hanterings arm (CMA)
 > * Så här ansluter du kraften till den rackmonterade enheten och slår på den
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien ska Azure FXT Edge-filer installeras i ett standard utrustnings rack. CMA bör installeras på noden filer. 
 
@@ -45,7 +45,7 @@ Den här artikeln beskriver också hur du [ansluter AC-kraften](#connect-power-c
 
 Den här artikeln beskriver också hur du ansluter till nodens [serie port](#serial-port-only-when-necessary), om det behövs för specialiserad fel sökning. 
 
-### <a name="network-ports"></a>Nätverksportar 
+### <a name="network-ports"></a>Nätverks portar 
 
 Varje Azure FXT Edge-nod innehåller följande nätverks portar: 
 

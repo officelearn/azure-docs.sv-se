@@ -4,11 +4,11 @@ description: Beskriver hur du använder Azure Resource Manager för distribution
 ms.topic: overview
 ms.date: 08/29/2019
 ms.openlocfilehash: f7e11ada8bf10baa99faf08d2b4b401e3bea2d9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75473789"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240326"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 

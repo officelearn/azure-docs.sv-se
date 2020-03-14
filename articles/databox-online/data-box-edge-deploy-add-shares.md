@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78946150"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79212952"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Självstudie: överföra data med Azure Data Box Edge
 
@@ -59,26 +59,28 @@ Om du vill skapa en resurs, gör du så här:
     Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter.  
     Beroende på om du väljer SMB- eller NFS-resurser varierar resten av alternativen något. 
 
-    c. Ange ett lagrings konto där resursen kommer att finnas. 
+    c. Ange ett lagrings konto där resursen kommer att finnas.
 
-    
+      > [!IMPORTANT]
+      > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+
     d. Välj **Blockblob**, **Sidblob** eller **Filer** i listrutan **Lagringstjänst**.  
     Vilken typ av tjänst som du väljer beror på vilket format som du vill att dina data ska använda i Azure. I det här exemplet, eftersom vi vill lagra data som block blobbar i Azure väljer du **blockera BLOB**. Om du väljer **Page BLOB**ser du till att dina data är 512 byte justerade. Till exempel är en VHDX alltid justerad för 512 byte.
 
     e. Skapa en ny BLOB-behållare eller Använd en befintlig i list rutan. Om du skapar en BLOB-behållare anger du ett behållar namn. En container skapas på lagringskontot med det nyligen skapade resursnamnet om det inte redan finns en.
-   
-    f. Beroende på om du har skapat en SMB-resurs eller en NFS-resurs, gör du något av följande: 
-     
-    - **SMB-resurs**: Välj **Skapa ny** eller **Använd befintlig**i **lokal användare för behörighet**. Om du skapar en ny lokal användare, anger du ett användarnamn och ett lösenord och bekräftar därefter lösenordet. Denna åtgärd tilldelar behörigheter till den lokala användaren. Ändring av behörigheter på resurs nivå stöds inte för närvarande.
+
+    f. Beroende på om du har skapat en SMB-resurs eller en NFS-resurs, gör du något av följande:
+
+    * **SMB-resurs**: Välj **Skapa ny** eller **Använd befintlig**i **lokal användare för behörighet**. Om du skapar en ny lokal användare, anger du ett användarnamn och ett lösenord och bekräftar därefter lösenordet. Denna åtgärd tilldelar behörigheter till den lokala användaren. Ändring av behörigheter på resurs nivå stöds inte för närvarande.
 
         Om du markerar kryss rutan **Tillåt endast Läs åtgärder** för den här resurs informationen kan du ange skrivskyddade användare.
 
         ![Lägga till SMB-resurs](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
-   
-    - **NFS-resurs**: Ange IP-adresserna för tillåtna klienter som har åtkomst till resursen.
+
+    * **NFS-resurs**: Ange IP-adresserna för tillåtna klienter som har åtkomst till resursen.
 
         ![Lägga till NFS-resurs](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
-   
+
 4. Klicka på **Skapa** för att skapa resursen.
     
     Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna **uppdateras delnings panelen så** att den återspeglar den nya resursen.

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
-ms.openlocfilehash: 5f2d23b3fe33691d37dc00b2d4e79036293252d9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 4051598a9abd787f6707e67a8c4dab12fc6d626a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132866"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79202152"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure Event Grid händelse schema för Azure Machine Learning
 
@@ -30,6 +30,7 @@ Azure Machine Learning avger följande händelse typer:
 | Microsoft. MachineLearningServices. ModelDeployed | Utlöses när modell (er) har distribuerats till en slut punkt. |
 | Microsoft. MachineLearningServices. RunCompleted | Utlöses när en körning har slutförts. |
 | Microsoft. MachineLearningServices. DatasetDriftDetected | Utlöses när en data uppsättnings drivgarn identifierar driften. |
+| Microsoft. MachineLearningServices. RunStatusChanged | Utlöses när en körnings status ändras till "misslyckades". |
 
 ## <a name="the-contents-of-an-event-response"></a>Innehållet i ett händelse svar
 
@@ -148,6 +149,46 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 }]
 ```
 
+### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Microsoft. MachineLearningServices. RunStatusChanged-händelse
+
+```json
+[{
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearningServices/workspaces/{workspace-name}",
+  "subject": "experiments/0fa9dfaa-cba3-4fa7-b590-23e48548f5c1/runs/AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+  "eventType": "Microsoft.MachineLearningServices.RunCompleted",
+  "eventTime": "2017-06-26T18:41:00.9584103Z",
+  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "data": {
+    "ExperimentId": "0fa9dfaa-cba3-4fa7-b590-23e48548f5c1",
+    "ExperimentName": "automl-local-regression",
+    "RunId": "AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5",
+    "RunType": null,
+    "RunTags": {},
+    "RunProperties": {
+        "runTemplate": "automl_child",
+        "pipeline_id": "5adc0a4fe02504a586f09a4fcbb241f9a4012062",
+        "pipeline_spec": "{\"objects\": [{\"class_name\": \"StandardScaler\", \"module\": \"sklearn.preprocessing\", \"param_args\": [], \"param_kwargs\": {\"with_mean\": true, \"with_std\": false}, \"prepared_kwargs\": {}, \"spec_class\": \"preproc\"}, {\"class_name\": \"LassoLars\", \"module\": \"sklearn.linear_model\", \"param_args\": [], \"param_kwargs\": {\"alpha\": 0.001, \"normalize\": true}, \"prepared_kwargs\": {}, \"spec_class\": \"sklearn\"}], \"pipeline_id\": \"5adc0a4fe02504a586f09a4fcbb241f9a4012062\"}",
+        "training_percent": "100",
+        "predicted_cost": "0.062226144097381045",
+        "iteration": "5",
+        "run_template": "automl_child",
+        "run_preprocessor": "StandardScalerWrapper",
+        "run_algorithm": "LassoLars",
+        "conda_env_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/conda_env_v_1_0_0.yml",
+        "model_name": "AutoMLad912b2d65",
+        "scoring_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/scoring_file_v_1_0_0.py",
+        "model_data_location": "aml://artifact/ExperimentRun/dcid.AutoML_ad912b2d-6467-4f32-a616-dbe4af6dd8fc_5/outputs/model.pkl"
+    },
+   "RunStatus": "failed"
+   },
+  "dataVersion": "",
+  "metadataVersion": "1"
+}]
+```
+
+
+
+
 ## <a name="event-properties"></a>Händelse egenskaper
 
 En händelse har följande data på översta nivån:
@@ -170,7 +211,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ModelName | sträng | Namnet på den modell som har registrerats. |
-| ModelVersion | int | Den version av modellen som har registrerats. |
+| ModelVersion | sträng | Den version av modellen som har registrerats. |
 | ModelTags | objekt | Taggarna för den modell som har registrerats. |
 | ModelProperties | objekt | Egenskaperna för den modell som har registrerats. |
 
@@ -178,7 +219,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Tjänstnamn | sträng | Namnet på den distribuerade tjänsten. |
+| ServiceName | sträng | Namnet på den distribuerade tjänsten. |
 | ServiceComputeType | sträng | Compute-typen (t. ex. ACI, AKS) för den distribuerade tjänsten. |
   | ModelIds | sträng | En kommaavgränsad lista med modell-ID: n. ID: na för de modeller som distribueras i tjänsten. |
 | ServiceTags | objekt | Den distribuerade tjänstens taggar. |
@@ -208,6 +249,17 @@ Data-objektet har följande egenskaper för varje händelse typ:
 | StartTime | datetime | Start tiden för den mål data uppsättnings tids serie som ledde till drifts identifiering.  |
 | EndTime | datetime | Slut tiden för mål data uppsättningens tids serier som ledde till drifts identifiering. |
 
+### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
+
+| Egenskap | Typ | Beskrivning |
+| -------- | ---- | ----------- |
+| ExperimentId | sträng | ID för experimentet som körningen tillhör. |
+| ExperimentName | sträng | Namnet på experimentet som körningen tillhör. |
+| RunId | sträng | ID för körningen som har slutförts. |
+| RunType | sträng | Körnings typen för den slutförda körningen. |
+| RunTags | objekt | Taggarna för den slutförda körningen. |
+| RunProperties | objekt | Egenskaperna för den slutförda körningen. |
+| RunStatus | sträng | Status för körningen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

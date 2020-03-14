@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d024382f816e98fb5cb83331dd417f0c41362bc4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: b7c26a40d5c5feebe122db911b88dc5a0caa9042
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358090"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254214"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -409,7 +409,7 @@ Windows Defender ATP och EDR | Visa och undersök aviseringar. När du aktiverar
 Användare med den här rollen kan öppna support förfrågningar med Microsoft för Azure-och Office 365-tjänster och Visa instrument panelen och meddelande centret i [Azure Portal](https://portal.azure.com) och [Microsoft 365 administrations Center](https://admin.microsoft.com). Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> I Microsoft Graph API och Azure AD PowerShell identifieras rollen som "tjänst support administratör". Det är "tjänst administratör" i [Azure Portal](https://portal.azure.com), [Microsoft 365 administrations Center](https://admin.microsoft.com)och Intune-portalen.
+> Tidigare kallades den här rollen "tjänst administratör" i [Azure Portal](https://portal.azure.com) och [Microsoft 365 administrations Center](https://admin.microsoft.com). Vi har bytt namn till "service support Administrator" för att överensstämma med befintlig-namnet i Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell.
 
 ### <a name="sharepoint-administrator"></a>[SharePoint-administratör](#sharepoint-service-administrator-permissions)
 
@@ -990,18 +990,19 @@ Kan hantera alla aspekter av Exchange-produkten.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
 | Microsoft. Directory/grupper/enhetlig/skapa | Skapa Office 365-grupper. |
 | Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Office 365-grupper. |
 | Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap för Office 365-grupper. |
 | Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Office 365-grupper. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | microsoft.office365.exchange/allEntities/allTasks | Hantera alla aspekter av Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
+| microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
+| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
 ### <a name="external-identity-provider-administrator-permissions"></a>Administratörs behörighet för extern identitetsprovider
 
@@ -1101,7 +1102,6 @@ Kan hantera alla aspekter av grupper och grupp inställningar som namngivnings-o
 | microsoft.office365.messageCenter/messages/read | Läs meddelanden i Microsoft. Office365. messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
-| microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
 
 ### <a name="guest-inviter-permissions"></a>Gäst deltagares behörigheter
 Kan bjuda in gäst användare oberoende av inställningen medlemmar kan bjuda in gäster.
@@ -1212,10 +1212,12 @@ Kan hantera alla aspekter av Skype för företag-produkten.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Hantera alla aspekter av Skype för företag – online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
+| microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
+| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
+
 
 ### <a name="message-center-privacy-reader-permissions"></a>Behörigheter för meddelande Center sekretess läsare
 
@@ -1260,7 +1262,6 @@ Kan hantera Office-appars moln tjänster, inklusive hantering av principer och i
 | microsoft.office365.messageCenter/messages/read | Läs meddelanden i Microsoft. Office365. messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
-| microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
 | Microsoft. Office365. userCommunication/uplånar/allTasks | Läs och uppdatera visningen av nya meddelanden. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
@@ -1442,7 +1443,6 @@ Kan skapa och hantera alla aspekter av Microsofts Sök inställningar.
 | microsoft.office365.search/allEntities/allProperties/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera alla egenskaper i Microsoft. Office365. search. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
-| microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
 ### <a name="search-editor-permissions"></a>Behörigheter för Sök redigeraren
@@ -1458,7 +1458,6 @@ Kan skapa och hantera redaktionellt innehåll, till exempel bok märken, Q och a
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | Läs meddelanden i Microsoft. Office365. messageCenter. |
 | microsoft.office365.search/content/allProperties/allTasks | Skapa och ta bort innehåll och läsa och uppdatera alla egenskaper i Microsoft. Office365. search. |
-| microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
 
 ### <a name="security-administrator-permissions"></a>Behörighet för säkerhets administratör
 
@@ -1507,7 +1506,6 @@ Skapar och hanterar säkerhets händelser.
 | microsoft.azure.advancedThreatProtection/allEntities/read | Läsa och konfigurera Azure AD Advanced Threat Protection. |
 | microsoft.intune/allEntities/allTasks | Hantera alla aspekter av Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Läsa och konfigurera Säkerhets-och efterlevnadscenter. |
-| microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Läsa och konfigurera Windows Defender Avancerat skydd. |
 
 ### <a name="security-reader-permissions"></a>Behörigheter för säkerhets läsare
@@ -1560,18 +1558,19 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
 | Microsoft. Directory/grupper/enhetlig/skapa | Skapa Office 365-grupper. |
 | Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Office 365-grupper. |
 | Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap för Office 365-grupper. |
 | Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Office 365-grupper. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Läsa och konfigurera Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera support biljetter för Azure. |
-| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läs och konfigurera Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. Office365. SharePoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-support biljetter. |
+| microsoft.office365.usageReports/allEntities/read | Läs Office 365-användnings rapporter. |
+| microsoft.office365.webPortal/allEntities/basic/read | Läsa grundläggande egenskaper för alla resurser i Microsoft. Office365. Web-Portal. |
 
 ### <a name="teams-communications-administrator-permissions"></a>Administratörs behörighet för Teams kommunikation
 
@@ -1741,7 +1740,7 @@ Sök redigerare | Sök redigerare | 8835291a-918c-4fd7-a9ce-faa49f0cf7d9
 Säkerhetsadministratör | Säkerhetsadministratör | 194ae4cb-b126-40b2-bd5b-6091b380977d
 Säkerhets operatör | Säkerhets operatör | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Säkerhets läsare | Säkerhetsläsare | 5d6b6bb7-de71-4623-b4af-96380a352509
-Tjänst support administratör | Tjänstadministratör | f023fd81-a637-4b56-95fd-791ac0226033
+Tjänst support administratör | Tjänstsupportadministratör | f023fd81-a637-4b56-95fd-791ac0226033
 SharePoint-tjänsteadministratör | SharePoint-administratör | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Team kommunikations administratör | Team kommunikations administratör | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Support tekniker för Teams kommunikation | Support tekniker för Teams kommunikation | f70938a0-fc10-4177-9e90-2178f8765737

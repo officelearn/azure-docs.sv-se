@@ -9,11 +9,11 @@ ms.topic: sample
 ms.date: 02/08/2019
 ms.author: sngun
 ms.openlocfilehash: 8b133f0044bdf8f99fdee657177d561ef5bb406b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170152"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79238484"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: Java-exempel för SQL API
 
@@ -33,7 +33,7 @@ De senaste exempelprogrammen som utför CRUD-åtgärder och andra vanliga åtgä
 * Länkar till uppgifterna i var och en av Java-projektfilerna. 
 * Länkar till det relaterade API-referensinnehållet.
 
-**Krav**
+**Förutsättningar**
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
@@ -121,7 +121,7 @@ Så här kör du från kommandoraden:
 | --- | --- |
 | [Skapa ett index och ange indexeringsprincip](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java#L125-L141) | [Index](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.index)<br>[IndexingPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.indexingpolicy) |
 
-Mer information om indexering finns i [Azure Cosmos DB-indexeringsprinciper](index-policy.md).
+Mer information om indexering finns i [Azure Cosmos DB indexeringsprinciper](index-policy.md).
 
 ## <a name="query-examples"></a>Exempelfrågor
 [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java) -filen visar hur du utför följande uppgifter. Om du vill veta mer om SQL-frågan i Azure Cosmos DB innan du kör följande exempel kan du läsa artikeln om [SQL-fråge exempel](how-to-sql-query.md) . 

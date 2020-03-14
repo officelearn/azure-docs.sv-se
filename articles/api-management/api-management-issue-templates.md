@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176635"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249586"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Utfärda mallar i Azure API Management
-Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, till exempel [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), glyf- [resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna som du ser får plats med mallarna.  
+Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor med en uppsättning mallar som konfigurerar innehållet. Om du använder [DotLiquid](http://dotliquidmarkup.org/) -syntax och valfritt redigerings program, t. ex. [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [Glyph-resurser](api-management-template-resources.md#glyphs)och [sid kontroller](api-management-page-controls.md), har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa med hjälp av dessa mallar.  
   
  Med mallarna i det här avsnittet kan du anpassa innehållet på ärende sidorna i Developer-portalen.  
   
@@ -102,8 +102,8 @@ Med Azure API Management kan du anpassa innehållet i utvecklares Portal sidor m
 |--------------|----------|-----------------|  
 |`Issues`|Samling av [Issue](api-management-template-data-model-reference.md#Issue) -entiteter.|De problem som är synliga för den aktuella användaren.|  
 |`Paging`|[Växlings](api-management-template-data-model-reference.md#Paging) enhet.|Växlings informationen för program samlingen.|  
-|`IsAuthenticated`|boolesk|Om den aktuella användaren är inloggad på Developer-portalen.|  
-|`CanReportIssues`|boolesk|Om den aktuella användaren har behörighet att skicka in ett problem.|  
+|`IsAuthenticated`|boolean|Om den aktuella användaren är inloggad på Developer-portalen.|  
+|`CanReportIssues`|boolean|Om den aktuella användaren har behörighet att skicka in ett problem.|  
 |`Search`|sträng|Den här egenskapen är föråldrad och ska inte användas.|  
   
 ### <a name="sample-template-data"></a>Exempel mal lin data  

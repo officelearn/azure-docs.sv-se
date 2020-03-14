@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 69cae196e7fad70d75fb12709e5bf0d618bbc81c
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 7ebe76fde344b1dabca9a3aee2d0cc9e1edb8df4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602317"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247831"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -21,6 +21,7 @@ Mer information om säkerhets kopierings processen och begränsningar finns i [o
 Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator måste du installera **AzureBackupWindowsWorkload** -tillägget på den virtuella datorn. Om du får felet **UserErrorSQLNoSysadminMembership**innebär det att din SQL Server-instans inte har de säkerhets kopierings behörigheter som krävs. Följ stegen i [Ange VM-behörigheter](backup-azure-sql-database.md#set-vm-permissions)för att åtgärda felet.
 
 ## <a name="troubleshoot-discover-and-configure-issues"></a>Felsöka identifierings-och konfigurations problem
+
 När du har skapat och konfigurerat ett Recovery Services-valv, är det en två stegs process att identifiera databaser och konfigurera säkerhets kopiering.<br>
 
 ![SQL](./media/backup-azure-sql-database/sql.png)
@@ -37,7 +38,23 @@ Om den virtuella SQL-datorn och dess instanser inte visas i **identifierings-dat
 
 Om den virtuella SQL-datorn måste registreras i det nya valvet måste den avregistreras från det gamla valvet.  Avregistreringen av en virtuell SQL-dator från valvet kräver att alla skyddade data källor stoppas och att du kan ta bort säkerhetskopierade data. Att ta bort säkerhetskopierade data är en destruktiv åtgärd.  När du har granskat och vidtagit alla försiktighets åtgärder för att avregistrera den virtuella SQL-datorn registrerar du sedan samma virtuella dator med ett nytt valv och försöker säkerhetskopiera igen.
 
+## <a name="troubleshoot-backup-and-recovery-issues"></a>Felsök problem med säkerhets kopiering och återställning  
 
+Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återställnings åtgärder, eller så kan dessa åtgärder fastna. Detta kan bero på antivirus program på den virtuella datorn. Som bästa praxis rekommenderar vi följande steg:
+
+1. Undanta följande mappar från Antivirus genomsökning:
+
+    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+
+    Ersätt `C:\` med bokstaven för din *systemen het*.
+
+1. Undanta följande tre processer som körs i en virtuell dator från Antivirus genomsökning:
+
+    - IaasWLPluginSvc. exe
+    - IaasWorkloadCoordinaorService. exe
+    - TriggerExtensionJob. exe
+
+1. SQL innehåller också några rikt linjer för att arbeta med antivirus program. Mer information finns i [den här artikeln](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) .
 
 ## <a name="error-messages"></a>Felmeddelanden
 
@@ -149,7 +166,6 @@ Om den virtuella SQL-datorn måste registreras i det nya valvet måste den avreg
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 Den virtuella datorn kan inte kontakta Azure Backup tjänsten på grund av problem med Internet anslutningen. | Den virtuella datorn behöver utgående anslutning till Azure Backup tjänsten Azure Storage eller Azure Active Directory tjänster.| – Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup-tjänst tag gen för att tillåta utgående åtkomst till Azure Backup till Azure Backup tjänst Azure Storage eller Azure Active Directory tjänster. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) om du vill bevilja åtkomst.<br>– Kontrol lera att DNS löser Azure-slutpunkter.<br>-Kontrol lera om den virtuella datorn ligger bakom en belastningsutjämnare som blockerar Internet åtkomst. Genom att tilldela den offentliga IP-adressen till de virtuella datorerna fungerar identifieringen.<br>-Kontrol lera att det inte finns någon brand vägg/Antivirus/proxy som blockerar anrop till de tre mål tjänsterna ovan.
-
 
 ## <a name="re-registration-failures"></a>Försök att registrera igen
 

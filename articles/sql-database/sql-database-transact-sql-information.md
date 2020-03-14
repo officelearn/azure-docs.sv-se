@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 15c661a1ef917dcf73b5a86cd450c94a35b08c88
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e0870ac9dc818ca07e149421b486136c76dd61a4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822480"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208823"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa skillnader i Transact-SQL vid migrering till SQL Database
 
@@ -36,9 +36,9 @@ En lista över de funktioner som stöds och som inte stöds av SQL Database finn
 
 Huvud-DDL-uttrycket (Data Definition Language) är tillgängliga, men vissa DDL-instruktioner har tillägg som rör disk placering och funktioner som inte stöds.
 
-- CREATE-och ALTER DATABASE-instruktioner har över tre dussin alternativ. Instruktionerna inkluderar alternativ för fil placering, FILESTREAM och Service Broker som endast gäller för SQL Server. Detta kanske inte spelar någon roll om du skapar databaser innan du migrerar, men om du migrerar en T-SQL-kod som skapar databaser bör du jämföra [skapa databas (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) med syntaxen SQL Server i [create Database (SQL Server Transact-SQL) ](https://msdn.microsoft.com/library/ms176061.aspx)för att se till att alla alternativ som du använder stöds. SKAPA databas för Azure SQL Database även har service mål och elastiska skalnings alternativ som endast gäller för SQL Database.
+- CREATE-och ALTER DATABASE-instruktioner har över tre dussin alternativ. Instruktionerna inkluderar alternativ för fil placering, FILESTREAM och Service Broker som endast gäller för SQL Server. Detta kanske inte spelar någon roll om du skapar databaser innan du migrerar, men om du migrerar en T-SQL-kod som skapar databaser bör du jämföra [skapa databas (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) med syntaxen SQL Server i [create Database (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) för att se till att alla alternativ som du använder stöds. SKAPA databas för Azure SQL Database även har service mål och elastiska skalnings alternativ som endast gäller för SQL Database.
 - CREATE-och ALTER TABLE-instruktionerna innehåller FileTable-alternativ som inte kan användas på SQL Database eftersom FILESTREAM inte stöds.
-- Det finns stöd för CREATE-och ALTER login-instruktioner, men SQL Database erbjuder inte alla alternativ. För att göra databasen mer portabel SQL Database uppmuntrar med inneslutna databas användare i stället för inloggningar närhelst det är möjligt. Mer information finns i [Skapa/ändra inloggning](https://msdn.microsoft.com/library/ms189828.aspx) och [kontrol lera och bevilja databas åtkomst](sql-database-manage-logins.md).
+- Det finns stöd för CREATE-och ALTER login-instruktioner, men SQL Database erbjuder inte alla alternativ. För att göra databasen mer portabel SQL Database uppmuntrar med inneslutna databas användare i stället för inloggningar närhelst det är möjligt. Mer information finns i [Skapa/ändra inloggning](https://docs.microsoft.com/sql/t-sql/statements/alter-login-transact-sql) och [Hantera inloggningar och användare](sql-database-manage-logins.md).
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Transact-SQL-syntaxen stöds inte i Azure SQL Database
 

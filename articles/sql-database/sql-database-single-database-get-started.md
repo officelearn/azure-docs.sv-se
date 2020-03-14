@@ -1,6 +1,6 @@
 ---
 title: Skapa en enkel databas
-description: Skapa och fråga en enskild databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI.
+description: Skapa en Azure SQL Database enskild databas med hjälp av Azure Portal, PowerShell eller Azure CLI. Fråga databasen med Frågeredigeraren i Azure Portal.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,48 +10,43 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
-ms.date: 02/14/2020
-ms.openlocfilehash: 2dacdfaa5443707ab82ae53922ac439319375276
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/10/2020
+ms.openlocfilehash: 638adaac699bb7aa2774f5cbd37dc8394a2baee3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359762"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240522"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal, PowerShell och Azure CLI
+# <a name="quickstart-create-an-azure-sql-database-single-database"></a>Snabb start: skapa en Azure SQL Database enskild databas
 
-Att skapa en [enkel databas](sql-database-single-database.md) är det snabbaste och enklaste distributionsalternativet för att skapa en databas i Azure SQL Database. Snabbstarten visar hur du skapar och sedan frågar en enkel databas Azure-portalen.
+I den här snabb starten använder du Azure Portal, ett PowerShell-skript eller ett Azure CLI-skript för att skapa en Azure SQL Database enkel databas. Sedan frågar du databasen med hjälp av **Frågeredigeraren** i Azure Portal. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/). 
+En [enkel databas](sql-database-single-database.md) är det snabbaste och enklaste distributions alternativet för Azure SQL Database. Du hanterar en enskild databas i en [SQL Database-Server](sql-database-servers.md), som finns i en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) i en angiven Azure-region. I den här snabb starten skapar du en ny resurs grupp och SQL Server för den nya databasen.
 
-Logga in på [Azure Portal](https://portal.azure.com/) för alla steg i den här snabbstarten.
+Du kan skapa en enskild databas i den *etablerade* eller *Server* lös beräknings nivån. En etablerad databas är i förväg allokerad en fast mängd beräknings resurser, inklusive processor och minne, och använder en av två [inköps modeller](sql-database-purchase-models.md). Den här snabb starten skapar en etablerad databas med den [vCore-baserade](sql-database-service-tiers-vcore.md) inköps modellen, men du kan också välja en [DTU-baserad](sql-database-service-tiers-DTU.md) modell. 
+
+Server lös beräknings nivån är bara tillgänglig i den vCore-baserade inköps modellen och har ett automatiskt skalat beräknings resurser, inklusive processor och minne. Information om hur du skapar en enskild databas i den serverbaserade beräknings nivån finns i [skapa en server lös databas](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+
+## <a name="prerequisite"></a>Krav
+
+- En aktiv Azure-prenumeration. Om du inte har en [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-single-database"></a>Skapa en enkel databas
-
-En enskild databas kan antingen skapas i den etablerade eller serverbaserade beräknings nivån.
-
-- En enda databas i den allokerade beräknings nivån är i förväg allokerad en fast mängd beräknings resurser, inklusive processor och minne, med hjälp av en av två [inköps modeller](sql-database-purchase-models.md).
-- En enkel databas i en server lös beräknings nivå har ett intervall med beräknings resurser, inklusive CPU och minne som skalas automatiskt och som endast är tillgängligt i [vCore-baserade inköps modeller](sql-database-service-tiers-vcore.md).
-
-När du skapar en enkel databas definierar du även en [SQL Database-server](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/management/overview.md) i en specifik region.
-
-> [!NOTE]
-> I den här snabb starten används den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md), men den [DTU-baserade inköps modellen](sql-database-service-tiers-DTU.md) är också tillgänglig.
-
-Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempeldata:
 
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="query-the-database"></a>Fråga databasen
 
-Nu när du har skapat en databas ska du använda det inbyggda frågeverktyget på Azure Portal för att ansluta till databasen och fråga efter data.
+När databasen har skapats kan du använda den inbyggda **Frågeredigeraren** i Azure Portal för att ansluta till databasen och fråga efter data.
 
+1. I portalen söker du efter och väljer **SQL-databaser**och väljer sedan din databas i listan.
 1. På **SQL Database**-sidan för databasen väljer du **Frågeredigeraren (förhandsversion)** i den vänstra menyn.
+1. Ange inloggnings information för Server administratören och välj **OK**.
+   
+   ![Logga in på Frågeredigeraren](./media/sql-database-single-database-get-started/query-editor-login.png)
 
-   ![Logga in på Frågeredigeraren](./media/sql-database-get-started-portal/query-editor-login.png)
-
-2. Ange din inloggningsinformation och välj **OK**.
-3. Skriv följande fråga i fönstret **Frågeredigeraren**.
+1. Skriv följande fråga i fönstret **Frågeredigeraren**.
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -60,28 +55,47 @@ Nu när du har skapat en databas ska du använda det inbyggda frågeverktyget p�
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-4. Välj **Kör** och granska sedan frågeresultaten i fönstret **Resultat**.
+1. Välj **Kör** och granska sedan frågeresultaten i fönstret **Resultat**.
 
-   ![Resultat från Frågeredigeraren](./media/sql-database-get-started-portal/query-editor-results.png)
+   ![Resultat från Frågeredigeraren](./media/sql-database-single-database-get-started/query-editor-results.png)
 
-5. Stäng sidan med **Frågeredigeraren** och klicka på **OK** för att ta bort de ändringar som inte har sparats.
+1. Stäng sidan med **Frågeredigeraren** och klicka på **OK** för att ta bort de ändringar som inte har sparats.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Behåll den här resursgruppen, databasservern och den enkla databasen om du vill gå till [Nästa steg](#next-steps). Nästa steg visar hur du ansluter och kör frågor mot din databas med olika metoder.
+Behåll resurs gruppen, servern och den enskilda databasen för att gå vidare till nästa steg och lär dig hur du ansluter och frågar databasen med olika metoder.
 
-När du är klar med dessa resurser kan du ta bort dem på följande sätt:
+När du är klar med de här resurserna kan du ta bort resurs gruppen som du skapade, vilket även tar bort servern och en enskild databas i den.
 
-1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
-2. Välj **Ta bort resursgrupp** på din resursgruppssida.
-3. Ange *myResourceGroup* i fältet och välj sedan **Ta bort**.
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
+Så här tar du bort **myResourceGroup** och alla dess resurser med hjälp av Azure Portal:
+
+1. I portalen söker du efter och väljer **resurs grupper**och väljer sedan **myResourceGroup** i listan.
+1. På sidan resurs grupp väljer du **ta bort resurs grupp**.
+1. Under **Ange resurs gruppens namn**skriver du *myResourceGroup*och väljer sedan **ta bort**.
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Om du vill ta bort resurs gruppen och alla dess resurser kör du följande Azure CLI-kommando med namnet på din resurs grupp:
+
+```azurecli-interactive
+az group delete --name <your resource group>
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Om du vill ta bort resurs gruppen och alla dess resurser kör du följande PowerShell-cmdlet med namnet på din resurs grupp:
+
+ ```azurepowershell-interactive
+Remove-AzResourceGroup -Name <your resource group>
+```
+
+---
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en brandväggsregel på servernivå för att ansluta till den enkla databasen från lokala eller fjärranslutna verktyg. Mer information finns i [Skapa en brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md).
-- När du har skapat en brandväggsregel på servernivå [ansluter du till och kör frågor mot](sql-database-connect-query.md) databasen med hjälp av flera olika verktyg och språk.
-  - [Ansluta och köra frågor med hjälp av SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Ansluta och köra frågor med hjälp av Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Information om hur du skapar en enskild databas i den etablerade beräknings nivån med Azure CLI finns i [Azure CLI-exempel](sql-database-cli-samples.md).
-- Om du vill skapa en enskild databas i den allokerade beräknings nivån med hjälp av Azure PowerShell, se [Azure PowerShell exempel](sql-database-powershell-samples.md).
-- Information om hur du skapar en enskild databas i Server lös beräknings nivå med hjälp av Azure PowerShell finns i [skapa server lös databas](sql-database-serverless.md#create-new-database-in-serverless-compute-tier).
+[Anslut och fråga](sql-database-connect-query.md) databasen med olika verktyg och språk:
+> [!div class="nextstepaction"]
+> [Ansluta och köra frågor med hjälp av SQL Server Management Studio](sql-database-connect-query-ssms.md)
+> 
+> [Ansluta och köra frågor med hjälp av Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)

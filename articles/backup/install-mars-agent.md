@@ -3,12 +3,12 @@ title: Installera Microsoft Azure Recovery Services (MARS)-agenten
 description: Lär dig hur du installerar Microsoft Azure Recovery Services-agenten (MARS) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: cf6b332c308bb0224dbfed546f8b3ba819abcb02
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: b9a6791709d5aff82d11bbf10e5f084fd8c1a000
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673103"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247766"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installera Azure Backup MARS-agenten
 
@@ -98,6 +98,10 @@ Mer information finns i [krav för ExpressRoute-routning](https://docs.microsoft
 > Offentlig peering är föråldrad för nya kretsar.
 
 Alla föregående URL: er och IP-adresser använder HTTPS-protokollet på port 443.
+
+### <a name="private-endpoints"></a>Privata slut punkter
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## <a name="download-the-mars-agent"></a>Hämta MARS-agenten
 

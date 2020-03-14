@@ -4,100 +4,23 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: b8b4f8062d9f60648e22ab4eb0be78eb47159834
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944203"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79205175"
 ---
-# <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Skapa ett privat Azure Kubernetes service-kluster (för hands version)
+# <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
 I ett privat kluster har kontroll planet eller API-servern interna IP-adresser som definieras i [RFC1918 för privata Internet](https://tools.ietf.org/html/rfc1918) dokument. Genom att använda ett privat kluster kan du se till att nätverks trafiken mellan API-servern och noderna i pooler fortfarande finns i det privata nätverket.
 
 Kontroll planet eller API-servern finns i en Azure Kubernetes service (AKS)-hanterad Azure-prenumeration. En kunds kluster eller Node-pool är i kundens prenumeration. Servern och klustret eller noden kan kommunicera med varandra via [tjänsten Azure Private Link][private-link-service] i det virtuella nätverkets API-Server och en privat slut punkt som exponeras i under nätet för KUNDEns AKS-kluster.
 
-> [!IMPORTANT]
-> AKS för hands versions funktionerna är självbetjänings tjänster och erbjuds på ett valbart sätt. För hands versioner tillhandahålls och *är* *tillgängliga* och omfattas inte av service nivå avtalet (SLA) och begränsad garanti. AKS för hands versionerna omfattas delvis av kund supporten på *bästa* möjliga sätt. Därför är funktionerna inte avsedda att användas för produktion. Mer information finns i följande support artiklar:
->
-> * [Support principer för AKS](support-policies.md)
-> * [Vanliga frågor och svar om support för Azure](faq.md)
-
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure CLI-versionen 2.0.77 eller senare, och 0.4.18 för för hands versionen av Azure CLI AKS
+* Azure CLI-version 2.2.0 eller senare
 
-## <a name="currently-supported-regions"></a>Regioner som stöds för närvarande
-
-* Australien, östra
-* Australien, sydöstra
-* Brasilien, södra
-* Kanada, centrala
-* Kanada, östra
-* Cenral oss
-* Asien, östra
-* USA, östra
-* USA, östra 2
-* USA, östra 2 EUAP
-* Frankrike, centrala
-* Tyskland, norra
-* Japan, östra
-* Japan, västra
-* Sydkorea, centrala
-* Sydkorea, södra
-* USA, norra centrala
-* Europa, norra
-* Europa, norra
-* USA, södra centrala
-* Storbritannien, södra
-* Europa, västra
-* USA, västra
-* USA, västra 2
-* USA, östra 2
-
-## <a name="currently-supported-availability-zones"></a>Tillgänglighetszoner som stöds för närvarande
-
-* USA, centrala
-* USA, östra
-* USA, östra 2
-* Frankrike, centrala
-* Japan, östra
-* Europa, norra
-* Sydostasien
-* Storbritannien, södra
-* Europa, västra
-* USA, västra 2
-
-## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installera det senaste för hands tillägget för Azure CLI-AKS
-
-Om du vill använda privata kluster behöver du Azure CLI AKS Preview Extension version 0.4.18 eller senare. Installera Azure CLI-AKS för hands versions tillägg med hjälp av kommandot [AZ Extension Add][az-extension-add] och Sök sedan efter eventuella tillgängliga uppdateringar med hjälp av följande kommando för [AZ-tillägg][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-> [!CAUTION]
-> När du registrerar en funktion på en prenumeration kan du för närvarande inte avregistrera funktionen. När du har aktiverat vissa för hands versions funktioner kan du använda standardinställningarna för alla AKS-kluster som har skapats i prenumerationen. Aktivera inte för hands versions funktioner för produktions prenumerationer. Använd en separat prenumeration för att testa för hands versions funktionerna och samla in feedback.
-
-```azurecli-interactive
-az feature register --name AKSPrivateLinkPreview --namespace Microsoft.ContainerService
-```
-
-Det kan ta flera minuter innan registrerings statusen visas som *registrerad*. Du kan kontrol lera statusen med hjälp av följande kommando för [AZ funktions lista][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSPrivateLinkPreview')].{Name:name,State:properties.state}"
-```
-
-När statusen är registrerad uppdaterar du registreringen av resurs leverantören *Microsoft. container service* med hjälp av följande [AZ Provider register][az-provider-register] kommando:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-az provider register --namespace Microsoft.Network
-```
 ## <a name="create-a-private-aks-cluster"></a>Skapa ett privat AKS-kluster
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -159,6 +82,7 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 9. Gå till det virtuella nätverket där du har den virtuella datorn, Välj **peering**, Välj det virtuella AKS-nätverket och skapa sedan peer-kopplingen. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra, Miss lyckas peering. Mer information finns i [peering för virtuella nätverk][virtual-network-peering].
 
 ## <a name="dependencies"></a>Beroenden  
+
 * Tjänsten Private Link stöds endast på standard Azure Load Balancer. Basic-Azure Load Balancer stöds inte.  
 * Om du vill använda en anpassad DNS-Server distribuerar du en AD-server med DNS för att vidarebefordra till den här IP-168.63.129.16
 
@@ -173,7 +97,6 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 * Inget stöd för att konvertera befintliga AKS-kluster till privata kluster
 * Om du tar bort eller ändrar den privata slut punkten i kundens undernät kommer klustret att sluta fungera. 
 * Azure Monitor för behållar real tids data stöds inte för närvarande.
-* Det finns för närvarande inte stöd för *att ta med din egen DNS* .
 
 
 <!-- LINKS - internal -->

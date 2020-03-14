@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744746"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272154"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight Virtual Network-arkitektur
 
@@ -52,20 +52,20 @@ Standard resurserna som finns när HDInsight distribueras till en Azure-Virtual 
 
 I följande tabell sammanfattas de nio klusternoder som skapas när HDInsight distribueras till en anpassad Azure-Virtual Network.
 
-| Resurstyp | Antal närvarande | Information |
+| Resurstyp | Antal närvarande | Detaljer |
 | --- | --- | --- |
-|Huvudnod | två |    |
+|Huvudnod | tvåsiffrig |    |
 |Zookeeper-nod | tre | |
-|Arbetsnoden | två | Det här antalet kan variera beroende på kluster konfiguration och skalning. Minst tre arbetsnoder behövs för Apache Kafka.  |
-|Gateway-nod | två | Gateway-noder är virtuella Azure-datorer som skapas på Azure, men som inte är synliga i din prenumeration. Kontakta supporten om du behöver starta om noderna. |
+|Arbetsnoden | tvåsiffrig | Det här antalet kan variera beroende på kluster konfiguration och skalning. Minst tre arbetsnoder behövs för Apache Kafka.  |
+|Gateway-nod | tvåsiffrig | Gateway-noder är virtuella Azure-datorer som skapas på Azure, men som inte är synliga i din prenumeration. Kontakta supporten om du behöver starta om noderna. |
 
 Följande nätverks resurser som finns skapas automatiskt i det virtuella nätverk som används med HDInsight:
 
-| Nätverks resurs | Antal närvarande | Information |
+| Nätverks resurs | Antal närvarande | Detaljer |
 | --- | --- | --- |
-|Load Balancer | tre | |
+|Lastbalanserare | tre | |
 |Nätverksgränssnitt | 9 | Det här värdet baseras på ett vanligt kluster där varje nod har sitt eget nätverks gränssnitt. De nio gränssnitten är för de två huvudnoderna, tre Zookeeper-noder, två arbetsnoder och två Gateway-noder som nämns i föregående tabell. |
-|Offentliga IP-adresser | två |    |
+|Offentliga IP-adresser | tvåsiffrig |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>Slut punkter för att ansluta till HDInsight
 

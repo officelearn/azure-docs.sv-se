@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: ebb512fee0186bed3cc7f49f0525dac43e57da3a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382369"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256190"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera dina enkla databaser och databaser i Azure SQL Database
 
@@ -91,7 +91,7 @@ Mer information om haveri beredskap finns i: [Azure SQL DB disaster recovery 101
 
 SQL Database tar säkerhet och sekretess mycket allvarligt. Säkerhet i SQL Database är tillgängligt på databas nivå och på plattforms nivå och är bäst att förstå när du kategoriseras i flera lager. På varje lager får du kontroll över och ger optimal säkerhet för ditt program. Lagren är:
 
-- Identitets & autentisering ([Windows/SQL-autentisering och Azure Active Directory [AAD]-autentisering](sql-database-control-access.md)).
+- Identitets & autentisering ([SQL-autentisering och Azure Active Directory [AAD]-autentisering](sql-database-manage-logins.md)).
 - Övervaknings aktivitet ([granskning](sql-database-auditing.md) och [hot identifiering](sql-database-threat-detection.md)).
 - Skydda faktiska data ([Transparent datakryptering [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) och [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Kontrol lera åtkomsten till känsliga och privilegierade data ([säkerhet på radnivå](/sql/relational-databases/security/row-level-security) och [dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking)).
@@ -100,10 +100,10 @@ SQL Database tar säkerhet och sekretess mycket allvarligt. Säkerhet i SQL Data
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>Vilka metoder för användarautentisering som erbjuds i SQL Database
 
-Det finns [två autentiseringsmetoder](sql-database-control-access.md#authentication) som erbjuds i SQL Database:
+Det finns två autentiseringsmetoder som erbjuds i SQL Database:
 
 - [Azure Active Directory autentisering](sql-database-aad-authentication.md)
-- SQL-autentisering
+- [SQL-autentisering](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
 Den traditionella Windows-autentiseringen stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets-och åtkomst hantering. Med det här kan du enkelt tillhandahålla enkel inloggning (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna delas mellan alla Azure-tjänster för enklare autentisering. AAD stöder [MFA (Multi Factor Authentication)](sql-database-ssms-mfa-authentication.md) och med [några få klick](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på samma sätt som du har använt den tidigare. Du anger ett användar namn/lösen ord och du kan autentisera användare till valfri databas på en angiven SQL Database Server. Detta gör det också möjligt SQL Database och SQL Data Warehouse att erbjuda Multi-Factor Authentication-och gäst användar konton i en Azure AD-domän. Om du redan har ett Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
 
@@ -226,7 +226,7 @@ Med Express Route kan du också överföra upp till 2 x bandbredds gränsen som 
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Är SQL Database kompatibel med alla myndighets krav och hur hjälper det till med min egen organisations efterlevnad
 
-SQL Database är kompatibel med ett antal regler för efterlevnad. Om du vill visa den senaste uppsättningen efterlevnad som har uppfyllts av SQL Database kan du gå till [Microsoft säkerhets Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och öka detalj nivån på de kompatibiliteter som är viktiga för din organisation för att se om SQL Database ingår i de kompatibla Azure-tjänsterna. Det är viktigt att Observera att även om SQL Database kan certifieras som en kompatibel tjänst, bidrar den till efterlevnaden av organisationens tjänst men garanterar inte automatiskt den.
+SQL Database är kompatibel med ett antal regler som compliancies. Om du vill visa den senaste uppsättningen compliancies som har uppfyllts av SQL Database kan du gå till [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) och öka detalj nivån på compliancies som är viktiga för din organisation för att se om SQL Database ingår i de kompatibla Azure-tjänsterna. Det är viktigt att Observera att även om SQL Database kan certifieras som en kompatibel tjänst, bidrar den till efterlevnaden av organisationens tjänst men garanterar inte automatiskt den.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Intelligent databas övervakning och underhåll efter migrering
 

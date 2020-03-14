@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2f774401f32ff02ced690173c418dafc4c789b5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 178f56354120bf7a65c51f1c9cf54e34bd011d97
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278798"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79137296"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>API-versioner i Azure Kognitiv sökning
 
@@ -37,7 +37,7 @@ Nedan visas en ögonblicks bild av de aktuella versionerna av alla programmering
 | [Tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Allmänt tillgänglig |
 | [Service REST API 2019-05-06 – för hands version](search-api-preview.md) |2019-05-06 – för hands version |Förhandsversion |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Allmänt tillgänglig |
-| [Hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Allmänt tillgänglig |
+| [Hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2020-03-13|Allmänt tillgänglig |
 
 För REST-API: er, inklusive `api-version` för varje anrop måste anges. Med hjälp av `api-version` är det enkelt att rikta en speciell version till, till exempel ett för hands versions-API. I följande exempel visas hur `api-version`-parametern anges:
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 7b084954cb53d19739a0f633661e0c76fa82dd13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7bca36bdb41c5800a8718f76d48afcfde6f9333e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820946"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208843"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database
 
@@ -37,13 +37,13 @@ En enskild databas kan flyttas till eller från en [elastisk pool](sql-database-
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
 
-Du använder de inbyggda verktygen för [prestanda övervakning](sql-database-performance.md) och [avisering](sql-database-insights-alerts-portal.md), kombinerat med prestanda klassificeringen. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning.
+Du använder de inbyggda verktygen för [prestanda övervakning](sql-database-performance.md) och [avisering](sql-database-insights-alerts-portal.md), kombinerat med prestanda klassificeringen. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Dessutom kan SQL Database [generera mått och resurs loggar](sql-database-metrics-diag-logging.md) för enklare övervakning.
 
 ## <a name="availability-capabilities"></a>Kapacitet för tillgänglighet
 
 Enskilda databaser, elastiska pooler och hanterade instanser ger alla tillgänglighets egenskaper. Mer information finns i [tillgänglighets egenskaper](sql-database-technical-overview.md#availability-capabilities).
 
-## <a name="transact-sql-differences"></a>Transact-SQL-skillnader
+## <a name="transact-sql-differences"></a>Skillnader i Transact-SQL
 
 De flesta Transact-SQL-funktioner som program använder stöds fullt ut i både Microsoft SQL Server och Azure SQL Database. Till exempel fungerar kärn SQL-komponenter, till exempel data typer, operatorer, strängar, aritmetiska, logiska och markör funktioner, på samma sätt i SQL Server och SQL Database. Det finns dock några skillnad i T-SQL i DDL (Data Definition Language) och DML-element (Data Manipulation Language) som resulterar i T-SQL-uttryck och frågor som bara delvis stöds (som vi diskuterar senare i den här artikeln).
 Dessutom finns det vissa funktioner och syntax som inte stöds alls eftersom Azure SQL Database är utformad för att isolera funktioner från beroenden i huvud databasen och operativ systemet. Därför är de flesta server nivå aktiviteter olämpliga för SQL Database. T-SQL-uttryck och alternativ är inte tillgängliga om de konfigurerar alternativ på server nivå, operativ system komponenter eller ange fil system konfiguration. När sådana funktioner krävs är ett lämpligt alternativ ofta tillgängligt på något annat sätt från SQL Database eller från en annan Azure-funktion eller-tjänst.

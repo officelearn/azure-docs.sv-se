@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: b764799d3f40cef24a0412ac950026af650d4ec7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382089"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272856"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Server delar och backend-pooler i Azures tjänst för front dörr
 I den här artikeln beskrivs begrepp för hur du mappar din app-distribution med Azure-tjänsten för frontend-dörren. Det förklarar också de olika villkoren i front dörrs konfiguration runt program Server delar.

@@ -10,14 +10,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: d6174459237399ea370ee9c36ba537391104a917
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 7b4b869695eb2073121a889cd81d99c4fc06d4b9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168562"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218039"
 ---
 # <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (klassisk): utöka ditt experiment med R 
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 Du kan utöka funktionerna i Azure Machine Learning Studio (klassisk) via R-språket med hjälp av modulen [Kör R-skript][execute-r-script] .
 
 Den här modulen godkänner flera indata-datauppsättningar och ger en enda data uppsättning som utdata. Du kan ange ett R-skript i **R-skript** parametern för modulen [Kör R-skript][execute-r-script] .

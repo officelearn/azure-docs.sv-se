@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ms.openlocfilehash: 07ed22879180d8126711eba9af0a2cac5b7b2953
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936504"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272115"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit for Eclipse för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -23,7 +23,7 @@ Använd HDInsight-verktyg i Azure Toolkit [för att](https://www.eclipse.org/) u
 * För att få åtkomst till Azure HDInsight Spark kluster resurser.
 * För att utveckla och köra ett Scala Spark-program lokalt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Apache Spark kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -53,7 +53,7 @@ När du öppnar Sol förmörkelse identifierar HDInsight-verktyg automatiskt om 
     * Azure Toolkit for Eclipse \<version >.
     * Scala IDE \<version >.
 
-## <a name="sign-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration
+## <a name="sign-in-to-your-azure-subscription"></a>Logga in på din Azure-prenumeration
 
 1. Starta Sol förmörkelse IDE.
 
@@ -327,7 +327,7 @@ Det finns två lägen för att skicka jobben. Om du har angett autentiseringsupp
 
 ![Sol förmörkelse får ett fel meddelande när klustrets upptagna garn](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "Sol förmörkelse får ett fel meddelande när klustrets upptagna garn")
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
 

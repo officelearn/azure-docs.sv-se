@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
 ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535169"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79260025"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy
 
@@ -24,10 +24,10 @@ I följande tabell visas en sammanfattning av Data Box-enhet eller Data Box Heav
 | Data Box-enhet order fas       | Verktyg för att spåra och granska                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | Skapa order               | [Konfigurera åtkomst kontroll på ordern via RBAC](#set-up-access-control-on-the-order)                                                    |
-| Bearbetad beställning            | [Spåra](#track-the-order) beställningen genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
-| Konfigurera enhet              | Autentiseringsuppgifter för åtkomst till inloggnings uppgifter för enhet [](#query-activity-logs-during-setup)                                              |
+| Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
+| Konfigurera enhet              | Autentiseringsuppgifter [för åtkomst till](#query-activity-logs-during-setup) inloggnings uppgifter för enhet                                              |
 | Data kopiering till enhet        | [Visa *fel. XML-* filer](#view-error-log-during-data-copy) för data kopiering                                                             |
-| Förbered för att skicka            | [Kontrol lera BOM-filerna](#inspect-bom-during-prepare-to-ship) eller manifest filerna på enheten                                      |
+| Förbereda för att skicka            | [Kontrol lera BOM-filerna](#inspect-bom-during-prepare-to-ship) eller manifest filerna på enheten                                      |
 | Data uppladdning till Azure       | [Granska kopierings loggar](#review-copy-log-during-upload-to-azure) för fel under data uppladdning i Azure Data Center                         |
 | Data radering från enhet   | [Visa kedja av vårdnads loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive gransknings loggar och order historik                |
 
@@ -64,7 +64,7 @@ Du kan spåra din beställning genom Azure Portal och via frakt bär Vågs webbp
 
 - Dina Data Box-enhet kommer in i låst tillstånd. Du kan använda autentiseringsuppgifter för enheten som är tillgängliga i Azure Portal för din beställning.  
 
-    När en Data Box-enhet har kon figurer ATS kan du behöva veta vem som har åtkomst till enhetens autentiseringsuppgifter. Om du vill ta reda på vem som har åtkomst till bladet **autentiseringsuppgifter för enhet** kan du fråga aktivitets loggarna.  Alla åtgärder som inbegriper åtkomst till **enhets information > inloggnings** bladet loggas i aktivitets `ListCredentials` loggarna som åtgärd.
+    När en Data Box-enhet har kon figurer ATS kan du behöva veta vem som har åtkomst till enhetens autentiseringsuppgifter. Om du vill ta reda på vem som har åtkomst till bladet **autentiseringsuppgifter för enhet** kan du fråga aktivitets loggarna.  Alla åtgärder som inbegriper åtkomst till **enhets information > inloggnings** bladet loggas i aktivitets loggarna som `ListCredentials` åtgärd.
 
     ![Frågeaktivitetsloggar](media/data-box-logs/query-activity-log-1.png)
 
@@ -270,7 +270,7 @@ De nya unika namnen för behållare är i formatet `DataBox-GUID` och data för 
 
 Här är ett exempel på en kopierings logg där blobbar eller filer som inte överensstämmer med namngivnings konventionerna för Azure har bytt namn under data överföringen till Azure. De nya BLOB-eller fil namnen konverteras till SHA256-sammandrag av den relativa sökvägen till behållaren och överförs till sökvägen baserat på typ av mål. Målet kan vara block blobbar, Page blobbar eller Azure Files.
 
-`copylog` Anger den gamla och den nya blobben eller fil namnet och sökvägen i Azure.
+`copylog` anger den gamla och den nya blobben eller fil namnet och sökvägen i Azure.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
@@ -297,7 +297,7 @@ När data har raderats från Data Box-enhet diskar enligt rikt linjerna för NIS
 
 ### <a name="audit-logs"></a>Granskningsloggar
 
-Gransknings loggar innehåller information om hur du kan sätta igång och få åtkomst till resurser på Data Box-enhet eller Data Box Heavy när de är utanför Azure-datacenter. Loggarna finns på:`storage-account/azuredatabox-chainofcustodylogs`
+Gransknings loggar innehåller information om hur du kan sätta igång och få åtkomst till resurser på Data Box-enhet eller Data Box Heavy när de är utanför Azure-datacenter. Loggarna finns på: `storage-account/azuredatabox-chainofcustodylogs`
 
 Här är ett exempel på gransknings loggen från en Data Box-enhet:
 
@@ -360,7 +360,7 @@ Om du bläddrar igenom order historiken visas:
 
 - Information om operatörs spårning för enheten.
 - Händelser med *SecureErase* -aktivitet. Dessa händelser motsvarar radering av data på disken.
-- Data Box-enhet logg länkar. Sök vägarna till *gransknings loggarna*, kopierings *loggar*och *BOM* -filer visas.
+- Data Box-enhet logg länkar. Sök vägarna till *gransknings loggarna*, *kopierings loggar*och *BOM* -filer visas.
 
 Här är ett exempel på loggen för order historik från Azure Portal:
 

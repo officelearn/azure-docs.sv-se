@@ -4,14 +4,14 @@ description: Lär dig hur du aktiverar identitets baserad autentisering över SM
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 03/11/2020
 ms.author: rogarana
-ms.openlocfilehash: 1f904435622c8128810bb0e381308c8a308dd360
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d9d2e06cc3beae8a7bb8ea1b4eee15fb1641ddd4
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79129334"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255228"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Aktivera Active Directory autentisering över SMB för Azure-filresurser
 
@@ -129,7 +129,8 @@ Connect-AzAccount
 #Select the target subscription for the current session
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
-#Register the target storage account with your active directory environment under the target OU
+#Register the target storage account with your active directory environment under the target OU (for example: "OU=ComputersOU,DC=prod,DC=corp,DC=contoso,DC=com")
+#You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
 join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
 ```
 
@@ -150,7 +151,7 @@ När du har den nyckeln skapar du antingen en tjänst eller ett dator konto unde
 
 Om din OU kräver att lösen ordet upphör att gälla måste du uppdatera lösen ordet innan du får den högsta åldern för lösen ord för att förhindra autentiseringsfel vid åtkomst till Azure-filresurser. Mer information finns i [Uppdatera AD-kontots lösen ord](#update-ad-account-password) .
 
-Behåll SID för det nyligen skapade kontot, du behöver det för nästa steg.
+Behåll SID för det nyligen skapade kontot, du behöver det för nästa steg. AD-identiteten som du precis har skapat som representerar lagrings kontot behöver inte synkroniseras med Azure AD.
 
 ##### <a name="c-enable-the-feature-on-your-storage-account"></a>c. Aktivera funktionen på ditt lagrings konto
 

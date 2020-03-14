@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 5f4435ca213584fff84f3ddad9bda6f7e06628a1
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390348"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283165"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implementera fasettisk navigering i Azure Kognitiv sökning
 
@@ -34,7 +34,7 @@ I din program utveckling kan du skriva kod som konstruerar frågor utgör arbets
 ## <a name="sample-code-and-demo"></a>Exempel kod och demo
 I den här artikeln används en jobb Sök portal som exempel. Exemplet implementeras som ett ASP.NET MVC-program.
 
-- Se och testa arbets demon online på [Azure kognitiv sökning Job Portal-demon](http://azjobsdemo.azurewebsites.net/).
+- Se och testa arbets demon online på [Azure kognitiv sökning Job Portal-demon](https://aka.ms/azjobsdemo).
 
 - Ladda ned koden från [Azure-samples-lagrings platsen på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -78,7 +78,7 @@ Komplexa Sök uttryck minskar frågans prestanda. Om möjligt kan du använda v�
 För att bättre förstå hur ett filter lägger till mer precision, jämför ett komplext Sök uttryck till ett som innehåller ett filter uttryck:
 
 -   `GET /indexes/hotel/docs?search=lodging budget +Seattle –motel +parking`
--   `GET /indexes/hotel/docs?search=lodging&$filter=City eq ‘Seattle’ and Parking and Type ne ‘motel’`
+-   `GET /indexes/hotel/docs?search=lodging&$filter=City eq 'Seattle' and Parking and Type ne 'motel'`
 
 Båda frågorna är giltiga, men den andra är överlägsen om du söker efter icke-Motels med parkering i Seattle.
 -   Den första frågan är beroende av de ord som nämns eller som inte nämns i sträng fält som namn, beskrivning och andra fält som innehåller sökbara data.
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 En aspekt av Frågeparametern har angetts till ett fält och kan, beroende på data typen, ytterligare parametriserade med kommaavgränsad lista med `count:<integer>`, `sort:<>`, `interval:<integer>`och `values:<list>`. En värde lista stöds för numeriska data vid inställning av intervall. Se [Sök i dokument (Azure KOGNITIV sökning API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för användnings information.
 
-Tillsammans med FACET, bör begäran som formuleras av ditt program också skapa filter för att begränsa uppsättningen av kandidat dokument baserat på ett aspekt värdes val. För en cykel butik ger den fasettiska navigeringen LED trådar till frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?* . Filtrera svar på frågor som *vilka exakta cyklar är röda, Mountain Bikes, i det här pris intervallet?* . När du klickar på "röd" för att ange att endast röda produkter ska visas, innehåller nästa fråga som programmet skickar `$filter=Color eq ‘Red’`.
+Tillsammans med FACET, bör begäran som formuleras av ditt program också skapa filter för att begränsa uppsättningen av kandidat dokument baserat på ett aspekt värdes val. För en cykel butik ger den fasettiska navigeringen LED trådar till frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?* . Filtrera svar på frågor som *vilka exakta cyklar är röda, Mountain Bikes, i det här pris intervallet?* . När du klickar på "röd" för att ange att endast röda produkter ska visas, innehåller nästa fråga som programmet skickar `$filter=Color eq 'Red'`.
 
 Följande kodfragment från sidan `JobsSearch.cs` lägger till den valda affärs titeln i filtret om du väljer ett värde från företagets rubrik aspekt.
 
@@ -371,7 +371,7 @@ Du hittar filter exempel i [OData Expression-syntax (Azure kognitiv sökning)](q
 ## <a name="try-the-demo"></a>Prova demonstrationen
 Azure Kognitiv sökning Job Portal-demon innehåller exemplen som refereras i den här artikeln.
 
--   Se och testa arbets demon online på [Azure kognitiv sökning Job Portal-demon](https://azjobsdemo.azurewebsites.net/).
+-   Se och testa arbets demon online på [Azure kognitiv sökning Job Portal-demon](https://aka.ms/azjobsdemo).
 
 -   Ladda ned koden från [Azure-samples-lagrings platsen på GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 

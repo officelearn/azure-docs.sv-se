@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870929"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246557"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Arbeta med matriser och objekt i Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Du kan skapa matriser, som du ser i följande exempel:
     FROM Families f
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -54,14 +54,14 @@ FROM f
 
 ## <a id="Iteration"></a>Iteration
 
-SQL API ger stöd för att iterera över JSON-matriser, med en ny konstruktion som lagts till via [nyckelordet](sql-query-keywords.md#in) i från-källan. Se följande exempel:
+SQL API ger stöd för att iterera över JSON-matriser, med en ny konstruktion som lagts till via [nyckelordet](sql-query-keywords.md#in) i från-källan. I följande exempel:
 
 ```sql
     SELECT *
     FROM Families.children
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -97,7 +97,7 @@ Nästa fråga utför iteration över `children` i `Families` container. Den utg�
     FROM c IN Families.children
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -130,7 +130,7 @@ Du kan filtrera efter varje enskild post i matrisen, som du ser i följande exem
     WHERE c.grade = 8
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [{
@@ -145,7 +145,7 @@ Du kan också aggregera över resultatet av en mat ris iteration. Följande frå
     FROM child IN Families.children
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [

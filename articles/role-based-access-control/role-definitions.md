@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981007"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283230"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå roll definitioner för Azure-resurser
 
@@ -28,7 +28,7 @@ Om du försöker förstå hur en roll fungerar eller om du skapar en egen [anpas
 
 ## <a name="role-definition-structure"></a>Roll definitions struktur
 
-En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också ange vilka åtgärder som inte kan utföras eller åtgärder relaterade till underliggande data. En roll definition har följande struktur:
+En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också visa en lista över de åtgärder som inte kan utföras eller åtgärder relaterade till underliggande data. En roll definition har följande struktur:
 
 ```
 Name
@@ -56,7 +56,7 @@ AssignableScopes []
 | `action` | Aktiverar anpassade åtgärder som starta om virtuella datorer (POST). |
 | `delete` | Aktiverar borttagnings åtgärder (ta bort). |
 
-Här är roll definitionen [deltagare](built-in-roles.md#contributor) i JSON-format. Jokertecknet (`*`) under `Actions` anger att huvudnamnet som tilldelats den här rollen kan utföra alla åtgärder, eller med andra ord sköta all administration. Det här inbegriper även åtgärder som definieras i framtiden när Azure lägger till nya resurstyper. Åtgärderna under `NotActions` dras bort från `Actions`. För rollen [Deltagare](built-in-roles.md#contributor) tar `NotActions` bort rollens möjlighet att hantera åtkomsten till resurser och även att ge åtkomst till resurser.
+Här är roll definitionen [deltagare](built-in-roles.md#contributor) i JSON-format. Jokertecknet (`*`) under `Actions` anger att huvud kontot som tilldelats rollen kan utföra alla åtgärder, eller med andra ord, kan den hantera allt. Detta inkluderar åtgärder som definierats i framtiden, eftersom Azure lägger till nya resurs typer. Åtgärderna under `NotActions` subtraheras från `Actions`. När det gäller rollen [deltagare](built-in-roles.md#contributor) , `NotActions` tar bort den här rollens möjlighet att hantera åtkomst till resurser och även tilldela åtkomst till resurser.
 
 ```json
 {
@@ -92,10 +92,10 @@ Hanterings åtkomst ärvs inte till dina data förutsatt att autentiseringsmetod
 
 Tidigare användes inte rollbaserad åtkomst kontroll för data åtgärder. Auktorisering för data åtgärder som varierar mellan olika resurs leverantörer. Samma rollbaserade auktoriserings modell för åtkomst kontroll som används för hanterings åtgärder har utökats till data åtgärder.
 
-Nya data egenskaper har lagts till i roll definitions strukturen för att stödja data åtgärder. Dataåtgärder anges i egenskaperna `DataActions` och `NotDataActions`. Genom att lägga till dessa data egenskaper upprätthålls separationen mellan hantering och data. På så sätt kan du förhindra att rolltilldelningar med jokertecken (`*`) plötsligt får åtkomst till data. Här är några dataåtgärder du kan ange i `DataActions` och `NotDataActions`:
+Nya data egenskaper har lagts till i roll definitions strukturen för att stödja data åtgärder. Data åtgärder anges i `DataActions` och `NotDataActions` egenskaper. Genom att lägga till dessa data egenskaper upprätthålls separationen mellan hantering och data. Detta förhindrar att aktuella roll tilldelningar med jokertecken (`*`) plötsligt inte har åtkomst till data. Här är några data åtgärder som kan anges i `DataActions` och `NotDataActions`:
 
-- Läsa en lista med blobar i en container
-- Skriva till en lagringsblob i en container
+- Läs en lista över blobbar i en behållare
+- Skriv en lagrings-BLOB i en behållare
 - Ta bort ett meddelande i en kö
 
 Här är roll definitionen [Storage BLOB data Reader](built-in-roles.md#storage-blob-data-reader) , som innehåller åtgärder i både `Actions`-och `DataActions` egenskaper. Med den här rollen kan du läsa BLOB-behållaren och även underliggande BLOB-data.
@@ -120,7 +120,7 @@ Här är roll definitionen [Storage BLOB data Reader](built-in-roles.md#storage-
 }
 ```
 
-Du kan bara lägga till dataåtgärder i egenskaperna `DataActions` och `NotDataActions`. Resurs leverantörer identifierar vilka åtgärder som är data åtgärder genom att ange `isDataAction` egenskapen till `true`. Om du vill se en lista över åtgärder där `isDataAction` `true`, se [Resource Provider-åtgärder](resource-provider-operations.md). Roller som inte har data åtgärder krävs inte för att ha `DataActions` och `NotDataActions` egenskaper i roll definitionen.
+Det går endast att lägga till data åtgärder i `DataActions` och `NotDataActions` egenskaper. Resurs leverantörer identifierar vilka åtgärder som är data åtgärder genom att ange `isDataAction` egenskapen till `true`. Om du vill se en lista över åtgärder där `isDataAction` `true`, se [Resource Provider-åtgärder](resource-provider-operations.md). Roller som inte har data åtgärder krävs inte för att ha `DataActions` och `NotDataActions` egenskaper i roll definitionen.
 
 Auktorisering för alla API-anrop för hanterings åtgärder hanteras av Azure Resource Manager. Auktorisering för API-anrop för data åtgärder hanteras av antingen en resurs leverantör eller Azure Resource Manager.
 

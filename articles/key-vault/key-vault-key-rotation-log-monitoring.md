@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f7fbc82c08d89d73d671a49fb31b9d3cca01c721
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6962a264787bd8a55b6f6a2ebdb6eeb615c33d5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78195523"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79218405"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckel rotation och granskning
 
@@ -23,21 +23,16 @@ ms.locfileid: "78195523"
 
 När du har ett nyckel valv kan du börja använda det för att lagra nycklar och hemligheter. Dina program behöver inte längre Spara dina nycklar eller hemligheter, men kan begära dem från valvet efter behov. Med ett nyckel valv kan du uppdatera nycklar och hemligheter utan att påverka programmets beteende, vilket innebär att du kan öppna en mängd olika möjligheter för din nyckel och hemliga hantering.
 
->[!IMPORTANT]
-> Exemplen i den här artikeln är endast avsedda som illustration. De är inte avsedda att användas för produktion. 
+Den här artikeln beskriver hur du implementerar en schemalagd rotation av lagrings konto nycklar, övervakar nyckel valvets gransknings loggar och höjer aviseringar när oväntade begär Anden görs. 
 
-Den här artikeln vägleder dig genom:
+Du måste först skapa ett nyckel valv med valfri metod:
 
-- Ett exempel på att använda Azure Key Vault för att lagra en hemlighet. I den här artikeln är hemligheten som lagras den Azure Storage-konto nyckel som används av ett program. 
-- Hur du implementerar en schemalagd rotation av lagrings konto nyckeln.
-- Så här övervakar du gransknings loggarna i Key Vault och genererar aviseringar när oväntade begär Anden görs.
+- [Ange och hämta en hemlighet från Azure Key Vault med Azure CLI](quick-create-cli.md)
+- [Ange och hämta en hemlighet från Azure Key Vault med Azure PowerShell](quick-create-powershell.md)
+- [Ange och hämta en hemlighet från Azure Key Vault med Azure Portal](quick-create-portal.md)
 
-> [!NOTE]
-> Den här artikeln beskriver inte den första konfigurationen av ditt nyckel valv. Mer information finns i [Vad är Azure Key Vault?](key-vault-overview.md). Instruktioner för plattforms oberoende kommando rads gränssnitt finns i [hantera Key Vault med Azure CLI](key-vault-manage-with-cli2.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="set-up-key-vault"></a>Konfigurera Key Vault
+## <a name="store-a-secret"></a>Lagra en hemlighet
 
 Om du vill aktivera ett program för att hämta en hemlighet från Key Vault måste du först skapa hemligheten och överföra den till ditt valv.
 

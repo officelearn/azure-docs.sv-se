@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 15e1c3de5392238e9e1dbfd324fe40087950a766
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 0afb0ddb65a4f27463e2bb5c1b9441d248c34415
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380801"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79240760"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabb start: skapa en data fabrik med hjälp av Azure Data Factory gränssnittet
 
@@ -67,6 +67,10 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
 1. Välj panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory på en separat flik.
    
    ![Startsidan för datafabriken med panelen ”Författare och övervakare”](./media/doc-common-process/data-factory-home-page.png)
+   
+   > [!NOTE]
+   > Om du ser att webbläsaren har fastnat vid "auktorisering" avmarkerar du kryss rutan **blockera cookies från tredje part och plats data** . Eller behåll det markerat, skapa ett undantag för **login.microsoftonline.com**och försök sedan att öppna appen igen.
+   
 1. På sidan **Nu sätter vi igång** växlar du till fliken **Författare** i den vänstra panelen. 
 
     ![Sidan ”Nu sätter vi igång”](./media/doc-common-process/get-started-page-author-button.png)

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
 ms.openlocfilehash: fa933b820d8677e4d080b54ce5e6a5d506ea38fc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978933"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245114"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Skapa, ändra eller ta bort en nätverks säkerhets grupp
 
@@ -30,7 +30,7 @@ Säkerhets regler i nätverks säkerhets grupper gör att du kan filtrera den ty
 Utför följande åtgärder innan du slutför stegen i något avsnitt i den här artikeln:
 
 - Om du inte redan har ett Azure-konto kan du registrera dig för ett [kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
-- Om du använder portalen öppnar du https://portal.azure.com och loggar in med ditt Azure-konto.
+- Om du använder portalen öppnar du https://portal.azure.comoch loggar in med ditt Azure-konto.
 - Om du använder PowerShell-kommandon för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. I den här självstudien krävs Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - Om du använder kommando rads kommandon i Azure för att slutföra uppgifter i den här artikeln kan du antingen köra kommandona i [Azure Cloud Shell](https://shell.azure.com/bash)eller genom att köra CLI från datorn. I den här självstudien krävs Azure CLI version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
@@ -44,7 +44,7 @@ Du kan skapa, [Visa alla](#view-all-network-security-groups), [Visa information 
 
 Det finns en gräns för hur många nätverks säkerhets grupper du kan skapa per Azure-plats och prenumeration. Läs mer i informationen om [begränsningar för Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
+1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
 2. Välj **nätverk**och välj sedan **nätverks säkerhets grupp**.
 3. Ange ett **namn** för nätverks säkerhets gruppen, välj din **prenumeration**, skapa en ny **resurs grupp**eller Välj en befintlig resurs grupp, Välj en **plats**och välj sedan **skapa**.
 
@@ -98,7 +98,7 @@ Om en nätverks säkerhets grupp är kopplad till undernät eller nätverks grä
 
 1. I rutan Sök högst upp i portalen anger du *nätverks säkerhets grupper* i sökrutan. När **nätverks säkerhets grupper** visas i Sök resultaten väljer du den.
 2. Välj den nätverks säkerhets grupp som du vill ta bort från listan.
-3. Välj **Ta bort** och välj sedan **Ja**.
+3. Välj **ta bort**och välj sedan **Ja**.
 
 **Kommandon**
 
@@ -118,7 +118,7 @@ Det finns en gräns för hur många regler per nätverks säkerhets grupp som ka
 3. Välj **inkommande säkerhets regler** under **Inställningar**. Flera befintliga regler visas. Några av reglerna som du kanske inte har lagt till. När en nätverks säkerhets grupp skapas, skapas flera standard säkerhets regler i den. Mer information finns i [Standard säkerhets regler](security-overview.md#default-security-rules).  Du kan inte ta bort standard säkerhets regler, men du kan åsidosätta dem med regler som har högre prioritet.
 4. <a name = "security-rule-settings"></a>Välj **+ Lägg till**.  Välj eller Lägg till värden för följande inställningar och välj sedan **OK**:
     
-    |Inställning  |Värde  |Information  |
+    |Inställning  |Värde  |Detaljer  |
     |---------|---------|---------|
     |Källa     | Välj **valfri**, **program säkerhets grupp**, **IP-adresser**eller **service tag** för inkommande säkerhets regler. Om du skapar en utgående säkerhets regel är alternativen samma som alternativ som anges för **mål**.       | Om du väljer **program säkerhets grupp**väljer du en eller flera befintliga program säkerhets grupper som finns i samma region som nätverks gränssnittet. Lär dig hur du [skapar en program säkerhets grupp](#create-an-application-security-group). Om du väljer **program säkerhets grupp** för både **källa** och **mål**måste nätverks gränssnitten i båda program säkerhets grupperna finnas i samma virtuella nätverk. Om du väljer **IP-adresser**anger du **Källans IP-adresser/CIDR-intervall**. Du kan ange ett enda värde eller en kommaavgränsad lista med flera värden. Ett exempel på flera värden är 10.0.0.0/16, 192.188.1.1. Det finns gränser för antalet värden som du kan ange. Mer information finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) . Om du väljer **service tag**väljer du en service tag. En service tag är en fördefinierad identifierare för en kategori med IP-adresser. Om du vill veta mer om tillgängliga Service märken och hur varje tagg representerar, se [service Taggar](security-overview.md#service-tags). Om den IP-adress du anger är tilldelad till en virtuell Azure-dator måste du se till att du anger den privata IP-adressen, inte den offentliga IP-adress som tilldelats den virtuella datorn. Säkerhets regler bearbetas när Azure översätter den offentliga IP-adressen till en privat IP-adress för inkommande säkerhets regler och innan Azure översätter en privat IP-adress till en offentlig IP-adress för utgående regler. Mer information om offentliga och privata IP-adresser i Azure finns i [IP-diagramtyper](virtual-network-ip-addresses-overview-arm.md).        |
     |Källportintervall     | Ange en enskild port, till exempel 80, ett port intervall, till exempel 1024-65535 eller en kommaavgränsad lista med enskilda portar och/eller port intervall, till exempel 80, 1024-65535. Ange en asterisk för att tillåta trafik på vilken port som helst. | Portarna och intervallen anger vilka portar trafik tillåts eller nekas av regeln. Det finns gränser för antalet portar som du kan ange. Mer information finns i [Azure-gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) .  |
@@ -175,7 +175,7 @@ Listan innehåller alla regler som du har skapat och nätverks säkerhets gruppe
 ### <a name="delete-a-security-rule"></a>Ta bort en säkerhets regel
 
 1. Slutför stegen i [Visa information om en säkerhets regel](#view-details-of-a-security-rule).
-2. Välj **Ta bort** och välj sedan **Ja**.
+2. Välj **ta bort**och välj sedan **Ja**.
 
 **Kommandon**
 
@@ -197,7 +197,7 @@ En program säkerhets grupp innehåller noll eller flera nätverks gränssnitt. 
     | Namn           | Namnet måste vara unikt inom sin resursgrupp.        |
     | Prenumeration   | Välj din prenumeration.                               |
     | Resursgrupp | Välj en befintlig resurs grupp eller skapa en ny. |
-    | Location       | Välja en plats                                       |
+    | plats.       | Välj en plats                                       |
 
 **Kommandon**
 

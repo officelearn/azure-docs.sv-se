@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: f1be146a5173c86a8b19bca5c7b3b8c72d72b9c5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362425"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79268189"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -81,6 +81,9 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
   **jag verkligen vill se en speciell funktion som har lagts till i Azure Files. Kan du lägga till det?**  
     Azure Filess teamet är intresserade av att höra och all feedback om vår tjänst. Rösta på en funktions förfrågan på [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Vi ser fram emot att se om det finns många nya funktioner.
 
+  **Stöder Azure Files fil låsning?**  
+    Ja, Azure Files fullständigt stöd för fil låsning i SMB/Windows-format, [se information](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
+    
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -211,6 +214,11 @@ stöder **Azure Files Azure AD DS eller AD-autentisering virtuella Linux-datorer
 
     Ja, du kan aktivera Azure AD DS eller AD-autentisering på en fil resurs som hanteras av Azure File Sync. Ändringar i katalogen/filen NTFS ACL: er på lokala fil servrar kommer att nivåas till Azure Files och vice versa.
 
+* <a id="ad-aad-smb-files"></a>
+**Hur kan jag kontrol lera om jag har aktiverat AD-autentisering på mitt lagrings konto och information om AD-domänen?**
+
+    Du kan läsa anvisningarna [här](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) för att kontrol lera om Azure Files AD-autentisering har Aktiver ATS på ditt lagrings konto och hämtar information om AD-domänen.
+    
 * <a id="encryption-at-rest"></a>
 **Hur kan jag se till att min Azure-filresurs är krypterad i vila?**  
 

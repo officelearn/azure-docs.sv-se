@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/08/2019
+ms.date: 3/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 23d83b59c510f2565b2f66f78dad56c9c9592dd0
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300076"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136525"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gör så här: tillhandahålla valfria anspråk till din Azure AD-App
 
@@ -85,10 +85,10 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 | `pwd_exp`     | Lösen ordets förfallo tid        | Det datum/tid-värde som lösen ordet upphör att gälla. |       |
 | `pwd_url`     | Ändra lösen ordets URL             | En URL som användaren kan besöka för att ändra sina lösen ord.   |   |
 | `in_corp`     | I företags nätverk        | Signalerar om klienten loggar in från företags nätverket. Om de inte är det inkluderas inte anspråket.   |  Baserat på de [betrodda IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) -inställningarna i MFA.    |
-| `nickname`    | smek namn                        | Ett ytterligare namn för användaren. Smek namnet är skilt från första eller sista namnet. | 
-| `family_name` | Efternamn                       | Innehåller användarens efter namn, efter namn eller familj som definierats i användarobjektet. <br>"family_name":"Miller" | Stöds i MSA och Azure AD   |
-| `given_name`  | Förnamn                      | Anger det första eller "tilldelade" namnet på användaren, enligt vad som anges på användarobjektet.<br>"given_name": "Frank"                   | Stöds i MSA och Azure AD  |
-| `upn`         | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och ska inte användas för nyckel data. | Se [Ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. |
+| `nickname`    | smek namn                        | Ett ytterligare namn för användaren. Smek namnet är skilt från första eller sista namnet. Kräver `profile`s omfång.| 
+| `family_name` | Efternamn                       | Innehåller användarens efter namn, efter namn eller familj som definierats i användarobjektet. <br>"family_name":"Miller" | Stöds i MSA och Azure AD. Kräver `profile`s omfång.   |
+| `given_name`  | Förnamn                      | Anger det första eller "tilldelade" namnet på användaren, enligt vad som anges på användarobjektet.<br>"given_name": "Frank"                   | Stöds i MSA och Azure AD.  Kräver `profile`s omfång. |
+| `upn`         | User Principal Name | En identifierare för den användare som kan användas med parametern username_hint.  Inte en varaktig identifierare för användaren och ska inte användas för nyckel data. | Se [Ytterligare egenskaper](#additional-properties-of-optional-claims) nedan för konfiguration av anspråket. Kräver `profile`s omfång.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
@@ -117,12 +117,13 @@ Vissa valfria anspråk kan konfigureras för att ändra hur anspråket returnera
         }
     ```
 
-Detta OptionalClaims-objekt gör att ID-token returneras till klienten för att inkludera ett annat UPN med ytterligare information om hem klient och resurs klient. `upn`-anspråk ändras bara i token om användaren är en gäst i klienten (som använder en annan IDP för autentisering). 
+Detta OptionalClaims-objekt gör att ID-token som returnerades till klienten inkluderar ett UPN-anspråk med ytterligare information om hem klient och resurs klient. `upn`-anspråk ändras bara i token om användaren är en gäst i klienten (som använder en annan IDP för autentisering). 
 
 ## <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
 > [!IMPORTANT]
 > Åtkomsttoken skapas **alltid** med hjälp av resurs manifestet, inte klienten.  Så i begäran `...scope=https://graph.microsoft.com/user.read...` resursen Microsoft Graph-API: et.  Därför skapas åtkomsttoken med hjälp av Microsoft Graph API-manifestet, inte klientens manifest.  Att ändra manifestet för programmet kommer aldrig att orsaka att token för Microsoft Graph-API: et ser annorlunda ut.  För att verifiera att dina `accessToken` ändringar gäller, begär du en token för ditt program, inte en annan app.  
+
 
 Du kan konfigurera valfria anspråk för ditt program via användar gränssnittet eller applikations manifestet.
 
@@ -207,7 +208,7 @@ Om det stöds av ett angivet anspråk kan du också ändra beteendet för Option
 | `additionalProperties` | Samling (EDM. String) | Ytterligare egenskaper för anspråket. Om det finns en egenskap i den här samlingen ändras beteendet för det valfria anspråket som anges i egenskapen Name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Konfigurerar valfria anspråk för katalog tillägg
 
-Förutom de vanliga valfria anspråks uppsättningarna kan du också konfigurera tokens för att inkludera tillägg. Den här funktionen är användbar för att bifoga ytterligare användar information som din app kan använda – till exempel en ytterligare identifierare eller ett viktigt konfigurations alternativ som användaren har angett. Se slutet på den här sidan för ett exempel.
+Förutom de vanliga valfria anspråks uppsättningarna kan du också konfigurera tokens för att inkludera tillägg. Mer information finns i [dokumentationen för Microsoft Graph extensionProperty](https://docs.microsoft.com/graph/api/resources/extensionproperty?view=graph-rest-1.0) – Observera att schema och öppna tillägg inte stöds av valfria anspråk, bara katalog tilläggen AAD-Graph. Den här funktionen är användbar för att bifoga ytterligare användar information som din app kan använda – till exempel en ytterligare identifierare eller ett viktigt konfigurations alternativ som användaren har angett. Se slutet på den här sidan för ett exempel.
 
 > [!NOTE]
 > - Katalog schema tillägg är endast en Azure AD-funktion, så om program manifestet begär ett anpassat tillägg och en MSA-användare loggar in i din app returneras inte dessa tillägg.
@@ -269,7 +270,7 @@ Det här avsnittet beskriver konfigurations alternativen under valfria anspråk 
    Om du vill att grupper i token ska innehålla attributen för lokal AD-grupp i det valfria anspråks avsnittet anger du vilken tokentyp som valfritt anspråk ska tillämpas på, namnet på valfritt begärt anspråk och eventuella ytterligare egenskaper som önskas.  Flera typer av token kan visas:
 
    - idToken för OIDC-ID-token
-   - accessToken för OAuth/OIDC-åtkomsttoken
+   - accessToken för OAuth-åtkomsttoken
    - Saml2Token för SAML-token.
 
    > [!NOTE]

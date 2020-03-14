@@ -16,11 +16,11 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 636c7c654b98ced5f93c3ace0e4a99bfc9bf7def
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77611796"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262612"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Skriv bords app som anropar webb-API: er: Hämta en token
 
@@ -33,7 +33,7 @@ Webb-API: et definieras av `scopes`. Vad som händer i ditt program är mönstre
 - Försök systematiskt att hämta en token från token-cachen genom att anropa `AcquireTokenSilent`.
 - Om det här anropet Miss lyckas använder du det `AcquireToken` flöde som du vill använda, som visas här i `AcquireTokenXX`.
 
-# <a name="net"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 ### <a name="in-msalnet"></a>I MSAL.NET
 
@@ -156,7 +156,7 @@ Här är de olika sätten att hämta tokens i ett Skriv bords program.
 
 I följande exempel visas minimal kod för att få en token interaktivt för att läsa användarens profil med Microsoft Graph.
 
-# <a name="net"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 ### <a name="in-msalnet"></a>I MSAL.NET
 
 ```csharp
@@ -446,7 +446,7 @@ Mer information om medgivande finns i [behörigheter för Microsoft Identity Pla
 
 ### <a name="learn-how-to-use-it"></a>Lär dig hur du använder den
 
-# <a name="net"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 I MSAL.NET måste du använda:
 
@@ -628,7 +628,7 @@ Mer information finns i [autentiseringsuppgifter för resurs ägar lösen ord (R
 
 ### <a name="use-it"></a>Använd den
 
-# <a name="net"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 `IPublicClientApplication`innehåller metoden `AcquireTokenByUsernamePassword`.
 
@@ -936,7 +936,7 @@ Interaktiv autentisering med Azure AD kräver en webbläsare. Mer information fi
 
 ### <a name="use-it"></a>Använd den
 
-# <a name="net"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 `IPublicClientApplication`innehåller en metod med namnet `AcquireTokenWithDeviceCode`.
 

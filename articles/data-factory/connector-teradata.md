@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
 ms.openlocfilehash: 5a41d5653de0d8a9f674009904756892ac343609
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78358475"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281735"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Kopiera data från Teradata-Vantage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -331,8 +331,8 @@ När du kopierar data från Teradata gäller följande mappningar. Information o
 | Period (tidsstämpel) |Stöds inte. Använd explicit Cast i käll frågan. |
 | Period (tidsstämpel med tidszon) |Stöds inte. Använd explicit Cast i käll frågan. |
 | SmallInt |Int16 |
-| Tid |Tidsintervall |
-| Time With Time Zone |Tidsintervall |
+| Tid |TimeSpan |
+| Time With Time Zone |TimeSpan |
 | Tidsstämpel |DateTime |
 | Timestamp With Time Zone |DateTime |
 | VarByte |Byte[] |

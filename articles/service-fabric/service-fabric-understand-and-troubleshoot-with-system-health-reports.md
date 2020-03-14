@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370383"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79282021"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Felsök med hjälp av systemhälsorapporter
 Azure Service Fabric-komponenter tillhandahåller system hälso rapporter på alla entiteter i klustret direkt. [Hälso arkivet](service-fabric-health-introduction.md#health-store) skapar och tar bort entiteter baserat på system rapporter. Den organiserar också dem i en hierarki som fångar interaktionen mellan entiteter.
@@ -27,7 +27,7 @@ System hälso rapporter ger insyn i kluster-och program funktioner och flaggar p
 > 
 > 
 
-System komponent rapporter identifieras av källan, som börjar med "**systemet".** . Övervaknings enheter kan inte använda samma prefix för sina källor, eftersom rapporter med ogiltiga parametrar avvisas.
+System komponent rapporter identifieras av källan, som börjar med "**systemet".** protokollprefixet. Övervaknings enheter kan inte använda samma prefix för sina källor, eftersom rapporter med ogiltiga parametrar avvisas.
 
 Nu ska vi titta på några system rapporter för att förstå vad som utlöser dem och för att lära dig hur du korrigerar de potentiella problem som de representerar.
 
@@ -647,7 +647,7 @@ Egenskapen och texten visar vilket API som har fastnat. Nästa steg som ska vidt
 
 - **IStatefulServiceReplica. ChangeRole (P)** : det vanligaste fallet är att tjänsten inte har returnerat någon uppgift från `RunAsync`.
 
-Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Ett exempel:
+Andra API-anrop som kan fastna finns i **IReplicator** -gränssnittet. Exempel:
 
 - **IReplicator. CatchupReplicaSet**: den här varningen anger ett av två saker. Det finns inte tillräckligt med repliker. Se om detta är fallet genom att titta på replikernas replik status i partitionen eller System.FM hälso rapport för en fastnad omkonfiguration. Eller också är replikerna inte åtgärdade. PowerShell-cmdleten `Get-ServiceFabricDeployedReplicaDetail` kan användas för att bestämma förloppet för alla repliker. Problemet är beroende av repliker vars `LastAppliedReplicationSequenceNumber` värde ligger bakom primärt `CommittedSequenceNumber` värde.
 
@@ -738,7 +738,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication system hälso rapporter
 **System. hosting** är utfärdaren på distribuerade entiteter.
 
-### <a name="activation"></a>Aktivering
+### <a name="activation"></a>Processen
 System. hosting-rapporter som OK när ett program har Aktiver ATS på noden. Annars rapporteras ett fel.
 
 * **SourceId**: system. hosting

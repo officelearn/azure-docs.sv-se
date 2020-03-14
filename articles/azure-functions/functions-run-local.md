@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 559c9ee237f95f9d175aaefb487131466700e899
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 19691a654162ee3855cb257fd42e29d2e1fc0157
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190797"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79276665"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -65,13 +65,13 @@ I följande steg används NPM för att installera kärn verktyg i Windows. Du ka
 
     ##### <a name="v2x"></a>v2. x
 
-    ```bash
+    ```cmd
     npm install -g azure-functions-core-tools
     ```
 
     ##### <a name="v3x"></a>v3. x
 
-    ```bash
+    ```cmd
     npm install -g azure-functions-core-tools@3
     ```
 
@@ -79,7 +79,7 @@ I följande steg används NPM för att installera kärn verktyg i Windows. Du ka
 
 1. Om du inte planerar att använda [tilläggs paket]installerar du [.net Core 2. x SDK för Windows](https://www.microsoft.com/net/download/windows).
 
-# <a name="macos"></a>[MacOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 I följande steg används homebrew för att installera kärn verktygen på macOS.
 
@@ -163,33 +163,33 @@ Version 2. x kräver att du väljer ett standard språk för projektet när det 
 
 I terminalfönstret eller från en kommando tolk kör du följande kommando för att skapa projektet och den lokala git-lagringsplatsen:
 
-```bash
+```
 func init MyFunctionProj
 ```
 
 När du anger ett projekt namn skapas och initieras en ny mapp med det namnet. Annars initieras den aktuella mappen.  
 När du kör kommandot i version 2. x måste du välja en körning för projektet. 
 
-```output
+<pre>
 Select a worker runtime:
 dotnet
 node
 python 
 powershell
-```
+</pre>
 
 Använd piltangenterna för att välja ett språk och tryck sedan på RETUR. Om du planerar att utveckla Java Script-eller TypeScript-funktioner väljer du **Node**och väljer sedan språket. TypeScript har [vissa ytterligare krav](functions-reference-node.md#typescript). 
 
 Utdata ser ut som i följande exempel för ett JavaScript-projekt:
 
-```output
+<pre>
 Select a worker runtime: node
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
-```
+</pre>
 
 `func init` stöder följande alternativ, som endast är version 2. x, om inget annat anges:
 
@@ -247,12 +247,12 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 
   + Hämta alla inställningar från en befintlig Function-app:
 
-    ```bash
+    ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
   + Hämta anslutnings strängen för ett angivet lagrings konto:
 
-    ```bash
+    ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
@@ -262,13 +262,13 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 
 Skapa en funktion genom att köra följande kommando:
 
-```bash
+```
 func new
 ```
 
 När du kör `func new` i version 2. x, uppmanas du att välja en mall på standard språket för din Function-app. därefter uppmanas du också att välja ett namn för din funktion. I version 1. x uppmanas du också att välja språk.
 
-```output
+<pre>
 Select a language: Select a template:
 Blob trigger
 Cosmos DB trigger
@@ -279,18 +279,18 @@ SendGrid
 Service Bus Queue trigger
 Service Bus Topic trigger
 Timer trigger
-```
+</pre>
 
 Funktions koden skapas i en undermapp med det tillhandahållna funktions namnet, som du kan se i följande utlösare för kön:
 
-```output
+<pre>
 Select a language: Select a template: Queue trigger
 Function name: [QueueTriggerJS] MyQueueTrigger
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\index.js
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\readme.md
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\sample.dat
 Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
-```
+</pre>
 
 Du kan också ange alternativen i kommandot med följande argument:
 
@@ -303,62 +303,65 @@ Du kan också ange alternativen i kommandot med följande argument:
 
 Om du till exempel vill skapa en JavaScript-HTTP-utlösare i ett enda kommando kör du:
 
-```bash
+```
 func new --template "Http Trigger" --name MyHttpTrigger
 ```
 
 För att skapa en kö-utlöst funktion i ett enda kommando, kör:
 
-```bash
+```
 func new --template "Queue Trigger" --name QueueTriggerJS
 ```
 
 ## <a name="start"></a>Köra funktioner lokalt
 
-Kör Functions-värden om du vill köra ett Functions-projekt. Värden aktiverar utlösare för alla funktioner i projektet. 
+Kör Functions-värden om du vill köra ett Functions-projekt. Värden aktiverar utlösare för alla funktioner i projektet. Start kommandot varierar beroende på ditt projekt språk.
 
-### <a name="version-2x"></a>Version 2.x
+# <a name="c"></a>[C\#](#tab/csharp)
 
-I version 2. x av körnings miljön varierar Start kommandot beroende på ditt projekt språk.
-
-#### <a name="c"></a>C\#
-
-```command
+```
 func start --build
 ```
+# <a name="javascript"></a>[JavaScript](#tab/node)
 
-#### <a name="javascript"></a>JavaScript
-
-```command
+```
 func start
 ```
 
-#### <a name="typescript"></a>TypeScript
+# <a name="python"></a>[Python](#tab/python)
 
-```command
+```
+func start
+```
+Det här kommandot måste [köras i en virtuell miljö](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+
+# <a name="typescript"></a>[TypeScript](#tab/ts)
+
+```
 npm install
 npm start     
 ```
 
-### <a name="version-1x"></a>Version 1.x
+---
 
-Version 1. x av Functions-körningen kräver kommandot `host`, som i följande exempel:
-
-```command
-func host start
-```
+>[!NOTE]  
+> Version 1. x av Functions-körningen kräver kommandot `host`, som i följande exempel:
+>
+> ```
+> func host start
+> ```
 
 `func start` stöder följande alternativ:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--no-build`** | Skapa inte aktuellt projekt innan det körs. Endast för dotNET-projekt. Standardvärdet är inställt på falskt. Endast version 2. x. |
-| **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps`. Endast version 2. x. |
-| **`--cors-credentials`** | Tillåt kors ursprung autentiserade begär Anden (dvs. cookies och Authentication-huvudet) version 2. x. |
+| **`--no-build`** | Skapa inte aktuellt projekt innan det körs. Endast för dotNET-projekt. Standardvärdet är inställt på falskt. Stöds inte för version 1. x. |
+| **`--cert`** | Sökvägen till en. pfx-fil som innehåller en privat nyckel. Används endast med `--useHttps`. Stöds inte för version 1. x. |
+| **`--cors-credentials`** | Tillåt kors ursprung autentiserade begär Anden (dvs. cookies och Authentication-huvudet) stöds inte för version 1. x. |
 | **`--cors`** | En kommaavgränsad lista med CORS-ursprung, utan blank steg. |
-| **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Du kan till exempel aktivera fel sökning för språk arbetare genom att tillhandahålla [fel söknings port och andra obligatoriska argument](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Endast version 2. x. |
+| **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Du kan till exempel aktivera fel sökning för språk arbetare genom att tillhandahålla [fel söknings port och andra obligatoriska argument](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Stöds inte för version 1. x. |
 | **`--nodeDebugPort`** **`-n`** | Porten för Node. js-felsökaren att använda. Standard: ett värde från Launch. JSON eller 5858. Endast version 1. x. |
-| **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert`. Endast version 2. x. |
+| **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert`. Stöds inte för version 1. x. |
 | **`--port`** **`-p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indatatyper innan du avslutar processen. Används endast när du startar kärn verktyg från en Integrated Development Environment (IDE).|
 | **`--script-root`** **`--prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C# klass biblioteks projekt skapas värden. JSON, Local. Settings. JSON och function. JSON-filerna i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Detta är roten i Function-appen när du kör i Azure. |
@@ -367,13 +370,13 @@ func host start
 
 När Functions-värden startar matar den in URL: en för HTTP-utlösta funktioner:
 
-```output
+<pre>
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
-```
+</pre>
 
 >[!IMPORTANT]
 >När du kör lokalt tillämpas inte auktorisering för HTTP-slutpunkter. Det innebär att alla lokala HTTP-begäranden hanteras som `authLevel = "anonymous"`. Mer information finns i artikeln om [http-bindning](functions-bindings-http-webhook-trigger.md#authorization-keys).
@@ -397,21 +400,31 @@ Se till att använda samma server namn och port som värden lyssnar på. Du ser 
 
 Följande spiral kommando utlöser `MyHttpTrigger` snabb starts funktion från en GET-begäran med den _namn_ parameter som angavs i frågesträngen.
 
-```bash
+```
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 
 Följande exempel är samma funktion som anropas från ett POST-begärans överförings _namn_ i begär ande texten:
 
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
+# <a name="cmd"></a>[Kommandot](#tab/cmd)
+```cmd
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azure Rocks'}"
+```
+---
 
 Du kan göra GET-begäranden från en webbläsare som skickar data i frågesträngen. För alla andra HTTP-metoder måste du använda sväng, Fiddler, Postman eller ett liknande verktyg för HTTP-testning.
 
 #### <a name="non-http-triggered-functions"></a>Funktioner som inte är HTTP-utlösta
 
-För alla typer av funktioner än HTTP-utlösare och Webhooks kan du testa dina funktioner lokalt genom att anropa en administrations slut punkt. Anropet till den här slut punkten med en HTTP POST-begäran på den lokala servern utlöser funktionen. Du kan också skicka test data till körningen i bröd texten i POST-begäran. Den här funktionen liknar fliken **test** i Azure Portal.
+För alla typer av funktioner än HTTP-utlösare och Webhooks och Event Grid utlösare kan du testa dina funktioner lokalt genom att anropa en administrations slut punkt. Anropet till den här slut punkten med en HTTP POST-begäran på den lokala servern utlöser funktionen. 
+
+Om du vill testa Event Grid utlösta funktioner lokalt, se [lokal testning med visnings program för webb program](functions-bindings-event-grid-trigger.md#local-testing-with-viewer-web-app).
+
+Du kan också skicka test data till körningen i bröd texten i POST-begäran. Den här funktionen liknar fliken **test** i Azure Portal.
 
 Du anropar följande administratörs slut punkt för att utlösa icke-HTTP-funktioner:
 
@@ -427,16 +440,22 @@ Om du vill skicka test data till administratörs slut punkten för en funktion m
 
 `<trigger_input>`-värdet innehåller data i ett format som förväntas av funktionen. Följande spiral exempel är ett inlägg i en `QueueTriggerJS`-funktion. I det här fallet är indatamängden en sträng som motsvarar det meddelande som förväntas finnas i kön.
 
+# <a name="bash"></a>[Bash](#tab/bash)
 ```bash
-curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTrigger
 ```
+# <a name="cmd"></a>[Kommandot](#tab/cmd)
+```bash
+curl --request POST -H "Content-Type:application/json" --data "{'input':'sample queue data'}" http://localhost:7071/admin/functions/QueueTrigger
+```
+---
 
-#### <a name="using-the-func-run-command-in-version-1x"></a>Använda kommandot `func run` i version 1. x
+#### <a name="using-the-func-run-command-version-1x-only"></a>Använda `func run`-kommandot (endast version 1. x)
 
 >[!IMPORTANT]
-> Kommandot `func run` stöds inte i version 2. x av verktygen. Mer information finns i avsnittet [How to target Azure Functions runtime-versioner](set-runtime-version.md).
+> Kommandot `func run` stöds bara i version 1. x av verktygen. Mer information finns i avsnittet [How to target Azure Functions runtime-versioner](set-runtime-version.md).
 
-Du kan också anropa en funktion direkt genom att använda `func run <FunctionName>` och ange indata för funktionen. Det här kommandot liknar att köra en funktion med hjälp av fliken **test** i Azure Portal.
+I version 1. x kan du också anropa en funktion direkt genom att använda `func run <FunctionName>` och ange indata för funktionen. Det här kommandot liknar att köra en funktion med hjälp av fliken **test** i Azure Portal.
 
 `func run` stöder följande alternativ:
 
@@ -450,7 +469,7 @@ Du kan också anropa en funktion direkt genom att använda `func run <FunctionNa
 
 Om du till exempel vill anropa en HTTP-utlöst funktion och skicka innehålls texten kör du följande kommando:
 
-```bash
+```
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -467,7 +486,7 @@ En projektmapp kan innehålla språkspecifika filer och kataloger som inte ska p
 
 Om du vill publicera din lokala kod i en Function-app i Azure använder du kommandot `publish`:
 
-```bash
+```
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -504,7 +523,7 @@ Följande publicerings alternativ stöds bara i version 2. x:
 
 Med Azure Functions kan du distribuera ett funktions projekt i en [anpassad Docker-behållare](functions-deployment-technologies.md#docker-container). Mer information finns i [skapa en funktion i Linux med en anpassad avbildning](functions-create-function-linux-custom-image.md). Anpassade behållare måste ha en Dockerfile. Om du vill skapa en app med en Dockerfile använder du alternativet--Dockerfile på `func init`.
 
-```bash
+```
 func deploy
 ```
 

@@ -12,11 +12,11 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
 ms.openlocfilehash: 6d87d3373711d12df3f2cced26ef35ae951ad41e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356667"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269840"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -25,7 +25,7 @@ Grupper med automatisk redundans är en SQL Database funktion som gör att du ka
 > [!NOTE]
 > När du arbetar med enskilda databaser eller databaser på en SQL Database-Server och vill ha flera sekundära servrar i samma eller olika regioner, använder du [aktiv geo-replikering](sql-database-active-geo-replication.md). 
 
-När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar en eller flera av databaserna i gruppen i automatisk redundans. Detta är vanligt vis incidenter som inte kan begränsas av de inbyggda automatiska hög tillgänglighets åtgärderna. Exempel på utlösare för växling vid fel är en incident som orsakas av att en SQL-klients ring eller kontroll ring stoppas på grund av en minnes läcka för operativ system på flera datornoder, eller att en incident som orsakas av en eller flera klient signaler är nere, eftersom en fel nätverks kabel togs bort under ro utine maskin varu avställning.  Mer information finns i [SQL Database hög tillgänglighet](sql-database-high-availability.md).
+När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar en eller flera av databaserna i gruppen i automatisk redundans. Detta är vanligt vis incidenter som inte kan begränsas av de inbyggda automatiska hög tillgänglighets åtgärderna. Exempel på utlösare för växling vid fel är en incident som orsakas av att en SQL-klients ring eller kontroll ring stoppas på grund av en minnes läcka för operativ system på flera datornoder, eller att en incident som orsakas av en eller flera klient organisationer är avstängd, eftersom en fel nätverks kabel har kapats under avställning av rutin för maskin vara.  Mer information finns i [SQL Database hög tillgänglighet](sql-database-high-availability.md).
 
 Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och skrivskyddade lyssnar slut punkter som förblir oförändrade under redundansväxling. Oavsett om du använder manuell eller automatisk redundans växlar redundans alla sekundära databaser i gruppen till primär. När databasen har redundans har slutförts uppdateras DNS-posten automatiskt för att omdirigera slut punkterna till den nya regionen. För specifika återställnings-och RTO-data, se [Översikt över affärs kontinuitet](sql-database-business-continuity.md).
 
@@ -448,7 +448,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Tar bort en failover-grupp från servern |
 | [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Utlöser redundans från den aktuella primära servern till den sekundära servern med fullständig datasynkronisering.|
 | [Framtvinga redundans Tillåt data förlust](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Utlöser redundans från den aktuella primära servern till den sekundära servern utan att synkronisera data. Den här åtgärden kan leda till data förlust. |
-| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Hämtar en failover-grupps konfiguration. |
+| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | hämtar en failover-grupps konfiguration. |
 | [Visa lista över grupper efter fel per server](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Visar en lista över failover-grupper på en server. |
 | [Uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Uppdaterar konfigurationen för en redundanskonfiguration. |
 
@@ -460,7 +460,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Tar bort en redundans-grupp från instansen |
 | [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Utlöser redundans från den aktuella primära instansen till den här instansen med fullständig datasynkronisering. |
 | [Framtvinga redundans Tillåt data förlust](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Utlöser redundans från den aktuella primära instansen till den sekundära instansen utan att synkronisera data. Den här åtgärden kan leda till data förlust. |
-| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Hämtar en failover-grupps konfiguration. |
+| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | hämtar en failover-grupps konfiguration. |
 | [Visa lista över redundanskluster – lista efter plats](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Visar en lista över failover-grupper på en plats. |
 
 ## <a name="next-steps"></a>Nästa steg

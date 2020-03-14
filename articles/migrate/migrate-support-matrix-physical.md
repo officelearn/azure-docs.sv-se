@@ -4,11 +4,11 @@ description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: f2698d0ff046147599a8c5c791a0980a54090932
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990342"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269528"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -25,7 +25,7 @@ Om du vill utvärdera lokala datorer för migrering till Azure med den här arti
 --- | ---
 **Utvärderings gränser**| Identifiera och utvärdera upp till 35 000 fysiska servrar i ett enda [projekt](migrate-support-matrix.md#azure-migrate-projects).
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration. Ett projekt kan omfatta virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar, upp till utvärderings gränserna.
-**Identifiering** | Azure Migrates apparaten kan identifiera upp till 250 fysiska servrar.
+**Identifikation** | Azure Migrates apparaten kan identifiera upp till 250 fysiska servrar.
 **Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 datorer i en enda utvärdering.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.

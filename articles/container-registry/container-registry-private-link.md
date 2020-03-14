@@ -3,12 +3,12 @@ title: Konfigurera privat länk
 description: Konfigurera en privat slut punkt i ett behållar register och aktivera en privat länk i ett lokalt virtuellt nätverk
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: b7dcf2d1eb1a77ea8b9660318ed2a7d4ec183b42
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 57c2a59ad8b16c39c7c577173feae68dcb263277
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128398"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203363"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurera en privat Azure-länk för ett Azure Container Registry 
 
@@ -28,7 +28,14 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 ## <a name="prerequisites"></a>Förutsättningar
 
 * För att kunna använda Azure CLI-stegen i den här artikeln rekommenderas Azure CLI version 2.2.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli]. Eller kör i [Azure Cloud Shell](../cloud-shell/quickstart.md).
-* Om du inte redan har ett behållar register, kan du skapa en (Premium-nivå krävs) och skicka en exempel avbildning som `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register. 
+* Om du inte redan har ett behållar register, kan du skapa en (Premium-nivå krävs) och skicka en exempel avbildning som `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register.
+* Om du vill konfigurera register åtkomst med en privat länk i en annan Azure-prenumeration måste du registrera resurs leverantören för Azure Container Registry i den prenumerationen. Exempel:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of private link>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 Azure CLI-exemplen i den här artikeln använder följande miljövariabler. Ersätt värden som passar din miljö. Alla exempel är formaterade för bash-gränssnittet:
 

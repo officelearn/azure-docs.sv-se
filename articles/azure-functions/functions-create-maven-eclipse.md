@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d2d353e6ccd7dad7be302a5f40c65012f32deba7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c82432a3d76a84eba1ad921d936b2f3ba064e2ae
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227128"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136841"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Skapa din första funktion med Java och Sol förmörkelse 
 
@@ -42,9 +42,9 @@ Vi rekommenderar också att du installerar [Azure Functions Core tools, version 
 1. Välj **Lägg till archetype** och Lägg till posterna för [Azure-Functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype-grupp-ID: com. Microsoft. Azure
     - Archetype artefakt-ID: Azure-Functions-archetype
-    - Version: Använd den senaste versionen **1,22** från [den centrala lagrings platsen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![sol förmörkelse maven skapa](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Klicka på **OK** och sedan på **Nästa**.  Var noga med att fylla i värden för alla fält, inklusive `resourceGroup`, `appName`och `appRegion` (Använd ett annat appName än **Fabrikam-Function-20170920120101928**) och slutligen **Avsluta**.
+    - Version: kontrol lera och Använd den senaste versionen från [den centrala lagrings platsen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Sol förmörkelse Maven skapa](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+1. Klicka på **OK** och klicka sedan på **Nästa**.  Var noga med att fylla i värden för alla fält, inklusive `resourceGroup`, `appName`och `appRegion` (Använd ett annat appName än **Fabrikam-Function-20170920120101928**) och slutligen **Avsluta**.
     ![Sol förmörkelse maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven skapar projektfiler i en ny mapp med namnet från _artifactId_. Den genererade koden i projektet är en enkel [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som upprepar texten i den Utlös ande http-begäran.

@@ -18,11 +18,11 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375676"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79262430"
 ---
 # <a name="single-sign-on-saml-protocol"></a>SAML-protokoll för enkel inloggning
 
@@ -48,9 +48,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| ID | Obligatoriskt | Azure AD använder det här attributet för att fylla i `InResponseTo`-attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel är `id6c1c178c166d486687be4aaf5e482730` ett giltigt ID. |
-| Version | Obligatoriskt | Den här parametern ska vara inställd på **2,0**. |
-| IssueInstant | Obligatoriskt | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
+| ID | Krävs | Azure AD använder det här attributet för att fylla i `InResponseTo`-attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel är `id6c1c178c166d486687be4aaf5e482730` ett giltigt ID. |
+| Version | Krävs | Den här parametern ska vara inställd på **2,0**. |
+| IssueInstant | Krävs | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
 | AssertionConsumerServiceUrl | Valfri | Om den här parametern anges måste den matcha `RedirectUri` av moln tjänsten i Azure AD. |
 | ForceAuthn | Valfri | Detta är ett booleskt värde. Om värdet är true innebär det att användaren tvingas att autentiseras på nytt, även om de har en giltig session med Azure AD. |
 | IsPassive | Valfri | Detta är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användar interaktion, med hjälp av sessionens cookie om en sådan finns. Om detta är sant försöker Azure AD autentisera användaren med hjälp av sessions-cookien. |
@@ -225,7 +225,7 @@ Attributet `Method` i `SubjectConfirmation`-elementet är alltid inställt på `
 </Subject>
 ```
 
-#### <a name="conditions"></a>Tillstånd
+#### <a name="conditions"></a>Villkor
 
 Det här elementet anger villkor som definierar acceptabel användning av SAML-kontroller.
 

@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure Data Lake Analytics U-SQL-jobbfel på grund av .NET 4.7.2-uppgradering
-description: Felsök U-SQL-jobbfel på grund av uppgraderingen till .NET 4.7.2.
+title: Felsöka Azure Data Lake Analytics U-SQL-jobb fel på grund av .NET Framework 4.7.2-uppgradering
+description: Felsök fel i U-SQL-jobb på grund av uppgraderingen till .NET Framework 4.7.2.
 services: data-lake-analytics
 author: guyhay
 ms.author: guyhay
@@ -9,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: 2be2f50558fef41659c9a3313871b17961f6ad6d
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f909419810cbd837e57b19a13b2df6ae9ad2ee97
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873241"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79213587"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics uppgraderar till .NET Framework v-4.7.2
 
@@ -22,12 +22,12 @@ Azure Data Lake Analytics standard körningen uppgraderas från .NET Framework v
 
 Den här uppgraderingen från .NET Framework 4.5.2 till version 4.7.2 innebär att .NET Framework som distribuerats i en U-SQL-körning (standard körning) alltid är 4.7.2. Det finns inte ett alternativ sida vid sida för .NET Framework versioner.
 
-När den här uppgraderingen till .NET-4.7.2 har slutförts, kommer systemets hanterade kod att köras som version 4.7.2, användare som angav bibliotek som t. ex. U-SQL-anpassade sammansättningar kommer att köras i det bakåtkompatibla läge som är lämpligt för den version som sammansättningen har genererats söker.
+När uppgraderingen till .NET Framework 4.7.2 är klar körs systemets hanterade kod som version 4.7.2, användare som har angett bibliotek som U-SQL-anpassade sammansättningar kommer att köras i det bakåtkompatibla läge som är lämpligt för den version som sammansättningen har genererat för.
 
 - Om dina paket-dll: er genereras för version 4.5.2, kommer det distribuerade ramverket att behandla dem som 4.5.2-bibliotek, vilket ger (med några undantag) 4.5.2-semantik.
 - Du kan nu använda U-SQL-anpassade sammansättningar som använder version 4.7.2-funktioner, om du riktar in .NET Framework 4.7.2.
 
-På grund av den här uppgraderingen till .NET 4.7.2, finns det en möjlighet att införa ändringar i dina U-SQL-jobb som använder anpassade .NET-sammansättningar. Vi rekommenderar att du söker efter bakåtkompatibla problem med proceduren nedan.
+På grund av den här uppgraderingen till .NET Framework 4.7.2 är det möjligt att införa ändringar i dina U-SQL-jobb som använder anpassade .NET-sammansättningar. Vi rekommenderar att du söker efter bakåtkompatibla problem med proceduren nedan.
 
 ## <a name="how-to-check-for-backwards-compatibility-issues"></a>Så här söker du efter bakåtkompatibla problem
 
@@ -57,7 +57,7 @@ Du kan skicka jobbet till den gamla körnings versionen (som är byggd som mål 
 
 ### <a name="what-are-the-most-common-backwards-compatibility-issues-you-may-encounter"></a>Vilka är de vanligaste bakåtkompatibla problemen som kan uppstå
 
-De vanligaste baklänges-inkompatibiliteterna som granskaren är troligt vis att identifiera är (vi har genererat den här listan genom att köra kontrollen på våra egna interna ADLA-jobb), vilka bibliotek som påverkas (Obs: du kan bara anropa biblioteken indirekt, vilket innebär att det är viktigt att vidta nödvändiga åtgärder #1 för att kontrol lera om dina jobb påverkas) och möjliga åtgärder för att åtgärda problemet. Obs! i nästan alla fall för våra egna jobb är varningarna inaktiverade för att vara falska positiva identifieringar på grund av smala egenskaper för de flesta större ändringar.
+De vanligaste baklänges-inkompatibiliteterna som granskaren är troligt vis att identifiera är (vi har genererat den här listan genom att köra kontrollen på våra egna interna ADLA-jobb), vilka bibliotek som påverkas (Obs: att du endast kan anropa biblioteken indirekt, så det är viktigt att vidta nödvändiga åtgärder #1 för att kontrol lera om dina jobb påverkas) och möjliga åtgärder att åtgärda. Obs! i nästan alla fall för våra egna jobb är varningarna inaktiverade för att vara falska positiva identifieringar på grund av smala egenskaper för de flesta större ändringar.
 
 - IAsyncResult. CompletedSynchronously-egenskapen måste vara korrekt för att den resulterande uppgiften ska slutföras
   - När du anropar TaskFactory. FromAsync måste implementeringen av egenskapen IAsyncResult. CompletedSynchronously vara korrekt för att den resulterande uppgiften ska slutföras. Det vill säga egenskapen måste returnera True om, och endast om, slutfördes synkront. Tidigare kontrollerades inte egenskapen.

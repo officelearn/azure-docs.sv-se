@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: dd8be482009e067bf9016cc8e351fc42a2db39c7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356933"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271738"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -120,6 +120,7 @@ De kryptografiska moduler som Key Vault använder, om HSM eller program vara, ä
 -   **ES384** -ECDSA för SHA-384-sammandrag och nycklar som skapats med kurva P-384. Den här algoritmen beskrivs på [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES512** -ECDSA för SHA-512-sammandrag och nycklar som skapats med kurva P-521. Den här algoritmen beskrivs på [RFC7518](https://tools.ietf.org/html/rfc7518).
 
+
 ###  <a name="rsa-algorithms"></a>RSA-algoritmer  
  Följande algoritms identifierare stöds med RSA-och RSA-HSM-nycklar i Key Vault.  
 
@@ -130,6 +131,9 @@ De kryptografiska moduler som Key Vault använder, om HSM eller program vara, ä
 
 #### <a name="signverify"></a>SIGNERA/VERIFIERA
 
+-   **PS256** -RSASSA-PSS med sha-256 och MGF1 med sha-256, enligt beskrivningen i [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS384** -RSASSA-PSS med sha-384 och MGF1 med sha-384, enligt beskrivningen i [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **PS512** -RSASSA-PSS med sha-512 och MGF1 med sha-512, enligt beskrivningen i [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **RS256** -RSASSA-PKCS-V1_5 använder SHA-256. Det program som angavs Digest-värde måste beräknas med SHA-256 och måste vara 32 byte långt.  
 -   **RS384** -RSASSA-PKCS-V1_5 använder SHA-384. Det program som angavs Digest-värde måste beräknas med SHA-384 och måste vara 48 byte långt.  
 -   **RS512** -RSASSA-PKCS-V1_5 använder SHA-512. Det program som angavs Digest-värde måste beräknas med SHA-512 och måste vara 64 byte långt.  
@@ -331,7 +335,7 @@ Det finns ytterligare skrivskyddade attribut som ingår i svaret:
 > [!Note] 
 > Om ett Key Vault certifikat upphör att gälla, är det adresser bara nyckeln och hemligheten blir oanvändbar.  
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>Taggar
 
  Klientens angivna ord lista med nyckel värdes par, liknar Taggar i nycklar och hemligheter.  
 
@@ -364,14 +368,14 @@ Följande tabell visar mappningen av principen för x509-nyckel användning till
 
 |**Användnings flaggor för X509-nyckel**|**Key Vault Key OPS**|**Standard beteende**|
 |----------|--------|--------|
-|DataEncipherment|kryptera, dekryptera| E.t. |
-|DecipherOnly|innehållet| E.t.  |
+|DataEncipherment|kryptera, dekryptera| Ej tillämpligt |
+|DecipherOnly|innehållet| Ej tillämpligt  |
 |DigitalSignature|signera, verifiera| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|EncipherOnly|encrypt| E.t. |
-|KeyCertSign|signera, verifiera|E.t.|
+|EncipherOnly|encrypt| Ej tillämpligt |
+|KeyCertSign|signera, verifiera|Ej tillämpligt|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|Oavvislig het|signera, verifiera| E.t. |
-|cRLSign|signera, verifiera| E.t. |
+|Oavvislig het|signera, verifiera| Ej tillämpligt |
+|cRLSign|signera, verifiera| Ej tillämpligt |
 
 ### <a name="certificate-issuer"></a>Certifikatutfärdare
 

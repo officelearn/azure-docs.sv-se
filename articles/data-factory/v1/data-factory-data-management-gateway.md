@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932010"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79281878"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -71,7 +71,7 @@ Här är data flödet på hög nivå för och en sammanfattning av stegen för a
 * Du måste **använda gatewayen** även om data lagret finns i molnet på en **virtuell Azure IaaS-dator**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 * De **operativ system** versioner som stöds är Windows 7, Windows 8/8.1, Windows 10, windows Server 2008 R2, windows Server 2012, windows Server 2012 R2. Det finns för närvarande inte stöd för installation av data Management Gateway på en domänkontrollant.
 * .NET Framework 4.5.1 eller senare krävs. Om du installerar Gateway på en dator med Windows 7 installerar du .NET Framework 4,5 eller senare. Mer information finns i [.NET Framework system krav](https://msdn.microsoft.com/library/8z6watww.aspx) .
 * Den rekommenderade **konfigurationen** för gateway-datorn är minst 2 GHz, 4 kärnor, 8 GB RAM och 80 GB disk.
@@ -97,7 +97,7 @@ Data Management Gateway kan installeras på följande sätt:
 4. Välj ett **språk** på **välkomst** sidan och klicka på **Nästa**.
 5. **Godkänn** licens avtalet för slutanvändare och klicka på **Nästa**.
 6. Välj **mapp** för att installera gatewayen och klicka på **Nästa**.
-7. På den **redo att installera** klickar du på **installera**.
+7. På sidan **klar att installera** klickar du på **Installera**.
 8. Klicka på **Slutför** för att slutföra installationen.
 9. Hämta nyckeln från Azure Portal. Se nästa avsnitt för steg-för-steg-instruktioner.
 10. Utför följande steg på sidan **Registrera Gateway** i **Data Management Gateway Configuration Manager** som körs på datorn:
@@ -140,7 +140,7 @@ Det finns två brand väggar som du måste tänka på: **företags brand väggen
 
 På företags brand Väggs nivå måste du konfigurera följande domäner och utgående portar:
 
-| Domännamn | Portar | Beskrivning |
+| Domän namn | Portar | Beskrivning |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Används för kommunikation med Server dels tjänst för data flyttning |
 | *.core.windows.net |443 |Används för mellanlagrad kopia med Azure Blob (om det kon figurer ATS)|
@@ -233,7 +233,7 @@ Om du väljer **Använd systemproxy** -inställningen för HTTP-proxyn använder
 > [!IMPORTANT]
 > Glöm inte att uppdatera **både** diahost. exe. config och diawp. exe. config.
 
-Förutom dessa punkter måste du också se till att Microsoft Azure är i företagets lista över tillåtna. Listan över giltiga Microsoft Azure IP-adresser kan laddas ned från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Förutom dessa punkter måste du också se till att Microsoft Azure är i företagets vitlista. Listan över giltiga Microsoft Azure IP-adresser kan laddas ned från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Möjliga problem för brand Väggs-och proxy server-relaterade problem
 Om det uppstår fel som liknar följande, beror det förmodligen på felaktig konfiguration av brand väggen eller proxyservern, som blockerar Gateway från att ansluta till Data Factory för att autentisera sig själv. Se föregående avsnitt för att kontrol lera att din brand vägg och proxyserver är korrekt konfigurerade.
@@ -341,7 +341,7 @@ På sidan diagnostik kan du utföra följande åtgärder:
 Hjälp sidan visar följande information:
 
 * Kort beskrivning av gatewayen
-* Versionsnummer
+* Versions nummer
 * Länkar till direkt hjälp, sekretess policy och licens avtal.
 
 ## <a name="monitor-gateway-in-the-portal"></a>Övervaka gateway i portalen
@@ -380,20 +380,20 @@ Följande tabell innehåller möjliga status värden för en **Gateway-nod**:
 
 Status  | Kommentarer/scenarier
 :------- | :------------------
-Online | Noden är ansluten till Data Factory tjänsten.
+Onlinemallar | Noden är ansluten till Data Factory tjänsten.
 Offline | Noden är offline.
 Uppgradera | Noden uppdateras automatiskt.
-Begränsad | På grund av anslutnings problem. Kan bero på problem med HTTP-port 8050, problem med Service Bus-anslutning eller utfärdande av autentiseringsuppgifter.
-Inaktiv | Noden har en annan konfiguration än konfigurationen av andra majoritets noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder.
+Bara | På grund av anslutnings problem. Kan bero på problem med HTTP-port 8050, problem med Service Bus-anslutning eller utfärdande av autentiseringsuppgifter.
+Inaktivera | Noden har en annan konfiguration än konfigurationen av andra majoritets noder.<br/><br/> En nod kan vara inaktiv när den inte kan ansluta till andra noder.
 
 Följande tabell innehåller möjliga status värden för en **logisk Gateway**. Gateway-statusen beror på status för gateway-noderna.
 
 Status | Kommentarer
 :----- | :-------
 Behöver registrering | Ingen nod har ännu registrerats till denna logiska Gateway
-Online | Gateway-noderna är online
+Onlinemallar | Gateway-noderna är online
 Offline | Ingen nod i online-status.
-Begränsad | Alla noder i denna gateway är inte i felfritt tillstånd. Den här statusen är en varning om att en nod kan vara nere! <br/><br/>Det kan bero på ett problem med synkronisering av autentiseringsuppgifter på dispatcher/Worker-noden.
+Bara | Alla noder i denna gateway är inte i felfritt tillstånd. Den här statusen är en varning om att en nod kan vara nere! <br/><br/>Det kan bero på ett problem med synkronisering av autentiseringsuppgifter på dispatcher/Worker-noden.
 
 ## <a name="scale-up-gateway"></a>Skala upp Gateway
 Du kan konfigurera antalet **samtidiga data flyttnings jobb** som kan köras på en nod för att skala upp möjligheten att flytta data mellan lokala och molnbaserade data lager.
@@ -478,7 +478,7 @@ Om du letar efter en API-baserad metod för kryptering av autentiseringsuppgifte
 
 Det finns en metod för att ställa in autentiseringsuppgifter med hjälp av Data Factory Editor. Om du skapar en SQL Server länkad tjänst med hjälp av redigeraren och anger autentiseringsuppgifter i klartext, krypteras autentiseringsuppgifterna med ett certifikat som Data Factorys tjänsten äger. Det använder inte det certifikat som gatewayen har kon figurer ATS för att använda. Även om den här metoden kan vara lite snabbare i vissa fall är den mindre säker. Därför rekommenderar vi att du följer den här metoden endast för utvecklings-och testnings ändamål.
 
-## <a name="powershell-cmdlets"></a>PowerShell-cmdlet:ar
+## <a name="powershell-cmdlets"></a>PowerShell-cmdletar
 I det här avsnittet beskrivs hur du skapar och registrerar en gateway med hjälp av Azure PowerShell-cmdletar.
 
 1. Starta **Azure PowerShell** i administratörs läge.

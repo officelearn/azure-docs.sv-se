@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382702"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266876"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Felsöka specifika RDP-felmeddelanden till en virtuell Windows-dator i Azure
 Du kan få ett särskilt fel meddelande när du använder fjärr skrivbords anslutning till en virtuell Windows-dator i Azure. Den här artikeln beskrivs några av de vanligaste felmeddelandena som uppstod, tillsammans med felsökning för att lösa dem. Om du har problem med att ansluta till din virtuella dator med hjälp av RDP men inte stöter på ett fel meddelande, se [fel söknings guiden för fjärr skrivbord](troubleshoot-rdp-connection.md).

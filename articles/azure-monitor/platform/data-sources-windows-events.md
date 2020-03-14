@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394400"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79274689"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Windows händelse logg data källor i Azure Monitor
 Windows-händelseloggar är en av de vanligaste [data källorna](agent-data-sources.md) för att samla in data med Windows-agenter sedan många program skriver till händelse loggen i Windows.  Du kan samla in händelser från standard loggar som system och program, förutom att ange anpassade loggar som skapats av program som du behöver övervaka.

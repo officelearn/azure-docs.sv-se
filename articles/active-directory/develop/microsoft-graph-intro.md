@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 65465c6897853617f7f33a989f97d01fb0518a5e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6c1b4390282f6d54178365714b1e2e665b4cf061
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304425"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136508"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph-API
 
@@ -57,4 +57,4 @@ När du har slutfört snabb starten har du en app som är redo att köras. Mer i
 
 Microsoft Graph Explorer är ett webbaserat verktyg som du kan använda för att bygga och testa förfrågningar med hjälp av Microsoft Graph-API: er. Du kan komma åt Microsoft Graph Explorer på: `https://developer.microsoft.com/graph/graph-explorer`.
 
-Postman är ett verktyg som du kan använda för att bygga och testa förfrågningar med hjälp av Microsoft Graph API: er. Du kan hämta Postman på: `https://www.getpostman.com/`. Om du vill interagera med Microsoft Graph i Postman använder du samlingen Microsoft Graph i Postman. Mer information finns i [använda Postman med Microsoft Graph-API: et](https://docs.microsoft.comgraph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+Postman är ett verktyg som du kan använda för att bygga och testa förfrågningar med hjälp av Microsoft Graph API: er. Du kan hämta Postman på: `https://www.getpostman.com/`. Om du vill interagera med Microsoft Graph i Postman använder du samlingen Microsoft Graph i Postman. Mer information finns i [använda Postman med Microsoft Graph-API: et](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).

@@ -10,16 +10,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427492"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79217874"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Självstudie 2: träna kredit risk modeller – Azure Machine Learning Studio (klassisk)
 
-I den här självstudien tittar vi närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del två i en självstudieserie i tre delar**.
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
+I den här självstudien ska vi titta närmare på hur du utvecklar en lösning för förutsägelseanalys. Du utvecklar en enkel modell i Machine Learning Studio (klassisk).  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del två i en självstudieserie i tre delar**.
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
@@ -33,12 +35,12 @@ I den här delen av självstudien ska du:
  
 > [!div class="checklist"]
 > * Träna flera modeller
-> * Poängsätta och utvärdera modellerna
+> * Betygsätta och utvärdera modellerna
 
 
 I [del tre av självstudien](tutorial-part3-credit-risk-deploy.md) ska du distribuera modellen som en webbtjänst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del ett av självstudien](tutorial-part1-credit-risk.md).
 
@@ -127,7 +129,7 @@ Konfigurera modulen [normalisera data][normalize-data] :
 
 [Normaliserings data][normalize-data] module har nu ställts in för att utföra en tanh-omvandling på alla numeriska kolumner förutom kredit risk kolumnen.  
 
-## <a name="score-and-evaluate-the-models"></a>Poängsätta och utvärdera modellerna
+## <a name="score-and-evaluate-the-models"></a>Betygsätta och utvärdera modellerna
 
 du använder test data som har separerats av modulen [dela data][split] för att visa upp våra tränade modeller. Du kan sedan jämföra resultaten av de två modellerna för att se vilken som genererat bäst resultat.  
 
@@ -213,7 +215,7 @@ I den här självstudien har du slutfört dessa steg:
 > [!div class="checklist"]
 > * Skapa ett experiment
 > * Träna flera modeller
-> * Poängsätta och utvärdera modellerna
+> * Betygsätta och utvärdera modellerna
 
 Nu är du redo att distribuera modeller för dessa data.
 

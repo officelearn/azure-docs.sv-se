@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 19544d9ea9a86b6c0ad98debc7361f4579cbc998
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 5acd1a417222b4810393e8fe912b5243caaeb4cd
+ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78247022"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79139648"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av en Docker Compose-konfiguration
 
@@ -96,6 +96,9 @@ När App Service-planen har skapats visas information av Azure CLI. Informatione
 ```
 
 ## <a name="create-a-docker-compose-app"></a>Skapa en Docker Compose-app
+
+> [!NOTE]
+> Docker-sammanställning för Azure App Services har för närvarande en gräns på 4 000 tecken för tillfället.
 
 I Cloud Shell-terminalen skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta _\<app_name >_ med ett unikt namn på appen (giltiga tecken är `a-z`, `0-9`och `-`).
 

@@ -5,18 +5,18 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0feb0a1a682328f1e23a7d800eb4f5653a6acdd1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1e110bb4711490f53da7628f608f150a2bc3186c
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765422"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79368884"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Självstudie: Använd Azure snabb starts mallar
 
 [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/) är en lagrings plats för community-mallar. Du kan använda exempel mallarna i din mall utveckling. I den här självstudien hittar du en resurs definition för webbplatsen och lägger till den i din egen mall. Det tar ungefär **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du slutför [självstudien om exporterade mallar](template-tutorial-export-template.md), men det är inte obligatoriskt.
 
@@ -49,7 +49,6 @@ Slå samman snabb starts mal len med den befintliga mallen:
 
 Webb program namnet måste vara unikt i Azure. För att förhindra dubblettnamn har **webAppPortalName** -variabeln uppdaterats från **"webAppPortalName": "[concat (parameters (" webAppName "),"-webapp ")]"** till **"webAppPortalName": "[concat (parameters (" webAppName "), uniqueString (resourceGroup (). ID)]"** .
 
-
 Lägg till ett kommatecken i slutet av `Microsoft.Web/serverfarms`-definitionen för att avgränsa resurs definitionen från `Microsoft.Web/sites`-definitionen.
 
 Det finns några viktiga funktioner att notera i den här nya resursen.
@@ -64,7 +63,7 @@ Använd antingen Azure CLI eller Azure PowerShell för att distribuera en mall.
 
 Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -76,10 +75,10 @@ New-AzResourceGroupDeployment `
   -webAppName demoapp
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addwebapp \
   --resource-group myResourceGroup \
   --template-file $templateFile \

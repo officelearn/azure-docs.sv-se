@@ -648,8 +648,10 @@
           href: snapshot-copy-managed-disk.md
         - name: Reservera disklagring
           href: disks-reserved-capacity.md
-        - name: Skapa en inkrementell ögonblicksbild
+        - name: Skapa en inkrementell ögonblicksbild – CLI
           href: disks-incremental-snapshots.md
+        - name: Skapa en inkrementell ögonblicksbild – portalen
+          href: disks-incremental-snapshots-portal.md
         - name: Säkerhetskopiera ohanterade diskar
           href: incremental-snapshots.md
         - name: Migrering och konvertering

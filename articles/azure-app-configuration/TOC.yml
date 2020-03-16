@@ -64,8 +64,6 @@
   items:
     - name: Nyckelvärdeslagring
       href: concept-key-value.md
-    - name: Kryptering med kundhanterade nycklar
-      href: concept-customer-managed-keys.md
     - name: Tidpunktsbaserad ögonblicksbild
       href: concept-point-time-snapshot.md
     - name: Funktionshantering
@@ -74,8 +72,12 @@
       href: concept-github-action.md
     - name: Händelsehantering
       href: concept-app-configuration-event.md
-    - name: Autentisering
+    - name: Säkerhet
       items:
+        - name: Kryptering med kundhanterade nycklar
+          href: concept-customer-managed-keys.md
+        - name: Skydda ditt konfigurationslager med privata slutpunkter
+          href: concept-private-endpoint.md
         - name: Integrera med hanterade Azure-identitet
           href: howto-integrate-azure-managed-service-identity.md
         - name: Aktivera åtkomst med Azure Active Directory

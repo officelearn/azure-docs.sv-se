@@ -8,6 +8,8 @@
       href: overview.md
     - name: Jämföra meddelandetjänster
       href: compare-messaging-services.md
+    - name: Premium vs. grundläggande nivåer
+      href: premium-basic-tiers.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -102,6 +104,8 @@
           href: security-authentication.md
         - name: Auktorisering
           href: security-authorization.md
+        - name: Nätverkssäkerhet
+          href: network-security.md
     - name: Leverans och nytt försök
       href: delivery-and-retry.md
     - name: Händelsefiltrering
@@ -118,6 +122,12 @@
       href: geo-disaster-recovery.md
 - name: Anvisningar
   items:
+    - name: Konfigurera privata slutpunkter (förhandsversion)
+      href: configure-private-endpoints.md
+    - name: Konfigurera IP-brandvägg (förhandsversion)
+      href: configure-firewall.md
+    - name: Uppdatera prisnivå
+      href: update-tier.md
     - name: Skicka till anpassat ämne
       href: post-to-custom-topic.md
     - name: Ta emot händelser vid HTTP-slutpunkt

@@ -1,42 +1,60 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure FXT Edge Filer
+summary: Azure FXT Edge Filers hybridlagringscache är ett hybridsystem med maskin-och programvara som förbättrar dataåtkomsten för filbaserade, läsintensiva och högpresterande arbetsflöden för databehandling (HPC).
 metadata:
   title: Dokumentation om Azure FXT Edge Filer
-  description: Använda Azure FXT Edge Filer som cachelagringslager för läsintensiva uppgifter med databehandling med höga prestanda
-  author: ekpgh
+  description: Använda Azure FXT Edge Filer som cachelagringslager för läsintensiva uppgifter med databehandling med höga prestanda.
   ms.service: fxt-edge-filer
   ms.topic: landing-page
-  ms.date: 07/10/2019
+  author: ronhogue
   ms.author: rohogue
-abstract:
-  description: 'Azure FXT Edge Filers hybridlagringscache är ett hybridsystem med maskin-och programvara som förbättrar dataåtkomsten för filbaserade, läsintensiva och högpresterande arbetsflöden för databehandling (HPC). Ett kluster med tre eller fler Azure FXT Edge Filer-enheter kan förbättra lagringsprestanda för lokala NAS-system (NetApp eller Dell EMC Isilon), molnlagring eller en kombination av lösningar.'
-sections:
-  - title: Stegvisa självstudier
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="fxt-install">Installera maskinvara för Azure FXT Edge Filer</a>
-          - html: <a href="fxt-network-power">Skapa nätverksanslutningar för Azure FXT Edge Filer</a>
-          - html: <a href="fxt-node-password">Ange rotlösenord för maskinvarunoderna</a>
-          - html: <a href="fxt-cluster-create">Skapa klustret för hybridcachelagring</a>
-          - html: <a href="fxt-add-nodes">Lägga till klusternoder</a>
-          - html: <a href="fxt-add-storage">Lägga till lagringsutrymme för serverdelen och konfigurera ett virtuellt namnområde</a>
-          - html: <a href="fxt-configure-network">Konfigurera klustrets nätverksinställningar</a>
-  - title: Instruktionsguider
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="fxt-mount-clients">Ansluta klienter till Azure FXT Edge Filer-klustret</a>
-          - html: <a href="fxt-monitor">Övervaka Azure FXT Edge Filer</a>
-          - html: <a href="fxt-power-off">Stänga av en nod för maskinvara på ett säkert sätt</a>
-  - title: Resurser
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="fxt-specs">Maskinvaruspecifikationer</a>
-          - html: <a href="fxt-additional-doc">Ytterligare dokumentation</a>
-          - html: <a href="fxt-support-ticket">Öppna en supportbegäran</a>
+  ms.date: 03/11/2020
+  ms.openlocfilehash: bf1ab34e0ac7477133933886bb07d16f4574c788
+  ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/13/2020
+  ms.locfileid: "79298860"
+landingContent:
+- title: Om Azure FXT Edge Filer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure FXT Edge Filer?
+      url: fxt-overview.md
+- title: Kom igång
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1 – Installera maskinvaran
+      url: fxt-install.md
+    - text: 2 – Anslut kablar
+      url: fxt-network-power.md
+    - text: 3 – Ange lösenordet för maskinvaran
+      url: fxt-node-password.md
+    - text: 4 – Skapa ett kluster
+      url: fxt-cluster-create.md
+    - text: 5 – Lägg till klusternoder
+      url: fxt-add-nodes.md
+    - text: 6– Lägg till lagringsutrymme för serverdelen och konfigurera det virtuella namnområdet
+      url: fxt-add-storage.md
+    - text: 7 – Konfigurera klustrets nätverksinställningar
+      url: fxt-configure-network.md
+- title: Hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Montera klienter på klustret
+      url: fxt-mount-clients.md
+    - text: Övervaka maskinvarustatus
+      url: fxt-monitor.md
+    - text: Stänga av maskinvara på ett säkert sätt
+      url: fxt-power-off.md
+- title: Resurser
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Maskinvaruspecifikationer
+      url: fxt-specs.md
+    - text: Ytterligare dokumentation
+      url: fxt-additional-doc.md

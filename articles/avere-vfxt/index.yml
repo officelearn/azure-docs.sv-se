@@ -1,24 +1,64 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Avere vFXT för Azure
+summary: Avere vFXT för Azure tillhandahåller ett molnbaserat cachelager för dataintensiva uppgifter med databehandling med höga prestanda.
 metadata:
   title: Dokumentation om Avere vFXT för Azure
-  description: Använda Avere vFXT som cachelagringslager för läsintensiva uppgifter med databehandling med höga prestanda
-  services: avere-vfxt
-  author: ekpgh
+  description: Använda Avere vFXT som cachelagringslager för läsintensiva uppgifter med databehandling med höga prestanda.
   ms.service: avere-vfxt
   ms.topic: landing-page
-  ms.date: 12/19/2019
+  author: ronhogue
   ms.author: rohogue
-abstract:
-  description: "Avere vFXT för Azure tillhandahåller ett molnbaserat cachelager för dataintensiva uppgifter med databehandling med höga prestanda. Genom att cachelagra filer nära beräkningsnoderna påskyndar Avere vFXT inläsningstiderna så att du kan arbeta på ett smidigare sätt även vid höga belastningar. Avere vFXT fungerar bäst med system som har mellan 1\_000 och 40\_000 klientkärnor. <p>Avere vFXT används med din befintliga datalagring för att flytta filer närmare Azure-baserade datorresurser. Aktiva filer lagras fortfarande långsiktigt i ditt datacenter."
-sections:
-  - title: Kom igång med Avere vFXT för Azure
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="avere-vfxt-deploy-plan">Planera för ditt Avere vFXT för Azure-system</a>
-          - html: <a href="avere-vfxt-deploy-overview">Läs om Avere vFXT-distribution</a>
-          - html: <a href="avere-vfxt-prereqs">Uppfyll förhandskraven</a>
-          - html: <a href="avere-vfxt-deploy">Distribuera Avere vFXT-klustret</a>
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 9b80c5dae1b9b08a5fc71c321813a28b576e0de4
+  ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/13/2020
+  ms.locfileid: "79297789"
+landingContent:
+- title: Om Avere vFXT for Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Avere vFXT för Azure?
+      url: avere-vfxt-overview.md
+  - linkListType: concept
+    links:
+    - text: VANLIGA FRÅGOR OCH SVAR
+      url: avere-vfxt-faq.md
+- title: Planera och förbereda
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planera för ditt Avere vFXT-system
+      url: avere-vfxt-deploy-plan.md
+  - linkListType: how-to-guide
+    links:
+    - text: Förbereda för att skapa Avere vFXT
+      url: avere-vfxt-prereqs.md
+- title: Skapa och distribuera
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Distributionsöversikt
+      url: avere-vfxt-deploy-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera vFXT-klustret
+      url: avere-vfxt-deploy.md
+- title: Anslut och hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Komma åt vFXT-klustret
+      url: avere-vfxt-cluster-gui.md
+    - text: Aktivera stöd för uppladdningar
+      url: avere-vfxt-enable-support.md
+    - text: Konfigurera lagring
+      url: avere-vfxt-add-storage.md
+    - text: Montera Avere vFXT-klustret
+      url: avere-vfxt-mount-clients.md
+    - text: Flytta data till vFXT-klustret
+      url: avere-vfxt-data-ingest.md
+    - text: Hantera Avere vFXT-klustret
+      url: avere-vfxt-manage-cluster.md

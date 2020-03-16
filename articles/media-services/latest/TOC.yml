@@ -8,12 +8,12 @@
       displayName: release notes
       href: release-notes.md
 - name: Snabbstarter
+  expanded: true
   items:
     - name: Livehändelse med portal och Wirecast
       displayName: 'live, event, portal, wirecast'
       href: live-events-wirecast-quickstart.md
 - name: Självstudier
-  expanded: true
   items:
     - name: Koda fjärrfiler och strömma videor
       items:
@@ -42,7 +42,7 @@
       href: protect-with-drm.md
 - name: Exempel
   items:
-    - name: Media Services-exempel
+    - name: Media Services v3-exempel
       displayName: '.NET, Java'
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
     - name: Media Services v3 REST-exempel
@@ -71,8 +71,6 @@
         - name: Transformeringar och jobb
           href: transforms-jobs-concept.md
           displayName: 'preset, schema'
-        - name: Felkoder
-          href: job-error-codes.md
     - name: Koda innehåll
       items:
         - name: Översikt
@@ -92,8 +90,6 @@
           displayName: 'analyzing, presets, jobs'
         - name: Transformeringar och jobb
           href: transforms-jobs-concept.md
-        - name: Jobbfelkoder
-          href: job-error-codes.md
     - name: Liveuppspelning
       items:
         - name: Översikt
@@ -101,7 +97,7 @@
         - name: Livehändelser och liveresultat
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
-        - name: Rekommenderade livekodare
+        - name: Testade lokala livekodare
           href: recommended-on-premises-live-encoders.md
         - name: Tidsväxling och live-till-VOD
           displayName: 'archive, dvr'
@@ -114,10 +110,6 @@
           href: live-event-states-billing.md
         - name: Svarstid
           href: live-event-latency.md
-        - name: Bli en lokal kodarpartner
-          href: become-on-premises-encoder-partner.md
-        - name: Felkoder för livehändelser
-          href: live-event-error-codes.md
     - name: Paketering och leverans
       items:
         - name: Dynamisk paketering
@@ -138,8 +130,6 @@
           href: streaming-locators-concept.md
         - name: Principer för direktuppspelning
           href: streaming-policy-concept.md
-        - name: Felkoder för slutpunkter för direktuppspelning
-          href: streaming-endpoint-error-codes.md
     - name: Innehållsskydd
       items:
         - name: Dynamisk kryptering och nyckelleverans
@@ -211,20 +201,24 @@
   items:
     - name: Kom igång
       items:
-        - name: Skapa ett konto – portalen
-          href: create-account-portal.md
-        - name: Skapa ett konto – CLI
-          href: create-account-cli-how-to.md
-          displayName: storage
-        - name: Återställa kontoautentiseringsuppgifter – CLI
+        - name: Skapa ett konto
+          items:
+            - name: Med portalen
+              href: create-account-portal.md
+            - name: Med CLI
+              href: create-account-cli-how-to.md
+              displayName: storage
+        - name: Återställa autentiseringsuppgifterna för kontot
           href: cli-reset-account-credentials.md
-        - name: 'Åtkomst till API:er – portalen'
-          href: access-api-portal.md
-        - name: 'Åtkomst till API:er – CLI'
-          href: access-api-cli-how-to.md
-        - name: Skala mediereserverade enheter – CLI
+        - name: 'Åtkomst till API:er'
+          items:
+            - name: Med portalen
+              href: access-api-portal.md
+            - name: Med CLI
+              href: access-api-cli-how-to.md
+        - name: Skala mediereserverade enheter
           href: media-reserved-units-cli-how-to.md
-        - name: Skapa en tillgång – CLI
+        - name: Skapa en tillgång
           href: cli-create-asset.md
     - name: Guider för utvecklare
       items:
@@ -244,31 +238,33 @@
               href: configure-connect-python-howto.md
     - name: Överföra innehåll
       items:
-        - name: Från HTTPS – .NET
+        - name: Från HTTPS
           displayName: upload
           href: job-input-from-http-how-to.md
-        - name: Från en lokal fil – .NET
-          displayName: upload
-          href: job-input-from-local-file-how-to.md
-        - name: Från en lokal fil – REST
-          displayName: upload
-          href: upload-files-rest-how-to.md
-        - name: Från en lokal fil – CLI
-          href: cli-upload-file-asset.md
+        - name: Från en lokal fil
+          items:
+            - name: Med .NET
+              displayName: upload
+              href: job-input-from-local-file-how-to.md
+            - name: Med REST
+              displayName: upload
+              href: upload-files-rest-how-to.md
+            - name: Med CLI
+              href: cli-upload-file-asset.md
     - name: Skapa transformeringar och jobb
       items:
-        - name: Skapa transformeringar – CLI
+        - name: Skapa transformeringar
           href: cli-create-transform.md
-        - name: Skapa jobb – CLI
+        - name: Skapa jobb
           href: cli-create-jobs.md
         - name: Jobb med flera transformeringsutdata
           href: job-multiple-transform-outputs.md
     - name: Koda innehåll
       items:
-        - name: HTTPS som jobbindata – .NET
+        - name: HTTPS som jobbindata
           displayName: 'encode, encoding'
           href: job-input-from-http-how-to.md
-        - name: Lokal fil som jobbindata – .NET
+        - name: Lokal fil som jobbindata
           displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
         - name: Koda med en anpassad transformering
@@ -290,6 +286,16 @@
             - name: Med REST
               href: subclip-video-rest-howto.md
               displayName: 'subclipping, clip, edit, trim, clipping'
+        - name: Jobbfelkoder
+          href: job-error-codes.md
+    - name: Strömma live
+      items:
+        - name: Livehändelse med portal och Wirecast
+          href: live-events-wirecast-quickstart.md
+        - name: Verifiera din lokala kodare
+          href: become-on-premises-encoder-partner.md
+        - name: Felkoder för livehändelser
+          href: live-event-error-codes.md
     - name: Använda Event Grid
       items:
         - name: Övervaka händelser – portalen
@@ -304,7 +310,7 @@
           href: media-services-diagnostic-logs-howto.md
     - name: Skydda innehåll
       items:
-        - name: Hämta princip för innehållsnyckel – .NET
+        - name: Hämta princip för innehållsnyckel
           href: get-content-key-policy-dotnet-howto.md
         - name: Offline FairPlay för iOS
           href: offline-fairplay-for-ios.md
@@ -325,7 +331,9 @@
           displayName: filters
     - name: Leverera innehåll
       items:
-        - name: Publicera en tillgång – CLI
+        - name: Hantera slutpunkter för direktuppspelning
+          href: manage-streaming-endpoints-howto.md
+        - name: Publicera en tillgång
           href: cli-publish-asset.md
         - name: 'Skapa en positionerare för direktuppspelning och skapa URL:er'
           href: create-streaming-locator-build-url.md

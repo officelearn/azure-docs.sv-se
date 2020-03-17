@@ -2,58 +2,64 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/26/2019
+ms.date: 03/12/2020
 ms.author: aahi
-ms.openlocfilehash: 8e3f08be70a2a6b932b849ff28dd762828abf229
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 0803a847e9e864b361917df9f1a9c6b059ca2fe9
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78155498"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79203445"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
-[v3 referens dokumentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b2/azure.ai.textanalytics.html) | [v3 biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [v3-paket (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3-exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[Referensdokumentation för v3](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b2/azure.ai.textanalytics.html) | [Bibliotekskällkod för v3](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics) | [Paket för v3 (PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3-exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
-[v2 referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [v2 bibliotek käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [v2-paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Referensdokumentation för v2](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [Bibliotekskällkod för v2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [Paket för v2 (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [v2-exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ---
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure-prenumeration – [Skapa en kostnadsfritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
-* När du har en Azure-prenumeration kan <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="skapa en Textanalys resurs"  target="_blank">skapa en Textanalys <span class="docon docon-navigate-external x-hidden-focus"></span> resurs</a> i Azure Portal för att hämta din nyckel och slut punkt. 
-    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du kommer att göra detta senare i snabb starten.
-    * Du kan använda den kostnads fria pris nivån för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+* När du har en Azure-prenumeration kan du <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Skapa en resurs för Textanalys"  target="_blank">skapa en resurs för Textanalys <span class="docon docon-navigate-external x-hidden-focus"></span></a> i Microsoft Azure-portalen för att hämta din nyckel och slutpunkt. 
+    * Du behöver nyckeln och slutpunkten från resursen som du skapade för att ansluta ditt program till API för textanalys. Du kommer att göra detta senare i snabbstarten.
+    * Du kan använda den kostnadsfria prisnivån för att testa tjänsten och uppgradera till en betald nivå för produktion senare.
 
 ## <a name="setting-up"></a>Konfigurera
 
-### <a name="install-the-client-library"></a>Installera klient biblioteket
+### <a name="install-the-client-library"></a>Installera klientbiblioteket
 
-När du har installerat python kan du installera klient biblioteket med:
+När du har installerat Python kan du installera klientbiblioteket med:
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 ```console
 pip install azure-ai-textanalytics
 ```
 
-#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
+> [!TIP]
+> Vill du visa hela snabbstartskodfilen samtidigt? Du hittar den [på GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py), som innehåller kodexemplen i den här snabbstarten. 
+
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
 ```console
 pip install --upgrade azure-cognitiveservices-language-textanalytics
 ```
 
+> [!TIP]
+> Vill du visa hela snabbstartskodfilen samtidigt? Du hittar den [på GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py), som innehåller kodexemplen i den här snabbstarten. 
+
 ---
 
-### <a name="create-a-new-python-application"></a>Skapa ett nytt python-program
+### <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
 
-Skapa en ny python-fil och skapa variabler för resursens Azure-slut punkt och prenumerations nyckel.
+Skapa en ny Python-fil och skapa variabler för dina resursers Azure-slutpunkt och prenumerationsnyckel.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
@@ -63,38 +69,38 @@ endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 
-## <a name="object-model"></a>Objekt modell
+## <a name="object-model"></a>Objektmodell
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
-Textanalys-klienten är ett `TextAnalyticsClient`-objekt som autentiserar till Azure med hjälp av din nyckel. Klienten tillhandahåller flera metoder för att analysera text som en batch. 
+Klienten för Textanalys är ett `TextAnalyticsClient`-objekt som autentiserar till Azure med din nyckel. Klienten tillhandahåller flera metoder för att analysera text, som en batch. 
 
-När batchbearbetning av text skickas till API: et som en lista över `documents`, som är `dictionary` objekt som innehåller en kombination av `id`, `text`och `language` attribut beroende på vilken metod som används. Attributet `text` lagrar texten som ska analyseras i ursprungs `language`och `id` kan vara vilket värde som helst. 
+Vid batchbearbetning skickas texten skickas till API:et som en lista med `documents`, som är `dictionary`-objekt som innehåller en kombination av attributen `id`, `text` och `language` beroende på vilken metod som används. `text`-attributet lagrar texten som ska analyseras i källa `language` och `id` kan vara vilket värde som helst. 
 
-Objektet Response är en lista som innehåller analys informationen för varje dokument. 
+Svarsobjektet är en lista som innehåller analysinformationen om varje dokument. 
 
-#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
-Textanalys-klienten är ett [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) -objekt som autentiserar till Azure med hjälp av din nyckel. Klienten tillhandahåller flera metoder för att analysera text, som en enskild sträng eller en batch. 
+Klienten för Textanalys är ett [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python)-objekt som autentiserar till Azure med din nyckel. Klienten tillhandahåller flera metoder för att analysera text, som en enskild sträng eller en batch. 
 
-Text skickas till API: et som en lista över `documents`, som är `dictionary` objekt som innehåller en kombination av `id`, `text`och `language` attribut beroende på vilken metod som används. Attributet `text` lagrar texten som ska analyseras i ursprungs `language`och `id` kan vara vilket värde som helst. 
+Texten skickas till API:et som en lista med `documents`, som är `dictionary`-objekt som innehåller en kombination av attributen `id`, `text` och `language` beroende på vilken metod som används. `text`-attributet lagrar texten som ska analyseras i källa `language` och `id` kan vara vilket värde som helst. 
 
 ---
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
-De här kodfragmenten visar hur du utför följande uppgifter med Textanalys klient biblioteket för python:
+Dessa kodfragment visar hur du utför följande uppgifter med Textanalys-klientbiblioteket för Python:
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Attitydanalys](#sentiment-analysis)
-* [Språk identifiering](#language-detection)
-* [Igenkänning av namngiven entitet](#named-entity-recognition-ner) 
-* [Länkning av entitet](#entity-linking)
-* [Extrahering av nyckel fraser](#key-phrase-extraction)
+* [Språkidentifiering](#language-detection)
+* [Igenkänning av namngiven enhet](#named-entity-recognition-ner) 
+* [Entitetslänkning](#entity-linking)
+* [Extrahering av nyckelfraser](#key-phrase-extraction)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 Skapa en funktion för att instansiera `TextAnalyticsClient`-objektet med `key` och `endpoint` som skapats ovan. Skapa sedan en ny klient. 
 
@@ -110,7 +116,7 @@ def authenticate_client():
 client = authenticate_client()
 ```
 
-#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
 [!code-python[imports statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
 
@@ -120,11 +126,11 @@ Skapa en funktion för att instansiera `TextAnalyticsClient`-objektet med `key` 
 
 --- 
 
-## <a name="sentiment-analysis"></a>Attitydanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
-Skapa en ny funktion som kallas `sentiment_analysis_example()` som tar klienten som ett argument och anropar sedan funktionen `analyze_sentiment()`. Det returnerade Response-objektet innehåller sentiment-etiketten och poängen i hela indatamängden, samt en sentiment-analys för varje mening.
+Skapa en ny funktion med namnet `sentiment_analysis_example()` som tar klienten som ett argument och anropar sedan funktionen `analyze_sentiment()`. Det returnerade svarsobjektet innehåller sentiment-etiketten och resultatet för hela indatadokumentet, samt en attitydanalys för varje mening.
 
 
 ```python
@@ -133,18 +139,18 @@ def sentiment_analysis_example(client):
     document = ["I had the best day of my life. I wish you were there with me."]
     response = client.analyze_sentiment(inputs=document)[0]
     print("Document Sentiment: {}".format(response.sentiment))
-    print("Overall scores: positive={0:.3f}; neutral={1:.3f}; negative={2:.3f} \n".format(
-        response.sentiment_scores.positive,
-        response.sentiment_scores.neutral,
-        response.sentiment_scores.negative,
+    print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
+        response.confidence_scores.positive,
+        response.confidence_scores.neutral,
+        response.confidence_scores.negative,
     ))
     for idx, sentence in enumerate(response.sentences):
-        print("[Offset: {}, Length: {}]".format(sentence.offset, sentence.length))
+        print("[Length: {}]".format(sentence.grapheme_length))
         print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-        print("Sentence score:\nPositive={0:.3f}\nNeutral={1:.3f}\nNegative={2:.3f}\n".format(
-            sentence.sentiment_scores.positive,
-            sentence.sentiment_scores.neutral,
-            sentence.sentiment_scores.negative,
+        print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
+            sentence.confidence_scores.positive,
+            sentence.confidence_scores.neutral,
+            sentence.confidence_scores.negative,
         ))
 
             
@@ -155,26 +161,26 @@ sentiment_analysis_example(client)
 
 ```console
 Document Sentiment: positive
-Overall scores: positive=1.000; neutral=0.000; negative=0.000 
+Overall scores: positive=1.00; neutral=0.00; negative=0.00
 
-[Offset: 0, Length: 30]
+[Length: 30]
 Sentence 1 sentiment: positive
 Sentence score:
-Positive=1.000
-Neutral=0.000
-Negative=0.000
+Positive=1.00
+Neutral=0.00
+Negative=0.00
 
-[Offset: 31, Length: 30]
+[Length: 30]
 Sentence 2 sentiment: neutral
 Sentence score:
-Positive=0.210
-Neutral=0.770
-Negative=0.020
+Positive=0.21
+Neutral=0.77
+Negative=0.02
 ```
 
-#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
-Autentisera ett klient objekt och anropa funktionen [sentiment ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) . Upprepa resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
+Autentisera ett klientobjekt och anropa funktionen [sentiment()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-). Iterera genom resultat och skriv ut varje dokuments ID och sentimentpoäng. Ett resultat nära 0 visar negativt sentiment medan ett resultat nära 1 indikerar ett positivt sentiment.
 
 [!code-python[sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
 
@@ -191,12 +197,12 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## <a name="language-detection"></a>Språkidentifiering
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
-Skapa en ny funktion som kallas `language_detection_example()` som tar klienten som ett argument och anropar sedan funktionen `detect_language()`. Det returnerade Response-objektet kommer att innehålla det identifierade språket i `primary_language` om det lyckas, och en `error` om inte.
+Skapa en ny funktion med namnet `language_detection_example()` som tar klienten som ett argument och sedan anropar funktionen `detect_language()`. Det returnerade svarsobjektet innehåller det identifierade språket på `primary_language` om det lyckas och ett `error` om det misslyckas.
 
 > [!Tip]
-> I vissa fall kan det vara svårt att disambiguate språk baserat på indatamängden. Du kan använda parametern `country_hint` för att ange en landskod på 2 bokstäver. Som standard använder API: t "US" som standard-countryHint, för att ta bort det här alternativet kan du återställa den här parametern genom att ange det här värdet till tom sträng `country_hint : ""`. 
+> I vissa fall kan det vara svårt att förtydliga språk baserat på indata. Du kan använda parametern `country_hint` för att ange en landskod på 2 bokstäver. Som standard använder API:et ”US” som standardinställd countryHint. Om du vill ta bort detta beteende kan du återställa parametern genom att ställa in värdet på tom sträng, `country_hint : ""`. 
 
 ```python
 def language_detection_example(client):
@@ -217,9 +223,9 @@ language_detection_example(client)
 Language:  French
 ```
 
-#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
-Med hjälp av klienten som skapades tidigare anropar [detect_language ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och får resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och det första returnerade språket.
+Med hjälp av klienten som skapats tidigare anropar du [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och hämtar resultatet. Iterera sedan genom resultaten och skriv ut varje dokuments ID och det första returnerade språket.
 
 [!code-python[language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=languageDetection)]
 
@@ -234,16 +240,16 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ---
 
-## <a name="named-entity-recognition-ner"></a>Igenkänning av namngivna enheter (NER)
+## <a name="named-entity-recognition-ner"></a>Igenkänning av namngiven enhet (NER)
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 > [!NOTE]
 > I version `3.0-preview`:
-> * NER innehåller separata metoder för att identifiera personlig information. 
-> * Enhets länkning är en separat begäran än NER.
+> * NER innehåller separata metoder för att identifiera personliga uppgifter. 
+> * Entitetslänkning är en begäran som skiljer sig från NER.
 
-Skapa en ny funktion som kallas `entity_recognition_example` som tar klienten som ett argument och anropar sedan `recognize_entities()`-funktionen och itererar igenom resultaten. Det returnerade Response-objektet innehåller listan över identifierade entiteter i `entity` om det lyckades och en `error` om inte. För varje identifierad entitet skriver du ut dess kategori och under kategori om den finns.
+Skapa en ny funktion med namnet `entity_recognition_example` som tar klienten som ett argument och sedan anropar funktionen `recognize_entities()` och itererar genom resultatet. Det returnerade svarsobjektet innehåller listan över identifierade entiteter `entity` om det lyckas och ett `error` om det misslyckas. Skriv ut kategori och underkategori (om det finns en sådan) för varje identifierad entitet.
 
 ```python
 def entity_recognition_example(client):
@@ -254,9 +260,8 @@ def entity_recognition_example(client):
 
         print("Named Entities:\n")
         for entity in result.entities:
-                print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                      "\n\tOffset: \t", entity.offset, "\tLength: \t", entity.offset, 
-                      "\tConfidence Score: \t", round(entity.score, 3), "\n")
+            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
+                    "\n\tLength: \t", entity.grapheme_length, "\tConfidence Score: \t", round(entity.score, 2), "\n")
 
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -268,16 +273,16 @@ entity_recognition_example(client)
 ```console
 Named Entities:
 
-    Text:    Seattle    Category:    Location   SubCategory:     GPE 
-    Offset:      26     Length:      26     Confidence Score:    0.92 
+    Text:    Seattle        Category:        Location       SubCategory:     GPE
+    Length:          7      Confidence Score:        0.92
 
-    Text:    last week  Category:    DateTime   SubCategory:     DateRange 
-    Offset:      34     Length:      34     Confidence Score:    0.8 
+    Text:    last week      Category:        DateTime       SubCategory:     DateRange
+    Length:          9      Confidence Score:        0.8
 ```
 
-## <a name="using-ner-to-detect-personal-information"></a>Använda NER för att identifiera personlig information
+## <a name="using-ner-to-detect-personal-information"></a>Använd NER för att identifiera personliga uppgifter
 
-Skapa en ny funktion som kallas `entity_pii_example()` som tar klienten som ett argument och anropar sedan funktionen `recognize_pii_entities()` och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut entiteterna.
+Skapa en ny funktion med namnet `entity_pii_example()` som tar klienten som ett argument och sedan anropar funktionen `recognize_pii_entities()` och hämtar resultatet. Iterera sedan genom resultatet och skriv ut entiteterna.
 
 ```python
 def entity_pii_example(client):
@@ -290,7 +295,7 @@ def entity_pii_example(client):
         print("Personally Identifiable Information Entities: ")
         for entity in result.entities:
             print("\tText: ",entity.text,"\tCategory: ", entity.category,"\tSubCategory: ", entity.subcategory)
-            print("\t\tOffset: ", entity.offset, "\tLength: ", entity.length, "\tScore: {0:.3f}".format(entity.score), "\n")
+            print("\t\tLength: ", entity.grapheme_length, "\tScore: {0:.2f}".format(entity.score), "\n")
         
 entity_pii_example(client)
 ```
@@ -298,15 +303,15 @@ entity_pii_example(client)
 ### <a name="output"></a>Resultat
 
 ```console
-Personally Identifiable Information Entities: 
-    Text:  123-12-1234  Category:  U.S. Social Security Number (SSN)    SubCategory:  None
-        Offset:  33     Length:  11     Score: 0.850 
+Personally Identifiable Information Entities:
+    Text:  123-12-1234      Category:  U.S. Social Security Number (SSN)    SubCategory:  None
+        Length:  11     Score: 0.85
 ```
 
 
 ## <a name="entity-linking"></a>Entity Linking
 
-Skapa en ny funktion som kallas `entity_linking_example()` som tar klienten som ett argument och anropar sedan `recognize_linked_entities()`-funktionen och itererar igenom resultaten. Det returnerade Response-objektet innehåller listan över identifierade entiteter i `entities` om det lyckades och en `error` om inte. Eftersom länkade entiteter identifieras unikt, grupperas förekomster av samma entitet under ett `entity` objekt som en lista över `match` objekt.
+Skapa en ny funktion med namnet `entity_linking_example()` som tar klienten som ett argument och sedan anropar funktionen `recognize_linked_entities()` och itererar genom resultatet. Det returnerade svarsobjektet innehåller listan över identifierade entiteter `entities` om det lyckas och ett `error` om det misslyckas. Eftersom länkade entiteter identifieras unikt, grupperas förekomster av samma entitet under ett `entity`-objekt som en lista över `match`-objekt.
 
 ```python
 def entity_linking_example(client):
@@ -321,13 +326,12 @@ def entity_linking_example(client):
 
         print("Linked Entities:\n")
         for entity in result.entities:
-            print("\tName: ", entity.name, "\tId: ", entity.id, "\tUrl: ", entity.url,
+            print("\tName: ", entity.name, "\tId: ", entity.data_source_entity_id, "\tUrl: ", entity.url,
             "\n\tData Source: ", entity.data_source)
             print("\tMatches:")
             for match in entity.matches:
                 print("\t\tText:", match.text)
-                print("\t\tScore: {0:.3f}".format(match.score), "\tOffset: ", match.offset, 
-                      "\tLength: {}\n".format(match.length))
+                print("\t\tScore: {0:.2f}".format(match.score), "\tLength: {}\n".format(match.grapheme_length))
             
     except Exception as err:
         print("Encountered exception. {}".format(err))
@@ -339,56 +343,56 @@ entity_linking_example(client)
 ```console
 Linked Entities:
 
-    Name:  Altair 8800  Id:  Altair 8800    Url:  https://en.wikipedia.org/wiki/Altair_8800 
+    Name:  Altair 8800      Id:  Altair 8800        Url:  https://en.wikipedia.org/wiki/Altair_8800
     Data Source:  Wikipedia
     Matches:
         Text: Altair 8800
-        Score: 0.777    Offset:  125    Length: 11
+        Score: 0.78     Length: 11
 
-    Name:  Bill Gates   Id:  Bill Gates     Url:  https://en.wikipedia.org/wiki/Bill_Gates 
+    Name:  Bill Gates       Id:  Bill Gates         Url:  https://en.wikipedia.org/wiki/Bill_Gates
     Data Source:  Wikipedia
     Matches:
         Text: Bill Gates
-        Score: 0.555    Offset:  25     Length: 10
+        Score: 0.55     Length: 10
 
         Text: Gates
-        Score: 0.555    Offset:  179    Length: 5
+        Score: 0.55     Length: 5
 
-    Name:  Paul Allen   Id:  Paul Allen     Url:  https://en.wikipedia.org/wiki/Paul_Allen 
+    Name:  Paul Allen       Id:  Paul Allen         Url:  https://en.wikipedia.org/wiki/Paul_Allen
     Data Source:  Wikipedia
     Matches:
         Text: Paul Allen
-        Score: 0.533    Offset:  40     Length: 10
+        Score: 0.53     Length: 10
 
-    Name:  Microsoft    Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft 
+    Name:  Microsoft        Id:  Microsoft  Url:  https://en.wikipedia.org/wiki/Microsoft
     Data Source:  Wikipedia
     Matches:
         Text: Microsoft
-        Score: 0.469    Offset:  0  Length: 9
+        Score: 0.47     Length: 9
 
         Text: Microsoft
-        Score: 0.469    Offset:  168    Length: 9
+        Score: 0.47     Length: 9
 
-    Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4 
+    Name:  April 4  Id:  April 4    Url:  https://en.wikipedia.org/wiki/April_4
     Data Source:  Wikipedia
     Matches:
         Text: April 4
-        Score: 0.248    Offset:  54     Length: 7
+        Score: 0.25     Length: 7
 
-    Name:  BASIC    Id:  BASIC  Url:  https://en.wikipedia.org/wiki/BASIC 
+    Name:  BASIC    Id:  BASIC      Url:  https://en.wikipedia.org/wiki/BASIC
     Data Source:  Wikipedia
     Matches:
         Text: BASIC
-        Score: 0.281    Offset:  98     Length: 5
+        Score: 0.28     Length: 5
 
 ```
 
-#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
 > [!NOTE]
-> I version 2,1 ingår enhets länkning i NER-svaret.
+> I version 2.1 ingår entitetslänkning i NER-svaret.
 
-Med hjälp av klienten som skapades tidigare anropar du funktionen [entiteter ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och entiteterna i det.
+Med hjälp av klienten som skapats tidigare anropar du funktionen [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och hämtar resultatet. Iterera sedan genom resultaten och skriv ut varje dokuments ID och entiteterna som finns i det.
 
 [!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entityRecognition)]
 
@@ -436,9 +440,9 @@ Document ID: 2
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
 
-#### <a name="version-30-preview"></a>[Version 3,0 – för hands version](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
-Skapa en ny funktion som kallas `key_phrase_extraction_example()` som tar klienten som ett argument och anropar sedan funktionen `extract_key_phrases()`. Resultatet kommer att innehålla en lista över identifierade nyckel fraser i `key_phrases` om det lyckas, och en `error` om inte. Skriv ut alla identifierade nyckel fraser.
+Skapa en ny funktion med namnet `key_phrase_extraction_example()` som tar klienten som ett argument och sedan anropar funktionen `extract_key_phrases()`. Resultatet innehåller listan över identifierade entiteter `key_phrases` om det lyckas och ett `error` om det misslyckas. Skriv ut identifierade nyckelfraser.
 
 ```python
 def key_phrase_extraction_example(client):
@@ -470,9 +474,9 @@ key_phrase_extraction_example(client)
          veterinarian
 ```
 
-#### <a name="version-21"></a>[Version 2,1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
-Med hjälp av den klient som skapades tidigare anropar du funktionen [key_phrases ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och de viktigaste fraserna i det.
+Med hjälp av klienten som skapats tidigare anropar du funktionen [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och hämtar resultatet. Iterera sedan genom resultaten och skriv ut varje dokuments ID och nyckelfraserna som finns i det.
 
 [!code-python[key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=keyPhrases)]
 

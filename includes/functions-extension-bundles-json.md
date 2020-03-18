@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 11/14/2019
 ms.author: glenga
-ms.openlocfilehash: 4ce048cafa4c20e3bbdbd8ecf1669748531ee122
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: MT
+ms.openlocfilehash: f47a543143c949715fe2a49adccf074759a346fa
+ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129060"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79382056"
 ---
 ```json
 {
@@ -25,9 +25,9 @@ Följande egenskaper är tillgängliga i `extensionBundle`:
 
 | Egenskap | Beskrivning |
 | -------- | ----------- |
-| id | Namn området för Microsoft Azure Functions-paket för tillägg. |
-| version | Den version av paketet som ska installeras. Functions-körningen plockar alltid den högsta tillåtna versionen som definieras av versions intervallet eller intervallet. Version svärdet ovan tillåter alla paket versioner från 1.0.0 upp till men inte inklusive 2.0.0. Mer information finns i [intervall notation för att ange versions intervall](/nuget/reference/package-versioning#version-ranges-and-wildcards). |
+| id | Namnområdet för Microsoft Azure Functions-tilläggsbuntar. |
+| version | Den version av bunten som ska installeras. Körmiljön för Functions väljer alltid den högsta tillåtna versionen som definieras av versionsintervallet. Versionsvärdet ovan tillåter alla buntversioner från 1.0.0 upp till men inte inklusive 2.0.0. Mer information finns in [intervallnotationen för att ange versionsintervall](/nuget/reference/package-versioning#version-ranges). |
 
-Paket versioner ökar som paket i paket ändringen. Huvud versions ändringar sker när paket i paketet ökar med en högre version. Huvud versions ändringar i paketet sammanfaller vanligt vis med en ändring i huvud versionen av Functions-körningen.  
+Buntversioner ökar när paket i bunten ändras. Högre versionsändringar sker när paket i bunten ökar med en högre version. Högre versionsändringar i bunten sammanfaller vanligtvis med en ändring i den högre versionen av körmiljön för Functions.  
 
-Den aktuella uppsättningen tillägg som installeras av standard paketet räknas upp i [filen Extensions. JSON](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+Den aktuella uppsättningen tillägg som installeras av standardbunten räknas upp i den här [extensions.json-filen](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).

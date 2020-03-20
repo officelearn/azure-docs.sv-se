@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8ec60f694000985f51db25db621e5814df62cdb3
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
+ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126808"
+ms.lasthandoff: 03/12/2020
+ms.locfileid: "79136150"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Inaktivera e-postverifiering under kund registrering med en anpassad princip i Azure Active Directory B2C
 
@@ -28,8 +28,11 @@ Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started
 
 ## <a name="add-the-metadata-to-the-self-asserted-technical-profile"></a>Lägg till metadata till den självkontrollerade tekniska profilen
 
-**LocalAccountSignUpWithLogonEmail** Technical Profile är en [självkontrollerad](self-asserted-technical-profile.md), som anropas under registrerings flödet. Om du vill inaktivera e-postverifieringen ställer du in `EnforceEmailVerification` metadata på falskt. Åsidosätt de tekniska profilerna för LocalAccountSignUpWithLogonEmail i tilläggs filen. Hitta `ClaimsProviders`-elementet. Lägg till följande anspråks leverantör i `ClaimsProviders`-elementet:
+**LocalAccountSignUpWithLogonEmail** Technical Profile är en [självkontrollerad](self-asserted-technical-profile.md), som anropas under registrerings flödet. Om du vill inaktivera e-postverifieringen ställer du in `EnforceEmailVerification` metadata på falskt. Åsidosätt de tekniska profilerna för LocalAccountSignUpWithLogonEmail i tilläggs filen. 
 
+1. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>  .
+1. Hitta `ClaimsProviders`-elementet. Om elementet inte finns lägger du till det.
+1. Lägg till följande anspråks leverantör i `ClaimsProviders`-elementet:
 
 ```XML
 <ClaimsProvider>

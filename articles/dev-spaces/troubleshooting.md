@@ -1,16 +1,16 @@
 ---
-title: Felsöka
+title: Felsökning
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: fdb0d8afa55f87ae61213b189e9e24ec63bfcfb8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: af6577684af559b7e152a53fbe4293740d676e6e
+ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79265290"
+ms.lasthandoff: 03/14/2020
+ms.locfileid: "79370839"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -22,9 +22,9 @@ Om du har problem med att använda Azure dev Spaces kan du skapa ett [problem i 
 
 För att felsöka problem på ett effektivare sätt kan det hjälpa att skapa mer detaljerade loggar för granskning.
 
-Visual Studio-tillägg, ange den `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När den är aktive rad skrivs detaljerade loggar till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` katalog.
+För Visual Studio-tillägget anger du `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED`-miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När den är aktive rad skrivs detaljerade loggar till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` katalog.
 
-I CLI, kan du mata ut mer information under Kommandokörning med hjälp av den `--verbose` växla. Du kan också gå mer detaljerade loggar i `%TEMP%\Azure Dev Spaces`. På en Mac kan du hitta *Temp* -katalogen genom att köra `echo $TMPDIR` från ett terminalfönster. På en Linux-dator är *Temp* -katalogen vanligt vis `/tmp`. Kontrol lera också att loggning är aktiverat i [konfigurations filen för Azure CLI](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
+I CLI kan du mata ut mer information under kommando körningen med hjälp av växeln `--verbose`. Du kan också söka efter mer detaljerade loggar i `%TEMP%\Azure Dev Spaces`. På en Mac kan du hitta *Temp* -katalogen genom att köra `echo $TMPDIR` från ett terminalfönster. På en Linux-dator är *Temp* -katalogen vanligt vis `/tmp`. Kontrol lera också att loggning är aktiverat i [konfigurations filen för Azure CLI](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
 Azure dev Spaces fungerar också bäst vid fel sökning av en enskild instans eller pod. `azds.yaml`-filen innehåller en inställning, *replicaCount*, som anger antalet poddar som Kubernetes körs för tjänsten. Om du ändrar *replicaCount* för att konfigurera programmet så att det kör flera poddar för en specifik tjänst, bifogas fel söknings programmet till de första pod, i alfabetisk ordning. Fel söknings programmet ansluts till en annan Pod när den ursprungliga Pod återanvänds, vilket kan resultera i ett oväntat beteende.
 
@@ -52,13 +52,13 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Styrenheten kunde inte skapas på grund av kontrollantens namn längd
 
-Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Ett exempel:
+Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Exempel:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Ett exempel:
+Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Exempel:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -76,12 +76,15 @@ Azure dev Spaces kunde inte skapa en kontrollant i ditt AKS-kluster eftersom det
 
 Åtgärda problemet genom att [Uppdatera din smak konfiguration](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) på ditt AKS-kluster för att säkerställa att minst en Linux-nod tillåter schemaläggning av poddar utan att ange tolererande. Se också till att minst en Linux-nod som tillåter schemaläggning av poddar utan att ange tolererar är *klar* . Om noden tar lång tid att komma *igång* kan du prova att starta om noden.
 
-### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Fel "Azure dev Spaces-CLI har inte installerats korrekt" vid körning `az aks use-dev-spaces`
+### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Fel "Azure dev Spaces-CLI har inte installerats korrekt" vid körning av AZ AKS use-dev-Spaces
 
 En uppdatering av Azure dev Spaces CLI ändrade installations Sök vägen. Om du använder en tidigare version av Azure CLI än 2.0.63 kan du se det här felet. Använd `az --version`om du vill visa din version av Azure CLI.
 
 ```azurecli
 az --version
+```
+
+```output
 azure-cli                         2.0.60 *
 ...
 ```
@@ -126,7 +129,7 @@ Denna tids gräns inträffar när du försöker använda dev Spaces för att kö
 Om du kör `azds up` med växeln `--verbose` eller aktiverar utförlig loggning i Visual Studio visas ytterligare information:
 
 ```cmd
-$ azds up --verbose
+azds up --verbose
 
 Installed chart in 2s
 Waiting for container image build...
@@ -157,9 +160,9 @@ Anta till exempel att du använder ett Helm-kommando för att köra hela program
 
 ### <a name="existing-dockerfile-not-used-to-build-a-container"></a>Befintliga Dockerfile används inte för att bygga en behållare
 
-Azure Dev blanksteg kan konfigureras för att peka på en specifik _Dockerfile_ i projektet. Om det verkar som om Azure dev Spaces inte använder den _Dockerfile_ som du förväntar dig att bygga dina behållare, kan du uttryckligen behöva berätta om Azure dev Spaces som Dockerfile ska använda. 
+Azure dev Spaces kan konfigureras så att de pekar på en viss _Dockerfile_ i ditt projekt. Om det verkar som om Azure dev Spaces inte använder den _Dockerfile_ som du förväntar dig att bygga dina behållare, kan du uttryckligen behöva berätta om Azure dev Spaces som Dockerfile ska använda. 
 
-Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Ett exempel:
+Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Exempel:
 
 ```yaml
 ...
@@ -206,7 +209,7 @@ install:
 
 Det här felet kan uppstå när koden för tjänsten inte startar. Orsaken är ofta i användarkod. Om du vill ha mer diagnostikinformation aktiverar du mer detaljerad loggning när du startar tjänsten.
 
-Använd `--verbose` för att aktivera mer detaljerad loggning från kommando raden. Du kan också ange ett format för utdata med `--output`. Ett exempel:
+Använd `--verbose` för att aktivera mer detaljerad loggning från kommando raden. Du kan också ange ett format för utdata med `--output`. Exempel:
 
 ```cmd
 azds up --verbose --output json
@@ -214,8 +217,8 @@ azds up --verbose --output json
 
 I Visual Studio:
 
-1. Öppna **Verktyg > alternativ** och under **produkter och lösningar**, Välj **skapa och köra**.
-2. Ändra inställningarna för **MSBuild projekt build utdata utförlighet** till **detaljerat** eller **diagnostiska**.
+1. Öppna **verktyg > alternativ** och under **projekt och lösningar**väljer du **skapa och kör**.
+2. Ändra inställningarna för **MSBuild Project build-utdata utförligt** till **detaljerat** eller **diagnostik**.
 
     ![Skärmbild av alternativ för dialogrutan](media/common/VerbositySetting.PNG)
 
@@ -267,7 +270,7 @@ Till exempel för att stoppa och inaktivera tjänsten *Windows BranchCache* :
 * Högerklicka på *BranchCache* och välj *Egenskaper*.
 * Klicka på *stoppa*.
 * Alternativt kan du inaktivera den genom att ställa in *Starttyp* på *inaktive rad*.
-* Klicka på *OK*.
+* Klicka på *OK*
 
 ## <a name="common-issues-using-visual-studio-and-visual-studio-code-with-azure-dev-spaces"></a>Vanliga problem med Visual Studio och Visual Studio Code med Azure dev Spaces
 
@@ -302,9 +305,9 @@ Lös problemet genom att installera [vs Code-tillägget för Azure dev Spaces](g
 
 ### <a name="error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Fel "ogiltigt ' CWD '-värde '/src '. Det går inte att hitta den angivna filen ”. eller ”starta: programmet '/ src / [sökväg till projektet binär]' finns inte”
 
-Du kanske ser det här felet när du kör fel söknings programmet Visual Studio Code. Som standard använder VS Code-tillägg `src` som arbetskatalog för projektet för behållaren. Om du har uppdaterat din `Dockerfile` för att ange en annan arbetskatalog, kanske du ser det här felet.
+Du kanske ser det här felet när du kör fel söknings programmet Visual Studio Code. Som standard använder VS Code-tillägget `src` som arbets katalog för projektet på behållaren. Om du har uppdaterat `Dockerfile` för att ange en annan arbets katalog kan du se det här felet.
 
-Åtgärda problemet genom att uppdatera `launch.json`-filen under katalogen `.vscode` i projektmappen. Ändra den `configurations->cwd` direktiv så att den pekar till samma katalog som den `WORKDIR` definieras i projektets `Dockerfile`. Du kan också behöva uppdatera den `configurations->program` direktiv samt.
+Åtgärda problemet genom att uppdatera `launch.json`-filen under katalogen `.vscode` i projektmappen. Ändra `configurations->cwd`-direktivet så att det pekar på samma katalog som den `WORKDIR` som definierats i projektets `Dockerfile`. Du kan också behöva uppdatera `configurations->program`-direktivet också.
 
 ### <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Fel meddelandet "Pipe-program" azds "avslutades utan förvarning med koden 126".
 
@@ -335,7 +338,7 @@ Så här åtgärdar du problemet:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Auktoriseringsfel "Microsoft. DevSpaces/register/Action"
 
-Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Ett exempel:
+Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Exempel:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -357,10 +360,13 @@ kubectl get pods --all-namespaces --include-uninitialized
 
 Det här problemet kan påverka poddar i *alla namn områden* i klustret, inklusive namn rymder där Azure dev Spaces inte är aktiverat.
 
-Åtgärda problemet genom att [Uppdatera dev Spaces CLI till den senaste versionen](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) och sedan ta bort *azds-InitializerConfiguration* från Azure dev Spaces-styrenheten:
+Åtgärda problemet genom att [Uppdatera dev Spaces CLI till den senaste versionen](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) och ta sedan bort *azds-InitializerConfiguration* från Azure dev Spaces-styrenheten:
 
 ```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
+```
+
+```bash
 kubectl delete InitializerConfiguration azds
 ```
 
@@ -391,7 +397,7 @@ Så här uppdaterar du användarens RBAC-roll för kontrollanten:
     * För *roll*väljer du antingen *deltagare* eller *ägare*.
     * För *tilldela åtkomst till*väljer du *Azure AD-användare, grupp eller tjänstens huvud namn*.
     * För *Välj*söker du efter den användare som du vill ge behörighet.
-1. Klicka på *Spara*.
+1. Klicka på *Save* (Spara).
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-namnmatchningen misslyckas för en offentlig URL som är associerade med en tjänst för utveckling blanksteg
 
@@ -416,15 +422,15 @@ Så här åtgärdar du problemet:
 
 Du kan se det här felet när du försöker komma åt tjänsten. Till exempel när du går till tjänstens URL i en webbläsare. Det här felet innebär att container porten inte är tillgänglig. Detta kan bero på följande:
 
-* Behållaren håller fortfarande som skapat och distribuerat. Det här problemet kan uppstå om du kör `azds up` eller startar felsökningsprogrammet och försök sedan att få åtkomst till behållaren innan den har distribuerats.
-* Portkonfiguration är inte konsekventa i din _Dockerfile_, Helm-diagrammet och eventuella serverkod som öppnar en port.
+* Behållaren håller fortfarande som skapat och distribuerat. Det här problemet kan uppstå om du kör `azds up` eller startar fel söknings programmet och sedan försöker komma åt behållaren innan den har distribuerats.
+* Port konfigurationen är inte konsekvent i _Dockerfile_, Helm-diagrammet och alla Server koder som öppnar en port.
 
 Så här åtgärdar du problemet:
 
 1. Om behållaren håller på att bygger/distribueras, kan du vänta 2-3 sekunder och testa åtkomst till tjänsten igen. 
 1. Kontrol lera port konfigurationen i följande till gångar:
     * **[Helm-diagram](https://docs.helm.sh):** Anges av kommandot `service.port` och `deployment.containerPort` i Values. yaml autogenererade by `azds prep`.
-    * Alla portar som öppnas i programkoden, till exempel i Node.js: `var server = app.listen(80, function () {...}`
+    * Alla portar som öppnas i program kod, till exempel i Node. js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Det gick inte att hitta typen eller namn områdets namn "Mina bibliotek"
 
@@ -476,7 +482,7 @@ Om du vill aktivera Azure dev Spaces i ett AKS-kluster där den utgående trafik
 | cloudflare.docker.com | HTTPS:443 | Hämta Linux Alpine och andra Azure dev Spaces-bilder |
 | gcr.io | HTTP: 443 | Hämta Helm/till-avbildningar|
 | storage.googleapis.com | HTTP: 443 | Hämta Helm/till-avbildningar|
-| azds-<guid>.<location>.azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON|
+| azds-<guid>.<location>. azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON|
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Fel "Det gick inte att hitta kluster \<klustret\> i prenumerationen \<subscriptionId\>"
 
@@ -491,9 +497,12 @@ Så här åtgärdar du problemet:
 
 När [du har roterat certifikaten i ditt AKS-kluster](../aks/certificate-rotation.md)kommer vissa åtgärder, till exempel `azds space list` och `azds up` att Miss Miss förfallit. Du måste också uppdatera certifikaten på Azure dev Spaces-kontrollanten när du har roterat certifikaten i klustret.
 
-Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` kör sedan `azds controller refresh-credentials` kommandot. Ett exempel:
+Åtgärda problemet genom att se till att *kubeconfig* har de uppdaterade certifikaten med hjälp av `az aks get-credentials` kör sedan `azds controller refresh-credentials` kommandot. Exempel:
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>
+```
+
+```console
 azds controller refresh-credentials -g <resource group name> -n <cluster name>
 ```

@@ -6,7 +6,7 @@
           href: overview.md
         - name: Arbetsbelastningar
           href: partner-workloads.md
-    - name: Begrepp
+    - name: Koncept
       items:
         - name: Compute
           href: concepts/mainframe-compute-azure.md

@@ -143,8 +143,6 @@
           href: consuming-from-excel.md
         - name: Använda Excel-tillägg
           href: excel-add-in-for-web-services.md
-        - name: Använda Batch-pool
-          href: dedicated-capacity-for-bes-jobs.md
     - name: Användningsfall
       items:
         - name: Konsumentförlust

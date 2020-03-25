@@ -1,26 +1,28 @@
 ---
-title: Aktivera Azure-prenumerationer och -konton | Microsoft Docs
+title: Aktivera Azure-prenumerationer och -konton
 description: Aktivera åtkomst med Azure Resource Manager-API:er för nya och befintliga konton och lös vanliga kontoproblem.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 2467ee65b3f7090e5854bdd7848abab667ccfe55
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ROBOTS: NOINDEX
+ms.openlocfilehash: 62138163b3c3f94d60c55cf93d84db5dff446823
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301377"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474670"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
 Genom att lägga till eller uppdatera dina Azure Resource Manager-autentiseringsuppgifter kan Cloudyn identifiera alla konton och prenumerationer i din Azure-klientorganisation. Om du även har Azure Diagnostics-tillägg aktiverat på dina virtuella datorer kan Cloudyn samla in utökade mått som CPU och minne. Den här artikeln beskriver hur du aktiverar åtkomst med Azure Resource Manager-API:er för nya och befintliga konton. Här beskrivs även hur du löser vanliga kontoproblem.
 
 Cloudyn har ingen åtkomst till flertalet av dina Azure-prenumerationsdata när prenumerationen är _inaktiverad_. Du måste redigera _inaktiverade_ konton så att Cloudyn kan komma åt dem.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="required-azure-permissions"></a>Azure-behörigheter som krävs
 

@@ -25,7 +25,7 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7 – Övervaka med Log Analytics
       href: container-service-tutorial-kubernetes-monitor.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Tjänstens huvudnamn – Kubernetes
       href: container-service-kubernetes-service-principal.md
@@ -77,7 +77,7 @@
       href: container-service-faq.md
     - name: Mallar – ACS-motor
       href: 'https://github.com/Azure/acs-engine'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

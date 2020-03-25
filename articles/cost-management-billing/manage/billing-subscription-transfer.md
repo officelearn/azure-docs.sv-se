@@ -11,11 +11,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245387"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238167"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
 
@@ -124,7 +124,7 @@ Prenumerationsöverföring i Azure-portalen är tillgänglig för de prenumerati
 
 Dessa vanliga frågor och svar gäller för användare som överför faktureringsägarskapet för en Azure-prenumeration till ett annat konto.
 
-### <a name="whoisaa"></a> Vem är faktureringsadministratör för ett konto?
+### <a name="who-is-a-billing-administrator-of-an-account"></a><a name="whoisaa"></a> Vem är faktureringsadministratör för ett konto?
 
 En faktureringsadministratör är en person som har behörighet att hantera fakturering för ett konto. Personen har behörighet att komma åt fakturering på [Azure-portalen](https://portal.azure.com) och utföra olika faktureringsuppgifter, till exempel skapa prenumerationer, visa och betala fakturor eller uppdatera betalningsmetoder.
 
@@ -206,15 +206,15 @@ Företagsadministratörer kan uppdatera kontoägarskapet för alla konton, även
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a id="no-button"></a> Varför visas inte knappen ”Överför prenumeration”?
+### <a name="why-dont-i-see-the-transfer-subscription-button"></a><a id="no-button"></a> Varför visas inte knappen ”Överför prenumeration”?
 
 Prenumerationsöverföring via självbetjäning är inte tillgänglig för ditt faktureringskonto. För närvarande stöder vi inte överföring av faktureringsägarskap för prenumerationer i Enterprise-avtalskonton (EA) i Azure-portalen. Dessutom har inte Microsoft Customer Agreement-konton som skapas vid arbete med en Microsoft-representant stöd för överföring av faktureringsägarskap.
 
-### <a id="no-button"></a> Varför stöder inte min prenumerationstyp överföring?
+### <a name="why-doesnt-my-subscription-type-support-transfer"></a><a id="no-button"></a> Varför stöder inte min prenumerationstyp överföring?
 
 Det är inte alla prenumerationstyper som stöder överföring av faktureringsägarskap. En lista över prenumerationstyper som stöder överföring finns i [Prenumerationstyper som stöds](#supported-subscription-types)
 
-### <a id="no-button"></a> Varför får jag ett fel om nekad åtkomst när jag försöker överföra faktureringsägarskap för en prenumeration?
+### <a name="why-am-i-receiving-an-access-denied-error-when-i-try-to-transfer-billing-ownership-of-a-subscription"></a><a id="no-button"></a> Varför får jag ett fel om nekad åtkomst när jag försöker överföra faktureringsägarskap för en prenumeration?
 
 Det här felet uppstår om du försöker överföra en prenumeration på Microsoft Azure-plan och du inte har den behörighet som krävs. För att kunna överföra en prenumeration på Microsoft Azure-plan måste du vara ägare eller deltagare i det fakturaavsnitt som prenumerationen faktureras till. Mer information finns i [Hantera prenumerationer för fakturaavsnitt](understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 

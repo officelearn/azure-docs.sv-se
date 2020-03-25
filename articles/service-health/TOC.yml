@@ -8,7 +8,7 @@
   items:
     - name: Konfigurera aviseringar för Service Health-händelser
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Azure-statussida
       href: azure-status-overview.md

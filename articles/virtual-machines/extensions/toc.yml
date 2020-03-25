@@ -14,13 +14,13 @@
     - name: Använda det anpassade skripttillägget
       href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
       maintainContext: true
-- name: Begrepp
+- name: Koncept
   items:
     - name: Linux
       href: features-linux.md
     - name: Windows
       href: features-windows.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Azure Disk Encryption
       items:

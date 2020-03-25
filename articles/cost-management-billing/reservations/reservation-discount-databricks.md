@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: 69f83fc1d390fcbea77468045b89ee6024e7fe9a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200324"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Så här tillämpas rabatter för förhandsköp av Azure Databricks
@@ -26,7 +26,7 @@ Rabatten för förhandsköp gäller endast för användning av Azure Databricks-
 
 Förhandsköp av Databricks gäller för alla arbetsbelastningar och nivåer i Databricks. Förhandsköp kan liknas vid en pool av förbetalda DBCU:er. Användningen dras av från poolen, oberoende av arbetsbelastning eller nivå. Användningen dras av enligt följande förhållande:
 
-| **Arbetsbelastning** | **DBU-tillämpningsgrad — Standard-nivå** | **DBU-tillämpningsgrad — Premium-nivå** |
+| **Arbetsbelastning** | **DBU-tillämpningsgrad — Standard-nivå** | **DBU-tillämpningsgrad – Premium-nivå** |
 | --- | --- | --- |
 | Dataanalys | 0,4 | 0,55 |
 | Datateknik | 0,15 | 0,30 |
@@ -50,7 +50,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 - Information om hur du hanterar en reservation finns i [Hantera Azure-reservationer](manage-reserved-vm-instance.md).
 - Om du vill veta mer om hur du kan spara pengar genom att köpa Azure Databricks i förväg läser du [Optimera kostnaderna genom att köpa Azure Databricks i förväg](prepay-databricks-reserved-capacity.md).
-- Du kan läsa mer om Azure-reservationer i följande artiklar:
+- Mer information om Azure-reservationer finns i följande artiklar:
   - [Vad är Azure-reservationer?](save-compute-costs-reservations.md)
   - [Hantera reservationer i Azure](manage-reserved-vm-instance.md)
   - [Förstå reservationsanvändning för en prenumeration med Betala per användning-priser](understand-reserved-instance-usage.md)

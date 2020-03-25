@@ -9,7 +9,7 @@
       href: ../Bing-Web-Search/bing-api-comparison.md
 - name: Snabbstarter
   items:
-    - name: 'REST API:er'
+    - name: 'REST-API:er'
       items:
         - name: 'C#'
           href: quickstarts/csharp.md
@@ -39,7 +39,7 @@
       href: 'https://github.com/Azure-Samples/cognitive-services-REST-api-samples'
     - name: SDK-exempel
       href: sdk-samples.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Filtrera svar
       href: filter-answers.md
@@ -53,7 +53,7 @@
       href: resize-and-crop-thumbnails.md
     - name: Uppgradera från v5 till v7
       href: bing-web-upgrade-guide-v5-to-v7.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Föreslå söktermer automatiskt
       href: autosuggest-bing-search-terms.md
@@ -91,7 +91,7 @@
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
     - name: Slutpunkt för webbsökning i Bing
       href: web-search-endpoints.md
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

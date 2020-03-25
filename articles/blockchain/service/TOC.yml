@@ -27,7 +27,7 @@
       href: send-transaction.md
     - name: Publicera data med Data Manager
       href: data-manager-cosmosdb.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Konsortium
       href: consortium.md
@@ -41,7 +41,7 @@
       href: limits.md
     - name: 'Korrigering, uppdatering, versionshantering'
       href: ledger-versions.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Konfigurera Azure AD-åtkomst
       href: configure-aad.md
@@ -77,7 +77,7 @@
       href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
     - name: Produktfeedback
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'

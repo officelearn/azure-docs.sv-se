@@ -1,20 +1,19 @@
 ---
-title: Registrera dig för Office 365 med ett Azure-konto | Microsoft Docs
+title: Registrera dig för Office 365 med ett Azure-konto
 description: Lär dig hur du skapar en Office 365-prenumeration med hjälp av ett Azure-konto
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: banders
-ms.openlocfilehash: b38800a990056d7de0b6978573ddc19c80503a1d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 736009a88f309e0a38402222668a9609f844552f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199933"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204825"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Registrera dig för en Office 365-prenumeration med ditt Azure-konto
 Om du är Azure-prenumerant kan du använda ditt Azure-konto för att registrera dig för en Office 365-prenumeration. Om du ingår i en organisation som har en Azure-prenumeration kan du skapa Office 365-prenumerationer för användare i din befintliga Azure Active Directory (Azure AD). Registrera dig för Office 365 med hjälp av ett konto som har behörigheter för global administratör eller faktureringsadministratör i din Azure Active Directory-klientorganisation. Mer information finns i [Kontrollera mina kontobehörigheter i Azure AD](#RoleInAzureAD) och [Tilldela administratörsroller i Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -47,7 +46,7 @@ Om du skapade Office 365-prenumerationen för din organisation använder du föl
 
 När du har registrerat dig läggs Office 365-prenumerationen till i samma Azure Active Directory-instans som din Azure-prenumeration tillhör. Mer information finns i [Mer information om Azure- och Office 365-prenumerationer](office-365-account-for-azure-subscription.md#more-about-subs) och [Så är Azure-prenumerationer associerade med Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-## <a id="RoleInAzureAD"></a>Kontrollera mina kontobehörigheter i Azure AD
+## <a name="check-my-account-permissions-in-azure-ad"></a><a id="RoleInAzureAD"></a>Kontrollera mina kontobehörigheter i Azure AD
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **Alla tjänster** och sök sedan efter **Active Directory**.
 

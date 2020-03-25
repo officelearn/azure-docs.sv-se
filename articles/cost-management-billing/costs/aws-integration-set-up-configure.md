@@ -1,20 +1,18 @@
 ---
 title: Konfigurera AWS-integrering med Azure Cost Management
 description: Den här artikeln beskriver hur du konfigurerar integreringen av kostnads- och användningsrapporter från AWS med Azure Cost Management.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.custom: ''
-ms.openlocfilehash: 90d75383c1bd7c67b3feeb77fe2284d7b4e0cdf9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200001"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203091"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Konfigurera integreringen av kostnads- och användningsrapporter från AWS
 
@@ -39,11 +37,11 @@ Använd sidan **Kostnads- och användningsrapporter** i konsolen för fakturerin
 9. I dialogrutan Konfigurera S3-bucket gör du något av följande:
     1. Välj en befintlig bucket i listrutan och välj **Nästa**.
     2. Ange ett bucketnamn och den region där du vill skapa en ny bucket och välj **Nästa**.
-10. Välj **Jag har kontrollerat att principen är korrekt** och klicka sedan på **Spara**.
-11. (Valfritt) Som prefix för rapportens sökväg anger du det prefix som du vill tillägga före namnet på rapporten.
+10.    Välj **Jag har kontrollerat att principen är korrekt** och klicka sedan på **Spara**.
+11.    (Valfritt) Som prefix för rapportens sökväg anger du det prefix som du vill tillägga före namnet på rapporten.
 Om du inte anger något prefix är standardprefixet det namn som du har angett för rapporten. Datumintervallet har formatet `/report-name/date-range/`.
 12. Som **Tidsenhet** väljer du **Varje timme**.
-13. Som **Rapportversion** väljer du om varje ny version av rapporten ska skriva över den tidigare versionen, eller om fler nya rapporter ska skapas.
+13.    Som **Rapportversion** väljer du om varje ny version av rapporten ska skriva över den tidigare versionen, eller om fler nya rapporter ska skapas.
 14. I **Aktivera dataintegrering för** krävs inget val.
 15. Välj **GZIP** som **Komprimering**.
 16. Välj **Nästa**.
@@ -124,8 +122,8 @@ Principens JSON bör likna nedanstående exempel. Ersätt _bucketname_ med namne
             "Effect": "Allow",
             "Action": [
 "organizations:ListAccounts",
-            "ce:*",
-            "cur:DescribeReportDefinitions"
+             "ce:*",
+             "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },

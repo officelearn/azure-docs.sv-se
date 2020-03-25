@@ -19,7 +19,7 @@
   items:
     - name: Video Indexer-exempel
       href: 'https://github.com/Azure-Samples/media-services-video-indexer'
-- name: Begrepp
+- name: Koncept
   items:
     - name: Översikt
       href: video-indexer-concepts.md
@@ -97,7 +97,7 @@
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

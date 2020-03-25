@@ -13,6 +13,7 @@
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
 - name: Självstudier
+  expanded: true
   items:
     - name: Studio & Designer
       items:
@@ -87,10 +88,10 @@
       href: concept-workspace.md
     - name: Miljöer
       href: concept-environments.md
-    - name: Dataåtkomst
-      href: concept-data.md
     - name: Datainhämtning
       href: concept-data-ingestion.md
+    - name: Dataåtkomst
+      href: concept-data.md
     - name: Modellträning
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md

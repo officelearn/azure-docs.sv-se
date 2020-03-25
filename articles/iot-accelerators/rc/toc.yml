@@ -2,7 +2,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-    - name: Internet of Things
+    - name: Sakernas Internet
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
       items:

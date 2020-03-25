@@ -1,18 +1,18 @@
 ---
 title: Skapa mobilprogram med Visual Studio App Center och Azure-tjänster
 description: Få information om hur du kan använda tjänster som Visual Studio App Center för att skapa användbara mobilprogram tillsammans med andra Azure-tjänster.
-author: elamalani
+author: codemillmatt
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 6e60aa223b3c4f362ed13411c54212e9d1fa2c87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 19d317ca564f925562994a5f90cd3892d0ee1d08
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454412"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240839"
 ---
 # <a name="mobile-application-development-in-microsoft"></a>Utveckling av mobilprogram i Microsoft
 Beslutsfattare, utvecklingsgrupper och IT-avdelningar behöver implementera enhetliga strategier för utveckling av mobilprogram som:

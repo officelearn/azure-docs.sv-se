@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199134"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Självstudier: Granska din enskilda Azure-faktura
@@ -120,7 +120,7 @@ Kostnader som visas i kostnadsanalys ska exakt matcha kostnaden för *användnin
 
 ![Användningsavgifter på faktura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external"></a>Externa tjänster debiteras separat
+## <a name="external-services-billed-separately"></a><a name="external"></a>Externa tjänster debiteras separat
 
 Externa tjänster eller Marketplace-avgifter är för resurser som har skapats av programvaruleverantörer från tredje part. Dessa resurser är tillgängliga för användning från Azure Marketplace. Till exempel är Barracuda Firewall en Azure Marketplace-resurs som erbjuds av en tredje part. Alla avgifter för brandväggen och dess motsvarande mätare visas som avgifter för externa tjänster.
 
@@ -149,7 +149,7 @@ När den virtuella datorn skapas börjar varje mätare att skicka användningspo
 
 Du kan se de mätare som användes för att beräkna din faktura i CSV-filen för användning.
 
-## <a name="payment"></a>Betala din faktura
+## <a name="pay-your-bill"></a><a name="payment"></a>Betala din faktura
 
 Om du konfigurerar ett kreditkort som betalningsmetod debiteras betalningen automatiskt inom 10 dagar efter faktureringsperiodens slut. På ditt kreditkortsutdrag skulle det stå **MSFT Azure** på radobjektet.
 

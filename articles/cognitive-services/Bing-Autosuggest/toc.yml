@@ -32,11 +32,11 @@
   items:
     - name: Enkelsidig webbapp
       href: tutorials/autosuggest.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Uppgradera från v5 till v7
       href: bing-autosuggest-upgrade-guide-v5-to-v7.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Föreslå frågeord
       href: concepts/get-suggestions.md
@@ -63,7 +63,7 @@
       maintainContext: true
 - name: Resurser
   items:
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'

@@ -5,15 +5,14 @@ author: bandersmsft
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.workload: billing
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 68d838bf6d2df72299df2796f3cc47c463ba95be
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f2d7398be1db6760ebe532d3d726373d8c78e0c7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200905"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202955"
 ---
 # <a name="azure-consumption-api-overview"></a>Översikt över API:erna för Azure-förbrukning
 
@@ -156,6 +155,6 @@ Här följer några av de scenarier som är möjliga med förbrukning-API:erna:
 -   **Azure-kostnader under månaden** – Hur mycket betalar jag för närvarande per månad? Behöver jag göra några justeringar i mina utgifter och/eller användning av Azure? När under månaden använder jag Azure mest?
 -   **Konfigurera aviseringar** – Jag vill ställa in resursbaserad förbrukning eller penningbaserade aviseringar baserat på en budget.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du använder API:er för Azure-fakturering för att programmatiskt få inblick i din Azure-användning finns i [Översikt över API:et för Azure-fakturering](usage-rate-card-overview.md).

@@ -32,7 +32,7 @@
                   href: data-box-deploy-copy-data-from-vhds.md
             - name: '4 – Returnera, ladda upp, bekräfta'
               href: data-box-deploy-picked-up.md
-        - name: Begrepp
+        - name: Koncept
           items:
             - name: Läsa riktlinjer för säkerhet
               href: data-box-safety.md
@@ -99,7 +99,7 @@
               href: data-box-disk-deploy-picked-up.md
             - name: 5 – Verifiera uppladdning
               href: data-box-disk-deploy-upload-verify.md
-        - name: Begrepp
+        - name: Koncept
           items:
             - name: Granska krav
               href: data-box-disk-system-requirements.md
@@ -155,7 +155,7 @@
                   href: data-box-heavy-deploy-copy-data-from-vhds.md
             - name: '4 – Returnera, ladda upp, bekräfta'
               href: data-box-heavy-deploy-picked-up.md
-        - name: Begrepp
+        - name: Koncept
           items:
             - name: Läsa riktlinjer för säkerhet
               href: data-box-heavy-safety.md

@@ -63,7 +63,7 @@
       href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Azure PowerShell
       href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-- name: Begrepp
+- name: Koncept
   items:
     - name: App Service-planer
       href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -176,14 +176,14 @@
         - name: Klona en app
           href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Flytta resurser
-          href: '../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations'
+          href: '../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#checklist-before-moving-resources'
 - name: Referens
   items:
     - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: '/powershell/module/az.websites/#app_service'
-    - name: REST-API
+    - name: REST API
       href: /rest/api/appservice/
 - name: Resurser
   items:
@@ -191,7 +191,7 @@
       href: app-service-linux-faq.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Kvotinformation
       href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'

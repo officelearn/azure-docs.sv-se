@@ -27,7 +27,7 @@
       href: powershell-samples.md
     - name: Hanterade programlösningar
       href: sample-projects.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Visa definitionsartefakt
       href: concepts-view-definition.md
@@ -35,7 +35,7 @@
       href: concepts-built-in-policy.md
     - name: Rolldefinitionsartefakt
       href: concepts-custom-role-definition.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Utgivare
       items:
@@ -130,7 +130,7 @@
   items:
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

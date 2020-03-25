@@ -14,7 +14,7 @@
   items:
     - name: Kräv Azure Multi-Factor Authentication
       href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
-- name: Begrepp
+- name: Koncept
   expanded: false
   items:
     - name: Vanliga principer för villkorlig åtkomst
@@ -49,7 +49,7 @@
       href: policy-migration.md
     - name: Principer för baslinjeskydd
       href: concept-baseline-protection.md
-- name: Anvisningar
+- name: Instruktionsguider
   expanded: true
   items:
     - name: Planera distributionen av villkorsstyrd åtkomst
@@ -102,7 +102,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Tjänstuppdateringar
       href: ../fundamentals/whats-new.md

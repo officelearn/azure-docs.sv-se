@@ -4,13 +4,13 @@
   items:
     - name: Vad är Azure HPC Cache?
       href: hpc-cache-overview.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Planera det aggregerade namnområdet
       href: hpc-cache-namespace.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
-    - name: Krav
+    - name: Förutsättningar
       href: hpc-cache-prereqs.md
     - name: Skapa cachen
       href: hpc-cache-create.md

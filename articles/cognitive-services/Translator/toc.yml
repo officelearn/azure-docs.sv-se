@@ -26,7 +26,7 @@
           href: tutorial-wpf-translation-csharp.md
         - name: 'Skapa en Flask-översättningsapp, Python'
           href: tutorial-build-flask-app-translation-synthesis.md
-    - name: Begrepp
+    - name: Koncept
       items:
         - name: Anpassa och förbättra textöversättning
           href: customization.md
@@ -46,12 +46,6 @@
           href: prevent-translation.md
         - name: Använda funktionen för dynamisk ordlista
           href: dynamic-dictionary.md
-        - name: Använda containrar
-          items:
-            - name: Installera och köra containrar
-              href: how-to-install-containers.md
-            - name: Konfigurera containrar
-              href: translator-text-container-config.md
         - name: Översätta bakom brandväggar
           href: firewalls.md
     - name: Exempel
@@ -106,7 +100,7 @@
           href: 'https://www.microsoft.com/translator/faq.aspx'
         - name: Stöd för språk och region
           href: language-support.md
-        - name: Prissättning
+        - name: Priser
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Regional tillgänglighet
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
@@ -126,7 +120,7 @@
       items:
         - name: Skapa en anpassad modell
           href: custom-translator/quickstart-build-deploy-custom-model.md
-    - name: Begrepp
+    - name: Koncept
       items:
         - name: Arbetsytor och projekt
           href: custom-translator/workspace-and-project.md
@@ -174,9 +168,11 @@
           href: custom-translator/glossary.md
         - name: VANLIGA FRÅGOR OCH SVAR
           href: custom-translator/faq.md
-        - name: Prissättning
+        - name: Priser
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Efterlevnad
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+        - name: Kryptering
+          href: translator-encryption-of-data-at-rest.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

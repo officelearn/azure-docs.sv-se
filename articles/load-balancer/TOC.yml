@@ -34,7 +34,7 @@
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Komponenter och begränsningar
       href: concepts-limitations.md
@@ -74,7 +74,7 @@
           href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Konfigurera regler för utgående trafik
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
@@ -150,13 +150,13 @@
       displayName: ARM
 - name: Resurser
   items:
-    - name: Utveckla dina färdigheter med Microsoft Learn
+    - name: Utveckla din kompetens med Microsoft Learn
       href: /learn/browse/?products=azure-load-balancer
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Feedback för Azure Load Balancer
       href: 'https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/load-balancer/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

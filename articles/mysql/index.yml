@@ -9,10 +9,10 @@ metadata:
   ms.service: mysql
   ms.topic: landing-page
   ms.openlocfilehash: 6ccf544b524ad1ccd45b0aa814610902d54c0fd9
-  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/04/2019
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "70309293"
 landingContent:
 - title: Om Azure Database for MySQL
@@ -23,13 +23,13 @@ landingContent:
       url: overview.md
   - linkListType: whats-new
     links:
-    - text: Ta en titt på bloggen
+    - text: Ta en titt på vår blogg
       url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
 - title: Skapa en server
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Skapa en server med Azure Portal
+    - text: Skapa en server med Azure-portalen
       url: quickstart-create-mysql-server-database-using-azure-portal.md
     - text: Skapa en server med Azure CLI
       url: quickstart-create-mysql-server-database-using-azure-cli.md
@@ -47,7 +47,7 @@ landingContent:
       url: concepts-high-availability.md
   - linkListType: tutorial
     links:
-    - text: Utforma en databas med hjälp av Azure Portal
+    - text: Utforma en databas med hjälp av Azure-portalen
       url: tutorial-design-database-using-portal.md
     - text: Utforma en databas med hjälp av Azure CLI
       url: tutorial-design-database-using-cli.md
@@ -67,7 +67,7 @@ landingContent:
       url: concepts-migrate-import-export.md
   - linkListType: how-to-guide
     links:
-    - text: Återställa en server med hjälp av Azure Portal
+    - text: Återställa en server med hjälp av Azure-portalen
       url: howto-restore-server-portal.md
     - text: Återställa en server med hjälp av Azure CLI
       url: howto-restore-server-cli.md
@@ -129,7 +129,7 @@ landingContent:
       url: howto-data-in-replication.md
     - text: Skapa en skrivskyddad replik med hjälp av Azure Portal
       url: howto-read-replicas-portal.md
-- title: 'Skriva kod med programmerings-API: er'
+- title: 'Kod med programmerings-API: er'
   linkLists:
   - linkListType: get-started
     links:

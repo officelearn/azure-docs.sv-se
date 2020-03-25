@@ -19,7 +19,7 @@
       href: signalr-quickstart-azure-functions-java.md
     - name: Azure Functions – Python
       href: signalr-quickstart-azure-functions-python.md
-    - name: REST-API
+    - name: REST API
       href: signalr-quickstart-rest-api.md
 - name: Självstudier
   items:
@@ -35,7 +35,7 @@
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: Azure CLI
       href: signalr-reference-cli.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Azure SignalR Service – internt
       href: signalr-concept-internals.md
@@ -61,7 +61,7 @@
       href: signalr-concept-authenticate-oauth.md
     - name: Händelsehantering
       href: signalr-concept-event-grid-integration.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Skala
       items:
@@ -83,7 +83,7 @@
   items:
     - name: Azure CLI
       href: signalr-reference-cli.md
-    - name: REST-API
+    - name: REST API
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR
       href: 'https://docs.microsoft.com/aspnet/core/signalr'
@@ -105,7 +105,7 @@
       href: signalr-resource-faq.md
     - name: Nivågränser för SignalR Service-prenumerationer
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Videoklipp
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'

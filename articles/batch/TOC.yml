@@ -41,7 +41,7 @@
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Azure CLI
       href: cli-samples.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Säkerhet
       items:
@@ -65,7 +65,7 @@
       href: batch-compute-node-environment-variables.md
     - name: Batch-integrering med Azure-principer
       href: batch-integration-policies.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Hantera Batch-konton
       items:
@@ -245,7 +245,7 @@
       href: 'https://blogs.technet.microsoft.com/windowshpc/'
     - name: HPC på Azure
       href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/batch/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

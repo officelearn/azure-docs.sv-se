@@ -58,7 +58,7 @@
           href: iot-accelerators-device-simulation-create-simulation.md
         - name: Skapa en anpassad simulerad enhet
           href: iot-accelerators-device-simulation-create-custom-device.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Fjärrövervakning
       items:
@@ -74,7 +74,7 @@
           href: overview-opc-twin-architecture.md
         - name: Arkitektur för OPC-valv
           href: overview-opc-vault-architecture.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Fjärrövervakning
       items:
@@ -195,34 +195,34 @@
           href: iot-accelerators-device-simulation-protobuf.md
         - name: Distribuera en anpassad Docker-avbildning
           href: iot-accelerators-device-simulation-deploy-image.md
-- name: Relaterat
-  items:
-    - name: IoT Central
-      href: 'https://docs.microsoft.com/microsoft-iot-central/'
-    - name: Plattformstjänster
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Kartor
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: IoT Edge
-      items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
-        - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
     - name: Alternativ för support och hjälp
       href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT-tjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning-tjänst
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: 'SDK:er för Azure IoT'
+      items:
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
     - name: Fjärrövervakning
       items:
         - name: Referensguide för utvecklare (.NET)

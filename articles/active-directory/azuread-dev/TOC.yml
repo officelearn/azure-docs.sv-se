@@ -4,7 +4,7 @@
   href: v1-overview.md
 - name: Exempel
   href: sample-v1-code.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Varför du bör uppdatera till v2.0
       href: azure-ad-endpoint-comparison.md
@@ -81,7 +81,7 @@
       href: conditional-access-dev-guide.md
     - name: Nationella moln
       href: ../develop/authentication-national-cloud.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Autentisering
       items:

@@ -15,7 +15,7 @@
         - name: Skapa erbjudande för virtuell dator
           href: ./cloud-partner-portal-publish-virtual-machine.md
           items:
-            - name: Nödvändiga komponenter
+            - name: Förutsättningar
               href: './cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm'
             - name: Registrering av Microsoft-utvecklarkonto
               href: ./cloud-partner-portal-dev-center-accounts-registration.md
@@ -26,7 +26,7 @@
             - name: 'Formulär för SKU:er'
               href: './cloud-partner-portal-publish-virtual-machine.md#how-to-create-skus'
               items:
-                - name: Prissättning
+                - name: Priser
                   href: './cloud-partner-portal-publish-virtual-machine.md#pricing'
                 - name: VM-avbildningar
                   href: 'cloud-partner-portal-publish-virtual-machine.md#vm-images'

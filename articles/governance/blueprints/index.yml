@@ -11,10 +11,10 @@ metadata:
   ms.author: dacoulte
   ms.date: 09/01/2019
   ms.openlocfilehash: 44d21c07a81dc3fe5912137691b67af1a3e910e2
-  ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/04/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "70239210"
 landingContent:
 - title: Om Azure Blueprints
@@ -31,7 +31,7 @@ landingContent:
     links:
     - text: Azure Friday – Översikt över Azure Blueprints
       url: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-- title: Komma igång
+- title: Kom igång
   linkLists:
   - linkListType: quickstart
     links:
@@ -97,7 +97,7 @@ landingContent:
       url: https://www.powershellgallery.com/packages/Az.Blueprint
     - text: Azure PowerShell
       url: /powershell/module/az.blueprint/#blueprint
-    - text: REST-API
+    - text: REST API
       url: /rest/api/blueprints/
     - text: .NET
       url: /dotnet/api/overview/azure/blueprints/management

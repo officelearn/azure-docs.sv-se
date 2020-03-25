@@ -16,7 +16,7 @@
       items:
         - name: Analysera text med klientbiblioteket
           href: quickstarts/text-analytics-sdk.md
-    - name: REST-API
+    - name: REST API
       items:
         - name: Använda Java
           href: quickstarts/java.md
@@ -44,7 +44,7 @@
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
     - name: Extrahera information i Excel med hjälp av Power Automate
       href: tutorials/extract-excel-information.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Namngivna entitetstyper
       href: named-entity-types.md
@@ -52,13 +52,13 @@
       href: language-support.md
     - name: Offsets för text
       href: concepts/text-offsets.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: 'Anropa API:t för textanalys'
       href: How-tos/text-analytics-how-to-call-api.md
     - name: Språkidentifiering
       href: How-tos/text-analytics-how-to-language-detection.md
-    - name: Sentimentanalys
+    - name: Attitydanalys
       href: How-tos/text-analytics-how-to-sentiment-analysis.md
     - name: Extrahering av nyckelfraser
       href: How-tos/text-analytics-how-to-keyword-extraction.md
@@ -93,7 +93,7 @@
             - name: .NET
               href: 'https://aka.ms/azsdk-net-textanalytics-ref-docs'
             - name: Python
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-textanalytics/1.0.0b1/azure.ai.textanalytics.html'
+              href: 'https://aka.ms/azsdk-python-textanalytics-ref-docs'
             - name: Java
               href: 'https://aka.ms/azsdk-java-textanalytics-ref-docs'
             - name: Node.js
@@ -116,7 +116,7 @@
       href: text-analytics-resource-external-community.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: text-analytics-resource-faq.md
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

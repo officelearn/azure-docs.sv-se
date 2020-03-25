@@ -54,7 +54,7 @@
               href: cloud-services-dotnet-install-dotnet.md
         - name: Konfigurera Fjärrskrivbord
           items:
-            - name: Portalen
+            - name: Portal
               href: cloud-services-role-enable-remote-desktop-new-portal.md
             - name: PowerShell
               href: cloud-services-role-enable-remote-desktop-powershell.md
@@ -139,6 +139,8 @@
           href: cloud-services-allocation-failures.md
         - name: Vanliga orsaker till rollåteranvändning i molntjänst
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+        - name: Programmet stöder inte TLS 1.2
+          href: applications-dont-support-tls-1-2.md
         - name: TEMP-standardmappen är för liten för en roll
           href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
         - name: Vanliga distributionsproblem
@@ -191,7 +193,7 @@
       href: 'https://azure.microsoft.com/documentation/learning-paths/cloud-services/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazuredevelopment'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

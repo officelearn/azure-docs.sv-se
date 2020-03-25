@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: banders
 ms.openlocfilehash: 6692bb8f323e42edfe546e15620442881f99032d
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78272187"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Utföra Enterprise-avtalsuppgifter i faktureringskontot för ett Microsoft-kundavtal
@@ -28,7 +28,7 @@ Följande diagram beskriver hur faktureringen ser ut i det nya faktureringskonto
 |------------------------|--------------------------------------------------------|
 | Registrering            | Du använder en faktureringsprofil för att hantera faktureringen för din organisation på ett liknande sätt som för din Enterprise-avtalsregistrering. Företagsadministratörer blir ägare till faktureringsprofilen. Mer information om faktureringsprofiler finns i [Förstå faktureringsprofiler](../understand/mca-overview.md#billing-profiles).
 | Avdelning            | Du kan använda ett fakturaavsnitt för att ordna dina kostnader, ungefär som avdelningar i Enterprise-avtalsregistreringen. Avdelningar blir fakturaavsnitt, och avdelningsadministratörer blir ägare av fakturaavsnitten. Mer information om fakturaavsnitt finns i [Förstå fakturaavsnitt](../understand/mca-overview.md#invoice-sections). |
-| Konto               | De konton som skapades i ditt Enterprise-avtal stöds inte i det nya faktureringskontot. Kontots prenumerationer tillhör respektive fakturaavsnitt för deras avdelning. Kontoägare kan skapa och hantera prenumerationer för sina fakturaavsnitt. |
+| Konto               | De konton som skapades i ditt Enterprise-avtal stöds inte på det nya faktureringskontot. Kontots prenumerationer tillhör respektive fakturaavsnitt för deras avdelning. Kontoägare kan skapa och hantera prenumerationer för sina fakturaavsnitt. |
 
 ## <a name="changes-for-enterprise-administrators"></a>Ändringar för företagsadministratörer
 
@@ -55,7 +55,7 @@ Information om hur du visar debiteringar för en faktureringsprofil finns i avsn
 
 ### <a name="view-charges-for-a-department"></a>Visa avgifter för en avdelning
 
-Ett fakturaavsnitt skapas för varje avdelning som fanns i ditt Enterprise-avtal. Du kan visa debiteringar för en faktura på Azure-portalen. Mer information finns i [Visa transaktioner efter fakturaavsnitt](../understand/review-customer-agreement-bill.md#view-transactions-by-invoice-sections).
+Ett fakturaavsnitt skapas för varje avdelning som fanns i ditt Enterprise-avtal. Du kan visa debiteringar för en faktura på Azure-portalen. Mer information finns i [visa transaktioner efter fakturaavsnitt](../understand/review-customer-agreement-bill.md#view-transactions-by-invoice-sections).
 
 ### <a name="view-charges-for-an-account"></a>Visa avgifter för ett konto
 

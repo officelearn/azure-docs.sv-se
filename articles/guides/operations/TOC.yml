@@ -12,7 +12,7 @@
               href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
         - name: Virtuella nätverk
           items:
-            - name: Skapa ett virtuellt nätverk med Azure Portal
+            - name: Skapa ett virtuellt nätverk med Azure-portalen
               href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
         - name: Säkerhet
           items:

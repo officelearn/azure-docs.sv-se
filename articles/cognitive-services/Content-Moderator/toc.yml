@@ -26,7 +26,7 @@
       href: facebook-post-moderation.md
     - name: Moderering av videor och avskrifter
       href: video-transcript-moderation-review-tutorial-dotnet.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Bildmoderering
       href: image-moderation-api.md
@@ -34,15 +34,15 @@
       href: text-moderation-api.md
     - name: Videomoderering
       href: video-moderation-human-review.md
-    - name: Granskningsverktyg
+    - name: Granskningsverktyget
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: 'Granskningar, arbetsflöden och jobb'
       href: review-api.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Moderera innehåll
       items:
-        - name: REST-API
+        - name: REST API
           items:
             - name: Avbildningar – API-konsol
               href: try-image-api.md
@@ -64,7 +64,7 @@
       items:
         - name: Granskningsverktyg (webbläsare)
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
-        - name: REST-API
+        - name: REST API
           href: try-review-api-review.md
         - name: Videogranskningar (.NET)
           href: video-reviews-quickstart-dotnet.md
@@ -74,11 +74,11 @@
       items:
         - name: Granskningsverktyg (webbläsare)
           href: Review-Tool-User-Guide/Workflows.md
-        - name: REST-API
+        - name: REST API
           href: try-review-api-workflow.md
     - name: Definiera och använda jobb
       items:
-        - name: REST-API
+        - name: REST API
           href: try-review-api-job.md
         - name: .NET SDK
           href: moderation-jobs-quickstart-dotnet.md
@@ -134,3 +134,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Kryptering
+      href: content-moderator-encryption-of-data-at-rest.md

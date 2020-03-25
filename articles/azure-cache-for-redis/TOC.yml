@@ -31,20 +31,24 @@
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
-- name: Begrepp
+- name: Koncept
   items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Redundans och korrigering
       href: cache-failover.md
     - name: Bästa praxis
       href: cache-best-practices.md
     - name: Metodtips för cachelagring på arkitektur
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Planera
       items:
         - name: Välja en cache-nivå
-          href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
+          href: 'cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use'
         - name: Distribuera din cache med klustring
           href: cache-how-to-premium-clustering.md
         - name: Bevara din cache med Redis-datapersistence
@@ -137,11 +141,11 @@
       href: /azure/templates/microsoft.cache/allversions
 - name: Resurser
   items:
-    - name: Utveckla dina färdigheter med Microsoft Learn
+    - name: Utveckla din kompetens med Microsoft Learn
       href: /learn/browse/?products=azure-redis-cache
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Vanliga frågor och svar om Azure Cache for Redis
       href: cache-faq.md

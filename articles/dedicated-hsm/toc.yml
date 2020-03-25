@@ -10,7 +10,7 @@
       href: tutorial-deploy-hsm-cli.md
     - name: 'Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell'
       href: tutorial-deploy-hsm-powershell.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Hög tillgänglighet
       href: high-availability.md

@@ -12,7 +12,7 @@
       href: quickstart-sql-vm-create-portal.md
     - name: Skapa en virtuell SQL-dator – PowerShell
       href: quickstart-sql-vm-create-powershell.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Bästa praxis
       items:
@@ -54,7 +54,7 @@
               href: virtual-machines-windows-sql-automated-patching.md
             - name: Konfigurera Azure Key Vault-integrering
               href: virtual-machines-windows-ps-sql-keyvault.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Skapa SQL VM
       items:
@@ -101,7 +101,7 @@
               href: virtual-machines-windows-sql-workgroup-availability-group.md
             - name: Konfigurera manuellt
               items:
-                - name: Krav
+                - name: Förutsättningar
                   href: virtual-machines-windows-portal-sql-availability-group-prereq.md
                 - name: Självstudier
                   href: virtual-machines-windows-portal-sql-availability-group-tutorial.md
@@ -131,7 +131,7 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: virtual-machines-windows-sql-server-iaas-faq.md
-    - name: Prissättning
+    - name: Priser
       href: virtual-machines-windows-sql-server-pricing-guidance.md
     - name: SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'

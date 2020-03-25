@@ -11,7 +11,7 @@
       href: secure-cloud-network.md
     - name: Skydda ditt virtuella hubbnätverk – portalen
       href: secure-hybrid-network.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Översikt över princip
       href: policy-overview.md
@@ -25,7 +25,7 @@
       href: rule-processing.md
     - name: Alternativ för arkitektur
       href: vhubs-and-vnets.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Distribuera betrodda säkerhetspartner
       href: deploy-trusted-security-partner.md
@@ -57,7 +57,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Community-mallar
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

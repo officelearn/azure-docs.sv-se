@@ -8,18 +8,17 @@ metadata:
   description: 'API:et för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, identifiering av teckenentitet och språkidentifiering. Lär dig hur du analyserar innehåll på olika sätt med våra snabbstarter, självstudier och exempel.'
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: c98f6b9994dfa80f51a78d9be22e283cca700ce9
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.openlocfilehash: 468315f79f7d0f9d10013c4068b5bb29436b3166
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/21/2020
-  ms.locfileid: "77524605"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79415146"
 landingContent:
 - title: Om API för textanalys
   linkLists:
@@ -37,7 +36,7 @@ landingContent:
     links:
     - text: Nyheter
       url: whats-new.md
-- title: Sentimentanalys
+- title: Attitydanalys
   linkLists:
   - linkListType: quickstart
     links:
@@ -59,7 +58,7 @@ landingContent:
       url: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
   - linkListType: how-to-guide
     links:
-    - text: Sentimentanalys
+    - text: Attitydanalys
       url: how-tos/text-analytics-how-to-sentiment-analysis.md
 - title: Språkidentifiering
   linkLists:
@@ -119,7 +118,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: REST-API
+    - text: REST API
       url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
     - text: .NET-klientbibliotek
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet

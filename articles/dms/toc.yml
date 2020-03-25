@@ -38,7 +38,7 @@
       href: tutorial-mongodb-cosmos-db-online.md
     - name: Migrera Oracle till Azure DB for PostgreSQL – enskild server online
       href: tutorial-oracle-azure-postgresql-online.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Använda PowerShell för att migrera SQL Server till en enskild Azure SQL DB-databas
       href: howto-sql-server-to-azure-sql-powershell.md
@@ -117,7 +117,7 @@
       href: faq.md
     - name: User Voice-feedback
       href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
-    - name: Prissättning
+    - name: Priser
       href: 'https://aka.ms/dms-pricing'
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=database-migration'

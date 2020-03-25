@@ -25,7 +25,7 @@
       items:
         - name: Kod och Azure PowerShell-exempel
           href: code-samples.md
-    - name: Begrepp
+    - name: Koncept
       expanded: false
       items:
         - name: B2B-metodtips
@@ -52,7 +52,7 @@
           href: self-service-portal.md
         - name: Aktuella begränsningar
           href: current-limitations.md
-    - name: Anvisningar
+    - name: Instruktionsguider
       expanded: true
       items:
         - name: Hantera B2B-delning
@@ -115,7 +115,7 @@
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
         - name: MSDN-forum
           href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Prissättning
+        - name: Priser
           href: 'https://azure.microsoft.com/pricing/details/active-directory/'
         - name: Priskalkylator
           href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -16,7 +16,7 @@
       href: tutorial-existing-forest.md
     - name: Styr molnetablering för en befintlig synkroniserad AD-skog
       href: tutorial-pilot-aadc-aadccp.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Vad är hash-synkronisering av lösenord?
       href: /azure/active-directory/hybrid/whatis-phs?context=azure/active-directory/cloud-provisioning/context/cloud-provisioning-context
@@ -24,7 +24,7 @@
       href: concept-attributes.md
     - name: Skriva uttryck för attributmappningar i Azure Active Directory
       href: reference-expressions.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Installation och uppgradering
       items:

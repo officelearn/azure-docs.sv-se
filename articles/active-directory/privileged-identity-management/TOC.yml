@@ -4,7 +4,7 @@
   items:
     - name: Vad är Azure AD PIM?
       href: pim-configure.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Licenskrav
       href: subscription-requirements.md
@@ -20,7 +20,7 @@
       href: pim-email-notifications.md
     - name: 'Microsoft Graph-API:er'
       href: pim-apis.md
-- name: Anvisningar
+- name: Instruktionsguider
   expanded: true
   items:
     - name: Distribuera PIM

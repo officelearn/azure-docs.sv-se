@@ -1,25 +1,25 @@
 ---
 title: Självstudie – Optimera reserverad instanskostnad med Cloudyn – Azure
 description: I den här självstudien får du lära dig hur du optimerar dina reserverade instanskostnader för Azure och Amazon Web Services (AWS).
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b37ef5b6fe92538986a267b53c821bf616ba77fb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 22a435a63c4ff649fe428e031bca7beecdbc46d1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201126"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463721"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
-# <a name="tutorial-optimize-reserved-instances"></a>Självstudier: Optimera reserverade instanser
+# <a name="tutorial-optimize-reserved-instances"></a>Självstudie: Optimera reserverade instanser
 
 I den här självstudien får du lära dig hur Cloudyn kan hjälpa dig att optimera dina reserverade instanskostnader och din användning för Azure och Amazon Web Services (AWS). En reserverad instans hos en molntjänstleverantör är ett åtagande om ett långsiktigt avtal där du binder dig i förväg att använda den virtuella datorn. Avtalet kan ibland ge betydande besparingar jämfört med VM-prismodeller av standardtyp där du betalar per användning. Potentiella besparingar realiseras bara när du utnyttjar dina reserverade instansers kapacitet fullt ut.
 
@@ -37,7 +37,9 @@ I den här självstudien beskrivs hur Azure och AWS reserverade instanser (RI) s
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha ett Azure-konto.
 - Du måste antingen ha en utvärderingsregistrering eller en betald prenumeration för Cloudyn.

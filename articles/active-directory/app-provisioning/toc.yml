@@ -19,7 +19,7 @@
       href: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Alla integrerade galleriappar
       href: /azure/active-directory/saas-apps
-- name: Begrepp
+- name: Koncept
   expanded: true
   items:
     - name: Så fungerar programetablering
@@ -28,7 +28,7 @@
       href: plan-auto-user-provisioning.md
     - name: Planera en molndistribution av HR-etablering
       href: plan-cloud-hr-provision.md
-- name: Anvisningar
+- name: Instruktionsguider
   expanded: true
   items:
     - name: Konfigurera etablering för en galleriapp
@@ -99,7 +99,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=active-directory'

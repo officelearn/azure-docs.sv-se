@@ -62,7 +62,7 @@ sections:
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Skapa och distribuera containeravbildningar med Azure Container Registry-uppgifter</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Skapa och distribuera en container till Azure Container Instances</a>
           - html: <a href="/azure/openshift/tutorial-create-cluster">Skapa ett Azure Red Hat OpenShift-kluster</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
+  - title: Utveckla din kompetens med Microsoft Learn
     items:
       - type: list
         style: cards

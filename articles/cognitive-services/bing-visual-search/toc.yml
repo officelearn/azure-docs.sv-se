@@ -9,7 +9,7 @@
       maintainContext: true
 - name: Snabbstarter
   items:
-    - name: REST-API
+    - name: REST API
       expanded: true
       items:
         - name: 'Använd C#'
@@ -45,7 +45,7 @@
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
-- name: Begrepp
+- name: Koncept
   items:
     - name: Skicka frågor
       href: concepts/sending-queries.md

@@ -9,7 +9,9 @@
           href: review-customer-agreement-bill.md
         - name: Granska din faktura för Microsoft-partneravtal
           href: review-partner-agreement-bill.md
-    - name: Begrepp
+        - name: Granska din Enterprise-avtalsfaktura
+          href: review-enterprise-agreement-bill.md
+    - name: Koncept
       items:
         - name: Användningsvillkor för enskilda prenumerationer
           href: understand-usage.md
@@ -27,7 +29,7 @@
           href: mpa-invoice-terms.md
         - name: Faktureringskonton för Microsofts partneravtal
           href: mpa-overview.md
-    - name: Anvisningar
+    - name: Instruktionsguider
       items:
         - name: Undvik oväntade kostnader
           href: ../manage/getting-started.md

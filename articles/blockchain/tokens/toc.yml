@@ -4,7 +4,7 @@
   items:
     - name: Om Azure Blockchain-token
       href: overview.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Kontohantering
       href: account-management.md
@@ -20,5 +20,5 @@
       href: 'https://feedback.azure.com/forums/586780-blockchain'
     - name: Community
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/blockchain-tokens'

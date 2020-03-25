@@ -4,10 +4,10 @@ description: Översikt över Canada Federal PBMM-skissexemplet. Det här skissex
 ms.date: 09/04/2019
 ms.topic: sample
 ms.openlocfilehash: c1c5f9c6ec8dc49db4c93d0fbf9caa379a4ab160
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74544509"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Översikt över Canada Federal PBMM-skissexemplet

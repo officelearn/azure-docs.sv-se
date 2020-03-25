@@ -39,7 +39,7 @@
           href: tutorial-create-telemetry-rules.md
         - name: 'Utforska IoT Central-API:erna'
           href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
-- name: Begrepp
+- name: Koncept
   items:
     - name: Arkitektur
       href: concepts-architecture.md
@@ -49,7 +49,7 @@
       href: concepts-get-connected.md
     - name: Ansluta IoT Edge-enheter
       href: concepts-iot-edge.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Kom igång med anslutningen
       items:
@@ -65,7 +65,7 @@
           href: howto-build-iotc-device-bridge.md
     - name: Fortsätt vara uppkopplad
       items:
-        - name: Övervaka enhetsanslutningar med Azure CLI
+        - name: Övervaka enhetsanslutning med Azure CLI
           href: howto-monitor-devices-azure-cli.md
         - name: Version av enhetsmall
           href: howto-version-device-template.md
@@ -127,8 +127,10 @@
               href: howto-manage-preferences.md
             - name: Växla livechatt
               href: howto-show-hide-chat.md
-- name: Relaterat
+- name: Resurser
   items:
+    - name: Alternativ för support och hjälp
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Mallar för branschprogram
       items:
         - name: Detaljhandeln
@@ -139,30 +141,30 @@
           href: ../government/overview-iot-central-government.md
         - name: Sjukvård
           href: ../healthcare/overview-iot-central-healthcare.md
-    - name: Plattformstjänster
+    - name: Azure IoT-tjänster
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning-tjänst
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
         - name: IoT Plug and Play
           href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Kartor
+        - name: Azure Maps
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge-lösningar
+    - name: 'SDK:er för Azure IoT'
       items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: 'SDK:er för IoT-enheter'
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-- name: Resurser
-  items:
-    - name: Alternativ för support och hjälp
-      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Referens till IoT Central-API:er'
       href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: Kunddataförfrågningar

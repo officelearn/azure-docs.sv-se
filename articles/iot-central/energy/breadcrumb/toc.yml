@@ -2,7 +2,7 @@
   tocHref: /azure
   topicHref: /azure/index
   items:
-    - name: Internet of Things
+    - name: Sakernas Internet
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/index
       items:
@@ -10,6 +10,6 @@
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
           items:
-            - name: IoT Central för energi (förhandsgranskningsfunktioner)
+            - name: IoT Central för energi
               tocHref: /azure/iot-central/
               topicHref: /azure/iot-central/energy/index/

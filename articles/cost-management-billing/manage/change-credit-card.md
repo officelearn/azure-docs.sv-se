@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199865"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort för Azure
@@ -39,7 +39,7 @@ Du kan ändra standardkreditkortet för din Azure-prenumeration till ett nytt kr
 Så här ändrar du standardkreditkortet för din prenumeration till ett nytt kreditkort:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
 
@@ -62,7 +62,7 @@ Om det uppstår ett fel när du har lagt till kreditkortet kan du läsa avsnitte
 Du kan också ändra standardkreditkortet för prenumerationen till ett kreditkort som redan har sparats på ditt konto. Gör så här:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
 
@@ -80,7 +80,7 @@ Du kan också ändra standardkreditkortet för prenumerationen till ett kreditko
 Om ditt kreditkort förnyas och siffran förblir densamma uppdaterar du befintliga kreditkortsuppgifter, däribland förfallodatum. Om ditt kreditkortsnummer ändras eftersom kortet tappas bort, blir stulet eller upphör att gälla följer du stegen i avsnittet [Lägga till ett kreditkort som betalningsmetod](#addcard). Du behöver inte uppdatera CVV.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar sökningen](./media/change-credit-card/search.png)
 

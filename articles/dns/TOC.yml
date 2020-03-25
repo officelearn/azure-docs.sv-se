@@ -39,7 +39,7 @@
           href: tutorial-alias-pip.md
         - name: Aliasposter för zonposter
           href: tutorial-alias-rr.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Offentligt DNS
       items:
@@ -79,7 +79,7 @@
           href: dns-alias-appservice.md
         - name: Hantera DNS-zoner
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: dns-operations-dnszones-portal.md
             - name: Azure PowerShell
               href: dns-operations-dnszones.md
@@ -87,7 +87,7 @@
               href: dns-operations-dnszones-cli.md
         - name: Hantera DNS-poster
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: dns-operations-recordsets-portal.md
             - name: Azure PowerShell
               href: dns-operations-recordsets.md
@@ -157,22 +157,6 @@
           href: /dotnet/api/overview/azure/privatedns/management
         - name: REST
           href: /rest/api/dns/privatedns/privatezones
-- name: Relaterat
-  items:
-    - name: Private Link
-      href: ../private-link/private-link-overview.md
-    - name: Application Gateway
-      href: /azure/application-gateway/
-    - name: Virtual Network
-      href: /azure/virtual-network/
-    - name: Virtuell dator
-      href: /azure/virtual-machines/
-    - name: Lastbalanserare
-      href: /azure/load-balancer/
-    - name: Traffic Manager
-      href: /azure/traffic-manager/
-    - name: Webbappar
-      href: /azure/app-service/
 - name: Resurser
   items:
     - name: Azure-översikt
@@ -183,7 +167,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
     - name: Nätverksblogg
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/dns/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

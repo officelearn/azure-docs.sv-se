@@ -30,7 +30,7 @@
     - name: Avancerade frågor
       displayName: 'query language, data explorer, list, regex'
       href: ./samples/advanced.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Förstå frågespråket
       displayName: 'query language, data explorer, tabular, operators, functions'
@@ -44,7 +44,7 @@
     - name: Vägledning för begränsade begäranden
       displayName: 'pagination, batching, throttling, parallel'
       href: ./concepts/guidance-for-throttled-requests.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Hämta resursändringar
       displayName: 'resource, change, history, snapshot, details'

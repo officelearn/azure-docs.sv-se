@@ -54,11 +54,11 @@
       href: /azure/event-hubs/authenticate-managed-identity.md?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Azure Container Instances
       href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Konfigurera hanterade identiteter på virtuella datorer
       items:
-        - name: Portalen
+        - name: Portal
           href: qs-configure-portal-windows-vm.md
         - name: CLI
           href: qs-configure-cli-windows-vm.md
@@ -72,7 +72,7 @@
           href: qs-configure-sdk-windows-vm.md
     - name: Konfigurera hanterade identiteter på VM-skalningsuppsättningar
       items:
-        - name: Portalen
+        - name: Portal
           href: qs-configure-portal-windows-vmss.md
         - name: CLI
           href: qs-configure-cli-windows-vmss.md
@@ -94,7 +94,7 @@
           href: howto-migrate-vm-extension.md
     - name: Tilldela en hanterad identitet åtkomst till en annan Azure-resurs
       items:
-        - name: Portalen
+        - name: Portal
           href: howto-assign-access-portal.md
         - name: CLI
           href: howto-assign-access-cli.md
@@ -102,7 +102,7 @@
           href: howto-assign-access-powershell.md
     - name: Hantera användartilldelade hanterade identiteter
       items:
-        - name: Portalen
+        - name: Portal
           href: how-to-manage-ua-identity-portal.md
         - name: CLI
           href: how-to-manage-ua-identity-cli.md
@@ -114,7 +114,7 @@
           href: how-to-manage-ua-identity-rest.md
     - name: Visa hanterad identitet och tjänsthuvudnamn
       items:
-        - name: Portalen
+        - name: Portal
           href: how-to-view-managed-identity-service-principal-portal.md
         - name: CLI
           href: how-to-view-managed-identity-service-principal-cli.md

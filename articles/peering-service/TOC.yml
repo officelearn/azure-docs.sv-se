@@ -4,7 +4,7 @@
   items:
     - name: Om Peering Service
       href: about.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Platser och partners
       href: location-partners.md
@@ -14,11 +14,11 @@
       href: connection-telemetry.md
     - name: Registreringsmodell
       href: onboarding-model.md
-- name: Anvisningsguider
+- name: Anvisningar
   items:
     - name: Registrera Peering Service
       items:
-        - name: Azure Portal
+        - name: Azure-portalen
           href: azure-portal.md
         - name: Azure PowerShell
           href: powershell.md
@@ -42,7 +42,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
     - name: Nätverksfeedback
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/azure-peering/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/?service=azure-peering'

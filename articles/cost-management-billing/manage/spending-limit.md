@@ -1,5 +1,5 @@
 ---
-title: Utgiftsgräns för Azure | Microsoft Docs
+title: Utgiftsgräns i Azure
 description: I den här artikeln beskrivs hur en utgiftsgräns för Azure fungerar samt hur du tar bort den.
 author: bandersmsft
 ms.reviewer: judupont
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: ef1ed399f2ed3401612543b3dcaf94dfbafb6715
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6feac116c92f8dac7bd1dde2084f9b25f5e559f8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200562"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238065"
 ---
 # <a name="azure-spending-limit"></a>Utgiftsgräns i Azure
 
@@ -40,7 +40,7 @@ Om du har ett kostnadsfritt Azure-konto kan du läsa mer om att ta bort utgiftsg
 <a id="remove"></a>
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/spending-limit/search-bar.png)
 
@@ -67,7 +67,7 @@ Om du har ett kostnadsfritt Azure-konto kan du läsa mer om att ta bort utgiftsg
 
 1. Klicka på **Välj betalningsmetod** för att välja en betalningsmetod för prenumerationen. Det blir den aktiva betalningsmetoden för din prenumeration.
 
-1. Klicka på **Slutför**.
+1. Klicka på **Finish**.
 
 
 ## <a name="why-you-might-want-to-remove-the-spending-limit"></a>Därför bör du kanske ta bort utgiftsgränsen
@@ -84,7 +84,7 @@ Den här funktionen är bara tillgänglig när du har tagit bort utgiftsgränsen
 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/spending-limit/search-bar.png)
 
@@ -105,7 +105,7 @@ Anpassade utgiftsgränser är inte tillgängliga.
 
 [Vissa externa tjänster som publicerats på Azure Marketplace](../understand/understand-azure-marketplace-charges.md) kan inte användas med dina prenumerationskrediter, och kan medföra separata avgifter även när din utgiftsgräns har angetts. Exempel är Visual Studio-licenser, Azure Active Directory Premium, supportavtal och de flesta varumärkestjänster från tredje part. När du etablerar en ny extern tjänst visas en varning om att tjänsterna faktureras separat:
 
-![Marketplace-inköpsvarning](./media/spending-limit/marketplace-warning01.png)
+![Varning om inköp på Marketplace](./media/spending-limit/marketplace-warning01.png)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

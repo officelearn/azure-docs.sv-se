@@ -11,7 +11,7 @@
 - name: Snabbstarter för REST API
   expanded: true
   items:
-    - name: REST-API
+    - name: REST API
       items:
         - name: 'Använd C#'
           href: quickstarts/csharp.md
@@ -57,7 +57,7 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Uppgradera från v5 till v7
       href: bing-video-upgrade-guide-v5-to-v7.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Hämta videor från webben
       href: concepts/get-videos.md
@@ -86,7 +86,7 @@
       maintainContext: true
 - name: Resurser
   items:
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/911452-bing-video-search-api'

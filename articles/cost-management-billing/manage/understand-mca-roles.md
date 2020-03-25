@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 1003e26fa670a804328d5e34def7c9d78eced9c0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344141"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238048"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Förstå administrativa roller för Microsoft-kundavtal i Azure
 
@@ -141,7 +141,7 @@ Följande tabeller visar vilken roll du behöver för att slutföra uppgifter i 
 
 ### <a name="manage-invoice-section-permissions-and-properties"></a>Hantera behörigheter och egenskaper för fakturaavsnitt
 
-|Aktiviteter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Azure-prenumerationsskapare|Faktureringskontoägare|Faktureringskontodeltagare|Faktureringskontoläsare | |
+|Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Azure-prenumerationsskapare|Faktureringskontoägare|Faktureringskontodeltagare|Faktureringskontoläsare | |
 |---|---|---|---|---|---|---|---|---|
 |Visa alla behörigheter för fakturaavsnittet|✔|✔|✔|✔|✔|✔|✔| |
 |Ge andra behörigheter att visa och hantera fakturaavsnittet|✔|✘|✘|✘|✘|✘|✘| |
@@ -150,7 +150,7 @@ Följande tabeller visar vilken roll du behöver för att slutföra uppgifter i 
 
 ### <a name="manage-products-for-invoice-section"></a>Hantera produkter för fakturaavsnitt
 
-|Aktiviteter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Azure-prenumerationsskapare|Faktureringskontoägare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Azure-prenumerationsskapare|Faktureringskontoägare|Faktureringskontodeltagare|Faktureringskontoläsare
 |---|---|---|---|---|---|---|---|
 |Visa alla produkter som har köpts i fakturaavsnittet|✔|✔|✔|✘|✔|✔|✔|
 |Hantera fakturering för produkter för fakturaavsnitt såsom annullering, avstängning av automatisk förnyelse och mer|✔|✔|✘|✘|✘|✘|✘|
@@ -158,7 +158,7 @@ Följande tabeller visar vilken roll du behöver för att slutföra uppgifter i 
 
 ### <a name="manage-subscriptions-for-invoice-section"></a>Hantera prenumerationer för fakturaavsnitt
 
-|Aktiviteter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Azure-prenumerationsskapare|Faktureringskontoägare|Faktureringskontodeltagare|Faktureringskontoläsare
+|Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Azure-prenumerationsskapare|Faktureringskontoägare|Faktureringskontodeltagare|Faktureringskontoläsare
 |---|---|---|---|---|---|---|---|
 |Visa alla Azure-prenumerationer för fakturaavsnitt|✔|✔|✔|✘|✔|✔|✔|
 |Ändra fakturaavsnitt för prenumerationerna|✔|✔|✘|✘|✘|✘|✘|
@@ -168,7 +168,7 @@ Följande tabeller visar vilken roll du behöver för att slutföra uppgifter i 
 
 Följande tabeller visar vilken roll du behöver för att slutföra uppgifter i kontexten för en prenumeration.
 
-|Aktiviteter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Azure-prenumerationsskapare|
+|Uppgifter|Fakturaavsnittsägare|Fakturaavsnittsdeltagare|Fakturaavsnittsläsare|Azure-prenumerationsskapare|
 |---|---|---|---|---|
 |Skapa Azure-prenumerationer|✔|✔|✘|✔|
 |Uppdatera kostnadsställe för prenumerationen|✔|✔|✘|✘|
@@ -178,7 +178,7 @@ Följande tabeller visar vilken roll du behöver för att slutföra uppgifter i 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar en sökning i Azure-portalen](./media/understand-mca-roles/billing-search-cost-management-billing.png)
 

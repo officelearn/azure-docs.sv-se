@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)
+summary: Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala.
+metadata:
+  title: Azure Synapse Analytics
+  description: Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala.
+  services: sql-data-warehouse
+  ms.service: sql-data-warehouse
+  ms.subservice: design
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 10/03/2019
+  ms.openlocfilehash: 36943d330d0bd97fe6139f5cfa19da571fc70835
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80135682"
+landingContent:
+- title: Om Azure Synapse Analytics
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Synapse?
+      url: sql-data-warehouse-overview-what-is.md
+  - linkListType: architecture
+    links:
+    - text: Azure Synapse-arkitektur
+      url: massively-parallel-processing-mpp-architecture.md
+    - text: Tips och regelverk
+      url: cheat-sheet.md
+    - text: Referensarkitektur
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse
+- title: Komma igång
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Skapa en SQL-pool (informationslager)
+      url: create-data-warehouse-portal.md
+- title: Läsa in data
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Utforma en strategi för datainläsning
+      url: design-elt-data-loading.md
+    - text: Bästa praxis
+      url: guidance-for-loading-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: 'Läsa in data från Azure Data Lake Storage:'
+      url: sql-data-warehouse-load-from-azure-data-lake-store.md
+  - linkListType: tutorial
+    links:
+    - text: Läsa in data från Azure Blob Storage
+      url: load-data-from-azure-blob-storage-using-polybase.md
+- title: Prestandajustering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Bästa praxis
+      url: sql-data-warehouse-best-practices.md
+    - text: Indexjustering för grupperad kolumnlagring
+      url: performance-tuning-ordered-cci.md
+    - text: Använda materialiserade vyer för arbetsbelastningsjustering
+      url: performance-tuning-materialized-views.md
+  - linkListType: how-to-guide
+    links:
+    - text: Analysera din arbetsbelastning
+      url: analyze-your-workload.md
+- title: Hantera och övervaka
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Lär dig att hantera och övervaka ditt informationslager
+      url: sql-data-warehouse-overview-manageability-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: Övervaka din arbetsbelastning med DMV:er
+      url: sql-data-warehouse-manage-monitor.md
+    - text: Hantera och övervaka arbetsbelastningsprioritet
+      url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+- title: Skydda ditt informationslager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Förstå grunderna för att skydda ditt informationslager
+      url: sql-data-warehouse-overview-manage-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera Azure Active Directory-autentisering
+      url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+- title: Resurser
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Titta på de senaste videorna om informationslager
+      url: sql-data-warehouse-videos.md

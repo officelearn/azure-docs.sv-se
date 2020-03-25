@@ -9,10 +9,10 @@ metadata:
   ms.author: robb
   ms.date: 10/16/2019
   ms.openlocfilehash: e7cf35654bec7302423a62e66a39651ad1745651
-  ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 01/09/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "75768664"
 landingContent:
 - title: Om Azure Advisor
@@ -39,5 +39,5 @@ landingContent:
       url: /cli/azure/advisor?view=azure-cli-latest
     - text: PowerShell
       url: /powershell/module/az.advisor/?view=azps-1.2.0
-    - text: REST-API
+    - text: REST API
       url: /rest/api/advisor/

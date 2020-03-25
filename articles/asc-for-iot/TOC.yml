@@ -29,7 +29,7 @@
       href: quickstart-create-security-twin.md
     - name: Skapa anpassade säkerhetsaviseringar
       href: quickstart-create-custom-alerts.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Autentisering av säkerhetsagent
       href: concept-security-agent-authentication-methods.md
@@ -47,7 +47,7 @@
       href: event-aggregation.md
     - name: Prissättning och associerade kostnader
       href: concept-pricing.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Vilken agent ska jag distribuera?
       items:

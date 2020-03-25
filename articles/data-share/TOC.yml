@@ -13,7 +13,7 @@
       href: share-your-data.md
     - name: Acceptera och ta emot data
       href: subscribe-to-data-share.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Terminologi för Azure Data Share
       href: terminology.md
@@ -27,7 +27,7 @@
       href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
     - name: Azure PowerShell
       href: samples-powershell.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Övervaka
       href: how-to-monitor.md
@@ -49,7 +49,7 @@
       href: /dotnet/api/overview/azure/datashare
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0'
-    - name: REST-API
+    - name: REST API
       href: /rest/api/datashare
 - name: Resurser
   items:
@@ -63,7 +63,7 @@
       href: 'https://techcommunity.microsoft.com/'
     - name: Produktfeedback
       href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/data-share/'
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=data-share'

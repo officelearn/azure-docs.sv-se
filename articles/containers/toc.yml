@@ -40,7 +40,7 @@
       items:
         - name: Använda en anpassad Docker-avbildning för Azure Web App for Containers
           href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-custom-docker-image'
-        - name: Självstudie – App med flera behållare
+        - name: Självstudie – App med flera container
           href: 'https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app'
     - name: Service Fabric
       href: 'https://docs.microsoft.com/azure/service-fabric/'

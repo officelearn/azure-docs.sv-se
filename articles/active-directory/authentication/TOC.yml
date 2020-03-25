@@ -17,7 +17,7 @@
       href: tutorial-configure-custom-password-protection.md
     - name: Integrera Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
-- name: Begrepp
+- name: Koncept
   expanded: true
   items:
     - name: Autentiseringsmetoder
@@ -62,7 +62,7 @@
           href: concept-password-ban-bad-on-premises.md
     - name: Motståndskraftiga åtkomstkontroller
       href: concept-resilient-controls.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Återställning av lösenord för självbetjäning
       items:
@@ -225,7 +225,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Tjänstuppdateringar
       href: ../fundamentals/whats-new.md

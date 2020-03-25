@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: a3bf55bef0f6fc25f98b362b4a22e22471a031f1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199066"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Förstå villkoren i din faktura från Microsoft Azure
 
-Fakturan innehåller en sammanfattning av dina avgifter och instruktioner för betalning. Du kan ladda ned den i PDF-format (.pdf) från [Azure-portalen](https://portal.azure.com/) och du kan få den skickad via e-post. Mer information finns i [Så här hämtar du information om fakturering och daglig användning från Azure](../manage/download-azure-invoice-daily-usage-date.md).
+Fakturan innehåller en sammanfattning av dina avgifter och instruktioner för betalning. Du kan ladda ned den i PDF-format (.pdf) från [Azure-portalen](https://portal.azure.com/) eller få den skickad via e-post. Mer information finns i [Så här hämtar du information om fakturering och daglig användning från Azure](../manage/download-azure-invoice-daily-usage-date.md).
 
 Några saker att tänka på:
 
@@ -40,7 +40,7 @@ Avsnittet med kontoinformation på fakturan står överst på den första sidan 
 
 | Period | Beskrivning |
 | --- | --- |
-| Kundordernummer |Ett valfritt inköpsordernummer som tilldelar i spårningssyfte |
+| Kundordernummer |Ett valfritt inköpsordernummer som du tilldelar i spårningssyfte |
 | Fakturanr |Ett unikt fakturanummer som Microsoft genererar i spårningssyfte |
 | Faktureringscykel |Det datumintervall som fakturan täcker |
 | Fakturadatum |Datumet då fakturan genererades, vanligtvis en dag efter faktureringscykelns slut |

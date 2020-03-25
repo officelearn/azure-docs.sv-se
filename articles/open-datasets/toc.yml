@@ -12,7 +12,7 @@
       href: /azure/machine-learning/service/tutorial-auto-train-models?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
     - name: Förbättra en bildklassificeringsmodell
       href: /azure/machine-learning/service/tutorial-train-models-with-aml?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Datamängder i Azure Machine Learning
       href: ../machine-learning/how-to-create-register-datasets.md?toc=/azure/open-datasets/toc.json&bc=/azure/open-datasets/breadcrumb/toc.json
@@ -35,7 +35,7 @@
       href: 'https://msropendata.com/'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/open-datasets/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

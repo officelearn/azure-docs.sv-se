@@ -18,7 +18,7 @@
       href: configure-oracle-dataguard.md
     - name: Konfigurera Oracle GoldenGate
       href: configure-oracle-golden-gate.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Oracle-programarkitekturer
       href: oracle-oci-applications.md
@@ -30,7 +30,7 @@
       href: oracle-backup-recovery.md
     - name: Haveriberedskapsalternativ för Oracle
       href: oracle-disaster-recovery.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Sammankoppling av Azure och OCI – förhandsversion
       href: configure-azure-oci-networking.md

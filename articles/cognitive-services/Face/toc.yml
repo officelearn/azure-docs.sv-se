@@ -45,13 +45,13 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Ansiktsspårning
       href: concepts/face-detection.md
     - name: Ansiktsigenkänning
       href: concepts/face-recognition.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Identifiera ansikten
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
@@ -115,5 +115,7 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Kryptering
+      href: face-encryption-of-data-at-rest.md
     - name: Viktig information
       href: ReleaseNotes.md

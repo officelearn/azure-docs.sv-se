@@ -24,7 +24,7 @@
   items:
     - name: Exempel på notebook-filer
       href: azure-notebooks-samples.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Konton
       href: azure-notebooks-user-account.md

@@ -21,7 +21,7 @@
       href: container-service-dcos-fileshare.md
     - name: 4 – Integrera med ACR
       href: container-service-dcos-acr.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Säkra container
       href: container-service-security.md
@@ -81,7 +81,7 @@
       href: container-service-faq.md
     - name: Mallar – ACS-motor
       href: 'https://github.com/Azure/acs-engine'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/container-service/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

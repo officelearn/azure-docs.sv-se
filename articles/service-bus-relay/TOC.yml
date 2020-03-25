@@ -30,7 +30,7 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections'
     - name: WCF-relä
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
-- name: Begrepp
+- name: Koncept
   items:
     - name: Säkerhet
       items:
@@ -83,7 +83,7 @@
       href: relay-faq.md
     - name: Blogg
       href: 'https://blogs.msdn.microsoft.com/servicebus/'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

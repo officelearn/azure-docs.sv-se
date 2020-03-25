@@ -12,7 +12,7 @@
       href: tutorial-water-consumption-monitoring.md
     - name: Skapa en app för övervakning av vattenkvalitet
       href: tutorial-water-quality-monitoring.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Referensarkitektur för ansluten avfallsövervakning
       href: concepts-connectedwastemanagement-architecture.md
@@ -20,7 +20,7 @@
       href: concepts-waterconsumptionmonitoring-architecture.md
     - name: Referensarkitektur för övervakning av vattenkvalitet
       href: concepts-waterqualitymonitoring-architecture.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Ansluta din app med Dynamics 365 Field Services
       href: how-to-configure-connected-field-services.md
@@ -30,7 +30,7 @@
           href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Förbereda och ansluta en Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: Övervaka enhetsanslutningar med Azure CLI
+        - name: Övervaka enhetsanslutning med Azure CLI
           href: ../core/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Hantera enheter
       items:
@@ -84,30 +84,32 @@
           href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Växla livechatt
           href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-- name: Relaterat
+- name: Resurser
   items:
-    - name: Plattformstjänster
+    - name: Azure IoT-tjänster
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning-tjänst
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
         - name: IoT Plug and Play
           href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: Platsbaserade tjänster
-          href: /azure/location-based-services
-        - name: 'Tjänst-SDK:er'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Azure Maps
+          href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge-lösningar
+    - name: 'SDK:er för Azure IoT'
       items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: 'SDK:er för IoT-enheter'
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-- name: Resurser
-  items:
     - name: Alternativ för support och hjälp
       href: /azure/iot-fundamentals/iot-support-help
     - name: Kunddataförfrågningar

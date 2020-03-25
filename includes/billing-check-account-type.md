@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
 ms.openlocfilehash: bc60e7d39e6dbdf04744a10ef6c6f286e1b1ea52
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75987790"
 ---
 1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -25,5 +25,5 @@ ms.locfileid: "75987790"
  
 4. Om du har åtkomst till flera faktureringsomfång kontrollerar du typen i kolumnen **Faktureringskontotyp**.
  
-    ![Skärmbild som visar microsoft customer agreement i listan med faktureringskonton](./media/billing-check-account-type/billing-account-type-in-the-list.png)
+    ![Skärmbild som visar Microsofts kundavtal på faktureringskontosidan](./media/billing-check-account-type/billing-account-type-in-the-list.png)
  

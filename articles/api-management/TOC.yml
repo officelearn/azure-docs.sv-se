@@ -41,7 +41,7 @@
       href: policy-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Terminologi
       href: api-management-terminology.md
@@ -65,7 +65,7 @@
       href: api-management-api-import-restrictions.md
     - name: Översikt över gateway med egen värd
       href: self-hosted-gateway-overview.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: 'Definiera API: er'
       items:
@@ -249,7 +249,7 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: api-management-faq.md
-    - name: Prissättning
+    - name: Priser
       href: 'https://aka.ms/apimpricing'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

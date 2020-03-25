@@ -37,7 +37,7 @@
       href: /samples/browse/?products=azure-functions&term=durable
     - name: Azure CLI
       href: ../functions-cli-samples.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Funktionstyper
       href: durable-functions-types-features-overview.md
@@ -113,15 +113,15 @@
           href: durable-functions-diagnostics.md
         - name: Övervakning
           href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-        - name: Prissättning
+        - name: Priser
           href: durable-functions-billing.md
 - name: Resurser
   items:
-    - name: Utveckla dina färdigheter med Microsoft Learn
+    - name: Utveckla din kompetens med Microsoft Learn
       href: /learn/browse/?products=azure-functions
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/functions/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

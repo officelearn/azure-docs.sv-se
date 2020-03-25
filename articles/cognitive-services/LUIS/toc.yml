@@ -72,7 +72,7 @@
         - name: Med Node.js
           displayName: 'bot framework, framework, sdk, abs'
           href: luis-nodejs-tutorial-bf-v4.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Utvecklingscykel
       href: luis-concept-app-iteration.md
@@ -135,7 +135,7 @@
         - name: Utforma strategier
           href: luis-concept-enterprise.md
           displayName: import
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Starta en ny app
       href: luis-how-to-start-new-app.md
@@ -311,7 +311,7 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell
       href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
-    - name: 'REST API:er'
+    - name: 'REST-API:er'
       items:
         - name: 'V3 – redigering av REST-API:er (förhandsversion)'
           href: 'https://aka.ms/luis-apim-v3-authoring'
@@ -408,11 +408,13 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Kryptering
+      href: luis-encryption-of-data-at-rest.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice
       href: 'https://go.microsoft.com/fwlink/?linkid=2092090'
-    - name: Search
+    - name: Söka
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: Blogg
       href: 'https://blog.botframework.com/category/luis/'

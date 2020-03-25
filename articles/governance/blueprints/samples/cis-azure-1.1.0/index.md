@@ -4,10 +4,10 @@ description: Översikt över skissexemplet på CIS Microsoft Azure Foundations B
 ms.date: 08/09/2019
 ms.topic: sample
 ms.openlocfilehash: 414c6d5a38821767dd43e62aa9f42edd8633dbe2
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74544568"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Översikt över skissexemplet på CIS Microsoft Azure Foundations Benchmark

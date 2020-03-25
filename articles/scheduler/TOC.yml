@@ -10,11 +10,11 @@
       href: scheduler-powershell-reference.md
     - name: Migrera från Scheduler till Logic Apps
       href: migrate-from-scheduler-to-logic-apps.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: 'Begrepp, terminologi och enheter'
       href: scheduler-concepts-terms.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Planera och designa
       items:
@@ -38,7 +38,7 @@
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.scheduler
-    - name: REST-API
+    - name: REST API
       href: /rest/api/scheduler
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.scheduler/allversions
@@ -52,7 +52,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-scheduler'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/scheduler/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

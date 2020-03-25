@@ -21,7 +21,7 @@
   items:
     - name: DAC-paket och Stream Analytics-jobb
       href: stream-analytics.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Maskininlärning och AI med ONNX
       href: onnx-overview.md

@@ -10,11 +10,11 @@ ms.date: 02/10/2020
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: dacae693020fea2f77a80b5b8bad44a07e471367
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200205"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237929"
 ---
 # <a name="view-and-download-tax-documents-for-your-azure-invoice"></a>Visa och ladda ned skattedokument för din Azure-faktura
 
@@ -23,7 +23,7 @@ Du kan ladda ned skattedokument för din Azure-faktura om du har åtkomst till f
 ## <a name="view-and-download-tax-documents"></a>Visa och ladda ned skattedokument
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter *Kostnadshantering + fakturering*.
+1. Sök efter *Kostnadshantering och fakturering*.
 1. Beroende på din åtkomst kan du behöva välja ett faktureringskonto eller en faktureringsprofil.
 1. Välj **Fakturor** under **Fakturering** i den vänstra menyn.
 1. I fakturarutnätet letar du upp den rad i fakturan som motsvarar det skattedokument som du vill ladda ned.
@@ -35,5 +35,5 @@ Du kan ladda ned skattedokument för din Azure-faktura om du har åtkomst till f
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa och ladda ned din Microsoft Azure-faktura](download-azure-invoice.md)
+- [Visa och ladda ned din faktura för Microsoft Azure](download-azure-invoice.md)
 - [Visa och ladda ned information om din användning och dina avgifter för Microsoft Azure](download-azure-daily-usage.md)

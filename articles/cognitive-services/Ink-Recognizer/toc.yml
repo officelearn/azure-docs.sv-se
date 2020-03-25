@@ -8,7 +8,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: REST-API
+    - name: REST API
       items:
         - name: 'C#'
           href: quickstarts/csharp.md
@@ -16,7 +16,7 @@
           href: quickstarts/java.md
         - name: Javascript
           href: quickstarts/javascript.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: 'Skicka pennanteckning till API:et för handskriftsigenkänning'
       href: concepts/send-ink-data.md

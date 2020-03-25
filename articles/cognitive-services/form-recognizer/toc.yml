@@ -42,7 +42,7 @@
   items:
     - name: Använda formigenkänning med Logic Apps
       href: tutorial-form-recognizer-with-logic-apps.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Skapa en träningsdatauppsättning
       href: build-training-data-set.md

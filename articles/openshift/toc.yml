@@ -22,7 +22,7 @@
           href: cluster-administration-cluster-admin-role.md
         - name: 2 – Hantera säkerhetskontextrestriktioner
           href: cluster-administration-security-context-constraints.md
-- name: Anvisningar
+- name: Instruktionsguider
   expanded: true
   items:
     - name: Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
@@ -41,6 +41,8 @@
           href: howto-azure-monitor-v4.md
     - name: Distribuera fristående Prometheus i ett Azure Red Hat OpenShift-kluster
       href: howto-deploy-prometheus.md
+    - name: Hantera projekt i ett Azure Red Hat OpenShift-kluster
+      href: howto-manage-projects.md
     - name: Skapa ett privat Azure Red Hat OpenShift-kluster
       href: howto-create-private-cluster.md
     - name: Övervakning och loggning

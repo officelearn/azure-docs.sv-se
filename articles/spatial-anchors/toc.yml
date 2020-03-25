@@ -76,7 +76,7 @@
   items:
     - name: Azure Spatial Anchors-exempel (GitHub)
       href: 'https://github.com/Azure/azure-spatial-anchors-samples'
-- name: Begrepp
+- name: Koncept
   items:
     - name: Autentisering
       href: concepts/authentication.md

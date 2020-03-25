@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 5867c4ba7fa1447cbd5d40e15237ae50c24c7168
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199270"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Förstå användning av Azure-reservationer för din enskilda prenumeration med Betala per användning-priser
@@ -27,7 +27,7 @@ I den här artikeln förutsätter vi att reservationen gäller en enskild prenum
 
 I följande avsnitt antar vi att du kör en Windows-dator av typen Standard_DS1_v2 i regionen USA, östra och att informationen om den reserverade VM-instansen ser ut som i följande tabell:
 
-| Field | Värde |
+| Fält | Värde |
 |---| :---: |
 |ReservationId |8117adfb-1d94-4675-be2b-f3c1bca808b6|
 |Kvantitet |1|
@@ -62,7 +62,7 @@ I följande avsnitt används Azure SQL Database som exempel när vi beskriver an
 
 Anta att du kör en SQL Database Gen 4 i regionen USA, östra och att reservationsinformationen ser ut som i följande tabell:
 
-| Field | Värde |
+| Fält | Värde |
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |Kvantitet |2|
@@ -93,7 +93,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan läsa mer om Azure-reservationer i följande artiklar:
+Mer information om Azure-reservationer finns i följande artiklar:
 
 - [Vad är Azure-reservationer?](save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)

@@ -30,7 +30,7 @@
       items:
         - name: Skapa ett program för mikrofullgörelsecenter
           href: tutorial-micro-fulfillment-center-pnp.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Arkitektur för mall för anslutna logistik-program
       href: architecture-connected-logistics-pnp.md
@@ -46,7 +46,7 @@
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Vad är programmallar?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Ansluta enheter
       items:
@@ -110,32 +110,34 @@
           href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Växla livechatt
           href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-- name: Relaterat
-  items:
-    - name: Plattformstjänster
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: Platsbaserade tjänster
-          href: /azure/location-based-services
-        - name: 'Tjänst-SDK:er'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge-lösningar
-      items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
-        - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
     - name: Alternativ för support och hjälp
       href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT-tjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning-tjänst
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: 'SDK:er för Azure IoT'
+      items:
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
     - name: Kunddataförfrågningar
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Webbläsare som stöds

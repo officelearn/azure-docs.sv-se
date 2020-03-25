@@ -11,7 +11,7 @@
       href: ingest-historical-telemetry-data-in-azure-farmbeats.md
     - name: Fråga inmatade telemetridata
       href: query-telemetry-data-from-azure-farmbeats.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Integreringsmönster
       href: integration-patterns-in-azure-farmbeats.md
@@ -43,5 +43,5 @@
   items:
     - name: Referens
       href: references-for-azure-farmbeats.md
-    - name: REST-API
+    - name: REST API
       href: rest-api-in-azure-farmbeats.md

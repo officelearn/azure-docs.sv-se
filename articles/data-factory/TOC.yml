@@ -144,7 +144,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
     - name: Azure PowerShell
       href: samples-powershell.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Pipelines och aktiviteter
       href: concepts-pipelines-activities.md
@@ -190,7 +190,7 @@
       href: pricing-concepts.md
     - name: Namngivningsregler
       href: naming-rules.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Författare
       items:
@@ -683,7 +683,7 @@
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
       href: /powershell/module/az.datafactory/
-    - name: REST-API
+    - name: REST API
       href: /rest/api/datafactory
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.datafactory/allversions
@@ -705,7 +705,7 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Begär en funktion
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Tillgänglighet efter region
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

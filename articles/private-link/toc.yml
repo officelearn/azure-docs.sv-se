@@ -18,7 +18,7 @@
       href: create-private-link-service-powershell.md
     - name: Skapa en Private Link-tjänst – Azure CLI
       href: create-private-link-service-cli.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Privat slutpunkt
       href: private-endpoint-overview.md
@@ -66,7 +66,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
 - name: Resurser
   items:
-    - name: Utveckla dina färdigheter med Microsoft Learn
+    - name: Utveckla din kompetens med Microsoft Learn
       href: /learn/browse/
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
@@ -76,7 +76,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
     - name: Nätverksfeedback
       href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/private-link/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

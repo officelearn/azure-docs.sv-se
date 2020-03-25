@@ -51,7 +51,7 @@
       href: iot-visual-alerts-tutorial.md
     - name: Identifiera logotyper på mobila enheter
       href: logo-detector-mobile.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Testa din modell
       href: test-your-model.md

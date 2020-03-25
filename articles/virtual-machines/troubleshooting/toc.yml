@@ -156,13 +156,13 @@
           items:
             - name: PowerShell
               href: troubleshoot-recovery-disks-windows.md
-            - name: Azure Portal
+            - name: Azure-portalen
               href: troubleshoot-recovery-disks-portal-windows.md
         - name: Linux
           items:
             - name: CLI
               href: troubleshoot-recovery-disks-linux.md
-            - name: Azure Portal
+            - name: Azure-portalen
               href: troubleshoot-recovery-disks-portal-linux.md
         - name: Enhetsnamnen har ändrats
           href: troubleshoot-device-names-problems.md

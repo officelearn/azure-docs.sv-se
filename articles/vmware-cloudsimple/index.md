@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions (AVS)
-description: Dokumentationsportal för Azure VMware Solutions (AVS).
+title: Azure VMware Solution by CloudSimple
+description: Dokumentationsportal för Azure VMware Solution by CloudSimple.
 author: sharaths-cs
 ms.author: b-mashar
 ms.date: 08/20/2019
@@ -8,23 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d81ea6778f3ba31d72c34334b1439994b076647c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 936a9eb4d9b33b45800fab213fc72a306a04146e
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "77025222"
 ---
-# <a name="azure-vmware-solution-by-avs"></a>Azure VMware Solution av AVS
+# <a name="azure-vmware-solution-by-cloudsimple"></a>Azure VMware Solution by CloudSimple
 
-Välkommen till den gemensamma portalen för hjälp med Azure VMware Solution av AVS.
+Välkommen till en gemensam portal där du får hjälp med Azure VMware Solution by CloudSimple.
 På dokumentationswebbplatsen kan du lära dig mer om följande ämnen:
 
 ## <a name="overview"></a>Översikt
 
-Läs mer om Azure VMware Solutions (AVS)
+Ta reda på mer om Azure VMware Solution by CloudSimple
 
-* Lär dig mer om funktionerna, fördelarna och användningsscenarierna i [Vad är Azure VMware Solution av AVS](cloudsimple-vmware-solutions-overview.md)
+* Lär dig mer om funktionerna, fördelarna och användningsscenarierna på [What is Azure VMware Solution by CloudSimple](cloudsimple-vmware-solutions-overview.md) (Vad är Azure VMware Solution från CloudSimple)
 * Ta en titt på [viktiga begrepp för administration](key-concepts.md)
 
 ## <a name="quickstart"></a>Snabbstart
@@ -32,17 +32,17 @@ Läs mer om Azure VMware Solutions (AVS)
 Lär dig hur du kommer igång med lösningen
 
 * Förstå hur du [initierar tjänsten och köper kapacitet](quickstart-create-cloudsimple-service.md)
-* Lär dig hur du skapar en ny VMware-miljö i [Konfigurera en privat AVS-molnmiljö](quickstart-create-private-cloud.md)
+* Lär dig hur du skapar en ny VMware-miljö på [Configure a Private Cloud Environment](quickstart-create-private-cloud.md) (Konfigurera en privat molnmiljö)
 * Lär dig hur du kan förena hanteringen över VMware och Azure genom att läsa artikeln [Använda virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
 
-## <a name="concepts"></a>Begrepp
+## <a name="concepts"></a>Koncept
 
 Lär dig mer om följande begrepp
 
-* En [AVS-tjänst](cloudsimple-service.md) (kallas även ”Azure VMware Solutions (AVS) – tjänst”). Den här resursen måste skapas en gång per region.
-* Köp kapacitet för din miljö genom att skapa en eller flera [AVS-nodresurser](cloudsimple-node.md). De här resurserna kallas även för ”Azure VMware Solution av AVS – nod”.
-* Initiera och konfigurera VMware-miljön med hjälp av [privata AVS-moln](cloudsimple-private-cloud.md).
-* Förena hanteringen med [Virtuella AVS-datorer](cloudsimple-virtual-machines.md) (kallas även ”Azure VMware Solutions (AVS) – virtuell dator”).
+* En [CloudSimple-tjänst](cloudsimple-service.md) (kallas även Azure VMware Solution by CloudSimple – tjänst). Den här resursen måste skapas en gång per region.
+* Köp kapaciteten för din miljö genom att skapa en eller flera [CloudSimple-nodresurser](cloudsimple-node.md). De här resurserna kallas även för Azure VMware Solution by CloudSimple – nod.
+* Initiera och konfigurera VMware-miljön med hjälp av [privata moln](cloudsimple-private-cloud.md).
+* Förena hanteringen med [Virtuella CloudSimple-datorer](cloudsimple-virtual-machines.md) (kallas även Azure VMware Solution by CloudSimple – virtuell dator).
 * Utforma det underliggande nätverket med hjälp av [VLAN/undernät](cloudsimple-vlans-subnets.md).
 * Segmentera och skydda ditt underliggande nätverk med hjälp av resursen [Brandväggstabell](cloudsimple-firewall-tables.md).
 * Få säker åtkomst till dina VMware-miljöer via WAN med [VPN-gatewayer](cloudsimple-vpn-gateways.md).
@@ -56,10 +56,10 @@ Lär dig mer om följande begrepp
 
 Lär dig hur du utför vanliga uppgifter, till exempel:
 
-* [Skapa en AVS-tjänst](create-cloudsimple-service.md) en gång per region där du vill distribuera VMware-miljöer.
-* Hantera grundläggande tjänstfunktioner i [AVS-portalen](access-cloudsimple-portal.md).
-* Aktivera kapacitet och optimera faktureringen för din infrastruktur genom att [köpa AVS-noder](create-nodes.md).
-* Hantera konfigurationerna av VMware-miljöer med hjälp av privata AVS-moln. Du kan [skapa](create-private-cloud.md), [hantera](manage-private-cloud.md), [visa](expand-private-cloud.md) eller [krympa](shrink-private-cloud.md) privata AVS-moln.
+* [Skapa en CloudSimple-tjänst](create-cloudsimple-service.md) en gång per region där du vill distribuera VMware-miljöer.
+* Hantera grundläggande tjänstfunktioner i [CloudSimple-portalen](access-cloudsimple-portal.md).
+* Aktivera kapacitet och optimera faktureringen för din infrastruktur genom att [köpa CloudSimple-noder](create-nodes.md).
+* Hantera konfiguration av VMware-miljöer med hjälp av privata moln. Du kan [skapa](create-private-cloud.md), [hantera](manage-private-cloud.md), [expandera](expand-private-cloud.md) eller [krympa](shrink-private-cloud.md) privata moln.
 * Aktivera enhetlig hantering genom att [mappa Azure-prenumerationer](azure-subscription-mapping.md).
 * Övervaka användar- och systemaktivitet med [aktivitetssidorna](monitor-activity.md).
 * Konfigurera nätverk för dina miljöer genom att [skapa och hantera undernät](create-vlan-subnet.md).
@@ -68,7 +68,7 @@ Lär dig hur du utför vanliga uppgifter, till exempel:
 * Aktivera anslutning från dina interna nätverk eller klientarbetsstationer genom att [konfigurera VPN.](vpn-gateway.md)
 * Aktivera kommunikation från dina [lokala miljöer](on-premises-connection.md) och [virtuella Azure-nätverk](virtual-network-connection.md).
 * Konfigurera aviseringsmål och visa den totala inköpta kapaciteten i [kontosammanfattningen](account.md)
-* Visa [användare](users.md) som har åtkomst till AVS-portalen.
+* Visa [användare](users.md) som har åtkomst till CloudSimple-portalen.
 * Hantera virtuella VMware-datorer från Azure-portalen:
     * [Skapa virtuella datorer](azure-create-vm.md) i Azure-portalen.
     * [Hantera virtuella datorer](azure-manage-vm.md) som du har skapat.

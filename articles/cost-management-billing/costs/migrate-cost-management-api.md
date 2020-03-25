@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.openlocfilehash: 397e0a21b1ba11b3bdd74c2030ff358c1ce159d8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77201041"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrera från Enterprise-avtal till API:er för Microsoft-kundavtal
@@ -169,22 +169,22 @@ Egenskapsnamnet som innehåller arrayen med användningsposter har ändrats frå
 
 | Gammal egenskap | Ny egenskap | Anteckningar |
 | --- | --- | --- |
-| AccountId | Ej tillämpligt | Den som skapat prenumerationen spåras inte. Använd invoiceSectionId (samma som departmentId). |
-| AccountNameAccountOwnerId och AccountOwnerEmail | Ej tillämpligt | Den som skapat prenumerationen spåras inte. Använd invoiceSectionName (samma som departmentName). |
+| AccountId | Saknas | Den som skapat prenumerationen spåras inte. Använd invoiceSectionId (samma som departmentId). |
+| AccountNameAccountOwnerId och AccountOwnerEmail | Saknas | Den som skapat prenumerationen spåras inte. Använd invoiceSectionName (samma som departmentName). |
 | AdditionalInfo | additionalInfo | &nbsp;  |
 | ChargesBilledSeparately | isAzureCreditEligible | Observera att de här egenskaperna är motsatser. Om isAzureCreditEnabled är sann skulle ChargesBilledSeparately vara falsk. |
 | ConsumedQuantity | quantity | &nbsp; |
 | ConsumedService | consumedService | De exakta strängvärdena kan variera. |
 | ConsumedServiceId | Ingen | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
-| Date och usageStartDate | date | &nbsp;  |
+| Date och usageStartDate | datum | &nbsp;  |
 | Dag | Ingen | Parsar dag och datum. |
 | DepartmentId | invoiceSectionId | Exakta värden kan variera. |
 | DepartmentName | invoiceSectionName | De exakta strängvärdena kan variera. Konfigurera fakturaavsnitten så att de matchar avdelningarna om det behövs. |
 | ExtendedCost och Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
 | Är en återkommande avgift | Ingen | &nbsp;  |
-| Location | location | &nbsp;  |
+| plats. | location | &nbsp;  |
 | MeterCategory | meterCategory | De exakta strängvärdena kan variera. |
 | MeterId | meterId | De exakta strängvärdena varierar. |
 | MeterName | meterName | De exakta strängvärdena kan variera. |
@@ -204,18 +204,18 @@ Egenskapsnamnet som innehåller arrayen med användningsposter har ändrats frå
 | ResourceLocation | resourceLocation | &nbsp;  |
 | ResourceLocationId | Ingen | &nbsp;  |
 | ResourceRate | effectivePrice | &nbsp;  |
-| ServiceAdministratorId | Ej tillämpligt | &nbsp;  |
+| ServiceAdministratorId | Saknas | &nbsp;  |
 | ServiceInfo1 | serviceInfo1 | &nbsp;  |
 | ServiceInfo2 | serviceInfo2 | &nbsp;  |
 | ServiceName | meterCategory | De exakta strängvärdena kan variera. |
 | ServiceTier | meterSubCategory | De exakta strängvärdena kan variera. |
-| StoreServiceIdentifier | Ej tillämpligt | &nbsp;  |
+| StoreServiceIdentifier | Saknas | &nbsp;  |
 | SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
-| Taggar | tags | Egenskapen tags gäller för rotobjektet, inte den kapslade egenskapen properties. |
+| Taggar | taggar | Egenskapen tags gäller för rotobjektet, inte den kapslade egenskapen properties. |
 | UnitOfMeasure | unitOfMeasure | De exakta strängvärdena varierar. |
-| usageEndDate | date | &nbsp;  |
+| usageEndDate | datum | &nbsp;  |
 | År | Ingen | Parsar år från datum. |
 | (nytt) | billingCurrency | Valuta som använts för avgiften. |
 | (nytt) | billingProfileId | Unikt ID för faktureringsprofilen (samma som registreringen). |

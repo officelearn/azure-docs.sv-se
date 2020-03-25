@@ -35,7 +35,7 @@
           href: service-fabric-mesh-tutorial-template-upgrade-app.md
         - name: 4 – Ta bort ett program
           href: service-fabric-mesh-tutorial-template-remove-app.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Terminologi
       href: service-fabric-mesh-terminology.md
@@ -51,9 +51,9 @@
       href: service-fabric-mesh-storing-state.md
     - name: Hemligheter
       href: service-fabric-mesh-secrets-overview.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
-    - name: Ställt in din utvecklingsmiljö
+    - name: Ställ in din utvecklingsmiljö
       href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
     - name: Konfigurera Service Fabric Mesh CLI
       href: service-fabric-mesh-howto-setup-cli.md

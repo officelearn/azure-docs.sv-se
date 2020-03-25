@@ -21,7 +21,7 @@
           href: tutorial-facilities-events.md
         - name: Visualisera händelser med Time Series Insights
           href: tutorial-facilities-analyze.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Graf för objektmodell och rumslig intelligens i Digital Twins
       href: concepts-objectmodel-spatialgraph.md
@@ -43,7 +43,7 @@
           href: security-create-manage-role-assignments.md
         - name: 'Autentisering för API:er för hantering'
           href: security-authenticating-apis.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Aktivera program med flera klienter
       href: how-to-multitenant-applications.md
@@ -74,7 +74,7 @@
 - name: Resurser
   expanded: true
   items:
-    - name: Resurser för utvecklare
+    - name: Utvecklarresurser
       items:
         - name: Azure Digital Twins Graph Viewer
           href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
@@ -84,7 +84,7 @@
           href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
     - name: Priser och tillgänglighet
       items:
-        - name: Prissättning
+        - name: Priser
           href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
         - name: Priskalkylator
           href: 'https://azure.microsoft.com/pricing/calculator/'

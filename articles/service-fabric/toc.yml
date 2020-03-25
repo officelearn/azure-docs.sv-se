@@ -113,7 +113,7 @@
       href: service-fabric-powershell-samples.md
     - name: Service Fabric CLI
       href: samples-cli.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Förstå mikrotjänster
       href: service-fabric-overview-microservices.md
@@ -316,8 +316,6 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Balansera ett kluster
               href: service-fabric-cluster-resource-manager-balancing.md
-            - name: Underklustring
-              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: Begränsning
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Tjänstflöde
@@ -360,9 +358,9 @@
       href: concepts-managed-identity.md
     - name: Konfigurera autentiseringsuppgifter för containerlagringsplats
       href: configure-container-repository-credentials.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
-    - name: Ställt in din utvecklingsmiljö
+    - name: Ställ in din utvecklingsmiljö
       items:
         - name: Windows
           href: service-fabric-get-started.md
@@ -882,7 +880,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
     - name: Skyddsräcken för Azure Resource Manager-distribution
       href: service-fabric-azure-resource-manager-guardrails.md
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

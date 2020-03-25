@@ -1,20 +1,20 @@
 ---
-title: Lägga till utökade mått för virtuella Azure-datorer | Microsoft Docs
+title: Lägga till utökade mått för virtuella Azure-datorer
 description: Den här artikeln hjälper dig att aktivera och konfigurera utökade diagnosmått för virtuella Azure-datorer.
-keywords: ''
 author: bandersmsft
 ms.reviewer: vitavor
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
-ms.openlocfilehash: 84a9d6aa6203b8a518b0e33bed0ec2707c4389a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ROBOTS: NOINDEX
+ms.openlocfilehash: b4c646f3d42edc39f457cd735f16409f4ef05d2c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082922"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79481627"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Lägga till utökade mått för virtuella Azure-datorer
 
@@ -30,7 +30,9 @@ När du har aktiverat måttinsamling kan du:
 Till exempel vill du kanske övervaka CPU % och minne % för dina virtuella Azure-datorer. Måtten för virtuella Azure-datorer motsvarar _Procent CPU_ och _\Memory\% Allokerade byte som används_.
 
 > [!NOTE]
-> Utökad måttdatainsamling stöds endast med Azure-övervakning på gästnivå. Cloudyn är inte kompatibelt med [Log Analytics-agenten](../../azure-monitor/platform/agents-overview.md). 
+> Utökad måttdatainsamling stöds endast med Azure-övervakning på gästnivå. Cloudyn är inte kompatibelt med [Log Analytics-agenten](../../azure-monitor/platform/agents-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Ta reda på om utökade mått är aktiverade
 

@@ -24,7 +24,7 @@
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
     - name: Azure CLI
       href: samples-cli.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: DevTest Labs-koncept
       href: devtest-lab-concepts.md
@@ -44,7 +44,7 @@
           href: devtest-lab-training-lab.md
         - name: Scenarier för att använda virtuella datorer som kan begäras
           href: devtest-lab-use-claim-capabilities.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Konfigurera ett labb
       items:
@@ -251,7 +251,7 @@
       href: /powershell/module/az.devtestlabs
     - name: PowerShell – Az.DevTestLabs2-exempelmodul
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
-    - name: REST-API
+    - name: REST API
       href: 'https://docs.microsoft.com/rest/api/dtl/'
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.devtestlab/allversions
@@ -259,7 +259,7 @@
   items:
     - name: Azure-uppdateringar
       href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs'

@@ -34,7 +34,7 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Bind ditt program till Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Förstå molnkvoter och begränsningar för Azure Spring Cloud
       href: spring-cloud-quotas.md
@@ -42,7 +42,7 @@
       href: spring-cloud-concept-metrics.md
     - name: Förbereda för haveriberedskap
       href: disaster-recovery.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: 'Så här gör du för att starta, stoppa och ta bort ett Azure Spring Cloud-program'
       href: spring-cloud-howto-start-stop-delete.md

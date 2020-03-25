@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: 5d48f6e02719bbf647cdbf800550d73ce83a018f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77201007"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Kontoadministratörsuppgifter i Azure-portalen
@@ -28,7 +28,7 @@ Du måste vara kontoadministratör för att utföra dessa uppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
 
-1. Sök efter **Kostnadshantering + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 
@@ -102,7 +102,7 @@ Om du är berättigad till att betala med faktura (check/banköverföring) kan d
     ![Skärmbild som visar bladet betalningsmetoder markerat.](./media/account-admin-tasks/subscription-payment-methods-pay-by-invoice.png)
 
 1. Ange adressen för fakturabetalningsmetoden.
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 
 Om du vill godkänd att betala med faktura kan du [läsa om hur du betalar med faktura](pay-by-invoice.md).
 
@@ -117,7 +117,7 @@ Utgiftsgränsen i Azure gör att du inte kan spendera mer än ditt kreditbelopp.
 Utgiftsgränsen är inte tillgänglig för prenumerationer med åtagandeplaner eller prissättning enligt Betala per användning. Mer information finns i den [fullständiga listan med typer av Azure-prenumerationer och tillgänglighet för utgiftsgränsen](https://azure.microsoft.com/support/legal/offer-details/).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 
@@ -138,14 +138,14 @@ Utgiftsgränsen är inte tillgänglig för prenumerationer med åtagandeplaner e
 
 1. Klicka på **Välj betalningsmetod** för att välja en betalningsmetod för prenumerationen. Det blir den aktiva betalningsmetoden för din prenumeration.
 
-1. Klicka på **Slutför**.
+1. Klicka på **Finish**.
 
 ## <a name="add-credits-to-azure-in-open-subscription"></a>Lägg till krediter till din Azure i Open-prenumeration
 
 Om du har en prenumeration på Azure i Open-licensiering kan du lägga till krediter i din prenumeration i Azure-portalen genom att lösa in en produktnyckel eller köpa krediter med ett kreditkort.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-1. Sök efter **Kostnadshantering + fakturering**.
+1. Sök efter **Kostnadshantering och fakturering**.
 
     ![Skärmbild som visar en sökning efter kostnadshantering och fakturering ](./media/account-admin-tasks/search-bar.png)
 

@@ -10,10 +10,10 @@ ms.date: 02/14/2020
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 1dd0dfad0c68e18ae272d5d94fedd67d24be9ae1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200786"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visa och ladda ned din organisations Azure-priser
@@ -25,7 +25,7 @@ Azure-kunder med ett Azure Enterprise-avtal (EA), ett Microsoft-kundavtal (MCA) 
 Beroende på vilka policyer som företagsadministratören har ställt in för organisationen så har endast vissa administrativa roller åtkomst till organisationens EA-prisinformation. Mer information finns i [Förstå administrativa roller för Azure Enterprise-avtal i Azure](understand-ea-roles.md).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/) som företagsadministratör.
-1. Sök efter *Kostnadshantering + fakturering*.
+1. Sök efter *Kostnadshantering och fakturering*.
 
    ![Skärmbild som visar en sökning i Azure-portalen](./media/ea-pricing/portal-cm-billing-search.png)
 
@@ -65,7 +65,7 @@ Om du har ett MCA-konto kan du ladda ned priser för den aktuella faktureringspe
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Sök efter *Kostnadshantering och fakturering*.
 1. Välj en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto först.
-1. Du hittar nedladdningslänkarna i avsnittet **Översikt** under kostnaderna hittills under månaden.
+1. I området **Översikt** finns nedladdningslänkarna nedanför avgifterna hittills under månaden.
 1. Välj **Azure-prisdokument**.
 ![Skärmbild som visar nedladdning från Översikt](./media/ea-pricing/open-pricing01.png)
 
@@ -100,7 +100,7 @@ Om du är EA-kund kan du läsa:
 Om du har ett Microsoft-kundavtal kan du läsa:
 
 - [Förstå termerna i prisdokumentet för ett Microsoft-kundavtal](mca-understand-pricesheet.md)
-- [Visa och ladda ned din Microsoft Azure-faktura](../understand/download-azure-invoice.md)
+- [Visa och ladda ned din faktura för Microsoft Azure](../understand/download-azure-invoice.md)
 - [Visa och ladda ned information om din användning och dina avgifter för Microsoft Azure](../understand/download-azure-daily-usage.md)
 - [Visa och ladda ned skattedokument för din faktureringsprofil](../understand/mca-download-tax-document.md)
 - [Förstå avgifterna på faktureringsprofilens faktura](../understand/review-customer-agreement-bill.md)

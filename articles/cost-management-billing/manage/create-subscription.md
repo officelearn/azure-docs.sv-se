@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: d6a8196816aaaa61458050334f605cb41afa16b9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200854"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Skapa ytterligare en Azure-prenumeration
@@ -48,14 +48,14 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 
 **Enterprise-avtal**
 
-|Field  |Definition  |
+|Fält  |Definition  |
 |---------|---------|
 |Namn     | Visningsnamnet som gör att du enkelt kan identifiera prenumerationen i Azure-portalen.  |
 |Erbjudande     | Välj EA Dev/Test om du planerar att använda prenumerationen för utveckling eller testning. Annars väljer du Microsoft Azure Enterprise. DevTest-erbjudandet måste vara aktiverat för ditt registreringskonto om du ska kunna skapa EA Dev/Test-prenumerationer.|
 
 **Microsoft-kundavtal**
 
-|Field  |Definition  |
+|Fält  |Definition  |
 |---------|---------|
 |Faktureringsprofil     | Avgifterna för din prenumeration faktureras till den valda faktureringsprofilen. Om du bara har åtkomst till en faktureringsprofil blir valet nedtonat.     |
 |Fakturaavsnitt     | Avgifterna för din prenumeration visas i det här avsnittet på faktureringsprofilens faktura. Om du bara har åtkomst till ett enda fakturaavsnitt blir valet nedtonat.  |
@@ -64,7 +64,7 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 
 **Microsoft-partneravtal**
 
-|Field  |Definition  |
+|Fält  |Definition  |
 |---------|---------|
 |Kund    | Prenumerationen skapas för den kund du väljer. Om du bara har en kund är det här valet nedtonat.  |
 |Återförsäljare    | Den återförsäljare som ska tillhandahålla tjänster till kunden. Det här är ett valfritt fält som endast gäller för indirekta leverantörer i CSP-modellen med två nivåer. |

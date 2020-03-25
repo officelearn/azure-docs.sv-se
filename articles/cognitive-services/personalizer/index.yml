@@ -13,10 +13,10 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt att välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
   ms.openlocfilehash: c703673ec85cadb57e2cc69d1ee1a0d023d53436
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/21/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "77525031"
 landingContent:
 - title: Om Personanpassning
@@ -79,7 +79,7 @@ landingContent:
     links:
     - text: Kodexempel
       url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
-    - text: REST API:er
+    - text: REST-API:er
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
 - title: Om kunskapsförmedling
   linkLists:

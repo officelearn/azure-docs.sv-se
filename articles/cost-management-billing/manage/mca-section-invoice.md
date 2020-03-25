@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200752"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organisera kostnader genom att anpassa ditt faktureringskonto
@@ -72,7 +72,7 @@ För att kunna skapa ett fakturaavsnitt behöver du vara **faktureringsprofilsä
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-section-invoice/search-cmb.png)
 
@@ -100,7 +100,7 @@ För att kunna skapa en faktureringsprofil behöver du vara **faktureringskonto�
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar en sökning i portalen efter kostnadshantering och fakturering](./media/mca-section-invoice/search-cmb.png)
 
@@ -116,7 +116,7 @@ För att kunna skapa en faktureringsprofil behöver du vara **faktureringskonto�
 
    [![Skärmbild som visar sidan för skapande av faktureringsprofil](./media/mca-section-invoice/mca-add-profile.png)](./media/mca-section-invoice/mca-add-profile-zoomed-in.png#lightbox)
 
-    |Field  |Definition  |
+    |Fält  |Definition  |
     |---------|---------|
     |Namn     | Ett visningsnamn som gör att du enkelt kan identifiera faktureringsprofilen i Azure-portalen.  |
     |IO-nummer    | Ett valfritt inköpsordernummer. Inköpsordernumret kommer att visas på de fakturor som genereras för faktureringsprofilen. |
@@ -163,7 +163,7 @@ Om du har befintliga Azure-prenumerationer eller andra produkter, till exempel A
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering + fakturering**.
+2. Sök efter **Kostnadshantering och fakturering**.
 
    ![Skärmbild som visar en sökning efter prenumerationer i portalen](./media/mca-section-invoice/search-cmb.png)
 
@@ -208,7 +208,7 @@ Anta nu att du har skapat en till faktureringsprofil och använt 50 GB genom pr
 |  Nivåpriser (USD) |Kvantitet | Belopp (USD)|
 |---------|---------|---------|
 |1,84 per TB för de första 50 TB/månad    | 50 TB        | 92,0  |
-|1,77 per TB för nästföljande 450 TB/månad    |  0 TB         | 0.0  |
+|1,77 per TB för nästföljande 450 TB/månad    |  0 TB         | 0,0  |
 |Totalt     |     50 TB  | 92,0
 
 `Charges for the second billing profile`
@@ -216,7 +216,7 @@ Anta nu att du har skapat en till faktureringsprofil och använt 50 GB genom pr
 |  Nivåpriser (USD) |Kvantitet | Belopp (USD)|
 |---------|---------|---------|
 |1,84 per TB för de första 50 TB/månad    | 50 TB        | 92,0  |
-|1,77 per TB för nästföljande 450 TB/månad    |  0 TB         | 0.0  |
+|1,77 per TB för nästföljande 450 TB/månad    |  0 TB         | 0,0  |
 |Totalt     |     50 TB  | 92,0
 
 De totala avgifterna för användning av 100 TB data i det här scenariot är **184,0** (92,0 * 2).

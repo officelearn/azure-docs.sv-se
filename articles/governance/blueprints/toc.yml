@@ -211,7 +211,7 @@
         - name: Distributionssteg
           displayName: 'caf, migrate, landing zone, deploy'
           href: ./samples/caf-migrate-landing-zone/deploy.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Livscykeln för en skiss
       displayName: 'publish, edit, delete, assignments'
@@ -228,7 +228,7 @@
     - name: Resurslåsning i skisser
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Hantera tilldelningar med PowerShell
       displayName: 'create, update, remove'

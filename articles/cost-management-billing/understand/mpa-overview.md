@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 45dbf43966b71d7db7ada8be7704f6b3b37aab25
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199185"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Kom igång med faktureringskontot för ditt Microsoft-partneravtal
 
-När du registrerar dig för att använda Azure skapas ett faktureringskonto. Du använder faktureringskontot till att hantera fakturor och betalningar samt spåra kostnader. Du kan ha åtkomst till flera faktureringskonton. Du kan till exempel ha registrerat dig för Azure för dina personliga projekt. Du kan även ha åtkomst till Azure via organisationens Enterprise-avtal, Microsoft-kundavtal eller Microsoft-partneravtal. I den här situationen skulle du ha två separata faktureringskonton.
+Ett faktureringskonto skapas när du registrerar dig för att använda Azure. Du använder faktureringskontot till att hantera fakturor och betalningar samt spåra kostnader. Du kan ha åtkomst till flera faktureringskonton. Du kan till exempel ha registrerat dig för Azure för dina personliga projekt. Du kan även ha åtkomst till Azure via organisationens Enterprise-avtal, Microsoft-kundavtal eller Microsoft-partneravtal. I den här situationen skulle du ha två separata faktureringskonton.
 
 Den här artikeln gäller faktureringskonton för Microsoft-partneravtal. Dessa konton skapas för att molnlösningsleverantörer (CSP:er) ska kunna hantera faktureringen för sina kunder i den nya e-handelsmiljön. Den nya miljön är bara tillgänglig för partner som har minst en kund som har accepterat ett Microsoft-kundavtal och har ett Azure-prenumerationsavtal. [Kontrollera om du har åtkomst till ett Microsoft-partneravtal](#check-access-to-a-microsoft-partner-agreement). Med en [Azure-plan](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) får kunderna tillgång till Azure-tjänster till betala per användning-priser enligt ett Microsoft-kundavtal.
 

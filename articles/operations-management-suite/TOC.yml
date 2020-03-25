@@ -2,7 +2,7 @@
   items:
     - name: Agentövervakning
       href: ../monitoring/index.md
-- name: Komma igång
+- name: Kom igång
   items:
     - name: Azure Monitor-loggar
       href: ../log-analytics/log-analytics-get-started.md
@@ -10,7 +10,7 @@
       href: /azure/automation/
     - name: Backup
       href: ../backup/backup-introduction-to-azure-backup.md
-    - name: Site Recovery
+    - name: Webbplatsåterställning
       href: ../site-recovery/site-recovery-overview.md
 - name: Gör så här för att
   items:

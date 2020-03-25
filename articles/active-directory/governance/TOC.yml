@@ -14,7 +14,7 @@
   items:
     - name: Skapa ditt första åtkomstpaket
       href: entitlement-management-access-package-first.md
-- name: Begrepp
+- name: Koncept
   expanded: true
   items:
     - name: Berättigandehantering
@@ -31,7 +31,7 @@
           href: manage-user-access-with-access-reviews.md
         - name: Hantera användare som undantagits från villkorsstyrd åtkomst
           href: conditional-access-exclusion.md
-- name: Anvisningar
+- name: Instruktionsguider
   expanded: true
   items:
     - name: Berättigandehantering

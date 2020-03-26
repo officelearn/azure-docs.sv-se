@@ -10,10 +10,10 @@ ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: dce3549bde4c62245e1d2b1f8ac0c88c0b70260c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70241396"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Självstudier: Beställa Azure Data Box Heavy
@@ -29,7 +29,7 @@ I den här självstudien beskriver vi hur du kan beställa en Azure Data Box Hea
 > * Spåra beställningen
 > * Avbryta beställningen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Slutför följande konfigurationskrav för Data Box-tjänsten och enheten innan du distribuerar enheten.
 
@@ -160,7 +160,7 @@ Om du vill ta bort en avbruten beställning navigerar du till **Översikt** och 
 I den här självstudien om Azure Data Box Heavy har du bland annat lärt dig att:
 
 > [!div class="checklist"]
-> * Nödvändiga komponenter
+> * Krav
 > * Beställa Data Box Heavy
 > * Spåra beställningen
 > * Avbryta beställningen

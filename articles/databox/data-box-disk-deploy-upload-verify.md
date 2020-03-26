@@ -10,25 +10,25 @@ ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78380560"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214300"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-verify-data-upload-from-azure-data-box-disk"></a>Självstudie: Verifiera data uppladdning från Azure Data Box Disk
+# <a name="tutorial-verify-data-upload-from-azure-data-box-disk"></a>Självstudier: Verifiera datauppladdning från Azure Data Box Disk
 
-Det här är den sista självstudien i serien om att distribuera Azure Data Box-disken. I den här självstudien lär du dig att:
+Detta är den sista självstudien i serien: Distribuera Azure Data Box Disk. I den här självstudien lär du dig att:
 
 > [!div class="checklist"]
 > * Kontrollera datauppladdning till Azure
 > * Radera data från Data Box-disk
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du kontrol lera att du har slutfört [självstudien: returnera Azure Data Box disk](data-box-disk-deploy-picked-up.md).
+Innan du börjar bör du slutföra följande [självstudie: Returnera Azure Data Box Disk](data-box-disk-deploy-picked-up.md).
 
 
 ## <a name="verify-data-upload-to-azure"></a>Kontrollera datauppladdning till Azure

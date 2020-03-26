@@ -10,7 +10,7 @@ ms.date: 09/13/2018
 ms.author: pabutler
 ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
 ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/08/2019
 ms.locfileid: "73827326"
@@ -159,7 +159,7 @@ I följande tabell visas olika regioner som du kan ange för anpassade kärn pri
 | LI         | Liechtenstein        | CHF               |
 | LT         | Litauen            | EUR               |
 | LU         | Luxemburg           | EUR               |
-| MK         | Nord Makedonien      | MKD               |
+| MK         | Makedonien      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Mexiko               | MXN               |

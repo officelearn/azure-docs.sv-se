@@ -15,7 +15,7 @@ ms.author: kumud
 ms.reviewer: tyao
 ms.openlocfilehash: 7ad2d181b6343644205c58ab1d5fe83dc25542d4
 ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 07/12/2019
 ms.locfileid: "67846416"
@@ -137,7 +137,7 @@ Du kan konfigurera en princip för geo-filtrering för ytterdörren genom att an
 | MA | Marocko|
 | MD | Moldavien|
 | MG | Madagaskar|
-| MK | Norra Makedonien|
+| MK | Makedonien|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongoliet|

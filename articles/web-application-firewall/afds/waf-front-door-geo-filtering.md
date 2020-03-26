@@ -10,7 +10,7 @@ ms.author: victorh
 ms.reviewer: tyao
 ms.openlocfilehash: 7c49892f97d9c15efcaecccb6133c67133e81c87
 ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2020
 ms.locfileid: "79137568"
@@ -132,7 +132,7 @@ Du kan konfigurera en princip för geo-filtrering för din front dörr med hjäl
 | MA | Marocko|
 | MD | Moldavien|
 | MG | Madagaskar|
-| MK | Nordmakedonien|
+| MK | Makedonien|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongoliet|

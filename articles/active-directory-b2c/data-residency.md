@@ -48,7 +48,7 @@ Data finns i **USA** för följande länder/regioner:
 
 Data finns i **Europa** för följande länder/regioner:
 
-> Algeriet, Österrike, Azerbajdzjan, Bahrain, Vitryssland, Belgien, Bulgarien, Cypern, Tjeckien, Danmark, Egypten, Estland, Finland, Frankrike, Grekland, Ungern, Island, Irland, Israel, Italien, Jordanien, Kazakstan, Tyskland, Kuwait, Lettland, Libanon, Liechtenstein, Litauen, Luxemburg, norra Makedonien, Malta, Montenegro, Marocko, Nederländerna, Nigeria, Norge, Oman, Pakistan, Polen, Portugal, Qatar, Rumänien, Ryssland, Saudiarabien, Serbien, Slovakien, Slovenien, Sydafrika, Spanien, Sveriges Schweiz, Tunisien, Turkiet, Ukraina, Förenade Arabemiraten och Förenade kungariket.
+> Algeriet, Österrike, Azerbajdzjan, Bahrain, Vitryssland, Belgien, Bulgarien, Cypern, Tjeckien, Danmark, Egypten, Estland, Finland, Frankrike, Grekland, Ungern, Island, Irland, Israel, Italien, Jordanien, Kazakstan, Tyskland, Kuwait, Lettland, Libanon, Liechtenstein, Litauen, Luxemburg, Makedonien, Malta, Montenegro, Marocko, Nederländerna, Nigeria, Norge, Oman, Pakistan, Polen, Portugal, Qatar, Rumänien, Ryssland, Saudiarabien, Serbien, Slovakien, Slovenien, Sydafrika, Spanien, Sveriges Schweiz, Tunisien, Turkiet, Ukraina, Förenade Arabemiraten och Förenade kungariket.
 
 Data finns i **Asien och Stillahavsområdet** för följande länder/regioner:
 

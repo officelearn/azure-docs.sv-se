@@ -166,7 +166,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Tunisien                     | ✓               |                              |        ✓| 
 | Uganda                      | ✓               |                              |        ✓| 
 | Förenade Arabemiraten        | ✓               |                              |        ✓| 
-| Västra Västsahara              | ✓               |                              |        ✓| 
+| Västsahara              | ✓               |                              |        ✓| 
 | Jemen                       | ✓               |                              |        ✓| 
 | Zambia                      | ✓               |                              |        ✓| 
 | Zimbabwe                    | ✓               |                              |        ✓| 

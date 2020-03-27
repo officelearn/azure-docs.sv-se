@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 804b46cd5238c189063608d067c0b40fcd3e306d
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 8d72ee529966fe0db8bf496533453c81064a81a5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379304"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79501789"
 ---
 ::: zone target="docs" 
 
-# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Självstudie: kopiera data till Azure Data Box via SMB
+# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Självstudier: Kopiera data till Azure Data Box via SMB
 
 ::: zone-end
 
@@ -30,22 +30,22 @@ ms.locfileid: "78379304"
 
 ::: zone target="docs"
 
-Den här självstudien beskriver hur du ansluter till och kopierar data från värddatorn med det lokala webbgränssnittet.
+I den här självstudien beskrivs hur du ansluter till och kopierar data från värddatorn med det lokala webbgränssnittet.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Krav
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien: konfigurera Azure Data Box](data-box-deploy-set-up.md).
-2. Du har fått din Data Box-enhet och orderstatusen i portalen är **Levererad**.
+1. Du har slutfört självstudien [: Konfigurera Azure Data Box](data-box-deploy-set-up.md).
+2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**.
 3. Du har en värddator som har de data du vill kopiera över till Data Box. Värddatorn måste
     - Köra ett [operativsystem som stöds](data-box-system-requirements.md).
     - Vara ansluten till en höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men kopieringshastigheten påverkas.
@@ -73,7 +73,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Klicka på **OK**
+2. I dialogrutan Få åtkomst till resursen och kopiera data kopierar du **användarnamnet** och **lösenordet** som motsvarar resursen. Klicka på **OK**.
     
     ![Hämta resursautentiseringsuppgifter 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -107,22 +107,21 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 Om du använder en Linux-klient använder du följande kommando för att montera SMB-resursen. Parametern ”vers” nedan är den version av SMB din Linux-värd stödjer. Inför lämplig version i kommandot nedan. Versioner av SMB som Data Box har stöd för finns i avsnittet om [filsystem som stöds för Linux-klienter](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
-    
-
 
 ## <a name="copy-data-to-data-box"></a>Kopiera data till Data Box
 
 När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
-- Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera de virtuella hårddiskarna till en sidblob. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
--  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box-gränser](data-box-limits.md).
-- Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
-- Vi rekommenderar att du:
-    - Inte använder SMB och NFS samtidigt.
-    - Kopierar samma data till samma mål på Azure. 
-     
+* Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera de virtuella hårddiskarna till en sidblob. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
+*  När du kopierar data ser du till att datastorleken överensstämmer med storleksbegränsningarna som beskrivs i avsnittet om [Azure Storage- och Data Box-gränser](data-box-limits.md).
+* Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
+* Vi rekommenderar att du:
+  * Inte använder SMB och NFS samtidigt.
+  * Kopierar samma data till samma mål på Azure.
+
   I sådana fall kan slutresultatet inte fastställas.
-- Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
+* Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
+* Se till att du behåller en kopia av dina källdata tills du kan bekräfta att Data Box-enheten har överfört dina data till Azure Storage.
 
 När du har anslutit till SMB-resursen kan du påbörja en datakopiering. Du kan använda valfritt SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy, för att kopiera data. Flera kopieringsjobb kan initieras med hjälp av Robocopy. Ange följande kommando:
     
@@ -238,7 +237,7 @@ Kontrollera att resurs- och mappnamnen och datastorleken följer riktlinjerna so
 2. Du kan hämta autentiseringsuppgifterna för åtkomst till resursen på sidan **Connect & copy** (Anslut och kopiera) i det lokala webbgränssnittet i Data Box.
 3. Använd ett SMB-kompatibelt filkopieringsverktyg som Robocopy för att kopiera data till resurser. 
 
-Stegvisa instruktioner finns i [Självstudier: kopiera data till Azure Data box via SMB](data-box-deploy-copy-data.md).
+Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box via SMB](data-box-deploy-copy-data.md).
 
 ## <a name="copy-data-via-nfs"></a>Kopiera data via NFS
 
@@ -249,21 +248,21 @@ Stegvisa instruktioner finns i [Självstudier: kopiera data till Azure Data box 
 2. Du kan hämta autentiseringsuppgifterna för åtkomst till resursen på sidan **Connect & copy** (Anslut och kopiera) i det lokala webbgränssnittet i Data Box.
 3. Använd kommandot `cp` eller `rsync` för att kopiera dina data.
 
-Stegvisa instruktioner finns i [Självstudier: kopiera data till Azure Data box via NFS](data-box-deploy-copy-data-via-nfs.md).
+Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box via NFS](data-box-deploy-copy-data-via-nfs.md).
 
 ## <a name="copy-data-via-rest"></a>Kopiera data via REST
 
 1. Om du vill kopiera data med Data Box-bloblagring via REST-API:er kan du ansluta via *http* eller *https*.
 2. Om du vill kopiera data till Data Box-blogglagring kan du använda AzCopy.
 
-Stegvisa instruktioner finns i [Självstudier: kopiera data till Azure Data Box Blob Storage via REST-API: er](data-box-deploy-copy-data-via-nfs.md).
+Stegvisa instruktioner finns i [Självstudier: Kopiera data till Azure Data Box-bloblagring via REST-API:er](data-box-deploy-copy-data-via-nfs.md).
 
 ## <a name="copy-data-via-data-copy-service"></a>Kopiera data via datakopieringstjänsten
 
 1. Om du ska kopiera data med hjälp av datakopieringstjänsten måste du skapa ett jobb. I det lokala webbgränssnittet på din Data Box går du till **Hantera > Kopiera data > Skapa**. 
 2. Fyll i parametrarna och skapa ett jobb.
 
-Stegvisa instruktioner finns i [Självstudier: Använd tjänsten data kopiering för att kopiera data till Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).
+Stegvisa instruktioner finns i [Självstudier: Använd datakopieringstjänsten för att kopiera data till Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).
 
 ## <a name="copy-data-to-managed-disks"></a>Kopiera data till hanterade diskar
 
@@ -271,7 +270,7 @@ Stegvisa instruktioner finns i [Självstudier: Använd tjänsten data kopiering 
 2. Du kan ansluta till Data Box via SMB- eller NFS-resurser.
 3. Sedan kan du kopiera data via SMB- eller NFS-verktyg.
 
-Stegvisa instruktioner finns i [Självstudier: använd data Box-enhet för att importera data som Managed disks i Azure](data-box-deploy-copy-data-from-vhds.md).
+Stegvisa instruktioner finns i [Självstudier: Använd Data Box för att importera data som hanterade diskar i Azure](data-box-deploy-copy-data-from-vhds.md).
 
 ::: zone-end
 
@@ -283,7 +282,7 @@ Stegvisa instruktioner finns i [Självstudier: använd data Box-enhet för att i
 I den här kursen har du lärt dig om Azure Data Box-ämnen som att:
 
 > [!div class="checklist"]
-> * Förutsättningar
+> * Krav
 > * Ansluta till Data Box
 > * Kopiera data till Data Box
 

@@ -45,8 +45,11 @@
       items:
         - name: Säkerhetsrekommendationer
           href: security-recommendations.md
-        - name: Azure Storage-kryptering
+        - name: Azure Storage-kryptering i vila
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          items:
+            - name: Kundhanterade nycklar med Azure Key Vault
+              href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Auktorisera dataåtgärder
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:

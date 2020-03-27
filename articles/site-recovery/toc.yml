@@ -165,6 +165,8 @@
               href: azure-to-azure-about-networking.md
             - name: Anpassa nätverkskonfigurationer för den virtuella Azure-måldatorn
               href: azure-to-azure-customize-networking.md
+            - name: Konfigurera proxyinställningar för mobilitetstjänst
+              href: configure-mobility-service-proxy-settings.md
             - name: Konfigurera nätverksmappning och behålla IP-adresser efter redundans
               href: azure-to-azure-network-mapping.md
             - name: Exempel för att bevara IP-adresser efter redundans
@@ -396,7 +398,7 @@
         - name: Dynamics AX
           href: site-recovery-dynamicsax.md
         - name: Fjärrskrivbordstjänster
-          href: 'site-recovery-workload.md#protect-rds'
+          href: 'site-recovery-workload.md#protect-remote-desktop-services'
         - name: Exchange
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP

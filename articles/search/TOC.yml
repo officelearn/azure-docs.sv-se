@@ -263,6 +263,8 @@
           href: search-pagination-page-layout.md
         - name: Relevansjustering (bedömningsprofiler)
           href: index-add-scoring-profiles.md
+        - name: Relevansjustering (likhetsalgoritm)
+          href: index-ranking-similarity.md
     - name: Planera
       items:
         - name: Välj en nivå

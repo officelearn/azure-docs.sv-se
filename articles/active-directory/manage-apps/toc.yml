@@ -68,7 +68,7 @@
               href: manage-certificates-for-federated-single-sign-on.md
             - name: Begränsningar för klientorganisation
               href: tenant-restrictions.md
-            - name: Konfigurera SAML-tokenkryptering (förhandsversion)
+            - name: Konfigurera SAML-tokenkryptering
               href: howto-saml-token-encryption.md
             - name: Slutanvändarportaler
               href: end-user-experiences.md
@@ -139,9 +139,7 @@
               href: grant-admin-consent.md
             - name: Konfigurera arbetsflöde för administratörsmedgivande (förhandsversion)
               href: configure-admin-consent-workflow.md
-            - name: Metoder för tilldelning av användare och grupper i en app
-              href: methods-for-assigning-users-and-groups.md
-            - name: Tilldela en användare till en app
+            - name: Tilldela en användare eller grupp till en app
               href: assign-user-or-group-access-portal.md
             - name: Skapa samlingar i Mina appar
               href: access-panel-collections.md

@@ -28,14 +28,8 @@
           href: go.md
     - name: SDK
       items:
-        - name: 'Använd C#'
-          href: news-search-sdk-quickstart.md
-        - name: Använda Node.js
-          href: news-search-sdk-node-quickstart.md
-        - name: Använda Python
-          href: news-sdk-python-quickstart.md
-        - name: Använda Java
-          href: news-sdk-java-quickstart.md
+        - name: Klientbibliotek för Nyhetssökning i Bing
+          href: ./quickstarts/client-libraries.md
 - name: Självstudier
   items:
     - name: Skapa en enkelsidig webbapp

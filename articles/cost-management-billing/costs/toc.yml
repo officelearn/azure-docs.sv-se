@@ -22,6 +22,8 @@
       items:
         - name: Metodtips för Azure Cost Management
           href: cost-mgt-best-practices.md
+        - name: Välja mellan Cost Management och Cloudyn
+          href: choose-between-azure-cost-management-cloudyn.md
         - name: Förstå Cost Management-data
           href: understand-cost-mgt-data.md
         - name: Förstå och arbeta med omfång

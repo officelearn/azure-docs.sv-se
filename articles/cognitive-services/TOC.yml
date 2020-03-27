@@ -7,12 +7,28 @@
       href: Welcome.md
     - name: Cognitive Services och Machine Learning
       href: cognitive-services-and-machine-learning.md
-    - name: Virtuella nätverk för Cognitive Services
-      href: cognitive-services-virtual-networks.md
     - name: Anpassade underdomäner för Cognitive Services
       href: cognitive-services-custom-subdomains.md
     - name: Stöd för språk
       href: language-support.md
+- name: Snabbstarter
+  items:
+    - name: Skapa en ny resurs med Azure Portal
+      href: cognitive-services-apis-create-account.md
+    - name: Skapa en ny resurs med Azure CLI
+      href: cognitive-services-apis-create-account-cli.md
+    - name: Diagnostikloggning
+      href: diagnostic-logging.md
+- name: Säkerhet
+  items:
+    - name: Cognitive Services-säkerhet
+      href: cognitive-services-security.md
+    - name: Virtuella nätverk för Cognitive Services
+      href: cognitive-services-virtual-networks.md
+    - name: Konfigurera kundhanterade nycklar
+      href: ./encryption/cognitive-services-encryption-keys-portal.md
+    - name: Autentisera begäranden till Cognitive Services
+      href: authentication.md
 - name: Stöd för containrar
   items:
     - name: Stöd för containrar
@@ -39,16 +55,6 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Azure Kubernetes Service (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
-- name: Snabbstarter
-  items:
-    - name: Skapa en ny resurs med Azure Portal
-      href: cognitive-services-apis-create-account.md
-    - name: Skapa en ny resurs med Azure CLI
-      href: cognitive-services-apis-create-account-cli.md
-    - name: Autentisering
-      href: authentication.md
-    - name: Diagnostikloggning
-      href: diagnostic-logging.md
 - name: Resurser
   items:
     - name: Azure-översikt

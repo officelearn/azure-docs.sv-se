@@ -129,7 +129,7 @@
       href: tutorial-rotation.md
     - name: Integrera med Azure Policy
       href: azure-policy.md
-    - name: Integrera med Azure Private Link Service (förhandsversion)
+    - name: Integrera med Azure Private Link-tjänsten
       href: private-link-service.md
     - name: Azure Key Vault-loggning
       href: key-vault-logging.md

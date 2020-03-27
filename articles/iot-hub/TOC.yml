@@ -87,6 +87,8 @@
       href: iot-hub-tls-support.md
     - name: Föråldrad användning av TLS 1.0 och 1.1
       href: iot-hub-tls-deprecating-1-0-and-1-1.md
+    - name: Stöd för virtuella nätverk
+      href: virtual-network-support.md
     - name: Översikt över meddelandeberikanden
       href: iot-hub-message-enrichments-overview.md
     - name: Översikt över enhetshantering
@@ -444,48 +446,46 @@
           href: iot-hub-operations-monitoring.md
         - name: Migrera till diagnostikinställningar
           href: iot-hub-migrate-to-diagnostics-settings.md
-- name: Relaterat
-  items:
-    - name: Lösningar
-      items:
-        - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
-        - name: IoT-lösningsacceleratorer
-          href: /azure/iot-accelerators
-    - name: Plattformstjänster
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: 'SDK:er för IoT-tjänster'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Kartor
-          href: /azure/azure-maps
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge-lösningar
-      items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
-        - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
     - name: Alternativ för support och hjälp
       href: /azure/iot-fundamentals/iot-support-help
-    - name: 'Azure IoT-exempel för C# (.NET)'
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
-    - name: Azure IoT-exempel för Node.js
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
-    - name: Azure IoT-exempel för Java
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
-    - name: Azure IoT-exempel för Python
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
-    - name: Azure IoT-exempel för iOS-plattform
-      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
+    - name: Azure IoT-tjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: 'SDK:er för Azure IoT'
+      items:
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+    - name: Azure IoT-exempel
+      items:
+        - name: 'C# (.NET)'
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+        - name: Node.js
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+        - name: Java
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+        - name: Python
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+        - name: iOS-plattform
+          href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Azure Certified for IoT-enhetskatalog
       href: 'https://catalog.azureiotsolutions.com/'
     - name: Azure IoT Developer Center
@@ -496,8 +496,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Azure IoT-verktyg
       href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools'
-    - name: DeviceExplorer-verktyg
-      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: Verktyget Azure IoT Explorer
+      href: 'https://github.com/Azure/azure-iot-explorer'
     - name: iothub-diagnostics tool
       href: 'https://github.com/Azure/iothub-diagnostics'
     - name: MSDN-forum

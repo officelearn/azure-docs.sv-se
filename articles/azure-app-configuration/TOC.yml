@@ -92,6 +92,8 @@
   items:
     - name: Aktivera en funktion för en delmängd av användarna
       href: howto-feature-filters-aspnet-core.md
+    - name: Använda etiketter för konfiguration per miljö
+      href: howto-labels-aspnet-core.md
     - name: Importera eller exportera konfigurationsdata
       href: howto-import-export-data.md
     - name: Dirigera händelser till en anpassad slutpunkt

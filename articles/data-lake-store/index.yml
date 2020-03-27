@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Data Lake Storage Gen1
+summary: Lär dig hur du konfigurerar, hanterar och får åtkomst till en högskalig, Hadoop-kompatibel Data Lake-lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter. Azure Data Lake Storage Gen2 är allmänt tillgänglig. Vi rekommenderar att du börjar använda den idag.
+metadata:
+  title: Dokumentation om Azure Data Lake Storage Gen1
+  description: Lär dig hur du konfigurerar, hanterar och får åtkomst till en högskalig, Hadoop-kompatibel Data Lake-lagringsplats för analys av data av alla storlekar, typer och inmatningshastigheter.
+  ms.service: data-lake-store
+  ms.topic: landing-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 03/11/2020
+  ms.openlocfilehash: bf688b1230c8fd4eecba08ce361e92b9030a241f
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79410099"
+landingContent:
+- title: Om Azure Data Lake Storage Gen1
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Data Lake Storage Gen1?
+      url: data-lake-store-overview.md
+    - text: Jämför med Azure Storage
+      url: data-lake-store-comparison-with-blob-storage.md
+    - text: Växla till dokumentationen om Data Lake Storage Gen2
+      url: ../storage/data-lake-storage/introduction.md
+- title: Kom igång
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure Portal
+      url: data-lake-store-get-started-portal.md
+    - text: Azure PowerShell
+      url: data-lake-store-get-started-powershell.md
+    - text: Azure CLI
+      url: data-lake-store-get-started-cli-2.0.md
+- title: Läs in och flytta data
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda Azure Data Factory
+      url: ../data-factory/load-azure-data-lake-store.md
+    - text: Använda Storage Explorer
+      url: data-lake-store-in-storage-explorer.md
+    - text: Använda AdlCopy
+      url: data-lake-store-copy-data-azure-storage-blob.md
+    - text: Använda DistCp
+      url: data-lake-store-copy-data-wasb-distcp.md
+    - text: Använda Sqoop
+      url: data-lake-store-data-transfer-sql-sqoop.md
+- title: Skydda data
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Säkerhetsöversikt
+      url: data-lake-store-security-overview.md
+    - text: Åtkomstkontroll
+      url: data-lake-store-access-control.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skydda lagrade data
+      url: data-lake-store-secure-data.md
+    - text: Kryptering
+      url: data-lake-store-encryption.md
+    - text: Virtual Network-integration
+      url: data-lake-store-network-security.md
+- title: Autentisering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Autentiseringsalternativ
+      url: data-lakes-store-authentication-using-azure-active-directory.md
+  - linkListType: how-to-guide
+    links:
+    - text: Slutanvändarautentisering
+      url: data-lake-store-end-user-authenticate-using-active-directory.md
+    - text: Tjänst-till-tjänst-autentisering
+      url: data-lake-store-service-to-service-authenticate-using-active-directory.md
+- title: Åtgärder för filsystem
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: .NET SDK
+      url: data-lake-store-data-operations-net-sdk.md
+    - text: Java SDK
+      url: data-lake-store-get-started-java-sdk.md
+    - text: REST-API
+      url: data-lake-store-data-operations-rest-api.md
+    - text: Python
+      url: data-lake-store-data-operations-python.md
+- title: Åtgärder för kontohantering
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: .NET SDK
+      url: data-lake-store-get-started-net-sdk.md
+    - text: REST-API
+      url: data-lake-store-get-started-rest-api.md
+    - text: Python
+      url: data-lake-store-get-started-python.md

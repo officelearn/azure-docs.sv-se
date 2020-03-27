@@ -35,6 +35,10 @@
     - name: Begrepp
       expanded: false
       items:
+        - name: Säkerhet
+          items:
+            - name: Säkerhetsbaslinje
+              href: security-baseline.md
         - name: 'SKU:er och gränser för Container Registry'
           href: container-registry-skus.md
         - name: 'Register, lagringsplatser och avbildningar'
@@ -120,7 +124,7 @@
         - name: Övervaka
           expanded: false
           items:
-            - name: Diagnostik-och granskningsloggar (förhandsversion)
+            - name: Diagnostik- och granskningsloggar
               href: container-registry-diagnostics-audit-logs.md
             - name: Granska efterlevnad med Azure Policy (förhandsversion)
               href: container-registry-azure-policy.md

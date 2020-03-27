@@ -8,7 +8,7 @@
   items:
     - name: Kom igång med Advisor
       href: advisor-get-started.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Förbättra tillgängligheten för Azure-program
       href: advisor-high-availability-recommendations.md
@@ -26,6 +26,10 @@
       href: permissions.md
     - name: Konfigurera aviseringar för rekommendationer
       href: advisor-alerts.md
+    - name: Massåtgärd för rekommendationer
+      href: advisor-quick-fix.md
+    - name: Advisor-data i Azure Resource Graph
+      href: advisor-azure-resource-graph.md
 - name: Referens
   items:
     - name: Security Center

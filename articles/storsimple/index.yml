@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: Dokumentation om StorSimple
+summary: Lär dig hur du använder Azure StorSimple, en integrerad lagringslösning som hanterar lagringsaktiviteter mellan lokala enheter på plats och lagring i Azure-molnet.
+metadata:
+  title: Dokumentation om StorSimple
+  description: Lär dig hur du använder Azure StorSimple, en integrerad lagringslösning som hanterar lagringsaktiviteter mellan lokala enheter på plats och lagring i Azure-molnet.
+  ms.service: storsimple
+  services: storsimple
+  ms.topic: landing-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 7744e0fecadbdbcc7af82645b58bb86a9e0bbe18
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79540314"
+landingContent:
+- title: Om StorSimple
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Jämför StorSimple med Azure File Sync och Data Box Edge
+      url: storsimple-8000-choose-storage-solution.md
+- title: StorSimple virtuell matris
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är StorSimple Virtual Array?
+      url: storsimple-ova-overview.md
+  - linkListType: get-started
+    links:
+    - text: Granska krav
+      url: storsimple-ova-system-requirements.md
+- title: StorSimple 8000-serien
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är StorSimple 8000-serien?
+      url: storsimple-overview.md
+  - linkListType: get-started
+    links:
+    - text: Granska krav
+      url: storsimple-8000-system-requirements.md
+- title: StorSimple Data Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är StorSimple Data Manager?
+      url: storsimple-data-manager-overview.md
+  - linkListType: get-started
+    links:
+    - text: Hantera i Azure-portalen
+      url: storsimple-data-manager-ui.md
+- title: StorSimple för Cloud Solutions Providers Program
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är StorSimple för Cloud Solutions Providers Program?
+      url: storsimple-partner-csp-overview.md
+  - linkListType: get-started
+    links:
+    - text: Distribuera
+      url: storsimple-partner-csp-deploy.md

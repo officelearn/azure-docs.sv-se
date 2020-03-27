@@ -16,6 +16,12 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
+    - name: Support för distansarbete
+      items:
+        - name: Distansarbete
+          href: work-remotely-support.md
+        - name: NVA-konfigurationer och distansarbete
+          href: nva-work-remotely-support.md
     - name: Om VPN Gateway-inställningar
       href: vpn-gateway-about-vpn-gateway-settings.md
     - name: Om VPN-enheter
@@ -150,6 +156,8 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Konfigurera OpenVPN-klienter
               href: vpn-gateway-howto-openvpn-clients.md
+        - name: Gå över till OpenVPN-protokoll eller IKEv2 från SSTP
+          href: ikev2-openvpn-from-sstp.md
         - name: Övergång till ett offentligt CA-gatewaycertifikat för P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Konfigurera en VPN-enhetstunnel för AlwaysOn
@@ -217,7 +225,7 @@
           items:
             - name: Problem med punkt-till-plats-anslutning
               href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-            - name: Problem med punkt-till-plats-anslutning – VPN-klient för Mac OS X-klient
+            - name: Problem med punkt-till-plats-anslutning – VPN-klient för macOS X
               href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
             - name: Punkt till plats – Azure AD-autentisering
               href: troubleshoot-ad-vpn-client.md

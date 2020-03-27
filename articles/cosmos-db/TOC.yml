@@ -53,7 +53,7 @@
               href: mobile-apps-with-xamarin.md
     - name: 2 – Migrera data
       items:
-        - name: Använda datamigreringsverktyg
+        - name: Använda datamigreringsverktyget
           href: import-data.md
         - name: Använda .NET-masstöd
           href: tutorial-sql-api-dotnet-bulk-import.md
@@ -89,7 +89,7 @@
       href: relational-nosql.md
     - name: Global distribution
       items:
-        - name: Översikt över global distribution
+        - name: Översikt av global distribution
           displayName: 'replication, replicate, geo distribution'
           href: distribute-data-globally.md
         - name: Konsekvensnivåer
@@ -549,8 +549,8 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced Threat Protection
-        - name: Inbyggda säkerhetskontroller
-          href: cosmos-db-security-controls.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Företagsberedskap
       items:
         - name: Säkerhetskopiering och återställning på begäran online
@@ -600,7 +600,7 @@
             - name: Ändringsfeed
               href: cassandra-change-feed.md
             - name: Lagra och hantera Spring Data
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra och Spark
               items:
                 - name: Introduktion
@@ -609,7 +609,7 @@
                   href: cassandra-spark-databricks.md
                 - name: Ansluta med HDInsight
                   href: cassandra-spark-hdinsight.md
-                - name: Skapa keyspace och tabell
+                - name: Skapa nyckelutrymme och tabell
                   href: cassandra-spark-ddl-ops.md
                 - name: Infoga data
                   href: cassandra-spark-create-ops.md
@@ -709,7 +709,7 @@
             - name: Hantera dataindexering
               href: mongodb-indexing.md
             - name: Lagra och hantera Spring Data
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Kommandon för MongoDB-tillägg
               href: mongodb-custom-commands.md
               displayName: custom commands
@@ -776,7 +776,7 @@
             - name: Visualisera diagramdata
               href: graph-visualization.md
             - name: Lagra och hantera Spring Data
-              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Hantera med Resource Manager-mallar
               href: manage-gremlin-with-resource-manager.md
               displayName: ARM
@@ -991,7 +991,7 @@
       items:
         - name: 'Skriva lagrade procedurer, utlösare och UDF:er'
           href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: Skriva lagrade procedurer och utlösare med API för JavaScript-fråga
+        - name: Skriva lagrade procedurer och utlösare med fråge-API för JavaScript
           href: how-to-write-javascript-query-api.md
         - name: 'Använda lagrade procedurer, utlösare och UDF:er'
           href: how-to-use-stored-procedures-triggers-udfs.md
@@ -1073,9 +1073,9 @@
         - name: Azure Event Hubs och Azure Storage
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Använd Spring Boot Starter
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
         - name: Utvecklarguide för Spring Data
-          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
         - name: ODBC-drivrutin
           href: odbc-driver.md
     - name: Migrera data till Azure Cosmos DB

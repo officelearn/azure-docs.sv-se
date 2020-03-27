@@ -1,5 +1,5 @@
 - name: Dokumentation om StorSimple
-  href: index.md
+  href: index.yml
 - name: StorSimple virtuell matris
   items:
     - name: Översikt
@@ -325,7 +325,7 @@
                   href: storsimple-5000-7000-afs-migration.md
             - name: Från andra lagringsenheter
               href: 'https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf'
-        - name: Uppdatering
+        - name: Uppdatera
           items:
             - name: Installera Uppdatering 5 – aktuell
               href: storsimple-8000-install-update-5.md

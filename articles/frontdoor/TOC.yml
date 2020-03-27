@@ -1,8 +1,8 @@
-- name: Dokumentation om Front Door Service
+- name: Dokumentation om Front Door
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure Front Door Service?
+    - name: Vad är Azure Front Door?
       href: front-door-overview.md
 - name: Snabbstarter
   expanded: true
@@ -27,6 +27,8 @@
       href: front-door-backend-pool.md
     - name: Cachelagring med Front Door
       href: front-door-caching.md
+    - name: Vanliga frågor och svar om Front Door
+      href: front-door-faq.md
     - name: Geo-filtrering
       href: front-door-geo-filtering.md
     - name: Hälsotillståndsavsökningar
@@ -49,6 +51,8 @@
       href: front-door-url-rewrite.md
     - name: URL-omdirigering
       href: front-door-url-redirect.md
+    - name: Domän med jokertecken
+      href: front-door-wildcard-domain.md
 - name: Anvisningar
   items:
     - name: Omdirigera trafik
@@ -65,10 +69,6 @@
           href: front-door-troubleshoot-routing.md
         - name: Tillåtna certifikatutfärdare
           href: front-door-troubleshoot-allowed-ca.md
-- name: VANLIGA FRÅGOR OCH SVAR
-  items:
-    - name: Vanliga frågor och svar om Front Door
-      href: front-door-faq.md
 - name: Referens
   items:
     - name: Azure CLI

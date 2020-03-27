@@ -70,10 +70,12 @@
           href: How-To/business-continuity-plan.md
         - name: Samarbeta
           href: How-To/collaborate-knowledge-base.md
+        - name: Aktivera aktiv inlärning
+          href: How-To/use-active-learning.md
     - name: Hantera kunskapsbas
       items:
         - name: Skapa kunskapsbas
-          href: Quickstarts/create-publish-knowledge-base.md
+          href: How-To/manage-knowledge-bases.md
         - name: Val av språk
           href: How-To/language-knowledge-base.md
         - name: Lägg till kommunikation
@@ -85,7 +87,7 @@
           href: How-To/test-knowledge-base.md
     - name: Hantera QnA-uppsättningar
       items:
-        - name: Redigera kunskapsbas
+        - name: Redigera QnA-uppsättning
           href: How-To/edit-knowledge-base.md
         - name: Lägg till uppföljningsmeddelanden
           href: How-To/multiturn-conversation.md

@@ -58,7 +58,21 @@
     - name: Begrepp
       items:
         - name: Så här fungerar Dev Spaces
-          href: how-dev-spaces-works.md
+          items:
+            - name: Översikt
+              href: how-dev-spaces-works.md
+            - name: Konfigurera ett kluster
+              href: how-dev-spaces-works-cluster-setup.md
+            - name: Förbereda ett projekt
+              href: how-dev-spaces-works-prep.md
+            - name: Köra koden
+              href: how-dev-spaces-works-up.md
+            - name: Dirigering mellan Dev Spaces
+              href: how-dev-spaces-works-routing.md
+            - name: Fjärrfelsökning
+              href: how-dev-spaces-works-remote-debugging.md
+            - name: Ansluta din utvecklingsdator till AKS
+              href: how-dev-spaces-works-connect.md
         - name: Så här fungerar VS Code med Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Nätverkskonfiguration i olika nätverkstopologier

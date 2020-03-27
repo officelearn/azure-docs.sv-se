@@ -315,6 +315,10 @@
               href: disk-encryption-sample-scripts.md
             - name: Diskkryptering på ett isolerat nätverk
               href: disk-encryption-isolated-network.md
+            - name: Så här verifierar du krypteringsstatus
+              href: how-to-verify-encryption-status.md
+            - name: Så här konfigurerar du LVM RAID på crypt
+              href: how-to-configure-lvm-raid-on-crypt.md
             - name: Felsökning för diskkryptering
               href: disk-encryption-troubleshooting.md
             - name: Vanliga frågor och svar om diskkryptering
@@ -498,8 +502,6 @@
           href: capture-image.md
         - name: Skapa en avbildning med Packer
           href: build-image-with-packer.md
-        - name: RHEL-avbildningar i Azure
-          href: rhel-images.md
         - name: Ladda ned befintlig disk
           href: download-vhd.md
     - name: Tillgänglighet och skalning
@@ -520,6 +522,8 @@
           href: create-cli-availability-zone.md
     - name: Använda automatiseringsverktyg
       items:
+        - name: Anpassade data
+          href: ../custom-data.md
         - name: Ansible
           items:
             - name: Installera och konfigurera

@@ -16,6 +16,8 @@
       href: how-to-routefilter-portal.md
 - name: Begrepp
   items:
+    - name: Distansarbete
+      href: work-remotely-support.md
     - name: Anslutningsmodeller
       href: expressroute-connectivity-models.md
     - name: Kretsar och peering

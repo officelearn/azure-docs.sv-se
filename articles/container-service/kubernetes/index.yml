@@ -4,6 +4,7 @@ title: Dokumentation om Azure Container Service med Kubernetes
 metadata:
   title: 'Dokumentation om Azure Container Service med Kubernetes – självstudier, API-referens | Microsoft Docs'
   meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes cluster. Learn how to use Azure Container Service in concert with Kubernetes with these quickstarts, tutorials, and samples.'
+  description: 'Med Azure Container Service kan du distribuera ett produktionsklart Kubernetes-kluster. Lär dig hur det går till med de här snabbstarterna, självstudierna och exemplen.'
   services: container-service
   author: georgewallace
   manager: gwallace

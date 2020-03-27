@@ -19,7 +19,7 @@
               href: service-bus-quickstart-powershell.md
             - name: Azure CLI
               href: service-bus-quickstart-cli.md
-            - name: Azure Resource Manager-mall
+            - name: ARM-mall
               href: service-bus-resource-manager-namespace-queue.md
         - name: Skicka och ta emot meddelanden
           items:
@@ -41,7 +41,7 @@
           items:
             - name: Azure Portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
-            - name: Azure Resource Manager-mall
+            - name: ARM-mall
               href: service-bus-resource-manager-namespace-topic.md
         - name: Publicera och prenumerera på meddelanden
           items:
@@ -65,6 +65,8 @@
       href: service-bus-tutorial-topics-subscriptions-portal.md
     - name: Uppdatera inventering – CLI
       href: service-bus-tutorial-topics-subscriptions-cli.md
+    - name: Svara på händelser via Event Grid
+      href: service-bus-to-event-grid-integration-example.md
 - name: Exempel
   items:
     - name: Service Bus-exempel
@@ -104,6 +106,8 @@
                   href: authenticate-application.md
         - name: Inbyggda säkerhetskontroller
           href: service-bus-messaging-security-controls.md
+        - name: Nätverkssäkerhet
+          href: network-security.md
 - name: Anvisningar
   items:
     - name: 'Migrera från API:er för Azure Service Manager (klassisk) till API:er för Resource Manager'
@@ -126,8 +130,6 @@
               href: message-expiration.md
             - name: Meddelandehantering med hjälp av Azure Event Grid
               href: service-bus-to-event-grid-integration-concept.md
-            - name: Azure Event Grid-exempel
-              href: service-bus-to-event-grid-integration-example.md
         - name: Ämnesfilter och åtgärder
           href: topic-filters.md
         - name: Migrera från Standard- till Premium-namnområden
@@ -152,10 +154,6 @@
               href: service-bus-amqp-troubleshoot.md
         - name: Avancerade funktioner
           items:
-            - name: Använda brandväggar
-              href: service-bus-ip-filtering.md
-            - name: Tjänstslutpunkter för virtuellt nätverk
-              href: service-bus-service-endpoints.md
             - name: Köer för obeställbara meddelanden
               href: service-bus-dead-letter-queues.md
             - name: Förhämtning av meddelanden
@@ -192,7 +190,7 @@
           href: service-bus-diagnostic-logs.md
         - name: Skjut upp och återaktivera meddelandeentiteter
           href: entity-suspend.md
-        - name: Använda Azure Resource Manager-mallar
+        - name: Använda ARM-mallar
           href: service-bus-resource-manager-overview.md
           items:
             - name: Skapa ett namnområde
@@ -203,7 +201,13 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Skydda
       items:
-        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data
+        - name: Konfigurera brandväggar
+          href: service-bus-ip-filtering.md
+        - name: Konfigurera tjänstslutpunkter för virtuellt nätverk
+          href: service-bus-service-endpoints.md
+        - name: Konfigurera privata slutpunkter (förhandsversion)
+          href: private-link-service.md
+        - name: Konfigurera kundhanterade nycklar
           href: configure-customer-managed-key.md
     - name: Felsöka
       items:

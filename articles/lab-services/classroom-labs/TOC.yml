@@ -30,12 +30,16 @@
   items:
     - name: Administratörsguide
       href: administrator-guide.md
+    - name: Guide för påskyndad konfiguration av labbkonto
+      href: account-setup-guide.md
+    - name: Guide för påskyndad konfiguration av labb
+      href: setup-guide.md
     - name: Klassrumslabb – klasstyper
       items:
         - name: Översikt över klasstyper
           href: class-types.md
-        - name: Djupinlärning i naturlig bearbetning
-          href: class-type-deep-learning-natural-processing.md
+        - name: Djupinlärning i bearbetning av naturliga språk
+          href: class-type-deep-learning-natural-language-processing.md
         - name: Gränssnittsskript i Linux
           href: class-type-shell-scripting-linux.md
         - name: Etisk hackning
@@ -66,6 +70,8 @@
           href: how-to-configure-firewall-settings.md
         - name: Ange Marketplace-avbildningar för labb
           href: specify-marketplace-images.md
+        - name: Ange supportinformation (ägare av labbkonto)
+          href: lab-account-owner-support-information.md
     - name: Skapa och konfigurera klassrumslabb (instruktör)
       items:
         - name: Skapa och hantera klassrumslabb
@@ -87,17 +93,29 @@
         - name: Aktivera automatisk avstängning vid frånkoppling
           href: how-to-enable-shutdown-disconnect.md
         - name: Aktivera kapslad virtualisering på en virtuell malldator
-          href: how-to-enable-nested-virtualization-template-vm.md
+          items:
+            - name: Aktivera kapslad virtualisering på en virtuell malldator – översikt
+              href: how-to-enable-nested-virtualization-template-vm.md
+            - name: Aktivera kapslad virtualisering på en virtuell malldator – använda användargränssnittet
+              href: how-to-enable-nested-virtualization-template-vm-ui.md
+            - name: Aktivera kapslad virtualisering på en virtuell malldator – använda ett skript
+              href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Förbereda en mall för virtuell Windows-dator
           href: how-to-prepare-windows-template.md
+        - name: Visa supportinformation (instruktör)
+          href: lab-creator-support-information.md
     - name: Ansluta till virtuella datorer i klassrumslabb (elev)
       items:
         - name: Åtkomst till klassrumslabb
           href: how-to-use-classroom-lab.md
         - name: Använda fjärrskrivbordsanslutning för virtuella Linux-datorer
           href: how-to-use-remote-desktop-linux-student.md
+        - name: Ansluta till en virtuell dator från Mac med hjälp av RDP
+          href: connect-virtual-machine-mac-rdp.md
         - name: Ange eller återställa lösenord för virtuella datorer
           href: how-to-set-virtual-machine-passwords-student.md
+        - name: Visa supportinformation (elev)
+          href: lab-user-support-information.md
 - name: Referens
   items:
     - name: REST-API

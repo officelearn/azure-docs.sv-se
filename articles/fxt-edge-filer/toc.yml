@@ -20,10 +20,10 @@
       href: fxt-add-storage.md
     - name: 7 – Konfigurera klustrets nätverksinställningar
       href: fxt-configure-network.md
-- name: Instruktionsguider
-  items:
-    - name: Montera klienter
+    - name: 8 – Montera klienter
       href: fxt-mount-clients.md
+- name: Anvisningar
+  items:
     - name: Övervaka maskinvaran för Azure FXT Edge Filer
       href: fxt-monitor.md
     - name: Stäng av en nod för maskinvaran på ett säkert sätt

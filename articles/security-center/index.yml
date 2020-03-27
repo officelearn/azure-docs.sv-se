@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: 2896bee8f5a07a7432ca3fa2ca49caa529fdeb1e
-  ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+  ms.openlocfilehash: a1d764ce1ce332290c1bd68c5beb5f2731ae5e41
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77604779"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80159310"
 landingContent:
 - title: Om Security Center
   linkLists:
@@ -32,15 +32,15 @@ landingContent:
     links:
     - text: Skydda dina containrar
       url: container-security.md
-    - text: Lägga till dynamiska efterlevnadspaket
-      url: update-regulatory-compliance-packages.md
-    - text: Integrera med Windows Admin Center
-      url: windows-admin-center-integration.md
+    - text: Integrerad sårbarhetsutvärdering för virtuella datorer
+      url: built-in-vulnerability-assessment.md
+    - text: Granska scheman för säkerhetsaviseringar
+      url: alerts-schemas.md
     - text: Automatisera svar på aviseringar och rekommendationer
       url: workflow-automation.md
     - text: Exportera säkerhetsaviseringar och rekommendationer
       url: continuous-export.md
-    - text: Konfigurera Advanced Threat Protection för Azure Key Vault
+    - text: Konfigurera hotskydd för Azure Key Vault
       url: advanced-threat-protection-key-vault.md
 - title: Kom igång
   linkLists:
@@ -56,8 +56,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Vad är säkerhetspoäng?
-      url: security-center-secure-score.md
+    - text: Förstå säkerhetspoäng
+      url: secure-score-security-controls.md
     - text: Åtgärda säkerhetsrekommendationer
       url: security-center-remediate-recommendations.md
     - text: Anpassa säkerhetsrekommendationer

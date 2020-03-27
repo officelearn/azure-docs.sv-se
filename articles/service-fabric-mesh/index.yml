@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentation om Azure Service Fabric Mesh
-summary: Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera program i behållare utan att hantera virtuella datorer, lagring eller nätverksresurser.
+summary: Azure Service Fabric Mesh är en fullständigt hanterad tjänst som gör att utvecklare kan distribuera containerbaserade program utan att hantera virtuella datorer, lagring eller nätverksresurser.
 metadata:
   ms.service: service-fabric-mesh
   ms.topic: landing-page
@@ -8,10 +8,10 @@ metadata:
   ms.author: edoyle
   ms.date: 12/02/2019
   ms.openlocfilehash: eb24b0b0b4a143e82c2b93f158db0a3d0647ed7c
-  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 12/03/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "74790165"
 landingContent:
 - title: Om Service Fabric Mesh
@@ -20,7 +20,7 @@ landingContent:
     links:
     - text: Vad är Service Fabric Mesh?
       url: service-fabric-mesh-overview.md
-    - text: Introduktion till Service Fabrics resursmodell
+    - text: Introduktion till Service Fabric-resursmodellen
       url: service-fabric-mesh-service-fabric-resources.md
   - linkListType: concept
     links:
@@ -34,7 +34,7 @@ landingContent:
       url: service-fabric-mesh-secrets-overview.md
   - linkListType: whats-new
     links:
-    - text: Vanliga frågor och svar
+    - text: Vanliga frågor
       url: service-fabric-mesh-faq.md
 - title: Skapa nya Service Fabric Mesh-program
   linkLists:
@@ -72,7 +72,7 @@ landingContent:
     links:
     - text: Containeranpassa en befintlig .NET-app för Service Fabric Mesh
       url: service-fabric-mesh-howto-containerize-vs.md
-    - text: Skapa regler för automatisk skalning
+    - text: Skapa autoskalningsprinciper
       url: service-fabric-mesh-howto-auto-scale-services.md
   - linkListType: concept
     links:

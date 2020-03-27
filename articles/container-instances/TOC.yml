@@ -59,6 +59,8 @@
           href: container-instances-vnet.md
         - name: Distribuera från Azure Container Registry
           href: container-instances-using-azure-container-registry.md
+        - name: Distribuera med GitHub Actions (förhandsversion)
+          href: container-instances-github-action.md
         - name: Kryptera distributionsdata
           href: container-instances-encrypt-data.md
         - name: Distribuera på dedikerade värdar
@@ -83,6 +85,8 @@
           href: container-instances-gpu.md
         - name: Aktivera SSL-slutpunkt i sidovagn
           href: container-instances-container-group-ssl.md
+        - name: Göra en statisk IP-adress tillgänglig
+          href: container-instances-application-gateway.md
     - name: Montera datavolymer
       items:
         - name: Azure-filresurs

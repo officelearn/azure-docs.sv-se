@@ -91,6 +91,8 @@
           href: password-policy.md
         - name: Aktivera säkerhetsgranskningshändelser
           href: security-audit-events.md
+        - name: Analysera granskningshändelser med Azure Monitor-arbetsböcker
+          href: use-azure-monitor-workbooks.md
     - name: Domänansluta virtuella datorer
       items:
         - name: Virtuell Windows Server-dator från mall

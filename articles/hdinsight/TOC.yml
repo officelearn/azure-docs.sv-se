@@ -19,6 +19,8 @@
           href: ./hdinsight-administer-use-powershell.md
         - name: Skapa kluster med Runbooks
           href: ./manage-clusters-runbooks.md
+        - name: E-postaviseringar med Apache Ambari
+          href: ./apache-ambari-email.md
         - name: Skapa en ETL-pipeline
           href: ./hdinsight-sales-insights-etl.md
     - name: Exempel
@@ -272,7 +274,8 @@
           href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
         - name: Skapa Apache Spark-kluster – Azure CLI
           href: ./spark/apache-spark-create-cluster-cli.md
-        - name: Skapa Apache Spark-kluster – mall
+        - name: Skapa Apache Spark-kluster – ARM-mall
+          displayName: Resource Manager
           href: ./spark/apache-spark-jupyter-spark-sql.md
     - name: Självstudier
       items:
@@ -416,8 +419,8 @@
       items:
         - name: Skapa Apache Hadoop-kluster – portalen
           href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
-        - name: Skapa Apache Hadoop-kluster – mall
-          displayName: 'resource manager template, arm template, resource manager group'
+        - name: Skapa Apache Hadoop-kluster – ARM-mall
+          displayName: Resource Manager
           href: ./hadoop/apache-hadoop-linux-tutorial-get-started.md
     - name: Självstudier
       items:
@@ -435,8 +438,54 @@
               href: use-pig.md
         - name: Utveckla
           items:
-            - name: Använda tomma kantnoder
-              href: ./hdinsight-apps-use-edge-node.md
+            - name: Använda MapReduce med Apache Hadoop
+              items:
+                - name: Översikt över MapReduce
+                  href: ./hadoop/hdinsight-use-mapreduce.md
+                - name: Använd SSH
+                  href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
+                - name: Använd cURL
+                  href: ./hadoop/apache-hadoop-use-mapreduce-curl.md
+                - name: Använda Azure PowerShell
+                  href: ./hadoop/apache-hadoop-use-mapreduce-powershell.md
+                - name: Använda SDK för .NET
+                  href: ./hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md
+                - name: Köra MapReduce-exemplen
+                  href: ./hadoop/apache-hadoop-run-samples-linux.md
+                - name: Köra anpassade Apache Hadoop MapReduce-program
+                  href: ./hadoop/apache-hadoop-run-custom-programs.md
+                - name: 'Utveckla strömmande C#-MapReduce-program'
+                  href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
+                - name: Utveckla Java MapReduce-program
+                  href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
+            - name: 'Använda Apache Hive som ett verktyg för extrahering, transformering och inläsning (ETL)'
+              href: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
+            - name: 'Extrahering, transformering i inläsning i stor skala'
+              href: ./hadoop/apache-hadoop-etl-at-scale.md
+            - name: Skapa .NET HDInsight-program med icke-interaktiv autentisering
+              href: ./hdinsight-create-non-interactive-authentication-dotnet-applications.md
+            - name: Analysera stordata
+              items:
+                - name: Analysera med Power Query
+                  href: ./hadoop/apache-hadoop-connect-excel-power-query.md
+                - name: Ansluta Power BI till interaktiv fråga
+                  href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
+                - name: Ansluta Power BI till Apache Hadoop
+                  href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
+                - name: Ansluta Excel till Apache Hadoop
+                  href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
+                - name: Ansluta med Apache Hive JDBC-drivrutinen
+                  href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
+                - name: Analysera lagrade tweets
+                  href: ./hdinsight-analyze-twitter-data-linux.md
+                - name: Skapa rekommendationer med Apache Mahout
+                  href: ./hadoop/apache-hadoop-mahout-linux-mac.md
+                - name: Avancerade analyser för HDInsight
+                  href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
+            - name: Hantera
+              items:
+                - name: Använda tomma kantnoder
+                  href: ./hdinsight-apps-use-edge-node.md
         - name: Felsöka
           items:
             - name: Vanliga problem
@@ -499,8 +548,8 @@
           href: ./kafka/apache-kafka-get-started.md
         - name: Skapa Apache Kafka-kluster – PowerShell
           href: ./kafka/apache-kafka-quickstart-powershell.md
-        - name: Skapa Apache Kafka-kluster – mall
-          displayName: 'resource manager template, arm template, resource manager group'
+        - name: Skapa Apache Kafka-kluster – ARM-mall
+          displayName: Resource Manager
           href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
     - name: Självstudier
       items:
@@ -564,6 +613,9 @@
           href: ./hbase/apache-hbase-overview.md
     - name: Snabbstarter
       items:
+        - name: Skapa Apache HBase-kluster – ARM-mall
+          displayName: Resource Manager
+          href: ./hbase/quickstart-resource-manager-template.md
         - name: Fråga Apache HBase – Apache Phoenix
           href: ./hbase/apache-hbase-query-with-phoenix.md
         - name: Fråga Apache HBase – HBase Shell
@@ -636,6 +688,9 @@
           href: ./interactive-query/apache-interactive-query-get-started.md
     - name: Snabbstarter
       items:
+        - name: Skapa Interaktiv fråga-kluster – ARM-mall
+          displayName: Resource Manager
+          href: ./interactive-query/quickstart-resource-manager-template.md
         - name: Köra Apache Hive-frågor – Apache Zeppelin
           href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
     - name: Självstudier
@@ -718,6 +773,9 @@
           href: ./r-server/r-server-overview.md
     - name: Snabbstarter
       items:
+        - name: Skapa ML Services-kluster – ARM-mall
+          displayName: Resource Manager
+          href: ./r-server/quickstart-resource-manager-template.md
         - name: Exempeljobb – RStudio Server
           href: ./r-server/machine-learning-services-quickstart-job-rstudio.md
         - name: Exempeljobb – R-konsolen
@@ -800,8 +858,6 @@
           href: ./domain-joined/hdinsight-security-overview.md
     - name: Självstudier
       items:
-        - name: Använda brandväggen för att begränsa utgående trafik
-          href: ./hdinsight-restrict-outbound-traffic.md
         - name: Apache HBase RBAC med Apache Ranger
           href: ./domain-joined/apache-domain-joined-run-hbase.md
         - name: Apache Hive RBAC med Apache Ranger
@@ -850,6 +906,8 @@
           href: ./domain-joined/ssh-domain-accounts.md
         - name: Skydda data
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+        - name: Använda brandväggen för att begränsa utgående trafik
+          href: ./hdinsight-restrict-outbound-traffic.md
         - name: Felsöka
           items:
             - name: ESP-autentiseringsproblem

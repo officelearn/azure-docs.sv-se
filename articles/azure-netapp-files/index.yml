@@ -1,35 +1,70 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure NetApp Files
+summary: Lär dig att med hjälp av Azure NetApp Files skapa och hantera NetApp-konton, kapacitetspooler och volymer, konfigurera exportprinciper, montera en volym för en virtuell dator och hantera ögonblicksbilder.
 metadata:
   title: Dokumentation om Azure NetApp Files
-  description: 'Lär dig att konfigurera, få åtkomst till och hantera volymer med hjälp av tjänsten Azure NetApp Files.'
-  author: b-juche
-  ms.author: b-juche
+  description: Lär dig att konfigurera, få åtkomst till och hantera volymer med hjälp av tjänsten Azure NetApp Files.
   ms.service: azure-netapp-files
   ms.topic: landing-page
-  ms.date: 04/10/2019
-abstract:
-  description: 'Lär dig att med hjälp av Azure NetApp Files skapa och hantera NetApp-konton, kapacitetspooler och volymer, konfigurera exportprinciper, montera en volym för en virtuell dator och hantera ögonblicksbilder. <p>För att kunna använda Azure NetApp Files måste du ha åtkomst till Azure NetApp Files-tjänsten. Läs om hur du begär åtkomst i <a href="azure-netapp-files-register#waitlist">Submit a waitlist request</a> (Skicka en begäran om väntelista).</p>'
-sections:
-  - title: Snabbstarter på fem minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du konfigurerar Azure NetApp Files och skapar en volym med hjälp av:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/azure-netapp-files/media/index/get-started.svg'
-            text: Azure Portal
-            href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/netapp/">REST-API</a></p>'
-          - title: Azure Resource Manager
-            html: '<p><a href="https://docs.microsoft.com/azure/templates/microsoft.netapp/allversions">Resource Manager-mallar</a></p>'
+  author: b-juche
+  ms.author: b-juche
+  ms.date: 03/11/2020
+  ms.openlocfilehash: bcca681fcae02df3e3521b48f710acd36127c882
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79369060"
+landingContent:
+- title: Om Azure NetApp Files
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure NetApp Files?
+      url: azure-netapp-files-introduction.md
+    - text: Förstå lagringshierarkin
+      url: azure-netapp-files-understand-storage-hierarchy.md
+  - linkListType: concept
+    links:
+    - text: Tjänstnivåer
+      url: azure-netapp-files-service-levels.md
+    - text: Saker att tänka på gällande prestanda
+      url: azure-netapp-files-performance-considerations.md
+    - text: Riktlinjer för nätverksplanering
+      url: azure-netapp-files-network-topologies.md
+  - linkListType: video
+    links:
+    - text: Azure NetApp Files-videor
+      url: azure-netapp-files-videos.md
+- title: Kom igång
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skicka en begäran om väntelista
+      url: azure-netapp-files-register.md#waitlist
+  - linkListType: quickstart
+    links:
+    - text: Konfigurera Azure NetApp Files och skapa en NFS-volym
+      url: azure-netapp-files-quickstart-set-up-account-create-volumes.md
+- title: Skapa
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa ett NetApp-konto
+      url: azure-netapp-files-create-netapp-account.md
+    - text: Konfigurera en kapacitetspool
+      url: azure-netapp-files-set-up-capacity-pool.md
+    - text: Delegera ett undernät till Azure NetApp Files
+      url: azure-netapp-files-delegate-subnet.md
+    - text: Skapa en SMB-volym för Azure NetApp Files
+      url: azure-netapp-files-create-volumes-smb.md
+    - text: Skapa en NFS-volym för Azure NetApp Files
+      url: azure-netapp-files-create-volumes.md
+- title: Utveckla
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: REST-API
+      url: azure-netapp-files-develop-with-rest-api.md
+    - text: SDK:er och CLI-verktyg för Azure NetApp Files
+      url: azure-netapp-files-sdk-cli.md

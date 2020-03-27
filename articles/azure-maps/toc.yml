@@ -89,8 +89,10 @@
       items:
         - name: Söka efter en adress
           href: how-to-search-for-address.md
-        - name: Metodtips för sökning
+        - name: Bästa praxis vid användning av tjänsten Search
           href: how-to-use-best-practices-for-search.md
+        - name: Bästa praxis vid användning av tjänsten Route
+          href: how-to-use-best-practices-for-routing.md
         - name: Rendera anpassade data på statisk karta
           href: how-to-render-custom-data.md
         - name: Begära rutter för kollektivtrafik
@@ -101,7 +103,7 @@
       items:
         - name: Kartkontroll
           items:
-            - name: Komma igång med webbkartkontroll
+            - name: Använda kartkontrollen i Azure Maps
               href: how-to-use-map-control.md
             - name: Skapa en karta
               href: map-create.md
@@ -247,12 +249,38 @@
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: Tjänstmodul
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
+        - name: Rumslig IO-modul
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/'
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.maps/accounts
 - name: Resurser
   items:
     - name: Alternativ för support och hjälp
       href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT-tjänster
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: IoT Central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT-lösningsacceleratorer
+          href: /azure/iot-accelerators
+        - name: IoT Plug and Play
+          href: /azure/iot-pnp
+        - name: Azure Maps
+          href: /azure/azure-maps
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: 'SDK:er för Azure IoT'
+      items:
+        - name: 'SDK:er för IoT-tjänster'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: 'SDK:er för IoT-enheter'
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
     - name: Användningsvillkor för Azure Maps
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Azure Maps-prissättning
@@ -281,31 +309,3 @@
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Azure Maps på IoT School
       href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'
-- name: Relaterat
-  items:
-    - name: Lösningar
-      items:
-        - name: IoT-lösningsacceleratorer
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /azure/iot-central/iot-support-help
-    - name: Plattformstjänster
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: Kartor
-          href: /azure/azure-maps
-        - name: 'Tjänst-SDK:er'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge-lösningar
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: 'SDK:er för IoT-enheter'
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

@@ -22,6 +22,8 @@
           href: disaster-recovery-dns-traffic-manager.md
     - name: Planera och designa
       items:
+        - name: Stöd för distansarbete
+          href: working-remotely-support.md
         - name: Virtuella nätverk
           href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Anslutning på flera platser – VPN

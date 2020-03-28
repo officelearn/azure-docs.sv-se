@@ -12,10 +12,10 @@ ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: f6b55163440b25bf69c76e9b1217c439b0884d5d
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78331050"
 ---
 # <a name="what-is-the-translator-text-api"></a>Vad är Translator Text API?
@@ -28,7 +28,7 @@ Translator Text API är en del av Azure [Cognitive Services API](https://docs.mi
 
 Microsoft Translator är en molnbaserad maskinöversättningstjänst. Den viktigaste tjänsten är Translator Text API, som driver ett antal produkter och tjänster från Microsoft och används av tusentals företag över hela världen i program och arbetsflöden, vilket gör att deras innehåll kan nå en världsomspännande publik.
 
-Talöversättning, som drivs av Translator Text API, är också tillgängligt via [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst. Tal tjänsten ersätter Translator Speech API som tas ur bruk den 15 oktober 2019.
+Talöversättning, som drivs av Translator Text API, är också tillgängligt via [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst.Speech Service ersätter Translator Speech API, som tas ur drift 15 oktober 2019.
 
 ## <a name="language-support"></a>Stöd för språk
 
@@ -56,4 +56,4 @@ Läs mer om [språkanpassning](customization.md)
 
 - [Registrera dig ](translator-text-how-to-signup.md) och få en åtkomstnyckel.
 - [API-referensen](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) innehåller den tekniska dokumentationen för API:erna.
-- [Prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+- [Information om priser](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

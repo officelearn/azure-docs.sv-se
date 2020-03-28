@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: söka efter bilder REST API och python-Bildsökning i Bing'
+title: 'Snabbstart: Sök efter rest-API och Python - Bing-bildsökning'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten när du vill skicka bildsökningsbegäranden till REST-API för bildsökning i Bing med hjälp av Python och få JSON-svar.
 services: cognitive-services
@@ -12,22 +12,22 @@ ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930731"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och python
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Snabbstart: Sök efter bilder med REST API FÖR Bing-bildsökning och Python
 
 Använd den här snabbstarten för att börja skicka sökbegäranden till API för bildsökning i Bing. Python-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Python, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder:
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
+[![Pärm](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
 
-Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) tillsammans med ytterligare felhantering och kommentarer.
+Källkoden för det här exemplet är tillgänglig [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) med ytterligare felhantering och anteckningar.
 
 
 ## <a name="prerequisites"></a>Krav
@@ -40,7 +40,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera följande moduler. Skapa en variabel för din prenumerationsnyckel, en sökslutpunkt och ett sökvillkor. `search_url` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
+1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera följande moduler. Skapa en variabel för din prenumerationsnyckel, en sökslutpunkt och ett sökvillkor. `search_url`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
     ```python
     import requests
@@ -67,7 +67,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. Använd `requests`-biblioteket för att anropa API:et för bildsökning i Bing. Lägg till rubrik och parametrar i din begäran och returnera svaret som ett JSON-objekt. Hämta webb adresserna till flera miniatyr bilder från svarets `thumbnailUrl` fält.
+2. Använd `requests`-biblioteket för att anropa API:et för bildsökning i Bing. Lägg till rubrik och parametrar i din begäran och returnera svaret som ett JSON-objekt. Hämta webbadresserna till flera miniatyrbilder från `thumbnailUrl` svarsfältet.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
@@ -151,7 +151,7 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 > [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
 * [Vad är API:et för bildsökning i Bing?](../overview.md)  
-* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) av API:er för Bing-sökning. 
+* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

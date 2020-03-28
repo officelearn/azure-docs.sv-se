@@ -11,13 +11,13 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: e879afdbd4c34e9d74405644de86421fb2cbab46
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77279597"
 ---
-Exemplet yttranden följer ett speciellt format.
+Exempelyttrandena följer ett visst format.
 
 Fältet `text` innehåller texten för exempelyttrandet. Fältet `intentName` måste motsvara namnet på en befintlig avsikt i LUIS-appen. Fältet `entityLabels` är obligatoriskt. Om du inte vill märka ut några entiteter kan du ange en tom matris.
 

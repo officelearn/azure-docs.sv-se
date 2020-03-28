@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 5510088925b7a628417c7f3c11bb89c5ce915381
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906655"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Skapa Main-funktionen
 
-Det här exemplet försöker läsa Translator text prenumerations nyckel och slut punkt från följande miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
+Det här exemplet försöker läsa din prenumerationsnyckel och slutpunkt `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` `TRANSLATOR_TEXT_ENDPOINT`för translatortext från dessa miljövariabler: och . Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera villkorliga satser.
 
 Kopiera den här koden till projektet:
 
@@ -93,7 +93,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Transkribera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Translitterera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Skapa en struktur för begärandetexten
 
@@ -130,7 +130,7 @@ if err != nil {
 }
 ```
 
-Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
+Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="handle-and-print-the-response"></a>Hantera och skriva ut svaret
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa en webbapp som startar den fördjupade läsaren med Node. js'
+title: 'Snabbstart: Skapa en webbapp som startar Immersive Reader med Node.js'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten skapar du en webbapp från grunden och lägger till API-funktionen för avancerad läsare.
+description: I den här snabbstarten skapar du en webbapp från grunden och lägger till Immersive Reader API-funktionen.
 author: pasta
 manager: nitinme
 ms.service: cognitive-services
@@ -10,29 +10,29 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: pasta
 ms.openlocfilehash: 749e75fed409632c613713a49154e4cd8dc265b3
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75946329"
 ---
-# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-nodejs"></a>Snabb start: skapa en webbapp som startar den fördjupade läsaren (Node. js)
+# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-nodejs"></a>Snabbstart: Skapa en webbapp som startar Immersive Reader (Node.js)
 
-Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
+[Den uppslukande läsaren](https://www.onenote.com/learningtools) är ett inkluderande utformat verktyg som implementerar beprövade tekniker för att förbättra läsförståelsen.
 
-I den här snabb starten skapar du en webbapp från grunden och integrerar den fördjupade läsaren med hjälp av SDK för avancerad läsare. Ett fullständigt fungerande exempel på den här snabb starten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
+I den här snabbstarten skapar du en webbapp från grunden och integrerar Immersive Reader med hjälp av Immersive Reader SDK. Ett fullständigt fungerande exempel på den här snabbstarten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-nodejs).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-* En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
-* [Node. js](https://nodejs.org/) och [garn](https://yarnpkg.com)
-* En IDE, till exempel [Visual Studio Code](https://code.visualstudio.com/)
+* En Immersive Reader-resurs som konfigurerats för Azure Active Directory-autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att komma igång. Du behöver några av de värden som skapas här när du konfigurerar miljöegenskaperna. Spara utdata från sessionen i en textfil för framtida referens.
+* [Node.js](https://nodejs.org/) och [garn](https://yarnpkg.com)
+* En IDE som [Visual Studio-kod](https://code.visualstudio.com/)
 
-## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en Node. js-webbapp med Express
+## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en nod.js-webbapp med Express
 
-Skapa en Node. js-webbapp med `express-generator`-verktyget.
+Skapa en nod.js-webbapp med verktyget. `express-generator`
 
 ```bash
 npm install express-generator -g
@@ -40,7 +40,7 @@ express --view=pug quickstart-nodejs
 cd quickstart-nodejs
 ```
 
-Installera garn beroenden och Lägg till beroenden `request` och `dotenv`, som kommer att användas senare i snabb starten.
+Installera garnberoenden och lägg `request` `dotenv`till beroenden och , som kommer att användas senare i snabbstarten.
 
 ```bash
 yarn
@@ -50,10 +50,10 @@ yarn add dotenv
 
 ## <a name="set-up-authentication"></a>Konfigurera autentisering
 
-### <a name="configure-authentication-values"></a>Konfigurera värden för autentisering
+### <a name="configure-authentication-values"></a>Konfigurera autentiseringsvärden
 
-Skapa en ny fil med namnet _. kuvert_ i projekt roten. Klistra in följande kod i den, ange de värden som anges när du skapade din fördjupade läsare-resurs.
-Lägg inte till citat tecken eller tecknen "{" och "}".
+Skapa en ny fil med _namnet .env_ i projektets rot. Klistra in följande kod i den och ange de värden som angavs när du skapade Immersive Reader-resursen.
+Ta inte med citattecken eller tecknen "{" och "}".
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -62,18 +62,18 @@ CLIENT_SECRET={YOUR_CLIENT_SECRET}
 SUBDOMAIN={YOUR_SUBDOMAIN}
 ```
 
-Se till att du inte utför den här filen i käll kontrollen eftersom den innehåller hemligheter som inte bör göras offentliga.
+Se till att inte arkivera den här filen i källkontroll, eftersom den innehåller hemligheter som inte bör offentliggöras.
 
-Öppna sedan _app. js_ och Lägg till följande överst i filen. Detta läser in egenskaperna som definierats i. kuvert-filen som miljövariabler i noden.
+Öppna sedan _app.js_ och lägg till följande högst upp i filen. Då läses egenskaperna som definierats i .env-filen som miljövariabler till Nod.
 
 ```javascript
 require('dotenv').config();
 ```
 
 ### <a name="update-the-router-to-acquire-the-token"></a>Uppdatera routern för att hämta token
-Öppna filen _routes\index.js_ och ersätt den automatiskt genererade koden med följande kod.
+Öppna _filen routes\index.js_ och ersätt den automatiskt genererade koden med följande kod.
 
-Den här koden skapar en API-slutpunkt som hämtar en Azure AD-autentiseringstoken med ditt huvud namn för tjänsten. Den hämtar också under domänen. Den returnerar sedan ett objekt som innehåller token och under domänen.
+Den här koden skapar en API-slutpunkt som hämtar en Azure AD-autentiseringstoken med hjälp av tjänstens huvudlösenord. Den hämtar också underdomänen. Det returnerar sedan ett objekt som innehåller token och underdomänen.
 
 ```javascript
 var express = require('express');
@@ -125,11 +125,11 @@ router.get('/GetTokenAndSubdomain', function(req, res) {
 module.exports = router;
 ```
 
-**GetTokenAndSubdomain** API-slutpunkten bör skyddas bakom någon form av autentisering (till exempel [OAuth](https://oauth.net/2/)) för att hindra obehöriga användare från att hämta token som ska användas mot tjänsten för avancerad läsare och fakturering. Detta arbete ligger utanför omfånget för den här snabb starten.
+**GetTokenAndSubdomain** API-slutpunkten bör skyddas bakom någon form av autentisering (till exempel [OAuth)](https://oauth.net/2/)för att förhindra att obehöriga användare får token att använda mot din Immersive Reader-tjänst och fakturering. att arbetet ligger utanför ramen för denna snabbstart.
 
-## <a name="add-sample-content"></a>Lägg till exempel innehåll
+## <a name="add-sample-content"></a>Lägga till exempelinnehåll
 
-Nu ska vi lägga till exempel innehåll till den här webbappen. Öppna _views\index.pug_ och ersätt den automatiskt genererade koden med det här exemplet:
+Nu lägger vi till exempelinnehåll i den här webbappen. Öppna _vyer\index.pug_ och ersätt den automatiskt genererade koden med det här exemplet:
 
 ```pug
 doctype html
@@ -235,7 +235,7 @@ script(type="text/javascript").
 ```
 
 
-Observera att all text har ett **lang** -attribut som beskriver språk i texten. Det här attributet hjälper den fördjupade läsaren att tillhandahålla relevanta språk-och grammatiska funktioner.
+Observera att all text **lang** har ett lang-attribut, som beskriver textens språk. Det här attributet hjälper Immersive Reader att tillhandahålla relevanta språk- och grammatikfunktioner.
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
@@ -245,16 +245,16 @@ Vår webbapp är nu klar. Starta appen genom att köra:
 npm start
 ```
 
-Öppna webbläsaren och gå till _http://localhost:3000_ . Du bör se följande:
+Öppna webbläsaren och _http://localhost:3000_navigera till . Du bör se följande:
 
 ![Exempelapp](./media/quickstart-nodejs/1-buildapp.png)
 
-## <a name="launch-the-immersive-reader"></a>Starta den fördjupade läsaren
+## <a name="launch-the-immersive-reader"></a>Starta den uppslukande läsaren
 
-När du klickar på knappen "avancerad läsare" visas den fördjupade läsaren som lanserades med innehållet på sidan.
+När du klickar på knappen "Uppslukande läsare" ser du Immersive Reader lanseras med innehållet på sidan.
 
 ![Avancerad läsare](./media/quickstart-nodejs/2-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)
+* Utforska [den uppslukande läsaren SDK](https://github.com/microsoft/immersive-reader-sdk) och [Immersive Reader SDK-referensen](./reference.md)

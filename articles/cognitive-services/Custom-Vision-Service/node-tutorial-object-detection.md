@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa ett objekt identifierings projekt med Custom Vision SDK för Node. js'
+title: 'Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision SDK för nod.js'
 titleSuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna projektet och identifiera objekt med hjälp av Node.js SDK.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: 94013b735f70358d0c49512e6d90cd1d03e78d5f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705725"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Snabb start: skapa ett objekt identifierings projekt med Custom Vision Node. js SDK
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Snabbstart: Skapa ett objektidentifieringsprojekt med Custom Vision Node.js SDK
 
-Den här artikeln visar hur du kommer igång med Custom Vision SDK med Node. js för att skapa en modell för objekt identifiering. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, Hämta projektets publicerade slut punkts-URL och använda slut punkten för att testa en avbildning. Använd det här exemplet som en mall för att skapa ditt eget Node.js-program.
+Den här artikeln visar hur du kommer igång med custom vision SDK med nod.js för att skapa en objektidentifieringsmodell. När den har skapats kan du lägga till taggade regioner, ladda upp bilder, träna projektet, hämta projektets publicerade slutpunkts-URL för förutsägelse och använda slutpunkten för att programmässigt testa en bild. Använd det här exemplet som mall för att skapa ditt eget Node.js-program.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -34,7 +34,7 @@ Den här artikeln visar hur du kommer igång med Custom Vision SDK med Node. js 
 
 ## <a name="install-the-custom-vision-sdk"></a>Installera Custom Vision-SDK
 
-Om du vill installera Custom Vision tjänst-SDK: er för Node. js i projektet kör du följande kommandon:
+Om du vill installera tjänsten Custom Vision-tjänsten SDK:er för Node.js i projektet kör du följande kommandon:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -47,7 +47,7 @@ Skapa en ny fil med namnet *sample.js* i den projektkatalog som du vill använda
 
 ### <a name="create-the-custom-vision-service-project"></a>Skapa Custom Vision Service-projektet
 
-Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerations nycklar i lämpliga definitioner och ange värdet för sampleDataRoot sökväg till din mappsökväg. Se till att slut punkt svärdet matchar den utbildning och de förutsägelse slut punkter som du har skapat på [Customvision.AI](https://www.customvision.ai/). Observera att skillnaden mellan att skapa ett projekt för objekt identifiering och bild klassificering är den domän som anges i **createProject** -anropet.
+Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga prenumerationsnycklarna i lämpliga definitioner och ange sökvägsvärdet för exempeldataroten på sökvägen till bildmappen. Kontrollera att slutpunktsvärdet matchar de slutpunkter för utbildning och förutsägelse som du har skapat [vid Customvision.ai](https://www.customvision.ai/). Observera att skillnaden mellan att skapa ett projekt för identifiering av objekt och bildklassificering är den domän som anges i **createProject-anropet.**
 
 ```javascript
 const fs = require('fs');
@@ -95,12 +95,12 @@ Om du vill skapa klassificeringstaggar i projektet lägger du till följande kod
 
 ### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
-När du taggar bilder i objektidentifieringsprojekt måste du bestämma region för varje taggat objekt med hjälp av normaliserade koordinater. 
+När du taggar bilder i objekt identifierings projekt måste du ange regionen för varje taggat objekt med normaliserade koordinater. 
 
 > [!NOTE]
-> Om du inte har ett verktyg för att klicka och dra för att markera koordinaterna för regionerna kan du använda webb gränssnittet på [Customvision.AI](https://www.customvision.ai/). I det här exemplet har koordinaterna redan angetts.
+> Om du inte har ett klick-och-dra-verktyg för att markera koordinaterna för regioner kan du använda webbgränssnittet på [Customvision.ai](https://www.customvision.ai/). I det här exemplet finns koordinaterna redan.
 
-För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. Observera att regionerna för den här självstudien är hårdkodade i linje med koden. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd. Du kan ladda upp upp till 64 avbildningar i en enda batch.
+För att lägga till bilder, taggar och regioner i projektet lägger du till följande kod efter att taggarna har skapats. Observera att regionerna för den här självstudien är hårdkodade i linje med koden. Regionerna specificerar avgränsningsfältet i normaliserade koordinater, och koordinaterna anges i följande ordning: vänster, överst, bredd, höjd. Du kan ladda upp upp till 64 bilder i en enda batch.
 
 ```javascript
 const forkImageRegions = {
@@ -181,7 +181,7 @@ await Promise.all(fileUploadPromises);
 
 ### <a name="train-the-project-and-publish"></a>Träna projektet och publicera
 
-Den här koden skapar den första iterationen av förutsägelse modellen och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
+Den här koden skapar den första iterationen av förutsägelsemodellen och publicerar sedan iterationen till förutsägelseslutpunkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelseslutpunkten förrän den publiceras.
 
 ```javascript
 console.log("Training...");
@@ -201,7 +201,7 @@ console.log("Training status: " + trainingIteration.status);
 await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och använda den publicerade iterationen på förutsägelseslutpunkten
 
 Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
@@ -219,7 +219,7 @@ Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förut
 })()
 ```
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
 Kör *sample.js*.
 

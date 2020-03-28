@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skicka en Sök förfrågan till REST API med Node. js-Entitetssökning i Bing'
+title: 'Snabbstart: Skicka en sökbegäran till REST API med Node.js - Bing Entitetssökning'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/11/2019
 ms.author: aahi
 ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448637"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med Node. js
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Snabbstart: Skicka en sökbegäran till REST-APIN för sökning efter Bing-enhet med nod.js
 
-Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla JavaScript-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
+Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla JavaScript-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
 Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
@@ -40,7 +40,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
     let https = require ('https');
     ```
 
-2. Skapa variabler för API-slutpunkten, prenumerationsnyckeln och sökfrågan. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunkten, prenumerationsnyckeln och sökfrågan. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -74,7 +74,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
         });
         ```
 
-    3. När en **slut** flagga signaleras, tolkar du JSON och skriver ut den.
+    3. När **end** en slutflagga signaleras tolkar du JSON:en och skriver ut den.
 
         ```javascript
         response.on ('end', function () {
@@ -178,5 +178,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Vad är API:et för entitetssökning i Bing?](../overview.md )
-* [Referens för API för entitetsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Vad är API:et för sökning av Bing-entitet?](../overview.md )
+* [Api-referens för sökning av Bing-enhet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

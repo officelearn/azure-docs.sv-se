@@ -10,10 +10,10 @@ ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
 ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75982693"
 ---
 # <a name="what-is-custom-translator"></a>Vad är Custom Translator?
@@ -40,7 +40,7 @@ Custom Translator har olika funktioner för att skapa ett anpassat översättnin
 
 Microsoft Translator släppte [NMT](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) 2016. NMT innebär stora framsteg i översättningskvaliteten jämfört med standardtekniken inom översättningsindustrin, [statistisk maskinöversättning](https://en.wikipedia.org/wiki/Statistical_machine_translation). Eftersom NMT fångar kontexten för fullständiga meningar på ett bättre sätt innan de översätts ger tekniken översättningar med högre kvalitet som låter mer naturligt och är mer flytande. Med [Custom Translator](https://portal.customtranslator.azure.ai) får du NMT för dina anpassade modeller, vilket ger bättre översättningskvalitet.
 
-Du kan använda tidigare översatta dokument och bygga ett översättningssystem. De här dokumenten innehåller en domän bestämd terminologi och stil, bättre än ett standard översättnings system. Användare kan ladda upp ALIGN-, PDF-, LCL-, HTML-, HTM-, XLF-, TMX-, XLIFF-, TXT-, DOCX- och XLSX-dokument.
+Du kan använda tidigare översatta dokument och bygga ett översättningssystem. Dessa dokument innehåller domänspecifik terminologi och stil, bättre än ett standardöversättningssystem. Användare kan ladda upp ALIGN-, PDF-, LCL-, HTML-, HTM-, XLF-, TMX-, XLIFF-, TXT-, DOCX- och XLSX-dokument.
 
 Custom Translator accepterar även data som är parallella på dokumentnivå för att göra datainsamling och -förberedelse effektivare. Om användare har åtkomst till versioner med samma innehåll i flera språk men i separata dokument kan Custom Translator automatiskt matcha meningar mellan olika dokument.
 

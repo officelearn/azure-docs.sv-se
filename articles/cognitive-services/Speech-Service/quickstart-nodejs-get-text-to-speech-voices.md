@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Visa text till tal-röster, Node. js-tal service'
+title: 'Snabbstart: Lista text-till-tal-röster, node.js - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du hämtar den fullständiga listan över standard-och neurala-röster för en region/slut punkt med Node. js. Listan returneras som JSON och röst tillgängligheten varierar beroende på region.
+description: I den här snabbstarten får du lära dig hur du får en fullständig lista över standardröster och neurala röster för en region/slutpunkt med Node.js. Listan returneras som JSON och rösttillgängligheten varierar beroende på region.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: 7a929794ffaea4f863ffaef7227e58c7ccf901f0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976578"
 ---
-# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Snabb start: hämta listan med text till tal-röster med Node. js
+# <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Snabbstart: Hämta listan över text-till-tal-röster med Node.js
 
-I den här snabb starten får du lära dig hur du hämtar den fullständiga listan över standard-och neurala-röster för en region/slut punkt med Node. js. Listan returneras som JSON och röst tillgängligheten varierar beroende på region. En lista över regioner som stöds finns i [regioner](regions.md).
+I den här snabbstarten får du lära dig hur du får en fullständig lista över standardröster och neurala röster för en region/slutpunkt med Node.js. Listan returneras som JSON och rösttillgängligheten varierar beroende på region. En lista över regioner som stöds finns i [regioner](regions.md).
 
-Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech service-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
+Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en taltjänstresurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -29,11 +29,11 @@ För den här snabbstarten krävs:
 
 * [Nod 8.12.x eller senare](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
-* En Azure-prenumerationsnyckel för tjänsten Speech. [Hämta en kostnads fri!](get-started.md).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Få en gratis!](get-started.md).
 
-## <a name="create-a-project-and-require-dependencies"></a>Skapa ett projekt och Kräv beroenden
+## <a name="create-a-project-and-require-dependencies"></a>Skapa ett projekt och kräva beroenden
 
-Skapa ett nytt Node. js-projekt med hjälp av din favorit-IDE eller-redigerare. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `get-voices.js`.
+Skapa ett nytt Node.js-projekt med din favorit-IDE eller redigerare. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `get-voices.js`.
 
 ```javascript
 // Requires request and request-promise for HTTP requests
@@ -48,9 +48,9 @@ const fs = require('fs');
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Den här funktionen utbyter din röst tjänst prenumerations nyckel för en åtkomsttoken med hjälp av `issueToken` slut punkten.
+REST API för text-till-tal kräver en åtkomsttoken för autentisering. För att få en åtkomsttoken krävs ett utbyte. Den här funktionen utbyter din taltjänstprenumerationsnyckel mot en åtkomsttoken med `issueToken` slutpunkten.
 
-Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `uri`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att prenumerationen på taltjänsten finns i regionen västra USA. Om du använder en annan region uppdaterar `uri`du värdet för . En fullständig lista finns i [Regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Kopiera den här koden till projektet:
 
@@ -69,15 +69,15 @@ function getAccessToken(subscriptionKey) {
 ```
 
 > [!NOTE]
-> Mer information om autentisering finns i [autentisera med en åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Mer information om autentisering finns [i Autentisera med en åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
-I nästa avsnitt skapar vi funktionen för att hämta listan över röster och spara JSON-utdata till filen.
+I nästa avsnitt skapar vi funktionen för att få listan över röster och spara JSON-utdata till filen.
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här skapar du begäran och sparar listan med returnerade röster. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `uri`. Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här ska du skapa begäran och spara listan över returnerade röster. Det här exemplet förutsätter att du använder slutpunkten för västra USA. Om resursen är registrerad i en annan `uri`region kontrollerar du att du uppdaterar . Mer information finns i [Taltjänstområden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Lägg sedan till de rubriker som krävs för begäran. Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras, skrivs svaret till filen.
+Lägg sedan till obligatoriska rubriker för begäran. Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas och en 200-statuskod returneras skrivs svaret till filen.
 
 ```javascript
 function textToSpeech(accessToken) {
@@ -104,9 +104,9 @@ function textToSpeech(accessToken) {
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Nästan klart. Det sista steget är att skapa en asynkron funktion. Den här funktionen kommer att läsa din prenumerations nyckel från en miljö variabel, hämta en token, vänta tills begäran har slutförts och sedan skriva JSON-svaret till filen.
+Nästan klart. Det sista steget är att skapa en asynkron funktion. Den här funktionen kommer att läsa din prenumerationsnyckel från en miljövariabel, få en token, vänta på att begäran ska slutföras och sedan skriva JSON-svaret på filen.
 
-Om du inte är bekant med miljövariabler eller vill testa med prenumerations nyckeln hårdkodad som en sträng ersätter du `process.env.SPEECH_SERVICE_KEY` med din prenumerations nyckel som en sträng.
+Om du inte är bekant med miljövariabler eller föredrar att testa `process.env.SPEECH_SERVICE_KEY` med din prenumerationsnyckel som är hårdkodad som en sträng ersätter du med prenumerationsnyckeln som en sträng.
 
 ```javascript
 // Use async and await to get the token before attempting
@@ -148,8 +148,8 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 > [!div class="nextstepaction"]
 > [Utforska Node.js-exempel på GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
-* [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)
+* [Skapa anpassade röstteckensnitt](how-to-customize-voice-font.md)
+* [Spela in röstexempel för att skapa en anpassad röst](record-custom-voice-samples.md)

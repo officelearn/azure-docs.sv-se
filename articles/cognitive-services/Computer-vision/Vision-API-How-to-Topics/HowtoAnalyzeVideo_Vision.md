@@ -1,7 +1,7 @@
 ---
-title: Analysera videor i nära real tid – Visuellt innehåll
+title: Analysera videor i nära realtid - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du utför en analys i nära real tid i bild rutor som hämtas från en live video ström med hjälp av API för visuellt innehåll.
+description: Lär dig hur du utför analyser i nära realtid på ramar som hämtas från en livevideoström med hjälp av API:et för visuellt innehåll.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,30 +12,30 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76166834"
 ---
-# <a name="analyze-videos-in-near-real-time"></a>Analysera videor i nära real tid
+# <a name="analyze-videos-in-near-real-time"></a>Analysera videor i nära realtid
 
-Den här artikeln visar hur du kan analysera i nära real tid i bild rutor som hämtas från en real tids video ström med hjälp av API för visuellt innehåll. De grundläggande elementen i en sådan analys är:
+Den här artikeln visar hur du utför analys i nära realtid på ramar som tas från en livevideoström med hjälp av API:et för visuellt innehåll. De grundläggande inslagen i en sådan analys är följande:
 
-- Hämtar ramar från en video källa.
+- Hämtar bildrutor från en videokälla.
 - Välja vilka ramar som ska analyseras.
-- Skickar dessa ramar till API: et.
-- Förbrukar varje analys resultat som returneras från API-anropet.
+- Skicka in dessa ramar till API:et.
+- Konsumerar varje analysresultat som returneras från API-anropet.
 
-Exemplen i den här artikeln är skrivna C#i. För att komma åt koden går du till [exempel sidan analys av video RAM](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) på GitHub.
+Exemplen i den här artikeln är skrivna i C#. Om du vill komma åt koden går du till [exempelsidan för videoruteanalys](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) på GitHub.
 
-## <a name="approaches-to-running-near-real-time-analysis"></a>Metoder för att köra nära real tids analys
+## <a name="approaches-to-running-near-real-time-analysis"></a>Metoder för att köra nära realtidsanalys
 
-Du kan lösa problemet med att köra nära real tids analys på video strömmar genom att använda olika metoder. Den här artikeln beskriver tre av dem, i ökande nivåer av riktigt ambitiös.
+Du kan lösa problemet med att köra nära realtidsanalys på videoströmmar med hjälp av en mängd olika metoder. Denna artikel beskriver tre av dem, i ökande nivåer av förfining.
 
-### <a name="design-an-infinite-loop"></a>Utforma en oändlig slinga
+### <a name="design-an-infinite-loop"></a>Designa en oändlig loop
 
-Den enklaste designen för nära real tids analys är en oändlig loop. I varje iteration av den här slingan hämtar du en ram, analyserar den och använder sedan resultatet:
+Den enklaste designen för nästan realtidsanalys är en oändlig loop. I varje iteration av den här loopen tar du en ram, analyserar den och förbrukar sedan resultatet:
 
 ```csharp
 while (true)
@@ -49,11 +49,11 @@ while (true)
 }
 ```
 
-Om din analys skulle bestå av en enkel algoritm på klient sidan är den här metoden lämplig. Men när analysen sker i molnet innebär den resulterande fördröjningen att ett API-anrop kan ta flera sekunder. Under den här tiden fångar du inte avbildningar och din tråd gör ingenting i princip. Din maximala bild frekvens begränsas av API-anropens svars tid.
+Om din analys skulle bestå av en lätt, klient-side algoritm, skulle detta tillvägagångssätt vara lämpligt. Men när analysen sker i molnet innebär den resulterande svarstiden att ett API-anrop kan ta flera sekunder. Under denna tid, du inte fånga bilder, och din tråd är i huvudsak gör ingenting. Din maximala bildhastighet begränsas av svarstiden för API-anropen.
 
 ### <a name="allow-the-api-calls-to-run-in-parallel"></a>Tillåt att API-anrop körs parallellt
 
-Även om en enkel, enkel tråds slinga fungerar bra för en lätt, algoritm på klient sidan, passar den inte med svars tiden för ett Cloud API-anrop. Lösningen på det här problemet är att tillåta att tids krävande API-anrop körs parallellt med den ram som fångas. I C#kan du göra detta med hjälp av uppgifts-baserad parallellitet. Du kan till exempel köra följande kod:
+Även om en enkel, enkeltrådad loop är meningsfull för en lätt algoritm på klientsidan passar den inte bra med svarstiden för ett moln-API-anrop. Lösningen på det här problemet är att låta det långvariga API-anropet köras parallellt med ramgripandet. I C# kan du göra detta genom att använda uppgiftsbaserad parallellism. Du kan till exempel köra följande kod:
 
 ```csharp
 while (true)
@@ -70,14 +70,14 @@ while (true)
 }
 ```
 
-Med den här metoden startar du varje analys i en separat uppgift. Uppgiften kan köras i bakgrunden medan du fortsätter att ta nya ramar. Metoden förhindrar att huvud tråden blockeras när du väntar på ett API-anrop att returnera. Metoden kan dock ge vissa nack delar:
-* Det kostar några av de garantier som den enkla versionen tillhandahåller. Det vill säga att flera API-anrop kan inträffa parallellt och resultaten kan komma att returneras i fel ordning. 
-* Det kan också orsaka att flera trådar anger funktionen ConsumeResult () samtidigt, som kan vara farlig om funktionen inte är tråd säker. 
-* Slutligen kan den här enkla koden inte spåra de uppgifter som skapas, så undantagen försvinner i bakgrunden. Därför måste du lägga till en "konsument"-tråd som spårar analys aktiviteter, genererar undantag, omsorg långvariga uppgifter och säkerställer att resultaten förbrukas i rätt ordning, en i taget.
+Med den här metoden startar du varje analys i en separat uppgift. Aktiviteten kan köras i bakgrunden medan du fortsätter att ta tag i nya bildrutor. Metoden undviker att blockera huvudtråden när du väntar på att ett API-anrop ska returneras. Tillvägagångssättet kan dock innebära vissa nackdelar:
+* Det kostar dig några av de garantier som den enkla versionen tillhandahålls. Det innebär att flera API-anrop kan uppstå parallellt och resultaten kan returneras i fel ordning. 
+* Det kan också orsaka flera trådar att komma in i Funktionen ConsumeResult() samtidigt, vilket kan vara farligt om funktionen inte är trådsäker. 
+* Slutligen håller den här enkla koden inte reda på de uppgifter som skapas, så undantag försvinner tyst. Därför måste du lägga till en "konsument" tråd som spårar analysuppgifter, höjer undantag, dödar långvariga uppgifter och ser till att resultaten förbrukas i rätt ordning, en i taget.
 
-### <a name="design-a-producer-consumer-system"></a>Utforma ett producent-konsument system
+### <a name="design-a-producer-consumer-system"></a>Utforma ett producent-konsumentsystem
 
-För den slutliga metoden, som utformar ett "produce-konsument"-system, skapar du en producent tråd som liknar din tidigare nämnda oändliga loop. Men i stället för att använda analys resultaten så fort de är tillgängliga placerar producenten bara uppgifterna i en kö för att hålla koll på dem.
+För din slutliga strategi, utforma en "producent-konsument" system, du bygga en producent tråd som liknar din tidigare nämnda oändlig loop. Men istället för att konsumera analysresultaten så snart de är tillgängliga, placerar producenten helt enkelt uppgifterna i en kö för att hålla reda på dem.
 
 ```csharp
 // Queue that will contain the API call tasks.
@@ -114,7 +114,7 @@ while (true)
 }
 ```
 
-Du kan också skapa en konsument tråd, som tar uppgifter ur kön, väntar på att de ska slutföras och visar resultatet eller aktiverar det undantag som har utlösts. Med hjälp av kön kan du garantera att resultaten kan förbrukas en i taget, i rätt ordning, utan att begränsa systemets maximala RAM hastighet.
+Du skapar också en konsumenttråd, som tar bort uppgifter från kön, väntar på att de ska slutföras och antingen visar resultatet eller höjer undantaget som uppstod. Genom att använda kön kan du garantera att resultaten förbrukas en i taget, i rätt ordning, utan att begränsa systemets maximala bildhastighet.
 
 ```csharp
 // Consumer thread.
@@ -140,15 +140,15 @@ while (true)
 
 ## <a name="implement-the-solution"></a>Implementera lösningen
 
-### <a name="get-started-quickly"></a>Kom i gång snabbt
+### <a name="get-started-quickly"></a>Kom igång snabbt
 
-För att hjälpa dig att få igång din app så snabbt som möjligt har vi implementerat systemet som beskrivs i föregående avsnitt. Den är avsedd att vara tillräckligt flexibel för att kunna hantera många scenarier, samtidigt som de är lätta att använda. För att komma åt koden går du till [exempel sidan analys av video RAM](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) på GitHub.
+För att hjälpa till att få igång din app så snabbt som möjligt har vi implementerat systemet som beskrivs i föregående avsnitt. Den är avsedd att vara tillräckligt flexibel för att rymma många scenarier, samtidigt som den är lätt att använda. Om du vill komma åt koden går du till [exempelsidan för videoruteanalys](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) på GitHub.
 
-Biblioteket innehåller `FrameGrabber`-klassen, som implementerar det tidigare diskuterade producent-konsument systemet för att bearbeta video bild rutor från en webb kamera. Användarna kan ange exakt form för API-anropet och klassen använder händelser för att meddela anrops koden när en ny ram förvärvas, eller när ett nytt analys resultat är tillgängligt.
+Biblioteket innehåller `FrameGrabber` klassen, som implementerar det tidigare diskuterade producent-konsumentsystemet för att bearbeta videoramar från en webbkamera. Användare kan ange den exakta formen för API-anropet och klassen använder händelser för att låta den anropande koden veta när en ny ram hämtas eller när ett nytt analysresultat är tillgängligt.
 
-För att illustrera några av möjligheterna har vi tillhandahållit två exempel på appar som använder biblioteket. 
+För att illustrera några av möjligheterna har vi tillhandahållit två exempelappar som använder biblioteket. 
 
-Den första exempel appen är en enkel konsol app som hämtar ramar från standard webb kameran och skickar dem sedan till ansikts tjänsten för ansikts igenkänning. En förenklad version av appen reproduceras i följande kod:
+Den första exempelappen är en enkel konsolapp som tar bildrutor från standardwebbkameran och skickar dem sedan till Ansiktstjänsten för ansiktsidentifiering. En förenklad version av appen återges i följande kod:
 
 ```csharp
 using System;
@@ -218,34 +218,34 @@ namespace BasicConsoleSample
 }
 ```
 
-Den andra exempel appen är lite mer intressant. Du kan välja vilken API som ska anropas för video bild rutorna. På den vänstra sidan visar appen en förhands visning av Live-videon. Till höger överlappar det senaste API-resultatet i motsvarande ram.
+Det andra exemplet app är lite mer intressant. Det låter dig välja vilket API som ska anropas på videobildrutorna. Till vänster visar appen en förhandsgranskning av livevideon. Till höger överlagrar den det senaste API-resultatet på motsvarande ram.
 
-I de flesta lägen finns det en synlig fördröjning mellan Live-videon till vänster och den visualiserade analysen till höger. Den här fördröjningen är den tid det tar att göra API-anropet. Ett undantag är i läget "EmotionsWithClientFaceDetect", som utför ansikts identifiering lokalt på klient datorn med hjälp av OpenCV innan alla avbildningar skickas till Azure Cognitive Services. 
+I de flesta lägen finns det en synlig fördröjning mellan livevideon till vänster och den visualiserade analysen till höger. Den här fördröjningen är den tid det tar att ringa API-anropet. Ett undantag är i läget "EmotionsWithClientFaceDetect", som utför ansiktsidentifiering lokalt på klientdatorn med hjälp av OpenCV innan de skickar några avbildningar till Azure Cognitive Services. 
 
-Genom att använda den här metoden kan du visualisera den identifierade ytan direkt. Sedan kan du uppdatera känslor senare när API-anropet returnerar. Detta visar risken för en hybrid metod. Det vill säga att en enkel bearbetning kan utföras på klienten och att API:er för Cognitive Services kan användas för att utöka den här bearbetningen med mer avancerad analys när det behövs.
+Genom att använda den här metoden kan du visualisera det identifierade ansiktet omedelbart. Du kan sedan uppdatera känslorna senare, när API-anropet returnerar. Detta visar möjligheten till en "hybrid" strategi. Det vill än, vissa enkla bearbetning kan utföras på klienten, och sedan Cognitive Services API: er kan användas för att utöka denna bearbetning med mer avancerad analys vid behov.
 
-![LiveCameraSample-appen visar en bild med Taggar](../../Video/Images/FramebyFrame.jpg)
+![LiveCameraSample-appen som visar en bild med taggar](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrate-the-samples-into-your-codebase"></a>Integrera exemplen i kodbasen
 
-Kom igång med det här exemplet genom att göra följande:
+Gör följande för att komma igång med det här exemplet:
 
-1. Hämta API-nycklar för API:er för visuellt innehåll från [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). För analys av video ramar är tillämpliga tjänster följande:
-    - [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+1. Hämta API-nycklar för API:er för visuellt innehåll från [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). För videobildanalys är tillämpliga tjänster:
+    - [Datorseende](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
     - [Ansikte](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-2. Klona [kognitiv-samples-VideoFrameAnalysis GitHub-](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) lagrings platsen.
+2. Klona [cognitive-samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub repo.
 
-3. Öppna exemplet i Visual Studio 2015 eller senare och skapa sedan och kör exempel programmen:
-    - För BasicConsoleSample är ansikts nyckeln hårdkodad direkt i [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
-    - För LiveCameraSample anger du nycklarna i appens **inställnings** ruta. Nycklarna behålls mellan sessioner som användar data.
+3. Öppna exemplet i Visual Studio 2015 eller senare och skapa och kör sedan exempelprogrammen:
+    - För BasicConsoleSample är face-tangenten hårdkodad direkt i [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - För LiveCameraSample anger du tangenterna i fönstret **Inställningar** i appen. Nycklarna sparas över sessioner som användardata.
 
 När du är redo att integrera exemplen refererar du till VideoFrameAnalyzer-biblioteket från dina egna projekt.
 
-Funktionerna image-, röst-, video-och text hantering i VideoFrameAnalyzer använder Azure Cognitive Services. Microsoft tar emot bilder, ljud, video och andra data som du överför (via den här appen) och kan använda dem för tjänst förbättrings syfte. Vi ber om din hjälp för att skydda de personer vars data din app skickar till Azure Cognitive Services.
+Funktionerna för bild-, röst-, video- och textförståelse i VideoFrameAnalyzer använder Azure Cognitive Services. Microsoft tar emot bilder, ljud, video och andra data som du laddar upp (via den här appen) och kan använda dem för att förbättra tjänsterna. Vi ber om din hjälp för att skydda de personer vars data din app skickar till Azure Cognitive Services.
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig hur du kör nära real tids analys på direktsända video strömmar med hjälp av ansikts-och Visuellt innehålls tjänsterna. Du har också lärt dig hur du kan använda vår exempel kod för att komma igång. Om du vill komma igång med att skapa din app med hjälp av kostnads fria API-nycklar går du till [registrerings sidan för Azure-Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
+I den här artikeln lärde du dig att köra nära realtidsanalys på livevideoströmmar med hjälp av tjänsterna Ansikts- och datorseende. Du har också lärt dig hur du kan använda vår exempelkod för att komma igång. Om du vill komma igång med att skapa din app med hjälp av kostnadsfria API-nycklar går du till [registreringssidan för Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-Lämna gärna feedback och förslag i [GitHub-lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Om du vill ge bredare API-feedback går du till vår [UserVoice-webbplats](https://cognitive.uservoice.com/).
+Ge gärna feedback och förslag i [GitHub-databasen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). För att ge bredare API feedback, gå till vår [UserVoice webbplats](https://cognitive.uservoice.com/).
 

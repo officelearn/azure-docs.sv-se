@@ -5,48 +5,48 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: dapine
 ms.openlocfilehash: 2f029725ff53c6bf01481f7a188e070cf84550c9
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79082286"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Skapa en Azure Speech-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Öppna källfilen **helloworld.cpp**.
 
-1. Ersätt all kod med följande kodfragment:
+1. Ersätt all kod med följande utdrag:
    
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-file/helloworld/helloworld.cpp#code)]
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med **regions-ID** : t från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
+1. Ersätt strängen `YourServiceRegion` med **regionidentifieraren** från [den region](https://aka.ms/speech/sdkregion) `westus` som är associerad med din prenumeration (till exempel för den kostnadsfria utvärderingsprenumerationen).
 
-1. Ersätt strängen `whatstheweatherlike.wav` med ditt eget fil namn.
+1. Ersätt strängen `whatstheweatherlike.wav` med ditt eget filnamn.
 
-1. Välj **arkiv** > **Spara alla**på Meny raden.
+1. Välj Spara**alla** **på** > menyraden .
 
 > [!NOTE]
-> Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
+> Tal-SDK kommer som standard att känna igen med hjälp av en-us för språket, se [Ange källspråk för tal till text](../../../../how-to-specify-source-language.md) för information om hur du väljer källspråk.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
+1. Välj **Felsökning** > **Starta felsökning** (eller tryck på **F5)** för att starta **helloworld-programmet.**
 
-1. Ljud filen skickas till tal tjänsten och den första uttryck i filen skrivs till text, som visas i samma fönster.
+1. Ljudfilen överförs till taltjänsten och det första uttrycket i filen transkriberas till text, som visas i samma fönster.
 
    ```text
    Recognizing first result...

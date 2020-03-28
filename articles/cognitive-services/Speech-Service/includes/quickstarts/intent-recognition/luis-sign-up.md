@@ -6,45 +6,45 @@ ms.topic: include
 ms.date: 01/27/2020
 ms.author: dapine
 ms.openlocfilehash: 58122066e65fbcb02b6b4333985785b219d3dbbd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76900561"
 ---
-För att slutföra snabb starten för avsikts igenkänning måste du skapa ett LUIS-konto och ett projekt med hjälp av LUIS Preview Portal. Den här snabb starten kräver bara en LUIS-prenumeration. En röst tjänst prenumeration krävs *inte* .
+För att slutföra snabbstarten för avsiktsigenkänning måste du skapa ett LUIS-konto och ett projekt med luis-förhandsgranskningsportalen. Den här snabbstarten kräver bara en LUIS-prenumeration. En prenumeration på taltjänsten krävs *inte.*
 
-Det första du behöver göra är att skapa ett LUIS-konto och en app med hjälp av LUIS Preview Portal. LUIS-appen som du skapar använder en fördefinierad domän för start automatisering, som tillhandahåller avsikter, entiteter och exempel yttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet som du kan ringa med hjälp av tal-SDK. 
+Det första du behöver göra är att skapa ett LUIS-konto och app med luis-förhandsgranskningsportalen. LUIS-appen som du skapar använder en fördefinierad domän för hemautomatisering, som innehåller avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet som du kan anropa med tal-SDK. 
 
-Följ de här anvisningarna för att skapa en LUIS-app:
+Så här skapar du LUIS-appen:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Snabb start: skapa en fördefinierad domän-app<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Snabbstart: Skapa fördefinierad domänapp<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 När du är klar behöver du fyra saker:
 
-* Publicera igen med **tal Prima** aktiverat
-* Din LUIS- **primära nyckel**
-* Din LUIS- **plats**
-* Ditt LUIS **app-ID**
+* Återpublicera med **Talpriming** växlade på
+* Din LUIS **primärnyckel**
+* Din **LUIS-plats**
+* Ditt **LUIS-app-ID**
 
-Här kan du hitta den här informationen i [Luis Preview Portal](https://preview.luis.ai/):
+Här hittar du den här informationen i [LUIS-förhandsgranskningsportalen:](https://preview.luis.ai/)
 
-1. Välj din app från LUIS Preview-portalen och välj sedan knappen **publicera** .
+1. På LUIS-förhandsgranskningsportalen väljer du appen och väljer sedan knappen **Publicera.**
 
-2. Välj **produktions** platsen, om du använder `en-US` växla alternativet **Speech Prima** till **on** -position. Välj sedan knappen **publicera** .
+2. Välj **produktionsplats** om du använder `en-US` alternativet **Talpriming** till **påläge.** Välj sedan knappen **Publicera.**
 
     > [!IMPORTANT]
-    > **Tal Prima** rekommenderas eftersom det kommer att förbättra precisionen för tal igenkänning.
+    > **Talpriming** rekommenderas starkt eftersom det kommer att förbättra taligenkänningsnoggrannheten.
 
     > [!div class="mx-imgBorder"]
-    > ![publicera LUIS till slut punkt](../../../media/luis/publish-app-popup.png)
+    > ![Publicera LUIS till slutpunkt](../../../media/luis/publish-app-popup.png)
 
-3. Välj **Hantera**på Luis Preview-portalen och välj sedan **Azure-resurser**. På den här sidan hittar du din LUIS-nyckel och plats (kallas ibland _region_).
-
-   > [!div class="mx-imgBorder"]
-   > ![LUIS nyckel och plats](../../../media/luis/luis-key-region.png)
-
-4. När du har fått nyckeln och platsen behöver du app-ID: t. Välj **program inställningar** – ditt app-ID är tillgängligt på den här sidan.
+3. Välj **Hantera**på LUIS-förhandsgranskningsportalen och välj sedan **Azure Resources**. På den här sidan hittar du luis-tangenten och platsen (kallas ibland _region)._
 
    > [!div class="mx-imgBorder"]
-   > ![LUIS app-ID](../../../media/luis/luis-app-id.png)
+   > ![LUIS-nyckel och plats](../../../media/luis/luis-key-region.png)
+
+4. När du har fått din nyckel och plats behöver du app-ID: n. Välj **Programinställningar** – ditt app-ID är tillgängligt på den här sidan.
+
+   > [!div class="mx-imgBorder"]
+   > ![LUIS-app-ID](../../../media/luis/luis-app-id.png)

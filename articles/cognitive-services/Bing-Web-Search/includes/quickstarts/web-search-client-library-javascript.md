@@ -1,5 +1,5 @@
 ---
-title: Snabb start för Webbsökning i Bing Java Script Client library
+title: Snabbstart för JavaScript-klientbibliotek för Webbsökning
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,26 +9,26 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 0380dc8d2ff34cf9eecaad063a305491a357ca29
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924994"
 ---
-Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i Node. js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
+Bing Web Search-klientbiblioteket gör det enkelt att integrera Bing Web Search i node.js-programmet. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
-Vill du se koden på en gång? Exempel på [Bing-sökning klient bibliotek för Java Script](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) finns på GitHub.
+Vill du se koden på en gång? Exempel för [Bing Search-klientbiblioteken för JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) finns på GitHub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
-* [Node.js 6](https://nodejs.org/en/download/) eller senare
+* [Nod.js 6](https://nodejs.org/en/download/) eller senare
 * En prenumerationsnyckel  
 
 [!INCLUDE [bing-web-search-quickstart-signup](~/includes/bing-web-search-quickstart-signup.md)]
 
 
-## <a name="set-up-your-development-environment"></a>Ställ in din utvecklingsmiljö
+## <a name="set-up-your-development-environment"></a>Ställt in din utvecklingsmiljö
 
 Vi börjar med att konfigurera utvecklingsmiljön för Node.js-projektet.
 

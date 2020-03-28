@@ -6,15 +6,15 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: dapine
 ms.openlocfilehash: e9f02f95693552180a0eed1550cc59d8f975416b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76961379"
 ---
-I den här snabb starten ska du använda [tal-SDK: n](~/articles/cognitive-services/speech-service/speech-sdk.md) för att konvertera text till syntetiskt tal. Tjänsten för text till tal innehåller flera alternativ för syntetiserade röster under [stöd för text till tal-språk](../../../language-support.md#text-to-speech). Efter att ha uppfyllt några krav, tar åter givningen av syntetiskt tal till standard högtalarna bara fyra steg:
+I den här snabbstarten använder du [Tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att konvertera text för att syntetisera tal. Text-till-tal-tjänsten ger många alternativ för syntetiserade röster, under [stöd för text-till-tal-språk](../../../language-support.md#text-to-speech). Efter att ha uppfyllt några förutsättningar tar renderingssyntiserat tal till standardhögtalarna bara fyra steg:
 > [!div class="checklist"]
-> * Skapa ett `SpeechConfig`-objekt från din prenumerations nyckel och region.
-> * Skapa ett `SpeechSynthesizer`-objekt med hjälp av `SpeechConfig`-objektet ovan.
-> * Använd `SpeechSynthesizer`-objektet för att tala texten.
-> * Kontrol lera `SpeechSynthesisResult` returnerade för fel.
+> * Skapa `SpeechConfig` ett objekt från din prenumerationsnyckel och region.
+> * Skapa `SpeechSynthesizer` ett objekt `SpeechConfig` med objektet ovanifrån.
+> * Använda `SpeechSynthesizer` objektet för att läsa upp texten.
+> * Kontrollera `SpeechSynthesisResult` att de returnerade har fel.

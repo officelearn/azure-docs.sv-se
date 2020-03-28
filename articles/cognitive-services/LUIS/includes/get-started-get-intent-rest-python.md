@@ -1,5 +1,5 @@
 ---
-title: Kom avsikt med REST-anrop i python
+title: Få uppsåt med REST-anrop i Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
@@ -9,40 +9,40 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
 ms.openlocfilehash: 23ac98f91c989c9bedb6b91e6a7ce26dc164ac5a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76987815"
 ---
 ## <a name="prerequisites"></a>Krav
 
 * [Python 3.6](https://www.python.org/downloads/) eller senare.
 * [Visual Studio-kod](https://code.visualstudio.com/)
-* ID för offentlig app: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
+* Offentligt app-ID:`df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
-## <a name="create-luis-runtime-key-for-predictions"></a>Skapa LUIS runtime Key för förutsägelser
+## <a name="create-luis-runtime-key-for-predictions"></a>Skapa LUIS-körningsnyckel för förutsägelser
 
-1. Logga in på [Azure Portal](https://portal.azure.com)
-1. Klicka på [skapa **language Understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
-1. Ange alla nödvändiga inställningar för **körnings** nyckel:
+1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Klicka på [Skapa **språk understanding** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Ange alla nödvändiga **Runtime** inställningar för Runtime-tangenten:
 
     |Inställning|Värde|
     |--|--|
     |Namn|Önskat namn (2-64 tecken)|
     |Prenumeration|Välj lämplig prenumeration|
-    |Location|Välj valfri närliggande och tillgänglig plats|
-    |Prisnivå|`F0` – den minimala pris nivån|
-    |Resursgrupp|Välj en tillgänglig resurs grupp|
+    |Location|Välj en plats i närheten och tillgänglig|
+    |Prisnivå|`F0`- den minimala prisnivån|
+    |Resursgrupp|Välj en tillgänglig resursgrupp|
 
-1. Klicka på **skapa** och vänta tills resursen har skapats. När den har skapats går du till resurs sidan.
-1. Samla in konfigurerade `endpoint` och en `key`.
+1. Klicka på **Skapa** och vänta tills resursen har skapats. När den har skapats navigerar du till resurssidan.
+1. Samla konfigurerade `endpoint` `key`och en .
 
-## <a name="get-intent-from-the-prediction-endpoint"></a>Hämta avsikt från förutsägelse slut punkten
+## <a name="get-intent-from-the-prediction-endpoint"></a>Hämta avsikt från slutpunkten för förutsägelse
 
-Använd python för att fråga efter [förutsägelse slut punkten](https://aka.ms/luis-apim-v3-prediction) och få ett förutsägelse resultat.
+Använd Python för att fråga [förutsägelseslutpunkten](https://aka.ms/luis-apim-v3-prediction) och få ett förutsägelseresultat.
 
-1. Kopiera det här kodfragmentet till en fil med namnet `predict.py`:
+1. Kopiera kodavsnittet till en `predict.py`fil som heter :
 
     ```python
     ########### Python 3.6 #############
@@ -75,32 +75,32 @@ Använd python för att fråga efter [förutsägelse slut punkten](https://aka.m
         print(f'{e}')
     ```
 
-1. Ersätt `YOUR-KEY` och `YOUR-ENDPOINT` värden med din egen förutsägelse **körnings** nyckel och slut punkt.
+1. Ersätt `YOUR-KEY` värdena och `YOUR-ENDPOINT` med din egen förutsägelse **körningsnyckel** och slutpunkt.
 
     |Information|Syfte|
     |--|--|
-    |`YOUR-KEY`|Din 32-teckenuppsättning med **körnings** nyckel.|
-    |`YOUR-ENDPOINT`| URL-slutpunkten för förutsägelse. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
+    |`YOUR-KEY`|Din 32 tecken förutsägelse **Runtime** nyckel.|
+    |`YOUR-ENDPOINT`| Slutpunkten för förutsägelse-URL. Till exempel `replace-with-your-resource-name.api.cognitive.microsoft.com`.|
 
-1. Installera `requests` beroendet. Detta används för att göra HTTP-förfrågningar:
+1. Installera `requests` beroendet. Detta används för att göra HTTP-begäranden:
 
     ```console
     pip install requests
     ```
 
-1. Kör skriptet med följande konsol kommando:
+1. Kör skriptet med det här konsolkommandot:
 
     ```console
     python predict.py
     ```
 
-1. Granska det förutsägelse svar som returneras som JSON:
+1. Granska förutsägelsesvaret, som returneras som JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    Här är JSON-svaret formaterat för läsbarhet:
+    Här är JSON svar formaterad för läsbarhet:
 
     ```JSON
     {
@@ -145,7 +145,7 @@ Använd python för att fråga efter [förutsägelse slut punkten](https://aka.m
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är färdig med den här snabb starten tar du bort filen från fil systemet.
+När du är klar med den här snabbstarten tar du bort filen från filsystemet.
 
 ## <a name="next-steps"></a>Nästa steg
 

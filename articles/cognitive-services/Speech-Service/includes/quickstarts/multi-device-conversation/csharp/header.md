@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
 ms.openlocfilehash: 11ee22be1de22bfc4206aeb7f4a27449bd70c2bb
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264545"
 ---
-Om du föredrar att gå direkt till kan du Visa eller ladda ned alla [tal SDK C# -exempel](https://aka.ms/speech/github-csharp) på GitHub. Annars sätter vi igång.
+Om du föredrar att hoppa in direkt kan du visa eller ladda ned alla [Tal SDK C#-samplingar](https://aka.ms/speech/github-csharp) på GitHub. Annars sätter vi igång.
 

@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.openlocfilehash: a90fa0a66fb32b2a885599f09458964188353880
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448835"
 ---
 # <a name="what-is-bing-autosuggest"></a>Vad är Automatiska förslag i Bing?
@@ -31,7 +31,7 @@ Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du
 
 API för automatiska förslag för Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
-1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnadsfritt.
+1. Skapa ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:erna för Bing-sökning. Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratis.
 2. Skicka en begäran till det här API:et varje gång en användare skriver ett nytt tecken i programmets sökruta.
 3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 
@@ -49,9 +49,9 @@ Kom igång snabbt med din första begäran genom att läsa avsnittet om att [Ska
 
 Bekanta dig med referensen för [API för automatiska förslag i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference). Referensen innehåller en lista över de slutpunkter, rubriker och frågeparametrar som du använder för att begära föreslagna frågetermer samt definitionerna av svarsobjekten.
 
-Gå till [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) och utforska de andra tillgängliga API: erna.
+Besök [hubben för Bing Search API](../bing-web-search/search-the-web.md) för att utforska andra tillgängliga API:er.
 
 
-Lär dig hur du söker på webben med hjälp av [API för webbsökning i Bing](../bing-web-search/search-the-web.md)och utforskar den andra[API:er för Bing-sökresultat](../bing-web-search/index.yml).
+Lär dig hur du söker på webben med hjälp av [API:et för webbsökning](../bing-web-search/search-the-web.md)på Bing och utforska de andra[API:erna för Bing-sökning](../bing-web-search/index.yml).
 
 Se till att läsa [Bing Use and Display Requirements](./useanddisplayrequirements.md) (Krav för användning och visning i Bing) så att du inte bryter mot någon av reglerna om användning av sökresultat.

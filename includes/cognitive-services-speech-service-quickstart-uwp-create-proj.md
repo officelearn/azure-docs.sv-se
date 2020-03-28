@@ -5,103 +5,103 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
 ms.openlocfilehash: 6804834dab81b0774dd29b1ede836492d0dfea4b
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78383846"
 ---
-Om du vill skapa ett Visual Studio-projekt för Universell Windows-plattform (UWP)-utveckling måste du ställa in alternativ för Visual Studio-utveckling, skapa projektet, välja mål arkitektur, konfigurera ljud fångst och installera tal-SDK.
+Om du vill skapa ett UWP-utveckling (Visual Studio-projekt för UWP) måste du konfigurera utvecklingsalternativ för Visual Studio, skapa projektet, välja målarkitektur, konfigurera ljudinspelning och installera Speech SDK.
 
-### <a name="set-up-visual-studio-development-options"></a>Konfigurera alternativ för Visual Studio-utveckling
+### <a name="set-up-visual-studio-development-options"></a>Konfigurera utvecklingsalternativ för Visual Studio
 
-Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio för UWP-utveckling:
+Börja med att kontrollera att du är korrekt konfigurerad i Visual Studio för UWP-utveckling:
 
-1. Öppna Visual Studio 2019 för att visa **Start** fönstret.
+1. Öppna Visual Studio 2019 för att visa **Start-fönstret.**
 
-   ![Start fönster – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
+   ![Startfönster - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-start-window.png)
 
 1. Välj **Fortsätt utan kod** för att gå till Visual Studio IDE.
 
-1. I meny raden i Visual Studio väljer du **verktyg** > **Hämta verktyg och funktioner** för att öppna Visual Studio Installer och Visa dialog rutan **ändra** .
+1. På menyraden i Visual Studio väljer du **Verktyg** > **hämta verktyg och funktioner** för att öppna Visual Studio Installer och visa dialogrutan **Ändra.**
 
-   ![Fliken arbets belastningar, ändra dialog rutan, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
+   ![Fliken Arbetsbelastningar, dialogrutan Ändra, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-workload.png)
 
-1. På fliken **arbets belastningar** under **Windows**hittar du arbets belastningen **universell Windows-plattform utveckling** . Om kryss rutan bredvid arbets belastningen redan är vald stänger du dialog rutan **ändra** och går till steg 6.
+1. Hitta den universella utvecklingsarbetsbelastningen för **Windows-plattformen** under **Windows**på fliken **Arbetsbelastningar.** Om kryssrutan bredvid arbetsbelastningen redan är markerad stänger du dialogrutan **Ändra** och går till steg 6.
 
-1. Markera kryss rutan **universell Windows-plattform utveckling** , Välj **ändra**. i dialog rutan **innan vi kom igång** väljer du **Fortsätt** för att installera UWP Development-arbetsbelastningen. Det kan ta en stund att installera den nya funktionen.
+1. Markera kryssrutan **Universell utveckling av Windows-plattformen,** välj **Ändra**och välj sedan **Fortsätt** att installera UWP-utvecklingsarbetsbelastningen innan vi **kommer igång.** Installationen av den nya funktionen kan ta en stund.
 
 1. Stäng Visual Studio Installer.
 
-### <a name="create-the-project-and-select-the-target-architecture"></a>Skapa projektet och välj mål arkitekturen
+### <a name="create-the-project-and-select-the-target-architecture"></a>Skapa projektet och välj målarkitektur
 
-Skapa sedan ditt projekt:
+Skapa sedan projektet:
 
-1. I meny raden i Visual Studio väljer du **arkiv** > **nytt** > **projekt** för att visa fönstret **skapa ett nytt projekt** .
+1. I menyraden i Visual Studio väljer du **Arkiv** > **nytt** > **projekt** för att visa fönstret Skapa ett nytt **projekt.**
 
-   ![Skapa ett nytt projekt – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
+   ![Skapa ett nytt projekt - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
 
-1. Hitta och välj **Tom app (Universal Windows)** . Se till att du väljer den C# här projekt typens version (till skillnad från Visual Basic).
+1. Sök efter och välj **Tom App (Universella Fönster)**. Se till att du väljer C#-versionen av den här projekttypen (i motsats till Visual Basic).
 
-1. Välj **Nästa** för att visa skärmen **Konfigurera ditt nya projekt** .
+1. Välj **Nästa** om du vill visa skärmen **Konfigurera det nya projektet.**
 
-   ![Konfigurera det nya projektet – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
+   ![Konfigurera ditt nya projekt - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
-1. Ange `helloworld`i **projekt namn**.
+1. Skriv i `helloworld` **Projektnamn**.
 
-1. I **plats**navigerar du till och väljer eller skapar mappen där du vill spara projektet i.
+1. Navigera till och markera eller skapa mappen som projektet ska sparas i i **Plats.**
 
-1. Välj **skapa** för att gå till det **nya universell Windows-plattform projekt** fönstret.
+1. Välj **Skapa** för att gå till fönstret **Nytt universellt Windows Platform Project.**
 
-   ![Dialog rutan nytt Universell Windows-plattform projekt – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+   ![Dialogrutan Nytt universellt Windows-plattformsprojekt - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
-1. I **lägsta version** (den andra List rutan) väljer du **Windows 10 hösten Creators Update (10,0; Build 16299)** , vilket är minimi kravet för tal-SDK.
+1. I **Minsta version** (den andra listrutan) väljer du Windows **10 Fall Creators Update (10.0; Bygg 16299)**, vilket är minimikravet för Tal SDK.
 
-1. I **mål version** (den första List rutan) väljer du ett värde som är identiskt med eller senare än värdet i **lägsta version**.
+1. I **Målversionen** (den första listrutan) väljer du ett värde som är identiskt med eller senare än värdet i **Minimum-versionen**.
 
-1. Välj **OK**. Du kommer tillbaka till Visual Studio IDE, där det nya projektet skapas och visas i rutan **Solution Explorer** .
+1. Välj **OK**. Du är tillbaka i Visual Studio IDE, med det nya projektet skapat och synligt i fönstret **Solution Explorer.**
 
-   ![HelloWorld-projekt – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-helloworld.png)
+   ![helloworld projekt - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-helloworld.png)
 
-Välj nu mål plattforms arkitektur. I Visual Studio-verktygsfältet hittar du List rutan med **plattforms plattformar** . (Om du inte ser det väljer du **visa** > **verktygsfält** > **standard** för att Visa verktygsfältet som innehåller **plattform för lösningar**.) Om du kör 64-bitars Windows väljer du **x64** i list rutan. 64-bitars Windows kan också köra 32-bitars program, så du kan välja **x86** om du föredrar det.
+Välj nu din målplattformsarkitektur. Leta reda på listrutan **Lösningsplattformar** i verktygsfältet Visual Studio. (Om du inte ser det väljer du **Visa** > verktygsfält**standard** för att visa**verktygsfältet** > som innehåller **lösningsplattformar**.) Om du kör 64-bitars Windows väljer du **x64** i listrutan. 64-bitars Windows kan också köra 32-bitarsprogram, så du kan välja **x86** om du vill.
 
 > [!NOTE]
-> Speech SDK stöder endast Intel-kompatibla processorer. ARM-processorer stöds inte för närvarande.
+> Speech SDK stöder endast Intel-kompatibla processorer. ARM-processorer stöds för närvarande inte.
 
-### <a name="set-up-audio-capture"></a>Konfigurera ljud inspelning
+### <a name="set-up-audio-capture"></a>Konfigurera ljudinspelning
 
-Tillåt sedan att projektet fångar in ljud indata:
+Låt sedan projektet fånga in ljudinmatning:
 
-1. I **Solution Explorer**dubbelklickar du på **Package. appxmanifest** för att öppna paket applikations manifestet.
+1. I **Solution Explorer**dubbelklickar du på **Package.appxmanifest** för att öppna paketprogrammanifestet.
 
-1. Välj fliken **funktioner** .
+1. Välj fliken **Funktioner**.
 
-   ![Fliken funktioner, paket program manifest – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-07-capabilities.png)
+   ![Fliken Funktioner, Paketprogrammanifest - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-07-capabilities.png)
 
-1. Markera rutan för **mikrofonens** funktion.
+1. Markera rutan för **mikrofonfunktionen.**
 
-1. I meny raden väljer du **arkiv** > **Spara Package. appxmanifest** för att spara ändringarna.
+1. På menyraden väljer du Spara > **filpaket.appxmanifest** för att spara ändringarna. **File**
 
 ### <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Slutligen installerar du [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)och refererar till tal-SDK: n i projektet:
+Installera slutligen [speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget)och referera till Tal-SDK i projektet:
 
-1. I **Solution Explorer**högerklickar du på din lösning och väljer **Hantera NuGet-paket för lösning** för att gå till fönstret **NuGet-lösning** .
+1. Högerklicka på din lösning i **Solution Explorer**och välj **Hantera NuGet-paket för lösning för** att gå till fönstret **NuGet - Solution.**
 
 1. Välj **Bläddra**.
 
    ![Skärmbild av dialogrutan Hantera paket för lösningen](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
-1. I **paket källa**väljer du **NuGet.org**.
+1. Välj **nuget.org**i **Paketkällan**.
 
-1. I **sökrutan anger du `Microsoft.CognitiveServices.Speech`** och väljer sedan det paketet när det visas i Sök resultatet.
+1. I rutan **Sök** `Microsoft.CognitiveServices.Speech`anger du och väljer sedan paketet när det visas i sökresultaten.
 
    ![Skärmbild av dialogrutan Hantera paket för lösningen](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png)
 
-1. I fönstret paket status bredvid Sök resultaten väljer du ditt **HelloWorld** -projekt.
+1. Välj ditt **helloworld-projekt** i fönstret för paketstatus bredvid sökresultaten.
 
 1. Välj **Installera**.
 
-1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
+1. Välj **OK**i dialogrutan **Förhandsgranska ändringar** .
 
-1. I dialog rutan **licens godkännande** visar du licensen och väljer sedan **Jag accepterar**. Paket installationen startar och när installationen är klar visas ett meddelande som liknar följande text i fönstret **utdata** : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.10.0' to helloworld`.
+1. Visa licensen i dialogrutan **Licensacceptans** och välj sedan **Jag accepterar**. Paketinstallationen börjar och när installationen är klar visas ett meddelande som `Successfully installed 'Microsoft.CognitiveServices.Speech 1.10.0' to helloworld`liknar följande text i **fönstret Utdata:** .

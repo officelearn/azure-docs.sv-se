@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: utföra en Webbs ökning med go-Webbsökning i Bing REST API'
+title: 'Snabbstart: Gör en webbsökning med Rest API för webbsökning mellan Bing och webbsökning'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka begäranden till REST-API:et för webbsökning i Bing med hjälp av Go och få ett JSON-svar
 services: cognitive-services
@@ -13,15 +13,15 @@ ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
 ms.openlocfilehash: 589f7884f390ae57df4e946bcd34ca3bda629ed8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978806"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snabb start: söka på webben med hjälp av Webbsökning i Bing REST API och gå
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Snabbstart: Sök på webben med hjälp av REST API för webbsökning på Bing och gå
 
-Använd den här snabbstarten när du gör ditt första anrop till API:et för webbsökning i Bing och ta sedan emot JSON-svaret. Det här Go-programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i Go så är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Det här Go-programmet skickar en sökbegäran till API:et och visar svaret. Även om det här programmet är skrivet i Go så är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 Här följer några saker som du behöver innan du kör den här snabbstarten:
@@ -111,7 +111,7 @@ type BingAnswer struct {
 
 ## <a name="declare-the-main-function-and-define-variables"></a>Deklarera main-funktionen och definiera variabler  
 
-Den här koden deklarerar main-funktionen och ställer in nödvändiga variabler. `endpoint` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`.
+Den här koden deklarerar main-funktionen och ställer in nödvändiga variabler. `endpoint`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs. Bekräfta att slutpunkten är korrekt och ersätt värdet `token` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`.
 
 ```go
 // Declare the main function. This is required for all Go programs.
@@ -307,7 +307,7 @@ func main() {
 
 ## <a name="sample-response"></a>Exempelsvar  
 
-Svar från API för webbsökning i Bing returneras som JSON. Detta exempel svar har formaterats med `BingAnswer` struct och visar `result.Name` och `result.URL`.
+Svar från API för webbsökning i Bing returneras som JSON. Det här exempelsvaret har `BingAnswer` formaterats med `result.Name` hjälp `result.URL`av konstruktionen och visar och .
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services

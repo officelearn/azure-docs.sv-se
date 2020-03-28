@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Köra en TensorFlow-modell i Python – Custom Vision Service'
 titleSuffix: Azure Cognitive Services
-description: Kör en TensorFlow-modell i Python. Den här artikeln gäller endast modeller som exporteras från bild klassificerings projekt i Custom Visions tjänsten.
+description: Kör en TensorFlow-modell i Python. Den här artikeln gäller endast modeller som exporteras från bildklassificeringsprojekt i tjänsten Custom Vision.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: d7e3eeeea6bb25b4cddaea1d04e86f23ab7e4f5f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969847"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Självstudie: Köra en TensorFlow-modell i Python
@@ -22,16 +22,16 @@ ms.locfileid: "74969847"
 När du har [exporterat din TensorFlow-modell](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) från Custom Vision Service visar den här snabbstarten hur du använder den här modellen lokalt för att klassificera bilder.
 
 > [!NOTE]
-> Den här självstudien gäller endast för modeller som exporteras från bild klassificerings projekt.
+> Den här självstudien gäller endast modeller som exporteras från bildklassificeringsprojekt.
 
 ## <a name="prerequisites"></a>Krav
 
 I självstudiekursen måste du göra följande:
 
-- Installera Python 2.7 + eller Python 3.5 +.
+- Installera Python 2.7+ eller Python 3.5+.
 - Installera pip.
 
-Sedan måste du installera följande paket:
+Därefter måste du installera följande paket:
 
 ```
 pip install tensorflow
@@ -68,7 +68,7 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>Förbereda en bild för förutsägelse
 
-Det finns några steg som du måste vidta för att förbereda avbildningen för förutsägelse. De här stegen motsvarar den bildmanipulering som utförs under träning:
+Det finns några steg du behöver vidta för att förbereda bilden för förutsägelse. De här stegen motsvarar den bildmanipulering som utförs under träning:
 
 ### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Öppna filen och skapa en bild i BGR-färgområdet
 
@@ -88,7 +88,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="handle-images-with-a-dimension-1600"></a>Hantera bilder med en dimension > 1600
+### <a name="handle-images-with-a-dimension-1600"></a>Hantera bilder med en dimension >1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -172,7 +172,7 @@ def update_orientation(image):
 
 ## <a name="predict-an-image"></a>Förutsäga en bild
 
-När avbildningen har bearbetats som en beskrivare kan vi skicka den via modellen för en förutsägelse:
+När bilden är förberedd som en tensor, kan vi skicka den via modellen för en förutsägelse:
 
 ```Python
 
@@ -210,7 +210,7 @@ Resultatet av körningen av bildtensorn genom modellen behöver sedan mappas til
 
 ## <a name="next-steps"></a>Nästa steg
 
-Sedan lär du dig hur du omsluter din modell till ett mobil program:
+Läs sedan om hur du lindar in din modell i ett mobilprogram:
 * [Använda din exporterade Tensorflow-modell i ett Android-program](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Använda din exporterade CoreML-modell i ett Swift iOS-program](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Använda din exporterade CoreML-modell i ett iOS-program med Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

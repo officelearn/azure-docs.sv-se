@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 2a5fb6d72ab2259b2c11d1d71e93aa635da36946
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446555"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Snabb start: Hämta image Insights med hjälp av Visuell sökning i Bing SDK för python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Snabbstart: Få bildinsikter med Bing Visual Search SDK for Python
 
 Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av Python SDK. Även om den visuella sökningen i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) 
 
 ## <a name="prerequisites"></a>Krav
 
-* [Python](https://www.python.org/) 2.x eller 3.x
+* [Python (svenska)](https://www.python.org/) 2.x eller 3.x
 * Det rekommenderas att använda en [virtuell miljö](https://docs.python.org/3/tutorial/venv.html). Installera och initiera den virtuella miljön med [venv-modulen](https://pypi.python.org/pypi/virtualenv).
 * SDK för visuell sökning i Bing för Python. Du kan installera det genom att köra följande kommandon:
     1. `cd mytestenv`

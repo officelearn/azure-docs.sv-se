@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Översätt tal till tal-tal-tjänsten'
+title: 'Snabbstart: Översätt tal-till-tal - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten använder du tal-SDK för att interaktivt översätta tal från ett språk till text på ett annat språk.
+description: I den här snabbstarten ska du använda Tal-SDK för att interaktivt översätta tal från ett språk till text på ett annat språk.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 8babb8b096f815bfd8d9da4c3e8040e650952544
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77119299"
 ---
-# <a name="quickstart-translate-speech-to-speech"></a>Snabb start: Översätt tal till tal
+# <a name="quickstart-translate-speech-to-speech"></a>Snabbstart: Översätt tal till tal
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/translate-sts/header.md)]

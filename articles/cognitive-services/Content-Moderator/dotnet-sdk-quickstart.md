@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Content Moderator klient bibliotek för .NET'
+title: 'Snabbstart: Klientbibliotek för Content Moderator för .NET'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med Content Moderator klient biblioteket för .NET med den här snabb starten.
+description: Kom igång med klientbiblioteket Innehållsmoderator för .NET med den här snabbstarten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,57 +11,57 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: dccd2ebb6ac2c11e19e986d39eabda5f0ab6a8fc
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774294"
 ---
-# <a name="quickstart-content-moderator-client-library-for-net"></a>Snabb start: Content Moderator klient bibliotek för .NET
+# <a name="quickstart-content-moderator-client-library-for-net"></a>Snabbstart: Klientbibliotek för Content Moderator för .NET
 
-Kom igång med Content Moderator klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Content Moderator är en kognitiv tjänst som kontrollerar text-, bild-och video innehåll för material som kan vara stötande, riskfyllda eller på annat sätt olämpligt. När sådant material hittas tillämpar tjänsten lämplig etiketter (flaggor) på innehållet. Din app kan sedan hantera flaggat innehåll för att följa regler eller underhålla avsedd miljö för användare.
+Kom igång med klientbiblioteket Innehållsmoderator för .NET. Följ dessa steg för att installera paketet och prova exempelkoden för grundläggande uppgifter. Content Moderator är en kognitiv tjänst som kontrollerar text-, bild- och videoinnehåll för material som kan vara stötande, riskabelt eller på annat sätt oönskat. När sådant material hittas tillämpar tjänsten lämplig etiketter (flaggor) på innehållet. Din app kan sedan hantera flaggat innehåll för att följa regler eller underhålla den avsedda miljön för användare.
 
-Använd Content Moderator klient bibliotek för .NET för att:
+Använd klientbiblioteket Innehållsmoderator för .NET för att:
 
-* [Måttlig text](#moderate-text)
+* [Moderera text](#moderate-text)
 * [Måttliga bilder](#moderate-images)
-* [Skapa en granskning](#create-a-review)
+* [Skapa en recension](#create-a-review)
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Library Source Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Package (NuGet) | -](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) [exempel](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
+[Referensdokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Biblioteks](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [källkodspaket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [Exempel](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Azure-prenumeration - [Skapa en gratis](https://azure.microsoft.com/free/)
+* Den aktuella versionen av [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="setting-up"></a>Inrätta
 
-### <a name="create-a-content-moderator-azure-resource"></a>Skapa en Content Moderator Azure-resurs
+### <a name="create-a-content-moderator-azure-resource"></a>Skapa en Azure-resurs för innehållsmoderator
 
-Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Content Moderator med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
+Azure Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Content Moderator med Hjälp av [Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på din lokala dator. Du kan också:
 
-* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Visa din resurs på [Azure Portal](https://portal.azure.com/)
+* Få en [testnyckel](https://azure.microsoft.com/try/cognitive-services/#decision) giltig i sju dagar gratis. När du har registrerat dig är den tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Visa din resurs på [Azure-portalen](https://portal.azure.com/)
 
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en med namnet `CONTENT_MODERATOR_SUBSCRIPTION_KEY` respektive `CONTENT_MODERATOR_ENDPOINT`.
+När du har fått en nyckel från utvärderingsprenumerationen eller resursen `CONTENT_MODERATOR_ENDPOINT`skapar du [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och slutpunkts-URL:en, med namn `CONTENT_MODERATOR_SUBSCRIPTION_KEY` respektive , respektive.
 
-### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
+### <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
-Skapa ett nytt .NET Core-program i din önskade text redigerare eller IDE. 
+Skapa ett nytt .NET Core-program i önskad textredigerare eller IDE. 
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot `dotnet new` för att skapa en ny konsol-app med namnet `content-moderator-quickstart`. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda käll fil: *program.cs*.
+I ett konsolfönster (till exempel cmd, PowerShell `dotnet new` eller Bash) använder du `content-moderator-quickstart`kommandot för att skapa en ny konsolapp med namnet . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda källfil: *Program.cs*.
 
 ```console
 dotnet new console -n content-moderator-quickstart
 ```
 
-Ändra katalogen till mappen nyligen skapade appar. Du kan bygga programmet med:
+Ändra katalogen till den nyskapade appmappen. Du kan skapa programmet med:
 
 ```console
 dotnet build
 ```
 
-Build-utdata får inte innehålla varningar eller fel. 
+Byggutdata bör inte innehålla några varningar eller fel. 
 
 ```console
 ...
@@ -71,178 +71,178 @@ Build succeeded.
 ...
 ```
 
-Från projekt katalogen öppnar du *program.cs* -filen i önskat redigerings program eller IDE. Lägg till följande `using`-uttryck:
+Öppna den *Program.cs* filen i önskad redigerare eller IDE från projektkatalogen. Lägg till följande `using`-uttryck:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_using)]
 
-I **program** -klassen skapar du variabler för resursens slut punkts plats och nyckel som miljövariabler.
+Skapa variabler för resursens slutpunktsplats och nyckel som miljövariabler i klassen **Program.**
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_creds)]
 
 > [!NOTE]
-> Om du har skapat miljövariablerna efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variablerna.
+> Om du har skapat miljövariablerna efter att du har startat programmet måste du stänga och öppna redigeraren, IDE:t eller skalet som kör det för att komma åt variablerna.
 
-### <a name="install-the-client-library"></a>Installera klient biblioteket
+### <a name="install-the-client-library"></a>Installera klientbiblioteket
 
-I program katalogen installerar du Content Moderator klient biblioteket för .NET med följande kommando:
+Installera klientbiblioteket Innehåll moderator för .NET i programkatalogen med följande kommando:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator --version 2.0.0
 ```
 
-Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
+Om du använder Visual Studio IDE är klientbiblioteket tillgängligt som ett nedladdningsbart NuGet-paket.
 
-## <a name="object-model"></a>Objekt modell
+## <a name="object-model"></a>Objektmodell
 
-Följande klasser hanterar några av de viktigaste funktionerna i Content Moderator .NET SDK.
+Följande klasser hanterar några av de viktigaste funktionerna i Innehållsmoderatorn .NET SDK.
 
 |Namn|Beskrivning|
 |---|---|
-|[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Den här klassen krävs för alla Content Moderator-funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
-|[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Den här klassen innehåller funktioner för att analysera bilder för innehåll som är olämpligt för barn, personlig information eller mänskliga ansikten.|
-|[TextModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|Den här klassen innehåller funktioner för att analysera text för språk, svordomar, fel och personlig information.|
-|[Review](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|Den här klassen innehåller funktionerna i gransknings-API: erna, inklusive metoder för att skapa jobb, anpassade arbets flöden och mänsklig granskning.|
+|[InnehållModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Den här klassen behövs för alla funktioner för innehållsmodererator. Du instansierar den med din prenumerationsinformation och använder den för att producera instanser av andra klasser.|
+|[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Den här klassen tillhandahåller funktioner för att analysera bilder för barnförbjudet innehåll, personlig information eller mänskliga ansikten.|
+|[TextModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.textmoderation?view=azure-dotnet)|Den här klassen tillhandahåller funktioner för att analysera text för språk, svordomar, fel och personlig information.|
+|[Omdömen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet)|Den här klassen innehåller funktionerna i gransknings-API:erna, inklusive metoder för att skapa jobb, anpassade arbetsflöden och mänskliga granskningar.|
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
 
-De här kodfragmenten visar hur du gör följande uppgifter med Content Moderator-klient biblioteket för .NET:
+De här kodavsnitten visar hur du utför följande uppgifter med klientbiblioteket Innehållsmoderator för .NET:
 
 * [Autentisera klienten](#authenticate-the-client)
-* [Måttlig text](#moderate-text)
+* [Moderera text](#moderate-text)
 * [Måttliga bilder](#moderate-images)
-* [Skapa en granskning](#create-a-review)
+* [Skapa en recension](#create-a-review)
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-I en ny metod instansierar du klient objekt med din slut punkt och nyckel. Du behöver inte en annan klient för varje scenario, men den kan hjälpa dig att hålla koden organiserad.
+I en ny metod instansierar du klientobjekt med slutpunkten och nyckeln. Du behöver inte en annan klient för varje scenario, men det kan hjälpa till att hålla koden organiserad.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_client)]
 
-## <a name="moderate-text"></a>Måttlig text
+## <a name="moderate-text"></a>Moderera text
 
-I följande kod används en Content Moderator-klient för att analysera text texten och skriva ut resultatet till-konsolen. I roten för din **program** klass definierar du in-och utdatafiler:
+Följande kod använder en Content Moderator-klient för att analysera en texttext och skriva ut resultaten till konsolen. Definiera in- och utdatafiler i roten **för klassen Program:**
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_text_vars)]
 
-I roten för projektet och lägga till en *TextFile. txt* -fil. Lägg till din egen text i filen eller Använd följande exempel text:
+Sedan vid roten av ditt projekt och lägga till en *TextFile.txt* fil. Lägg till din egen text i den här filen eller använd följande exempeltext:
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
 Crap is the profanity here. Is this information PII? phone 4255550111
 ```
 
-Lägg till följande metod anrop till din `Main` metod:
+Lägg till följande metodanrop i metoden: `Main`
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod_call)]
 
-Definiera sedan text redigerings metoden någonstans i **program** klassen:
+Definiera sedan textmoderingsmetoden någonstans i **klassen Program:**
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod)]
 
 ## <a name="moderate-images"></a>Måttliga bilder
 
-I följande kod används en Content Moderator-klient, tillsammans med ett [ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) -objekt, för att analysera fjärravbildningar för vuxen och vågat innehåll.
+Följande kod använder en Content Moderator-klient, tillsammans med ett [ImageModeration-objekt,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) för att analysera fjärrbilder för barnförbjudet och racy-innehåll.
 
 > [!NOTE]
-> Du kan också analysera innehållet i en lokal avbildning. Se [referens dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_) för metoder och åtgärder som fungerar med lokala avbildningar.
+> Du kan också analysera innehållet i en lokal bild. Se [referensdokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation.evaluatefileinputwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_ContentModerator_ImageModeration_EvaluateFileInputWithHttpMessagesAsync_System_IO_Stream_System_Nullable_System_Boolean__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_) för metoder och åtgärder som fungerar med lokala bilder.
 
-### <a name="get-sample-images"></a>Hämta exempel bilder
+### <a name="get-sample-images"></a>Hämta exempelbilder
 
-Definiera indata-och utdatafiler:
+Definiera in- och utdatafiler:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_image_vars)]
 
-Skapa sedan indatafilen, *ImageFiles. txt*, i roten för projektet. I den här filen lägger du till URL: er för avbildningar för att analysera&mdash;en URL på varje rad. Du kan använda följande exempel bilder:
+Skapa sedan indatafilen *ImageFiles.txt*i projektets rot. I den här filen lägger du&mdash;till url:erna för bilder för att analysera en URL på varje rad. Du kan använda följande exempelbilder:
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-Skicka in dina indata-och utdatafiler till följande metod anrop i metoden `Main`. Du definierar den här metoden i ett senare steg.
+Skicka indata- och utdatafilerna `Main` till följande metodanrop i metoden. Du definierar den här metoden i ett senare steg.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod_call)]
 
-### <a name="define-helper-class"></a>Definiera hjälp klass
+### <a name="define-helper-class"></a>Definiera hjälpklass
 
-Lägg till följande klass definition i **program** klassen. Den här inre klassen hanterar bild moderator resultat.
+Lägg till följande klassdefinition i klassen **Program.** Den här inre klassen hanterar resultatet av bildmoderering.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_dataclass)]
 
-### <a name="define-the-image-moderation-method"></a>Definiera avbildnings moderator metoden
+### <a name="define-the-image-moderation-method"></a>Definiera metoden för bildmoderering
 
-Följande metod itererar igenom bild-URL: erna i en textfil, skapar en **EvaluationData** -instans och analyserar bilden för innehåll, text och mänskliga ansikten som är vuxna/vågat. Sedan läggs den slutliga **EvaluationData** -instansen till i en lista och skriver den fullständiga listan med returnerade data till-konsolen.
+Följande metod iterar igenom bild-URL:erna i en textfil, skapar en **EvaluationData-instans** och analyserar bilden för innehåll med barnförbjudet/kretering. Sedan lägger den slutliga **EvaluationData-instansen** till i en lista och den fullständiga listan över returnerade data till konsolen.
 
-#### <a name="iterate-through-image-urls"></a>Iterera genom bild-URL: er
+#### <a name="iterate-through-image-urls"></a>Iterera genom bildadresser
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_iterate)]
 
 #### <a name="analyze-content"></a>Analysera innehåll
 
-Mer information om bildattributen som Content Moderator skärmar för finns i hand boken för [bild moderator](./image-moderation-api.md) .
+Mer information om bildattributen som Innehållsmoderator söker efter finns i begreppsguiden för begrepp för [bildmoderering.](./image-moderation-api.md)
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_analyze)]
 
-#### <a name="write-moderation-results-to-file"></a>Skriv redigerings resultat till fil
+#### <a name="write-moderation-results-to-file"></a>Skriv modereringsresultat till fil
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_imagemod_save)]
 
-## <a name="create-a-review"></a>Skapa en granskning
+## <a name="create-a-review"></a>Skapa en recension
 
-Du kan använda Content Moderator .NET SDK för att mata in innehåll i [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) så att de mänskliga moderatorerna kan granska det. Mer information om gransknings verktyget finns i [konceptuell guide för gransknings verktyget](./review-tool-user-guide/human-in-the-loop.md).
+Du kan använda Innehållsmoderatorn .NET SDK för att mata in innehåll i [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) så att mänskliga moderatorer kan granska det. Mer information om granskningsverktyget finns i [konceptguiden för granskningsverktyg](./review-tool-user-guide/human-in-the-loop.md).
 
-Metoden i det här avsnittet använder klassen [granskningar](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) för att skapa en granskning, hämta dess ID och kontrol lera informationen efter att ha tagit emot mänsklig indata via gransknings verktygets webb Portal. Den loggar all den här informationen i en textfil med utdata. Anropa metoden från din `Main` metod:
+Metoden i det här avsnittet använder klassen [Reviews](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.reviews?view=azure-dotnet) för att skapa en granskning, hämta dess ID och kontrollera dess information efter att ha tagit emot mänsklig indata via granskningsverktygets webbportal. Den loggar all denna information i en utdatatextfil. Anropa metoden från `Main` din metod:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_call)]
 
-### <a name="get-sample-images"></a>Hämta exempel bilder
+### <a name="get-sample-images"></a>Hämta exempelbilder
 
-Deklarera följande matris i roten i **program** klassen. Den här variabeln refererar till en exempel bild som ska användas för att skapa granskningen.
+Deklarera följande matris i roten till **programklassen.** Den här variabeln refererar till en exempelbild som ska användas för att skapa granskningen.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_urls)]
 
-### <a name="get-review-credentials"></a>Hämta granska autentiseringsuppgifter
+### <a name="get-review-credentials"></a>Hämta granskningsautentiseringsuppgifter
 
-Logga in på [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) och hämta ditt grupp namn. Tilldela den sedan den aktuella variabeln i **program** klassen. Alternativt kan du skapa en slut punkt för återanrop för att ta emot uppdateringar om granskningens aktivitet.
+Logga in på [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com) och hämta ditt teamnamn. Tilldela den sedan till lämplig variabel i **klassen Program.** Du kan också ställa in en motringningsslutpunkt för att få uppdateringar om granskningens aktivitet.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_vars)]
 
-### <a name="define-helper-class"></a>Definiera hjälp klass
+### <a name="define-helper-class"></a>Definiera hjälpklass
 
-Lägg till följande klass definition i **program** klassen. Den här klassen kommer att användas för att representera en enda gransknings instans som skickas till gransknings verktyget.
+Lägg till följande klassdefinition i **klassen Program.** Den här klassen används för att representera en enda granskningsinstans som skickas till granskningsverktyget.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_item)]
 
-### <a name="define-helper-method"></a>Definiera hjälp metod
+### <a name="define-helper-method"></a>Definiera hjälpmetod
 
-Lägg till följande metod i klassen **Program**. Med den här metoden skrivs resultaten från gransknings frågor till den utgående text filen.
+Lägg till följande metod i klassen **Program**. Den här metoden skriver resultatet av granskningsfrågor till utdatatextfilen.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_writeline)]
 
 ### <a name="define-the-review-creation-method"></a>Definiera metoden för att skapa granskning
 
-Nu är du redo att definiera metoden som hanterar gransknings skapandet och-frågor. Lägg till en ny metod, **CreateReviews**och definiera följande lokala variabler.
+Nu är du redo att definiera den metod som ska hantera granskningens skapande och frågor. Lägg till en ny metod, **CreateReviews**och definiera följande lokala variabler.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_fields)]
 
-#### <a name="post-reviews-to-the-review-tool"></a>Publicera granskningar i gransknings verktyget
+#### <a name="post-reviews-to-the-review-tool"></a>Skicka recensioner till granskningsverktyget
 
-Lägg sedan till följande kod för att iterera genom de här exempel bilderna, Lägg till metadata och skicka dem till gransknings verktyget i en enda batch. 
+Lägg sedan till följande kod för att iterera genom de givna exempelbilderna, lägga till metadata och skicka dem till granskningsverktyget i en enda batch. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_create)]
 
-Objektet som returneras från API-anropet innehåller unika ID-värden för varje avbildning som laddats upp. Följande kod tolkar dessa ID: n och använder dem sedan för att fråga Content Moderator efter status för varje avbildning i batchen.
+Objektet som returneras från API-anropet innehåller unika ID-värden för varje uppladdad bild. Följande kod tolkar dessa ID:n och använder dem sedan för att fråga innehållsmoderator för status för varje bild i batchen.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_ids)]
 
-### <a name="get-review-details"></a>Visa gransknings information
+### <a name="get-review-details"></a>Få information om recension
 
-Följande kod gör att programmet väntar på användarindata. När du kommer till det här steget vid körning kan du gå till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com) själv, kontrol lera att exempel bilden har laddats upp och interagera med den. Information om hur du interagerar med en granskning finns i [instruktionen gransknings anvisningar](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). När du är klar kan du trycka på valfri tangent för att fortsätta programmet och hämta resultatet från gransknings processen.
+Följande kod gör att programmet väntar på indata från användaren. När du kommer till det här steget vid körning kan du själv gå till [granskningsverktyget,](https://contentmoderator.cognitive.microsoft.com) kontrollera att exempelbilden laddades upp och interagerar med den. Information om hur du interagerar med en recension finns i [vägledningen för recensioner](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). När du är klar kan du trycka på valfri tangent för att fortsätta programmet och hämta resultatet av granskningsprocessen.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_results)]
 
-Om du har använt en callback-slutpunkt i det här scenariot, ska den ta emot en händelse i följande format:
+Om du har använt en motringningsslutpunkt i det här scenariot bör den få en händelse i det här formatet:
 
 ```console
 {'callback_endpoint': 'https://requestb.in/qmsakwqm',
@@ -258,9 +258,9 @@ Om du har använt en callback-slutpunkt i det här scenariot, ska den ta emot en
  'type': 'Image'}
 ```
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
-Kör programmet från program katalogen med kommandot `dotnet run`.
+Kör programmet från programkatalogen `dotnet run` med kommandot.
 
 ```dotnet
 dotnet run 
@@ -268,17 +268,17 @@ dotnet run
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
+Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
-* [Portalen](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du använder Content Moderator .NET-biblioteket för att utföra redigerings uppgifter. Läs sedan mer om hur du använder avbildningen eller andra media genom att läsa en konceptuell guide.
+I den här snabbstarten lärde du dig hur du använder Content Moderator .NET-biblioteket för att utföra modereringsuppgifter. Läs sedan mer om måttfullhet av bilder eller andra medier genom att läsa en konceptuell guide.
 
 > [!div class="nextstepaction"]
-> [Bild moderator koncept](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
+> [Begrepp för bildmoderering](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
 * [Vad är Azure Content Moderator?](./overview.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/ContentModerator/Program.cs).

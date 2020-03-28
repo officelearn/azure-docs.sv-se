@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: utföra en Webbs ökning med Java-Webbsökning i Bing REST API'
+title: 'Snabbstart: Gör en webbsökning med Java - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av Java och få ett JSON-svar.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 12/16/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383620"
 ---
-# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med Java och Nyhetssökning i Bing REST API
+# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Snabbstart: Gör en nyhetssökning med Java och REST-API:et för Bing News Search
 
 Använd den här snabbstarten för att göra ditt första anrop till API för nyhetssökning i Bing och visa JSON-svaret. Det här enkla Java-programmet skickar en nyhetssökfråga till API:et och visar svaret.
 
@@ -50,7 +50,7 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa en ny klass med variabler för API-slutpunkten, din prenumerationsnyckel och sökvillkor. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa en ny klass med variabler för API-slutpunkten, din prenumerationsnyckel och sökvillkor. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -64,7 +64,7 @@ Källkoden till det här exemplet finns [på GitHub](https://github.com/Azure-Sa
 
 ## <a name="construct-the-search-request-and-receive-a-json-response"></a>Konstruera sökbegäran och ta emot ett JSON-svar
 
-1. Använda variabler från det sista steget för att formatera en URL för API-begäran. Observera att sökordet måste vara URL-kodat innan det läggs till i begäran.
+1. Använd variablerna från det sista steget för att formatera en sök-URL för API-begäran. Observera att sökordet måste vara URL-kodat innan det läggs till i begäran.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -225,4 +225,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en ensidig webbapp](tutorial-bing-news-search-single-page-app.md)

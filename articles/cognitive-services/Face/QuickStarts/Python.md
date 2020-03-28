@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: c4d136eaf0f6c4ac64093f417f144e422e2da52f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74977921"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och Python
@@ -23,7 +23,7 @@ I den här snabbstarten ska du använda Azure ansikts-REST API med Python för a
 
 ![En man och en kvinna, med rektanglar ritade runt ansiktena och med information om ålder och kön på bilden](../images/labelled-faces-python.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
 
 
 ## <a name="prerequisites"></a>Krav
@@ -34,20 +34,20 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Du kan köra den här snabbstarten som en Jupyter-anteckningsbok på [MyBinder](https://mybinder.org). Kör Binder genom att välja knappen nedan. Följ sedan anvisningarna i anteckningsboken.
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
+[![Pärm](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
 
 ## <a name="create-and-run-the-sample"></a>Skapa och köra exemplet
 
-Alternativt kan du köra den här snabb starten från kommando raden med följande steg:
+Alternativt kan du köra den här snabbstarten från kommandoraden med följande steg:
 
 1. Kopiera följande kod till en textredigerare.
-1. Gör följande ändringar i koden där det behövs:
+1. Gör följande ändringar i koden när så behövs:
     1. Ersätt värdet för `subscription_key` med din prenumerationsnyckel.
-    1. Redigera värdet för `face_api_url` för att inkludera slut punkts-URL: en för din Ansikts-API-resurs.
+    1. Redigera värdet `face_api_url` för att inkludera slutpunkts-URL:en för din Face API-resurs.
     1. Du kan också ersätta värdet för `image_url` med webbadressen till en annan bild som du vill analysera.
 1. Spara koden som en fil med tillägget `.py`. Till exempel `detect-face.py`.
 1. Öppna ett kommandotolksfönster.
-1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python detect-face.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python detect-face.py`.
 
 ```python
 import requests

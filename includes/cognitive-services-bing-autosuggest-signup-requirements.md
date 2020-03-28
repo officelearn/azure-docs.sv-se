@@ -5,25 +5,25 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2019
 ms.openlocfilehash: a678603d19b8da9ace8b519e19fc8ef2673621fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75384734"
 ---
 ## <a name="create-an-azure-resource"></a>Skapa en Azure-resurs
 
-Börja använda API för automatiska förslag i Bing genom att skapa en av Azure-resurserna nedan.
+Börja använda API:et för automatiska förslag på Bing genom att skapa en av Azure-resurserna nedan.
 
-* [Skapa en utvärderings resurs](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
-    * Ingen Azure-prenumeration krävs.
-    * Gäller i sju dagar utan kostnad. Efter registreringen kommer en utvärderings nyckel och slut punkt att vara tillgängliga på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+* [Skapa en utvärderingsresurs:](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
+    * Ingen Azure-prenumeration behövs.
+    * Gäller i sju dagar, gratis. När du har registrerat dig kommer en utvärderingsnyckel och slutpunkt att vara tillgängliga på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
-* [Skapa en automatiska förslag i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7):
-    * Tillgängligt via Azure Portal tills du tar bort resursen.
-    * Använd den kostnads fria pris nivån för att testa tjänsten och uppgradera senare till en betald nivå för produktion.
-    * Automatiska förslag i Bing erbjuds även i betalda nivåer av [Bing-sökning v7-resursen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
+* [Skapa en autosuggestresurs för Bing:](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)
+    * Tillgänglig via Azure-portalen tills du tar bort resursen.
+    * Använd den kostnadsfria prisnivån för att prova tjänsten och uppgradera senare till en betald nivå för produktion.
+    * Bing Autosuggest erbjuds också i betalda nivåer för [Bing Search v7-resursen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7).
 
-* [Skapa en resurs för flera tjänster](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Tillgängligt via Azure Portal tills du tar bort resursen.  
-    * Använd samma nyckel och slut punkt för dina program i flera Cognitive Services.
+* [Skapa en multitjänstresurs:](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
+    * Tillgänglig via Azure-portalen tills du tar bort resursen.  
+    * Använd samma nyckel och slutpunkt för dina program, över flera Cognitive Services.

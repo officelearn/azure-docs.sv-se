@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: söka efter videor med hjälp av REST API och python-Videosökning i Bing'
+title: 'Snabbstart: Sök efter videor med REST API och Python - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten för att skicka videosökningsbegäranden till REST API för videosökning i Bing med Python.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.openlocfilehash: fbf20c2d54506b0f314697d6df34f9a430e7c016
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382692"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Snabb start: söka efter videor med hjälp av Videosökning i Bing REST API och python
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Snabbstart: Sök efter videor med REST API:et för Bing-videosökning och Python
 
-Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och få ett JSON-svar. Det här enkla Python-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
+Använd den här snabbstarten för att skicka ditt första anrop till API:et för videosökning i Bing och visa ett sökresultat från JSON-svaret. Det här enkla Python-programmet skickar en HTTP-videosökfråga till API:et och visar svaret. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) tillsammans med ytterligare kommentarer om hantering av fel och kodanteckningar.
 
 Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder: 
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
+[![Pärm](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
 ## <a name="prerequisites"></a>Krav
@@ -32,7 +32,7 @@ Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://my
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="initialize-the-application"></a>Initiera appen
+## <a name="initialize-the-application"></a>Initiera programmet
 
 1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera följande bibliotek,
 
@@ -40,7 +40,7 @@ Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://my
     import requests
     from IPython.display import HTML
     ```
-2.  Skapa variabler för din prenumerationsnyckel, en sökslutpunkt och ett sökvillkor. `search_url` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen.
+2.  Skapa variabler för din prenumerationsnyckel, en sökslutpunkt och ett sökvillkor. `search_url`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
     
     ```python
     subscription_key = None
@@ -193,6 +193,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
- [Vad är API för videosökning i Bing?](../overview.md)
+ [Vad är API:et för videosökning i Bing?](../overview.md)

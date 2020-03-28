@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: etikett formulär, träna en modell och analysera ett formulär med hjälp av verktyget exempel etikettering-formulär tolken'
+title: 'Snabbstart: Etikettformulär, träna en modell och analysera ett formulär med hjälp av exempeletikettverktyget - Formuläre recognizer'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten använder du verktyget formulär igenkännings exempel etikettering för att manuellt etikettera formulär dokument. Sedan tränar du en anpassad modell med de märkta dokumenten och använder modellen för att extrahera nyckel/värde-par.
+description: I den här snabbstarten ska du använda exempeletikettverktyget Formulär recognizer för att manuellt märka formulärdokument. Sedan ska du träna en anpassad modell med de märkta dokumenten och använda modellen för att extrahera nyckel/värdepar.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,187 +9,192 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: ad074ca2cc9cd335d6697a2383998246468907ad
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78205838"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052446"
 ---
-# <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
+# <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulärmedkänningsmodell med etiketter med hjälp av exempeletikettverktyget
 
-I den här snabb starten använder du formulär tolken REST API med verktyget för att träna en anpassad modell med manuellt märkta data. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
+I den här snabbstarten ska du använda REST-API:et för formulärmed exempeletikettverktyget för att träna en anpassad modell med manuellt märkta data. Se avsnittet [Träna med etiketter](../overview.md#train-with-labels) i översikten om du vill veta mer om den här funktionen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabb starten måste du ha:
+För att slutföra den här snabbstarten måste du ha:
 
-- En uppsättning av minst sex formulär av samma typ. Du använder dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
+- En uppsättning av minst sex former av samma typ. Du ska använda dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp utbildningsfilerna till roten för en blob-lagringsbehållare i ett Azure Storage-konto.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulärkonformeringsresurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="set-up-the-sample-labeling-tool"></a>Konfigurera verktyget för samplings etiketter
+## <a name="set-up-the-sample-labeling-tool"></a>Ställ in exempeletikettverktyget
 
-Du använder Docker-motorn för att köra verktyget för etikettering. Följ de här stegen för att konfigurera Docker-behållaren. För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).
-1. Börja med att installera Docker på en värddator. I den här guiden visas hur du använder en lokal dator som värd. Om du vill använda en Docker-värd tjänst i Azure kan du läsa mer i guiden [distribuera exempel etikett verktyg](../deploy-label-tool.md) . 
+Du ska använda Docker-motorn för att köra exempeletikettverktyget. Följ dessa steg för att ställa in Docker-behållaren. En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).
 
-   Värddatorn måste uppfylla följande maskin varu krav:
+> [!TIP]
+> OCR-formulärmärkningsverktyget är också tillgängligt som ett projekt med öppen källkod på GitHub. Verktyget är ett webbprogram byggt med React + Redux och skrivs i TypeScript. Mer information om eller bidra finns i [OCR-formuläretikettverktyg](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+
+1. Installera först Docker på en värddator. Den här guiden visar hur du använder lokal dator som värd. Om du vill använda en Docker-värdtjänst i Azure läser du hur du kan styra hur du vill använda [exempeletikettverktyget.](../deploy-label-tool.md) 
+
+   Värddatorn måste uppfylla följande maskinvarukrav:
 
     | Container | Minimum | Rekommenderas|
     |:--|:--|:--|
-    |Exempel på etikett verktyg|2 kärnor, 4 GB minne|4 kärnor, 8 GB minne|
+    |Exempel på etikettverktyg|2 kärnor, 4 GB minne|4-kärniga, 8 GB minne|
 
-   Installera Docker på datorn genom att följa lämpliga instruktioner för ditt operativ system: 
+   Installera Docker på datorn genom att följa lämpliga instruktioner för operativsystemet: 
    * [Windows](https://docs.docker.com/docker-for-windows/)
-   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Macos](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/).
 
-1. Hämta exempel på etiketting Tool-behållaren med kommandot `docker pull`.
+1. Hämta exempelmärkningsverktygsbehållaren `docker pull` med kommandot.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
-1. Nu är du redo att köra behållaren med `docker run`.
+1. Nu är du redo att `docker run`köra behållaren med .
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   Det här kommandot gör verktyget för exempel etiketter tillgängligt via en webbläsare. Gå till [http://localhost:3000](http://localhost:3000).
+   Det här kommandot gör exempeletikettverktyget tillgängligt via en webbläsare. Gå [http://localhost:3000](http://localhost:3000)till .
 
 > [!NOTE]
-> Du kan också märka dokument och träna modeller med hjälp av formulär tolken REST API. Om du vill träna och analysera med REST API, se [träna med etiketter med hjälp av REST API och python](./python-labeled-data.md).
+> Du kan också märka dokument och träna modeller med hjälp av FORM Recognizer REST API. Om du vill träna och analysera med REST API finns i [Träna med etiketter med REST API och Python](./python-labeled-data.md).
 
-## <a name="set-up-input-data"></a>Konfigurera indata
+## <a name="set-up-input-data"></a>Ställ in indata
 
-Se först till att alla utbildnings dokument har samma format. Om du har formulär i flera format, ordnar du dem i undermappar baserat på vanligt format. När du tränar måste du dirigera API: et till en undermapp.
+Kontrollera först att alla utbildningsdokument är av samma format. Om du har formulär i flera format ordnar du dem i undermappar baserat på gemensamt format. När du tränar måste du dirigera API:et till en undermapp.
 
-### <a name="configure-cross-domain-resource-sharing-cors"></a>Konfigurera en resurs delning mellan domäner (CORS)
+### <a name="configure-cross-domain-resource-sharing-cors"></a>Konfigurera resursdelning mellan domäner (CORS)
 
-Aktivera CORS på ditt lagrings konto. Välj ditt lagrings konto i Azure Portal och klicka på fliken **CORS** i det vänstra fönstret. Fyll i följande värden på den nedersta raden. Klicka sedan på **Spara** högst upp.
+Aktivera CORS på ditt lagringskonto. Välj ditt lagringskonto i Azure-portalen och klicka på fliken **CORS** i den vänstra rutan. Fyll i följande värden på den nedersta raden. Klicka sedan på **Spara** högst upp.
 
-* Tillåtna ursprung = * 
-* Tillåtna metoder = \[Markera alla\]
-* Tillåtna huvuden = *
+* Tillåtet ursprung = * 
+* Tillåtna \[metoder = markera alla\]
+* Tillåtna rubriker = *
 * Exponerade rubriker = * 
 * Max ålder = 200
 
 > [!div class="mx-imgBorder"]
-> ![CORS-installationen i Azure Portal](../media/label-tool/cors-setup.png)
+> ![CORS-inställningar i Azure-portalen](../media/label-tool/cors-setup.png)
 
-## <a name="connect-to-the-sample-labeling-tool"></a>Ansluta till verktyget för att märka exempel
+## <a name="connect-to-the-sample-labeling-tool"></a>Anslut till exempeletikettverktyget
 
-Verktyget för att skapa etiketter ansluter till en källa (där de ursprungliga formulären finns) och ett mål (där det exporterar de skapade etiketterna och utdata).
+Exempeletikettverktyget ansluter till en källa (där de ursprungliga formulären finns) och ett mål (där det exporterar de skapade etiketterna och utdata).
 
-Anslutningar kan konfigureras och delas mellan projekt. De använder en utöknings bar leverantörs modell, så att du enkelt kan lägga till nya käll-/mål leverantörer.
+Anslutningar kan ställas in och delas mellan projekt. De använder en utökningsbar leverantörsmodell, så att du enkelt kan lägga till nya käll-/målleverantörer.
 
-Om du vill skapa en ny anslutning klickar du på ikonen **nya anslutningar** (plugg) i det vänstra navigerings fältet.
+Om du vill skapa en ny anslutning klickar du på ikonen Nya anslutningar (plug) i det vänstra **navigeringsfältet.**
 
 Fyll i fälten med följande värden:
 
-* **Visnings namn** – anslutningens visnings namn.
-* **Beskrivning** – din projekt beskrivning.
-* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallo tid till en tid efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa**, **skriva**, **ta bort**och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **Visningsnamn** - Anslutningsvisningsnamnet.
+* **Beskrivning** - Din projektbeskrivning.
+* **SAS-URL** – SAS-URL:en (Shared Access Signature) för din Azure Blob Storage-behållare. Om du vill hämta SAS-URL:en öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Ställ in utgångstiden till en tid efter att du har använt tjänsten. Kontrollera att behörigheterna **Läs,** **Skriv,** **Ta bort**och **Lista** är markerade och klicka på **Skapa**. Kopiera sedan värdet i **avsnittet URL.** Det bör ha `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`formen: .
 
-![Anslutnings inställningar för verktyget för samplings etiketter](../media/label-tool/connections.png)
+![Anslutningsinställningar för exempeletikettverktyget](../media/label-tool/connections.png)
 
 ## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-I exempel verktyget för etikettering kan du lagra dina konfigurationer och inställningar i projekt. Skapa ett nytt projekt och fyll i fälten med följande värden:
+I exempeletikettverktyget lagrar projekt dina konfigurationer och inställningar. Skapa ett nytt projekt och fyll i fälten med följande värden:
 
-* **Visnings namn** – projektets visnings namn
-* **Säkerhetstoken – vissa** projekt inställningar kan innehålla känsliga värden, t. ex. API-nycklar eller andra delade hemligheter. Varje projekt kommer att generera en säkerhetstoken som kan användas för att kryptera/dekryptera känsliga projekt inställningar. Du kan hitta säkerhetstoken i program inställningarna genom att klicka på kugg hjuls ikonen i det nedre hörnet i det vänstra navigerings fältet.
-* **Käll anslutning** – Azure Blob Storage-anslutningen som du skapade i det föregående steget som du vill använda för det här projektet.
-* **Mappsökväg** – valfritt – om dina käll formulär finns i en mapp på BLOB-behållaren anger du mappnamnet här
-* **Formulär tolkens tjänst-URI** – URL för formulär tolkens slut punkt.
-* **API-nyckel** – ditt formulärs igenkännings prenumerations nyckel.
-* **Beskrivning** – valfri projekt Beskrivning
+* **Visningsnamn** - projektets visningsnamn
+* **Säkerhetstoken** - Vissa projektinställningar kan innehålla känsliga värden, till exempel API-nycklar eller andra delade hemligheter. Varje projekt genererar en säkerhetstoken som kan användas för att kryptera/dekryptera känsliga projektinställningar. Du kan hitta säkerhetstoken i programinställningarna genom att klicka på kugghjulsikonen i det nedre hörnet av det vänstra navigeringsfältet.
+* **Källa anslutning** - Azure Blob Storage-anslutning som du skapade i föregående steg som du vill använda för det här projektet.
+* **Mappsökväg** - Valfritt - Om källformulären finns i en mapp på blob-behållaren anger du mappnamnet här
+* **Formulär recognizer Service Uri** - Din formulär recognizer slutpunkt URL.
+* **API-nyckel** - Din prenumerationsnyckel för formulär recognizer.
+* **Beskrivning** - Valfritt - Projektbeskrivning
 
-![Ny projekt sida på exempel etikett verktyg](../media/label-tool/new-project.png)
+![Ny projektsida på exempeletikettverktyget](../media/label-tool/new-project.png)
 
-## <a name="label-your-forms"></a>Etikettera formulär
+## <a name="label-your-forms"></a>Märk formulären
 
-När du skapar eller öppnar ett projekt öppnas huvud tag gen redigerarens fönster. Kod redigeraren består av tre delar:
+När du skapar eller öppnar ett projekt öppnas huvudtaggredigerarens fönster. Taggredigeraren består av tre delar:
 
-* Ett förhands gransknings fönster som innehåller en rullnings bar lista med formulär från käll anslutningen.
-* Huvud redigerings fönstret där du kan använda taggar.
-* Rutan kod redigerings fönster där användare kan ändra, låsa, ordna om och ta bort taggar. 
+* Ett förhandsgranskningsfönster som kan ändras som innehåller en rullningsbar lista med formulär från källanslutningen.
+* Huvudredigerarfönstret där du kan använda taggar.
+* Fönstret taggredigerare som tillåter användare att ändra, låsa, ändra ordning på och ta bort taggar. 
 
-### <a name="identify-text-elements"></a>Identifiera text element
+### <a name="identify-text-elements"></a>Identifiera textelement
 
-Klicka på **Kör OCR på alla filer** i den vänstra rutan för att få information om layoutinformation för varje dokument. Etikett verktyget ritar avgränsnings rutor runt varje text element.
+Klicka **på Kör OCR på alla filer** i den vänstra rutan för att hämta textlayoutinformationen för varje dokument. Etikettverktyget ritar markeringsrutor runt varje textelement.
 
-### <a name="apply-labels-to-text"></a>Använd etiketter på text
+### <a name="apply-labels-to-text"></a>Använda etiketter på text
 
-Därefter skapar du taggar (etiketter) och tillämpar dem på de text element som du vill att modellen ska känna igen.
+Därefter ska du skapa taggar (etiketter) och använda dem på de textelement som du vill att modellen ska känna igen.
 
-1. Använd först rutan Tags Editor för att skapa de taggar som du vill identifiera.
-  1. Skapa en ny tagg genom att klicka på **+** .
-  1. Ange namnet på taggen.
-  1. Spara taggen genom att trycka på RETUR.
-1. Klicka och dra i huvud redigeraren för att markera ett eller flera ord från de markerade text elementen.
-1. Klicka på den tagg som du vill använda, eller tryck på motsvarande tangent bords nyckel. Siffer nycklarna tilldelas som kortkommandon för de första 10 taggarna. Du kan ändra ordning på taggarna med hjälp av upp-och nedpilens ikoner i rutan kod redigeraren.
+1. Använd först hjälp av redigeringsfönstret för taggar för att skapa de taggar som du vill identifiera.
+  1. Klicka **+** här om du vill skapa en ny tagg.
+  1. Ange taggnamnet.
+  1. Spara taggen genom att trycka på Retur.
+1. Markera ett eller flera ord från de markerade textelementen i huvudredigeraren.
+1. Klicka på taggen du vill använda eller tryck på motsvarande tangentbordstangent. Siffernycklarna tilldelas som snabbtangenter för de första 10 taggarna. Du kan ändra ordning på taggarna med hjälp av upp- och nedpilsikonerna i taggredigeringsfönstret.
     > [!Tip]
-    > Tänk på följande när du är etikett på formulären.
-    > * Du kan bara använda en tagg för varje markerat text element.
-    > * Varje tagg kan bara tillämpas en gång per sida. Om ett värde visas flera gånger i samma formulär skapar du olika taggar för varje instans. Till exempel: "faktura nummer 1", "faktura nummer 2" och så vidare.
+    > Tänk på följande när du märker formulären.
+    > * Du kan bara använda en tagg på varje markerat textelement.
+    > * Varje tagg kan bara användas en gång per sida. Om ett värde visas flera gånger i samma formulär skapar du olika taggar för varje instans. Till exempel: "faktura# 1", "faktura# 2" och så vidare.
     > * Taggar kan inte sträcka sig över sidor.
-    > * Etikettera värden som de visas i formuläret. Försök inte att dela upp ett värde i två delar med två olika taggar. Ett adress fält ska till exempel märkas med en enda tagg även om det sträcker sig över flera rader.
-    > * Inkludera inte nycklar i dina taggade fält&mdash;bara värdena.
-    > * Tabell data ska identifieras automatiskt och är tillgängliga i den slutgiltiga JSON-filen för utdata. Men om modellen inte kan identifiera alla tabell data kan du tagga dessa fält manuellt. Tagga varje cell i tabellen med en annan etikett. Om dina formulär har tabeller med varierande antal rader, se till att du tagga minst ett formulär med största möjliga tabell.
+    > * Etikettvärden som de visas i formuläret. försök inte att dela upp ett värde i två delar med två olika taggar. Ett adressfält ska till exempel märkas med en enda tagg även om det sträcker sig över flera rader.
+    > * Ta inte med nycklar i&mdash;dina taggade fält bara värdena.
+    > * Tabelldata bör identifieras automatiskt och kommer att vara tillgängliga i den slutliga utdata JSON-filen. Men om modellen inte kan identifiera alla tabelldata kan du även tagga dessa fält manuellt. Tagga varje cell i tabellen med en annan etikett. Om dina formulär har tabeller med varierande antal rader kontrollerar du att du taggar minst ett formulär med största möjliga tabell.
 
 
 Följ stegen ovan för att märka fem av formulären och gå sedan vidare till nästa steg.
 
-![Huvud redigerings fönster i exempel etikett verktyg](../media/label-tool/main-editor.png)
+![Huvudredigerarfönstret i exempeletikettverktyget](../media/label-tool/main-editor.png)
 
 
 ## <a name="train-a-custom-model"></a>Träna en anpassad modell
 
-Klicka på ikonen träna (tåg bilen) i den vänstra rutan för att öppna sidan utbildning. Klicka sedan på knappen **träna** för att börja träna modellen. När inlärnings processen har slutförts visas följande information:
+Klicka på tågikonen (tågbilen) i den vänstra rutan för att öppna sidan Utbildning. Klicka sedan på **knappen Träna** för att börja träna modellen. När utbildningsprocessen är klar visas följande information:
 
-* **Modell-ID** – ID: t för den modell som skapades och tränades. Varje utbildnings anrop skapar en ny modell med sitt eget ID. Kopiera den här strängen till en säker plats. du behöver det om du vill utföra förutsägelse samtal via REST API.
-* **Genomsnittlig noggrannhet** – modellens genomsnittliga noggrannhet. Du kan förbättra modell precisionen genom att märka ytterligare formulär och utbildning igen för att skapa en ny modell. Vi rekommenderar att du börjar med att märka fem formulär och lägga till fler formulär efter behov.
-* Listan med taggar och den uppskattade noggrannheten per tagg.
+* **Modell-ID** - ID för den modell som skapades och tränades. Varje träningsanrop skapar en ny modell med eget ID. Kopiera strängen till en säker plats. Du behöver det om du vill göra förutsägelse samtal via REST API.
+* **Genomsnittlig noggrannhet** - Modellens genomsnittliga noggrannhet. Du kan förbättra modellens noggrannhet genom att märka ytterligare formulär och utbildning igen för att skapa en ny modell. Vi rekommenderar att du börjar med att märka fem formulär och lägga till fler formulär efter behov.
+* Listan över taggar och den uppskattade noggrannheten per tagg.
 
-![tränings visning](../media/label-tool/train-screen.png)
+![träningsvy](../media/label-tool/train-screen.png)
 
-Efter att utbildningen har slutförts undersöker du det **genomsnittliga noggrannhet** svärdet. Om den är låg bör du lägga till fler indatamängder och upprepa stegen ovan. Dokumenten som du redan har märkt kommer att finnas kvar i projekt indexet.
+När utbildningen är klar undersöker du värdet **Genomsnittlig noggrannhet.** Om det är lågt bör du lägga till fler inmatningsdokument och upprepa stegen ovan. De dokument som du redan har märkt finns kvar i projektindexet.
 
 > [!TIP]
-> Du kan också köra övnings processen med ett REST API-anrop. Information om hur du gör detta finns i [träna med etiketter med hjälp av python](./python-labeled-data.md).
+> Du kan också köra träningsprocessen med ett REST API-anrop. Mer information om hur du gör detta finns i [Träna med etiketter med Python](./python-labeled-data.md).
 
 ## <a name="analyze-a-form"></a>Analysera ett formulär
 
-Klicka på ikonen predict (rektanglar) till vänster för att testa din modell. Ladda upp ett formulär dokument som du inte har använt i övnings processen. Klicka sedan på knappen **predict** till höger för att hämta nyckel/värde-förutsägelser för formuläret. Verktyget använder taggar i markerings rutor och rapporterar förtroendet för varje tagg.
+Klicka på ikonen Förutsäga (rektanglar) till vänster för att testa din modell. Ladda upp ett formulärdokument som du inte har använt i utbildningsprocessen. Klicka sedan på knappen **Förutsäga** till höger för att få nyckel-/värdeprognoser för formuläret. Verktyget kommer att använda taggar i markeringsrutor och kommer att rapportera förtroendet för varje tagg.
 
 > [!TIP]
-> Du kan också köra analys-API: et med ett REST-anrop. Information om hur du gör detta finns i [träna med etiketter med hjälp av python](./python-labeled-data.md).
+> Du kan också köra Analys API med ett REST-anrop. Mer information om hur du gör detta finns i [Träna med etiketter med Python](./python-labeled-data.md).
 
 ## <a name="improve-results"></a>Förbättra resultaten
 
-Beroende på den rapporterade noggrannheten kanske du vill göra ytterligare utbildningar för att förbättra modellen. När du har gjort en förutsägelse undersöker du konfidens intervallet för varje tillämpad tagg. Om inlärning svärdet för genomsnittlig precision var högt, men förtroende poängen är lågt (eller om resultatet är felaktigt) bör du lägga till filen som används för förutsägelse i tränings uppsättningen, ge den etiketten och träna igen.
+Beroende på den rapporterade noggrannheten, kanske du vill göra vidareutbildning för att förbättra modellen. När du har gjort en förutsägelse undersöker du konfidensvärdena för var och en av de använda taggarna. Om det genomsnittliga noggrannhetsutbildningsvärdet var högt, men konfidenspoängen är låga (eller om resultaten är felaktiga), bör du lägga till filen som används för förutsägelse i träningsuppsättningen, märka den och träna igen.
 
-Den rapporterade genomsnittliga noggrannheten, konfidens resultatet och faktisk noggrannhet kan vara inkonsekvent när de analyserade dokumenten skiljer sig från de som används i utbildningen. Tänk på att vissa dokument ser likadana ut när de visas av personer, men kan se distinkt ut för AI-modellen. Du kan till exempel träna med en formulär typ som har två varianter, där inlärnings uppsättningen består av 20% variation A och 80% variation B. Vid förutsägelsen kommer förtroende poängen för dokument variation A sannolikt att vara lägre.
+Den rapporterade genomsnittliga noggrannheten, konfidenspoängen och den faktiska noggrannheten kan vara inkonsekventa när de analyserade dokumenten skiljer sig från dem som används i utbildningen. Tänk på att vissa dokument ser likadana ut när de visas av personer men kan se distinkt ut för AI-modellen. Du kan till exempel träna med en formulärtyp som har två varianter, där träningsuppsättningen består av 20 % variation A och 80 % variation B. Under förutsägelse, förtroende poäng för dokument av variation A kommer sannolikt att vara lägre.
 
 ## <a name="save-a-project-and-resume-later"></a>Spara ett projekt och återuppta senare
 
-Om du vill återuppta projektet vid en annan tidpunkt eller i en annan webbläsare måste du spara ditt projekts säkerhetstoken och ange det igen senare. 
+Om du vill återuppta projektet vid ett annat tillfälle eller i en annan webbläsare måste du spara projektets säkerhetstoken och skriva in det igen senare. 
 
-### <a name="get-project-credentials"></a>Hämta autentiseringsuppgifter för projekt
-Gå till sidan projekt inställningar (skjutreglage) och Anteckna namnet på säkerhetstoken. Gå sedan till dina program inställningar (kugg hjuls ikon) som visar alla säkerhetstoken i den aktuella webb läsar instansen. Sök efter ditt projekts säkerhetstoken och kopiera dess namn och nyckel värde till en säker plats.
+### <a name="get-project-credentials"></a>Hämta projektautentiseringsuppgifter
+Gå till sidan projektinställningar (skjutreglageikonen) och notera namnet på säkerhetstoken. Gå sedan till dina programinställningar (kugghjulsikonen), som visar alla säkerhetstoken i din aktuella webbläsarinstans. Hitta projektets säkerhetstoken och kopiera dess namn och nyckelvärde till en säker plats.
 
-### <a name="restore-project-credentials"></a>Återställ autentiseringsuppgifter för projekt
-När du vill återuppta ditt projekt måste du först skapa en anslutning till samma Blob Storage-behållare. Upprepa stegen ovan för att göra detta. Gå sedan till sidan program inställningar (kugg hjuls ikon) och se om ditt projekts säkerhetstoken finns där. Om den inte är det lägger du till en ny säkerhetstoken och kopierar över ditt token-namn och nyckel från föregående steg. Klicka sedan på Spara inställningar. 
+### <a name="restore-project-credentials"></a>Återställa autentiseringsuppgifter för projekt
+När du vill återuppta projektet måste du först skapa en anslutning till samma bloblagringsbehållare. Upprepa stegen ovan för att göra detta. Gå sedan till sidan programinställningar (kugghjulsikonen) och se om projektets säkerhetstoken finns där. Om den inte är det lägger du till en ny säkerhetstoken och kopierar över tokennamnet och nyckeln från föregående steg. Klicka sedan på Spara inställningar. 
 
 ### <a name="resume-a-project"></a>Återuppta ett projekt
-Till sist går du till huvud sidan (House-ikonen) och klickar på öppna moln projekt. Välj sedan Blob Storage-anslutningen och välj din projekts *. vott* -fil. Programmet kommer att läsa in alla projekt inställningar eftersom det har säkerhetstoken.
+
+Gå slutligen till huvudsidan (husikonen) och klicka på Öppna molnprojekt. Välj sedan blob-lagringsanslutningen och välj projektets *.vott-fil.* Programmet läser in alla projektets inställningar eftersom det har säkerhetstoken.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du använder formulär tolkens exempel etikett verktyg för att träna en modell med manuellt märkta data. Om du vill integrera etikett verktyget i ditt eget program kan du använda REST-API: er som hanterar etiketterad data träning.
+I den här snabbstarten har du lärt dig hur du använder exempeletikettverktyget Formulärmedkännare för att träna en modell med manuellt märkta data. Om du vill integrera märkningsverktyget i ditt eget program använder du REST-API:erna som hanterar märkt datautbildning.
 
 > [!div class="nextstepaction"]
-> [Träna med etiketter med python](./python-labeled-data.md)
+> [Träna med etiketter med Python](./python-labeled-data.md)

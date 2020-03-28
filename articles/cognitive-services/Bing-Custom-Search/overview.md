@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
 ms.openlocfilehash: 12c255f0e4ed11ce8acbd762530604218f8bc12b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448726"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Vad är API:et för anpassad Bing-sökning?
@@ -36,7 +36,7 @@ Du kan skapa en anpassad sökinstans genom att använda [portalen för Anpassad 
 
 När du har skapat sökinstansen kan du integrera den (och ett användargränssnitt om du vill) i din webbplats eller app genom att anropa API:et för anpassad Bing-sökning:
 
-![Bild som visar att du kan ansluta till den anpassade Bing-sökningen via API: et](media/BCS-Overview.png "Hur Anpassad sökning i Bing fungerar.")
+![Bild som visar att du kan ansluta till anpassad Bing-sökning via API:et](media/BCS-Overview.png "Hur anpassad sökning i Bing fungerar.")
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -47,7 +47,7 @@ Mer information om hur du anpassar din sökinstans finns i [Define a custom sear
 
 Läs [Användnings- och visningskrav för Bing](./use-and-display-requirements.md) för att använda sökresultat i dina tjänster och appar.
 
-Gå till [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) och utforska de andra tillgängliga API: erna.
+Besök [hubben för Bing Search API](../bing-web-search/search-the-web.md) för att utforska andra tillgängliga API:er.
 
 Bekanta dig med referensinnehållet för var och en av slutpunkterna för anpassad sökning. Referensen innehåller de slutpunkter, rubriker och frågeparametrar som du använder för att begära sökresultat. Den omfattar även definitioner av svarsobjekten.
 

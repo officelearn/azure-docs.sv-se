@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Bygg en kolv-app för att översätta, syntetisera och analysera text Translator Text API'
+title: 'Självstudiekurs: Skapa en flaskapp för att översätta, syntetisera och analysera text - Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du en mätkolv-baserad webbapp för att översätta text, analysera sentiment och syntetisera översatt text till tal.
+description: I den här självstudien ska du skapa en Flask-baserad webbapp för att översätta text, analysera sentiment och syntetisera översatt text till tal.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,142 +11,142 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: b41b68725b6747cbada13a9acc321724b3f89d67
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118576"
 ---
-# <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudie: Bygg en kolv-app med Azure Cognitive Services
+# <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Självstudiekurs: Skapa en flaskapp med Azure Cognitive Services
 
-I den här självstudien skapar du en mätkolv som använder Azure-Cognitive Services för att översätta text, analysera sentiment och syntetisera översatt text till tal. Vi fokuserar på de python-vägar och Flask vägar som möjliggör vårt program, men vi kommer att hjälpa dig med HTML och Java Script som hämtar appen tillsammans. Om du stöter på problem kan du använda knappen feedback nedan.
+I den här självstudien ska du skapa en Flask-webbapp som använder Azure Cognitive Services för att översätta text, analysera sentiment och syntetisera översatt text till tal. Vårt fokus ligger på Python-koden och Flask-rutterna som möjliggör vår applikation, men vi hjälper dig med HTML och Javascript som drar ihop appen. Om du stöter på några problem låt oss veta att använda feedback-knappen nedan.
 
-Den här själv studie kursen beskriver följande:
+Här är vad den här guiden täcker:
 
 > [!div class="checklist"]
-> * Hämta prenumerations nycklar för Azure
-> * Konfigurera utvecklings miljön och installera beroenden
-> * Skapa en kolv-app
-> * Använd Translator Text API för att översätta text
-> * Använd Textanalys för att analysera positiva/negativa sentiment för indatamängds text och översättningar
-> * Använda tal tjänster för att konvertera översatt text till syntetiskt tal
-> * Kör din flaska app lokalt
+> * Skaffa Azure-prenumerationsnycklar
+> * Konfigurera utvecklingsmiljö och installera beroenden
+> * Skapa en Flask-app
+> * Använda translatortext-API:et för att översätta text
+> * Använd Textanalys för att analysera positiva/negativa sentiment för indatatext och översättningar
+> * Använda Taltjänster för att konvertera översatt text till syntetiserat tal
+> * Kör din Flask-app lokalt
 
 > [!TIP]
-> Om du vill hoppa framåt och se all kod samtidigt, är hela exemplet tillsammans med build-instruktioner tillgängliga på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Flask-App-Tutorial).
+> Om du vill hoppa framåt och se all kod på en gång, hela exemplet, tillsammans med bygginstruktioner finns på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Flask-App-Tutorial).
 
-## <a name="what-is-flask"></a>Vad är en kolv?
+## <a name="what-is-flask"></a>Vad är Flask?
 
-Kolv är ett mikroramverk för att skapa webb program. Det innebär att kolven ger dig verktyg, bibliotek och tekniker som gör det möjligt att bygga ett webb program. Det här webb programmet kan vara en del webb sidor, en blogg, en wiki eller en webbplats som är ett webbaserat kalender program eller en kommersiell webbplats.
+Kolv är en mikroram för att skapa webbapplikationer. Det innebär att Flask förser dig med verktyg, bibliotek och tekniker som gör att du kan skapa ett webbprogram. Denna webbapplikation kan vara några webbsidor, en blogg, en wiki eller gå så innehållsrik som en webbaserad kalender ansökan eller en kommersiell webbplats.
 
-För dem som vill ha djupet efter den här kursen är några användbara länkar:
+För er som vill djupdykning efter den här guiden här är några användbara länkar:
 
-* [Dokumentation om flaska](http://flask.pocoo.org/)
-* [Kolv för Dummies – en nybörjar guide till kolv](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
+* [Dokumentation av kolv](http://flask.pocoo.org/)
+* [Kolv för dummies - En nybörjarguide till kolv](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Vi går igenom de program-och prenumerations nycklar som du behöver i den här kursen.
+Låt oss granska de program- och prenumerationsnycklar som du behöver för den här självstudien.
 
-* [Python-3.5.2 eller senare](https://www.python.org/downloads/)
+* [Python 3.5.2 eller senare](https://www.python.org/downloads/)
 * [Git-verktyg](https://git-scm.com/downloads)
-* En IDE-eller text redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/) eller [Atom](https://atom.io/)  
+* En IDE- eller textredigerare, till exempel [Visual Studio-kod](https://code.visualstudio.com/) eller [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) eller [Firefox](https://www.mozilla.org/firefox)
-* En **Translator text** prenumerations nyckel (Observera att du inte behöver välja en region.)
-* En **textanalys** prenumerations nyckel i regionen **USA, västra** .
-* En prenumerations nyckel för **tal tjänster** i regionen **USA, västra** .
+* En **prenumerationsnyckel** för översättaretext (Observera att du inte behöver välja en region.)
+* En **textanalysnyckel** i regionen **Västra USA.**
+* En **Taltjänster-prenumerationsnyckel** i regionen Västra **USA.**
 
 ## <a name="create-an-account-and-subscribe-to-resources"></a>Skapa ett konto och prenumerera på resurser
 
-Som tidigare nämnts kommer du att behöva tre prenumerations nycklar för den här självstudien. Det innebär att du måste skapa en resurs i ditt Azure-konto för:
+Som tidigare nämnts behöver du tre prenumerationsnycklar för den här självstudien. Det innebär att du måste skapa en resurs i ditt Azure-konto för:
 * Translator Text
 * Textanalys
 * Speech Services
 
-Använd [skapa ett Cognitive Services konto i Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för stegvisa instruktioner för att skapa resurser.
+Använd [Skapa ett Cognitive Services-konto i Azure-portalen](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för steg-för-steg-instruktioner för att skapa resurser.
 
 > [!IMPORTANT]
-> I den här självstudien skapar du dina resurser i regionen USA, västra. Om du använder en annan region måste du justera bas-URL: en i var och en av dina python-filer.
+> Skapa dina resurser i regionen västra USA för den här självstudien. Om du använder en annan region måste du justera bas-URL:en i var och en av dina Python-filer.
 
 ## <a name="set-up-your-dev-environment"></a>Konfigurera din utvecklingsmiljö
 
-Innan du skapar en-webbapp måste du skapa en arbets katalog för projektet och installera några python-paket.
+Innan du skapar din Flask-webbapp måste du skapa en arbetskatalog för projektet och installera några Python-paket.
 
-### <a name="create-a-working-directory"></a>Skapa en arbets katalog
+### <a name="create-a-working-directory"></a>Skapa en arbetskatalog
 
-1. Öppna kommando raden (Windows) eller Terminal (macOS/Linux). Skapa sedan en arbets katalog och under kataloger för ditt projekt:  
+1. Öppna kommandoraden (Windows) eller terminalen (macOS/Linux). Skapa sedan en arbetskatalog och underkataloger för projektet:  
 
    ```
    mkdir -p flask-cog-services/static/scripts && mkdir flask-cog-services/templates
    ```
-2. Ändra till projektets arbets katalog:  
+2. Ändra till projektets arbetskatalog:  
 
    ```
    cd flask-cog-services
    ```
 
-### <a name="create-and-activate-your-virtual-environment-with-virtualenv"></a>Skapa och aktivera den virtuella miljön med `virtualenv`
+### <a name="create-and-activate-your-virtual-environment-with-virtualenv"></a>Skapa och aktivera din virtuella miljö med`virtualenv`
 
-Nu ska vi skapa en virtuell miljö för vår mätkolv-app med hjälp av `virtualenv`. Med hjälp av en virtuell miljö kan du se till att du har en ren miljö att arbeta med.
+Låt oss skapa en virtuell miljö för `virtualenv`vår Flask app med . Med hjälp av en virtuell miljö säkerställer du att du har en ren miljö att arbeta från.
 
-1. I din arbets katalog kör du det här kommandot för att skapa en virtuell miljö: **MacOS/Linux:**
+1. I arbetskatalogen kör du det här kommandot för att skapa en virtuell miljö: **macOS/Linux:**
    ```
    virtualenv venv --python=python3
    ```
-   Vi har uttryckligen deklarerat att den virtuella miljön bör använda python 3. Detta säkerställer att användare med flera python-installationer använder rätt version.
+   Vi har uttryckligen deklarerat att den virtuella miljön ska använda Python 3. Detta säkerställer att användare med flera Python-installationer använder rätt version.
 
-   **Windows CMD/Windows-bash:**
+   **Windows CMD / Windows Bash:**
    ```
    virtualenv venv
    ```
-   Vi håller på att vara enkla att namnge din virtuella miljö venv.
+   För att hålla det enkelt, vi namnge din virtuella miljö venv.
 
-2. De kommandon som används för att aktivera den virtuella miljön varierar beroende på din plattform/gränssnitt:   
+2. Kommandona för att aktivera din virtuella miljö varierar beroende på din plattform/skal:   
 
-   | Plattform | Kal | Kommando |
+   | Plattform | Gränssnitt | Kommando |
    |----------|-------|---------|
-   | macOS/Linux | bash/zsh | `source venv/bin/activate` |
+   | macOS/Linux | bash/ zsh | `source venv/bin/activate` |
    | Windows | bash | `source venv/Scripts/activate` |
    | | Kommandorad | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
-   När du har kört det här kommandot bör du använda en kommando rad eller Terminal-session med `venv`.
+   När du har kört det här kommandot bör kommandoraden eller terminalsessionen föregås av `venv`.
 
-3. Du kan inaktivera sessionen när du vill genom att skriva in den i kommando raden eller terminalen: `deactivate`.
+3. Du kan inaktivera sessionen när som helst genom att skriva in `deactivate`den i kommandoraden eller terminalen: .
 
 > [!NOTE]
-> Python innehåller omfattande dokumentation för att skapa och hantera virtuella miljöer, se [virtuell miljö](https://virtualenv.pypa.io/en/latest/).
+> Python har omfattande dokumentation för att skapa och hantera virtuella miljöer, se [virtualenv](https://virtualenv.pypa.io/en/latest/).
 
-### <a name="install-requests"></a>Installera förfrågningar
+### <a name="install-requests"></a>Installera begäranden
 
-Begär Anden är en populär modul som används för att skicka HTTP 1,1-begäranden. Det finns inget behov av att manuellt lägga till frågesträngar i dina URL: er, eller för att forma-koda dina POST-data.
+Begäranden är en populär modul som används för att skicka HTTP 1.1-begäranden. Du behöver inte lägga till frågesträngar manuellt i webbadresserna eller att koda POST-data manuellt.
 
-1. Kör följande om du vill installera begär Anden:
+1. Om du vill installera begäranden kör du:
 
    ```
    pip install requests
    ```
 
 > [!NOTE]
-> Om du vill veta mer om begär Anden, se [förfrågningar: http för människor](https://2.python-requests.org/en/master/).
+> Om du vill veta mer om begäranden läser du [Begäranden: HTTP för människor](https://2.python-requests.org/en/master/).
 
-### <a name="install-and-configure-flask"></a>Installera och konfigurera en kolv
+### <a name="install-and-configure-flask"></a>Installera och konfigurera Flask
 
-Nu måste vi installera kolv. Kolv hanterar routningen för vår webbapp och gör det möjligt för oss att ringa server-till-Server-anrop som döljer våra prenumerations nycklar från slutanvändaren.
+Nästa vi behöver för att installera Kolv. Flask hanterar routningen för vår webbapp och gör det möjligt för oss att ringa server-till-server-samtal som döljer våra prenumerationsnycklar från slutanvändaren.
 
-1. Om du vill installera en mätkolv kör du:
+1. Så här installerar du Kolv:
    ```
    pip install Flask
    ```
-   Nu ska vi se till att kolven har installerats. Kör:
+   Låt oss se till att Flask installerades. Kör:
    ```
    flask --version
    ```
-   Versionen ska skrivas ut till terminalen. Något annat innebär att något har gått fel.
+   Versionen ska skrivas ut på terminalen. Allt annat betyder att något gick fel.
 
-2. Om du vill köra kolv-appen kan du antingen använda flaska-kommandot eller python: s-m-switch med kolv. Innan du kan göra det måste du tala om för terminalen vilken app du ska arbeta med genom att exportera `FLASK_APP`-miljövariabeln:
+2. För att köra Flask-appen kan du antingen använda kolvkommandot eller Pythons -m-switch med Flask. Innan du kan göra det måste du tala om för `FLASK_APP` terminalen vilken app du ska arbeta med genom att exportera miljövariabeln:
 
-   **MacOS/Linux**:
+   **macOS/Linux**:
    ```
    export FLASK_APP=app.py
    ```
@@ -156,13 +156,13 @@ Nu måste vi installera kolv. Kolv hanterar routningen för vår webbapp och gö
    set FLASK_APP=app.py
    ```
 
-## <a name="create-your-flask-app"></a>Skapa din kolv-app
+## <a name="create-your-flask-app"></a>Skapa din Flask-app
 
-I det här avsnittet ska du skapa en barebones kolv-app som returnerar en HTML-fil när användare träffar roten för din app. Spendera inte för mycket tid på att försöka hämta koden. vi kommer att gå tillbaka till att uppdatera filen senare.
+I det här avsnittet ska du skapa en barebones Flask-app som returnerar en HTML-fil när användare träffar roten på din app. Spendera inte för mycket tid på att försöka plocka isär koden, kommer vi tillbaka för att uppdatera den här filen senare.
 
-### <a name="what-is-a-flask-route"></a>Vad är ett kolv flöde?
+### <a name="what-is-a-flask-route"></a>Vad är en Flask rutt?
 
-Låt oss ta en stund och prata om "[vägar](http://flask.pocoo.org/docs/1.0/api/#flask.Flask.route)". Routning används för att binda en URL till en viss funktion. Kolv använder Route-dekoratörer för att registrera funktioner till vissa URL: er. När en användare till exempel navigerar till roten (`/`) i vår webbapp återges `index.html`.  
+Låt oss ta en minut att prata om "[rutter](http://flask.pocoo.org/docs/1.0/api/#flask.Flask.route)". Routning används för att binda en URL till en viss funktion. Kolv använder ruttdekoratörer för att registrera funktioner till specifika webbadresser. Till exempel när en användare navigerar`/`till roten `index.html` ( ) i vår webbapp, återges.  
 
 ```python
 @app.route('/')
@@ -170,7 +170,7 @@ def index():
     return render_template('index.html')
 ```
 
-Låt oss ta en titt på ett annat exempel för att hamma den här bostaden.
+Låt oss ta en titt på ytterligare ett exempel för att hamra detta hem.
 
 ```python
 @app.route('/about')
@@ -178,13 +178,13 @@ def about():
     return render_template('about.html')
 ```
 
-Den här koden säkerställer att när en användare navigerar till `http://your-web-app.com/about` att `about.html`s filen återges.
+Den här koden säkerställer att `http://your-web-app.com/about` när `about.html` en användare navigerar till att filen återges.
 
-De här exemplen illustrerar hur du återger HTML-sidor för en användare. vägar kan också användas för att anropa API: er när en knapp trycks ned, eller så kan du vidta ett antal åtgärder utan att behöva gå från start sidan. Du ser detta i åtgärd när du skapar vägar för översättning, sentiment och tal syntes.
+Även om dessa exempel illustrerar hur du renderar html-sidor för en användare, kan rutter också användas för att anropa API:er när en knapp trycks in, eller vidta valfritt antal åtgärder utan att behöva navigera bort från startsidan. Det visas i praktiken när du skapar vägar för översättning, sentiment och talsyntes.
 
-### <a name="get-started"></a>Kom igång
+### <a name="get-started"></a>Komma igång
 
-1. Öppna projektet i IDE och skapa sedan en fil med namnet `app.py` i roten i din arbets katalog. Kopiera sedan koden till `app.py` och spara:
+1. Öppna projektet i IDE:et och `app.py` skapa sedan en fil som namnges i roten till arbetskatalogen. Kopiera sedan den `app.py` här koden till och spara:
 
    ```python
    from flask import Flask, render_template, url_for, jsonify, request
@@ -197,9 +197,9 @@ De här exemplen illustrerar hur du återger HTML-sidor för en användare. väg
        return render_template('index.html')
    ```
 
-   Det här kod blocket instruerar appen att Visa `index.html` när en användare navigerar till roten för din webbapp (`/`).
+   Det här kodblocket `index.html` talar om för appen att visas när`/`en användare navigerar till webbappens rot ( ).
 
-2. Nu ska vi skapa klient delen för vår webbapp. Skapa en fil med namnet `index.html` i katalogen `templates`. Kopiera sedan koden till `templates/index.html`.
+2. Låt oss sedan skapa frontend för vår webbapp. Skapa en `index.html` fil `templates` som heter i katalogen. Kopiera sedan den `templates/index.html`här koden till .
 
    ```html
    <!doctype html>
@@ -233,29 +233,29 @@ De här exemplen illustrerar hur du återger HTML-sidor för en användare. väg
    </html>
    ```
 
-3. Nu ska vi testa kolv-appen. Från terminalen kör du:
+3. Låt oss testa Flask-appen. Från terminalen, kör:
 
    ```
    flask run
    ```
 
-4. Öppna en webbläsare och gå till den angivna URL: en. Du bör se appen med en sida. Tryck på **CTRL + c** för att avsluta appen.
+4. Öppna en webbläsare och navigera till webbadressen. Du bör se din ensidiga app. Tryck på **Ctrl + c** för att döda appen.
 
 ## <a name="translate-text"></a>Översätt text
 
-Nu när du har en uppfattning om hur en enkel kolv-app fungerar, kan du:
+Nu när du har en uppfattning om hur en enkel Flask app fungerar, låt oss:
 
-* Skriv lite python för att anropa Translator Text API och returnera ett svar
-* Skapa en kolv för att anropa din python-kod
-* Uppdatera HTML-koden med ett ytdiagram för text ingångs-och översättning, en språk väljare och knappen Översätt
-* Skriv java script som gör det möjligt för användare att interagera med din kolv-app från HTML
+* Skriv en del Python för att anropa Translator Text API och returnera ett svar
+* Skapa en flaskrutt för att anropa din Python-kod
+* Uppdatera HTML-koden med ett område för textinmatning och översättning, en språkväljare och knappen Översätt
+* Skriv Javascript som tillåter användare att interagera med din Flask-app från HTML
 
-### <a name="call-the-translator-text-api"></a>Anropa Translator Text API
+### <a name="call-the-translator-text-api"></a>Anropa translator-text-API:et
 
-Det första du behöver göra är att skriva en funktion som anropar Translator Text API. Den här funktionen tar två argument: `text_input` och `language_output`. Den här funktionen anropas när en användare trycker på knappen Översätt i din app. Text området i HTML-koden skickas som `text_input`, och språk markering svärdet i HTML-koden skickas som `language_output`.
+Det första du behöver göra är att skriva en funktion för att ringa Översättaren Text API. Den här funktionen tar `text_input` `language_output`två argument: och . Den här funktionen anropas när en användare trycker på översättsknappen i appen. Textområdet i HTML-koden skickas `text_input`som , och språkvalsvärdet `language_output`i HTML-koden skickas som .
 
-1. Vi börjar med att skapa en fil med namnet `translate.py` i roten i din arbets katalog.
-2. Lägg sedan till den här koden i `translate.py`. Den här funktionen tar två argument: `text_input` och `language_output`.
+1. Låt oss börja med att `translate.py` skapa en fil som kallas i roten till din arbetskatalog.
+2. Lägg sedan till `translate.py`den här koden i . Den här funktionen `text_input` tar `language_output`två argument: och .
    ```python
    import os, requests, uuid, json
 
@@ -288,26 +288,26 @@ Det första du behöver göra är att skriva en funktion som anropar Translator 
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Lägg till din Translator Text prenumerations nyckel och spara.
+3. Lägg till prenumerationsnyckeln translator text och spara.
 
-### <a name="add-a-route-to-apppy"></a>Lägg till en väg i `app.py`
+### <a name="add-a-route-to-apppy"></a>Lägga till en rutt till`app.py`
 
-Därefter måste du skapa en väg i din mätkolv-app som anropar `translate.py`. Den här vägen kommer att anropas varje gången en användare trycker på knappen Översätt i appen.
+Därefter måste du skapa en rutt i din Flask-app som anropar. `translate.py` Den här vägen anropas varje gång en användare trycker på översättsknappen i appen.
 
-För den här appen kommer din väg att acceptera `POST` begär Anden. Detta beror på att funktionen förväntar sig att texten ska översättas och utmatnings språket för översättningen.
+För den här appen kommer `POST` din rutt att acceptera förfrågningar. Detta beror på att funktionen förväntar sig att texten ska översättas och ett utdataspråk för översättningen.
 
-Kolv ger hjälp funktioner som hjälper dig att parsa och hantera varje begäran. I den angivna koden returnerar `get_json()` data från `POST`-begäran som JSON. När du sedan använder `data['text']` och `data['to']`skickas värdena text-och utdata-språk till `get_translation()` funktion som är tillgänglig från `translate.py`. Det sista steget är att returnera svaret som JSON, eftersom du måste visa dessa data i din webbapp.
+Flask ger hjälpfunktioner som hjälper dig att tolka och hantera varje begäran. I den angivna `get_json()` koden returnerar `POST` du data från begäran som JSON. Sedan `data['text']` använda `data['to']`och , text och utdata språkvärden skickas till `get_translation()` funktionen tillgänglig från `translate.py`. Det sista steget är att returnera svaret som JSON, eftersom du måste visa dessa data i webbappen.
 
-I följande avsnitt upprepas processen när du skapar vägar för sentiment-analys och tal syntes.
+I följande avsnitt upprepar du den här processen när du skapar vägar för sentimentanalys och talsyntes.
 
-1. Öppna `app.py` och leta upp import-instruktionen längst upp i `app.py` och Lägg till följande rad:
+1. Öppna `app.py` och leta upp importsatsen `app.py` högst upp på och lägg till följande rad:
 
    ```python
    import translate
    ```
-   Nu kan vår mätkolv-app använda metoden som är tillgänglig via `translate.py`.
+   Nu kan vår Flask-app `translate.py`använda den metod som finns tillgänglig via .
 
-2. Kopiera den här koden till slutet av `app.py` och spara:
+2. Kopiera den här koden `app.py` till slutet av och spara:
 
    ```python
    @app.route('/translate-text', methods=['POST'])
@@ -321,24 +321,24 @@ I följande avsnitt upprepas processen när du skapar vägar för sentiment-anal
 
 ### <a name="update-indexhtml"></a>Uppdatera `index.html`
 
-Nu när du har en funktion för att översätta text, och en väg i din kolv-app för att anropa den, är nästa steg att börja skapa HTML för din app. I HTML-koden nedan finns några saker:
+Nu när du har en funktion för att översätta text och en rutt i din Flask-app för att anropa den, är nästa steg att börja bygga HTML för din app. HTML nedan gör några saker:
 
-* Innehåller ett text utrymme där användare kan skriva text för översättning.
-* Innehåller en språk väljare.
-* Innehåller HTML-element för att återge identifierat språk och förtroende poäng som returneras under översättning.
-* Innehåller ett skrivskyddat text utrymme där översättnings resultatet visas.
-* Innehåller plats hållare för sentiment analys och tal syntes kod som du kommer att lägga till i den här filen senare i självstudien.
+* Tillhandahåller ett textområde där användarna kan mata in text att översätta.
+* Innehåller en språkväljare.
+* Innehåller HTML-element för att återge det identifierade språket och konfidenspoäng som returneras under översättningen.
+* Tillhandahåller ett skrivskyddat textområde där översättningsutdata visas.
+* Innehåller platshållare för sentimentanalys och talsynteskod som du lägger till i den här filen senare i självstudien.
 
-Vi uppdaterar `index.html`.
+Låt oss `index.html`uppdatera .
 
-1. Öppna `index.html` och leta upp följande kod kommentarer:
+1. Öppna `index.html` och hitta dessa kodkommentarer:
    ```html
    <!-- HTML provided in the following sections goes here. -->
 
    <!-- End -->
    ```
 
-2. Ersätt kod kommentarerna med följande HTML-block:
+2. Ersätt kodkommentarerna med det här HTML-blocket:
    ```html
    <div class="row">
      <div class="col">
@@ -408,18 +408,18 @@ Vi uppdaterar `index.html`.
    </div>
    ```
 
-Nästa steg är att skriva vissa JavaScript-skript. Detta är bryggan mellan din HTML-och kolv-väg.
+Nästa steg är att skriva några Javascript. Detta är bryggan mellan din HTML och Flask rutt.
 
-### <a name="create-mainjs"></a>Skapa `main.js`  
+### <a name="create-mainjs"></a>Skapa`main.js`  
 
-`main.js`-filen är bryggan mellan din HTML-och kolv-väg. Din app kommer att använda en kombination av jQuery, Ajax och XMLHttpRequest för att återge innehåll och göra `POST` begär anden till dina Flask vägar.
+Filen `main.js` är bryggan mellan html- och flaskrutten. Din app använder en kombination av jQuery, Ajax och XMLHttpRequest för att återge innehåll och göra `POST` förfrågningar till dina Flask-rutter.
 
-I koden nedan används innehåll från HTML för att skapa en begäran till din kolv. Mer specifikt är innehållet i text-och språk väljarna kopplade till variabler och skickas sedan vidare i begäran till `translate-text`.
+I koden nedan används innehåll från HTML för att skapa en begäran till din Flask-rutt. Innehållet i textområdet och språkväljaren tilldelas variabler och skickas sedan vidare i begäran `translate-text`till .
 
-Koden itererar sedan igenom svaret och uppdaterar HTML med översättning, identifierat språk och förtroende poäng.
+Koden itererar sedan igenom svaret och uppdaterar HTML-koden med översättningen, det identifierade språket och förtroendepoängen.
 
-1. Från din IDE skapar du en fil med namnet `main.js` i katalogen `static/scripts`.
-2. Kopiera den här koden till `static/scripts/main.js`:
+1. Skapa en fil som heter `main.js` i `static/scripts` katalogen från IDE.From your IDE, create a file named in the directory.
+2. Kopiera den `static/scripts/main.js`här koden till:
    ```javascript
    //Initiate jQuery on load.
    $(function() {
@@ -457,7 +457,7 @@ Koden itererar sedan igenom svaret och uppdaterar HTML med översättning, ident
    })
    ```
 
-### <a name="test-translation"></a>Test Översättning
+### <a name="test-translation"></a>Testa översättning
 
 Låt oss testa översättningen i appen.
 
@@ -465,30 +465,30 @@ Låt oss testa översättningen i appen.
 flask run
 ```
 
-Navigera till den angivna Server adressen. Skriv text i Indatatyp, Välj ett språk och tryck på Översätt. Du bör få en översättning. Om det inte fungerar kontrollerar du att du har lagt till din prenumerations nyckel.
+Navigera till den angivna serveradressen. Skriv text i inmatningsområdet, välj ett språk och tryck på översätt. Du borde skaffa en översättning. Om det inte fungerar kontrollerar du att du har lagt till din prenumerationsnyckel.
 
 > [!TIP]
-> Om ändringarna som du har gjort inte visas, eller om appen inte fungerar som förväntat, kan du försöka med att rensa cacheminnet eller öppna ett privat/Incognito-fönster.
+> Om ändringarna du har gjort inte visas eller om appen inte fungerar som du förväntar dig kan du prova att rensa cacheminnet eller öppna ett privat/inkognitofönster.
 
-Tryck på **CTRL + c** för att avsluta appen och gå sedan till nästa avsnitt.
+Tryck på **CTRL + c** för att döda appen och gå sedan till nästa avsnitt.
 
 ## <a name="analyze-sentiment"></a>Analysera sentiment
 
-[API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) kan användas för att utföra analys av sentiment, extrahera nyckel fraser från text eller identifiera käll språket. I den här appen ska vi använda sentiment analys för att avgöra om den tillhandahållna texten är positiv, neutral eller negativ. API: t returnerar ett numeriskt resultat mellan 0 och 1. Poängen nära 1 visar positiv sentiment och poängen nära 0 visar negativa sentiment.
+[Api:et](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) för textanalys kan användas för att utföra sentimentanalys, extrahera nyckelfraser från text eller identifiera källspråket. I den här appen kommer vi att använda sentimentanalys för att avgöra om den angivna texten är positiv, neutral eller negativ. API:n returnerar en numerisk poäng mellan 0 och 1. Poäng nära 1 indikerar positivt sentiment och poäng nära 0 indikerar negativt sentiment.
 
 I det här avsnittet ska du göra några saker:
 
-* Skriv några python för att anropa API för textanalys för att utföra sentiment-analys och returnera ett svar
-* Skapa en kolv för att anropa din python-kod
-* Uppdatera HTML-koden med ett utrymme för sentiment resultat och en knapp för att utföra analyser
-* Skriv java script som gör det möjligt för användare att interagera med din kolv-app från HTML
+* Skriv en del Python för att anropa API:et för textanalys för att utföra sentimentanalys och returnera ett svar
+* Skapa en flaskrutt för att anropa din Python-kod
+* Uppdatera HTML-koden med ett område för sentimentpoäng och en knapp för att utföra analyser
+* Skriv Javascript som tillåter användare att interagera med din Flask-app från HTML
 
 ### <a name="call-the-text-analytics-api"></a>Anropa API:t för textanalys
 
-Nu ska vi skriva en funktion för att anropa API för textanalys. Funktionen tar fyra argument: `input_text`, `input_language`, `output_text`och `output_language`. Den här funktionen anropas när en användare trycker på analys knappen Kör sentiment i din app. Data som tillhandahålls av användaren från text området och språk väljaren, samt det identifierade språket och översättnings utdata finns i varje begäran. Objektet Response innehåller sentiment resultat för källan och översättningen. I följande avsnitt kommer du att skriva vissa JavaScript-skript för att parsa svaret och använda det i din app. Nu ska vi fokusera på att anropa API för textanalys.
+Låt oss skriva en funktion för att anropa API:et för textanalys. Den här funktionen tar `input_text` `input_language`fyra `output_text`argument: , , och `output_language`. Den här funktionen anropas när en användare trycker på knappen för analys av körnings sentiment i appen. Data från textområdet och språkväljaren samt det identifierade språket och översättningsutdata tillhandahålls med varje begäran. Svarsobjektet innehåller sentimentpoäng för källan och översättningen. I följande avsnitt ska du skriva javascript för att tolka svaret och använda det i appen. För nu, låt oss fokusera på att ringa Text Analytics API.
 
-1. Nu ska vi skapa en fil med namnet `sentiment.py` i roten i din arbets katalog.
-2. Lägg sedan till den här koden i `sentiment.py`.
+1. Nu ska vi skapa `sentiment.py` en fil som anropas i roten till arbetskatalogen.
+2. Lägg sedan till `sentiment.py`den här koden i .
    ```python
    import os, requests, uuid, json
 
@@ -530,20 +530,20 @@ Nu ska vi skriva en funktion för att anropa API för textanalys. Funktionen tar
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Lägg till din Textanalys prenumerations nyckel och spara.
+3. Lägg till din prenumerationsnyckel för Text Analytics och spara.
 
-### <a name="add-a-route-to-apppy"></a>Lägg till en väg i `app.py`
+### <a name="add-a-route-to-apppy"></a>Lägga till en rutt till`app.py`
 
-Nu ska vi skapa en väg i din mätkolv-app som anropar `sentiment.py`. Den här vägen kommer att anropas varje gången en användare trycker på analys knappen Kör sentiment i din app. Precis som vägen för översättning kommer den här vägen att acceptera `POST` begär Anden eftersom funktionen förväntar sig argument.
+Låt oss skapa en rutt i din `sentiment.py`Flask-app som anropar . Den här vägen anropas varje gång en användare trycker på knappen för analys av körnings sentiment i appen. Precis som vägen för översättning kommer `POST` den här vägen att acceptera begäranden eftersom funktionen förväntar sig argument.
 
-1. Öppna `app.py` och leta upp import-instruktionen längst upp i `app.py` och uppdatera den:
+1. Öppna `app.py` och leta upp importsatsen `app.py` högst upp på och uppdatera den:
 
    ```python
    import translate, sentiment
    ```
-   Nu kan vår mätkolv-app använda metoden som är tillgänglig via `sentiment.py`.
+   Nu kan vår Flask-app `sentiment.py`använda den metod som finns tillgänglig via .
 
-2. Kopiera den här koden till slutet av `app.py` och spara:
+2. Kopiera den här koden `app.py` till slutet av och spara:
    ```python
    @app.route('/sentiment-analysis', methods=['POST'])
    def sentiment_analysis():
@@ -558,20 +558,20 @@ Nu ska vi skapa en väg i din mätkolv-app som anropar `sentiment.py`. Den här 
 
 ### <a name="update-indexhtml"></a>Uppdatera `index.html`
 
-Nu när du har en funktion för att köra sentiment-analys och en väg i din kolv-app för att anropa den, är nästa steg att börja skriva HTML-koden för din app. I HTML-koden nedan finns några saker:
+Nu när du har en funktion för att köra sentimentanalys och en väg i flaskappen för att anropa den, är nästa steg att börja skriva HTML-koden för din app. HTML nedan gör några saker:
 
-* Lägger till en knapp i appen för att köra sentiment-analys
-* Lägger till ett element som förklarar sentiment-Poäng
-* Lägger till ett-element för att Visa sentiment-poängen
+* Lägger till en knapp i appen för att köra sentimentanalys
+* Lägger till ett element som förklarar sentimentbedömning
+* Lägger till ett element för att visa sentimentpoängen
 
-1. Öppna `index.html` och leta upp följande kod kommentarer:
+1. Öppna `index.html` och hitta dessa kodkommentarer:
    ```html
    <!-- Start sentiment code-->
 
    <!-- End sentiment code -->
    ```
 
-2. Ersätt kod kommentarerna med följande HTML-block:
+2. Ersätt kodkommentarerna med det här HTML-blocket:
    ```html
    <button type="submit" class="btn btn-primary mb-2" id="sentiment-analysis">Run sentiment analysis</button></br>
    <div id="sentiment" style="display: none">
@@ -583,13 +583,13 @@ Nu när du har en funktion för att köra sentiment-analys och en väg i din kol
 
 ### <a name="update-mainjs"></a>Uppdatera `main.js`
 
-I koden nedan används innehåll från HTML för att skapa en begäran till din kolv. Mer specifikt är innehållet i text-och språk väljarna kopplade till variabler och skickas sedan vidare i begäran till `sentiment-analysis` vägen.
+I koden nedan används innehåll från HTML för att skapa en begäran till din Flask-rutt. Närmare bestämt tilldelas innehållet i textområdet och språkväljaren variabler och skickas sedan vidare `sentiment-analysis` i begäran till rutten.
 
-Koden itererar sedan igenom svaret och uppdaterar HTML med sentiment-poängen.
+Koden itererar sedan igenom svaret och uppdaterar HTML med sentimentpoängen.
 
-1. Från din IDE skapar du en fil med namnet `main.js` i katalogen `static`.
+1. Skapa en fil som heter `main.js` i `static` katalogen från IDE.From your IDE, create a file named in the directory.
 
-2. Kopiera den här koden till `static/scripts/main.js`:
+2. Kopiera den `static/scripts/main.js`här koden till:
    ```javascript
    //Run sentinment analysis on input and translation.
    $("#sentiment-analysis").on("click", function(e) {
@@ -641,39 +641,39 @@ Koden itererar sedan igenom svaret och uppdaterar HTML med sentiment-poängen.
    // In the next section, you'll add code for speech synthesis here.
    ```
 
-### <a name="test-sentiment-analysis"></a>Testa sentiment-analys
+### <a name="test-sentiment-analysis"></a>Analys av testsentiment
 
-Nu ska vi testa sentiment analys i appen.
+Låt oss testa sentimentanalys i appen.
 
 ```
 flask run
 ```
 
-Navigera till den angivna Server adressen. Skriv text i Indatatyp, Välj ett språk och tryck på Översätt. Du bör få en översättning. Tryck sedan på knappen Kör sentiment analys. Du bör se två resultat. Om det inte fungerar kontrollerar du att du har lagt till din prenumerations nyckel.
+Navigera till den angivna serveradressen. Skriv text i inmatningsområdet, välj ett språk och tryck på översätt. Du borde skaffa en översättning. Tryck sedan på knappen analys av körnings sentiment. Du skulle se två poäng. Om det inte fungerar kontrollerar du att du har lagt till din prenumerationsnyckel.
 
 > [!TIP]
-> Om ändringarna som du har gjort inte visas, eller om appen inte fungerar som förväntat, kan du försöka med att rensa cacheminnet eller öppna ett privat/Incognito-fönster.
+> Om ändringarna du har gjort inte visas eller om appen inte fungerar som du förväntar dig kan du prova att rensa cacheminnet eller öppna ett privat/inkognitofönster.
 
-Tryck på **CTRL + c** för att avsluta appen och gå sedan till nästa avsnitt.
+Tryck på **CTRL + c** för att döda appen och gå sedan till nästa avsnitt.
 
 ## <a name="convert-text-to-speech"></a>Konvertera text-till-tal
 
-[Text till tal-API: et](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) gör det möjligt för din app att konvertera text till naturligt mänskligt syntetiskt tal. Tjänsten stöder standard-, neurala-och anpassade röster. Vår exempel app använder en fåtal av tillgängliga röster, för en fullständig lista, se [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech).
+[Med TEXT-till-tal-API:et](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) kan appen konvertera text till naturligt människoliknande syntetiserat tal. Tjänsten stöder standard, neurala och anpassade röster. Vår exempelapp använder en handfull av de tillgängliga rösterna, för en fullständig lista, se [språk som stöds.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)
 
 I det här avsnittet ska du göra några saker:
 
-* Skriv en del python för att konvertera text till tal med text till tal-API: et
-* Skapa en kolv för att anropa din python-kod
-* Uppdatera HTML med en knapp för att konvertera text till tal och ett element för ljud uppspelning
-* Skriv java script som gör det möjligt för användare att interagera med din kolv-app
+* Skriva en del Python för att konvertera text-till-tal med API:et för text-till-tal
+* Skapa en flaskrutt för att anropa din Python-kod
+* Uppdatera HTML-koden med en knapp för att konvertera text till tal och ett element för ljuduppspelning
+* Skriv Javascript som tillåter användare att interagera med din Flask-app
 
-### <a name="call-the-text-to-speech-api"></a>Anropa text-till-Speech API
+### <a name="call-the-text-to-speech-api"></a>Anropa API:et för text-till-tal
 
-Nu ska vi skriva en funktion för att konvertera text till tal. Den här funktionen tar två argument: `input_text` och `voice_font`. Den här funktionen anropas när en användare trycker på knappen omvandla text till tal i din app. `input_text` är översättnings resultatet som returneras av anropet till Översätt text, `voice_font` är värdet från röst teckensnitts väljaren i HTML-koden.
+Låt oss skriva en funktion för att konvertera text-till-tal. Den här funktionen tar `input_text` `voice_font`två argument: och . Den här funktionen anropas när en användare trycker på knappen konvertera text till tal i appen. `input_text`är översättningsutdata som returneras av `voice_font` anropet för att översätta text, är värdet från röstteckensnittsväljaren i HTML-koden.
 
-1. Nu ska vi skapa en fil med namnet `synthesize.py` i roten i din arbets katalog.
+1. Nu ska vi skapa `synthesize.py` en fil som anropas i roten till arbetskatalogen.
 
-2. Lägg sedan till den här koden i `synthesize.py`.
+2. Lägg sedan till `synthesize.py`den här koden i .
    ```Python
    import os, requests, time
    from xml.etree import ElementTree
@@ -724,20 +724,20 @@ Nu ska vi skriva en funktion för att konvertera text till tal. Den här funktio
            # in the same directory where this sample is run.
            return response.content
    ```
-3. Lägg till din prenumerations nyckel för tal tjänster och spara.
+3. Lägg till prenumerationsnyckeln för Taltjänster och spara.
 
-### <a name="add-a-route-to-apppy"></a>Lägg till en väg i `app.py`
+### <a name="add-a-route-to-apppy"></a>Lägga till en rutt till`app.py`
 
-Nu ska vi skapa en väg i din mätkolv-app som anropar `synthesize.py`. Den här vägen kommer att anropas varje gången en användare trycker på knappen omvandla text till tal i din app. Precis som vägarna för översättning och sentiment analys kommer den här vägen att acceptera `POST` begär Anden eftersom funktionen förväntar sig två argument: texten som ska syntetiseras och röst teckensnittet för uppspelning.
+Låt oss skapa en rutt i din `synthesize.py`Flask-app som anropar . Den här vägen anropas varje gång en användare trycker på knappen konvertera text till tal i appen. Liksom rutterna för översättnings- och sentimentanalys `POST` kommer den här vägen att acceptera begäranden eftersom funktionen förväntar sig två argument: texten ska syntetiseras och röstteckensnittet för uppspelning.
 
-1. Öppna `app.py` och leta upp import-instruktionen längst upp i `app.py` och uppdatera den:
+1. Öppna `app.py` och leta upp importsatsen `app.py` högst upp på och uppdatera den:
 
    ```python
    import translate, sentiment, synthesize
    ```
-   Nu kan vår mätkolv-app använda metoden som är tillgänglig via `synthesize.py`.
+   Nu kan vår Flask-app `synthesize.py`använda den metod som finns tillgänglig via .
 
-2. Kopiera den här koden till slutet av `app.py` och spara:
+2. Kopiera den här koden `app.py` till slutet av och spara:
 
    ```Python
    @app.route('/text-to-speech', methods=['POST'])
@@ -753,20 +753,20 @@ Nu ska vi skapa en väg i din mätkolv-app som anropar `synthesize.py`. Den här
 
 ### <a name="update-indexhtml"></a>Uppdatera `index.html`
 
-Nu när du har en funktion för att konvertera text till tal och en väg i din kolv-app för att anropa den, är nästa steg att börja skriva HTML-koden för din app. I HTML-koden nedan finns några saker:
+Nu när du har en funktion för att konvertera text-till-tal, och en väg i din Flask-app för att kalla det, är nästa steg att börja skriva HTML för din app. HTML nedan gör några saker:
 
-* Visar en listruta för röst val
+* Ger en listruta för röstmarkering
 * Lägger till en knapp för att konvertera text till tal
-* Lägger till ett ljud element som används för att spela upp det syntetiska talet
+* Lägger till ett ljudelement som används för att spela upp det syntetiserade talet
 
-1. Öppna `index.html` och leta upp följande kod kommentarer:
+1. Öppna `index.html` och hitta dessa kodkommentarer:
    ```html
    <!-- Start voice font selection code -->
 
    <!-- End voice font selection code -->
    ```
 
-2. Ersätt kod kommentarerna med följande HTML-block:
+2. Ersätt kodkommentarerna med det här HTML-blocket:
    ```html
    <div class="form-group">
      <label for="select-voice"><strong>Select voice font:</strong></label>
@@ -814,14 +814,14 @@ Nu när du har en funktion för att konvertera text till tal och en väg i din k
    </div>
    ```
 
-3. Leta sedan upp följande kod kommentarer:
+3. Leta sedan upp dessa kodkommentarer:
    ```html
    <!-- Add Speech Synthesis button and audio element -->
 
    <!-- End Speech Synthesis button -->
    ```
 
-4. Ersätt kod kommentarerna med följande HTML-block:
+4. Ersätt kodkommentarerna med det här HTML-blocket:
 
 ```html
 <button type="submit" class="btn btn-primary mb-2" id="text-to-speech">Convert text-to-speech</button>
@@ -836,12 +836,12 @@ Nu när du har en funktion för att konvertera text till tal och en väg i din k
 
 ### <a name="update-mainjs"></a>Uppdatera `main.js`
 
-I koden nedan används innehåll från HTML för att skapa en begäran till din kolv. Mer specifikt är översättningen och röst teckensnittet tilldelade till variabler och skickas sedan vidare i begäran till `text-to-speech` vägen.
+I koden nedan används innehåll från HTML för att skapa en begäran till din Flask-rutt. Översättningen och röstteckensnittet tilldelas variabler och skickas sedan vidare i `text-to-speech` begäran till rutten.
 
-Koden itererar sedan igenom svaret och uppdaterar HTML med sentiment-poängen.
+Koden itererar sedan igenom svaret och uppdaterar HTML med sentimentpoängen.
 
-1. Från din IDE skapar du en fil med namnet `main.js` i katalogen `static`.
-2. Kopiera den här koden till `static/scripts/main.js`:
+1. Skapa en fil som heter `main.js` i `static` katalogen från IDE.From your IDE, create a file named in the directory.
+2. Kopiera den `static/scripts/main.js`här koden till:
    ```javascript
    // Convert text-to-speech
    $("#text-to-speech").on("click", function(e) {
@@ -873,7 +873,7 @@ Koden itererar sedan igenom svaret och uppdaterar HTML med sentiment-poängen.
    });
    // Code for automatic language selection goes here.
    ```
-3. Nästan klart. Det sista du ska göra är att lägga till kod i `main.js` för att automatiskt välja ett röst teckensnitt baserat på det språk som valts för översättning. Lägg till det här kod blocket i `main.js`:
+3. Nästan klart. Det sista du ska göra är att `main.js` lägga till lite kod för att automatiskt välja ett röstteckensnitt baserat på det språk som valts för översättning. Lägg till det `main.js`här kodblocket i:
    ```javascript
    // Automatic voice font selection based on translation output.
    $('select[id="select-language"]').change(function(e) {
@@ -942,22 +942,22 @@ Koden itererar sedan igenom svaret och uppdaterar HTML med sentiment-poängen.
 
 ### <a name="test-your-app"></a>Testa din app
 
-Vi testar tal syntesen i appen.
+Låt oss testa talsyntes i appen.
 
 ```
 flask run
 ```
 
-Navigera till den angivna Server adressen. Skriv text i Indatatyp, Välj ett språk och tryck på Översätt. Du bör få en översättning. Välj sedan en röst och tryck sedan på knappen konvertera text till tal. översättningen ska spelas upp som syntetiskt tal. Om det inte fungerar kontrollerar du att du har lagt till din prenumerations nyckel.
+Navigera till den angivna serveradressen. Skriv text i inmatningsområdet, välj ett språk och tryck på översätt. Du borde skaffa en översättning. Markera sedan en röst och tryck sedan på knappen Konvertera text till tal. översättningen ska spelas upp som syntetiserat tal. Om det inte fungerar kontrollerar du att du har lagt till din prenumerationsnyckel.
 
 > [!TIP]
-> Om ändringarna som du har gjort inte visas, eller om appen inte fungerar som förväntat, kan du försöka med att rensa cacheminnet eller öppna ett privat/Incognito-fönster.
+> Om ändringarna du har gjort inte visas eller om appen inte fungerar som du förväntar dig kan du prova att rensa cacheminnet eller öppna ett privat/inkognitofönster.
 
-Det innebär att du har en fungerande app som utför översättningar, analyserar sentiment och syntetiskt tal. Tryck på **CTRL + c** för att avsluta appen. Se till att ta en titt på de andra [Azure-Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/).
+Det är det, du har en fungerande app som utför översättningar, analyserar känslor och syntetiserade tal. Tryck på **CTRL + c** för att döda appen. Var noga med att kolla in de andra [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/).
 
 ## <a name="get-the-source-code"></a>Hämta källkoden
 
-Käll koden för det här projektet är tillgänglig på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Flask-App-Tutorial).
+Källkoden för det här projektet är tillgänglig på [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Flask-App-Tutorial).
 
 ## <a name="next-steps"></a>Nästa steg
 

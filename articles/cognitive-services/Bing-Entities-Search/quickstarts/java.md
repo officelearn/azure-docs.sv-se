@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skicka en Sök förfrågan till REST API med Java-Entitetssökning i Bing'
+title: 'Snabbstart: Skicka en sökbegäran till REST API med Java - Bing Entitetssökning'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för entitetssökning i Bing med hjälp av Java och få ett JSON-svar.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/11/2019
 ms.author: aahi
 ms.openlocfilehash: c4335e1ac0f0ffc7ee5570a8f0819827fc77dd18
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75384159"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med Java
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Snabbstart: Skicka en sökbegäran till REST-APIN för sökning av Bingtitet med Java
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Java-programmet skickar en nyhetssökfråga till API:et och visar svaret.
 
@@ -50,7 +50,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
    import com.google.gson.JsonParser;
    ```
 
-2. I en ny klass skapar du variabler för API-slutpunkten, din prenumerationsnyckel och en sökfråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. I en ny klass skapar du variabler för API-slutpunkten, din prenumerationsnyckel och en sökfråga. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
    ```java
    public class EntitySearch {
@@ -220,5 +220,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Vad är API:et för entitetssökning i Bing?](../overview.md )
-* [Referens för API för entitetsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Vad är API:et för sökning av Bing-entitet?](../overview.md )
+* [Api-referens för sökning av Bing-enhet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

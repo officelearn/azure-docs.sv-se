@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: syntetisera tal i ljud filen – tal tjänst'
+title: 'Snabbstart: Syntetisera tal i ljudfil - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten använder du tal-SDK för att konvertera text till syntetiskt tal i en ljudfil.
+description: I den här snabbstarten ska du använda Tal-SDK för att konvertera text för att syntetisera tal i en ljudfil.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: d5df28728c2e911537d67b9276157dc94b080e23
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77119426"
 ---
-# <a name="quickstart-synthesize-speech-into-an-audio-file"></a>Snabb start: syntetisera tal i en ljudfil
+# <a name="quickstart-synthesize-speech-into-an-audio-file"></a>Snabbstart: Syntetisera tal i en ljudfil
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts-audio-file/header.md)]

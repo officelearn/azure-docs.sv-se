@@ -4,29 +4,29 @@ description: ta med fil
 ms.topic: include
 ms.date: 01/23/2020
 ms.openlocfilehash: a7f4e0b47b3aaf9924f8c82eb6a9fa37decc0b2a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76772446"
 ---
-### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
+### <a name="create-an-environment-variable"></a>Skapa en miljövariabel
 
-Använd din körnings nyckel och runtime-slutpunkten och skapa miljövariabler för autentisering och åtkomst:
+Med hjälp av körningsnyckeln och slutpunkten för körning skapar du miljövariabler för autentisering och åtkomst:
 
-* `LUIS_RUNTIME_KEY`-resurs nyckeln för körning för att autentisera dina begär Anden.
-* `LUIS_RUNTIME_ENDPOINT`-körnings slut punkten som är kopplad till din nyckel.
-* `LUIS_APP_ID` – det offentliga LUIS IoT app-ID: t är `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
-* `LUIS_APP_SLOT_NAME` - `production` eller `staging`
+* `LUIS_RUNTIME_KEY`- Resursnyckeln för körning för att autentisera dina begäranden.
+* `LUIS_RUNTIME_ENDPOINT`- Slutpunkten för körning som är associerad med nyckeln.
+* `LUIS_APP_ID`- Det offentliga LUIS IoT-app-ID:et är `df67dcdb-c37d-46af-88e1-8b97951ca1c2`.
+* `LUIS_APP_SLOT_NAME` - `production`Eller`staging`
 
-Om du tänker använda den här snabb starten för att få åtkomst till din egen app måste du vidta ytterligare åtgärder:
+Om du tänker använda den här snabbstarten för att komma åt din egen app måste du vidta ytterligare åtgärder:
 * Skapa appen och hämta app-ID
-* Tilldela körnings nyckeln till appen i LUIS-portalen
-* Testa URL: en med webbläsaren, som du kan använda för att komma åt appen
+* Tilldela körningsnyckeln till appen i LUIS-portalen
+* Testa webbadressen med webbläsaren, som du kan komma åt appen
 
-Följ anvisningarna för ditt operativ system.
+Följ instruktionerna för operativsystemet.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_RUNTIME_KEY <replace-with-your-resource-key>
@@ -35,22 +35,9 @@ setx LUIS_APP_ID <replace-with-your-app-id>
 setx LUIS_APP_SLOT_NAME <replace-with-production-or-staging>
 ```
 
-Starta om konsol fönstret när du har lagt till miljövariablerna.
+När du har lagt till miljövariablerna startar du om konsolfönstret.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```bash
-export LUIS_RUNTIME_KEY= <replace-with-your-resource-key>
-export LUIS_RUNTIME_ENDPOINT= <replace-with-your-resource-endpoint>
-export LUIS_APP_ID= <replace-with-your-app-id>
-export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
-```
-
-När du har lagt till miljövariablerna kör du `source ~/.bashrc` från konsol fönstret för att ändringarna ska börja gälla.
-
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
-
-Redigera `.bash_profile`och Lägg till miljövariabeln:
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_RUNTIME_KEY= <replace-with-your-resource-key>
@@ -59,6 +46,19 @@ export LUIS_APP_ID= <replace-with-your-app-id>
 export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
 ```
 
-När du har lagt till miljövariablerna kör du `source .bash_profile` från konsol fönstret för att ändringarna ska börja gälla.
+När du har lagt till `source ~/.bashrc` miljövariablerna körs du från konsolfönstret för att göra ändringarna gällande.
+
+#### <a name="macos"></a>[Macos](#tab/unix)
+
+Redigera `.bash_profile`din och lägg till miljövariabeln:
+
+```bash
+export LUIS_RUNTIME_KEY= <replace-with-your-resource-key>
+export LUIS_RUNTIME_ENDPOINT= <replace-with-your-resource-endpoint>
+export LUIS_APP_ID= <replace-with-your-app-id>
+export LUIS_APP_SLOT_NAME= <replace-with-production-or-staging>
+```
+
+När du har lagt till `source .bash_profile` miljövariablerna körs du från konsolfönstret för att göra ändringarna gällande.
 
 ***

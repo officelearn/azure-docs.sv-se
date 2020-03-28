@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Go'
 titleSuffix: Azure Cognitive Services
-description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Få information och kodexempel som hjälper dig att snabbt komma igång med textanalys-API:et i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 03311cb873420f741ca0150dde59fb27eaa5d76f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378778"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Go 
@@ -39,9 +39,9 @@ API:et för språkidentifiering identifierar språket i ett textdokument, med me
 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 1. Lägg till koden nedan.
-1. Kopiera API för textanalys nyckel och slut punkt till koden.
+1. Kopiera textanalys-API-nyckeln och slutpunkten till koden.
 1. Spara filen med tillägget .go.
-1. Öppna en kommando tolk på en dator med go installerat från rotmappen.
+1. Öppna en kommandotolk på en dator med Go installerat från rotmappen.
 1. Skapa filen, till exempel: `go build detect.go`.
 1. Kör filen, till exempel: `go run detect.go`.
 
@@ -172,9 +172,9 @@ API:et för attitydanalys identifierar attityden i en uppsättning textposter, m
 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 1. Lägg till koden nedan.
-1. Kopiera Textanalys nyckel och slut punkt till koden.
+1. Kopiera textanalysnyckeln och slutpunkten till koden.
 1. Spara filen med tillägget .go.
-1. Öppna en kommando tolk på en dator med go installerat från rotmappen.
+1. Öppna en kommandotolk på en dator med Go installerat från rotmappen.
 1. Skapa filen, till exempel: `go build sentiment.go`.
 1. Kör filen, till exempel: `go run sentiment.go`.
 
@@ -253,7 +253,7 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Svar från attitydanalys
 
-Resultatet mäts som positivt om det beräknas närmare 1,0 och negativt om det beräknas närmare 0,0.
+Resultatet mäts som positivt om det görs närmare 1,0 och negativt om det görs närmare 0,0.
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel:
 
 ```json
@@ -280,7 +280,7 @@ API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från 
 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 1. Lägg till koden nedan.
-1. Kopiera Textanalys nyckel och slut punkt till koden.
+1. Kopiera textanalysnyckeln och slutpunkten till koden.
 1. Spara filen med tillägget .go.
 1. Öppna en kommandotolk på en dator där Go är installerat.
 1. Skapa filen, till exempel: `go build key-phrases.go`.
@@ -404,7 +404,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="identify-entities"></a>Identifiera entiteter
 
-API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, t. ex. "USA", och ger dig sedan typen och/eller Wikipedia-länken för dessa ord. Typen för "USA" är `location`, medan länken till Wikipedia är `https://en.wikipedia.org/wiki/United_States`.  I följande exempel identifieras entiteter för engelska dokument.
+API:et för entiteter identifierar välkända entiteter i ett textdokument med hjälp av [metoden Entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entiteter](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraherar ord från text, som "USA", och ger dig sedan typ- och/eller Wikipedia-länken för det här ordet. Typen för "USA" `location`är , medan länken `https://en.wikipedia.org/wiki/United_States`till Wikipedia är .  I följande exempel identifieras entiteter för engelska dokument.
 
 1. Skapa ett nytt Go-projekt i valfri kodredigerare.
 1. Lägg till koden nedan.
@@ -540,7 +540,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
  [Översikt över Textanalys](../overview.md)  
- [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)
+ [Vanliga frågor och svar (Vanliga frågor)](../text-analytics-resource-faq.md)

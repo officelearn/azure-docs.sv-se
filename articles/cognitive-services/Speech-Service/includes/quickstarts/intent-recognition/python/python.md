@@ -7,87 +7,87 @@ ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: 724f52317ce2afda023ae0514a330da0032e8710
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925876"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Installera tal-SDK för utvecklings miljön och skapa ett tomt exempel projekt<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Installera Tal-SDK för utvecklingsmiljön och skapa<span class="docon docon-navigate-external x-hidden-focus"></span>ett tomt exempelprojekt</a>.
 
-## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
+## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsiktskännedom
 
 [!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
 
 ## <a name="open-your-project"></a>Öppna projektet
 
 1. Öppna önskad IDE.
-2. Skapa ett nytt projekt och skapa en fil med namnet `quickstart.py`och öppna den sedan.
+2. Skapa ett nytt projekt `quickstart.py`och skapa en fil med namnet och öppna det sedan.
 
-## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
+## <a name="start-with-some-boilerplate-code"></a>Börja med en standardkod
 
-Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
+Låt oss lägga till lite kod som fungerar som ett skelett för vårt projekt.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-7)]
 
-## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
+## <a name="create-a-speech-configuration"></a>Skapa en talkonfiguration
 
-Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder nyckeln och platsen för din LUIS förutsägelse resurs.
+Innan du kan `IntentRecognizer` initiera ett objekt måste du skapa en konfiguration som använder nyckeln och platsen för LUIS-förutsägelseresursen.
 
-Infoga den här koden i `quickstart.py`. Se till att du uppdaterar dessa värden:
+Infoga den `quickstart.py`här koden i . Se till att du uppdaterar dessa värden:
 
-* Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din LUIS-förutsägelse nyckel.
-* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats. Använd **regions identifierare** från [region](https://aka.ms/speech/sdkregion)
+* Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med luis-förutsägelsenyckeln.
+* Ersätt `"YourLanguageUnderstandingServiceRegion"` med luis-platsen. Använda **regionidentifierare** från [region](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
-> Om du behöver hjälp med att hitta dessa värden kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
+> Om du behöver hjälp med att hitta dessa värden läser du [Skapa en LUIS-app för avsiktsigenkänning](#create-a-luis-app-for-intent-recognition).
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-Det här exemplet skapar `SpeechConfig`-objektet med hjälp av nyckel och region i LUIS. En fullständig lista över tillgängliga metoder finns i [SpeechConfig-klass](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+Det här exemplet `SpeechConfig` skapar objektet med LUIS-tangenten och regionen. En fullständig lista över tillgängliga metoder finns i [SpeechConfig Class](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
-Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
+Tal-SDK kommer som standard att känna igen med hjälp av en-us för språket, se [Ange källspråk för tal till text](../../../../how-to-specify-source-language.md) för information om hur du väljer källspråk.
 
 ## <a name="initialize-an-intentrecognizer"></a>Initiera en IntentRecognizer
 
-Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden direkt under din tal konfiguration.
+Nu ska vi skapa `IntentRecognizer`en . Infoga den här koden precis under talkonfigurationen.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
 
-## <a name="add-a-languageunderstandingmodel-and-intents"></a>Lägg till ett LanguageUnderstandingModel och avsikter
+## <a name="add-a-languageunderstandingmodel-and-intents"></a>Lägga till ett språkUnderstandingModel och avsikter
 
-Du måste associera en `LanguageUnderstandingModel` med avsikts tolken och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering.
+Du måste associera `LanguageUnderstandingModel` en med avsiktsmedkännaren och lägga till de avsikter som du vill ska känna igen. Vi kommer att använda avsikter från den fördefinierade domänen för hemautomatisering.
 
-Infoga den här koden under `IntentRecognizer`. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt LUIS-app-ID. 
+Sätt i den `IntentRecognizer`här koden under . Se till att `"YourLanguageUnderstandingAppId"` du ersätter med ditt LUIS-app-ID. 
 
 >[!TIP]
-> Om du behöver hjälp med att hitta det här värdet kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
+> Om du behöver hjälp med att hitta det här värdet läser du [Skapa en LUIS-app för avsiktsigenkänning](#create-a-luis-app-for-intent-recognition).
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
 
-## <a name="recognize-an-intent"></a>Identifiera en avsikt
+## <a name="recognize-an-intent"></a>Känna igen en avsikt
 
-Från `IntentRecognizer`-objektet kommer du att anropa metoden `recognize_once()`. Med den här metoden kan röst tjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta identifiera tal.
+Från `IntentRecognizer` objektet ska du anropa `recognize_once()` metoden. Med den här metoden kan taltjänsten veta att du skickar en enda fras för igenkänning och att när frasen har identifierats för att sluta känna igen tal.
 
 Infoga den här koden under din modell.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
-## <a name="display-the-recognition-results-or-errors"></a>Visa tolknings resultat (eller fel)
+## <a name="display-the-recognition-results-or-errors"></a>Visa igenkänningsresultat (eller fel)
 
-När igenkännings resultatet returneras av tal tjänsten vill du göra något med det. Vi ska hålla det enkelt och skriva ut resultatet till-konsolen.
+När igenkänningsresultatet returneras av taltjänsten bör du göra något med den. Vi ska hålla det enkelt och skriva ut resultatet till konsolen.
 
-Lägg till den här koden under ditt anrop till `recognize_once()`.
+Lägg till `recognize_once()`den här koden under samtalet.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 
-## <a name="check-your-code"></a>Kontrol lera koden
+## <a name="check-your-code"></a>Kontrollera din kod
 
-Nu bör din kod se ut så här.
+Nu ska koden se ut så här.
 
 > [!NOTE]
 > Vi har lagt till några kommentarer till den här versionen.
@@ -96,7 +96,7 @@ Nu bör din kod se ut så här.
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-Kör exemplet från-konsolen eller i IDE:
+Kör exemplet från konsolen eller i din IDE:
 
 ```
 python quickstart.py

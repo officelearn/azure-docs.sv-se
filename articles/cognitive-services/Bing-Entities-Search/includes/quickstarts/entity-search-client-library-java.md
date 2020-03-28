@@ -1,5 +1,5 @@
 ---
-title: Snabb start för Java-klient bibliotek Entitetssökning i Bing
+title: Bing Entity Search Java-klientbibliotek snabbstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,21 +9,21 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: aahi
 ms.openlocfilehash: 8c987aa14e922573d01aa35fab609edf01e109b4
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79136776"
 ---
-Använd den här snabb starten för att börja söka efter entiteter med Entitetssökning i Bing klient bibliotek för Java. Även om Entitetssökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
+Använd den här snabbstarten för att börja söka efter entiteter med klientbiblioteket Bing Entity Search för Java. Bing Entity Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 
-* Entitetssökning i Bing klient bibliotek för Java
+* Klientbiblioteket Bing Entity Search för Java
 
-Installera Entitetssökning i Bing klient biblioteks beroenden med hjälp av maven, Gradle eller ett annat beroende hanterings system. Maven POM-filen kräver deklarationen:
+Installera klientbiblioteksberoendena för Bing Entitetssökning med hjälp av Maven, Gradle eller ett annat beroendehanteringssystem. Maven POM-filen kräver deklarationen:
 
 ```xml
 <dependency>
@@ -63,7 +63,7 @@ Installera Entitetssökning i Bing klient biblioteks beroenden med hjälp av mav
 
 ## <a name="create-a-search-client"></a>Skapa en sökklient
 
-1. Implementera klienten `dominantEntityLookup`, där din API-slutpunkt behövs, och en instans av klassen `ServiceClientCredentials`. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+1. Implementera klienten `dominantEntityLookup`, som kräver din API-slutpunkt och en instans av klassen `ServiceClientCredentials`. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -76,7 +76,7 @@ Installera Entitetssökning i Bing klient biblioteks beroenden med hjälp av mav
 
     Så här implementerar du `ServiceClientCredentials`:
 
-   1. åsidosätt funktionen `applyCredentialsFilter()` med ett `OkHttpClient.Builder`-objekt som parameter. 
+   1. Åsidosätt funktionen `applyCredentialsFilter()` med ett `OkHttpClient.Builder`-objekt som parameter. 
         
        ```java
        //...
@@ -148,4 +148,4 @@ Installera Entitetssökning i Bing klient biblioteks beroenden med hjälp av mav
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [Vad är API:et för entitetssökning i Bing?](../../overview.md)
+* [Vad är API:et för sökning av Bing-entitet?](../../overview.md)

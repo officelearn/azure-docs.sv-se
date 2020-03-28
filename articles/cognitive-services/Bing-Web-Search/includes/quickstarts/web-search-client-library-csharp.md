@@ -1,5 +1,5 @@
 ---
-title: Snabb C# start för webbsökning i Bing klient bibliotek
+title: Snabbstart för Bing Web Search C#-klientbibliotek
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 32a31892317cadb37f16e48df80bef7d6d8a99ef
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925571"
 ---
-Med Webbsökning i Bing klient biblioteket är det enkelt att integrera Webbsökning i Bing i ditt C# program. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
+Bing Web Search-klientbiblioteket gör det enkelt att integrera Bing Web Search i ditt C#-program. I den här snabbstarten lär du dig att instansiera en klient, skicka en begäran och skriva ut svaret.
 
-Vill du se koden på en gång? Exempel för [Bing-sökning klient bibliotek för .net](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) finns på GitHub.
+Vill du se koden på en gång? Exempel för [Bing Search-klientbiblioteken för .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) finns på GitHub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Här följer några saker som du behöver innan du kör den här snabbstarten:
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) eller
@@ -35,7 +35,7 @@ Här följer några saker som du behöver innan du kör den här snabbstarten:
 > [!TIP]
 > Hämta den senaste koden som en Visual Studio-lösning från [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-Det första steget är att skapa ett nytt konsollprojekt. Om du behöver hjälp med att konfigurera ett konsol projekt, se [Hello World--ditt första program (C# programmerings guide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). För att kunna använda API för webbsökning i Bing i ditt program behöver du installera `Microsoft.Azure.CognitiveServices.Search.WebSearch` med hjälp av NuGet-pakethanteraren.
+Det första steget är att skapa ett nytt konsollprojekt. Om du behöver hjälp med att konfigurera ett konsolprojekt läser du [Hello World – Ditt första program (C# Programmeringsguide)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). För att kunna använda API för webbsökning i Bing i ditt program behöver du installera `Microsoft.Azure.CognitiveServices.Search.WebSearch` med hjälp av NuGet-pakethanteraren.
 
 [SDK-paketet för webbsökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) installeras också:
 
@@ -57,7 +57,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Skapa projektställningar
 
-När du skapade det nya konsolprojektet bör en namnrymd och en klass för programmet ha skapats. Programmet bör se ut som det här exemplet:
+När du skapade det nya konsolprojektet bör en namnrymd och en klass för programmet ha skapats. Programmet ska se ut så här:
 
 ```csharp
 namespace WebSearchSDK
@@ -216,7 +216,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
 Nu kör vi programmet!
 
@@ -285,7 +285,7 @@ I det här exemplet används parametrarna `count` och `offset` för att begräns
     }
     ```
 
-3. Kör programmet.
+3. Kör appen.
 
 ### <a name="filter-for-news"></a>Filtrera efter nyheter
 
@@ -348,7 +348,7 @@ Det här exemplet används parametern `response_filter` för att filtrera sökre
     }
     ```
 
-3. Kör programmet.
+3. Kör appen.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Använd säker sökning, svarsantal och befordringsfiltret
 
@@ -412,7 +412,7 @@ I det här exemplet används parametrarna `answer_count`, `promote` och `safe_se
     }
     ```
 
-3. Kör programmet.
+3. Kör appen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

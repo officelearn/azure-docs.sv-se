@@ -1,7 +1,7 @@
 ---
-title: Modell version
+title: Versionshantering av modell
 titleSuffix: Azure Cognitive Services
-description: Ange modell versioner i v3-slutpunkterna
+description: Ange modellversioner i V3-slutpunkterna
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,21 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 4cd8d0901ce23fb227bb6919dee18f5aa3d063ed
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77089025"
 ---
-Med version 3 av API för textanalys kan du välja den modell version som är mest aktuell för dina data. Använd den valfria `model-version` parametern för att välja den version av modellen som önskas för dina begär Anden. Om den här parametern inte anges kommer API: et att `latest`som standard den senaste stabila versionen. Även om du kan använda den senaste modell versionen i en begäran, uppdateras bara vissa funktioner i varje version. I tabellen nedan beskrivs vilka funktioner som har uppdaterats i varje modell version:
+Version 3 av Text Analytics API kan du välja den modellversion som är mest aktuell för dina data. Använd den `model-version` valfria parametern för att välja den version av modellen som önskas för dina begäranden. Om den här parametern inte anges `latest`kommer API:et som standard att användas i den senaste stabila versionen. Även om du kan använda den senaste modellversionen i alla begäranden uppdateras endast vissa funktioner i varje version. I tabellen nedan beskrivs vilka funktioner som har uppdaterats i varje modellversion:
 
-| Modell version           | Uppdaterade funktioner         | Senaste version för:           |
+| Modellversion           | Funktioner uppdaterade         | Senaste versionen för:           |
 |-------------------------|--------------------------|--------------------------|
 | `2020-02-01`            | Enhetsidentifiering                      | Enhetsidentifiering                      |
-| `2019-10-01`            | Enhets igenkänning, sentiment analys  | Språk identifiering, extrahering av nyckel fraser, sentiment analys|
+| `2019-10-01`            | Erkännande av entitet, Sentimentanalys  | Språkidentifiering, extraktion av nyckelfraser, Sentimentanalys|
 
 
-Varje svar från v3-slutpunkterna innehåller ett `model-version`-fält som anger modell versionen som användes.
+Varje svar från v3-slutpunkterna innehåller ett `model-version` fält som anger modellversionen som användes.
 
 ```json
 {
@@ -33,4 +33,4 @@ Varje svar från v3-slutpunkterna innehåller ett `model-version`-fält som ange
     "model-version": "2019-10-01"
 }
 ```
-Se [vad som är nytt](../whats-new.md) för information om uppdateringarna för dessa modell versioner.
+Se [Nyheter](../whats-new.md) för information om uppdateringarna för dessa modellversioner.

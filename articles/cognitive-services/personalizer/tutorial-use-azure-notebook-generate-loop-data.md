@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Azure Notebook – Personanpassare'
+title: 'Självstudiekurs: Azure Notebook - Personalizer'
 titleSuffix: Azure Cognitive Services
-description: Den här självstudien simulerar en studie slinga _system i en Azure-anteckningsbok, som föreslår vilken typ av kaffe en kund ska beställa. Användarna och deras inställningar lagras i en användar data uppsättning. Information om kaffeet är också tillgänglig och lagrad i en kaffe data uppsättning.
+description: Den här självstudien simulerar en Personalizer-loop _system i en Azure Notebook, vilket föreslår vilken typ av kaffe en kund ska beställa. Användarna och deras inställningar lagras i en användardatauppsättning. Information om kaffet finns också tillgänglig och lagras i en kaffedatauppsättning.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,96 +11,96 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: diberry
 ms.openlocfilehash: 03e8b658f7edf4640d738e5ea3af84953185d0f5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76986843"
 ---
-# <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudie: använda en Personanpassare i Azure Notebook
+# <a name="tutorial-use-personalizer-in-azure-notebook"></a>Självstudiekurs: Använd Personalizer i Azure Notebook
 
-I den här självstudien körs en själv studie slinga i en Azure-anteckningsbok, som demonstrerar slut punkt till slut punkt för en själv studie slinga.
+Den här självstudien kör en Personalizer-loop i en Azure Notebook, vilket visar slutet till slutet av livscykeln för en Personalizer-loop.
 
-Slingan föreslår vilken typ av kaffe en kund ska beställa. Användarna och deras inställningar lagras i en användar data uppsättning. Information om kaffeet lagras i en kaffe data uppsättning.
+Slingan föreslår vilken typ av kaffe en kund ska beställa. Användarna och deras inställningar lagras i en användardatauppsättning. Information om kaffet lagras i en kaffedatauppsättning.
 
 ## <a name="users-and-coffee"></a>Användare och kaffe
 
-Den bärbara datorn, som simulerar användar interaktion med en webbplats, väljer en slumpmässig användare, tid på dag och typ av väder från data uppsättningen. En sammanfattning av användar informationen är:
+Anteckningsboken, som simulerar användarinteraktion med en webbplats, väljer en slumpmässig användare, tid på dagen och typ av väder från datauppsättningen. En sammanfattning av användarinformationen är:
 
-|Kunder – kontext funktioner|Tider på dagen|Typer av väder|
+|Kunder - kontextfunktioner|Tider på dagen|Typer av väder|
 |--|--|--|
-|Alice<br>Bob<br>Cathy<br>Dave|Morgon<br>Totalt<br>Kvällen|Solig<br>RAINY<br>Tallar|
+|Alice<br>Bob<br>Cathy<br>Dave|Morgon<br>Eftermiddag<br>Kväll|Soliga<br>Regniga<br>Snöiga|
 
-För att hjälpa personanpassa att lära sig, med tiden, vet _systemet_ även information om kaffe valet för varje person.
+För att hjälpa Personalizer lära sig, med tiden, _systemet_ vet också detaljer om kaffe val för varje person.
 
-|Funktioner för kaffe åtgärder|Typer av temperatur|Ursprungs platser|Typer av rostade|Ställ|
+|Kaffe - actionfunktioner|Typer av temperatur|Ursprungsort|Typer av stek|Organisk|
 |--|--|--|--|--|
-|Cappacino|Frekvent|Kenya|Mörk|Ställ|
-|Kall Brew|Kalla|Brasilien|Ljus|Ställ|
-|Iced mocha|Kalla|Etiopien|Ljus|Inte ekologisk|
-|Latte|Frekvent|Brasilien|Mörk|Inte ekologisk|
+|Cappacino (|Frekvent|Kenya|Mörk|Organisk|
+|Kall brygd|Kall|Brasilien|Ljus|Organisk|
+|Isknugga|Kall|Etiopien|Ljus|Inte ekologiskt|
+|Latte|Frekvent|Brasilien|Mörk|Inte ekologiskt|
 
-**Syftet** med den personliga slingan är att hitta den bästa matchningen mellan användarna och kaffe så mycket som möjligt.
+**Syftet med** Personalizer-loopen är att hitta den bästa matchningen mellan användarna och kaffet så mycket av tiden som möjligt.
 
-Koden för den här själv studie kursen finns i [GitHub-lagringsplatsen för personanpassa exempel](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook).
+Koden för den här självstudien är tillgänglig i [GitHub-databasen för Personalizer Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook).
 
 ## <a name="how-the-simulation-works"></a>Så här fungerar simuleringen
 
-I början av det operativ system som körs, lyckas förslagen från Personanpassan bara mellan 20% och 30%. Detta lyckades anges av belöningen som skickas tillbaka till personens belönings-API, med en poäng på 1. Efter vissa ranknings-och belönings anrop förbättras systemet.
+I början av det löpande systemet är förslagen från Personalizer endast framgångsrika mellan 20% till 30%. Denna framgång indikeras av belöningen som skickas tillbaka till Personalizer's Reward API, med poängen 1. Efter några Rank och Reward samtal, systemet förbättras.
 
-Efter den första begäran kör du en offline-utvärdering. Detta gör att en Personanpassare kan granska data och föreslå en bättre inlärnings princip. Tillämpa den nya inlärnings principen och kör antecknings boken igen med 20% av föregående antal förfrågningar. Slingan fungerar bättre med den nya inlärnings principen.
+Efter de första begärandena kör du en offlineutvärdering. Detta gör det möjligt för Personalizer att granska data och föreslå en bättre inlärningspolicy. Använd den nya utbildningsprincipen och kör anteckningsboken igen med 20 % av antalet tidigare begäranden. Loopen kommer att fungera bättre med den nya inlärningspolicyn.
 
-## <a name="rank-and-reward-calls"></a>Ranknings-och belönings samtal
+## <a name="rank-and-reward-calls"></a>Ranka och belöna samtal
 
-För var och en av de tusen anropen till tjänsten personanpassa skickar Azure-anteckningsbok **ranknings** förfrågan till REST API:
+För vart och ett av de få tusen anrop till Personalizer-tjänsten skickar Azure Notebook **rank-begäran** till REST API:
 
-* Ett unikt ID för händelsen rang/begäran
-* Kontext funktioner – ett slumpmässigt val av användare, väder och tid på dagen – simulera en användare på en webbplats eller mobil enhet
-* Åtgärder med funktioner – _alla_ kaffe data – från vilka personligare gör ett förslag
+* Ett unikt ID för händelsen Rank/Request
+* Kontextfunktioner - Ett slumpmässigt val av användare, väder och tid på dagen - simulera en användare på en webbplats eller mobil enhet
+* Åtgärder med funktioner - _Alla_ kaffedata - från vilka Personalizer ger ett förslag
 
-Systemet tar emot begäran och jämför sedan förutsägelsen med användarens kända val för samma tid på dag och väder. Om det kända valet är samma som det förväntade valet, skickas **belöningen** 1 tillbaka till personanpassaren. Annars är belöningen som skickas tillbaka 0.
+Systemet tar emot begäran och jämför sedan den förutsägelsen med användarens kända val för samma tid på dagen och vädret. Om det kända valet är detsamma som det förväntade valet skickas **belöningen** på 1 tillbaka till Personalizer. Annars belöningen skickas tillbaka är 0.
 
 > [!Note]
-> Detta är en simulering så att algoritmen för belöningen är enkel. I ett verkligt scenario bör algoritmen använda affärs logik, möjligt vis med vikt för olika aspekter av kundens upplevelse, för att fastställa belönings poängen.
+> Detta är en simulering så algoritmen för belöningen är enkel. I ett verkligt scenario bör algoritmen använda affärslogik, eventuellt med vikter för olika aspekter av kundens upplevelse, för att bestämma belöningspoängen.
 
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett [Azure Notebook](https://notebooks.azure.com/) -konto.
-* En [Azures personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-    * Om du redan har använt personanpassa resursen, se till att [Rensa data](how-to-settings.md#clear-data-for-your-learning-loop) i Azure Portal för resursen.
-* Ladda upp alla filer för [det här exemplet](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) i ett Azure Notebook-projekt.
+* Ett [Azure Notebook-konto.](https://notebooks.azure.com/)
+* En [Azure Personalizer-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+    * Om du redan har använt Personalizer-resursen måste du [rensa data](how-to-settings.md#clear-data-for-your-learning-loop) i Azure-portalen för resursen.
+* Ladda upp alla filer för [det här exemplet](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) till ett Azure Notebook-projekt.
 
-Fil beskrivningar:
+Filbeskrivningar:
 
-* [Personanpassar. ipynb](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/Personalizer.ipynb) är den Jupyter Notebook för den här självstudien.
-* [Användar data uppsättningen](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/users.json) lagras i ett JSON-objekt.
-* En [kaffe data uppsättning](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/coffee.json) lagras i ett JSON-objekt.
-* [Exempel-JSON](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/example-rankrequest.json) är det förväntade formatet för en post-begäran till ranknings-API: et.
+* [Personalizer.ipynb](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/Personalizer.ipynb) är Jupyter anteckningsboken för den här guiden.
+* [Användardatauppsättning](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/users.json) lagras i ett JSON-objekt.
+* [Kaffedatauppsättning](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/coffee.json) lagras i ett JSON-objekt.
+* [Exempel begäran JSON](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/example-rankrequest.json) är det förväntade formatet för en POST-begäran till Rank API.
 
-## <a name="configure-personalizer-resource"></a>Konfigurera en personanpassa resurs
+## <a name="configure-personalizer-resource"></a>Konfigurera Personalizer-resurs
 
-I Azure Portal konfigurerar du din [personanpassa resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) med **frekvensen Uppdatera modell** till 15 sekunder och en **belönings vänte tid** på 15 sekunder. Dessa värden finns på **[konfigurations](how-to-settings.md#configure-service-settings-in-the-azure-portal)** sidan.
+Konfigurera din [Personalizer-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) med **uppdateringsmodellfrekvensen** inställd på 15 sekunder och en väntetid på 15 sekunder i **Azure-portalen.** Dessa värden finns på **[sidan Konfiguration.](how-to-settings.md#configure-service-settings-in-the-azure-portal)**
 
 |Inställning|Värde|
 |--|--|
-|uppdaterings modell frekvens|15 sekunder|
-|Vänte tid för belöning|15 sekunder|
+|uppdatera modellfrekvens|15 sekunder|
+|belöning väntetid|15 sekunder|
 
-Dessa värden har en mycket kort varaktighet för att kunna visa ändringar i den här självstudien. Dessa värden bör inte användas i ett produktions scenario utan att kontrol lera att de uppnår ditt mål med din personliga loop.
+Dessa värden har en mycket kort varaktighet för att visa ändringar i den här självstudien. Dessa värden bör inte användas i ett produktionsscenario utan att validera de uppnår ditt mål med din Personalizer-loop.
 
-## <a name="set-up-the-azure-notebook"></a>Konfigurera Azure Notebook
+## <a name="set-up-the-azure-notebook"></a>Konfigurera Den Azure-anteckningsboken
 
-1. Ändra kärnan till `Python 3.6`.
+1. Ändra kärnan `Python 3.6`till .
 1. Öppna filen `Personalizer.ipynb`.
 
-## <a name="run-notebook-cells"></a>Kör Notebook-celler
+## <a name="run-notebook-cells"></a>Köra anteckningsboksceller
 
-Kör varje körbar cell och vänta tills den returneras. Du vet att det är klart när hakparenteserna bredvid cellen visar ett tal i stället för en `*`. I följande avsnitt förklaras hur varje cell program mässigt och vad som är förväntat för utdata.
+Kör varje körbar cell och vänta tills den returneras. Du vet att det görs när hakparenteserna `*`bredvid cellen visar ett nummer i stället för en . I följande avsnitt förklaras vad varje cell gör programmässigt och vad som väntar för utdata.
 
-### <a name="include-the-python-modules"></a>Ta med python-moduler
+### <a name="include-the-python-modules"></a>Inkludera pythonmodulerna
 
-Ta med de nödvändiga python-modulerna. Cellen har inga utdata.
+Inkludera de nödvändiga pythonmodulerna. Cellen har inga utdata.
 
 ```python
 import json
@@ -111,9 +111,9 @@ import time
 import uuid
 ```
 
-### <a name="set-personalizer-resource-key-and-name"></a>Ange namn på en Personanpassare resurs nyckel och namn
+### <a name="set-personalizer-resource-key-and-name"></a>Ange personalizerresursnyckel och namn
 
-Från Azure Portal hittar du din nyckel och slut punkt på **Start** sidan för din personanpassa resurs. Ändra värdet för `<your-resource-name>` till namnet på din personanpassa resurs. Ändra värdet för `<your-resource-key>` till din personanpassa nyckel.
+Från Azure-portalen hittar du din nyckel och slutpunkt på **snabbstartssidan** för din Personalizer-resurs. Ändra värdet `<your-resource-name>` på till personalizerresursens namn. Ändra värdet `<your-resource-key>` på din Personalizer-nyckel.
 
 ```python
 # Replace 'personalization_base_url' and 'resource_key' with your valid endpoint values.
@@ -122,9 +122,9 @@ resource_key = "<your-resource-key>"
 ```
 
 ### <a name="print-current-date-and-time"></a>Skriv ut aktuellt datum och aktuell tid
-Använd den här funktionen för att notera start-och slut tiderna för den iterativa funktionen, iterationer.
+Använd den här funktionen för att notera start- och sluttiderna för den iterativa funktionen, iterationer.
 
-Dessa celler har inga utdata. Funktionen skriver ut aktuellt datum och tidpunkt när det anropas.
+Dessa celler har inga utdata. Funktionen matar ut aktuellt datum och aktuell tid när den anropas.
 
 ```python
 # Print out current datetime
@@ -133,13 +133,13 @@ def currentDateTime():
     print (str(currentDT))
 ```
 
-### <a name="get-the-last-model-update-time"></a>Hämta den senaste uppdaterings tiden för modellen
+### <a name="get-the-last-model-update-time"></a>Hämta den senaste uppdateringstiden för modellen
 
-När funktionen `get_last_updated`, anropas, skriver funktionen ut det senast ändrade datumet och tidpunkten då modellen uppdaterades.
+När funktionen `get_last_updated`, anropas skrivs funktionen ut det senast ändrade datum och den tid då modellen uppdaterades.
 
-Dessa celler har inga utdata. Funktionen utvärderar den senaste modell inlärnings datumet när det anropades.
+Dessa celler har inga utdata. Funktionen matar ut det senaste modellutbildningsdatumet när det anropas.
 
-Funktionen använder en GET-REST API för att [Hämta modell egenskaper](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/GetModelProperties).
+Funktionen använder ett GET REST API för att [hämta modellegenskaper](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/GetModelProperties).
 
 ```python
 # ititialize variable for model's last modified date
@@ -165,11 +165,11 @@ def get_last_updated(currentModifiedDate):
         print(f'-----model updated: {lastModifiedTime}')
 ```
 
-### <a name="get-policy-and-service-configuration"></a>Hämta princip-och tjänst konfiguration
+### <a name="get-policy-and-service-configuration"></a>Hämta princip- och tjänstkonfiguration
 
-Verifiera tjänstens status med dessa två REST-anrop.
+Verifiera tjänstens tillstånd med dessa två REST-anrop.
 
-Dessa celler har inga utdata. Funktionen matar ut tjänst värden när den anropas.
+Dessa celler har inga utdata. Funktionen matar ut servicevärdena när de anropas.
 
 ```python
 def get_service_settings():
@@ -189,18 +189,18 @@ def get_service_settings():
     print(response.json())
 ```
 
-### <a name="construct-urls-and-read-json-data-files"></a>Skapa URL: er och läsa JSON-datafiler
+### <a name="construct-urls-and-read-json-data-files"></a>Konstruera webbadresser och läsa JSON-datafiler
 
-Den här cellen
+Denna cell
 
-* skapar de URL: er som används i REST-anrop
-* ställer in säkerhets huvud med hjälp av din personanpassa resurs nyckel
-* anger det slumpmässiga Dirigerings-ID: t för rang händelse-ID
+* skapar webbadresserna som används i REST-anrop
+* ställer in säkerhetshuvudet med hjälp av personalizer-resursnyckeln
+* ställer in det slumpmässiga utsädet för rank-händelse-ID:t
 * läser i JSON-datafilerna
-* anrop `get_last_updated` metod – inlärnings princip har tagits bort i exempel på utdata
-* anrop `get_service_settings` metod
+* anropar `get_last_updated` metod - inlärningspolicyn har tagits bort i exempelutdata
+* anropar `get_service_settings` metod
 
-Cellen har utdata från anropet till `get_last_updated` och `get_service_settings` funktioner.
+Cellen har utdata `get_last_updated` från `get_service_settings` anropet till och funktioner.
 
 ```python
 # build URLs
@@ -244,7 +244,7 @@ print(f'User count {len(userpref)}')
 print(f'Coffee count {len(actionfeaturesobj)}')
 ```
 
-Kontrol lera att utdatans `rewardWaitTime` och `modelExportFrequency` båda är inställda på 15 sekunder.
+Kontrollera att utdata `rewardWaitTime` `modelExportFrequency` är och är båda inställda på 15 sekunder.
 
 ```console
 -----checking model
@@ -262,29 +262,29 @@ Coffee count 4
 
 ### <a name="troubleshooting-the-first-rest-call"></a>Felsöka det första REST-anropet
 
-Den här föregående cellen är den första cellen som anropar till Personanpassaren. Se till att REST-statuskoden i utdata är `<Response [200]>`. Om du får ett fel meddelande, till exempel 404, men du är säker på att resurs nyckeln och namnet är rätt, laddar du om antecknings boken.
+Den här föregående cellen är den första cellen som ropar till Personalizer. Kontrollera att REST-statuskoden i `<Response [200]>`utdata är . Om du får ett felmeddelande, till exempel 404, men du är säker på att resursnyckeln och namnet är korrekta, laddar du om anteckningsboken.
 
-Se till att antalet kaffe och användare är båda fyra. Om du får ett fel meddelande kontrollerar du att du har laddat upp alla tre JSON-filer.
+Se till att antalet kaffe och användare är både 4. Om du får ett felmeddelande kontrollerar du att du har laddat upp alla 3 JSON-filer.
 
-### <a name="set-up-metric-chart-in-azure-portal"></a>Konfigurera mått diagram i Azure Portal
+### <a name="set-up-metric-chart-in-azure-portal"></a>Konfigurera måttdiagram i Azure Portal
 
-Senare i den här självstudien visas den tids krävande processen för 10 000-begäranden från webbläsaren med en uppdaterings text ruta. Det kan vara lättare att se i ett diagram eller som en total summa när den tids krävande processen slutar. Om du vill visa den här informationen använder du de mått som medföljer resursen. Du kan skapa diagrammet nu när du har slutfört en begäran till tjänsten och sedan uppdatera diagrammet regelbundet medan den tids krävande processen körs.
+Senare i den här självstudien visas den långvariga processen med 10 000 begäranden från webbläsaren med en uppdateringstextruta. Det kan vara lättare att se i ett diagram eller som en total summa när den tidskrävande processen avslutas. Om du vill visa den här informationen använder du de mått som medföljer resursen. Du kan skapa diagrammet nu när du har slutfört en begäran till tjänsten och sedan uppdatera diagrammet med jämna mellanrum medan den tidskrävande processen pågår.
 
-1. I Azure Portal väljer du din Personanpassare resurs.
-1. I resurs navigeringen väljer du **mått** under övervakning.
-1. Välj **Lägg till mått**i diagrammet.
-1. Resurs-och mått namn området har redan angetts. Du behöver bara välja Mät värdet för **lyckade anrop** och agg regeringen av **Sum**.
-1. Ändra tids filtret till de senaste 4 timmarna.
+1. Välj din Personalizer-resurs i Azure-portalen.
+1. I resursnavigeringen väljer du **Mått** under Övervakning.
+1. Välj **Lägg till mått**i diagrammet .
+1. Resurs- och måttnamnområdet har redan angetts. Du behöver bara välja måttet för **lyckade anrop** och aggregering av **summa**.
+1. Ändra tidsfiltret till de senaste 4 timmarna.
 
-    ![Skapa mått diagram i Azure Portal och Lägg till mått för lyckade anrop under de senaste 4 timmarna.](./media/tutorial-azure-notebook/metric-chart-setting.png)
+    ![Konfigurera måttdiagram i Azure Portal och lägga till mått för lyckade anrop för de senaste 4 timmarna.](./media/tutorial-azure-notebook/metric-chart-setting.png)
 
-    Du bör se tre lyckade anrop i diagrammet.
+    Du bör se tre lyckade samtal i diagrammet.
 
 ### <a name="generate-a-unique-event-id"></a>Generera ett unikt händelse-ID
 
-Den här funktionen genererar ett unikt ID för varje rang anrop. ID: t används för att identifiera information om rankning och belönings samtal. Det här värdet kan komma från en affärs process, till exempel ett ID för webbvy eller transaktions-ID.
+Den här funktionen genererar ett unikt ID för varje rankningsanrop. ID används för att identifiera rang och belöning samtalsinformation. Det här värdet kan komma från en affärsprocess, till exempel ett webbvy-ID eller transaktions-ID.
 
-Cellen har inga utdata. Funktionen skriver utdata från det unika ID: t när det anropas.
+Cellen har inga utdata. Funktionen matar ut det unika ID:et när det anropas.
 
 ```python
 def add_event_id(rankjsonobj):
@@ -295,11 +295,11 @@ def add_event_id(rankjsonobj):
 
 ### <a name="get-random-user-weather-and-time-of-day"></a>Få slumpmässig användare, väder och tid på dagen
 
-Den här funktionen väljer en unik användare, väder och tid på dagen och lägger sedan till dessa objekt i JSON-objektet som ska skickas till ranknings förfrågan.
+Den här funktionen väljer en unik användare, väder och tid på dagen och lägger sedan till dessa objekt i JSON-objektet som ska skickas till Rank-begäran.
 
-Cellen har inga utdata. När funktionen anropas returnerar den den slumpmässiga användarens namn, slumpmässig väder och slumpmässig tid på dagen.
+Cellen har inga utdata. När funktionen kallas returneras den slumpmässiga användarens namn, slumpmässigt väder och slumpmässig tid på dagen.
 
-Listan med 4 användare och deras inställningar – endast vissa inställningar visas för det kortfattat:
+Listan över 4 användare och deras preferenser - endast vissa preferenser visas för korthet:
 
 ```json
 {
@@ -344,14 +344,14 @@ def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, r
 ```
 
 
-### <a name="add-all-coffee-data"></a>Lägg till alla kaffe data
+### <a name="add-all-coffee-data"></a>Lägga till alla kaffedata
 
-Den här funktionen lägger till hela listan över kaffe till det JSON-objekt som ska skickas till ranknings förfrågan.
+Den här funktionen lägger till hela listan med kaffe i JSON-objektet som ska skickas till rank-begäran.
 
 Cellen har inga utdata. Funktionen ändrar `rankjsonobj` när den anropas.
 
 
-Exemplet på en enskild kaffe funktion är:
+Exemplet med en enda kaffe funktioner är:
 
 ```json
 {
@@ -372,11 +372,11 @@ def add_action_features(rankjsonobj):
     rankjsonobj["actions"] = actionfeaturesobj
 ```
 
-### <a name="compare-prediction-with-known-user-preference"></a>Jämför förutsägelse med känd användar inställning
+### <a name="compare-prediction-with-known-user-preference"></a>Jämför förutsägelse med kända användarinställningar
 
-Den här funktionen anropas efter rang-API: et för varje iteration.
+Den här funktionen anropas efter att Rank API anropas för varje iteration.
 
-Den här funktionen Jämför användarens preferenser för kaffe, baserat på väder och tid på dygnet, med personligt anpassade förslag för användaren för dessa filter. Om förslaget matchar returneras resultatet 1, annars är poängen 0. Cellen har inga utdata. Funktionen matar ut poängen när den anropas.
+Den här funktionen jämför användarens preferens för kaffe, baserat på väder och tid på dagen, med Personalizer förslag för användaren för dessa filter. Om förslaget matchar returneras poängen 1, annars är poängen 0. Cellen har inga utdata. Funktionen matar ut poängen när den anropas.
 
 ```python
 def get_reward_from_simulated_data(name, weather, timeofday, prediction):
@@ -385,15 +385,15 @@ def get_reward_from_simulated_data(name, weather, timeofday, prediction):
     return 0
 ```
 
-### <a name="loop-through-calls-to-rank-and-reward"></a>Loopa genom anrop till rankning och belöning
+### <a name="loop-through-calls-to-rank-and-reward"></a>Loop genom samtal till Rank and Reward
 
-Nästa cell är det _huvudsakliga_ arbetet i antecknings boken, en slumpmässig användare, hämtning av kaffe listan, som skickar båda till ranknings-API: et. Jämför förutsägelsen med användarens kända inställningar och skicka sedan belöningen tillbaka till tjänsten för anpassning.
+Nästa cell är det _huvudsakliga_ arbetet i den bärbara datorn, få en slumpmässig användare, få kaffelistan, skicka både till Rank API. Jämföra förutsägelsen med användarens kända preferenser och sedan skicka tillbaka belöningen till Personalizer-tjänsten.
 
-Slingan körs i `num_requests` gånger. En personanpassare behöver några tusen anrop för att rangordna och belöna att skapa en modell.
+Slingan `num_requests` körs i flera gånger. Personalizer behöver några tusen samtal till Rank and Reward för att skapa en modell.
 
-Ett exempel på JSON som skickas till ranknings-API: et följer. Listan över kaffe är inte fullständig, för det kortfattat. Du kan se hela JSON för kaffe i `coffee.json`.
+Ett exempel på JSON som skickas till Rank API följer. Listan över kaffe är inte komplett, för korthet. Du kan se hela JSON `coffee.json`för kaffe i .
 
-JSON skickas till ranknings-API: et:
+JSON skickas till Rank API:
 
 ```json
 {
@@ -426,7 +426,7 @@ JSON skickas till ranknings-API: et:
 }
 ```
 
-JSON-svar från rang-API: et:
+JSON svar från Rank API:
 
 ```json
 {
@@ -441,7 +441,7 @@ JSON-svar från rang-API: et:
 }
 ```
 
-Slutligen visar varje slinga det slumpmässiga valet av användare, väder, tid på dagen och bestämd belöning. Belöningen 1 anger att den personliga resursen har valt rätt kaffe typ för den angivna användaren, väder och tid på dagen.
+Slutligen visar varje slinga slumpmässigt urval av användare, väder, tid på dagen och bestämd belöning. Belöningen 1 anger personalizer-resursen som valts rätt kaffetyp för den angivna användaren, vädret och tiden på dagen.
 
 ```console
 1 Alice Rainy Morning Latte 1
@@ -449,8 +449,8 @@ Slutligen visar varje slinga det slumpmässiga valet av användare, väder, tid 
 
 Funktionen använder:
 
-* Rang: ett INLÄGGs REST API för att [få rangordning](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank).
-* Belöning: ett inlägg REST API att [rapportera belöning](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward).
+* Rank: en POST REST API för att [få rang](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank).
+* Belöning: ett POST REST API för att [rapportera belöning](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward).
 
 ```python
 def iterations(n, modelCheck, jsonFormat):
@@ -529,7 +529,7 @@ def iterations(n, modelCheck, jsonFormat):
 ```
 
 ## <a name="run-for-10000-iterations"></a>Kör för 10 000 iterationer
-Kör den personliga slingan för 10 000 iterationer. Detta är en tids krävande händelse. Stäng inte webbläsaren som kör antecknings boken. Uppdatera mått diagrammet i Azure Portal regelbundet för att se det totala antalet anrop till tjänsten. När du har cirka 20 000 samtal, ett rang-och belönings samtal för varje iteration av slingan, är iterationerna gjorda.
+Kör Personalizer-loopen för 10 000 iterationer. Detta är en långvarig händelse. Stäng inte webbläsaren som kör anteckningsboken. Uppdatera måttdiagrammet i Azure-portalen med jämna mellanrum för att se det totala antalet anrop till tjänsten. När du har cirka 20 000 samtal, ett rank- och belöningsanrop för varje iteration av loopen, görs iterationerna.
 
 ```python
 # max iterations
@@ -546,9 +546,9 @@ jsonTemplate = rankactionsjsonobj
 
 
 
-## <a name="chart-results-to-see-improvement"></a>Diagram resultat för att se förbättring
+## <a name="chart-results-to-see-improvement"></a>Diagramresultat för att se förbättring
 
-Skapa ett diagram från `count` och `rewards`.
+Skapa ett diagram `count` `rewards`från och .
 
 ```python
 def createChart(x, y):
@@ -558,56 +558,56 @@ def createChart(x, y):
     plt.show()
 ```
 
-## <a name="run-chart-for-10000-rank-requests"></a>Kör diagram för 10 000 rang-begäranden
+## <a name="run-chart-for-10000-rank-requests"></a>Kör diagram för 10 000 rankningsbegäranden
 
-Kör funktionen `createChart`.
+Kör `createChart` funktionen.
 
 ```python
 createChart(count,rewards)
 ```
 
-## <a name="reading-the-chart"></a>Läser diagrammet
+## <a name="reading-the-chart"></a>Läsa diagrammet
 
-Det här diagrammet visar lyckad modell för den aktuella standard inlärnings principen.
+Det här diagrammet visar modellens framgång för den aktuella standardutbildningsprincipen.
 
-![Det här diagrammet visar framgången för den aktuella inlärnings principen för testets varaktighet.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
+![Det här diagrammet visar hur framgångsrik den aktuella inlärningsprincipen är för testets varaktighet.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-Det idealiska målet som i slutet av testet gör att slingan är i genomsnitt en lyckad frekvens som ligger nära 100 procent minus utforskningen. Standardvärdet för utforskning är 20%.
+Det idealiska målet att i slutet av testet, är slingan i genomsnitt en framgång som är nära 100 procent minus prospektering. Standardvärdet för prospektering är 20 %.
 
 `100-20=80`
 
-Det här utforsknings värdet finns i Azure Portal för personanpassa resursen på sidan **konfiguration** .
+Det här utforskningsvärdet finns i Azure-portalen för Personalizer-resursen på **sidan Konfiguration.**
 
-För att hitta en bättre inlärnings policy, baserat på dina data till ranknings-API: et, kör du en [offline-utvärdering](how-to-offline-evaluation.md) i portalen för din personanpassa slinga.
+För att hitta en bättre inlärningspolicy, baserat på dina data till Rank API, kör du en [offlineutvärdering](how-to-offline-evaluation.md) i portalen för din Personalizer-loop.
 
-## <a name="run-an-offline-evaluation"></a>Köra en offline-utvärdering
+## <a name="run-an-offline-evaluation"></a>Kör en offlineutvärdering
 
-1. I Azure Portal öppnar du sidan **utvärdering** av personanpassa resurs.
+1. Öppna sidan Personalizer-resursens **utvärderingar** på Azure-portalen.
 1. Välj **Skapa utvärdering**.
-1. Ange nödvändiga data för utvärderings namn och datum intervall för upprepnings utvärderingen. Datum intervallet får bara innehålla de dagar som du fokuserar på för utvärderingen.
-    Om du ![i Azure Portal öppnar du sidan utvärdering av personanpassa resurs. Välj Skapa utvärdering. Ange utvärderings namnet och datum intervallet.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
+1. Ange nödvändiga data för utvärderingsnamn och datumintervall för looputvärderingen. Datumintervallet bör bara innehålla de dagar du fokuserar på för utvärderingen.
+    ![Öppna sidan Personalizer-resursens utvärderingar på Azure-portalen. Välj Skapa utvärdering. Ange utvärderingsnamn och datumintervall.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
-    Syftet med att köra denna offline-utvärdering är att avgöra om det finns en bättre inlärnings princip för de funktioner och åtgärder som används i den här slingan. Se till att **optimerings identifiering** är aktiverat för att hitta den bättre inlärnings principen.
+    Syftet med att köra den här offlineutvärderingen är att avgöra om det finns en bättre inlärningspolicy för de funktioner och åtgärder som används i den här loopen. Om du vill hitta den bättre inlärningsprincipen kontrollerar du att **Optimeringsidentifiering** är aktiverat.
 
 1. Välj **OK** för att påbörja utvärderingen.
-1. Sidan **utvärderings** version listar den nya utvärderingen och dess aktuella status. Den här utvärderingen kan ta lite tid beroende på hur mycket data du har. Du kan komma tillbaka till den här sidan efter några minuter för att se resultatet.
-1. När utvärderingen är klar väljer du utvärderingen och väljer sedan **jämförelse av olika inlärnings principer**. Detta visar de tillgängliga utbildnings principerna och hur de fungerar med data.
-1. Välj den översta inlärnings principen i tabellen och välj **Använd**. Detta använder den _bästa_ inlärnings principen för din modell och omtränar.
+1. På sidan **Utvärderingar** visas den nya utvärderingen och dess aktuella status. Beroende på hur mycket data du har kan utvärderingen ta lite tid. Du kan komma tillbaka till den här sidan efter några minuter för att se resultatet.
+1. När utvärderingen är klar väljer du utvärderingen och väljer sedan **Jämförelse av olika utbildningsprinciper**. Detta visar tillgängliga utbildningsprinciper och hur de skulle bete sig med data.
+1. Välj den översta utbildningsprincipen i tabellen och välj **Använd**. Detta gäller den _bästa_ inlärningspolicyn för din modell och retrains.
 
-## <a name="change-update-model-frequency-to-5-minutes"></a>Ändra frekvens för uppdaterings modell till 5 minuter
+## <a name="change-update-model-frequency-to-5-minutes"></a>Ändra uppdateringsmodellfrekvensen till 5 minuter
 
-1. Välj sidan **konfiguration** i Azure Portal, fortfarande på den personliga resursen.
-1. Ändra **uppdaterings frekvensen för modellen** och **belönings vänte tiden** till 5 minuter och välj **Spara**.
+1. Välj **sidan Konfiguration** i Azure-portalen, som fortfarande finns kvar på Personalizer-resursen.
+1. Ändra **modellens uppdateringsfrekvens** och **belöningsväntan till** 5 minuter och välj **Spara**.
 
-Läs mer om [belönings vänte tid](concept-rewards.md#reward-wait-time) och [modell uppdaterings frekvens](how-to-settings.md#model-update-frequency).
+Läs mer om [belöningsväntan och](concept-rewards.md#reward-wait-time) [uppdateringsfrekvensen](how-to-settings.md#model-update-frequency)för modellen .
 
 ```python
 #Verify new learning policy and times
 get_service_settings()
 ```
 
-Kontrol lera att utdatan `rewardWaitTime` och `modelExportFrequency` båda har värdet 5 minuter.
+Kontrollera att utdata `rewardWaitTime` `modelExportFrequency` är och är båda inställda på 5 minuter.
 ```console
 -----checking model
 <Response [200]>
@@ -622,9 +622,9 @@ User count 4
 Coffee count 4
 ```
 
-## <a name="validate-new-learning-policy"></a>Verifiera ny inlärnings princip
+## <a name="validate-new-learning-policy"></a>Validera ny utbildningspolitik
 
-Gå tillbaka till Azure Notebook och Fortsätt genom att köra samma slinga, men endast för 2 000 iterationer. Uppdatera mått diagrammet i Azure Portal regelbundet för att se det totala antalet anrop till tjänsten. När du har cirka 4 000 samtal, ett rang-och belönings samtal för varje iteration av slingan, är iterationerna gjorda.
+Återgå till Azure-anteckningsboken och fortsätt genom att köra samma loop men för endast 2 000 iterationer. Uppdatera måttdiagrammet i Azure-portalen med jämna mellanrum för att se det totala antalet anrop till tjänsten. När du har cirka 4000 samtal, en rang och belöning samtal för varje iteration av slingan, iterationer görs.
 
 ```python
 # max iterations
@@ -639,9 +639,9 @@ jsonTemplate2 = rankactionsjsonobj
 [count2, rewards2] = iterations(num_requests, lastModCheck2, jsonTemplate)
 ```
 
-## <a name="run-chart-for-2000-rank-requests"></a>Kör diagram för 2 000 rang-begäranden
+## <a name="run-chart-for-2000-rank-requests"></a>Kör diagram för 2 000 rankningsbegäranden
 
-Kör funktionen `createChart`.
+Kör `createChart` funktionen.
 
 ```python
 createChart(count2,rewards2)
@@ -649,18 +649,18 @@ createChart(count2,rewards2)
 
 ## <a name="review-the-second-chart"></a>Granska det andra diagrammet
 
-Det andra diagrammet bör visa en synlig ökning i rankning förutsägelser med användar inställningar.
+Det andra diagrammet bör visa en synlig ökning av rankprognoser som justeras med användarinställningarna.
 
-![Det andra diagrammet bör visa en synlig ökning i rankning förutsägelser med användar inställningar.](./media/tutorial-azure-notebook/azure-notebook-chart-results-happy-graph.png)
+![Det andra diagrammet bör visa en synlig ökning av rankprognoser som justeras med användarinställningarna.](./media/tutorial-azure-notebook/azure-notebook-chart-results-happy-graph.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte tänker fortsätta med själv studie serien kan du rensa följande resurser:
+Om du inte tänker fortsätta självstudieserien rensar du följande resurser:
 
 * Ta bort ditt Azure Notebook-projekt.
-* Ta bort din personanpassa resurs.
+* Ta bort din Personalizer-resurs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Jupyter Notebook och datafiler](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) som används i det här exemplet finns på GitHub-lagrings platsen för personanpassaren.
+[Den Jupyter-anteckningsbok och datafiler](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) som används i det här exemplet finns på GitHub-repoen för Personalizer.
 

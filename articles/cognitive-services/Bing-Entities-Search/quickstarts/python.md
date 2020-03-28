@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skicka en Sök förfrågan till REST API med hjälp av python-Entitetssökning i Bing'
+title: 'Snabbstart: Skicka en sökbegäran till REST API med Python - Bing Entitetssökning'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST API för entitetssökning i Bing med hjälp av Python och få ett JSON-svar.
 services: cognitive-services
@@ -11,27 +11,27 @@ ms.topic: quickstart
 ms.date: 12/11/2019
 ms.author: aahi
 ms.openlocfilehash: 07b563308e80055d699d1cefeb3b2db71ffa4cd7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448622"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med python
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Snabbstart: Skicka en sökbegäran till REST-APIN för sökning av Bingtitet med Python
 
-Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Python-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
+Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Python-programmet skickar en nyhetssökfråga till API:et och visar svaret. Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
 Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
-* [Python](https://www.python.org/downloads/) 2.x eller 3.x
+* [Python (svenska)](https://www.python.org/downloads/) 2.x eller 3.x
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller valfritt redigeringsprogram och lägg till följande importer. Skapa variabler för din prenumerationsnyckel, slutpunkt, marknad och en sökfråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+1. Skapa en ny Python-fil i valfri IDE eller valfritt redigeringsprogram och lägg till följande importer. Skapa variabler för din prenumerationsnyckel, slutpunkt, marknad och en sökfråga. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
     ```python
     import http.client, urllib.parse
@@ -144,4 +144,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Vad är API:et för entitetssökning i Bing?](../search-the-web.md)
-* [Referens för API för entitetsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Api-referens för sökning av Bing-enhet](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)

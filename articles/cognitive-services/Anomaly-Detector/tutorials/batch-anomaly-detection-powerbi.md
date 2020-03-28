@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: visualisera avvikelser med batch-identifiering och Power BI'
+title: 'Självstudiekurs: Visualisera avvikelser med batchidentifiering och Power BI'
 titleSuffix: Azure Cognitive Services
-description: 'Lär dig hur du använder API: t för avvikelse detektor och Power BI för att visualisera avvikelser i dina tids serie data.'
+description: Lär dig hur du använder API:et för avvikelsedetektor och Power BI för att visualisera avvikelser i hela tidsseriedata.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,64 +11,64 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 1b486aaf0ce33e31433c2c3d0f7a1ff2c7089132
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78402662"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Självstudie: visualisera avvikelser med batch-identifiering och Power BI
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Självstudiekurs: Visualisera avvikelser med batchidentifiering och Power BI
 
-Använd den här självstudien för att hitta avvikelser inom en tids serie data uppsättning som en batch. Med hjälp av Power BI Skriv bordet tar du en Excel-fil, förbereder data för API: t för avvikelse detektor och visualiserar statistisk avvikelse i hela den.
+Använd den här självstudien för att hitta avvikelser i en tidsseriedatauppsättning som en batch. Med Power BI-skrivbordet tar du en Excel-fil, förbereder data för API:et för avvikelsedetektor och visualiserar statistiska avvikelser i den.
 
 I den här kursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Använd Power BI Desktop för att importera och transformera en tids serie data uppsättning
-> * Integrera Power BI Desktop med API: t för avvikelse detektor vid batch-avvikelse identifiering
-> * Visualisera avvikelser som finns i dina data, inklusive förväntade och visade värden och gränser för avvikelse identifiering.
+> * Använda Power BI Desktop för att importera och omvandla en tidsseriedatauppsättning
+> * Integrera Power BI Desktop med API:et för avvikelsedetektor för identifiering av batchavvikelse
+> * Visualisera avvikelser som hittas i dina data, inklusive förväntade och sedda värden, och avvikelseidentifieringsgränser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * En [Azure-prenumeration](https://azure.microsoft.com/free/)
-* [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), tillgängligt kostnads fritt.
-* En Excel-fil (. xlsx) som innehåller tids serie data punkter. Exempel data för den här snabb starten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
-* När du har en Azure-prenumeration kan <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="skapa en Textanalys resurs"  target="_blank">skapa en Textanalys <span class="docon docon-navigate-external x-hidden-focus"></span> resurs</a> i Azure Portal för att hämta din nyckel och slut punkt. 
-    * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du kommer att göra detta senare i snabb starten.
+* [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), tillgänglig gratis.
+* En Excel-fil (.xlsx) som innehåller datapunkter för tidsserier. Exempeldata för den här snabbstarten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
+* När du har din <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Azure-prenumeration"  target="_blank">skapar Skapa en <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Text Analytics-resurs en Text Analytics-resurs i Azure-portalen för att hämta din nyckel och slutpunkt. 
+    * Du behöver nyckeln och slutpunkten från den resurs du skapar för att ansluta ditt program till Text Analytics API. Du gör detta senare i snabbstarten.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
-## <a name="load-and-format-the-time-series-data"></a>Läsa in och formatera tids serie data
+## <a name="load-and-format-the-time-series-data"></a>Läsa in och formatera tidsseriedata
 
-Kom igång genom att öppna Power BI Desktop och läsa in tids serie data som du laddade ned från kraven. Den här Excel-filen innehåller en serie tidsstämpel och värdepar för UTC (Coordinated Universal Time).  
+För att komma igång öppnar du Power BI Desktop och läser in tidsseriedata som du har hämtat från förutsättningarna. Den här Excel-filen innehåller en serie utc-tidsstämpel och värdepar (Coordinated Universal Time).  
 
 > [!NOTE]
-> Power BI kan använda data från en mängd olika källor, till exempel CSV-filer, SQL-databaser, Azure Blob Storage med mera.  
+> Power BI kan använda data från en mängd olika källor, till exempel CSV-filer, SQL-databaser, Azure-bloblagring med mera.  
 
-Klicka på menyfliksområdet **Start** i huvud Power BI Desktops fönstret. I den **externa data** gruppen i menyfliksområdet öppnar du den nedrullningsbara menyn **Hämta data** och klickar på **Excel**.
+Klicka på menyfliksområdet **Start** i huvudfönstret för Power BI-skrivbordet. Öppna listrutan **Hämta data** i **menyfliksområdets externa datagrupp** och klicka på **Excel**.
 
-![En bild av knappen Hämta data i Power BI](../media/tutorials/power-bi-get-data-button.png)
+![En bild av knappen "Hämta data" i Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-När dialog rutan visas går du till den mapp där du laddade ned filen example. xlsx och markerar den. När **navigerings** dialog rutan visas klickar du på **Blad1**och sedan på **Redigera**.
+När dialogrutan visas navigerar du till mappen där du hämtade exemplet .xlsx-fil och markerar den. När dialogrutan **Navigator** visas klickar du på **Blad1**och **redigerar**sedan .
 
-![En bild av skärmen för data källan "Navigator" i Power BI](../media/tutorials/navigator-dialog-box.png)
+![En bild av datakällan "Navigator" på skärmen "Navigator" i Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI kommer att konvertera tidsstämplar i den första kolumnen till en `Date/Time` datatyp. Dessa tidsstämplar måste konverteras till text för att kunna skickas till API: t för avvikelse identifiering. Om Power Query redigeraren inte öppnas automatiskt, klickar du på **Redigera frågor** på fliken Start. 
+Power BI konverterar tidsstämplarna `Date/Time` i den första kolumnen till en datatyp. Dessa tidsstämplar måste konverteras till text för att skickas till API:et för avvikelsedetektor. Om Power Query-redigeraren inte öppnas automatiskt klickar du på **Redigera frågor** på startfliken. 
 
-Klicka på menyfliksområdet **transformera** i Power Query redigeraren. I **valfri kolumn** grupp öppnar du menyn **datatyp:** och väljer **text**.
+Klicka på **menyfliksområdet Omforma** i Power Query Editor. Öppna den **nedrullningsbara** menyn Datatyp i gruppen **Valfri kolumn** och välj **Text**.
 
-![En bild av skärmen för data källan "Navigator" i Power BI](../media/tutorials/data-type-drop-down.png)
+![En bild av datakällan "Navigator" på skärmen "Navigator" i Power BI](../media/tutorials/data-type-drop-down.png)
 
-När du får ett meddelande om att ändra kolumn typ klickar du på **Ersätt aktuella**. Klicka sedan på **stäng & Verkställ** eller **Använd** i menyfliksområdet **Start** . 
+När du får ett meddelande om att ändra kolumntypen klickar du på **Ersätt aktuell**. Klicka sedan på **Stäng & Använd** eller **Använd** i menyfliksområdet **Start.** 
 
 ## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Skapa en funktion för att skicka data och formatera svaret
 
-Om du vill formatera och skicka data filen till API: t för avvikelse detektor kan du anropa en fråga i tabellen som har skapats ovan. I Power Query redigeraren, från **Start** -menyfliksområdet, öppnar du List rutan **ny källa** och klickar på **Tom fråga**.
+Om du vill formatera och skicka datafilen till API:et för avvikelsedetektor kan du anropa en fråga i tabellen som skapats ovan. Öppna den **nedrullningssvänliga** menyn Ny källa i menyren **För** Start i Power Query-redigeraren och klicka på **Tom fråga**.
 
-Se till att din nya fråga är markerad och klicka sedan på **avancerad redigerare**. 
+Kontrollera att den nya frågan är markerad och klicka sedan på **Avancerad redigerare**. 
 
 ![En bild av knappen "Avancerad redigerare" i Power BI](../media/tutorials/advanced-editor-screen.png)
 
-I Avancerad redigerare använder du följande Power Query M-kodfragment för att extrahera kolumnerna från tabellen och skicka dem till API: et. Därefter skapar frågan en tabell från JSON-svaret och returnerar den. Ersätt variabeln `apiKey` med din giltiga API-nyckel för avvikelse detektor och `endpoint` med slut punkten. När du har angett frågan i Avancerad redigerare klickar du på **klar**.
+I Den avancerade redigeraren använder du följande Power Query M-kodavsnitt för att extrahera kolumnerna från tabellen och skicka det till API:et. Därefter skapar frågan en tabell från JSON-svaret och returnerar den. Ersätt `apiKey` variabeln med den giltiga API-nyckeln för avvikelsedetektor och `endpoint` med slutpunkten. När du har angett frågan i Den avancerade redigeraren klickar du på **Klar**.
 
 ```M
 (table as table) => let
@@ -112,67 +112,67 @@ I Avancerad redigerare använder du följande Power Query M-kodfragment för att
  in results
 ```
 
-Anropa frågan på ditt data blad genom att välja `Sheet1` under **ange parameter**och klicka på **anropa**. 
+Anropa frågan på databladet genom `Sheet1` att välja under **Ange parameter**och klicka på **Anropa**. 
 
 ![En bild av knappen "Avancerad redigerare"](../media/tutorials/invoke-function-screenshot.png)
 
-## <a name="data-source-privacy-and-authentication"></a>Sekretess och autentisering för data Källa
+## <a name="data-source-privacy-and-authentication"></a>Sekretess och autentisering av datakälla
 
 > [!NOTE]
-> Tänk på organisationens principer för data sekretess och åtkomst. Mer information finns i [Power BI Desktop sekretess nivåer](https://docs.microsoft.com/power-bi/desktop-privacy-levels) .
+> Var medveten om organisationens policyer för datasekretess och åtkomst. Mer information finns i Sekretessnivåerna för [Power BI Desktop.](https://docs.microsoft.com/power-bi/desktop-privacy-levels)
 
-Du kan få ett varnings meddelande när du försöker köra frågan eftersom den använder en extern data källa. 
+Du kan få ett varningsmeddelande när du försöker köra frågan eftersom den använder en extern datakälla. 
 
 ![En bild som visar en varning som skapats av Power BI](../media/tutorials/blocked-function.png)
 
-Åtgärda detta genom att klicka på **Arkiv**, **alternativ och inställningar**. Klicka sedan på **alternativ**. Under den **aktuella filen**väljer du **Sekretess**och **ignorerar sekretess nivåerna och kan förbättra prestandan**. 
+Lös detta genom att klicka på **Arkiv**och **Alternativ och inställningar**. Klicka sedan på **Alternativ**. Under **Aktuell fil**väljer du **Sekretess**och **Ignorera sekretessnivåerna och kan eventuellt förbättra prestanda**. 
 
-Dessutom kan du få ett meddelande där du uppmanas att ange hur du vill ansluta till API: et.
+Dessutom kan du få ett meddelande där du uppmanas att ange hur du vill ansluta till API:et.
 
-![En bild som visar en begäran om att ange autentiseringsuppgifter](../media/tutorials/edit-credentials-message.png)
+![En bild som visar en begäran om att ange åtkomstautentiseringsuppgifter](../media/tutorials/edit-credentials-message.png)
 
-Åtgärda detta genom att klicka på **Redigera autentiseringsuppgifter** i meddelandet. När dialog rutan visas väljer du **Anonym** för att ansluta till API: et anonymt. Klicka sedan på **Anslut**. 
+Lös detta genom att klicka på **Redigera autentiseringsuppgifter** i meddelandet. När dialogrutan visas väljer du **Anonym** för att ansluta till API:et anonymt. Klicka sedan på **Anslut**. 
 
-Klicka sedan på **stäng & tillämpa** i menyfliksområdet **Start** för att tillämpa ändringarna.
+Efteråt klickar du på **Stäng & Använd** i **menyfliksområdet Start** för att tillämpa ändringarna.
 
-## <a name="visualize-the-anomaly-detector-api-response"></a>Visualisera API-svar för avvikelse detektor
+## <a name="visualize-the-anomaly-detector-api-response"></a>Visualisera API-svaret för avvikelsedetektorn
 
-Börja använda frågorna som skapats ovan för att visualisera data på skärmen main Power BI. Välj först **linje diagram** i **visualiseringar**. Lägg sedan till tidsstämpeln från den anropade funktionen till linje diagrammets **axel**. Högerklicka på den och välj **tidsstämpel**. 
+Börja använda de frågor som skapats ovan på huvudskärmen i Power BI för att visualisera data. Välj först **Linjediagram** i **Visualiseringar**. Lägg sedan till tidsstämpeln från den anropade funktionen i linjediagrammets **Axel**. Högerklicka på den och välj **Tidsstämpel**. 
 
-![Högerklicka på värdet för tidsstämpeln](../media/tutorials/timestamp-right-click.png)
+![Högerklicka på tidsstämpelvärdet](../media/tutorials/timestamp-right-click.png)
 
-Lägg till följande fält från den **anropade funktionen** i diagrammets fält **värden** . Använd skärm bilden nedan för att bygga ditt diagram.
+Lägg till följande fält från funktionen **Anropad** i diagrammets **fält Värden.** Använd nedanstående skärmdump för att bygga ditt diagram.
 
     * Värde
-    * UpperMargins
-    * LowerMargins
-    * ExpectedValues
+    * ÖvreMargins
+    * LägreMargins
+    * Förväntade värden
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/chart-settings.png)
+![En bild av den nya snabbåtgärdsskärmen](../media/tutorials/chart-settings.png)
 
-När du har lagt till fälten klickar du på diagrammet och ändrar storlek på det för att visa alla data punkter. Diagrammet kommer att se ut ungefär som på skärm bilden nedan:
+När du har lagt till fälten klickar du på diagrammet och ändrar storlek på det för att visa alla datapunkter. Diagrammet liknar skärmbilden nedan:
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/chart-visualization.png)
+![En bild av den nya snabbåtgärdsskärmen](../media/tutorials/chart-visualization.png)
 
-### <a name="display-anomaly-data-points"></a>Visa avvikelse data punkter
+### <a name="display-anomaly-data-points"></a>Visa avvikelsedatapunkter
 
-Till höger i Power BIs fönstret, under fönstret **fält** , högerklicka på **värde** under **frågan anropad funktion**och klicka på **nytt snabb mått**.
+Högerklicka på **Värde** under **frågan Aktiverad funktion**till höger i Power BI-fönstret och klicka på Nytt **snabbmått**. **FIELDS**
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/new-quick-measure.png)
+![En bild av den nya snabbåtgärdsskärmen](../media/tutorials/new-quick-measure.png)
 
-På skärmen som visas väljer du **filtrerat värde** som beräkning. Ange **bas värde** till `Sum of Value`. Dra sedan `IsAnomaly` från fälten **anropad funktion** för att **filtrera**. Välj `True` på list menyn **filter** .
+Välj **Filtrerat värde** som beräkning på skärmen som visas. Ange **basvärde** till `Sum of Value`. Dra `IsAnomaly` sedan från fälten **Anropad funktion** till **Filter**. Välj `True` på den **nedrullningsbara** menyn Filter.
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/new-quick-measure-2.png)
+![En bild av den nya snabbåtgärdsskärmen](../media/tutorials/new-quick-measure-2.png)
 
-När du har klickat på **OK**kommer du att ha ett `Value for True` fält längst ned i listan över dina fält. Högerklicka på den och Byt namn på den till **avvikelse**. Lägg till den i diagrammets **värden**. Välj sedan **format** verktyget och ange X-axelns typ till **kategoriska**.
+När du **Ok**har klickat `Value for True` på Ok har du ett fält längst ned i listan över fälten. Högerklicka på den och byt namn på den till **Anomali**. Lägg till det i diagrammets **värden**. Välj sedan **formatverktyget** och ställ in X-axeltypen på **Kategorisk**.
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/format-x-axis.png)
+![En bild av den nya snabbåtgärdsskärmen](../media/tutorials/format-x-axis.png)
 
-Använd färger i diagrammet genom att klicka på **format** verktyget och **data färger**. Diagrammet bör se ut ungefär så här:
+Använd färger i diagrammet genom att klicka på **formatverktyget** och **datafärgerna**. Diagrammet ska se ut ungefär så här:
 
-![En bild av den nya snabb mått skärmen](../media/tutorials/final-chart.png)
+![En bild av den nya snabbåtgärdsskärmen](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
->[Strömma avvikelse identifiering med Azure Databricks](anomaly-detection-streaming-databricks.md)
+>[Identifiering av strömmaravvikelse med Azure Databricks](anomaly-detection-streaming-databricks.md)

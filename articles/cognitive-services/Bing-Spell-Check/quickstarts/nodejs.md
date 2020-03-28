@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: kontrol lera stavningen med REST API och Node. js-Stavningskontroll i Bing'
+title: 'Snabbstart: Kontrollera stavning med REST API och Node.js - Bing Stavningskontroll'
 titleSuffix: Azure Cognitive Services
-description: Kom igång med Stavningskontroll i Bing REST API för att kontrol lera stavning och grammatik med den här snabb starten.
+description: Kom igång med REST-API:et för stavningskontroll för stavningskontroll för att kontrollera stavning och grammatik med den här snabbstarten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382870"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Node. js
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabbstart: Kontrollera stavning med Bing Stavningskontroll REST API och Node.js
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Detta enkla Node-program skickar en begäran till API: et och returnerar en lista med ord som inte identifierades, följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Node. js är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla nodprogrammet skickar en begäran till API:et och returnerar en lista med ord som det inte kände igen, följt av föreslagna korrigeringar. Medan det här programmet är skrivet i Node.js är API:et en RESTful Web-tjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -30,7 +30,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange strikthet och Kräv `https`. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ställ in strikthet, `https`och kräver . Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
     ```javascript
     'use strict';
@@ -41,7 +41,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Skapa variabler för dina Sök parametrar och den text som du vill kontrol lera. Lägg till din marknads kod efter `mkt=`. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läge är antingen `proof` (fångar de flesta stavnings-och grammatikfel) eller `spell` (fångar upp de flesta stavfel men inte lika många grammatiska fel).
+2. Skapa variabler för sökparametrarna och den text du vill kontrollera. Lägg till din `mkt=`marknadskod efter . Marknadskoden är det land du gör begäran från. Lägg också till ditt stavningskontrollläge efter `&mode=`. Läget är `proof` antingen (fångar de flesta stav-/grammatikfel) eller `spell` (fångar mest stavning men inte så många grammatikfel).
 
     ```javascript
     let mkt = "en-US";
@@ -98,11 +98,11 @@ req.end ();
 ```
 
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
-Skapa och kör ditt projekt.
+Bygg och kör ditt projekt.
 
-Om du använder kommando raden använder du följande kommandon för att skapa och köra programmet.
+Om du använder kommandoraden använder du följande kommandon för att skapa och köra programmet.
 
 ```bash
 node <FILE_NAME>.js

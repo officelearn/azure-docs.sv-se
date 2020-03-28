@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks'
+title: 'Självstudiekurs: Avvikelseidentifiering vid direktuppspelning av data med Hjälp av Azure Databricks'
 titleSuffix: Azure Cognitive Services
-description: 'Lär dig hur du använder API: t för avvikelse detektor och Azure Databricks för att övervaka avvikelser i dina data.'
+description: Lär dig hur du använder API:et för avvikelsedetektor och Azure Databricks för att övervaka avvikelser i dina data.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -12,19 +12,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78402667"
 ---
-# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks
+# <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudiekurs: Avvikelseidentifiering vid direktuppspelning av data med Hjälp av Azure Databricks
 
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) är en snabb, enkel och gemensam Apache Spark-baserad analys tjänst. API: t för avvikelse detektor, som ingår i Azure Cognitive Services, ger ett sätt att övervaka dina tids serie data. Använd den här självstudien för att köra avvikelse identifiering på en data ström i nära real tid med hjälp av Azure Databricks. Du tar in Twitter-data med Azure Event Hubs och importerar dem till Azure Databricks med hjälp av Spark Event Hubs-anslutningen. Sedan använder du API: et för att identifiera avvikelser på strömmade data. 
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) är en snabb, enkel och samarbetsinriktad Apache Spark-baserad analystjänst. Api:et för avvikelsedetektor, en del av Azure Cognitive Services, är ett sätt att övervaka dina tidsseriedata. Använd den här självstudien för att köra avvikelseidentifiering på en dataström i nära realtid med Azure Databricks. Du matar in Twitter-data med Azure Event Hubs och importerar dem till Azure Databricks med Spark Event Hubs-kopplingen. Efteråt ska du använda API:et för att identifiera avvikelser på strömmade data. 
 
 Följande bild visar programflödet:
 
-![Azure Databricks med Event Hubs och Cognitive Services](../media/tutorials/databricks-cognitive-services-tutorial.png "Azure Databricks med Event Hubs och Cognitive Services")
+![Azure Databricks med eventhubbar och kognitiva tjänster](../media/tutorials/databricks-cognitive-services-tutorial.png "Azure Databricks med eventhubbar och kognitiva tjänster")
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -34,36 +34,36 @@ Den här självstudien omfattar följande uppgifter:
 > * Skapa en Twitter-app om du vill ha tillgång strömmande data
 > * Skapa anteckningsböcker i Azure Databricks
 > * Bifoga bibliotek för Event Hubs och Twitter-API
-> * Skapa en resurs för avvikelse detektor och hämta åtkomst nyckeln
+> * Skapa en avvikelsedetektorresurs och hämta åtkomstnyckeln
 > * Skicka tweets till Event Hubs
 > * Läs tweets från Event Hubs
-> * Kör avvikelse identifiering på tweets
+> * Kör avvikelseidentifiering på tweets
 
 > [!Note]
-> * Den här självstudien beskriver en metod för att implementera den rekommenderade [lösnings arkitekturen](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) för API: t för avvikelse identifiering.
-> * Den här självstudien kan inte utföras med en kostnads fri utvärderings version av API: t för avvikelse detektor eller Azure Databricks. 
+> * Den här självstudien introducerar en metod för att implementera den rekommenderade [lösningsarkitekturen](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) för API:et för avvikelsedetektor.
+> * Den här självstudien kan inte slutföras med en kostnadsfri utvärderingsversion för API:et för avvikelsedetektorn eller Azure Databricks. 
 
-Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/) om du inte har någon.
+Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/) om du inte har en.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Ett [Azure Event Hubs-namnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) och händelsehubben.
+- Ett namnområde och händelsenav för [Azure-händelsehubben.](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-- [Anslutnings strängen](../../../event-hubs/event-hubs-get-connection-string.md) som används för att komma åt Event Hubs-namnrymden. Anslutnings strängen måste ha ett liknande format för att:
+- [Anslutningssträngen](../../../event-hubs/event-hubs-get-connection-string.md) för att komma åt namnområdet Event Hubs. Anslutningssträngen bör ha ett liknande format som:
 
     `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. 
 
-- Namnet på principen för delad åtkomst och princip nyckeln för Event Hubs.
+- Principnamnet och principnyckeln för delad åtkomst för händelsehubbar.
 
-Information om hur du skapar ett namn område och händelsehubben finns i [snabb](../../../event-hubs/event-hubs-create.md) starten för Azure Event Hubs.
+Mer information om hur du skapar ett namnområde och en händelsenav finns i [snabbstarten](../../../event-hubs/event-hubs-create.md) för Azure Event Hubs.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
-I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azure Portal](https://portal.azure.com/).
+I det här avsnittet skapar du en Azure Databricks-arbetsyta med Hjälp av [Azure-portalen](https://portal.azure.com/).
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
+1. I Azure-portalen väljer du **Skapa en resurs** > **Analytics** > **Azure Databricks**.
 
-    ![Databricks på Azure Portal](../media/tutorials/azure-databricks-on-portal.png "Databricks på Azure Portal")
+    ![Databricks på Azure-portalen](../media/tutorials/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
 3. Under **Azure Databricks-tjänst** anger du följande värden för att skapa en Databricks-arbetsyta:
 
@@ -73,8 +73,8 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../../azure-resource-manager/management/overview.md). |
-    |**Plats**     | Välj **USA, östra 2** eller någon annan tillgänglig region. Se [vilka Azure-tjänster som är tillgängliga](https://azure.microsoft.com/regions/services/) för regions tillgänglighet.        |
-    |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Välj inte **utvärderings version**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Location**     | Välj **Östra USA 2** eller någon annan tillgänglig region. Se [Azure-tjänster som är tillgängliga per region](https://azure.microsoft.com/regions/services/) för regiontillgänglighet.        |
+    |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Välj INTE **Rättegång**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Välj **Skapa**.
 
@@ -84,19 +84,19 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
 
 1. I Azure-portalen går du till Databricks-arbetsytan som du skapade. Välj sedan **Starta arbetsyta**.
 
-2. Du omdirigeras till Azure Databricks-portalen. Välj **nytt kluster**från portalen.
+2. Du omdirigeras till Azure Databricks-portalen. Välj **Nytt kluster**i portalen .
 
     ![Databricks på Azure](../media/tutorials/databricks-on-azure.png "Databricks på Azure")
 
-3. På sidan **nytt kluster** anger du värdena för att skapa ett kluster.
+3. Ange de värden som ska skapa ett kluster på sidan **Nytt kluster.**
 
     ![Skapa Databricks Spark-kluster på Azure](../media/tutorials/create-databricks-spark-cluster.png "Skapa Databricks Spark-kluster på Azure")
 
     Godkänn alla övriga standardvärden, förutom följande:
 
    * Ange ett namn för klustret.
-   * I den här artikeln skapar du ett kluster med **5,2** Runtime. Välj inte **5,3** Runtime.
-   * Kontrol lera att kryss rutan **Avsluta efter \_\_ minuter av inaktivitet** är markerad. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
+   * Skapa ett kluster med **5.2-körning** i den här artikeln. Välj INTE **5,3** körning.
+   * Kontrollera att kryssrutan **Avsluta efter \_ \_ minuter av inaktivitet** är markerad. Ange en varaktighet (i minuter) för att avsluta klustret, om klustret inte används.
 
      Välj **Skapa kluster**. 
 4. Det tar flera minuter att skapa klustret. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
@@ -111,28 +111,28 @@ Om du vill få en dataström med tweets måste du skapa ett program i Twitter. F
 
 2. På sidan **Skapa ett program** anger du information om den nya appen. Välj sedan **Create your Twitter application** (Skapa ditt Twitter-program).
 
-    ![Information om Twitter-program](../media/tutorials/databricks-provide-twitter-app-details.png "Information om Twitter-program")
+    ![Twitter ansökan detaljer](../media/tutorials/databricks-provide-twitter-app-details.png "Twitter ansökan detaljer")
 
 3. På programsidan väljer du fliken med **nycklar och åtkomsttoken** och kopierar värdena för den **använda nyckeln** och **konsumenthemligheten**. Välj också **Skapa min åtkomsttoken** för att generera åtkomsttoken. Kopiera värdena för **åtkomsttoken** och **åtkomsttokenhemligheten**.
 
-    ![Information om Twitter-program](../media/tutorials/twitter-app-key-secret.png "Information om Twitter-program")
+    ![Twitter ansökan detaljer](../media/tutorials/twitter-app-key-secret.png "Twitter ansökan detaljer")
 
 Spara de värden som du hämtade för Twitter-programmet. Du behöver dem senare i självstudien.
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Bifoga bibliotek till Spark-kluster
 
-I den här självstudien använder du Twitter-API:er för att skicka tweets till Event Hubs. Du använder också [Apache Spark Event Hubs-anslutningsprogram](https://github.com/Azure/azure-event-hubs-spark) för att läsa och skriva data till Azure Event Hubs. Använd dessa API:er som en del av klustret, lägg till dem som bibliotek i Azure Databricks och koppla dem sedan till ditt Spark-kluster. Följande instruktioner visar hur du lägger till biblioteken i den **delade** mappen på din arbets yta.
+I den här självstudien använder du Twitter-API:er för att skicka tweets till Event Hubs. Du använder också [Apache Spark Event Hubs-anslutningsprogram](https://github.com/Azure/azure-event-hubs-spark) för att läsa och skriva data till Azure Event Hubs. Använd dessa API:er som en del av klustret, lägg till dem som bibliotek i Azure Databricks och koppla dem sedan till ditt Spark-kluster. Följande instruktioner visar hur du lägger till biblioteken i mappen **Delad** på arbetsytan.
 
-1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. I snabbmenyn väljer du **Skapa** > **Bibliotek**.
+1. I Azure Databricks-arbetsytan väljer du **Arbetsyta** och högerklickar sedan på **Delade**. Välj **Skapa** > **bibliotek**på snabbmenyn .
 
-   ![Dialog rutan Lägg till bibliotek](../media/tutorials/databricks-add-library-option.png "Dialog rutan Lägg till bibliotek")
+   ![Dialogrutan Lägg till bibliotek](../media/tutorials/databricks-add-library-option.png "Dialogrutan Lägg till bibliotek")
 
-2. På sidan nytt bibliotek för **källa** väljer du **maven**. För **koordinater**anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
+2. Välj **Maven**för **Käll** på sidan Nytt bibliotek . För **Koordinater**anger du koordinaten för det paket som du vill lägga till. Här är Maven-koordinaterna för de bibliotek som används i självstudien:
 
    * Spark Event Hubs-anslutningsprogram – `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter-API – `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Ange maven-koordinater](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Ange maven-koordinater")
+     ![Ge Maven-koordinater](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Ge Maven-koordinater")
 
 3. Välj **Skapa**.
 
@@ -140,60 +140,60 @@ I den här självstudien använder du Twitter-API:er för att skicka tweets till
 
     ![Välj bibliotek som ska läggas till](../media/tutorials/select-library.png "Välj bibliotek som ska läggas till")
 
-5. Om det inte finns något kluster på sidan bibliotek väljer du **kluster** och kör klustret som du har skapat. Vänta tills statusen visar "körs" och gå sedan tillbaka till sidan bibliotek.
-På sidan bibliotek väljer du det kluster där du vill använda biblioteket och väljer sedan **Installera**. När biblioteket har associerats med klustret ändras statusen direkt till **installerad**.
+5. Om det inte finns något kluster på bibliotekssidan väljer du Kluster och kör **klustret** som du har skapat. Vänta tills tillståndet visar "Löpning" och gå sedan tillbaka till bibliotekssidan.
+På bibliotekssidan väljer du det kluster där du vill använda biblioteket och väljer sedan **Installera**. När biblioteket har associerats med klustret ändras statusen omedelbart till **Installerat**.
 
-    ![Installera bibliotek i kluster](../media/tutorials/databricks-library-attached.png "Installera bibliotek i kluster")
+    ![Installera bibliotek i klustret](../media/tutorials/databricks-library-attached.png "Installera bibliotek i klustret")
 
 6. Upprepa dessa steg för Twitter-paketet `twitter4j-core:4.0.7`.
 
 ## <a name="get-a-cognitive-services-access-key"></a>Hämta en Cognitive Services-åtkomstnyckel
 
-I den här självstudien använder du [Azure Cognitive Services avvikelse igenkännings-API: er](../overview.md) för att köra avvikelse identifiering på en ström av tweets i nära real tid. Innan du använder API: erna måste du skapa en avvikelse identifierings resurs på Azure och hämta en åtkomst nyckel för att använda API: erna för avvikelse detektor.
+I den här självstudien använder du [Azure Cognitive Services Anomaly Detector API:er](../overview.md) för att köra avvikelseidentifiering på en ström av tweets i nära realtid. Innan du använder API:erna måste du skapa en avvikelsedetektorresurs på Azure och hämta en åtkomstnyckel för att använda API:erna för avvikelsedetektor.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj **+ Skapa en resurs**.
 
-3. Under Azure Marketplace väljer du **AI + Machine Learning** > **se alla** > **Cognitive Services – mer** > **avvikelse detektor**. Eller så kan du använda [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) för att gå till dialog rutan **skapa** direkt.
+3. Under Azure**Marketplace,** > Välj **AI + Machine Learning** > Se alla**kognitiva tjänster - Mer** > **Avvikelse Detector**. Eller så kan du använda [den här länken](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) för att gå direkt till dialogrutan **Skapa.**
 
-    ![Skapa avvikelse detektor resurs](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Skapa avvikelse detektor resurs")
+    ![Skapa resurs för avvikelsedetektor](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Skapa resurs för avvikelsedetektor")
 
 4. I dialogrutan **Skapa** anger du följande värden:
 
     |Värde |Beskrivning  |
     |---------|---------|
-    |Namn     | Ett namn för avvikelse detektor resursen.        |
-    |Prenumeration     | Den Azure-prenumeration som resursen ska associeras med.        |
-    |plats.     | En Azure-plats.        |
-    |Prisnivå     | En pris nivå för tjänsten. Mer information om priser för avvikelse detektor finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
+    |Namn     | Ett namn på resursen Avvikelsedetektor.        |
+    |Prenumeration     | Azure-prenumerationen som resursen kommer att associeras med.        |
+    |Location     | En Azure-plats.        |
+    |Prisnivå     | En prisnivå för tjänsten. Mer information om priser för avvikelsedetektor finns på [prissidan](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
     |Resursgrupp     | Ange om du vill skapa en ny resursgrupp eller välja en befintlig.        |
 
 
      Välj **Skapa**.
 
-5. När resursen har skapats kopierar du och sparar **slut punkts** -URL: en på fliken **Översikt** , som visas på skärm bilden. Välj sedan **Visa åtkomst nycklar**.
+5. När resursen har skapats kopierar och sparar du **slutpunkts-URL:en** på fliken **Översikt,** vilket visas i skärmbilden. Välj sedan **Visa åtkomstnycklar**.
 
-    ![Visa åtkomst nycklar](../media/tutorials/cognitive-services-get-access-keys.png "Visa åtkomst nycklar")
+    ![Visa åtkomstnycklar](../media/tutorials/cognitive-services-get-access-keys.png "Visa åtkomstnycklar")
 
-6. Under **nycklar**väljer du kopierings ikonen mot den nyckel som du vill använda. Spara åtkomst nyckeln.
+6. Under **Nycklar**väljer du kopieringsikonen mot den nyckel du vill använda. Spara åtkomstnyckeln.
 
-    ![Kopiera åtkomst nycklar](../media/tutorials/cognitive-services-copy-access-keys.png "Kopiera åtkomst nycklar")
+    ![Kopiera åtkomstnycklar](../media/tutorials/cognitive-services-copy-access-keys.png "Kopiera åtkomstnycklar")
 
 ## <a name="create-notebooks-in-databricks"></a>Skapa anteckningsböcker i Databricks
 
 I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan med följande namn
 
 - **SendTweetsToEventHub** – En producentanteckningsbok som du använder för att få tweets från Twitter och strömma dem till Event Hubs.
-- **AnalyzeTweetsFromEventHub** – en konsument antecknings bok som du använder för att läsa tweets från Event Hubs och köra avvikelse identifiering.
+- **AnalyzeTweetsFromEventHub** - En anteckningsbok för konsumenter som du använder för att läsa tweets från eventhubbar och köra avvikelseidentifiering.
 
-1. I arbets ytan Azure Databricks väljer du **arbets yta** i det vänstra fönstret. I listrutan **Arbetsyta** väljer du **Skapa** och sedan **Anteckningsbok**.
+1. Välj **Arbetsyta i** den vänstra rutan i Azure Databricks- arbetsytan. I listrutan **Arbetsyta** väljer du **Skapa** och sedan **Anteckningsbok**.
 
-    ![Skapa antecknings bok i Databricks](../media/tutorials/databricks-create-notebook.png "Skapa antecknings bok i Databricks")
+    ![Skapa anteckningsbok i Databricks](../media/tutorials/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
 
-2. I dialog rutan **skapa antecknings bok** anger du **SendTweetsToEventHub** som namn, väljer **Scala** som språk och väljer det Spark-kluster som du skapade tidigare.
+2. I dialogrutan **Skapa anteckningsbok** anger du **SendTweetsToEventHub** som namn, väljer **Scala** som språk och väljer spark-klustret som du skapade tidigare.
 
-    ![Skapa antecknings bok i Databricks](../media/tutorials/databricks-notebook-details.png "Skapa antecknings bok i Databricks")
+    ![Skapa anteckningsbok i Databricks](../media/tutorials/databricks-notebook-details.png "Skapa anteckningsbok i Databricks")
 
     Välj **Skapa**.
 
@@ -201,7 +201,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 
 ## <a name="send-tweets-to-event-hubs"></a>Skicka tweets till Event Hubs
 
-I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Den här Notebook-anteckningsboken extraherar skapande tid och antal "liknar" från tweets med nyckelordet "Azure" och strömma dem som händelser till Event Hubs i real tid.
+I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Den här anteckningsboken extraherar skapande tid och antal "Gilla"-tal från tweets med nyckelordet "Azure" och strömma dem som händelser till Event Hubs i realtid.
 
 ```scala
 //
@@ -298,7 +298,7 @@ eventHubClient.get().close()
 pool.shutdown()
 ```
 
-Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment. Varje händelse i utdatan är en kombination av tidsstämpel och antal "gilla" s som matas in i Event Hubs.
+Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdata som liknar följande kodfragment. Varje händelse i utdata är en kombination av tidsstämpel och antalet "Like" som matas in i händelsehubbar.
 
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
@@ -321,9 +321,9 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdat
 
 ## <a name="read-tweets-from-event-hubs"></a>Läs tweets från Event Hubs
 
-I antecknings boken **AnalyzeTweetsFromEventHub** klistrar du in följande kod och ersätter plats hållaren med värden för den avvikelse detektor resurs som du skapade tidigare. Den här anteckningsboken läser de tweets som du tidigare strömmade till Event Hubs med hjälp av anteckningsboken **SendTweetsToEventHub**.
+I anteckningsboken **AnalyzeTweetsFromEventHub** klistrar du in följande kod och ersätter platshållaren med värden för avvikelsedetektorresursen som du skapade tidigare. Den här anteckningsboken läser de tweets som du tidigare strömmade till Event Hubs med hjälp av anteckningsboken **SendTweetsToEventHub**.
 
-Börja med att skriva en klient för att anropa avvikelse detektor. 
+Skriv först en klient för att anropa Avvikelsedetektorn. 
 ```scala
 
 //
@@ -434,7 +434,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdat
     defined class AnomalyBatchResponse
     defined object AnomalyDetector
 
-Förbered sedan en agg regerings funktion för framtida användning.
+Förbered sedan en aggregeringsfunktion för framtida användning.
 ```scala
 //
 // User Defined Aggregation Function for Anomaly Detection
@@ -501,7 +501,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdat
     import scala.collection.immutable.ListMap
     defined class AnomalyDetectorAggregationFunction
 
-Läs sedan in data från händelsehubben för avvikelse identifiering. Ersätt plats hållaren med värden för Azure-Event Hubs som du skapade tidigare.
+Läs sedan in data från händelsehubben för avvikelseidentifiering. Ersätt platshållaren med värden för dina Azure Event Hubs som du skapade tidigare.
 
 ```scala
 //
@@ -539,18 +539,18 @@ display(msgStream)
 
 ```
 
-Utdata liknar nu följande bild. Observera att datumet i tabellen kan skilja sig från datumet i den här självstudien eftersom data är i real tid.
-![Läs in data från Händelsehubben](../media/tutorials/load-data-from-eventhub.png "Läs in data från Händelsehubben")
+Utdata liknar nu följande bild. Observera att ditt datum i tabellen kan skilja sig från datumet i den här självstudien eftersom data är i realtid.
+![Läs in data från händelsehubben](../media/tutorials/load-data-from-eventhub.png "Läsa in data från händelsehubb")
 
-Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-kopplingen för Apache Spark finns i [kopplingsdokumentationen](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Nu har du strömmat data från Azure Event Hubs till Azure Databricks nästan i realtid med hjälp av Event Hubs-anslutningsappen för Apache Spark. Mer information om hur du använder Event Hubs-anslutningsprogrammet för Apache Spark finns i [dokumentationen till anslutningsprogrammet](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
 
 
 
-## <a name="run-anomaly-detection-on-tweets"></a>Kör avvikelse identifiering på tweets
+## <a name="run-anomaly-detection-on-tweets"></a>Kör avvikelseidentifiering på tweets
 
-I det här avsnittet ska du köra avvikelse identifiering på Tweets som tagits emot med hjälp av API: t för avvikelse identifiering. I det här avsnittet lägger du till kodfragmenten till samma **AnalyzeTweetsFromEventHub**-anteckningsbok.
+I det här avsnittet kör du avvikelseidentifiering på de tweets som tagits emot med hjälp av API:et för avvikelsedetektorn. I det här avsnittet lägger du till kodfragmenten till samma **AnalyzeTweetsFromEventHub**-anteckningsbok.
 
-För att utföra avvikelse identifiering måste du först aggregera ditt mått antal per timme.
+För att göra avvikelseidentifiering måste du först aggregera antalet mått per timme.
 ```scala
 //
 // Aggregate Metric Count by Hour
@@ -566,7 +566,7 @@ groupStream.printSchema
 
 display(groupStream)
 ```
-Utdata liknar nu följande kodfragment.
+Utdata liknar nu följande utdrag.
 ```
 groupTime                       average
 2019-04-23T04:00:00.000+0000    24
@@ -578,8 +578,8 @@ groupTime                       average
 
 ```
 
-Hämta sedan det sammanställda resultatet till delta. Eftersom avvikelse identifiering kräver ett längre historik fönster använder vi delta för att behålla historik data för den punkt som du vill identifiera. Ersätt "[placeholder: Table Name]" med ett kvalificerat delta tabell namn som ska skapas (till exempel "tweets"). Ersätt "[placeholder: mappnamn för kontroll punkter]" med ett sträng värde som är unikt varje gången du kör den här koden (till exempel "ETL-from-eventhub-20190605").
-Om du vill veta mer om delta Lake på Azure Databricks, se [delta Lake-guide](https://docs.azuredatabricks.net/delta/index.html)
+Hämta sedan det aggregerade utdataresultatet till Delta. Eftersom avvikelseidentifiering kräver ett längre historikfönster använder vi Delta för att behålla historikdata för den punkt du vill identifiera. Ersätt "[Platshållare: tabellnamn]" med ett kvalificerat Delta-tabellnamn som ska skapas (till exempel "tweets"). Ersätt "[Platshållare: mappnamn för kontrollpunkter]" med ett strängvärde som är unikt varje gång du kör den här koden (till exempel "etl-from-eventhub-20190605").
+Mer information om Delta Lake på Azure Databricks finns i [Delta Lake Guide](https://docs.azuredatabricks.net/delta/index.html)
 
 
 ```scala
@@ -595,7 +595,7 @@ groupStream.writeStream
 
 ```
 
-Ersätt "[placeholder: Table Name]" med samma delta tabell namn som du har valt ovan.
+Ersätt "[Platshållare: tabellnamn]" med samma Delta-tabellnamn som du har markerat ovan.
 ```scala
 //
 // Show Aggregate Result
@@ -609,7 +609,7 @@ twitterData.show(200, false)
 
 display(twitterData)
 ```
-Följande utdata visas: 
+Utgången enligt nedan: 
 ```
 groupTime                       average
 2019-04-08T01:00:00.000+0000    25.6
@@ -622,7 +622,7 @@ groupTime                       average
 
 ```
 
-Nu matas de sammanställda tids serie data in i delta. Sedan kan du schemalägga ett Tim jobb för att identifiera avvikelsen för den senaste punkten. Ersätt "[placeholder: Table Name]" med samma delta tabell namn som du har valt ovan.
+Nu intas de aggregerade tidsseriedata kontinuerligt in i Delta. Sedan kan du schemalägga ett timjobb för att upptäcka anomalin hos den senaste punkten. Ersätt "[Platshållare: tabellnamn]" med samma Delta-tabellnamn som du har markerat ovan.
 
 ```scala
 //
@@ -671,20 +671,20 @@ Resultat enligt nedan:
 +--------------------+-------+
 ```
 
-Klart! Med hjälp av Azure Databricks har du strömmat data till Azure Event Hubs, förbrukat data strömmen med hjälp av Event Hubs Connector och sedan kör avvikelse identifiering på strömmande data i nära real tid.
-I den här självstudien är precisionen varje timme, men du kan alltid ändra granularitet så att den passar dina behov. 
+Klart! Med Hjälp av Azure Databricks har du strömmat data till Azure Event Hubs, förbrukat dataströmdata med hjälp av Event Hubs-kopplingen och sedan köra avvikelseidentifiering på strömmande data i nära realtid.
+Även i den här självstudien är granulariteten varje timme, kan du alltid ändra granulariteten för att möta dina behov. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med självstudien kan du avsluta klustret. Det gör du genom att välja **kluster** i den vänstra rutan i Azure Databricks arbets ytan. För det kluster som du vill avsluta, flytta markören över ellipsen under kolumnen **åtgärder** och välj ikonen **Avsluta** och välj sedan **Bekräfta**.
+När du är klar med självstudien kan du avsluta klustret. För att göra det, på Arbetsytan Azure Databricks, väljer **du Kluster** från den vänstra rutan. För det kluster som du vill avsluta flyttar du markören över ellipsen under **Åtgärdskolumnen** och väljer ikonen **Avsluta** och väljer sedan **Bekräfta**.
 
 ![Stoppa ett Databricks-kluster](../media/tutorials/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 
-Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryss rutan **Avsluta efter \_\_ minuter av inaktivitet** när klustret skapades. I sådana fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
+Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_ \_ minuter av inaktivitet** när du skapar klustret. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I självstudien har du lärt dig hur du använder Azure Databricks till att strömma data till Azure Event Hubs och sedan läsa strömmande data från Event Hubs i realtid. Gå vidare till nästa självstudie för att lära dig att anropa API: t för avvikelse detektor och visualisera avvikelser med Power BI Station ära datorer. 
+I självstudien har du lärt dig hur du använder Azure Databricks till att strömma data till Azure Event Hubs och sedan läsa strömmande data från Event Hubs i realtid. Gå vidare till nästa självstudiekurs för att lära dig hur du anropar API:et för avvikelsedetektor och visualiserar avvikelser med Power BI-skrivbordet. 
 
 > [!div class="nextstepaction"]
->[Batch-avvikelse identifiering med Power BI Desktop](batch-anomaly-detection-powerbi.md)
+>[Identifiering av batchanvikaring med Power BI-skrivbordet](batch-anomaly-detection-powerbi.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: analysera en fjärravbildning med REST API och Java'
+title: 'Snabbstart: Analysera en fjärravbildning med REST API och Java'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten får du analysera en bild med hjälp av API för visuellt innehåll med Java.
 services: cognitive-services
@@ -12,28 +12,28 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 526cc8ca002b3b6c2821eb842b0c6a7794f2cd33
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74968994"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Snabb start: analysera en fjärravbildning med hjälp av Visuellt innehåll REST API och Java
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Snabbstart: Analysera en fjärravbildning med REST-APIN för visuellt innehåll och Java
 
-I den här snabb starten ska du analysera en fjärrlagrad avbildning för att extrahera visuella funktioner med Java och Visuellt innehåll REST API. Med metoden [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analysera bild) kan du extrahera visuella funktioner baserat på bildinnehåll.
+I den här snabbstarten analyserar du en fjärrbearbevarad bild för att extrahera visuella funktioner med hjälp av Java och REST-API:et för visuellt innehåll. Med metoden [Analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuella funktioner baserat på bildinnehåll.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Java&trade; Platform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8) installerat.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och `COMPUTER_VISION_SUBSCRIPTION_KEY` tjänstslutpunktssträngen, med namnet respektive `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
 Så här skapar du och kör exemplet:
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE eller i ett redigeringsprogram. Om du har det här alternativet kan du skapa Java-projektet från en kommandoradsmall.
+1. Skapa ett nytt Java-projekt i dem IDE eller det redigeringsprogram som du föredrar. Om du har det här alternativet kan du skapa Java-projektet från en kommandoradsmall.
 1. Importera följande bibliotek till Java-projektet. Om du använder Maven så tillhandahålls Maven-koordinaterna för varje bibliotek.
    - [Apache HTTP-klienten](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Apache HTTP-kärnan](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -53,7 +53,7 @@ Så här skapar du och kör exemplet:
    import org.json.JSONObject;
    ```
 
-1. Ersätt `Main` offentliga klassen med följande kod.
+1. Ersätt `Main` den offentliga klassen med följande kod.
 1. Du kan också ersätta värdet för `imageToAnalyze` med webbadressen till en annan bild som du vill analysera.
 
 ```java
@@ -120,15 +120,15 @@ public class Main {
 1. Spara och kompilera sedan Java-projektet.
 1. Om du använder en IDE kör du `Main`.
 
-Alternativt, om du kör programmet från ett kommando rads fönster, kör du följande kommandon. Dessa kommandon förutsätter att dina bibliotek finns i en mapp med namnet `libs` som finns i samma mapp som `Main.java`. Om du inte gör det måste du ersätta `libs` med sökvägen till dina bibliotek.
+Om du däremot kör programmet från ett kommandoradsfönster kör du följande kommandon. Dessa kommandon förutsätter att biblioteken `libs` finns i en mapp `Main.java`med namnet som finns i samma mapp som ; Om inte, måste du `libs` ersätta med sökvägen till dina bibliotek.
 
-1. Kompilera filen `Main.java`.
+1. Kompilera `Main.java`filen .
 
     ```bash
     javac -cp ".;libs/*" Main.java
     ```
 
-1. Kör programmet. Begäran skickas till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultat var 30:e sekund. Varje svar skrivs ut till kommando rads fönstret.
+1. Kör programmet. Begäran skickas till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultat var 30:e sekund. Varje svar skrivs ut till kommandoradsfönstret.
 
     ```bash
     java -cp ".;libs/*" Main

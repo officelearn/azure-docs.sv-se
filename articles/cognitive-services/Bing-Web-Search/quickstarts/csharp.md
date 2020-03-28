@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: utföra en Webbs C# ökning med-webbsökning i Bing REST API'
+title: 'Snabbstart: Gör en webbsökning med C# - Bing Web Search REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka begäranden till REST-API:et för webbsökning i Bing med hjälp av C# och få ett JSON-svar.
 services: cognitive-services
@@ -12,15 +12,15 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: cf12b279cf7bcb20aa655646ce34fb9df2bda016
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76167671"
 ---
-# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snabb start: söka på webben med hjälp av Webbsökning i Bing REST API ochC#
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Snabbstart: Sök på webben med hjälp av REST API för webbsökning på Bing och C #
 
-Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Det C# här programmet skickar en Sök förfrågan till API: et och visar svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att göra ditt första anrop till API:et för webbsökning i Bing och få JSON-svaret. Det här C#-programmet skickar en sökbegäran till API:et och visar svaret. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Definiera variabler
 
-Några variabler måste anges innan vi kan fortsätta.  `uriBase` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen. Bekräfta att `uriBase` är giltigt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga till den här koden i `Program`-klassen som anges ovan.
+Några variabler måste anges innan vi kan fortsätta.  `uriBase`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs. Bekräfta att `uriBase` är giltigt och ersätt värdet `accessKey` med en giltig prenumerationsnyckel från ditt Azure-konto. Du kan anpassa sökfrågan genom att ersätta värdet för `searchTerm`. Kom ihåg att lägga `Program` till den här koden i klassen som nämnts ovan.
 
 ```csharp
 // Enter a valid subscription key.
@@ -78,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Deklarera Main-metoden
 
-Metoden `Main()` måste anges och det är den första metoden som anropas när programmet startas. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
+Metoden `Main()` krävs och det är den första metoden som anropas när programmet startas. I det här programmet verifierar huvudmetoden `accessKey`, gör en begäran och skriver ut svaret.
 
 Tänk på att `main()` är beroende av metoder som skapas i de avsnitt som följer.
 
@@ -109,7 +109,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Skapa en struct för sökresultat
 
-Den här structen returnerar sökresultat med relevanta rubriker. Den anropas när du gör en begäran till API för webbsökning i Bing för att skapa ett resultat objekt.
+Den här structen returnerar sökresultat med relevanta rubriker. Det anropas när du gör en begäran till API:et för webbsökning på Bing för att skapa ett resultatobjekt.
 
 ```csharp
 // Returns search results with headers.

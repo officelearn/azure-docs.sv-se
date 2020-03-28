@@ -1,7 +1,7 @@
 ---
 title: Vad är Personanpassning?
 titleSuffix: Azure Cognitive Services
-description: Personanpassar är en molnbaserad API-tjänst som gör att du kan välja den bästa upplevelsen som ska visas för användarna, lära sig från deras real tids beteende.
+description: Personalizer är en molnbaserad API-tjänst som låter dig välja den bästa upplevelsen att visa för dina användare, lära av deras realtidsbeteende.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,95 +10,97 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: bf0710ebef21226d8d8582a920d64027bb015d34
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 850ab0ee89ee167886d8747a0c721bb643529e14
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622727"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052082"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
-Azure-personanpassa är en molnbaserad API-tjänst som hjälper ditt klient program att välja det bästa, enda _innehålls_ objektet för att visa varje användare. Tjänsten väljer det bästa objektet, från innehålls objekt, baserat på samlad real tids information som du tillhandahåller om innehåll och kontext.
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-När du har presenterat innehålls objekt för din användare övervakar systemet användar beteende och rapporterar en belönings poäng till Personanpassaren för att förbättra möjligheten att välja det bästa innehållet baserat på den Sammanhangs information som den tar emot.
+Azure Personalizer är en molnbaserad API-tjänst som hjälper _content_ ditt klientprogram att välja det bästa, enskilda innehållsobjektet för att visa varje användare. Tjänsten väljer det bästa objektet, från innehållsobjekt, baserat på kollektiv realtidsinformation som du anger om innehåll och kontext.
 
-**Innehåll** kan vara vilken enhet som helst information, till exempel text, bilder, webb adresser eller e-postmeddelanden som du vill välja från för att visa för användaren.
+När du har presenterat innehållsobjektet för användaren övervakar systemet användarnas beteende och rapporterar tillbaka en belöningspoäng till Personalizer för att förbättra dess förmåga att välja det bästa innehållet baserat på den kontextinformation som tas emot.
+
+**Innehåll** kan vara vilken informationsenhet som helst, till exempel text, bilder, webbadresser eller e-postmeddelanden som du vill välja mellan för att visa för din användare.
 
 <!--
 ![What is personalizer animation](./media/what-is-personalizer.gif)
 -->
 
-## <a name="how-does-personalizer-select-the-best-content-item"></a>Hur väljer Personanpassare det bästa innehålls objektet?
+## <a name="how-does-personalizer-select-the-best-content-item"></a>Hur väljer Personalizer det bästa innehållsobjektet?
 
-Personanpassare använder **förstärknings inlärning** för att välja det bästa objektet (_åtgärd_) baserat på kollektivt beteende och belönings resultat för alla användare. Åtgärder är innehålls objekt, till exempel nyhets artiklar, vissa filmer eller produkter att välja bland.
+Personalizer använder **förstärkningsinlärning** för att välja det bästa objektet (_åtgärd_) baserat på kollektivt beteende och belöningspoäng för alla användare. Åtgärder är innehållsobjekt, till exempel nyhetsartiklar, specifika filmer eller produkter att välja mellan.
 
-**Ranknings** anropet tar objektet Action, tillsammans med funktionerna i åtgärden och kontext funktionerna för att välja det översta objektet:
+**Rank-anropet** tar åtgärdsobjektet tillsammans med funktioner i åtgärden och sammanhangsfunktioner för att välja det översta åtgärdsobjektet:
 
-* **Åtgärder med funktioner** – innehålls objekt med funktioner som är speciella för varje objekt
-* **Kontext funktioner** – funktioner för dina användare, deras kontext eller deras miljö när du använder din app
+* **Åtgärder med funktioner** - innehållsobjekt med funktioner som är specifika för varje objekt
+* **Kontextfunktioner** – användarnas funktioner, deras kontext eller miljö när de använder appen
 
-Rang anropet returnerar det ID för vilket innehålls objekt, __åtgärd__, som ska visas för användaren i fältet **belönings åtgärds-ID** .
-Den __åtgärd__ som visas för användaren väljs med Machine Learning-modeller, vilket försöker maximera det totala antalet förmåner över tid.
+Rank-anropet returnerar ID:n för vilket innehållsobjekt, __åtgärd__, som ska visas för användaren, i fältet **Belöningsåtgärds-ID.**
+Åtgärden __som__ visas för användaren väljs med maskininlärningsmodeller som försöker maximera den totala mängden belöningar över tid.
 
-Det finns flera exempel scenarier:
+Flera exempel scenarier är:
 
-|Innehållstyp|**Åtgärder (med funktioner)**|**Kontext funktioner**|Returnerat åtgärds-ID för belöning<br>(Visa det här innehållet)|
+|Innehållstyp|**Åtgärder (med funktioner)**|**Sammanhangsfunktioner**|Åtgärds-ID för returnerad belöning<br>(visa det här innehållet)|
 |--|--|--|--|
-|Nyhets lista|a. `The president...` (National, politiken, [text])<br>b. `Premier League ...` (global, sport, [text, bild, video])<br> c. `Hurricane in the ...` (regional, väder, [text, bild]|Enhetens Nyheter läses från<br>Månad eller säsong<br>|en `The president...`|
-|Film lista|1. `Star Wars` (1977, [Action, Adventure, fantasi], George Lucas)<br>2. `Hoop Dreams` (1994, [dokument, idrotts], Steve Jonas<br>3. `Casablanca` (1942, [romantik, drama, War], Michael Curtiz)|Enhets filmen bevakas från<br>skärm storlek<br>Typ av användare<br>|3. `Casablanca`|
-|Produkt lista|i. `Product A` (3 kg, $ $ $ $, leverera på 24 timmar)<br>ii. `Product B` (20 kg, $ $, 2 veckor som levereras med tull)<br>iii. `Product C` (3 kg, $ $ $, leverans på 48 timmar)|Enhets köp läses från<br>Utgifts nivå för användare<br>Månad eller säsong|ii. `Product B`|
+|Nyhetslista|a. `The president...`(nationellt, politik, [text])<br>b. `Premier League ...`(global, sport, [text, bild, video])<br> c. `Hurricane in the ...`(regional, väder, [text,bild]|Enhetsnyheter läss från<br>Månad eller säsong<br>|A`The president...`|
+|Lista över filmer|1. `Star Wars` (1977, [handling, äventyr, fantasi], George Lucas)<br>2. `Hoop Dreams` (1994, [dokumentär, sport], Steve James<br>3. `Casablanca` (1942, [romantik, drama, krig], Michael Curtiz)|Enhetsfilmen visas från<br>skärmstorlek<br>Typ av användare<br>|3.`Casablanca`|
+|Lista över produkter|i. `Product A`(3 kg, $$$$, leverera på 24 timmar)<br>ii. `Product B`(20 kg, $$, 2 veckors frakt med tullen)<br>iii. `Product C`(3 kg, $$$, leverans i 48 timmar)|Enhetsshopping läss från<br>Utgiftsnivå för användare<br>Månad eller säsong|ii. `Product B`|
 
-Personanpassare använder förstärknings undervisning för att välja den enda bästa åtgärden, som kallas för _belönings åtgärds-ID_, baserat på en kombination av:
-* Tränad modell – information om den tidigare tjänsten för att personanpassa tjänsten togs emot
-* Aktuella data-/regionsspecifika åtgärder med funktioner och kontext funktioner
+Personalizer används förstärkning lärande för att välja den enskilt bästa åtgärden, känd som _belöning åtgärd ID_, baserat på en kombination av:
+* Tränad modell - tidigare information som Personalizer-tjänsten fick
+* Aktuella data - Specifika åtgärder med funktioner och sammanhangsfunktioner
 
-## <a name="when-to-call-personalizer"></a>När du ska anropa en Personanpassare
+## <a name="when-to-call-personalizer"></a>När ska personalizer ringa
 
-En persons **rang** - [API](https://go.microsoft.com/fwlink/?linkid=2092082) anropas _varje gång_ du presenterar innehåll i real tid. Detta kallas en **händelse**som anges med ett _händelse-ID_.
+Personalizer's **Rank** [API](https://go.microsoft.com/fwlink/?linkid=2092082) anropas varje _gång_ du presenterar innehåll, i realtid. Detta kallas en **händelse**, som noteras med ett _händelse-ID_.
 
-Personens **belönings** - [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) kan anropas i real tid eller fördröjs för att bättre passa din infrastruktur. Du fastställer belönings poängen utifrån dina affärs behov. Det kan vara ett enda värde, till exempel 1 för bra, och 0 för dåligt, eller ett tal som skapats av en algoritm som du skapar med tanke på dina affärs mål och mät värden.
+Personalizer's **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) kan anropas i realtid eller försenas för att bättre passa din infrastruktur. Du bestämmer belöningspoängen baserat på dina affärsbehov. Det kan vara ett enda värde som 1 för gott och 0 för dåligt, eller ett nummer som produceras av en algoritm som du skapar med tanke på dina affärsmål och mått.
 
-## <a name="personalizer-content-requirements"></a>Innehålls krav för personligare
+## <a name="personalizer-content-requirements"></a>Krav på personaliserarinnehåll
 
-Använd Personanpassare när ditt innehåll:
+Använd Personalizer när ditt innehåll:
 
-* Har en begränsad uppsättning objekt (max ~ 50) att välja från. Om du har en större lista kan du [använda en rekommendations motor](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) för att minska listan till 50 objekt.
-* Innehåller information som beskriver det innehåll som du vill rangordna: _åtgärder med funktioner_ och _kontext funktioner_.
-* Har minst ~ 1 – a innehålls relaterade händelser som är relaterade till att personanpassa ska vara effektiva. Om Personanpassaren inte får den lägsta trafik som krävs tar det längre tid för tjänsten att fastställa det enkla innehålls objektet.
+* Har en begränsad uppsättning objekt (max ~50) att välja mellan. Om du har en större lista [använder du en rekommendationsmotor](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) för att minska listan ned till 50 objekt.
+* Har information som beskriver det innehåll du vill ha rangordnat: _åtgärder med funktioner_ och _sammanhangsfunktioner_.
+* Har minst ~ 1k/day innehållsrelaterade händelser för Personalizer att vara effektiv. Om Personalizer inte får den minsta trafik som krävs tar tjänsten längre tid att bestämma det enskilt bästa innehållsobjektet.
 
-Eftersom Personanpassaren använder samlad information i nära real tid för att returnera det enda bästa innehålls objektet, så är tjänsten inte:
-* Behåll och hantera information om användar profiler
+Eftersom Personalizer använder kollektiv information i nära realtid för att returnera det enskilt bästa innehållsobjektet, gör tjänsten inte:
+* Bevara och hantera information om användarprofiler
 * Logga enskilda användares inställningar eller historik
-* Kräv rensad och märkt innehåll
+* Kräv rensat och märkt innehåll
 
-## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Så här utformar och implementerar du personanpassa för ditt klient program
+## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Så här utformar och implementerar du Personalizer för ditt klientprogram
 
-1. [Utforma](concepts-features.md) och planera för innehåll, **_åtgärder_** och **_kontext_** . Fastställ belönings algoritmen för **_belönings_** poängen.
-1. Varje [personanpassa resurs](how-to-settings.md) som du skapar betraktas som en inlärnings slinga. Slingan tar emot både rang-och belönings anrop för det innehållet eller användar upplevelsen.
-1. Lägg till en Personanpassare till din webbplats eller ditt innehålls system:
-    1. Lägg till ett **rang** anrop till personanpassaren i ditt program, din webbplats eller ditt system för att fastställa det bästa, enda _innehålls_ posten innan innehållet visas för användaren.
-    1. Visa det bästa, enda _innehålls_ objekt, vilket är det returnerade _Åtgärds-ID: t för belöning_, till användare.
-    1. Använd _algoritmen_ för insamlad information om hur användaren beter sig för att fastställa **belönings** poängen, till exempel:
+1. [Designa](concepts-features.md) och planera för innehåll, **_åtgärder_** och **_kontext_**. Bestäm belöningsalgoritmen för **_belöningspoängen._**
+1. Varje [Personalizer-resurs](how-to-settings.md) som du skapar anses vara 1 Utbildningsloop. Loopen tar emot både Rank- och Reward-samtalen för innehållet eller användarupplevelsen.
+1. Lägg till Personalizer på din webbplats eller ditt innehållssystem:
+    1. Lägg till ett **rank-samtal** till Personalizer i ditt program, din webbplats eller ditt system för att avgöra det bästa, enskilda _innehållsobjektet_ innan innehållet visas för användaren.
+    1. Visa bästa, _content_ enda innehållsobjekt, som är det returnerade _belöningsåtgärds-ID:_ n, för användaren.
+    1. Använd _algoritm_ för insamlad information om hur användaren uppförde sig, för att bestämma **belöningspoängen,** till exempel:
 
-        |Beteende|Beräknad belönings Poäng|
+        |Beteende|Beräknad belöningspoäng|
         |--|--|
-        |Användaren har valt bästa, enskilt _innehålls_ objekt (ID för belönings åtgärd)|**1**|
-        |Användaren har valt annat innehåll|**0**|
-        |Användaren pausade, rullade runt på ett avgörande sätt innan du väljer bästa, enskilt _innehålls_ objekt (belönings ÅTGÄRDS-ID)|**0,5**|
+        |Användaren valt bäst, ett enda _innehållsobjekt_ (belöningsåtgärds-ID)|**1**|
+        |Användarvalt annat innehåll|**0**|
+        |Användaren pausade, bläddra runt obeslutsamt, innan du väljer bästa, enda _innehåll_ objekt (belöning åtgärd ID)|**0,5**|
 
-    1. Lägg till ett **belönings** samtal som skickar en belönings Poäng mellan 0 och 1
-        * Direkt efter att ha visat ditt innehåll
+    1. Lägg till ett **belöningssamtal** som skickar en belöningspoäng mellan 0 och 1
+        * Omedelbart efter att du visat ditt innehåll
         * Eller någon gång senare i ett offline-system
-    1. [Utvärdera din loop](concepts-offline-evaluation.md) med en offline-utvärdering efter en användnings period. Med en offline-utvärdering kan du testa och utvärdera effektiviteten för tjänsten personanpassa utan att ändra din kod eller påverka användar upplevelsen.
+    1. [Utvärdera loopen](concepts-offline-evaluation.md) med en offlineutvärdering efter en användningsperiod. En offlineutvärdering gör att du kan testa och bedöma personalizer-tjänstens effektivitet utan att ändra koden eller påverka användarupplevelsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 
-* [Så här fungerar Personanpassaren](how-personalizer-works.md)
-* [Vad är förstärknings inlärning?](concepts-reinforcement-learning.md)
-* [Lär dig mer om funktioner och åtgärder för rang förfrågan](concepts-features.md)
-* [Läs om hur du avgör poängen för belönings förfrågan](concept-rewards.md)
+* [Så här fungerar Personanpassning](how-personalizer-works.md)
+* [Vad är Reinforcement Learning?](concepts-reinforcement-learning.md)
+* [Läs mer om funktioner och åtgärder för Rank-begäran](concepts-features.md)
+* [Läs mer om hur du bestämmer poängen för belöningsbegäran](concept-rewards.md)
 * [Snabbstarter](sdk-learning-loop.md)
-* [Självstudie](tutorial-use-azure-notebook-generate-loop-data.md)
-* [Använd den interaktiva demonstrationen](https://personalizationdemo.azurewebsites.net/)
+* [Självstudier](tutorial-use-azure-notebook-generate-loop-data.md)
+* [Använd den interaktiva demon](https://personalizationdemo.azurewebsites.net/)

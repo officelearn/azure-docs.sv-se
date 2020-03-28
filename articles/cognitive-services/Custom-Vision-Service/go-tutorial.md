@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa ett bild klassificerings projekt med Custom Vision SDK för go'
+title: 'Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision SDK for Go'
 titleSuffix: Azure Cognitive Services
 description: Skapa ett projekt, lägg till taggar, ladda upp bilder, träna ditt projekt och gör en förutsägelse med hjälp av Go SDK.
 services: cognitive-services
@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
 ms.openlocfilehash: f8391818ebf13afb3b07eead55133aadde6158f0
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76170108"
 ---
-# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Snabb start: skapa ett bild klassificerings projekt med Custom Vision go SDK
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-go-sdk"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision Go SDK
 
-Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision SDK med Go för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, Hämta projektets URL för den publicerade förutsägelse slut punkten och använda slut punkten för att testa en avbildning. Använd det här exemplet som mall för att skapa dit eget Go-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du istället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
+Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision SDK med Go för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta projektets publicerade slutpunkts-URL för förutsägelse och använda slutpunkten för att programmässigt testa en bild. Använd det här exemplet som mall för att skapa dit eget Go-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du istället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -34,7 +34,7 @@ Kör följande kommando i PowerShell för att installera Custom Vision Service S
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-Om du använder `dep`kör du följande i lagrings platsen:
+eller om `dep`du använder , inom din repo run:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -51,7 +51,7 @@ Skapa en ny fil med namnet *sample.go* i den projektkatalog som du vill använda
 
 Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Service-projekt. Infoga dina prenumerationsnycklar i lämpliga definitioner. Hämta även slut punkts-URL: en från sidan Inställningar på webbplatsen för Custom Vision.
 
-Se [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) -metoden för att ange andra alternativ när du skapar ditt projekt (förklaras i guiden [skapa en klassificerings](getting-started-build-a-classifier.md) webb Portal).
+Se metoden [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) för att ange andra alternativ när du skapar projektet (förklaras i webbportalguiden [Skapa en klassificerare).](getting-started-build-a-classifier.md)
 
 ```go
 import(
@@ -101,7 +101,7 @@ cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese
 
 ### <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
-Infoga följande kod efter att taggen har skapats för att lägga till exempelbilder i projektet. Den här koden laddar upp varje bild med dess motsvarande tagg. Du kan ladda upp upp till 64 avbildningar i en enda batch.
+Infoga följande kod efter att taggen har skapats för att lägga till exempelbilder i projektet. Den här koden laddar upp varje bild med dess motsvarande tagg. Du kan ladda upp upp till 64 bilder i en enda batch.
 
 > [!NOTE]
 > Du behöver ändra sökvägen till bilderna utifrån var du laddade ned Cognitive Services Python Go Samples-projektet tidigare.
@@ -134,7 +134,7 @@ for _, file := range japaneseCherryImages {
 
 ### <a name="train-the-classifier-and-publish"></a>Träna klassificeraren och publicera
 
-Den här koden skapar den första iterationen av förutsägelse modellen och publicerar sedan en upprepning till förutsägelse slut punkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelse slut punkten förrän den har publicerats.
+Den här koden skapar den första iterationen av förutsägelsemodellen och publicerar sedan iterationen till förutsägelseslutpunkten. Det namn som ges till den publicerade iterationen kan användas för att skicka förutsägelse begär Anden. En iteration är inte tillgänglig i förutsägelseslutpunkten förrän den publiceras.
 
 ```go
 fmt.Println("Training...")
@@ -152,9 +152,9 @@ fmt.Println("Training status: " + *iteration.Status)
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och Använd den publicerade iterationen på förutsägelse slut punkten
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Hämta och använda den publicerade iterationen på förutsägelseslutpunkten
 
-Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen, lägger du till följande kod i slutet av filen:
+Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förutsägelsen lägger du till följande kod i slutet av filen:
 
 ```go
     fmt.Println("Predicting...")
@@ -170,7 +170,7 @@ Om du vill skicka en bild till slutpunkten för förutsägelse och hämta förut
 }
 ```
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
 Kör *sample.go*.
 
@@ -193,7 +193,7 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-Du kan sedan kontrollera att testbilden (finns i **<base_image_url>/Images/Test/** ) har taggats på rätt sätt. Du kan också gå tillbaka till [Custom Vision-webbplatsen](https://customvision.ai) och se det aktuella tillståndet för det nyskapade projektet.
+Du kan sedan kontrollera att testbilden (finns i **<base_image_url>/Images/Test/**) har taggats på rätt sätt. Du kan också gå tillbaka till [Custom Vision-webbplatsen](https://customvision.ai) och se det aktuella tillståndet för det nyskapade projektet.
 
 [!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 

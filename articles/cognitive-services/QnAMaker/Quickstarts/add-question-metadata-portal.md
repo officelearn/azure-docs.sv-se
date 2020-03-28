@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: Lägg till frågor och svar i QnA Maker Portal'
-description: Den här snabb starten visar hur du lägger till frågor och svars uppsättningar med metadata så att användarna kan hitta rätt svar på sina frågor.
+title: 'Snabbstart: Lägg till frågor och svar i QnA Maker-portalen'
+description: Den här snabbstarten visar hur du lägger till fråge- och svarsuppsättningar med metadata så att användarna kan hitta rätt svar på sin fråga.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,106 +10,106 @@ ms.topic: quickstart
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: 25c0fe549dfc850a53b06f79f348a87cba3b70a1
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77109925"
 ---
-# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
+# <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabbstart: Lägg till frågor och svar med QnA Maker-portalen
 
-När en kunskaps bas har skapats ska du lägga till fråge-och svars uppsättningar (QnA) med metadata för att filtrera svaret. Frågorna i följande tabell är om begränsningar för Azure-tjänster, men var och en måste göra med en annan Azure-tjänst.
+När en kunskapsbas har skapats lägger du till fråge- och svarsuppsättningar (QnA) med metadata för att filtrera svaret. Frågorna i följande tabell handlar om Azure-tjänstgränser, men var och en har att göra med en annan Azure-tjänst.
 
 <a name="qna-table"></a>
 
-|Ange|Några|Svar|Metadata|
+|Ange|Frågor|Svar|Metadata|
 |--|--|--|--|
 |Nr 1|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |Nr 2|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
 
-När metadata har lagts till i en QnA-uppsättning kan klient programmet:
+När metadata har lagts till i en QnA-uppsättning kan klientprogrammet:
 
 * Begär svar som bara matchar vissa metadata.
-* Ta emot alla svar men efter bearbetningen av svaren beroende på metadata för varje svar.
+* Få alla svar utom efter-process svaren beroende på metadata för varje svar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Slutför den [tidigare snabb](./create-publish-knowledge-base.md) starten
+* Slutför [föregående snabbstart](./create-publish-knowledge-base.md)
 
-## <a name="sign-in-to-the-qna-maker-portal"></a>Logga in på QnA Maker Portal
+## <a name="sign-in-to-the-qna-maker-portal"></a>Logga in på QnA Maker-portalen
 
-1. Logga in på [QNA Maker Portal](https://www.qnamaker.ai).
+1. Logga in på [QnA Maker-portalen](https://www.qnamaker.ai).
 
-1. Välj din befintliga kunskaps bas från [föregående snabb start](../how-to/create-knowledge-base.md).
+1. Välj din befintliga kunskapsbas från [föregående snabbstart](../how-to/create-knowledge-base.md).
 
-## <a name="add-additional-alternatively-phrased-questions"></a>Lägg till ytterligare, frasbaserade frågor
+## <a name="add-additional-alternatively-phrased-questions"></a>Lägg till ytterligare alternativfrasfrågor
 
-Den aktuella kunskaps basen har QnA Maker fel sökning av QnA-uppsättningar. De här uppsättningarna skapades när URL: en lades till i kunskaps basen under skapande processen.
+Den aktuella kunskapsbasen har QnA Maker felsökning QnA-uppsättningar. Dessa uppsättningar skapades när URL:en lades till i kunskapsbasen under skapandeprocessen.
 
-När den här webb adressen har importer ATS skapades bara en fråga med ett svar. I den här proceduren lägger du till ytterligare frågor.
+När den här WEBBADRESSEN importerades skapades bara en fråga med ett svar. I den här proceduren lägger du till ytterligare frågor.
 
-1. På sidan **Redigera** använder du sökrutan ovanför frågan och svars uppsättningarna för att hitta frågan `How large a knowledge base can I create?`
+1. På sidan **Redigera** använder du söktextrutan ovanför fråge- och svarsuppsättningarna för att hitta frågan`How large a knowledge base can I create?`
 
-1. I kolumnen **fråga** väljer du **+ Lägg till alternativ formuleringen** och lägger sedan till varje ny formuleringen, som finns i följande tabell.
+1. I kolumnen **Fråga** väljer du **+ Lägg till alternativ frasering** och lägger sedan till varje ny frasering, som finns i följande tabell.
 
-    |Alternativ formuleringen|
+    |Alternativ frasering|
     |--|
     |`What is the max size of a knowledge base?`|
     |`How many GB of data can a knowledge base hold?`|
 
-1. Välj **Spara och träna** för att träna om kunskaps basen.
+1. Välj **Spara och träna** om att träna kunskapsbasen igen.
 
-1. Välj **test**och ange sedan en fråga som är nära en av de nya alternativa ordföljder, men inte exakt samma formulering:
+1. Välj **Testa**och ange sedan en fråga som ligger nära en av de nya alternativa fraserna men som inte är exakt samma formulering:
 
     `What GB size can a knowledge base be?`
 
-    Rätt svar returneras i markdown-format:
+    Det korrekta svaret returneras i markdown-format:
 
     `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
 
-    Om du väljer **Granska** under det returnerade svaret kan du se fler svar som uppfyllde frågan men inte med samma höga förtroende nivå.
+    Om du väljer **Granska** under det returnerade svaret kan du se fler svar träffade frågan men inte med samma höga konfidensnivå.
 
-    Lägg inte till varje möjlig kombination av alternativa formuleringen. När du aktiverar QnA Makerens [aktiva utbildning](../how-to/improve-knowledge-base.md)hittar du den alternativa ordföljder som bäst hjälper din kunskaps bas att uppfylla användarnas behov.
+    Lägg inte till alla möjliga kombinationer av alternativ frasering. När du aktiverar QnA Maker [aktiva inlärning](../how-to/improve-knowledge-base.md)hittar du de alternativa fraser som bäst hjälper din kunskapsbas att uppfylla användarnas behov.
 
-1. Välj **testa** igen för att stänga test fönstret.
+1. Välj **Testa** igen om du vill stänga testfönstret.
 
-## <a name="add-metadata-to-filter-the-answers"></a>Lägg till metadata för att filtrera Svaren
+## <a name="add-metadata-to-filter-the-answers"></a>Lägga till metadata för att filtrera svaren
 
-Genom att lägga till metadata till en fråga och en svars uppsättning kan klient programmet begära filtrerade svar. Filtret används innan den [första och andra rang](../concepts/query-knowledge-base.md#ranker-process) listan används.
+Genom att lägga till metadata i en fråge- och svarsuppsättning kan klientprogrammet begära filtrerade svar. Det här filtret används innan den [första och andra rankers](../concepts/query-knowledge-base.md#ranker-process) tillämpas.
 
-1. Lägg till den andra frågan och svars uppsättningen, utan metadata, från den [första tabellen i den här snabb](#qna-table)starten och fortsätt sedan med följande steg.
+1. Lägg till den andra fråge- och svarsuppsättningen, utan metadata, från den [första tabellen i den här snabbstarten](#qna-table)och fortsätt sedan med följande steg.
 
-1. Välj **visnings alternativ**och välj sedan **Visa metadata**.
+1. Välj **Visa alternativ**och välj sedan Visa **metadata**.
 
-1. För QnA-uppsättningen som du nyss lade till väljer du **Lägg till metadata-Taggar**och lägger till namnet på `service` och värdet för `search`. Det ser ut så här: `service:search`.
+1. För den QnA-uppsättning som du just har lagt `service` till väljer `search`du Lägg **till metadatataggar**och lägger sedan till namnet på och värdet för . Det ser ut `service:search`så här: .
 
-1. Lägg till en annan metadata-tagg med namnet på `link_in_answer` och värdet för `false`. Det ser ut så här: `link_in_answer:false`.
+1. Lägg till ytterligare en `link_in_answer` metadatatagg `false`med namn och värde på . Det ser ut `link_in_answer:false`så här: .
 
-1. Sök efter det första svaret i tabellen `How large a knowledge base can I create?`.
+1. Sök efter det första svaret `How large a knowledge base can I create?`i tabellen.
 
-1. Lägg till metadata-par för samma två metadata-Taggar:
+1. Lägg till metadatapar för samma två metadatataggar:
 
-    `link_in_answer`: `true`<br>
+    `link_in_answer` : `true`<br>
     `server`: `qna_maker`
 
-    Nu har du två frågor med samma metadata-Taggar med olika värden.
+    Du har nu två frågor med samma metadatataggar med olika värden.
 
-1. Välj **Spara och träna** för att träna om kunskaps basen.
+1. Välj **Spara och träna** om att träna kunskapsbasen igen.
 
-1. Välj **publicera** på den översta menyn för att gå till sidan publicera.
-1. Välj knappen **publicera** för att publicera den aktuella kunskaps basen till slut punkten.
-1. När kunskaps basen har publicerats fortsätter du till nästa snabb start för att lära dig hur du skapar ett svar från din kunskaps bas.
+1. Välj **Publicera** i den övre menyn för att gå till publiceringssidan.
+1. Välj knappen **Publicera** om du vill publicera den aktuella kunskapsbasen till slutpunkten.
+1. När kunskapsbasen har publicerats fortsätter du till nästa snabbstart för att lära dig hur du skapar ett svar från din kunskapsbas.
 
-## <a name="what-did-you-accomplish"></a>Vad gjorde du?
+## <a name="what-did-you-accomplish"></a>Vad åstadkom du?
 
-Du har redigerat din kunskaps bas för att stödja fler frågor och tillhandahöll namn/värde-par för att stödja filtrering under sökningen efter den översta svars-eller postprocessing efter det att svar eller svar returnerades.
+Du har redigerat kunskapsbasen för att stödja fler frågor och ange namn-/värdepar för att stödja filtrering under sökningen efter det översta svaret eller efterbearbetningen, efter att svaret eller svaren returnerats.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte fortsätter med nästa snabb start tar du bort QnA Maker-och bot Framework-resurserna i Azure Portal.
+Om du inte fortsätter till nästa snabbstart tar du bort ramresurserna QnA Maker och Bot i Azure-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Få svar med Postman eller sväng](get-answer-from-knowledge-base-using-url-tool.md)
+> [Få svar med Postman eller cURL](get-answer-from-knowledge-base-using-url-tool.md)

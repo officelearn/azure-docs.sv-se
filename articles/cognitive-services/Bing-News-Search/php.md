@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: utföra en nyhets sökning med PHP och Nyhetssökning i Bing REST API'
+title: 'Snabbstart: Gör en nyhetssökning med PHP och Bing News Search REST API'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av PHP och få ett JSON-svar.
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 79f00e4138d0fecdc7320235dd9c496033693d2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383105"
 ---
-# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Snabb start: utföra en nyhets sökning med PHP och Nyhetssökning i Bing REST API
+# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Snabbstart: Gör en nyhetssökning med PHP och Bing News Search REST API
 
 Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och visar rådataresultatet.
 
@@ -30,9 +30,9 @@ Använd den här snabbstarten för att göra ditt första anrop till API för bi
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-Se även [Priser för Cognitive Services –API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Se även Priser för Cognitive Services –API för Bing-sökning.
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
 [API:et för nyhetssökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) returnerar nyhetsresultat från Bings sökmotor.
 
@@ -40,7 +40,7 @@ Se även [Priser för Cognitive Services –API för Bing-sökning](https://azur
 2. Skapa ett nytt PHP-projekt i valfri IDE eller redigeringsprogram.
 3. Lägg till koden nedan.
 4. Ersätt värdet `accessKey` med en giltig åtkomstnyckel för din prenumeration.
-5. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+5. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 5. Kör programmet.
 
 ```php
@@ -201,4 +201,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en ensidig webbapp](tutorial-bing-news-search-single-page-app.md)

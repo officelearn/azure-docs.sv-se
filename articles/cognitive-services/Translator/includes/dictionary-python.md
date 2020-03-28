@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6c72cd270e634ca0aebff7c17d5663241428e182
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69907103"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -17,7 +17,7 @@ ms.locfileid: "69907103"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt python-projekt med hjälp av din favorit-IDE eller-redigerare eller skapa en ny mapp på Skriv bordet. Kopiera det här kodfragmentet till din projekt/mapp till en fil `dictionary-lookup.py`med namnet.
+Skapa ett nytt Python-projekt med din favorit-IDE eller redigerare, eller skapa en ny mapp på skrivbordet. Kopiera kodavsnittet till projektet/mappen till en `dictionary-lookup.py`fil med namnet .
 
 ```python
 # -*- coding: utf-8 -*-
@@ -29,9 +29,9 @@ import os, requests, uuid, json
 
 Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sedan importeras de moduler som krävs för att läsa prenumerationsnyckeln från en miljövariabel, skapa HTTP-begäran, skapa en unik identifierare samt hantera det JSON-svar som returneras av Translator Text API.
 
-## <a name="set-the-subscription-key-endpoint-and-path"></a>Ange prenumerations nyckel, slut punkt och sökväg
+## <a name="set-the-subscription-key-endpoint-and-path"></a>Ange prenumerationsnyckel, slutpunkt och sökväg
 
-Det här exemplet försöker läsa Translator text prenumerations nyckel och slut punkt från miljövariablerna: `TRANSLATOR_TEXT_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som en sträng och kommentera ut villkors satserna.
+Det här exemplet försöker läsa din prenumerationsnyckel för translatortext `TRANSLATOR_TEXT_KEY` `TRANSLATOR_TEXT_ENDPOINT`och slutpunkt från miljövariablerna: och . Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som strängar och kommentera villkorliga satser.
 
 Kopiera den här koden till projektet:
 
@@ -52,7 +52,7 @@ Den globala slutpunkten för Translator Text anges som `endpoint`. `path` anger 
 `params` används till att ange källan och utdataspråken. I det här exemplet använder vi engelska och spanska: `en` och `es`.
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Slå upp i ordlista](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Ordlista, sökning](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 path = '/dictionary/lookup?api-version=3.0'
@@ -74,7 +74,7 @@ headers = {
 }
 ```
 
-Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
+Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-request-to-find-alternate-translations"></a>Skapa en begäran om att hitta alternativa översättningar
 
@@ -87,7 +87,7 @@ body = [{
 }]
 ```
 
-Nu skapar vi en POST-begäran med hjälp av modulen `requests`. Den tar tre argument: den sammanfogade URL:en, begärandesidhuvudena samt begärandetexten:
+Nu ska vi skapar en POST-begäran med hjälp av `requests`-modulen. Den tar tre argument: den sammanfogade URL:en, begärandesidhuvudena samt begärandetexten:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)

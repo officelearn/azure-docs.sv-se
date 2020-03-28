@@ -1,5 +1,5 @@
 ---
-title: Snabb start för Entitetssökning i Bing Java Script Client library
+title: Snabbstart för JavaScript-klientbibliotek för Bing Entity Search
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 03/06/2020
 ms.author: aahi
 ms.openlocfilehash: ac2f83c824014e16cfbe9ab18483b914ed8b077d
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79136769"
 ---
-Använd den här snabb starten för att börja söka efter entiteter med Entitetssökning i Bing klient bibliotek för Java Script. Även om Entitetssökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
+Använd den här snabbstarten för att börja söka efter entiteter med klientbiblioteket Bing Entity Search för JavaScript. Bing Entity Search har ett REST API som är kompatibelt med de flesta programmeringsspråk, men klientbiblioteket är ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
@@ -68,6 +68,6 @@ Så här installerar du SDK för entitetssökning i Bing:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en enkelsidig webbapp](../../tutorial-bing-entities-search-single-page-app.md)
+> [Skapa en ensidig webbapp](../../tutorial-bing-entities-search-single-page-app.md)
 
-* [Vad är API:et för entitetssökning i Bing?](../../overview.md)
+* [Vad är API:et för sökning av Bing-entitet?](../../overview.md)

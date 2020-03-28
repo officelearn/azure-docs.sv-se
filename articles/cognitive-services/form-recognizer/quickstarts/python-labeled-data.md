@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: träna med etiketter med hjälp av REST API och python-formulär tolken'
+title: 'Snabbstart: Träna med etiketter med REST API och Python - Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder funktionen för formulär igenkänning med etiketten data med REST API och python för att träna en anpassad modell.
+description: Lär dig hur du använder funktionen Formulärmedkänningsankänningsdata med REST API och Python för att träna en anpassad modell.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,60 +10,60 @@ ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
 ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77482303"
 ---
-# <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python
+# <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulärmedkänningsmodell med etiketter med REST API och Python
 
-I den här snabb starten använder du formulär tolken REST API med python för att träna en anpassad modell med manuellt märkta data. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
+I den här snabbstarten använder du REST-API:et för formulärmed Python för att träna en anpassad modell med manuellt märkta data. Se avsnittet [Träna med etiketter](../overview.md#train-with-labels) i översikten om du vill veta mer om den här funktionen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabb starten måste du ha:
+För att slutföra den här snabbstarten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En uppsättning av minst sex formulär av samma typ. Du kommer att använda dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
+- En uppsättning av minst sex former av samma typ. Du kommer att använda dessa data för att träna modellen och testa ett formulär. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp utbildningsfilerna till roten för en blob-lagringsbehållare i ett Azure Storage-konto.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulärkonformeringsresurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="set-up-training-data"></a>Konfigurera tränings data
+## <a name="set-up-training-data"></a>Ställ in träningsdata
 
-Härnäst måste du konfigurera nödvändiga indata. Funktionen märkta data har särskilda inmatnings krav utöver de som behövs för att träna en anpassad modell. 
+Därefter måste du ställa in de indata som krävs. Den märkta datafunktionen har särskilda inmatningskrav utöver de som behövs för att träna en anpassad modell. 
 
-Kontrol lera att alla utbildnings dokument har samma format. Om du har formulär i flera format, sorterar du dem i undermappar baserat på vanligt format. När du tränar måste du dirigera API: et till en undermapp.
+Kontrollera att alla träningsdokument är av samma format. Om du har formulär i flera format ordnar du dem i undermappar baserat på gemensamt format. När du tränar måste du dirigera API:et till en undermapp.
 
-För att kunna träna en modell med märkta data behöver du följande filer som indata i undermappen. Du får lära dig hur du skapar dessa filer nedan.
+För att kunna träna en modell med hjälp av märkta data behöver du följande filer som indata i undermappen. Du får lära dig hur du skapar filen nedan.
 
-* **Käll formulär** – formulär att extrahera data från. De typer som stöds är JPEG, PNG, BMP, PDF eller TIFF.
-* **Filer med OCR-layout** – JSON-filer som beskriver storlek och positioner för all läsbar text i varje käll formulär. Du använder formatet för formulär tolkens layout för att skapa dessa data. 
-* **Etikettfiler** – JSON-filer som beskriver data etiketter som en användare har angett manuellt.
+* **Källformulär** – formulären att extrahera data från. Typer som stöds är JPEG, PNG, BMP, PDF eller TIFF.
+* **OCR-layoutfiler** - JSON-filer som beskriver storleken och positionerna för all läsbar text i varje källformulär. Du ska använda API:et för layout för formulärreform för att generera dessa data. 
+* **Etikettfiler** - JSON-filer som beskriver dataetiketter som en användare har angett manuellt.
 
-Alla dessa filer bör ha samma undermapp och ha följande format:
+Alla dessa filer bör uppta samma undermapp och vara i följande format:
 
-* input_file1. pdf 
-* input_file1. pdf. OCR. JSON
-* input_file1. pdf. labels. JSON 
-* input_file2. pdf 
-* input_file2. pdf. OCR. JSON
-* input_file2. pdf. labels. JSON
+* input_file1.pdf 
+* input_file1.pdf.ocr.json
+* input_file1.pdf.labels.json 
+* input_file2.pdf 
+* input_file2.pdf.ocr.json
+* input_file2.pdf.labels.json
 * ...
 
 > [!TIP]
-> När du etiketterar formulär med hjälp av formulär tolkens [exempel etikett verktyg](./label-tool.md)skapar verktyget dessa etiketter och OCR-filer automatiskt.
+> När du märker formulär med [exempeletikettverktyget](./label-tool.md)Formulär igen skapar verktyget dessa etikett- och OCR-layoutfiler automatiskt.
 
-### <a name="create-the-ocr-output-files"></a>Skapa filer för OCR-utdata
+### <a name="create-the-ocr-output-files"></a>Skapa OCR-utdatafiler
 
-Du behöver filer med OCR-resultat för att tjänsten ska kunna beakta motsvarande indatafiler för etiketterad utbildning. Följ stegen nedan om du vill hämta OCR-resultat för ett angivet käll formulär:
+Du behöver OCR-resultatfiler för att tjänsten ska kunna överväga motsvarande indatafiler för märkt utbildning. Så här hämtar du OCR-resultat för ett visst källformulär:
 
-1. Anropa API för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** i Read layout-behållaren med indatafilen som en del av begär ande texten. Spara ID: t som finns i svarets **Åtgärds plats** rubrik.
-1. Anropa API: t för att **[analysera layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** med ÅTGÄRDS-ID från föregående steg.
-1. Hämta svaret och skriv innehållet till en fil. För varje käll formulär ska motsvarande OCR-fil ha det ursprungliga fil namnet bifogad med `.ocr.json`. OCR-JSON-utdata ska ha följande format. I [exempel-OCR-filen](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) finns ett fullständigt exempel. 
+1. Anropa **[Api:et analysera layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** på den lästa layoutbehållaren med indatafilen som en del av förfråsättningstexten. Spara ID:t som hittades i svarets **funktionsplatshuvud.**
+1. Anropa **[API:et hämta analyslayoutresultat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** med hjälp av åtgärds-ID från föregående steg.
+1. Hämta svaret och skriv innehållet till en fil. För varje källformulär ska motsvarande OCR-fil ha det `.ocr.json`ursprungliga filnamnet bifogat med . OCR JSON-utdata bör ha följande format. Se [exempel på OCR-fil](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) för ett fullständigt exempel. 
 
     ```json
     {
@@ -114,13 +114,13 @@ Du behöver filer med OCR-resultat för att tjänsten ska kunna beakta motsvaran
                     ...
     ```
 
-### <a name="create-the-label-files"></a>Skapa etikettfiler
+### <a name="create-the-label-files"></a>Skapa etikettfilerna
 
-Etikettfiler innehåller nyckel värdes kopplingar som en användare har angett manuellt. De behövs för etiketterad data träning, men alla källfiler måste ha motsvarande etikett fil. Källfiler utan etiketter kommer att behandlas som vanliga utbildnings dokument. Vi rekommenderar fem eller fler märkta filer för tillförlitlig utbildning.
+Etikettfiler innehåller nyckelvärdesassociationer som en användare har angett manuellt. De behövs för etikettdatautbildning, men alla källfiler behöver inte ha en motsvarande etikettfil. Källfiler utan etiketter kommer att behandlas som vanliga utbildningsdokument. Vi rekommenderar fem eller fler märkta filer för tillförlitlig utbildning.
 
-När du skapar en etikett fil kan du välja att ange regioner&mdash;exakta positioner för värden i dokumentet. Detta ger inlärningen ännu högre noggrannhet. Regionerna är formaterade som en uppsättning av åtta värden som motsvarar fyra X, Y-koordinater: övre vänstra, övre högra, nedre högra och nedre vänstra. Koordinaternas värden är mellan noll och ett, skalas till sidans dimensioner.
+När du skapar en etikettfil kan&mdash;du också ange regioners exakta positioner för värden i dokumentet. Detta kommer att ge utbildningen ännu högre noggrannhet. Regionerna är formaterade som en uppsättning med åtta värden som motsvarar fyra X,Y-koordinater: övre vänstra, övre högra, nedre högra och nedre vänstra. Koordinatvärdena är mellan noll och ett, skalas till sidans dimensioner.
 
-För varje käll formulär bör motsvarande etikett fil ha det ursprungliga fil namnet bifogad med `.labels.json`. Etikett filen ska ha följande format. Se [exempel etikett filen](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) för ett fullständigt exempel.
+För varje källformulär ska motsvarande etikettfil ha det ursprungliga `.labels.json`filnamnet bifogat med . Etikettfilen bör ha följande format. Se [exempeletikettfilen](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) för ett fullständigt exempel.
 
 ```json
 {
@@ -188,16 +188,16 @@ För varje käll formulär bör motsvarande etikett fil ha det ursprungliga fil 
 ```
 
 > [!NOTE]
-> Du kan bara använda en etikett för varje text element och varje etikett kan bara tillämpas en gång per sida. Du kan för närvarande inte tillämpa en etikett på flera sidor.
+> Du kan bara använda en etikett på varje textelement, och varje etikett kan bara användas en gång per sida. Du kan för närvarande inte använda en etikett på flera sidor.
 
 
-## <a name="train-a-model-using-labeled-data"></a>Träna en modell med hjälp av märkta data
+## <a name="train-a-model-using-labeled-data"></a>Träna en modell med hjälp av etiketterade data
 
-Om du vill träna en modell med märkta data anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
+Om du vill träna en modell med märkta data anropar du **[API:et för anpassad tågmodell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med slut punkts-URL: en för formulär igenkännings resursen.
-1. Ersätt `<SAS URL>` med Azure Blob Storages behållares URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Ersätt `<Blob folder name>` med mappnamnet i BLOB-behållaren där indata finns. Om dina data finns i roten lämnar du detta tomt och tar bort fältet `"prefix"` från bröd texten i HTTP-begäran.
+1. Ersätt `<Endpoint>` med slutpunkts-URL:en för formulärmedkänningsresursen.
+1. Ersätt `<SAS URL>` med Azure Blob-lagringsbehållarens SAS-URL (Shared Access Signature). Om du vill hämta SAS-URL:en öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrollera att behörigheterna **Läs** och **Lista** är markerade och klicka på **Skapa**. Kopiera sedan värdet i **avsnittet URL.** Det bör ha `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`formen: .
+1. Ersätt `<Blob folder name>` med mappnamnet i blob-behållaren där indata finns. Om dina data finns i roten lämnar du `"prefix"` det här tomt och tar bort fältet från http-begärans brödtext.
 
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
@@ -240,9 +240,9 @@ except Exception as e:
     quit() 
 ```
 
-## <a name="get-training-results"></a>Hämta utbildnings resultat
+## <a name="get-training-results"></a>Få träningsresultat
 
-När du har startat träna-åtgärden använder du det returnerade ID: t för att hämta status för åtgärden. Lägg till följande kod längst ned i python-skriptet. Detta använder ID-värdet från inlärnings anropet i ett nytt API-anrop. Inlärnings åtgärden är asynkron, så det här skriptet anropar API: n med jämna mellanrum tills inlärnings statusen har slutförts. Vi rekommenderar ett intervall på en sekund.
+När du har startat tågåtgärden använder du det returnerade ID:t för att få status för åtgärden. Lägg till följande kod längst ned i Python-skriptet. Detta använder ID-värdet från träningsanropet i ett nytt API-anrop. Utbildningsåtgärden är asynkron, så det här skriptet anropar API:et med jämna mellanrum tills träningsstatusen har slutförts. Vi rekommenderar ett intervall på en sekund eller mer.
 
 ```python 
 n_tries = 15
@@ -274,7 +274,7 @@ while n_try < n_tries:
 print("Train operation did not complete within the allocated time.")
 ```
 
-När övnings processen har slutförts får du ett `201 (Success)`-svar med JSON-innehåll som följande. Svaret har förkort ATS för enkelhetens skull.
+När utbildningsprocessen är klar får du `201 (Success)` ett svar med JSON-innehåll som följande. Svaret har förkortats för enkelhetens skull.
 
 ```json
 { 
@@ -342,11 +342,11 @@ När övnings processen har slutförts får du ett `201 (Success)`-svar med JSON
 }
 ```
 
-Kopiera `"modelId"`-värdet för användning i följande steg.
+Kopiera `"modelId"` värdet för användning i följande steg.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-När processen har slutförts får du ett `202 (Success)`-svar med JSON-innehåll i följande format. Svaret har förkort ATS för enkelhetens skull. Huvud nyckel/värde-associationerna finns i `"documentResults"`-noden. Layout-API-resultatet (innehållet och positionerna för all text i dokumentet) finns i `"readResults"`-noden.
+När processen är klar får du `202 (Success)` ett svar med JSON-innehåll i följande format. Svaret har förkortats för enkelhetens skull. Huvudnyckel-/värdeassociationerna finns i noden. `"documentResults"` Layout-API-resultaten (innehållet och positionerna för all text `"readResults"` i dokumentet) finns i noden.
 
 ```json
 { 
@@ -551,16 +551,16 @@ När processen har slutförts får du ett `202 (Success)`-svar med JSON-innehål
 
 ## <a name="improve-results"></a>Förbättra resultaten
 
-Granska `"confidence"` värden för varje nyckel/värde-resultat under noden `"documentResults"`. Du bör också titta på förtroende poängen i `"readResults"`-noden, som motsvarar layout åtgärden. Resultatet av layouten påverkar inte säkerheten för extrahering av nyckel/värde, så du bör kontrol lera båda.
-* Om förtroende poängen för layouten är låg, försöker du förbättra kvaliteten på dina inaktuella dokument (se [krav](../overview.md#input-requirements)för inläsning).
-* Om förtroende poängen för extraherings åtgärden för nyckel/värde är låg, se till att dokumenten som analyseras är av samma typ som dokumenten som används i inlärnings uppsättningen. Om dokumenten i inlärnings uppsättningen har variationer i utseendet kan du överväga att dela upp dem i olika mappar och träna en modell för varje variation.
+Undersök `"confidence"` värdena för varje nyckel/värderesultat under noden. `"documentResults"` Du bör också titta på `"readResults"` förtroendepoängen i noden, som motsvarar layoutåtgärden. Konfidensen för layoutresultaten påverkar inte förtroendet för resultaten för nyckel-/värdeutvinning, så du bör kontrollera båda.
+* Om konfidenspoängen för layoutåtgärden är låga kan du försöka förbättra kvaliteten på indatadokumenten (se [Indatakrav).](../overview.md#input-requirements)
+* Om konfidenspoängen för nyckel-/värdeextraheringsåtgärden är låga, se till att de dokument som analyseras är av samma typ som dokument som används i utbildningsuppsättningen. Om dokumenten i utbildningsuppsättningen har variationer i utseende kan du överväga att dela upp dem i olika mappar och träna en modell för varje variant.
 
 ### <a name="avoid-cluttered-labels"></a>Undvik röriga etiketter
 
-Ibland när du använder olika etiketter inom samma textrad, kan tjänsten sammanfoga dessa etiketter till ett fält. I en adress kan du t. ex. namnge ort, delstat och post nummer som olika fält, men under förutsägelse de fälten identifieras inte separat.
+Ibland när du använder olika etiketter inom samma textrad kan tjänsten sammanfoga dessa etiketter till ett fält. I en adress kan du till exempel märka ort, delstat och postnummer som olika fält, men under förutsägelse känns inte dessa fält igen separat.
 
-Vi förstår att det här scenariot är viktigt för våra kunder och vi arbetar på att förbättra det i framtiden. För närvarande rekommenderar vi våra användare att märka flera färdiga fält som ett fält och sedan separera villkoren i en efter bearbetning av extraherings resultatet.
+Vi förstår att detta scenario är viktigt för våra kunder, och vi arbetar på att förbättra detta i framtiden. För närvarande rekommenderar vi våra användare att märka flera röriga fält som ett fält och sedan separera villkoren i en efterbearbetning av extraheringsresultaten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du använder formulär tolken REST API med python för att träna en modell med manuellt märkta data. Sedan läser du [API-referensens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) för att utforska formulärets tolknings-API i större djup.
+I den här snabbstarten lärde du dig hur du använder REST-API:et för formulärmed Python för att träna en modell med manuellt märkta data. Se sedan [API-referensdokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) för att utforska API:et för formulärre recognizeer mer ingående.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 9ce4b25d26c0294cf7618b5851c0956af7687ee7
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71837558"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
@@ -88,7 +88,7 @@ public class Detect {
 }
 ```
 
-Lägg till följande rader i klassen `Detect`. Du märker att prenumerations nyckeln och slut punkten läses från miljövariabler:
+Lägg till följande rader i klassen `Detect`. Prenumerationsnyckeln och slutpunkten läss från miljövariabler:
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
@@ -96,7 +96,7 @@ private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/detect?api-version=3.0";
 ```
 
-Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
+Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-client-and-build-a-request"></a>Skapa en klient och en begäran
 
@@ -170,10 +170,10 @@ gradle run
 
 ## <a name="sample-response"></a>Exempelsvar
 
-När du har kört exemplet bör du se följande utskrivna till Terminal:
+När du har kört exemplet bör du se följande tryckta till terminalen:
 
 > [!NOTE]
-> Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+> Hitta lands-/regionförkortningen i den här [listan med språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

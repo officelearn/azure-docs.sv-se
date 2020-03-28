@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Använd ett Webbsökning i Bing klient bibliotek'
+title: 'Snabbstart: Använda ett Bing Web Search-klientbibliotek'
 titleSuffix: Azure Cognitive Services
-description: API för webbsökning i Bing erbjuder klient bibliotek som gör det enkelt att integrera Sök funktioner i dina program. Använd den här snabb starten för att börja skicka Sök begär Anden och få tillbaka resultatet.
+description: Api:et för webbsökning på Bing erbjuder klientbibliotek som gör det enkelt att integrera sökfunktioner i dina program. Använd den här snabbstarten för att börja skicka sökförfrågningar och få tillbaka resultat.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 5bbf3dcd6fff7bc93fb76b3e79ec7d4e4fa690ed
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78402551"
 ---
-# <a name="quickstart-use-a-bing-web-search-client-library"></a>Snabb start: Använd ett Webbsökning i Bing klient bibliotek
+# <a name="quickstart-use-a-bing-web-search-client-library"></a>Snabbstart: Använda ett Bing Web Search-klientbibliotek
 
 ::: zone pivot="programming-language-csharp"
 

@@ -11,52 +11,52 @@ ms.topic: include
 ms.custom: include file
 ms.author: diberry
 ms.openlocfilehash: 070de0f65e890c38acd5075286b349e95cd19f3b
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77371681"
 ---
-Använd det Language Understanding (LUIS) som redigerar klient biblioteket för Node. js för att:
+Använd klientbiblioteket för språk understanding (LUIS) för nod.js för att:
 
 * Skapa en app.
-* Lägg till avsikter, entiteter och exempel yttranden.
-* Lägg till funktioner, till exempel en fras lista.
+* Lägg till avsikter, entiteter och exempelyttranden.
+* Lägg till funktioner, till exempel en fraslista.
 * Träna och publicera en app.
 * Ta bort app
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [redigerings paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [runtime Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Referensdokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Ursprungskod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Författande paket (NPM),](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring) [NPM-exempel (Runtime Package)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Language Understanding redigerings resurs: [skapa en i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+* Språk understanding authoring resource: [Skapa en i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 * [Node.js](https://nodejs.org)
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="setting-up"></a>Inrätta
 
-### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta din Language Understandings start nyckel (LUIS)
+### <a name="get-your-language-understanding-luis-starter-key"></a>Hämta startnyckeln för språkförståelse (LUIS)
 
-Hämta din [Start nyckel](../luis-how-to-azure-subscription.md#starter-key) genom att skapa en Luis Authoring-resurs. Behåll din nyckel och slut punkten för nyckeln för nästa steg.
+Hämta [startnyckeln](../luis-how-to-azure-subscription.md#starter-key) genom att skapa en LUIS-redigeringsresurs. Behåll nyckeln och slutpunkten för nyckeln för nästa steg.
 
-### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
+### <a name="create-an-environment-variable"></a>Skapa en miljövariabel
 
-Med din nyckel och region för nyckeln skapar du två miljövariabler för autentisering:
+Med hjälp av nyckeln och regionen för nyckeln skapar du två miljövariabler för autentisering:
 
-* `LUIS_AUTHORING_KEY`-resurs nyckeln för att autentisera dina begär Anden.
-* `LUIS_AUTHORING_ENDPOINT`-slut punkten som är kopplad till din nyckel.
+* `LUIS_AUTHORING_KEY`- Resursnyckeln för att autentisera dina begäranden.
+* `LUIS_AUTHORING_ENDPOINT`- Slutpunkten som är associerad med din nyckel.
 
-Följ anvisningarna för ditt operativ system.
+Följ instruktionerna för operativsystemet.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
 setx LUIS_AUTHORING_ENDPOINT <replace-with-your-luis-authoring-endpoint>
 ```
 
-Starta om konsol fönstret när du har lagt till miljövariabeln.
+När du har lagt till miljövariabeln startar du om konsolfönstret.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -65,9 +65,9 @@ export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
 
 När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[Macos](#tab/unix)
 
-Redigera `.bash_profile`och Lägg till miljövariabeln:
+Redigera `.bash_profile`din och lägg till miljövariabeln:
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -79,35 +79,35 @@ När du har lagt till miljövariabeln så kör `source .bash_profile` från kons
 
 ### <a name="install-the-npm-library-for-luis-authoring"></a>Installera NPM-biblioteket för LUIS-redigering
 
-I program katalogen installerar du beroendena med följande kommando:
+Installera beroendena med följande kommando i programkatalogen:
 
 ```console
 npm install @azure/cognitiveservices-luis-authoring @azure/ms-rest-js
 ```
 
-## <a name="object-model"></a>Objekt modell
+## <a name="object-model"></a>Objektmodell
 
-Redigerings klienten för Language Understanding (LUIS) är ett [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) -objekt som autentiserar till Azure, som innehåller din redigerings nyckel.
+LUIS-redigeringsklienten (Language Understanding) är ett [LUISAuthoringClient-objekt](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) som autentiserar till Azure, som innehåller din redigeringsnyckel.
 
-När klienten har skapats använder du den här klienten för att få åtkomst till funktioner, inklusive:
+När klienten har skapats använder du den här klienten för att komma åt funktioner, inklusive:
 
-* Appar- [Lägg till](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#add-applicationcreateobject--msrest-requestoptionsbase-), [ta bort](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-), [publicera](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-)
-* Exempel yttranden – [Lägg till via batch](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#batch-string--string--examplelabelobject----msrest-requestoptionsbase-), [ta bort efter ID](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#deletemethod-string--string--number--msrest-requestoptionsbase-)
-* Funktioner – hantera [fras listor](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/features?view=azure-node-latest#addphraselist-string--string--phraselistcreateobject--msrest-requestoptionsbase-)
-* Modell-hantera [avsikter](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addintent-string--string--modelcreateobject--msrest-requestoptionsbase-) och entiteter
-* Mönster – hantera [mönster](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/pattern?view=azure-node-latest#addpattern-string--string--patternrulecreateobject--msrest-requestoptionsbase-)
-* Träna – [träna](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#trainversion-string--string--msrest-requestoptionsbase-) appen och avsökningen efter [kurs status](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-)
-* [Versioner](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/versions?view=azure-node-latest) – hantera med klona, exportera och ta bort
+* Appar - [lägga till](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#add-applicationcreateobject--msrest-requestoptionsbase-), [ta bort](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-), [publicera](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-)
+* Exempel yttranden - [lägga till efter batch](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#batch-string--string--examplelabelobject----msrest-requestoptionsbase-), ta bort av [ID](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#deletemethod-string--string--number--msrest-requestoptionsbase-)
+* Funktioner - hantera [fraslistor](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/features?view=azure-node-latest#addphraselist-string--string--phraselistcreateobject--msrest-requestoptionsbase-)
+* Modell - hantera [avsikter](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addintent-string--string--modelcreateobject--msrest-requestoptionsbase-) och entiteter
+* Mönster - hantera [mönster](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/pattern?view=azure-node-latest#addpattern-string--string--patternrulecreateobject--msrest-requestoptionsbase-)
+* Tåg - [träna](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#trainversion-string--string--msrest-requestoptionsbase-) appen och enkät för [träningsstatus](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-)
+* [Versioner](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/versions?view=azure-node-latest) - hantera med klon, export och ta bort
 
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
-Dessa kodfragment visar hur du gör följande med klient biblioteket Language Understanding (LUIS) Authoring för Node. js:
+Dessa kodavsnitt visar hur du gör följande med klientbiblioteket För att skapa språk understanding (LUIS) för nod.js:
 
 * [Skapa en app](#create-a-luis-app)
 * [Lägg till entiteter](#create-entities-for-the-app)
 * [Lägg till avsikter](#create-intent-for-the-app)
-* [Lägg till exempel yttranden](#add-example-utterance-to-intent)
+* [Lägga till exempelyttranden](#add-example-utterance-to-intent)
 * [Träna appen](#train-the-app)
 * [Publicera appen](#publish-a-language-understanding-app)
 * [Ta bort appen](#delete-a-language-understanding-app)
@@ -115,99 +115,99 @@ Dessa kodfragment visar hur du gör följande med klient biblioteket Language Un
 
 ## <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
-Skapa en ny textfil i önskat redigerings program eller IDE med namnet `luis_authoring_quickstart.js`. Lägg sedan till följande beroenden.
+Skapa en ny textfil i önskad `luis_authoring_quickstart.js`redigerare eller IDE med namnet . Lägg sedan till följande beroenden.
 
 [!code-javascript[Create a new application in your preferred editor or IDE.](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=Dependencies)]
 
-Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln.
+Skapa variabler för resursens Azure-slutpunkt och -nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigeraren, IDE:t eller skalet som kör den för att komma åt variabeln.
 
 [!code-javascript[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=Variables)]
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) -objekt.
+Skapa ett [CognitiveServicesCredentials-objekt](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) med nyckeln och använd det med slutpunkten för att skapa ett [LUISAuthoringClient-objekt.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest)
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 
 ## <a name="create-a-luis-app"></a>Skapa en LUIS-app
 
-1. Skapa en LUIS-app som innehåller NLP-modellen (Natural Language Processing), entiteter och exempel yttranden.
+1. Skapa en LUIS-app som innehåller NLP-modellen (Natural Language Processing) som innehåller avsikter, entiteter och exempelyttranden.
 
-1. Skapa appen genom att skapa ett [AppsOperation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) -objekts [Add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) -metod. Namnet och språk kulturen är obligatoriska egenskaper.
+1. Skapa en Add-metod för Att [skapa](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) appen för ett [AppsOperation-objekt.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) Namn och språkkultur är obligatoriska egenskaper.
 
     [!code-javascript[Create LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateApplication&highlight=9-11)]
 
 
 ## <a name="create-intent-for-the-app"></a>Skapa avsikt för appen
-Det primära objektet i en LUIS-Apps modell är avsikten. Avsikten med en gruppering av användarens _uttryck._ En användare kan ställa en fråga eller göra en instruktion som söker efter ett särskilt _avsett_ svar från en robot (eller något annat klient program). Exempel på avsikt är att boka en flygning och fråga om väder i en destinations ort och fråga om kontakt information för kund tjänst.
+Det primära objektet i en LUIS-apps modell är avsikten. Avsikten justerar med en gruppering av avsikter för _användarens_yttrande . En användare kan ställa en fråga eller göra ett uttalande som letar efter ett särskilt _avsett_ svar från en bot (eller annat klientprogram). Exempel på avsikter är att boka ett flyg, fråga om vädret i en destinationsstad och fråga om kontaktuppgifter för kundservice.
 
-Använd metoden [Model. add_intent](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addintent-string--string--modelcreateobject--msrest-requestoptionsbase-) med namnet på den unika avsikten och skicka app-ID, VERSIONS-ID och nytt namn för avsikten.
+Använd [metoden model.add_intent](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addintent-string--string--modelcreateobject--msrest-requestoptionsbase-) med namnet på den unika avsikten och skicka sedan app-ID, versions-ID och nytt avsiktsnamn.
 
 [!code-javascript[Create intent](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringAddIntents&highlight=2-6)]
 
 ## <a name="create-entities-for-the-app"></a>Skapa entiteter för appen
 
-Även om entiteter inte krävs finns de i de flesta appar. Entiteten extraherar information från användar uttryck, som krävs för att fullfil användarens avsikt. Det finns flera typer av [färdiga](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addcustomprebuiltentity-string--string--prebuiltdomainmodelcreateobject--msrest-requestoptionsbase-) och anpassade entiteter, var och en med sina egna DTO-modeller (data Transformation Object).  Vanliga fördefinierade entiteter som ska läggas till i din app är [Number](../luis-reference-prebuilt-number.md), [datetimeV2](../luis-reference-prebuilt-datetimev2.md), [geographyV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md).
+Entiteter krävs inte, men de finns i de flesta appar. Entiteten extraherar information från användarens yttrande, nödvändigt att fullfil användarens avsikt. Det finns flera typer av färdiga och anpassade [entiteter,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest#addcustomprebuiltentity-string--string--prebuiltdomainmodelcreateobject--msrest-requestoptionsbase-) var och en med sina egna DTO-modeller (Data Transformation Object).  Vanliga fördefinierade entiteter som ska läggas till i appen är [nummer,](../luis-reference-prebuilt-number.md) [datetimeV2](../luis-reference-prebuilt-datetimev2.md), [geographyV2](../luis-reference-prebuilt-geographyv2.md), [ordinal](../luis-reference-prebuilt-ordinal.md).
 
-Den här **add_entities** metoden skapade en `Location` enkel entitet med två roller, en `Class` enkel entitet, en `Flight` sammansatt entitet och lägger till flera fördefinierade entiteter.
+Den här **add_entities** metoden `Location` skapade en enkel entitet med två roller, en `Class` enkel entitet, en `Flight` sammansatt entitet och lägger till flera fördefinierade entiteter.
 
-Det är viktigt att veta att entiteter inte har marker ATS med ett avsikts syfte. De kan och används vanligt vis för många syften. Endast yttranden är markerade för ett visst, enskilt syfte.
+Det är viktigt att veta att entiteter inte är markerade med en avsikt. De kan och brukar gälla för många avsikter. Endast exempelanvändaryttranden är markerade för en specifik, enda avsikt.
 
-Skapande metoder för entiteter ingår i [modell](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest) klassen. Varje entitetstyp har sin egen DTO-modell (data Transformation Object).
+Skapa metoder för entiteter är en del av [klassen Modell.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/model?view=azure-node-latest) Varje entitetstyp har sin egen DTO-modell (Data Transformation Object).
 
 [!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringAddEntities&highlight=2-6)]
 
-## <a name="add-example-utterance-to-intent"></a>Lägg till exempel uttryck till avsikt
+## <a name="add-example-utterance-to-intent"></a>Lägga till exempelutseende till avsikt
 
-Appen behöver exempel på yttranden för att kunna fastställa en uttryck för avsikt och extrahering av entiteter. Exemplen måste vara riktade mot en viss, enskild avsikt och ska markera alla anpassade entiteter. Fördefinierade entiteter behöver inte markeras.
+För att fastställa en yttrande avsikt och extrahera entiteter, behöver appen exempel på yttranden. Exemplen måste inriktas på en specifik, enda avsikt och bör markera alla anpassade entiteter. Fördefinierade entiteter behöver inte markeras.
 
-Lägg till exempel yttranden genom att skapa en lista över [ExampleLabelObject](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examplelabelobject?view=azure-node-latest) -objekt, ett objekt för varje exempel uttryck. Varje exempel bör markera alla entiteter med en ord lista med namn/värde-par för enhets namn och enhets värde. Enhet svärdet bör vara exakt så som det visas i texten i exemplet uttryck.
+Lägg till exempelyttranden genom att skapa en lista med [ExempelLabelObject-objekt,](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examplelabelobject?view=azure-node-latest) ett objekt för varje exempelutseende. Varje exempel ska markera alla entiteter med en ordlista med namn-/värdepar med entitetsnamn och entitetsvärde. Entitetsvärdet ska vara exakt som det visas i texten i exempelutseendet.
 
-Anropa [exempel. batch](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#batch-string--string--examplelabelobject----msrest-requestoptionsbase-) med app-ID, VERSIONS-ID och listan med exempel. Anropet svarar med en lista över resultat. Du måste kontrol lera varje exempels resultat för att se till att det har lagts till i modellen.
+Ring [examples.batch](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#batch-string--string--examplelabelobject----msrest-requestoptionsbase-) med app-ID, versions-ID och listan med exempel. Samtalet svarar med en lista med resultat. Du måste kontrollera varje exempels resultat för att se till att det har lagts till i modellen.
 
 [!code-javascript[Add example utterance to intent](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringBatchAddUtterancesForIntent&highlight=52-56)]
 
 ## <a name="train-the-app"></a>Träna appen
 
-När modellen har skapats måste LUIS-appen tränas för den här versionen av modellen. En utbildad modell kan användas i en [behållare](../luis-container-howto.md)eller [publiceras](../luis-how-to-publish-app.md) på mellanlagrings-eller produkt platserna.
+När modellen har skapats måste LUIS-appen tränas för den här versionen av modellen. En tränad modell kan användas i en [behållare](../luis-container-howto.md)eller [publiceras](../luis-how-to-publish-app.md) på mellanlagrings- eller produktplatserna.
 
-Metoden [Train. trainVersion](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#trainversion-string--string--msrest-requestoptionsbase-) kräver app-ID och VERSIONS-ID.
+[Train.trainVersion-metoden](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#trainversion-string--string--msrest-requestoptionsbase-) behöver app-ID och versions-ID.
 
-En mycket liten modell, till exempel den här snabb starten visar, kommer att träna mycket snabbt. Utbildning appen måste innehålla ett avsöknings anrop till [get_Status](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-) -metoden för att fastställa när utbildningen har genomförts för program på produktions nivå. Svaret är en lista över [ModelTrainingInfo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/modeltraininginfo?view=azure-node-latest) -objekt med separat status för varje objekt. Alla objekt måste lyckas för att träningen ska anses vara slutförd.
+En mycket liten modell, som denna snabbstart visar, kommer att träna mycket snabbt. För program på produktionsnivå bör appen innehålla ett avsökningsanrop till [get_status](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-) metod för att avgöra när eller om utbildningen lyckades. Svaret är en lista över [ModelTrainingInfo-objekt](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/modeltraininginfo?view=azure-node-latest) med en separat status för varje objekt. Alla objekt måste lyckas för att utbildningen ska anses vara fullständig.
 
 [!code-javascript[Train LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringTrainVersion&highlight=2-5)]
 
-Träning av alla modeller tar tid. Använd OperationResult under pågående för att kontrol lera kursens status.
+Utbildning av alla modeller tar tid. Använd åtgärdenResultat för att kontrollera träningsstatusen.
 
 [!code-javascript[Get training status](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringWaitForOperation&highlight=11-14)]
 
-## <a name="publish-a-language-understanding-app"></a>Publicera en Language Understanding app
+## <a name="publish-a-language-understanding-app"></a>Publicera en språk understanding-app
 
-Publicera LUIS-appen med metoden [app. Publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-) . Detta publicerar den aktuella utbildade versionen till den angivna platsen vid slut punkten. Klient programmet använder den här slut punkten för att skicka användarens yttranden för förutsägelse av avsikt och extrahering av enheter.
+Publicera LUIS-appen med metoden [app.publish.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-) Detta publicerar den aktuella tränade versionen till den angivna platsen vid slutpunkten. Klientprogrammet använder den här slutpunkten för att skicka användaryttranden för förutsägelse av avsikts- och entitetsextrahering.
 
 [!code-javascript[Publish LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringPublishVersion&highlight=2-5)]
 
-## <a name="delete-a-language-understanding-app"></a>Ta bort en Language Understanding app
+## <a name="delete-a-language-understanding-app"></a>Ta bort en språk understanding-app
 
-Ta bort LUIS-appen med metoden [app. deleteMethod](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-) . Den aktuella appen tas bort.
+Ta bort LUIS-appen med metoden [app.deleteMethod.](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-) Då tas den aktuella appen bort.
 
 [!code-javascript[Publish LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringDeleteApp&highlight=2)]
 
-## <a name="list-language-understanding-apps"></a>List språk förstå appar
+## <a name="list-language-understanding-apps"></a>Lista språkförståelseappar
 
-Hämta en lista över appar som är kopplade till nyckeln för språk förståelse
+Få en lista över appar som är associerade med nyckeln För språkförståelse
 
 [!code-javascript[Publish LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringListApps)]
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
-Kör programmet med kommandot `node luis_authoring_quickstart.js` på snabb starts filen.
+Kör programmet med `node luis_authoring_quickstart.js` kommandot på snabbstartsfilen.
 
 ```console
 node luis_authoring_quickstart.js
 ```
 
-Kommando raden för programmet är:
+Programmets kommandoradsutdata är:
 
 ```console
 Created LUIS app with ID e137a439-b3e0-4e16-a7a8-a9746e0715f7

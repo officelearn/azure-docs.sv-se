@@ -1,69 +1,69 @@
 ---
-title: Självstudie – använda snabb starts mallar
-description: Lär dig hur du använder Azures snabb starts mallar för att slutföra din mall utveckling.
+title: Självstudiekurs - Använda snabbstartsmallar
+description: Lär dig hur du använder Azure Quickstart-mallar för att slutföra mallutvecklingen.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1e110bb4711490f53da7628f608f150a2bc3186c
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 8747a4614cb8106ce80c6caef0aae36111d2c384
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79368884"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369841"
 ---
-# <a name="tutorial-use-azure-quickstart-templates"></a>Självstudie: Använd Azure snabb starts mallar
+# <a name="tutorial-use-azure-quickstart-templates"></a>Självstudiekurs: Använda Snabbstartsmallar för Azure
 
-[Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/) är en lagrings plats för community-mallar. Du kan använda exempel mallarna i din mall utveckling. I den här självstudien hittar du en resurs definition för webbplatsen och lägger till den i din egen mall. Det tar ungefär **12 minuter** att slutföra.
+[Azure Quickstart-mallar](https://azure.microsoft.com/resources/templates/) är en databas med community-bidragade mallar. Du kan använda exempelmallarna i mallutvecklingen. I den här självstudien hittar du en definition av webbplatsresurser och lägger till den i din egen mall. Det tar cirka **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Vi rekommenderar att du slutför [självstudien om exporterade mallar](template-tutorial-export-template.md), men det är inte obligatoriskt.
+Vi rekommenderar att du slutför [självstudien om exporterade mallar,](template-tutorial-export-template.md)men det är inte nödvändigt.
 
-Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och antingen Azure PowerShell eller Azure CLI. Mer information finns i [verktyg för mallar](template-tutorial-create-first-template.md#get-tools).
+Du måste ha Visual Studio-kod med tillägget Resource Manager Tools och antingen Azure PowerShell eller Azure CLI. Mer information finns i [mallverktyg](template-tutorial-create-first-template.md#get-tools).
 
-## <a name="review-template"></a>Granska mall
+## <a name="review-template"></a>Mall för granskning
 
-I slutet av den föregående själv studie kursen hade mallen följande JSON:
+I slutet av föregående självstudie hade mallen följande JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json":::
 
-Den här mallen används för att distribuera lagrings konton och App Service-planer, men du kanske vill lägga till en webbplats i den. Du kan använda färdiga mallar för att snabbt identifiera den JSON som krävs för att distribuera en resurs.
+Den här mallen fungerar för distribution av lagringskonton och apptjänstplaner, men du kanske vill lägga till en webbplats i den. Du kan använda färdiga mallar för att snabbt upptäcka den JSON som krävs för att distribuera en resurs.
 
-## <a name="find-template"></a>Hitta mall
+## <a name="find-template"></a>Sök mall
 
-1. Öppna [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)
-1. I **Sök**anger du **distribuera Linux-webbapp**.
-1. Välj den som innehåller rubriken **distribuera en grundläggande Linux-webbapp**. Om du har problem med att hitta det här är den [direkta länken](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
+1. Öppna [Snabbstartsmallar för Azure](https://azure.microsoft.com/resources/templates/)
+1. I **Sök**anger du **distribuera linux-webbapp**.
+1. Välj den med titeln **Distribuera en grundläggande Linux-webbapp**. Om du har problem med att hitta den, här är den [direkta länken](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/).
 1. Välj **Bläddra på GitHub**.
-1. Välj **azuredeploy. JSON**.
-1. Granska mallen. Leta i synnerhet efter `Microsoft.Web/sites` resursen.
+1. Välj **azuredeploy.json**.
+1. Granska mallen. Leta särskilt efter `Microsoft.Web/sites` resursen.
 
-    ![Snabb starts webbplats för Resource Manager-mall](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
+    ![Snabbstartswebbplats för Resource Manager-mall](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
 ## <a name="revise-existing-template"></a>Ändra befintlig mall
 
-Slå samman snabb starts mal len med den befintliga mallen:
+Sammanfoga snabbstartsmallen med den befintliga mallen:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-Webb program namnet måste vara unikt i Azure. För att förhindra dubblettnamn har **webAppPortalName** -variabeln uppdaterats från **"webAppPortalName": "[concat (parameters (" webAppName "),"-webapp ")]"** till **"webAppPortalName": "[concat (parameters (" webAppName "), uniqueString (resourceGroup (). ID)]"** .
+Webbappnamnet måste vara unikt i Azure. För att förhindra att dubbletter av namn har **webAppPortalName-variabeln** uppdaterats från **"webAppPortalName": "[concat(parameters('webAppName"),'-webapp')]"** till **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"**.
 
-Lägg till ett kommatecken i slutet av `Microsoft.Web/serverfarms`-definitionen för att avgränsa resurs definitionen från `Microsoft.Web/sites`-definitionen.
+Lägg till ett kommatecken `Microsoft.Web/serverfarms` i slutet av definitionen `Microsoft.Web/sites` för att skilja resursdefinitionen från definitionen.
 
-Det finns några viktiga funktioner att notera i den här nya resursen.
+Det finns ett par viktiga funktioner att notera i den här nya resursen.
 
-Observera att det har ett element med namnet **dependsOn** som är inställt på App Service-planen. Den här inställningen är obligatorisk eftersom det måste finnas en app service-plan innan webbappen skapas. **DependsOn** -elementet visar Resource Manager så att du kan beställa resurser för distribution.
+Du kommer att märka att det har ett element med namnet **dependsOn** som är inställt på apptjänstplanen. Den här inställningen krävs eftersom apptjänstplanen måste finnas innan webbappen skapas. Elementet **dependsOn** talar om för Resource Manager hur resurserna ska beställas för distribution.
 
-Egenskapen **serverFarmId** använder [resourceId](template-functions-resource.md#resourceid) -funktionen. Den här funktionen hämtar den unika identifieraren för en resurs. I det här fallet får den unika identifieraren för App Service-planen. Webbappen är associerad med en speciell App Service-plan.
+Egenskapen **serverFarmId** använder [funktionen resourceId.](template-functions-resource.md#resourceid) Den här funktionen hämtar den unika identifieraren för en resurs. I det här fallet får den unika identifieraren för apptjänstplanen. Webbappen är associerad med en specifik apptjänstplan.
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
 Använd antingen Azure CLI eller Azure PowerShell för att distribuera en mall.
 
-Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
+Om du inte har skapat resursgruppen läser du [Skapa resursgrupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **variabeln templateFile** till sökvägen till mallfilen, vilket visas i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -77,6 +77,8 @@ New-AzResourceGroupDeployment `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+Om du vill köra det här distributionskommandot måste du ha den [senaste versionen](/cli/azure/install-azure-cli) av Azure CLI.
+
 ```azurecli
 az deployment group create \
   --name addwebapp \
@@ -89,18 +91,18 @@ az deployment group create \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går vidare till nästa självstudie behöver du inte ta bort resurs gruppen.
+Om du går vidare till nästa självstudiekurs behöver du inte ta bort resursgruppen.
 
-Om du stoppar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resurs gruppen.
+Om du slutar nu kanske du vill rensa de resurser som du har distribuerat genom att ta bort resursgruppen.
 
-1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
+1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
 3. Välj resursgruppens namn.
-4. Välj **Ta bort resursgrupp** från menyn längst upp.
+4. Välj **Ta bort resursgrupp** på den övre menyn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du använder en snabb starts mall för mall utvecklingen. I nästa självstudie lägger du till taggar till resurserna.
+Du har lärt dig hur du använder en snabbstartsmall för mallutvecklingen. I nästa självstudiekurs lägger du till taggar i resurserna.
 
 > [!div class="nextstepaction"]
-> [Lägg till taggar](template-tutorial-add-tags.md)
+> [Lägga till taggar](template-tutorial-add-tags.md)

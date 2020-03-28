@@ -9,13 +9,13 @@ ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 069baf627c0230b6a4727c375494352ab3e6a803
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67187277"
 ---
-Lägg till två taggar till en resursgrupp genom att använda den [Set-AzResourceGroup](/powershell/module/az.resources/set-azresourcegroup) kommando:
+Om du vill lägga till två taggar i en resursgrupp använder du kommandot [Set-AzResourceGroup:](/powershell/module/az.resources/set-azresourcegroup)
 
 ```azurepowershell-interactive
 Set-AzResourceGroup -Name myResourceGroup -Tag @{ Dept="IT"; Environment="Test" }
@@ -86,7 +86,7 @@ Om du vill kombinera flera värden i en enda tagg använder du en JSON-sträng.
 Set-AzResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
 ```
 
-Om du vill lägga till en ny tagg med flera värden utan att förlora de befintliga taggarna, måste du hämta de befintliga taggarna, använder en JSON-sträng för den nya taggen och tillämpa samling taggar:
+Om du vill lägga till en ny tagg med flera värden utan att förlora de befintliga taggarna måste du hämta de befintliga taggarna, använda en JSON-sträng för den nya taggen och använda taggsamlingen igen:
 
 ```azurepowershell-interactive
 # Get existing tags and add a new tag

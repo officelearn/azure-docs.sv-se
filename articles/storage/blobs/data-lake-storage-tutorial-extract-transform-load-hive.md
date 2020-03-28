@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: extrahera, transformera och läsa in data med hjälp av Azure HDInsight'
+title: 'Självstudiekurs: Extrahera, transformera och läsa in data med hjälp av Azure HDInsight'
 description: I den här självstudien lär du dig hur du extraherar data från en CSV-datauppsättning med rådata, transformerar den med hjälp av Apache Hive i Azure HDInsight och sedan läser in dessa transformerade data till Azure SQL Database med hjälp av Sqoop.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,13 +9,13 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327560"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure HDInsight
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Självstudiekurs: Extrahera, transformera och läsa in data med hjälp av Azure HDInsight
 
 I den här självstudien ska du utföra en ETL-åtgärd: extrahera, transformera och läsa in data. Du använder en CSV-datafil med rådata, importerar den till ett Azure HDInsight-kluster, transformerar den med Apache Hive och läser in den till en Azure SQL-databas med Apache Sqoop.
 
@@ -26,7 +26,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Transformera data med hjälp av Apache Hive.
 > * Läs in data till en Azure SQL-databas med hjälp av Sqoop.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -34,15 +34,15 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
     Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
 
-* **Ett Linux-baserat Hadoop-kluster i HDInsight**
+* **Ett Linux-baserat Hadoop-kluster på HDInsight**
 
-    Se [snabb start: kom igång med Apache Hadoop och Apache Hive i Azure HDInsight med hjälp av Azure Portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
+    Se [Snabbstart: Kom igång med Apache Hadoop och Apache Hive i Azure HDInsight med Azure-portalen](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database**: du använder en Azure SQL-databas som mål data lager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: Du använder en Azure SQL-databas som ett måldatalager. Om du inte har någon SQL-databas kan du läsa [Skapa en Azure SQL-databas i Azure-portalen](../../sql-database/sql-database-get-started.md).
 
-* **Azure CLI**: om du inte har installerat Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **Azure CLI**: Om du inte har installerat Azure CLI läser du [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **En SSH-klient (Secure Shell)** : Mer information finns i [ansluta till HDInsight (Hadoop) med hjälp av SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* **En SSH-klient (Secure Shell):** Mer information finns i [Anslut till HDInsight (Hadoop) med hjälp av SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Ladda ned flygdata
 
@@ -92,13 +92,13 @@ I det här avsnittet laddar du upp data till ditt HDInsight-kluster och kopierar
 
    Kommandot extraherar en **.csv**-fil.
 
-4. Använd följande kommando för att skapa Data Lake Storage Gen2 containern.
+4. Använd följande kommando för att skapa behållaren Data Lake Storage Gen2.
 
    ```bash
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
    ```
 
-   Ersätt `<container-name>` plats hållaren med det namn som du vill ge din behållare.
+   Ersätt `<container-name>` platshållaren med det namn som du vill ge behållaren.
 
    Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
@@ -116,7 +116,7 @@ I det här avsnittet laddar du upp data till ditt HDInsight-kluster och kopierar
 
    Använd citattecken runt filnamnet om filnamnet innehåller blanksteg eller specialtecken.
 
-## <a name="transform-the-data"></a>Omvandla data
+## <a name="transform-the-data"></a>Transformera data
 
 I det här avsnittet ska du använda Beeline för att köra ett Apache Hive-jobb.
 
@@ -128,7 +128,7 @@ Som en del av Apache Hive-jobbet importerar du data från CSV-filen till en Apac
    nano flightdelays.hql
    ```
 
-2. Ändra följande text genom att ersätta `<container-name>` och `<storage-account-name>` plats hållarna med din behållare och ditt lagrings konto namn. Kopiera och klistra sedan in texten i nano-konsolen genom att trycka på Skift-tangenten tillsammans med höger musknapp.
+2. Ändra följande text genom `<container-name>` `<storage-account-name>` att ersätta platshållarna och platshållarna med ditt behållar- och lagringskontonamn. Kopiera och klistra sedan in texten i nano-konsolen genom att trycka på Skift-tangenten tillsammans med höger musknapp.
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -234,7 +234,7 @@ Du behöver namnet på servern från SQL-databasen för den här åtgärden. Slu
 
 4. Filtrera efter namnet på den databas som du vill använda. Serverns namn finns i kolumnen **Servernamn**.
 
-    ![Hämta information om Azure SQL Server](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Hämta information om Azure SQL Server")
+    ![Hämta information om Azure SQL-server](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Hämta information om Azure SQL-server")
 
     Det finns många sätt att ansluta till SQL Database och skapa en tabell. Följande steg använder [FreeTDS](https://www.freetds.org/) från HDInsight-klustret.
 

@@ -1,20 +1,20 @@
 ---
-title: PowerShell-skript för att hämta tillhandahållet data flöde (RU/s) för API för Azure Cosmos DB SQL (Core)
-description: Azure PowerShell skript – Azure Cosmos DB Hämta allokerat data flöde (RU/s) för SQL (Core) API
+title: PowerShell-skript för att hämta dataflöde (RU/s) för Azure Cosmos DB SQL API-databas eller -behållare
+description: Azure PowerShell-skript för att hämta dataflöde (RU/s) för Azure Cosmos DB SQL API-databas eller -behållare
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9b4450e18aa2666806faf2c0baed8af2285e69dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f471b1d41314728a6c6f0c5d2ab981891e2caa87
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441334"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365602"
 ---
-# <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Hämta det etablerade data flödet (RU/s) för en databas eller behållare för Azure Cosmos DB-SQL (Core) API
+# <a name="get-throughput-rus-for-azure-cosmos-db-sql-api-database-or-container"></a>Hämta dataflöde (RU/s) för Azure Cosmos DB SQL API-databas eller behållare
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441334"
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput for a database or container for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-ru-get.ps1 "Get throughput (RU/s) for Azure Cosmos DB SQL API database or container")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -38,9 +38,10 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-|**Azure-resurser**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Resurs grupper i Azure**| |
+|**Azure Cosmos DB**| |
+| [Hämta-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Hämta dataflödet som etablerats på en Azure Cosmos DB SQL API-databas. |
+| [Få-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Hämta dataflödet som etablerats på en Azure Cosmos DB SQL API-behållare. |
+|**Azure-resursgrupper**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

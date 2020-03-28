@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/07/2018
 ms.author: alkohli
 ms.openlocfilehash: 8a09a52db40f4f52219bce3e703e275b0f310c1a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67188010"
 ---
 Anslut till lagringskontot och verifiera anslutningen på följande sätt.
@@ -25,6 +25,6 @@ Anslut till lagringskontot och verifiera anslutningen på följande sätt.
 
     ![Data Box-instrumentpanel](media/data-box-verify-connection/data-box-connect-via-rest-12.png)
 
-4. Det konto som du har lagt till visas i den vänstra rutan i Storage Explorer med (extern, övrigt) i slutet av namnet. Visa behållaren genom att klicka på **Blobbehållare**.
+4. Det konto som du har lagt till visas i den vänstra rutan i Storage Explorer med (extern, övrigt) i slutet av namnet. Visa containern genom att klicka på **Blobcontainer**.
 
     ![Data Box-instrumentpanel](media/data-box-verify-connection/data-box-connect-via-rest-17.png)

@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77593168"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)
@@ -31,7 +31,7 @@ I ytterligare självstudier så överförs containeravbildningen till en Azure C
 
 Den här självstudiekursen förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och `docker`-kommandon. Läs mer om grunderna för containrar i [Kom igång med Docker][docker-get-started].
 
-För att slutföra den här självstudien behöver du en lokal Docker-utvecklingsmiljö som kör Linux-containrar. Docker innehåller paket som konfigurerar Docker på en [Mac][docker-for-mac]-, [Windows][docker-for-windows]-eller [Linux][docker-for-linux] -dator.
+För att slutföra den här självstudien behöver du en lokal Docker-utvecklingsmiljö som kör Linux-containrar. Docker tillhandahåller paket som konfigurerar Docker i ett [Mac][docker-for-mac]-, [Windows][docker-for-windows]- eller [Linux][docker-for-linux]-system.
 
 Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slutföra stegen i dessa självstudier. Därför rekommenderar vi att du använder en fullständig Docker-utvecklingsmiljö.
 
@@ -55,7 +55,7 @@ Inuti katalogen finns programmets källkod, en förskapad Docker Compose-fil och
 
 ## <a name="create-container-images"></a>Skapa containeravbildningar
 
-[Docker Compose][docker-compose] kan användas för att automatisera skapandet av behållar avbildningar och distribution av program med flera behållare.
+[Docker Compose][docker-compose] kan användas för att automatisera genereringen av containeravbildningar och distributionen av program med flera containrar.
 
 Använd `docker-compose.yaml`-exempelfilen för att skapa containeravbildningen, ladda ned Redis-avbildningen och starta programmet:
 
@@ -74,7 +74,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Kör kommandot [Docker PS][docker-ps] för att se de behållare som körs:
+Kör kommandot [docker ps][docker-ps] för att visa de containrar som körs:
 
 ```
 $ docker ps
@@ -94,13 +94,13 @@ Om du vill visa programmet som körs anger du `http://localhost:8080` i en lokal
 
 Nu när programfunktionen har verifierats, kan containrarna som körs stoppas och tas bort. Ta inte bort containeravbildningarna – i nästa självstudie ska du ladda upp *azure-vote-front*-avbildningen till en Azure Container Registry-instans.
 
-Stoppa och ta bort behållar instanserna och resurserna med kommandot [Docker-List][docker-compose-down] :
+Stoppa och ta bort containerinstanser och resurser med kommandot [docker-compose down][docker-compose-down]:
 
 ```console
 docker-compose down
 ```
 
-När det lokala programmet har tagits bort har du en Docker-avbildning som innehåller Azures röst program, *Azure-rösta-framtill*, för användning med nästa självstudie.
+När det lokala programmet har tagits bort har du en Docker-avbildning som innehåller Azure *Vote-programmet, azure-vote-front,* för användning med nästa självstudiekurs.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -114,7 +114,7 @@ I den här självstudien testades ett program och containeravbildningar skapades
 Gå vidare till nästa självstudie och lär dig hur du lagrar containeravbildningar i Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push-avbildningar med Azure Container Registry][aks-tutorial-prepare-acr]
+> [Push-överföra avbildningar till Azure Container Registry][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -125,7 +125,7 @@ Gå vidare till nästa självstudie och lär dig hur du lagrar containeravbildni
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
 [docker-compose-down]: https://docs.docker.com/compose/reference/down
-[git]: https://git-scm.com/downloads
+[Git]: https://git-scm.com/downloads
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md

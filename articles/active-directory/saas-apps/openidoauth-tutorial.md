@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbf9cde8dd2032e81abe0fb2572c2181d4ba21ee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160208"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048422"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurera ett OpenID/OAuth-program från Azure AD-appgalleri
 
@@ -31,7 +31,7 @@ ms.locfileid: "73160208"
 
     ![Azure Active Directory-knappen](common/select-azuread.png))
 
-2. Gå till **Företagsprogram** > **Alla program**.
+2. Gå till **Enterprise-program** > **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -69,11 +69,11 @@ Program för flera klientorganisationer måste tillhandahållas i varje katalog 
 Användaren eller administratören kan sedan ge medgivande till programmet. Medgivandet ger programmet åtkomst till angivna data och slutligen registreras programmet i katalogen.
 
 > [!NOTE]
-> Om du gör ditt program tillgängligt för användare i flera kataloger behöver du en metod för att avgöra vilken klientorganisation de finns i. Ett program för en enda klientorganisation behöver bara söka i en egen katalog för en användare. Ett program för flera klientorganisationer behöver identifiera en viss användare från alla kataloger i Azure AD.
+> Om du gör ditt program tillgängligt för användare i flera kataloger behöver du en mekanism för att avgöra vilken klientorganisation de befinner sig i. Ett program för en enda klientorganisation behöver bara söka i en egen katalog för en användare. Ett program för flera klientorganisationer behöver identifiera en viss användare från alla kataloger i Azure AD.
 > 
-> Om du vill utföra den här uppgiften tillhandahåller Azure AD en gemensam autentiseringsslutpunkt där alla program för flera klientorganisationer kan dirigera inloggningsförfrågningar, i stället för en klientspecifik slutpunkt. Den här slutpunkten är [https://login.microsoftonline.com/common](https://login.microsoftonline.com/common) för alla kataloger i Azure AD. En klientspecifik slutpunkt kan vara [https://login.microsoftonline.com/contoso.onmicrosoft.com](https://login.microsoftonline.com/contoso.onmicrosoft.com). 
+> Om du vill utföra den här uppgiften tillhandahåller Azure AD en gemensam autentiseringsslutpunkt där alla program för flera klientorganisationer kan dirigera inloggningsförfrågningar, i stället för en klientspecifik slutpunkt. Den här slutpunkten är `https://login.microsoftonline.com/common` för alla kataloger i Azure AD. En klientspecifik slutpunkt kan vara `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
 >
-> Den gemensamma slutpunkten är viktig att överväga på när du utvecklar ditt program. Du behöver den nödvändiga logiken för att hantera flera klienter under inloggning, utloggning, och tokenvalidering.
+> Den gemensamma slutpunkten är viktig att överväga på när du utvecklar ditt program. Du behöver den logik som krävs för att hantera flera klienter under inloggning, ut logga ut och tokenverifiering.
 
 Som standard främjas program för flera klientorganisationer i Azure AD. De är lätta att komma åt mellan olika organisationer och de är lätta att använda när du har godkänt medgivande.
 
@@ -99,9 +99,9 @@ Graph API tillhandahåller även åtkomst till användare och grupper från Azur
 
 Följande steg visar hur medgivande fungerar för programutvecklare och användaren:
 
-1. Anta att du har ett webbklientprogram som behöver begära särskild behörighet för att komma åt en resurs eller ett API. Azure-portalen används för att deklarera behörighetsbegäranden vid konfigurationen. Precis som andra konfigurations inställningar blir de en del av programmets Azure AD-registreringar. Du behöver följa stegen nedan för sökvägen till behörighets begär Anden:
+1. Anta att du har ett webbklientprogram som behöver begära särskild behörighet för att komma åt en resurs eller ett API. Azure-portalen används för att deklarera behörighetsbegäranden vid konfigurationen. Precis som andra konfigurationsinställningar blir de en del av programmets Azure AD-registreringar. För sökvägen till behörighetsbegäran behöver du följande steg:
 
-    a. Klicka på **Appregistreringar** på menyns vänstra sida och öppna programmet genom att skriva in program namnet i sökrutan.
+    a. Klicka på **appregistreringarna** från menyns vänstra sida och öppna programmet genom att skriva programnamnet i sökrutan.
 
     ![Graph API](./media/openidoauth-tutorial/application.png)
 
@@ -117,41 +117,41 @@ Följande steg visar hur medgivande fungerar för programutvecklare och använda
 
     ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
 
-    e. Välj nödvändiga alternativ från **delegerade behörigheter** och **program behörigheter**.
+    e. Välj obligatoriska alternativ från **delegerade behörigheter** och **programbehörigheter**.
 
     ![Graph API](./media/openidoauth-tutorial/graphapi.png)
 
-2. Överväg att behörigheter för ditt program har uppdaterats. Programmet körs och en användare är på väg att använda det för första gången. Programmet måste först hämta en auktoriseringskod från Azure AD/tillåta slutpunkt. Auktoriseringskoden kan sedan användas för att få en ny åtkomst och uppdatera token.
+2. Tänk på att programmets behörigheter har uppdaterats. Programmet körs och en användare är på väg att använda det för första gången. Programmet måste först hämta en auktoriseringskod från Azure AD/tillåta slutpunkt. Auktoriseringskoden kan sedan användas för att få en ny åtkomst och uppdatera token.
 
 3. Om användaren inte redan autentiserats uppmanar Azure AD/auktorisera slutpunkt till inloggning.
 
     ![Autentisering](./media/openidoauth-tutorial/authentication.png)
 
-4. När användaren har loggat in avgör Azure AD om användaren måste visas en sida för medgivande. Det här fastställandet baseras på om användaren (eller organisationens administratör) redan har gett medgivande för programmet.
+4. När användaren har loggat in avgör Azure AD om användaren måste visas en sida för medgivande. Den här bestämningen baseras på om användaren (eller organisationens administratör) redan har beviljat programmets medgivande.
 
    Om medgivande inte har beviljats ber Azure AD användare om medgivande och visar de nödvändiga behörigheterna som krävs. De behörigheter som visas i dialogrutan för medgivande överensstämmer med de som valts i de delegerade behörigheterna i Azure-portalen.
 
     ![Sida för medgivande](./media/openidoauth-tutorial/consentpage.png)
 
-En vanlig användare kan godkänna vissa behörigheter. Andra behörigheter kräver medgivande av en klientadministratör.
+En vanlig användare kan godkänna vissa behörigheter. Andra behörigheter kräver en klientadministratörs medgivande.
 
 ## <a name="difference-between-admin-consent-and-user-consent"></a>Skillnaden mellan administratörens och användarens medgivande
 
-Som administratör kan du även samtycka till ett programs delegerade behörigheter för samtliga användare i klienten. Administratörens medgivande förhindrar att dialogrutan för medgivande visas för varje användare i klienten. Användare som har administratörsrollen kan ge sitt medgivande i Azure-portalen. På sidan **Inställningar** för ditt program väljer du **nödvändiga behörigheter** > **bevilja administrativt medgivande**.
+Som administratör kan du även samtycka till ett programs delegerade behörigheter för samtliga användare i klienten. Administratörens medgivande förhindrar att dialogrutan för medgivande visas för varje användare i klienten. Användare som har administratörsrollen kan ge sitt medgivande i Azure-portalen. På sidan **Inställningar** för ditt program väljer du **Obligatoriskt behörighetsbevilja** > **administratörsmedgivande**.
 
 ![Knappen Bevilja behörigheter](./media/openidoauth-tutorial/grantpermission.png)
 
 > [!NOTE]
-> Att bevilja explicit medgivande genom att använda knappen **bevilja administratörs medgivande** krävs nu för program med en enda sida (SPAs) som använder ADAL. js. Annars misslyckas programmet när åtkomsttoken begärs.
+> Att bevilja uttryckligt medgivande med hjälp av knappen **Bevilja administratörssamtycke** krävs nu för ensidiga program (SPAs) som använder ADAL.js. Annars misslyckas programmet när åtkomsttoken begärs.
 
-Appspecifika behörigheter kräver alltid medgivande av en klientadministratör. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet visas ett felmeddelande. Meddelandet säger att användaren inte kan godkänna.
+Endast appar kräver alltid en klientadministratörs medgivande. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet visas ett felmeddelande. Meddelandet säger att användaren inte kan medgivande.
 
 Om programmet använder behörigheter som kräver administratörens medgivande måste det finnas en gest som administratören kan starta åtgärden med, till exempel via en knapp eller länk. Den begäran som programmet skickar för den här åtgärden är den vanliga auktoriseringsbegäran för OAuth2/OpenID Connect. Denna begäran innehåller frågesträngparametern *prompt=admin_consent*. 
 
-När administratören har godkänt och tjänstens huvudnamn har skapats i kundens klient behöver inte senare inloggningsförfrågningar parametern *prompt=admin_consent*. Eftersom administratören har bestämt att behörigheterna som krävs är godtagbara kan tillfrågas inga andra användare i klienten om medgivande från den tidpunkten och framåt.
+När administratören har gett sitt medgivande och tjänstens huvudnamn har skapats i kundens klientorganisation behöver senare inloggningsbegäranden inte parametern *prompt=admin_consent.* Eftersom administratören har bestämt att behörigheterna som krävs är godtagbara kan tillfrågas inga andra användare i klienten om medgivande från den tidpunkten och framåt.
 
 En klientadministratör kan inaktivera möjligheten för vanliga användare att samtycka till program. Om den här funktionen har inaktiverats krävs alltid administratörens godkännande för program som ska användas i klienten. Om du vill testa programmet med slutanvändarens medgivande inaktiverat kan du byta konfiguration i [Azure-portalen](https://portal.azure.com/). Den finns i avsnittet [Användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) under **Företagsprogram**.
 
-Parametern *prompt=admin_consent* kan även användas av program som begär behörighet som inte kräver administratörens medgivande. Ett exempel är ett program som kräver att klientadministratören ”registrerar sig” en gång, så tillfrågas inga andra användare om medgivande från och med den tidpunkten.
+Parametern *prompt=admin_consent* kan även användas av program som begär behörighet som inte kräver administratörens medgivande. Ett exempel är ett program som kräver en upplevelse där klientadministratören "registrerar sig" en gång och inga andra användare uppmanas att ge sitt samtycke från den tidpunkten.
 
 Anta att ett program kräver administratörens medgivande och en administratör loggar in utan att parametern *prompt=admin_consent* skickas. När administratören godkänner programmet gäller det endast för hans/hennes användarkonto. Vanliga användare kan fortfarande inte logga in eller godkänna programmet. Den här funktionen är användbart om du vill ge klientadministratören möjlighet att utforska ditt program innan åtkomst ges andra användare.

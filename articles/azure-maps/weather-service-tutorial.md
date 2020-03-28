@@ -1,54 +1,54 @@
 ---
-title: 'Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python) | Microsoft Azure Maps'
-description: Den här självstudien visar hur du kopplar sensor data med väder prognos data från Microsoft Azure Maps väder tjänst med Azure Notebooks (python).
-author: farah-alyasari
-ms.author: v-faalya
+title: 'Självstudiekurs: Gå med sensordata med väderprognosdata med hjälp av Azure Notebooks(Python) | Microsoft Azure Maps'
+description: Den här självstudien visar hur du ansluter sensordata med väderprognosdata från Microsoft Azure Maps Weather Service med Azure Notebooks(Python).
+author: philmea
+ms.author: philmea
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d6b82ec0662745fd9c9a05db28595ff84f57f330
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e5292f5166e739264e9cf969480b70f415fcc75a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208037"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333485"
 ---
-# <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudie: koppla sensor data med väder prognos data med hjälp av Azure Notebooks (python)
+# <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Självstudiekurs: Gå med sensordata med väderprognosdata med hjälp av Azure Notebooks (Python)
 
-Vind styrkan är en alternativ energi källa för fossila bränslen för att bekämpa klimat förändringar. Eftersom lindningen inte är konsekvent med natur måste du använda en motor för att bygga Machine Learning-modeller (ML) för att förutsäga energi kapaciteten. Denna förutsägelse är nödvändig för att möta El efter frågan och se till att rutnätets stabilitet är stabil. I den här självstudien går vi igenom hur Azure Maps data för väder prognoser kombineras med demonstrations data för väder läsningar. Väder prognos data begärs genom att anropa Azure Maps väder tjänsten.
+Vindkraft är en alternativ energikälla för fossila bränslen för att bekämpa klimatförändringarna. Eftersom vinden inte är konsekvent av naturen, vindkraft operatörer måste bygga maskininlärning (ML) modeller för att förutsäga vindkraftkapacitet. Denna förutsägelse är nödvändig för att möta efterfrågan på el och säkerställa nätets stabilitet. I den här självstudien går vi igenom hur Azure Maps väderprognosdata kombineras med demodata för väderavläsningar. Väderprognosdata begärs genom att anropa Azure Maps Weather Service.
 
 I den här kursen ska du:
 
 > [!div class="checklist"]
-> * Arbeta med datafiler i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) i molnet.
-> * Läs in demo data från fil.
-> * Anropa Azure Maps REST-API: er i python.
-> * Återge plats data på kartan.
-> * Förbättra demonstrations data med Azure Maps [dagliga data för dagliga prognoser](https://aka.ms/AzureMapsWeatherDailyForecast) .
-> * Rita prognos data i grafer.
+> * Arbeta med datafiler i [Azure-anteckningsböcker](https://docs.microsoft.com/azure/notebooks) i molnet.
+> * Läs in demodata från filen.
+> * Anropa AZURE Maps REST API:er i Python.
+> * Återge platsdata på kartan.
+> * Berika demodata med azure maps [dagliga prognosväderdata.](https://aka.ms/AzureMapsWeatherDailyForecast)
+> * Rita prognosdata i diagram.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du först:
 
-1. Skapa en Azure Maps konto prenumeration på S0-pris nivån genom att följa instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps).
-2. Hämta den primära prenumerations nyckeln för ditt konto genom att följa anvisningarna i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+1. Skapa en Azure Maps-kontoprenumeration på prisnivån S0 genom att följa instruktionerna i [Skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps).
+2. Hämta den primära prenumerationsnyckeln för ditt konto, följ instruktionerna för [att få primärnyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 
-Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
+Mer information om autentisering i Azure Maps finns [i hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
-Om du vill bekanta dig med Azures antecknings böcker och vet hur du kommer igång, följer du anvisningarna [skapa en Azure-anteckningsbok](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
+Om du vill bekanta dig med Azure-anteckningsböcker och veta hur du kommer igång följer du instruktionerna [Skapa en Azure Notebook](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
 
 > [!Note]
-> Jupyter Notebook-filen för det här projektet kan laddas ned från [väder Kartornas Jupyter Notebook-lagringsplats](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
+> Den Jupyter anteckningsboken arkivera för den här projekt kanna bli dataöverföring från [weather maps Jupyter anteckningsboken arkivet](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
 
-## <a name="load-the-required-modules-and-frameworks"></a>Läs in de nödvändiga modulerna och ramverken
+## <a name="load-the-required-modules-and-frameworks"></a>Ladda de moduler och ramverk som krävs
 
-Kör följande skript för att läsa in alla nödvändiga moduler och ramverk:
+Om du vill läsa in alla nödvändiga moduler och ramverk kör du följande skript:
 
 ```python
 import pandas as pd
@@ -58,17 +58,17 @@ from IPython.display import Image, display
 import aiohttp
 ```
 
-## <a name="import-weather-data"></a>Importera väder data
+## <a name="import-weather-data"></a>Importera väderdata
 
-För den här självstudien använder vi väder data läsningar från sensorer som är installerade på fyra olika lindnings turbiner. Exempel data består av 30 dagars väder läsningar. Dessa avläsningar samlas in från väder Data Center nära varje turbin-plats. Demonstrations data innehåller data avläsningar för temperatur, vridnings hastighet och riktning. Du kan ladda ned demonstrations data [härifrån](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data). Skriptet nedan importerar demonstrations data till Azure-anteckningsboken.
+Av hänsyn till den här guiden använder vi väderdataavläsningar från sensorer installerade på fyra olika vindkraftverk. Exempeldata består av 30 dagars väderavläsningar. Dessa avläsningar samlas in från väderdatacentra nära varje turbinplats. Demodata innehåller dataavläsningar för temperatur, vindhastighet och riktning. Du kan ladda ner demodata [härifrån](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data). Skriptet nedan importerar demodata till Azure Notebook.
 
 ```python
 df = pd.read_csv("./data/weather_dataset_demo.csv")
 ```
 
-## <a name="request-daily-forecast-data"></a>Begär dagliga prognos data
+## <a name="request-daily-forecast-data"></a>Begär dagliga prognosdata
 
-I vårt scenario skulle vi vilja begära dagliga prognoser för varje sensor plats. Följande skript anropar [API: et för dagliga prognoser](https://aka.ms/AzureMapsWeatherDailyForecast) i Azure Maps väder tjänsten. Detta API returnerar väder prognoser för varje lindnings turbin, under de närmaste 15 dagarna från dagens datum.
+I vårt scenario vill vi begära daglig prognos för varje sensorplats. Följande skript anropar [daily forecast-API:et](https://aka.ms/AzureMapsWeatherDailyForecast) för vädertjänsten Azure Maps. Detta API returnerar väderprognos för varje vindkraftverk, för de kommande 15 dagarna från det aktuella datumet.
 
 
 ```python
@@ -107,7 +107,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-Skriptet nedan återger turbin-platserna på kartan genom att anropa Azure Maps [Hämta avbildnings tjänsten](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
+Skriptet nedan återger turbinplatserna på kartan genom att anropa tjänsten Azure Maps [Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -126,10 +126,10 @@ await session.close()
 display(Image(poi_range_map))
 ```
 
-![Turbin-platser](./media/weather-service-tutorial/location-map.png)
+![Turbinplatser](./media/weather-service-tutorial/location-map.png)
 
 
-Vi ska gruppera prognos data med demonstrations data baserat på Station-ID. Stations-ID: t är för väder data centret. Den här grupperingen förstärker demonstrations data med prognos data.
+Vi grupperar prognosdata med demodata baserat på stations-ID. Stations-ID:t är till för väderdatacentret. Den här gruppningen utökar demodata med prognosdata.
 
 ```python
 # Group forecasted data for all locations
@@ -144,7 +144,7 @@ combined_weather_data = pd.concat([df,forecast_data])
 grouped_weather_data = combined_weather_data.groupby(['StationID'])
 ```
 
-I följande tabell visas de kombinerade historiska och prognos data för en av turbin-platserna.
+I följande tabell visas kombinerade historiska data och prognosdata för en av turbinplatserna.
 
 ```python
 # Display data for first location
@@ -153,11 +153,11 @@ grouped_weather_data.get_group(station_ids[0]).reset_index()
 
 <center>
 
-![grupperade data](./media/weather-service-tutorial/grouped-data.png)</center>
+![Grupperade data](./media/weather-service-tutorial/grouped-data.png)</center>
 
-## <a name="plot-forecast-data"></a>Rita prognos data
+## <a name="plot-forecast-data"></a>Prognosdata för diagram
 
-Vi ska rita upp de prognostiserade värdena mot de dagar som de är prognostiserade för. I det här området kan vi se hastigheten och riktnings ändringar i vridningen under de närmaste 15 dagarna.
+Vi ritar de prognostiserade värdena mot de dagar som de prognostiseras för. Denna tomt gör det möjligt för oss att se hastighet och riktning förändringar av vinden för de kommande 15 dagarna.
 
 ```python
 # Plot wind speed
@@ -176,24 +176,24 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-Diagrammen nedan visualiserar prognos data. För att ändra vridnings hastigheten, se det vänstra diagrammet. För ändring i vridnings riktningen, se det högra diagrammet. Dessa data är förutsägelse för nästföljande 15 dagar från den dag då data begärs.
+Diagrammen nedan visualiserar prognosdata. För byte av vindhastighet, se den vänstra grafen. För förändring i vindriktning, se rätt diagram. Dessa data är förutsägelse för nästa 15 dagar från den dag då data begärs.
 
 <center>
 
-![vridnings hastighet Rita](./media/weather-service-tutorial/speed-date-plot.png) ![vridnings riktnings ritytan](./media/weather-service-tutorial/direction-date-plot.png)</center>
+![Vindhastighet](./media/weather-service-tutorial/speed-date-plot.png) ![tomt Vindriktning tomt](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien får du lära dig att anropa Azure Maps REST-API: er för att hämta väder prognos data. Du har också lärt dig hur du visualiserar data i grafer.
+I den här självstudien som du lärde dig, hur du anropar Azure Maps REST API:er för att hämta väderprognosdata. Du har också lärt dig hur du visualiserar data i diagram.
 
-Om du vill veta mer om hur du anropar Azure Maps REST-API: er i Azure Notebooks, se [EV-routning med Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
+Mer information om hur du anropar AZURE Maps REST-API:er i Azure Notebooks finns i [EV-routning med Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
 
-Om du vill utforska de Azure Maps-API: er som används i den här självstudien, se:
+Information om hur du utforskar Api:erna för Azure Maps som används i den här självstudien finns i:
 
 * [Daglig prognos](https://aka.ms/AzureMapsWeatherDailyForecast)
-* [Rendera-Hämta kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Render - Hämta kartbild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 
-En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+En fullständig lista över AZURE Maps REST-API:er finns i [Azure Maps REST API:er](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-Mer information om Azure Notebooks finns i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Mer information om Azure-anteckningsböcker finns i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).

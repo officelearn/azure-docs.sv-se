@@ -1,5 +1,5 @@
 ---
-title: Skicka meddelanden till Chrome-appar med Azure Notification Hubs | Microsoft Docs
+title: Skicka push-meddelanden till Windows Phone-appar med Azure Notification Hubs| Microsoft-dokument
 description: I den här självstudiekursen kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Silverlight-app på Windows Phone 8 eller Windows Phone 8.1.
 services: notification-hubs
 documentationcenter: windows
@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7f026dd5953dd233b0183d8ce7978f647fb8c6af
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9cad4bfc474ef23492858ed3b0a6447932b589b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213472"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127074"
 ---
-# <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Windows Phone-appar med hjälp av Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Självstudiekurs: Skicka push-meddelanden till Windows Phone-appar med meddelandehubbar
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -36,14 +36,14 @@ I denna självstudiekurs skapar du en tom Windows Phone 8-app som tar emot push-
 > [!NOTE]
 > SDK:erna för Windows Phone på Notification Hubs stöder inte användning av Windows Push Notification Service (WNS) med Silverlight-appar för Windows Phone 8.1. Om du vill använda WNS (istället för MPNS) med Silverlight-appar för Windows Phone 8.1, ska du följa anvisningarna i [Notification Hubs – självstudiekurs för Windows Phone Silverlight]. Där används istället REST-API:er.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en meddelandehubb
 > * Skapa ett Windows Phone-program
 > * Testskicka ett meddelande
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Visual Studio 2015 Express med mobila utvecklingskomponenter](https://www.visualstudio.com/vs/older-downloads/)
@@ -154,7 +154,7 @@ I det här avsnittet skapar du ett Windows Phone-program som registrerar sig sj�
 I det här enkla exemplet skickade du push-meddelanden till alla dina Windows Phone 8-enheter. Gå vidare till följande självstudiekurs om du vill lära dig hur man skickar meddelanden till specifika enheter:
 
 > [!div class="nextstepaction"]
->[Skicka meddelanden till specifika enheter](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
+>[Push-meddelanden till specifika enheter](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 
 <!-- Images. -->
 [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png

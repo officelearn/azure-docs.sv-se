@@ -1,6 +1,6 @@
 ---
-title: Självstudie för att använda funktions flaggor i en .NET Core-app | Microsoft Docs
-description: I den här självstudien får du lära dig hur du implementerar funktions flaggor i .NET Core-appar.
+title: Självstudiekurs för att använda funktionsflaggor i en .NET Core-app | Microsoft-dokument
+description: I den här självstudien får du lära dig hur du implementerar funktionsflaggor i .NET Core-appar.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -14,30 +14,32 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b04fe3b6451fd7250bc3b05970d49fdb8e7003bd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3182961f928a9befc5a55fb6d58e22c74ba81089
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899295"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79473446"
 ---
-# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Självstudie: använda funktions flaggor i en ASP.NET Core app
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Självstudiekurs: Använda funktionsflaggor i en ASP.NET Core-app
 
-Hanterings biblioteken för .NET Core-funktioner ger idiomatiskt stöd för att implementera funktions flaggor i ett .NET-eller ASP.NET Core-program. Med de här biblioteken kan du lägga till funktions flaggor i koden så att du inte behöver skriva alla `if`-instruktioner för dem manuellt.
+.NET Core Feature Management-biblioteken ger idiomatiskt stöd för att implementera funktionsflaggor i ett .NET- eller ASP.NET Core-program. Med de här biblioteken `if` kan du deklarativt lägga till funktionsflaggor i koden så att du inte behöver skriva alla satser för dem manuellt.
 
-Biblioteken för funktions hantering hanterar även livscykler i funktions flaggor i bakgrunden. Till exempel, biblioteks uppdaterings-och cache-flaggan eller garanterar att ett flagg tillstånd kan inte ändras under ett begär ande anrop. Dessutom erbjuder ASP.NET Core biblioteket färdiga integreringar, inklusive åtgärder för MVC-kontrollant, vyer, vägar och mellanprogram.
+Funktionshanteringsbiblioteken hanterar också funktionsflagglivscykler bakom kulisserna. Biblioteken uppdaterar och cacheföreskar tillstånd, eller garanterar att ett flaggtillstånd inte kan ändras under ett begärandeanrop. Dessutom erbjuder ASP.NET Core-biblioteket färdiga integreringar, inklusive MVC-styrenhetsåtgärder, vyer, rutter och mellanprogram.
 
-Med [funktionen Lägg till funktions flaggor till en ASP.net Core app-snabb start](./quickstart-feature-flag-aspnet-core.md) visas flera sätt att lägga till funktions flaggor i ett ASP.net Core program. I den här självstudien beskrivs dessa metoder i detalj. En fullständig referens finns i dokumentationen för [ASP.net Core Feature Management](https://go.microsoft.com/fwlink/?linkid=2091410).
+[Tilläggsfunktionsflaggorna i en snabbstart för core-appen ASP.NET](./quickstart-feature-flag-aspnet-core.md) visar flera sätt att lägga till funktionsflaggor i ett ASP.NET Core-program. Den här självstudien förklarar dessa metoder mer i detalj. En fullständig referens finns i [dokumentationen ASP.NET Core-funktionens hantering](https://go.microsoft.com/fwlink/?linkid=2091410).
 
 I den här självstudien får du lära dig hur man:
 
 > [!div class="checklist"]
-> * Lägg till funktions flaggor i huvud delar av ditt program för att kontrol lera funktions tillgänglighet.
-> * Integrera med app-konfiguration när du använder den för att hantera funktions flaggor.
+> * Lägg till funktionsflaggor i viktiga delar av programmet för att styra funktionens tillgänglighet.
+> * Integrera med appkonfiguration när du använder den för att hantera funktionsflaggor.
 
-## <a name="set-up-feature-management"></a>Konfigurera funktions hantering
+## <a name="set-up-feature-management"></a>Konfigurera funktionshantering
 
-.NET Core Feature Manager `IFeatureManager` hämtar funktions flaggor från ramverkets inbyggda konfigurations system. Därför kan du definiera programmets funktions flaggor genom att använda en konfigurations källa som .NET Core stöder, inklusive den lokala *appSettings. JSON* -filen eller miljövariablerna. `IFeatureManager` är beroende av .NET Core-beroende inmatning. Du kan registrera funktions hanterings tjänsterna genom att använda standard konventioner:
+Lägg till en `Microsoft.FeatureManagement` referens till NuGet-paketet för att använda funktionshanteraren för .NET Core.
+    
+Funktionshanteraren `IFeatureManager` för .NET Core hämtar funktionsflaggor från ramverkets inbyggda konfigurationssystem. Därför kan du definiera programmets funktionsflaggor med hjälp av valfri konfigurationskälla som .NET Core stöder, inklusive de lokala *appsettings.json-fil-* eller miljövariablerna. `IFeatureManager`beroendeinjektionen .NET Core. Du kan registrera funktionshanteringstjänsterna med hjälp av standardkonventioner:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -51,7 +53,7 @@ public class Startup
 }
 ```
 
-Som standard hämtar funktions hanteraren funktions flaggor från `"FeatureManagement"` avsnittet i konfigurations data för .NET Core. I följande exempel visas att funktions hanteraren kan läsa från ett annat avsnitt som kallas `"MyFeatureFlags"` i stället:
+Som standard hämtar funktionshanteraren funktionsflaggor från `"FeatureManagement"` avsnittet i .NET Core-konfigurationsdata. I följande exempel uppmanas funktionshanteraren att `"MyFeatureFlags"` läsa från ett annat avsnitt som heter i stället:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -68,7 +70,7 @@ public class Startup
 }
 ```
 
-Om du använder filter i dina funktions flaggor måste du inkludera ett ytterligare bibliotek och registrera det. I följande exempel visas hur du använder ett inbyggt funktions filter som heter `PercentageFilter`:
+Om du använder filter i funktionsflaggorna måste du inkludera ytterligare ett bibliotek och registrera det. I följande exempel visas hur du använder `PercentageFilter`ett inbyggt funktionsfilter som kallas:
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -84,11 +86,11 @@ public class Startup
 }
 ```
 
-Vi rekommenderar att du behåller funktions flaggor utanför programmet och hanterar dem separat. Om du gör det kan du när som helst ändra flaggans tillstånd och ändringarna börjar gälla i programmet direkt. Med app Configuration får du en central plats för att ordna och kontrol lera alla funktions flaggor via ett dedikerat Portal gränssnitt. App-konfigurationen skickar också flaggorna till ditt program direkt via dess .NET Core-klient bibliotek.
+Vi rekommenderar att du håller funktionsflaggor utanför programmet och hanterar dem separat. På så sätt kan du ändra flaggtillstånd när som helst och få dessa ändringar att träda i kraft i programmet direkt. Appkonfiguration är en centraliserad plats för att organisera och styra alla dina funktionsflaggor via ett dedikerat portalgränssnitt. Appkonfigurationen levererar också flaggorna till ditt program direkt via dess .NET Core-klientbibliotek.
 
-Det enklaste sättet att ansluta ASP.NET Core program till app-konfigurationen är via konfigurationsprovidern `Microsoft.Azure.AppConfiguration.AspNetCore`. Följ dessa steg om du vill använda det här NuGet-paketet.
+Det enklaste sättet att ansluta ditt ASP.NET Core-programmet `Microsoft.Azure.AppConfiguration.AspNetCore`till App Konfiguration är via konfigurationsleverantören . Följ dessa steg för att använda detta NuGet-paket.
 
-1. Öppna *program.cs* -filen och Lägg till följande kod.
+1. Öppna *Program.cs* filen och lägg till följande kod.
 
    ```csharp
    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -105,7 +107,7 @@ Det enklaste sättet att ansluta ASP.NET Core program till app-konfigurationen �
               .UseStartup<Startup>();
    ```
 
-2. Öppna *startup.cs* och uppdatera `Configure`-metoden för att lägga till ett mellanprogram så att funktions flagg värden kan uppdateras vid ett återkommande intervall medan ASP.net Core webbappen fortsätter att ta emot begär Anden.
+2. Öppna *Startup.cs* och uppdatera `Configure` metoden för att lägga till ett mellanprogram så att funktionsflaggvärdena kan uppdateras med ett återkommande intervall medan ASP.NET Core-webbappen fortsätter att ta emot begäranden.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -115,7 +117,7 @@ Det enklaste sättet att ansluta ASP.NET Core program till app-konfigurationen �
    }
    ```
 
-Funktions flagg värden förväntas ändras med tiden. Som standard cachelagras funktions flagg värden under en period på 30 sekunder, så en uppdaterings åtgärd utlöses när mellanprogram tar emot en begäran att inte uppdatera värdet förrän det cachelagrade värdet upphör att gälla. Följande kod visar hur du ändrar förfallo tiden för cachen eller avsöknings intervallet till 5 minuter i `options.UseFeatureFlags()`-anropet.
+Funktionsflaggvärden förväntas ändras med tiden. Som standard cachelagras funktionsflaggvärdena under en period av 30 sekunder, så en uppdateringsåtgärd som utlöses när mellanprogrammet tar emot en begäran uppdateras inte värdet förrän det cachelagrade värdet upphör att gälla. Följande kod visar hur du ändrar cachens förfallotid `options.UseFeatureFlags()` eller avsökningsintervall till 5 minuter i anropet.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
@@ -126,13 +128,13 @@ config.AddAzureAppConfiguration(options => {
 });
 ```
 
-## <a name="feature-flag-declaration"></a>Deklaration för funktions flagga
+## <a name="feature-flag-declaration"></a>Flagga deklaration för funktion
 
-Varje funktions flagga har två delar: ett namn och en lista med ett eller flera filter som används för att utvärdera om en funktions status är *aktiv* (det vill säga när värdet är `True`). Ett filter definierar ett användnings fall för när en funktion ska aktive ras.
+Varje funktionsflagga har två delar: ett namn och en lista med ett *on* eller flera filter som används `True`för att utvärdera om en funktions tillstånd är aktiverat (det vill säga när dess värde är ). Ett filter definierar ett användningsfall för när en funktion ska aktiveras.
 
-När en funktions flagga har flera filter, så genomsöks filter listan i ordning tills ett av filtren bestämmer att funktionen ska aktive ras. Nu är funktions flaggan *på*och eventuella kvarvarande filter resultat hoppas över. Om inget filter anger att funktionen ska aktive ras, är funktions flaggan *avstängd*.
+När en funktionsflagga har flera filter genomdäms filterlistan i ordning tills ett av filtren bestämmer att funktionen ska aktiveras. Då är funktionsflaggan *aktiverad*och eventuella återstående filterresultat hoppas över. Om inget filter anger att funktionen ska aktiveras är funktionsflaggan *inaktiverad*.
 
-Funktions hanteraren stöder *appSettings. JSON* som en konfigurations källa för funktions flaggor. I följande exempel visas hur du ställer in funktions flaggor i en JSON-fil:
+Funktionshanteraren stöder *appsettings.json* som en konfigurationskälla för funktionsflaggor. I följande exempel visas hur du ställer in funktionsflaggor i en JSON-fil:
 
 ```JSON
 "FeatureManagement": {
@@ -151,15 +153,15 @@ Funktions hanteraren stöder *appSettings. JSON* som en konfigurations källa f�
 }
 ```
 
-Per konvention används `FeatureManagement` avsnittet i det här JSON-dokumentet för inställningar för funktions flagga. I föregående exempel visas tre funktions flaggor med de filter som definierats i egenskapen `EnabledFor`:
+Av konvention `FeatureManagement` används avsnittet i det här JSON-dokumentet för funktionsflagginställningar. I föregående exempel visas tre funktionsflaggor med filter definierade i egenskapen: `EnabledFor`
 
-* `FeatureA` är *på*.
-* `FeatureB` är *avstängd*.
-* `FeatureC` anger ett filter med namnet `Percentage` med en `Parameters`-egenskap. `Percentage` är ett konfigurerbart filter. I det här exemplet anger `Percentage` en sannolikhet på 50 procent för att `FeatureC` flagga ska vara *på*.
+* `FeatureA`är *på*.
+* `FeatureB`är *avstängd*.
+* `FeatureC`anger ett filter `Percentage` som `Parameters` namnges med en egenskap. `Percentage`är ett konfigurerbart filter. I det `Percentage` här exemplet anger en 50-procentig sannolikhet för att `FeatureC` flaggan ska vara *på*.
 
-## <a name="feature-flag-references"></a>Funktions flagga referenser
+## <a name="feature-flag-references"></a>Funktionsflagga referenser
 
-Du kan enkelt referera till funktions flaggor i kod genom att definiera dem som `enum` variabler:
+Så att du enkelt kan referera till funktionsflaggor i kod bör du definiera dem som `enum` variabler:
 
 ```csharp
 public enum MyFeatureFlags
@@ -170,9 +172,9 @@ public enum MyFeatureFlags
 }
 ```
 
-## <a name="feature-flag-checks"></a>Funktions flagga kontrollerar
+## <a name="feature-flag-checks"></a>Kontroller av funktionsflagga
 
-Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Ett exempel:
+Det grundläggande mönstret för funktionshantering är att först kontrollera om en funktionsflagga är inställd *på*. Om så är fallet kör funktionshanteraren sedan de åtgärder som funktionen innehåller. Ett exempel:
 
 ```csharp
 IFeatureManager featureManager;
@@ -185,7 +187,7 @@ if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 
 ## <a name="dependency-injection"></a>Beroendeinmatning
 
-I ASP.NET Core MVC kan du komma åt funktions hanteraren `IFeatureManager` genom beroende inmatning:
+I ASP.NET Core MVC kan du komma `IFeatureManager` åt funktionshanteraren genom beroendeinjektion:
 
 ```csharp
 public class HomeController : Controller
@@ -199,9 +201,9 @@ public class HomeController : Controller
 }
 ```
 
-## <a name="controller-actions"></a>Åtgärder för styrenhet
+## <a name="controller-actions"></a>Åtgärder för kontrollant
 
-I MVC-styrenheter använder du attributet `FeatureGate` för att kontrol lera om en hel kontroll enhets klass eller en speciell åtgärd är aktive rad. Följande `HomeController` kontrollant kräver att `FeatureA` måste vara *aktiverat* innan någon åtgärd kan utföras av klassen kontrollant:
+I MVC-styrenheter använder `FeatureGate` du attributet för att styra om en hel styrenhetsklass eller en viss åtgärd är aktiverad. Följande `HomeController` styrenhet `FeatureA` måste vara *på* innan någon åtgärd som controller-klassen innehåller kan utföras:
 
 ```csharp
 [FeatureGate(MyFeatureFlags.FeatureA)]
@@ -211,7 +213,7 @@ public class HomeController : Controller
 }
 ```
 
-Följande `Index`s åtgärd kräver *`FeatureA` innan den* kan köras:
+Följande `Index` åtgärd `FeatureA` måste vara *aktiverad* innan den kan köras:
 
 ```csharp
 [FeatureGate(MyFeatureFlags.FeatureA)]
@@ -221,11 +223,11 @@ public IActionResult Index()
 }
 ```
 
-När en MVC-styrenhet eller-åtgärd blockeras eftersom kontroll funktions flaggan är *inaktive rad*, anropas ett registrerat `IDisabledFeaturesHandler`-gränssnitt. Standard `IDisabledFeaturesHandler`-gränssnittet returnerar en 404-statuskod till klienten utan svars text.
+När en MVC-styrenhet eller åtgärd blockeras eftersom `IDisabledFeaturesHandler` kontrollfunktionsflaggan är *inaktiverad*anropas ett registrerat gränssnitt. Standardgränssnittet `IDisabledFeaturesHandler` returnerar en 404-statuskod till klienten utan svarstext.
 
 ## <a name="mvc-views"></a>MVC-vyer
 
-I MVC-vyer kan du använda en `<feature>`-tagg för att återge innehåll baserat på om en funktions flagga är aktive rad:
+I MVC-vyer kan `<feature>` du använda en tagg för att återge innehåll baserat på om en funktionsflagga är aktiverad:
 
 ```html
 <feature name="FeatureA">
@@ -233,7 +235,7 @@ I MVC-vyer kan du använda en `<feature>`-tagg för att återge innehåll basera
 </feature>
 ```
 
-Om du vill visa alternativt innehåll när kraven inte uppfylls kan du använda `negate` attributet.
+Om du vill visa alternativt innehåll `negate` när kraven inte uppfylls kan attributet användas.
 
 ```html
 <feature name="FeatureA" negate="true">
@@ -241,7 +243,7 @@ Om du vill visa alternativt innehåll när kraven inte uppfylls kan du använda 
 </feature>
 ```
 
-Funktions `<feature>`s tag gen kan också användas för att visa innehåll om någon eller alla funktioner i en lista är aktiverade.
+Funktionstaggen `<feature>` kan också användas för att visa innehåll om några eller alla funktioner i en lista är aktiverade.
 
 ```html
 <feature name="FeatureA, FeatureB" requirement="All">
@@ -254,7 +256,7 @@ Funktions `<feature>`s tag gen kan också användas för att visa innehåll om n
 
 ## <a name="mvc-filters"></a>MVC-filter
 
-Du kan konfigurera MVC-filter så att de aktive ras baserat på status för en funktions flagga. Följande kod lägger till ett MVC-filter med namnet `SomeMvcFilter`. Det här filtret utlöses endast i MVC-pipeline om `FeatureA` har Aktiver ATS. Den här funktionen är begränsad till `IAsyncActionFilter`. 
+Du kan ställa in MVC-filter så att de aktiveras baserat på tillståndet för en funktionsflagga. Följande kod lägger till ett `SomeMvcFilter`MVC-filter med namnet . Det här filtret utlöses endast i `FeatureA` MVC-pipelinen om det är aktiverat. Den här funktionen `IAsyncActionFilter`är begränsad till . 
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -269,15 +271,15 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## <a name="middleware"></a>Mellanprogram
+## <a name="middleware"></a>Middleware
 
-Du kan också använda funktions flaggor för att villkorligt lägga till program grenar och mellanprogram. Följande kod infogar en mellanprogram komponent i pipelinen för begär Anden endast när `FeatureA` är aktive rad:
+Du kan också använda funktionsflaggor för att villkorligt lägga till programgrenar och mellanprogram. Följande kod infogar en middleware-komponent i `FeatureA` rörledningen för begäran endast när den är aktiverad:
 
 ```csharp
 app.UseMiddlewareForFeature<ThirdPartyMiddleware>(nameof(MyFeatureFlags.FeatureA));
 ```
 
-Den här koden skapar en mer allmän funktion för att förgrena hela programmet baserat på en funktions flagga:
+Den här koden bygger på den mer allmänna möjligheten att förgrena hela programmet baserat på en funktionsflagga:
 
 ```csharp
 app.UseForFeature(featureName, appBuilder => {
@@ -287,8 +289,8 @@ app.UseForFeature(featureName, appBuilder => {
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du implementerar funktions flaggor i ditt ASP.NET Core program med hjälp av `Microsoft.FeatureManagement`-biblioteken. Mer information om stöd för funktions hantering i ASP.NET Core-och app-konfiguration finns i följande resurser:
+I den här självstudien lärde du dig hur du implementerar `Microsoft.FeatureManagement` funktionsflaggor i ditt ASP.NET Core-program med hjälp av biblioteken. Mer information om stöd för funktionshantering i ASP.NET Core- och Appkonfiguration finns i följande resurser:
 
-* [Exempel kod för ASP.NET Core funktions flagga](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
-* [Dokumentation om Microsoft. FeatureManagement](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
+* [ASP.NET exempelkod för kärnfunktionsflagga](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
+* [Dokumentation för Microsoft.FeatureManagement](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
 * [Hantera funktionsflaggor](./manage-feature-flags.md)

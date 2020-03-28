@@ -1,5 +1,5 @@
 ---
-title: Självstudie för att installera – packa upp, rack, kabel Azure Data Box Edge fysisk enhet | Microsoft Docs
+title: Självstudiekurs för installation – Packa upp, rack, kabel Azure Data Box Edge fysisk enhet | Microsoft-dokument
 description: Den andra självstudien om att installera Azure Data Box Edge omfattar att packa upp, racka och kabelansluta den fysiska enheten.
 services: databox
 author: alkohli
@@ -10,19 +10,19 @@ ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76263956"
 ---
-# <a name="tutorial-install-azure-data-box-edge"></a>Självstudie: installera Azure Data Box Edge
+# <a name="tutorial-install-azure-data-box-edge"></a>Självstudiekurs: Installera Azure Data Box Edge
 
 Den här självstudien beskriver hur du installerar en fysisk Data Box Edge-enhet. Installationsproceduren omfattar uppackning, rackmontering och kabelanslutning av enheten. 
 
 Det kan ta cirka två timmar att slutföra installationen.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Packa upp enheten
@@ -37,7 +37,7 @@ De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
 Innan du börjar bör du kontrollera att:
 
-* Du har slutfört alla steg i [förbereda för att distribuera Azure Data Box Edge](data-box-edge-deploy-prep.md).
+* Du har slutfört alla steg i [Förbereda för att distribuera Azure Data Box Edge](data-box-edge-deploy-prep.md).
     * Du har skapat en Data Box Edge-resurs för att distribuera enheten.
     * Du har genererat aktiveringsnyckeln för att aktivera din enhet med Data Box Edge-resursen.
 
@@ -70,17 +70,17 @@ Den här enheten levereras i en enda låda. Slutför följande steg för att pac
 1. Placera lådan på en plan, jämn yta.
 2. Kontrollera lådan och förpackningsskummet för att se om det förekommer krosskador, skärningar, vattenskador eller andra uppenbara skador. Om lådan eller förpackningen är allvarligt skadad ska du inte öppna den. Kontakta Microsoft Support för att få hjälp att bedöma om enheten är i gott skick.
 3. Packa upp lådan. När du har packat upp lådan kontrollerar du att det finns:
-    - En enda kabinett Data Box Edge enhet
+    - En enda höljesdatabox edge-enhet
     - Två strömkablar
-    - En järn vägs pakets sammansättning
-    - En broschyr om säkerhet, miljö och reglerande information
+    - En montering av skensatsen
+    - Ett häfte om information om säkerhet, miljö och reglerande
 
 Om något av ovanstående saknas kontaktar du supporten för Data Box Edge. Nästa steg är att rackmontera enheten.
 
 
 ## <a name="rack-the-device"></a>Rackmontera enheten
 
-Enheten måste installeras i ett 19-tums standardrack. Använd följande procedur för att racka montera enheten på en standardiserad 19-tums rack lösning.
+Enheten måste installeras i ett 19-tums standardrack. Använd följande procedur för att rackmontera enheten på ett 19-tums standardställ.
 
 > [!IMPORTANT]
 > Data Box Edge-enheter måste rackmonteras för att fungera korrekt.
@@ -88,128 +88,128 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
 
 ### <a name="prerequisites"></a>Krav
 
-- Innan du börjar läser du säkerhets anvisningarna i broschyren om säkerhet, miljö och information. Broschyren levererades med enheten.
-- Börja installera räler på det tilldelade utrymmet som är närmast botten av rack inne slutningen.
-- För konfigurationen av konfiguration av järn vägs montering:
-    -  Du måste ange åtta skruvar: #10-32, #12-24, #M5 eller #M6. Skruvens huvud diameter måste vara mindre än 10 mm (0,4 ").
-    -  Du behöver en platt Screwdriver.
+- Innan du börjar kan du läsa säkerhetsinstruktionerna i häftet Säkerhet, Miljö och Regulatorisk information. Det här häftet levererades med enheten.
+- Börja installera skenorna i det tilldelade utrymmet som ligger närmast botten av rackhöljet.
+- För den verktygsseda skenmonteringskonfigurationen:
+    -  Du måste leverera åtta skruvar: #10-32, #12-24, #M5 eller #M6. Skruvarnas huvuddiameter skall vara mindre än 10 mm (0,4").
+    -  Du behöver en plattskruvmejsel.
 
-### <a name="identify-the-rail-kit-contents"></a>Identifiera innehållet i järnvägs paketet
+### <a name="identify-the-rail-kit-contents"></a>Identifiera innehållet i skensatsen
 
-Leta upp komponenterna för installation av järnvägs kit-sammansättningen:
-1. Två A7 Dell ReadyRails II glidande järnvägs-sammansättningar
-2. Två Hook-och loop-remmar
+Leta upp komponenterna för installation av monteringen av skensatsen:
+1. Två A7 Dell ReadyRails II glidande skenor
+2. Två krok- och öglare
 
-    ![Identifiera innehåll i järnvägs kit](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Identifiera innehållet i järnvägssatsen](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
-### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installera och ta bort verktygs lösa spår (håls-håls-hål eller Round håls-rack)
-
-> [!TIP]
-> Det här alternativet är verktyg-mindre eftersom det inte kräver verktyg för att installera och ta bort räler i den ej trådade kvadraten eller runda hålen i racken.
-
-1. Placera de vänstra och högra järnvägarna på **bak** sidan och placera varje slut punkt i hålen på fram sidan av de lodräta rackets fläns.
-2. Justera varje slut punkt i de nedre och övre hålen av önskade U-blank steg.
-3. Engagera bak sidan av järnvägen tills den är helt placerade på den lodräta rack flänsen och att Lås klickar på plats. Upprepa stegen för att placera och placera ut frontend-delen på den lodräta rackets fläns.
-4. Om du vill ta bort räler drar du tillbaka spärr knappen på slut punktens mitt punkt och tar bort varje järnväg.
-
-    ![Installera och ta bort verktygs lösa spår](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
-
-### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installera och ta bort verktygsbaserade räler (trådade håls ställningar)
+### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installera och ta bort verktygslösa skenor (fyrkantiga hål eller runda hålställ)
 
 > [!TIP]
-> Det här alternativet visas eftersom det kräver ett verktyg (_en flat-lutad Screwdriver_) för att installera och ta bort räler i de trådade runda hålen i racken.
+> Detta alternativ är verktygslös eftersom det inte kräver verktyg för att installera och ta bort skenorna i de otrådade fyrkantiga eller runda hålen i racken.
 
-1. Ta bort stiften från front-och bakre monterings hakparenteser med hjälp av en flat-lutad Screwdriver.
-2. Ta bort och rotera del sammansättningarna för järnvägs lås för att ta bort dem från monterings hakparenteserna.
-3. Koppla de vänstra och högra monterings skenorna till de främre lodräta racken med två par skruvar.
-4. Dra tillbaka vänster och höger hak paren tes framåt mot de bakre lodräta rack flänsarna och fäst dem med två par skruvar.
+1. Placera vänster och höger skena änddelar **märkta FRÄMRE** vänd inåt och rikta varje ändstycke till säte i hålen på framsidan av de vertikala rackflänsarna.
+2. Rikta in varje ändstycke i botten och de övre hålen i de önskade U-utrymmena.
+3. Koppla in rälsens bakre ände tills den sitter helt på den vertikala rackflänsen och spärren klickar på plats. Upprepa dessa steg för att placera och placera frontdelen på den vertikala rackflänsen.
+4. För att ta bort skenorna, dra i spärrens frigöringsknapp på ändstyckets mittpunkt och ta bort varje skena.
 
-    ![Installera och ta bort verktyg med verktyg](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Installera och ta bort verktygslösa skenor](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
-### <a name="install-the-system-in-a-rack"></a>Installera systemet i en rack
+### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installera och ta bort verktygsskenor (Gängade hålställ)
 
-1. Hämta de inre bildskärmarna från racket tills de låser sig.
-2. Hitta den bakre järnvägs Standoff på varje sida av systemet och sänk dem till bak sidan av bild sammansättningarna. Rotera systemet nedåt tills alla räl-standoffs har placerats på J-facken.
-3. Push-inaktive ring av systemet tills lås spaken klickar på plats.
-4. Tryck på knapparna för att låsa fri lock på båda spåren och Skjut upp systemet i racket.
+> [!TIP]
+> Detta alternativ är verktyg eftersom det kräver ett verktyg _(en platt-tippade skruvmejsel)_ för att installera och ta bort skenorna i gängade runda hål i racken.
 
-    ![Installera system i ett rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+1. Ta bort stiften från de främre och bakre monteringsfästena med en skruvmejsel med platt spets.
+2. Dra och vrid skenspärrens delenheter för att ta bort dem från monteringsfästena.
+3. Fäst vänster och höger monteringsskenor på de främre vertikala rackflänsarna med två par skruvar.
+4. Skjut vänster och höger ryggfästen framåt mot de bakre vertikala rackflänsarna och fäst dem med två par skruvar.
+
+    ![Installera och ta bort verktygsskenor](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+
+### <a name="install-the-system-in-a-rack"></a>Installera systemet i ett rack
+
+1. Dra ut de inre glidskenorna ur racket tills de låss på plats.
+2. Placera den bakre skenans dödläge på varje sida av systemet och sänk ner dem i de bakre J-spåren på glidenheterna. Rotera systemet nedåt tills alla skenor är på plats i J-spåren.
+3. Tryck in systemet mot tills låsspakarna klickar på plats.
+4. Tryck på glidlåsknapparna på båda skenorna och skjut in systemet i racket.
+
+    ![Installera systemet i ett rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
 
 ### <a name="remove-the-system-from-the-rack"></a>Ta bort systemet från racket
 
-1. Leta upp Lås spaken på sidorna av de inre spåren.
-2. Lås upp varje spaken genom att rotera den upp till dess versions position.
-3. Grepp sidorna i systemet ordentligt och hämta det framåt tills järnvägs standoffs är längst fram i J-facken. Lyft upp och bort systemet från racket och placera det på en nivå yta.
+1. Placera låsspakarna på sidorna av de inre skenorna.
+2. Lås upp varje spak genom att rotera den upp till dess frigöringsposition.
+3. Ta tag i sidorna av systemet ordentligt och dra det framåt tills skenan standoffs är på framsidan av J-slots. Lyft upp systemet och bort från racket och placera det på en plan yta.
 
     ![Ta bort systemet från racket](./media/data-box-edge-deploy-install/removing-system-rack.png)
 
-### <a name="engage-and-release-the-slam-latch"></a>Engagera och släppa slam-spärren
+### <a name="engage-and-release-the-slam-latch"></a>Koppla in och släpp slamspärren
 
 > [!NOTE]
-> För system som inte är utrustade med slam lås skyddar du systemet med hjälp av skruvar, enligt beskrivningen i steg 3 i den här proceduren.
+> För system som inte är utrustade med slamlås, säkra systemet med hjälp av skruvar, enligt beskrivningen i steg 3 i detta förfarande.
 
-1. Placera fram-och slam-spärren på båda sidor av systemet.
-2. Låsningarna sker automatiskt när systemet har lanserats i racket och släpps genom att du tar upp spärren.
-3. För att skydda systemet för leverans i racket eller för andra instabila miljöer, letar du upp hård Mount-skruven under varje lås och drar varje skruv med en #2 Phillips-Screwdriver.
+1. Vänd framåt, leta upp slamspärren på vardera sidan av systemet.
+2. Spärrarna aktiveras automatiskt när systemet trycks in i racket och frigörs genom att dra upp spärrarna.
+3. För att säkra systemet för transport i racket eller för andra instabila miljöer, placera den hårda skruven under varje spärr och dra åt varje skruv med en #2 Phillips skruvmejsel.
 
-    ![Engagera och Frisläpp slam-spärr](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Engagera och släpp slam spärren](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 
 ## <a name="cable-the-device"></a>Kabelansluta enheten
 
-Dirigera kablarna och kablar sedan enheten. Följande procedurer beskriver hur du kan kontakta din Data Box Edge-enhet för strömförsörjning och nätverk.
+Dra kablarna och kabel-tv-apparaten. Följande procedurer förklarar hur du kabel din Data Box Edge-enhet för ström och nätverk.
 
 Innan du börjar kabelansluta enheten behöver du följande:
 
-- Din Data Box Edge fysiska enhet, packas upp och rack montering.
+- Din fysiska enhet för DataBox Edge, uppackad och rackmonterad.
 - Två strömkablar.
 - Minst en 1-GbE RJ-45-nätverkskabel för att ansluta till hanteringsgränssnittet. Det finns två 1-GbE-nätverksgränssnitt på enheten, ett för hantering och ett för data.
 - En 25-GbE SFP+-kopparkabel för varje datanätverksgränssnitt som ska konfigureras. Minst ett datanätverksgränssnitten PORT 2, PORT 3, PORT 4, PORT 5 eller PORT 6 måste vara anslutet till Internet (med anslutning till Azure).  
 - Åtkomst till två strömfördelare (rekommenderas).
 
 > [!NOTE]
-> - Om du bara ansluter ett data nätverks gränssnitt rekommenderar vi att du använder ett 25/10-GbE-nätverkskort, till exempel PORT 3, PORT 4, PORT 5 eller PORT 6 för att skicka data till Azure. 
+> - Om du bara ansluter ett datanätverksgränssnitt rekommenderar vi att du använder ett nätverksgränssnitt på 25/10 GBE, till exempel PORT 3, PORT 4, PORT 5 eller PORT 6 för att skicka data till Azure. 
 > - För att få bästa prestanda och hantera stora datavolymer bör du ansluta alla dataportar.
-> - Den Data Box Edge enheten bör anslutas till data Center nätverket så att den kan mata in data från data käll servrar.
+> - DataBox Edge-enheten bör vara ansluten till datacenternätverket så att den kan mata in data från datakällservrar.
 
 På din Data Box Edge-enhet:
 
-- På Front panelen finns det disk enheter och en ström knapp.
+- Frontpanelen har hårddiskar och en strömbrytare.
 
-    - Det finns 10 disk fack överst på enheten.
-    - Fack 0 har en SATA-enhet på 240 GB som används som en operativ system disk. Fack 1 är tomt och fack 2 till 9 är NVMe-SSD som används som data diskar.
-- Back planet innehåller redundanta strömförsörjnings enheter (PSUs).
-- Det bakre planet har sex nätverks gränssnitt:
+    - Det finns 10 diskplatser på enhetens framsida.
+    - Plats 0 har en SATA-enhet på 240 GB som används som operativsystemdisk. Plats 1 är tom och fack 2 till 9 är NVMe SSD som används som datadiskar.
+- Det bakre planet innehåller redundanta nätaggregat.
+- Det bakre planet har sex nätverksgränssnitt:
 
-    - Två 1 Gbit/s-gränssnitt.
-    - 4 25 Gbit/s-gränssnitt som också kan fungera som 10 Gbit/s-gränssnitt.
-    - En BMC (Baseboard Management Controller).
+    - Två gränssnitt med 1 Gbit/s.
+    - Fyra 25-Gbps-gränssnitt som också kan fungera som 10 Gbit/s-gränssnitt.
+    - En styrenhet för baseboardhantering (BMC).
 
-- Det bakre planet har två nätverkskort som motsvarar 6 portar:
+- Det bakre planet har två nätverkskort som motsvarar de 6 portarna:
 
     - QLogic FastLinQ 41264
     - QLogic FastLinQ 41262
 
-En fullständig lista över kablar, växlar och Sänd tagare som stöds för dessa nätverkskort finns i [Cavium FastlinQ 41000-serien](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+En fullständig lista över kablar, switchar och sändtagare som stöds för dessa nätverkskort finns i [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Utför följande steg för att kabelansluta enheten för strömförsörjning och nätverk.
 
-1. Identifiera de olika portarna på enhetens bak plan.
+1. Identifiera de olika portarna på enhetens bakre plan.
 
-    ![Back plan för en kabelansluten enhet](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    ![Bakre plan på en kabelanordning](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-2. Leta upp disk facken och strömbrytaren på enhetens fram sida.
+2. Leta reda på diskplatserna och strömbrytaren på enhetens framsida.
 
-    ![Front plan för en enhet](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+    ![Främre plan på en enhet](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
 
 3. Anslut strömkablarna till vart och ett av nätaggregaten i höljet. För att säkerställa hög tillgänglighet installerar och ansluter du båda nätaggregaten till olika strömkällor.
 4. Anslut strömkablarna till rackets strömfördelare (PDU). Se till att de två strömfördelarna använder separata strömkällor.
-5. Tryck på ström knappen för att aktivera enheten.
+5. Tryck på strömbrytaren för att slå på enheten.
 6. Anslut PORT 1 på nätverksgränssnittet med 1 GbE till den dator som används för att konfigurera den fysiska enheten. PORT 1 är det dedikerade hanteringsgränssnittet.
 7. Anslut en eller flera av PORT 2, PORT 3, PORT 4, PORT 5 eller 6 PORT till datacenternätverket/Internet.
 
     - Om du ansluter PORT 2 använder du RJ-45-nätverkskabeln.
-    - För nätverks gränssnitten på 10/25-GbE använder du de SFP + koppar kablarna.
+    - För 10/25-GbE-nätverksgränssnitten använder du SFP+-kopparkablarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

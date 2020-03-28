@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Distribuera Node. js-appar som drivs av Azure Cosmos DB med Azure DevOps Projects'
-description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera Node. js-appen som drivs av Azure Cosmos DB till Windows Web App med några få enkla steg.
+title: 'Självstudiekurs: Distribuera Node.js-appar som drivs av Azure Cosmos DB med Azure DevOps-projekt'
+description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps-projekt kan du distribuera din Node.js-app som drivs av Azure Cosmos DB till Windows Web App i några snabba steg.
 ms.author: mlearned
 ms.manager: gwallace
 ms.prod: devops
@@ -10,60 +10,60 @@ ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73888893"
 ---
-# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Distribuera Node. js-appar som drivs av Azure Cosmos DB med DevOps Projects
+# <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Distribuera Node.js-appar som drivs av Azure Cosmos DB med DevOps-projekt
 
-Azure DevOps Projects erbjuder en strömlinjeformad upplevelse där du kan skapa en pipeline för kontinuerlig integrering (CI) och kontinuerlig distribution (CD) till Azure. Du gör detta genom att använda din befintliga kod och git-lagringsplats (lagrings platsen) eller genom att välja ett exempel program.
+Azure DevOps Projects erbjuder en strömlinjeformad upplevelse där du kan skapa en kontinuerlig integration (CI) och CD-pipeline (Continuous Deployment) till Azure. Du gör detta genom att använda din befintliga kod och Git-databas (repo) eller genom att välja ett exempelprogram.
 
 DevOps-projekt gör även följande:
 
-* Skapar automatiskt Azure-resurser, till exempel Azure Cosmos DB, Azure Application insikter, Azure App Service och App Service planer
+* Skapar Azure-resurser automatiskt, till exempel Azure Cosmos DB, Azure Application Insights, Azure App Service och App Service-abonnemang
 
-* Skapar och konfigurerar en versions pipeline för CI/CD i Azure DevOps
+* Skapar och konfigurerar en CI/CD-versionspipeline i Azure DevOps
 
 I den här kursen ska du:
 
 > [!div class="checklist"]
-> * Använd DevOps Projects för att distribuera en Node. js-app som drivs av Azure Cosmos DB
+> * Använda DevOps-projekt för att distribuera en Node.js-app som drivs av Azure Cosmos DB
 > * Konfigurera Azure DevOps och en Azure-prenumeration
-> * Granska Azure Cosmos DB
+> * Undersök Azure Cosmos DB
 > * Granska CI-pipelinen
 > * Granska CD-pipelinen
-> * Genomför ändringarna i git och distribuera dem automatiskt till Azure
+> * Genomför ändringarna i Git och distribuera dem automatiskt till Azure
 > * Rensa resurserna
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Du behöver en Azure-prenumeration, som du kan få via [Visual Studio dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) kostnads fritt.
+Du behöver en Azure-prenumeration som du kan få via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/) utan kostnad.
 
-## <a name="use-devops-projects-to-deploy-nodejs-app"></a>Använd DevOps Projects för att distribuera Node. js-appen
+## <a name="use-devops-projects-to-deploy-nodejs-app"></a>Använda DevOps-projekt för att distribuera nod.js-appen
 
-DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar också Azure-resurser, till exempel Azure Cosmos DB, Application Insights, App Service och App Service-planer i den Azure-prenumeration du väljer.
+DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps-projekt skapar också Azure-resurser, till exempel Azure Cosmos DB, Application Insights, App Service och App Service-abonnemang, i den Azure-prenumeration du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
-1. Skriv **DevOps Projects**i sökrutan och välj sedan **Lägg till**.
+1. Skriv **DevOps-projekt**i sökrutan och välj sedan **Lägg till**.
 
-   ![DevOps Projectss fönster](_img/azure-devops-project-cosmos-db/devops-project.png)
+   ![Fönstret DevOps-projekt](_img/azure-devops-project-cosmos-db/devops-project.png)
 
-1. Välj **Node. js** som körnings miljö och välj sedan **Nästa**. Under **Välj ett program ramverk**väljer du **Express. js**.
+1. Välj **Nod.js** som körning och välj sedan **Nästa**. Under **Välj ett programramverk**väljer du **Express.js**.
 
 1. Aktivera avsnittet **Lägg till en databas** för **Cosmos DB**och välj sedan **Nästa**.
 
-    ![Lägg till en databas](_img/azure-devops-project-cosmos-db/add-database.png)
+    ![Lägga till en databas](_img/azure-devops-project-cosmos-db/add-database.png)
 
-    Azure DevOps Projects stöder olika program ramverk, till exempel **Express. js**, **Sample Node. js-app**och **segel. js**. I den här självstudien använder vi **Express. js**.
+    Azure DevOps-projekt stöder olika programramverk, till exempel **Express.js,** **Exempelnod.js-appen**och **Sail.js**. I den här guiden använder vi **Express.js**.
 
-1. Välj en Azure-tjänst för att distribuera programmet och välj sedan **Nästa**. Alternativen omfattar Windows Web App, Azure Kubernetes service och Azure Web App for Containers. I den här självstudien använder vi **Windows Web App**.
+1. Välj en Azure-tjänst för att distribuera programmet och välj sedan **Nästa**. Alternativen inkluderar Windows Web App, Azure Kubernetes Service och Azure Web App for Containers. I den här självstudien använder vi **Windows Web App**.
 
-## <a name="configure-azure-devops-and-azure-subscription"></a>Konfigurera Azure-DevOps och Azure-prenumerationen
+## <a name="configure-azure-devops-and-azure-subscription"></a>Konfigurera Azure DevOps- och Azure-prenumeration
 
 1. Ange ett namn för ditt Azure DevOps-projekt.
 
@@ -71,27 +71,27 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 1. Välj din Azure-prenumeration.
 
-1. Om du vill visa ytterligare inställningar för Azure-konfigurationen eller identifiera pris nivån och platsen väljer du **ytterligare inställningar**. I det här fönstret visas olika alternativ för att konfigurera pris nivån och platsen för Azure-tjänster.
+1. Om du vill visa ytterligare Azure-konfigurationsinställningar eller identifiera prisnivå och plats väljer du **Ytterligare inställningar**. I den här rutan visas olika alternativ för att konfigurera prisnivån och platsen för Azure-tjänster.
 
 1. Stäng Azure-konfigurationsområdet och välj sedan **Klar**.
 
-1. Processen har slutförts efter några minuter. En exempel-Node. js-app har kon figurer ATS i en git-lagrings platsen i din Azure DevOps-organisation. Sedan skapas Azure Cosmos DB, App Service, App Service plan och Application Insights resurser, samt en CI/CD-pipeline. Din app distribueras sedan till Azure.
+1. Processen avslutas efter några minuter. En exempelnod.js-app har konfigurerats i en Git-repo i din Azure DevOps-organisation. Sedan skapas Azure Cosmos DB, App Service, App Service Plan och Application Insights-resurser samt en CI/CD-pipeline. Din app distribueras sedan till Azure.
 
-   När alla dessa processer har slutförts visas instrument panelen för Azure DevOps-projektet i Azure Portal. Du kan även gå till DevOps Projects-instrumentpanelen direkt från **Alla resurser** i Azure-portalen.
+   När alla dessa processer är klara visas instrumentpanelen Azure DevOps Project i Azure-portalen. Du kan även gå till DevOps Projects-instrumentpanelen direkt från **Alla resurser** i Azure-portalen.
 
-   Den här instrument panelen ger insyn i din Azure DevOps Code-lagringsplats, din CI/CD-pipeline och din Azure Cosmos DB databas. Du kan konfigurera fler CI/CD-alternativ i din Azure DevOps-pipeline. Välj **Azure Cosmos DB** på höger sida av instrument panelen för att visa dessa alternativ.
+   Den här instrumentpanelen ger insyn i din Azure DevOps-kodlagringsplats, din CI/CD-pipeline och din Azure Cosmos DB-databas. Du kan konfigurera fler CI/CD-alternativ i din Azure DevOps-pipeline. Till höger på instrumentpanelen väljer du **Azure Cosmos DB** för att visa dessa alternativ.
 
-## <a name="examine-azure-cosmos-db"></a>Granska Azure Cosmos DB
+## <a name="examine-azure-cosmos-db"></a>Undersök Azure Cosmos DB
 
-DevOps Projects konfigurerar Azure Cosmos DB automatiskt, som du kan utforska och anpassa. Gör så här för att bekanta dig med Azure Cosmos DB:
+DevOps-projekt konfigurerar automatiskt Azure Cosmos DB, som du kan utforska och anpassa. Gör följande om du vill bekanta dig med Azure Cosmos DB:
 
 1. Gå till DevOps Projects-instrumentpanelen.
 
-    ![DevOps Projects instrument panel](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
+    ![Instrumentpanelen DevOps-projekt](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
 
-1. Välj Azure Cosmos DB till höger. Ett fönster öppnas för Azure Cosmos DB. I den här vyn kan du utföra olika åtgärder, till exempel övervakning av åtgärder och söknings loggar.
+1. Till höger väljer du Azure Cosmos DB. En ruta öppnas för Azure Cosmos DB. Från den här vyn kan du utföra olika åtgärder, till exempel övervakningsåtgärder och sökloggar.
 
-    ![Azure Cosmos DBs fönster](_img/azure-devops-project-cosmos-db/cosmos-db.png)
+    ![Portalen Azure Cosmos DB](_img/azure-devops-project-cosmos-db/cosmos-db.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Granska CI-pipelinen
 
@@ -99,19 +99,19 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 1. Gå till DevOps Projects-instrumentpanelen.
 
-1. Välj hyperlänken under **build**. En webbläsarflik visar bygg-pipelinen för det nya projektet.
+1. Markera hyperlänken under **Skapa**. En webbläsarflik visar bygg-pipelinen för det nya projektet.
 
-    ![Fönstret build](_img/azure-devops-project-cosmos-db/build.png)
+    ![Bygg fönsterruta](_img/azure-devops-project-cosmos-db/build.png)
 
-1. Välj **Redigera**. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen. Versionen utför olika uppgifter, till exempel hämtning av källkod från git-lagrings platsen, skapande av program, körning av enhets test och publicering av utdata som används för distributioner.
+1. Välj **Redigera**. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen. Build utför olika uppgifter, till exempel hämta källkod från Git-repo, skapa programmet, köra enhetstester och publicera utdata som används för distributioner.
 
-1. Välj **utlösare**. DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att ta med eller undanta grenar från CI-processen.
+1. Välj **Utlösare**. DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version. Du kan välja att inkludera eller utesluta grenar från CI-processen.
 
 1. Välj **Kvarhållning**. Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra namnet på din build-pipeline till något mer beskrivande och välj sedan **Spara** i list rutan **Spara & kö** .
+1. Ändra namnet på byggpipelinen till något mer beskrivande och välj sedan Spara i den rullgardinsmenyn **Spara &.Change** the name of your build pipeline to something more descriptive, and then select **Save from** the Save & queue dropdown.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**. I den här fönsterrutan visas en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
@@ -119,56 +119,56 @@ DevOps Projects konfigurerar automatiskt en Azure CI/CD-pipeline i Azure DevOps-
 
 DevOps-projekt skapar och konfigurerar automatiskt de steg som är nödvändiga för att distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
 
-1. Gå till **pipeliner** och välj **versioner**.
+1. Gå till **Pipelines** och välj **Releases**.
 
 1. Välj **Redigera**.
 
 1. Under **Artefakter** väljer du **Släpp**. Den bygg-pipeline som du undersökte i de föregående stegen skapar de utdata som används för artefakten.
 
-1. Till höger om **Drop** -ikonen väljer du **utlösare för kontinuerlig distribution**. Den här versionen av pipelinen har aktiverat en kontinuerlig distributions utlösare, som utför en distribution varje gång en ny versions artefakt är tillgänglig. Du kan inaktivera utlösaren så att distributionen körs manuellt.
+1. Till höger om **ikonen Släpp** väljer du Kontinuerlig **distributionsutlösare**. Den här versionspipelinen har aktiverat utlösare för kontinuerlig distribution, som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan inaktivera utlösaren så att distributionerna körs manuellt.
 
-1. Till höger väljer du avsnitts **Visa versioner** för att visa en historik över versioner.
+1. Till höger väljer du avsnittet **Visa versioner** för att visa en historik över utgåvor.
 
-1. Välj den version som ska Visa pipelinen. Välj valfri miljö för att kontrol lera sammanfattningen av utgåvor, COMMIT eller associerade arbets objekt.
+1. Välj utgivningen som ska visa pipelinen. Markera valfri miljö om du vill kontrollera versionssammanfattningen, åtagandena eller tillhörande arbetsobjekt.
 
 1. Välj **Incheckningar**. Den här vyn visar kodincheckningar som är associerade med den här distributionen. Jämför versioner för att se skillnaderna i incheckning mellan distributioner.
 
 1. Välj **Visa loggar**. Loggarna innehåller användbar information om distributionsprocessen. Du kan visa dem både under och efter distributionerna.
 
-## <a name="commit-code-changes-and-execute-the-cicd-pipeline"></a>Genomför kod ändringar och kör CI/CD-pipeline
+## <a name="commit-code-changes-and-execute-the-cicd-pipeline"></a>Genomföra kodändringar och köra CI/CD-pipelinen
 
 > [!NOTE]
 > Följande procedur testar CI/CD-pipeline med en enkel textändring.
 
-Du är nu redo att samar beta med ett team i din app genom att använda en CI/CD-process som distribuerar ditt senaste arbete till din App Service. Varje ändring i Git-lagringsplatsen startar en version i Azure DevOps och en CD-pipeline för kör en distribution till Azure. Följ proceduren i det här avsnittet eller använd en annan metod för att genomföra ändringarna för lagringsplatsen. Du kan till exempel klona Git-lagringsplatsen i ditt favoritverktyg eller IDE och sedan push-överföra ändringarna till den här lagringsplatsen.
+Du är nu redo att samarbeta med ett team i din app med hjälp av en CI/CD-process som distribuerar ditt senaste arbete till din App Service. Varje ändring i Git-lagringsplatsen startar en version i Azure DevOps och en CD-pipeline för kör en distribution till Azure. Följ proceduren i det här avsnittet eller använd en annan metod för att checka in ändringarna till lagringsplatsen. Du kan till exempel klona Git-lagringsplatsen i ditt favoritverktyg eller IDE och sedan push-överföra ändringarna till den här lagringsplatsen.
 
-1. På menyn Azure-DevOps väljer du **databaser** och sedan **filer**. Gå sedan till din lagrings platsen.
+1. På Azure DevOps-menyn väljer du **Repos** och sedan **Filer**. Gå då till din repa.
 
-1. Lagrings platsen innehåller redan kod baserat på det program språk som du valde i skapande processen. Öppna filen **program/vyer/index. pug** .
+1. Repo innehåller redan kod baserat på det programspråk som du valde i skapandeprocessen. Öppna filen **Program/views/index.pug.**
 
-1. Välj **Redigera**och gör sedan en ändring av **rad nummer 15**. Du kan till exempel ändra till "min första distribution till Azure App Service som drivs av Azure Cosmos DB."
+1. Välj **Redigera**och gör sedan en ändring av **radnummer 15**. Du kan till exempel ändra den till "Min första distribution till Azure App Service som drivs av Azure Cosmos DB.",
 
-1. I det övre högra hörnet väljer du **genomför**och väljer sedan **genomför** igen för att skicka din ändring.
+1. I det övre högra hörnet väljer du **Commit**och väljer sedan **Commit** igen för att driva ändringen.
 
      Efter några sekunder startar en version i Azure DevOps och en version körs för att distribuera ändringarna. Övervaka versionstillståndet med instrumentpanelen för DevOps Projects eller i webbläsaren med din Azure DevOps-organisation.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de relaterade resurserna som du har skapat när du inte behöver dem längre. Använd funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
+Ta bort de relaterade resurser som du har skapat när du inte behöver dem längre. Använd funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan ändra dessa bygg- och versionspipelines för att tillgodose ditt teams behov. Du kan också använda det här CI/CD-mönstret som en mall för dina andra pipelines. I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Använd DevOps Projects för att distribuera en Node. js-app som drivs av Azure Cosmos DB
+> * Använda DevOps-projekt för att distribuera en Node.js-app som drivs av Azure Cosmos DB
 > * Konfigurera Azure DevOps och en Azure-prenumeration 
-> * Granska Azure Cosmos DB
+> * Undersök Azure Cosmos DB
 > * Granska CI-pipelinen
 > * Granska CD-pipelinen
 > * Genomföra ändringar i Git och distribuera dem automatiskt till Azure
 > * Rensa resurser
 
-Mer information och nästa steg finns i [definiera en pipeline för kontinuerlig distribution i flera steg (CD)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) .
+Mer information och nästa steg [finns i Definiera cd-pipelinen (Multi-stage continuous deployment)](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts) för mer information och nästa steg.
 
 

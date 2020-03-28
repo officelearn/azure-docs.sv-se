@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 63c531cc0e600d82df74154adb212be76ba9b4de
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368535"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474432"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Självstudie – Distribuera HSM:er till ett befintligt virtuellt nätverk med hjälp av PowerShell
 
@@ -38,7 +38,7 @@ Den här självstudien fokuserar på integreringen av ett par HSM:er och den nö
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Dedikerad HSM i Azure är inte tillgängligt i Azure-portalen. Därför sker all interaktion med tjänsten via kommandoraden eller PowerShell. Den här självstudien använder PowerShell i Azure Cloud Shell. Om PowerShell är nytt för dig följer du instruktionerna för att komma igång här: [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -217,7 +217,7 @@ SSH-verktyget används för att ansluta till den virtuella datorn. Kommandot lik
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 Lösenordet är det som kommer från parameterfilen.
-När du är inloggad på den virtuella Linux-datorn kan du logga in på HSM med hjälp av den privata IP-adress som finns i portalen för hsm_vnic för resurs \<prefix >.
+När du har loggat in på Linux-vm kan du logga in på HSM med den privata IP-adressen som finns i portalen för resursprefixet \<>hsm_vnic.
 
 ```powershell
 
@@ -245,20 +245,12 @@ I det här skedet har du allokerat alla resurser för en distribution med hög t
 
 ## <a name="delete-or-clean-up-resources"></a>Ta bort eller rensa resurser
 
-Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras till poolen. Det uppenbara problemet när du gör detta är eventuella känsliga kunddata som finns på enheten. Det bästa sättet att "zeroize" en enhet är att få lösen ordet för HSM-administratören fel tre gånger (Obs! det här är inte enhets administratören, det är den faktiska HSM-administratören). Som säkerhets åtgärd för att skydda nyckel material kan enheten inte tas bort som en Azure-resurs förrän den är i ett nollställt tillstånd.
+Om du är klar med bara HSM-enheten kan den tas bort som resurs och returneras till poolen. Det uppenbara problemet när du gör detta är eventuella känsliga kunddata som finns på enheten. Det bästa sättet att "nollställa" en enhet är att få HSM admin lösenord fel 3 gånger (obs: detta är inte apparaten admin, det är den faktiska HSM admin). Som en säkerhetsåtgärd för att skydda nyckelmaterial kan enheten inte tas bort som en Azure-resurs förrän den är i nollställning.
 
 > [!NOTE]
 > om det är problem med någon Gemalto-enhetskonfiguration bör du kontakta [Gemaltos kundsupport](https://safenet.gemalto.com/technical-support/).
 
-Om du bara vill ta bort HSM-resursen i Azure kan du använda följande kommando för att ersätta "$"-variablerna med dina unika parametrar:
-
-```powershel
-
-Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
-
-```
-
-Om du är klar med resurserna i den här resursgruppen kan du ta bort dem alla med följande kommando:
+Om du vill ta bort HSM-resursen i Azure kan du använda följande kommando som ersätter variablerna "$" med dina unika parametrar:
 
 ```powershell
 

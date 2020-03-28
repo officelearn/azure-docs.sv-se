@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dacoulte
 ms.openlocfilehash: 1693d0d68b7c4a02ef473fb435e65772796067a9
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79381529"
 ---
 |Namn |Beskrivning |Principer |Version |
 |---|---|---|---|
-|[\[för hands version\]: aktivera Data Protection Suite](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_DataProtection.json) |Aktivera data skydd för SQL-servrar. Detta initiativ tilldelas automatiskt av Azure Security Center standard nivån. |1 |1.0.0 – för hands version |
-|[Aktivera övervakning i Azure Security Center](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json) |Övervaka alla tillgängliga säkerhets rekommendationer i Azure Security Center. Det här är standard principen för Azure Security Center. |96 |2.0.1 |
+|[\[Förhandsgranskning:\]Aktivera Data Protection Suite](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/ASC_DataProtection.json) |Aktivera dataskydd för SQL-servrar. Det här initiativet tilldelas automatiskt av Azure Security Center Standard Tier. |1 |1.0.0-förhandsvisning |
+|[Aktivera övervakning i Azure Security Center](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Security%20Center/AzureSecurityCenter.json) |Övervaka alla tillgängliga säkerhetsrekommendationer i Azure Security Center. Det här är standardprincipen för Azure Security Center. |96 |2.0.1 |

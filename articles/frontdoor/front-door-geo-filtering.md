@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Geofiltrering på en domän för Azure Front Door Service | Microsoft Docs
-description: I den här artikeln får du lära dig om geofiltreringprinciper för Azure Front Door Service
+title: Geofiltrering på en domän för Azure Front Door | Microsoft-dokument
+description: I den här artikeln får du lära dig mer om geofiltreringsprincipen för Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -13,22 +13,22 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 7ad2d181b6343644205c58ab1d5fe83dc25542d4
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
-ms.translationtype: HT
+ms.openlocfilehash: 80641ca27949435f65222ecab17cc3079e2a6359
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846416"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79471616"
 ---
-# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Vad är geo-filtrering på en domän för Azure-åtkomsten?
+# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>Vad är geofiltrering på en domän för Azure Front Door?
 
-Som standard svarar Azure Front Door Service på användarnas begäranden oavsett var användaren som skickar begäran finns. Men i vissa fall kan du begränsa åtkomsten till dina webbprogram efter land/region. Webbtjänsten application firewall (WAF) på ytterdörren kan du definiera en princip med hjälp av anpassade åtkomstregler för specifik sökväg på din slutpunkt för att tillåta eller blockera åtkomst från angivna länder/regioner. 
+Som standard svarar Azure Front Door på användarförfrågningar oavsett var användaren gör begäran. I vissa fall kanske du vill begränsa åtkomsten till dina webbprogram efter land/region. Med WAF-tjänsten (Web Application Firewall) vid Ytterdörren kan du definiera en princip med hjälp av anpassade åtkomstregler för specifik sökväg på slutpunkten för att tillåta eller blockera åtkomst från angivna länder/regioner. 
 
-En WAF-principen innehåller vanligtvis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För en geofiltreringsregel är matchningsvariabeln REMOTE_ADDR, operatorn är GeoMatch och värdet är landskoden på två bokstäver av intresse. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
+En WAF-princip innehåller vanligtvis en uppsättning anpassade regler. En regel består av matchningsvillkor, en åtgärd och en prioritet. I matchningsvillkor definierar du en matchningsvariabel, en operator och ett matchningsvärde.  För en geofiltreringsregel är matchningsvariabeln REMOTE_ADDR, operatorn är GeoMatch och värdet är landskoden på två bokstäver av intresse. Du kan kombinera ett GeoMatch-villkor och ett matchningsvillkor för REQUEST_URI-sträng för att skapa en sökvägsbaserad geofiltreringsregel.
 
-Du kan konfigurera en princip för geo-filtrering för ytterdörren genom att antingen använda [Azure PowerShell](front-door-tutorial-geo-filtering.md) eller med hjälp av vår [snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Du kan konfigurera en geofiltreringsprincip för din ytterdörr genom att antingen använda [Azure PowerShell](front-door-tutorial-geo-filtering.md) eller genom att använda vår [snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
-## <a name="country-code-reference"></a>Referens till land
+## <a name="country-code-reference"></a>Landskodsreferens
 
 |Landskod | Landsnamn |
 | ----- | ----- |
@@ -53,7 +53,7 @@ Du kan konfigurera en princip för geo-filtrering för ytterdörren genom att an
 | BH | Bahrain|
 | BI | Burundi|
 | BJ | Benin|
-| BL | Saint Barthelemy|
+| BL | Sankt Barthélemy|
 | BN | Brunei Darussalam|
 | BO | Bolivia|
 | BR | Brasilien|
@@ -98,7 +98,7 @@ Du kan konfigurera en princip för geo-filtrering för ytterdörren genom att an
 | GR | Grekland|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hongkong SAR|
+| HK | Hongkong|
 | HN | Honduras|
 | HR | Kroatien|
 | HT | Haiti|
@@ -137,11 +137,11 @@ Du kan konfigurera en princip för geo-filtrering för ytterdörren genom att an
 | MA | Marocko|
 | MD | Moldavien|
 | MG | Madagaskar|
-| MK | Makedonien|
+| MK | Nordmakedonien|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongoliet|
-| MO | Macao SAR|
+| MO | Folkrepubliken Kinas särskilda administrativa region Macao|
 | MQ | Martinique|
 | MR | Mauretanien|
 | MT | Malta|

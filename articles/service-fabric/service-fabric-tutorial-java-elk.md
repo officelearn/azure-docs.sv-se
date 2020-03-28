@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75376670"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Självstudie: Övervaka dina Service Fabric-program med ELK
@@ -26,10 +26,10 @@ I del fyra i serien lär du dig att:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
-> * [distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Distribuera och felsöka ditt program på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [Distribuera programmet till ett Azure-kluster](service-fabric-tutorial-java-deploy-azure.md)
 > * Konfigurera övervakning och diagnostik för programmet
-> * [konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
+> * [Konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -140,7 +140,7 @@ Du kan använda en förkonfigurerad ELK-miljö för den här självstudiekursen,
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Öppna Kibana-instrumentpanelen på **http:\//Server-IP** och ange användar namn och lösen ord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
+8. Öppna din Kibana-instrumentpanel på **http:\//SERVER-IP** och ange användarnamn och lösenord för Kibana. Har du använt ELK-avbildningen i Azure så är standardanvändarnamnet 'user', och lösenordet är det som du hämtade från **Startdiagnostik**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

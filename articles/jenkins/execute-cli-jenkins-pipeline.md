@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, app service, cli
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: bd9192974f6860d08d84a9028702ce2203f562e7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158830"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuera till Azure App Service med Jenkins och Azure CLI
@@ -27,13 +27,13 @@ För den här självstudien krävs Azure CLI-version 2.0.4 eller senare. Kör `a
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-and-configure-jenkins-instance"></a>Skapa och konfigurera en Jenkins-instans
-Om du inte redan har en Jenkins-Master börjar du med [lösnings mal len](install-jenkins-solution-template.md), som innehåller obligatoriska plugin-program för [Azure-autentiseringsuppgifter](https://plugins.jenkins.io/azure-credentials) som standard. 
+Om du inte redan har en Jenkins-huvudsida börjar du med [lösningsmallen](install-jenkins-solution-template.md), som innehåller det nödvändiga plugin-programmet [för Azure-autentiseringsuppgifter](https://plugins.jenkins.io/azure-credentials) som standard. 
 
-Med plugin-programmet för Azure Credential kan du lagra Microsoft Azure tjänstens huvud namn autentiseringsuppgifter i Jenkins. I version 1.2 har vi lagt till stöd för Jenkins Pipeline att hämta Azure-autentiseringsuppgifterna. 
+Med plugin-programmet För Azure-autentiseringsuppgifter kan du lagra autentiseringsuppgifter för Microsoft Azure-tjänstens huvudnamn i Jenkins. I version 1.2 har vi lagt till stöd för Jenkins Pipeline att hämta Azure-autentiseringsuppgifterna. 
 
 Kontrollera att du har version 1.2 eller senare:
 * I Jenkins-instrumentpanelen klickar du på **Hantera Jenkins -> Plugin-hanterare ->** och söker reda på **Azure Credential**. 
-* Uppdatera plugin-programmet om versionen är tidigare än 1,2.
+* Uppdatera plugin-programmet om versionen är tidigare än 1.2.
 
 Java JDK och Maven krävs också på Jenkins-huvudservern. Om du vill installera loggar du in på Jenkins-huvudservern med SSH och kör följande kommandon:
 ```bash
@@ -45,7 +45,7 @@ sudo apt-get install -y maven
 
 En Azure-autentiseringsuppgift krävs för att Azure CLI ska kunna köras.
 
-* I instrumentpanelen för Jenkins klickar du på **Autentiseringsuppgifter -> System**. Klicka på **Globala autentiseringsuppgifter (obegränsade)** .
+* I instrumentpanelen för Jenkins klickar du på **Autentiseringsuppgifter -> System**. Klicka på **Globala autentiseringsuppgifter (obegränsade)**.
 * Klicka på **Lägg till autentiseringsuppgifter** för att lägga till ett [Microsoft Azure-tjänsthuvudnamn](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) genom att fylla i prenumerations-ID, klient-ID, klienthemlighet och OAuth 2.0 Token Endpoint. Ange ett ID för användning i senare steg.
 
 ![Ange autentiseringsuppgifter](./media/execute-cli-jenkins-pipeline/add-credentials.png)
@@ -113,7 +113,7 @@ När webbappsdefinitionen är klar visar Azure CLI information liknande den i f�
 
 Konfigurera den Java Runtime-konfiguration som appen behöver med kommandot [az appservice web config update](/cli/azure/webapp/config).
 
-Följande kommando konfigurerar webbappen att köra på en sen Java 8 JDK och [Apache Tomcat](https://tomcat.apache.org/) 8.0.
+Följande kommando konfigurerar webbappen att köra på en aktuell Java 8 JDK och [Apache Tomcat](https://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set \ 
@@ -170,7 +170,7 @@ Du ser:
 ## <a name="deploy-to-azure-web-app-on-linux"></a>Distribuera till Azure Web App i Linux
 Nu när du vet hur du använder Azure CLI i din Jenkins-pipeline kan du ändra skriptet för att distribuera till en Azure Web App i Linux.
 
-Web App i Linux har stöd för ett annat distributionssätt: via Docker. För att kunna distribuera måste du tillhandahålla en Dockerfile som paketerar webbappen med en tjänst-CLR till en Docker-avbildning. Plugin-programmet skapar sedan avbildningen, push-överför den till ett Docker-register och distribuerar avbildningen till din webbapp.
+Web App i Linux har stöd för ett annat distributionssätt: via Docker. För att kunna distribuera måste du tillhandahålla en Dockerfile som paketerar webbappen med en tjänst-CLR till en Docker-avbildning. Plugin-programmet kommer sedan att bygga avbildningen, skicka den till ett Docker-register och distribuera avbildningen till din webbapp.
 
 * Följ stegen [här](../app-service/containers/quickstart-nodejs.md) för att skapa en Azure Web App som körs på Linux.
 * Installera Docker på Jenkins-instansen genom att följa anvisningarna i den här [artikeln](https://docs.docker.com/engine/installation/linux/ubuntu/).

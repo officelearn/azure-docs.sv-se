@@ -1,5 +1,5 @@
 ---
-title: Skicka meddelanden till specifika Windows-telefoner med Azure Notification Hubs | Microsoft Docs
+title: Skicka push-meddelanden till specifika Windows-telefoner med Azure Notification Hubs | Microsoft-dokument
 description: I den här självstudiekursen kommer du att få lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till specifika (inte alla) Windows Phone 8- eller Windows Phone 8.1-enheter som har registrerats med programserverdelen.
 services: notification-hubs
 documentationcenter: windows
@@ -17,25 +17,25 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 88326b07a96dcc8ce7a72f8709a88c2662f48707
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 72ecb5bdb6bb024c5e4422548dd11888c03e4799
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213402"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80126946"
 ---
-# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till specifika Windows Phone-enheter med hjälp av Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Självstudiekurs: Skicka push-meddelanden till specifika Windows-telefoner med Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till specifika Windows Phone 8- eller Windows Phone 8.1-enheter. Om du vill skicka meddelanden till Windows Phone 8.1 (utan Silverlight) så gå till [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)-versionen av den här självstudiekursen.
 
-Du aktiverar det här scenariot genom att inkludera en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg tar alla enheter som har registrerats för taggen emot meddelandet. Mer information om taggar finns i [Taggar i registreringar](notification-hubs-tags-segment-push-message.md).
+Du aktiverar det här scenariot genom att inkludera en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg tar alla enheter som har registrerats för taggen emot meddelandet. Mer information om taggar finns [i Taggar i registreringar](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
 > SDK:erna för Windows Phone på Notification Hubs stöder inte användning av Windows Push Notification Service (WNS) med Silverlight-appar för Windows Phone 8.1. Om du vill använda WNS (istället för MPNS) med Silverlight-appar för Windows Phone 8.1, ska du följa anvisningarna i Notification Hubs – självstudiekurs för Windows Phone Silverlight. Där används istället REST-API:er.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Lägga till kategorival i mobilappen
@@ -43,9 +43,9 @@ I den här guiden får du lära dig att:
 > * Skicka taggade meddelanden
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Slutför [Självstudie: Skicka push-meddelanden till Windows Phone-appar med hjälp av Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). I den här självstudiekursen uppdaterar du mobilprogrammet så att du kan registrera dig för olika nyhetskategorier som du är intresserad av och därmed endast få push-meddelanden för dessa kategorier.
+Slutför [Självstudier: Skicka meddelanden till Windows Phone-appar med hjälp av Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). I den här självstudiekursen uppdaterar du mobilprogrammet så att du kan registrera dig för olika nyhetskategorier som du är intresserad av och därmed endast få push-meddelanden för dessa kategorier.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Lägga till kategorival i mobilappen
 
@@ -328,7 +328,7 @@ I den här självstudien har du lärt dig mer om push-meddelanden till specifika
 [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png
 
 <!-- URLs.-->
-[Kom igång med Notification Hubs]: notification-hubs-windows-mobile-push-notifications-mpns.md
+[Kom igång med Notification Hub]: notification-hubs-windows-mobile-push-notifications-mpns.md
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started

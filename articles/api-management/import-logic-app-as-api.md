@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: apimpm
 ms.openlocfilehash: 4077187fe04e3be914a6f7fba84c03df1b79d06a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108405"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importera en logikapp som ett API
 
-Den här artikeln visar hur du importerar en Logic app som ett API och testar det importerade API: et.
+Den här artikeln visar hur du importerar en Logic App som ett API och testar det importerade API:et.
 
 I den här artikeln kan du se hur du:
 
@@ -29,7 +29,7 @@ I den här artikeln kan du se hur du:
 >
 > -   Importera en logikapp som ett API
 > -   Testa API:et i Azure Portal
-> -   Testa API:et i utvecklarportalen
+> -   Testa API:et i Developer-portalen
 
 ## <a name="prerequisites"></a>Krav
 
@@ -38,15 +38,15 @@ I den här artikeln kan du se hur du:
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importera och publicera ett serverdels-API
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
 1. Välj **API: er** under **API-HANTERING**.
 2. Välj **Logikapp** från listan **Lägg till ett nytt API**.
 
     ![Logikapp](./media/import-logic-app-as-api/logic-app-api.png)
 
-3. Tryck på **Bläddra** för att se listan med Logic Apps med http-utlösare i din prenumeration. (Observera att Logic Apps utan HTTP-utlösare visas inte i listan.)
-4. Välj appen. API Management hittar den Swagger som är associerad med den valda appen, hämtar den och importerar den.
+3. Tryck **på Bläddra** om du vill se listan över Logikappar med HTTP-utlösare i din prenumeration. (Observera att Logic Apps utan HTTP-utlösare inte visas i listan.)
+4. Välj appen. API Management hittar swagger som är associerad med den valda appen, hämtar den och importerar den.
 5. Lägg till ett API URL-suffix. Suffixet är ett namn som identifierar det här specifika API:et i den här API Management-instansen. Det måste vara unikt i den här API Management-instansen.
 6. Du kan publicera API:et genom att associera det med en produkt. I det här fallet används den _obegränsade_ produkten. Om du vill att API:et ska publiceras och vara tillgänglig för utvecklare, lägger du till det till en produkt. Du kan göra det vid API-skapandet eller ställa in det senare.
 
@@ -55,7 +55,7 @@ I den här artikeln kan du se hur du:
     Som standard medföljer två exempelprodukter varje API Management-instans:
 
     - **Starter**
-    - **Obegränsat**
+    - **Unlimited**
 
 7. Välj **Skapa**.
 
@@ -84,4 +84,4 @@ Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt 
 
 > [!div class="nextstepaction"]
 >
-> [Transformera och skydda ett publicerat API](transform-api.md)
+> [Omvandla och skydda ett publicerat api](transform-api.md)

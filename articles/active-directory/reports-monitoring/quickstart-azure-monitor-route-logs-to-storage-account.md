@@ -1,6 +1,6 @@
 ---
-title: Självstudie – arkivera katalog loggar till ett lagrings konto | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure-diagnostik att skicka Azure Active Directory loggar till ett lagrings konto
+title: Självstudiekurs - Arkivkatalogloggar till ett lagringskonto | Microsoft-dokument
+description: Lär dig hur du konfigurerar Azure Diagnostics för att skicka Azure Active Directory-loggar till ett lagringskonto
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74007849"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Självstudie: arkivera Azure AD-loggar till ett Azure Storage-konto
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Självstudiekurs: Arkivera Azure AD-loggar till ett Azure-lagringskonto
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-diagnostikinställningar för att dirigera Azure Active Directory-loggar (Azure AD) till ett Azure-lagringskonto.
 
@@ -40,7 +40,7 @@ Om du vill använda den här funktionen behöver du:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
-2. Välj **Azure Active Directory** > **Aktivitet** > **Spårningsloggar**. 
+2. Välj **Azure Active Directory** > **Aktivitetsgranskningsloggar****Activity** > . 
 
 3. Välj **Exportinställningar**. 
 
@@ -75,6 +75,6 @@ Om du vill använda den här funktionen behöver du:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tolka schema för spårningsloggar i Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Tolka granskningsloggschema i Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Tolka schema för inloggningsloggar i Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Vanliga frågor och kända problem](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

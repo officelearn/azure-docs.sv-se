@@ -15,16 +15,16 @@ ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74278151"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Självstudie: Konfigurera Azure CDN-cachelagringsregler
 
 > [!NOTE] 
-> Reglerna för cachelagring är bara tillgängliga för **Azure CDN Standard från Verizon** och **Azure CDN Standard från Akamai** -profiler. För **Azure CDN från Microsoft** -profiler måste du använda [standard regel motorn](cdn-standard-rules-engine-reference.md) för att **Azure CDN Premium från Verizon** -profiler, du måste använda [verktyget Verizon Premium regler](cdn-rules-engine.md) i **hanterings** portalen för liknande funktioner.
+> Cachelagringsregler är endast tillgängliga för **Azure CDN Standard från Verizon** och Azure **CDN Standard från Akamai-profiler.** För **Azure CDN från Microsoft-profiler** måste du använda [standardreglersmotorn](cdn-standard-rules-engine-reference.md) för **Azure CDN Premium från** Verizon-profiler, du måste använda [Verizon Premium-regelmotorn](cdn-rules-engine.md) i **hantera-portalen** för liknande funktioner.
  
 
 Den här självstudien beskriver hur du kan använda cachelagringsregler i Azure Content Delivery Network (CDN) för att ange eller ändra standardbeteendet för giltighetstid för cache, både globalt och med anpassade villkor, till exempel en URL-sökväg och ett filnamnstillägg. Azure CDN har två typer av cachelagringsregler:

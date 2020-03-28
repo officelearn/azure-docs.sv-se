@@ -10,15 +10,15 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: 5439de30b02b0ce05853c8112f9e29239743ef98
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67187963"
 ---
 1. Öppna [Azure Marketplace-avbildningen för Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) i din webbläsare.
 
-1. Välj **GET IT NOW** (Hämta nu).
+1. Välj **HÄMTA DEN NU**.
 
     ![Välj GET IT NOW (Hämta nu) för att starta installationsprocessen för Jenkins Marketplace-avbildningen.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-get-it-now.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "67187963"
    - **Undernät** – Välj **Undernät**, kontrollera informationen och välj **OK**.
    - **Offentlig IP-adress** – IP-adressnamnet är som standard det Jenkins-namn som du angav på föregående sida med suffixet -IP. Du kan välja alternativet för att ändra det standardvärdet.
    - **Domännamnsetikett** – Ange värdet för den fullständigt kvalificerade URL-adressen till den virtuella Jenkins-datorn.
-   - **Jenkins-versionstyp** – Välj önskad versionstyp i alternativen: `LTS`, `Weekly build` eller `Azure Verified`. Alternativen `LTS` och `Weekly build` beskrivs i artikeln [Jenkins LTS Release Line](https://jenkins.io/download/lts/). Alternativet `Azure Verified` refererar till en [Jenkins LTS-version](https://jenkins.io/download/lts/) som har verifierats för att köras på Azure. 
+   - **Jenkins releasetyp** - Välj önskad frisläppningstyp bland alternativen: `LTS`, `Weekly build`, eller `Azure Verified`. Alternativen `LTS` och `Weekly build` beskrivs i artikeln [Jenkins LTS Release Line](https://jenkins.io/download/lts/). Alternativet `Azure Verified` refererar till en [Jenkins LTS-version](https://jenkins.io/download/lts/) som har verifierats för att köras på Azure. 
    - **JDK-type** – JDK som ska installeras. Standardvärdet är Zulu-testade, certifierade versioner av OpenJDK.
 
      ![Ange inställningar för virtuella datorer för Jenkins på fliken Inställningar.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)

@@ -1,5 +1,5 @@
 ---
-title: Kopiera ögonblicks bild av en hanterad disk till en prenumeration – PowerShell-exempel
+title: Kopiera ögonblicksbild av en hanterad disk till en prenumeration - PowerShell-exempel
 description: Azure PowerShell-skriptexempel – Kopiera (flytta) en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration
 services: virtual-machines-windows
 documentationcenter: storage
@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
 ms.openlocfilehash: 4189822e493b8906152e5a73d87cffb1d05f31d7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75368852"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>Kopiera en ögonblicksbild av en hanterad disk i sammaprenumeration eller en annan prenumeration med PowerShell
 
 Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
 
-1. Migrera en ögonblicks bild i Premium Storage (Premium_LRS) till standard lagring (Standard_LRS eller Standard_ZRS) för att minska kostnaderna.
-1. Migrera en ögonblicks bild från lokalt redundant lagring (Premium_LRS Standard_LRS) till zonens redundanta lagring (Standard_ZRS) för att dra nytta av ZRS-lagringens högre tillförlitlighet.
-1. Flytta en ögonblicks bild till en annan prenumeration i samma region för längre kvarhållning.
+1. Migrera en ögonblicksbild i Premium-lagring (Premium_LRS) till standardlagring (Standard_LRS eller Standard_ZRS) för att minska din kostnad.
+1. Migrera en ögonblicksbild från lokalt redundant lagring (Premium_LRS, Standard_LRS) till zon redundant lagring (Standard_ZRS) för att dra nytta av den högre tillförlitligheten hos ZRS-lagring.
+1. Flytta en ögonblicksbild till olika prenumerationer i samma region för längre kvarhållning.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 

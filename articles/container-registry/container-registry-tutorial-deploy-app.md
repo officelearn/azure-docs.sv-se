@@ -1,17 +1,17 @@
 ---
-title: Självstudie – distribuera från geo-replikerat register
+title: Självstudiekurs - Distribuera från geo-replikerat register
 description: Distribuera en Linux-baserad webbapp till två olika Azure-regioner med hjälp av en containeravbildning från ett geo-replikerat Azure-containerregister. Del två av en serie i tre delar.
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74456101"
 ---
-# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett geo-replikerat Azure Container Registry
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudiekurs: Distribuera en webbapp från ett geo-replikerat Azure-behållarregister
 
 Det här är del två i en serie självstudier i tre delar. I [del ett](container-registry-tutorial-prepare-registry.md) skapade vi ett privat geo-replikerat containerregister, och en containeravbildning skapades från källan och pushades till registret. I den här artikeln drar du nytta av den nätverksnära aspekten av det geo-replikerade registret genom att distribuera containern till två Web App-instanser i två olika Azure-regioner. Varje instans hämtar sedan containeravbildningen från det närmaste registret.
 
@@ -37,26 +37,26 @@ Nu är det dags att skapa en instans av Web App for Containers i regionen *USA, 
 
 Logga in på [Azure Portal](https://portal.azure.com) och navigera till den registernyckel som du skapade i den föregående självstudiekursen.
 
-Välj **Databaser** > **acr helloworld**, högerklicka på taggen **v1** under **Taggar** och välj **Distribuera till webbapp**:
+Välj **Databaser** > **acr-helloworld**och högerklicka sedan på **v1-taggen** under **Taggar** och välj Distribuera **till webbapp:**
 
 ![Distribuera till App Service i Azure Portal][deploy-app-portal-01]
 
-Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte har aktiverat administratörsanvändaren för registret enligt anvisningarna i [Create a container registry](container-registry-tutorial-prepare-registry.md#create-a-container-registry) (Skapa ett containerregister) i den första självstudiekursen. Du kan aktivera administratörsanvändaren i **Inställningar** > **Åtkomstnycklar** på Azure Portal.
+Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte har aktiverat administratörsanvändaren för registret enligt anvisningarna i [Create a container registry](container-registry-tutorial-prepare-registry.md#create-a-container-registry) (Skapa ett containerregister) i den första självstudiekursen. Du kan aktivera administratörsanvändaren i **Inställningar** > **Access-nycklar** i Azure-portalen.
 
 Ange följande värden för varje inställning under **Web App for Containers**, som visas när du har valt ”Distribuera till webbapp”:
 
 | Inställning | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
-| **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
-| **App Service-plan/plats** | Skapa ett nytt schema med namnet `plan-westus` i regionen **USA, västra**. |
-| **Avbildning** | `acr-helloworld:v1` |
+| **Resursgrupp** | **Använd befintliga** > `myResourceGroup` |
+| **App serviceplan/plats** | Skapa ett nytt schema med namnet `plan-westus` i regionen **USA, västra**. |
+| **Bild** | `acr-helloworld:v1` |
 | **Operativsystem** | Linux |
 
 > [!NOTE]
-> När du skapar en ny app service-plan för att distribuera din behållare, väljs automatiskt en standard plan som är värd för ditt program. Standard planen beror på inställningen för operativ systemet.
+> När du skapar en ny apptjänstplan för att distribuera din containeriserade app väljs en standardplan automatiskt för att vara värd för ditt program. Standardplanen beror på operativsystemets inställning.
 
-Etablera webbappen i regionen **USA, västra** genom att välja *Skapa*.
+Etablera webbappen i regionen *USA, västra* genom att välja **Skapa**.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-02]
 
@@ -81,12 +81,12 @@ Distribuera en andra webbapp till regionen *USA, östra* med den procedur som be
 | Inställning | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
-| **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
-| **App Service-plan/plats** | Skapa ett nytt schema med namnet `plan-eastus` i regionen **USA, östra**. |
-| **Avbildning** | `acr-helloworld:v1` |
+| **Resursgrupp** | **Använd befintliga** > `myResourceGroup` |
+| **App serviceplan/plats** | Skapa ett nytt schema med namnet `plan-eastus` i regionen **USA, östra**. |
+| **Bild** | `acr-helloworld:v1` |
 | **Operativsystem** | Linux |
 
-Etablera webbappen i regionen **USA, östra** genom att välja *Skapa*.
+Etablera webbappen i regionen *USA, östra* genom att välja **Skapa**.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-06]
 
@@ -96,7 +96,7 @@ Liksom tidigare kan du visa programmet som körs genom att gå till URL:en i web
 
 Välj **App Services** i portalen, och sedan den webbapp som du etablerade i föregående steg. I det här exemplet får webbappen namnet *uniqueregistryname-eastus*.
 
-Markera webbappens hyperlänks-URL högst upp till höger i **App Service**-översikten, så att du kan se programmet som körs i din webbläsare.
+Välj den hyperlänkade URL:en för webbappen längst upp till höger i **apptjänstöversikten** om du vill visa programmet som körs i webbläsaren.
 
 ![Webbappen i Linux-konfiguration i Azure Portal][deploy-app-portal-07]
 

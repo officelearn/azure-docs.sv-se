@@ -1,6 +1,6 @@
 ---
 title: Azure CLI-skriptexempel – Skapa en SignalR Service
-description: Lär dig genom att följa exempel skriptet för att skapa en ny Azure SignalR-tjänst i en ny resurs grupp med ett slumpmässigt namn.
+description: Lär dig genom att följa exempelskriptet för att skapa en ny Azure SignalR-tjänst i en ny resursgrupp, med ett slumpmässigt namn.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
@@ -9,10 +9,10 @@ ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc
 ms.openlocfilehash: 45958f020f2e5dbdb0a50f0190aff78568865f74
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158073"
 ---
 # <a name="create-a-signalr-service"></a>Skapa en Azure SignalR Service 

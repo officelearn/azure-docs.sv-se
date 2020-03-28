@@ -4,41 +4,41 @@ description: Använd Azure Resource Graph för att köra vissa startfrågor sås
 ms.date: 11/21/2019
 ms.topic: sample
 ms.openlocfilehash: b966d8c239cb6ff706c967174bcea23bf25de374
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238400"
 ---
-# <a name="starter-resource-graph-query-samples"></a>Exempel på Start resurs diagram fråga
+# <a name="starter-resource-graph-query-samples"></a>Frågeexempel för Startresursdiagram
 
-Det första steget mot att förstå frågor med Azure Resource Graph är en grundläggande förståelse för [frågespråket](../concepts/query-language.md). Om du inte redan är bekant med [KQL (Kusto Query Language)](/azure/kusto/query/index)rekommenderar vi att du går igenom [självstudien för KQL](/azure/kusto/query/tutorial) för att förstå hur du skapar förfrågningar för de resurser som du letar efter.
+Det första steget mot att förstå frågor med Azure Resource Graph är en grundläggande förståelse för [frågespråket](../concepts/query-language.md). Om du inte redan är bekant med [Kusto Query Language (KQL)](/azure/kusto/query/index)rekommenderar vi att du granskar [självstudien för KQL för](/azure/kusto/query/tutorial) att förstå hur du skriver begäranden om de resurser du letar efter.
 
 Vi går igenom följande startfrågor:
 
 > [!div class="checklist"]
 > - [Antal Azure-resurser](#count-resources)
-> - [Räkna nyckel valvs resurser](#count-keyvaults)
-> - [Lista över resurser sorterade efter namn](#list-resources)
-> - [Visning av alla virtuella datorer sorterade efter namn i fallande ordning](#show-vms)
-> - [Visning av de första fem virtuella datorerna efter namn och OS-typ](#show-sorted)
+> - [Räkna nyckelvalvresurser](#count-keyvaults)
+> - [Lista resurser sorterade efter namn](#list-resources)
+> - [Visa alla virtuella datorer som beställts efter namn i fallande ordning](#show-vms)
+> - [Visa de första fem virtuella datorerna efter namn och deras OS-typ](#show-sorted)
 > - [Antal virtuella datorer efter OS-typ](#count-os)
-> - [Visning av resurser med lagring](#show-storage)
+> - [Visa resurser som innehåller lagring](#show-storage)
 > - [Lista över alla offentliga IP-adresser](#list-publicip)
-> - [Antal resurser som har IP-adresser konfigurerade efter prenumeration](#count-resources-by-ip)
-> - [Lista över resurser med ett specifikt tagg-värde](#list-tag)
-> - [Lista över alla lagringskonton med ett specifikt taggvärde](#list-specific-tag)
-> - [Visa alias för en virtuell dator resurs](#show-aliases)
+> - [Räkna resurser som har IP-adresser konfigurerade av prenumeration](#count-resources-by-ip)
+> - [Lista resurser med ett visst taggvärde](#list-tag)
+> - [Lista alla lagringskonton med specifikt taggvärde](#list-specific-tag)
+> - [Visa alias för en resurs för virtuella datorer](#show-aliases)
 > - [Visa distinkta värden för ett visst alias](#distinct-alias-values)
-> - [Visa associerade nätverks säkerhets grupper](#unassociated-nsgs)
+> - [Visa icke-associerade nätverkssäkerhetsgrupper](#unassociated-nsgs)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
 
 ## <a name="language-support"></a>Stöd för språk
 
 Azure CLI (via ett tillägg) och Azure PowerShell (via en modul) har stöd för Azure Resource Graph. Kontrollera att din miljö är redo innan du kör någon av nedanstående frågor. Se [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) för anvisningar om hur du installerar och validerar din valda gränssnittsmiljö.
 
-## <a name="a-namecount-resources-count-azure-resources"></a><a name="count-resources" />antal Azure-resurser
+## <a name="count-azure-resources"></a><a name="count-resources" />Antal Azure-resurser
 
 Den här frågan returnerar antalet Azure-resurser som finns i de prenumerationer som du har åtkomst till. Det är också en bra fråga för att verifiera att ditt gränssnittval har lämpliga Azure Resource Graph-komponenter installerade och fungerar korrekt.
 
@@ -61,17 +61,17 @@ Search-AzGraph -Query "Resources | summarize count()"
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20summarize%20count()" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-namecount-keyvaults-count-key-vault-resources"></a><a name="count-keyvaults" />räknar resurser för nyckel valv
+## <a name="count-key-vault-resources"></a><a name="count-keyvaults" />Räkna nyckelvalvresurser
 
-Den här frågan använder `count` i stället för `summarize` för att räkna antalet returnerade poster. Endast nyckel valv ingår i antalet.
+Den här `count` frågan `summarize` används i stället för att räkna antalet poster som returneras. Endast nyckelvalv ingår i antalet.
 
 ```kusto
 Resources
@@ -93,15 +93,15 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | c
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.keyvault%2Fvaults'%20%7C%20count" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-namelist-resources-list-resources-sorted-by-name"></a><a name="list-resources" />lista resurser sorterade efter namn
+## <a name="list-resources-sorted-by-name"></a><a name="list-resources" />Lista över resurser sorterade efter namn
 
 Frågan returnerar alla typer av resurser men bara egenskaperna **name** (namn), **type** (typ) och **location** (plats). Den använder `order by` för att sortera egenskaperna efter egenskapen **name** (namn) i stigande (`asc`) ordning.
 
@@ -125,15 +125,15 @@ Search-AzGraph -Query "Resources | project name, type, location | order by name 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20type%2C%20location%20%7C%20order%20by%20name%20asc" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-nameshow-vms-show-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms" />Visa alla virtuella datorer ordnade efter namn i fallande ordning
+## <a name="show-all-virtual-machines-ordered-by-name-in-descending-order"></a><a name="show-vms" />Visning av alla virtuella datorer sorterade efter namn i fallande ordning
 
 För att bara lista virtuella datorer (som är typen `Microsoft.Compute/virtualMachines`) kan vi matcha egenskapen **type** (typ) i resultatet. Som för den föregående frågan, ändrar `desc``order by` till att vara fallande. Tecknet `=~` i typmatchningen talar om för Resource Graph att Resource Graph ska vara skiftlägesokänsligt.
 
@@ -158,15 +158,15 @@ Search-AzGraph -Query "Resources | project name, location, type| where type =~ '
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20project%20name%2C%20location%2C%20type%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20order%20by%20name%20desc" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-nameshow-sorted-show-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted" />Visa de första fem virtuella datorerna efter namn och deras OS-typ
+## <a name="show-first-five-virtual-machines-by-name-and-their-os-type"></a><a name="show-sorted" />Visning av de första fem virtuella datorerna efter namn och OS-typ
 
 Den här frågan använder `top` för att bara hämta fem matchande poster som sorteras efter namn. Typen av Azure-resurs är `Microsoft.Compute/virtualMachines`. `project` talar om Azure Resource Graph vilka egenskaper som ska inkluderas.
 
@@ -191,15 +191,15 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20project%20name%2C%20properties.storageProfile.osDisk.osType%20%7C%20top%205%20by%20name%20desc" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-namecount-os-count-virtual-machines-by-os-type"></a><a name="count-os" />antal virtuella datorer efter OS-typ
+## <a name="count-virtual-machines-by-os-type"></a><a name="count-os" />Antal virtuella datorer efter OS-typ
 
 Vi bygger vidare på den föregående frågan och begränsar fortfarande efter Azure-resurstyp `Microsoft.Compute/virtualMachines` men inte längre efter antalet returnerade poster.
 I stället använder vi `summarize` och `count()` för att definiera hur värdena ska grupperas och aggregeras efter egenskap, som i det här exemplet är `properties.storageProfile.osDisk.osType`. Ett exempel på hur denna sträng ser ut i det fullständiga objektet visas i [Utforska resurser – Identifiering av virtuell maskin](../concepts/explore-resources.md#virtual-machine-discovery).
@@ -224,11 +224,11 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20summarize%20count()%20by%20tostring(properties.storageProfile.osDisk.osType)" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
@@ -255,18 +255,18 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20os%20%3D%20properties.storageProfile.osDisk.osType%20%7C%20summarize%20count()%20by%20tostring(os)" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
 > [!NOTE]
-> Tänk på att medan `=~` tillåter skiftlägesokänslig matchning, kräver användning av egenskaper (som **properties.storageProfile.osDisk.osType**) i frågan att skiftläget är korrekt. Om egenskapen är felaktig returneras ett null-värde eller ett felaktigt värde och grupperingen eller sammanfattningen skulle vara felaktig.
+> Tänk på att medan `=~` tillåter skiftlägesokänslig matchning, kräver användning av egenskaper (som **properties.storageProfile.osDisk.osType**) i frågan att skiftläget är korrekt. Om egenskapen är fel, returneras ett null eller felaktigt värde och grupperingen eller summeringen skulle vara felaktig.
 
-## <a name="a-nameshow-storage-show-resources-that-contain-storage"></a><a name="show-storage" />Visa resurser som innehåller lagring
+## <a name="show-resources-that-contain-storage"></a><a name="show-storage" />Visning av resurser med lagring
 
 I stället för att explicit definiera den typ som ska matchas, hittar den här exempelfrågan alla Azure-resurser som `contains` ordet **storage** (lagring).
 
@@ -289,19 +289,19 @@ Search-AzGraph -Query "Resources | where type contains 'storage' | distinct type
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'storage'%20%7C%20distinct%20type" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-namelist-publicip-list-all-public-ip-addresses"></a><a name="list-publicip" />lista alla offentliga IP-adresser
+## <a name="list-all-public-ip-addresses"></a><a name="list-publicip" />Lista över alla offentliga IP-adresser
 
 Hittar på ett liknande sätt som för den föregående frågan allt som är en typ med ordet **publicIPAddresses**.
-Den här frågan expanderar på det mönstret så att den bara innehåller resultat där **Properties. ipaddress**
-`isnotempty`, för att endast returnera **egenskaperna. IPAddress**och för att `limit` resultaten överst
+Den här frågan utökar det mönstret så att den bara innehåller resultat där **properties.ipAddress**
+`isnotempty`, för att bara returnera **properties.ipAddress**och till `limit` resultaten högst upp
 100. Du kan behöva hoppa över citattecknen beroende på valt gränssnitt.
 
 ```kusto
@@ -325,15 +325,15 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20project%20properties.ipAddress%20%7C%20limit%20100" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-namecount-resources-by-ip-count-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip" />antal resurser som har IP-adresser konfigurerade av prenumerationen
+## <a name="count-resources-that-have-ip-addresses-configured-by-subscription"></a><a name="count-resources-by-ip" />Antal resurser som har IP-adresser konfigurerade efter prenumeration
 
 Om vi använder den föregående exempelfrågan och lägger till `summarize` och `count()`, kan vi få en lista efter prenumeration på resurser med konfigurerade IP-adresser.
 
@@ -357,15 +357,15 @@ Search-AzGraph -Query "Resources | where type contains 'publicIPAddresses' and i
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20contains%20'publicIPAddresses'%20and%20isnotempty(properties.ipAddress)%20%7C%20summarize%20count%20()%20by%20subscriptionId" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-namelist-tag-list-resources-with-a-specific-tag-value"></a><a name="list-tag" />lista resurser med ett visst taggvärde
+## <a name="list-resources-with-a-specific-tag-value"></a><a name="list-tag" />Lista över resurser med ett specifikt taggvärde
 
 Vi kan begränsa resultaten med andra egenskaper än Azure-resurstyp, till exempel en tagg. I det här exemplet filtrerar vi för Azure-resurser med ett taggnamn innehållande **environment** som har värdet **internal**.
 
@@ -389,11 +389,11 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
@@ -419,15 +419,15 @@ Search-AzGraph -Query "Resources | where tags.environment=~'internal' | project 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20tags.environment%3D~'internal'%20%7C%20project%20name%2C%20tags" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-namelist-specific-tag-list-all-storage-accounts-with-specific-tag-value"></a><a name="list-specific-tag" />lista alla lagrings konton med ett visst tagg värde
+## <a name="list-all-storage-accounts-with-specific-tag-value"></a><a name="list-specific-tag" />Lista över alla lagringskonton med specifikt taggvärde
 
 Kombinera filterfunktionerna för exemplet ovan och filtrera Azure-resurstyp efter egenskapen **type** (typ). Den här frågan begränsar även sökningen för specifika typer av Azure-resurser med ett visst taggnamn och -värde.
 
@@ -451,20 +451,20 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Storage%2FstorageAccounts'%20%7C%20where%20tags%5B'tag%20with%20a%20space'%5D%3D%3D'Custom%20value'" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
 > [!NOTE]
 > I det här exemplet används `==` för matchning istället för villkorliga `=~`. `==` är en skiftlägeskänslig matchning.
 
-## <a name="a-nameshow-aliases-show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases" />Visa alias för en virtuell dator resurs
+## <a name="show-aliases-for-a-virtual-machine-resource"></a><a name="show-aliases" />Visa alias för en resurs för virtuella datorer
 
-[Azure policy alias](../../policy/concepts/definition-structure.md#aliases) används av Azure policy för att hantera resursernas efterlevnad. Azure Resource Graph kan returnera _alias_ för en resurs typ. Dessa värden är användbara för att jämföra det aktuella värdet för alias när du skapar en anpassad princip definition. Matrisen _alias_ anges inte som standard i resultatet av en fråga. Använd `project aliases` för att uttryckligen lägga till den i resultatet.
+[Azure-principalias](../../policy/concepts/definition-structure.md#aliases) används av Azure Policy för att hantera resursefterlevnad. Azure Resource Graph kan returnera _alias_ av en resurstyp. Dessa värden är användbara när du vill jämföra det aktuella värdet för alias när du skapar en anpassad principdefinition. _Aliasmatrisen_ tillhandahålls inte som standard i resultatet av en fråga. Används `project aliases` för att uttryckligen lägga till det i resultaten.
 
 ```kusto
 Resources
@@ -487,17 +487,17 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'Microsoft.Compute%2FvirtualMachines'%20%7C%20limit%201%20%7C%20project%20aliases" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-namedistinct-alias-values-show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values" />Visa distinkta värden för ett visst alias
+## <a name="show-distinct-values-for-a-specific-alias"></a><a name="distinct-alias-values" />Visa distinkta värden för ett visst alias
 
-Att se värdet för alias på en enskild resurs är användbart, men det visar inte det sanna värdet för att använda Azure Resource Graph för att fråga mellan prenumerationer. Det här exemplet tittar på alla värden i ett visst alias och returnerar de distinkta värdena.
+Det är praktiskt att se värdet för alias på en enskild resurs, men det visar inte det verkliga värdet av att använda Azure Resource Graph för att fråga över prenumerationer. I det här exemplet tittar du på alla värden för ett visst alias och returnerar de distinkta värdena.
 
 ```kusto
 Resources
@@ -520,17 +520,17 @@ Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachine
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%3D~'Microsoft.Compute%2FvirtualMachines'%20%7C%20extend%20alias%20%3D%20aliases%5B'Microsoft.Compute%2FvirtualMachines%2FstorageProfile.osDisk.managedDisk.storageAccountType'%5D%20%7C%20distinct%20tostring(alias)" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
-## <a name="a-nameunassociated-nsgs-show-unassociated-network-security-groups"></a><a name="unassociated-nsgs" />Visa nätverks säkerhets grupper som inte associerats
+## <a name="show-unassociated-network-security-groups"></a><a name="unassociated-nsgs" />Visa icke-associerade nätverkssäkerhetsgrupper
 
-Den här frågan returnerar nätverks säkerhets grupper (NSG: er) som inte är kopplade till ett nätverks gränssnitt eller undernät.
+Den här frågan returnerar NSG-grupper (Network Security Groups) som inte är associerade till ett nätverksgränssnitt eller undernät.
 
 ```kusto
 Resources
@@ -553,16 +553,16 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-![Ikon för resurs diagram Utforskaren](../media/resource-graph-small.png) Prova den här frågan i Azure Resource Graph Explorer:
+![Ikon för Utforskaren för Resursdiagram](../media/resource-graph-small.png) Prova den här frågan i Utforskaren för Azure Resource Graph:
 
-- Azure Portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.com</a> ![öppna länk i nytt fönster](../../media/new-window.png)
-- Azure Government Portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.us</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
-- Azure Kina-portalen: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.cn</a> ![öppna länk i nytt fönster-ikon](../../media/new-window.png)
+- Azure-portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.com</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure Government-portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.us</a> ![Öppna länken i den nya fönsterikonen](../../media/new-window.png)
+- Azure China portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D~%20'microsoft.network%2Fnetworksecuritygroups'%20and%20isnull(properties.networkInterfaces)%20and%20isnull(properties.subnets)%20%7C%20project%20name%2C%20resourceGroup%20%7C%20sort%20by%20name%20asc" target="_blank">portal.azure.cn</a> ![Öppna länken i nya fönsterikonen](../../media/new-window.png)
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [frågespråket](../concepts/query-language.md).
-- Lär dig mer om hur du [utforskar resurser](../concepts/explore-resources.md).
+- Läs mer om hur du [utforskar resurser](../concepts/explore-resources.md).
 - Se exempel på [avancerade frågor](advanced.md).

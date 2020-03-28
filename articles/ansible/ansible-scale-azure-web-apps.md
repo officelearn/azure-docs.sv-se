@@ -1,17 +1,17 @@
 ---
-title: Självstudie – Skala appar i Azure App Service med Ansible
+title: Självstudiekurs - Skala appar i Azure App Service med Ansible
 description: Lär dig hur du skalar upp en app i Azure App Service
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 9eb50922361c817de8047dece4849a9b221677f0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155925"
 ---
-# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Självstudie: Skala appar i Azure App Service med Ansible
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Självstudiekurs: Skala appar i Azure App Service med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -22,22 +22,22 @@ ms.locfileid: "74155925"
 > [!div class="checklist"]
 >
 > * Hämta fakta om en befintlig App Service-plan
-> * Skala upp App Service plan till S2 med tre arbetare
+> * Skala upp App Service-planen till S2 med tre arbetare
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service app** – om du inte har en Azure App Service-app [konfigurerar du en app i Azure App Service med Ansible](ansible-create-configure-azure-web-apps.md).
+- **Azure App Service-appen** – Om du inte har en Azure App Service-app [konfigurerar du en app i Azure App Service med Ansible](ansible-create-configure-azure-web-apps.md).
 
 ## <a name="scale-up-an-app"></a>Skala upp en app
 
-Det finns två arbets flöden för skalning: *skala upp* och *skala ut*.
+Det finns två arbetsflöden för skalning: *skala upp* och *skala ut*.
 
-**Skala upp:** För att skala upp innebär att du får fler resurser. Bland dessa resurser ingår processor, minne, disk utrymme, virtuella datorer och mycket annat. Du skalar upp en app genom att ändra pris nivån för den App Service plan som appen tillhör. 
-**Skala ut:** För att skala ut innebär att öka antalet VM-instanser som kör din app. Beroende på din App Service plan pris nivå kan du skala upp till så många som 20 instanser. Med automatisk [skalning](/azure/azure-monitor/platform/autoscale-get-started) kan du skala antalet instanser automatiskt baserat på fördefinierade regler och scheman.
+**Skala upp:** Att skala upp innebär att skaffa mer resurser. Dessa resurser omfattar CPU, minne, diskutrymme, virtuella datorer med mera. Du skalar upp en app genom att ändra prisnivån för apptjänstplanen som appen tillhör. 
+**Skala ut:** Att skala ut innebär att öka antalet VM-instanser som kör din app. Beroende på prisnivån för App Service-planen kan du skala ut till så många som 20 instanser. [Med automatisk skalning](/azure/azure-monitor/platform/autoscale-get-started) kan du skala instansantalet automatiskt baserat på fördefinierade regler och scheman.
 
-Spelbok-koden i det här avsnittet definierar följande åtgärd:
+Spelbokskoden i det här avsnittet definierar följande åtgärd:
 
 * Hämta fakta om en befintlig App Service-plan
 * Uppdatera App Service-planen till S2 med tre arbetare
@@ -80,13 +80,13 @@ Spara följande spelbok som `webapp_scaleup.yml`:
       var: facts.appserviceplans[0].sku
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-När du har kört Spelbok visas utdata som liknar följande resultat:
+När du har kört spelboken visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 

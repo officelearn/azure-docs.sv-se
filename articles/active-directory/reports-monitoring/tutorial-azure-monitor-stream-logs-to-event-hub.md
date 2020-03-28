@@ -1,6 +1,6 @@
 ---
-title: Självstudie – strömma loggar till en Azure Event Hub | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure-diagnostik att skicka Azure Active Directory loggar till en Event Hub
+title: Självstudiekurs - Strömma loggar till en Azure-händelsehubb | Microsoft-dokument
+description: Lär dig hur du konfigurerar Azure Diagnostics för att skicka Azure Active Directory-loggar till en händelsehubb
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74007646"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Självstudie: strömma Azure Active Directory loggar till en Azure Event Hub
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Självstudiekurs: Strömma Azure Active Directory-loggar till en Azure-händelsehubb
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-diagnostikinställningar för att strömma Azure Active Directory-loggar (Azure AD) till en Azure-händelsehubb. Använd den här mekanismen för att integrera dina loggar med SIEM-verktyg (Säkerhetsinformation och händelsehantering) från tredje part, till exempel Splunk och QRadar.
 
@@ -41,7 +41,7 @@ Om du vill använda den här funktionen behöver du:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 
-2. Välj **Azure Active Directory** > **övervakning** > **gransknings loggar**. 
+2. Välj **Azure Active Directory** > **Övervakningsgranskningsloggar****Monitoring** > . 
 
 3. Välj **Exportinställningar**.  
     
@@ -77,7 +77,7 @@ När data visas i händelsehubben kan du komma åt och läsa data på två sätt
 
 * **Konfigurera ett SIEM-stödverktyg**. För att läsa data från händelsehubben kräver de flesta verktyg händelsehubbens anslutningssträng och vissa behörigheter till din Azure-prenumeration. Verktyg från tredje part med Azure Monitor-integrering inkluderar men är inte begränsade till:
     
-    * **ArcSight**: Mer information om hur du integrerar Azure AD-loggar med Splunk finns i [integrera Azure Active Directory loggar med ArcSight med hjälp av Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
+    * **ArcSight**: Mer information om hur du integrerar Azure AD-loggar med Splunk finns i [Integrera Azure Active Directory-loggar med ArcSight med Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
     
     * **Splunk**: Information om att integrera Azure AD-loggar med Splunk finns på sidan om att [integrera Azure AD-loggar med Splunk med hjälp av Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
@@ -93,5 +93,5 @@ När data visas i händelsehubben kan du komma åt och läsa data på två sätt
 * [Integrera Azure Active Directory-loggar med ArcSight med Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integrera Azure AD-loggar med Splunk med hjälp av Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md)
 * [Integrera Azure AD-loggar med SumoLogic med hjälp av Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
-* [Tolka schema för spårningsloggar i Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Tolka granskningsloggschema i Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Tolka schema för inloggningsloggar i Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)

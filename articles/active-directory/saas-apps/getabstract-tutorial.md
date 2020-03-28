@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Getabstract | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Getabstract | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Getabstract.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: ad338ce3758c9c8387cc74cc55f9a905b1e5cd73
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73155265"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Självstudie: Azure Active Directory integrering med Getabstract
+# <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Självstudiekurs: Azure Active Directory-integrering med Getabstract
 
 I den här självstudien lär du dig att integrera Getabstract med Azure Active Directory (AD Azure).
 Integreringen av Getabstract med Azure AD medför följande fördelar:
@@ -32,13 +32,13 @@ Integreringen av Getabstract med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Getabstract behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Getabstract-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -56,7 +56,7 @@ För att konfigurera integreringen av Getabstract i Azure AD behöver du lägga 
 
 **Utför följande steg för att lägga till Getabstract från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -81,7 +81,7 @@ För att kunna konfigurera och testa enkel inloggning i Azure AD med Getabstract
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Getabstract](#configure-getabstract-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Getabstract-testanvändare](#create-getabstract-test-user)** – för att ha en motsvarighet för Britta Simon i Getabstract som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -94,7 +94,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Getab
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Getabstract** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,11 +104,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Getab
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
     ![Information om enkel inloggning med Getabstract-domän och URL:er](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL:
+    a. I textrutan **Identifierare** skriver du en URL: 
 
     För Stage/pre_production (mellanlagring/förproduktion): `https://int.getabstract.com`
 
@@ -159,7 +159,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -167,9 +167,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    a. Ange **BrittaSimon**i fältet **Namn** .
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. Skriv **brittasimon\@ditt företaganydomain.extension** i fältet **Användarnamn**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -188,7 +188,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för Getabstract i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -196,11 +196,11 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
 ### <a name="create-getabstract-test-user"></a>Skapa Getabstract-testanvändare
 
@@ -213,7 +213,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i Getabstract. 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Getabstract-panelen i åtkomstpanelen bör du automatiskt loggas in på Getabstract som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Getabstract-panelen i åtkomstpanelen bör du automatiskt loggas in på Getabstract som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,51 +1,51 @@
 ---
-title: Självstudie – Skapa en skalnings uppsättning för virtuella datorer eller virtuella datorer från Azure-galleriet för delad avbildning med Ansible
-description: Lär dig hur du använder Ansible för att skapa en virtuell dator eller skal uppsättning för virtuella datorer baserat på en generaliserad avbildning i det delade avbildnings galleriet.
-keywords: Ansible, Azure, DevOps, bash, Spelbok, virtuell dator, skal uppsättning för virtuell dator, delad avbildnings Galleri
+title: Självstudiekurs - Skapa en skala för virtuella datorer eller virtuella datorer från Azure Shared Image Gallery med Ansible
+description: Lär dig hur du använder Ansible för att skapa vm- eller virtuell datorskalauppsättning baserat på en generaliserad avbildning i det delade bildgalleriet.
+keywords: ansible, azure, devops, bash, playbook, virtuell maskin, virtuell dator skala uppsättning, delad bild galleri
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155837"
 ---
-# <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Självstudie: skapa en virtuell dator eller en skalnings uppsättning för virtuella datorer från Azures Galleri för delad avbildning med Ansible
+# <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Självstudiekurs: Skapa en skalningsuppsättning för virtuella datorer eller virtuella datorer från Azure Shared Image Gallery med Ansible
 
 [!INCLUDE [ansible-29-note.md](../../includes/ansible-29-note.md)]
 
-[Delade avbildnings Galleri](/azure/virtual-machines/windows/shared-image-galleries) är en tjänst som gör att du enkelt kan hantera, dela och organisera anpassade, hanterade avbildningar. Den här funktionen är fördelaktig för scenarier där många bilder upprätthålls och delas. Anpassade avbildningar kan delas mellan prenumerationer och mellan Azure Active Directory klienter. Avbildningar kan också replikeras till flera regioner för snabbare distributions skalning.
+[Delat bildgalleri](/azure/virtual-machines/windows/shared-image-galleries) är en tjänst som gör att du enkelt kan hantera, dela och ordna anpassade hanterade bilder. Den här funktionen är användbar för scenarier där många bilder underhålls och delas. Anpassade avbildningar kan delas mellan prenumerationer och mellan Azure Active Directory-klienter. Avbildningar kan också replikeras till flera regioner för snabbare distributionskalning.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Skapa en generaliserad virtuell dator och anpassad avbildning
-> * Skapa ett galleri för delad avbildning
-> * Skapa en delad avbildning och avbildnings version
-> * Skapa en virtuell dator med hjälp av den generaliserade avbildningen
-> * Skapa en skalnings uppsättning för virtuell dator med hjälp av den generaliserade avbildningen
-> * Hämta information om det delade avbildnings galleriet, avbildningen och versionen.
+> * Skapa ett delat bildgalleri
+> * Skapa en delad bild- och bildversion
+> * Skapa en virtuell dator med den generaliserade avbildningen
+> * Skapa en skalauppsättning för den virtuella datorn med den generaliserade avbildningen
+> * Få information om ditt delade bildgalleri, bild och version.
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="get-the-sample-playbooks"></a>Hämta exempel spel böcker
+## <a name="get-the-sample-playbooks"></a>Hämta exempelspelböckerna
 
-Det finns två sätt att hämta en fullständig uppsättning exempel spel böcker:
+Det finns två sätt att få den kompletta uppsättningen exempel spelböcker:
 
-- [Ladda ned sig-mappen](https://github.com/Azure-Samples/ansible-playbooks/tree/master/SIG_generalized_image) och spara den på din lokala dator.
-- Skapa en ny fil för varje avsnitt och kopiera exempel Spelbok i det.
+- [Ladda ner SIG-mappen](https://github.com/Azure-Samples/ansible-playbooks/tree/master/SIG_generalized_image) och spara den på din lokala dator.
+- Skapa en ny fil för varje avsnitt och kopiera exempelspelboken i den.
 
-`vars.yml`-filen innehåller de variabler som används av alla exempel-spel böcker för den här självstudien. Du kan redigera filen för att tillhandahålla unika namn och värden.
+Filen `vars.yml` innehåller de variabler som används av alla exempel spelböcker för den här självstudien. Du kan redigera filen för att ange unika namn och värden.
 
-Det första exemplet Spelbok `00-prerequisites.yml` skapar vad som krävs för att slutföra den här självstudien:
-- En resurs grupp, som är en logisk behållare där Azure-resurser distribueras och hanteras.
-- Ett virtuellt nätverk; delnät offentlig IP-adress och nätverkskort för den virtuella datorn.
-- En virtuell käll dator som används för att skapa den generaliserade avbildningen.
+Det första exempeluppspelningsboken `00-prerequisites.yml` skapar vad som krävs för att slutföra den här självstudien:
+- En resursgrupp, som är en logisk behållare där Azure-resurser distribueras och hanteras.
+- Ett virtuellt nätverk; undernät. ip-adress och nätverkskort för den virtuella datorn.
+- En virtuell dator som används för att skapa den generaliserade avbildningen.
 
 ```yml
 - hosts: localhost
@@ -100,17 +100,17 @@ Det första exemplet Spelbok `00-prerequisites.yml` skapar vad som krävs för a
           version: latest
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook 00-prerequisites.yml
 ```
 
-I [Azure Portal](https://portal.azure.com)markerar du den resurs grupp som du angav i `vars.yml` för att se den nya virtuella datorn och de olika resurser som du har skapat.
+I [Azure-portalen](https://portal.azure.com)kontrollerar du resursgruppen som du angav i `vars.yml` för att se den nya virtuella datorn och olika resurser som du har skapat.
 
 ## <a name="generalize-the-vm-and-create-a-custom-image"></a>Generalisera den virtuella datorn och skapa en anpassad avbildning
 
-Nästa Spelbok, `01a-create-generalized-image.yml`, generaliserar den virtuella käll datorn som skapades i föregående steg och skapar sedan en anpassad avbildning baserat på den.
+Nästa spelbok, `01a-create-generalized-image.yml`generaliserar käll-VM som skapats i föregående steg och sedan skapa en anpassad avbildning baserat på den.
 
 ```yml
 - hosts: localhost
@@ -132,17 +132,17 @@ Nästa Spelbok, `01a-create-generalized-image.yml`, generaliserar den virtuella 
         source: "{{ source_vm_name }}"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook 01a-create-generalized-image.yml
 ```
 
-Kontrol lera din resurs grupp och se till att `testimagea` visas.
+Kontrollera din resursgrupp `testimagea` och se till att den visas.
 
-## <a name="create-the-shared-image-gallery"></a>Skapa galleriet för delad avbildning
+## <a name="create-the-shared-image-gallery"></a>Skapa galleriet Delad bild
 
-Avbildnings galleriet är lagrings platsen för att dela och hantera avbildningar. Exempel koden Spelbok i `02-create-shared-image-gallery.yml` skapar ett delat avbildnings galleri i din resurs grupp.
+Bildgalleriet är en databas för att dela och hantera bilder. Exempelspelskoden i `02-create-shared-image-gallery.yml` skapar ett delat bildgalleri i resursgruppen.
 
 ```yml
 - hosts: localhost
@@ -159,19 +159,19 @@ Avbildnings galleriet är lagrings platsen för att dela och hantera avbildninga
         description: This is the gallery description.
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook 02-create-shared-image-gallery.yml
 ```
 
-Nu ser du ett nytt Galleri, `myGallery`, i din resurs grupp.
+Nu visas ett nytt `myGallery`galleri i resursgruppen.
 
-## <a name="create-a-shared-image-and-image-version"></a>Skapa en delad avbildning och avbildnings version
+## <a name="create-a-shared-image-and-image-version"></a>Skapa en delad bild- och bildversion
 
-Nästa Spelbok skapar `03a-create-shared-image-generalized.yml` en avbildnings definition och en avbildnings version.
+Nästa spelbok, `03a-create-shared-image-generalized.yml` skapar en bilddefinition och en bildversion.
 
-Bild definitionerna omfattar avbildnings typen (Windows eller Linux), viktig information och lägsta och högsta minnes krav. Avbildnings versionen är avbildningens version. Galleri, bild definition och avbildnings version hjälper dig att ordna bilder i logiska grupper. 
+Avbildningsdefinitioner omfattar avbildningstypen (Windows eller Linux), viktig information och lägsta och högsta minneskrav. Bildversionen är den version av bilden. Galleri, bilddefinition och bildversion hjälper dig att ordna bilder i logiska grupper. 
 
 ```yml
 - hosts: localhost
@@ -221,17 +221,17 @@ Bild definitionerna omfattar avbildnings typen (Windows eller Linux), viktig inf
         var: output
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook 03a-create-shared-image-generalized.yml
 ```
 
-Din resurs grupp har nu en bild definition och en avbildnings version för ditt Galleri.
+Resursgruppen har nu en bilddefinition och en bildversion för galleriet.
 
 ## <a name="create-a-vm-based-on-the-generalized-image"></a>Skapa en virtuell dator baserat på den generaliserade avbildningen
 
-Kör slutligen `04a-create-vm-using-generalized-image.yml` för att skapa en virtuell dator baserat på den generaliserade avbildning som du skapade i föregående steg.
+Kör `04a-create-vm-using-generalized-image.yml` slutligen för att skapa en virtuell dator baserat på den generaliserade avbildning som du skapade i föregående steg.
 
 ```yml
 - hosts: localhost
@@ -252,15 +252,15 @@ Kör slutligen `04a-create-vm-using-generalized-image.yml` för att skapa en vir
         id: "/subscriptions/{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/galleries/{{ shared_gallery_name }}/images/{{ shared_image_name }}/versions/{{ shared_image_version }}"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook 04a-create-vm-using-generalized-image.yml
 ```
 
-## <a name="create-a-virtual-machine-scale-sets-based-on-the-generalized-image"></a>Skapa en skalnings uppsättning för virtuella datorer baserat på den generaliserade avbildningen
+## <a name="create-a-virtual-machine-scale-sets-based-on-the-generalized-image"></a>Skapa skaluppsättningar för virtuella datorer baserat på den generaliserade avbildningen
 
-Du kan också skapa en skalnings uppsättning för virtuella datorer baserat på den generaliserade avbildningen. Kör `05a-create-vmss-using-generalized-image.yml` för att göra det.
+Du kan också skapa en skalauppsättning för den virtuella datorn baserat på den generaliserade avbildningen. Spring `05a-create-vmss-using-generalized-image.yml` för att göra det.
 
 ```yml
 - hosts: localhost
@@ -285,15 +285,15 @@ Du kan också skapa en skalnings uppsättning för virtuella datorer baserat på
         id: "/subscriptions/{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}/resourceGroups/{{ resource_group }}/providers/Microsoft.Compute/galleries/{{ shared_gallery_name }}/images/{{ shared_image_name }}/versions/{{ shared_image_version }}"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook 05a-create-vmss-using-generalized-image.yml
 ```
 
-## <a name="get-information-about-the-gallery"></a>Hämta information om galleriet
+## <a name="get-information-about-the-gallery"></a>Få information om galleriet
 
-Du kan få information om galleriet, bild definitionen och versionen genom att köra `06-get-info.yml`.
+Du kan få information om galleriet, bilddefinitionen och versionen genom att köra `06-get-info.yml`.
 
 ```yml
 - hosts: localhost
@@ -319,15 +319,15 @@ Du kan få information om galleriet, bild definitionen och versionen genom att k
       name: "{{ shared_image_version }}"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook 06-get-info.yml
 ```
 
-## <a name="delete-the-shared-image"></a>Ta bort den delade avbildningen
+## <a name="delete-the-shared-image"></a>Ta bort den delade bilden
 
-Om du vill ta bort Galleri resurserna läser du exempel Spelbok `07-delete-gallery.yml`. Ta bort resurser i omvänd ordning. Börja med att ta bort avbildnings versionen. När du har tagit bort alla avbildnings versioner kan du ta bort avbildnings definitionen. När du har tagit bort alla avbildnings definitioner kan du ta bort galleriet.
+Om du vill ta bort galleriresurserna läser du exempelspelsboken `07-delete-gallery.yml`. Ta bort resurser i omvänd ordning. Börja med att ta bort bildversionen. När du har tagit bort alla bildversioner kan du ta bort bilddefinitionen. När du har tagit bort alla bilddefinitioner kan du ta bort galleriet.
 
 ```yml
 - hosts: localhost
@@ -358,7 +358,7 @@ Om du vill ta bort Galleri resurserna läser du exempel Spelbok `07-delete-galle
       state: absent
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook 07-delete-gallery.yml
@@ -366,11 +366,11 @@ ansible-playbook 07-delete-gallery.yml
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln. 
 
-Exempel koden Spelbok i det här avsnittet används för att:
+Exempelspelbokskoden i det här avsnittet används för att:
 
-- Ta bort de två resurs grupper som skapades tidigare
+- Ta bort de två resursgrupper som skapats tidigare
 
 Spara följande spelbok som `cleanup.yml`:
 
@@ -386,12 +386,12 @@ Spara följande spelbok som `cleanup.yml`:
         state: absent
 ```
 
-Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
+Här är några viktiga anteckningar att tänka på när du arbetar med exempelspelsboken:
 
-- Ersätt `{{ resource_group_name }}` plats hållaren med namnet på din resurs grupp.
-- Alla resurser inom de två angivna resurs grupperna kommer att tas bort.
+- Ersätt `{{ resource_group_name }}` platshållaren med namnet på resursgruppen.
+- Alla resurser inom de två angivna resursgrupperna tas bort.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook cleanup.yml

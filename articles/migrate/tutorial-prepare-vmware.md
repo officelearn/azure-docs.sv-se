@@ -1,156 +1,156 @@
 ---
-title: Förbered virtuella VMware-datorer för utvärdering/migrering med Azure Migrate
-description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella VMware-datorer med Azure Migrate.
+title: Förbereda virtuella virtuella datorer för VMware för utvärdering/migrering med Azure Migrate
+description: Lär dig hur du förbereder för utvärdering/migrering av virtuella datorer med Virtuella VMware-datorer med Azure Migrate.
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: f00d5ba4841427098b0ab79ad1930e357008b6e0
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: aecc82ff4403c044fae95eb9b7c8c7561fcb82b6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030803"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336671"
 ---
-# <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbered virtuella VMware-datorer för utvärdering och migrering till Azure
+# <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbereda virtuella VMware-datorer för utvärdering och migrering till Azure
 
-Den här artikeln hjälper dig att förbereda för utvärdering och/eller migrering av lokala virtuella VMware-datorer till Azure med hjälp av [Azure Migrate](migrate-services-overview.md).
-
-[Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
+Den här artikeln hjälper dig att förbereda för bedömning och/eller migrering av lokala virtuella datorer med VMware till Azure med [Azure Migrate](migrate-services-overview.md).
 
 
-Den här självstudien är den första i en serie som visar hur du kan utvärdera och migrera virtuella VMware-datorer. I den här guiden får du lära dig att:
+
+Den här självstudien är den första i en serie som visar hur du bedömer och migrerar virtuella virtuella datorer för VMware. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Förbered Azure för att arbeta med Azure Migrate.
-> * Förbered VMware för VM-utvärdering.
-> * Förbered VMware för migrering av virtuella datorer.
+> * Förbered VMware för vm-utvärdering med verktyget Azure Migrate:Server Assessment.
+> * Förbered VMware för VM-migrering med verktyget Azure Migrate:Server Migration. 
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De är användbara när du lär dig hur du konfigurerar en distribution och som ett snabbt koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen för VMware-utvärdering och migrering.
+> Självstudier visar den enklaste distributionsvägen för ett scenario. De är användbara när du lär dig hur du konfigurerar en distribution och som ett snabbt proof-of-concept. Självstudier använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
 
 
 ## <a name="prepare-azure"></a>Förbereda Azure
 
-Du behöver dessa behörigheter.
+Du behöver dessa behörigheter för dessa uppgifter i Azure, innan du kan bedöma eller migrera virtuella virtuella datorer för VMware.
 
-**Aktivitet** | **Behörigheter**
---- | ---
-**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha behörighet att skapa ett projekt.
-**Registrera Azure Migrates apparaten** | Azure Migrate använder en förenklad Azure Migrate-apparat för att utvärdera virtuella VMware-datorer med Azure Migrate Server utvärdering och för att köra en [agent lös migrering](server-migrate-overview.md) av virtuella VMware-datorer med Azure Migrate Server-migrering. Den här installationen identifierar virtuella datorer och skickar VM-metadata och prestanda data till Azure Migrate.<br/><br/>Under installation av utrustning registreras följande resurs leverantörer med den prenumeration som valts i enheten-Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel-valv. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.<br/><br/> Som en del av onboarding skapar Azure Migrate två Azure Active Directory-appar (Azure AD):<br/> – Den första appen används för kommunikation (autentisering och auktorisering) mellan de agenter som körs på produkten med deras respektive tjänster som körs på Azure. Den här appen har inte behörighet att göra ARM-anrop eller RBAC-åtkomst på någon resurs.<br/> – Den andra appen används exklusivt för att komma åt nyckel valvet som skapats i användarens prenumeration för migrering utan agent. Den medföljer en RBAC-åtkomst på den Azure Key Vault (som skapats i kundens klient) när identifieringen initieras från enheten.
-**Skapa en Key Vault** | Om du vill migrera virtuella VMware-datorer med Azure Migrate Server-migrering skapar Azure Migrate en Key Vault för att hantera åtkomst nycklar till replikeringens lagrings konto i din prenumeration. Om du vill skapa valvet behöver du Roll tilldelnings behörigheter för resurs gruppen där Azure Migrate-projektet finns.
-
-
+**Aktivitet** | **Detaljer** 
+--- | --- 
+**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver behörigheter förtributör eller ägare för att skapa ett projekt. 
+**Registrera resursleverantörer** | Azure Migrate använder en lätt Azure Migrate-installation för att identifiera och bedöma virtuella datorer med VMware och migrera dem till Azure med Azure Migrate:Server Assessment.<br/><br/> Vid registrering av apparater registreras resursleverantörer med det abonnemang som valts i apparaten. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Om du vill registrera resursleverantörerna behöver du en deltagar- eller ägarroll i prenumerationen.
+**Skapa Azure AD-appar** | När du registrerar installationen skapar Azure Migrate Azure Active Directory -appar (Azure AD). <br/><br/> - Den första appen används för kommunikation mellan agenter som körs på installationen och deras respektive tjänster som körs på Azure.<br/><br/> - Den andra appen används uteslutande för att komma åt KeyVault som skapats i användarens prenumeration för agentlös VMware VM-migrering. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Du behöver behörigheter för att skapa Azure AD-appar (tillgängliga i rollen Programutvecklare).
+**Skapa ett nyckelvalv** | Om du vill migrera virtuella virtuella datorer med hjälp av agentlös migrering skapar Azure Migrate ett nyckelvalv för att hantera åtkomstnycklar till replikeringslagringskontot i din prenumeration.<br/><br/> För att skapa valvet behöver du behörigheter för rolltilldelning för resursgruppen där Azure Migrate-projektet finns.
 
 
 
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt
 
-1. Öppna prenumerationen i Azure Portal och välj **åtkomst kontroll (IAM)** .
-2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter.
-3. Du bör ha behörighet som **deltagare** eller **ägare** .
-    - Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration.
-    - Om du inte är prenumerations ägare kan du samar beta med ägaren för att tilldela rollen.
+1. Öppna prenumerationen i Azure-portalen och välj **Åtkomstkontroll (IAM)**.
+2. Leta reda på det relevanta kontot i **Check access**och klicka på det för att visa behörigheter.
+3. Du bör ha **behörigheten Deltagare** eller **Ägare.**
+    - Om du just har skapat ett kostnadsfritt Azure-konto är du ägare till din prenumeration.
+    - Om du inte är prenumerationsägare arbetar du med ägaren för att tilldela rollen.
 
-### <a name="assign-permissions-to-register-the-appliance"></a>Tilldela behörigheter för att registrera produkten
+### <a name="assign-permissions-to-register-the-appliance"></a>Tilldela behörigheter för att registrera apparaten
 
-För att registrera installationen kan du tilldela behörigheter för Azure Migrate för att skapa Azure AD-appar under installationen av produkten. Behörigheterna kan tilldelas med någon av följande metoder:
+Om du vill registrera installationen tilldelar du behörigheter för Azure Migrate för att skapa Azure AD-apparna under installationens registrering. Behörigheterna kan tilldelas med någon av följande metoder:
 
-- En klient/global-administratör kan bevilja behörigheter till användare i klienten, för att skapa och registrera Azure AD-appar.
-- En klient/global administratör kan tilldela rollen programutvecklare (som har behörighet) till kontot.
+- **Bevilja behörigheter**: En klient/global administratör kan bevilja behörigheter till användare i klienten för att skapa och registrera Azure AD-appar.
+- **Tilldela rollen programutvecklare**: En klient/global administratör kan tilldela rollen Programutvecklare (som har behörigheterna) till kontot.
 
 > [!NOTE]
-> - Apparna har inte någon annan åtkomst behörighet för prenumerationen förutom de som beskrivs ovan.
-> - Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS.
+> - Apparna har inga andra åtkomstbehörigheter för prenumerationen än de som beskrivs ovan.
+> - Du behöver bara dessa behörigheter när du registrerar en ny apparat. Du kan ta bort behörigheterna när apparaten har konfigurerats.
 
 
-#### <a name="grant-account-permissions"></a>Bevilja konto behörigheter
+#### <a name="grant-account-permissions"></a>Bevilja kontobehörigheter
 
-Klient organisationen/den globala administratören kan bevilja behörigheter enligt följande
+Om du vill att klient/global administratör ska bevilja behörigheter gör du så här:
 
-1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory** > **användare** > **användar inställningar**.
-2. Administratören bör ange **Appregistreringar** till **Ja**. Detta är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+1. I Azure AD bör klienten/den globala administratören navigera till**Användarinställningar för** **Azure Active Directory** > **Users** > .
+2. Administratören ska ange **Appregistreringar** till **Ja**. Det här är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Azure AD-behörigheter](./media/tutorial-prepare-vmware/aad.png)
 
 
 
-#### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare
+#### <a name="assign-application-developer-role"></a>Tilldela rollen Programutvecklare
 
-Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+Alternativt kan klient-/globala administratören tilldela rollen Programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) om att tilldela en roll.
 
-### <a name="assign-permissions-to-create-a-key-vault"></a>Tilldela behörigheter för att skapa en Key Vault
+### <a name="assign-permissions-to-create-a-key-vault"></a>Tilldela behörigheter för att skapa ett nyckelvalv
 
-Om du vill aktivera Azure Migrate skapa en Key Vault tilldelar du behörighet enligt följande:
+Om du vill aktivera Azure Migrate för att skapa ett Nyckelvalv tilldelar du behörigheter enligt följande:
 
-1. I resurs gruppen i Azure Portal väljer du **åtkomst kontroll (IAM)** .
-2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter.
+1. Välj **Åtkomstkontroll (IAM)** i resursgruppen i Azure-portalen .
+2. Leta reda på det relevanta kontot i **Check access**och klicka på det för att visa behörigheter.
 
-    - **Deltagar** behörigheterna räcker för att köra Server utvärderingen.
-    - Om du vill köra en programbegränsad Server-migrering, måste du ha behörighet som **ägare** (eller **deltagare** och **användar åtkomst administratör**).
+    - För att köra serverutvärdering räcker **det med deltagarbehörighet.**
+    - Om du vill köra agentlös servermigrering bör du ha behörigheter **för ägare** (eller **deltagare** och **användaråtkomstadministratör).**
 
-3. Om du inte har de behörigheter som krävs kan du begära dem från resurs gruppens ägare.
+3. Om du inte har de behörigheter som krävs begär du dem från resursgruppens ägare.
 
 
 
-## <a name="prepare-for-vmware-vm-assessment"></a>Förbered för utvärdering av virtuella VMware-datorer
+## <a name="prepare-for-vmware-vm-assessment"></a>Förbered för VM-bedömning för VMware
 
-För att förbereda för virtuell VMware VM-utvärdering måste du:
+För att förbereda för VMware VM-utvärdering måste du:
 
-- **Verifiera VMware-inställningar**. Kontrol lera att de vCenter Server och de virtuella datorer som du vill migrera uppfyller kraven.
-- **Konfigurera ett utvärderings konto**. Azure Migrate behöver åtkomst till vCenter Server för att identifiera virtuella datorer för utvärdering.
-- **Kontrol lera krav för produkten**. Kontrol lera distributions kraven för den Azure Migrate-utrustning som används för utvärdering.
+- **Verifiera VMware-inställningar**. Kontrollera att de virtuella portar och virtuella datorer som du vill migrera uppfyller kraven.
+- **Skapa ett konto för bedömning**. Azure Migrate använder det här kontot för att komma åt vCenter Server för att identifiera virtuella datorer för bedömning.
+- **Kontrollera apparatens krav**. Verifiera distributionskrav för Azure Migrate-enheten innan du distribuerar den.
 
 ### <a name="verify-vmware-settings"></a>Verifiera VMware-inställningar
 
-1. [Kontrol lera](migrate-support-matrix-vmware.md#vmware-requirements) Krav för VMware Server för utvärdering.
-2. [Kontrol lera](migrate-support-matrix-vmware.md#port-access) att portarna som du behöver är öppna på vCenter Server.
-3. På vCenter Server kontrollerar du att ditt konto har behörighet att skapa en virtuell dator med en ägg fil. Du distribuerar Azure Migrate-apparaten som en virtuell VMware-dator med hjälp av en ägg fil.
+1. [Kontrollera](migrate-support-matrix-vmware.md#vmware-requirements) VMware server krav för bedömning.
+2. [Kontrollera](migrate-support-matrix-vmware.md#port-access) att de portar du behöver är öppna på vCenter Server.
+3. På vCenter Server kontrollerar du att ditt konto har behörighet att skapa en virtuell dator med hjälp av en OVA-fil. Du distribuerar Azure Migrate-enheten som en virtuell VMware-dator med hjälp av en OVA-fil.
 
 
-### <a name="set-up-an-account-for-assessment"></a>Konfigurera ett konto för utvärdering
+### <a name="set-up-an-account-for-assessment"></a>Skapa ett konto för bedömning
 
-Azure Migrate behöver åtkomst till vCenter Server för att identifiera virtuella datorer för utvärdering och agent lös migrering.
+Azure Migrate måste komma åt vCenter Server för att identifiera virtuella datorer för bedömning och agentlös migrering.
 
-- Om du planerar att identifiera program eller visualisera beroenden på ett agent sätt skapar du ett vCenter Server-konto med skrivskyddad åtkomst tillsammans med de behörigheter som har Aktiver ATS för **virtuella datorer** > **gäst åtgärder**.
+- Om du planerar att identifiera program eller visualisera beroende på ett agentlöst sätt skapar du ett vCenter Server-konto med skrivskyddad åtkomst tillsammans med privilegier som är aktiverade för **virtuella datorer** > **Gästoperationer**.
 
-  ![vCenter Server konto privilegier](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+  ![rättigheter för vCenter Server-konto](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
 
-- Om du inte planerar att utföra program identifiering och visualisering av beroenden för agenter, ställer du in ett skrivskyddat konto för vCenter Server.
+- Om du inte planerar att identifiera program och agentlös beroendevisualisering konfigurerar du ett skrivskyddat konto för vCenter-servern.
 
-### <a name="verify-appliance-settings-for-assessment"></a>Kontrol lera enhets inställningarna för utvärdering
+### <a name="verify-appliance-settings-for-assessment"></a>Verifiera inställningar för apparat för bedömning
 
-Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen i nästa självstudie förbereder du installationen av enheten.
+Innan du konfigurerar Azure Migrate-enheten och börjar utvärderingen i nästa självstudiekurs förbereder du för distribution av enheter.
 
-1. [Kontrol lera](migrate-appliance.md#appliance---vmware) installations kraven för virtuella VMware-datorer.
-2. [Granska](migrate-appliance.md#url-access) de Azure-URL: er som krävs för att komma åt installations programmet. Om du använder en URL-baserad brand vägg eller proxy, se till att den tillåter åtkomst till de nödvändiga URL: erna.
-3. [Granska](migrate-appliance.md#collected-data---vmware) att installationen kommer att samlas in under identifiering och utvärdering.
-4. [Antecknings](migrate-support-matrix-vmware.md#port-access) portens åtkomst krav för produkten.
-
-
+1. [Verifiera](migrate-appliance.md#appliance---vmware) Azure Migrera installationskrav.
+2. [Granska](migrate-appliance.md#url-access) de Azure-url:er som enheten behöver komma åt. Om du använder en URL-baserad brandvägg eller proxy kontrollerar du att den ger åtkomst till de webbadresser som krävs.
+3. [Granska data](migrate-appliance.md#collected-data---vmware) som enheten samlar in under identifiering och bedömning.
+4. [Observera](migrate-support-matrix-vmware.md#port-access) tillträdeskrav för porten för apparaten.
 
 
-## <a name="prepare-for-agentless-vmware-migration"></a>Förbered för en agent utan VMware-migrering
-
-Granska kraven för migrering utan agent för virtuella VMware-datorer.
-
-1. [Granska](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) Krav för VMware-servrar och de [behörigheter](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) som Azure Migrate behöver åtkomst till vCenter Server för migrering utan agent med hjälp av Azure Migrate Server-migrering.
-2. [Granska](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) kraven för virtuella VMware-datorer som du vill migrera till Azure med hjälp av en agent lös migrering.
-4. [Granska](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) kraven för att använda Azure Migrate-enheten för att migrera utan agent.
-5. Observera [URL-åtkomst](migrate-appliance.md#url-access) och [port åtkomst](migrate-support-matrix-vmware-migration.md#agentless-ports) som krävs för migrering utan agent.
 
 
-## <a name="prepare-for-agent-based-vmware-migration"></a>Förbereda för agent-baserad VMware-migrering
+## <a name="prepare-for-agentless-vmware-migration"></a>Förbered dig för agentlös VMware-migrering
 
-Granska kraven för [agent-baserad migrering](server-migrate-overview.md) av virtuella VMware-datorer.
+Granska kraven för [agentless migrering](server-migrate-overview.md) av virtuella datorer för VMware.
 
-1. [Granska](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) Krav för VMware-servrar och behörighets Azure Migrate måste ha åtkomst till vCenter Server för certifikatbaserad migrering med hjälp av Azure Migrate Server-migrering.
-2. [Granska](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) kraven för virtuella VMware-datorer som du vill migrera till Azure med hjälp av en agent-baserad migrering, inklusive installation av mobilitets tjänsten på varje virtuell dator som du vill migrera.
-3. Agentbaserade migreringar använder en replikeringsfil:
-    - [Granska](migrate-replication-appliance.md#appliance-requirements) distributions kraven för replikeringstjänsten och [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på-enheten.
-    - Granska [URL-adressen](migrate-replication-appliance.md#url-access) och [port](migrate-replication-appliance.md#port-access) åtkomst kraven för replikeringstjänsten.
+1. [Granska](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) VMware-serverkrav.
+2. [Granska de behörigheter](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) som Azure Migrate behöver för att komma åt vCenter Server.
+3. [Granska](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) VMware virtuella datorer krav.
+4. [Granska](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) azure migrate-installationskraven.
+5. Observera kraven för [url-åtkomst](migrate-appliance.md#url-access) och [portåtkomst.](migrate-support-matrix-vmware-migration.md#agentless-ports)
+
+## <a name="prepare-for-agent-based-vmware-migration"></a>Förbered för agentbaserad VMware-migrering
+
+Granska kraven för [agentbaserad migrering](server-migrate-overview.md) av virtuella datorer med VMware.
+
+1. [Granska](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware-serverkrav.
+2. [Granska behörigheterna](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) Azure Migrate måste komma åt vCenter Server.
+2. [Granska](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) VMware-virtuella datorer, inklusive installation av mobilitetstjänsten på varje virtuell dator som du vill migrera.
+3. Agentbaserad migrering använder en replikeringsverktyget:
+    - [Granska](migrate-replication-appliance.md#appliance-requirements) distributionskraven för replikeringsverktyget.
+    - [Läs alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på apparaten.
+    - Granska kraven för [URL-](migrate-replication-appliance.md#url-access) och [portåtkomst](migrate-replication-appliance.md#port-access) för replikeringsverktyget.
     
 ## <a name="next-steps"></a>Nästa steg
 
@@ -158,10 +158,10 @@ I den här kursen får du:
 
 > [!div class="checklist"]
 > * Konfigurera Azure-behörigheter.
-> * För beredd VMware för utvärdering och migrering.
+> * Förberedd VMware för bedömning och migrering.
 
 
-Fortsätt till den andra själv studie kursen för att skapa ett Azure Migrate-projekt och utvärdera virtuella VMware-datorer för migrering till Azure.
+Fortsätt till den andra självstudien för att konfigurera ett Azure Migrate-projekt och utvärdera virtuella virtuella datorer för VMware för migrering till Azure.
 
 > [!div class="nextstepaction"]
-> [Utvärdera virtuella VMware-datorer](./tutorial-assess-vmware.md)
+> [Utvärdera virtuella datorer med VMware](./tutorial-assess-vmware.md)

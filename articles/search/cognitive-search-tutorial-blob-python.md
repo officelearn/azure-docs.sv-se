@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: python och AI över Azure-blobbar'
+title: 'Självstudiekurs: Python och AI över Azure-blobbar'
 titleSuffix: Azure Cognitive Search
-description: 'Stega genom ett exempel på text extrahering och naturlig språk bearbetning över innehåll i Blob Storage med en Jupyter python-anteckningsbok och Azure Kognitiv sökning REST-API: er.'
+description: Gå igenom ett exempel på textextrahering och bearbetning av naturligt språk över innehåll i Blob-lagring med hjälp av en Jupyter Python-anteckningsbok och Azure Cognitive Search REST API:er.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,123 +10,123 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/26/2020
 ms.openlocfilehash: e7708b0043b7f5baf2c12e813306595cc358a01d
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78194062"
 ---
-# <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd python och AI för att generera sökbart innehåll från Azure-blobbar
+# <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudiekurs: Använda Python och AI för att generera sökbart innehåll från Azure-blobbar
 
-Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder fokuserar den här python-kursen på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
+Om du har ostrukturerad text eller avbildningar i Azure Blob-lagring kan en [AI-anrikningspipeline](cognitive-search-concept-intro.md) extrahera information och skapa nytt innehåll som är användbart för fulltextsökning eller kunskapsutvinningsscenarier. Även om en pipeline kan bearbeta avbildningar fokuserar den här Python-självstudien på text, tillämpa språkidentifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, aspekter och filter.
 
-Den här självstudien använder python och [Sök REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
+Den här självstudien använder Python och [REST-API:erna för sökning](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage.
-> * Definiera en pipeline som extraherar text, identifierar språk, identifierar entiteter och identifierar viktiga fraser.
-> * Definiera ett index för att lagra utdata (RAW-innehåll, plus pipeline-genererade namn-värdepar).
-> * Kör pipelinen för att starta omvandlingar och analys och för att skapa och läsa in indexet.
-> * Utforska resultat med fullständig texts ökning och en omfattande frågesyntax.
+> * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob-lagring.
+> * Definiera en pipeline som extraherar text, identifierar språk, känner igen entiteter och identifierar nyckelfraser.
+> * Definiera ett index för att lagra utdata (råinnehåll, plus pipelinegenererade namnvärdespar).
+> * Kör pipelinen för att starta omvandlingar och analyser och för att skapa och läsa in indexet.
+> * Utforska resultat med hjälp av fulltextsökning och en omfattande frågesyntax.
 
-Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration öppnar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-+ [Azure Storage](https://azure.microsoft.com/services/storage/)
++ [Azure-lagring](https://azure.microsoft.com/services/storage/)
 + [Anaconda 3,7](https://www.anaconda.com/distribution/#download-section)
-+ [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
++ [Skapa](search-create-service-portal.md) eller [hitta en befintlig söktjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> Du kan använda den kostnads fria tjänsten för den här självstudien. En kostnads fri Sök tjänst begränsar dig till tre index, tre indexerare och tre data källor. I den här kursen skapar du en av varje. Innan du börjar bör du kontrol lera att du har utrymme på tjänsten för att godkänna de nya resurserna.
+> Du kan använda den kostnadsfria tjänsten för den här självstudien. En kostnadsfri söktjänst begränsar dig till tre index, tre indexerare och tre datakällor. I den här kursen skapar du en av varje. Innan du börjar, se till att du har utrymme på din tjänst för att acceptera de nya resurserna.
 
 ## <a name="download-files"></a>Hämta filer
 
-1. Öppna den här [OneDrive-mappen](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) och klicka på **Ladda ned** i det övre vänstra hörnet för att kopiera filerna till datorn. 
+1. Öppna den här [OneDrive-mappen](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) och klicka på **Hämta** längst upp till vänster för att kopiera filerna till datorn. 
 
-1. Högerklicka på zip-filen och välj **extrahera alla**. Det finns 14 filer av olika typer. Du använder 7 för den här övningen.
+1. Högerklicka på zip-filen och välj **Extrahera alla**. Det finns 14 filer av olika slag. Du kommer att använda 7 för denna övning.
 
-## <a name="1---create-services"></a>1 – skapa tjänster
+## <a name="1---create-services"></a>1 - Skapa tjänster
 
-I den här självstudien används Azure Kognitiv sökning för indexering och frågor, Cognitive Services på Server delen för AI-anrikning och Azure Blob Storage för att tillhandahålla data. Den här självstudien finns kvar under den kostnads fria allokeringen av 20 transaktioner per indexerare per dag på Cognitive Services, så de enda tjänsterna du behöver skapa är Sök och lagring.
+Den här självstudien använder Azure Cognitive Search för indexering och frågor, Cognitive Services på backend för AI-anrikning och Azure Blob-lagring för att tillhandahålla data. Den här självstudien förblir under den kostnadsfria allokeringen av 20 transaktioner per indexerare per dag på Cognitive Services, så de enda tjänster du behöver skapa är sökning och lagring.
 
-Skapa om möjligt både i samma region och resurs grupp för närhet och hanterbarhet. I praktiken kan ditt Azure Storage-konto finnas i vilken region som helst.
+Om möjligt, skapa både i samma region och resursgrupp för närhet och hanterbarhet. I praktiken kan ditt Azure Storage-konto finnas i alla regioner.
 
 ### <a name="start-with-azure-storage"></a>Börja med Azure Storage
 
-1. [Logga](https://portal.azure.com/) in på Azure Portal och klicka på **+ skapa resurs**.
+1. [Logga in på Azure-portalen](https://portal.azure.com/) och klicka på **+ Skapa resurs**.
 
-1. Sök efter *lagrings konto* och välj Microsofts erbjudande för lagrings konto.
+1. Sök efter *lagringskonto* och välj Microsofts erbjudande om lagringskonto.
 
-   ![Skapa lagrings konto](media/cognitive-search-tutorial-blob/storage-account.png "Skapa lagrings konto")
+   ![Skapa lagringskonto](media/cognitive-search-tutorial-blob/storage-account.png "Skapa lagringskonto")
 
-1. På fliken grundläggande måste följande objekt vara obligatoriska. Acceptera standardvärdena för allt annat.
+1. På fliken Grunderna krävs följande objekt. Acceptera standardvärdena för allt annat.
 
-   + **Resursgrupp**. Välj en befintlig eller skapa en ny, men Använd samma grupp för alla tjänster så att du kan hantera dem tillsammans.
+   + **Resursgrupp**. Välj en befintlig eller skapa en ny, men använd samma grupp för alla tjänster så att du kan hantera dem kollektivt.
 
-   + **Lagrings konto namn**. Om du tror att du kan ha flera resurser av samma typ, använder du namnet på disambiguate efter typ och region, till exempel *blobstoragewestus*. 
+   + **Namn på lagringskonto**. Om du tror att du har flera resurser av samma typ använder du namnet för att skilja efter typ och region, till exempel *blobstoragewestus*. 
 
-   + **Plats**. Om möjligt väljer du samma plats som används för Azure Kognitiv sökning och Cognitive Services. Med en enda plats annulleras bandbredds avgifter.
+   + **Plats**. Om möjligt väljer du samma plats som används för Azure Cognitive Search och Cognitive Services. En enda plats annullerar bandbreddsavgifter.
 
-   + **Typ av konto**. Välj standard, *StorageV2 (generell användning v2)* .
+   + **Konto Typ**. Välj standard, *StorageV2 (allmänt ändamål v2)*.
 
-1. Klicka på **Granska + skapa** för att skapa tjänsten.
+1. Klicka på **Granska + Skapa** om du vill skapa tjänsten.
 
-1. När den har skapats klickar **du på gå till resursen** för att öppna översikts sidan.
+1. När den har skapats klickar du på **Gå till resursen** för att öppna sidan Översikt.
 
-1. Klicka på **blobs** -tjänsten.
+1. Klicka på **Blobbar-tjänsten.**
 
-1. Klicka på **+ container** för att skapa en behållare och ge den namnet *kugg hjuls-search-demo*.
+1. Klicka på **+ Behållare** om du vill skapa en behållare och namnge den *kugg-sök-demo*.
 
-1. Välj *kugg hjuls-search-demo* och klicka sedan på **Ladda upp** för att öppna mappen där du sparade nedladdnings filerna. Välj alla icke-bildfiler. Du bör ha 7 filer. Klicka på **OK** för att ladda upp.
+1. Välj *cog-search-demo* och klicka sedan på **Ladda upp** för att öppna mappen där du sparade nedladdningsfilerna. Markera alla filer som inte är bildfiler. Du borde ha 7 filer. Klicka på **OK** för att ladda upp.
 
    ![Ladda upp exempelfiler](media/cognitive-search-tutorial-blob/sample-files.png "Ladda upp exempelfiler")
 
-1. Innan du lämnar Azure Storage får du en anslutnings sträng så att du kan formulera en anslutning i Azure Kognitiv sökning. 
+1. Innan du lämnar Azure Storage får du en anslutningssträng så att du kan formulera en anslutning i Azure Cognitive Search. 
 
-   1. Gå tillbaka till sidan Översikt för ditt lagrings konto (vi använde *blobstragewestus* som exempel). 
+   1. Bläddra tillbaka till översiktssidan för ditt lagringskonto (vi använde *blobstragewestus* som exempel). 
    
-   1. I det vänstra navigerings fönstret väljer du **åtkomst nycklar** och kopierar en av anslutnings strängarna. 
+   1. I det vänstra navigeringsfönstret väljer du **Access-nycklar** och kopierar en av anslutningssträngarna. 
 
-   Anslutnings strängen är en URL som liknar följande exempel:
+   Anslutningssträngen är en URL som liknar följande exempel:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
-1. Spara anslutnings strängen i anteckningar. Du behöver det senare när du konfigurerar anslutningen till data källan.
+1. Spara anslutningssträngen i Anteckningar. Du behöver det senare när du konfigurerar datakällanslutningen.
 
 ### <a name="cognitive-services"></a>Cognitive Services
 
-AI-berikning backas upp av Cognitive Services, inklusive Textanalys och Visuellt innehåll för naturligt språk och bild bearbetning. Om målet var att slutföra en faktisk prototyp eller ett projekt, skulle du i den här punkten etablera Cognitive Services (i samma region som Azure Kognitiv sökning) så att du kan koppla den till indexerings åtgärder.
+AI-anrikning backas upp av Cognitive Services, inklusive textanalys och datorseende för naturligt språk och bildbehandling. Om ditt mål var att slutföra en verklig prototyp eller projekt, skulle du vid denna punkt tillhandahålla Cognitive Services (i samma region som Azure Cognitive Search) så att du kan koppla den till indexeringsåtgärder.
 
-I den här övningen kan du hoppa över resurs etableringen eftersom Azure Kognitiv sökning kan ansluta till Cognitive Services bakom kulisserna och ge dig 20 kostnads fria transaktioner per indexerare. Eftersom den här självstudien använder 7 transaktioner är den kostnads fria fördelningen tillräckligt. För större projekt bör du planera för etablering Cognitive Services på S0-nivån betala per användning. Mer information finns i [bifoga Cognitive Services](cognitive-search-attach-cognitive-services.md).
+För den här övningen kan du dock hoppa över resursetablering eftersom Azure Cognitive Search kan ansluta till Cognitive Services bakom kulisserna och ge dig 20 kostnadsfria transaktioner per indexeringskörning. Eftersom den här självstudien använder 7 transaktioner är den kostnadsfria allokeringen tillräcklig. För större projekt bör du planera att etablera Cognitive Services på S0-nivån för betalning per steg. Mer information finns i [Bifoga Kognitiva tjänster](cognitive-search-attach-cognitive-services.md).
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-Den tredje komponenten är Azure-Kognitiv sökning, som du kan [skapa i portalen](search-create-service-portal.md). Du kan använda den kostnads fria nivån för att slutföra den här genom gången. 
+Den tredje komponenten är Azure Cognitive Search, som du kan [skapa i portalen](search-create-service-portal.md). Du kan använda den kostnadsfria nivån för att slutföra den här genomgången. 
 
-Som med Azure Blob Storage kan du ägna en stund åt att samla in åtkomst nyckeln. Vidare måste du, när du börjar strukturera förfrågningar, ange slut punkt och Admin-API-nyckel som används för att autentisera varje begäran.
+Precis som med Azure Blob-lagring tar du en stund att samla in åtkomstnyckeln. Vidare, när du börjar strukturera begäranden, måste du ange slutpunkten och admin api-nyckeln som används för att autentisera varje begäran.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Hämta en Admin API-nyckel och URL för Azure Kognitiv sökning
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Skaffa en api-nyckel och URL för Azure Cognitive Search
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en har `https://mydemo.search.windows.net`ts, är tjänstens namn `mydemo`.
+1. [Logga in på Azure-portalen](https://portal.azure.com/)och på **sidan** Översikt för söktjänsten får du namnet på söktjänsten. Du kan bekräfta ditt tjänstnamn genom att granska slutpunktsadressen. Om slutpunktsadressen var `https://mydemo.search.windows.net`skulle `mydemo`tjänstnamnet vara .
 
-2. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningsnycklar** > **Keys**får du en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara admin nycklar, som tillhandahålls för kontinuitet i verksamheten om du behöver rulla en över. Du kan använda antingen primär- eller sekundärnyckeln på begäranden om att lägga till, ändra och ta bort objekt.
 
-   Hämta även frågans nyckel. Det är en bra idé att utfärda förfrågningar med skrivskyddad åtkomst.
+   Hämta frågenyckeln också. Det är en bra idé att utfärda frågebegäranden med skrivskyddad åtkomst.
 
-   ![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Hämta tjänstens namn och administratörs- och frågenycklar](media/search-get-started-nodejs/service-name-and-keys.png)
 
-Alla begär Anden kräver en API-nyckel i rubriken för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende per begäran mellan programmet som skickar begäran och tjänsten som hanterar den.
+Alla begäranden kräver en api-nyckel i huvudet på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, per begäran, mellan programmet som skickar begäran och den tjänst som hanterar den.
 
-## <a name="2---start-a-notebook"></a>2 – Starta en bärbar dator
+## <a name="2---start-a-notebook"></a>2 - Starta en anteckningsbok
 
-Skapa antecknings boken med hjälp av följande instruktioner eller ladda ned en färdig bärbar dator från [Azure-Search-python-samples lagrings platsen](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
+Skapa anteckningsboken med hjälp av följande instruktioner eller hämta en färdig anteckningsbok från [Repoet för Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
-Använd Anaconda Navigator för att starta Jupyter Notebook och skapa en ny python 3-anteckningsbok.
+Använd Anaconda Navigator för att starta Jupyter Notebook och skapa en ny Python 3-anteckningsbok.
 
-I din bärbara dator kör du det här skriptet för att läsa in de bibliotek som används för att arbeta med JSON och utforma HTTP-begäranden.
+I anteckningsboken kör du det här skriptet för att läsa in de bibliotek som används för att arbeta med JSON och formulera HTTP-begäranden.
 
 ```python
 import json
@@ -134,7 +134,7 @@ import requests
 from pprint import pprint
 ```
 
-I samma antecknings bok definierar du namnen på data källan, indexet, Indexer och färdigheter. Kör det här skriptet för att konfigurera namnen för den här självstudien.
+I samma anteckningsbok definierar du namnen för datakällan, indexet, indexeraren och kompetensen. Kör det här skriptet för att ställa in namnen för den här självstudien.
 
 ```python
 # Define the names for the data source, skillset, index and indexer
@@ -144,7 +144,7 @@ index_name = "cogsrch-py-index"
 indexer_name = "cogsrch-py-indexer"
 ```
 
-I följande skript ersätter du plats hållarna för Sök tjänsten (ditt-SEARCH-SERVICE-NAME) och Admin API-nyckeln (din-ADMIN-API-nyckel) och kör sedan den för att konfigurera Sök tjänstens slut punkt.
+I följande skript ersätter du platshållarna för söktjänsten (YOUR-SEARCH-SERVICE-NAME) och admin API-nyckeln (YOUR-ADMIN-API-KEY) och kör den för att konfigurera slutpunkten för söktjänsten.
 
 ```python
 # Setup the endpoint
@@ -156,15 +156,15 @@ params = {
 }
 ```
 
-## <a name="3---create-the-pipeline"></a>3 – skapa pipelinen
+## <a name="3---create-the-pipeline"></a>3 - Skapa pipelinen
 
-I Azure Kognitiv sökning sker AI-bearbetning under indexering (eller data inmatning). I den här delen av genom gången skapas fyra objekt: data källa, index definition, färdigheter, indexerare. 
+I Azure Cognitive Search sker AI-bearbetning under indexering (eller datainmatning). Den här delen av genomgången skapar fyra objekt: datakälla, indexdefinition, kompetens, indexerare. 
 
 ### <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla
 
-Ett [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ger anslutnings strängen till BLOB-behållaren som innehåller filerna.
+Ett [datakällobjekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) tillhandahåller anslutningssträngen till Blob-behållaren som innehåller filerna.
 
-I följande skript ersätter du plats hållaren YOUR-BLOB-RESOURCE-STRING med anslutnings strängen för blobben som du skapade i föregående steg. Ersätt platshållartexten för behållaren. Kör sedan skriptet för att skapa en data källa med namnet `cogsrch-py-datasource`.
+I följande skript ersätter du platshållaren YOUR-BLOB-RESOURCE-CONNECTION-STRING med anslutningssträngen för bloben som du skapade i föregående steg. Ersätt platshållartexten för behållaren. Kör sedan skriptet för att `cogsrch-py-datasource`skapa en datakälla med namnet .
 
 ```python
 # Create a data source
@@ -185,17 +185,17 @@ r = requests.put(endpoint + "/datasources/" + datasource_name,
 print(r.status_code)
 ```
 
-Begäran ska returnera status koden 201 som bekräftar att det lyckades.
+Begäran bör returnera en statuskod för 201 som bekräftar lyckade.
 
-På sidan för Sök tjänstens instrument panel i Azure Portal kontrollerar du att cogsrch-py-DataSource visas i listan **data källor** . Klicka på **Uppdatera** för att uppdatera sidan.
+Kontrollera att kuggarlöddatakällan visas i listan **Datakällor** på instrumentpanelen för söktjänsten på instrumentpanelen för söktjänsten. Klicka på **Uppdatera** om du vill uppdatera sidan.
 
-![Panelen data källor i portalen](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Panelen data källor i portalen")
+![Panelen Datakällor i portalen](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Panelen Datakällor i portalen")
 
-### <a name="step-2-create-a-skillset"></a>Steg 2: skapa en färdigheter
+### <a name="step-2-create-a-skillset"></a>Steg 2: Skapa en kompetens
 
-I det här steget ska du definiera en uppsättning med anriknings steg som ska tillämpas på dina data. Du kallar varje berikande steg för en *kunskap*, och uppsättningen med berikande steg för en *kunskapsuppsättning*. I den här självstudien används [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) för färdigheter:
+I det här steget definierar du en uppsättning anrikningssteg som ska tillämpas på dina data. Du kallar varje berikande steg för en *kunskap*, och uppsättningen med berikande steg för en *kunskapsuppsättning*. Den här självstudien använder [inbyggda kognitiva färdigheter](cognitive-search-predefined-skills.md) för kompetensen:
 
-+ [Enhets igenkänning](cognitive-search-skill-entity-recognition.md) för extrahering av namn på organisationer från innehåll i BLOB-behållaren.
++ [Entitetsigenkänning](cognitive-search-skill-entity-recognition.md) för att extrahera namnen på organisationer från innehåll i blob-behållaren.
 
 + [Språkidentifiering](cognitive-search-skill-language-detection.md) för att identifiera innehållets språk.
 
@@ -203,7 +203,7 @@ I det här steget ska du definiera en uppsättning med anriknings steg som ska t
 
 + [Extrahering av nyckelfraser](cognitive-search-skill-keyphrases.md) för att hämta viktigaste nyckelfraserna. 
 
-Kör följande skript för att skapa en färdigheter som heter `cogsrch-py-skillset`.
+Kör följande skript för att `cogsrch-py-skillset`skapa en kompetensuppsättning som kallas .
 
 ```python
 # Create a skillset
@@ -289,23 +289,23 @@ r = requests.put(endpoint + "/skillsets/" + skillset_name,
 print(r.status_code)
 ```
 
-Begäran ska returnera status koden 201 som bekräftar att det lyckades.
+Begäran bör returnera en statuskod för 201 som bekräftar lyckade.
 
-Extraherings kunskaper för nyckel fraser används för varje sida. Genom att ställa in kontexten på `"document/pages/*"`kör du den här berikaren för varje medlem i matrisen dokument/sidor (för varje sida i dokumentet).
+Nyckelfrasutextraheringsfärdigheten används för varje sida. Genom att ange `"document/pages/*"`kontexten till kör du den här berikaren för varje medlem i dokument-/sidmatrisen (för varje sida i dokumentet).
 
-Varje kunskap körs på innehållet i dokumentet. Under bearbetningen kommer Azure Kognitiv sökning att knäcka varje dokument för att läsa innehåll från olika fil format. Text som hittas i käll filen placeras i ett `content` fält, en för varje dokument. Ange därför indatatypen som `"/document/content"`.
+Varje kunskap körs på innehållet i dokumentet. Under bearbetningen knäcker Azure Cognitive Search varje dokument för att läsa innehåll från olika filformat. Text som finns i källfilen `content` placeras i ett fält, ett för varje dokument. Ställ därför in `"/document/content"`indata som .
 
 En grafisk representation av kunskapsuppsättningen visas nedan.
 
-![Förstå en färdigheter](media/cognitive-search-tutorial-blob/skillset.png "Förstå en färdigheter")
+![Förstå en kompetens](media/cognitive-search-tutorial-blob/skillset.png "Förstå en kompetens")
 
-Utdata kan mappas till ett index, användas som indata till en underordnad färdighet eller båda, som är fallet med språkkod. I indexet kan en språkkod användas för filtrering. Som indata används språkkoden av textanalyskunskaper för att informera om de språkliga reglerna kring ordnedbrytning.
+Utdata kan mappas till ett index, användas som indata till en nedströms färdighet, eller båda, som är fallet med språkkod. I indexet kan en språkkod användas för filtrering. Som indata används språkkoden av textanalyskunskaper för att informera om de språkliga reglerna kring ordnedbrytning.
 
 Mer information om grunderna i kunskapsuppsättningar finns i [Definiera en kunskapsuppsättning](cognitive-search-defining-skillset.md).
 
-### <a name="step-3-create-an-index"></a>Steg 3: skapa ett index
+### <a name="step-3-create-an-index"></a>Steg 3: Skapa ett index
 
-I det här avsnittet definierar du index schemat genom att ange de fält som ska ingå i det sökbara indexet och ange sökattributen för varje fält. Fält har en typ och kan ta attribut som bestämmer hur fältet ska användas (sökbart, sorteringsbart och så vidare). Fältnamn i ett index krävs inte för att matcha fältnamn identiskt i källan. I ett senare steg lägger du till fältmappningar i en indexerare för att ansluta källa-mål-fält. För det här steget definiera indexet med fältnamnkonventioner som är relevanta för ditt sökprogram.
+I det här avsnittet definierar du indexschemat genom att ange de fält som ska inkluderas i det sökbara indexet och ange sökattribut för varje fält. Fält har en typ och kan ta attribut som bestämmer hur fältet ska användas (sökbart, sorteringsbart och så vidare). Fältnamn i ett index krävs inte för att matcha fältnamn identiskt i källan. I ett senare steg lägger du till fältmappningar i en indexerare för att ansluta källa-mål-fält. För det här steget definiera indexet med fältnamnkonventioner som är relevanta för ditt sökprogram.
 
 Den här övningen använder följande fält och fälttyp:
 
@@ -313,7 +313,7 @@ Den här övningen använder följande fält och fälttyp:
 |--------------|----------|-------|----------|--------------------|-------------------|
 | fält-typer: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
-Kör det här skriptet för att skapa indexet med namnet `cogsrch-py-index`.
+Kör skriptet om du `cogsrch-py-index`vill skapa indexet med namnet .
 
 ```python
 # Create an index
@@ -367,23 +367,23 @@ r = requests.put(endpoint + "/indexes/" + index_name,
 print(r.status_code)
 ```
 
-Begäran ska returnera status koden 201 som bekräftar att det lyckades.
+Begäran bör returnera en statuskod för 201 som bekräftar lyckade.
 
-Mer information om hur du definierar ett index finns i [skapa index (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Mer information om hur du definierar ett index finns i [Skapa index (AZURE Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-4-create-and-run-an-indexer"></a>Steg 4: skapa och köra en indexerare
+### <a name="step-4-create-and-run-an-indexer"></a>Steg 4: Skapa och kör en indexerare
 
-En [indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) driver pipelinen. De tre komponenter som du har skapat hittills (data källa, färdigheter, index) är indata till en indexerare. Att skapa indexeraren på Azure Kognitiv sökning är den händelse som placerar hela pipelinen i rörelse. 
+En [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) driver pipelinen. De tre komponenter som du har skapat hittills (datakälla, kompetens, index) är indata till en indexerare. Att skapa indexeraren på Azure Cognitive Search är den händelse som försätter hela pipelinen i rörelse. 
 
-Om du vill koppla ihop dessa objekt i en indexerare måste du definiera fält mappningar.
+Om du vill koppla samman dessa objekt i en indexerare måste du definiera fältmappningar.
 
-+ FieldMappings bearbetas före färdigheter och mappar käll fälten från data källan till mål fälten i ett index. Om fält namn och typer är desamma i båda ändar, krävs ingen mappning.
++ FältetMappningar bearbetas före kompetensuppsättningen, mappningskällorfält från datakällan till målfälten i ett index. Om fältnamn och typer är desamma i båda ändar krävs ingen mappning.
 
-+ OutputFieldMappings bearbetas efter färdigheter, refererar till sourceFieldNames som inte finns förrän dokument sprickor eller berikning skapar dem. TargetFieldName är ett fält i ett index.
++ UtdataFieldMappings bearbetas efter kompetensuppsättningen, refererar till sourceFieldNames som inte finns förrän dokumentsprickor eller anrikning skapar dem. TargetFieldName är ett fält i ett index.
 
-Förutom att koppla in indata till utdata kan du också använda fält mappningar för att förenkla data strukturer. Mer information finns i [så här mappar du berikade fält till ett sökbart index](cognitive-search-output-field-mapping.md).
+Förutom att koppla indata till utdata kan du också använda fältmappningar för att förenkla datastrukturer. Mer information finns i [Så här mappar du utökade fält till ett sökbart index](cognitive-search-output-field-mapping.md).
 
-Kör det här skriptet för att skapa en indexerare med namnet `cogsrch-py-indexer`.
+Kör skriptet om du `cogsrch-py-indexer`vill skapa en indexerare med namnet .
 
 ```python
 # Create an indexer
@@ -436,26 +436,26 @@ r = requests.put(endpoint + "/indexers/" + indexer_name,
 print(r.status_code)
 ```
 
-Begäran bör returnera status koden 201 snart, men bearbetningen kan ta flera minuter att slutföra. Även om data uppsättningen är liten, är analys kunskaper, till exempel bild analys, i beräknings intensiva och tar tid.
+Begäran bör returnera en statuskod för 201 snart, men bearbetningen kan ta flera minuter att slutföra. Även om datauppsättningen är liten är analytiska färdigheter, till exempel bildanalys, beräkningsintensiva och tar tid.
 
-Du kan [övervaka indexerings status](#check-indexer-status) för att fastställa när indexeraren körs eller är färdig.
+Du kan [övervaka indexerarstatus](#check-indexer-status) för att avgöra när indexeraren körs eller är klar.
 
 > [!TIP]
-> När en indexerare skapas anropas pipelinen. Om det uppstår problem med att komma åt data, mappa indata och utdata eller med ordningen på åtgärder, visas det i det här skedet. Om du vill köra pipelinen igen med kod-eller skript ändringar kan du behöva ta bort objekten först. Mer information finns i [Reset and re-run](#reset) (Återställa och köra om).
+> När en indexerare skapas anropas pipelinen. Om det har uppstått ett problem med att komma åt data, mappa indata och utdata eller med operationsordningen visas den i det här skedet. Om du vill köra pipelinen igen med kod- eller skriptändringar kan du behöva ta bort objekt först. Mer information finns i [Reset and re-run](#reset) (Återställa och köra om).
 
-#### <a name="about-the-request-body"></a>Om begär ande texten
+#### <a name="about-the-request-body"></a>Om förfrå undertexten för begäran
 
 Skriptet ställer in `"maxFailedItems"`  på -1, vilket instruerar indexeringsmotorn att ignorera fel under dataimport. Detta är användbart eftersom det finns det så få dokument i demo-datakällan. För en större datakälla skulle du ställa in värdet på större än 0.
 
-Observera också `"dataToExtract":"contentAndMetadata"`-instruktionen i konfigurationsparametrarna. Den här instruktionen instruerar indexeraren att extrahera innehållet från olika fil format och de metadata som är relaterade till varje fil.
+Observera också `"dataToExtract":"contentAndMetadata"`-instruktionen i konfigurationsparametrarna. Den här policyn talar om för indexeraren att extrahera innehållet från olika filformat och metadata som är relaterade till varje fil.
 
-När innehållet har extraherats kan du ställa in `imageAction` på att extrahera text från avbildningar som hittades i datakällan. Konfigurationen av `"imageAction":"generateNormalizedImages"`, tillsammans med OCR-färdigheten och färdigheten för textsammanslagning, talar om för indexeraren att den ska extrahera text från bilderna (exempelvis ordet ”stopp” från en trafikstoppskylt) och bädda in den som en del av innehållsfältet. Det här beteendet gäller för båda de bilder som är inbäddade i dokumenten (Tänk på en bild i en PDF) och bilder som finns i data källan, t. ex. en JPG-fil.
+När innehållet har extraherats kan du ställa in `imageAction` på att extrahera text från avbildningar som hittades i datakällan. Konfigurationen av `"imageAction":"generateNormalizedImages"`, tillsammans med OCR-färdigheten och färdigheten för textsammanslagning, talar om för indexeraren att den ska extrahera text från bilderna (exempelvis ordet ”stopp” från en trafikstoppskylt) och bädda in den som en del av innehållsfältet. Detta gäller både de bilder som är inbäddade i dokumenten (tänk på en bild i en PDF-fil) och bilder som finns i datakällan, till exempel en JPG-fil.
 
 <a name="check-indexer-status"></a>
 
-## <a name="4---monitor-indexing"></a>4 – övervaka indexering
+## <a name="4---monitor-indexing"></a>4 - Bildskärmsindexering
 
-När du har definierat indexeraren körs den automatiskt när du skickar din begäran. Beroende på vilka kognitiva kunskaper du har definierat kan indexeringen ta längre tid än väntat. Kör följande skript för att ta reda på om bearbetningen av indexeraren är slutförd.
+När du har definierat indexeraren körs den automatiskt när du skickar din begäran. Beroende på vilka kognitiva kunskaper du har definierat kan indexeringen ta längre tid än väntat. Om du vill ta reda på om indexeringsbearbetningen är klar kör du följande skript.
 
 ```python
 # Get indexer status
@@ -464,19 +464,19 @@ r = requests.get(endpoint + "/indexers/" + indexer_name +
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-I svaret övervakar du "lastResult" för värdena "status" och "slut tid". Kör skriptet regelbundet för att kontrol lera statusen. När indexeraren har slutförts ändras statusen till "lyckades", en "slut tid" anges och svaret innehåller eventuella fel och varningar som uppstått under anrikningen.
+I svaret övervakar du "lastResult" för dess "status" och "endTime"-värden. Kör regelbundet skriptet för att kontrollera statusen. När indexeraren har slutförts kommer statusen att ställas in på "framgång", en "endTime" kommer att anges och svaret kommer att innehålla eventuella fel och varningar som inträffade under anrikningen.
 
 ![Indexeraren skapas](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "Indexeraren skapas")
 
-Varningar är vanliga med vissa källfils- och kunskapskombinationer och är inte alltid tecken på problem. Många varningar är ofarliga. Om du till exempel indexerar en JPEG-fil som saknar text visas varningen i den här skärm bilden.
+Varningar är vanliga med vissa källfils- och kunskapskombinationer och är inte alltid tecken på problem. Många varningar är godartade. Om du till exempel indexerar en JPEG-fil som inte har text visas varningen i den här skärmbilden.
 
-![Exempel på indexerings varning](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Exempel på indexerings varning")
+![Exempel indexerarvarning](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Exempel indexerarvarning")
 
-## <a name="5---search"></a>5-Sök
+## <a name="5---search"></a>5 - Sök
 
-När indexeringen är klar kör du frågor som returnerar innehållet i enskilda fält. Som standard returnerar Azure Kognitiv sökning de översta 50 resultaten. Exempeldata är små, så standardinställningen fungerar gott och väl. Men när du arbetar med större datamängder kanske du måste inkludera parametrar i frågesträngen för att returnera fler resultat. Anvisningar finns i [så här visar du sid resultat i Azure kognitiv sökning](search-pagination-page-layout.md).
+När indexeringen är klar kör du frågor som returnerar innehållet i enskilda fält. Som standard returnerar Azure Cognitive Search de 50 bästa resultaten. Exempeldata är små, så standardinställningen fungerar gott och väl. Men när du arbetar med större datamängder kanske du måste inkludera parametrar i frågesträngen för att returnera fler resultat. Instruktioner finns [i Så här sidresultat i Azure Cognitive Search](search-pagination-page-layout.md).
 
-Som ett verifierings steg hämtar du index definitionen som visar alla fält.
+Som ett verifieringssteg hämtar du indexdefinitionen som visar alla fält.
 
 ```python
 # Query the service for the index definition
@@ -485,9 +485,9 @@ r = requests.get(endpoint + "/indexes/" + index_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Resultatet bör se ut som i följande exempel. Skärm bilden visar bara en del av svaret.
+Resultaten bör se ut ungefär som i följande exempel. Skärmbilden visar bara en del av svaret.
 
-![Fråga efter index för alla fält](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Fråga indexet efter alla fält")
+![Frågeindex för alla fält](./media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png "Fråga indexet för alla fält")
 
 Utdata är indexeringsschema med namn, typ och attribut för varje fält.
 
@@ -500,11 +500,11 @@ r = requests.get(endpoint + "/indexes/" + index_name +
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Resultatet bör se ut som i följande exempel. Skärm bilden visar bara en del av svaret.
+Resultaten bör se ut ungefär som i följande exempel. Skärmbilden visar bara en del av svaret.
 
-![Fråga efter index för organisationers innehåll](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Fråga indexet för att returnera innehållet i organisationer")
+![Frågeindex för innehållet i organisationer](./media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png "Fråga indexet för att returnera innehållet i organisationer")
 
-Upprepa för ytterligare fält: innehåll, languageCode, diskussions fraser och organisationer i den här övningen. Du kan returnera flera fält via `$select` med hjälp av en kommaavgränsad lista.
+Upprepa för ytterligare fält: innehåll, språkKod, keyPhrases och organisationer i den här övningen. Du kan returnera flera fält via `$select` med hjälp av en kommaavgränsad lista.
 
 Du kan använda GET eller POST, beroende på frågesträngens komplexitet och längd. Mer information finns i [Query using the REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Fråga med REST API).
 
@@ -512,13 +512,13 @@ Du kan använda GET eller POST, beroende på frågesträngens komplexitet och l�
 
 ## <a name="reset-and-rerun"></a>Återställa och köra igen
 
-I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för design upprepning att ta bort objekten från Azure Kognitiv sökning och tillåta att koden återskapas. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
+I de tidiga experimentella utvecklingsstadierna är den mest praktiska metoden för designiteration att ta bort objekten från Azure Cognitive Search och låta koden återskapa dem. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
 
-Du kan använda portalen för att ta bort index, indexerare, data källor och färdighetsuppsättningar. När du tar bort indexeraren kan du välja att selektivt ta bort index, färdigheter och data källan samtidigt.
+Du kan använda portalen för att ta bort index, indexerare, datakällor och skillsets. När du tar bort indexeraren kan du också selektivt ta bort index, kompetens och datakälla samtidigt.
 
-![Ta bort Sök objekt](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Ta bort Sök objekt i portalen")
+![Ta bort sökobjekt](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Ta bort sökobjekt i portalen")
 
-Du kan också ta bort dem med hjälp av ett skript. Följande skript visar hur du tar bort en färdigheter. 
+Du kan också ta bort dem med ett skript. Följande skript visar hur du tar bort en kompetens. 
 
 ```python
 # delete the skillset
@@ -533,19 +533,19 @@ Statuskod 204 returneras vid borttagning.
 
 Den här självstudien visar de grundläggande stegen för att skapa en utökad indexeringspipeline genom att skapa komponentdelar: en datakälla, kunskapsuppsättning, index och indexerare.
 
-[Inbyggda kunskaper](cognitive-search-predefined-skills.md) introducerades, tillsammans med färdigheter-definitioner och ett sätt att kedja samman färdigheter genom indata och utdata. Du har också lärt dig att `outputFieldMappings` i Indexer-definitionen krävs för att dirigera berikade värden från pipelinen till ett sökbart index i en Azure Kognitiv sökning-tjänst.
+[Inbyggda färdigheter](cognitive-search-predefined-skills.md) infördes, tillsammans med skillset definitioner och ett sätt att kedja färdigheter tillsammans genom ingångar och resultat. Du lärde dig `outputFieldMappings` också att i indexeringsdefinitionen krävs för routning av utökade värden från pipelinen till ett sökbart index på en Azure Cognitive Search-tjänst.
 
-Slutligen har du lärt dig hur du testar resultaten och återställer systemet för ytterligare iterationer. Du har lärt dig att när du utfärdar frågor mot indexet returneras utdata som skapades av pipelinen för berikande indexering. I den här versionen finns det en mekanism för att visa interna konstruktioner (berikade dokument som skapats av systemet). Du har också lärt dig hur du kontrollerar indexerings status och vilka objekt som måste tas bort innan du kör en pipeline igen.
+Slutligen har du lärt dig att testa resultaten och återställa systemet för ytterligare iterationer. Du har lärt dig att när du utfärdar frågor mot indexet returneras utdata som skapades av pipelinen för berikande indexering. I den här versionen finns det en mekanism för att visa interna konstruktioner (berikade dokument som skapats av systemet). Du har också lärt dig hur du kontrollerar indexerarens status och vilka objekt som måste tas bort innan du kör en pipeline igen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration är det i slutet av ett projekt en bra idé att ta bort de resurser som du inte längre behöver. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
-Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
+Du kan hitta och hantera resurser i portalen med hjälp av länken Alla resurser eller Resursgrupper i fönstret för vänsternavigering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du är bekant med alla objekt i en pipeline för AI-anrikning, tar vi en närmare titt på färdigheter-definitioner och enskilda kunskaper.
+Nu när du är bekant med alla objekt i en AI-anrikningspipeline, låt oss ta en närmare titt på kompetensdefinitioner och individuella färdigheter.
 
 > [!div class="nextstepaction"]
-> [Så här skapar du en färdigheter](cognitive-search-defining-skillset.md)
+> [Hur man skapar en kompetens](cognitive-search-defining-skillset.md)

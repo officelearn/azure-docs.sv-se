@@ -1,6 +1,6 @@
 ---
 title: Aktivera Azure Multi-Factor Authentication
-description: I den här självstudien får du lära dig hur du aktiverar Azure-Multi-Factor Authentication för en grupp användare och testar den sekundära faktorn vid en inloggnings händelse.
+description: I den här självstudien får du lära dig hur du aktiverar Azure Multi-Factor Authentication för en grupp användare och testar den sekundära faktorprompten under en inloggningshändelse.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,121 +11,121 @@ author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77154825"
 ---
-# <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Självstudie: skydda användar inloggnings händelser med Azure Multi-Factor Authentication
+# <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Självstudiekurs: Säkra inloggningshändelser för användare med Azure Multi-Factor Authentication
 
-Multi-Factor Authentication (MFA) är en process där en användare uppmanas att logga in för ytterligare identifierings former. Den här frågan kan vara att ange en kod på sin mobil telefon eller för att tillhandahålla en finger avsökning. När du behöver en andra form av autentisering, ökar säkerheten eftersom den här ytterligare faktorn inte är något som är lätt för en angripare att hämta eller duplicera.
+Multifaktorautentisering (MFA) är en process där en användare uppmanas under en inloggningshändelse för ytterligare former av identifiering. Denna uppmaning kan vara att ange en kod på sin mobiltelefon eller att ge ett fingeravtryck scan. När du behöver en andra form av autentisering ökar säkerheten eftersom den här ytterligare faktorn inte är något som är lätt för en angripare att hämta eller duplicera.
 
-Azure Multi-Factor Authentication-och principer för villkorlig åtkomst ger flexibiliteten att aktivera MFA för användare under speciella inloggnings händelser.
+Azure Multi-Factor Authentication och Conditional Access principer ger flexibiliteten att aktivera MFA för användare under specifika inloggningshändelser.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en princip för villkorlig åtkomst för att aktivera Azure Multi-Factor Authentication för en grupp användare
-> * Konfigurera princip villkor som begär MFA
-> * Testa MFA-processen som en användare
+> * Konfigurera principvillkor som frågar efter MFA
+> * Testa MFA-processen som användare
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du följande resurser och behörigheter:
+För att slutföra den här självstudien behöver du följande resurser och privilegier:
 
-* En fungerande Azure AD-klient med Azure AD Premium-eller utvärderings licens aktive rad.
-    * Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Ett konto med *Global administratörs* behörighet.
-* En icke-administratörs användare med ett lösen ord som du känner till, till exempel *testuser*. Du testar slutanvändarens Azure Multi-Factor Authentication-upplevelse med det här kontot i den här självstudien.
-    * Om du behöver skapa en användare, se [snabb start: Lägg till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
-* En grupp som inte är administratörs användare som är medlem i, till exempel *MFA-test-Group*. Du aktiverar Azure Multi-Factor Authentication för den här gruppen i den här självstudien.
-    * Om du behöver skapa en grupp, se så här [skapar du en grupp och lägger till medlemmar i Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+* En fungerande Azure AD-klient med Azure AD Premium eller utvärderingslicens aktiverad.
+    * Om det behövs, [skapa en gratis](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Ett konto med globala administratörsbehörighet. *global administrator*
+* En användare som inte är administratör med ett lösenord som du *känner till,* till exempel testanvändare . Du testar slutanvändaren Azure Multi-Factor Authentication erfarenhet med det här kontot i den här självstudien.
+    * Om du behöver skapa en användare läser du [Snabbstart: Lägg till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
+* En grupp som användaren som inte är administratör är medlem i, till exempel *MFA-Test-Group*. Du aktiverar Azure Multi-Factor Authentication för den här gruppen i den här självstudien.
+    * Om du behöver skapa en grupp kan du se hur du [skapar en grupp och lägger till medlemmar i Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Det rekommenderade sättet att aktivera och använda Azure Multi-Factor Authentication är med principer för villkorlig åtkomst. Med villkorlig åtkomst kan du skapa och definiera principer som reagerar på inloggnings händelser och begära ytterligare åtgärder innan en användare beviljas åtkomst till ett program eller en tjänst.
+Det rekommenderade sättet att aktivera och använda Azure Multi-Factor Authentication är med principer för villkorlig åtkomst. Med villkorlig åtkomst kan du skapa och definiera principer som reagerar på inloggningshändelser och begär ytterligare åtgärder innan en användare beviljas åtkomst till ett program eller en tjänst.
 
-![Översikts diagram över hur villkorlig åtkomst fungerar för att skydda inloggnings processen](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
+![Översiktsdiagram över hur villkorlig åtkomst fungerar för att skydda inloggningsprocessen](media/tutorial-enable-azure-mfa/conditional-access-overview.png)
 
-Principer för villkorlig åtkomst kan vara detaljerad och speciell, med målet att göra det möjligt för användarna att vara produktiva oavsett var de befinner sig, men även skydda din organisation. I den här självstudien ska vi skapa en grundläggande princip för villkorlig åtkomst för att fråga efter MFA när en användare loggar in till Azure Portal. I en senare självstudie i den här serien konfigurerar du Azure Multi-Factor Authentication med en riskfylld princip för villkorlig åtkomst.
+Principer för villkorlig åtkomst kan vara detaljerade och specifika, med målet att ge användarna möjlighet att vara produktiva var och när som helst, men också skydda din organisation. I den här självstudien ska vi skapa en grundläggande princip för villkorlig åtkomst för att fråga efter MFA när en användare loggar in på Azure-portalen. I en senare självstudiekurs i den här serien konfigurerar du Azure Multi-Factor Authentication med hjälp av en riskbaserad princip för villkorlig åtkomst.
 
-Börja med att skapa en princip för villkorlig åtkomst och tilldela din test grupp till användare på följande sätt:
+Skapa först en princip för villkorlig åtkomst och tilldela din testgrupp av användare enligt följande:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto med *globala administratörs* behörigheter.
-1. Sök efter och välj **Azure Active Directory**och välj sedan **säkerhet** på menyn på vänster sida.
-1. Välj **villkorlig åtkomst**och välj sedan **+ ny princip**.
-1. Ange ett namn för principen, till exempel *MFA pilot*.
-1. Under **tilldelningar**väljer **du användare och grupper**, sedan alternativ knappen **Välj användare och grupper** .
-1. Markera kryss rutan för **användare och grupper**och **Välj** sedan för att bläddra bland tillgängliga Azure AD-användare och-grupper.
-1. Bläddra efter och välj din Azure AD-grupp, till exempel *MFA-test-Group*, och välj sedan **Välj**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto med globala administratörsbehörigheter. *global administrator*
+1. Sök efter och välj **Azure Active Directory**och välj sedan **Säkerhet** på menyn till vänster.
+1. Välj **Villkorlig åtkomst**och välj sedan + Ny **princip**.
+1. Ange ett namn för principen, till exempel *MFA Pilot*.
+1. Under **Tilldelningar**väljer du **Användare och grupper**och sedan alternativknappen Välj användare och **grupper.**
+1. Markera kryssrutan för **användare och grupper**och **välj** sedan för att bläddra bland tillgängliga Azure AD-användare och -grupper.
+1. Bläddra efter och välj din Azure AD-grupp, till exempel *MFA-Test-Group*, och välj sedan **Välj**.
 
     [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
-1. Om du vill tillämpa principen för villkorlig åtkomst för gruppen väljer du **slutförd**.
+1. Om du vill tillämpa principen Villkorlig åtkomst för gruppen väljer du **Klar**.
 
-## <a name="configure-the-conditions-for-multi-factor-authentication"></a>Konfigurera villkoren för Multi-Factor Authentication
+## <a name="configure-the-conditions-for-multi-factor-authentication"></a>Konfigurera villkoren för multifaktorautentisering
 
-När du har skapat en princip för villkorlig åtkomst och en test grupp med tilldelade användare definierar du nu de molnappar eller åtgärder som utlöser principen. Dessa molnappar eller åtgärder är de scenarier du bestämmer kräver ytterligare bearbetning, till exempel för att fråga om MFA. Du kan till exempel bestämma att åtkomsten till ett finansiellt program eller användning av hanterings verktyg kräver som en ytterligare verifierings varning.
+När principen villkorlig åtkomst har skapats och en testgrupp av användare har tilldelats definierar du nu de molnappar eller åtgärder som utlöser principen. Dessa molnappar eller -åtgärder är de scenarier som du bestämmer kräver ytterligare bearbetning, till exempel för att fråga efter MFA. Du kan till exempel bestämma att åtkomst till ett ekonomiskt program eller användning av hanteringsverktyg kräver som en ytterligare verifieringsfråga.
 
-I den här självstudien konfigurerar du principen för villkorlig åtkomst så att den kräver MFA när en användare loggar in till Azure Portal.
+För den här självstudien konfigurerar du principen villkorlig åtkomst så att den kräver MFA när en användare loggar in på Azure-portalen.
 
-1. Välj **molnappar eller åtgärder**. Du kan välja att tillämpa principen för villkorlig åtkomst för *alla molnappar* eller *välja appar*. För att ge flexibilitet kan du även utesluta vissa appar från principen.
+1. Välj **Molnappar eller åtgärder**. Du kan välja att tillämpa principen villkorlig åtkomst på *alla molnappar* eller *Välj appar*. Om du vill ge flexibilitet kan du också utesluta vissa appar från principen.
 
-    I den här självstudien väljer du alternativ knappen **Välj appar** på sidan *Inkludera* .
+    För den här självstudien väljer du alternativknappen **Välj appar** på sidan *Inkludera.*
 
-1. Välj **Välj**och bläddra i listan över tillgängliga inloggnings händelser som kan användas.
+1. Välj **Välj**och bläddra sedan i listan över tillgängliga inloggningshändelser som kan användas.
 
-    I den här självstudien väljer du **Microsoft Azure hantering** så att principen gäller inloggnings händelser till Azure Portal.
+    För den här självstudien väljer du **Microsoft Azure Management** så att principen gäller för inloggningshändelser på Azure-portalen.
 
-1. Om du vill använda de valda apparna väljer du **Välj**och sedan **Slutför**.
+1. Om du vill använda de valda apparna väljer du **Välj**och sedan **Gjort**.
 
-    ![Välj den Microsoft Azure hanterings app som ska ingå i principen för villkorlig åtkomst](media/tutorial-enable-azure-mfa/select-azure-management-app.png)
+    ![Välj den Microsoft Azure Management-app som ska inkluderas i principen villkorlig åtkomst](media/tutorial-enable-azure-mfa/select-azure-management-app.png)
 
-Med åtkomst kontroller kan du definiera kraven för en användare som ska beviljas åtkomst, till exempel att behöva en godkänd klient app eller använda en enhet som är hybrid Azure AD-ansluten. I den här självstudien konfigurerar du åtkomst kontroller för att kräva MFA under en inloggnings händelse till Azure Portal.
+Med åtkomstkontroller kan du definiera kraven för en användare som ska beviljas åtkomst, till exempel att behöva en godkänd klientapp eller använda en enhet som hybrid Azure AD gick med. I den här självstudien konfigurerar du åtkomstkontrollerna så att de kräver MFA-funktion under en inloggningshändelse till Azure-portalen.
 
-1. Under *åtkomst kontroller*väljer du **bevilja**och kontrollerar sedan att alternativ knappen **bevilja åtkomst** är markerad.
-1. Markera kryss rutan för **Kräv Multi-Factor Authentication**och välj sedan **Välj**.
+1. Under *Access-kontroller*väljer du **Bevilja**och kontrollerar sedan att alternativknappen **Bevilja åtkomst** är markerad.
+1. Markera kryssrutan **Kräv multifaktorautentisering**och välj sedan **Markera**.
 
-Principer för villkorlig åtkomst kan anges till *endast rapporter* om du vill se hur konfigurationen skulle påverka användare eller *av* om du inte vill använda principen just nu. Som en test grupp för användare har varit mål för den här själv studie kursen aktiverar du principen och testar sedan Azure Multi-Factor Authentication.
+Principer för villkorlig åtkomst kan ställas in *på Endast rapportera* om du vill se hur konfigurationen skulle påverka användare eller *Av* om du inte vill använda principen just nu. Som en testgrupp av användare var riktad för den här självstudien, kan aktivera principen och sedan testa Azure Multi-Factor Autentisering.
 
-1. Ange *aktiverings principen* växla till **på**.
-1. Om du vill tillämpa principen för villkorlig åtkomst väljer du **skapa**.
+1. Ange *växlingsknappen Aktivera* princip till **På**.
+1. Om du vill använda principen Villkorlig åtkomst väljer du **Skapa**.
 
 ## <a name="test-azure-multi-factor-authentication"></a>Testa Azure Multi-Factor Authentication
 
-Nu ska vi se din princip för villkorlig åtkomst och Azure Multi-Factor Authentication i praktiken. Logga först in på en resurs som inte kräver MFA på följande sätt:
+Låt oss se din policy för villkorlig åtkomst och Azure Multi-Factor Authentication i praktiken. Logga först in på en resurs som inte kräver MFA enligt följande:
 
-1. Öppna ett nytt webbläsarfönster i InPrivate-eller Incognito-läge och bläddra till [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
-1. Logga in med en test användare som inte är administratör, till exempel *testuser*. Det finns ingen fråga om du vill slutföra MFA.
+1. Öppna ett nytt webbläsarfönster i InPrivate- eller inkognitoläget och bläddra till[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
+1. Logga in med testanvändaren som inte är administratörer, till exempel *testanvändare*. Det finns ingen uppmaning för dig att slutföra MFA.
 1. Stäng webbläsarfönstret.
 
-Logga nu in på Azure Portal. När Azure Portal konfigurerades i principen för villkorlig åtkomst för att kräva ytterligare verifiering får du en Azure Multi-Factor Authentication-prompt.
+Logga nu in på Azure-portalen. När Azure-portalen har konfigurerats i principen villkorlig åtkomst för att kräva ytterligare verifiering får du en azure multifaktorautentiseringsfråga.
 
-1. Öppna ett nytt webbläsarfönster i InPrivate- eller inkognitoläge och gå till [https://portal.azure.com](https://portal.azure.com).
-1. Logga in med en test användare som inte är administratör, till exempel *testuser*. Du måste registrera dig för och använda Azure Multi-Factor Authentication. Följ anvisningarna för att slutföra processen och kontrol lera att du har loggat in på Azure Portal.
+1. Öppna ett nytt webbläsarfönster i InPrivate- eller [https://portal.azure.com](https://portal.azure.com)inkognitoläget och bläddra till .
+1. Logga in med testanvändaren som inte är administratörer, till exempel *testanvändare*. Du måste registrera dig för och använda Azure Multi-Factor Authentication. Följ anvisningarna för att slutföra processen och verifiera att du har loggat in på Azure-portalen.
 
-    ![Följ webbläsarens prompter och klicka sedan på din registrerade Multi-Factor Authentication-prompt för att logga in](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
+    ![Följ webbläsaruppmaningar och sedan på din registrerade multifaktorautentiseringsfråga för att logga in](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 1. Stäng webbläsarfönstret.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre vill använda den villkorliga åtkomst principen för att aktivera Azure Multi-Factor Authentication som är konfigurerat som en del av den här självstudien tar du bort principen med hjälp av följande steg:
+Om du inte längre vill använda principen villkorlig åtkomst för att aktivera Azure Multi-Factor Authentication som konfigurerats som en del av den här självstudien tar du bort principen med hjälp av följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter och välj **Azure Active Directory**och välj sedan **säkerhet** på menyn på vänster sida.
-1. Välj **villkorlig åtkomst**och välj sedan den princip som du skapade, till exempel *MFA pilot*
-1. Välj **ta bort**och bekräfta sedan att du vill ta bort principen.
+1. Sök efter och välj **Azure Active Directory**och välj sedan **Säkerhet** på menyn till vänster.
+1. Välj **Villkorlig åtkomst**och välj sedan den princip som du skapade, till exempel *MFA Pilot*
+1. Välj **Ta bort**och bekräfta sedan att du vill ta bort principen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du aktiverat Azure Multi-Factor Authentication med principer för villkorlig åtkomst för en viss grupp med användare. Du har lärt dig att:
+I den här självstudien har du aktiverat Azure Multi-Factor Authentication med principer för villkorlig åtkomst för en vald grupp användare. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en princip för villkorlig åtkomst för att aktivera Azure Multi-Factor Authentication för en grupp med Azure AD-användare
-> * Konfigurera princip villkor som begär MFA
-> * Testa MFA-processen som en användare
+> * Skapa en princip för villkorlig åtkomst för att aktivera Azure Multi-Factor-autentisering för en grupp Azure AD-användare
+> * Konfigurera principvillkor som frågar efter MFA
+> * Testa MFA-processen som användare
 
 > [!div class="nextstepaction"]
-> [Aktivera tillbakaskrivning av lösen ord för självbetjäning för återställning av lösen ord (SSPR)](tutorial-enable-writeback.md)
+> [Aktivera återställning av lösenord för återställning av lösenord med självbetjäning (SSPR)](tutorial-enable-writeback.md)

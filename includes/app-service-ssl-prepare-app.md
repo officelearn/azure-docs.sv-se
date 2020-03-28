@@ -9,15 +9,15 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: HT
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78301018"
 ---
 ## <a name="prepare-your-web-app"></a>Förbereda din webbapp
 
-För att skapa anpassade säkerhets bindningar eller aktivera klient certifikat för din App Service-app, måste [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) finnas på nivån **Basic**, **standard**, **Premium**eller **isolerad** . I det här steget ser du till att webbappen har en prisnivå som stöds.
+Om du vill skapa anpassade säkerhetsbindningar eller aktivera klientcertifikat för apptjänstappen måste [apptjänstplanen](https://azure.microsoft.com/pricing/details/app-service/) finnas på nivån **Basic,** **Standard,** **Premium**eller **Isolerad.** I det här steget ser du till att webbappen har en prisnivå som stöds.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -25,19 +25,19 @@ För att skapa anpassade säkerhets bindningar eller aktivera klient certifikat 
 
 ### <a name="navigate-to-your-web-app"></a>Navigera till din webbapp
 
-Sök efter och välj **app Services**.
+Sök efter och välj **AppTjänster**.
 
-![Välj App Services](./media/app-service-ssl-prepare-app/app-services.png)
+![Välj Apptjänster](./media/app-service-ssl-prepare-app/app-services.png)
 
-På sidan **app Services** väljer du namnet på din webbapp.
+På sidan **AppTjänster** väljer du namnet på webbappen.
 
 ![Portalnavigering till Azure-app](./media/app-service-ssl-prepare-app/select-app.png)
 
-Du har landat på hanterings sidan för din webbapp.  
+Du har landat på hanteringssidan i din webbapp.  
 
 ### <a name="check-the-pricing-tier"></a>Kontrollera prisnivån
 
-I det vänstra navigeringsfältet på webbappsidan bläddrar du till avsnittet **Inställningar** och väljer **Skala upp (App Service-plan)** .
+I det vänstra navigeringsfältet på webbappsidan bläddrar du till avsnittet **Inställningar** och väljer **Skala upp (App Service-plan)**.
 
 ![Skala upp-menyn](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 
@@ -51,7 +51,7 @@ Anpassat SSL stöds inte på nivån **F1** eller **D1**. Om du behöver skala up
 
 Välj någon av betalnivåerna (**B1**, **B2**, **B3** eller någon nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Verkställ**.
+Klicka på **Använd**.
 
 ![Välja prisnivå](./media/app-service-ssl-prepare-app/choose-pricing-tier.png)
 

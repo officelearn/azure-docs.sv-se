@@ -1,24 +1,24 @@
 ---
-title: 'Självstudie: skapa ett program för Store Locator med Azure Maps | Microsoft Azure Maps'
-description: I den här självstudien får du lära dig hur du skapar en app Locator-webbapp med hjälp av Microsoft Azure Maps-webbsdk.
-author: farah-alyasari
-ms.author: v-faalya
+title: 'Självstudiekurs: Skapa ett butikslokaliseringsprogram med Azure Maps | Microsoft Azure Maps'
+description: I den här självstudien får du lära dig hur du skapar ett webbprogram för butikslokaliserare med hjälp av Microsoft Azure Maps web SDK.
+author: philmea
+ms.author: philmea
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5621ed8f9e5d7990ca7b522d6388f855db81618e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 49b57b213a452d6c594bbc1ca537e68bd7a83864
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209570"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333846"
 ---
-# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudiekurs: Skapa en butikslokaliserare med hjälp av Azure Maps
 
-Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här guiden får du lära dig att:
+Den här självstudien vägleder dig genom processen med att skapa en enkel butikslokaliserare med hjälp av Azure Maps. Butikslokaliserare är vanliga. Många av de begrepp som används i den här typen av program är tillämpliga på många andra typer av program. En butikslokaliserare för kunder är ett måste för de flesta företag som säljer direkt till konsumenter. I den här självstudiekursen får du lära du dig att:
     
 > [!div class="checklist"]
 > * Skapa en ny webbsida med API:et Azure Kartkontroll.
@@ -33,9 +33,9 @@ Den här självstudien vägleder dig genom processen med att skapa en enkel buti
 
 Gå vidare till [exemplet på livebutikslokaliserare](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) eller [källkoden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra stegen i den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+För att slutföra stegen i den här självstudien måste du först skapa ett Azure Maps-konto och få din primära nyckel (prenumerationsnyckel). Följ instruktionerna i [Skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa en Azure Maps-kontoprenumeration med S1-prisnivå och följ stegen för att få [primärnyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att få den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns [i hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="design"></a>Design
 
@@ -43,15 +43,15 @@ Innan du sätter igång i koden är det en bra idé att börja med en design. Di
 
 <center>
 
-![tråd block för ett Store Locator-program för Contoso kaffe Shop-platser](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Wireframe av en butik locator ansökan om Contoso Coffee shop platser](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 För att maximera butikslokaliserarens användbarhet använder vi en dynamisk layout som anpassar sig när en användares skärmbredd är mindre än 700 bildpunkter. En dynamisk layout gör det enklare att använda butikslokaliseraren på en liten skärm, som på en mobil enhet. Här är ett trådblock i en layout för liten skärm:  
 
 <center>
 
-![tråd block för Contoso kaffe Store Locator-programmet på en mobil enhet](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Wireframe av Contoso Coffee store locator ansökan på en mobil enhet](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-Trådblocken visar ett ganska enkelt program. Programmet har en sökruta, en lista över närliggande butiker och en karta som har vissa markörer, till exempel symboler. Och har ett popup-fönster som visar ytterligare information när användaren väljer en markör. Närmare bestämt följer här de funktioner som vi bygger in i den här butikslokaliseraren i den här självstudien:
+Trådblocken visar ett ganska enkelt program. Programmet har en sökruta, en lista över butiker i närheten och en karta som har några markörer, till exempel symboler. Och den har ett popup-fönster som visar ytterligare information när användaren väljer en markör. Närmare bestämt följer här de funktioner som vi bygger in i den här butikslokaliseraren i den här självstudien:
 
 * Alla platser från den importerade tabbavgränsade datafilen har lästs in på kartan.
 * Användaren kan panorera och zooma på kartan, söka och välja knappen My Location GPS (Min plats-GPS).
@@ -69,11 +69,11 @@ Trådblocken visar ett ganska enkelt program. Programmet har en sökruta, en lis
 
 ## <a name="create-the-store-location-dataset"></a>Skapa datauppsättning för lagringsplats
 
-Innan vi skapar ett program för butikslokaliserare måste vi skapa en datauppsättning för butikerna vi vill ska visas på kartan. I den här självstudien använder vi en datauppsättning för ett fiktivt kafé som heter Contoso Coffee. Datauppsättningen för den här enkla butikslokaliseraren hanteras i en Excel-arbetsbok. Data uppsättningen innehåller 10 213 contoso kaffe handlande platser i nio länder/regioner: USA, Kanada, Förenade kungariket, Frankrike, Tyskland, Italien, Nederländerna, Danmark och Spanien. Här är en skärmbild av hur data ser ut:
+Innan vi skapar ett program för butikslokaliserare måste vi skapa en datauppsättning för butikerna vi vill ska visas på kartan. I den här självstudien använder vi en datauppsättning för ett fiktivt kafé som heter Contoso Coffee. Datauppsättningen för den här enkla butikslokaliseraren hanteras i en Excel-arbetsbok. Datauppsättningen innehåller 10 213 platser på Contoso Coffee Coffee Shop som är fördelade på nio länder/regioner: USA, Kanada, Storbritannien, Frankrike, Tyskland, Italien, Nederländerna, Danmark och Spanien. Här är en skärmbild av hur data ser ut:
 
 <center>
 
-![skärm bild av Store Locator-data i en Excel-arbetsbok](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+![Skärmbild av butikslokaliserardata i en Excel-arbetsbok](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 Du kan [ladda ned Excel-arbetsboken](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
 
@@ -81,41 +81,41 @@ När vi tittar på skärmbilden över data kan vi göra följande observationer:
     
 * Platsinformation lagras med hjälp av kolumnerna **AddressLine**, **Stad**, **Kommun** (län), **AdminDivision** (region), **PostCode** (postnummer) och **Land**.  
 * Kolumnerna **Latitud** och **Longitud** innehåller koordinaterna för varje plats för Contoso Coffee. Om du inte har koordinaternas information kan du använda Search-tjänsterna i Azure Maps för att fastställa platskoordinaterna.
-* Vissa ytterligare kolumner innehåller metadata som är relaterade till Café butiker: ett telefonnummer, booleska kolumner och lagrings tider i 24-timmarsformat. Booleska kolumner är för Wi-Fi-och Wheelchair-tillgänglighet. Du kan skapa egna kolumner som innehåller metadata som är mer relevant för dina platsdata.
+* Vissa ytterligare kolumner innehåller metadata som är relaterade till kaféerna: ett telefonnummer, booleska kolumner och stängningstider för butiker i 24-timmarsformat. De booleska kolumnerna är för Wi-Fi och rullstolstillgänglighet. Du kan skapa egna kolumner som innehåller metadata som är mer relevant för dina platsdata.
 
 > [!Note]
 > Azure Maps renderar data i den sfäriska Mercator-projektionen ”EPSG:3857” men läser data i ”EPSG:4325”, som använder WGS84-datumet. 
 
-Det finns många sätt att exponera datauppsättningen för programmet. En metod är att läsa in data i en databas och exponera en webb tjänst som frågar data. Du kan sedan skicka resultatet till användarens webbläsare. Det här alternativet är perfekt för stora datauppsättningar eller för datauppsättningar som uppdateras ofta. Det här alternativet kräver dock mer utvecklings arbete och har en högre kostnad. 
+Det finns många sätt att exponera datauppsättningen för programmet. En metod är att läsa in data i en databas och exponera en webbtjänst som frågar efter data. Du kan sedan skicka resultaten till användarens webbläsare. Det här alternativet är perfekt för stora datauppsättningar eller för datauppsättningar som uppdateras ofta. Detta alternativ kräver dock mer utvecklingsarbete och har en högre kostnad. 
 
 En annan metod är att konvertera datauppsättningen till en flat textfil som webbläsaren enkelt kan parsa. Själva filen kan finnas i resten av programmet. Det här alternativet gör allt enkelt, men det är endast ett bra alternativ för mindre datauppsättningar eftersom användaren hämtar alla data. Vi använder den flata textfilen för den här datauppsättningen eftersom filens datastorlek är mindre än 1 MB.  
 
-Om du vill konvertera arbetsboken till en flat textfil sparar du arbetsboken som en tabbavgränsad fil. Varje kolumn avgränsas med ett tabbtecken, vilket gör kolumnerna enkla att parsa i vår kod. Du kan använda formatet kommaavgränsade värden (CSV), men det alternativet kräver mer parsningslogik. Alla fält som har ett kommatecken runt sig skulle vara omslutna av citattecken. Om du vill exportera dessa data som en tabbavgränsad fil i Excel väljer du **Spara som**. I listrutan **Filformat** väljer du **Text (tabbavgränsad)(*.txt)** . Ge filen namnet *ContosoCoffee.txt*. 
+Om du vill konvertera arbetsboken till en flat textfil sparar du arbetsboken som en tabbavgränsad fil. Varje kolumn avgränsas med ett tabbtecken, vilket gör kolumnerna enkla att parsa i vår kod. Du kan använda formatet kommaavgränsade värden (CSV), men det alternativet kräver mer parsningslogik. Alla fält som har ett kommatecken runt sig skulle vara omslutna av citattecken. Om du vill exportera dessa data som en tabbavgränsad fil i Excel väljer du **Spara som**. I listrutan **Filformat** väljer du **Text (tabbavgränsad)(*.txt)**. Ge filen namnet *ContosoCoffee.txt*. 
 
 <center>
 
-![skärm bild av dialog rutan Spara som typ](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+![Skärmbild av dialogrutan Filformat](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Om du öppnar textfilen i anteckningar liknar den följande bild:
 
 <center>
 
-![skärm bild av en anteckningar-fil som visar en tabbavgränsad data uppsättning](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+![Skärmbild av en fil i anteckningar som visar en tabbavgränsad datauppsättning](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>Konfigurera projektet
 
-För att skapa projektet använder du [Visual Studio](https://visualstudio.microsoft.com) eller valfritt kodredigeringsprogram. Skapa tre filer i din projektmapp: *index.html*, *index.css* och *index.js*. De här filerna definierar layout, stil och logik för programmet. Skapa en mapp med namnet *data* och Lägg till *ContosoCoffee.txt* till mappen. Skapa en annan mapp med namnet *images*. Vi använder 10 bilder i det här programmet för ikoner, knappar och markörer på kartan. Du kan [ladda ned bilderna](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Din projektmapp bör nu se ut som följande bild:
+För att skapa projektet använder du [Visual Studio](https://visualstudio.microsoft.com) eller valfritt kodredigeringsprogram. Skapa tre filer i din projektmapp: *index.html*, *index.css* och *index.js*. De här filerna definierar layout, stil och logik för programmet. Skapa en mapp med namnet *data* och Lägg till *ContosoCoffee.txt* till mappen. Skapa en annan mapp med namnet *images*. Vi använder 10 bilder i denna applikation för ikoner, knappar och markörer på kartan. Du kan [ladda ned bilderna](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Din projektmapp bör nu se ut som följande bild:
 
 <center>
 
-![skärm bild av projektmappen i](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center> för enkel lagrings plats
+![Skärmbild av projektmappen Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>Skapa användargränssnittet
 
 Lägg till kod till *index.html* för att skapa användargränssnittet:
 
-1. Lägg till följande `meta`-taggar till `head` i *index.html*. Taggen `charset` definierar teckenuppsättningen (UTF-8). Värdet för `http-equiv` visar att Internet Explorer och Microsoft Edge använder de senaste webb läsar versionerna. Och den sista `meta`-taggen anger ett visnings område som fungerar bra för layouter som svarar.
+1. Lägg till följande `meta`-taggar till `head` i *index.html*. Taggen `charset` definierar teckenuppsättningen (UTF-8). Värdet på `http-equiv` internet explorer och Microsoft Edge att använda de senaste webbläsarversionerna. Och den `meta` sista taggen anger en vyport som fungerar bra för responsiva layouter.
 
     ```HTML
     <meta charset="utf-8">
@@ -375,13 +375,13 @@ Nästa steg är att definiera CSS-format. CSS-format anger hur programkomponente
     }
    ```
 
-Kör programmet nu, du ser rubriken, sökrutan och Sök knappen. Men kartan syns inte eftersom den inte har lästs in ännu. Om du försöker göra en sökning händer ingenting. Vi behöver konfigurera JavaScript-logiken, som beskrivs i nästa avsnitt. Den här logiken har åtkomst till alla funktioner i Store Locator.
+Kör programmet nu, ser du sidhuvudet, sökrutan och sökknappen. Men kartan syns inte eftersom den inte har lästs in ännu. Om du försöker göra en sökning händer ingenting. Vi måste ställa in JavaScript-logiken, som beskrivs i nästa avsnitt. Den här logiken kommer åt alla funktioner i butikspositioneraren.
 
 ## <a name="wire-the-application-with-javascript"></a>Ställa in programmet med JavaScript
 
-Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande lägga till Java Script för att läsa in och parsa data och sedan återge data på kartan. Kom igång genom att öppna *index.js* och lägg till kod till den, enligt beskrivningen i följande steg.
+Allt är nu inställt i användargränssnittet. Vi måste fortfarande lägga till JavaScript för att läsa in och tolka data, och sedan återge data på kartan. Kom igång genom att öppna *index.js* och lägg till kod till den, enligt beskrivningen i följande steg.
 
-1. Lägg till globala alternativ för att göra det lättare att uppdatera inställningarna. Definiera variablerna för kartan, popup-fönstret, data källan, ikon skiktet och HTML-markören. Ange HTML-markören som anger mitten på ett Sök område. Och definiera en instans av Azure Maps Sök tjänst klienten.
+1. Lägg till globala alternativ för att göra det lättare att uppdatera inställningarna. Definiera variablerna för kartan, popup-fönstret, datakällan, ikonlagret och HTML-markören. Ange HTML-markören så att den anger mitten av ett sökområde. Och definiera en instans av Azure Maps-söktjänstklienten.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -395,11 +395,11 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Lägg till kod till *index.js*. Följande kod initierar kartan. Vi har lagt till en [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) att vänta tills sidan har lästs in. Sedan kabelansluter vi händelser för att övervaka inläsningen av kartan och ge funktioner till knappen Sök och min plats.
+1. Lägg till kod till *index.js*. Följande kod initierar kartan. Vi har lagt till en [händelseavlyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) för att vänta tills sidan har lästs in. Sedan kopplade vi upp händelser för att övervaka inläsningen av kartan och ger funktionalitet till sökknappen och knappen Min plats.
 
-   När användaren väljer Sök knappen, eller anger en plats i sökrutan, trycker på RETUR, en Fuzzy-sökning mot användarens fråga initieras. Skicka i en matris med ISO 2-värden till `countrySet` alternativet om du vill begränsa Sök resultaten till dessa länder/regioner. Genom att begränsa de länder/regioner som ska genomsökas kan du öka noggrannheten i de resultat som returneras. 
+   När användaren väljer sökknappen, eller skriver en plats i sökrutan och sedan trycker på returen, initieras en suddig sökning mot användarens fråga. Skicka in en matris med lands `countrySet` ISO 2-värden till alternativet att begränsa sökresultaten till dessa länder/regioner. Genom att begränsa de länder/regioner som ska söka ökar du noggrannheten i de resultat som returneras. 
   
-   När sökningen är klar ska du ta det första resultatet och ställa in kart kameran över detta område. När användaren väljer knappen min plats hämtar du användarens plats med hjälp av HTML5s API för geolokalisering. Detta API är inbyggt i webbläsaren. Centrera sedan kartan över deras plats.  
+   När sökningen är klar tar du det första resultatet och ställer in kartkameran över det området. När användaren väljer knappen Min plats hämtar du användarens plats med HTML5-geolokaliserings-API:et. Detta API är inbyggt i webbläsaren. Centrera sedan kartan över deras plats.  
 
    > [!Tip]
    > När du använder popup-fönster är det bäst att skapa en enda `Popup`-instans och återanvända instansen genom att uppdatera dess innehåll och position. För varje `Popup`-instans som du lägger till i koden läggs flera DOM-element till på sidan. Ju fler DOM-element det finns på en sida, desto fler saker måste webbläsaren hålla reda på. Om det finns för många objekt kan webbläsaren bli långsam.
@@ -527,7 +527,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
     map.markers.add(centerMarker);
     ```
 
-1. På kartans `ready`-händelselyssnare lägger du till en datakälla. Gör sedan ett anrop för att läsa in och parsa datauppsättningen. Aktivera klustring på datakällan. Klustring av överlappande punkter i datakällgrupper i ett kluster. Klustren separeras i enskilda punkter när användaren zoomar in. Det här beteendet ger en bättre användar upplevelse och förbättrar prestandan.
+1. På kartans `ready`-händelselyssnare lägger du till en datakälla. Gör sedan ett anrop för att läsa in och parsa datauppsättningen. Aktivera klustring på datakällan. Klustring av överlappande punkter i datakällgrupper i ett kluster. Klustren separeras i enskilda punkter när användaren zoomar in. Detta ger en bättre användarupplevelse och förbättrar prestanda.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -544,7 +544,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
 
 1. När du läser in datauppsättningen i kartans `ready`-händelselyssnare definierar du en uppsättning lager för att återge data. Ett bubbellager används för att återge klustrade datapunkter. Ett symbollager används för att återge antalet punkter i varje kluster över bubbellagret. Ett andra symbollager visas med en anpassad ikon för enskilda platser på kartan.
 
-   Lägg till händelserna `mouseover` och `mouseout` till bubbel- och ikonlagren för att ändra markören när användaren för muspekaren över ett kluster eller en ikon på kartan. Lägg till en `click`-händelse i bubbellagret. Den här `click` händelse zoomningar i kartan två nivåer och centrerar kartan över ett kluster när användaren väljer ett kluster. Lägg till en `click`-händelse i ikonlagret. `click`-händelsen visar ett popup-fönster som visar information om ett kafé när en användare väljer en enskild platsikon. Lägg till en händelse på kartan för att övervaka när kartan har rört sig klart. Uppdatera objekten i listpanelen när den här händelsen utlöses.  
+   Lägg till händelserna `mouseover` och `mouseout` till bubbel- och ikonlagren för att ändra markören när användaren för muspekaren över ett kluster eller en ikon på kartan. Lägg till en `click`-händelse i bubbellagret. Den `click` här händelsen zoomar in kartan två nivåer och centrerar kartan över ett kluster när användaren väljer ett kluster. Lägg till en `click`-händelse i ikonlagret. `click`-händelsen visar ett popup-fönster som visar information om ett kafé när en användare väljer en enskild platsikon. Lägg till en händelse på kartan för att övervaka när kartan har rört sig klart. Uppdatera objekten i listpanelen när den här händelsen utlöses.  
 
     ```JavaScript
     //Create a bubble layer to render clustered data points.
@@ -686,7 +686,7 @@ Allt är nu konfigurerat i användar gränssnittet. Vi behöver fortfarande läg
     }
     ```
 
-1. När List panelen uppdateras beräknas avståndet. Avståndet är från mitten av kartan till alla punkt funktioner i den aktuella Map-vyn. Funktionerna sorteras sedan efter avstånd. HTML genereras för att visa varje plats i listpanelen.
+1. När listpanelen uppdateras beräknas avståndet. Det här avståndet är från mitten av kartan till alla punktfunktioner i den aktuella kartvyn. Funktionerna sorteras sedan efter avstånd. HTML genereras för att visa varje plats i listpanelen.
 
     ```JavaScript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>';
@@ -926,19 +926,19 @@ Första gången en användare väljer knappen My Location (Min plats) visas en s
 
 <center>
 
-![skärm bild av webbläsarens begäran om att komma åt användarens plats](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+![Skärmbild av webbläsaren begäran för att komma åt användarens plats](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-När du zoomar in tillräckligt i ett område som har kaféer separeras klustren i enskilda platser. Välj en av ikonerna på kartan eller Välj ett objekt på sido panelen för att se ett popup-fönster. Popup-fönstret visar information om den valda platsen.
+När du zoomar in tillräckligt i ett område som har kaféer separeras klustren i enskilda platser. Markera en av ikonerna på kartan eller välj ett objekt på sidopanelen för att se ett popup-fönster. Popup-resultatet visar information för den valda platsen.
 
 <center>
 
-![skärm bild av den färdiga Store-lokaliseraren](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+![Skärmbild av den färdiga butikslokaliseraren](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Om du ändrar storlek på webbläsarfönstret till mindre än 700 bildpunkter eller öppnar programmet på en mobil enhet ändras layouten så att den passar bättre för mindre skärmar. 
 
 <center>
 
-![skärm bild av en liten skärms version av Store Locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+![Skärmbild av butikslokaliserarversionen för små skärmar](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -954,20 +954,20 @@ I den här självstudien får lära du att skapa en grundläggande butikslokalis
 > * Lagra dina data i en databas och sök efter närliggande ställen. Mer information finns i [översikten över rumsliga data för SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) och [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) (Fråga rumsliga data efter den närmaste grannen).
 
 > [!div class="nextstepaction"]
-> [Visa fullständig käll kod](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
+> [Visa fullständig källkod](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
 > [!div class="nextstepaction"]
-> [Visa Live-exempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [Visa direktexempel](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Mer information om täckning och funktionerna i Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Zoomningsnivåer och vanliga rutnät](zoom-levels-and-tile-grid.md)
+> [Zoomningsnivåer och rutnät](zoom-levels-and-tile-grid.md)
 
 Fler kodexempel och en interaktiv kodupplevelse:
 
 > [!div class="nextstepaction"]
-> [Så här använder du Kartkontroll](how-to-use-map-control.md)
+> [Så här använder du kartkontrollen](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"]
-> [Använd data drivna format uttryck](data-driven-style-expressions-web-sdk.md)
+> [Använda datadrivna formatuttryck](data-driven-style-expressions-web-sdk.md)

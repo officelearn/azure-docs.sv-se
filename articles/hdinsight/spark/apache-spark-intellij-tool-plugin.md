@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie – Azure Toolkit for IntelliJ: Spark app-HDInsight'
-description: Självstudie – Använd Azure Toolkit for IntelliJ för att utveckla Spark-program som skrivits i Scala och skicka dem till ett HDInsight Spark-kluster.
+title: 'Självstudiekurs - Azure Toolkit för IntelliJ: Spark app - HDInsight'
+description: Självstudiekurs - Använd Azure Toolkit för IntelliJ för att utveckla Spark-program skrivna i Scala och skicka dem till ett HDInsight Spark-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,35 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 2631a0906a0f0886bdc106f1afef99860a6fe00b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239534"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Självstudie: använda Azure Toolkit for IntelliJ för att skapa Apache Spark-program för HDInsight-kluster
+# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Självstudiekurs: Använd Azure Toolkit för IntelliJ för att skapa Apache Spark-program för HDInsight-kluster
 
-Den här självstudien visar hur du utvecklar Apache Spark program på Azure HDInsight med hjälp av **Azure Toolkit** -plugin-programmet för IntelliJ IDE. [Azure HDInsight](../hdinsight-overview.md) är en hanterad analys tjänst med öppen källkod i molnet som gör att du kan använda ramverk med öppen källkod som Hadoop, Apache Spark, Apache Hive och Apache Kafka.
+Den här självstudien visar hur du utvecklar Apache Spark-program på Azure HDInsight med hjälp av **plugin-programmet Azure Toolkit** för IntelliJ IDE. [Azure HDInsight](../hdinsight-overview.md) är en hanterad analystjänst med öppen källkod i molnet som gör att du kan använda ramverk med öppen källkod som Hadoop, Apache Spark, Apache Hive och Apache Kafka.
 
-Du kan använda **Azure Toolkit** -plugin-programmet på några få sätt:
+Du kan använda plugin-programmet **Azure Toolkit** på några olika sätt:
 
 * Utveckla och skicka in ett Scala Spark-program till ett HDInsight Spark-kluster.
-* Få åtkomst till Azure HDInsight Spark kluster resurser.
+* Få tillgång till dina Azure HDInsight Spark-klusterresurser.
 * Utveckla och kör ett Scala Spark-program lokalt.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
-> * Använd plugin-programmet Azure Toolkit for IntelliJ
-> * Utveckla Apache Spark program
+> * Använda plugin-programmet Azure Toolkit för IntelliJ
+> * Utveckla Apache Spark-program
 > * Skicka ett program till Azure HDInsight-kluster
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 * [Oracle Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Den här kursen använder Java version 8.0.202.
 
-* IntelliJ idé. I den här artikeln används [INTELLIJ idé community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
+* Intellij IDÉ. I den här artikeln används [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
 * Azure Toolkit for IntelliJ.  Se [Installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
@@ -47,13 +47,13 @@ Installera Scala-plugin-programmet via följande steg:
 
 1. Öppna IntelliJ IDEA.
 
-2. På välkomstskärmen går du till **Konfigurera** > **Plugin-program** för att öppna fönstret **Plugin-program**.
+2. På välkomstskärmen**navigerar** du till **Konfigurera** > plugins för att öppna **plugins-fönstret.**
 
-    ![IntelliJ idé aktivera Scala-plugin-programmet](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
+    ![IntelliJ IDEA aktivera scala plugin](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
 
 3. Välj **Installera** för det Scala-plugin-program som visas i det nya fönstret.  
 
-    ![IntelliJ idé installera Scala-plugin](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
+    ![IntelliJ IDEA installera scala plugin](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
 
 4. Du måste starta om IDE när plugin-programmet har installerats.
 
@@ -69,7 +69,7 @@ Installera Scala-plugin-programmet via följande steg:
    * **Maven** för guidestöd när du skapar Scala-projekt.
    * **SBT** för att hantera beroenden när du skapar Scala-projektet.
 
-     ![Dialog rutan IntelliJ idé New Project](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![Dialogrutan IntelliJ IDEA Nytt projekt](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. Välj **Nästa**.
 
@@ -79,36 +79,36 @@ Installera Scala-plugin-programmet via följande steg:
     | ----- | ----- |  
     |Projektnamn| Ange ett namn.  I den här självstudien används `myApp`.|  
     |Projektplats| Ange önskad plats för att spara projektet.|
-    |Projekt-SDK| Detta kan vara tomt vid din första användning av idén.  Välj **Nytt...**  och navigera till din JDK.|
-    |Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x**. Annars väljer du **Spark 2.x**. I det här exemplet används **Spark 2.3.0 (Scala 2.11.8)** .|
+    |Projekt-SDK| Detta kan vara tomt på din första användning av IDEA.  Välj **Nytt... ** och navigera till din JDK.|
+    |Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Om Sparks klusterversion är äldre än 2.0 väljer du **Spark 1.x**. Annars väljer du **Spark 2.x**. I det här exemplet används **Spark 2.3.0 (Scala 2.11.8)**.|
 
     ![Välja Apache Spark SDK](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
 
 7. Välj **Slutför**.  Det kan ta några minuter innan projektet blir tillgängligt.
 
-8. Spark-projektet skapar automatiskt en artefakt åt dig. Gör så här om du vill visa artefakten:
+8. Spark-projektet skapar automatiskt en artefakt åt dig. Så här visar du artefakten:
 
-   a. I meny raden navigerar du till **fil** > **projekt struktur.** ...
+   a. Från menyraden navigerar du till > **Arkivprojektstruktur...**. **File**
 
-   b. I fönstret **projekt struktur** väljer du **artefakter**.  
+   b. Välj **Artefakter**i fönstret **Projektstruktur** .  
 
    c. Välj **Avbryt** när du har visat artefakten.
 
-      ![Artefakt information i dialog rutan](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
+      ![Artefaktinformation i dialogrutan](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
 
-9. Lägg till program käll koden genom att göra följande:
+9. Lägg till programmets källkod genom att göra följande:
 
-    a. Från projekt navigerar du till **mittprog** > **src** > **main** > **Scala**.  
+    a. Från Project navigerar du till **myApp** > **src** > **main** > **scala**.  
 
-    b. Högerklicka på **Scala**och navigera sedan till **New** > Scala- **klassen**.
+    b. Högerklicka på **scala**och navigera sedan till **Ny** > **Scala-klass**.
 
    ![Kommandon för att skapa en Scala-klass från Project](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
 
-   c. I dialog rutan **Skapa ny Scala-klass** anger du ett namn, väljer **objekt** i list rutan **typ** och väljer sedan **OK**.
+   c. Ange ett namn i dialogrutan **Skapa ny scala-klass,** välj **Objekt** i listrutan **Typ** och välj sedan **OK**.
 
-     ![Dialog rutan skapa ny Scala-klass](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
+     ![Dialogrutan Skapa ny scala-klass](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
-   d. Filen **MyApp. Scala** öppnas sedan i huvud vyn. Ersätt standard koden med koden som finns nedan:  
+   d. Filen **myApp.scala** öppnas sedan i huvudvyn. Ersätt standardkoden med koden nedan:  
 
         ```scala
         import org.apache.spark.SparkConf
@@ -130,357 +130,357 @@ Installera Scala-plugin-programmet via följande steg:
         }
         ```
 
-    Koden läser data från HVAC. csv (tillgängliga på alla HDInsight Spark-kluster), hämtar de rader som bara har en siffra i den sjunde kolumnen i CSV-filen och skriver utdata till `/HVACOut` under standard lagrings behållaren för klustret.
+    Koden läser data från HVAC.csv (tillgänglig på alla HDInsight Spark-kluster), hämtar raderna som bara har en siffra i den `/HVACOut` sjunde kolumnen i CSV-filen och skriver utdata till under standardlagringsbehållaren för klustret.
 
 ## <a name="connect-to-your-hdinsight-cluster"></a>Anslut till ditt HDInsight-kluster
 
-Användaren kan antingen [Logga in i Azure-prenumerationen](#sign-in-to-your-azure-subscription)eller [Länka ett HDInsight-kluster](#link-a-cluster) med hjälp av Ambari användar namn/lösen ord eller domänanslutna autentiseringsuppgifter för att ansluta till ditt HDInsight-kluster.
+Användaren kan antingen [logga in på Azure-prenumeration](#sign-in-to-your-azure-subscription)eller [länka ett HDInsight-kluster](#link-a-cluster) med Ambaris användarnamn/lösenord eller domänanslutna autentiseringsuppgifter för att ansluta till ditt HDInsight-kluster.
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Logga in på din Azure-prenumeration
 
-1. I meny raden navigerar du till **visa** > **verktyget Windows** > **Azure Explorer**.
+1. På menyraden navigerar du till **Visa** > **verktyg i Utforskaren** > i**Utforskaren**.
 
-   ![IntelliJ idé Visa Azure Explorer](./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png)
+   ![IntelliJ IDEA visa azure explorer](./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png)
 
-2. I Azure Explorer högerklickar du på **Azure** -noden och väljer sedan **Logga**in.
+2. Högerklicka på Azure-noden **Azure** i Azure Explorer och välj sedan **Logga in**.
 
-   ![IntelliJ idé Explorer högerklickar du på Azure](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
+   ![IntelliJ IDEA explorer högerklickar på azure](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
 
-3. I dialog rutan **Azure-inloggning** väljer du **enhets inloggning**och väljer sedan **Logga**in.
+3. I dialogrutan **Azure-inloggning** väljer du **Enhetsinloggning**och väljer sedan **Logga in**.
 
-    ![IntelliJ idé Azure-inloggning för enhets inloggning](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png)
+    ![IntelliJ IDEA azure logga in enhetsinloggning](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png)
 
-4. I dialog rutan **Azure-enhets inloggning** klickar du på **Kopiera & öppna**.
+4. Klicka på **Kopiera&öppna**i dialogrutan Azure Device **Login** .
 
-   ![IntelliJ idé Azure-enhets inloggning](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png)
+   ![IntelliJ IDEA azure enhetsinloggning](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png)
 
-5. I webb läsar gränssnittet klistrar du in koden och klickar sedan på **Nästa**.
+5. Klistra in koden i webbläsargränssnittet och klicka sedan på **Nästa**.
 
-   ![Microsoft Ange kod dialog ruta för HDI](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png)
+   ![Microsoft anger koddialogruta för HDI](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png)
 
-6. Ange dina autentiseringsuppgifter för Azure och stäng sedan webbläsaren.
+6. Ange dina Azure-autentiseringsuppgifter och stäng sedan webbläsaren.
 
-   ![Microsoft ange e-postdialog för HDI](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png)
+   ![Microsoft anger e-postdialogruta för HDI](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png)
 
-7. När du har loggat in visar dialog rutan **Välj prenumerationer** alla Azure-prenumerationer som är associerade med autentiseringsuppgifterna. Välj din prenumeration och välj sedan knappen **Välj** .
+7. När du är inloggad visas alla Azure-prenumerationer som är associerade med autentiseringsuppgifterna i dialogrutan **Välj prenumerationer.** Välj din prenumeration och välj sedan knappen **Välj.**
 
     ![Dialogrutan Select Subscriptions (Välj prenumerationer)](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 
-8. I **Azure Explorer**expanderar du **HDInsight** för att se de HDInsight Spark-kluster som finns i dina prenumerationer.
+8. Expandera **HDInsight** från **Azure Explorer**för att visa HDInsight Spark-kluster som finns i dina prenumerationer.
 
-    ![IntelliJ idé Azure Explorer Main View](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer3.png)
+    ![Huvudvy för IntelliJ IDEA Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer3.png)
 
-9. Om du vill visa de resurser (till exempel lagrings konton) som är associerade med klustret kan du ytterligare expandera en nod för kluster namn.
+9. Om du vill visa de resurser (till exempel lagringskonton) som är associerade med klustret kan du expandera ytterligare en klusternamnnod.
 
-    ![Lagrings konton i Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer4.png)
+    ![Lagringskonton för Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer4.png)
 
 ### <a name="link-a-cluster"></a>Länka ett kluster
 
-Du kan länka ett HDInsight-kluster med hjälp av Apache Ambari Managed användar namn. På samma sätt kan du länka med hjälp av domänen och användar namnet, till exempel `user1@contoso.com`, för ett domänanslutet HDInsight-kluster. Du kan också länka livy service-kluster.
+Du kan länka ett HDInsight-kluster med hjälp av apacheambari-hanterade användarnamn. På samma sätt kan du länka för ett domänanslutet HDInsight-kluster med hjälp av domänen och användarnamnet, till exempel `user1@contoso.com`. Du kan också länka Livy Service-klustret.
 
-1. I meny raden navigerar du till **visa** > **verktyget Windows** > **Azure Explorer**.
+1. På menyraden navigerar du till **Visa** > **verktyg i Utforskaren** > i**Utforskaren**.
 
-1. I Azure Explorer högerklickar du på noden **HDInsight** och väljer sedan **Länka ett kluster**.
+1. Högerklicka på **HDInsight-noden** i Azure Explorer och välj sedan **Länka ett kluster**.
 
-   ![Snabb meny för Azure Explorer Link Cluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+   ![Snabbmeny för Azure Explorer-länkkluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-1. De tillgängliga alternativen i fönstret **Länka ett kluster** kan variera beroende på vilket värde du väljer i list rutan **länk resurs typ** .  Ange värdena och välj sedan **OK**.
+1. De tillgängliga alternativen i fönstret **Länka ett kluster** varierar beroende på vilket värde du väljer i listrutan **Länkresurstyp.**  Ange dina värden och välj sedan **OK**.
 
     * **HDInsight-kluster**  
   
         |Egenskap |Värde |
         |----|----|
-        |Länka resurs typ|Välj **HDInsight-kluster** i den nedrullningsbara listan.|
-        |Kluster namn/URL| Ange kluster namn.|
+        |Resurstyp för länk|Välj **HDInsight-kluster** i listrutan.|
+        |Url för klusternamn/-,| Ange klusternamn.|
         |Autentiseringstyp| Lämna som **grundläggande autentisering**|
-        |Användarnamn| Ange kluster användar namn, standard är administratör.|
-        |lösenord| Ange ett lösen ord för användar namnet.|
+        |Användarnamn| Ange klusteranvändarnamn, standard är admin.|
+        |lösenord| Ange lösenord för användarnamn.|
 
-        ![IntelliJ idé länka ett kluster dialog ruta](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+        ![IntelliJ IDEA länkar en klusterdialogruta](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
-    * **Livy-tjänst**  
+    * **Livy Service**  
   
         |Egenskap |Värde |
         |----|----|
-        |Länka resurs typ|Välj **livy-tjänst** i list rutan.|
-        |Livy-slutpunkt| Ange livy-slutpunkt|
-        |Klusternamn| Ange kluster namn.|
-        |Garn slut punkt|Valfri.|
+        |Resurstyp för länk|Välj **Livy Service** i listrutan.|
+        |Livy slutpunkt| Ange Livy Slutpunkt|
+        |Klusternamn| Ange klusternamn.|
+        |Slutpunkt för garn|Valfri.|
         |Autentiseringstyp| Lämna som **grundläggande autentisering**|
-        |Användarnamn| Ange kluster användar namn, standard är administratör.|
-        |lösenord| Ange ett lösen ord för användar namnet.|
+        |Användarnamn| Ange klusteranvändarnamn, standard är admin.|
+        |lösenord| Ange lösenord för användarnamn.|
 
-        ![IntelliJ idé livy kluster dialog ruta](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
+        ![IntelliJ IDEA länk Livy kluster dialog](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
 
-1. Du kan se det länkade klustret från **HDInsight** -noden.
+1. Du kan se ditt länkade kluster från **HDInsight-noden.**
 
-   ![Azure Explorer-länkade cluster1](./media/apache-spark-intellij-tool-plugin/hdinsight-linked-cluster.png)
+   ![Azure Explorer-länkat kluster1](./media/apache-spark-intellij-tool-plugin/hdinsight-linked-cluster.png)
 
-1. Du kan också ta bort länken mellan ett kluster och **Azure Explorer**.
+1. Du kan också ta bort länken till ett kluster från **Azure Explorer**.
 
-   ![Azure Explorer-olänkat kluster](./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png)
+   ![Olänkat kluster i Azure Explorer](./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png)
 
-## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Köra ett Spark Scala-program på ett HDInsight Spark-kluster
+## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Köra ett Spark Scala-program i ett HDInsight Spark-kluster
 
 När du har skapat ett Scala-program kan du skicka det till klustret.
 
-1. Från projekt navigerar du till **mittprog** > **src** > **main** > **Scala** > **Mittprog**.  Högerklicka på **MyApp**och välj **Skicka Spark-program** (det kommer förmodligen att finnas längst ned i listan).
+1. Från Project, navigera till **myApp** > **src** > **huvud** > **scala** > **myApp**.  Högerklicka på **myApp**och välj **Skicka Spark Application** (Det kommer sannolikt att finnas längst ner i listan).
 
       ![Kommandot Skicka Spark-program till HDInsight](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-2. I dialog rutan **Skicka Spark-program** väljer du **1. Spark på HDInsight**.
+2. Välj 1 i dialogrutan **Skicka sparkprogram.** ** Gnista på HDInsight**.
 
-3. I fönstret **Redigera konfiguration** anger du följande värden och väljer sedan **OK**:
+3. Ange följande värden i **fönstret Redigera** konfiguration och välj sedan **OK:**
 
     |Egenskap |Värde |
     |----|----|
-    |Spark-kluster (endast Linux)|Välj det HDInsight Spark-kluster som du vill köra ditt program på.|
-    |Välj en artefakt som ska skickas|Lämna standardvärdet.|
-    |Huvud klass namn|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen ( **...** )  och välja en annan klass.|
-    |Jobb konfiguration|Du kan ändra standard nycklar och/eller värden. Mer information finns i [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html).|
-    |Kommando rads argument|Du kan ange argument avgränsade med blank steg för huvud klassen om det behövs.|
-    |Refererade jar v7 och refererade filer|Du kan ange sökvägar för refererade jar v7 och filer om det finns några. Du kan också bläddra i filer i det virtuella Azure-filsystemet, som för närvarande endast stöder ADLS gen 2-kluster. Mer information: [Apache Spark konfiguration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Se även [hur du överför resurser till kluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
-    |Jobb överförings lagring|Expandera för att visa fler alternativ.|
-    |Lagringstyp|Välj **Använd Azure Blob för att överföra** från List rutan.|
-    |Lagringskonto|Ange ditt lagrings konto.|
-    |Lagrings nyckel|Ange din lagrings nyckel.|
-    |Storage-behållare|Välj din lagrings behållare i list rutan när **lagrings kontot** och **lagrings nyckeln** har angetts.|
+    |Spark kluster (endast Linux)|Välj det HDInsight Spark-kluster som du vill köra programmet på.|
+    |Välj en artefakt som ska skickas|Lämna standardinställningen.|
+    |Huvudklassnamn|Standardvärdet är huvudklassen från den valda filen. Du kan ändra klassen genom att välja ellips(**...**)  och välja en annan klass.|
+    |Jobbkonfigurationer|Du kan ändra standardnycklarna och/eller värdena. Mer information finns i [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html).|
+    |Kommandoradsargument|Du kan ange argument avgränsade med blanksteg för huvudklassen om det behövs.|
+    |Refererade burkar och refererade filer|Du kan ange sökvägarna för de refererade burkarna och filerna om sådana finns. Du kan också bläddra bland filer i Azures virtuella filsystem, som för närvarande bara stöder ADLS Gen 2-kluster. För mer information: [Apache Spark Konfiguration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Se även [så här laddar du upp resurser till klustret](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Lagring av jobbuppladdning|Expandera för att visa ytterligare alternativ.|
+    |Lagringstyp|Välj **Använd Azure Blob för att ladda upp** från listrutan.|
+    |Lagringskonto|Ange ditt lagringskonto.|
+    |Lagringsnyckel|Ange din lagringsnyckel.|
+    |Behållare för lagring|Välj lagringsbehållaren i listrutan när **lagringskontot** och **lagringsnyckeln** har angetts.|
 
-    ![Dialog rutan för Spark-sändning](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+    ![Dialogrutan Spark-inlämning](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
 
-4. Välj **SparkJobRun** för att skicka projektet till det valda klustret. I fliken **fjärr-Spark-jobb i kluster** visas jobb körnings förloppet längst ned. Du kan stoppa programmet genom att klicka på den röda knappen. Information om hur du kommer åt jobbets utdata finns i avsnittet "komma åt och hantera HDInsight Spark-kluster med hjälp av Azure Toolkit for IntelliJ" längre fram i den här artikeln.  
+4. Välj **SparkJobRun** om du vill skicka projektet till det valda klustret. På fliken **Fjärr spark-jobb i kluster** visas jobbkörningsstatusen längst ned. Du kan stoppa programmet genom att klicka på den röda knappen. Mer information om hur du kommer åt jobbutdata finns i avsnittet "Åtkomst och hantering av HDInsight Spark-kluster med hjälp av Azure Toolkit för IntelliJ" senare i den här artikeln.  
 
-    ![Apache Spark sändnings fönster](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+    ![Fönstret Apache Spark Inlämning](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
 
-## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Felsöka Apache Spark program lokalt eller via fjärr anslutning i ett HDInsight-kluster
+## <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster"></a>Felsöka Apache Spark-program lokalt eller på distans i ett HDInsight-kluster
 
-Vi rekommenderar också ett annat sätt att skicka Spark-programmet till klustret. Du kan göra detta genom att ange parametrarna i parametrarna för **körning/fel söknings konfiguration** IDE. Mer information finns i [felsöka Apache Spark program lokalt eller via fjärr anslutning i ett HDInsight-kluster med Azure Toolkit for IntelliJ via SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+Vi rekommenderar också ett annat sätt att skicka Spark-programmet till klustret. Du kan göra det genom att ange parametrarna i **IDE:s kör-/felsökningskonfigurationer.** Mer information finns i [Debug Apache Spark-program lokalt eller på distans i ett HDInsight-kluster med Azure Toolkit för IntelliJ via SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
-## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Få åtkomst till och hantera HDInsight Spark-kluster med hjälp av Azure Toolkit for IntelliJ
+## <a name="access-and-manage-hdinsight-spark-clusters-by-using-azure-toolkit-for-intellij"></a>Komma åt och hantera HDInsight Spark-kluster med hjälp av Azure Toolkit för IntelliJ
 
-Du kan utföra olika åtgärder med hjälp av Azure Toolkit for IntelliJ.  De flesta åtgärder initieras från **Azure Explorer**.  I meny raden navigerar du till **visa** > **verktyget Windows** > **Azure Explorer**.
+Du kan utföra olika åtgärder med hjälp av Azure Toolkit för IntelliJ.  De flesta åtgärder initieras från **Azure Explorer**.  På menyraden navigerar du till **Visa** > **verktyg i Utforskaren** > i**Utforskaren**.
 
-### <a name="access-the-job-view"></a>Öppna vyn jobb
+### <a name="access-the-job-view"></a>Få tillgång till jobbvyn
 
-1. Från Azure Explorer navigerar du till **HDInsight** > \<klustret > > **jobb**.
+1. Från Azure Explorer navigerar du till **HDInsight** > \<ditt kluster> > **jobb**.
 
-    ![IntelliJ för Azure Explorer-jobb](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
+    ![Nod för IntelliJ Azure Explorer-jobbvy](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
 
-2. I den högra rutan visar fliken **Spark Job View** alla program som kördes på klustret. Välj namnet på det program som du vill visa mer information om.
+2. På den högra rutan visar fliken **Spark Job View** alla program som kördes i klustret. Välj namnet på det program som du vill visa mer information om.
 
-    ![Spark-jobb Visa programinformation](./media/apache-spark-intellij-tool-plugin/intellij-view-job-logs.png)
+    ![Information om spark-jobbvyprogram](./media/apache-spark-intellij-tool-plugin/intellij-view-job-logs.png)
 
-3. Om du vill visa grundläggande jobb information som körs, hovrar du över jobb diagrammet. Om du vill visa diagram stegen och information som varje jobb genererar väljer du en nod i jobb diagrammet.
+3. Om du vill visa grundläggande jobbinformation som körs håller du muspekaren över jobbdiagrammet. Om du vill visa fasdiagrammet och information som varje jobb genererar väljer du en nod i projektdiagrammet.
 
-    ![Spark-jobb Visa information om jobb steg](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+    ![Sceninformation om Spark Job View-jobb](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
-4. Om du vill visa ofta använda loggar som *driv rutin stderr*, *driv rutin STDOUT*och *katalog information*väljer du fliken **logg** .
+4. Om du vill visa ofta använda loggar, till exempel *Driver Stderr,* *Driver Stdout*och *Kataloginformation,* väljer du fliken **Logg.**
 
-    ![Logg information för Spark-jobb](./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png)
+    ![Logga information om spark-jobbvy](./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png)
 
-5. Du kan också Visa gränssnittet Spark-historik och garn gränssnittet (på program nivå) genom att välja en länk överst i fönstret.
+5. Du kan också visa användargränssnittet för Spark-historik och YARN-användargränssnittet (på programnivå) genom att välja en länk högst upp i fönstret.
 
-### <a name="access-the-spark-history-server"></a>Få åtkomst till Spark historik Server
+### <a name="access-the-spark-history-server"></a>Få tillgång till Spark-historikservern
 
-1. I Azure Explorer expanderar du **HDInsight**, högerklickar på ditt Spark-kluster och väljer sedan **öppna gränssnittet Spark-historik**.  
-2. När du uppmanas till det anger du klustrets autentiseringsuppgifter för administratörer, som du angav när du konfigurerade klustret.
+1. Expandera **HDInsight**från Azure Explorer , högerklicka på spark-klusternamnet och välj sedan **Öppna Spark-historikgränssnittet**.  
+2. När du uppmanas att ange klustrets administratörsautentiseringsuppgifter, som du angav när du konfigurerade klustret.
 
-3. På instrument panelen för Spark-historiken kan du använda program namnet för att leta efter programmet som du precis har kört. I föregående kod ställer du in program namnet med hjälp av `val conf = new SparkConf().setAppName("myApp")`. Därför är ditt Spark-programnamn **MyApp**.
+3. På instrumentpanelen för Spark-historik kan du använda programnamnet för att leta efter det program som du just har kört. I koden ovan anger du programnamnet `val conf = new SparkConf().setAppName("myApp")`med hjälp av . Därför är ditt Spark-programnamn **myApp**.
 
 ### <a name="start-the-ambari-portal"></a>Starta Ambari-portalen
 
-1. I Azure Explorer expanderar du **HDInsight**, högerklickar på ditt Spark-kluster och väljer sedan **Öppna kluster hanteringsportal (Ambari)** .  
+1. Expandera **HDInsight**från Azure Explorer , högerklicka på spark-klusternamnet och välj sedan **Öppna klusterhanteringsportal(Ambari)**.  
 
-2. När du uppmanas till det anger du administratörens autentiseringsuppgifter för klustret. Du angav dessa autentiseringsuppgifter under kluster konfigurations processen.
+2. När du uppmanas att ange administratörsautentiseringsuppgifterna för klustret. Du angav dessa autentiseringsuppgifter under klusterinstallationsprocessen.
 
 ### <a name="manage-azure-subscriptions"></a>Hantera Azure-prenumerationer
 
-Som standard visar Azure Toolkit for IntelliJ Spark-kluster från alla dina Azure-prenumerationer. Om det behövs kan du ange de prenumerationer som du vill få åtkomst till.  
+Som standard listar Azure Toolkit för IntelliJ Spark-kluster från alla dina Azure-prenumerationer. Om det behövs kan du ange vilka prenumerationer som du vill komma åt.  
 
-1. I Azure Explorer högerklickar du på noden **Azure** -rotnod och väljer sedan **Välj prenumerationer**.  
+1. Högerklicka på Azure-rotnoden i Azure Explorer och välj sedan **Välj prenumerationer**. **Azure**  
 
-2. I fönstret **Välj prenumerationer** avmarkerar du kryss rutorna bredvid de prenumerationer som du inte vill komma åt och väljer sedan **Stäng**.
+2. Avmarkera **kryssrutorna** bredvid de prenumerationer som du inte vill komma åt i fönstret Välj prenumerationer och välj sedan **Stäng**.
 
 ## <a name="spark-console"></a>Spark-konsol
 
-Du kan köra Spark Local Console (Scala) eller köra Spark livy Interactive Session Console (Scala).
+Du kan köra Spark Local Console(Scala) eller köra Spark Livy Interactive Session Console(Scala).
 
-### <a name="spark-local-consolescala"></a>Spark-lokal konsol (Scala)
+### <a name="spark-local-consolescala"></a>Spark lokal konsol (Scala)
 
-Se till att du har uppfyllt WINUTILS. EXE-krav.
+Se till att du har uppfyllt WINUTILS. EXE-förutsättning.
 
-1. Gå till meny raden och navigera till **kör** > **Redigera konfigurationer...** .
+1. På menyraden navigerar du till **Kör** > **redigeringskonfigurationer...**.
 
-2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på HDInsight** - >  **[Spark på HDInsight] MyApp**.
+2. Från fönstret **Kör/debug-konfigurationer,** i den vänstra rutan, navigera till **Apache Spark på HDInsight** > **[Spark på HDInsight] myApp**.
 
-3. Välj fliken **lokalt körning** i huvud fönstret.
+3. Välj fliken **Lokalt kör** i huvudfönstret.
 
-4. Ange följande värden och välj sedan **OK**:
-
-    |Egenskap |Värde |
-    |----|----|
-    |Jobbets huvud klass|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen ( **...** )  och välja en annan klass.|
-    |Miljövariabler|Se till att värdet för HADOOP_HOME är korrekt.|
-    |Plats för WINUTILS. exe|Se till att sökvägen är korrekt.|
-
-    ![Konfiguration av lokal konsol uppsättning](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
-
-5. Från projekt navigerar du till **mittprog** > **src** > **main** > **Scala** > **Mittprog**.  
-
-6. I meny raden navigerar du till **verktyg** > **Spark-konsolen** > **Kör Spark Local Console (Scala)** .
-
-7. Sedan kan två dialog rutor visas för att fråga dig om du vill åtgärda beroenden automatiskt. I så fall väljer du **automatisk korrigering**.
-
-    ![IntelliJ idé Spark, Auto Fix dialog1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
-
-    ![IntelliJ idé Spark, Auto Fix Dialog2](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
-
-8. Konsolen bör se ut ungefär som på bilden nedan. Skriv `sc.appName`i konsol fönstret och tryck sedan på CTRL + RETUR.  Resultatet visas. Du kan avsluta den lokala konsolen genom att klicka på röd knapp.
-
-    ![Resultat av IntelliJ idén-lokal konsol](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
-
-### <a name="spark-livy-interactive-session-consolescala"></a>Spark livy interaktiv Session Console (Scala)
-
-1. Gå till meny raden och navigera till **kör** > **Redigera konfigurationer...** .
-
-2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på HDInsight** - >  **[Spark på HDInsight] MyApp**.
-
-3. Välj fliken **fjärrkörning på kluster** i huvud fönstret.
-
-4. Ange följande värden och välj sedan **OK**:
+4. Ange följande värden och välj sedan **OK:**
 
     |Egenskap |Värde |
     |----|----|
-    |Spark-kluster (endast Linux)|Välj det HDInsight Spark-kluster som du vill köra ditt program på.|
-    |Huvud klass namn|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen ( **...** )  och välja en annan klass.|
+    |Huvudklass för jobb|Standardvärdet är huvudklassen från den valda filen. Du kan ändra klassen genom att välja ellips(**...**)  och välja en annan klass.|
+    |Miljövariabler|Kontrollera att värdet för HADOOP_HOME är korrekt.|
+    |PLATS FÖR WINUTILS.exe|Kontrollera att banan är korrekt.|
 
-    ![Konfiguration av interaktiv konsol uppsättning](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
+    ![Konfiguration av lokal konsoluppsättning](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
 
-5. Från projekt navigerar du till **mittprog** > **src** > **main** > **Scala** > **Mittprog**.  
+5. Från Project, navigera till **myApp** > **src** > **huvud** > **scala** > **myApp**.  
 
-6. I meny raden navigerar du till **verktyg** > **spark-konsolen** > **Kör Spark livy Interactive Session Console (Scala)** .
+6. På menyraden navigerar du till **Verktyg** > **Spark Console** > **Run Spark Local Console(Scala).**
 
-7. Konsolen bör se ut ungefär som på bilden nedan. Skriv `sc.appName`i konsol fönstret och tryck sedan på CTRL + RETUR.  Resultatet visas. Du kan avsluta den lokala konsolen genom att klicka på röd knapp.
+7. Sedan kan två dialogrutor visas för att fråga dig om du vill åtgärda beroenden automatiskt. Om så är fallet väljer du **Åtgärda automatiskt**.
 
-    ![Resultat av IntelliJ-idé interaktiv konsol](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+    ![Dialogrutan IntelliJ IDEA Spark Auto Fix1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
 
-### <a name="send-selection-to-spark-console"></a>Skicka markering till Spark-konsolen
+    ![Dialogrutan IntelliJ IDEA Spark Auto Fix2](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
 
-Det är praktiskt att du kan förutse skript resultatet genom att skicka kod till den lokala konsolen eller livy-Scala (Interactive Session Console). Du kan markera en kod i Scala-filen och högerklicka på **Skicka markering till Spark-konsolen**. Den valda koden kommer att skickas till-konsolen och utföras. Resultatet kommer att visas efter koden i-konsolen. -Konsolen kontrollerar felen om de är befintliga.  
+8. Konsolen ska se ut ungefär som bilden nedan. I konsolfönstret `sc.appName`skriver du och trycker sedan på ctrl+Retur.  Resultatet visas. Du kan avsluta den lokala konsolen genom att klicka på den röda knappen.
 
-   ![Skicka markering till Spark-konsolen](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+    ![IntelliJ IDEA lokalt konsolresultat](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
+
+### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy interaktiv sessionskonsol (Scala)
+
+1. På menyraden navigerar du till **Kör** > **redigeringskonfigurationer...**.
+
+2. Från fönstret **Kör/debug-konfigurationer,** i den vänstra rutan, navigera till **Apache Spark på HDInsight** > **[Spark på HDInsight] myApp**.
+
+3. Välj fliken **Fjärrkörning i kluster i** huvudfönstret.
+
+4. Ange följande värden och välj sedan **OK:**
+
+    |Egenskap |Värde |
+    |----|----|
+    |Spark kluster (endast Linux)|Välj det HDInsight Spark-kluster som du vill köra programmet på.|
+    |Huvudklassnamn|Standardvärdet är huvudklassen från den valda filen. Du kan ändra klassen genom att välja ellips(**...**)  och välja en annan klass.|
+
+    ![Konfiguration av interaktiv konsoluppsättning](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
+
+5. Från Project, navigera till **myApp** > **src** > **huvud** > **scala** > **myApp**.  
+
+6. På menyraden navigerar du till **Verktyg** > **Spark Console** > **Run Spark Livy Interactive Session Console(Scala).**
+
+7. Konsolen ska se ut ungefär som bilden nedan. I konsolfönstret `sc.appName`skriver du och trycker sedan på ctrl+Retur.  Resultatet visas. Du kan avsluta den lokala konsolen genom att klicka på den röda knappen.
+
+    ![Intellij IDEA Interaktiv konsol resultat](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+
+### <a name="send-selection-to-spark-console"></a>Skicka markering till Spark Console
+
+Det är bekvämt för dig att förutse skriptresultatet genom att skicka lite kod till den lokala konsolen eller Livy Interactive Session Console (Scala). Du kan markera en del kod i Scala-filen och sedan högerklicka på **Skicka markering till Spark Console**. Den valda koden skickas till konsolen och utföras. Resultatet visas efter koden i konsolen. Konsolen kontrollerar felen om den finns.  
+
+   ![Skicka markering till Spark Console](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integrera med HDInsight Identity Broker (HIB) 
 
-### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Ansluta till ditt HDInsight ESP-kluster med ID-Broker (HIB)
+### <a name="connect-to-your-hdinsight-esp-cluster-with-id-broker-hib"></a>Anslut till ditt HDInsight ESP-kluster med Id Broker (HIB)
 
-Du kan följa de vanliga stegen för att logga in på Azure-prenumerationen för att ansluta till ditt HDInsight ESP-kluster med ID Broker (HIB). När du har loggat in visas kluster listan i Azure Explorer. Mer information finns i [ansluta till ditt HDInsight-kluster](#connect-to-your-hdinsight-cluster).
+Du kan följa de normala stegen för att logga in på Azure-prenumeration för att ansluta till ditt HDInsight ESP-kluster med Id Broker (HIB). När du har loggat in visas klusterlistan i Azure Explorer. Mer instruktioner finns i [Anslut till ditt HDInsight-kluster](#connect-to-your-hdinsight-cluster).
 
-### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Köra ett Spark Scala-program på ett HDInsight ESP-kluster med ID-Broker (HIB)
+### <a name="run-a-spark-scala-application-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Kör ett Spark Scala-program på ett HDInsight ESP-kluster med ID Broker (HIB)
 
-Du kan följa de normala stegen för att skicka jobb till HDInsight ESP-kluster med ID-Broker (HIB). Mer information hittar du i [köra ett Spark Scala-program på ett HDInsight Spark-kluster](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster) .
+Du kan följa de normala stegen för att skicka jobb till HDInsight ESP-kluster med ID Broker (HIB). Mer information finns i [Kör ett Spark Scala-program i ett HDInsight Spark-kluster.](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster)
 
-Vi överför de nödvändiga filerna till en mapp med namnet med ditt inloggnings konto, och du kan se uppladdnings Sök vägen i konfigurations filen.
+Vi laddar upp nödvändiga filer till en mapp som heter med ditt inloggningskonto och du kan se uppladdningssökvägen i konfigurationsfilen.
 
-   ![Ladda upp sökväg i konfigurationen](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+   ![uppladdningssökvägen i konfigurationen](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
 
-### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Spark-konsolen på ett HDInsight ESP-kluster med ID-Broker (HIB)
+### <a name="spark-console-on-an-hdinsight-esp-cluster-with-id-broker-hib"></a>Spark-konsol på ett HDInsight ESP-kluster med ID Broker (HIB)
 
-Du kan köra Spark Local Console (Scala) eller köra Spark livy Interactive Session Console (Scala) på ett HDInsight ESP-kluster med ID Broker (HIB). Mer information hittar du i [Spark-konsolen](#spark-console) .
+Du kan köra Spark Local Console(Scala) eller köra Spark Livy Interactive Session Console(Scala) på ett HDInsight ESP-kluster med ID Broker (HIB). Mer information finns i [Spark Console.](#spark-console)
 
    > [!NOTE]  
-   > För HDInsight ESP-kluster med ID Broker (HIB) kan du [Länka ett kluster](#link-a-cluster) och [Felsöka Apache Spark program via fjärr anslutning](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) som för närvarande inte stöds.
+   > För HDInsight ESP-klustret med ID Broker (HIB) går det inte att [länka ett kluster](#link-a-cluster) och [felsöka Apache Spark-program på distans.](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster)
 
-## <a name="reader-only-role"></a>Roll som endast läsare
+## <a name="reader-only-role"></a>Roll endast för läsare
 
-När användare skickar jobb till ett kluster med endast läsar roll behörighet krävs Ambari-autentiseringsuppgifter.
+När användare skickar jobb till ett kluster med rollbehörighet endast för läsare krävs Ambari-autentiseringsuppgifter.
 
-### <a name="link-cluster-from-context-menu"></a>Länka kluster från snabb menyn
+### <a name="link-cluster-from-context-menu"></a>Länka kluster från snabbmenyn
 
-1. Logga in med roll kontot endast läsare.
+1. Logga in med rollkonto med endast läsare.
 
-2. Expandera **HDInsight** i **Azure Explorer**för att Visa HDInsight-kluster som finns i din prenumeration. Kluster som har marker ATS med **rollen "roll: läsare"** har bara behörighet som endast läsare.
+2. Expandera **HDInsight** från **Azure Explorer**för att visa HDInsight-kluster som finns i din prenumeration. Klustren märkta **"Roll:Reader"** har bara rollbehörighet för läsare.
 
-    ![IntelliJ Azure Explorer-roll: läsare](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png)
+    ![Roll för IntelliJ Azure Explorer:Läsare](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png)
 
-3. Högerklicka på klustret med roll behörigheten endast läsare. Välj **länka det här klustret** från snabb menyn för att länka klustret. Ange Ambari användar namn och lösen ord.
+3. Högerklicka på klustret med rollbehörighet för endast läsare. Välj **Länka det här klustret** från snabbmenyn för att länka klustret. Ange användarnamnet och lösenordet för Ambari.
 
-    ![IntelliJ Azure Explorer länka det här klustret](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer11.png)
+    ![IntelliJ Azure Explorer länkar det här klustret](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer11.png)
 
-4. Om klustret har länkats kommer HDInsight att uppdateras.
-   Klustrets steg kommer att länkas.
+4. Om klustret har länkats uppdateras HDInsight.
+   Scenen i klustret kommer att länkas.
   
-    ![IntelliJ Azure Explorer-länkad dialog ruta](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer8.png)
+    ![Länkad dialogruta för IntelliJ Azure Explorer](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer8.png)
 
-### <a name="link-cluster-by-expanding-jobs-node"></a>Länka kluster genom att expandera jobb-noden
+### <a name="link-cluster-by-expanding-jobs-node"></a>Länka klustret genom att expandera jobbnod
 
-1. Klicka på noden **jobb** , fönstret **åtkomst nekad åtkomst till kluster jobb** .
+1. Klicka på **Jobbnod,** **fönstret Klusterjobbsåtkomst nekad.**
 
-2. Klicka på **länka det här klustret** för att länka klustret.
+2. Klicka på **Länka det här klustret** om du vill länka klustret.
 
-    ![dialog rutan åtkomst till deined i kluster jobb](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer9.png)
+    ![dialogrutan klusterjobbåtkomst](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer9.png)
 
-### <a name="link-cluster-from-rundebug-configurations-window"></a>Länka kluster från fönstret kör/Felsök konfigurationer
+### <a name="link-cluster-from-rundebug-configurations-window"></a>Fönstret Länka kluster från fönstret Kör/felsöka konfigurationer
 
-1. Skapa en HDInsight-konfiguration. Välj sedan **fjärran sluten i kluster**.
+1. Skapa en HDInsight-konfiguration. Välj sedan **Fjärrkörning i kluster**.
 
-2. Välj ett kluster som har behörighet för endast att läsa roller för **Spark-kluster (endast Linux)** . Varnings meddelandet visas. Du kan klicka på **Länka** klustret om du vill länka klustret.
+2. Välj ett kluster som har rollbehörighet endast för läsare för **Spark-kluster(endast Linux)**. Varningsmeddelandet visas. Du kan klicka på **Länka det här klustret** om du vill länka klustret.
 
-   ![IntelliJ idé att köra/felsöka konfiguration skapa](./media/apache-spark-intellij-tool-plugin/create-configuration.png)
+   ![IntelliJ IDEA kör/felsökning konfiguration skapa](./media/apache-spark-intellij-tool-plugin/create-configuration.png)
 
-### <a name="view-storage-accounts"></a>Visa lagrings konton
+### <a name="view-storage-accounts"></a>Visa lagringskonton
 
-* För kluster med behörighet för endast läsare, klickar du på noden **lagrings konton** , fönstret **åtkomst nekas för lagring** . Öppna Storage Explorer genom att klicka på **öppna Azure Storage Explorer** .
+* För kluster med endast läsare rollbehörighet klickar du på **Noden Lagringskonton,** **fönstret Nekad lagringsåtkomst** dyker upp. Du kan klicka på **Öppna Azure Storage Explorer** för att öppna Storage Explorer.
 
-   ![IntelliJ idé Storage-åtkomst nekad](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png)
+   ![Åtkomst till intellij IDEA Storage-åtkomst nekad](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png)
 
-   ![IntelliJ idé åtkomst nekad-knapp](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png)
+   ![Knappen Nekad intellij IDEA Storage Access](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png)
 
-* För länkade kluster klickar du på noden **lagrings konton** , fönstret **lagrings åtkomst nekad** öppnas. Öppna Storage Explorer genom att klicka på **öppna Azure Storage** .
+* För länkade kluster klickar du på **Noden Lagringskonton,** **fönstret Nekad lagringsåtkomst** visas. Du kan klicka på **Öppna Azure Storage** för att öppna Storage Explorer.
 
-   ![IntelliJ idé Storage Access Denied2](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png)
+   ![Åtkomst till intellij-idélagring nekad2](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png)
 
-   ![IntelliJ idé Storage Access Denied2-knappen](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer12.png)
+   ![Knappen IntelliJ IDEA Storage Access Denied2](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer12.png)
 
-## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Konvertera befintliga IntelliJ idé-program till att använda Azure Toolkit for IntelliJ
+## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>Konvertera befintliga IntelliJ IDEA-program för att använda Azure Toolkit för IntelliJ
 
-Du kan konvertera befintliga Spark Scala-program som du skapade i IntelliJ-idén så att de är kompatibla med Azure Toolkit for IntelliJ. Du kan sedan använda plugin-programmet för att skicka in programmen till ett HDInsight Spark-kluster.
+Du kan konvertera de befintliga Spark Scala-programmen som du skapade i IntelliJ IDEA för att vara kompatibla med Azure Toolkit för IntelliJ. Du kan sedan använda plugin-programmet för att skicka programmen till ett HDInsight Spark-kluster.
 
-1. Öppna den associerade. IML-filen för ett befintligt Spark Scala-program som har skapats med IntelliJ-idén.
+1. Öppna den associerade .iml-filen för ett befintligt Spark Scala-program som skapades via IntelliJ IDEA.
 
-2. På rot nivån finns ett **modul** -element som följande:
+2. På rotnivån finns ett **modulelement** som följande:
 
         ```
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
         ```
 
-   Redigera elementet för att lägga till `UniqueKey="HDInsightTool"` så att **modulens** element ser ut så här:
+   Redigera elementet `UniqueKey="HDInsightTool"` så att **modulelementet** ser ut så här:
 
         ```
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
         ```
 
-3. Spara ändringarna. Ditt program bör nu vara kompatibelt med Azure Toolkit for IntelliJ. Du kan testa det genom att högerklicka på projekt namnet i projektet. På popup-menyn finns nu alternativet **Skicka Spark-program till HDInsight**.
+3. Spara ändringarna. Ditt program bör nu vara kompatibelt med Azure Toolkit för IntelliJ. Du kan testa det genom att högerklicka på projektnamnet i Project. Popup-menyn har nu alternativet **Skicka Spark Application till HDInsight**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet, tar du bort det kluster som du skapade med följande steg:
+Om du inte ska fortsätta att använda det här programmet tar du bort klustret som du skapade med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 
 1. Välj **HDInsight-kluster** under **Tjänster**.
 
-1. I listan med HDInsight-kluster som visas väljer du **...** bredvid det kluster som du skapade för den här självstudien.
+1. I listan över HDInsight-kluster som visas väljer du **det ...** bredvid klustret som du skapade för den här självstudien.
 
 1. Välj **Ta bort**. Välj **Ja**.
 
-![Azure Portal ta bort HDInsight-kluster](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
+![Azure portal ta bort HDInsight-kluster](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du använder Azure Toolkit for IntelliJ-plugin-programmet för att utveckla Apache Spark program som skrivits i [Scala](https://www.scala-lang.org/)och sedan skicka dem till ett HDInsight Spark-kluster direkt från IntelliJ-Integrated Development Environment (IDE). Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI.
+I den här självstudien lärde du dig hur du använder plugin-programmet Azure Toolkit for IntelliJ för att utveckla Apache Spark-program skrivna i [Scala](https://www.scala-lang.org/)och skickade dem sedan till ett HDInsight Spark-kluster direkt från IntelliJ-integrerad utvecklingsmiljö (IDE). Gå vidare till nästa artikel för att se hur de data som du har registrerat i Apache Spark kan hämtas till ett BI-analysverktyg såsom Power BI.
 
 > [!div class="nextstepaction"]
-> [Analysera Apache Spark data med Power BI](apache-spark-use-bi-tools.md)
+> [Analysera Apache Spark-data med Power BI](apache-spark-use-bi-tools.md)

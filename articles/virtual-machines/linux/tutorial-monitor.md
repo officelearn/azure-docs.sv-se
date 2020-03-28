@@ -1,6 +1,6 @@
 ---
-title: Självstudie – övervaka virtuella Linux-datorer i Azure
-description: I den här självstudien får du lära dig hur du övervakar prestanda och identifierade program komponenter som körs på dina virtuella Linux-datorer.
+title: Självstudiekurs - Övervaka virtuella Linux-datorer i Azure
+description: I den här självstudien får du lära dig hur du övervakar prestanda och upptäckte programkomponenter som körs på dina virtuella Linux-datorer.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: mgoedtel
@@ -16,31 +16,31 @@ ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: b06342d5034b820be4e6fd49436546a5aa7b7e02
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75749794"
 ---
-# <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka en virtuell Linux-dator i Azure
+# <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Självstudiekurs: Övervaka en virtuell Linux-dator i Azure
 
-Azure Monitoring använder agenter för att samla in start-och prestanda data från virtuella Azure-datorer, lagra data i Azure Storage och göra dem tillgängliga via portalen, Azure PowerShell-modulen och Azure CLI. Avancerad övervakning levereras med Azure Monitor for VMs genom att samla in prestanda mått, identifiera program komponenter som är installerade på den virtuella datorn och innehåller prestanda diagram och beroende karta.
+Azure-övervakning använder agenter för att samla in start- och prestandadata från virtuella Azure-datorer, lagra dessa data i Azure-lagring och göra dem tillgängliga via portalen, Azure PowerShell-modulen och Azure CLI. Avancerad övervakning levereras med Azure Monitor för virtuella datorer genom att samla in prestandamått, identifiera programkomponenter installerade på den virtuella datorn och inkluderar prestandadiagram och beroendemappning.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Aktivera startdiagnostik på en virtuell dator
 > * Visa startdiagnostik
 > * Visa statistik för en virtuell värddator
-> * Aktivera Azure Monitor for VMs
-> * Visa prestanda mått för virtuella datorer
+> * Aktivera Azure Monitor för virtuella datorer
+> * Visa bakgrundsmått för vm-prestanda
 > * Skapa en avisering
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -52,7 +52,7 @@ Du behöver en virtuell dator för att kunna se diagnostik och mått i praktiken
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Skapa nu en virtuell dator med [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på *~/.ssh/* :
+Skapa nu en virtuell dator med [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -119,44 +119,44 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 En virtuell Linux-dator har en dedikerad värd i Azure som den interagerar med. Mått samlas in automatiskt för värden och kan visas i Azure Portal:
 
 1. I Azure Portal, klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
-1. Om du vill se status för den virtuella värddatorn väljer du **Mått** på fönstret för den virtuella datorn och väljer något av *[Värd]* -måtten under **Tillgängliga mått**.
+1. Om du vill se status för den virtuella värddatorn väljer du **Mått** på fönstret för den virtuella datorn och väljer något av *[Värd]*-måtten under **Tillgängliga mått**.
 
     ![Visa värdmått](./media/tutorial-monitoring/monitor-host-metrics.png)
 
-## <a name="enable-advanced-monitoring"></a>Aktivera Avancerad övervakning
+## <a name="enable-advanced-monitoring"></a>Aktivera avancerad övervakning
 
-Så här aktiverar du övervakning av den virtuella Azure-datorn med Azure Monitor for VMs:
+Så här aktiverar du övervakning av din virtuella Azure-dator med Azure Monitor för virtuella datorer:
 
 1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 
-2. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)** .
+2. Välj **Insikter (förhandsgranskning)** i avsnittet **Övervakning** på sidan Virtuell dator .
 
-3. På den **Insights (förhandsversion)** väljer **Prova nu**.
+3. På sidan **Insikter (förhandsgranskning)** väljer du **Prova nu**.
 
     ![Aktivera Azure Monitor för virtuella datorer för en virtuell dator](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-4. På den **Azure Monitor insikter Onboarding** om du har en befintlig Log Analytics-arbetsyta i samma prenumeration, markerar du den i den nedrullningsbara listan.  
+4. Om du har en befintlig Log Analytics-arbetsyta i samma prenumeration på sidan **Azure Monitor Insights Onboarding** väljer du den i listrutan.  
 
-    I listan förväljs standard arbets ytan och den plats där den virtuella datorn distribueras i prenumerationen. 
+    Listan förväljs till standardarbetsyta och plats där den virtuella datorn distribueras i prenumerationen. 
 
     >[!NOTE]
-    >Om du vill skapa en ny Log Analytics-arbetsyta för att lagra övervaknings data från den virtuella datorn, se [skapa en Log Analytics arbets yta](../../azure-monitor/learn/quick-create-workspace.md). Din Log Analytics-arbetsyta måste tillhöra en av de [regioner som stöds](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics).
+    >Information om hur du skapar en ny Log Analytics-arbetsyta för att lagra övervakningsdata från den virtuella datorn finns i [Skapa en Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md). Log Analytics-arbetsytan måste tillhöra en av de [regioner som stöds.](../../azure-monitor/insights/vminsights-enable-overview.md#log-analytics)
 
-När du har aktiverat övervakning kan du behöva vänta flera minuter innan du kan visa prestanda måtten för den virtuella datorn.
+När du har aktiverat övervakning kan du behöva vänta flera minuter innan du kan visa prestandamåtten för den virtuella datorn.
 
-![Aktivera Azure Monitor för virtuella datorer övervakning distributionsbearbetning](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Aktivera Azure Monitor för virtuella datorer som övervakar distributionsbearbetning](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 
-## <a name="view-vm-performance-metrics"></a>Visa prestanda mått för virtuella datorer
+## <a name="view-vm-performance-metrics"></a>Visa bakgrundsmått för vm-prestanda
 
-Azure Monitor for VMs innehåller en uppsättning prestanda diagram som riktar sig mot flera nyckeltal (KPI: er) för att hjälpa dig att avgöra hur väl en virtuell dator fungerar. Utför följande steg för att komma åt från den virtuella datorn.
+Azure Monitor för virtuella datorer innehåller en uppsättning prestandadiagram som riktar sig till flera kpi:er (Key Performance Indicators) som hjälper dig att avgöra hur bra en virtuell dator presterar. Gör följande för att komma åt från den virtuella datorn.
 
 1. I Azure Portal: Klicka på **Resource Groups**, välj **myResourceGroupMonitor** och välj sedan **myVM** i resurslistan.
 
-2. På sidan virtuell dator i den **övervakning** väljer **Insights (förhandsversion)** .
+2. Välj **Insikter (förhandsgranskning)** i avsnittet **Övervakning** på sidan Virtuell dator .
 
-3. Välj fliken **prestanda** .
+3. Välj fliken **Prestanda.**
 
-På den här sidan ingår inte bara prestanda användnings diagram, utan även en tabell som visar för varje logisk disk som identifieras, dess kapacitet, användning och total genomsnitt per mått.
+Den här sidan innehåller inte bara prestandautnyttjandediagram, utan även en tabell som visar för varje logisk disk som upptäckts, dess kapacitet, användning och totalt genomsnitt för varje mått.
 
 ## <a name="create-alerts"></a>Skapa aviseringar
 
@@ -185,7 +185,7 @@ I den här självstudien har du konfigurerat och visat prestanda för den virtue
 > * Aktivera startdiagnostik på den virtuella datorn
 > * Visa startdiagnostik
 > * Visa värdmått
-> * Aktivera Azure Monitor for VMs
+> * Aktivera Azure Monitor för virtuella datorer
 > * Visa VM-mått
 > * Skapa en avisering
 

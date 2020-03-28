@@ -13,18 +13,18 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 4d6dce952eca3d528a310685106a017dd7e3b80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66166030"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066551"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installera Elastic Stack på en virtuell dator i Azure VM
 
 Den här artikeln beskriver hur du installerar [Elasticsearch](https://www.elastic.co/products/elasticsearch), [Logstash](https://www.elastic.co/products/logstash) och [Kibana](https://www.elastic.co/products/kibana) på en virtuell dator med Ubuntu i Azure. Om du vill se hur Elastic Stack fungerar i praktiken kan du ansluta till Kibana och arbeta med en del exempeldata. 
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator med Ubuntu i en Azure-resursgrupp
@@ -45,7 +45,7 @@ Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -55,7 +55,7 @@ Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm).
 
 Följande exempel skapar en virtuell dator som heter *myVM*, och SSH-nycklar skapas om de inte redan finns på en standardnyckelplats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -66,7 +66,7 @@ az vm create \
 
 När den virtuella datorn har skapats visar Azure CLI information som ser ut ungefär som i följande exempel. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -81,7 +81,7 @@ När den virtuella datorn har skapats visar Azure CLI information som ser ut ung
 
 ## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
 
-Om du inte vet den offentliga IP-adressen för den virtuella datorn kör du kommandot [az network public-ip list](/cli/azure/network/public-ip):
+Om du inte redan känner till den offentliga IP-adressen för den virtuella datorn kör du kommandot [az network public-ip list:](/cli/azure/network/public-ip)
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress

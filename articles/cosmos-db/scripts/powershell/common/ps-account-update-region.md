@@ -1,20 +1,19 @@
 ---
-title: PowerShell-skript för att få dataflöde (RU/s) för Azure Cosmos DB Gremlin API
-description: Azure PowerShell-skript - Azure Cosmos DB Get Throughput (RU/s) för Gremlin API
+title: PowerShell-skript för att uppdatera ett Azure Cosmos-kontos regioner
+description: Exempel på Azure PowerShell-skript – uppdatera ett Azure Cosmos-kontos regioner
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-graph
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 03/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: fa376aff9c127d5792da9e0489079ca3a1c67cf2
+ms.openlocfilehash: 4a8e24b4445e2bf29b35e87600de260c523d4376
 ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/27/2020
-ms.locfileid: "80366032"
+ms.locfileid: "80367576"
 ---
-# <a name="get-throughput-rus-for-a-database-or-graph-for-azure-cosmos-db---gremlin-api"></a>Hämta dataflöde (RU/s) för en databas eller ett diagram för Azure Cosmos DB - Gremlin API
+# <a name="update-an-azure-cosmos-accounts-regions-using-powershell"></a>Uppdatera ett Azure Cosmos-kontos regioner med PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +21,12 @@ ms.locfileid: "80366032"
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/gremlin/ps-gremlin-ru-get.ps1 "Get throughput on a database or graph for Gremlin API")]
+> [!NOTE]
+> Du kan inte ändra regioner och ändra andra Cosmos-kontoegenskaper i samma åtgärd. Dessa måste göras som två separata operationer.
+> [!NOTE]
+> Det här exemplet visas med hjälp av ett SQL-API-konto (Core). Om du vill använda det här exemplet för andra API:er kopierar du de relaterade egenskaperna och gäller för ditt API-specifika skript.
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/common/ps-account-update-region.ps1 "Update Azure Cosmos account regions")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -38,9 +42,8 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-|**Azure Cosmos DB**| |
-| [Få-AzCosmosDBGremlinDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlindatabasethroughput) | Hämtar dataflödesvärdet för den angivna Gremlin API-databasen. |
-| [Få-AzCosmosDBGremlinGrafThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbgremlingraphthroughput) | Hämtar dataflödesvärdet för det angivna Gremlin API Graph. |
+|**Azure-resurser**| |
+| [Set-AzResource](https://docs.microsoft.com/powershell/module/az.resources/set-azresource) | Uppdatera en resurs. |
 |**Azure-resursgrupper**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||

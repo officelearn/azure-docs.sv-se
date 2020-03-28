@@ -1,6 +1,6 @@
 ---
-title: Självstudie för enkel användare/lösen ords rotation
-description: Använd den här självstudien för att automatisera rotationen av enskild användare/lösen ord
+title: Självstudiekurs för rotation för en användare/lösenord
+description: Använd den här självstudien för att automatisera rotation av en användare/lösenord
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,50 +11,50 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 890932f7c0e46a2c9c0b6e1cf1461e4d7d25b409
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239373"
 ---
-# <a name="automate-the-rotation-of-a-secret-for-resources-with-single-userpassword-authentication"></a>Automatisera rotationen av en hemlighet för resurser med autentisering med enskild användare/lösen ord
+# <a name="automate-the-rotation-of-a-secret-for-resources-with-single-userpassword-authentication"></a>Automatisera rotationen av en hemlighet för resurser med autentisering av en användare/lösenord
 
-Det bästa sättet att autentisera till Azure-tjänster är att använda en [hanterad identitet](managed-identity.md), men det finns vissa scenarier där detta inte är ett alternativ. I dessa fall används åtkomst nycklar eller hemligheter. Åtkomst nycklar eller hemligheter bör roteras med jämna mellanrum.
+Även om det bästa sättet att autentisera till Azure-tjänster är att använda en [hanterad identitet,](managed-identity.md)finns det vissa scenarier där detta inte är ett alternativ. I dessa fall används åtkomstnycklar eller hemligheter. Åtkomstnycklar eller hemligheter bör roteras med jämna mellanrum.
 
-Den här självstudien visar hur du automatiserar den periodiska rotationen av hemligheter för databaser och tjänster med autentisering med enskild användare/lösen ord. Mer specifikt roterar det här scenariot SQL Server-lösenord som lagras i Key Vault med hjälp av en funktion som utlöses av Event Grid-avisering:
+Den här självstudien visar hur du automatiserar den periodiska rotationen av hemligheter för databaser och tjänster med autentisering av en användare/lösenord. I det här scenariot roteras SQL-serverlösenord som lagras i nyckelvalvet med hjälp av en funktion som utlöses av händelserutnätsmeddelande:
 
-![Rotations diagram](./media/rotate1.png)
+![Rotationsdiagram](./media/rotate1.png)
 
-1. Trettio dagar före utgångs datumet för en hemlighet Key Vault publicera händelsen "nära förfallo datum" för att Event Grid.
-1. Event Grid kontrollerar händelse prenumerationerna och använder http post för att anropa den Funktionsapp slut punkten som prenumererar på den här händelsen.
-1. Function-appen tar emot hemlig information, genererar ett nytt slumpmässigt lösen ord och skapar en ny version av hemligheten med ett nytt lösen ord i Key Vault.
-1. Funktionen app uppdaterar SQL med nytt lösen ord.
+1. Trettio dagar före utgångsdatumet för en hemlighet publicerar Key Vault händelsen "nära utgång" till Event Grid.
+1. Event Grid kontrollerar händelseprenumerationerna och anropar slutpunkten för funktionsappen som prenumererar på den här händelsen med hjälp av http-inlägg.
+1. Funktionsappen tar emot den hemliga informationen, genererar ett nytt slumpmässigt lösenord och skapar en ny version för hemligheten med ett nytt lösenord i Key Vault.
+1. Funktionen App uppdaterar SQL med nytt lösenord.
 
 > [!NOTE]
-> Det kan finnas en fördröjning mellan steg 3 och 4 och under denna tids hemlighet i Key Vault skulle inte vara giltig för att autentisera till SQL. I händelse av ett problem med att utföra stegen Event Grid försök i två timmar.
+> Det kan finnas en fördröjning mellan steg 3 och 4 och under den tiden hemlighet i Key Vault skulle inte vara giltig för att autentisera till SQL. I händelse av fel i något av stegen event grid försöker i 2 timmar.
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 
-## <a name="create-a-key-vault-and-sql-server"></a>Skapa ett nyckel valv och en SQL Server
+## <a name="create-a-key-vault-and-sql-server"></a>Skapa ett nyckelvalv och en SQL-server
 
-Innan vi börjar måste vi skapa en Key Vault, skapa en SQL Server och en databas och lagra SQL Server administratörs lösen ord i Key Vault.
+Innan vi börjar måste vi skapa ett Nyckelvalv, skapa en SQL Server och databas och lagra SQL Server-administratörslösenordet i Key Vault.
 
-I den här självstudien används en redan skapad Azure Resource Manager mall för att skapa komponenter. Du hittar hela koden här: exempel på en [mall för grundläggande hemlighet](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates).
+Den här självstudien använder en förskapad Azure Resource Manager-mall för att skapa komponenter. Du hittar hela koden här: [Grundläggande secret rotation mall exempel](https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/arm-templates).
 
-1. Klicka på distributions länk för Azure-mall:
+1. Klicka på länken för distribution av Azure-mall:
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Finitial-setup%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. För "resurs grupp" väljer du "Skapa ny" och ger den namnet "simplerotation".
-1. Välj Köp.
+1. För "Resursgrupp" väljer du "Skapa ny" och ger den namnet "simplerotation".
+1. Välj "Köp".
 
-    ![Skapa ny resurs grupp](./media/rotate2.png)
+    ![Skapa ny resursgrupp](./media/rotate2.png)
 
-När du har slutfört de här stegen har du ett nyckel valv, en SQL-Server och en SQL-databas. Du kan kontrol lera detta i en Azure CLI-Terminal genom att köra:
+När du har slutfört de här stegen har du ett nyckelvalv, en SQL-server och en SQL-databas. Du kan verifiera detta i en Azure CLI-terminal genom att köra:
 
 ```azurecli
 az resource list -o table
 ```
 
-Resultatet ser ut ungefär så här:
+Resultaten kommer att se något detta:
 
 ```console
 Name                     ResourceGroup         Location    Type                               Status
@@ -64,29 +64,29 @@ simplerotation-sql            simplerotation             eastus      Microsoft.S
 simplerotation-sql/master     simplerotation             eastus      Microsoft.Sql/servers/databases
 ```
 
-## <a name="create-function-app"></a>Skapa Funktionsapp
+## <a name="create-function-app"></a>Skapa funktionsapp
 
-Skapa en Funktionsapp med en Systemhanterad identitet, samt de ytterligare nödvändiga komponenterna: 
+Skapa en funktionsapp med en systemhanterad identitet samt ytterligare nödvändiga komponenter: 
 
-Function-appen kräver följande komponenter och konfiguration:
+Funktionsappen kräver komponenter och konfiguration under komponenter och konfiguration:
 - App Service-plan
 - Lagringskonto
-- Åtkomst princip för åtkomst till hemligheter i Key Vault med Funktionsapp hanterad identitet
+- Åtkomstprincip för åtkomst till hemligheter i Key Vault med funktionsapphanterad identitet
 
-1. Klicka på distributions länk för Azure-mall:
+1. Klicka på länken för distribution av Azure-mall:
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Ffunction-app%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. För "resurs grupp" väljer du "simplerotation".
-1. Välj Köp.
+1. För "Resursgrupp" väljer du "simplerotation".
+1. Välj "Köp".
 
-   ![Inköps skärmen](./media/rotate3.png)
+   ![Skärmen Köp](./media/rotate3.png)
 
-När du har slutfört stegen ovan kommer du att ha ett lagrings konto, en Server grupp och en Funktionsapp.  Du kan kontrol lera detta i en Azure CLI-Terminal genom att köra:
+När du har slutfört stegen ovan har du ett lagringskonto, en servergrupp och en funktionsapp.  Du kan verifiera detta i en Azure CLI-terminal genom att köra:
 
 ```azurecli
 az resource list -o table
 ```
 
-Resultatet ser ut ungefär så här:
+Resultaten kommer att se något detta:
 
 ```console
 Name                     ResourceGroup         Location    Type                               Status
@@ -99,14 +99,14 @@ simplerotation-plan           simplerotation             eastus      Microsoft.W
 simplerotation-fn             simplerotation             eastus      Microsoft.Web/sites
 ```
 
-Information om hur du skapar Funktionsapp och använder hanterad identitet för att komma åt Key Vault finns i [skapa en Function-app från Azure Portal](../azure-functions/functions-create-function-app-portal.md) och [tillhandahålla Key Vault autentisering med en hanterad identitet](managed-identity.md)
+Information om hur du skapar Funktionsapp och använda hanterad identitet för att komma åt Key Vault finns i [Skapa en funktionsapp från Azure-portalen](../azure-functions/functions-create-function-app-portal.md) och [Tillhandahålla nyckelvalvautentisering med en hanterad identitet](managed-identity.md)
 
-### <a name="rotation-function-and-deployment"></a>Rotations funktion och distribution
-Funktionen använder händelsen som utlösare och utför rotationen av en hemlig uppdatering Key Vault och SQL Database.
+### <a name="rotation-function-and-deployment"></a>Rotationsfunktion och distribution
+Funktionen använder händelsen som utlösare och utför rotation av en hemlig uppdatering av Key Vault och SQL-databas.
 
-#### <a name="function-event-trigger-handler"></a>Utlös ande hanterare för funktions händelse
+#### <a name="function-event-trigger-handler"></a>Utlösare för funktionshändelse
 
-Funktionen nedan läser händelse data och kör rotations logiken
+Nedan Funktionen läser händelsedata och kör rotationslogik
 
 ```csharp
 public static class SimpleRotationEventHandler
@@ -128,7 +128,7 @@ public static class SimpleRotationEventHandler
 ```
 
 #### <a name="secret-rotation-logic"></a>Logik för hemlig rotation
-Den här rotations metoden läser databas information från hemligheten, skapar en ny version av hemligheten och uppdaterar databasen med en ny hemlighet.
+Den här rotationsmetoden läser databasinformation från hemligheten, skapar en ny version av hemligheten och uppdaterar databasen med en ny hemlighet.
 
 ```csharp
 public class SecretRotator
@@ -172,101 +172,101 @@ public class SecretRotator
     }
 }
 ```
-Du kan hitta hela koden här: https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function
+Du hittar hela koden här:https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/rotation-function
 
-#### <a name="function-deployment"></a>Funktions distribution
+#### <a name="function-deployment"></a>Funktionsdistribution
 
-1. Hämta zip-filen för Function-appen: https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip
+1. Ladda ner funktionen app zip-fil:https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-fn.zip
 
-1. Ladda upp filen simplerotationsample-FN. zip till Azure Cloud Shell.
+1. Ladda upp filen simplerotationsample-fn.zip till Azure Cloud Shell.
  
-1. Använd följande CLI-kommando för att distribuera zip-filen till Function-appen:
+1. Använd under CLI-kommandot för att distribuera zip-fil till funktionsappen:
 
 ```azurecli
 az functionapp deployment source config-zip -g simplerotation -n simplerotation-fn --src /home/{firstname e.g jack}/simplerotationsample-fn.zip
 ```
-![Inköps skärmen](./media/rotate4.png)
+![Skärmen Köp](./media/rotate4.png)
 
-Efter distributionen bör du notera två funktioner under simplerotation-FN:
+Efter distributionen bör du märka två funktioner under simplerotation-fn:
 
 ![Azure Cloud Shell](./media/rotate5.png)
 
-### <a name="add-event-subscription-for-secretnearexpiry-event"></a>Lägg till händelse prenumeration för "SecretNearExpiry"-händelse
+### <a name="add-event-subscription-for-secretnearexpiry-event"></a>Lägg till händelseprenumeration för händelsen "SecretNearExpiry"
 
-Kopiera Function-appens eventgrid_extension nyckel.
+Kopiera funktionsappens eventgrid_extension.Copy the function app eventgrid_extension key.
 
 ![Azure Cloud Shell](./media/rotate6.png)
 
 ![Testa och verifiera](./media/rotate7.png)
 
-Använd den kopierade eventgrid-tilläggs nyckeln och ditt prenumerations-ID i nedanstående kommando för att skapa en Event Grid-prenumeration för SecretNearExpiry-händelser.
+Använd den kopierade händelseförslagsnyckeln och ditt prenumerations-ID i kommandot nedan för att skapa en prenumeration på ett händelserutnät för SecretNearExpiry-händelser.
 
 ```azurecli
 az eventgrid event-subscription create --name simplerotation-eventsubscription --source-resource-id "/subscriptions/<subscription-id>/resourceGroups/simplerotation/providers/Microsoft.KeyVault/vaults/simplerotation-kv" --endpoint "https://simplerotation-fn.azurewebsites.net/runtime/webhooks/EventGrid?functionName=SimpleRotation&code=<extension-key>" --endpoint-type WebHook --included-event-types "Microsoft.KeyVault.SecretNearExpiry"
 ```
 
 ### <a name="add-secret-to-key-vault"></a>Lägg till hemlighet i Key Vault
-Ange åtkomst principen för att ge användare behörigheten "Hantera hemligheter".
+Ange din åtkomstprincip så att "hantera hemligheter" behörighet till användare.
 
 ```azurecli
 az keyvault set-policy --upn <email-address-of-user> --name simplerotation-kv --secret-permissions set delete get list
 ```
 
-Skapa nu en ny hemlighet med taggar som innehåller SQL-databasens data källa och användar-ID, med utgångs datum angivet för imorgon.
+Nu skapa en ny hemlighet med taggar som innehåller SQL Database datasource och användar-ID, med utgångsdatum som fastställts för i morgon.
 
 ```azurecli
 $tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddThh:mm:ssZ")
 az keyvault secret set --name sqluser --vault-name simplerotation-kv --value "Simple123" --tags "UserID=azureuser" "DataSource=simplerotation-sql.database.windows.net" --expires $tomorrowDate
 ```
 
-Att skapa en hemlighet med ett kort utgångs datum publicerar omedelbart en SecretNearExpiry-händelse, som i sin tur utlöser funktionen för att rotera hemligheten.
+Om du skapar en hemlighet med ett kort utgångsdatum publiceras omedelbart en SecretNearExpiry-händelse, vilket i sin tur utlöser funktionen för att rotera hemligheten.
 
 ### <a name="test-and-verify"></a>Testa och verifiera
-Efter några minuter bör sqluser-hemligheten roteras automatiskt.
+Efter några minuter bör sqluser hemlighet rotera automatiskt.
 
-Om du vill verifiera verifiering av hemliga rotationer går du till Key Vault > hemligheter
+Om du vill verifiera verifiering av hemlig rotation går du till Key Vault > Secrets
 
 ![Testa och verifiera](./media/rotate8.png)
 
-Öppna hemligheten "sqluser" och visa den ursprungliga och roterade versionen
+Öppna "sqluser" hemlighet och visa den ursprungliga och roterade versionen
 
 ![Testa och verifiera](./media/rotate9.png)
 
 ## <a name="create-web-app"></a>Skapa webbapp
 
-Om du vill verifiera SQL-autentiseringsuppgifter skapar du ett webb program. Det här webb programmet kommer att hämta hemligheten från Key Vault, extrahera information om SQL-databasen och autentiseringsuppgifterna från hemligheten och testa anslutningen till SQL.
+Skapa ett webbprogram om du vill verifiera SQL-autentiseringsuppgifter. Detta webbprogram kommer att få hemligheten från nyckel valv, extrahera SQL databas information och referenser från hemligheten och testa anslutningen till SQL.
 
-Webbappen kräver följande komponenter och konfiguration:
-- Webbapp med Systemhanterad identitet
-- Åtkomst princip för att få åtkomst till hemligheter i Key Vault att använda webbappens hanterad identitet
+Webbappen kräver komponenter och konfiguration nedan:
+- Webbapp med systemhanterad identitet
+- Åtkomstprincip för åtkomst till hemligheter i Key Vault med hjälp av webbapphanterad identitet
 
-1. Klicka på distributions länk för Azure-mall:
+1. Klicka på länken för distribution av Azure-mall:
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2Fazure-keyvault-basicrotation-tutorial%2Fmaster%2Farm-templates%2Fweb-app%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
-1. Välj resurs gruppen **simplerotation**
+1. Välj resursgrupp **för enkelrotation**
 1. Klicka på Köp
 
-### <a name="deploy-web-app"></a>Distribuera webbapp
+### <a name="deploy-web-app"></a>Distribuera Web App
 
-Käll koden för webbappen som du hittar på https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp för distribution av webbappen, gör följande:
+Källkod för webbappen som https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/tree/master/test-webapp du hittar på För distribution av webbappen gör du följande:
 
-1. Hämta zip-filen för Function-appen från https://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
-1. Ladda upp filen `simplerotationsample-app.zip` till Azure Cloud Shell.
-1. Använd det här Azure CLI-kommandot för att distribuera zip-filen till Function-appen:
+1. Ladda ner funktionsapp zip-filen frånhttps://github.com/jlichwa/azure-keyvault-basicrotation-tutorial/raw/master/simplerotationsample-app.zip
+1. Ladda upp `simplerotationsample-app.zip` filen till Azure Cloud Shell.
+1. Använd det här Azure CLI-kommandot för att distribuera zip-filen till funktionsappen:
 
    ```azurecli
    az webapp deployment source config-zip -g simplerotation -n simplerotation-app --src /home/{firstname e.g jack}/simplerotationsample-app.zip
    ```
 
-#### <a name="open-web-application"></a>Öppna webb program
+#### <a name="open-web-application"></a>Öppna webbprogram
 
 Gå till det distribuerade programmet och klicka på "URL":
  
 ![Testa och verifiera](./media/rotate10.png)
 
-Det genererade hemliga värdet ska visas med databasen ansluten som sant.
+Det genererade hemliga värdet ska visas med databasansluten som true.
 
 ## <a name="learn-more"></a>Läs mer:
 
-- Översikt: [övervaka Key Vault med Azure Event Grid (förhands granskning)](event-grid-overview.md)
-- Gör så här: [ta emot e-post när hemliga nyckel valv ändringar](event-grid-logicapps.md)
-- [Azure Event Grid händelse schema för Azure Key Vault (förhands granskning)](../event-grid/event-schema-key-vault.md)
+- Översikt: [Övervaka nyckelvalv med Azure Event Grid (förhandsversion)](event-grid-overview.md)
+- Så här får du [e-post när en nyckelvalvshemlighet ändras](event-grid-logicapps.md)
+- [Azure Event Grid-händelseschema för Azure Key Vault (förhandsversion)](../event-grid/event-schema-key-vault.md)

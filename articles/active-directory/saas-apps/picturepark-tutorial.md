@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Picturepark | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Picturepark | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Picturepark.
 services: active-directory
 documentationCenter: na
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73177015"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Självstudie: Azure Active Directory integrering med Picturepark
+# <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Självstudiekurs: Azure Active Directory-integrering med Picturepark
 
 I den här självstudien får du lära dig hur du integrerar Picturepark med Azure Active Directory (Azure AD).
 Genom att integrera Picturepark med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Picturepark.
-* Du kan göra det möjligt för användarna att logga in automatiskt till Picturepark (enkel inloggning) med sina Azure AD-konton.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Picturepark (Enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Picturepark behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
-* Picturepark-aktiverad prenumeration med enkel inloggning
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Bildpark enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Picturepark stöder **SP** -INITIERAd SSO
+* Picturepark stöder **SP** initierade SSO
 
 ## <a name="adding-picturepark-from-the-gallery"></a>Lägga till Picturepark från galleriet
 
 Om du vill konfigurera integreringen av Picturepark i Azure AD måste du lägga till Picturepark från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Picturepark från galleriet:**
+**Så här lägger du till Picturepark från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -65,33 +65,33 @@ Om du vill konfigurera integreringen av Picturepark i Azure AD måste du lägga 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök skriver du **Picturepark**, väljer **Picturepark** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
+4. Skriv **Picturepark**i sökrutan och välj **Picturepark** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
-     ![Picturepark i resultat listan](common/search-new-app.png)
+     ![Picturepark i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Picturepark baserat på en test användare som kallas **Britta Simon**.
-För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Picturepark upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Picturepark baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Picturepark upprättas.
 
-Om du vill konfigurera och testa enkel inloggning med Picturepark i Azure AD måste du slutföra följande Bygg stenar:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Picturepark måste du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Picturepark-enkel inloggning](#configure-picturepark-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+2. **[Konfigurera Bildpark Enkel inloggning](#configure-picturepark-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Picturepark test User](#create-picturepark-test-user)** – om du vill ha en motsvarighet till Britta Simon i Picturepark som är länkad till Azure AD-representation av användare.
+5. **[Skapa Picturepark-testanvändare](#create-picturepark-test-user)** – om du vill ha en motsvarighet till Britta Simon i Picturepark som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med Picturepark i Azure AD:
+Så här konfigurerar du en enkel Azure AD-inloggning med Picturepark:
 
-1. Välj **enkel inloggning**på sidan **Picturepark** Application Integration i [Azure Portal](https://portal.azure.com/).
+1. Välj Enkel inloggning på sidan Picturepark-programintegrering på [Azure-portalen](https://portal.azure.com/). **Picturepark** **Single sign-on**
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,11 +103,11 @@ Utför följande steg för att konfigurera enkel inloggning med Picturepark i Az
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning för Picturepark-domän och URL: er](common/sp-identifier.png)
+    ![Picturepark Domän och webbadresser enkel inloggningsinformation](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.picturepark.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
 
     |  |
     |--|
@@ -117,20 +117,20 @@ Utför följande steg för att konfigurera enkel inloggning med Picturepark i Az
     | |
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Picturepark client support team](https://picturepark.com/company/picturepark-customer-support) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta Supportteamet för [Picturepark Client](https://picturepark.com/company/picturepark-customer-support) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
     ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
-6. I avsnittet **SAML-signeringscertifikat** kopierar du **Tumavtryck** och sparar det på datorn.
+6. Kopiera **tumavtrycket** i avsnittet **SAML-signeringscertifikat** och spara det på datorn.
 
-    ![Kopiera värdet för Tumavtryck](common/copy-thumbprint.png)
+    ![Kopiera tumavtrycksvärdet](common/copy-thumbprint.png)
 
-7. I avsnittet **Konfigurera Picturepark** kopierar du lämpliga URL: er enligt ditt krav. För **inloggnings-URL**använder du värdet med följande mönster: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Picturepark.** För **inloggnings-URL**använder du värdet med följande mönster:`https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
-    > _my_directory_id_ är klient-ID: t för Azure AD-prenumerationen.
+    > _my_directory_id_ är klient-ID för Azure AD-prenumeration.
 
     ![Kopiera konfigurations-URL:er](./media/picturepark-tutorial/configurls.png)
 
@@ -138,35 +138,35 @@ Utför följande steg för att konfigurera enkel inloggning med Picturepark i Az
 
     b. Utloggnings-URL
 
-### <a name="configure-picturepark-single-sign-on"></a>Konfigurera Picturepark enkel inloggning
+### <a name="configure-picturepark-single-sign-on"></a>Konfigurera bildpark enkel inloggning
 
-1. Logga in på din Picturepark-företags webbplats som administratör i ett annat webbläsarfönster.
+1. I ett annat webbläsarfönster loggar du in på webbplatsen Picturepark som administratör.
 
-2. I verktygsfältet högst upp klickar du på **administrations verktyg**och sedan på **hanterings konsol**.
+2. Klicka på **Administrationsverktyg**i verktygsfältet högst upp och klicka sedan på **Hanteringskonsol.**
    
-    ![Hanterings konsol](./media/picturepark-tutorial/ic795062.png "Hanterings konsol")
+    ![Hanteringskonsol](./media/picturepark-tutorial/ic795062.png "Hanteringskonsol")
 
-3. Klicka på **autentisering**och sedan på **identitets leverantörer**.
+3. Klicka på **Autentisering**och sedan på **Identitetsleverantörer**.
    
     ![Autentisering](./media/picturepark-tutorial/ic795063.png "Autentisering")
 
-4. I avsnittet **konfiguration av identitets leverantör** utför du följande steg:
+4. Gör följande i konfigurationsavsnittet **för identitetsprovider:**
    
     ![Konfiguration av identitetsprovider](./media/picturepark-tutorial/ic795064.png "Konfiguration av identitetsprovider")
    
     a. Klicka på **Lägg till**.
   
-    b. Ange ett namn för din konfiguration.
+    b. Skriv ett namn på konfigurationen.
    
     c. Välj **Ange som standard**.
    
-    d. I text rutan **utfärdar-URI** klistrar du in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal.
+    d. I **URI-textrutan Utfärdare** klistrar du in värdet **för inloggnings-URL:en** som du har kopierat från Azure-portalen.
    
-    e. Klistra **in värdet** för **tumavtryck** som du har kopierat från avsnittet **SAML-signeringscertifikat** 
+    e. I textrutan **Betrodd utfärdare av tummen** klistrar du in värdet för **tumavtryck** som du har kopierat från avsnittet **SAML-signeringscertifikat.** 
 
 5. Klicka på **JoinDefaultUsersGroup**.
 
-6. Om du vill ange attributet **EmailAddress** i text rutan **anspråk** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` och klickar på **Spara**.
+6. Om du vill ange **attributet E-postadress** i textrutan **Anspråk** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` och klickar på **Spara**.
 
       ![Konfiguration](./media/picturepark-tutorial/ic795065.png "Konfiguration")
 
@@ -178,7 +178,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -188,7 +188,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** anger du `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -196,17 +196,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Picturepark.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Picturepark.
 
-1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Picturepark**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Picturepark**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **Picturepark**.
+2. Välj **Picturepark**i programlistan .
 
-    ![Picturepark-länken i program listan](common/all-applications.png)
+    ![Länken Picturepark i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -216,59 +216,59 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-picturepark-test-user"></a>Skapa Picturepark test användare
+### <a name="create-picturepark-test-user"></a>Skapa picturepark-testanvändare
 
-För att Azure AD-användare ska kunna logga in på Picturepark måste de tillhandahållas i Picturepark. När det gäller Picturepark är etableringen en manuell uppgift.
+För att Azure AD-användare ska kunna logga in på Picturepark måste de etableras i Picturepark. När det gäller Picturepark är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på din **Picturepark** -klient.
+1. Logga in på din **Picturepark-klient.**
 
-1. I verktygsfältet högst upp klickar du på **administrations verktyg**och sedan på **användare**.
+1. Klicka på **Administrationsverktyg**i verktygsfältet högst upp och klicka sedan på **Användare**.
    
     ![Användare](./media/picturepark-tutorial/ic795067.png "Användare")
 
-1. Klicka på **nytt**på fliken **användare översikt** .
+1. Klicka på **Nytt**på fliken **Användares översikt** .
    
-    ![Användar hantering](./media/picturepark-tutorial/ic795068.png "Användar hantering")
+    ![Användarhantering](./media/picturepark-tutorial/ic795068.png "Användarhantering")
 
-1. I dialog rutan **skapa användare** utför du följande steg för en giltig Azure Active Directory-användare som du vill etablera:
+1. I dialogrutan **Skapa användare** utför du följande steg i en giltig Azure Active Directory-användare som du vill etablera:
    
     ![Skapa användare](./media/picturepark-tutorial/ic795069.png "Skapa användare")
    
-    a. Skriv **e-postadressen** för användar `BrittaSimon@contoso.com`i text rutan för **e-postadress** .  
+    a. Skriv användarens `BrittaSimon@contoso.com`e-postadress i textrutan **E-postadress** . **email address**  
    
-    b. I text rutorna **lösen** ord och **Bekräfta lösen ord** skriver du **lösen ordet** för BrittaSimon. 
+    b. Skriv **lösenordet** för BrittaSimon i textrutorna **Lösenord** och **Bekräfta lösenord.** 
    
-    c. I text rutan **förnamn** skriver du det **första namnet** på användaren **Britta**. 
+    c. Skriv **förnamnet för** användaren **Britta**i textrutan **Förnamn** . 
    
-    d. I text rutan **efter namn** skriver du det **senaste namnet** på användaren **Simon**.
+    d. Skriv **efternamnet** för användaren **Simon**i textrutan **Efternamn** .
    
-    e. I text rutan **företag** anger du användarens **företags namn** . 
+    e. Skriv **användarens företagsnamn** i textrutan **För** företag. 
    
-    f. I text rutan **land** väljer du användarens **land/region** .
+    f. Välj användarens **land/region** i textrutan **Land.**
   
-    g. I **zip** -text rutan skriver du ortns **post nummer** .
+    g. Skriv orts **postnummer** i **textrutan.**
    
-    h. Skriv **Orts namnet** för användaren i text rutan **stad** .
+    h. Skriv namnet på den ort som ska vara känd för användaren i textrutan **Ort.** **City name**
 
     i. Välj ett **språk**.
    
     j. Klicka på **Skapa**.
 
 >[!NOTE]
->Du kan använda andra verktyg för Picturepark av användar konton eller API: er som tillhandahålls av Picturepark för att etablera Azure AD-användarkonton.
+>Du kan använda andra verktyg eller API:er för att skapa bilder eller API:er för att etablera Azure AD-användarkonton.
 >
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Picturepark på åtkomst panelen, bör du loggas in automatiskt på den Picturepark som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen Picturepark på Åtkomstpanelen bör du automatiskt loggas in i den Picturepark som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

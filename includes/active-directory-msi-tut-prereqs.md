@@ -9,10 +9,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.custom: include file
 ms.openlocfilehash: ea3e135849e07685f81b1cb9a1a63721942d2cb2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75971875"
 ---
 - Om du inte känner till funktionen för hanterade identiteter för Azure-resurser kan du läsa igenom den här [översikten](../articles/active-directory/msi-overview.md). Om du inte har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.

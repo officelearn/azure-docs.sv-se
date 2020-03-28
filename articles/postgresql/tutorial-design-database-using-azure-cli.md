@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: utforma en Azure Database for PostgreSQL-enskild server – Azure CLI'
-description: Den här självstudien visar hur du skapar, konfigurerar och frågar din första Azure Database for PostgreSQL-enskilda server med Azure CLI.
+title: 'Självstudiekurs: Utforma en Azure-databas för PostgreSQL - Single Server - Azure CLI'
+description: Den här självstudien visar hur du skapar, konfigurerar och frågar din första Azure-databas för PostgreSQL - Single Server med Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -9,19 +9,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: c79e64fddaf404b459dd2215e4a2e9236f1bc221
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75460002"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Självstudie: utforma en Azure Database for PostgreSQL-enskild server med Azure CLI 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Självstudiekurs: Utforma en Azure-databas för PostgreSQL – Single Server med Azure CLI 
 I den här självstudien kommer du att använda Azure CLI (kommandoradsgränssnittet) och andra verktyg till följande:
 > [!div class="checklist"]
 > * Skapa en Azure Database för PostgreSQL-server
 > * Konfigurera serverbrandväggen
 > * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
-> * Läs in exempeldata
+> * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
@@ -51,7 +51,7 @@ I följande exempel skapas en server som heter `mydemoserver` i din resursgrupp 
 az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
-+ `--sku-name B_Gen5_2` mappar till Basic, gen 5 och 2 virtuella kärnor.
++ `--sku-name B_Gen5_2`kartor till Basic, Gen 5 och 2 vCores.
 + `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
 + `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
 
@@ -132,7 +132,7 @@ Om din klientdator har PostgreSQL installerat kan du använda en lokal instans a
    ```
 
    > [!TIP]
-   > Om du föredrar att använda en URL-sökväg för att ansluta till postgres, kodar URL @-tecknet i användar namnet med `%40`. Anslutnings strängen för psql skulle exempelvis vara,
+   > Om du föredrar att använda en URL-sökväg för att ansluta till `%40`Postgres kodar URL@-inloggningen med . Till exempel anslutningssträngen för psql skulle vara,
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```
@@ -217,7 +217,7 @@ I den här självstudien lärde du dig att använda Azure CLI (kommandoradsgrän
 > * Skapa en Azure Database för PostgreSQL-server
 > * Konfigurera serverbrandväggen
 > * Använd [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html)-verktyget för att skapa en databas
-> * Läs in exempeldata
+> * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data

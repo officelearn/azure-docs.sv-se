@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67187421"
 ---
 ## <a name="c-program-example"></a>C#-programexempel
@@ -26,7 +26,7 @@ I följande avsnitt i den här artikeln finns ett C#-program som använder ADO.N
 
 `CREATE TABLE`Instruktionerna innehåller nyckelordet **REFERENSER** för att skapa en *sekundärnyckelrelation* (FK) mellan två tabeller. Om du använder *tempdb* kommenterar du ut `--REFERENCES`-nyckelordet med hjälp av ett par inledande tankstreck.
 
-ERD visar relationen mellan de två tabellerna. Värdena i den *underordnade* kolumnen **tabEmployee.DepartmentCode** är begränsade till värden från den *överordnade* kolumnen **tabDepartment.DepartmentCode**.
+ERD visar relationen mellan de två tabellerna. Värdena i den *underordnade* kolumnen **tabEmployee.DepartmentCode** är begränsade till värden från den *överordnade* kolumnen **tabDepartment.DepartmentCode.**
 
 ![ERD som visar sekundärnyckel](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
@@ -37,7 +37,7 @@ ERD visar relationen mellan de två tabellerna. Värdena i den *underordnade* ko
 
 C#-programmet är logiskt en .cs-fil och fysiskt uppdelad i flera kodblock som gör det enklare att förstå varje block. Gör följande för att kompilera och köra programmet:
 
-1. Skapa C#-projektet i Visual Studio. Projekttyp ska vara *Konsol*, som finns under **Mallar** > **Visual C#**  > **Windows Desktop** > **Konsolprogram (.NET Framework)** .
+1. Skapa C#-projektet i Visual Studio. Projekttyp ska vara *Konsol*, som finns under **Mallar** > **Visual C# ** > **Windows Desktop** > **Konsolprogram (.NET Framework)**.
 
 1. I filen *Program.cs* ersätter du kodens startlinjer med följande steg:
 

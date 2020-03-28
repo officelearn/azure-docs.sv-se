@@ -9,10 +9,10 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/28/2018
 ms.openlocfilehash: 14bb46d8917aedb3ea5a625db2489c97a4fd0ba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66122073"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Skapa en Azure Database for PostgreSQL-server och konfigurera en brandväggsregel med hjälp av Azure CLI
@@ -33,7 +33,7 @@ När skriptet har körts kan följande kommando användas för att ta bort resur
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
-| **Kommando** | **Anteckningar** |
+| **Kommandot** | **Obs!** |
 |---|---|
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az postgres server create](/cli/azure/postgres/server) | Skapar en PostgreSQL-server som är värd för databaserna. |
@@ -41,5 +41,5 @@ Det här skriptet använder de kommandon som beskrivs i följande tabell:
 | [az group delete](/cli/azure/group) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure)
+- Läs mer om Azure CLI: [Azure CLI-dokumentationen](/cli/azure)
 - Prova ytterligare skript: [Azure CLI-exempel för Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)

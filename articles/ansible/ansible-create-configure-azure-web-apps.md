@@ -1,17 +1,17 @@
 ---
-title: Självstudie – konfigurera appar i Azure App Service med Ansible
-description: Lär dig hur du skapar en app i Azure App Service med Java 8 och Tomcat container runtime
+title: Självstudiekurs - Konfigurera appar i Azure App Service med Ansible
+description: Lär dig hur du skapar en app i Azure App Service med Java 8 och Tomcat-behållarkörningen
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2891ff47b17900c4c1c8e1c21f22495b65108fd5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156568"
 ---
-# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Självstudie: konfigurera appar i Azure App Service med Ansible
+# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Självstudiekurs: Konfigurera appar i Azure App Service med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -21,21 +21,21 @@ ms.locfileid: "74156568"
 
 > [!div class="checklist"]
 >
-> * Skapa en app i Azure App Service med Java 8 och Tomcat container runtime
+> * Skapa en app i Azure App Service med Java 8 och Tomcat-behållarens körning
 > * Skapa en Azure Traffic Manager-profil
-> * Definiera en Traffic Manager slut punkt med den skapade appen
+> * Definiera en Traffic Manager-slutpunkt med hjälp av den skapade appen
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-basic-app-service"></a>Skapa en grundläggande app service
+## <a name="create-a-basic-app-service"></a>Skapa en grundläggande apptjänst
 
-Spelbok-koden i det här avsnittet definierar följande resurser:
+Spelbokskoden i det här avsnittet definierar följande resurser:
 
-* Azure-resurs grupp inom vilken App Service plan och app distribueras
-* App Service i Linux med Java 8 och Tomcat container runtime
+* Azure-resursgrupp där App Service-planen och appen distribueras
+* Apptjänst på Linux med Java 8 och Tomcat-behållaren runtime
 
 Spara följande spelbok som `firstwebapp.yml`:
 
@@ -71,13 +71,13 @@ Spara följande spelbok som `firstwebapp.yml`:
               java_container_version: 8.5
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook firstwebapp.yml
 ```
 
-När du har kört Spelbok visas utdata som liknar följande resultat:
+När du har kört spelboken visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 
@@ -97,20 +97,20 @@ PLAY RECAP
 localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
-## <a name="create-an-app-and-use-azure-traffic-manager"></a>Skapa en app och Använd Azure Traffic Manager
+## <a name="create-an-app-and-use-azure-traffic-manager"></a>Skapa en app och använda Azure Traffic Manager
 
-Med [Azure Traffic Manager](/azure/app-service/web-sites-traffic-manager) kan du styra hur förfrågningar från webb klienter distribueras till appar i Azure App Service. När App Service-slutpunkter läggs till i en Azure Traffic Manager-profil spårar Traffic Manager statusen för dina App Service-appar. Statusvärden är körs, stoppad och borttagen. Traffic Manager används för att bestämma vilka slut punkter som ska ta emot trafiken.
+[Med Azure Traffic Manager](/azure/app-service/web-sites-traffic-manager) kan du styra hur begäranden från webbklienter distribueras till appar i Azure App Service. När App Service-slutpunkter läggs till i en Azure Traffic Manager-profil spårar Traffic Manager statusen för dina App Service-appar. Statusvärden är körs, stoppad och borttagen. Traffic Manager används för att bestämma vilka slutpunkter som ska ta emot trafiken.
 
-I App Service körs en app i en [App Service-plan](/azure/app-service/overview-hosting-plans). En App Service plan definierar en uppsättning beräknings resurser för en app som ska köras. Du kan hantera din App Service-plan och webbapp i olika grupper.
+I App Service körs en app i en [App Service-plan](/azure/app-service/overview-hosting-plans). En App Service-plan definierar en uppsättning beräkningsresurser för en app som ska köras. Du kan hantera din App Service-plan och webbapp i olika grupper.
 
-Spelbok-koden i det här avsnittet definierar följande resurser:
+Spelbokskoden i det här avsnittet definierar följande resurser:
 
-* Azure-resurs grupp inom vilken App Service plan distribueras
+* Azure-resursgrupp där App Service-planen distribueras
 * App Service-plan
-* Azure-resurs grupp inom vilken appen distribueras
-* App Service i Linux med Java 8 och Tomcat container runtime
+* Azure-resursgrupp där appen distribueras
+* Apptjänst på Linux med Java 8 och Tomcat-behållaren runtime
 * Traffic Manager-profil
-* Traffic Manager slut punkt med den skapade appen
+* Traffic Manager-slutpunkt med hjälp av den skapade appen
 
 Spara följande spelbok som `webapp.yml`:
 
@@ -195,13 +195,13 @@ Spara följande spelbok som `webapp.yml`:
       target_resource_id: "{{ webapp.webapps[0].id }}"
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook webapp.yml
 ```
 
-När du har kört Spelbok visas utdata som liknar följande resultat:
+När du har kört spelboken visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 
@@ -244,4 +244,4 @@ localhost                  : ok=9    changed=6    unreachable=0    failed=0
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Självstudie: Skala appar i Azure App Service med Ansible](/azure/ansible/ansible-scale-azure-web-apps)
+> [Självstudiekurs: Skala appar i Azure App Service med Ansible](/azure/ansible/ansible-scale-azure-web-apps)

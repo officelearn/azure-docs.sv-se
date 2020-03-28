@@ -5,20 +5,20 @@ author: mumian
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 189d54454a1259d08400e3762b3fbf1c633474bd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f88f141257e8e614f62c7441c313002b5735116d
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250049"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239193"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Självstudie: Använda villkor i Azure Resource Manager-mallar
+# <a name="tutorial-use-condition-in-arm-templates"></a>Självstudiekurs: Använd villkor i ARM-mallar
 
-Lär dig hur du distribuerar Azure-resurser baserat på villkor.
+Lär dig hur du distribuerar Azure-resurser baserat på villkor i en ARM-mall (Azure Resource Manager).
 
-I självstudien [Ange resursdistributionsordning](./template-tutorial-create-templates-with-dependent-resources.md) skapar du en virtuell dator, ett virtuellt nätverk och några andra beroende resurser, däribland ett lagringskonto. I stället för att skapa ett nytt lagringskonto varje gång låter du användarna välja mellan att skapa ett nytt lagringskonto eller att använda ett befintligt. För att uppnå det här målet definierar du en extra parameter. Om värdet för parametern är ”new” (nytt) skapas ett nytt lagringskonto. Annars används ett befintligt lagrings konto med det angivna namnet.
+I självstudien [Ange resursdistributionsordning](./template-tutorial-create-templates-with-dependent-resources.md) skapar du en virtuell dator, ett virtuellt nätverk och några andra beroende resurser, däribland ett lagringskonto. I stället för att skapa ett nytt lagringskonto varje gång låter du användarna välja mellan att skapa ett nytt lagringskonto eller att använda ett befintligt. För att uppnå det här målet definierar du en extra parameter. Om värdet för parametern är ”new” (nytt) skapas ett nytt lagringskonto. Annars används ett befintligt lagringskonto med det angivna namnet.
 
-![Användnings villkors diagram för Resource Manager-mall](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
+![Villkorsdiagram för resurshanteraren använder villkor](./media/template-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -28,33 +28,33 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera mallen
 > * Rensa resurser
 
-Den här kursen täcker bara ett grundläggande scenario med att använda villkor. Mer information finns i:
+Den här självstudien täcker bara ett grundläggande scenario med att använda villkor. Mer information finns i:
 
-* [Mallens fil struktur: villkor](conditional-resource-deployment.md).
-* [Distribuera en resurs villkorligt i en Azure Resource Manager-mall](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
-* [Template-funktion: IF](./template-functions-logical.md#if).
-* [Jämförelse funktioner för Azure Resource Manager mallar](./template-functions-comparison.md)
+* [Mallfilstruktur: Villkor](conditional-resource-deployment.md).
+* [Distribuera en resurs villkorligt i en ARM-mall](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Mallfunktion: Om](./template-functions-logical.md#if).
+* [Jämförelsefunktioner för ARM-mallar](./template-functions-comparison.md)
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](use-vs-code-to-create-template.md).
+* Visual Studio-kod med resurshanterarens verktygstillägg. Se [Använda Visual Studio-kod för att skapa ARM-mallar](use-vs-code-to-create-template.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./template-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudiekurs: Integrera Azure Key Vault i ARM-malldistribution](./template-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
-Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator).
+Azure QuickStart-mallar är en databas för ARM-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator).
 
-1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
+1. Välj **Öppna**>**fil**i Visual Studio-kod .
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
@@ -70,23 +70,23 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
-5. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
+     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+5. Välj **Spara fil**>**som** om du vill spara en kopia av filen på den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="modify-the-template"></a>Ändra mallen
 
 Gör två ändringar av den befintliga mallen:
 
 * Lägg till namnparameter för lagringskonto. Användare kan ange antingen ett nytt lagringskontonamn eller ett befintligt lagringskontonamn.
-* Lägg till en ny parameter med namnet **newOrExisting**. Distributionen använder den här parametern för att avgöra om du ska skapa ett nytt lagrings konto eller använda ett befintligt lagrings konto.
+* Lägg till en ny parameter med namnet **newOrExisting**. Distributionen använder den här parametern för att avgöra om du vill skapa ett nytt lagringskonto eller använda ett befintligt lagringskonto.
 
 Här följer proceduren för att göra ändringarna:
 
 1. Öppna **azuredeploy.json** i Visual Studio Code.
-2. Ersätt de tre **variablerna (' storageAccountName ')** med **parametrar (' storageAccountName ')** i hela mallen.
+2. Ersätt de tre **variablerna ("storageAccountName")** med **parametrar ("storageAccountName")** i hela mallen.
 3. Ta bort följande variabeldefinition:
 
-    ![Användnings villkors diagram för Resource Manager-mall](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Villkorsdiagram för resurshanteraren använder villkor](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 4. Lägg till följande två parametrar i mallen:
 
@@ -118,7 +118,7 @@ Här följer proceduren för att göra ändringarna:
     Den uppdaterade lagringskontodefinitionen ser ut så här:
 
     ![Resource Manager-användningsvillkor](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Uppdatera **storageUri** -egenskapen för den virtuella datorns resurs definition med följande värde:
+6. Uppdatera **storageUri-egenskapen** för resursdefinitionen för virtuella datorer med följande värde:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -130,7 +130,7 @@ Här följer proceduren för att göra ändringarna:
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Följ anvisningarna i [distribuera mallen](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) för att öppna Cloud Shell och ladda upp den ändrade mallen och kör sedan följande PowerShell-skript för att distribuera mallen.
+Följ instruktionerna i [Distribuera mallen](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) för att öppna cloud-skalet och ladda upp den reviderade mallen och kör sedan följande PowerShell-skript för att distribuera mallen.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -155,11 +155,11 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > Distributionen misslyckas om **newOrExisting** är **new** (nytt) men lagringskontonamnet som anges redan finns.
 
-Försök att göra en annan distribution med **newOrExisting** inställd på "befintlig" och ange ett befintligt lagrings konto. Information om hur du skapar ett lagringskonto i förväg finns i [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
+Prova att göra en annan distribution med **newOrExisting** inställd på "befintlig" och ange ett befintligt lagringskonto. Information om hur du skapar ett lagringskonto i förväg finns i [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. Om du vill ta bort resurs gruppen väljer du **prova** att öppna Cloud Shell. Om du vill klistra in PowerShell-skriptet högerklickar du på fönstret Shell och väljer **Klistra in**.
+När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. Om du vill ta bort resursgruppen väljer du Prova den **för** att öppna molnskalet. Om du vill klistra in PowerShell-skriptet högerklickar du på skalfönstret och väljer sedan **Klistra in**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"

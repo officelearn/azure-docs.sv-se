@@ -1,6 +1,6 @@
 ---
 title: Migrera befintliga data till ett tabell-API-konto i Azure Cosmos DB
-description: Lär dig hur migrera eller importera den lokala eller molnbaserade data till Azure Table API-konto i Azure Cosmos DB.
+description: Lär dig hur du migrerar eller importerar lokala data eller molndata till Azure Table API-konto i Azure Cosmos DB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,15 +9,15 @@ ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66242575"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrera data till Azure Cosmos DB Table-API-konto
 
-Den här självstudiekursen beskriver hur du importerar data för användning med Azure Cosmos DB [Table-API:et](table-introduction.md). Om du har lagrade data i Azure Table Storage kan du använda datamigreringsverktyget eller AzCopy för att importera dina data till Azure Cosmos DB Table-API:t. Om du har data som lagras i ett Azure Cosmos DB Table API-konto (förhandsversion) måste du använda datamigreringsverktyget för att migrera data. 
+Den här självstudien innehåller instruktioner om hur du importerar data för användning med Azure Cosmos DB [Table API](table-introduction.md). Om du har lagrade data i Azure Table Storage kan du använda datamigreringsverktyget eller AzCopy för att importera dina data till Azure Cosmos DB Table-API:t. Om du har data som lagras i ett Azure Cosmos DB Table API-konto (förhandsversion) måste du använda datamigreringsverktyget för att migrera data. 
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -26,9 +26,9 @@ Den här självstudien omfattar följande uppgifter:
 > * Importera data med AzCopy
 > * Migrera från Table API (förhandsversion) till Table API 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* **Öka dataflödet:** Hur lång tid datamigreringen tar beror på hur stort dataflöde du anger för en enskild container eller en uppsättning containrar. Du bör öka dataflödet för större datamigreringar. När du har slutfört migreringen kan du minska dataflödet för att sänka kostnaderna. Mer information om hur du ökar dataflödet i Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
+* **Öka dataflödet:** Hur länge datamigreringen är beror på hur mycket dataflöde du har ställt in för en enskild behållare eller en uppsättning behållare. Vi rekommenderar att du ökar dataflödet för större datamigreringar. När du har slutfört migreringen minskar du dataflödet för att spara kostnader. Mer information om hur du ökar dataflödet i Azure Portal finns i avsnittet om prestandanivåer och prisnivåer i Azure Cosmos DB.
 
 * **Skapa Azure Cosmos DB-resurser:** Innan du börjar migrera data skapar du alla dina tabeller i förväg från Azure-portalen. Om du migrerar till ett Azure Cosmos DB-konto som har dataflöde på databasnivå anger du en partitionsnyckel när du skapar Azure Cosmos DB-tabellerna.
 
@@ -66,13 +66,13 @@ Använd följande alternativ för källan när du definierar Azure Table Storage
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-När du importerar från Azure Table Storage hämtar du anslutningssträngen för källan genom att öppna Azure Portal och klicka på **Lagringskonton** > **Konto** > **Åtkomstnycklar** och kopierar sedan **anslutningssträngen** genom att klicka på kopieringsknappen.
+Om du vill hämta källanslutningssträngen när du importerar från Azure Table-lagring öppnar du Azure-portalen och klickar på **Lagringskonton** > **Kontoåtkomstnycklar****Account** > och använder sedan kopieringsknappen för att kopiera **anslutningssträngen**.
 
-![Skärmbild av alternativ för källan i HBase](./media/table-import/storage-table-access-key.png)
+![Skärmbild över alternativ för HBase-källor](./media/table-import/storage-table-access-key.png)
 
-När du importerar från ett Azure Cosmos DB Table API-konto (förhandsversion) hämtar du anslutningssträngen för källan genom att öppna Azure Portal, klicka på **Azure Cosmos DB** > **Konto** > **Anslutningssträng** och kopierar sedan **anslutningssträngen** genom att klicka på kopieringsknappen.
+Om du vill hämta källanslutningssträngen när du importerar från ett Azure Cosmos DB Table API-konto (förhandsversion) öppnar du Azure-portalen, klickar på **Azure Cosmos DB** > **Account** > **Connection String** och använder kopieringsknappen för att kopiera **anslutningssträngen**.
 
-![Skärmbild av alternativ för källan i HBase](./media/table-import/cosmos-connection-string.png)
+![Skärmbild över alternativ för HBase-källor](./media/table-import/cosmos-connection-string.png)
 
 [Azure Table Storage-exempelkommando](#azure-table-storage)
 
@@ -91,7 +91,7 @@ Använd följande alternativ för målet när du definierar Azure Cosmos DB Tabl
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
-### <a name="sample-command-source-is-azure-table-storage"></a>Exempel-kommando: Källa är Azure Table Storage
+### <a name="sample-command-source-is-azure-table-storage"></a>Exempelkommando: Källan är Azure Table Storage
 
 Här är ett kommandoradsexempel som visar hur du importerar från Azure Table Storage till Table API:
 
@@ -99,7 +99,7 @@ Här är ett kommandoradsexempel som visar hur du importerar från Azure Table S
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Exempel-kommando: Källan är Azure Cosmos DB tabell-API (förhandsversion)
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Exempelkommando: Källan är Azure Cosmos DB Table API (förhandsversion)
 
 Här är ett kommandoradsexempel som visar hur du importerar från Table API (förhandsversion) till Table API GA:
 
@@ -147,4 +147,4 @@ I den här självstudiekursen lärde du dig att:
 Nu kan du fortsätta med nästa självstudiekurs där du lär dig hur du kör frågor mot data med hjälp av Azure Cosmos DB Table-API:et. 
 
 > [!div class="nextstepaction"]
->[Hur kör jag frågor för att hämta data?](../cosmos-db/tutorial-query-table.md)
+>[Hur frågar jag efter data?](../cosmos-db/tutorial-query-table.md)

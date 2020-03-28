@@ -15,47 +15,47 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79128745"
 ---
 ## <a name="test-your-code"></a>Testa koden
 
-Om du vill köra ditt projekt i Visual Studio väljer du **F5**. Ditt program **MainWindow** visas, som du ser här:
+Om du vill köra projektet väljer du **F5**i Visual Studio . Din ansökan **MainWindow** visas, som visas här:
 
 ![Testa ditt program](./media/active-directory-develop-guidedsetup-windesktop-test/samplescreenshot.png)
 
-Första gången du kör programmet och väljer **anrops Microsoft Graph API** -knappen uppmanas du att logga in. Använd ett Azure Active Directory konto (arbets-eller skol konto) eller ett Microsoft-konto (live.com, outlook.com) för att testa det.
+Första gången du kör programmet och väljer knappen **Anropa Microsoft Graph API** uppmanas du att logga in. Använd ett Azure Active Directory-konto (arbets- eller skolkonto) eller ett Microsoft-konto (live.com, outlook.com) för att testa det.
 
 ![Logga in på programmet](./media/active-directory-develop-guidedsetup-windesktop-test/signinscreenshot.png)
 
-### <a name="provide-consent-for-application-access"></a>Ge tillstånd för program åtkomst
+### <a name="provide-consent-for-application-access"></a>Ge samtycke till tillgång till program
 
-Första gången du loggar in på ditt program uppmanas du också att ange medgivande för att ge programmet åtkomst till din profil och logga in dig, som du ser här:
+Första gången du loggar in på din ansökan uppmanas du också att ge ditt samtycke till att programmet ska få åtkomst till din profil och logga in dig, som du ser här:
 
-![Ge ditt medgivande för program åtkomst](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
+![Ge ditt samtycke till tillgång till program](./media/active-directory-develop-guidedsetup-windesktop-test/consentscreen.png)
 
-### <a name="view-application-results"></a>Visa program resultat
+### <a name="view-application-results"></a>Visa programresultat
 
-När du har loggat in bör du se den användar profil information som returneras av anropet till Microsoft Graph API. Resultaten visas i **resultat rutan resultat för API-anrop** . Grundläggande information om den token som hämtades via anropet till `AcquireTokenInteractive` eller `AcquireTokenSilent` bör visas i rutan **token-information** . Resultaten innehåller följande egenskaper:
+När du har loggat in bör du se den information om användarprofilen som returneras av anropet till Microsoft Graph API. Resultaten visas i rutan **API-samtalsresultat.** Grundläggande information om token som förvärvades `AcquireTokenInteractive` `AcquireTokenSilent` via anropet till eller ska vara synlig i rutan **Token Info.** Resultaten innehåller följande egenskaper:
 
 |Egenskap  |Format  |Beskrivning |
 |---------|---------|---------|
-|**Användarnamn** |<span>user@domain.com</span> |Det användar namn som används för att identifiera användaren.|
-|**Token upphör att gälla** |DateTime |Tiden då token upphör att gälla. MSAL utökar förfallo datumet genom att förnya token vid behov.|
+|**Användarnamn** |<span>user@domain.com</span> |Användarnamnet som används för att identifiera användaren.|
+|**Token upphör att gälla** |DateTime |Den tidpunkt då token upphör att gälla. MSAL förlänger utgångsdatumet genom att förnya token efter behov.|
 
 
 <!--start-collapse-->
-### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om omfattningar och delegerade behörigheter
+### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mer information om scope och delegerade behörigheter
 
-Microsoft Graph-API: t kräver att *User. Read* -omfånget läser en användar profil. Det här omfånget läggs automatiskt till som standard i alla program som är registrerade i program registrerings portalen. Andra API: er för Microsoft Graph, samt anpassade API: er för backend-servern, kan kräva ytterligare omfång. Microsoft Graph-API: n kräver *kalendrar. Läs* omfattning för att lista användarens kalendrar.
+Microsoft Graph API kräver *att användaren.läser* omfång för att läsa en användares profil. Det här scopet läggs automatiskt till som standard i alla program som är registrerade i programregistreringsportalen. Andra API:er för Microsoft Graph, samt anpassade API:er för backend-servern, kan kräva ytterligare scope. Microsoft Graph API kräver *att calendars.Read-scopet* ska kunna lista användarens kalendrar.
 
-Om du vill komma åt användarens kalendrar i ett programs kontext lägger du till *kalendrarna. Läs* behörighet för program registrerings informationen. Lägg sedan till *kalendrarna. Läs* omfattning i `acquireTokenSilent`-anropet.
+Om du vill komma åt användarens kalendrar i ett program lägger du till den delegerade behörigheten *Calendars.Read* i programregistreringsinformationen. Lägg sedan till *calendars.Read-scopet* i anropet. `acquireTokenSilent`
 
 >[!NOTE]
->Användaren kan tillfrågas om ytterligare medgivanden när du ökar antalet omfång.
+>Användaren kan uppmanas att ange ytterligare medgivanden när du ökar antalet scope.
 
 <!--end-collapse-->
 

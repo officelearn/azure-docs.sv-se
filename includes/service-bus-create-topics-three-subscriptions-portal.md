@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67187579"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Skapa ett ämne med Azure Portal
@@ -23,14 +23,14 @@ ms.locfileid: "67187579"
 
     ![Skapa ämne](./media/service-bus-create-topics-subscriptions-portal/create-topic.png)
 
-## <a name="create-subscriptions-to-the-topic"></a>Skapa prenumerationer till ämnet
+## <a name="create-subscriptions-to-the-topic"></a>Skapa prenumerationer på ämnet
 1. Välj det **ämne** som du skapade i föregående avsnitt. 
     
     ![Välja ämna](./media/service-bus-create-topics-subscriptions-portal/select-topic.png)
 2. På sidan **Service Bus-ämne** väljer du **Prenumerationer** från den vänstra menyn och sedan **+ Prenumeration** i verktygsfältet. 
     
     ![Knappen Lägg till prenumeration](./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png)
-3. På den **skapa prenumeration** anger **S1** för **namn** för prenumerationen och välj sedan **skapa**. 
+3. På sidan **Skapa prenumeration** anger du **S1** för **namnet** på prenumerationen och väljer sedan **Skapa**. 
 
     ![Sidan Skapa prenumeration](./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png)
 4. Upprepa föregående steg två gånger för att skapa prenumerationer med namnet **S2** och **S3**.

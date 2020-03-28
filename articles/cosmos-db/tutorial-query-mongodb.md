@@ -1,6 +1,6 @@
 ---
 title: Fråga data med Azure Cosmos DB:s API för MongoDB
-description: Lär dig hur du frågar efter data från Azure Cosmos DBs API för MongoDB med hjälp av MongoDB Shell-kommandon
+description: Lär dig hur du frågar data från Azure Cosmos DB:s API för MongoDB med hjälp av MongoDB-skalkommandon
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870147"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Fråga data med Azure Cosmos DB:s API för MongoDB
 
 [Azure Cosmos DB-API:et för MongoDB](mongodb-introduction.md) stöder [MongoDB-frågor](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
-I den här artikeln beskrivs följande uppgifter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
 > * Köra frågor mot data som lagras i din Cosmos-databas med MongoDB-gränssnittet
@@ -58,7 +58,7 @@ Frågorna i den här artikeln använder följande exempeldokument.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a> Exempelfråga 1 
+## <a name="example-query-1"></a><a id="examplequery1"></a> Exempelfråga 1 
 
 Med exemplet på familjedokumentet ovan returnerar följande fråga dokument där ID-fältet matchar `WakefieldFamily`.
 
@@ -108,7 +108,7 @@ Med exemplet på familjedokumentet ovan returnerar följande fråga dokument dä
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>Exempelfråga 2 
+## <a name="example-query-2"></a><a id="examplequery2"></a>Exempelfråga 2 
 
 Nästa fråga returnerar alla underordnade i familjen. 
 
@@ -141,7 +141,7 @@ Nästa fråga returnerar alla underordnade i familjen.
     }
 
 
-## <a id="examplequery3"></a>Exempelfråga 3 
+## <a name="example-query-3"></a><a id="examplequery3"></a>Exempelfråga 3 
 
 Nästa fråga returnerar alla familjer som är registrerade. 
 
@@ -150,7 +150,7 @@ Nästa fråga returnerar alla familjer som är registrerade.
     db.families.find( { "isRegistered" : true })
 **Resultat** Inget dokument returneras. 
 
-## <a id="examplequery4"></a>Exempelfråga 4
+## <a name="example-query-4"></a><a id="examplequery4"></a>Exempelfråga 4
 
 Nästa fråga returnerar alla familjer som inte är registrerade. 
 
@@ -194,7 +194,7 @@ Nästa fråga returnerar alla familjer som inte är registrerade.
     "isRegistered": false
 }
 
-## <a id="examplequery5"></a>Exempelfråga 5
+## <a name="example-query-5"></a><a id="examplequery5"></a>Exempelfråga 5
 
 Nästa fråga returnerar alla familjer med statusen NY som inte är registrerade. 
 
@@ -240,7 +240,7 @@ Nästa fråga returnerar alla familjer med statusen NY som inte är registrerade
 }
 
 
-## <a id="examplequery6"></a>Exempelfråga 6
+## <a name="example-query-6"></a><a id="examplequery6"></a>Exempelfråga 6
 
 Nästa fråga returnerar alla familjer där värdet för underordnade klasser är 8.
 
@@ -285,7 +285,7 @@ Nästa fråga returnerar alla familjer där värdet för underordnade klasser ä
     "isRegistered": false
 }
 
-## <a id="examplequery7"></a>Exempelfråga 7
+## <a name="example-query-7"></a><a id="examplequery7"></a>Exempelfråga 7
 
 Nästa fråga returnerar alla familjer där den underordnade matrisens storlek är 3.
 
@@ -299,7 +299,7 @@ Inga resultat returneras eftersom det inte finns några familjer med fler än tv
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har du gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
 > * Lärt dig hur man frågar med Cosmos DB-API:et för MongoDB

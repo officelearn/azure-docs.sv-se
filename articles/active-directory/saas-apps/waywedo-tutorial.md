@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med sätt vi göra | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och hur vi gör.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Way We Do | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Way We Do.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,172 +17,172 @@ ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: faa23f61e5a213c492a7fb51bfc5b108e5c77946
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67310406"
 ---
-# <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Självstudier: Integrera sätt att göra med Azure Active Directory
+# <a name="tutorial-integrate-way-we-do-with-azure-active-directory"></a>Självstudiekurs: Integrera hur vi gör med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera sätt vi göra med Azure Active Directory (AD Azure). När du integrerar sätt vi göra med Azure AD, kan du:
+I den här självstudien får du lära dig hur du integrerar sätt vi gör med Azure Active Directory (Azure AD). När du integrerar Way We Do med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till sätt som vi gör.
-* Ge dina användare att automatiskt inloggad sätt vi göra med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till Way We Do.
+* Gör det möjligt för användarna att automatiskt loggas in på Way We Do med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* Sätt som vi med enkel inloggning (SSO) aktiverat prenumeration.
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri provperiod [här.](https://azure.microsoft.com/pricing/free-trial/)
+* Way We Do single sign-on (SSO) enabled subscription.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
-* Hur vi gör stöder **SP** -initierad SSO
-* Hur vi gör stöder **Just In Time** etableringen av användare
+* Way We Do stöder **SP** initierade SSO
+* Way We Do stöder **just in time-användares** etablering
 
-## <a name="adding-way-we-do-from-the-gallery"></a>Att lägga till sätt vi göra från galleriet
+## <a name="adding-way-we-do-from-the-gallery"></a>Lägga till sätt vi gör från galleriet
 
-För att konfigurera integrering av sätt vi göra i Azure AD, som du behöver lägga till sätt vi göra från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Way We Do i Azure AD måste du lägga till sätt vi gör från galleriet i din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **sätt vi göra** i sökrutan.
-1. Välj **sätt vi göra** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Way We Do** i sökrutan i avsnittet Lägg till från **galleriet.**
+1. Välj **Sätt vi gör** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD enkel inloggning med sätt vi göra med hjälp av en testanvändare kallas **B.Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den aktuella användaren på sätt som vi gör.
+Konfigurera och testa Azure AD SSO med Way We Do med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren på ett sätt vi gör.
 
-Slutför följande byggblock för att konfigurera och testa Azure AD enkel inloggning med sätt vi göra:
+Om du vill konfigurera och testa Azure AD SSO med Way We Do slutför du följande byggblock:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera hur vi gör SSO](#configure-way-we-do-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa sätt som vi testanvändare](#create-way-we-do-test-user)**  – du har en motsvarighet för Britta Simon på sätt som vi gör som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Way We Do SSO](#configure-way-we-do-sso)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa sätt vi gör-testanvändare](#create-way-we-do-test-user)** - att ha en motsvarighet till Britta Simon på ett sätt vi gör som är länkad till Azure AD-representationen av användaren.
+6. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **sätt vi göra** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. I [Azure-portalen](https://portal.azure.com/)hittar du avsnittet Hantera på sidan Way We **Do-programintegration**och väljer Enkel inloggning . **Way We Do** **Manage**
+1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** ange värdena för följande fält:
+1. På sidan **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.waywedo.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [sätt vi gör klienten supportteamet](mailto:support@waywedo.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Way We Do Client support team](mailto:support@waywedo.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Raw)** och välj **hämta**att hämta certifikatet och spara den på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML,** i avsnittet **SAML-signeringscertifikat,** hittar **du Certifikat (Raw)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 
-   ![Länk för hämtning av certifikat](common/certificateraw.png)
+   ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-1. På den **ställa in hur vi gör** avsnittet, kopiera den lämpliga URL: er efter behov.
+1. Kopiera lämpliga webbadresser på avsnittet **Konfigurera sätt att göra** baserat på dina krav.
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-way-we-do-sso"></a>Konfigurera hur vi gör SSO
+### <a name="configure-way-we-do-sso"></a>Konfigurera sätt vi gör SSO
 
-1. Om du vill automatisera konfigurationen inom sätt vi göra måste du installera **Mina appar skyddat inloggning webbläsartillägget** genom att klicka på **installera tillägget**.
+1. Om du vill automatisera konfigurationen i Way We Do måste du installera **webbläsartillägget My Apps Secure Sign-in** genom att klicka på **Installera tillägget**.
 
-    ![Mina appar-tillägg](common/install-myappssecure-extension.png)
+    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
 
-1. När du lägger till tillägg till webbläsaren, klickar på **installationsprogrammet sätt vi göra** omdirigerar dig till programmet sätt som vi gör. Ange administratörsautentiseringsuppgifter för att logga in på sätt som vi gör därifrån. Webbläsartillägget automatiskt att konfigurera program för dig. och automatisera steg 3 – 6.
+1. Efter att ha lagt till förlängning i webbläsaren, klicka på **Setup Way Vi gör** kommer att hänvisa dig till hur vi gör ansökan. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Way We Do. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3-6.
 
-    ![Installationskonfiguration](common/setup-sso.png)
+    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
 
-1. Om du vill ställa in hur vi gör manuellt, öppna ett nytt webbläsarfönster och logga in på webbplatsen sätt vi göra om företaget som administratör och utför följande steg:
+1. Om du vill konfigurera Way We Do manuellt öppnar du ett nytt webbläsarfönster och loggar in på webbplatsen Way We Do som administratör och utför följande steg:
 
-1. Klicka på den **person ikonen** i det övre högra hörnet på en sida i sätt som vi gör, och klicka på **konto** i den nedrullningsbara menyn.
+1. Klicka på **personikonen** längst upp till höger på en sida i Way We Do och klicka sedan på **Konto** i rullgardinsmenyn.
 
-    ![Hur vi gör konto](./media/waywedo-tutorial/tutorial_waywedo_account.png)
+    ![Sätt vi gör konto](./media/waywedo-tutorial/tutorial_waywedo_account.png)
 
-1. Klicka på den **menyikonen** att öppna den push navigeringsmenyn och klicka på **Single Sign On**.
+1. Klicka på **menyikonen** för att öppna menyn push-navigering och Klicka **på Enkel inloggning**.
 
-    ![Sätt som vi gör enda](./media/waywedo-tutorial/tutorial_waywedo_single.png)
+    ![Sätt vi gör singel](./media/waywedo-tutorial/tutorial_waywedo_single.png)
 
-1. På den **installationsprogrammet för enkel inloggning** utför följande steg:
+1. Gör följande på sidan **Enkel inloggning:**
 
-    ![Sätt som vi gör spara](./media/waywedo-tutorial/tutorial_waywedo_save.png)
+    ![Sätt vi sparar](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-    a. Klicka på den **aktivera enkel inloggning** växla till **Ja** att aktivera enkel inloggning.
+    a. Klicka **på** växla med enkel inloggning till **Ja** för att aktivera Enkel inloggning.
 
-    b. I den **namn för enkel inloggning** textrutan, ange ditt namn.
+    b. Ange ditt namn i textrutan **För en inloggningsnamn.**
 
-    c. I den **entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
+    c. Klistra in värdet för **Azure AD-identifierare**i textrutan **för entitets-ID** som du har kopierat från Azure-portalen.
 
     d. I textrutan **SAML SSO URL** (URL för enkel inloggning med SAML) klistrar du in det värde för **Inloggnings-URL** som du har kopierat från Azure-portalen.
 
-    e. Ladda upp certifikatet genom att klicka på den **Välj** bredvid knappen **certifikat**.
+    e. Ladda upp certifikatet genom att klicka på **välj-knappen** **bredvid Certifikat**.
 
     f. **Valfria inställningar** -
     
-    * Aktivera lösenord – när det här alternativet är inaktiverat, regelbundna lösenordet fungerar för hur vi gör så att användarna bara kan använda enkel inloggning.
+    * Aktivera lösenord - När det här alternativet är inaktiverat fungerar det vanliga lösenordet för Way We Do så att användarna bara kan använda enkel inloggning.
 
-    * Aktivera automatisk etablering – när den är aktiverad, e-postadressen används för att inloggnings-automatiskt ska jämföras med en lista över användare i sätt som vi gör. Om e-postadressen inte matchar en aktiv användare på sätt som vi gör det lägger automatiskt till ett nytt användarkonto för den person som loggar in, begär eventuell information som saknas.
+    * Aktivera automatisk etablering – När detta är aktiverat jämförs den e-postadress som används för inloggning automatiskt med listan över användare på ett sätt vi gör. Om e-postadressen inte matchar en aktiv användare på way we do, läggs automatiskt ett nytt användarkonto för den person som loggar in och begär eventuell information som saknas.
 
       > [!NOTE]
-      > Användare som har lagts till via enkel inloggning har lagts till som allmänt användare och tilldelats inte en roll i systemet. En administratör kan gå in och ändra deras säkerhetsroll som en redigerare eller administratör och kan också tilldela en eller flera Organisationsschema roller.
+      > Användare som läggs till via enkel inloggning läggs till som allmänna användare och tilldelas inte en roll i systemet. En administratör kan gå in och ändra sin säkerhetsroll som redigerare eller administratör och kan även tilldela en eller flera roller i organisationsschemat.
 
-    g. Klicka på **spara** att spara dina inställningar.
+    g. Klicka på **Spara** om du vill spara inställningarna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till sätt som vi gör.
+I det här avsnittet ska du aktivera B.Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Way We Do.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **sätt vi göra**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. I programlistan väljer du **Way We Do**.
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B.Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
-### <a name="create-way-we-do-test-user"></a>Skapa sätt vi göra testanvändare
+### <a name="create-way-we-do-test-user"></a>Skapa sätt vi gör testanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i sätt som vi gör. Hur vi gör stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns på sätt som vi gör, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter Britta Simon i Way We Do. Way We Do stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns på Way We Do skapas en ny efter autentisering.
 
 > [!Note]
-> Om du vill skapa en användare manuellt kan du kontakta [sätt vi gör klienten supportteamet](mailto:support@waywedo.com).
+> Om du behöver skapa en användare manuellt kontaktar du [Supportteamet för Way We Do Client](mailto:support@waywedo.com).
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen sätt som vi gör i åtkomstpanelen, bör det vara loggas in automatiskt till de sätt vi gör som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Sätt vi gör på åtkomstpanelen ska du automatiskt loggas in på det sätt vi gör som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

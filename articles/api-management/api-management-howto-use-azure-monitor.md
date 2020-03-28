@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79238372"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
 Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått eller loggar från resurser i Azure.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
@@ -36,7 +36,7 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -48,7 +48,7 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 
 API Management sänder ut mätvärden varje minut, vilket ger dig en insyn i realtid i API:ernas tillstånd och hälsa. Nedan följer en sammanfattning av några tillgängliga mått:
 
-* Kapacitet: hjälper dig att fatta beslut om att uppgradera/nedgradera dina APIM-tjänster. Måttet genereras per minut och återspeglar gatewaykapaciteten vid tidpunkten för rapporten. Måtten sträcker sig från 0 till 100 och beräknas utifrån gatewayens resurser som CPU och minnesanvändning.
+* Kapacitet: hjälper dig att fatta beslut om att uppgradera/nedgradera apim-tjänsterna. Måttet genereras per minut och återspeglar gatewaykapaciteten vid tidpunkten för rapporten. Måtten sträcker sig från 0 till 100 och beräknas utifrån gatewayens resurser som CPU och minnesanvändning.
 * Totalt antal gatewaybegäranden: antalet API-begäranden under perioden. 
 * Slutförda gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder inklusive 304, 307 och under 301 (till exempel 200).
 * Misslyckade gatewaybegäranden: antalet API-begäranden som tog emot felaktiga HTTP-svarskoder inklusive 400 och över 500.
@@ -63,9 +63,9 @@ Så här får du åtkomst till mått:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. Från listrutan väljer du mått som du är intresserad av. Till exempel **begär Anden**. 
+1. Från listrutan väljer du mått som du är intresserad av. Till exempel **begäranden**. 
 1. Diagrammet visar det totala antalet API-anrop.
-1. Diagrammet kan filtreras med dimensionerna för **begär** ande mått. Klicka till exempel på **Lägg till filter**, Välj **Server del svars kod**, ange 500 som värde. Nu visar diagrammet antalet begär Anden som misslyckats i API-backend-servern.   
+1. Diagrammet kan filtreras med måttet **Begärandens** dimensioner. Klicka till exempel på **Lägg till filter**, välj **Serverdsvarskod**, ange 500 som värde. Nu visar diagrammet antalet begäranden som misslyckades i API-serverdelen.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurera en aviseringsregel för obehörig begäran
 
@@ -77,28 +77,28 @@ Du kan konfigurera för att ta emot varningar baserat på mått och aktivitetslo
 
 Så här konfigurerar du varningar:
 
-1. Välj **aviseringar** från meny raden nästan längst ned på sidan.
+1. Välj **Aviseringar** i menyraden längst ned på sidan.
 
     ![aviseringar](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Klicka på en **ny aviserings regel** för den här aviseringen.
+2. Klicka på en **ny aviseringsregel** för den här aviseringen.
 3. Klicka på **Lägg till villkor**.
-4. Välj **mått** i list rutan signal typ.
-5. Välj **obehörig Gateway-begäran** som den signal som ska övervakas.
+4. Välj **Mått** i listrutan Signaltyp.
+5. Välj **Obehörig gateway-begäran** som signal att övervaka.
 
     ![aviseringar](./media/api-management-azure-monitor/signal-type.png)
 
-6. I vyn **Konfigurera signal logik** anger du ett tröskelvärde efter vilken aviseringen ska utlösas och klickar på **Slutför**.
+6. I vyn **Konfigurera signallogik** anger du ett tröskelvärde efter vilket aviseringen ska utlösas och klickar på **Klar**.
 
     ![aviseringar](./media/api-management-azure-monitor/threshold.png)
 
-7. Välj en befintlig åtgärds grupp eller skapa en ny. I exemplet nedan skickas ett e-postmeddelande till administratörerna. 
+7. Välj en befintlig åtgärdsgrupp eller skapa en ny. I exemplet nedan skickas ett e-postmeddelande till administratörerna. 
 
     ![aviseringar](./media/api-management-azure-monitor/action-details.png)
 
-8. Ange ett namn, en beskrivning av varnings regeln och välj allvarlighets grad. 
-9. Tryck på **skapa aviserings regel**.
-10. Försök nu att anropa konferens-API utan API-nyckel. Aviseringen aktive ras och e-postmeddelandet skickas till administratörerna. 
+8. Ange ett namn, beskrivning av varningsregeln och välj allvarlighetsgrad. 
+9. Tryck på **Skapa varningsregel**.
+10. Försök nu att anropa konferens-API:et utan en API-nyckel. Aviseringen utlöses och e-post skickas till administratörerna. 
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
@@ -183,15 +183,15 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 | Egenskap  | Typ | Beskrivning |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
-| time | date-time | Tidsstämpeln för när gatewayen startar bearbetningen av begäran |
+| time | date-time | Tidsstämpel för när gatewayen startar bearbeta begäran |
 | operationName | sträng | Konstantvärde ”Microsoft.ApiManagement/GatewayLogs” |
 | category | sträng | Konstantvärde ”GatewayLogs” |
-| durationMs | heltal | Antalet millisekunder från den tidpunkt då gatewayen tog emot begäran tills det svar som har skickats fullständigt. Den innehåller clienTime, cacheTime och backendTime. |
+| durationMs | heltal | Antal millisekunder från det ögonblick gateway tog emot begäran tills det ögonblick svaret skickas i sin helhet. Den innehåller clienTime, cacheTime och backendTime. |
 | callerIpAddress | sträng | IP-adress för anropare av omedelbar gateway (kan vara en mellanhand) |
 | correlationId | sträng | Unik http-begäranidentifierare tilldelad av API Management |
 | location | sträng | Namn på Azure-regionen där gatewayen som behandlade begäran hittades |
 | httpStatusCodeCategory | sträng | Kategori för http-svarsstatuskod: Lyckades (301 eller lägre eller 304 eller 307), Ej auktoriserad (401, 403, 429), Felaktig (400, mellan 500 och 600), Annat |
-| resourceId | sträng | ID för API Management resurs/SUBSCRIPTIONS/\<prenumeration >/RESOURCEGROUPS/\<resurs grupp >/PROVIDERS/MICROSOFT. API Management/tjänst/\<namn > |
+| resourceId | sträng | ID för API Management-resursen\</SUBSCRIPTIONS/ prenumerationen>/RESOURCEGROUPS/\<resursgrupp>/PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/namn\<> |
 | properties | objekt | Egenskaper för aktuell begäran |
 | metod | sträng | HTTP-metod för inkommande begäran |
 | url | sträng | URL för inkommande begäran |
@@ -214,7 +214,7 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 | apimSubscriptionId | sträng | Prenumerationsentitetsidentifierare för aktuell begäran | 
 | backendId | sträng | Serverdelentitetsidentifierare för aktuell begäran | 
 | LastError | objekt | Bearbetningsfel för senaste begäran | 
-| elapsed | heltal | Antalet millisekunder som förflutit mellan när gatewayen tog emot begäran och tidpunkten då felet inträffade | 
+| elapsed | heltal | Antal millisekunder som förflutit mellan när gatewayen tog emot begäran och det ögonblick då felet inträffade | 
 | källa | sträng | Namn på principen eller behandling av intern hanterare som orsakade felet | 
 | omfång | sträng | Omfattningen för det dokument som innehåller principen som orsakade felet | 
 | avsnitt | sträng | Avsnittet för det dokument som innehåller principen som orsakade felet | 

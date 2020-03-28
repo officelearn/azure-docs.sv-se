@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: skapa en webbapp (cache-undan) – Azure cache för Redis'
-description: Lär dig hur du skapar en webbapp med Azure cache för Redis som använder cache-undan-mönstret.
+title: 'Självstudiekurs: Skapa en webbapp (cache-aside) - Azure Cache för Redis'
+description: Lär dig hur du skapar en webbapp med Azure Cache för Redis som använder mönstret för cache-aside.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75411946"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Självstudiekurs: Skapa en cache-aside-resultattavla för ASP.NET
 
 I den här självstudien uppdaterar du ASP.NET-webbappen *ContosoTeamStats* som har skapats i [ASP.NET-snabbstarten för Azure Cache for Redis](cache-web-app-howto.md), så att den inkluderar en resultattavla som använder [cache-aside-mönstret](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) med Azure Cache for Redis. Exempelprogrammet som visar en lista med teamstatistik från en databas och olika sätt att använda Azure Cache for Redis för att lagra och hämta data från cacheminnet. När du slutför självstudien har du en webbapp som läser och skriver till en databas, samt som är optimerad med Azure Cache for Redis och värdbaserad i Azure.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Förbättra dataflödet och minskar databasbelastningen genom att lagra och hämta data med Azure Cache for Redis.
@@ -33,7 +33,7 @@ I den här guiden får du lära dig hur man:
 För att kunna slutföra den här självstudien behöver du följande:
 
 * Självstudien fortsätter där du slutade i [ASP.NET-snabbstarten för Azure Cache for Redis](cache-web-app-howto.md). Följ snabbstarten först, om du inte redan har gjort det.
-* Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
+* Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
     * ASP.NET och webbutveckling
     * Azure Development
     * .NET Desktop Development med SQL Server Express LocalDB eller [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -148,7 +148,7 @@ Mer information om det här paketet finns i NuGet-paketet [EntityFramework](http
 
 1. Lägg till följande `connectionStrings`-avsnitt inuti avsnittet `configuration`. Namnet på anslutningssträngen måste matcha namnet på klassen för Entity Framework-databasens kontext som är `TeamContext`.
 
-    Den här anslutnings strängen förutsätter att du uppfyller [kraven](#prerequisites) och installerat SQL Server Express LocalDB, som är en del av arbets belastningen *.net Desktop Development* installerat med Visual Studio 2019.
+    Den här anslutningssträngen förutsätter att du har uppfyllt [förutsättningarna](#prerequisites) och installerat SQL Server Express LocalDB, som är en del av *.NET-arbetsbelastningen för skrivbordsutveckling* som är installerad med Visual Studio 2019.
 
     ```xml
     <connectionStrings>
@@ -615,7 +615,7 @@ Den autogenererade kod som skapats som en del av det här exemplet innehåller m
     </table>
     ```
 
-1. Bläddra till slutet av filen **Index.cshtml** och lägg till följande `tr`-element så att det blir den sista raden i den sista tabellen i filen:
+1. Bläddra längst ned i **filen Index.cshtml** `tr` och lägg till följande element så att det är den sista raden i den sista tabellen i filen:
 
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -654,7 +654,7 @@ I det här avsnittet etablerar du en ny SQL Azure-databas som appen ska använda
 
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Databasnamn** | *ContosoTeamsDatabase* | För giltiga databasnamn, se [databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Databasnamn** | *ContosoTeamsDatabase* | Giltiga databasnamn finns i [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Prenumeration** | *Din prenumeration*  | Välj samma prenumeration som du använde för att skapa cachen och vara värd för apptjänsten. |
    | **Resursgrupp**  | *TestResourceGroup* | Klicka på **Använda befintlig** och använd samma resursgrupp där du har placerat din cache och apptjänst. |
    | **Välj källa** | **Tom databas** | Börja med en tom databas. |
@@ -664,9 +664,9 @@ I det här avsnittet etablerar du en ny SQL Azure-databas som appen ska använda
    | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-   | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Logga in för serveradministratör** | Valfritt giltigt namn | Giltiga inloggningsnamn finns i [Databasidentifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst 8 tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-   | **Plats** | *Östra USA* | Välj samma region där du skapade cachen och apptjänsten. |
+   | **Location** | *USA, östra* | Välj samma region där du skapade cachen och apptjänsten. |
 
 1. Klicka på **Fäst på instrumentpanelen** och sedan på **Skapa** för att skapa den nya databasen och servern.
 
@@ -724,7 +724,7 @@ När du är klar med självstudiens exempelprogram kan du ta bort Azure-resurser
 >
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
-2. Skriv namnet på din resursgrupp i textrutan **Filtrera objekt...** .
+2. Skriv namnet på din resursgrupp i textrutan **Filtrera objekt...**.
 3. Klicka på **...** till höger om resursgruppen och klicka på **Ta bort resursgrupp**.
 
     ![Ta bort](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)

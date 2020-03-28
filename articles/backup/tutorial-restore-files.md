@@ -1,19 +1,19 @@
 ---
-title: Självstudie – återställa filer till en virtuell dator med Azure Backup
+title: Självstudiekurs - Återställa filer till en virtuell dator med Azure Backup
 description: Lär dig att utföra återställningar på filnivå på en virtuell Azure-dator med Backup och Recovery Services.
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
 ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171723"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Återställa filer till en virtuell dator i Azure
 
-Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln beskriver hur du återställer enskilda filer. I den här guiden får du lära dig hur man:
+Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln beskriver hur du återställer enskilda filer. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 >

@@ -1,5 +1,5 @@
 ---
-title: Belastningsutjämna virtuella datorer inom en zon – Azure CLI
+title: Virtuella datorer för belastningsutjämning inom en zon - Azure CLI
 description: Det här CLI-skriptexemplet visar hur du belastningsutjämnar trafik till virtuella datorer inom en specifik tillgänglighetszon
 services: load-balancer
 documentationcenter: load-balancer
@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
 ms.openlocfilehash: 0ae159b57a89b4238d52d178d59cb79b452e0411
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79214541"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exempel på Azure CLI-skript: belastnings Utjämnings trafik till virtuella datorer i en bestämd tillgänglighets zon
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Azure CLI-skriptexempel: Belastningsfördelningstrafik till virtuella datorer inom en viss tillgänglighetszon
 
 Det här Azure CLI-skriptexemplet skapar allt som behövs för att köra flera virtuella Ubuntu-datorer, konfigurerade med hög tillgänglighet och belastningsutjämning inom en specifik tillgänglighetszon. När du har kört skriptet har du tre virtuella datorer i en enda tillgänglighetszon inom ett område som kan nås via en Azure Standard Load Balancer. 
 
@@ -178,7 +178,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az-network-nsg-create) | Skapar en nätverkssäkerhetsgrupp (NSG), som är en säkerhetsgräns mellan internet och den virtuella datorn. |
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#az-network-nsg-rule-create) | Skapar en NSG-regel för att tillåta inkommande trafik. I det här exemplet öppnas port 22 för SSH-trafik. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az-network-nic-create) | Skapar ett virtuellt nätverkskort och ansluter det till det virtuella nätverket, undernätet och NSG. |
-| [az vm create](/cli/azure/vm#az-vm-create) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även avbildningen av den virtuella dator som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az vm create](/cli/azure/vm#az-vm-create) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Kommandot specificerar även avbildningen av den virtuella dator som ska användas samt administrativa autentiseringsuppgifter.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

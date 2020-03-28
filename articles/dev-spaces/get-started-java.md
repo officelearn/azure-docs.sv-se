@@ -1,21 +1,21 @@
 ---
-title: 'Skapa ett Kubernetes dev-utrymme: Visual Studio Code & Java'
+title: 'Skapa ett utforskningsutrymme för Kubernetes: Visual Studio Code & Java'
 services: azure-dev-spaces
 author: stepro
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
-description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Java-program på Azure Kubernetes-tjänsten
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
+description: Den här självstudien visar hur du använder Azure Dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett Java-program på Azure Kubernetes Service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: d4e335826090d4ca4819c7466c7231cceb0d5bce
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: c71471d1a89188a065bafef2c5b6372aeff35851
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252451"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240544"
 ---
-# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Skapa ett Kubernetes dev-utrymme: Visual Studio Code och Java med Azure dev Spaces
+# <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Skapa ett kubernetes-utvecklingsutrymme: Visual Studio Code och Java med Azure Dev Spaces
 
 I den här guiden får du lära dig hur du:
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig hur du:
 - Effektivt utvecklar och testar din kod i en teammiljö.
 
 > [!Note]
-> **Om du får fastna när som** helst kan du läsa avsnittet [fel sökning](troubleshooting.md) .
+> **Om du fastnar** när som helst läser du [avsnittet Felsökning.](troubleshooting.md)
 
 ## <a name="install-the-azure-cli"></a>Installera Azure CLI
 Azure Dev Spaces kräver minimal konfiguration av den lokala datorn. Merparten av utvecklarmiljöns konfiguration lagras i molnet och kan delas med andra användare. Börja genom att ladda ned och köra [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -37,7 +37,7 @@ az login
 ```
 
 > [!Note]
-> Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+> Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>Om du har flera Azure-prenumerationer ...
 Du kan visa dina prenumerationer genom att köra: 
@@ -46,7 +46,7 @@ Du kan visa dina prenumerationer genom att köra:
 az account list --output table
 ```
 
-Leta upp prenumerationen som har *värdet sant* för *IsDefault*.
+Leta reda på prenumerationen som har *True* för *IsDefault*.
 Om det här inte är den prenumeration som du vill använda kan du ändra standardprenumerationen:
 
 ```azurecli
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Skapa ett Kubernetes-kluster som är aktiverat för Azure Dev Spaces
 
-I kommando tolken skapar du resurs gruppen i en [region som stöder Azure dev Spaces][supported-regions].
+Skapa resursgruppen i en region [som stöder Azure Dev Spaces][supported-regions]i kommandotolken .
 
 ```azurecli
 az group create --name MyResourceGroup --location <region>
@@ -93,7 +93,7 @@ För att kunna felsöka Java-program med Azure Dev Spaces laddar du ned och inst
 I det här avsnittet skapar du en Java-webbapp och kör den i en container i Kubernetes.
 
 ### <a name="create-a-java-web-app"></a>Skapa en Java-webbapp
-Ladda ned kod från GitHub genom att gå till [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) och välja **klona eller ladda ned** för att ladda ned GitHub-lagringsplatsen till din lokala miljö. Koden för den här guiden finns i `samples/java/getting-started/webfrontend`.
+Hämta kod från GitHub [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) genom att navigera till och välj **Klona eller Ladda ned** för att hämta GitHub-databasen till din lokala miljö. Koden för den här guiden finns i `samples/java/getting-started/webfrontend`.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Förbereda kod för Docker- och Kubernetes-utveckling
 Hittills har du en grundläggande webbapp som kan köras lokalt. Du kommer nu använda den i en container genom att skapa tillgångar som definierar appens container och hur den kommer att distribueras till Kubernetes. Den här uppgiften är enkel att utföra med Azure Dev Spaces: 
@@ -111,7 +111,7 @@ Kommandot `azds prep` i Azure CLI genererar Docker- och Kubernetes-tillgångar m
 * Ett [Helm-diagram](https://docs.helm.sh) under `./charts/webfrontend` beskriver hur du distribuerar containern till Kubernetes.
 
 > [!TIP]
-> [Dockerfile-och Helm-diagrammet](how-dev-spaces-works.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
+> [Dockerfile- och Helm-diagrammet](how-dev-spaces-works-prep.md#prepare-your-code) för projektet används av Azure Dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet byggs och kördes.
 
 För tillfället är det inte nödvändigt att förstå det fullständiga innehållet i dessa filer. Det är dock värt att påpeka att **samma Kubernetes- och Docker-konfiguration som kod-tillgångar kan användas från utveckling till produktion, vilket ger bättre konsekvens mellan olika miljöer.**
  
@@ -143,18 +143,18 @@ Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890a
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Identifiera den offentliga URL: en för tjänsten i utdata från kommandot `up`. Den avslutas i `.azds.io`. I exemplet ovan är den offentliga URL: en `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+Identifiera den offentliga URL:en för `up` tjänsten i utdata från kommandot. Det slutar `.azds.io`i . I exemplet ovan är `http://webfrontend.1234567890abcdef1234.eus.azds.io/`den offentliga webbadressen .
 
-Om du vill se din webbapp öppnar du den offentliga URL: en i en webbläsare. Observera också att `stdout` och `stderr` utdata strömmas till azds-fönstret för *spårnings* terminalen när du interagerar med din webbapp. Du kan också se spårnings information för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa anrop i flera tjänster under utvecklingen. Instrumentation som lagts till av dev Spaces innehåller den här förfrågan spårningen.
+Öppna den offentliga webbadressen i en webbläsare om du vill visa din webbapp. Dessutom strömmas meddelande `stdout` och `stderr` utdata till *azds-spårningsterminalfönstret* när du interagerar med din webbapp. Du ser också spårningsinformation för HTTP-begäranden när de går igenom systemet. Detta gör det enklare för dig att spåra komplexa flerservicesamtal under utvecklingen. Den instrumentering som läggs till av Dev Spaces ger den här begäran spårning.
 
 > [!Note]
-> Förutom den offentliga URL: en kan du använda den alternativa `http://localhost:<portnumber>`-URL: en som visas i konsolens utdata. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. I Azure dev Spaces används Kubernetes *Port-Forward-* funktioner för att mappa localhost-porten till den behållare som körs i AKS. Detta underlättar interaktion med tjänsten från den lokala datorn.
+> Förutom den offentliga webbadressen kan du `http://localhost:<portnumber>` använda den alternativa URL:en som visas i konsolutdatan. Om du använder localhost-URL:en kan det verka som om containern körs lokalt, men i själva verket körs den i AKS. Azure Dev Spaces använder Kubernetes *port-forward-funktioner* för att mappa localhost-porten till behållaren som körs i AKS. Detta underlättar interaktion med tjänsten från din lokala dator.
 
 ### <a name="update-a-content-file"></a>Uppdatera en innehållsfil
 Azure Dev Spaces handlar om mer än att bara få kod att köra i Kubernetes – det handlar om att du snabbt och löpande kan se effekten av dina kodändringar i en Kubernetes-miljö i molnet.
 
 1. Tryck på `Ctrl+C` (för att stoppa `azds up`) i terminalfönstret.
-1. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java`och redigera hälsnings meddelandet på [rad 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
+1. Öppna `src/main/java/com/ms/sample/webfrontend/Application.java`och redigera hälsningsmeddelandet på [rad 19:](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19)
 
     ```java
     return "Hello from webfrontend in Azure!";
@@ -192,7 +192,7 @@ Då läggs felsökningskonfigurationen för Azure Dev Spaces till under mappen `
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Se till att arbets ytan du öppnade i VS Code är den mapp som innehåller `azds.yaml`.
+> Om du inte ser några Azure Dev Spaces-kommandon på kommandopaletten kontrollerar du att du har installerat VS Code-tillägget för Azure Dev Spaces. Kontrollera att arbetsytan som du öppnade i VS-kod är den mapp som innehåller `azds.yaml`.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Felsöka containern i Kubernetes
 Tryck på **F5** för att felsöka koden i Kubernetes.
@@ -200,7 +200,7 @@ Tryck på **F5** för att felsöka koden i Kubernetes.
 Precis som med `up`-kommandot, synkroniseras koden med utvecklarmiljön och en container skapas och distribueras till Kubernetes. Men den här gången är felsökaren kopplad till fjärrcontainern.
 
 > [!Tip]
-> Statusfältet för VS Code blir orange, vilket indikerar att fel söknings programmet är kopplat. En klicknings bara URL visas också, som du kan använda för att öppna programmet.
+> Statusfältet VS-kod blir orange, vilket indikerar att felsökaren är kopplad. Det kommer också att visa en klickbar URL, som du kan använda för att öppna ditt program.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -218,11 +218,11 @@ public String greeting()
 }
 ```
 
-Spara filen och klicka på knappen **starta om** i **rutan fel söknings åtgärder**.
+Spara filen och klicka på knappen Starta **om** i **fönstret Felsökningsåtgärder.**
 
 ![](media/common/debug-action-refresh.png)
 
-I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i befintliga containern för snabbare redigerings- och felsökningsförlopp.
+I stället för att återskapa och distribuera om en ny containeravbildning varje gång koden ändras, vilket ofta tar lång tid, kompilerar Azure Dev Spaces om koden inkrementellt i den befintliga containern för snabbare redigerings- och felsökningsförlopp.
 
 Uppdatera webbappen i webbläsaren. Nu bör ditt anpassade meddelande visas i användargränssnittet.
 

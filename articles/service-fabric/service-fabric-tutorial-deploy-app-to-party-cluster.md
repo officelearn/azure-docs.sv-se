@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
 ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75646015"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Självstudie: Distribuera en Service Fabric-app till ett kluster i Azure
@@ -26,20 +26,20 @@ I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa ett .NET Service Fabric-program](service-fabric-tutorial-create-dotnet-app.md).
 > * Distribuera programmet till ett fjärrkluster.
-> * [Lägga till en HTTPS-slutpunkt i en klienttjänst i ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md).
+> * [Lägga till en HTTPS-slutpunkt i en frontend-tjänst för ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md).
 > * [Konfigurera CI/CD med hjälp av Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
-> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md).
+> * [Ställ in övervakning och diagnostik för programmet](service-fabric-tutorial-monitoring-aspnet.md).
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
-* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Installera Visual Studio 2019](https://www.visualstudio.com/)och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Installera Visual Studio 2019](https://www.visualstudio.com/)och installera **Azure-utvecklings-** och **ASP.NET- och webbutvecklingsarbetsbelastningar.**
 * [Installera Service Fabric SDK](service-fabric-get-started.md).
 
 > [!NOTE]
-> Ett kostnads fritt konto kanske inte uppfyller kraven för att skapa en virtuell dator. På så sätt kan du inte slutföra självstudien. Dessutom kan ett icke-arbetskonto eller ett icke-skol konto drabbas av behörighets problem när du skapar certifikatet i det nyckel valv som är associerat med klustret. Om det uppstår ett fel som rör skapande av certifikat använder portalen för att skapa klustret i stället. 
+> Ett kostnadsfritt konto kanske inte uppfyller kraven för att skapa en virtuell dator. Detta förhindrar slutförandet av handledningen. Dessutom kan ett konto som inte är arbets- eller icke-skolkonto stöta på behörighetsproblem när certifikatet skapas på keyvault som är associerat med klustret. Om du uppstår ett fel i samband med att certifikat skapas använda portalen för att skapa klustret i stället. 
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet för röstning
 
@@ -53,7 +53,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 
-Nu när programmet är klart kan du skapa ett Service Fabric-kluster och sedan distribuera programmet till klustret. Ett [Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från.
+Nu när programmet är klart kan du skapa ett Service Fabric-kluster och sedan distribuera programmet till klustret. Ett [Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras till.
 
 I den här självstudien får du skapa ett nytt testkluster med tre noder i Visual Studio IDE och sedan publicera programmet till klustret. Se [självstudien om att skapa och hantera ett kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) för att få information om hur du skapar ett produktionskluster. Du kan också distribuera programmet till ett befintligt kluster som du skapade tidigare via [Azure-portalen](https://portal.azure.com), med hjälp av [PowerShell](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)- eller [Azure CLI](./scripts/cli-create-cluster.md)-skript, eller från en [Azure Resource Manager-mall](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
@@ -69,18 +69,18 @@ Klientwebbtjänsten för röstningsprogrammet lyssnar på en viss port (8080 om 
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-Notera tjänstens slutpunkt, som krävs i ett senare steg.  Om du distribuerar till ett befintligt kluster öppnar du den här porten genom att skapa en regel för belastnings utjämning och avsökning i Azure Load Balancer med ett [PowerShell-skript](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) eller via belastningsutjämnaren för det här klustret i [Azure Portal](https://portal.azure.com).
+Notera tjänstens slutpunkt, som krävs i ett senare steg.  Om du distribuerar till ett befintligt kluster öppnar du den här porten genom att skapa en belastningsutjämningsregel och söka i Azure-belastningsutjämnaren med hjälp av ett [PowerShell-skript](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) eller via belastningsutjämnaren för det här klustret i [Azure-portalen](https://portal.azure.com).
 
 ### <a name="create-a-test-cluster-in-azure"></a>Skapa ett testkluster i Azure
 Högerklicka på **Voting** i Solution Explorer och välj **Publicera**.
 
-I **Connection Endpoint** (Anslutningsslutpunkt) väljer du **Skapa ett nytt kluster**.  Om du distribuerar till ett befintligt kluster väljer du kluster slut punkten i listan.  Dialogrutan Skapa Service Fabric-kluster öppnas.
+I **Connection Endpoint** (Anslutningsslutpunkt) väljer du **Skapa ett nytt kluster**.  Om du distribuerar till ett befintligt kluster väljer du klusterslutpunkten i listan.  Dialogrutan Skapa Service Fabric-kluster öppnas.
 
-På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Next**.
+På fliken **Kluster** anger du **klusternamnet** (till exempel ”mytestcluster”), väljer din prenumeration, väljer en region för klustret (till exempel USA, södra centrala), anger antalet klusternoder (vi rekommenderar att tre noder för ett testkluster) och anger en resursgrupp (till exempel ”mytestclustergroup”). Klicka på **Nästa**.
 
 ![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Använd inte ett självsignerat certifikat för produktions kluster.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Next**.
+På fliken **Certifikat** anger du sökvägen för lösenord och utdata för klustercertifikatet. Ett självsignerat certifikat har skapats som en PFX-fil och sparats i den angivna utdatasökvägen.  Certifikatet används för både nod till nod- och klient till nod-säkerhet.  Använd inte ett självsignerat certifikat för produktionskluster.  Det här certifikatet används av Visual Studio för att autentisera med klustret och distribuera program. Välj **Importera certifikat** för att installera PFX i certifikatarkivet CurrentUser\My på din dator.  Klicka på **Nästa**.
 
 ![Skapa ett kluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

@@ -1,25 +1,25 @@
 ---
 title: Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
-description: Den här artikeln innehåller en översikt över hur du använder Azure Automation Uppdateringshantering för att hantera uppdateringar och korrigeringar för dina virtuella Azure-och icke-Azure-datorer.
+description: Den här artikeln innehåller en översikt över hur du använder Azure Automation Update Management för att hantera uppdateringar och korrigeringar för dina virtuella Azure- och icke-Azure-datorer.
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 03/04/2020
 ms.custom: mvc
-ms.openlocfilehash: 347f2fbc0f12aa775c42dbb14a4625dc509a20ed
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f7130f3289ce42ca1481ec14be893c846c9ed55b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79239660"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80335793"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
 Du kan använda uppdateringshanteringen för att hantera uppdateringar och korrigeringar av virtuella datorer. I den här självstudien får du lära dig hur du utvärderar statusen för tillgängliga uppdateringar snabbt, planerar installation av uppdateringar som krävs, granskar distributionsresultat och skapar en avisering för att verifiera uppdateringar.
 
-Prisinformation finns i [Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
+Prisinformation finns i [Automatiseringspriser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Visa en uppdateringsbedömning
@@ -27,11 +27,11 @@ I den här guiden får du lära dig att:
 > * Schemalägga en uppdateringsdistribution
 > * Visa resultatet av en distribution
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-* [Uppdateringshantering](automation-update-management.md) lösning aktive rad för en eller flera av dina virtuella datorer.
+* Lösningen [för uppdateringshantering](automation-update-management.md) aktiverad för en eller flera av dina virtuella datorer.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som du vill publicera.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -40,13 +40,13 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
-När uppdateringshantering är aktiverat visas fönstret **Uppdateringshantering**. Om några uppdateringar identifieras som saknade visas en lista med uppdateringar som saknas på fliken uppdateringar som **saknas** .
+När uppdateringshantering är aktiverat visas fönstret **Uppdateringshantering**. Om några uppdateringar identifieras som saknade visas en lista över saknade uppdateringar på fliken **Saknade uppdateringar.**
 
-Under **informations länk**väljer du länken Uppdatera för att öppna Support artikeln för uppdateringen. Du kan läsa viktig information om uppdateringen.
+Under **Informationslänk**väljer du uppdateringslänken för att öppna supportartikeln för uppdateringen. Du kan läsa viktig information om uppdateringen.
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 
-Klicka på någon annan stans på uppdateringen för att öppna **loggs öknings** fönstret för den valda uppdateringen. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga om du vill visa detaljerad information om uppdateringarna som har distribuerats eller som saknas i din miljö.
+Klicka någon annanstans på uppdateringen för att öppna **loggsökfönstret** för den valda uppdateringen. Frågan för loggsökningen är fördefinierad för den specifika uppdateringen. Du kan ändra den här frågan eller skapa en egen fråga om du vill visa detaljerad information om uppdateringarna som har distribuerats eller som saknas i din miljö.
 
 ![Visa uppdateringsstatus](./media/automation-tutorial-update-management/logsearch.png)
 
@@ -65,9 +65,9 @@ Klicka på **Lägg till villkor** för att välja lämplig signal för uppdateri
 |Signalnamn|Dimensioner|Beskrivning|
 |---|---|---|
 |**Antal körningar av uppdateringsdistributionen**|– Namnet på uppdateringsdistributionen</br>– Status|Den här signalen används för att avisera om uppdateringsdistributionens övergripande status.|
-|**Antal datorspecifika körningar av uppdateringsdistributionen**|– Namnet på uppdateringsdistributionen</br>– Status</br>– Måldator</br>-Uppdatera körnings-ID för distribution|Den här signalen används för att avisera om statusen för en uppdateringsdistribution som är riktad mot specifika datorer|
+|**Antal datorspecifika körningar av uppdateringsdistributionen**|– Namnet på uppdateringsdistributionen</br>– Status</br>– Måldator</br>- Uppdatera distributionskörnings-ID|Den här signalen används för att avisera om statusen för en uppdateringsdistribution som är riktad mot specifika datorer|
 
-För dimensionsvärdena väljer du ett giltigt värde i listan. Om värdet som du letar efter inte visas i listan klickar du på **\+** -tecknet bredvid dimensionen och skriver ett anpassat namn. Därefter kan du välja det värde som du vill söka efter. Om du vill välja alla värden från en dimension klickar du på knappen **Välj \*** . Om du inte väljer ett värde för en dimension ignoreras den dimensionen under utvärderingen.
+För dimensionsvärdena väljer du ett giltigt värde i listan. Om värdet du letar efter inte finns i **\+** listan klickar du på tecknet bredvid dimensionen och skriver in det anpassade namnet. Därefter kan du välja det värde som du vill söka efter. Om du vill välja alla värden från en dimension klickar du på knappen **Välj \***. Om du inte väljer ett värde för en dimension ignoreras den dimensionen under utvärderingen.
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/signal-logic.png)
 
@@ -75,30 +75,30 @@ Under **Aviseringslogik**, för **Tröskelvärde**, ange **1**. När du är klar
 
 ### <a name="alert-details"></a>Aviseringsinformation
 
-Under **2. Definiera aviserings information**, ange ett namn och en beskrivning för aviseringen. Ange **allvarlighetsgrad** till **Information (allvarlighetsgrad 2)** för en lyckad körning eller **Information (allvarlighetsgrad 1)** för en misslyckad körning.
+Under **2. Definiera aviseringsinformation**, ange ett namn och en beskrivning för aviseringen. Ange **allvarlighetsgrad** till **Information (allvarlighetsgrad 2)** för en lyckad körning eller **Information (allvarlighetsgrad 1)** för en misslyckad körning.
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/define-alert-details.png)
 
-Välj **Skapa ny** under **Åtgärdsgrupper**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
+Under **Åtgärdsgrupper**väljer du **Skapa nytt**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Mer information om åtgärdsgrupper finns i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
 
 I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 
-Under **åtgärder**anger du ett namn för åtgärden, t. ex. **e-postaviseringar**. Under **Åtgärds typ**väljer du **e-post/SMS/push/röst**. Välj **Redigera information**under **information**.
+Under **Åtgärder**anger du ett namn för åtgärden, till **exempel E-postmeddelanden**. Under **Åtgärdstyp**väljer du **E-post/SMS/Push/Voice**. Under **Information**väljer du **Redigera information**.
 
 I rutan **e-post/SMS/Push/röst**, ange ett namn. Välj kryssrutan **e-post** och ange sedan en giltig e-postadress.
 
 ![Konfigurera en e-poståtgärdsgrupp](./media/automation-tutorial-update-management/configure-email-action-group.png)
 
-I fönstret **e-post/SMS/push/Voice** väljer du **OK**. I fönstret **Lägg till åtgärds grupp** väljer du **OK**.
+Välj **Ok**i fönstret **E-post/SMS/Push/Voice** . Välj **Ok**i fönstret **Lägg till åtgärdsgrupp** .
 
-Om du vill anpassa ämnet för e-postaviseringen under **Skapa regel**, under **Anpassa åtgärder**, väljer du **e-postämne**. När du är klar väljer du **Skapa varningsregel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning.
+Om du vill anpassa ämnet för aviseringsmeddelandet väljer du **E-postämne**under **Skapa** **regel**. När du är klar väljer du **Skapa varningsregel**. Varningen berättar när en distribution lyckas och vilka datorer som var en del av denna uppdaterade distributionskörning.
 
 ## <a name="schedule-an-update-deployment"></a>Schemalägga en uppdateringsdistribution
 
 För att installera uppdateringar schemalägger du en distribution som passar ditt schema och servicefönster. Du kan välja vilka uppdateringstyper som ska tas med i distributionen. Du kan till exempel ta med kritiska uppdateringar eller säkerhetsuppdateringar och exkludera samlade uppdateringar.
 
 >[!NOTE]
->När du schemalägger en uppdaterings distribution skapar den en [schema](shared-resources/schedules.md) resurs som är länkad till **MicrosoftOMSComputers-** runbooken som hanterar uppdaterings distributionen på mål datorerna. Om du tar bort schema resursen från Azure Portal eller använder PowerShell när du har skapat distributionen bryts den schemalagda uppdaterings distributionen och ett fel uppstår när du försöker konfigurera om den från portalen. Du kan bara ta bort schema resursen genom att ta bort motsvarande distributions schema.  
+>När du schemalägger en uppdateringsdistribution skapas en [schemaresurs](shared-resources/schedules.md) som är kopplad till **runbooken Patch-MicrosoftOMSComputers** som hanterar uppdateringsdistributionen på måldatorerna. Om du tar bort schemaresursen från Azure-portalen eller använder PowerShell efter att du har skapat distributionen, bryter den schemalagda uppdateringsdistributionen och ett fel visas när du försöker konfigurera om den från portalen. Du kan bara ta bort schemaresursen genom att ta bort motsvarande distributionsschema.  
 >
 
 Schemalägg en ny uppdateringsdistribution för den virtuella datorn, gå till **Uppdateringshantering** och välj sedan **Distribution av schemauppdatering**.
@@ -109,11 +109,11 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Operativsystem**: Välj operativsystem som mål för uppdateringsdistributionen.
 
-* **Grupper att uppdatera (förhandsversion)** : definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management-groups.md)
+* **Grupper att uppdatera (förhandsversion)**: definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management-groups.md)
 
-* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **datorer**visas datorns beredskap i kolumnen **Uppdatera agent beredskap** . Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
+* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Maskiner**visas maskinens beredskap i kolumnen **För beredskap för uppdateringsagenten.** Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
 
-* **Uppdaterings klassificering**: Välj de uppdaterings klassificeringar som stöds för varje produkt som kan tas med i uppdaterings distributionen. Låt alla typer vara markerade för den här självstudien.
+* **Uppdateringsklassificering**: Välj de uppdateringsklassificeringar som stöds tillgängliga för varje produkt som kan inkluderas i uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
 
   Klassificeringstyper:
 
@@ -127,27 +127,27 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 * **Uppdateringar att inkludera/exkludera** – detta öppnar sidan **Inkludera/exkludera**. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik.
 
 > [!NOTE]
-> Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*`installeras inga korrigeringar eller paket eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslutits, installeras inte paketet.
+> Det är viktigt att veta att undantag åsidosätter inkluderingar. Om du till exempel definierar `*`en undantagsregel för installeras inga korrigeringsfiler eller paket eftersom de alla är uteslutna. Undantagna patchar visas fortfarande som saknade från maskinen. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslöts, installeras inte paketet.
 
 > [!NOTE]
-> Det går inte att ange uppdateringar som har ersatts för inkludering med uppdaterings distributionen.
+> Du kan inte ange uppdateringar som har ersatts för att inkluderas i uppdateringsdistributionen.
 >
 
 * **Schemainställningar**: Sidan **Schemainställningar** öppnas. Starttiden är som standard 30 minuter efter den aktuella tiden. Du kan ange starttiden till helst från 10 minuter i framtiden.
 
-   Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Under **Återkommande**, välj **En gång**. Låt standardvärdet vara 1 dag och välj **OK**. Då ställs ett återkommande schema in.
+   Du kan också ange om distributionen ska ske en gång eller ange ett schema med återkommande tider. Under **Återkommande**, välj **En gång**. Lämna standard som 1 dag och välj **Ok**. Då ställs ett återkommande schema in.
 
 * **Skript före och efter**: Välj skript som ska köras före och efter distributionen. Mer information finns i [Hantera skript före och efter](pre-post-scripts.md).
 
-* **Underhållsperiod (minuter)** : Låt standardvärdet stå kvar. Windows-underhåll styr den tids period som tillåts för att installera uppdateringar. Tänk på följande när du anger en underhålls period.
+* **Underhållsperiod (minuter)**: Låt standardvärdet stå kvar. Underhållsfönster styr hur lång tid det är tillåtet för uppdateringar att installera. Tänk på följande information när du anger ett underhållsfönster.
 
-  * Underhålls fönster styr hur många uppdateringar som försöker installeras.
-  * Uppdateringshantering slutar inte att installera nya uppdateringar om slutet av en underhålls period närmar sig.
-  * Uppdateringshantering avslutar inte pågående uppdateringar om underhålls perioden har överskridits.
-  * Om underhålls perioden överskrids i Windows beror det ofta på att en service pack uppdatering tar lång tid att installera.
+  * Underhållsfönster styr hur många uppdateringar som ska installeras.
+  * Uppdateringshantering slutar inte installera nya uppdateringar om slutet av ett underhållsfönster närmar sig.
+  * Uppdateringshantering avslutar inte pågående uppdateringar om när underhållsfönstret överskrids.
+  * Om underhållsfönstret överskrids i Windows beror det ofta på att en Service Pack-uppdatering tar lång tid att installera.
 
   > [!NOTE]
-  > Om du vill undvika att uppdateringar tillämpas utanför en underhålls period på Ubuntu konfigurerar du om det obevakade uppgraderings paketet så att automatiska uppdateringar inaktive ras. Information om hur du konfigurerar paketet finns i [avsnittet automatiska uppdateringar i Ubuntu Server guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+  > Om du vill undvika att uppdateringar tillämpas utanför ett underhållsfönster på Ubuntu konfigurerar du om paketet Obevakad uppgradering för att inaktivera automatiska uppdateringar. Information om hur du konfigurerar paketet finns [i avsnittet Automatiska uppdateringar i Guiden För automatiska uppdateringar i guiden För automatiska uppdateringar](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Omstartsalternativ**: Den här inställningen avgör hur omstarter ska hanteras. De tillgängliga alternativen är:
   * Starta om vid behov (standard)
@@ -156,7 +156,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
   * Endast omstart – uppdateringar installeras inte
 
 > [!NOTE]
-> De register nycklar som listas under [register nycklar som används för att hantera omstart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) kan orsaka en händelse för omstart om **kontroll av omstart** är inställd på **aldrig omstart**.
+> Registernycklarna som anges under [Registernycklar som används för att hantera omstart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) kan orsaka en omstartshändelse om **Omstartskontroll** är inställd **på Never Reboot**.
 
 När du är klar med att konfigurera schemat väljer du **Skapa**.
 
@@ -167,7 +167,7 @@ Du kommer tillbaka till statusinstrumentpanelen. Välj **Schemalagda uppdatering
 > [!NOTE]
 > Uppdateringshantering har stöd för distribution av förstapartsuppdateringar och förnedladdning av korrigeringar. Detta kräver ändringar på de system som korrigeras. Information om hur du konfigurerar dessa inställningar på systemet finns i avsnittet om [support för förstapart och förnedladdning](automation-configure-windows-update.md).
 
-**Uppdaterings distributioner** kan också skapas program mässigt. Information om hur du skapar en **uppdaterings distribution** med REST API finns i [program uppdaterings konfiguration – skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-Runbook som kan användas för att skapa en veckovis **uppdaterings distribution**. Mer information om denna Runbook finns i [skapa en veckovis uppdaterings distribution för en eller flera virtuella datorer i en resurs grupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
+**Uppdateringsdistributioner** kan också skapas programmässigt. Mer information om hur du skapar en **uppdateringsdistribution** med REST API finns i [Konfigurationer för programuppdatering - Skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempelkörningsbok som kan användas för att skapa en veckovis **uppdateringsdistribution**. Mer information om den här runbooken finns i [Skapa en veckovis uppdateringsdistribution för en eller flera virtuella datorer i en resursgrupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-results-of-an-update-deployment"></a>Visa resultat för en uppdateringsdistribution
 
@@ -209,5 +209,5 @@ I den här självstudiekursen lärde du dig att:
 Fortsätt till översikten för uppdateringshanteringslösningen.
 
 > [!div class="nextstepaction"]
-> [Uppdateringshanteringslösning](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
+> [Uppdateringshanteringslösning](automation-update-management.md)
 

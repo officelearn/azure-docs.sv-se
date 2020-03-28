@@ -1,6 +1,6 @@
 ---
 title: Förbereda fysiska servrar för utvärdering/migrering med Azure Migrate
-description: Lär dig hur du förbereder utvärderingen/migreringen av fysiska servrar med Azure Migrate.
+description: Lär dig hur du förbereder dig för bedömning/migrering av fysiska servrar med Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -8,121 +8,122 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 42eb603be0152b9e8cfb36d02e8f0602c40afe54
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 5f9048b08b3e77a0c8d5ae9a9d10c614a4e0af61
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031211"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80336688"
 ---
-# <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
+# <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbered för bedömning och migrering av fysiska servrar till Azure
 
-Den här artikeln beskriver hur du förbereder för utvärdering av lokala fysiska servrar med [Azure Migrate](migrate-services-overview.md).
+I den här artikeln beskrivs hur du förbereder dig för bedömning av lokala fysiska servrar med [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
+[Azure Migrate](migrate-overview.md) innehåller ett nav med verktyg som hjälper dig att identifiera, bedöma och migrera appar, infrastruktur och arbetsbelastningar till Microsoft Azure. Navet innehåller Azure Migrate-verktyg och ISV-erbjudanden (Independent Software Vendor) från tredje part. 
 
-Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I den här guiden får du lära dig att:
+Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Förbered Azure. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
-> * Förbered lokala fysiska servrar för Server utvärdering.
+> * Förbered Azure. Ställ in behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
+> * Förbered lokala fysiska servrar för serverutvärdering.
 
 
 > [!NOTE]
-> Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i instruktionen för att utvärdera fysiska servrar.
+> Självstudier visar den enklaste distributionsvägen för ett scenario så att du snabbt kan ställa in ett proof-of-concept. Självstudier använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade instruktioner finns i hur du gör för bedömning av fysiska servrar.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
 
 
 ## <a name="prepare-azure"></a>Förbereda Azure
 
 ### <a name="azure-permissions"></a>Azure-behörigheter
 
-Du måste ange behörigheter för Azure Migrate distribution.
+Du måste ställa in behörigheter för Azure Migrate-distribution.
 
-**Aktivitet** | **Behörigheter**
---- | ---
-**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha behörighet att skapa ett projekt.
-**Registrera Azure Migrates apparaten** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera fysiska servrar med Azure Migrate Server bedömning. Den här enheten identifierar servrar och skickar sina metadata och prestanda data till Azure Migrate.<br/><br/>Under installation av utrustning registreras följande resurs leverantörer med den prenumeration som valts i enheten-Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel-valv. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.<br/><br/> Som en del av onboarding skapar Azure Migrate en Azure Active Directory (Azure AD)-app:<br/> AAD-appen används för kommunikation (autentisering och auktorisering) mellan de agenter som körs på enheten med deras respektive tjänster som körs på Azure. Den här appen har inte behörighet att göra ARM-anrop eller RBAC-åtkomst på någon resurs.
+**Aktivitet** | **Detaljer** 
+--- | --- 
+**Skapa ett Azure Migrate-projekt** | Ditt Azure-konto behöver Contributer- eller ägarbehörigheter för att skapa ett projekt. | 
+**Registrera resursleverantörer** | Azure Migrate använder en lätt Azure Migrate-installation för att identifiera och bedöma virtuella hyper-v-datorer med Azure Migrate Server Assessment.<br/><br/> Vid registrering av apparater registreras resursleverantörer med det abonnemang som valts i apparaten. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Om du vill registrera resursleverantörerna behöver du en deltagar- eller ägarroll i prenumerationen.
+**Skapa Azure AD-app** | När du registrerar installationen skapar Azure Migrate en Azure Active Directory-app (Azure AD) som används för kommunikation mellan agenter som körs på installationen med sina respektive tjänster som körs på Azure. [Läs mer](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Du behöver behörigheter för att skapa Azure AD-appar (tillgängliga i rollen Programutvecklare).
 
 
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt
 
-Kontrol lera att du har behörighet att skapa ett Azure Migrate-projekt.
+Kontrollera att du har behörighet att skapa ett Azure Migrate-projekt.
 
-1. Öppna prenumerationen i Azure Portal och välj **åtkomst kontroll (IAM)** .
-2. Leta upp det relevanta kontot i **kontrol lera åtkomst**och klicka på det för att visa behörigheter.
-3. Du bör ha behörighet som **deltagare** eller **ägare** .
-    - Om du precis har skapat ett kostnads fritt Azure-konto är du ägare till din prenumeration.
-    - Om du inte är prenumerations ägare kan du samar beta med ägaren för att tilldela rollen.
+1. Öppna prenumerationen i Azure-portalen och välj **Åtkomstkontroll (IAM)**.
+2. Leta reda på det relevanta kontot i **Check access**och klicka på det för att visa behörigheter.
+3. Du bör ha **behörigheten Deltagare** eller **Ägare.**
+    - Om du just har skapat ett kostnadsfritt Azure-konto är du ägare till din prenumeration.
+    - Om du inte är prenumerationsägare arbetar du med ägaren för att tilldela rollen.
 
 
-### <a name="assign-permissions-to-register-the-appliance"></a>Tilldela behörigheter för att registrera produkten
+### <a name="assign-permissions-to-register-the-appliance"></a>Tilldela behörigheter för att registrera apparaten
 
-Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appen under registreringen av produkten med någon av följande metoder:
+Du kan tilldela behörigheter för Azure Migrate för att skapa Azure AD-appen under registrering av installationer med någon av följande metoder:
 
-- En klient/global-administratör kan bevilja behörigheter till användare i klienten, för att skapa och registrera Azure AD-appar.
-- En klient/global administratör kan tilldela rollen programutvecklare (som har behörighet) till kontot.
+- En klient/global administratör kan bevilja behörigheter till användare i klienten för att skapa och registrera Azure AD-appar.
+- En klient/global administratör kan tilldela rollen Programutvecklare (som har behörigheterna) till kontot.
 
 > [!NOTE]
-> - Appen har inte någon annan åtkomst behörighet för den prenumeration som beskrivs ovan.
-> - Du behöver bara dessa behörigheter när du registrerar en ny installation. Du kan ta bort behörigheterna när installationen har kon figurer ATS.
+> - Appen har inga andra åtkomstbehörigheter för prenumerationen än de som beskrivs ovan.
+> - Du behöver bara dessa behörigheter när du registrerar en ny apparat. Du kan ta bort behörigheterna när apparaten har konfigurerats.
 
 
-#### <a name="grant-account-permissions"></a>Bevilja konto behörigheter
+#### <a name="grant-account-permissions"></a>Bevilja kontobehörigheter
 
-Klient organisationen/den globala administratören kan bevilja behörigheter enligt följande:
+Klienten/den globala administratören kan bevilja behörigheter enligt följande:
 
-1. I Azure AD bör klient organisationen/den globala administratören navigera till **Azure Active Directory** > **användare** > **användar inställningar**.
-2. Administratören bör ange **Appregistreringar** till **Ja**.
+1. I Azure AD bör klienten/den globala administratören navigera till**Användarinställningar för** **Azure Active Directory** > **Users** > .
+2. Administratören ska ange **Appregistreringar** till **Ja**.
 
     ![Azure AD-behörigheter](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Detta är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> Det här är en standardinställning som inte är känslig. [Läs mer](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-#### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare
+#### <a name="assign-application-developer-role"></a>Tilldela rollen Programutvecklare
 
-Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
-
-
-## <a name="prepare-for-physical-server-assessment"></a>Förbered för fysisk server-utvärdering
-
-För att förbereda för fysisk server-utvärdering måste du kontrol lera inställningarna för den fysiska servern och kontrol lera inställningarna för installationen av enheten:
-
-### <a name="verify-physical-server-settings"></a>Verifiera fysiska Server inställningar
-
-1. Kontrol lera [krav för fysisk server](migrate-support-matrix-physical.md#physical-server-requirements) för Server bedömning.
-2. Se till att de [nödvändiga portarna](migrate-support-matrix-physical.md#port-access) är öppna på fysiska servrar.
+Klienten/den globala administratören kan tilldela rollen Programutvecklare till ett konto. [Läs mer](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
-### <a name="verify-appliance-settings"></a>Verifiera inställningar för enheten
+## <a name="prepare-for-physical-server-assessment"></a>Förbered dig för fysisk serverbedömning
 
-Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen i nästa självstudie förbereder du installationen av enheten.
+För att förbereda för fysisk serverbedömning måste du verifiera de fysiska serverinställningarna och verifiera inställningarna för distribution av installationen:
 
-1. [Kontrol lera](migrate-appliance.md#appliance---physical) installations kraven för fysiska servrar.
-2. [Granska](migrate-appliance.md#url-access) de Azure-URL: er som krävs för att komma åt installations programmet.
-3. [Granska](migrate-appliance.md#collected-data---vmware) att installationen kommer att samlas in under identifiering och utvärdering.
-4. Den fysiska server utvärderingen för [antecknings](migrate-support-matrix-physical.md#port-access) port åtkomst krav.
+### <a name="verify-physical-server-settings"></a>Verifiera inställningar för fysiska servrar
+
+1. Verifiera [fysiska serverkrav](migrate-support-matrix-physical.md#physical-server-requirements) för serverbedömning.
+2. Kontrollera att de [portar som krävs](migrate-support-matrix-physical.md#port-access) är öppna på fysiska servrar.
+
+
+### <a name="verify-appliance-settings"></a>Verifiera inställningar för apparat
+
+Innan du konfigurerar Azure Migrate-enheten och börjar utvärderingen i nästa självstudiekurs förbereder du för distribution av enheter.
+
+1. [Kontrollera](migrate-appliance.md#appliance---physical) installationskraven för fysiska servrar.
+2. [Granska](migrate-appliance.md#url-access) de Azure-url:er som enheten behöver komma åt.
+3. [Granska](migrate-appliance.md#collected-data---vmware) att apparaten kommer att samla in under upptäckt och bedömning.
+4. [Bedömning](migrate-support-matrix-physical.md#port-access) av åtkomstkrav för portar.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Konfigurera ett konto för identifiering av fysiska servrar
 
-Azure Migrate behöver behörighet att identifiera lokala servrar.
+Azure Migrate behöver behörigheter för att identifiera lokala servrar.
 
-- **Windows:** Konfigurera ett lokalt användar konto på alla Windows-servrar som du vill ska ingå i identifieringen. Användar kontot måste läggas till i följande grupper:-fjärrhantering användare-prestanda övervakare användare-prestanda loggar användare
-- **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera.
+- **Windows:** Konfigurera ett lokalt användarkonto på alla Windows-servrar som du vill inkludera i identifieringen. Användarkontot måste läggas till i följande grupper: - Användare av fjärrhantering - Användare av prestandaövervakare - Prestandalogganvändare
+- **Linux:** Du behöver ett rotkonto på De Linux-servrar som du vill upptäcka.
 
-## <a name="prepare-for-physical-server-migration"></a>Förbered för migrering av fysiska servrar
+## <a name="prepare-for-physical-server-migration"></a>Förbered för fysisk servermigrering
 
 Granska kraven för migrering av fysiska servrar.
 
-- [Granska](migrate-support-matrix-physical-migration.md#physical-server-requirements) krav för fysisk server för migrering.
-- Azure Migrate: Server migrering använder en replikeringsfil för fysisk server-migrering:
-    - [Granska](migrate-replication-appliance.md#appliance-requirements) distributions kraven för replikeringstjänsten och [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på-enheten.
-    - Granska [URL: en](migrate-replication-appliance.md#url-access) och [port] (Migrate-Replication-installation. MD # port-Access) åtkomst krav för replikerings enheten.
+- [Granska](migrate-support-matrix-physical-migration.md#physical-server-requirements) fysiska serverkrav för migrering.
+- Azure Migrate: Servermigrering använder en replikeringsserver för fysisk servermigrering:
+    - [Granska](migrate-replication-appliance.md#appliance-requirements) distributionskraven för replikeringsverktyget och [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på enheten.
+    - Granska [åtkomstkraven](migrate-replication-appliance.md#url-access) för URL och [port] (migrera-replikering-appliance.md#port-access) för replikeringsverktyget.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -130,10 +131,10 @@ Granska kraven för migrering av fysiska servrar.
 I den här kursen får du:
 
 > [!div class="checklist"]
-> * Konfigurera behörigheter för Azure-kontot.
-> * För beredda fysiska servrar för utvärdering.
+> * Konfigurera Azure-kontobehörigheter.
+> * Förberedde fysiska servrar för bedömning.
 
-Fortsätt till nästa självstudie för att skapa ett Azure Migrate projekt och utvärdera fysiska servrar för migrering till Azure
+Fortsätt till nästa självstudie för att skapa ett Azure Migrate-projekt och utvärdera fysiska servrar för migrering till Azure
 
 > [!div class="nextstepaction"]
 > [Utvärdera fysiska servrar](./tutorial-assess-physical.md)

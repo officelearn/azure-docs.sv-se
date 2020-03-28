@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med GaggleAMP | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med GaggleAMP | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GaggleAMP.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 4a6dc3dc2b0580f72ffae5cb5d034b0acdb64612
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73155383"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Självstudie: Azure Active Directory integrering med GaggleAMP
+# <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Självstudiekurs: Azure Active Directory-integrering med GaggleAMP
 
 I den här självstudien lär du dig att integrera GaggleAMP med Azure Active Directory (AD Azure).
 Integreringen av GaggleAMP med Azure AD medför följande fördelar:
@@ -32,13 +32,13 @@ Integreringen av GaggleAMP med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med GaggleAMP behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * GaggleAMP-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -55,7 +55,7 @@ För att konfigurera integreringen av GaggleAMP i Azure AD behöver du lägga ti
 
 **Utför följande steg för att lägga till GaggleAMP från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -80,7 +80,7 @@ För att kunna konfigurera och testa enkel inloggning i Azure AD med GaggleAMP s
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för GaggleAMP](#configure-gaggleamp-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa GaggleAMP-testanvändare](#create-gaggleamp-test-user)** – för att ha en motsvarighet för Britta Simon i GaggleAMP som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -93,7 +93,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gaggl
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **GaggleAMP** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -111,9 +111,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gaggl
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![mallar](common/both-preintegrated-signon.png)
+    ![image](common/both-preintegrated-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://gaggleamp.com/i/<customerid>`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://gaggleamp.com/i/<customerid>`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kundsupporten för GaggleAMP](mailto:sales@gaggleamp.com) och be om värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -134,7 +134,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gaggl
 
 ### <a name="configure-gaggleamp-single-sign-on"></a>Konfigurera enkel inloggning för GaggleAMP
 
-1. I en annan webbläsarinstans går du till den sida för enkel inloggning med SAML som skapats åt dig av supportteamet för Gaggle (till exempel: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit* ).
+1. I en annan webbläsarinstans navigerar du till den SAML SSO-sida som skapats av Gaggle-supportteamet (till exempel: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
 2. På sidan **SAML SSO** (Enkel inloggning med SAML) utför du följande steg:  
    
@@ -142,13 +142,13 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gaggl
 
     a. Välj **Annan** i listrutan **Identitetsprovider**.
     
-    b. I textrutan **Identifiera providerutgivare** klistrar du in värdet för den **Azure Ad-identifierare** som du har kopierat från Azure-portalen.
+    b. Klistra in värdet för **Azure Ad Identifier** som du har kopierat från Azure-portalen i textrutan **För identitetsproviderutfärdare.**
     
     c. I textrutan **Identity Provider Single Sign-On URL** (URL för enkel inloggning för identitetsprovider) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
     
     d. Öppna den nedladdade filen med **certifikat (Base64)** i Anteckningar, kopiera dess innehåll till Urklipp och klistra in det i textrutan **X.509 Certificate** (X.509-certifikat).
     
-    e. Klicka på **Save** (Spara).
+    e. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -158,7 +158,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -187,7 +187,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för GaggleAMP i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -197,7 +197,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -209,7 +209,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i GaggleAMP. Ga
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på GaggleAMP-panelen i åtkomstpanelen bör du automatiskt loggas in på GaggleAMP som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på GaggleAMP-panelen i åtkomstpanelen bör du automatiskt loggas in på GaggleAMP som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

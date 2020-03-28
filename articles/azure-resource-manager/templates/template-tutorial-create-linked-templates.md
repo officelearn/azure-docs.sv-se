@@ -5,18 +5,18 @@ author: mumian
 ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dab69c32f7277cd5d746e001b36118e673401bca
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e1cce566fb7aab286c57f32d9348e51dd0a7c1ee
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250139"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239326"
 ---
-# <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
+# <a name="tutorial-create-linked-arm-templates"></a>Självstudiekurs: Skapa länkade ARM-mallar
 
-Lär dig att skapa länkade Azure Resource Manager-mallar. Med hjälp av länkade mallar kan du få en mall att anropa en annan. Det är perfekt för modularisering av mallar. I den här självstudien använder du samma mall som används i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md)som skapar en virtuell dator, ett virtuellt nätverk och en annan beroende resurs, inklusive ett lagrings konto. Du separerar skapandet av lagringskontoresursen till en länkad mall.
+Lär dig hur du skapar länkade ARM-mallar (Azure Resource Manager). Med hjälp av länkade mallar kan du få en mall att anropa en annan. Det är perfekt för modularisering av mallar. I den här självstudien använder du samma mall som används i [Självstudiekurs: Skapa ARM-mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md), som skapar en virtuell dator, ett virtuellt nätverk och andra beroende resurser, inklusive ett lagringskonto. Du separerar skapandet av lagringskontoresursen till en länkad mall.
 
-Att anropa en länkad mall är som att göra ett funktions anrop.  Du lär dig också hur du skickar parameter värden till den länkade mallen och hur du hämtar "retur värden" från den länkade mallen.
+Att ringa en länkad mall är som att ringa ett funktionsanrop.  Du lär dig också hur du skickar parametervärden till den länkade mallen och hur du får "returvärden" från den länkade mallen.
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -29,33 +29,33 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera mallen
 > * Ytterligare metoder
 
-Mer information finns i [använda länkade och kapslade mallar när du distribuerar Azure-resurser](./linked-templates.md).
+Mer information finns i [Använda länkade och kapslade mallar när du distribuerar Azure-resurser](./linked-templates.md).
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](use-vs-code-to-create-template.md).
+* Visual Studio-kod med resurshanterarens verktygstillägg. Se [Använda Visual Studio-kod för att skapa ARM-mallar](use-vs-code-to-create-template.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./template-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudiekurs: Integrera Azure Key Vault i ARM-malldistribution](./template-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
-Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator). Det här är samma mall som används i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md). Du sparar två kopior av samma mall som ska användas som:
+Azure QuickStart-mallar är en databas för ARM-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator). Det här är samma mall som används i [Självstudiekurs: Skapa ARM-mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md). Du sparar två kopior av samma mall som ska användas som:
 
 * **Huvudmallen**: Skapa alla resurser förutom lagringskontot.
 * **Den länkade mallen**: Skapa lagringskontot.
 
-1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
+1. Välj **Öppna**>**fil**i Visual Studio-kod .
 1. I **Filnamn** klistrar du in följande URL:
 
     ```url
@@ -72,18 +72,18 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-     Det är praktiskt att du får grundläggande förståelse för mallens schema innan du anpassar mallen.
-1. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
-1. Välj **Fil**>**Spara som** för att skapa en annan kopia av filen med namnet **linkedTemplate.json**.
+     Det är bra att få grundläggande förståelse för mallschemat innan du anpassar mallen.
+1. Välj **Spara fil**>**som** om du vill spara en kopia av filen på den lokala datorn med namnet **azuredeploy.json**.
+1. Välj **Spara fil**>**som** om du vill skapa en annan kopia av filen med namnet **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Skapa den länkade mallen
 
-Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas som en fristående mall för att skapa ett lagrings konto. I den här självstudien tar den länkade mallen två parametrar och skickar tillbaka ett värde till huvud mal len. Värdet "Return" är definierat i `outputs`-elementet.
+Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas som en fristående mall för att skapa ett lagringskonto. I den här självstudien tar den länkade mallen två parametrar och skickar ett värde tillbaka till huvudmallen. Det här "returvärdet" `outputs` definieras i elementet.
 
-1. Öppna **linkedTemplate. JSON** i Visual Studio Code om filen inte är öppen.
+1. Öppna **linkedTemplate.json** i Visual Studio-kod om filen inte öppnas.
 1. Gör följande ändringar:
 
-    * Ta bort alla parametrar förutom **platsen**.
+    * Ta bort alla andra parametrar än **plats**.
     * Lägg till en parameter med namnet **storageAccountName**.
 
       ```json
@@ -95,10 +95,10 @@ Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas 
       },
       ```
 
-      Lagrings kontots namn och plats skickas från huvud mal len till den länkade mallen som parametrar.
+      Lagringskontots namn och plats skickas från huvudmallen till den länkade mallen som parametrar.
 
     * Ta bort elementet **variabler** och alla definitioner för variabeln.
-    * Ta bort alla andra resurser än lagrings kontot. Du tar bort totalt fyra resurser.
+    * Ta bort alla andra resurser än lagringskontot. Du tar bort totalt fyra resurser.
     * Uppdatera värdet för elementet **namn** för lagringskontoresursen till:
 
         ```json
@@ -165,7 +165,7 @@ Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas 
 
 ## <a name="upload-the-linked-template"></a>Ladda upp den länkade mallen
 
-Huvudmallen och den länkade mallen måste vara tillgängliga från där du kör distributionen. I den här självstudien använder du distributions metoden för Cloud Shell som du använde i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md). Huvudmallen (azuredeploy.json) laddas upp till gränssnittet. Den länkade mallen (linkedTemplate.json) måste delas på en säker plats. Följande PowerShell-skript skapar ett Azure Storage-konto, laddar upp mallen till lagringskontot och genererar en SAS-token för att ge begränsad åtkomst till mallfilen. För att förenkla självstudien laddar skriptet ned en slutförd länkad mall från en GitHub-lagringsplats. Om du vill använda den länkade mallen du har skapat kan du använda [Cloud shell](https://shell.azure.com) för att ladda upp din länkade mall och sedan ändra skriptet om du vill använda en egen länkad mall.
+Huvudmallen och den länkade mallen måste vara tillgängliga från där du kör distributionen. I den här självstudien använder du distributionsmetoden För molnskal som du använde i [Självstudiekurs: Skapa ARM-mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md). Huvudmallen (azuredeploy.json) laddas upp till gränssnittet. Den länkade mallen (linkedTemplate.json) måste delas på en säker plats. Följande PowerShell-skript skapar ett Azure Storage-konto, laddar upp mallen till lagringskontot och genererar en SAS-token för att ge begränsad åtkomst till mallfilen. Skriptet hämtar en ifylld länkad mall från en GitHub-databas för att förenkla självstudien. Om du vill använda den länkade mallen du har skapat kan du använda [Cloud shell](https://shell.azure.com) för att ladda upp din länkade mall och sedan ändra skriptet om du vill använda en egen länkad mall.
 
 > [!NOTE]
 > Skriptet begränsar SAS-token så att det kan användas inom åtta timmar. Om du behöver mer tid för att slutföra den här självstudien ökar du förfallotiden.
@@ -233,8 +233,8 @@ I praktiken genererar du en SAS-token när du distribuerar huvudmallen och ger f
 
 Huvudmallen heter azuredeploy.json.
 
-1. Öppna **azuredeploy. JSON** i Visual Studio Code om den inte är öppen.
-1. Ersätt lagrings kontots resurs definition med följande JSON-kodfragment:
+1. Öppna **azuredeploy.json** i Visual Studio-kod om den inte öppnas.
+1. Ersätt definitionen av lagringskontoresurs med följande json-kodavsnitt:
 
     ```json
     {
@@ -266,7 +266,7 @@ Huvudmallen heter azuredeploy.json.
 
 ## <a name="configure-dependency"></a>Konfigurera beroende
 
-Återkalla från [självstudie: skapa Azure Resource Manager mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md), den virtuella dator resursen är beroende av lagrings kontot:
+Recall from [Tutorial: Skapa ARM-mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md), den virtuella datorn resursen beror på lagringskontot:
 
 ![Beroendediagram för Azure Resource Manager-mallar](./media/template-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
@@ -303,10 +303,10 @@ Mer information om distributionsproceduren finns i avsnittet [Distribuera mallen
 
 När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen.
 
-1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
+1. Välj **Resursgrupp** på den vänstra menyn på Azure-portalen.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
 3. Välj resursgruppens namn.  Du bör se totalt sex resurser i resursgruppen.
-4. Välj **Ta bort resursgrupp** från menyn längst upp.
+4. Välj **Ta bort resursgrupp** på den övre menyn.
 
 ## <a name="additional-practice"></a>Ytterligare övning
 
@@ -320,4 +320,4 @@ För att förbättra projektet gör du följande ytterligare ändringar i det f�
 I den här självstudien har du modulariserat en mall i en huvudmall och en länkad mall. Information om hur du använder tillägg för virtuell dator för att utföra distributionsuppgifter finns i:
 
 > [!div class="nextstepaction"]
-> [Distribuera tillägg för virtuell dator](./template-tutorial-deploy-vm-extensions.md)
+> [Distribuera tillägg för virtuella datorer](./template-tutorial-deploy-vm-extensions.md)

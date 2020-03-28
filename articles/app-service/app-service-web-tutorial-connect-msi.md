@@ -1,30 +1,30 @@
 ---
-title: 'Självstudie: komma åt data med hanterad identitet'
-description: Lär dig hur du gör databas anslutningen säkrare med hjälp av en hanterad identitet och hur du tillämpar den på andra Azure-tjänster.
+title: 'Självstudiekurs: Komma åt data med hanterad identitet'
+description: Lär dig hur du gör databasanslutningen säkrare med hjälp av en hanterad identitet och även hur du tillämpar den på andra Azure-tjänster.
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
 ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78897669"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
-Med [App Service ](overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Dessutom får du en [hanterad identitet](overview-managed-identity.md) för din app. Det här är en användningsklar lösning som skyddar åtkomsten till [Azure SQL Database](/azure/sql-database/) och andra Azure-tjänster. Med hanterade identiteter i App Service blir dina appar säkrare eftersom du inte har några hemligheter i dina appar. Du har till exempel inga inloggningsuppgifter i anslutningssträngarna. I den här självstudien lägger du till hanterad identitet till den webbapp som du skapade i någon av följande själv studie kurser: 
+Med [App Service ](overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Dessutom får du en [hanterad identitet](overview-managed-identity.md) för din app. Det här är en användningsklar lösning som skyddar åtkomsten till [Azure SQL Database](/azure/sql-database/) och andra Azure-tjänster. Med hanterade identiteter i App Service blir dina appar säkrare eftersom du inte har några hemligheter i dina appar. Du har till exempel inga inloggningsuppgifter i anslutningssträngarna. I den här självstudien lägger du till hanterad identitet i exempelwebbappen som du har skapat i någon av följande självstudier: 
 
-- [Självstudie: Bygg en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-- [Självstudie: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
+- [Självstudie: Skapa en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Självstudiekurs: Skapa en ASP.NET Core- och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
 
 När du är färdig ansluter exempelappen säkert till SQL Database utan att du behöver använda användarnamn och lösenord.
 
 > [!NOTE]
-> De steg som beskrivs i den här självstudien har stöd för följande versioner:
+> Stegen i den här självstudien stöder följande versioner:
 > 
-> - .NET Framework 4.7.2
+> - .NET-ramverket 4.7.2
 > - .NET Core 2.2
 >
 
@@ -33,71 +33,71 @@ Vad du kommer att lära dig:
 > [!div class="checklist"]
 > * Aktivera hanterade identiteter
 > * Ge SQL Database åtkomst till den hanterade identiteten
-> * Konfigurera Entity Framework att använda Azure AD-autentisering med SQL Database
+> * Konfigurera Entity Framework för att använda Azure AD-autentisering med SQL Database
 > * Ansluta till SQL Database från Visual Studio med Azure AD-autentisering
 
 > [!NOTE]
->Azure AD-autentisering _skiljer sig_ från [integrerad Windows-autentisering](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) i lokala Active Directory (AD DS). AD DS och Azure AD använder helt olika autentiseringsprotokoll. Mer information finns i [Azure AD Domain Services-dokumentationen](https://docs.microsoft.com/azure/active-directory-domain-services/).
+>Azure AD-autentisering _skiljer sig_ från [integrerad Windows-autentisering](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) i lokal Active Directory (AD DS). AD DS och Azure AD använder helt andra autentiseringsprotokoll. Mer information finns i [Azure AD Domain Services-dokumentationen](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den här artikeln fortsätter där du slutade i [Självstudier: Bygg en ASP.net-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) eller [Självstudier: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md). Om du inte redan har gjort det följer du en av de två självstudierna först. Du kan också anpassa stegen för din egen .NET-app med SQL Database.
+Den här artikeln fortsätter där du slutade i [Självstudiekurs: Skapa en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) eller [Självstudiekurs: Skapa en ASP.NET Core- och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md). Om du inte redan har, följ en av de två tutorials först. Du kan också anpassa stegen för din egen .NET-app med SQL Database.
 
-Om du vill felsöka din app med SQL Database som Server del kontrollerar du att du har tillåtit klient anslutning från datorn. Om inte, lägger du till klientens IP-adress genom att följa stegen i [Hantera IP-brandväggens regler på server nivå med hjälp av Azure Portal](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
+Om du vill felsöka appen med SQL Database som serverdel kontrollerar du att du har tillåtit klientanslutning från datorn. Om inte, lägg till klient-IP genom att följa stegen på [Hantera IP-brandväggsregler på servernivå med Azure-portalen](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="grant-database-access-to-azure-ad-user"></a>Bevilja databas åtkomst till Azure AD-användare
+## <a name="grant-database-access-to-azure-ad-user"></a>Bevilja databasåtkomst till Azure AD-användare
 
-Börja med att aktivera Azure AD-autentisering till SQL Database genom att tilldela en Azure AD-användare som Active Directorys administratör för SQL Database-servern. Den här användaren skiljer sig från Microsoft-konto som du använde för att registrera dig för din Azure-prenumeration. Det måste vara en användare som du har skapat, importerat, synkroniserat eller bjudit in till Azure AD. Mer information om tillåtna Azure AD-användare finns i [Azure AD-funktioner och begränsningar i SQL Database](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations).
+Aktivera först Azure AD-autentisering till SQL Database genom att tilldela en Azure AD-användare som Active Directory-administratör för SQL Database-servern. Den här användaren skiljer sig från det Microsoft-konto som du använde för att registrera dig för din Azure-prenumeration. Det måste vara en användare som du har skapat, importerat, synkroniserat eller bjudits in till Azure AD. Mer information om tillåtna Azure AD-användare finns [i Azure AD-funktioner och begränsningar i SQL Database](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations).
 
-Om din Azure AD-klient inte har en användare ännu, skapar du en genom att följa stegen i [lägga till eller ta bort användare med Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
+Om din Azure AD-klient inte har en användare ännu skapar du en genom att följa stegen på [Lägg till eller ta bort användare med Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-Hitta objekt-ID: t för Azure AD-användaren med hjälp av [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) och Ersätt *\<användarens huvud namn >* . Resultatet sparas i en variabel.
+Leta reda på objekt-ID för [`az ad user list`](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-list) Azure AD-användaren med hjälp av och ersätta * \<>för användarnamn. * Resultatet sparas i en variabel.
 
 ```azurecli-interactive
 azureaduser=$(az ad user list --filter "userPrincipalName eq '<user-principal-name>'" --query [].objectId --output tsv)
 ```
 > [!TIP]
-> Om du vill se en lista över alla huvud namn för användare i Azure AD kör du `az ad user list --query [].userPrincipalName`.
+> Om du vill visa listan över alla `az ad user list --query [].userPrincipalName`användarnamn i Azure AD kör du .
 >
 
-Lägg till den här Azure AD-användaren som en Active Directory administratör som använder kommandot [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) i Cloud Shell. I följande kommando ersätter du *\<Server-namn >* med SQL Database Server namnet (utan `.database.windows.net` suffix).
+Lägg till den här Azure AD-användaren som Active Directory-administratör med kommandot [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin-create) Cloud Shell. I följande kommando ersätter du `.database.windows.net` * \<servernamn>* med SQL Database-servernamnet (utan suffixet).
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server-name> --display-name ADMIN --object-id $azureaduser
 ```
 
-Mer information om hur du lägger till en Active Directory-administratör finns i [etablera en Azure Active Directory administratör för din Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
+Mer information om hur du lägger till en Active Directory-administratör finns i [Etablera en Azure Active Directory-administratör för din Azure SQL Database Server](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)
 
 ## <a name="set-up-visual-studio"></a>Konfigurera Visual Studio
 
 ### <a name="windows"></a>Windows
-Visual Studio för Windows är integrerat med Azure AD-autentisering. Om du vill aktivera utveckling och fel sökning i Visual Studio lägger du till din Azure AD-användare i Visual Studio genom att välja **fil** > **konto inställningar** på menyn och klicka på **Lägg till ett konto**.
+Visual Studio för Windows är integrerat med Azure AD-autentisering. Om du vill aktivera utveckling och felsökning i Visual Studio lägger du till din Azure AD-användare i Visual Studio genom att välja > **Filkontoinställningar** på menyn och klickar på **Lägg till ett konto**. **File**
 
-Om du vill ställa in Azure AD-användaren för Azure-tjänsteautentisering väljer du **verktyg** > **alternativ** på menyn och väljer sedan **Azure Service Authentication** > **konto val**. Välj den Azure AD-användare som du har lagt till och klicka på **OK**.
+Om du vill ange Azure AD-användare för Azure-tjänstautentisering **Azure Service Authentication** > väljer du > **Verktygsalternativ** på menyn och väljer sedan Val av Azure Service Authentication**Account**. **Tools** Välj den Azure AD-användare som du har lagt till och klicka på **OK**.
 
-Nu är du redo att utveckla och felsöka din app med SQL Database som Server del, med Azure AD-autentisering.
+Du är nu redo att utveckla och felsöka din app med SQL-databasen som serverdel med Azure AD-autentisering.
 
 ### <a name="macos"></a>MacOS
 
-Visual Studio för Mac är inte integrerat med Azure AD-autentisering. Men det [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -bibliotek som du kommer att använda senare kan använda tokens från Azure CLI. Om du vill aktivera utveckling och fel sökning i Visual Studio måste du först [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på den lokala datorn.
+Visual Studio för Mac är inte integrerat med Azure AD-autentisering. [Microsoft.Azure.Services.AppAuthentication-biblioteket](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) som du kommer att använda senare kan dock använda token från Azure CLI. För att aktivera utveckling och felsökning i Visual Studio måste du först [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på din lokala dator.
 
-När Azure CLI är installerat på den lokala datorn loggar du in på Azure CLI med följande kommando med hjälp av din Azure AD-användare:
+När Azure CLI har installerats på din lokala dator loggar du in på Azure CLI med följande kommando med din Azure AD-användare:
 
 ```bash
 az login --allow-no-subscriptions
 ```
-Nu är du redo att utveckla och felsöka din app med SQL Database som Server del, med Azure AD-autentisering.
+Du är nu redo att utveckla och felsöka din app med SQL-databasen som serverdel med Azure AD-autentisering.
 
-## <a name="modify-your-project"></a>Ändra ditt projekt
+## <a name="modify-your-project"></a>Ändra projektet
 
-De steg som du följer för projektet beror på om det är ett ASP.NET-projekt eller ett ASP.NET Core-projekt.
+Vilka steg du följer för projektet beror på om det är ett ASP.NET projekt eller ett ASP.NET Core-projekt.
 
 - [Ändra ASP.NET](#modify-aspnet)
-- [Ändra ASP.NET Core](#modify-aspnet-core)
+- [Ändra ASP.NET kärna](#modify-aspnet-core)
 
 ### <a name="modify-aspnet"></a>Ändra ASP.NET
 
@@ -107,15 +107,15 @@ I Visual Studio öppnar du Package Manager-konsolen och lägger till NuGet-paket
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 ```
 
-I *Web. config*arbetar du från början av filen och gör följande ändringar:
+Arbeta från början av filen och göra följande ändringar i *Web.config*och göra följande ändringar:
 
-- Lägg till följande avsnitts deklaration i `<configSections>`:
+- I `<configSections>`lägger du till följande avsnittsdeklaration i den:
 
     ```xml
     <section name="SqlAuthenticationProviders" type="System.Data.SqlClient.SqlAuthenticationProviderConfigurationSection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     ```
 
-- Lägg till följande XML-kod under stängnings `</configSections>`-taggen för `<SqlAuthenticationProviders>`.
+- under den `</configSections>` avslutande taggen lägger `<SqlAuthenticationProviders>`du till följande XML-kod för .
 
     ```xml
     <SqlAuthenticationProviders>
@@ -125,16 +125,16 @@ I *Web. config*arbetar du från början av filen och gör följande ändringar:
     </SqlAuthenticationProviders>
     ```    
 
-- Hitta anslutnings strängen med namnet `MyDbConnection` och ersätt dess `connectionString`-värde med `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Ersätt _\<server-name >_ och _\<db-namn >_ med Server namnet och databas namnet.
+- Leta reda på `MyDbConnection` anslutningssträngen som anropas och ersätt dess `connectionString` värde med `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Ersätt _ \<servernamn>_ och _ \<db-namn>_ med servernamnet och databasnamnet.
 
 > [!NOTE]
-> SqlAuthenticationProvider som du precis har registrerat baseras på det AppAuthentication-bibliotek som du installerade tidigare. Som standard använder den en tilldelad identitet. Om du vill använda en tilldelad identitet måste du ange en ytterligare konfiguration. Se [stöd för anslutnings strängar](../key-vault/service-to-service-authentication.md#connection-string-support) för AppAuthentication-biblioteket.
+> SqlAuthenticationProvider som du just registrerade baseras på toppen av appautentiseringsbiblioteket som du installerade tidigare. Som standard används en systemtilldelad identitet. Om du vill använda en användartilldelad identitet måste du ange ytterligare en konfiguration. Se stöd för [anslutningssträng](../key-vault/service-to-service-authentication.md#connection-string-support) för AppAuthentication-biblioteket.
 
-Det var allt du behöver för att ansluta till SQL Database. Vid fel sökning i Visual Studio använder din kod den Azure AD-användare som du konfigurerade i [Konfigurera Visual Studio](#set-up-visual-studio). Du ställer in SQL Database servern senare för att tillåta anslutning från den hanterade identiteten för din App Service-app.
+Det är allt du behöver för att ansluta till SQL Database. När du felsöker i Visual Studio använder koden den Azure AD-användare som du har konfigurerat i [Konfigurera Visual Studio](#set-up-visual-studio). Du konfigurerar SQL Database-servern senare för att tillåta anslutning från den hanterade identiteten för apptjänstappen.
 
-Skriv `Ctrl+F5` för att köra appen igen. Samma CRUD-app i webbläsaren ansluter nu till Azure SQL Database direkt med Azure AD-autentisering. Med den här installationen kan du köra databas migreringar från Visual Studio.
+Skriv `Ctrl+F5` för att köra appen igen. Samma CRUD-app i din webbläsare ansluter nu till Azure SQL Database direkt med Hjälp av Azure AD-autentisering. Med den här inställningen kan du köra databasmigreringar från Visual Studio.
 
-### <a name="modify-aspnet-core"></a>Ändra ASP.NET Core
+### <a name="modify-aspnet-core"></a>Ändra ASP.NET kärna
 
 I Visual Studio öppnar du Package Manager-konsolen och lägger till NuGet-paketet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication):
 
@@ -142,13 +142,13 @@ I Visual Studio öppnar du Package Manager-konsolen och lägger till NuGet-paket
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.3.1
 ```
 
-I [självstudien ASP.net Core och SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)används inte `MyDbConnection` anslutnings strängen alls eftersom den lokala utvecklings miljön använder en sqlite-databasfil, och Azures produktions miljö använder en anslutnings sträng från App Service. Med Active Directory autentisering vill du att båda miljöerna ska använda samma anslutnings sträng. I *appSettings. JSON*ersätter du värdet för `MyDbConnection` anslutnings strängen med:
+I [självstudien ASP.NET Core och](app-service-web-tutorial-dotnetcore-sqldb.md)SQL `MyDbConnection` Database används inte anslutningssträngen alls eftersom den lokala utvecklingsmiljön använder en Sqlite-databasfil och Azure-produktionsmiljön använder en anslutningssträng från App Service. Med Active Directory-autentisering vill du att båda miljöerna ska använda samma anslutningssträng. I *appsettings.json ersätter*du `MyDbConnection` värdet för anslutningssträngen med:
 
 ```json
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-I *startup.cs*tar du bort kod avsnittet som du lade till innan:
+I *Startup.cs*tar du bort kodavsnittet som du lade till tidigare:
 
 ```csharp
 // Use SQL Database if in Azure, otherwise, use SQLite
@@ -163,7 +163,7 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-Och Ersätt det med följande kod:
+Och ersätta den med följande kod:
 
 ```csharp
 services.AddDbContext<MyDatabaseContext>(options => {
@@ -171,7 +171,7 @@ services.AddDbContext<MyDatabaseContext>(options => {
 });
 ```
 
-Sedan anger du Entity Framework databas kontext med åtkomsttoken för SQL Database. I *Data\MyDatabaseContext.cs*lägger du till följande kod innanför klammerparenteserna i den tomma `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)`-konstruktorn:
+Därefter anger du entitetsramsdatabaskontexten med åtkomsttoken för SQL-databasen. Lägg till följande kod i den tomma `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` konstruktorns klammerparenteser i *Data\MyDatabaseContext.cs:*
 
 ```csharp
 var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
@@ -179,25 +179,25 @@ conn.AccessToken = (new Microsoft.Azure.Services.AppAuthentication.AzureServiceT
 ```
 
 > [!NOTE]
-> Den här demonstrations koden är synkron för tydlighet och enkelhet.
+> Denna demonstrationskod är synkron för tydlighet och enkelhet.
 
-Det var allt du behöver för att ansluta till SQL Database. Vid fel sökning i Visual Studio använder din kod den Azure AD-användare som du konfigurerade i [Konfigurera Visual Studio](#set-up-visual-studio). Du ställer in SQL Database servern senare för att tillåta anslutning från den hanterade identiteten för din App Service-app. Klassen `AzureServiceTokenProvider` cachelagrar token i minnet och hämtar den från Azure AD precis före förfallo datum. Du behöver ingen anpassad kod för att uppdatera token.
+Det är allt du behöver för att ansluta till SQL Database. När du felsöker i Visual Studio använder koden den Azure AD-användare som du har konfigurerat i [Konfigurera Visual Studio](#set-up-visual-studio). Du konfigurerar SQL Database-servern senare för att tillåta anslutning från den hanterade identiteten för apptjänstappen. Klassen `AzureServiceTokenProvider` cachelagrar token i minnet och hämtar den från Azure AD strax före förfallodatum. Du behöver ingen anpassad kod för att uppdatera token.
 
 > [!TIP]
-> Om den Azure AD-användare som du har konfigurerat har åtkomst till flera klienter anropar du `GetAccessTokenAsync("https://database.windows.net/", tenantid)` med önskat klient-ID för att hämta rätt åtkomsttoken.
+> Om Azure AD-användaren som du konfigurerat `GetAccessTokenAsync("https://database.windows.net/", tenantid)` har åtkomst till flera klienter, anropa med önskat klient-ID för att hämta rätt åtkomsttoken.
 
-Skriv `Ctrl+F5` för att köra appen igen. Samma CRUD-app i webbläsaren ansluter nu till Azure SQL Database direkt med Azure AD-autentisering. Med den här installationen kan du köra databas migreringar från Visual Studio.
+Skriv `Ctrl+F5` för att köra appen igen. Samma CRUD-app i din webbläsare ansluter nu till Azure SQL Database direkt med Hjälp av Azure AD-autentisering. Med den här inställningen kan du köra databasmigreringar från Visual Studio.
 
-## <a name="use-managed-identity-connectivity"></a>Använd hanterad identitets anslutning
+## <a name="use-managed-identity-connectivity"></a>Använda anslutning till hanterad identitet
 
-Sedan konfigurerar du App Service-appen så att den ansluter till SQL Database med en systemtilldelad hanterad identitet.
+Därefter konfigurerar du apptjänstappen för att ansluta till SQL Database med en systemtilldelad hanterad identitet.
 
 > [!NOTE]
-> Även om instruktionerna i det här avsnittet gäller för en tilldelad identitet, kan en användardefinierad identitet enkelt användas. För att göra detta. du behöver ändra `az webapp identity assign command` för att tilldela önskad användar tilldelad identitet. När du skapar SQL-användaren ska du sedan se till att använda namnet på den tilldelade identitets resursen i stället för plats namnet.
+> Medan instruktionerna i det här avsnittet gäller en systemtilldelad identitet kan en användartilldelad identitet lika gärna användas. För att göra det här. du skulle behöva `az webapp identity assign command` ändra för att tilldela önskad användartilldelade identitet. När du skapar SQL-användaren ska du se till att använda namnet på den användartilldelade identitetsresursen i stället för platsnamnet.
 
 ### <a name="enable-managed-identity-on-app"></a>Aktivera hanterad identitet i appen
 
-När du ska aktivera en hanterad identitet för din Azure-app använder du kommandot [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) i Cloud Shell. I följande kommando ersätter du *\<app-name >* .
+När du ska aktivera en hanterad identitet för din Azure-app använder du kommandot [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) i Cloud Shell. I följande kommando * \< *ersätter du>för appnamn .
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app-name>
@@ -214,10 +214,10 @@ Här är ett exempel på utdata:
 }
 ```
 
-### <a name="grant-permissions-to-managed-identity"></a>Bevilja behörighet till hanterad identitet
+### <a name="grant-permissions-to-managed-identity"></a>Bevilja behörigheter till hanterad identitet
 
 > [!NOTE]
-> Om du vill kan du lägga till identiteten i en [Azure AD-grupp](../active-directory/fundamentals/active-directory-manage-groups.md)och sedan bevilja SQL Database åtkomst till Azure AD-gruppen i stället för identiteten. Följande kommandon lägger till exempel till den hanterade identiteten från föregående steg till en ny grupp med namnet _myAzureSQLDBAccessGroup_:
+> Om du vill kan du lägga till identiteten i en [Azure AD-grupp](../active-directory/fundamentals/active-directory-manage-groups.md)och sedan bevilja SQL-databasåtkomst till Azure AD-gruppen i stället för identiteten. Följande kommandon lägger till till exempel till den hanterade identiteten från föregående steg till en ny grupp som heter _myAzureSQLDBAccessGroup:_
 > 
 > ```azurecli-interactive
 > groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -227,13 +227,13 @@ Här är ett exempel på utdata:
 > ```
 >
 
-Öppna Cloud Shell och logga in på SQL Database med kommandot SQLCMD. Ersätt _\<server-name >_ med SQL Database-servernamnet _\<db-namn >_ med det databas namn som appen använder och _\<aad-user-name >_ och _\<AAD-Password >_ med din Azure AD-användares autentiseringsuppgifter.
+Öppna Cloud Shell och logga in på SQL Database med kommandot SQLCMD. Ersätt _ \<servernamn>_ med servernamnet i SQL Database, _ \<db-namn>_ med det databasnamn som appen använder och _ \<aad-user-name>_ och _ \<aad-password>_ med din Azure AD-användares autentiseringsuppgifter.
 
 ```azurecli-interactive
 sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
 ```
 
-I SQL-prompten för den databas som du vill använda kör du följande kommandon för att lägga till Azure AD-gruppen och bevilja de behörigheter som appen behöver. Exempel: 
+I SQL-prompten för den databas du vill använda kör du följande kommandon för att lägga till Azure AD-gruppen och bevilja de behörigheter som appen behöver. Exempel: 
 
 ```sql
 CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;
@@ -243,16 +243,16 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identitet-namn >* är namnet på den hanterade identiteten i Azure AD. Om identiteten är systemtilldelad är namnet alltid detsamma som namnet på din App Service-app. Om du vill bevilja behörighet för en Azure AD-grupp använder du gruppens visnings namn i stället (till exempel *myAzureSQLDBAccessGroup*).
+identitetsnamn>är namnet på den hanterade identiteten i Azure AD. * \<* Om identiteten är systemtilldelad är namnet alltid detsamma som namnet på apptjänstappen. Om du vill bevilja behörigheter för en Azure AD-grupp använder du gruppens visningsnamn i stället (till exempel *myAzureSQLDBAccessGroup*).
 
 Skriv `EXIT` för att återgå till Cloud Shell-prompten.
 
 > [!NOTE]
-> Backend-tjänsterna för hanterade identiteter [upprätthåller också en token cache](overview-managed-identity.md#obtain-tokens-for-azure-resources) som uppdaterar token för en mål resurs endast när den upphör att gälla. Om du gör ett fel när du konfigurerar SQL Database behörigheter och försöker ändra behörigheterna *när* du har försökt hämta en token med din app, får du faktiskt inget nytt token med de uppdaterade behörigheterna förrän den cachelagrade token upphör att gälla.
+> Backend-tjänsterna för hanterade [identiteter upprätthåller också en tokencache](overview-managed-identity.md#obtain-tokens-for-azure-resources) som uppdaterar token för en målresurs först när den upphör att gälla. Om du gör ett misstag med att konfigurera sql-databasbehörigheterna och försöker ändra behörigheterna *efter* att ha försökt hämta en token med din app, får du faktiskt inte en ny token med de uppdaterade behörigheterna förrän den cachelagrade token upphör att gälla.
 
 ### <a name="modify-connection-string"></a>Ändra anslutningssträngen
 
-Kom ihåg att samma ändringar som du gjorde i *Web. config* eller *appSettings. JSON* fungerar med den hanterade identiteten, så att det bara är att ta bort den befintliga anslutnings strängen i App Service, som Visual Studio skapade distributionen av appen första gången. Använd följande kommando, men Ersätt *\<app-name >* med namnet på din app.
+Kom ihåg att samma ändringar som du har gjort i *Web.config* eller *appsettings.json* fungerar med den hanterade identiteten, så det enda du kan göra är att ta bort den befintliga anslutningssträngen i App Service, som Visual Studio skapade distribuera din app första gången. Använd följande kommando, * \<* men ersätt>med appens namn.
 
 ```azurecli-interactive
 az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
@@ -262,13 +262,13 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 Nu behöver du bara publicera ändringarna till Azure.
 
-**Om du kom från [Självstudier: bygg en ASP.net-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)** , publicera dina ändringar i Visual Studio. I **Solution Explorer**: Högerklicka på projektet **DotNetAppSqlDb** och välj **Publicera**.
+**Om du kom från [Självstudiekurs: Skapa en ASP.NET app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)** publicerar du dina ändringar i Visual Studio. I **Solution Explorer**: Högerklicka på projektet **DotNetAppSqlDb** och välj **Publicera**.
 
 ![Publicera från Solution Explorer](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 Klicka på **Publicera** på publiceringssidan. 
 
-**Om du kom från [Självstudier: bygg en ASP.NET Core och SQL Database app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)** , publicera dina ändringar med hjälp av Git med följande kommandon:
+**Om du kom från [Självstudiekurs: Skapa en ASP.NET Core- och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)** publicerar du ändringarna med Git med följande kommandon:
 
 ```bash
 git commit -am "configure managed identity"
@@ -290,7 +290,7 @@ Vad du lärt dig:
 > [!div class="checklist"]
 > * Aktivera hanterade identiteter
 > * Ge SQL Database åtkomst till den hanterade identiteten
-> * Konfigurera Entity Framework att använda Azure AD-autentisering med SQL Database
+> * Konfigurera Entity Framework för att använda Azure AD-autentisering med SQL Database
 > * Ansluta till SQL Database från Visual Studio med Azure AD-autentisering
 
 Gå vidare till nästa självstudie där du får lära dig att mappa ett anpassat DNS-namn till webbappen.

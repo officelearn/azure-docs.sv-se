@@ -1,35 +1,35 @@
 ---
-title: Självstudie – konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS) med hjälp av Ansible
-description: Lär dig hur du använder Ansible för att konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS)-kluster
-keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes
+title: Självstudiekurs - Konfigurera kubenet-nätverk i Azure Kubernetes Service (AKS) med Ansible
+description: Lär dig hur du använder Ansible för att konfigurera kubenet-nätverk i AKS-kluster (Azure Kubernetes Service)
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: bfb19371ad651439c087cebd03023d48852ee2df
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156894"
 ---
-# <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudie: Konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS) med hjälp av Ansible
+# <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudiekurs: Konfigurera kubenet-nätverk i Azure Kubernetes Service (AKS) med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
 
-Med AKS kan du distribuera ett kluster med hjälp av följande nätverks modeller:
+Med AKS kan du distribuera ett kluster med hjälp av följande nätverksmodeller:
 
-- [Kubernetes nätverk](/azure/aks/configure-kubenet) – nätverks resurser skapas och konfigureras vanligt vis när AKS-klustret distribueras.
-- [Nätverk för cni-AKS (Azure Container Networking Interface)](/azure/aks/configure-azure-cni) är anslutet till befintliga virtuella nätverks resurser och konfigurationer.
+- [Kubenet-nätverk](/azure/aks/configure-kubenet) – Nätverksresurser skapas vanligtvis och konfigureras när AKS-klustret distribueras.
+- [CNI-nätverk (Azure Container Networking Interface)](/azure/aks/configure-azure-cni) – AKS-klustret är anslutet till befintliga virtuella nätverksresurser och konfigurationer.
 
-Mer information om nätverk till dina program i AKS finns i [nätverks begrepp för program i AKS](/azure/aks/concepts-network).
+Mer information om nätverk till dina program i AKS finns i [Nätverkskoncept för program i AKS](/azure/aks/concepts-network).
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Skapa ett AKS-kluster
-> * Konfigurera Azure Kubernetes Networking
+> * Konfigurera Azure kubenet-nätverk
 
 ## <a name="prerequisites"></a>Krav
 
@@ -39,7 +39,7 @@ Mer information om nätverk till dina program i AKS finns i [nätverks begrepp f
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 
-Spelbok-koden i det här avsnittet skapar följande Azure-resurser:
+Spelbokskoden i det här avsnittet skapar följande Azure-resurser:
 
 - Virtuellt nätverk
 - Undernät i det virtuella nätverket
@@ -65,7 +65,7 @@ Spara följande spelbok som `vnet.yml`:
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Spelbok-koden i det här avsnittet skapar ett AKS-kluster i ett virtuellt nätverk. 
+Spelbokskoden i det här avsnittet skapar ett AKS-kluster i ett virtuellt nätverk. 
 
 Spara följande spelbok som `aks.yml`:
 
@@ -101,29 +101,29 @@ Spara följande spelbok som `aks.yml`:
   register: aks
 ```
 
-Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
+Här är några viktiga anteckningar att tänka på när du arbetar med exempelspelsboken:
 
-- Använd `azure_rm_aks_version`-modulen för att hitta den version som stöds.
-- `vnet_subnet_id` är det undernät som skapades i föregående avsnitt.
-- `network_profile` definierar egenskaperna för plugin-programmet för Kubernetes-nätverk.
-- `service_cidr` används för att tilldela interna tjänster i AKS-klustret till en IP-adress. Detta IP-adressintervall ska vara ett adress utrymme som inte används någon annan stans i nätverket. 
-- `dns_service_ip` adressen ska vara ". 10"-adressen till tjänstens IP-adressintervall.
-- `pod_cidr` bör vara ett stort adress utrymme som inte används någon annan stans i din nätverks miljö. Adress intervallet måste vara tillräckligt stort för att rymma antalet noder som du förväntar dig att skala upp till. Du kan inte ändra det här adress intervallet när klustret har distribuerats.
-- IP-adressintervallet Pod används för att tilldela ett/24-adressutrymme till varje nod i klustret. I följande exempel tilldelar `pod_cidr` 192.168.0.0/16 den första noden 192.168.0.0/24, den andra noden 192.168.1.0/24 och den tredje noden 192.168.2.0/24.
-- När klustret skalas eller uppgraderas fortsätter Azure att tilldela ett Pod IP-adressintervall till varje ny nod.
-- Spelbok läser in `ssh_key` från `~/.ssh/id_rsa.pub`. Om du ändrar det använder du det enkla formatet – från och med "SSH-RSA" (utan citationstecken).
-- Värdena för `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
+- Använd `azure_rm_aks_version` modulen för att hitta den version som stöds.
+- Det `vnet_subnet_id` är det undernät som skapades i föregående avsnitt.
+- Egenskaperna `network_profile` för plugin-programmet kubenet-nätverket definierars.
+- Används `service_cidr` för att tilldela interna tjänster i AKS-klustret till en IP-adress. Det här IP-adressintervallet bör vara ett adressutrymme som inte används någon annanstans i nätverket. 
+- Adressen `dns_service_ip` ska vara adressen ".10" för tjänstens IP-adressintervall.
+- Det `pod_cidr` bör vara ett stort adressutrymme som inte används någon annanstans i nätverksmiljön. Adressintervallet måste vara tillräckligt stort för att rymma antalet noder som du förväntar dig att skala upp till. Du kan inte ändra det här adressintervallet när klustret har distribuerats.
+- Pod-IP-adressintervallet används för att tilldela ett /24-adressutrymme till varje nod i klustret. I följande exempel `pod_cidr` tilldelas den första noden 192.168.16.0/16 den första noden 192.168.0.0/24, den andra noden 192.168.1.0/24 och den tredje noden 192.168.2.0/24.
+- När klustret skalas eller uppgraderas fortsätter Azure att tilldela ett POD-IP-adressintervall till varje ny nod.
+- Spelboken laddas `ssh_key` `~/.ssh/id_rsa.pub`från . Om du ändrar det, använd single-line format - börjar med "ssh-rsa" (utan citattecken).
+- `client_id` Värdena `client_secret` och läses in från `~/.azure/credentials`, som är standardfilen för autentiseringsuppgifter. Du kan ange dessa värden på tjänstens huvudnamn eller läsa in dessa värden från miljövariabler:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
     client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
     ```
 
-## <a name="associate-the-network-resources"></a>Associera nätverks resurserna
+## <a name="associate-the-network-resources"></a>Associera nätverksresurserna
 
-När du skapar ett AKS-kluster skapas en nätverks säkerhets grupp och en routningstabell. Dessa resurser hanteras av AKS och uppdateras när du skapar och exponerar tjänster. Koppla nätverks säkerhets gruppen och routningstabellen till det virtuella nätverkets undernät enligt följande. 
+När du skapar ett AKS-kluster skapas en nätverkssäkerhetsgrupp och vägtabell. Dessa resurser hanteras av AKS och uppdateras när du skapar och exponerar tjänster. Associera nätverkssäkerhetsgruppen och flödestabellen med det virtuella nätverksundernätet enligt följande. 
 
-Spara följande Spelbok som `associate.yml`.
+Spara följande spelbok `associate.yml`som .
 
 ```yml
 - name: Get route table
@@ -155,15 +155,15 @@ Spara följande Spelbok som `associate.yml`.
       route_table: "{{ routetable.route_tables[0].id }}"
 ```
 
-Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
+Här är några viktiga anteckningar att tänka på när du arbetar med exempelspelsboken:
 
-- `node_resource_group` är namnet på den resurs grupp som AKS-noderna skapas i.
-- `vnet_subnet_id` är det undernät som skapades i föregående avsnitt.
+- Resursgruppnamnet `node_resource_group` som AKS-noderna skapas i.
+- Det `vnet_subnet_id` är det undernät som skapats i föregående avsnitt.
 
 
-## <a name="run-the-sample-playbook"></a>Kör exemplet Spelbok
+## <a name="run-the-sample-playbook"></a>Kör exempeluppspelningsboken
 
-I det här avsnittet visas den fullständiga Spelbok som anropar de uppgifter som skapas i den här artikeln. 
+I det här avsnittet visas hela exempeluppspelningsboken som anropar de uppgifter som skapas i den här artikeln. 
 
 Spara följande spelbok som `aks-kubenet.yml`:
 
@@ -206,19 +206,19 @@ Spara följande spelbok som `aks-kubenet.yml`:
            var: output.aks[0]
 ```
 
-Gör följande ändringar i avsnittet `vars`:
+Gör `vars` följande ändringar i avsnittet:
 
-- Ändra `aksansibletest` värde till namnet på din resurs grupp för `resource_group` nyckeln.
-- Ändra `aksansibletest`-värdet till AKS-namnet för den `name` nyckeln.
-- Ändra `eastus` värde till din resurs grupps plats för `Location` nyckeln.
+- För `resource_group` nyckeln ändrar `aksansibletest` du värdet till resursgruppsnamnet.
+- För `name` nyckeln ändrar `aksansibletest` du värdet till aks-namnet.
+- För `Location` nyckeln ändrar `eastus` du värdet till resursgruppsplatsen.
 
-Kör den fullständiga Spelbok med kommandot `ansible-playbook`:
+Kör hela spelboken `ansible-playbook` med kommandot:
 
 ```bash
 ansible-playbook aks-kubenet.yml
 ```
 
-Om du kör Spelbok visas resultat som liknar följande utdata:
+Om du kör spelboken visas resultat som liknar följande utdata:
 
 ```Output
 PLAY [localhost] 
@@ -325,9 +325,9 @@ localhost                  : ok=15   changed=2    unreachable=0    failed=0    s
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln. 
 
-Spara följande kod som `cleanup.yml`:
+Spara följande kod `cleanup.yml`som:
 
 ```yml
 ---
@@ -342,9 +342,9 @@ Spara följande kod som `cleanup.yml`:
             force: yes
 ```
 
-I avsnittet `vars` ersätter du plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+Ersätt `vars` platshållaren `{{ resource_group_name }}` med namnet på resursgruppen i avsnittet.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook cleanup.yml
@@ -353,4 +353,4 @@ ansible-playbook cleanup.yml
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie – konfigurera CNI-nätverk (Azure Container Network Interface) i AKS med hjälp av Ansible](./ansible-aks-configure-cni-networking.md)
+> [Självstudiekurs – Konfigurera CNI-nätverk (Azure Container Networking Interface) i AKS med Ansible](./ansible-aks-configure-cni-networking.md)

@@ -1,99 +1,99 @@
 ---
-title: 'Självstudie: dirigera elektriska bilar med Azure Notebooks (python) | Microsoft Azure Maps'
-description: 'Dirigera elektriska fordon med Microsoft Azure mappar API: er för Routning och Azure Notebooks.'
-author: farah-alyasari
-ms.author: v-faalya
+title: 'Självstudiekurs: Dirigera elfordon med hjälp av Azure Notebooks (Python) | Microsoft Azure Maps'
+description: Dirigera elfordon med hjälp av Microsoft Azure Maps routning API:er och Azure Notebooks.
+author: philmea
+ms.author: philmea
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 3118ca39ec0efd42c9f7b622c91f857034ef4b03
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208173"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80333826"
 ---
-# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudiekurs: Dirigera elfordon med hjälp av Azure Notebooks (Python)
 
-Azure Maps är en portfölj med geospatiala tjänst-API: er som är internt integrerade i Azure. Dessa API: er gör det möjligt för utvecklare, företag och ISV att utveckla plats medveten appar, IoT, mobilitet, logistik och till gångs spårnings lösningar. 
+Azure Maps är en portfölj av geospatiala tjänst-API:er som är inbyggda i Azure. Dessa API:er gör det möjligt för utvecklare, företag och ISV:er att utveckla platsmedvetna appar, IoT, mobilitet, logistik och lösningar för spårning av tillgångar. 
 
-Azure Maps REST-API: er kan anropas från språk som python och R för att aktivera geospatiala data analyser och maskin inlärnings scenarier. Azure Maps erbjuder en robust uppsättning [routnings-API: er](https://docs.microsoft.com/rest/api/maps/route) som gör att användarna kan beräkna vägar mellan flera data punkter. Beräkningarna baseras på olika villkor, till exempel fordons typ eller nåbart utrymme. 
+Azure Maps REST API:er kan anropas från språk som Python och R för att aktivera geospatial dataanalys och machine learning-scenarier. Azure Maps erbjuder en robust uppsättning [routnings-API:er](https://docs.microsoft.com/rest/api/maps/route) som tillåter användare att beräkna vägar mellan flera datapunkter. Beräkningarna baseras på olika förhållanden, till exempel fordonstyp eller nåbart område. 
 
-I den här självstudien får du hjälp med att gå igenom en driv rutin vars batteri batteri är låg. Driv rutinen måste hitta den närmaste möjliga laddnings stationen från fordonets plats.
+I den här guiden går du hjälpa en förare vars elfordon batteri är låg. Föraren måste hitta närmaste möjliga laddningsstation från fordonets plats.
 
 I den här kursen ska du:
 
 > [!div class="checklist"]
-> * Skapa och kör en Jupyter-anteckningsbok på [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) i molnet.
-> * Anropa Azure Maps REST-API: er i python.
-> * Sök efter ett nåbart intervall baserat på den elektriska fordons förbruknings modellen.
-> * Sök efter elektriska fordons uttags stationer inom det nåbara intervallet eller isochrone.
-> * Återge gränsen för det nåbara intervallet och debitera stationerna på en karta.
-> * Hitta och visualisera en väg till närmaste elektriska fordons laddnings Station baserat på enhets tid.
+> * Skapa och kör en Jupyter-anteckningsbok på [Azure-anteckningsböcker](https://docs.microsoft.com/azure/notebooks) i molnet.
+> * Anropa AZURE Maps REST API:er i Python.
+> * Sök efter ett räckviddsintervall baserat på elbilens förbrukningsmodell.
+> * Sök efter laddstationer för elfordon inom räckhåll, eller isochrone.
+> * Återge den räckviddsbara räckviddsgränsen och laddningsstationerna på en karta.
+> * Hitta och visualisera en rutt till närmaste laddningsstation för elfordon baserat på körtid.
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
-För att slutföra den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). 
+För att slutföra den här självstudien måste du först skapa ett Azure Maps-konto och få din primära nyckel (prenumerationsnyckel). 
 
-Om du vill skapa en Azure Maps konto prenumeration följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps). Du behöver en Azure Maps konto prenumeration med pris nivån S1. 
+Om du vill skapa en Azure Maps-kontoprenumeration följer du instruktionerna i [Skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps). Du behöver en Azure Maps-kontoprenumeration med prisnivån S1. 
 
-Följ anvisningarna i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account)för att hämta den primära prenumerations nyckeln för ditt konto.
+Om du vill hämta den primära prenumerationsnyckeln för ditt konto följer du instruktionerna för [att få primärnyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
+Mer information om autentisering i Azure Maps finns [i hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebook"></a>Skapa en Azure-anteckningsbok
 
-Om du vill följa med i den här självstudien måste du skapa ett Azure Notebook-projekt och hämta och köra Jupyter Notebook-filen. Anteckningsbok-filen innehåller python-kod som implementerar scenariot i den här självstudien. Gör så här för att skapa ett Azure Notebook-projekt och ladda upp anteckningsbok-dokumentet för Jupyter:
+Om du vill följa med den här självstudien måste du skapa ett Azure notebook-projekt och hämta och köra jupyter-anteckningsboksfilen. Anteckningsboksfilen innehåller Python-kod, som implementerar scenariot i den här självstudien. Så här skapar du ett Azure notebook-projekt och överför jupyter-anteckningsboksdokumentet till det:
 
-1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start: Logga in och ange ett användar-ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
-1. Välj **Mina projekt**högst upp på den offentliga profil sidan.
+1. Gå till [Azure-anteckningsböcker](https://notebooks.azure.com) och logga in. Mer information finns [i Snabbstart: Logga in och ange ett användar-ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
+1. Högst upp på din offentliga profilsida väljer du **Mina projekt**.
 
-    ![Knappen mina projekt](./media/tutorial-ev-routing/myproject.png)
+    ![Knappen Mina projekt](./media/tutorial-ev-routing/myproject.png)
 
-1. På sidan **Mina projekt** väljer du **nytt projekt**.
+1. Välj **Nytt projekt**på sidan **Mina projekt** .
  
-   ![Knappen nytt projekt](./media/tutorial-ev-routing/create-project.png)
+   ![Knappen Nytt projekt](./media/tutorial-ev-routing/create-project.png)
 
-1. I fönstret **Skapa nytt projekt** anger du ett projekt namn och projekt-ID.
+1. Ange ett projektnamn och projekt-ID i fönstret **Skapa nytt projekt.**
  
     ![Fönstret Skapa nytt projekt](./media/tutorial-ev-routing/create-project-window.png)
 
 1. Välj **Skapa**.
 
-1. När projektet har skapats kan du ladda ned den här [dokument filen för Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
+1. När projektet har skapats hämtar du [dokumentfilen för Jupyter-anteckningsboken](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) från [Azure Maps Jupyters anteckningsboksdatabas](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. I listan projekt på sidan **Mina projekt** väljer du ditt projekt och väljer sedan **Ladda upp** för att överföra dokument filen Jupyter Notebook. 
+1. Välj projektet i projektlistan på sidan **Mina projekt** och välj sedan **Ladda upp** för att ladda upp dokumentfilen för Jupyter-anteckningsboken. 
 
-    ![Ladda upp antecknings bok](./media/tutorial-ev-routing/upload-notebook.png)
+    ![ladda upp anteckningsbok](./media/tutorial-ev-routing/upload-notebook.png)
 
-1. Ladda upp filen från datorn och välj sedan **slutförd**.
+1. Ladda upp filen från datorn och välj sedan **Klar**.
 
-1. När överföringen har slutförts visas filen på projekt sidan. Dubbelklicka på filen för att öppna den som en Jupyter Notebook.
+1. När överföringen har slutförts visas filen på projektsidan. Dubbelklicka på filen för att öppna den som en Jupyter-anteckningsbok.
 
-Försök att förstå de funktioner som implementeras i Notebook-filen. Kör koden i anteckningsbok-filen, en cell i taget. Du kan köra koden i varje cell genom att klicka på knappen **Kör** överst i appen Notebook.
+Försök att förstå de funktioner som implementeras i anteckningsboksfilen. Kör koden i anteckningsboksfilen en cell i taget. Du kan köra koden i varje cell genom att välja knappen **Kör** högst upp i anteckningsboksappen.
 
   ![Knappen Kör](./media/tutorial-ev-routing/run.png)
 
-## <a name="install-project-level-packages"></a>Installera på paket i projektet
+## <a name="install-project-level-packages"></a>Installera projektnivåpaket
 
-Om du vill köra koden i antecknings boken installerar du paket på projekt nivå genom att utföra följande steg:
+Om du vill köra koden i anteckningsboken installerar du paket på projektnivå genom att göra följande:
 
-1. Hämta filen [*Requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
-1. På instrument panelen för projektet väljer du **projekt inställningar**. 
-1. I fönstret **projekt inställningar** väljer du fliken **miljö** och väljer sedan **Lägg till**.
-1. Under **miljö konfigurations steg**gör du följande:   
-    a. I den första List rutan väljer du **krav. txt**.  
-    b. I den andra List rutan väljer du din *Requirements. txt* -fil.  
-    c. I den tredje List rutan väljer du **python Version 3,6** som version.
+1. Hämta [*filen requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) från [Azure Maps Jupyter-databasen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)för anteckningsboken och ladda sedan upp den till projektet.
+1. Välj Projektinställningar på **instrumentpanelen**för projektet . 
+1. Välj fliken **Miljö** i fönstret **Projektinställningar** och välj sedan **Lägg till**.
+1. Gör följande under **Steg för miljöinställningar:**   
+    a. I den första listrutan väljer du **Requirements.txt**.  
+    b. Välj filen *requirements.txt* i den andra listrutan.  
+    c. I den tredje listrutan väljer du **Python Version 3.6** som version.
 1. Välj **Spara**.
 
     ![Installera paket](./media/tutorial-ev-routing/install-packages.png)
 
-## <a name="load-the-required-modules-and-frameworks"></a>Läs in de nödvändiga modulerna och ramverken
+## <a name="load-the-required-modules-and-frameworks"></a>Ladda de moduler och ramverk som krävs
 
 Om du vill läsa in alla nödvändiga moduler och ramverk kör du följande skript.
 
@@ -104,13 +104,13 @@ import urllib.parse
 from IPython.display import Image, display
 ```
 
-## <a name="request-the-reachable-range-boundary"></a>Begär det nåbara Intervallets gränser
+## <a name="request-the-reachable-range-boundary"></a>Begär den räckviddsbara områdesgränsen
 
-Ett paket leverans företag har vissa elektriska fordon i sin flotta. Under dagen måste elektriska fordon debiteras igen utan att behöva gå tillbaka till lagret. Varje gång den återstående avgiften sjunker till mindre än en timme söker du efter en uppsättning med debiterings stationer som ligger inom ett nåbart intervall. I princip kan du söka efter en laddnings Station när batteriet har låg belastning. Och du får information om gränserna för det intervallet av debiterings stationer. 
+Ett paketleveransföretag har några elfordon i sin flotta. Under dagen måste elbilar laddas utan att behöva återvända till lagret. Varje gång den återstående laddningen sjunker till mindre än en timme söker du efter en uppsättning laddstationer som ligger inom ett nåbart intervall. I huvudsak söker du efter en laddningsstation när batteriet är svagt vid laddning. Och du får gränsinformationen för det utbudet av laddstationer. 
 
-Eftersom företaget föredrar att använda vägar som kräver en balans mellan ekonomi och hastighet, är det begärda routeType ett *eko*kort. Följande skript anropar [API: t för att hämta väg intervall](https://docs.microsoft.com/rest/api/maps/route/getrouterange) för Azure Maps-routningstjänsten. Den använder parametrar för fordonets förbruknings modell. Skriptet tolkar sedan svaret för att skapa ett polygon-objekt i det interjson-format som representerar Car: s maximala räckvidd.
+Eftersom företaget föredrar att använda rutter som kräver en balans mellan ekonomi och hastighet, är den begärda routeType *eco*. Följande skript anropar [Api:et hämta ruttområde](https://docs.microsoft.com/rest/api/maps/route/getrouterange) för routningstjänsten Azure Maps. Den använder parametrar för fordonets förbrukningsmodell. Skriptet tolkar sedan svaret för att skapa ett polygonobjekt i geojsonformatet, som representerar bilens maximala räckviddsområde.
 
-Du kan fastställa gränserna för det tillgängliga intervallet för det elektriska fordonet genom att köra skriptet i följande cell:
+Om du vill bestämma gränserna för elbilens räckvidd kör du skriptet i följande cell:
 
 ```python
 subscriptionKey = "Your Azure Maps key"
@@ -152,13 +152,13 @@ boundsData = {
              }
 ```
 
-## <a name="search-for-electric-vehicle-charging-stations-within-the-reachable-range"></a>Sök efter elektriska fordons uttags stationer inom det nåbara intervallet
+## <a name="search-for-electric-vehicle-charging-stations-within-the-reachable-range"></a>Sök efter laddstationer för elfordon inom det räckhåll som kan nås
 
-När du har bestämt räckvidden för nåbarhet (isochrone) för det elektriska fordonet kan du söka efter debitering av stationer inom intervallet. 
+När du har fastställt räckviddsområdet (isochrone) för elfordonet kan du söka efter laddstationer inom det området. 
 
-Följande skript anropar Azure Maps [efter sökning i GEOMETRY API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry). Den söker efter avgifts stationer för elektriska fordon, inom gränserna för den maximalt tillgängliga räckvidden för bilen. Sedan parsar skriptet svaret till en matris med platser som kan kommas åt.
+Följande skript anropar Azure Maps [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry). Den söker efter laddstationer för elfordon, inom gränserna för bilens maximala räckvidd. Sedan tolkar skriptet svaret på en rad nåbara platser.
 
-Om du vill söka efter elektriska fordons uttags stationer inom det nåbara intervallet kör du följande skript:
+Om du vill söka efter laddningsstationer för elfordon inom det räckhåll som kan nås kör du följande skript:
 
 ```python
 # Search for electric vehicle stations within reachable range.
@@ -171,11 +171,11 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Ladda upp det nåbara intervallet och debitera platser för Azure Maps data tjänst
+## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Ladda upp det räckviddsbara intervallet och laddningspunkterna till Azure Maps Data Service
 
-På en karta vill du visualisera debiterings stationerna och gränsen för det elektriska fordonets maximala räckvidd. Det gör du genom att ladda upp data om gränser och debitera Stations data som JSON-objekt för att Azure Maps data tjänst. Använd [API för data uppladdning](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). 
+På en karta vill du visualisera laddstationerna och gränsen för elbilens maximala räckvidd. Det gör du genom att överföra gränsdata och laddningsstationer data som geojson-objekt till Azure Maps Data Service. Använd [API:et för dataöverföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). 
 
-Om du vill överföra data för gränser och debiterings plats till Azure Maps data tjänst kör du följande två celler:
+Om du vill överföra gräns- och laddningspunktsdata till Azure Maps Data Service kör du följande två celler:
 
 ```python
 rangeData = {
@@ -237,9 +237,9 @@ while True:
 poiUdid = getPoiUdid["udid"]
 ```
 
-## <a name="render-the-charging-stations-and-reachable-range-on-a-map"></a>Återge debiterings stationer och nåbart intervall på en karta
+## <a name="render-the-charging-stations-and-reachable-range-on-a-map"></a>Rendera laddstationerna och räckviddsområdet på en karta
 
-När du har överfört data till data tjänsten anropar du Azure Maps [Hämta avbildnings tjänst](https://docs.microsoft.com/rest/api/maps/render/getmapimage). Den här tjänsten används för att återge debiterings punkterna och den maximalt tillgängliga gränsen på den statiska kart bilden genom att köra följande skript:
+När du har laddat upp data till datatjänsten ringer du tjänsten Azure Maps [Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage). Den här tjänsten används för att återge laddningspunkterna och den maximala räckviddsbara gränsen på den statiska kartbilden genom att köra följande skript:
 
 ```python
 # Get boundaries for the bounding box.
@@ -276,16 +276,16 @@ poiRangeMap = await staticMapResponse.content.read()
 display(Image(poiRangeMap))
 ```
 
-![En karta som visar plats intervallet](./media/tutorial-ev-routing/location-range.png)
+![En karta som visar platsområdet](./media/tutorial-ev-routing/location-range.png)
 
 
-## <a name="find-the-optimal-charging-station"></a>Hitta den optimala laddnings stationen
+## <a name="find-the-optimal-charging-station"></a>Hitta den optimala laddningsstationen
 
-Först vill du fastställa alla potentiella avgifts stationer inom det nåbara intervallet. Sedan vill du veta vilken av dem som kan nås inom kort tid. 
+Först vill du bestämma alla potentiella laddstationer inom det räckviddsbara området. Sedan vill du veta vilken av dem som kan nås på en minimal tid. 
 
-Följande skript anropar API: [et för Azure Maps mat ris routning](https://docs.microsoft.com/rest/api/maps/route/postroutematrix). Den returnerar den angivna fordons platsen, res tiden och avståndet till varje laddnings Station. Skriptet i nästa cell tolkar svaret för att hitta den närmast tillgängliga avgifts stationen med avseende på tid.
+Följande skript anropar Azure Maps [Matrix Routning API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix). Den returnerar den angivna fordonsplatsen, restiden och avståndet till varje laddningsstation. Skriptet i nästa cell tolkar svaret för att hitta den närmaste laddningsstationen som kan nås med avseende på tid.
 
-Kör skriptet i följande cell för att hitta den närmaste tillgängliga avgifts stationen som kan nås i minst tids period:
+Om du vill hitta den närmaste laddningsstationen som kan nås på minst tid kör du skriptet i följande cell:
 
 ```python
 locationData = {
@@ -312,11 +312,11 @@ minDistLoc.extend([reachableLocations[minDistIndex][1], reachableLocations[minDi
 closestChargeLoc = ",".join(str(i) for i in minDistLoc)
 ```
 
-## <a name="calculate-the-route-to-the-closest-charging-station"></a>Beräkna vägen till närmaste avgifts Station
+## <a name="calculate-the-route-to-the-closest-charging-station"></a>Beräkna rutten till närmaste laddningsstation
 
-Nu när du har hittat den närmaste laddnings stationen kan du anropa [API: et för att hämta väg riktningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) för att begära den detaljerade vägen från det elektriska fordonets aktuella plats till laddnings stationen.
+Nu när du har hittat närmaste laddningsstation kan du ringa [API:et Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) för att begära den detaljerade vägen från elbilens aktuella plats till laddningsstationen.
 
-Kör skriptet i följande cell för att få vägen till laddnings stationen och analysera svaret för att skapa ett interjson-objekt som representerar vägen.
+Om du vill hämta vägen till laddningsstationen och tolka svaret för att skapa ett geojson-objekt som representerar rutten kör du skriptet i följande cell:
 
 ```python
 # Get the route from the electric vehicle's current location to the closest charging station. 
@@ -334,11 +334,11 @@ routeData = {
      }
 ```
 
-## <a name="visualize-the-route"></a>Visualisera vägen
+## <a name="visualize-the-route"></a>Visualisera rutten
 
-För att visualisera vägen laddar du först upp flödes data som ett interjson-objekt för att Azure Maps data tjänst. Det gör du med hjälp av API: et för Azure Maps [data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Anropa sedan åter givnings tjänsten, [Hämta avbildnings-API](https://docs.microsoft.com/rest/api/maps/render/getmapimage)för att rendera vägen på kartan och visualisera den.
+För att visualisera rutten överför du först vägdata som ett geojson-objekt till Azure Maps Data Service. Det gör du genom att använda [API:et](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)för dataöverföring av Azure Maps. Anropa sedan renderingstjänsten, [Hämta api för kartavbildning](https://docs.microsoft.com/rest/api/maps/render/getmapimage)för att återge rutten på kartan och visualisera den.
 
-Kör följande skript för att hämta en avbildning för den återgivna vägen på kartan:
+Om du vill hämta en bild för den renderade rutten på kartan kör du följande skript:
 
 ```python
 # Upload the route data to Azure Maps Data Service.
@@ -385,21 +385,21 @@ await session.close()
 display(Image(staticMapImage))
 ```
 
-![En karta som visar vägen](./media/tutorial-ev-routing/route.png)
+![En karta som visar rutten](./media/tutorial-ev-routing/route.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att anropa Azure Maps REST-API: er direkt och visualisera Azure Maps data med hjälp av python.
+I den här självstudien lärde du dig att anropa Azure Maps REST API:er direkt och visualisera Azure Maps-data med hjälp av Python.
 
-Om du vill utforska de Azure Maps-API: er som används i den här självstudien, se:
+Information om hur du utforskar Api:erna för Azure Maps som används i den här självstudien finns i:
 
-* [Hämta flödes intervall](https://docs.microsoft.com/rest/api/maps/route/getrouterange)
-* [Publicera sökning i geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
-* [Data uppladdning](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
-* [Rendera-Hämta kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Publicera väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
-* [Hämta väg riktningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [Hämta ruttområde](https://docs.microsoft.com/rest/api/maps/route/getrouterange)
+* [Post Sök inuti geometri](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
+* [Data ladda upp](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
+* [Render - Hämta kartbild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Matris för inläggsrutt](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
+* [Hämta vägbeskrivningar](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
-En fullständig lista över Azure Maps REST API: er finns i [Azure Maps REST API: er](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+En fullständig lista över AZURE Maps REST-API:er finns i [Azure Maps REST API:er](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-Mer information om Azure Notebooks finns i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+Mer information om Azure-anteckningsböcker finns i [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).

@@ -1,23 +1,23 @@
 ---
-title: Självstudie – konfigurera Azure Kubernetes service-kluster (AKS) i Azure med hjälp av Ansible
+title: Självstudiekurs – Konfigurera AKS-kluster (Azure Kubernetes Service) i Azure med Ansible
 description: Lär dig hur du använder Ansible för att skapa och hantera ett Azure Kubernetes Service-kluster i Azure
-keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 6672c3fac1c5d546a61622e3fd6df6c5397f87a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156677"
 ---
-# <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Självstudie: Konfigurera Azure Kubernetes service-kluster (AKS) i Azure med hjälp av Ansible
+# <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Självstudiekurs: Konfigurera AKS-kluster (Azure Kubernetes Service) i Azure med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
 
-AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/active-directory/) för användarautentisering. När du har konfigurerat använder du Azure AD-autentiseringstoken för att logga in på AKS-klustret. RBAC kan baseras på användarens identitet eller katalog grupp medlemskap.
+AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/active-directory/) för användarautentisering. När du har konfigurerats använder du din Azure AD-autentiseringstoken för att logga in på AKS-klustret. RBAC kan baseras på en användares identitet eller kataloggruppmedlemskap.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -34,7 +34,7 @@ AKS kan konfigureras för att använda [Azure Active Directory (AD)](/azure/acti
 
 ## <a name="create-a-managed-aks-cluster"></a>Skapa ett hanterat AKS-kluster
 
-Exemplet Spelbok skapar en resurs grupp och ett AKS-kluster i resurs gruppen.
+Exempeluppspelningsboken skapar en resursgrupp och ett AKS-kluster inom resursgruppen.
 
 Spara följande spelbok som `azure_create_aks.yml`:
 
@@ -77,20 +77,20 @@ tasks:
         Environment: Production
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
+Innan du kör spelboken läser du följande anmärkningar:
 
-- Det första avsnittet i `tasks` definierar en resurs grupp med namnet `myResourceGroup` inom `eastus` platsen.
-- Det andra avsnittet i `tasks` definierar ett AKS-kluster med namnet `myAKSCluster` i `myResourceGroup` resurs gruppen.
+- Det första `tasks` avsnittet i definierar `myResourceGroup` en `eastus` resursgrupp som namnges inom platsen.
+- Det andra `tasks` avsnittet i definierar `myAKSCluster` ett `myResourceGroup` AKS-kluster som namnges inom resursgruppen.
 - För platshållaren `your_ssh_key` anger du din offentliga RSA-nyckel i enradigt format – som ska börja med ”ssh-rsa” (utan citattecken).
-- För `aks_version` plats hållare använder du kommandot [AZ AKS get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) .
+- Använd `aks_version` kommandot [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) för platshållaren.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook azure_create_aks.yml
 ```
 
-Om du kör Spelbok visas resultat som liknar följande utdata:
+Om du kör spelboken visas resultat som liknar följande utdata:
 
 ```Output
 PLAY [Create AKS] 
@@ -110,7 +110,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
 ## <a name="scale-aks-nodes"></a>Skala AKS-noder
 
-Exempelspelboken i föregående avsnitt definierar två noder. Du justerar antalet noder genom att ändra `count` värdet i `agent_pool_profiles`-blocket.
+Exempelspelboken i föregående avsnitt definierar två noder. Du justerar antalet noder genom `count` att `agent_pool_profiles` ändra värdet i blocket.
 
 Spara följande spelbok som `azure_configure_aks.yml`:
 
@@ -145,17 +145,17 @@ Spara följande spelbok som `azure_configure_aks.yml`:
             vm_size: Standard_D2_v2
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
+Innan du kör spelboken läser du följande anmärkningar:
 
 - För platshållaren `your_ssh_key` anger du din offentliga RSA-nyckel i enradigt format – som ska börja med ”ssh-rsa” (utan citattecken).
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook azure_configure_aks.yml
 ```
 
-Om du kör Spelbok visas resultat som liknar följande utdata:
+Om du kör spelboken visas resultat som liknar följande utdata:
 
 ```Output
 PLAY [Scale AKS cluster] 
@@ -172,7 +172,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
 ## <a name="delete-a-managed-aks-cluster"></a>Ta bort ett hanterat AKS-kluster
 
-Exemplet Spelbok tar bort ett AKS-kluster.
+Exempeluppspelningsboken tar bort ett AKS-kluster.
 
 Spara följande spelbok som `azure_delete_aks.yml`:
 
@@ -192,13 +192,13 @@ Spara följande spelbok som `azure_delete_aks.yml`:
       state: absent
   ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook azure_delete_aks.yml
 ```
 
-Om du kör Spelbok visas resultat som liknar följande utdata:
+Om du kör spelboken visas resultat som liknar följande utdata:
 
 ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] 

@@ -1,17 +1,17 @@
 ---
-title: Skapa ett blockchain-program – Azure blockchain Workbench
-description: Självstudie om hur du skapar ett blockchain-program för för hands versionen av Azure blockchain Workbench.
+title: Skapa ett blockchain-program - Azure Blockchain Workbench
+description: Självstudiekurs om hur du skapar ett blockchain-program för Förhandsversionen av Azure Blockchain Workbench.
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74324810"
 ---
-# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Självstudie: skapa ett blockchain-program för Azure blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Självstudiekurs: Skapa ett blockchain-program för Azure Blockchain Workbench
 
 Du kan använda Azure Blockchain Workbench för att skapa blockkedjeprogram som representerar arbetsflöden med flera parter som definieras av konfiguration och smart kontaktkod.
 
@@ -321,9 +321,9 @@ Om du vill lägga till ett blockkedjeprogram i Blockchain Workbench laddar du up
 
 1. I en webbläsare går du till webbadressen för Blockchain Workbench. Till exempel `https://{workbench URL}.azurewebsites.net/` skapas webbprogrammet när du distribuerar Blockchain Workbench. Information om hur du hittar webbadressen för Blockchain Workbench finns i [Webbadress för Blockchain Workbench](deploy.md#blockchain-workbench-web-url)
 2. Logga in som [Blockchain Workbench-administratör](manage-users.md#manage-blockchain-workbench-administrators).
-3. Välj **Program** > **Nytt**. Fönsterrutan **Nytt program** visas.
-4. Välj **Upload the contract configuration** > **Browse** (Ladda upp kontraktskonfigurationen > Bläddra) för att hitta den **HelloBlockchain.json**-konfigurationsfil som du skapade. Konfigurationsfilen verifieras automatiskt. Välj länken **Visa** för att visa verifieringsfel. Åtgärda verifieringsfel innan du distribuerar programmet.
-5. Välj **Upload the contract code** > **Browse** (Ladda upp kontraktskonfigurationen > Bläddra) för att hitta filen **HelloBlockchain.sol** med smart kontraktkod. Kodfilen verifieras automatiskt. Välj länken **Visa** för att visa verifieringsfel. Åtgärda verifieringsfel innan du distribuerar programmet.
+3. Välj **Program** > **nya**. Fönsterrutan **Nytt program** visas.
+4. Välj **Ladda upp kontraktskonfigurationen** > **Bläddra** för att hitta konfigurationsfilen **HelloBlockchain.json** som du skapade. Konfigurationsfilen verifieras automatiskt. Välj länken **Visa** för att visa verifieringsfel. Åtgärda verifieringsfel innan du distribuerar programmet.
+5. Välj **Ladda upp kontraktskoden** > **Bläddra** för att hitta smart kontraktskodfilen **HelloBlockchain.sol.** Kodfilen verifieras automatiskt. Välj länken **Visa** för att visa verifieringsfel. Åtgärda verifieringsfel innan du distribuerar programmet.
 6. Välj **Distribuera** för att skapa blockkedjeprogrammet baserat på konfigurationen och filerna för smart kontrakt.
 
 Distributionen av blockkedjeprogrammet tar några minuter. När distributionen är klar visas det nya programmet i **Program**. 
@@ -335,7 +335,7 @@ Distributionen av blockkedjeprogrammet tar några minuter. När distributionen �
 
 Lägga till programmedlemmar i programmet för att initiera och utföra åtgärder på kontrakt. För att kunna lägga till programmedlemmar måste du vara [Blockchain Workbench-administratör](manage-users.md#manage-blockchain-workbench-administrators).
 
-1. Välj **Program** > **Hello, Blockchain!** (Hej blockkedjan!).
+1. Välj **Program** > **Hej, Blockchain!**.
 2. Det antal medlemmar som är associerade med programmet visas i det övre högra hörnet på sidan. För ett nytt program är antalet medlemmar noll.
 3. Välj länken för **medlemmar** i det övre högra hörnet på sidan. En aktuell lista över medlemmar för programmet visas.
 4. I medlemskapslistan väljer du **Lägg till medlemmar**.

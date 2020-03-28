@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239086"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt
@@ -25,7 +25,7 @@ Med enhetshanteringen i Azure Active Directory (Azure AD) kan du se till att anv
 > [!TIP]
 > Om användning av Azure AD Connect är ett möjligt alternativ för dig kan du läsa relaterade självstudier för [hanterade](hybrid-azuread-join-managed-domains.md) eller [federerade](hybrid-azuread-join-federated-domains.md) domäner. Genom att använda Azure AD Connect kan du avsevärt förenkla konfigurationen av Hybrid Azure AD-anslutningen.
 
-Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslutna enheter till Azure AD kan du göra det genom att konfigurera Hybrid Azure AD-anslutna enheter. I den här guiden får du lära dig att:
+Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslutna enheter till Azure AD kan du göra det genom att konfigurera Hybrid Azure AD-anslutna enheter. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera Azure AD-hybridanslutning manuellt
@@ -35,13 +35,13 @@ Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslut
 > * Verifiera anslutna enheter
 > * Felsöka din implementering
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien förutsätts att du känner till:
 
-* [Introduktion till hantering av enheter i Azure Active Directory](../device-management-introduction.md)
+* [Introduktion till enhetshantering i Azure Active Directory](../device-management-introduction.md)
 * [Planera implementeringen av Azure Active Directory-hybridanslutning](hybrid-azuread-join-plan.md)
-* [Kontrollera Azure AD Join-hybriden för dina enheter](hybrid-azuread-join-control.md)
+* [Kontrollera Azure AD-anslutningshybriden för dina enheter](hybrid-azuread-join-control.md)
 
 Innan du börjar aktivera Hybrid Azure AD-anslutna enheter i din organisation ser du till att:
 
@@ -72,7 +72,7 @@ För Windows 10-enheter med version 1703 eller tidigare måste du implementera W
 
 Från och med Windows 10 1803 försöker enheten att slutföra Azure AD-hybridanslutningen med hjälp av den synkroniserade datorn/enheten även om ett försök till en Azure AD-hybridanslutning från en enhet i en federerad domän via AD FS misslyckas, och om Azure AD Connect är konfigurerat för att synkronisera dator-/enhetsobjekten till Azure AD.
 
-För att kontrol lera om enheten har åtkomst till ovanstående Microsoft-resurser under system kontot kan du använda anslutnings skriptet för [test av enhets registrering](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) .
+Om du vill kontrollera om enheten kan komma åt ovanstående Microsoft-resurser under systemkontot kan du använda [skriptet för registrering av testenhet.](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0)
 
 ## <a name="verify-configuration-steps"></a>Verifiera konfigurationssteg
 
@@ -85,7 +85,7 @@ Använd följande tabell för att få en översikt över stegen som krävs för 
 | Konfigurera en tjänstanslutningspunkt | ![Markera][1] | ![Markera][1] | ![Markera][1] |
 | Konfigurera utfärdande av anspråk |     | ![Markera][1] | ![Markera][1] |
 | Aktivera enheter som inte använder Windows 10 |       |        | ![Markera][1] |
-| Verifiera anslutna enheter | ![Markera][1] | ![Markera][1] | [Utcheckning][1] |
+| Verifiera anslutna enheter | ![Markera][1] | ![Markera][1] | [Kontrollera][1] |
 
 ## <a name="configure-a-service-connection-point"></a>Konfigurera en tjänstanslutningspunkt
 
@@ -140,8 +140,8 @@ Följande skript visar ett exempel på användning av cmdleten. I det här skrip
 Cmdleten `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Använder Active Directory PowerShell-modulen och Azure Active Directory Domain Services-verktyg (Azure AD DS). De här verktygen är beroende av Active Directory-webbtjänster som körs på en domänkontrollant. Active Directory Web Services fungerar på domänkontrollanter som kör Windows Server 2008 R2 och senare.
-* Det stöds endast av MSOnline PowerShell-modulversion 1.1.166.0. Ladda ned modulen via [den här länken](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
-* Om AD DS-verktygen inte är installerade kommer `Initialize-ADSyncDomainJoinedComputerSync` att Miss kunna. Du kan installera AD DS-verktyg via Serverhanteraren under **funktioner** > **verktyg för fjärrserveradministration** > **roll administrations verktyg**.
+* Det stöds endast av MSOnline PowerShell-modulversion 1.1.166.0. Om du vill hämta den här modulen använder du [den här länken](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).
+* Om AD DS-verktygen `Initialize-ADSyncDomainJoinedComputerSync` inte är installerade misslyckas det. Du kan installera AD DS-verktygen via Serverhanteraren under**Rolladministrationsverktyg** **för** > **fjärrserveradministration** > .
 
 För domänkontrollanter som kör Windows Server 2008 eller tidigare versioner använder du följande skript för att skapa tjänstanslutningspunkten. I en konfiguration med flera skogar använder du följande skript för att skapa tjänstanslutningspunkten i varje skog där det finns datorer.
 
@@ -185,7 +185,7 @@ När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
+> Både **adfs/services/trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktiveras som endast intranätvända slutpunkter och får INTE exponeras som extranätvända slutpunkter via webbprogramproxyn. Mer information om hur du inaktiverar WS-Trust Windows-slutpunkter finns i [Inaktivera WS-Trust Windows-slutpunkter i proxyn](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under > **Tjänstslutpunkter**. **Service**
 
 > [!NOTE]
 >Om du inte har AD FS som en lokal federationstjänst följer du instruktionerna från din leverantör för att kontrollera att den stöder WS-Trust 1.3- eller 2005-slutpunkter och att de har publicerats via MEX-filen (Metadata Exchange).
@@ -481,7 +481,7 @@ Med följande skript kan du skapa utfärdande av transformeringsregler såsom be
 #### <a name="remarks"></a>Anmärkningar
 
 * Det här skriptet lägger till reglerna till befintliga regler. Kör inte skriptet två gånger, eftersom regeluppsättningen då läggs till två gånger. Kontrollera att det inte finns några motsvarande regler för anspråken (under motsvarande villkor) innan du kör skriptet igen.
-* Om du har flera verifierade domännamn (som visas i Azure AD-portalen eller via cmdleten **Get-MsolDomain**) anger du värdet **$multipleVerifiedDomainNames** i skriptet till **$true**. Se även till att ta bort eventuellt befintligt **issuerid**-anspråk som kan ha skapats av Azure AD Connect eller på andra sätt. Här är ett exempel för den här regeln:
+* Om du har flera verifierade domännamn (som visas i Azure AD-portalen eller via cmdleten **Get-MsolDomain**) anger du värdet **$multipleVerifiedDomainNames** i skriptet till **$true**. Se också till att du tar bort alla befintliga **problemrid** anspråk som kan ha skapats av Azure AD Connect eller på annat sätt. Här är ett exempel för den här regeln:
 
    ```
    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
@@ -501,9 +501,9 @@ Om några av dina domänanslutna enheter är äldre Windows-enheter måste du:
 
 ### <a name="set-a-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Ange en princip i Azure AD för att göra det möjligt för användare att registrera enheter
 
-Om du vill registrera äldre Windows-enheter ser du till att den inställning som tillåter användarna att registrera enheter i Azure AD är aktiverad. I Azure-portalen hittar du den här inställningen under **Azure Active Directory** > **Användare och grupper** > **Enhetsinställningar**.
+Om du vill registrera äldre Windows-enheter ser du till att den inställning som tillåter användarna att registrera enheter i Azure AD är aktiverad. I Azure-portalen hittar du den här inställningen under **Azure Active Directory** > **-användare och grupperar** > **enhetsinställningar**.
 
-Följande princip måste anges till **alla**: **användare kan registrera sina enheter med Azure AD**.
+Följande princip måste anges till **Alla:** **Användare kan registrera sina enheter med Azure AD**.
 
 ![Knappen Alla som gör att användarna kan registrera enheter](./media/hybrid-azuread-join-manual/23.png)
 
@@ -523,7 +523,7 @@ När en sådan begäran inkommer måste den lokala federationstjänsten autentis
 
 I AD FS måste du lägga till en utfärdanderegel för transformering som skickas genom autentiseringsmetoden. Så här lägger du till regeln:
 
-1. I AD FS-hanteringskonsolen går du till **AD FS** > **Betrodda relationer** > **Förlitande partsförtroenden**.
+1. Gå till **AD FS** > **Trust Relationships** > Relying Party Trusts i AD FS-hanteringskonsolen .**Relying Party Trusts**
 1. Högerklicka på förtroendeobjektet som förlitar sig på Microsoft Office 365-identitetsplattformen och välj **Edit Claim Rules** (Redigera anspråksregler).
 1. På fliken **Issuance Transform Rules** (Regler för utfärdandetransformering) väljer du **Lägg till regel**.
 1. I mallistan **Claim rule** (Anspråksregel) väljer du **Skicka anspråk med hjälp av en anpassad regel**.
@@ -533,7 +533,7 @@ I AD FS måste du lägga till en utfärdanderegel för transformering som skicka
 
    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-1. På din federationsserver ange du följande PowerShell-kommando. Ersätt **\<RPObjectName\>** med objektnamnet på förlitande part för förtroendeobjektet för din Azure AD-förlitande part. Det här objektet heter vanligtvis **Microsoft Office 365-identitetsplattformen**.
+1. På din federationsserver ange du följande PowerShell-kommando. Ersätt ** \<RPObjectName\> ** med det förlitande partobjektnamnet för ditt Azure AD-förlitande part-förtroendeobjekt. Det här objektet heter vanligtvis **Microsoft Office 365-identitetsplattformen**.
 
    `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -545,7 +545,7 @@ Om du vill undvika certifikatuppmaningar när användare av registrerade enheter
 
 ### <a name="control-windows-down-level-devices"></a>Kontrollera äldre Windows-enheter
 
-För att registrera äldre Windows-enheter måste du ladda ned och installera ett Windows Installer-paket (.msi) från Download Center. Mer information finns i avsnittet [kontrollerad validering av hybrid Azure AD-anslutning på Windows-baserade enheter](hybrid-azuread-join-control.md#controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices).
+För att registrera äldre Windows-enheter måste du ladda ned och installera ett Windows Installer-paket (.msi) från Download Center. Mer information finns i avsnittet [Kontrollerad validering av hybrid Azure AD-koppling på Windows enheter på lägre nivå](hybrid-azuread-join-control.md#controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices).
 
 ## <a name="verify-joined-devices"></a>Verifiera anslutna enheter
 
@@ -562,7 +562,7 @@ Om du har problem med att slutföra Azure AD-hybridanslutningen för domänanslu
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Introduktion till hantering av enheter i Azure Active Directory](overview.md)
+* [Introduktion till enhetshantering i Azure Active Directory](overview.md)
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-manual/12.png

@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs – visualisera data avvikelser i real tids händelser
-description: 'Självstudie: visualisera data avvikelser i real tids händelser som skickas till Microsoft Azure Event Hubs'
+title: Azure Event Hubs – Visualisera dataavvikelser i realtidshändelser
+description: 'Självstudiekurs: Visualisera dataavvikelser i realtidshändelser som skickas till Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,19 +10,19 @@ ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 01/15/2020
 ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77163185"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
-Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera inkommande data och extrahera avvikelser, som du sedan kan visualisera i Power BI. Anta att du har tusentals enheter som kontinuerligt skickar data i realtid till en händelsehubb. I så fall kan det röra sig om miljontals händelser per sekund. Hur kontrollerar du om det finns avvikelser, eller fel, i sådana mängder data? Vad händer om enheterna skickar kredit korts transaktioner och du måste samla in var du än har flera transaktioner i flera länder/regioner inom ett intervall om 5 sekunder? Detta kan inträffa om någon stjäl kreditkort och sedan använder dem för att köpa saker samtidigt från olika delar av världen. 
+Du kan använda Azure Stream Analytics med Azure Event Hubs för att kontrollera inkommande data och extrahera avvikelser, som du sedan kan visualisera i Power BI. Anta att du har tusentals enheter som kontinuerligt skickar data i realtid till en händelsehubb. I så fall kan det röra sig om miljontals händelser per sekund. Hur kontrollerar du om det finns avvikelser, eller fel, i sådana mängder data? Vad händer till exempel om enheterna skickar kreditkortstransaktioner och du måste samla in var du än har flera transaktioner i flera länder/regioner inom ett 5-sekundersintervall? Detta kan inträffa om någon stjäl kreditkort och sedan använder dem för att köpa saker samtidigt från olika delar av världen. 
 
-I den här självstudien får du simulera det här exemplet. Du kör ett program som skapar och skickar kreditkortstransaktioner till en händelsehubb. Sedan läser du data strömmen i real tid med Azure Stream Analytics, som avgränsar giltiga transaktioner från ogiltiga transaktioner och använder sedan Power BI för att visuellt identifiera de transaktioner som är märkta som ogiltiga.
+I den här självstudien får du simulera det här exemplet. Du kör ett program som skapar och skickar kreditkortstransaktioner till en händelsehubb. Sedan läser du dataströmmen i realtid med Azure Stream Analytics, som skiljer giltiga transaktioner från ogiltiga transaktioner och sedan använder Power BI för att visuellt identifiera de transaktioner som är taggade som ogiltiga.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett Event Hubs-namnområde
 > * Skapa en händelsehubb
@@ -32,18 +32,18 @@ I den här guiden får du lära dig att:
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto][] innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-- [Installera Visual Studio](https://www.visualstudio.com/). 
+- Installera [Visual Studio](https://www.visualstudio.com/). 
 - Du behöver ett Power BI-konto för att kunna analysera utdata från ett Stream Analytics-jobb. Du kan [prova Power BI utan kostnad](https://app.powerbi.com/signupredirect?pbi_source=web).
 
 ## <a name="set-up-resources"></a>Konfigurera resurser
 
-För den här självstudien behöver du ett Event Hubs-namnområde och en händelsehubb. Du kan skapa dessa resurser med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet av självstudien kan du ta bort allt i ett steg genom att ta bort resursgruppen.
+För den här självstudien behöver du ett Event Hubs-namnområde och en händelsehubb. Du kan skapa dessa resurser med Azure CLI eller Azure PowerShell. Använd samma resursgrupp och plats för alla resurser. I slutet kan du ta bort allt i ett steg genom att ta bort resursgruppen.
 
 Följande avsnitt beskriver hur du utför de steg som krävs. Utför följande steg genom att följa instruktionerna för CLI *eller* PowerShell:
 
@@ -54,7 +54,7 @@ Följande avsnitt beskriver hur du utför de steg som krävs. Utför följande s
 3. Skapa en händelsehubb.
 
 > [!NOTE]
-> Det finns angivna variabler i varje skript som du behöver senare i den här självstudien. Det gäller namn på resursgrupp ($resourceGroup), namnområde för händelsehubb ( **$eventHubNamespace**) och namn på händelsehubb ( **$eventHubName**). Dessa är markerade med ett dollarteckenprefix ($) senare i den här artikeln så att du vet var de har angetts i skriptet.
+> Det finns angivna variabler i varje skript som du behöver senare i den här självstudien. Det gäller namn på resursgrupp ($resourceGroup), namnområde för händelsehubb (**$eventHubNamespace**) och namn på händelsehubb (**$eventHubName**). Dessa är markerade med ett dollarteckenprefix ($) senare i den här artikeln så att du vet var de har angetts i skriptet.
 
 <!-- some day they will approve the tab control; 
   When that happens, put CLI and PSH in tabs. -->
@@ -156,13 +156,13 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Kör appen för att generera testhändelsedata
 
-Event Hubs [exemplen på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) innehåller en app för avvikelse detektor som producerar test data åt dig. Appen simulerar användning av kreditkort genom att skriva kreditkortstransaktioner till händelsehubben, och ibland skrivs flera transaktioner för samma kreditkort på flera platser så att de blir märkta som avvikelser. Följ dessa steg om du vill köra den här appen: 
+Exemplen Event Hubs [på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) innehåller en app för avvikelsedetektor som producerar testdata åt dig. Appen simulerar användning av kreditkort genom att skriva kreditkortstransaktioner till händelsehubben, och ibland skrivs flera transaktioner för samma kreditkort på flera platser så att de blir märkta som avvikelser. Följ dessa steg om du vill köra den här appen: 
 
 1. Ladda ned [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) (Azure Event Hubs-exempel) från GitHub och packa upp filen lokalt.
-2. Navigera till mappen **\azure-event-hubs-master\samples\DotNet\\** mappen. 
-3. Växla till mappen **Azure. Messaging. EventHubs\AnomalyDetector\\** och dubbelklicka på **AnomalyDetector. SLN** för att öppna lösningen i Visual Studio. 
+2. Navigera till mappen **\\ \azure-event-hubs-master\samples\DotNet-mapp.** 
+3. Växla till mappen **Azure.Messaging.EventHubs\AnomalyDetector\\ ** och dubbelklicka på **AnomalyDetector.sln** för att öppna lösningen i Visual Studio. 
 
-    Om du vill använda den gamla versionen av exemplet som använder det gamla Microsoft. Azure. EventHubs-paketet öppnar du lösningen från mappen **Microsoft. Azure. EventHubs\AnomalyDetector** . 
+    Om du vill använda den gamla versionen av exemplet som använder det gamla Microsoft.Azure.EventHubs-paketet öppnar du lösningen från mappen **Microsoft.Azure.EventHubs\AnomalyDetector.** 
 3. Öppna Program.cs och ersätt **Event Hubs-anslutningssträngen** med den anslutningssträng som du sparade när du körde skriptet. 
 4. Ersätt **namnet på händelsehubben** med namnet på din händelsehubb. Klicka på F5 för att köra programmet. Därmed skickas händelser till din händelsehubb tills 1 000 händelser har skickats. I vissa fall måste appen köras för att du ska kunna hämta data. Dessa fall anges i följande instruktioner, där det behövs.
 
@@ -172,7 +172,7 @@ Nu kan du strömma data till din händelsehubb. För att kunna använda dessa da
 
 ### <a name="create-the-stream-analytics-job"></a>Skapa Stream Analytics-jobbet
 
-1. Klicka på **Skapa en resurs** i Azure-portalen. Skriv **stream analytics** i sökrutan och tryck på **Retur**. Välj **Stream Analytics-jobb**. Klicka på **Skapa** i Stream Analytics-jobbfönstret. 
+1. Klicka på **Skapa en resurs** i Azure Portal. Skriv **stream analytics** i sökrutan och tryck på **Retur**. Välj **Stream Analytics-jobb**. Klicka på **Skapa** i Stream Analytics-jobbfönstret. 
 
 2. Ange följande information för jobbet:
 
@@ -186,7 +186,7 @@ Nu kan du strömma data till din händelsehubb. För att kunna använda dessa da
 
    ![Skärmbild som visar hur du skapar ett nytt Azure Stream Analytics-jobb.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
-    Acceptera standardvärdena för resten av fälten. Klicka på **Skapa**. 
+    För resten av fälten accepterar du standardvärdena. Klicka på **Skapa**. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
@@ -197,7 +197,7 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 > [!NOTE]
 > Värdena för variabler som börjar med dollartecken ($) anges i startskriptet i föregående avsnitt. Du måste använda samma värden här när du anger dessa fält, det vill säga Event Hubs-namnområdet och namnet på händelsehubben.
 
-1. Klicka på **Indata** under **Jobbtopologi**.
+1. Under **Jobbtopologi** klickar du på **Indata**.
 
 2. Klicka på **Lägg till strömindata** i fönstret **Indata** och välj Event Hubs. På skärmen som visas fyller du i följande fält:
 
@@ -213,11 +213,11 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 
    **Event Hubs-konsumentgrupp**: Använd standardkonsumentgruppen genom att lämna det här fältet tomt.
 
-   Acceptera standardvärdena för resten av fälten.
+   För resten av fälten accepterar du standardvärdena.
 
    ![Skärmbild som visar hur du lägger till en indataström till Stream Analytics-jobbet.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
-5. Klicka på **Save** (Spara).
+5. Klicka på **Spara**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Lägga till utdata till Stream Analytics-jobbet
 
@@ -231,15 +231,15 @@ Indata för Steam Analytics-jobbet är kreditkortstransaktioner från händelseh
 
    **Tabellnamn**: Använd **contosoehtable**. Det här fältet är namnet på tabellen som ska användas i Power BI. 
 
-   Acceptera standardvärdena för resten av fälten.
+   För resten av fälten accepterar du standardvärdena.
 
    ![Skärmbild som visar hur du konfigurerar utdata för ett Stream Analytics-jobb.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-outputs.png)
 
 3. Klicka på **Autentisera** och logga in på Power BI-kontot.
 
-4. Acceptera standardvärdena för resten av fälten.
+4. För resten av fälten accepterar du standardvärdena.
 
-5. Klicka på **Save** (Spara).
+5. Klicka på **Spara**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan för Stream Analytics-jobbet
 
@@ -268,7 +268,7 @@ Den här frågan används för att hämta data som slutligen skickas till Power 
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Klicka på **Save** (Spara).
+4. Klicka på **Spara**.
 
 ### <a name="test-the-query-for-the-stream-analytics-job"></a>Testa frågan för Stream Analytics-jobbet 
 
@@ -306,7 +306,7 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
    ![Skärmbild av hur du anger instrumentpanelens namn.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. På instrument panels sidan klickar du på **Lägg till panel**, väljer **anpassade strömmande data** i **real tids data** avsnittet och klickar sedan på **Nästa**.
+7. Klicka på Lägg **till panel på**instrumentpanelen, välj **Anpassade strömmande data** i avsnittet **REALTIDSDATA** och klicka sedan på **Nästa**.
 
    ![Skärmbild av hur du anger källa för panelen.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 
@@ -318,9 +318,9 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
    ![Skärmbild av hur du anger visualiseringstyp och fält.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
-   Klicka på **Next**.
+   Klicka på **Nästa**.
 
-10. Ange **Fraudulent uses** (Bedräglig användning) som rubrik och **Sum in last few minutes** (Summa de senaste minuterna) som underrubrik. Klicka på **Verkställ**. Panelen sparas på instrumentpanelen.
+10. Ange **Fraudulent uses** (Bedräglig användning) som rubrik och **Sum in last few minutes** (Summa de senaste minuterna) som underrubrik. Klicka på **Använd**. Panelen sparas på instrumentpanelen.
 
     ![Skärmbild av rubrik och underrubrik för panelen på instrumentpanelen.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
@@ -330,7 +330,7 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
     * Klicka på **Lägg till panel**.
     * Välj **Anpassade strömmande data**. 
-    * Klicka på **Next**.
+    * Klicka på **Nästa**.
     * Välj din datauppsättning och klicka sedan på **Nästa**. 
 
 12. Välj **Linjediagram** under **Visualiseringstyp**.
@@ -339,7 +339,7 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
 14. Klicka på **Lägg till värde** under **Värden** och välj **fraudulentuses**.
 
-15. Under **Tidsfönster att visa** väljer du de senaste fem minuterna. Klicka på **Next**.
+15. Under **Tidsfönster att visa** väljer du de senaste fem minuterna. Klicka på **Nästa**.
 
 16. Ange **Show fraudulent uses over time** (Visa bedräglig användning över tid) som rubrik och lämna underrubriken tom. Klicka sedan på **Verkställ**. Du kommer tillbaka till instrumentpanelen.
 
@@ -386,4 +386,4 @@ Gå vidare till nästa artikel om du vill lära dig mer om Azure Event Hubs.
 > [!div class="nextstepaction"]
 > [Komma igång med att skicka meddelanden till Azure Event Hubs med .NET Standard](get-started-dotnet-standard-send-v2.md)
 
-[Skapa ett kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[skapa ett kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -1,22 +1,23 @@
 ---
-title: Beräkna storleken på en BLOB-behållare med PowerShell
+title: Beräkna storleken på en blob-behållare med PowerShell
 titleSuffix: Azure Storage
 description: Beräkna storleken på en container i Azure Blob-lagring genom att addera storleken på dess blobar.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 890da96ac1d97a2eb84f5296c74a02824d657273
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: de51ed7d91ba1102f5a9cd376ab95f49dd54d9f3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895048"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067075"
 ---
-# <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Beräkna storleken på en BLOB-behållare med PowerShell
+# <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Beräkna storleken på en blob-behållare med PowerShell
 
 Det här skriptet beräknar storleken på en container i Azure Blob-lagring genom att addera storleken på blobarna i containern.
 
@@ -25,13 +26,13 @@ Det här skriptet beräknar storleken på en container i Azure Blob-lagring geno
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Det här PowerShell-skriptet ger en uppskattad storlek för containern och ska inte användas för faktureringsberäkningar. Information om ett skript som beräknar containerstorlek för faktureringsändamål finns i [Beräkna storleken på en Blob Storage-container för faktureringsändamål](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
+> Det här PowerShell-skriptet ger en uppskattad storlek för containern och ska inte användas för faktureringsberäkningar. Information om ett skript som beräknar containerstorlek för faktureringsändamål finns i [Beräkna storleken på en Blob Storage-container för faktureringsändamål](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
 ## <a name="sample-script"></a>Exempelskript
 
 [!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size.ps1 "Calculate container size")]
 
-## <a name="clean-up-deployment"></a>Rensa distribution 
+## <a name="clean-up-deployment"></a>Rensa distribution
 
 Kör följande kommando för att ta bort resursgruppen, containern och alla relaterade resurser.
 

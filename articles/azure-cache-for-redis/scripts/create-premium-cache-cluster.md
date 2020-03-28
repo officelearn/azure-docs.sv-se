@@ -1,6 +1,6 @@
 ---
-title: Skapa en Premium Azure-cache för Redis med klustring – Azure CLI
-description: Detta exempel på Azure CLI-kod visar hur du skapar en Azure-cache på 6 GB Premium-nivå för Redis med klustring aktiverat och två Shards.
+title: Skapa en Premium Azure-cache för Redis med klustring - Azure CLI
+description: Det här Azure CLI-kodexemplet visar hur du skapar en 6 GB Premium-nivå Azure Cache för Redis med kluster aktiverat och två shards.
 author: yegu-ms
 ms.author: yegu
 tags: azure-service-management
@@ -9,15 +9,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
 ms.openlocfilehash: 68203fe2e054f32ce5764fe4f1b07013b0806104
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75411151"
 ---
-# <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Skapa en Premium Azure Cache för Redis med klustring
+# <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Skapa en Premium Azure-cache för Redis med klustring
 
-Lär dig hur du skapar en 6 GB på en Premium-nivån Azure Cache för Redis med aktiverad klustring och två fragment i det här scenariot.
+I det här scenariot lär du dig hur du skapar en 6 GB Premium-nivå Azure Cache för Redis med klustring aktiverat och två shards.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -29,16 +29,16 @@ Lär dig hur du skapar en 6 GB på en Premium-nivån Azure Cache för Redis med 
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet används följande kommandon för att skapa en resursgrupp och aktivera en Premium-nivån Azure Cache för Redis med klustring. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder följande kommandon för att skapa en resursgrupp och en Azure-cache på Premium-nivå för Redis med klusteraktivering. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
-| [Skapa AZ redis](https://docs.microsoft.com/cli/azure/redis) | Skapa Azure Cache för Redis-instans. |
+| [az redis skapa](https://docs.microsoft.com/cli/azure/redis) | Skapa Azure-cache för Redis-instans. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare Azure Cache för Redis-CLI-skriptexempel finns i den [Azure Cache för Redis-dokumentation](../cli-samples.md).
+Ytterligare Azure-cache för Redis CLI-skriptexempel finns i [Azure Cache for Redis-dokumentationen](../cli-samples.md).

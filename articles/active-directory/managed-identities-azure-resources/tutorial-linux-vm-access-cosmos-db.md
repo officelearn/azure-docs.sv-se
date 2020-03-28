@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:`använda en hanterad identitet för att komma åt Azure Cosmos DB – Linux – Azure AD
+title: Självstudiekurs`:`Använd en hanterad identitet för att komma åt Azure Cosmos DB - Linux - Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f15a269656f205b0acb6a49740dd4c625c0bdd41
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78248285"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Cosmos DB 
@@ -37,7 +37,7 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 > * Hämta en åtkomsttoken och använd den för att anropa Azure Resource Manager
 > * Hämta åtkomstnycklar från Azure Resource Manager för att göra Cosmos DB-anrop
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -48,13 +48,13 @@ Om du vill köra CLI-exempelskripten i den här självstudien har du två altern
 
 ## <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto 
 
-Om du inte redan har ett skapar du ett Cosmos DB-konto. Du kan hoppa över det här steget och använda ett befintligt Cosmos DB-konto. 
+Om du inte redan har ett Cosmos DB-konto skapar du ett. Du kan hoppa över det här steget och använda ett befintligt Cosmos DB-konto. 
 
-1. Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
+1. Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
 2. Klicka på **Databaser** och sedan på **Azure Cosmos DB**. Panelen ”Nytt konto” visas.
 3. Ange ett **ID** för Cosmos DB-kontot som du ska använda senare.  
 4. **API** bör ha värdet ”SQL”. Metoden som beskrivs i den här självstudien kan användas med de andra tillgängliga API-typerna, men stegen i den här självstudien gäller för SQL-API:et.
-5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.  Välj en **plats** där Cosmos DB är tillgänglig.
+5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.  Välj en **plats** där Cosmos DB är tillgänglig.
 6. Klicka på **Skapa**.
 
 ## <a name="create-a-collection-in-the-cosmos-db-account"></a>Skapa en samling i Cosmos DB-kontot
@@ -63,11 +63,11 @@ Lägg till en datasamling till Cosmos DB-kontot som du kan skicka frågor mot i 
 
 1. Gå till Cosmos DB-kontot som du precis skapat.
 2. Klicka på knappen **+/Lägg till samling** på fliken **Översikt**. Panelen ”Lägg till samling” visas.
-3. Tilldela samlingen ett databas-ID och ett samlings-ID, välj en lagringskapacitet, ange en partitionsnyckel, ange ett värde för dataflöde och klicka sedan på **OK**.  I den här självstudien kan du använda ”Test” som databas-ID och samlings-ID, välja en fast lagringskapacitet och det lägsta dataflöde (400 RU/s).  
+3. Tilldela samlingen ett databas-ID och ett samlings-ID, välj en lagringskapacitet, ange en partitionsnyckel, ange ett värde för dataflöde och klicka sedan på **OK**.  I den här självstudien räcker det att du använder ”Test” som databas-ID och samlings-ID, väljer en fast lagringskapacitet och det lägsta dataflödet (400 RU/s).  
 
 ## <a name="retrieve-the-principalid-of-the-linux-vms-system-assigned-managed-identity"></a>Hämta `principalID` för den virtuella Linux-datorns systemtilldelade hanterade identitet
 
-För att få åtkomst till åtkomstnycklarna för Cosmos DB-kontot från Resource Manager i följande avsnitt måste du hämta `principalID` för den virtuella Linux-datorns systemtilldelade hanterade identitet.  Se till att ersätta `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resurs grupp där den virtuella datorn finns) och `<VM NAME>` parameter värden med dina egna värden.
+För att få åtkomst till åtkomstnycklarna för Cosmos DB-kontot från Resource Manager i följande avsnitt måste du hämta `principalID` för den virtuella Linux-datorns systemtilldelade hanterade identitet.  Var noga med `<SUBSCRIPTION ID>` `<RESOURCE GROUP>` att ersätta , (resursgrupp där `<VM NAME>` den virtuella datorn finns) och parametervärden med dina egna värden.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
@@ -114,9 +114,9 @@ Svaret innehåller information om rolltilldelningen som skapats:
 
 Under resten av den här självstudien ska du arbeta från den virtuella datorn som skapades tidigare.
 
-För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 
-1. Gå till **Virtuella datorer** på Azure Portal, gå till den virtuella Linux-datorn och klicka sedan längst upp på **Anslut** på sidan **Översikt**. Kopiera strängen för att ansluta till din virtuella dator. 
+1. Gå till **Virtuella datorer** på Azure Portal, gå till den virtuella Linux-datorn och klicka sedan längst upp på **Anslut** på sidan **Översikt**. Kopiera strängen för anslutning till din virtuella dator. 
 2. Anslut till den virtuella datorn med hjälp av SSH-klienten.  
 3. Nu uppmanas du att ange **lösenordet** som du lade till när du skapade **den virtuella Linux-datorn**. Därefter bör du loggas in.  
 4. Använd CURL för att hämta en åtkomsttoken för Azure Resource Manager: 
@@ -126,7 +126,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
     ```
  
     > [!NOTE]
-    > I föregående begäran måste värdet för resource-parametern vara en exakt matchning av vad som förväntas av Azure Active Directory. När du använder Azure Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n.
+    > I föregående begäran måste värdet för ”resource”-parametern vara en exakt matchning av vad som förväntas av Azure AD. När du använder Azure Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n.
     > I följande svar har access_token-elementet kortats ned.
     
     ```bash
@@ -148,7 +148,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 ```
 
 > [!NOTE]
-> Eftersom texten i den tidigare URL:en är skiftlägeskänslig måste du använda samma skiftläge för dina resursgrupper. Dessutom är det viktigt att du är medveten om att det här är en POST-begäran och inte en GET-begäran, samt att du skickar ett värde och registrerar en längdbegränsning med -d, som kan vara NULL.  
+> Eftersom texten i den tidigare URL:en är skiftlägeskänslig måste du använda samma skiftläge för dina resursgrupper. Dessutom är det viktigt att du är medveten om att det här är en POST-begäran, inte en GET-begäran, samt att du skickar ett värde för att registrera en längdbegränsning med -d som kan vara NULL.  
 
 CURL-svaret returnerar listan med nycklar.  Om du till exempel hämtar de skrivskyddade nycklarna:  
 

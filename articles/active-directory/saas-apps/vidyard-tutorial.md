@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Vidyard | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Vidyard | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Vidyard.
 services: active-directory
 documentationCenter: na
@@ -16,46 +16,46 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a55ec7afc94440ea8b6a48ed1507476d362df6c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67087428"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Självstudier: Azure Active Directory-integrering med Vidyard
+# <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Självstudiekurs: Azure Active Directory-integrering med Vidyard
 
-I den här självstudien får du lära dig hur du integrerar Vidyard med Azure Active Directory (AD Azure).
-Integrera Vidyard med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Vidyard med Azure Active Directory (Azure AD).
+Genomyard med Azure AD ger dig följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Vidyard.
-* Du kan aktivera användarna att vara automatiskt inloggad till Vidyard (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Vidyard (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Vidyard, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Vidyard behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Vidyard enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Vidyard enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Vidyard **SP** och **IDP** -initierad SSO
+* Vidyard stöder **SP** och **IDP** initierade SSO
 
-* Har stöd för Vidyard **Just In Time** etableringen av användare
+* Vidyard stöder just in time-användaresetablering **Just In Time**
 
-## <a name="adding-vidyard-from-the-gallery"></a>Att lägga till Vidyard från galleriet
+## <a name="adding-vidyard-from-the-gallery"></a>Lägga till Vidyard från galleriet
 
-För att konfigurera integrering av Vidyard i Azure AD, som du behöver lägga till Vidyard från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Vidyard i Azure AD måste du lägga till Vidyard från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Vidyard från galleriet:**
+**Så här lägger du till Vidyard från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -63,37 +63,37 @@ För att konfigurera integrering av Vidyard i Azure AD, som du behöver lägga t
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Vidyard**väljer **Vidyard** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **Vidyard**i sökrutan och välj **Vidyard** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
 
      ![Vidyard i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Vidyard baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Vidyard upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Vidyard baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Vidyard upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Vidyard, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Vidyard måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Vidyard Single Sign-On](#configure-vidyard-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Vidyard](#create-vidyard-test-user)**  – du har en motsvarighet för Britta Simon i Vidyard som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Vidyard Single Sign-On](#configure-vidyard-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Vidyard testanvändare](#create-vidyard-test-user)** - att ha en motsvarighet till Britta Simon i Vidyard som är kopplad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Vidyard:
+Så här konfigurerar du en enkel Azure AD-inloggning med Vidyard:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Vidyard** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Vidyard-programintegration**. **Vidyard**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,84 +103,84 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Vidyard
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
-    ![Vidyard domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Vidyard Domain och webbadresser enkel inloggningsinformation](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
+    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://secure.vidyard.com/sso/saml/<unique id>/metadata`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://secure.vidyard.com/sso/saml/<unique id>/consume`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Vidyard domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Vidyard Domain och webbadresser enkel inloggningsinformation](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://secure.vidyard.com/sso/saml/<unique id>/login`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://secure.vidyard.com/sso/saml/<unique id>/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Dessa värden uppdateras med de faktiska identifierare, svars-URL och inloggnings-URL, vilket beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Du kommer att uppdatera dessa värden med den faktiska identifieraren, svars-URL:en och inloggnings-URL: en, vilket förklaras senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-7. På den **konfigurera Vidyard** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Vidyard.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-vidyard-single-sign-on"></a>Konfigurera Vidyard Single Sign-On
+### <a name="configure-vidyard-single-sign-on"></a>Konfigurera Vidyard Enkel inloggning
 
-1. I ett annat webbläsarfönster, loggar du in din Vidyard programvara företagets webbplats som administratör.
+1. I ett annat webbläsarfönster loggar du in på din Webbplats för Vidyard Software som administratör.
 
-2. Från instrumentpanelen Vidyard väljer **grupp** > **säkerhet**
+2. På Vidyard-instrumentpanelen väljer du > **Gruppsäkerhet** **Group**
 
-    ![Vidyard konfiguration](./media/vidyard-tutorial/configure1.png)
+    ![Vidyard Konfiguration](./media/vidyard-tutorial/configure1.png)
 
-3. Klicka på **ny profil** fliken.
+3. Klicka på fliken **Ny profil.**
 
-    ![Vidyard konfiguration](./media/vidyard-tutorial/configure2.png)
+    ![Vidyard Konfiguration](./media/vidyard-tutorial/configure2.png)
 
-4. I den **SAML-konfiguration** avsnittet, utför följande steg:
+4. Gör följande i avsnittet **SAML-konfiguration:**
 
-    ![Vidyard konfiguration](./media/vidyard-tutorial/configure3.png)
+    ![Vidyard Konfiguration](./media/vidyard-tutorial/configure3.png)
 
-    a. Ange allmänna profilnamn i den **profilnamn** textrutan.
+    a. Ange allmänt profilnamn i textrutan **Profilnamn.**
 
-    b. Kopiera **SSO-inloggning användarsidan** värde och klistra in den i **inloggnings-URL** -textrutan i **grundläggande SAML-konfiguration** avsnittet på Azure-portalen.
+    b. Kopiera **värdet på SSO-användarlogin och** klistra in det i textrutan Logga in på **URL** i avsnittet **Grundläggande SAML-konfiguration** på Azure-portalen.
 
-    c. Kopiera **ACS URL** värde och klistra in den i **svars-URL** -textrutan i **SAML grundkonfiguration** avsnittet på Azure-portalen.
+    c. Kopiera **ACS-URL-värdet** och klistra in det i textrutan **Svara url** i avsnittet Grundläggande **SAML-konfiguration** på Azure-portalen.
 
-    d. Kopiera **utfärdare/Metadata-URL** värde och klistra in den i **identifierare** textrutan i **SAML grundkonfiguration** avsnittet på Azure-portalen.
+    d. **Url-värdet kopiera utfärdare/metadata** och klistra in det i textrutan **Identifierare** i avsnittet **Grundläggande SAML-konfiguration** på Azure-portalen.
 
-    e. Öppna filen nedladdade certifikatet från Azure-portalen i anteckningar och klistra in den i den **X.509-certifikat** textrutan.
+    e. Öppna den nedladdade certifikatfilen från Azure-portalen i Anteckningar och klistra sedan in den i textrutan **X.509 Certificate.**
 
-    f. I den **slutpunkts-URL för SAML** textrutan klistra in värdet för **inloggnings-URL** kopieras från Azure-portalen.
+    f. Klistra in värdet för **inloggnings-URL** som kopierats från Azure-portalen i SMS-textrutan FÖR **SIML-slutpunkt.**
 
     g. Klicka på **Bekräfta**.
 
-5. Välj fliken Single Sign On **tilldela** bredvid en befintlig profil
+5. Välj **Tilldela bredvid** en befintlig profil på fliken Enkel inloggning
 
-    ![Vidyard konfiguration](./media/vidyard-tutorial/configure4.png)
-
-    > [!NOTE]
-    > När du har skapat en profil för enkel inloggning kan du tilldela den till alla grupper som användarna måste ha åtkomst via Azure. Om användaren inte finns i den grupp som de har tilldelats, Vidyard automatiskt skapa ett användarkonto och tilldela deras roll i realtid.
-
-6. Välj Organisationsgrupp för din, som visas i den **grupper som är tillgängliga att distribuera**.
-
-    ![Vidyard konfiguration](./media/vidyard-tutorial/configure5.png)
-
-7. Du kan se de tilldelade grupperna under den **för närvarande tilldelade grupper**. Välj en roll för gruppen enligt din organisation och klickar på **Bekräfta**.
-
-    ![Vidyard konfiguration](./media/vidyard-tutorial/configure6.png)
+    ![Vidyard Konfiguration](./media/vidyard-tutorial/configure4.png)
 
     > [!NOTE]
-    > Mer information finns i [det här dokumentet](https://knowledge.vidyard.com/hc/articles/360009990033-SAML-based-Single-Sign-On-SSO-in-Vidyard).
+    > När du har skapat en SSO-profil tilldelar du den till alla grupper som användarna behöver åtkomst via Azure. Om användaren inte finns i den grupp som de tilldelades, skapar Vidyard automatiskt ett användarkonto och tilldelar sin roll i realtid.
+
+6. Välj din organisationsgrupp, som visas i **grupperna Som är tillgängliga att tilldela**.
+
+    ![Vidyard Konfiguration](./media/vidyard-tutorial/configure5.png)
+
+7. Du kan se de tilldelade grupperna under grupperna **Som för närvarande har tilldelats**. Välj en roll för gruppen enligt din organisation och klicka på **Bekräfta**.
+
+    ![Vidyard Konfiguration](./media/vidyard-tutorial/configure6.png)
+
+    > [!NOTE]
+    > Mer information finns [i det här dokumentet](https://knowledge.vidyard.com/hc/articles/360009990033-SAML-based-Single-Sign-On-SSO-in-Vidyard).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -190,7 +190,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -200,23 +200,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Vidyard.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure single sign-on genom att bevilja åtkomst till Vidyard.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Vidyard**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Vidyard**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Vidyard**.
+2. I programlistan väljer du **Vidyard**.
 
-    ![Länken Vidyard i listan med program](common/all-applications.png)
+    ![Länken Vidyard i listan Applikationer](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -228,22 +228,22 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-vidyard-test-user"></a>Skapa Vidyard testanvändare
+### <a name="create-vidyard-test-user"></a>Skapa Avvaryard testanvändare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Vidyard. Vidyard stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Vidyard, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter Britta Simon på Vidyard. Vidyard stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Vidyard skapas en ny efter autentisering.
 
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Vidyard supportteamet](mailto:support@vidyard.com).
+>Om du behöver skapa en användare manuellt kontaktar du [Vidyard supportteam](mailto:support@vidyard.com).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Vidyard i åtkomstpanelen, bör det vara loggas in automatiskt till Vidyard som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Vidyard-panelen i åtkomstpanelen ska du automatiskt loggas in på den Vidyard som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

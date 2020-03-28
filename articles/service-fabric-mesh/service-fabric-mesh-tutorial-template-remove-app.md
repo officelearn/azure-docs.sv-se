@@ -1,5 +1,5 @@
 ---
-title: Självstudie – ta bort en app som körs i Azure Service Fabric nät
+title: Självstudiekurs- Ta bort en app som körs i Azure Service Fabric Mesh
 description: I den här självstudien lär du dig hur du tar bort ett program som körs i Service Fabric Mesh och tar bort resurserna.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 4780f81d23f0183837d2aafb9a8e5e2c41faa1cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351803"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>Självstudie: Ta bort ett program och resurser
@@ -25,7 +25,7 @@ I del fyra i serien lär du dig att:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * [Distribuera ett program till Service Fabric Mesh med hjälp av en mall](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [Distribuera ett program till Service Fabric Mesh med en mall](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * [Skala ett program som körs i Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
 > * [Uppgradera ett program som körs i Service Fabric Mesh](service-fabric-mesh-tutorial-template-upgrade-app.md)
 > * Ta bort ett program

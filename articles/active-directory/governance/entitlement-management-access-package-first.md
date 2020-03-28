@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Skapa åtkomst paket – hantering av Azure AD-berättigande
-description: Stegvis själv studie kurs om hur du skapar ditt första Access-paket i Azure Active Directory hantering av rättigheter.
+title: Självstudiekurs - Skapa åtkomstpaket - Hantering av Azure AD-berättigande
+description: Steg-för-steg-självstudiekurs för hur du skapar ditt första åtkomstpaket i Azure Active Directory-berättigandehantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,247 +17,247 @@ ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75422657"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudie: skapa ditt första Access-paket i Azure AD-hantering av rättigheter
+# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudiekurs: Skapa ditt första åtkomstpaket i Azure AD-berättigandehantering
 
-Att hantera åtkomst till alla resurser som krävs av de anställda, till exempel grupper, program och platser, är en viktig funktion för organisationer. Du vill ge anställda den rätta åtkomst nivån som de behöver för att vara produktiv och ta bort deras åtkomst när den inte längre behövs.
+Att hantera åtkomst till alla resurser som medarbetare behöver, till exempel grupper, program och webbplatser, är en viktig funktion för organisationer. Du vill ge medarbetarna rätt åtkomstnivå som de behöver för att vara produktiva och ta bort deras åtkomst när den inte längre behövs.
 
-I den här självstudien arbetar du för Sparbanken-bank som IT-administratör. Du har fått en förfrågan om att skapa ett paket med resurser för en marknadsförings kampanj som interna användare kan själv betjäna. Begär Anden kräver inte godkännande och användarens åtkomst upphör att gälla efter 30 dagar. I den här självstudien är marknadsförings kampanjens resurser bara medlemmar i en enda grupp, men det kan vara en samling av grupper, program eller SharePoint Online-webbplatser.
+I den här självstudien arbetar du för Woodgrove Bank som IT-administratör. Du har ombetts att skapa ett paket med resurser för en marknadsföringskampanj som interna användare kan begära självbetjäning. Begäranden kräver inte godkännande och användarens åtkomst upphör att gälla efter 30 dagar. För den här självstudien är marknadsföringskampanjresurserna bara medlemskap i en enda grupp, men det kan vara en samling grupper, program eller SharePoint Online-webbplatser.
 
 ![Scenarioöversikt](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa ett Access-paket med en grupp som en resurs
-> * Tillåt en användare i din katalog att begära åtkomst
-> * Visa hur en intern användare kan begära åtkomst paketet
+> * Skapa ett åtkomstpaket med en grupp som resurs
+> * Tillåt en användare i katalogen att begära åtkomst
+> * Visa hur en intern användare kan begära åtkomstpaketet
 
-En steg-för-steg-demonstration av processen att distribuera Azure Active Directory hantering av rättigheter, inklusive att skapa ditt första Access-paket, finns i följande videoklipp:
+En stegvis demonstration av processen för att distribuera Azure Active Directory-berättigandehantering, inklusive att skapa ditt första åtkomstpaket, visar du följande video:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill använda hantering av Azure AD-rättigheter måste du ha en av följande licenser:
+Om du vill använda hantering av Azure AD-berättigande måste du ha någon av följande licenser:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5-licens
 
-Mer information finns i [licens krav](entitlement-management-overview.md#license-requirements).
+Mer information finns i [Licenskrav](entitlement-management-overview.md#license-requirements).
 
-## <a name="step-1-set-up-users-and-group"></a>Steg 1: konfigurera användare och grupp
+## <a name="step-1-set-up-users-and-group"></a>Steg 1: Konfigurera användare och grupper
 
-En resurs katalog har en eller flera resurser att dela. I det här steget skapar du en grupp med namnet **marknadsförings resurser** i katalogen Sparbanken som är mål resursen för rättighets hantering. Du skapar också en intern begär Ande.
+En resurskatalog har en eller flera resurser att dela. I det här steget skapar du en grupp med namnet **Marknadsföringsresurser** i Woodgrove Bank-katalogen som är målresursen för rättighetshantering. Du kan också ställa in en intern beställare.
 
-**Nödvändig roll:** Global administratör eller användar administratör
+**Viktig roll:** Global administratör eller användaradministratör
 
 ![Skapa användare och grupper](./media/entitlement-management-access-package-first/elm-users-groups.png)
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör eller användar administratör.  
+1. Logga in på [Azure-portalen](https://portal.azure.com) som global administratör eller användaradministratör.  
 
-1. Klicka på **Azure Active Directory**i det vänstra navigerings fältet.
+1. Klicka på Azure **Active Directory**i den vänstra navigeringen .
 
 1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller olika namn. **Admin1** kan vara den användare som du för närvarande är inloggad som.
 
     | Namn | Katalogroll |
     | --- | --- |
-    | **Admin1** | Global administratör<br/>ELLER<br/>Användar administratör |
-    | **Requestor1** | Användare |
+    | **Admin1 (Admin1)** | Global administratör<br/>ELLER<br/>Användaradministratör |
+    | **Beställare1** | Användare |
 
-1. Skapa en Azure AD-säkerhetsgrupp med namnet **marknadsförings resurser** med en **tilldelad**medlemskaps typ.
+1. Skapa en Azure AD-säkerhetsgrupp med namnet **Marknadsföringsresurser** med en **medlemstyp av Tilldelad**.
 
-    Den här gruppen är mål resursen för hantering av rättigheter. Gruppen ska vara tom för medlemmar att starta.
+    Den här gruppen kommer att vara målresursen för rättighetshantering. Gruppen ska vara tom på medlemmar som ska startas.
 
-## <a name="step-2-create-an-access-package"></a>Steg 2: skapa ett Access-paket
+## <a name="step-2-create-an-access-package"></a>Steg 2: Skapa ett åtkomstpaket
 
-Ett *Access-paket* är ett paket med resurser som ett team eller projekt behöver och som styrs av principer. Åtkomst paket definieras i behållare som kallas *kataloger*. I det här steget skapar du ett åtkomst paket för **marknadsförings kampanjen** i den **allmänna** katalogen.
+Ett *åtkomstpaket* är en bunt resurser som en grupp eller ett projekt behöver och styrs med principer. Åtkomstpaket definieras i behållare som kallas *kataloger*. I det här steget skapar du ett åtkomstpaket **för marknadsföringskampanjer** i katalogen **Allmänt.**
 
-**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
 
-![Skapa ett Access-paket](./media/entitlement-management-access-package-first/elm-access-package.png)
+![Skapa ett åtkomstpaket](./media/entitlement-management-access-package-first/elm-access-package.png)
 
-1. Klicka på **Azure Active Directory**i Azure Portal i det vänstra navigerings fältet.
+1. Klicka på Azure Active Directory i Azure-portalen i den vänstra **navigeringen**.
 
-1. På den vänstra menyn klickar du på **identitets styrning**
+1. Klicka på **Identitetsstyrning** på den vänstra menyn
 
-1. Klicka på **åtkomst paket**på den vänstra menyn.  Om du ser **åtkomst nekad**, se till att det finns en Azure AD Premium P2-licens i din katalog.
+1. Klicka på **Access-paket**på menyn till vänster.  Om du ser **Nekad Åtkomst**kontrollerar du att det finns en Azure AD Premium P2-licens i katalogen.
 
-1. Klicka på **nytt Access-paket**.
+1. Klicka på **Nytt åtkomstpaket**.
 
-    ![Hantering av rättigheter i Azure Portal](./media/entitlement-management-shared/access-packages-list.png)
+    ![Hantering av rättigheter i Azure-portalen](./media/entitlement-management-shared/access-packages-list.png)
 
-1. På fliken **grundläggande** anger du åtkomst paketet för namn **marknadsförings kampanjen** och beskrivningen **åtkomst till resurser för kampanjen**.
+1. På fliken Grunderna skriver du namnet **Marknadsföringskampanjåtkomstpaket** och beskrivning **Åtkomst till resurser för kampanjen**. **Basics**
 
-1. Lämna List rutan **katalog** inställd på **Allmänt**.
+1. Lämna listrutan **Katalog** inställd på **Allmänt**.
 
-    ![Nytt åtkomst paket – fliken grunder](./media/entitlement-management-access-package-first/basics.png)
+    ![Nytt åtkomstpaket - fliken Grunderna](./media/entitlement-management-access-package-first/basics.png)
 
-1. Klicka på **Nästa** för att öppna fliken **resurs roller** .
+1. Klicka på **Nästa** för att öppna fliken **Resursroller.**
 
-    På den här fliken väljer du de resurser och resurs rollen som ska ingå i åtkomst paketet.
+    På den här fliken väljer du de resurser och den resursroll som ska ingå i åtkomstpaketet.
 
-1. Klicka på **grupper och team**.
+1. Klicka på **Grupper och lag**.
 
-1. I fönstret Välj grupper letar du reda på och väljer gruppen **marknadsförings resurser** som du skapade tidigare.
+1. Leta reda på och välj gruppen **Marknadsföringsresurser som** du skapade tidigare i fönstret Välj grupper.
 
-    Som standard visas grupper i och utanför den **allmänna** katalogen. När du väljer en grupp utanför den **allmänna** katalogen kommer den att läggas till i den **allmänna** katalogen.
+    Som standard visas grupper i och utanför katalogen **Allmänt.** När du väljer en grupp utanför katalogen **Allmänt** läggs den till i katalogen **Allmänt.**
 
-    ![Nytt Access-paket – fliken resurs roller](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Nytt åtkomstpaket - fliken Resursroller](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
-1. Klicka på **Välj** för att lägga till gruppen i listan.
+1. Klicka på **Markera** om du vill lägga till gruppen i listan.
 
-1. I list rutan **roll** väljer du **medlem**.
+1. Välj **Medlem**i listrutan **Roll** .
 
-    ![Nytt Access-paket – fliken resurs roller](./media/entitlement-management-access-package-first/resource-roles.png)
+    ![Nytt åtkomstpaket - fliken Resursroller](./media/entitlement-management-access-package-first/resource-roles.png)
 
-1. Klicka på **Nästa** för att öppna fliken **förfrågningar** .
+1. Klicka på **Nästa** för att öppna fliken **Begäranden.**
 
-    På den här fliken skapar du en princip för begäran. En *princip* definierar regler eller guardrails för åtkomst till ett Access-paket. Du skapar en princip som tillåter en speciell användare i resurs katalogen att begära det här åtkomst paketet.
+    På den här fliken skapar du en begärandeprincip. En *princip* definierar regler eller skyddsräcken för att komma åt ett åtkomstpaket. Du skapar en princip som gör att en viss användare i resurskatalogen kan begära det här åtkomstpaketet.
 
-1. I avsnittet **användare som kan begära åtkomst** klickar du på **för användare i din katalog** och klickar sedan på **vissa användare och grupper**.
+1. I avsnittet **Användare som kan begära åtkomst** klickar du på För användare i **katalogen** och sedan på **Specifika användare och grupper**.
 
-    ![Nytt åtkomst paket – fliken begär Anden](./media/entitlement-management-access-package-first/requests.png)
+    ![Nytt åtkomstpaket - fliken Begäranden](./media/entitlement-management-access-package-first/requests.png)
 
 1. Klicka på **Lägg till användare och grupper**.
 
-1. I fönstret Välj användare och grupper väljer du den **Requestor1** -användare som du skapade tidigare.
+1. I fönstret Välj användare och grupper väljer du den **Requestor1-användare** som du skapade tidigare.
 
-    ![Nytt åtkomst paket – fliken begär Anden – Välj användare och grupper](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
+    ![Nytt åtkomstpaket - fliken Begäranden - Välj användare och grupper](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
 
-1. Klicka på **Välj**.
+1. Klicka på **Markera**.
 
-1. Rulla ned till avsnitten **godkännande** och **Aktivera förfrågningar** .
+1. Bläddra ned till avsnitten **Godkännande** och **Aktivera begäranden.**
 
-1. Lämna **Kräv godkännande** inställt på **Nej**.
+1. Lämna **Kräv godkännande** inställt på **Nr**.
 
-1. För **Aktivera begär Anden**klickar du på **Ja** för att aktivera det här åtkomst paketet så snart det skapas.
+1. För **Aktivera begäranden**klickar du på **Ja** för att aktivera det här åtkomstpaketet så snart det har skapats.
 
-    ![Nytt åtkomst paket – fliken begär Anden om godkännande och aktivering](./media/entitlement-management-access-package-first/requests-approval-enable.png)
+    ![Nytt åtkomstpaket - fliken Begäranden - Begäranden om godkännande och aktivera begäranden](./media/entitlement-management-access-package-first/requests-approval-enable.png)
 
-1. Klicka på **Nästa** för att öppna fliken **livs cykel** .
+1. Klicka på **Nästa** för att öppna fliken **Livscykel.**
 
-1. I avsnittet **förfallo datum** kan du ange att **åtkomst paket tilldelningar ska gå ut** till **antalet dagar**.
+1. I avsnittet **Förfallodatum** anger du **åtkomstpakettilldelningar som upphör** att gälla **antal dagar**.
 
-1. Ange **tilldelningar upphör att gälla efter** **30** dagar.
+1. Ange **att tilldelningar upphör** att gälla efter till **30** dagar.
 
-    ![Nytt Access-paket – fliken livs cykel](./media/entitlement-management-access-package-first/lifecycle.png)
+    ![Nytt åtkomstpaket – fliken Livscykel](./media/entitlement-management-access-package-first/lifecycle.png)
 
-1. Klicka på **Nästa** för att öppna fliken **Granska + skapa** .
+1. Klicka på **Nästa** för att öppna fliken **Granska + Skapa.**
 
-    ![Nytt åtkomst paket – Granska + fliken Skapa](./media/entitlement-management-access-package-first/review-create.png)
+    ![Nytt åtkomstpaket - fliken Granska + Skapa](./media/entitlement-management-access-package-first/review-create.png)
 
-    Efter en liten stund bör du se ett meddelande om att Access-paketet har skapats.
+    Efter en stund bör du se ett meddelande om att åtkomstpaketet har skapats.
 
-1. I den vänstra menyn i marknadsförings kampanjens åtkomst paket klickar du på **Översikt**.
+1. Klicka på **Översikt**i menyn Marknadsföringskampanj i accesspaketet för marknadsföringskampanj .
 
-1. Kopiera **länken till min åtkomst Portal**.
+1. Kopiera **länken Min Access-portal**.
 
-    Du kommer att använda den här länken för nästa steg.
+    Du ska använda den här länken för nästa steg.
 
-    ![Översikt över åtkomst paket – länken min åtkomst Portal](./media/entitlement-management-shared/my-access-portal-link.png)
+    ![Översikt över åtkomstpaket - Länken Min Access-portal](./media/entitlement-management-shared/my-access-portal-link.png)
 
-## <a name="step-3-request-access"></a>Steg 3: begär åtkomst
+## <a name="step-3-request-access"></a>Steg 3: Begärandeåtkomst
 
-I det här steget utför du stegen som den **interna begär ande** och begär åtkomst till åtkomst paketet. Begär Anden skickar sina förfrågningar med hjälp av en plats som kallas min åtkomst Portal. På portalen My Access kan du skicka begär Anden om åtkomst till paket, se de åtkomst paket som de redan har åtkomst till och visa sin begär ande historik.
+I det här steget utför du stegen som **den interna beställaren** och begär åtkomst till åtkomstpaketet. Beställare skickar sina begäranden med hjälp av en webbplats som kallas My Access-portalen. My Access-portalen gör det möjligt för beställare att skicka begäranden om åtkomstpaket, se de åtkomstpaket som de redan har åtkomst till och visa deras begäranhistorik.
 
-**Nödvändig roll:** Intern begär Ande
+**Viktig roll:** Intern beställare
 
-1. Logga ut från Azure Portal.
+1. Logga ut från Azure-portalen.
 
-1. I ett nytt webbläsarfönster navigerar du till länken min åtkomst portal som du kopierade i föregående steg.
+1. I ett nytt webbläsarfönster navigerar du till länken Min Åtkomstportal som du kopierade i föregående steg.
 
-1. Logga in på portalen My Access som **Requestor1**.
+1. Logga in på My Access-portalen som **Requestor1**.
 
-    Du bör se åtkomst paketet för **marknadsförings kampanjen** .
+    Du bör se åtkomstpaketet **för marknadsföringskampanjer.**
 
-1. Om det behövs klickar du på pilen i kolumnen **Beskrivning** för att visa information om Access-paketet.
+1. Om det behövs klickar du på pilen i kolumnen **Beskrivning** för att visa information om åtkomstpaketet.
 
-    ![Åtkomst till Portal – åtkomst paket](./media/entitlement-management-shared/my-access-access-packages.png)
+    ![My Access-portal - Access-paket](./media/entitlement-management-shared/my-access-access-packages.png)
 
-1. Klicka på bock markeringen för att välja paketet.
+1. Markera paketet genom att klicka på bocken.
 
-1. Klicka på **begär åtkomst** för att öppna fönstret begär åtkomst.
+1. Klicka på **Begär åtkomst** för att öppna fönstret Begär åtkomst.
 
-    ![Min åtkomst Portal – knappen begär åtkomst](./media/entitlement-management-access-package-first/my-access-request-access-button.png)
+    ![Knappen Min Åtkomstportal - Knappen Begär åtkomst](./media/entitlement-management-access-package-first/my-access-request-access-button.png)
 
-1. I rutan **affärs justering** skriver du den motivering **Jag arbetar med den nya marknadsförings kampanjen**.
+1. I rutan **Affärsmotivering** skriver du den motivering **jag arbetar med den nya marknadsföringskampanjen**.
 
-    ![Min åtkomst Portal – begär åtkomst](./media/entitlement-management-shared/my-access-request-access.png)
+    ![My Access-portal - Åtkomst för begäran](./media/entitlement-management-shared/my-access-request-access.png)
 
 1. Klicka på **Skicka**.
 
-1. På den vänstra menyn klickar du på **begär ande historik** för att kontrol lera att din begäran har skickats.
+1. Klicka på Begär **historik** på den vänstra menyn för att kontrollera att din begäran har skickats.
 
-## <a name="step-4-validate-that-access-has-been-assigned"></a>Steg 4: kontrol lera att åtkomst har tilldelats
+## <a name="step-4-validate-that-access-has-been-assigned"></a>Steg 4: Verifiera att åtkomsten har tilldelats
 
-I det här steget bekräftar du att den **interna begär ande** har tilldelats åtkomst paketet och att de nu är medlem i gruppen **marknadsförings resurser** .
+I det här steget bekräftar du att den **interna beställaren** har tilldelats åtkomstpaketet och att de nu är medlemmar i gruppen **Marknadsföringsresurser.**
 
-**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
 
-1. Logga ut från min åtkomst Portal.
+1. Logga ut från My Access-portalen.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som **admin1**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som **Admin1**.
 
-1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
+1. Klicka på **Azure Active Directory** och sedan på **Identitetsstyrning**.
 
-1. Klicka på **åtkomst paket**på den vänstra menyn.
+1. Klicka på **Access-paket**på menyn till vänster.
 
-1. Sök efter och klicka på **marknadsförings kampanjens** åtkomst paket.
+1. Hitta och klicka på åtkomstpaketet **för marknadsföringskampanjer.**
 
-1. I den vänstra menyn klickar du på **begär Anden**.
+1. Klicka på **Begäranden**på den vänstra menyn.
 
-    Du bör se Requestor1 och den inledande principen med statusen **levererad**.
+    Du bör se Requestor1 och den inledande principen med **statusen Levererad**.
 
-1. Klicka på begäran om du vill visa information om begäran.
+1. Klicka på begäran om du vill se information om begäran.
 
-    ![Åtkomst paket – information om begäran](./media/entitlement-management-access-package-first/request-details.png)
+    ![Åtkomstpaket - Information om begäran](./media/entitlement-management-access-package-first/request-details.png)
 
-1. Klicka på **Azure Active Directory**i det vänstra navigerings fältet.
+1. Klicka på Azure **Active Directory**i den vänstra navigeringen .
 
-1. Klicka på **grupper** och öppna gruppen **marknadsförings resurser** .
+1. Klicka på **Grupper** och öppna gruppen **Marknadsföringsresurser.**
 
-1. Klicka på **medlemmar**.
+1. Klicka på **Medlemmar**.
 
-    Du bör se **Requestor1** som visas som en medlem.
+    Du bör se **Requestor1** som medlem.
 
-    ![Medlemmar i marknadsförings resurser](./media/entitlement-management-access-package-first/group-members.png)
+    ![Medlemmar i marknadsföringsresurser](./media/entitlement-management-access-package-first/group-members.png)
 
 ## <a name="step-5-clean-up-resources"></a>Steg 5: Rensa resurser
 
-I det här steget ska du ta bort de ändringar du gjort och ta bort åtkomst paketet för **marknadsförings kampanjen** .
+I det här steget tar du bort de ändringar du har gjort och tar bort åtkomstpaketet **för marknadsföringskampanjer.**
 
-**Nödvändig roll:**  Global administratör eller användar administratör
+**Viktig roll:**  Global administratör eller användaradministratör
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. Öppna **marknadsförings kampanjens** åtkomst paket.
+1. Öppna åtkomstpaketet **för marknadsföringskampanjer.**
 
-1. Klicka på **tilldelningar**.
+1. Klicka på **Tilldelningar**.
 
-1. För **Requestor1**klickar du på ellipsen ( **...** ) och klickar sedan på **ta bort åtkomst**. I meddelandet som visas klickar du på **Ja**.
+1. För **Requestor1**klickar du på ellipsen (**...**) och klickar sedan på Ta **bort åtkomst**. Klicka på **Ja**i meddelandet som visas .
 
-    Efter en liten stund ändras statusen från levererat till upphört att gälla.
+    Efter en liten stund ändras statusen från Levererad till Utgången.
 
-1. Klicka på **resurs roller**.
+1. Klicka på **Resursroller**.
 
-1. För **marknadsförings resurser**klickar du på ellipsen ( **...** ) och klickar sedan på **ta bort resurs roll**. I meddelandet som visas klickar du på **Ja**.
+1. För **marknadsföringsresurser**klickar du på ellipsen (**...**) och klickar sedan på Ta **bort resursrollen**. Klicka på **Ja**i meddelandet som visas .
 
-1. Öppna listan med åtkomst paket.
+1. Öppna listan över åtkomstpaket.
 
-1. För **marknadsförings kampanj**klickar du på ellipsen ( **...** ) och klickar sedan på **ta bort**. I meddelandet som visas klickar du på **Ja**.
+1. För **marknadsföringskampanj**klickar du på ellipsen (**...**) och sedan på **Ta bort**. Klicka på **Ja**i meddelandet som visas .
 
-1. I Azure Active Directory tar du bort alla användare som du har skapat, till exempel **Requestor1** och **admin1**.
+1. I Active Directory i Azure tar du bort alla användare som du har skapat, till exempel **Requestor1** och **Admin1**.
 
-1. Ta bort gruppen **marknadsförings resurser** .
+1. Ta bort gruppen **Marknadsföringsresurser.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa artikel och lär dig mer om vanliga scenario steg i hantering av rättigheter.
+Gå vidare till nästa artikel om du vill veta mer om vanliga scenariosteg i rättighetshantering.
 > [!div class="nextstepaction"]
 > [Vanliga scenarier](entitlement-management-scenarios.md)

@@ -7,17 +7,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 22b6a50b76c7d2e29f4705823db904e2c35f2717
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74684855"
 ---
 # <a name="create-a-web-app-and-deploy-code-from-github"></a>Skapa en webbapp och distribuera kod från GitHub
 
 Det här exempelskriptet skapar en webbapp i App Service med dess relaterade resurser och distribuerar sedan webbappkoden från en offentlig GitHub-lagringsplats (utan kontinuerlig distribution). För GitHub-distribution med kontinuerlig distribution, se [Skapa en webbapp med kontinuerlig distribution från GitHub](powershell-continuous-deployment-github.md).
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure. Du behöver även en länk till GitHub-lagringsplatsen som innehåller koden för webbappen.
+Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](/powershell/azure/overview)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure. Du behöver även en länk till GitHub-lagringsplatsen som innehåller koden för webbappen.
 
 ## <a name="sample-script"></a>Exempelskript
 

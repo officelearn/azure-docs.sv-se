@@ -1,20 +1,20 @@
 ---
-title: PowerShell-skript för att visa och hämta Azure Cosmos DB Tabell-API åtgärder
-description: Azure PowerShell skript-Azure Cosmos DB lista och hämta åtgärder för Tabell-API
+title: PowerShell-skript för att lista och hämta Azure Cosmos DB Table API-åtgärder
+description: Azure PowerShell-skript - Azure Cosmos DB-lista och hämta åtgärder för tabell-API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 9e904bdb635111b3fb0c3120be08f26e2e097236
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 166b9c2d6b20fbd6a71ba5df17e049838038617d
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444951"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365911"
 ---
-# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Lista och hämta tabeller för Azure Cosmos DB-Tabell-API
+# <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Lista och hämta tabeller för Azure Cosmos DB - Tabell-API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -38,9 +38,10 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-|**Azure-resurser**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Resurs grupper i Azure**| |
+|**Azure Cosmos DB**| |
+| [Få-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Visar Cosmos DB-konton eller får ett angivet Cosmos DB-konto. |
+| [Hämta-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Visar API-tabeller för Cosmos DB-tabell i ett konto eller får en angiven API-tabell för Cosmos DB-tabell i ett konto. |
+|**Azure-resursgrupper**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

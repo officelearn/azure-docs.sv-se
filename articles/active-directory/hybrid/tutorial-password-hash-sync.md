@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier:  Integrera en enda AD-skog till Azure med PHS'
+title: 'Självstudiekurs: Integrera en enda AD-skog till Azure med PHS'
 description: Visar hur du ställer in en hybrididentitetsmiljö med synkronisering av lösenordshash.
 services: active-directory
 documentationcenter: ''
@@ -15,27 +15,27 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66474011"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudier:  Integrera en enskild AD-skog med hjälp av synkronisering av lösenordshash (PHS)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudiekurs: Integrera en enda AD-skog med hjälp av lösenordshim sync (PHS)
 
 ![Skapa](media/tutorial-password-hash-sync/diagram.png)
 
-Självstudien vägleder dig genom att skapa en hybrididentitetsmiljö med synkronisering av lösenordshash.  Du kan sedan använda miljön för att testa eller bli mer bekant med hur en hybrididentitet fungerar.
+Följande handledning kommer att gå igenom att skapa en hybrid identitetsmiljö med hjälp av lösenord hash sync.  Den här miljön kan sedan användas för testning eller för att bekanta sig med hur en hybrididentitet fungerar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-- Ett [externt nätverkskort](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med internet.
+- Ett [externt nätverkskort](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) så att den virtuella datorn kan kommunicera med Internet.
 - En [Azure-prenumeration](https://azure.microsoft.com/free)
 - En kopia av Windows Server 2016
 
 > [!NOTE]
-> Den här självstudien använder PowerShell-skript så att du kan skapa självstudiekursens miljö så snabbt som möjligt.  Varje skript använder variabler som deklareras i början av skripten.  Du kan och bör ändra variablerna så att de speglar din miljö.
+> Den här självstudien använder PowerShell-skript så att du kan skapa självstudiemiljön så snabbt som möjligt.  Varje skript använder variabler som deklareras i början av skripten.  Du kan och bör ändra variablerna så att de speglar din miljö.
 >
 >Skripten används för skapa en allmän Active Directory-miljö innan du installerar Azure AD Connect.  De är relevanta för alla självstudierna.
 >
@@ -82,7 +82,7 @@ För att slutföra skapande av den virtuella datorn kan du behöva slutföra ins
 5. Klicka på **Installera nu**.
 6. Ange licensnyckeln och klicka på **Nästa**.
 7. Markera **I accept the license terms (Jag godkänner licensvillkoren) och klicka på **Nästa**.
-8. Välj **Custom:  Install Windows Only (Advanced)** (Anpassad: Installera endast Windows (Avancerat))
+8. Välj **Anpassad: Installera endast Windows (avancerat)**
 9. Klicka på **Nästa**
 10. När installationen är klar startar du om den virtuella datorn, loggar in och kör Windows-uppdateringar för att säkerställa att den virtuella datorn är den mest aktuella.  Installera de senaste uppdateringarna.
 
@@ -226,15 +226,15 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Bläddra till[https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
    ![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
 
 Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att testa och bekanta dig med allt som Azure har att erbjuda.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 
-- [Maskinvara och krav](how-to-connect-install-prerequisites.md) 
+- [Hårdvara och förutsättningar](how-to-connect-install-prerequisites.md) 
 - [Standardinställningar](how-to-connect-install-express.md)
-- [Synkronisering av lösenordshash](how-to-connect-password-hash-synchronization.md)|
+- [Synkronisering av lösenordsh hash](how-to-connect-password-hash-synchronization.md)|

@@ -1,17 +1,17 @@
 ---
-title: Skapa en Function-app med ansluten lagring – Azure CLI
+title: Skapa en funktionsapp med ansluten lagring - Azure CLI
 description: Exempel på Azure CLI-skript – Skapa en Azure-funktion som ansluter till Azure Storage
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc
 ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75922678"
 ---
-# <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Skapa en Function-app med en namngiven lagrings konto anslutning 
+# <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Skapa en funktionsapp med en namngiven lagringskontoanslutning 
 
 Det här exempelskriptet för Azure Functions skapar en funktionsapp och ansluter funktionen till ett Azure Storage-konto. Appinställningen som skapas och som innehåller anslutningen kan användas med en [lagringsutlösare eller lagringsbindning](../functions-bindings-storage-blob.md). 
 
@@ -37,9 +37,9 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapa en resursgrupp med en plats. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapa ett lagringskonto. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en Function-app i [förbruknings planen](../functions-scale.md#consumption-plan)utan server. |
-| [AZ lagrings konto show-Connection-String](/cli/azure/storage/account#az-storage-account-show-connection-string) | Hämtar anslutningssträngen för kontot. |
-| [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Anger anslutnings strängen som en app-inställning i Function-appen. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i den serverlösa [förbrukningsplanen](../functions-scale.md#consumption-plan). |
+| [az lagring konto visa-anslutning-sträng](/cli/azure/storage/account#az-storage-account-show-connection-string) | Hämtar anslutningssträngen för kontot. |
+| [az functionapp config appsettings set az functionapp config appsettings set az functionapp config appsettings set az function](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | Ställer in anslutningssträngen som en appinställning i funktionsappen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

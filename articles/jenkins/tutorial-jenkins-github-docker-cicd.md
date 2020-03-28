@@ -1,14 +1,14 @@
 ---
-title: Självstudie – Skapa en utvecklings pipeline i Azure med Jenkins
+title: Självstudiekurs - Skapa en utvecklingspipeline i Azure med Jenkins
 description: Självstudier – I den här självstudiekursen lär du dig hur du skapar en virtuell Jenkins-dator i Azure som hämtar data från GitHub vid varje kodincheckning och skapar en ny Docker-container för att köra din app.
-keywords: Jenkins, Azure, DevOps, pipeline, cicd, Docker
+keywords: jenkins, azurblå, devops, pipeline, cicd, docker
 ms.topic: tutorial
 ms.date: 03/27/2017
 ms.openlocfilehash: 2560d03282b2b3c8193a0b8c2a7a9f7c4036e75a
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77606449"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Självstudier: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
@@ -23,9 +23,9 @@ Om du vill automatisera versionen och testfasen i programutvecklingen kan du anv
 > * Skapa en Docker-avbildning för appen
 > * Verifiera att GitHub-incheckningar skapar ny Docker-avbildning och att uppdateringar kör appen
 
-I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+Den här självstudien använder CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
 
-Om du väljer att installera och använda CLI:t lokalt för den här självstudien måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Skapa Jenkins-instans
 I en tidigare självstudie om [hur du anpassar en virtuell Linux-dator vid den första starten](../virtual-machines/linux/tutorial-automate-vm-deployment.md) lärde du dig att automatisera VM-anpassning med cloud-init. I den här självstudien används en cloud-init-fil för att installera Jenkins och Docker på en virtuell dator. Jenkins är en populär automatiseringsserver med öppen källkod som integreras sömlöst med Azure för att tillåta kontinuerlig integrering (CI) och kontinuerlig leverans (CD). Fler självstudier om hur du använder Jenkins finns i [Jenkins i Azure-hubben](https://docs.microsoft.com/azure/jenkins/).
@@ -138,7 +138,7 @@ Skapa en webhook i förgreningen du har skapat:
 
 - Välj **Inställningar** och sedan **Webhooks** på vänster sida.
 - Välj **Lägg till webhook** och skriv *Jenkins* i filterrutan.
-- För **Payload URL** (Webbadress för nyttolast) anger du `http://<publicIps>:8080/github-webhook/`. Se till att ta med ”/” i slutet
+- För **Payload URL** (Webbadress för nyttolast) anger du `http://<publicIps>:8080/github-webhook/`. Se till att ta med ”/” i slutet 
 - För **Innehållstyp** väljer du *application/x-www-form-urlencoded*.
 - För **Which events would you like to trigger this webhook?** (Vilka händelser vill du ska utlösa denna webhook?) väljer du *Just the push event* (Bara push-händelsen).
 - Markera **Aktiv**.

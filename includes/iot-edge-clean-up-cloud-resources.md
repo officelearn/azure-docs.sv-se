@@ -9,19 +9,19 @@ ms.date: 08/10/2018
 ms.author: kgremban
 ms.custom: include file
 ms.openlocfilehash: c1e5027b192f32b50af10a2bdfbadfeb123b39ce
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67187459"
 ---
 ### <a name="delete-azure-resources"></a>Ta bort Azure-resurser 
 
-Det går inte att ångra borttagningen av Azure-resurser och resursgrupper. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat IoT-hubben i en befintlig resursgrupp som innehåller resurser som du vill behålla tar du bara bort själva IoT-hubbresursen i stället för att ta bort resursgruppen.
+Det går inte att ångra borttagningen av Azure-resurser och resursgrupper. Var noga så att du inte tar bort fel resursgrupp eller resurser av misstag. Om du har skapat IoT-hubben i en befintlig resursgrupp som innehåller resurser som du vill behålla, tar du bara bort själva IoT-hubbresursen i stället för att ta bort resursgruppen.
 
 Ta bort resurser:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Resursgrupper**.
 
 2. Välj namnet på resursgruppen som innehåller dina IoT Edge-testresurser. 
 

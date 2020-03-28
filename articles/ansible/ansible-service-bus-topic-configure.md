@@ -1,17 +1,17 @@
 ---
-title: Självstudie – konfigurera ämnen i Azure Service Bus med Ansible
-description: Lär dig hur du använder Ansible för att skapa ett Azure Service Bus ämne
-keywords: Ansible, Azure, DevOps, bash, Spelbok, Service Bus, ämnen, prenumerationer
+title: Självstudiekurs - Konfigurera ämnen i Azure Service Bus med Ansible
+description: Lär dig hur du använder Ansible för att skapa ett Azure Service Bus-ämne
+keywords: ansible, azurblå, devops, bash, playbook, servicebuss, ämnen, prenumerationer
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: d07c7622043353a79d5a82994c2fab4f0835b453
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155791"
 ---
-# <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Självstudie: Konfigurera ämnen i Azure Service Bus med Ansible
+# <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Självstudiekurs: Konfigurera ämnen i Azure Service Bus med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -24,8 +24,8 @@ ms.locfileid: "74155791"
 > * Skapa ett ämne
 > * Skapa en prenumeration
 > * Skapa en SAS-princip
-> * Hämta namn områdes information
-> * Hämta ämnes-och prenumerations information
+> * Hämta namnområdesinformation
+> * Hämta ämnes- och prenumerationsinformation
 > * Återkalla en SAS-princip
 
 ## <a name="prerequisites"></a>Krav
@@ -33,12 +33,12 @@ ms.locfileid: "74155791"
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-the-service-bus-topic"></a>Skapa Service Bus avsnittet
+## <a name="create-the-service-bus-topic"></a>Skapa servicebussavsnittet
 
-Exemplet Spelbok-koden skapar följande resurser:
+Exempelspelbokskoden skapar följande resurser:
 - Azure-resursgrupp
-- Service Bus namn område i resurs gruppen
-- Service Bus ämne med namn området
+- Service Bus-namnområde i resursgruppen
+- Service Bus-ämne med namnområdet
 
 Spara följande spelbok som `servicebus_topic.yml`:
 
@@ -69,7 +69,7 @@ Spara följande spelbok som `servicebus_topic.yml`:
           var: topic
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_topic.yml
@@ -77,7 +77,7 @@ ansible-playbook servicebus_topic.yml
 
 ## <a name="create-the-subscription"></a>Skapa prenumerationen
 
-Exemplet Spelbok-koden skapar prenumerationen under ett Service Bus ämne. Azure Service Bus ämnen kan ha flera prenumerationer. En prenumerant på ett ämne kan ta emot en kopia av varje meddelande som skickas till ämnet. Prenumerationer kallas entiteter, som varaktigt skapas, men som kan gå ut.
+Exempelspelbokskoden skapar prenumerationen under ett Service Bus-ämne. Azure Service Bus-ämnen kan ha flera prenumerationer. En prenumerant på ett ämne kan ta emot en kopia av varje meddelande som skickas till ämnet. Prenumerationer heter entiteter, som skapas på ett sätt, men som eventuellt kan upphöra att gälla.
 
 ```yml
 ---
@@ -102,7 +102,7 @@ Exemplet Spelbok-koden skapar prenumerationen under ett Service Bus ämne. Azure
 
 Spara följande spelbok som `servicebus_subscription.yml`:
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_subscription.yml
@@ -110,9 +110,9 @@ ansible-playbook servicebus_subscription.yml
 
 ## <a name="create-the-sas-policy"></a>Skapa SAS-principen
 
-En [signatur för delad åtkomst (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) är en anspråksbaserad mekanism för auktorisering med hjälp av tokens. 
+En [SAS (Shared Access Signature)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) är en anspråksbaserad auktoriseringsmekanism med token. 
 
-Exempel koden Spelbok skapar två SAS-principer för en Service Bus kö med olika behörigheter.
+Exempelspelskoden skapar två SAS-principer för en Service Bus-kö med olika behörigheter.
 
 Spara följande spelbok som `servicebus_topic_policy.yml`:
 
@@ -139,15 +139,15 @@ Spara följande spelbok som `servicebus_topic_policy.yml`:
           var: policy
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_topic_policy.yml
 ```
 
-## <a name="retrieve-namespace-information"></a>Hämta namn områdes information
+## <a name="retrieve-namespace-information"></a>Hämta namnområdesinformation
 
-Exempel koden Spelbok frågar efter namn områdes informationen.
+Exempel på spelbokskod frågar namnområdesinformationen.
 
 Spara följande spelbok som `servicebus_namespace_info.yml`:
 
@@ -169,20 +169,20 @@ Spara följande spelbok som `servicebus_namespace_info.yml`:
           var: ns
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
-- Värdet `show_sas_policies` anger om SAS-principerna ska visas i den angivna namn rymden. Som standard är värdet `False` för att undvika ytterligare nätverks belastning.
+Innan du kör spelboken läser du följande anmärkningar:
+- Värdet `show_sas_policies` anger om SAS-principerna ska visas under det angivna namnområdet. Som standard är `False` värdet att undvika ytterligare nätverksomkostnader.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
 ```
 
-## <a name="retrieve-topic-and-subscription-information"></a>Hämta ämnes-och prenumerations information
+## <a name="retrieve-topic-and-subscription-information"></a>Hämta ämnes- och prenumerationsinformation
 
-Exemplet på Spelbok kod frågar efter följande information:
-- Information om Service Bus ämnet
-- Lista över prenumerations information för ämnet
+Exempel på spelbokskodfrågor för följande information:
+- Information om servicebuss
+- Lista över prenumerationsinformation för ämnet
  
 Spara följande spelbok som `servicebus_list.yml`:
 
@@ -216,18 +216,18 @@ Spara följande spelbok som `servicebus_list.yml`:
         - subs_fact.servicebuses
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
-- Värdet `show_sas_policies` anger om SAS-principerna ska visas i den angivna kön. Som standard är det här värdet inställt på `False` för att undvika ytterligare nätverks belastning.
+Innan du kör spelboken läser du följande anmärkningar:
+- Värdet `show_sas_policies` anger om SAS-principerna ska visas under den angivna kön. Som standard är det `False` här värdet inställt på att undvika ytterligare nätverksomkostnader.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_list.yml
 ```
 
-## <a name="revoke-the-queue-sas-policy"></a>Återkalla SAS-principen för kön
+## <a name="revoke-the-queue-sas-policy"></a>Återkalla sas-principen i kön
 
-Spelbok-koden tar bort en SAS-princip för kö.
+Exempelspelbokskoden tar bort en SAS-köprincip.
 
 Spara följande spelbok som `servicebus_queue_policy_delete.yml`:
 
@@ -248,7 +248,7 @@ Spara följande spelbok som `servicebus_queue_policy_delete.yml`:
           state: absent
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook servicebus_topic_policy_delete.yml
@@ -256,9 +256,9 @@ ansible-playbook servicebus_topic_policy_delete.yml
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln. 
 
-Spara följande kod som `cleanup.yml`:
+Spara följande kod `cleanup.yml`som:
 
 ```yml
 ---
@@ -294,7 +294,7 @@ Spara följande kod som `cleanup.yml`:
           force_delete_nonempty: yes
 ```
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook cleanup.yml

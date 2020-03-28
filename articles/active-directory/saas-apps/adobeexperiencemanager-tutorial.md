@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med Adobe Experience Manager | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Adobe Experience Manager | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Adobe Experience Manager.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f39751f40b32c5da24e13d75d2607d7da0a57ad3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73154112"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Självstudie: Azure Active Directory integration med Adobe Experience Manager
+# <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Självstudiekurs: Azure Active Directory-integrering med Adobe Experience Manager
 
 I den här självstudien får du lära dig hur du integrerar Adobe Experience Manager med Azure Active Directory (AD Azure).
 Integreringen av Adobe Experience Manager med Azure AD medför följande fördelar:
@@ -33,7 +33,7 @@ Integreringen av Adobe Experience Manager med Azure AD medför följande fördel
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -92,7 +92,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra följande steg:
 
-1. Välj [Enkel inloggning](https://portal.azure.com/) på sidan för integrering av **Adobe Experience Manager**-programmet på **Azure-portalen**.
+1. Välj **Enkel inloggning** på sidan för integrering av **Adobe Experience Manager**-programmet på [Azure-portalen](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -104,16 +104,16 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
     ![Information om enkel inloggning med Adobe Experience Manager-domäner och -URL:er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du ett unikt värde som du även definierar på AEM-servern.
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<AEM Server Url>/saml_login`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<AEM Server Url>/saml_login`
 
     > [!NOTE]
-    > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för Svars-URL med den faktiska svars-URL:en. Kontakta [Adobe Experience Manager-kundsupporten](https://helpx.adobe.com/support/experience-manager.html) och be om det här värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för svars-URL:en är inte verkligt. Uppdatera värdet för Svars-URL med den faktiska svars-URL:en. Kontakta [Adobe Experience Manager-kundsupporten](https://helpx.adobe.com/support/experience-manager.html) och be om det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -139,7 +139,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 1. Öppna ett nytt webbläsarfönster och öppna **Adobe Experience Manager**-administrationsportalen.
 
-2. Välj **Inställningar** > **Säkerhet** > **Användare**.
+2. Välj **Inställningar** > **Säkerhetsanvändare** > **Users**.
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
@@ -147,7 +147,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
-4. Välj **Kontoinställningar** > **Hantera TrustStore**.
+4. Välj **kontoinställningar** > **Hantera TrustStore**.
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
@@ -163,11 +163,11 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
-8. Välj **Kontoinställningar** > **Skapa/hantera KeyStore**. Skapa KeyStore genom att ange ett lösenord.
+8. Välj **kontoinställningar** > **Skapa/hantera KeyStore**. Skapa KeyStore genom att ange ett lösenord.
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
-9. Gå tillbaka till administrationsskärmen. Välj sedan **Inställningar** > **Åtgärder** > **Webbkonsol**.
+9. Gå tillbaka till administrationsskärmen. Välj sedan **Inställningar** > **Operations** > **Web Console**.
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
@@ -183,7 +183,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Konfigurera enkel inloggning – knappen Spara](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-    a. Ange **i rutan /Sökväg**.
+    a. Ange **/** i rutan **Sökväg**.
 
     b. I rutan **IDP URL** (IDP-URL) anger du värdet för **Inloggnings-URL** som du kopierade från Azure-portalen.
 
@@ -211,7 +211,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -221,7 +221,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -250,7 +250,7 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -258,7 +258,7 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
 I det här avsnittet ska du skapa en användare med namnet Britta Simon i Adobe Experience Manager. Om du valde alternativet **Skapa CRX-användare automatiskt** skapas användare automatiskt efter en lyckad autentisering.
 
-Om du vill skapa användare manuellt kontaktar du [Adobe Experience Manager-supportteamet](https://helpx.adobe.com/support/experience-manager.html)  för hjälp med att lägga till användare till Adobe Experience Manager-plattformen.
+Om du vill skapa användare manuellt kan du arbeta med [Adobe Experience Manager-supportteamet](https://helpx.adobe.com/support/experience-manager.html) för att lägga till användarna på Adobe Experience Manager-plattformen.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

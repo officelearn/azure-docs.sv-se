@@ -16,13 +16,13 @@ ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67594229"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Självstudier: Lägga till Azure CDN i en Azure App Service-webbapp
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Självstudie: Lägga till Azure CDN i en Azure App Service-webbapp
 
 Den här självstudiekursen beskriver hur du lägger till [Azure Content Delivery Network (CDN)](cdn-overview.md) till en [webbapp i Azure App Service](../app-service/overview.md). Web Apps är en värdtjänst för webbprogram, REST API:er och mobila backend-servrar. 
 
@@ -38,9 +38,9 @@ Detta får du får lära dig:
 > * Använda frågesträngar för att styra cachelagrade versioner.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
 - [Installera Git](https://git-scm.com/)
 - [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
@@ -51,7 +51,7 @@ För att slutföra den här självstudien behöver du:
 
 För att skapa webbappen som du ska arbeta med följer du [snabbstarten för statisk HTML](../app-service/app-service-web-get-started-html.md) via steget **Bläddra till appen**.
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Öppna webbläsaren och gå till [Azure Portal](https://portal.azure.com).
 
@@ -75,8 +75,8 @@ På sidan **Azure Content Delivery Network** anger du inställningarna för**Ny 
 | Inställning | Föreslaget värde | Beskrivning |
 | ------- | --------------- | ----------- |
 | **CDN-profil** | myCDNProfile | En CDN-profil är en samling CDN-slutpunkter på samma prisnivå. |
-| **prisnivå** | Standard Akamai | [Prisnivån](cdn-features.md) anger providern och funktioner som är tillgängliga. I den här självstudien används *Standard Akamai*. |
-| **CDN-slutpunktsnamn** | Vilket namn som helst som är unikt för domänen azureedge.net | Du kommer åt dina cachelagrade resurser i domänen *&lt;endpointname&gt;* .azureedge.net.
+| **Prisnivå** | Standard Akamai | [Prisnivån](cdn-features.md) anger providern och funktioner som är tillgängliga. I den här självstudien används *Standard Akamai*. |
+| **CDN-slutpunktsnamn** | Vilket namn som helst som är unikt för domänen azureedge.net | Du kommer åt dina cachelagrade resurser på * &lt;domänens&gt;slutpunktsnamn*.azureedge.net.
 
 Välj **Skapa ny** för att skapa en CDN-profil.
 
@@ -87,7 +87,7 @@ Azure skapar en profil och en slutpunkt. Den nya slutpunkten visas i listan **Sl
 ### <a name="test-the-cdn-endpoint"></a>Testa CDN-slutpunkten
 
  Slutpunkten kan inte användas direkt, eftersom det tar tid för registreringen att sprida sig: 
-   - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom tio minuter. 
+   - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom 10 minuter. 
    - För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
    - För **Azure CDN Standard från Verizon**- och **Azure CDN Premium från Verizon**-profiler slutförs spridningen vanligtvis inom 90 minuter. 
 
@@ -268,6 +268,6 @@ Vad du lärt dig:
 Lär dig hur du optimerar CDN-prestanda i följande artiklar:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
+> [Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 
 

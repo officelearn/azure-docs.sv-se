@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps Projects'
+title: 'Självstudie: Distribuera din ASP.NET Core-app till Azure Service Fabric med hjälp av Azure DevOps Projects'
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera din ASP.NET Core-app till Azure Service Fabric med några få enkla steg.
 ms.author: mlearned
 ms.manager: gwallace
@@ -10,17 +10,17 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969480"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Självstudier: Distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Självstudie: Distribuera din ASP.NET Core-app till Azure Service Fabric med hjälp av Azure DevOps Projects
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
-DevOps Projects gör även följande:
+DevOps-projekt gör även följande:
 * Skapar automatiskt Azure-resurser, till exempel Azure Service Fabric.
 * Skapar och konfigurerar en versionspipeline i Azure DevOps som konfigurerar en CI/CD-pipeline.
 * Skapar en Azure Application Insights-resurs för övervakning.
@@ -35,7 +35,7 @@ I den här kursen ska du:
 > * Genomföra ändringar i Git och distribuera automatiskt till Azure
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -43,7 +43,7 @@ I den här kursen ska du:
 
 DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser, till exempel ett Service Fabric-kluster, i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
@@ -79,9 +79,9 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelines. Du kan utforska och anpassa pipelinen. För att bekanta dig med den gör du följande:
 
-1. Gå till instrument panelen för DevOps-projektet.
+1. Gå till instrumentpanelen för DevOps-projekt.
 
-1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
+1. Högst upp på instrumentpanelen För DevOps-projekt väljer du **Skapa pipelines**.  
     En webbläsarflik visar bygg-pipelinen för det nya projektet.
 
 1. Peka på fältet **Status** och välj ellipsen (...).  
@@ -105,12 +105,12 @@ DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelines. Du
 
 ## <a name="examine-the-cd-pipeline"></a>Granska CD-pipelinen
 
-DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatiskt distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
+DevOps-projekt skapar och konfigurerar automatiskt de steg som är nödvändiga för att distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
 
 1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
     DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
+1. Välj ellipsen (...) bredvid din releasepipeline och välj sedan **Redigera**.  
     Versionspipelinen innehåller en *pipeline* som definierar släpprocessen.
 
 1. Under **Artefakter** väljer du **Släpp**.  
@@ -137,9 +137,9 @@ DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatis
 
 Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats. Varje ändring av Git-lagringsplatsen påbörjar en version, och en version distribuerar dina ändringar till Azure. Följ proceduren i det här avsnittet eller använd en annan metod för att checka in ändringarna till lagringsplatsen. Du kan till exempel klona Git-lagringsplatsen i ditt favoritverktyg eller IDE och sedan push-överföra ändringarna till den här lagringsplatsen.
 
-1. I Azure DevOps-menyn väljer du **Kod** > **Filer** och går sedan till din lagringsplats.
+1. På Azure DevOps-menyn väljer du > **Kodfiler**och går sedan till din repo. **Code**
 
-1. Gå till katalogen *Views\Home* och välj ellipsen (...) intill filen *Index.cshtml*. Välj sedan **Redigera**.
+1. Gå till katalogen *Views\Home* och välj ellipsen (...) bredvid filen *Index.cshtml*. Välj sedan **Redigera**.
 
 1. Gör en ändring i filen, till exempel att lägga till lite text i en av div-taggarna. 
 

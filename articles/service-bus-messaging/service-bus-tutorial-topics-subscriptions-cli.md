@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: uppdatera butiks inventerings sortiment med hjälp av publicera/prenumerera kanaler och ämnes filter med Azure CLI'
-description: 'Självstudie: i den här självstudien får du lära dig hur du skickar och tar emot meddelanden från ett ämne och en prenumeration och hur du lägger till och använder filter regler med hjälp av Azure CLI'
+title: 'Självstudiekurs: Uppdatera butikslagersortimentet med hjälp av publicerings-/prenumerationskanaler och ämnesfilter med Azure CLI'
+description: 'Självstudiekurs: I den här självstudien får du lära dig hur du skickar och ta emot meddelanden från ett ämne och en prenumeration och hur du lägger till och använder filterregler med Hjälp av Azure CLI'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718922"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Självstudie: Uppdatera lagret med CLI och ämnen/prenumerationer
 
 Azure Service Bus är en meddelandetjänst i molnet för flera klienter som skickar information mellan program och tjänst. Asynkrona åtgärder ger dig en flexibel, asynkron meddelandetjänst med funktioner för strukturerade meddelanden enligt FIFO-metoden (först-in-först-ut) och funktioner för publicering/prenumeration. Den här kursen visar hur du använder Service Bus-ämnen och prenumerationer i ett scenario med butikslager, med publicera/prenumerera kanaler med Azure CLI och Java.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Skapa ett Service Bus-ämne och en eller flera prenumerationer på det ämnet med Azure CLI
 > * Lägg till ämnesfilter med Azure CLI
@@ -32,15 +32,15 @@ Ett exempel på det här scenariot är en uppdatering av lagersortimentet för f
 
 ![ämne](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][] konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna utveckla Service Bus-appar med Java, måste du ha följande installerat:
 
 - [Java Development Kit](https://aka.ms/azure-jdks), senaste versionen.
 - [Azure CLI](https://docs.microsoft.com/cli/azure)
-- [Apache Maven](https://maven.apache.org), version 3.0 eller senare.
+- [Apache Maven](https://maven.apache.org), version 3.0 eller högre.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -138,7 +138,7 @@ När namnområdet och ämnet/sprenumerationerna har etablerats och du har de nö
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navigera till exempelmappen `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`. Observera att kommandona i Bash-gränssnittet är skiftlägeskänsliga och avgränsare måste vara snedstreck.
+2. Gå till exempelmappen `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`. Observera att kommandona i Bash-gränssnittet är skiftlägeskänsliga och avgränsare måste vara snedstreck.
 
 3. Utfärda följande kommando för att skapa programmet:
    
@@ -326,7 +326,7 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 ```
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett servicebussnamnområde och administrera meddelandeenheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelsehubbar. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -344,9 +344,9 @@ Om du vill ha fler exempel på att skicka och ta emot meddelanden, kan du komma 
 Gå vidare till nästa självstudie för att läsa mer om att använda Service Bus-funktionerna publicera/prenumerera.
 
 > [!div class="nextstepaction"]
-> [Uppdatera lagerplatsen med PowerShell och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
+> [Uppdatera lager med hjälp av PowerShell och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
 
-[kostnadsfritt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[gratis konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

@@ -1,5 +1,5 @@
 ---
-title: Begränsa åtkomsten till PaaS-resurser – självstudier – Azure Portal
+title: Begränsa åtkomsten till PaaS-resurser – självstudiekurs - Azure-portal
 description: I den här självstudien får du lära dig att begränsa nätverksåtkomst till Azure-resurser, som Azure Storage och Azure SQL Database, med tjänstslutpunkter för virtuellt nätverk och Azure-portalen.
 services: virtual-network
 documentationcenter: virtual-network
@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74186360"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Självstudie: Begränsa nätverksåtkomst till PaaS-resurser med tjänstslutpunkter för virtuellt nätverk och Azure-portalen
@@ -37,7 +37,7 @@ Med tjänstslutpunkter för virtuellt nätverk kan du begränsa nätverksåtkoms
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) eller [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -54,9 +54,9 @@ Logga in på Azure Portal på https://portal.azure.com.
    |Namn| myVirtualNetwork |
    |Adressutrymme| 10.0.0.0/16|
    |Prenumeration| Välj din prenumeration|
-   |Resursgrupp | Välj **Skapa ny** och ange *myResourceGroup*.|
-   |Plats| Välj **USA, östra** |
-   |Undernätsnamn| Offentligt|
+   |Resursgrupp | Välj **Skapa ny** och skriv *myResourceGroup*.|
+   |Location| Välj **USA, östra** |
+   |Undernätsnamn| Offentlig|
    |Undernätsadressintervall| 10.0.0.0/24|
    |DDoS-skydd| Basic|
    |Tjänstslutpunkter| Disabled|
@@ -69,7 +69,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 Tjänstslutpunkter är aktiverade per tjänst och undernät. Skapa ett undernät och aktivera en tjänstslutpunkt för det.
 
 1. I rutan **Sök efter resurser, tjänster och dokument** högst upp i portalen skriver du *myVirtualNetwork.* När **myVirtualNetwork** visas i sökresultatet väljer du det.
-2. Lägg till ett undernät i det virtuella nätverket. Under **INSTÄLLNINGAR** väljer du **Undernät** och väljer sedan **+ Undernät** som du ser på följande bild:
+2. Lägg till ett undernät i det virtuella nätverket. Under **INSTÄLLNINGAR**väljer du **Undernät**och väljer sedan **+ Undernät**, som visas i följande bild:
 
     ![Lägga till undernät](./media/tutorial-restrict-network-access-to-resources/add-subnet.png) 
 
@@ -97,7 +97,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
     |Namn| myNsgPrivate |
     |Prenumeration| Välj din prenumeration|
     |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
-    |Plats| Välj **USA, östra** |
+    |Location| Välj **USA, östra** |
 
 4. När nätverkssäkerhetsgruppen har skapats anger du *myNsgPrivate* i rutan **Sök efter resurser, tjänster och dokument** överst i portalen. När **myNsgPrivate** visas i sökresultaten väljer du det.
 5. Under **INSTÄLLNINGAR** väljer du **Utgående säkerhetsregler**.
@@ -108,7 +108,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
     |----|----|
     |Källa| Välj **VirtualNetwork** |
     |Källportintervall| * |
-    |Mål | Välj **Service Tag** (tjänsttagg)|
+    |Mål | Välj **servicemärke**|
     |Måltjänsttagg | Välj **Lagring**|
     |Målportintervall| * |
     |Protokoll|Alla|
@@ -122,7 +122,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
     |----|----|
     |Källa| Välj **VirtualNetwork** |
     |Källportintervall| * |
-    |Mål | Välj **Service Tag** (tjänsttagg)|
+    |Mål | Välj **servicemärke**|
     |Måltjänsttagg| Välj **Internet**|
     |Målportintervall| * |
     |Protokoll|Alla|
@@ -164,7 +164,7 @@ De steg som behövs för att begränsa nätverksåtkomsten till resurser som har
     |----|----|
     |Namn| Ange ett namn som är unikt i alla Azure-platser, mellan 3–24 tecken långt och som endast innehåller siffror och gemener.|
     |Typ av konto|StorageV2 (generell användning v2)|
-    |Plats| Välj **USA, östra** |
+    |Location| Välj **USA, östra** |
     |Replikering| Lokalt redundant lagring (LRS)|
     |Prenumeration| Välj din prenumeration|
     |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
@@ -213,16 +213,16 @@ Om du vill testa nätverksåtkomsten till ett lagringskonto distribuerar du en v
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
-3. Välj eller ange följande information och välj **OK**:
+3. Ange eller välj följande information och välj sedan **OK:**
 
    |Inställning|Värde|
    |----|----|
    |Namn| myVmPublic|
    |Användarnamn|Ange ett valfritt användarnamn.|
-   |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Prenumeration| Välj din prenumeration.|
    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-   |Plats| Välj **USA, östra**.|
+   |Location| Välj **östra USA**.|
 
    ![Ange grundläggande information om en virtuell dator](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
@@ -246,7 +246,7 @@ Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till
    ![Ansluta till en virtuell dator](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
 
 2. När du har valt knappen **Anslut** skapas en .rdp-fil (Remote Desktop Protocol) som laddas ned till datorn.  
-3. Öppna den nedladdade rdp-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. 
+3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. 
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 6. På den virtuella datorn *myVmPrivate* mappar du Azure-fildelningen till enhet Z med PowerShell. Innan du kör kommandona som följer ska du ersätta `<storage-account-key>` och `<storage-account-name>` med värden som du angav och hämtade i [Skapa ett lagringskonto](#create-a-storage-account).
@@ -279,7 +279,7 @@ Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till
 
 ## <a name="confirm-access-is-denied-to-storage-account"></a>Bekräfta att åtkomst till lagringskontot nekas
 
-1. I rutan *Sök efter resurser, tjänster och dokument* högst upp i portalen skriver du **myVmPublic**.
+1. I rutan **Sök efter resurser, tjänster och dokument** högst upp i portalen skriver du *myVmPublic*.
 2. När **myVmPublic** visas i sökresultaten väljer du det.
 3. Slutför steg 1–6 i [Bekräfta åtkomst till lagringskontot](#confirm-access-to-storage-account) för den virtuella datorn *myVmPublic*.
 
@@ -298,7 +298,7 @@ Det tar några minuter att distribuera den virtuella datorn. Fortsätt inte till
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen och alla resurser den innehåller när de inte längre behövs:
+Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.

@@ -1,6 +1,6 @@
 ---
-title: Kopiera hanterade diskar till en prenumeration – PowerShell-exempel
-description: Azure PowerShell skript exempel – kopiera eller flytta hanterade diskar till samma eller en annan prenumeration
+title: Kopiera hanterade diskar till en prenumeration - Exempel på PowerShell
+description: Exempel på Azure PowerShell-skript – Kopiera eller flytta hanterade diskar till samma eller en annan prenumeration
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 06/06/2017
 ms.author: ramankum
 ms.openlocfilehash: 8d0f14c0223667773af4e723acaf503460290194
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75368920"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>Kopiera hanterade diskar i samma prenumeration eller i en annan prenumeration med PowerShell
@@ -42,7 +42,7 @@ Det här skriptet använder följande kommandon för att skapa en ny hanterad di
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Skapar den diskkonfiguration som används för att skapa en disk. Den innehåller resurs-ID:t för den överordnade disken och platsen som är samma som platsen för den överordnade disken.  |
+| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Skapar diskkonfigurationen som används för att skapa en disk. Den innehåller resurs-ID:t för den överordnade disken och platsen som är samma som platsen för den överordnade disken.  |
 | [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Skapar en disk med diskkonfiguration, disknamn och resursgruppens namn som parametrar. |
 
 

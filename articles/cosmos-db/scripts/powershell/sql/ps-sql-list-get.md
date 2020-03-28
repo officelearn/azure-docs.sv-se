@@ -1,20 +1,20 @@
 ---
-title: PowerShell-skript för att visa och hämta åtgärder för Azure Cosmos DB SQL (Core) API
-description: Azure PowerShell skript-Azure Cosmos DB lista och get-åtgärder för SQL (Core) API
+title: PowerShell-skript för att lista och hämta Azure Cosmos DB SQL API-resurser
+description: Azure PowerShell-skript - Azure Cosmos DB-lista och hämta åtgärder för SQL API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/18/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 1590136aa000538f6d176364fca22b353d4a48a0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51880e12f5f422acc0df05fa40da5f40f0ede3d3
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445014"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365956"
 ---
-# <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Lista och hämta databaser och behållare för API: et för Azure Cosmos DB-SQL (Core)
+# <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>Lista och hämta databaser och behållare för Azure Cosmos DB - SQL (Core) API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75445014"
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List or get databases or containers for SQL (Core) API")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-sql-list-get.ps1 "List and get databases and containers for SQL API")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -38,9 +38,11 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-|**Azure-resurser**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Resurs grupper i Azure**| |
+|**Azure Cosmos DB**| |
+| [Få-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Visar Cosmos DB-konton eller får ett angivet Cosmos DB-konto. |
+| [Hämta-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | Visar Cosmos DB-databaser i ett konto eller får en angiven Cosmos DB-databas i ett konto. |
+| [Få-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Visar Cosmos DB-behållare i en databas eller får en angiven Cosmos DB-behållare i en databas. |
+|**Azure-resursgrupper**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

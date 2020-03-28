@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Vtiger CRM (SAML) | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Vtiger CRM (SAML) | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Vtiger CRM (SAML).
 services: active-directory
 documentationCenter: na
@@ -17,73 +17,73 @@ ms.date: 06/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45782d7827a289cc0942eca61d6b30d071a6721c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67450746"
 ---
-# <a name="tutorial-integrate-vtiger-crm-saml-with-azure-active-directory"></a>Självstudier: Integrera Vtiger CRM (SAML) med Azure Active Directory
+# <a name="tutorial-integrate-vtiger-crm-saml-with-azure-active-directory"></a>Självstudiekurs: Integrera Vtiger CRM (SAML) med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera Vtiger CRM (SAML) med Azure Active Directory (AD Azure). När du integrerar Vtiger CRM (SAML) med Azure AD, kan du:
+I den här självstudien får du lära dig hur du integrerar Vtiger CRM (SAML) med Azure Active Directory (Azure AD). När du integrerar Vtiger CRM (SAML) med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till Vtiger CRM (SAML).
-* Ge dina användare att automatiskt inloggad Vtiger CRM (SAML) med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till Vtiger CRM (SAML).
+* Aktivera dina användare automatiskt inloggade på Vtiger CRM (SAML) med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* Aktiverat prenumeration Vtiger CRM (SAML) enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri provperiod [här.](https://azure.microsoft.com/pricing/free-trial/)
+* Vtiger CRM (SAML) enkel inloggning (SSO) aktiverad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. 
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö. 
 
-* Vtiger CRM (SAML) stöder **SP** -initierad SSO
-* Vtiger CRM (SAML) stöder **Just In Time** etableringen av användare
+* Vtiger CRM (SAML) stöder **SP** initierade SSO
+* Vtiger CRM (SAML) stöder just in time-användaretablering **Just In Time**
 
-## <a name="adding-vtiger-crm-saml-from-the-gallery"></a>Att lägga till Vtiger CRM (SAML) från galleriet
+## <a name="adding-vtiger-crm-saml-from-the-gallery"></a>Lägga till Vtiger CRM (SAML) från galleriet
 
-För att konfigurera integrering av Vtiger CRM (SAML) till Azure AD, som du behöver lägga till Vtiger CRM (SAML) från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Vtiger CRM (SAML) i Azure AD måste du lägga till Vtiger CRM (SAML) från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **Vtiger CRM (SAML)** i sökrutan.
-1. Välj **Vtiger CRM (SAML)** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Vtiger CRM (SAML)** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **Vtiger CRM (SAML)** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD SSO med Vtiger CRM (SAML) med en testanvändare kallas **B.Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Vtiger CRM (SAML).
+Konfigurera och testa Azure AD SSO med Vtiger CRM (SAML) med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Vtiger CRM (SAML).
 
-Slutför följande byggblock för att konfigurera och testa Azure AD SSO med Vtiger CRM (SAML):
+Så här konfigurerar och testar du Azure AD SSO med Vtiger CRM (SAML) och slutför följande byggblock:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Vtiger CRM (SAML) SSO](#configure-vtiger-crm-saml-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Vtiger CRM (SAML) testanvändare](#create-vtiger-crm-saml-test-user)**  – du har en motsvarighet för Britta Simon i Vtiger CRM (SAML) som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Vtiger CRM (SAML) SSO](#configure-vtiger-crm-saml-sso)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Vtiger CRM (SAML) testanvändare](#create-vtiger-crm-saml-test-user)** - att ha en motsvarighet till Britta Simon i Vtiger CRM (SAML) som är kopplad till Azure AD-representationen av användaren.
+6. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Vtiger CRM (SAML)** programsidan integration, hitta den **hantera** och väljer **enkelinloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. Leta reda på avsnittet Hantera på sidan **Hantera** i [Azure-portalen](https://portal.azure.com/)på **sidan Vtiger CRM (SAML)** och välj **Enkel inloggning**.
+1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** ange värdena för följande fält:
+1. På sidan **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster:
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
 
     | | |
     | - |- |
@@ -94,57 +94,57 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<customer_instance>.od1.vtiger.com/sso/saml?acs`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Vtiger CRM (SAML) klient-supportteamet](mailto:support@vtiger.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Vtiger CRM (SAML) Client support team](mailto:support@vtiger.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Base64)** och välj **hämta** att hämta certifikatet och spara den på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML,** i avsnittet **SAML-signeringscertifikat,** hittar **du certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 
-   ![Länk för hämtning av certifikat](common/certificatebase64.png)
+   ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. På den **ange upp Vtiger CRM (SAML)** avsnittet, kopiera den lämpliga URL: er efter behov.
+1. Kopiera lämpliga webbadresser baserat på dina krav i avsnittet **Konfigurera Vtiger CRM (SAML)** baserat på dina krav.
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-vtiger-crm-saml-sso"></a>Konfigurera enkel inloggning Vtiger CRM (SAML)
+### <a name="configure-vtiger-crm-saml-sso"></a>Konfigurera SSO (Vtiger CRM)
 
-Att konfigurera enkel inloggning på **Vtiger CRM (SAML)** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [Vtiger CRM (SAML) support team](mailto:support@vtiger.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera saml-sidan (Single Sign-on on **Vtiger CRM)** måste du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade URL:er från Azure Portal till [Vtiger CRM (SAML) supportteam](mailto:support@vtiger.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning genom att ge åtkomst till Vtiger CRM (SAML).
+I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Vtiger CRM (SAML).
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **Vtiger CRM (SAML)** .
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. Välj **Vtiger CRM (SAML) i**programlistan .
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B.Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
-### <a name="create-vtiger-crm-saml-test-user"></a>Skapa testanvändare Vtiger CRM (SAML)
+### <a name="create-vtiger-crm-saml-test-user"></a>Skapa Vtiger CRM-testanvändare (SAML)
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Vtiger CRM (SAML). Vtiger CRM (SAML) stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Vtiger CRM (SAML), skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter Britta Simon i Vtiger CRM (SAML). Vtiger CRM (SAML) stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Vtiger CRM (SAML) skapas en ny efter autentisering.
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen Vtiger CRM (SAML) i åtkomstpanelen, bör du vara loggas in automatiskt till den Vtiger CRM (SAML) som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Vtiger CRM (SAML) på åtkomstpanelen ska du automatiskt loggas in på den Vtiger CRM (SAML) som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

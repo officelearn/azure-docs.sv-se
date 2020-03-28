@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell exempel – skalnings uppsättning med en zon
+title: Azure PowerShell-exempel – skalningsuppsättning för en zon
 description: Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016 i en enda tillgänglighetszon.
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: a9b3547844d0b2dcca58a95d04c9cb81d32fa52c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76276419"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Skapa en VM-skalningsuppsättning med en zon med PowerShell

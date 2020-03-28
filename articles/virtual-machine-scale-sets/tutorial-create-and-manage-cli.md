@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa och hantera en skalnings uppsättning för virtuella Azure-datorer
+title: Självstudiekurs - Skapa och hantera en azure-skalningsuppsättning för virtuella datorer
 description: Läs hur du använder Azure CLI för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
 author: cynthn
 tags: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c2bddb4ef1401dd45b5aa9418f6e1890df0879ae
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 27f216a3cc101d4241fb8d30d27999a0397356dc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277221"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80062795"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure CLI
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. I den här guiden får du lära du dig hur man:
@@ -25,7 +25,7 @@ Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning i
 > * Skala en skalningsuppsättning automatiskt
 > * Utför vanliga hanteringsåtgärder för skalningsuppsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -33,7 +33,7 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före en VM-skalningsuppsättning. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*. 
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas före en VM-skalningsuppsättning. Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i *regionen eastus.* 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az vmss list-instances \
 
 Följande exempelutdata visar två virtuella datorinstanser i skalningsuppsättningen:
 
-```bash
+```output
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
 ------------  --------------------  ----------  ------------  -------------------  ---------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUP  c059be0c-37a2-497a-b111-41272641533c
@@ -100,7 +100,7 @@ az vmss list-instance-connection-info \
 
 Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för lastbalanseraren och portnummer som NAT-regler vidarebefordrar trafik till:
 
-```bash
+```output
 {
   "instance 1": "13.92.224.66:50001",
   "instance 3": "13.92.224.66:50003"
@@ -109,13 +109,13 @@ Följande exempelutdata visar instansnamnet, den offentliga IP-adressen för las
 
 SSH till din första virtuella datorinstans. Ange din offentliga IP-adress och portnummer med parametern `-p`, som det visas i föregående kommando:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 Efter att du loggat in på den virtuella datorinstansen kan du utföra vissa manuella konfigurationsändringar efter behov. För tillfället stänger du SSH-sessionen som vanligt:
 
-```bash
+```console
 exit
 ```
 
@@ -129,7 +129,7 @@ az vm image list --output table
 
 Följande visas exempelutdata visar de vanligaste virtuella datoravbildningarna i Azure. *UrnAlias* kan användas för att ange en av dessa vanliga avbildningar när du skapar en skalningsuppsättning.
 
-```bash
+```output
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -153,7 +153,7 @@ az vm image list --offer CentOS --all --output table
 
 Följande komprimerade utdata visar några av de tillgängliga avbildningarna för CentOS 7.3:
 
-```azurecli-interactive 
+```output
 Offer    Publisher   Sku   Urn                                 Version
 -------  ----------  ----  ----------------------------------  -------------
 CentOS   OpenLogic   7.3   OpenLogic:CentOS:7.3:7.3.20161221   7.3.20161221
@@ -189,7 +189,7 @@ Följande tabell kategoriserar vanliga virtuella datorstorlekar i användningsfa
 | [Generellt syfte](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
 | [Beräkningsoptimerad](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
 | [Minnesoptimerad](../virtual-machines/linux/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
-| [Lagringsoptimerad](../virtual-machines/linux/sizes-storage.md)      | Ls                | Högt diskdataflöde och I/O. Perfekt för stordata, SQL och NoSQL-databaser.                                                         |
+| [Lagringsoptimerad](../virtual-machines/linux/sizes-storage.md)      | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
 | [GPU](../virtual-machines/linux/sizes-gpu.md)          | NV, NC            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
 | [Höga prestanda](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). 
 
@@ -202,7 +202,7 @@ az vm list-sizes --location eastus --output table
 
 Utdata liknar följande komprimerade exempel som visar resurserna som tilldelats varje virtuell datorstorlek:
 
-```azurecli-interactive
+```output
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
                  4          3584  Standard_DS1_v2                       1           1047552                    7168

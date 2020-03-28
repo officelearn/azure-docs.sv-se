@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: URL-sökväg baserad omdirigering med CLI'
+title: 'Självstudiekurs: URL-sökvägsbaserad omdirigering med CLI'
 titleSuffix: Azure Application Gateway
 description: I den här självstudien lär du dig hur du skapar en programgateway med webbadressbaserad omdirigering av trafiken i Azure CLI.
 services: application-gateway
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 87f6febaf89f82c2c81b397c94d744229b3f4b34
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074428"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239490"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Självstudie: Skapa en programgateway med webbadressbaserad omdirigering i Azure CLI
 
@@ -34,7 +34,7 @@ I följande exempel visas hur trafiken kommer från portarna 8080 och 8081 och d
 
 Om du vill kan du utföra den här självstudien med [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -78,7 +78,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
-Använd [az network application-gateway create](/cli/azure/network/application-gateway) till att skapa en programgateway med namnet myAppGateway. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myPublicIPAddress* som du skapade tidigare.
+Använd [az network application-gateway skapa](/cli/azure/network/application-gateway) för att skapa programmet gateway med namnet myAppGateway. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myPublicIPAddress* som du skapade tidigare.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -158,7 +158,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Lägga till standardmappning för webbadressen
 
-URL-sökvägar se till att vissa URL: er dirigeras till vissa backend-pooler. Du kan skapa webbadressmappningarna *imagePathRule* och *videoPathRule* med [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) och [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
+URL-sökvägsmappningar kontrollerar att specifika webbadresser dirigeras till specifika backend-pooler. Du kan skapa webbadressmappningarna *imagePathRule* och *videoPathRule* med [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) och [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -284,9 +284,9 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Som, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`eller `http://40.121.222.19:8081/images/test.htm`.
+Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm`, `http://40.121.222.19:8081/images/test.htm`, eller .
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -296,15 +296,15 @@ az network public-ip show \
 
 ![Testa basadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Ändra URL: en till http://&lt;IP-adress&gt;: 8080/images/test.html, ersätta din IP-adress för &lt;IP-adress&gt;och du bör se något som liknar följande exempel:
+Ändra webbadressen till http://&lt;ip-adress:&gt;8080/images/test.html, ersätta din IP-adress för &lt;IP-adress&gt;, och du bör se något i stil med följande exempel:
 
 ![Testa bildadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Ändra URL: en till http://&lt;IP-adress&gt;: 8080/video/test.html, ersätta din IP-adress för &lt;IP-adress&gt;och du bör se något som liknar följande exempel:
+Ändra webbadressen till&lt;http:// ip-adress:&gt;8080/video/test.html, ersätta din &lt;IP-adress&gt;för IP-adress , och du bör se något i stil med följande exempel:
 
 ![Testa videoadressen i programgatewayen](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-Ändra nu URL: en till http://&lt;IP-adress&gt;: 8081/images/test.htm, Ersätt din IP-adress för &lt;IP-adress&gt;, och du bör se trafik som omdirigeras tillbaka till avbildningens backend-pool på http://&lt;IP-adress&gt;: 8080/images.
+Nu, ändra webbadressen till&lt;http://&gt;ip-adress: 8081/images/test.htm, ersätta din &lt;IP-adress&gt;för IP-adress , och du bör se trafik omdirigeras tillbaka till bilderna backend pool på http://&lt;ip-adress&gt;: 8080/images.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

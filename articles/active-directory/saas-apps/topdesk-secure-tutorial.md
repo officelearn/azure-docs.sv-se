@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integration med TOPdesk-Secure | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med TOPdesk – Säker | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk – Secure.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 393557531fe69a494a16e0f4c49ac07891e490ec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233404"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Självstudie: Azure Active Directory integrering med TOPdesk-Secure
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Självstudiekurs: Azure Active Directory-integrering med TOPdesk - Säker
 
 I den här självstudien lär du dig att integrera TOPdesk – Secure med Azure Active Directory (AD Azure).
 Genom att integrera TOPdesk – Secure med Azure AD får du följande fördelar:
@@ -33,7 +33,7 @@ Genom att integrera TOPdesk – Secure med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -106,16 +106,16 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
     ![TOPdesk – Secure-domän och information om URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Inloggnings-URL**: `https://<companyname>.topdesk.net`
+    a. Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<companyname>.topdesk.net`
 
-    b. I rutan **identifiera URL** fyller du i TOPdesk metadata-URL som du kan hämta från TOPdesk-konfigurationen. Den bör använda följande mönster: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    b. I rutan **Identifierare URL** fyller du i webbadressen till TOPdesk-metadata som du kan hämta från topdesk-konfigurationen. Den bör använda följande mönster:`https://<companyname>.topdesk.net/saml-metadata/<identifier>`
 
-    c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<companyname>.topdesk.net/tas/secure/login/verify`
+    c. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<companyname>.topdesk.net/tas/secure/login/verify`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för TOPdesk – Secure-klienten](https://www.topdesk.com/us/support/). Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Hämta dessa värden genom att kontakta [supportteamet för TOPdesk – Secure-klienten](https://www.topdesk.com/us/support/). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -139,7 +139,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
 3. Klicka på **Inloggningsinställningar**.
 
-    ![Inloggnings inställningar](./media/topdesk-secure-tutorial/ic790599.png "Inloggnings inställningar")
+    ![Inställningar för inloggning](./media/topdesk-secure-tutorial/ic790599.png "Inställningar för inloggning")
 
 4. Expandera menyn **Inloggningsinställningar** och klicka sedan på **Allmänt**.
 
@@ -153,7 +153,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
     b. Öppna metadatafilen och leta upp noden **AssertionConsumerService**.
 
-    ![Intygs konsument tjänst](./media/topdesk-secure-tutorial/ic790856.png "Intygs konsument tjänst")
+    ![Påstående Konsumenttjänst](./media/topdesk-secure-tutorial/ic790856.png "Påstående Konsumenttjänst")
 
     c. Kopiera värdet **AssertionConsumerService**, klistra in det i textrutan flr svars-URL i avsnittet om **TOPdesk – Secure-domän och URL:er**.
 
@@ -171,11 +171,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
 7. I avsnittet **Offentligt** klickar du på **Lägg till**.
 
-    ![Skapa](./media/topdesk-secure-tutorial/ic790607.png "Lägg till")
+    ![Lägg till](./media/topdesk-secure-tutorial/ic790607.png "Lägg till")
 
 8. I dialogrutan **SAML-konfigurationsassistent** utför du följande steg:
 
-    ![Konfigurations assistent för SAML](./media/topdesk-secure-tutorial/ic790608.png "Konfigurations assistent för SAML")
+    ![KONFIGURATIONSassistent för SAML](./media/topdesk-secure-tutorial/ic790608.png "KONFIGURATIONSassistent för SAML")
 
     a. Ladda upp den nedladdade metadatafilen från Azure-portalen genom att gå till **Federation Metadata** och klicka på **Bläddra**.
 
@@ -189,7 +189,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med TOPde
 
     f. I textrutan **Visningsnamn** skriver du ett namn för konfigurationen.
 
-    g. Klicka på **Save** (Spara).
+    g. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -199,7 +199,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -209,7 +209,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -238,7 +238,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -251,13 +251,13 @@ När det gäller TOPdesk – Secure är etablering en manuell aktivitet.
 
 1. Logga in på din **TOPdesk – Secure**-företagsplats som administratör.
 
-2. På menyn längst upp klickar du på **TOPdesk \> New (Ny) \> Support Files (Supportfiler) \> Operator (Operatör)** .
+2. På menyn längst upp klickar du på **TOPdesk \> New (Ny) \> Support Files (Supportfiler) \> Operator (Operatör)**.
 
     ![Operator](./media/topdesk-secure-tutorial/ic790610.png "Operator")
 
 3. I dialogrutan **New Operator** (Ny operatör) utför du följande steg:
 
-    ![Ny operator](./media/topdesk-secure-tutorial/ic790611.png "Ny operator")
+    ![Ny operatör](./media/topdesk-secure-tutorial/ic790611.png "Ny operatör")
 
     a. Klicka på fliken **Allmänt**.
 
@@ -267,10 +267,10 @@ När det gäller TOPdesk – Secure är etablering en manuell aktivitet.
 
     d. I textrutan **Inloggningsnamn** i avsnittet **TOPdesk Login** (TOPdesk-inloggning) skriver du ett inloggningsnamn för användaren.
 
-    e. Klicka på **Save** (Spara).
+    e. Klicka på **Spara**.
 
 > [!NOTE]
-> Du kan använda andra TOPdesk-verktyg eller API: er för skapande av användar konton som tillhandahålls av TOPdesk-Secure för att etablera Azure AD-användarkonton.
+> Du kan använda andra TOPdesk - Secure user account creation tools or APIIs provided by TOPdesk - Secure to provision Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

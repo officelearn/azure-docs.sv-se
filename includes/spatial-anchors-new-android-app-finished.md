@@ -7,15 +7,15 @@ ms.topic: include
 ms.author: rgarcia
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 8bef7b12f4d9d9a63e41441ef22b029b2ee5afd1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74276923"
 ---
-## <a name="putting-everything-together"></a>Placera allt tillsammans
+## <a name="putting-everything-together"></a>Att sätta ihop allt
 
-Så här ska den fullständiga `MainActivity`s klass filen se ut när alla de olika elementen har samlats ihop. Du kan använda den som en referens för att jämföra med din egen fil och ange om du kan ha skillnader kvar.
+Här är hur `MainActivity` hela klassfilen ska se ut, efter alla olika element har satts ihop. Du kan använda den som referens för att jämföra med din egen fil och plats om du kan ha några skillnader kvar.
 
 ```java
 package com.example.myfirstapp;
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du skapar en ny Android-app som integrerar ARCore-funktionen med avstånds ankare för Azure. Om du vill veta mer om Azure Spatial Anchors-biblioteket fortsätter du till vår guide om hur du skapar och hittar fästpunkter.
+I den här självstudien har du sett hur du skapar en ny Android-app som integrerar ARCore-funktioner med Azure Spatial Anchors. Om du vill veta mer om Azure Spatial Anchors-biblioteket fortsätter du till vår guide om hur du skapar och hittar fästpunkter.
 
 > [!div class="nextstepaction"]
 > [Skapa och hitta fästpunkter med hjälp av Azure Spatial Anchors](/azure/spatial-anchors/create-locate-anchors-overview)

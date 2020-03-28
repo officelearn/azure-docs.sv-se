@@ -1,7 +1,7 @@
 ---
-title: Skript exempel för Azure CLI – ta bort ett Azure App konfigurations lager
+title: Exempel på Azure CLI-skript – ta bort ett Azure App Configuration Store
 titleSuffix: Azure App Configuration
-description: Använd Azure CLI-skript för att ta bort ett Azure App konfigurations lager
+description: Använda Azure CLI Script för att ta bort ett Azure App Configuration Store
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: 7f73de459d8ce9f74e3925789af630b7c804d605
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77523583"
 ---
 # <a name="delete-an-azure-app-configuration-store"></a>Ta bort ett Azure App Configuration-arkiv
@@ -39,14 +39,14 @@ az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att ta bort ett konfigurations lager för appar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder följande kommandon för att ta bort ett App Configuration Store. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Tar bort en resurs för konfigurations Arkiv för appar. |
+| [az appconfig delete](/cli/azure/appconfig#az-appconfig-delete) | Tar bort en appkonfigurationsbutiksresurs. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare skript exempel för programkonfigurations-CLI finns i [Azure App konfigurations-CLI-exempel](../cli-samples.md).
+Ytterligare CLI-skriptexempel för appkonfiguration finns i [CLI-exempel på Azure App Configuration CLI](../cli-samples.md).

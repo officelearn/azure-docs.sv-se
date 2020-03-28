@@ -1,30 +1,30 @@
 ---
-title: Självstudie – konfigurera peering för virtuella Azure-nätverk med Ansible
-description: Lär dig hur du använder Ansible för att ansluta virtuella nätverk med peering för virtuella nätverk.
-keywords: Ansible, Azure, DevOps, bash, Spelbok, nätverk, peering
+title: Självstudiekurs - Konfigurera Azure-virtuell nätverks peering med Ansible
+description: Lär dig hur du använder Ansible för att ansluta virtuella nätverk med virtuell nätverks peering.
+keywords: ansible, azurblå, devops, bash, playbook, nätverk, peering
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 78699a005d721b46a88a26452f5db68438793d34
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155725"
 ---
-# <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Självstudie: Konfigurera Azure Virtual Network-peering med Ansible
+# <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Självstudiekurs: Konfigurera Azure-virtuell nätverks peering med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-Med hjälp av [virtuella nätverk (VNet) peering](/azure/virtual-network/virtual-network-peering-overview) kan du sömlöst ansluta två virtuella Azure-nätverk. När de två virtuella nätverken har peer-kopplats visas de som ett för anslutnings syfte. 
+[Med VNet-peering (Virtual Network)](/azure/virtual-network/virtual-network-peering-overview) kan du sömlöst ansluta två virtuella Azure-nätverk. När de två virtuella nätverken har peererats visas de som ett för anslutningsändamål. 
 
-Trafiken dirigeras mellan virtuella datorer i samma virtuella nätverk via privata IP-adresser. På samma sätt dirigeras trafik mellan virtuella datorer i ett peer-kopplat virtuellt nätverk genom Microsofts infrastruktur för huvud buss. Därför kan virtuella datorer i olika virtuella nätverk kommunicera med varandra.
+Trafiken dirigeras mellan virtuella datorer i samma virtuella nätverk via privata IP-adresser. På samma sätt dirigeras trafiken mellan virtuella datorer i ett peer-virtuellt nätverk via Microsofts stamnätsinfrastruktur. Därför kan virtuella datorer i olika virtuella nätverk kommunicera med varandra.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Skapa två virtuella nätverk
-> * Peer de två virtuella nätverken
+> * Peer de två virtuella nätverk
 > * Ta bort peering mellan de två nätverken
 
 ## <a name="prerequisites"></a>Krav
@@ -32,13 +32,13 @@ Trafiken dirigeras mellan virtuella datorer i samma virtuella nätverk via priva
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-two-resource-groups"></a>Skapa två resurs grupper
+## <a name="create-two-resource-groups"></a>Skapa två resursgrupper
 
 En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
-Exempel koden Spelbok i det här avsnittet används för att:
+Exempelspelbokskoden i det här avsnittet används för att:
 
-- Skapa två resurs grupper 
+- Skapa två resursgrupper 
 
 ```yml
   - name: Create a resource group
@@ -53,7 +53,7 @@ Exempel koden Spelbok i det här avsnittet används för att:
 
 ## <a name="create-the-first-virtual-network"></a>Skapa det första virtuella nätverket
 
-Exempel koden Spelbok i det här avsnittet används för att:
+Exempelspelbokskoden i det här avsnittet används för att:
 
 - Skapa ett virtuellt nätverk
 - Skapa ett undernät i det virtuella nätverket
@@ -74,7 +74,7 @@ Exempel koden Spelbok i det här avsnittet används för att:
 
 ## <a name="create-the-second-virtual-network"></a>Skapa det andra virtuella nätverket
 
-Exempel koden Spelbok i det här avsnittet används för att:
+Exempelspelbokskoden i det här avsnittet används för att:
 
 - Skapa ett virtuellt nätverk
 - Skapa ett undernät i det virtuella nätverket
@@ -93,11 +93,11 @@ Exempel koden Spelbok i det här avsnittet används för att:
       virtual_network: "{{ vnet_name2 }}"
 ```
 
-## <a name="peer-the-two-virtual-networks"></a>Peer de två virtuella nätverken
+## <a name="peer-the-two-virtual-networks"></a>Peer de två virtuella nätverk
 
-Exempel koden Spelbok i det här avsnittet används för att:
+Exempelspelbokskoden i det här avsnittet används för att:
 
-- Initiera virtuell-nätverks-peering
+- Initiera virtual-network peering
 - Peer två tidigare skapade virtuella nätverk
 
 ```yml
@@ -124,11 +124,11 @@ Exempel koden Spelbok i det här avsnittet används för att:
       allow_forwarded_traffic: true
 ```
 
-## <a name="delete-the-virtual-network-peering"></a>Ta bort det virtuella nätverkets peering
+## <a name="delete-the-virtual-network-peering"></a>Ta bort den virtuella nätverks peering
 
-Exempel koden Spelbok i det här avsnittet används för att:
+Exempelspelbokskoden i det här avsnittet används för att:
 
-- Ta bort peer koppling mellan de två tidigare skapade virtuella nätverken
+- Ta bort peering mellan de två tidigare skapade virtuella nätverken
 
 ```yml
   - name: Delete vnet peering
@@ -139,12 +139,12 @@ Exempel koden Spelbok i det här avsnittet används för att:
       state: absent
 ```
 
-## <a name="get-the-sample-playbook"></a>Hämta exempel Spelbok
+## <a name="get-the-sample-playbook"></a>Hämta exempelspelboken
 
-Det finns två sätt att hämta det fullständiga exemplet Spelbok:
+Det finns två sätt att hämta hela exempelspelboken:
 
-- [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) och spara den till `vnet_peering.yml`.
-- Skapa en ny fil med namnet `vnet_peering.yml` och kopiera den till följande innehåll:
+- [Ladda ner spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) och `vnet_peering.yml`spara den på .
+- Skapa en ny `vnet_peering.yml` fil med namnet och kopiera följande innehåll till den:
 
 ```yml
 - hosts: localhost
@@ -225,21 +225,21 @@ Det finns två sätt att hämta det fullständiga exemplet Spelbok:
       state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Kör exemplet Spelbok
+## <a name="run-the-sample-playbook"></a>Kör exempeluppspelningsboken
 
-Exempel koden för Spelbok i det här avsnittet används för att testa olika funktioner som visas i den här självstudien.
+Exempel på spelbokskod i det här avsnittet används för att testa olika funktioner som visas i hela den här självstudien.
 
-Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
+Här är några viktiga anteckningar att tänka på när du arbetar med exempelspelsboken:
 
-- I avsnittet `vars` ersätter du plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+- Ersätt `vars` platshållaren `{{ resource_group_name }}` med namnet på resursgruppen i avsnittet.
 
-Kör Spelbok med kommandot Ansible-Spelbok:
+Kör spelboken med kommandot ansible-playbook:
 
 ```bash
 ansible-playbook vnet_peering.yml
 ```
 
-När du har kört Spelbok visas utdata som liknar följande resultat:
+När du har kört spelboken visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 
@@ -288,11 +288,11 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln. 
 
-Exempel koden Spelbok i det här avsnittet används för att:
+Exempelspelbokskoden i det här avsnittet används för att:
 
-- Ta bort de två resurs grupper som skapades tidigare
+- Ta bort de två resursgrupper som skapats tidigare
 
 Spara följande spelbok som `cleanup.yml`:
 
@@ -315,13 +315,13 @@ Spara följande spelbok som `cleanup.yml`:
         state: absent
 ```
 
-Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
+Här är några viktiga anteckningar att tänka på när du arbetar med exempelspelsboken:
 
-- Ersätt `{{ resource_group_name-1 }}` plats hållaren med namnet på den första resurs gruppen som skapas.
-- Ersätt `{{ resource_group_name-2 }}` plats hållaren med namnet på den andra resurs gruppen som skapades.
-- Alla resurser inom de två angivna resurs grupperna kommer att tas bort.
+- Ersätt `{{ resource_group_name-1 }}` platshållaren med namnet på den första resursgruppen som skapats.
+- Ersätt `{{ resource_group_name-2 }}` platshållaren med namnet på den andra resursgruppen som skapats.
+- Alla resurser inom de två angivna resursgrupperna tas bort.
 
-Kör Spelbok med kommandot Ansible-Spelbok:
+Kör spelboken med kommandot ansible-playbook:
 
 ```bash
 ansible-playbook cleanup.yml

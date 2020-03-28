@@ -1,21 +1,21 @@
 ---
-title: Distribuera en app med CI-och Azure-pipeliner
+title: Distribuera en app med CI- och Azure Pipelines
 description: I den här självstudien får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Service Fabric-program med hjälp av Azure Pipelines.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614153"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster
 
 Den här självstudien är del fyra i en serie. Du får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-program med hjälp av Azure Pipelines.  En befintlig Service Fabric-tillämpning krävs. Den som skapas i [Bygga ett .NET-program](service-fabric-tutorial-create-dotnet-app.md) används som exempel.
 
-I den tredje delen i serien får du lära dig hur du:
+I den tredje delen i serien får du lära dig att:
 
 > [!div class="checklist"]
 > * lägga till källkontroll i projektet
@@ -36,7 +36,7 @@ I den här självstudieserien får du lära du dig att:
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera **Azure-utvecklings-** och **ASP.NET- och webbutvecklingsarbetsbelastningar.**
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 * Skapa ett Windows Service Fabric-kluster i Azure, till exempel genom att [följa den här självstudiekursen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 * Skapa en [Azure DevOps-organisation](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). På så sätt kan du skapa ett projekt i Azure DevOps och använda Azure Pipelines.
@@ -61,9 +61,9 @@ Välj en målprofil inom programprojektet att använda för arbetsflödet för d
 
 Dela programkällfilerna till ett projekt i Azure DevOps så att du kan generera byggen.
 
-Skapa en ny lokal Git-lagringsplats för projektet genom att välja alternativet för att **lägga till källkontroll** -> **Git** i statusfältet i det nedre högra hörnet av Visual Studio.
+Skapa en ny lokal Git-repo för ditt projekt genom att välja **Lägg till i källkontroll** -> **Git** i statusfältet i det nedre högra hörnet av Visual Studio.
 
-I vyn för **Push-överföring**  i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
+I vyn för **Push-överföring ** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
 
 ![Push-överföring med Git-lagringsplats][push-git-repo]
 
@@ -75,9 +75,9 @@ När du publicerar lagringsplatsen skapas ett nytt projekt i ditt konto med samm
 
 ## <a name="configure-continuous-delivery-with-azure-pipelines"></a>Konfigurera kontinuerlig leverans med Azure Pipelines
 
-En pipeline för Azure-pipeliner beskriver ett arbets flöde som består av en uppsättning Bygg steg som körs sekventiellt. Skapa en bygg-pipeline som producerar ett Service Fabric-programpaket och andra artefakter att distribuera till ett Service Fabric-kluster. Läs mer om [Azure Pipelines bygg-pipelines](https://www.visualstudio.com/docs/build/define/create). 
+En Azure Pipelines-build pipeline beskriver ett arbetsflöde som består av en uppsättning byggsteg som körs sekventiellt. Skapa en bygg-pipeline som producerar ett Service Fabric-programpaket och andra artefakter att distribuera till ett Service Fabric-kluster. Läs mer om [Azure Pipelines bygg-pipelines](https://www.visualstudio.com/docs/build/define/create). 
 
-En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans kör bygg-pipelinen och versionspipelinen hela arbetsflödet med början på källfiler och slutar med ett program som körs i klustret. Läs mer om [Azure Pipelines versionspipelines](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
+En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribuerar ett programpaket till ett kluster. När de används tillsammans kör bygg-pipelinen och versionspipelinen hela arbetsflödet med början på källfiler och slutar med ett program som körs i klustret. Läs mer om [Azure Pipelines-versionspipelor](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition).
 
 ### <a name="create-a-build-pipeline"></a>Skapa en bygg-pipeline
 
@@ -91,7 +91,7 @@ Välj **Azure Repos Git** som källa, teamprojektet **Voting** (Röstning), lagr
 
 ![Välj lagringsplats][select-repo]
 
-I **Välj en mall** väljer du mallen **Azure Service Fabric-program** och klickar på **Använd**.
+I **Välj en mall**väljer du **programmallen Azure Service Fabric** och klickar på **Använd**.
 
 ![Välj byggesmall][select-build-template]
 
@@ -103,7 +103,7 @@ Under **Utlösare** aktiverar du kontinuerlig integrering genom att markera **Ak
 
 ![Välj utlösare][save-and-queue2]
 
-Byggen utlöser också vid push och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att genereringen körs korrekt definierar du en versions pipeline som distribuerar ditt program till ett kluster.
+Byggen utlöser också vid push och incheckning. Om du vill kontrollera byggstatusen växlar du till fliken **Bygg.**  När du har verifierat att bygget har körs definierar du en versionspipeline som distribuerar ditt program till ett kluster.
 
 ### <a name="create-a-release-pipeline"></a>Skapa en versionspipeline
 
@@ -111,19 +111,19 @@ Välj fliken **Pipelines** och sedan **Versioner** och **+Ny pipeline**.  I **V�
 
 ![Välj versionsmall][select-release-template]
 
-Välj **Uppgifter**->**Environment 1** (Miljö 1)och sedan **+New** (+Ny) för att lägga till en ny klusteranslutning.
+Välj **Uppgiftsmiljö**->**1** och sedan **+Nytt** om du vill lägga till en ny klusteranslutning.
 
 ![Lägga till klusteranslutning][add-cluster-connection]
 
 I vyn för att **lägga till nya Service Fabric-anslutningar** väljer du autentisering av typerna **Certifikatbaserad** eller **Azure Active Directory**.  Ange ett anslutningsnamn för mysftestcluster och en klusterslutpunkt för tcp://mysftestcluster.southcentralus.cloudapp.azure.com:19000 (eller slutpunkten i klustret som du distribuerar till).
 
-För certifikatbaserad autentisering lägger du till **Server certifikatets tumavtryck** för det Server certifikat som användes för att skapa klustret.  I **klientcertifikat** lägger du till base-64-kodningen för klientcertifikatfilen. Det finns ett hjälppopupfönster för fältet om du behöver information om hur du hittar den base-64-kodade representationen för certifikatet. Lägg också till **lösenordet** för certifikatet.  Du kan använda certifikatet för klustret eller servern om du inte har något separat klientcertifikat.
+För certifikatbaserad autentisering lägger du till **servercertifikatets tumavtryck** för det servercertifikat som används för att skapa klustret.  I **klientcertifikat** lägger du till base-64-kodningen för klientcertifikatfilen. Det finns ett hjälppopupfönster för fältet om du behöver information om hur du hittar den base-64-kodade representationen för certifikatet. Lägg också till **lösenordet** för certifikatet.  Du kan använda certifikatet för klustret eller servern om du inte har något separat klientcertifikat.
 
 För Azure Active Directory-autentiseringsuppgifter lägger du till **servercertifikatets tumavtryck** för det servercertifikatet som användes för att skapa klustret och de autentiseringsuppgifter du vill använda för att ansluta till klustret i fälten **Användarnamn** och **Lösenord**.
 
 Klicka på **Lägg till** och spara klusteranslutningen.
 
-Lägg sedan till en byggartefakt i pipelinen så versionspipelinen kan hitta utdata från bygget. Välj **Pipeline** och **artefakter**-> **+ Lägg till**.  I **Source (Build definition)** (Källa (byggesdefinition)) väljer du den bygg-pipeline som du skapade tidigare.  Klicka på **Lägg till** för att spara byggesartefakten.
+Lägg sedan till en byggartefakt i pipelinen så versionspipelinen kan hitta utdata från bygget. Välj **Pipeline** och **artefakter**->**+ Lägg till**.  I **Source (Build definition)** (Källa (byggesdefinition)) väljer du den bygg-pipeline som du skapade tidigare.  Klicka på **Lägg till** för att spara byggesartefakten.
 
 ![Lägg till artefakt][add-artifact]
 
@@ -131,7 +131,7 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 ![Aktivera utlösare][enable-trigger]
 
-Välj **+Release** -> **Create a Release**  -> **Create** (+Version, Skapa en version, Skapa) för att manuellt skapa en version. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
+Välj **+ Släpp** -> **Skapa en release** -> **Skapa** för att manuellt skapa en version. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
 
 Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 

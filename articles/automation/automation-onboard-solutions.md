@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
 ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75421850"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Publicera uppdateringar och spårning av ändringar i Azure Automation
@@ -33,7 +33,7 @@ Följande krävs för att genomföra kursen:
 
 ## <a name="onboard-an-azure-vm"></a>Publicera en virtuell Azure-dator
 
-Det finns flera sätt att publicera datorer på, du kan publicera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från att bläddra mellan flera datorer](automation-onboard-solutions-from-browse.md) [från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)eller via en Runbook. Den här självstudien går igenom aktivering av Uppdateringshantering via en runbook. För att publicera Azure Virtual Machines i skala måste en befintlig virtuell dator publiceras med lösningen Ändringsspårning eller Uppdateringshantering. I det här steget publicerar du en virtuell dator med Uppdateringshantering och Ändringsspårning.
+Det finns flera sätt att registrera datorer. Du kan registrera lösningen [från en virtuell dator](automation-onboard-solutions-from-vm.md), [från bläddring av flera datorer, ](automation-onboard-solutions-from-browse.md) [från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md) eller via en runbook. Den här självstudien går igenom aktivering av Uppdateringshantering via en runbook. För att publicera Azure Virtual Machines i skala måste en befintlig virtuell dator publiceras med lösningen Ändringsspårning eller Uppdateringshantering. I det här steget publicerar du en virtuell dator med Uppdateringshantering och Ändringsspårning.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Aktivera Ändringsspårning och inventering
 
@@ -77,7 +77,7 @@ Nu när lösningarna är aktiverade kan du lägga till en virtuell Azure-dator t
    ![Aktivera uppdateringslösning för virtuell dator](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Om du inte väntar på att den andra lösningen ska slutföras, när du aktiverar nästa lösning får du ett meddelande om att *installationen av en annan lösning pågår på den här eller en annan virtuell dator. När installationen är klar aktive ras knappen Aktivera och du kan begära installation av lösningen på den här virtuella datorn.*
+> Om du inte väntar på att den andra lösningen ska slutföras får du ett meddelande om att installera en annan lösning på den här eller en annan virtuell dator när du aktiverar nästa *lösning. När installationen är klar aktiveras knappen Aktivera och du kan begära installation av lösningen på den här virtuella datorn.*
 
 ## <a name="install-and-update-modules"></a>Installera och uppdatera moduler
 
@@ -129,10 +129,10 @@ Du måste ha publicerat antingen ändringsspårning eller uppdateringslösningar
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Så här tar du bort en virtuell dator från Uppdateringshantering:
+Så här tar du bort en virtuell dator från uppdateringshantering:
 
-* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen för omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
-* Ta bort [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics agent för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+* I logganalysarbetsytan tar du bort den virtuella datorn `MicrosoftDefaultScopeConfig-Updates`från den sparade sökningen efter scopekonfigurationen . Sparade sökningar hittar du under **Allmänt** på arbetsytan.
+* Ta bort [Microsoft Monitoring-agenten](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg
 

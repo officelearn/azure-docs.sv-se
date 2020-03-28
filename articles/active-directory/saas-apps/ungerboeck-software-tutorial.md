@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Ungerboeck programvara | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ungerboeck programvara.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Ungerboeck Software | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Ungerboeck Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,74 +17,74 @@ ms.date: 06/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 69c7a7a8fe0ef346cb26e3b0b4f14d3dae7211b9
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67370308"
 ---
-# <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Självstudier: Integrera Ungerboeck programvara med Azure Active Directory
+# <a name="tutorial-integrate-ungerboeck-software-with-azure-active-directory"></a>Självstudiekurs: Integrera Ungerboeck-programvara med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera Ungerboeck programvara med Azure Active Directory (AD Azure). När du integrerar Ungerboeck programvara med Azure AD, kan du:
+I den här självstudien får du lära dig hur du integrerar Ungerboeck-programvara med Azure Active Directory (Azure AD). När du integrerar Ungerboeck Software med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till Ungerboeck programvara.
-* Ge dina användare att automatiskt inloggad Ungerboeck programvara med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till Ungerboeck Software.
+* Gör det möjligt för användarna att automatiskt loggas in på Ungerboeck Software med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* Aktiverat prenumeration Ungerboeck programvara enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri provperiod [här.](https://azure.microsoft.com/pricing/free-trial/)
+* Ungerboeck Software enkel inloggning (SSO) aktiverat prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Stöder Ungerboeck program **SP** -initierad SSO.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö. Ungerboeck Software stöder **SP** initierade SSO.
 
-## <a name="adding-ungerboeck-software-from-the-gallery"></a>Lägga till Ungerboeck programvara från galleriet
+## <a name="adding-ungerboeck-software-from-the-gallery"></a>Lägga Ungerboeck Software från galleriet
 
-För att konfigurera integrering av Ungerboeck programvara i Azure AD, som du behöver lägga till Ungerboeck programvara från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Ungerboeck Software i Azure AD måste du lägga till Ungerboeck Software från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **Ungerboeck programvara** i sökrutan.
-1. Välj **Ungerboeck programvara** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Ungerboeck Software** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **Ungerboeck Software** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD enkel inloggning med Ungerboeck programvara med hjälp av en testanvändare kallas **B.Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Ungerboeck programvara.
+Konfigurera och testa Azure AD SSO med Ungerboeck Software med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Ungerboeck Software.
 
-Slutför följande byggblock för att konfigurera och testa Azure AD enkel inloggning med Ungerboeck programvara:
+Så här konfigurerar och testar du Azure AD SSO med Ungerboeck Software:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  vill tillåta att användarna använda den här funktionen.
-2. **[Konfigurera Ungerboeck programvara SSO](#configure-ungerboeck-software-sso)**  att konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B.Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B.Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Ungerboeck programvara testanvändare](#create-ungerboeck-software-test-user)**  har en motsvarighet för B.Simon i Ungerboeck programvara som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  att kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
+2. **[Konfigurera Ungerboeck Software SSO](#configure-ungerboeck-software-sso)** för att konfigurera SSO-inställningarna på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning med B.Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera B.Simon att använda Azure AD enkel inloggning.
+5. **[Skapa Ungerboeck Software testanvändare](#create-ungerboeck-software-test-user)** att ha en motsvarighet till B.Simon i Ungerboeck Software som är kopplad till Azure AD representation av användaren.
+6. **[Testa SSO](#test-sso)** för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Ungerboeck programvara** programsidan integration, hitta den **hantera** och väljer **enkelinloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. I [Azure-portalen](https://portal.azure.com/)på sidan Integrering av **Ungerboeck-programprogram** hittar du avsnittet **Hantera** och väljer **Enkel inloggning**.
+1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** ange värdena för följande fält:
+1. På sidan **Grundläggande SAML-konfiguration** anger du värdena för följande fält:
 
     1. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.ungerboeck.com/prod`
 
-    1. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
+    1. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: 
     
-       **För produktionsmiljö**:
+       **För produktionsmiljö:**
 
        | |
        |-|
@@ -93,7 +93,7 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
        | `https://<SUBDOMAIN>.ungerboeck.io/prod` |
        | |
 
-        **För testmiljö**:
+        **För testmiljö:**
 
        | |
        |-|
@@ -103,67 +103,67 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
        | |
 
    > [!NOTE]
-   > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare som beskrivs senare i den **konfigurera Ungerboeck programvara enkel inloggning** avsnittet av självstudiekursen.
+   > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren som förklaras senare i avsnittet **Konfigurera Ungerboeck Software Single Sign-On** i självstudien.
 
 1. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
     ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
-1. I avsnittet **SAML-signeringscertifikat** kopierar du **Tumavtryck** och sparar det på datorn.
+1. Kopiera **tumavtrycket** i avsnittet **SAML-signeringscertifikat** och spara det på datorn.
 
-    ![Kopiera värdet för Tumavtryck](common/copy-thumbprint.png)
+    ![Kopiera tumavtrycksvärdet](common/copy-thumbprint.png)
 
-1. På den **konfigurera Ungerboeck programvara** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+1. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Ungerboeck-programvara.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-ungerboeck-software-sso"></a>Konfigurera programvaru-Ungerboeck SSO
+### <a name="configure-ungerboeck-software-sso"></a>Konfigurera Ungerboeck Software SSO
 
-Att konfigurera enkel inloggning på **Ungerboeck programvara** sida, som du behöver skicka den **tumavtrycksvärde** och lämpliga kopierade URL: er från Azure portal för att [Ungerboeck programvara supportteamet](mailto:Rhonda.Jannings@ungerboeck.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Ungerboecks programvarusida** måste du skicka **tumavtrycksvärdet** och lämpliga kopierade url:er från Azure-portalen till [Ungerboeck Software supportteam](mailto:Rhonda.Jannings@ungerboeck.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Ungerboeck programvara.
+I det här avsnittet ska du aktivera B.Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Ungerboeck Software.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **Ungerboeck programvara**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. Välj **Ungerboeck Software**i programlistan .
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B.Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
-### <a name="create-ungerboeck-software-test-user"></a>Skapa Ungerboeck programvara testanvändare
+### <a name="create-ungerboeck-software-test-user"></a>Skapa Ungerboeck Software testanvändare
 
-I det här avsnittet skapar du en användare som kallas B.Simon i Ungerboeck programvara. Arbeta med [Ungerboeck programvara supportteamet](mailto:Rhonda.Jannings@ungerboeck.com) att lägga till användare i Ungerboeck programvaruplattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B.Simon i Ungerboeck Software. Arbeta med [Ungerboeck Software supportteam](mailto:Rhonda.Jannings@ungerboeck.com) för att lägga till användarna i Ungerboeck Software plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen Ungerboeck programvara i åtkomstpanelen, bör det vara loggas in automatiskt till Ungerboeck programvara som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Ungerboeck Software på åtkomstpanelen ska du automatiskt loggas in på ungerboeck-programvaran som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

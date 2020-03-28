@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa anpassade VM-avbildningar med Azure PowerShell
+title: Självstudiekurs - Skapa anpassade VM-avbildningar med Azure PowerShell
 description: I den här självstudiekursen lär du dig hur du skapar en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
 documentationcenter: virtual-machines
 author: cynthn
@@ -13,10 +13,10 @@ ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 7360798f2f95184145a856babf501e3080cbaaf4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274192"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
@@ -25,24 +25,24 @@ Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
-> * Skapa en egen avbildning
+> * Skapa en anpassad avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
 
-I offentlig för hands version har vi tjänsten [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) . Du behöver bara beskriva dina anpassningar i en mall så att du kan hantera stegen för att skapa avbildningar i den här artikeln. [Prova Azure Image Builder (för hands version)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
+I offentlig förhandsversion har vi Azure [VM Image Builder-tjänsten.](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) Beskriv bara dina anpassningar i en mall och hantera stegen för att skapa bilder i den här artikeln. [Prova Azure Image Builder (förhandsgranskning)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Stegen nedan visar hur du tar en befintlig virtuell dator och omvandlar den till en återanvändbar anpassad avbildning som du kan använda för att skapa nya VM-instanser.
 
-Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den här självstudiekursen. Om det behövs kan du skapa en med detta [skriptexempel](../scripts/virtual-machines-windows-powershell-sample-create-vm.md). När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
+Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den här självstudiekursen. Om det behövs kan det här [skriptexemplet](../scripts/virtual-machines-windows-powershell-sample-create-vm.md) skapa ett åt dig. När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="prepare-vm"></a>Förbereda den virtuella datorn
 
@@ -63,7 +63,7 @@ Sysprep tar bland annat bort all din personliga kontoinformation och förbereder
 
 När du skapar en avbildning måste den virtuella datorn frigöras och markeras som generaliserad i Azure.
 
-Frigör den virtuella datorn med [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Deallocate den virtuella datorn med [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -130,7 +130,7 @@ New-AzVm `
     -OpenPorts 3389
 ```
 
-Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda avbildning. Om du planerar storskaliga, samtidiga distributioner av fler än 20 virtuella datorer från samma anpassade avbildning, bör du använda ett [delat avbildnings Galleri](shared-image-galleries.md) med flera avbildnings repliker. 
+Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda avbildning. Om du planerar storskaliga samtidiga distributioner av över 20 virtuella datorer från samma anpassade avbildning bör du använda ett [delat bildgalleri](shared-image-galleries.md) med flera bildrepliker. 
 
 
 ## <a name="image-management"></a>Avbildningshantering 
@@ -158,12 +158,12 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
-> * Skapa en egen avbildning
+> * Skapa en anpassad avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
 
-Gå vidare till nästa självstudie om du vill veta mer om hur du skapar virtuella datorer med hög tillgänglighet.
+Gå vidare till nästa handledning för att lära dig mer om hur du skapar virtuella datorer med hög tillgång.
 
 > [!div class="nextstepaction"]
 > [Skapa virtuella datorer med hög tillgänglighet](tutorial-availability-sets.md)

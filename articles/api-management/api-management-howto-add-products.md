@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
 ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74538244"
 ---
 # <a name="create-and-publish-a-product"></a>Skapa och publicera en produkt  
 
 En produkt innehåller en eller flera API:er samt en användningskvot och användningsvillkor i Azure API Management. När en produkt har publicerats kan utvecklarna prenumerera på produkten och börja använda produktens API: er.  
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa och publicera en produkt
@@ -57,7 +57,7 @@ I den här guiden får du lära dig att:
     | Godkännande krävs        | Markera **Kräv godkännande** om du vill att en administratör ska granska och godkänna eller avvisa prenumerationsförsök för produkten. Om rutan är avmarkerad godkänns prenumerationsförsök automatiskt.                                                                                                                         |
     | Antal tillåtna prenumerationer | Ange en prenumerationsgräns för att begränsa antalet flera samtidiga prenumerationer.                                                                                                                                                                                                                                |
     | Juridiska villkor              | Du kan inkludera användningsvillkor för produkten som prenumeranter måste godkänna för att kunna använda produkten.                                                                                                                                                                                                             |
-    | API:er                     | Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. <br/> Du kan lägga till en befintlig API när produkten skapas. Du kan lägga till ett API till produkten senare, antingen från produktens **inställnings** sida eller när du skapar ett API. |
+    | API:er                     | Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. <br/> Du kan lägga till en befintlig API när produkten skapas. Du kan lägga till ett API i produkten senare, antingen från sidan **Produktinställningar** eller när du skapar ett API. |
 
 3. Klicka på **Skapa** för att skapa den nya produkten.
 
@@ -67,9 +67,9 @@ Du kan fortsätta konfigurera produkten efter att du har sparat den genom att v�
 
 Visa/lägg till prenumeranter till produkten från fliken **Prenumerationer**.
 
-Ange synlighet för en produkt för utvecklare eller gäster från fliken **åtkomst kontroll** .
+Ange synlighet för en produkt för utvecklare eller gäster från fliken **Åtkomstkontroll.**
 
-## <a name="add-apis"> </a>Lägga till API:er till en produkt
+## <a name="add-apis-to-a-product"></a><a name="add-apis"> </a>Lägga till API:er till en produkt
 
 Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er och erbjuda dem till utvecklare via utvecklarportalen. Du kan lägga till en befintlig API när produkten skapas. Du kan lägga till en API till produkten senare, antingen från sidan Produkter **Inställningar** eller när du skapar en API.
 

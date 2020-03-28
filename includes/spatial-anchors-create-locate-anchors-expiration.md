@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: 1598d89d254e788ecf94f9a42b83cbe22b62204a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67187058"
 ---
 ## <a name="set-expiration"></a>Ange förfallodatum
 
-Det är också möjligt att konfigurera ankaret upphör att gälla automatiskt vid ett givet datum i framtiden. När en fästpunkt upphör att gälla den kommer inte längre finns eller uppdateras. Upphör att gälla kan bara anges när till ankaret skapas. Det inte går att uppdatera därefter upphör att gälla. Därför kan du ange det upphör att gälla innan du sparar den till molnet.
+Det är också möjligt att konfigurera ditt ankare så att det upphör att gälla automatiskt vid ett visst datum i framtiden. När ett ankare upphör att gälla kommer det inte längre att finnas eller uppdateras. Förfallodatum kan bara ställas in när ankaret skapas. Det går inte att uppdatera förfallodatumet efteråt. Så du kan ställa in dess förfallodatum innan du sparar den till molnet.

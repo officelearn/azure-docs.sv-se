@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Peakon | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Peakon | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Peakon.
 services: active-directory
 documentationCenter: na
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: b093a26848701254ad674081037c266f1fb012b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094728"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Självstudier: Azure Active Directory-integrering med Peakon
+# <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Självstudiekurs: Azure Active Directory-integrering med Peakon
 
-I den här självstudien får du lära dig hur du integrerar Peakon med Azure Active Directory (AD Azure).
-Integrera Peakon med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Peakon med Azure Active Directory (Azure AD).
+Genom att integrera Peakon med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Peakon.
-* Du kan aktivera användarna att vara automatiskt inloggad till Peakon (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Peakon (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Peakon, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Peakon behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Peakon enkel inloggning aktiverat prenumeration
+* Peakon enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Peakon **SP** och **IDP** -initierad SSO
+* Peakon stöder **SP** och **IDP** initierad SSO
 
-## <a name="adding-peakon-from-the-gallery"></a>Att lägga till Peakon från galleriet
+## <a name="adding-peakon-from-the-gallery"></a>Lägga till Peakon från galleriet
 
-För att konfigurera integrering av Peakon i Azure AD, som du behöver lägga till Peakon från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Peakon i Azure AD måste du lägga till Peakon från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Peakon från galleriet:**
+**Så här lägger du till Peakon från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ För att konfigurera integrering av Peakon i Azure AD, som du behöver lägga ti
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Peakon**väljer **Peakon** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **Peakon**i sökrutan och välj **Peakon** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
      ![Peakon i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Peakon baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Peakon upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Peakon baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Peakon upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Peakon, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Peakon måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Peakon Single Sign-On](#configure-peakon-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Peakon](#create-peakon-test-user)**  – du har en motsvarighet för Britta Simon i Peakon som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Peakon Single Sign-On](#configure-peakon-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Peakon-testanvändare](#create-peakon-test-user)** – om du vill ha en motsvarighet till Britta Simon i Peakon som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Peakon:
+Så här konfigurerar du en enkel Azure AD-inloggning med Peakon:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Peakon** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Peakon-programintegration**. **Peakon**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -101,66 +101,66 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Peakon:
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
-    ![Peakon domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Peakon-domän och webbadresser med enkel inloggning](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://app.peakon.com/saml/<companyid>/metadata`
+    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://app.peakon.com/saml/<companyid>/metadata`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://app.peakon.com/saml/<companyid>/assert`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://app.peakon.com/saml/<companyid>/assert`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Peakon domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Peakon-domän och webbadresser med enkel inloggning](common/metadata-upload-additional-signon.png)
 
-    I rutan **Inloggnings-URL** anger du en URL: `https://app.peakon.com/login`
+    Skriv en URL i textrutan **Sign-on-URL:**`https://app.peakon.com/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med url:en för faktisk identifierare och svar som förklaras senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificateraw.png)
+    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-7. På den **konfigurera Peakon** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+7. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera Peakon.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-peakon-single-sign-on"></a>Konfigurera Peakon Single Sign-On
+### <a name="configure-peakon-single-sign-on"></a>Konfigurera Peakon enkel inloggning
 
-1. I ett annat webbläsarfönster, loggar du in Peakon som administratör.
+1. Logga in på Peakon som administratör i ett annat webbläsarfönster.
 
-2. I menyraden till vänster på sidan klickar du på **Configuration**, gå sedan till **integreringar**.
+2. Klicka på **Konfiguration**i menyraden till vänster på sidan och navigera sedan till **Integrationer**.
 
-    ![Konfig](./media/peakon-tutorial/tutorial_peakon_config.png)
+    ![Den Config](./media/peakon-tutorial/tutorial_peakon_config.png)
 
-3. På **integreringar** klickar du på **enkel inloggning**.
+3. På **integrationssidan** klickar du på **Enkel inloggning**.
 
-    ![Enda](./media/peakon-tutorial/tutorial_peakon_single.png)
+    ![Den enda](./media/peakon-tutorial/tutorial_peakon_single.png)
 
-4. Under **enkel inloggning** klickar du på **aktivera**.
+4. Under Avsnittet **Enkel inloggning** klickar du på **Aktivera**.
 
-    ![Aktivera](./media/peakon-tutorial/tutorial_peakon_enable.png)
+    ![Den aktiverade](./media/peakon-tutorial/tutorial_peakon_enable.png)
 
-5. På den **enkel inloggning för anställda som använder SAML** avsnittet, utför följande steg:
+5. Gör följande på avsnittet **Enkel inloggning för anställda som använder SAML:**
 
-    ![Saml](./media/peakon-tutorial/tutorial_peakon_saml.png)
+    ![Den saml](./media/peakon-tutorial/tutorial_peakon_saml.png)
 
-    a. I den **inloggnings-URL för enkel inloggning** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    a. Klistra in värdet **för inloggnings-URL**i textrutan **För inloggningsadress** , som du har kopierat från Azure-portalen.
 
-    b. I den **utloggnings-URL för enkel inloggning** textrutan klistra in värdet för **URL för utloggning**, som du har kopierat från Azure-portalen.
+    b. Klistra in värdet **för url för utloggning för utloggning**i **textrutan För utloggningsadress** , som du har kopierat från Azure-portalen.
 
-    c. Klicka på **Välj fil** att ladda upp det certifikat som du har hämtat från Azure-portalen i rutan certifikat.
+    c. Klicka på **Välj fil** om du vill överföra certifikatet som du har hämtat från Azure-portalen till rutan Certifikat.
 
-    d. Klickar du på den **ikonen** att kopiera den **entitets-ID** och klistra in i **identifierare** -textrutan i **SAML grundkonfiguration** avsnittet på Azure-portalen.
+    d. Klicka på **ikonen** om du vill kopiera **entitets-ID:t** och klistra in i textrutan **Identifierare** i avsnittet **Grundläggande SAML-konfiguration** på Azure-portalen.
 
-    e. Klicka på den **ikonen** att kopiera den **svars-URL (ACS)** och klistra in i **svars-URL** textrutan i **grundläggande SAML-konfiguration** avsnittet på Azure-portalen.
+    e. Klicka på **ikonen** om du vill kopiera **svars-URL:en (ACS)** och klistra in i textrutan **Svars-URL** i avsnittet **Grundläggande SAML-konfiguration** på Azure-portalen.
 
     f. Klicka på **Spara**
 
@@ -172,7 +172,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -189,17 +189,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Peakon.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Peakon.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Peakon**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Peakon**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Peakon**.
+2. Välj **Peakon**i programlistan .
 
-    ![Länken Peakon i listan med program](common/all-applications.png)
+    ![Peakon-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -211,42 +211,42 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-peakon-test-user"></a>Skapa Peakon testanvändare
+### <a name="create-peakon-test-user"></a>Skapa Peakon-testanvändare
 
-För att aktivera Azure AD-användare att logga in på Peakon, måste de etableras i Peakon.  
+För att Azure AD-användare ska kunna logga in på Peakon måste de etableras i Peakon.  
 När det gäller Peakon är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på webbplatsen Peakon företag som administratör.
+1. Logga in på din Peakon-företagswebbplats som administratör.
 
-2. I menyraden till vänster på sidan klickar du på **Configuration**, gå sedan till **anställda**.
+2. Klicka på **Konfiguration**i menyraden till vänster på sidan och navigera sedan till **Anställda**.
 
-    ![Medarbetaren](./media/peakon-tutorial/tutorial_peakon_employee.png)
+    ![Den anställde](./media/peakon-tutorial/tutorial_peakon_employee.png)
 
-3. På upp till höger på sidan, klickar du på **Lägg till medarbetare**.
+3. Klicka på **Lägg till medarbetare**längst upp till höger på sidan .
 
       ![Lägg till medarbetare](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 
-3. På den **nyanställd** dialogrutan utför följande steg:
+3. Gör följande på dialogrutan **Ny anställd:**
 
      ![Den nya medarbetaren](./media/peakon-tutorial/tutorial_peakon_create.png)
 
-    a. I den **namn** textrutan typ förnamn som **Britta** - och efternamn som **simon**.
+    a. Skriv förnamn som **Britta** och efternamn som **simon**i textrutan **Namn** .
 
-    b. I den **e-post** textrutan, skriver du in den e-postadressen som **Brittasimon\@contoso.com**.
+    b. Skriv e-postadressen som **Brittasimon\@contoso.com**i **textrutan e-post** .
 
-    c. Klicka på **skapa medarbetare**.
+    c. Klicka på **Skapa medarbetare**.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Peakon i åtkomstpanelen, bör det vara loggas in automatiskt till Peakon som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Topon-panelen på åtkomstpanelen ska du automatiskt loggas in på den Peakon som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

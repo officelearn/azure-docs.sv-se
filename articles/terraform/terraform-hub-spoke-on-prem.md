@@ -1,34 +1,34 @@
 ---
-title: Självstudie – Skapa lokalt virtuellt nätverk i Azure med terraform
-description: Självstudie som illustrerar hur du implementerar ett lokalt VNet i Azure som huserar lokala resurser
+title: Självstudiekurs - Skapa lokalt virtuellt nätverk i Azure med Terraform
+description: Självstudiekurs som illustrerar hur du implementerar ett lokalt virtuella nätverk i Azure som rymmer lokala resurser
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 361f9919fdd406a1fef6bbf2b7512dbc20266a54
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159216"
 ---
-# <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>Självstudie: skapa lokalt virtuellt nätverk i Azure med terraform
+# <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>Självstudiekurs: Skapa lokalt virtuellt nätverk i Azure med Terraform
 
-I den här självstudien visas hur du implementerar ett lokalt nätverk med hjälp av ett virtuellt Azure-nätverk (VNet). Ett Azure VNet kan ersättas av ditt eget privata virtuella nätverk. Det gör du genom att mappa lämpliga IP-adresser i under näten.
+Den här självstudien visar hur du implementerar ett lokalt nätverk med hjälp av ett virtuellt Azure-nätverk (VNet). Ett Virtuellt Azure-nätverk kan ersättas av ditt eget privata virtuella nätverk. För att göra det, mappa lämpliga IP-adresser i undernäten.
 
 Följande uppgifter förklaras:
 
 > [!div class="checklist"]
-> * Använd HCL (HashiCorp Language) för att implementera ett lokalt VNet i hubben för nav-eker
-> * Använd terraform för att skapa resurser för hubb nätverks utrustning
-> * Använd terraform för att skapa en lokal virtuell dator
-> * Använd terraform för att skapa en lokal virtuell privat nätverksgateway
+> * Använd HCL (HashiCorp Language) för att implementera ett lokalt virtuella nätverk i hub-spoke-topologi
+> * Använda Terraform för att skapa resurser för navnätverksinstallationer
+> * Använd Terraform för att skapa lokal virtuell dator
+> * Använd Terraform för att skapa lokal virtuell privat nätverksgateway
 
 ## <a name="prerequisites"></a>Krav
 
-1. [Skapa en nav-och eker hybrid nätverkstopologi med terraform i Azure](./terraform-hub-spoke-introduction.md).
+1. [Skapa en hubb- och ekerhybridnätverkstopologi med Terraform i Azure](./terraform-hub-spoke-introduction.md).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
-Skapa ett virtuellt Azure-nätverk om du vill simulera ett lokalt nätverk. Demo-VNet tar ett faktiskt privat lokalt nätverk. Mappa lämpliga IP-adresser i under näten för att göra samma sak med ditt befintliga lokala nätverk.
+Om du vill simulera ett lokalt nätverk skapar du ett virtuellt Azure-nätverk. Demo-VNet tar plats i ett verkligt privat lokalt nätverk. Om du vill göra samma sak med ditt befintliga lokala nätverk mappar du lämpliga IP-adresser i undernäten.
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
@@ -48,11 +48,11 @@ Skapa ett virtuellt Azure-nätverk om du vill simulera ett lokalt nätverk. Demo
     cd hub-spoke
     ```
 
-## <a name="declare-the-on-premises-vnet"></a>Deklarera det lokala VNet-nätverket
+## <a name="declare-the-on-premises-vnet"></a>Deklarera det lokala virtuella nätverket
 
-Skapa konfigurations filen terraform som deklarerar ett lokalt VNet.
+Skapa konfigurationsfilen för Terraform som deklarerar ett lokalt virtuella nätverk.
 
-1. Öppna en ny fil med namnet `on-prem.tf`i Cloud Shell.
+1. Öppna en ny fil med `on-prem.tf`namnet .
 
     ```bash
     code on-prem.tf
@@ -217,9 +217,9 @@ Skapa konfigurations filen terraform som deklarerar ett lokalt VNet.
     }
     ```
 
-1. Spara filen och avsluta redigeraren.
+1. Spara filen och avsluta redigeringsprogrammet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa ett virtuellt hubb nätverk med terraform i Azure](./terraform-hub-spoke-hub-network.md)
+> [Skapa ett virtuellt navnätverk med Terraform i Azure](./terraform-hub-spoke-hub-network.md)

@@ -1,14 +1,14 @@
 ---
-title: Självstudie – CI/CD från Jenkins till virtuella Azure-datorer med Azure DevOps Services
+title: Självstudiekurs - CI/CD från Jenkins till Virtuella Azure-datorer med Azure DevOps Services
 description: I dessa självstudier får du lära dig hur du med hjälp av Jenkins kan konfigurera kontinuerlig integration (CI) och kontinuerlig distribution (CD) för en Node.js-app till virtuella Azure-datorer från versionshanteringen i Visual Studio Team Services eller Microsoft Team Foundation Server
-keywords: Jenkins, Azure, DevOps, virtuell dator, cicd
+keywords: jenkins, azurblå, devops, virtuell maskin, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78192616"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Självstudier: Distribuera appar till virtuella Linux-datorer i Azure med Jenkins och Azure DevOps Services
@@ -26,7 +26,7 @@ till en [distributionsgrupp](https://docs.microsoft.com/azure/devops/pipelines/r
 > * Konfigurera Jenkins för integrering med Azure DevOps Services.
 > * Skapa en tjänstslutpunkt för Jenkins.
 > * Skapa en distributionsgrupp för de virtuella Azure-datorerna.
-> * Skapa en pipeline för Azure pipelines-utgåvor.
+> * Skapa en Azure Pipelines-versionspipeline.
 > * Kör manuella och CI-utlösta distributioner.
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -96,9 +96,9 @@ Först måste du konfigurera två Jenkins plugin-program: **NodeJS** och **VS Te
 5. Välj **Trigger release in TFS/Team Services** (Utlös version i TFS/Team Services). Ange URI för din Azure DevOps Services-organisation, till exempel **https://{your-organization-name}.visualstudio.com**.
 6. Ange namnet för **projektet**.
 7. Ge versionspipelinen ett namn. (Du skapar den här versionspipelinen senare i Azure DevOps Services.)
-8. Välj autentiseringsuppgifter för att ansluta till din Azure DevOps-tjänst eller Azure DevOps Server miljö:
+8. Välj autentiseringsuppgifter för att ansluta till din Azure DevOps Services- eller Azure DevOps Server-miljö:
    - Låt **Username** (Användarnamn) vara tomt om du använder Azure DevOps Services. 
-   - Ange ett användar namn och lösen ord om du använder en lokal version av Azure DevOps Server.    
+   - Ange ett användarnamn och lösenord om du använder en lokal version av Azure DevOps Server.    
    ![Konfigurera åtgärder efter skapandet i Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Spara Jenkins-projektet.
 
@@ -124,7 +124,7 @@ Du behöver en [distributionsgrupp](https://www.visualstudio.com/docs/build/conc
 
 1. Öppna fliken **Releases** (Versioner) i hubben **Build &amp; Release** (Skapa version). Öppna **Deployment groups** (Distributionsgrupper) och välj **+ New** (+ Ny).
 2. Ange ett namn för distributionsgruppen och valfri beskrivning. Välj sedan **Skapa**.
-3. Välj operativsystem för din virtuella måldator för distribution. Välj t.ex. **Ubuntu 16.04+** .
+3. Välj operativsystem för din virtuella måldator för distribution. Välj t.ex. **Ubuntu 16.04+**.
 4. Välj **Use a personal access token in the script for authentication** (Använd en personlig åtkomsttoken i skriptet för autentisering).
 5. Välj länken för **systemkrav**. Installera förutsättningarna för ditt operativsystem.
 6. Välj **Kopiera skriptet till Urklipp** för att kopiera skriptet.
@@ -132,18 +132,18 @@ Du behöver en [distributionsgrupp](https://www.visualstudio.com/docs/build/conc
 8. Efter installationen kan du uppmanas att distribuera grupptaggar. Acceptera alla standardinställningar.
 9. Sök efter den nya virtuella datorn i Azure DevOps Services, i **Targets** (Mål) under **Deployment Groups** (Distributionsgrupper).
 
-## <a name="create-an-azure-pipelines-release-pipeline"></a>Skapa en pipeline för Azure pipelines-lansering
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Skapa en Azure Pipelines-versionspipeline
 
 En versionspipeline anger hur Azure Pipelines ska distribuera appen. I det här exemplet kör du ett kommandoskript.
 
 Så här skapar du en versionspipeline i Azure Pipelines:
 
-1. Öppna fliken **Releases** (Versioner) i hubben **Build &amp; Release**  (Skapa version) och välj **Create release pipeline** (Skapa versionspipeline). 
+1. Öppna fliken **Releases** (Versioner) i hubben **Build &amp; Release ** (Skapa version) och välj **Create release pipeline** (Skapa versionspipeline). 
 2. Välj den **tomma** mallen genom att välja att börja med en **tom process**.
 3. I avsnittet **Artefakter** väljer du **+ Lägg till artefakt** och **Jenkins** som **källtyp**. Välj din tjänstslutpunkt i Jenkins-anslutningen. Sedan väljer du Jenkins-källjobbet och **Lägg till**.
 4. Välj ellipsen bredvid **Environment 1** (Miljö 1). Välj **Add deployment group phase** (Lägg till distributionsgruppsfas).
 5. Välj distributionsgrupp.
-5. Välj **+** för att lägga till en uppgift till **Add deployment group phase** (Lägg till distributionsgruppsfas).
+5. Markera **+** det här om du vill lägga till en uppgift **i fasen Distributionsgrupp**.
 6. Välj uppgiften för **kommandoskriptet** och välj sedan **Lägg till**. Uppgiften för **kommandoskriptet** ger konfigurationen för ett skript som ska köras på varje server för att kunna installera Node.js och starta appen.
 8. För **skriptsökvägen** anger du **$(System.StandardArbetsKatalog)/Fabrikam-Node/deployscript.sh**.
 9. Välj **Avancerat** och aktivera **Ange arbetskatalog**.
@@ -157,14 +157,14 @@ Så här skapar du en versionspipeline i Azure Pipelines:
 2. Välj den version du slutförde i den markerade listrutan och välj **Queue** (Kö).
 3. Välj versionslänken i popup-meddelandet. Till exempel: "Release **Release-1** has been created." (Version Version-1 har skapats).
 4. Öppna fliken med **loggar** för att se på utmatningen av versionen.
-5. Öppna URL-adressen till en av de servrar som du lagt till i din distributionsgrupp i en webbläsare. Ange till exempel **http://{din-server-ip-adress}** .
+5. Öppna URL-adressen till en av de servrar som du lagt till i din distributionsgrupp i en webbläsare. Ange till exempel **http://{din-server-ip-adress}**.
 6. Gå till källagringsplatsen i Git och ändra innehållet i rubriken **h1** för filen app/views/index.jade.
 7. Checka in ändringarna.
 8. Efter några minuter ser du att en ny version har skapats på sidan med **versioner** i Azure DevOps. Öppna versionen om du vill se distributionen. Grattis!
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
 
-Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
+Om du stöter på några buggar med Jenkins plugins, lämna in ett problem i [Jenkins JIRA](https://issues.jenkins-ci.org/) för den specifika komponenten.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -174,11 +174,11 @@ I dessa självstudier har du automatiserat distributionen av en app till Azure m
 > * Skapa en app i Jenkins.
 > * Konfigurera Jenkins för integrering med Azure DevOps Services.
 > * Skapa en distributionsgrupp för de virtuella Azure-datorerna.
-> * Skapa en Azure-pipeline som konfigurerar de virtuella datorerna och distribuerar appen.
+> * Skapa en Azure Pipeline som konfigurerar de virtuella datorerna och distribuerar appen.
 
-Information om hur du använder Azure-pipeliner för både build-och release-steg finns i [detta](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+Mer information om hur du använder Azure Pipelines för både bygg- och utgivningssteg finns [i detta](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
 
-Gå vidare till nästa självstudie om du vill veta mer om hur du skapar en YAML-baserad CI/CD-pipeline för att distribuera till virtuella datorer.
+Om du vill veta mer om hur du skapar en YAML-baserad CI/CD-pipeline som ska distribueras till virtuella datorer går du vidare till nästa självstudiekurs.
 
 > [!div class="nextstepaction"]
 > [Jenkins på Azure](/azure/Jenkins/)

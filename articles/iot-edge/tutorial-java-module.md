@@ -1,5 +1,5 @@
 ---
-title: Självstudie – självstudier för anpassad Java-modul med Azure IoT Edge
+title: Självstudiekurs - Självstudiekurs för anpassade Java-moduler med Azure IoT Edge
 description: Den här självstudien beskriver hur du skapar en IoT Edge-modul med Java-kod och distribuerar den till en gränsenhet.
 services: iot-edge
 author: kgremban
@@ -10,15 +10,15 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 228e50160e5c13b2d24a504b02c4bb7e3a420a46
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76772915"
 ---
-# <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla en Java IoT Edge-modul för Linux-enheter
+# <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Självstudiekurs: Utveckla en Java IoT Edge-modul för Linux-enheter
 
-Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge enheten som du skapade i distributions Azure IoT Edge på en simulerad enhet i [Linux](quickstart-linux.md) -snabb starten. I den här guiden får du lära dig hur man:
+Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. Du använder den simulerade IoT Edge-enheten som du skapade i Deploy Azure [Linux](quickstart-linux.md) IoT Edge på en simulerad enhet i Linux-snabbstart. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 >
@@ -31,34 +31,34 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="solution-scope"></a>Lösnings omfång
+## <a name="solution-scope"></a>Lösningsscope
 
 Den här självstudien visar hur du utvecklar en modul i **Java** med **Visual Studio Code**och hur du distribuerar den till en **Linux-enhet**. IoT Edge stöder inte Java-moduler för Windows-enheter.
 
-Använd följande tabell för att förstå alternativen för att utveckla och distribuera Java-moduler:
+Använd följande tabell för att förstå dina alternativ för att utveckla och distribuera Java-moduler:
 
-| Java | Visual Studio-kod | Visual Studio 2017/2019 |
+| Java | Visual Studio-koden | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Använda VS Code för Java-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| **Linux ARM32** | ![Använda VS Code för Java-moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Använd VS-kod för Java-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Använd VS-kod för Java-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din utvecklings miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). Genom att slutföra någon av de här självstudierna bör du ha följande krav på plats:
+Innan du påbörjar den här självstudien bör du ha gått igenom den tidigare självstudien för att ställa in din utvecklingsmiljö för Linux-containerutveckling: [Utveckla IoT Edge-moduler för Linux-enheter](tutorial-develop-for-linux.md). Genom att fylla i någon av dessa tutorials bör du ha följande förutsättningar på plats:
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 * En [Linux-enhet som kör Azure IoT Edge](quickstart-linux.md)
-* Ett behållar register som [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio-kod](https://code.visualstudio.com/) som kon figurer ATS med [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* [Docker CE](https://docs.docker.com/install/) konfigurerat för att köra Linux-behållare.
+* Ett behållarregister, till exempel [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio-kod](https://code.visualstudio.com/) som konfigurerats med [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+* [Docker CE](https://docs.docker.com/install/) konfigurerad för att köra Linux-behållare.
 
-Om du vill utveckla en IoT Edge-modul i Java installerar du följande ytterligare krav på utvecklings datorn: 
+Om du vill utveckla en IoT Edge-modul i Java installerar du följande ytterligare förutsättningar på din utvecklingsmaskin: 
 
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) för Visual Studio Code.
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks), och [ange `JAVA_HOME`miljövariabeln](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) så att den pekar mot din JDK-installation.
-* [Maven 3.](https://maven.apache.org/)
+* [Maven](https://maven.apache.org/)
 
-## <a name="create-a-module-project"></a>Skapa ett modul-projekt
+## <a name="create-a-module-project"></a>Skapa ett modulprojekt
 
 Följande steg skapar ett IoT Edge-modulprojekt som baseras på Maven-mallpaketet i Azure IoT Edge och Java-SDK:n för Azure IoT-enheter. Du skapar projektet med hjälp av Visual Studio Code och Azure IoT-verktygen.
 
@@ -66,7 +66,7 @@ Följande steg skapar ett IoT Edge-modulprojekt som baseras på Maven-mallpakete
 
 Skapa en Java-lösningsmall som du kan anpassa med din egen kod.
 
-1. I Visual Studio Code väljer du **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code.
+1. I Visual Studio-kod väljer du **Visa** > **kommandopalett** för att öppna kommandopaletten VS-kod.
 
 2. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Skapa lösningen genom att följ anvisningarna på kommandopaletten.
 
@@ -81,13 +81,13 @@ Skapa en Java-lösningsmall som du kan anpassa med din egen kod.
 
    ![Ange lagringsplatsen för Docker-avbildningen](./media/tutorial-java-module/repository.png)
 
-Om det är första gången du skapar Java-modulen kan det ta flera minuter att ladda ned maven-paketen. När lösningen är klar läser fönstret VS Code in din IoT Edge lösnings arbets yta. Lösnings arbets ytan innehåller fem komponenter på översta nivån:
+Om det är första gången du skapar Java-modul kan det ta flera minuter att hämta maven-paketen. När lösningen är klar läser VS-kodfönstret in din IoT Edge-lösningsarbetsyta. Lösningsarbetsytan innehåller fem komponenter på den översta nivån:
 
-* Mappen **moduler** innehåller Java-koden för modulen och Docker-filerna för att bygga modulen som en behållar avbildning.
-* Filen **\.env** lagrar dina autentiseringsuppgifter för containerregistret.
+* **Modulerna** mappen innehåller Java-koden för din modul och Docker filer för att bygga din modul som en behållarevbildning.
+* ** \.Env-filen** lagrar dina autentiseringsuppgifter för behållarregister.
 * Filen **deployment.template.json** innehåller informationen som IoT Edge-körningen använder för att distribuera moduler på en enhet.
-* Filen **Deployment. debug. template. JSON** File behållar fel söknings versionen av moduler.
-* Du redigerar inte mappen **\.vscode** eller filen **\.gitignore** i den här självstudiekursen.
+* **Filen deployment.debug.template.json** innehåller felsökningsversionen av moduler.
+* Du kommer inte att redigera ** \.vscode-mappen** eller ** \.gitignore-filen** i den här självstudien.
 
 Om du inte angav ett containerregister när du skapade lösningen, men accepterade standardvärdet localhost:5000, har du ingen \.env-fil.
 
@@ -99,17 +99,17 @@ Miljöfilen lagrar autentiseringsuppgifterna för containerregistret och delar d
 2. Uppdatera fälten med det **användarnamn** och **lösenord** som du kopierade från Azure Container-registret.
 3. Spara filen.
 
-### <a name="select-your-target-architecture"></a>Välj din mål arkitektur
+### <a name="select-your-target-architecture"></a>Välj målarkitektur
 
-För närvarande kan Visual Studio Code utveckla Java-moduler för Linux AMD64-och Linux ARM32v7-enheter. Du måste välja vilken arkitektur du vill använda för varje lösning, eftersom behållaren har skapats och körs på olika sätt för varje arkitektur typ. Standardvärdet är Linux AMD64.
+För närvarande kan Visual Studio Code utveckla Java-moduler för Linux AMD64 och Linux ARM32v7-enheter. Du måste välja vilken arkitektur du riktar dig till med varje lösning, eftersom behållaren är byggd och körs på olika sätt för varje arkitekturtyp. Standard är Linux AMD64.
 
-1. Öppna paletten kommando och Sök efter **Azure IoT Edge: Ange standard plattform för Edge-lösning**eller Välj gen vägs ikonen i sido fältet längst ned i fönstret.
+1. Öppna kommandopaletten och sök efter **Azure IoT Edge: Ange standardmålplattform för edge-lösning**eller välj genvägsikonen i sidofältet längst ned i fönstret.
 
-2. I paletten kommando väljer du mål arkitekturen i listan med alternativ. I den här självstudien använder vi en virtuell Ubuntu-dator som IoT Edge enhet, så behåller standard- **amd64**.
+2. I kommandopaletten väljer du målarkitekturen i listan med alternativ. För den här guiden använder vi en Ubuntu virtuell maskin som IoT Edge-enhet, så kommer att behålla standard **amd64**.
 
 ### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-1. Öppna **modules** > **JavaModule** > **src** > **main** > **java** > **com** > **edgemodule** > **App.java** i VS Code-utforskaren.
+1. I VS-kodutforskaren öppnar du > moduler >  > **JavaModule****src** > **main** > **java** > **com** > **edgemodule** **modules****App.java**.
 
 2. Lägg till följande kod längst upp i filen för att importera nya refererade klasser.
 
@@ -212,7 +212,7 @@ För närvarande kan Visual Studio Code utveckla Java-moduler för Linux AMD64-o
 
 7. Spara App.java-filen.
 
-8. Öppna filen **deployment.template.json** i arbetsytan för IoT Edge-lösningen i VS Code-utforskaren.
+8. Öppna **filen deployment.template.json** i IoT Edge-lösningsarbetsytan i VS-kodutforskaren.
 
 9. Lägg till modultvillingen **JavaModule** i distributionsmanifestet. Infoga följande JSON-innehåll längst ned i avsnittet **moduleContent** efter **$edgeHub**-modultvillingen:
 
@@ -228,37 +228,37 @@ För närvarande kan Visual Studio Code utveckla Java-moduler för Linux AMD64-o
 
 10. Spara filen deployment.template.json.
 
-## <a name="build-and-push-your-module"></a>Bygga och pusha din modul
+## <a name="build-and-push-your-module"></a>Skapa och tryck på din modul
 
 I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **JavaModule** för att filtrera ut meddelanden om att temperaturen för den rapporterade datorn ligger under den godkända gränsen. Nu skapar du lösningen som en containeravbildning och push-överför den till ditt containerregister.
 
-1. Öppna den VS Code-integrerade terminalen genom att välja **Visa** > **Terminal**.
+1. Öppna den integrerade VS-koden-terminalen genom att välja **Visa** > **terminal**.
 
-1. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
+1. Logga in på Docker genom att ange följande kommando i terminalen. Logga in med användarnamn, lösenord och inloggningsserver från ditt Azure-behållarregister. Du kan hämta dessa värden från avsnittet **Access-nycklar** i registret i Azure-portalen.
 
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin`. Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
+   Du kan få en säkerhetsvarning `--password-stdin`som rekommenderar användning av . Även om bästa praxis rekommenderas för produktionsscenarier, ligger den utanför den här självstudiens omfattning. Mer information finns i [inloggningsreferensen för docker.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
-1. I VS Code-utforskaren högerklickar du på filen **deployment.template.json** och väljer **Build and Push IoT Edge solution** (Skapa och skicka IoT Edge-lösning).
+1. Högerklicka på filen **deployment.template.json** i VS-kodutforskaren och välj **Bygg och Push IoT Edge-lösning**.
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** som innehåller det fullständiga distributions manifestet, som bygger på information i distributions mal len och andra lösningsfiler. För det andra kör den `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` för att push-överföra avbildnings lagrings platsen till behållar registret.
+   Kommandot Bygg och push startar tre åtgärder. Först skapas en ny mapp i lösningen som kallas **config** som innehåller hela distributionsmanifestet, som är uppbyggd av information i distributionsmallen och andra lösningsfiler. För det `docker build` andra körs den för att skapa behållaravbildningen baserat på lämplig dockerfile för din målarkitektur. Sedan körs `docker push` det för att skicka avbildningsdatabasen till behållarregistret.
 
-## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
+## <a name="deploy-modules-to-device"></a>Distribuera moduler till enheten
 
-Använd Visual Studio Code Explorer och tillägget Azure IoT Tools för att distribuera modulfönstret till din IoT Edge-enhet. Du har redan ett distributions manifest som är för berett för ditt scenario, filen **Deployment. JSON** i mappen config. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
+Använd Utforskaren för Visual Studio-kod och Azure IoT Tools-tillägget för att distribuera modulprojektet till din IoT Edge-enhet. Du har redan ett distributionsmanifest förberett för ditt scenario, **filen deployment.json** i konfigurationsmappen. Allt du behöver göra nu är att välja en enhet som ska ta emot distributionen.
 
-Kontrol lera att din IoT Edges enhet är igång.
+Kontrollera att din IoT Edge-enhet är igång.
 
-1. I Visual Studio Code Explorer expanderar du avsnittet **Azure IoT Hub-enheter** för att se din lista över IoT-enheter.
+1. Expandera avsnittet **Azure IoT Hub Devices** i Utforskaren för Visual Studio-kod för att se listan över IoT-enheter.
 
 2. Högerklicka på namnet för din IoT Edge-enhet och välj sedan **Create Deployment for Single Device** (Skapa distribution för en enskild enhet).
 
 3. Välj filen **deployment.json** i mappen **config** och klicka sedan på **Select Edge Deployment Manifest** (Välj distributionsmanifest för Edge). Använd inte filen deployment.template.json.
 
-4. Klicka på uppdateringsknappen. Du bör se den nya **JavaModule** som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**.  
+4. Klicka på uppdateringsknappen. Du bör se den nya **JavaModule** körs tillsammans med **SimulatedTemperatureSensor** modulen och **$edgeAgent** och **$edgeHub**.  
 
 ## <a name="view-the-generated-data"></a>Visa genererade data
 
@@ -266,25 +266,25 @@ När du tillämpar distributionsmanifestet till din IoT Edge-enhet samlar IoT Ed
 
 Du kan visa statusen för din IoT Edge-enhet i avsnittet om **Azure IoT Hub-enheter** i Visual Studio Code-utforskaren. Expandera enhetsinformationen så ser du en lista med moduler som distribueras och körs.
 
-1. I Visual Studio Code Explorer högerklickar du på namnet på din IoT Edge enhet och väljer **starta övervakning inbyggd händelse slut punkt**.
+1. Högerklicka på namnet på IoT Edge-enheten i Utforskaren för Visual Studio-kod och välj **Startövervakning inbyggd händelseslutpunkt**.
 
-2. Visa meddelanden som kommer till IoT Hub. Det kan ta en stund innan meddelandena tas emot. Den IoT Edge enheten måste ta emot den nya distributionen och starta alla moduler. Ändringarna vi gjorde i JavaModule-koden väntar tills datorns temperatur når 25 grader innan meddelanden skickas. Den lägger också till meddelande typ **avisering** till alla meddelanden som når detta temperatur tröskelvärde.
+2. Visa meddelanden som kommer till din IoT Hub. Det kan ta ett tag innan meddelandena kommer fram. IoT Edge-enheten måste ta emot sin nya distribution och starta alla moduler. Sedan väntar de ändringar vi gjorde i JavaModule-koden tills maskintemperaturen når 25 grader innan du skickar meddelanden. Meddelandet läggs också till **i** alla meddelanden som når det temperaturtröskeln.
 
-## <a name="edit-the-module-twin"></a>Redigera modulens dubbla
+## <a name="edit-the-module-twin"></a>Redigera modultvillingen
 
-Vi använde JavaModule-modulen dubbla i distributions manifestet för att ange temperatur tröskel vid 25 grader. Du kan använda modulen för att ändra funktionen utan att behöva uppdatera modulens kod.
+Vi använde JavaModule-modultvillingen i distributionsmanifestet för att ställa in temperaturtröskeln till 25 grader. Du kan använda modultvillingen för att ändra funktionaliteten utan att behöva uppdatera modulkoden.
 
-1. I Visual Studio Code, expanderar du informationen under IoT Edge enheten för att se de moduler som körs.
+1. Expandera informationen under IoT Edge-enheten i Visual Studio-kod för att se de moduler som körs.
 
-2. Högerklicka på **JavaModule** och välj **Redigera modul dubbla**.
+2. Högerklicka på **JavaModule** och välj **Redigera modultvilling**.
 
-3. Hitta **TemperatureThreshold** i önskade egenskaper. Ändra värdet till en ny temperatur 5 grader till 10 grader högre än den senaste rapporterade temperaturen.
+3. Hitta **TemperatureThreshold** i önskade egenskaper. Ändra dess värde till en ny temperatur 5 grader till 10 grader högre än den senaste rapporterade temperaturen.
 
-4. Spara modulens dubbla fil.
+4. Spara modultvillingfilen.
 
-5. Högerklicka någonstans i modulens dubbla redigerings fönster och välj **Uppdatera modul dubbla**.
+5. Högerklicka någonstans i redigeringsfönstret för modultvilling och välj **Uppdatera modultvilling**.
 
-6. Övervaka inkommande meddelanden från enhet till molnet. Du bör se att meddelandena stannar tills det nya temperatur tröskelvärdet har uppnåtts.
+6. Övervaka inkommande meddelanden från enheten till molnet. Du bör se meddelandena sluta tills den nya temperaturtröskeln har uppnåtts.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -296,12 +296,12 @@ Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du h
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du skapat en IoT Edge-modul som filtrerar rå data som genereras av din IoT Edge-enhet. När du är redo att skapa dina egna moduler kan du lära dig mer om hur du [utvecklar IoT Edge moduler](module-development.md) eller hur du [utvecklar moduler med Visual Studio Code](how-to-vs-code-develop-module.md). Se [IoT Edge module](https://github.com/Azure/iotedge/tree/master/edge-modules) -exempel för kod exempel, inklusive modulen simulerad temperatur.
+I den här självstudien har du skapat en IoT Edge-modul som filtrerar rådata som genereras av din IoT Edge-enhet. När du är redo att bygga egna moduler kan du läsa mer om hur du [utvecklar IoT Edge-moduler](module-development.md) eller hur du [utvecklar moduler med Visual Studio Code](how-to-vs-code-develop-module.md). Se [IoT Edge-modulexempel](https://github.com/Azure/iotedge/tree/master/edge-modules) för kodexempel, inklusive den simulerade temperaturmodulen.
 
-Fortsätt till nästa själv studie kurs och lär dig hur Azure IoT Edge hjälper dig att distribuera Azure Cloud Services för att bearbeta och analysera data i gränsen.
+Fortsätt till nästa självstudier för att lära dig hur Azure IoT Edge hjälper dig att distribuera Azure-molntjänster för att bearbeta och analysera data på gränsen.
 
 > [!div class="nextstepaction"]
-> [Functions](tutorial-deploy-function.md)
+> [Funktioner](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
 > [Custom Vision Service](tutorial-deploy-custom-vision.md)

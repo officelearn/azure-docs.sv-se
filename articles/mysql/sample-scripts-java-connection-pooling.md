@@ -1,21 +1,21 @@
 ---
-title: Java-exempel för att illustrera anslutningspoolen
-description: Den här artikeln innehåller exempel på Java-exempel för att illustrera anslutningspoolen.
+title: Java-exempel för att illustrera anslutningspooler
+description: I den här artikeln visas java-exempel för att illustrera anslutningspoolning.
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: sample
 ms.date: 02/28/2018
 ms.openlocfilehash: 78b936b21aeeed1db69ac52b2c21e3c41708f62d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72600373"
 ---
-# <a name="java-sample-to-illustrate-connection-pooling"></a>Java-exempel för att illustrera anslutningspoolen
+# <a name="java-sample-to-illustrate-connection-pooling"></a>Java-exempel för att illustrera anslutningspooler
 
-Exempel koden nedan illustrerar anslutningspoolen i Java.
+Exempelkoden nedan visar anslutningspoolning i java.
 
 ```java
 import java.sql.Connection;

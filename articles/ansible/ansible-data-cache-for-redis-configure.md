@@ -1,21 +1,21 @@
 ---
-title: Självstudie – konfigurera cacheminnen i Azure cache för Redis med Ansible
-description: Lär dig hur du använder Ansible för att skapa, skala, starta om och lägga till en brand Väggs regel i Azure cache för Redis
-keywords: Ansible, Azure, DevOps, bash, Spelbok, cache, Redis
+title: Självstudiekurs - Konfigurera cacheminnen i Azure Cache för Redis med Ansible
+description: Lär dig hur du använder Ansible för att skapa, skala, starta om och lägga till en brandväggsregel i Azure Cache för Redis
+keywords: ansible, azurblå, devops, bash, playbook, cache, redis
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2ef36ee9e3601d77bfa114b903f6a75b5874b158
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156509"
 ---
-# <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Självstudie: Konfigurera cacheminnen i Azure cache för Redis med Ansible
+# <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Självstudiekurs: Konfigurera cacheminnen i Azure Cache för Redis med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure cache för Redis](/azure/azure-cache-for-redis/) är en kompatibel tjänst med öppen källkod som gör att du kan skapa appar som körs genom att ge snabb åtkomst till data. 
+[Azure Cache för Redis](/azure/azure-cache-for-redis/) är en kompatibel tjänst med öppen källkod som gör att du kan skapa responsiva appar genom att ge snabb åtkomst till data. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -24,7 +24,7 @@ ms.locfileid: "74156509"
 > * Skapa en cache
 > * Skala en cache
 > * Starta om en cache
-> * Lägga till en brand Väggs regel i en cache
+> * Lägga till en brandväggsregel i en cache
 > * Ta bort en cache
 
 ## <a name="prerequisites"></a>Krav
@@ -34,7 +34,7 @@ ms.locfileid: "74156509"
 
 ## <a name="create-a-cache"></a>Skapa en cache
 
-Skapa en Azure-cache för Redis i en ny resurs grupp.
+Skapa en Azure-cache för Redis i en ny resursgrupp.
 
 ```yml
   - name: Create resource group
@@ -51,7 +51,7 @@ Skapa en Azure-cache för Redis i en ny resurs grupp.
         size: C1 
 ```
 
-Det kan ta flera minuter att etablera en cache. Följande kod instruerar Ansible att vänta tills åtgärden har slutförts:
+Det kan ta flera minuter att etablera en cache. Följande kod talar om för Ansible vänta tills åtgärden har slutförts:
 
 ```yml
   - name: Wait for Redis provisioning to complete
@@ -64,7 +64,7 @@ Det kan ta flera minuter att etablera en cache. Följande kod instruerar Ansible
     delay: 60
 ```
 
-Under etablerings processen visas flera "fel"-meddelanden. Dessa meddelanden kan på ett säkert sätt ignoreras. Det viktiga meddelandet är det sista meddelandet. I följande exempel finns det många fel meddelanden fram till det sista meddelandet ("OK").
+Under den långa etableringsprocessen visas flera "felmeddelanden". Dessa meddelanden kan ignoreras på ett säkert sätt. Det viktiga meddelandet är det sista meddelandet. I följande exempel visas många felmeddelanden fram till det slutliga meddelandet ("ok").
 
 ```Output
 FAILED - RETRYING: Get facts (100 retries left).
@@ -80,11 +80,11 @@ FAILED - RETRYING: Get facts (91 retries left).
 ok: [localhost]
 ```
 
-## <a name="scale-the-cache"></a>Skala cachen
+## <a name="scale-the-cache"></a>Skala cacheminnet
 
-Azure cache för Redis har olika cache-erbjudanden beroende på appens behov. Dessa cachealternativ ger flexibilitet i valet av cache-storlek och-funktioner. Om dina krav för appar ändras efter att cachen har skapats kan du skala cacheminnet efter behov. Mer information om skalning finns i [skala Azure cache för Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
+Azure Cache för Redis har olika cacheerbjudanden beroende på appens behov. Dessa cachealternativ ger flexibilitet i valet av cachestorlek och funktioner. Om appkraven ändras när cacheminnet har skapats kan du skala cachen efter behov. Mer information om skalning finns i [Skala Azure Cache för Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
 
-Följande exempel kod skalar cachen till **standard**:
+Följande exempelkod skalar cachen till **Standard:**
 
 ```yml
 - name: Scale up Azure Cache for Redis
@@ -96,7 +96,7 @@ Följande exempel kod skalar cachen till **standard**:
         size: C1
 ```
 
-Det kan ta flera minuter att skala en cache. Följande kod instruerar Ansible att vänta tills åtgärden har slutförts:
+Det kan ta flera minuter att skala en cache. Följande kod talar om för Ansible vänta tills åtgärden har slutförts:
 
 ```yml
   - name: Wait for Redis scaling up to complete
@@ -109,15 +109,15 @@ Det kan ta flera minuter att skala en cache. Följande kod instruerar Ansible at
     delay: 60
 ```
 
-På samma sätt som för att etablera Azure cache för Redis är utdata som följande meddelande normalt:
+I likhet med uppgiften att etablera Azure Cache för Redis är utdata som följande meddelande normalt:
 
 ```Ouput
 **FAILED - RETRYING: Get facts (100 retries left)** is normal.
 ```
 
-## <a name="reboot-the-cache"></a>Starta om cacheminnet
+## <a name="reboot-the-cache"></a>Starta om cachen
 
-Följande kod startar om cacheminnet som skapades i föregående avsnitt.
+Följande kod startar om cachen som skapats i tidigare avsnitt.
 
 ```yml
   - name: Reboot Azure Cache for Redis
@@ -128,9 +128,9 @@ Följande kod startar om cacheminnet som skapades i föregående avsnitt.
         reboot_type: all
 ```
 
-### <a name="add-firewall-rule"></a>Lägg till brand Väggs regel
+### <a name="add-firewall-rule"></a>Lägga till brandväggsregel
 
-Följande kod lägger till en brand Väggs regel i cachen:
+Följande kod lägger till en brandväggsregel i cachen:
 
 ```yml
   - name: Add Firewall rule
@@ -142,7 +142,7 @@ Följande kod lägger till en brand Väggs regel i cachen:
       end_ip_address: 168.1.1.4
 ```
 
-## <a name="delete-the-cache"></a>Ta bort cachen
+## <a name="delete-the-cache"></a>Ta bort cacheminnet
 
 Följande kod tar bort cachen:
 
@@ -154,11 +154,11 @@ Följande kod tar bort cachen:
       state: absent
 ```
 
-## <a name="get-the-sample-playbook"></a>Hämta exempel Spelbok
+## <a name="get-the-sample-playbook"></a>Hämta exempelspelboken
 
-Det finns två sätt att hämta det fullständiga exemplet Spelbok:
-- [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) och spara den till `rediscache.yml`.
-- Skapa en ny fil med namnet `rediscache.yml` och kopiera den till följande innehåll:
+Det finns två sätt att hämta hela exempelspelboken:
+- [Ladda ner spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) och `rediscache.yml`spara den på .
+- Skapa en ny `rediscache.yml` fil med namnet och kopiera följande innehåll till den:
 
 ```yml
 - name: Manage Azure Cache for Redis
@@ -234,19 +234,19 @@ Det finns två sätt att hämta det fullständiga exemplet Spelbok:
       state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Kör exemplet Spelbok
+## <a name="run-the-sample-playbook"></a>Kör exempeluppspelningsboken
 
-I det här avsnittet kör du Spelbok för att testa olika funktioner som visas i den här artikeln.
+I det här avsnittet kör du spelboken för att testa olika funktioner som visas i den här artikeln.
 
-I avsnittet `vars` ersätter du plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+Ersätt `vars` platshållaren `{{ resource_group_name }}` med namnet på resursgruppen i avsnittet.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook rediscache.yml
 ```
 
-Resultatet ser ut ungefär så här:
+Utdata liknar följande resultat:
 
 ```Output
 TASK [create resource group] 
@@ -322,9 +322,9 @@ Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln. 
 
-Spara följande kod som `cleanup.yml`:
+Spara följande kod `cleanup.yml`som:
 
 ```yml
 - hosts: localhost
@@ -337,9 +337,9 @@ Spara följande kod som `cleanup.yml`:
         state: absent
 ```
 
-I avsnittet `vars` ersätter du plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+Ersätt `vars` platshållaren `{{ resource_group_name }}` med namnet på resursgruppen i avsnittet.
 
-Kör Spelbok med kommandot `ansible-playbook`:
+Kör spelboken med `ansible-playbook` kommandot:
 
 ```bash
 ansible-playbook cleanup.yml

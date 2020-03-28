@@ -1,5 +1,5 @@
 ---
-title: Självstudie – rensa Azure Service Fabric nät resurser
+title: Självstudiekurs - Rensa Azure Service Fabric Mesh-resurser
 description: Lär dig hur du tar bort Azure Service Fabric Mesh-resurser så att du inte debiteras för resurser som du inte längre använder.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351875"
 ---
 # <a name="tutorial-remove-azure-resources"></a>Självstudie: Ta bort Azure-resurser
@@ -24,7 +24,7 @@ I den här guiden får du lära du dig hur man:
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
 > * [Skapa en Service Fabric Mesh-app i Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Felsök en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Felsöka en Service Fabric Mesh-app som körs i ditt lokala utvecklingskluster](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
 > * [Distribuera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * [Uppgradera en Service Fabric Mesh-app](service-fabric-mesh-tutorial-upgrade.md)
 > * Rensa Service Fabric Mesh-resurser

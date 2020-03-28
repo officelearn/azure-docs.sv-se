@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med i händelse av kris-mobil | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och i händelse av kris-mobil.
+title: 'Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med I händelse av kris - Mobil | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och In Case of Crisis - Mobile.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,133 +17,133 @@ ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 83bff484e4ca3a1579067501be134d71da72abfa
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72266089"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-in-case-of-crisis---mobile"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med i händelse av kris-mobil
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-in-case-of-crisis---mobile"></a>Självstudiekurs: Azure Active Directory single sign-on (SSO) integration med I händelse av kris - Mobil
 
-I den här självstudien får du lära dig hur du integrerar i händelse av kris-mobil med Azure Active Directory (Azure AD). När du integrerar i händelse av kris-mobil med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar I händelse av kris – mobil med Azure Active Directory (Azure AD). När du integrerar I händelse av kris – mobil med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till i händelse av kris-mobil.
-* Gör det möjligt för användarna att logga in automatiskt till i händelse av kris-mobil med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Kontroll i Azure AD som har åtkomst till In Case of Crisis - Mobile.
+* Gör det möjligt för användarna att automatiskt loggas in på In Case of Crisis - Mobile med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Om du har aktiverat en prenumeration med enkel inloggning (SSO) för mobila användare.
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
+* I händelse av kris - Mobil enkel inloggning (SSO) aktiverat abonnemang.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
-* I händelse av kris – mobil stöd för **IDP** -INITIERAd SSO
+* I händelse av kris - Mobile stöder **IDP** initierad SSO
 
 > [!NOTE]
-> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+> Identifieraren för det här programmet är ett fast strängvärde så att endast en instans kan konfigureras i en klient.
 
-## <a name="adding-in-case-of-crisis---mobile-from-the-gallery"></a>Lägga till i händelse av kris-mobil från galleriet
+## <a name="adding-in-case-of-crisis---mobile-from-the-gallery"></a>Lägga till i händelse av kris - Mobil från galleriet
 
-Om du vill konfigurera integreringen av i händelse av kris-mobil till Azure AD måste du lägga till i händelse av kris-mobil från galleriet till din lista över hanterade SaaS-appar.
+För att konfigurera integreringen av In Case of Crisis - Mobile i Azure AD måste du lägga till I händelse av kris - Mobil från galleriet till din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** skriver du **i händelse av kris-mobil** i sökrutan.
-1. Välj **i händelse av kris-mobil** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv I avsnittet **Lägg till från galleriet** skriver du **I händelse av kris - Mobil** i sökrutan.
+1. Välj **I händelse av kris - Mobil** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-in-case-of-crisis---mobile"></a>Konfigurera och testa enkel inloggning med Azure AD för i händelse av kris-mobil
+## <a name="configure-and-test-azure-ad-single-sign-on-for-in-case-of-crisis---mobile"></a>Konfigurera och testa en enda Azure AD-inloggning för In Case of Crisis - Mobile
 
-Konfigurera och testa Azure AD SSO med i händelse av kris-mobil med en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i i händelse av kris-mobil.
+Konfigurera och testa Azure AD SSO med In Case of Crisis - Mobile med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i In Case of Crisis - Mobile.
 
-Om du vill konfigurera och testa Azure AD SSO med i händelse av kris-mobil, slutför du följande Bygg stenar:
+Så här konfigurerar och testar du Azure AD SSO med I händelse av kris – mobil slutför du följande byggstenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera i händelse av kris – mobil SSO](#configure-in-case-of-crisis---mobile-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa i händelse av kris-mobil test användare](#create-in-case-of-crisis---mobile-test-user)** – om du vill ha en motsvarighet till B. Simon i om det rör sig om en kris-mobil som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
+    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
+1. **[Konfigurera I händelse av kris - Mobile SSO](#configure-in-case-of-crisis---mobile-sso)** - för att konfigurera de enskilda inloggningsinställningarna på applikationssidan.
+    1. **[Skapa i händelse av kris - Mobil testanvändare](#create-in-case-of-crisis---mobile-test-user)** - att ha en motsvarighet till B.Simon i vid kris - Mobil som är kopplad till Azure AD-representationen av användaren.
+1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. På sidan [Azure Portal](https://portal.azure.com/)går du till sidan **för hantering av mobila** program och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. Leta reda på avsnittet **In Case of Crisis - Mobile** Hantera på sidan Hantera på sidan **Manage** [Azure-portalen](https://portal.azure.com/)på sidan I händelse av kris - Integrering av mobila program och välj **enkel inloggning**.
+1. På sidan **Välj en enda inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan har redan fyllts i med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **spara** .
+1. I avsnittet **Grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP-initierat** läge och nödvändiga url:er är redan förifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på **knappen Spara.** 
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (RAW)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML,** i avsnittet **SAML-signeringscertifikat,** hittar **du Certifikat (Raw)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-1. Gå till avsnittet **Hantera** till vänster på sidan, klicka på **fliken Egenskaper** och kopiera **URL: en för användar åtkomst** och spara den på din dator.
+1. Navigera till avsnittet **Hantera** till vänster på sidan, klicka på **fliken Egenskaper** och kopiera sedan **webbadressen för användaråtkomst** och spara den på datorn.
 
     ![Egenskaper för enkel inloggning](./media/in-case-of-crisis-mobile-tutorial/properties.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **Ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till i händelse av kris-mobil.
+I det här avsnittet ska du aktivera B.Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till In Case of Crisis - Mobile.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **i händelse av kris-mobil**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. I programlistan väljer du **I händelse av kris - Mobil**.
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
-## <a name="configure-in-case-of-crisis---mobile-sso"></a>Konfigurera i händelse av kris – mobil SSO
+## <a name="configure-in-case-of-crisis---mobile-sso"></a>Konfigurera i händelse av kris - Mobil SSO
 
-Om du vill konfigurera enkel inloggning på om det **rör sig om en kris-mobil** sida, måste du skicka den hämtade **certifikat filen (RAW)** och den kopierade **URL: en för användar åtkomst** från Azure Portal till [i händelse av kris-Mobile support team](https://www.rockdovesolutions.com/features/enterprise-ready). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning i **händelse av kris – mobil** sida måste du skicka det nedladdade **certifikatet (Raw)** och kopierad url för **användaråtkomst** från Azure-portalen till [I händelse av kris - Mobil supportteam](https://www.rockdovesolutions.com/features/enterprise-ready). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-in-case-of-crisis---mobile-test-user"></a>Skapa i händelse av kris-mobil test användare
+### <a name="create-in-case-of-crisis---mobile-test-user"></a>Skapa i händelse av kris - Mobil testanvändare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i om det rör sig om kris-mobil. Arbeta med [i händelse av kris-mobil support teamet](https://www.rockdovesolutions.com/features/enterprise-ready) för att lägga till användare i om det rör sig om en kris-mobil plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i In Case of Crisis - Mobile. Arbeta med [I händelse av kris - Mobilt supportteam](https://www.rockdovesolutions.com/features/enterprise-ready) för att lägga till användarna i infall av kris - Mobil plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen för kris-mobil på åtkomst panelen, bör du loggas in automatiskt på i händelse av kris-mobil som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen I händelse av kris - Mobil i åtkomstpanelen ska du automatiskt loggas in på den I händelse av kris - Mobil som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Försök i händelse av kris-mobil med Azure AD](https://aad.portal.azure.com/)
+- [Prova i händelse av kris - Mobil med Azure AD](https://aad.portal.azure.com/)
 

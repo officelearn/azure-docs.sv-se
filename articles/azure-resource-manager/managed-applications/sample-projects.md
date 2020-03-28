@@ -1,15 +1,15 @@
 ---
-title: -Exempelprojekt
-description: Innehåller en översikt över exempel projekt som är tillgängliga för Azure Managed Applications.
+title: Exempel på projekt
+description: Innehåller en sammanfattning av exempelprojekt som är tillgängliga för Azure Managed Applications.
 author: tfitzmac
 ms.topic: sample
 ms.date: 09/04/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7c04f5d78f742eda70e71d9bee9ce4482c48f0f4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75650053"
 ---
 # <a name="sample-projects-for-azure-managed-applications"></a>Exempelprojekt för Azure-hanterade program

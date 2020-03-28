@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Jitbit Helpdesk | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Jitbit Helpdesk | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Jitbit Helpdesk.
 services: active-directory
 documentationCenter: na
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67099415"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Självstudier: Azure Active Directory-integrering med Jitbit Helpdesk
+# <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Självstudiekurs: Azure Active Directory-integrering med Jitbit Helpdesk
 
-I den här självstudien får du lära dig hur du integrerar Jitbit Helpdesk med Azure Active Directory (AD Azure).
-Integrera Jitbit Helpdesk med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Jitbit Helpdesk med Azure Active Directory (Azure AD).
+Genom att integrera Jitbit Helpdesk med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Jitbit Helpdesk.
-* Du kan aktivera användarna att vara automatiskt inloggad Jitbit Helpdesk (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Jitbit Helpdesk (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Jitbit Helpdesk, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Jitbit Helpdesk behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Jitbit Helpdesk enkel inloggning aktiverat prenumeration
+* Jitbit Helpdesk enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Jitbit Helpdesk **SP** -initierad SSO
+* Jitbit Helpdesk stöder **SP** initierade SSO
 
-## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>Att lägga till Jitbit Helpdesk från galleriet
+## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>Lägga till Jitbit Helpdesk från galleriet
 
-För att konfigurera integrering av Jitbit Helpdesk i Azure AD, som du behöver lägga till Jitbit Helpdesk från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Jitbit Helpdesk i Azure AD måste du lägga till Jitbit Helpdesk från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Jitbit Helpdesk från galleriet:**
+**Så här lägger du till Jitbit Helpdesk från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ För att konfigurera integrering av Jitbit Helpdesk i Azure AD, som du behöver 
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Jitbit Helpdesk**väljer **Jitbit Helpdesk** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **Jitbit Helpdesk**i sökrutan och välj **Jitbit Helpdesk** från resultatpanelen och klicka sedan på **Lägg** till-knappen för att lägga till programmet.
 
      ![Jitbit Helpdesk i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Jitbit Helpdesk baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Jitbit Helpdesk upprättas.
+I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med Jitbit Helpdesk baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Jitbit Helpdesk upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Jitbit Helpdesk, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Jitbit Helpdesk måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Jitbit-supportavdelningen](#configure-jitbit-helpdesk-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Jitbit Helpdesk testanvändare](#create-jitbit-helpdesk-test-user)**  – du har en motsvarighet för Britta Simon i Jitbit Helpdesk som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Jitbit Helpdesk Single Sign-On](#configure-jitbit-helpdesk-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Jitbit Helpdesk-testanvändare](#create-jitbit-helpdesk-test-user)** – om du vill ha en motsvarighet till Britta Simon i Jitbit Helpdesk som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Jitbit Helpdesk:
+Så här konfigurerar du en enkel Azure AD-inloggning med Jitbit Helpdesk:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Jitbit Helpdesk** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Jitbit Helpdesk-programintegration** . **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,9 +103,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Jitbit 
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Jitbit supportavdelningen domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+    ![Jitbit Helpdesk-domän och webbadresser med enkel inloggning](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL enligt följande mönster:
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: 
     | |
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -113,47 +113,47 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Jitbit 
     | |
     
     > [!NOTE] 
-    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Jitbit supportavdelningen klienten supportteamet](https://www.jitbit.com/support/) att hämta det här värdet.
+    > Det här värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Jitbit Helpdesk Client supportteam](https://www.jitbit.com/support/) för att få det här värdet.
 
-    b. I den **identifierare (entitets-ID)** text skriver en URL som följande: `https://www.jitbit.com/web-helpdesk/`
+    b. Skriv en URL enligt följande i textrutan **Identifierare (enhets-ID):**`https://www.jitbit.com/web-helpdesk/`
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. I den **konfigurera Jitbit Helpdesk** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera Jitbit Helpdesk** kopierar du lämpliga webbadresser enligt dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Konfigurera Jitbit supportavdelningen enkel inloggning
+### <a name="configure-jitbit-helpdesk-single-sign-on"></a>Konfigurera Jitbit Helpdesk Enkel inloggning
 
-1. I ett annat webbläsarfönster, loggar du in din Jitbit Helpdesk företagets webbplats som administratör.
+1. I ett annat webbläsarfönster loggar du in på jitbithjälpföretagets webbplats som administratör.
 
-1. I verktygsfältet högst upp, klickar du på **Administration**.
+1. Klicka på **Administration**i verktygsfältet högst upp .
 
     ![Administration](./media/jitbit-helpdesk-tutorial/ic777681.png "Administration")
 
-1. Klicka på **allmänna inställningar**.
+1. Klicka på **Allmänna inställningar**.
 
-    ![Användare, företag och behörigheter](./media/jitbit-helpdesk-tutorial/ic777680.png "användare, företag och behörigheter")
+    ![Användare, företag och behörigheter](./media/jitbit-helpdesk-tutorial/ic777680.png "Användare, företag och behörigheter")
 
-1. I den **autentiseringsinställningar** konfiguration och utför följande steg:
+1. Gör följande i konfigurationsavsnittet **för autentiseringsinställningar:**
 
-    ![Autentiseringsinställningar](./media/jitbit-helpdesk-tutorial/ic777683.png "autentiseringsinställningar")
+    ![Inställningar för autentisering](./media/jitbit-helpdesk-tutorial/ic777683.png "Inställningar för autentisering")
 
-    a. Välj **aktivera SAML 2.0 enkel inloggning**, för att logga in med enkel inloggning (SSO), med **OneLogin**.
+    a. Välj **Aktivera SAML 2.0 enkel inloggning**för att logga in med Enkel inloggning (SSO), med **OneLogin**.
 
-    b. I den **slutpunkts-URL** textrutan klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
+    b. Klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen i textrutan url till **Slutpunkten.**
 
-    c. Öppna din **Base64-** kodade certifikat i anteckningar, kopiera innehållet i den till Urklipp och klistra in den till den **X.509-certifikat** textrutan
+    c. Öppna **ditt bas-64-kodade** certifikat i anteckningar, kopiera innehållet i det i Urklipp och klistra sedan in det i textrutan **X.509 Certifikat**
 
-    d. Klicka på **spara ändringar**.
+    d. Klicka på **Spara ändringar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -163,7 +163,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -180,17 +180,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Jitbit Helpdesk.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Jitbit Helpdesk.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Jitbit Helpdesk**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Jitbit Helpdesk**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Jitbit Helpdesk**.
+2. Välj **Jitbit Helpdesk i**programlistan .
 
-    ![Jitbit Helpdesk-länk i listan med program](common/all-applications.png)
+    ![Länken Jitbit Helpdesk i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -202,52 +202,52 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-jitbit-helpdesk-test-user"></a>Skapa Jitbit Helpdesk testanvändare
+### <a name="create-jitbit-helpdesk-test-user"></a>Skapa Jitbit Helpdesk-testanvändare
 
-För att aktivera Azure AD-användare att logga in på Jitbit Helpdesk, måste de etableras i Jitbit Helpdesk. När det gäller Jitbit Helpdesk är etablering en manuell aktivitet.
+För att Azure AD-användare ska kunna logga in på Jitbit Helpdesk måste de etableras i Jitbit Helpdesk. När det gäller Jitbit Helpdesk är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
-1. Logga in på din **Jitbit Helpdesk** klient.
+1. Logga in på din **Jitbit Helpdesk-klient.**
 
-1. Klicka på menyn längst upp **Administration**.
+1. Klicka på **Administration**på menyn högst upp .
 
     ![Administration](./media/jitbit-helpdesk-tutorial/ic777681.png "Administration")
 
-1. Klicka på **användare, företag och behörigheter**.
+1. Klicka på **Användare, företag och behörigheter**.
 
-    ![Användare, företag och behörigheter](./media/jitbit-helpdesk-tutorial/ic777682.png "användare, företag och behörigheter")
+    ![Användare, företag och behörigheter](./media/jitbit-helpdesk-tutorial/ic777682.png "Användare, företag och behörigheter")
 
 1. Klicka på **Lägg till användare**.
 
-    ![Lägg till användare](./media/jitbit-helpdesk-tutorial/ic777685.png "Lägg till användare")
+    ![Lägg till användare](./media/jitbit-helpdesk-tutorial/ic777685.png "Lägga till användare")
 
-1. I avsnittet Skapa skriver du data för Azure AD-konto som du vill etablera enligt följande:
+1. I avsnittet Skapa skriver du data för det Azure AD-konto som du vill etablera på följande sätt:
 
-    ![Skapa](./media/jitbit-helpdesk-tutorial/ic777686.png "skapa")
+    ![Skapa](./media/jitbit-helpdesk-tutorial/ic777686.png "Skapa")
 
-   a. I den **användarnamn** textrutan typ användarnamnet för användaren som **BrittaSimon**.
+   a. Skriv användarnamnet för användaren som **BrittaSimon**i textrutan **Användarnamn** .
 
-   b. I den **e-post** textrutan e-post för användaren som **BrittaSimon@contoso.com** .
+   b. Skriv **Email** e-postmeddelande för användaren som **BrittaSimon@contoso.com**.
 
-   c. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
+   c. Skriv förnamnet för användaren som **Britta**i textrutan **Förnamn** .
 
-   d. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
+   d. Skriv efternamn för användaren som **Simon**i textrutan **Efternamn** .
 
    e. Klicka på **Skapa**.
 
 > [!NOTE]
-> Du kan använda andra verktyg för Jitbit Helpdesk användare konto att skapa eller tillhandahålls av Jitbit Helpdesk-API: er för att etablera användarkonton i Azure AD.
+> Du kan använda andra verktyg eller API:er för att skapa ett annat Jitbit Helpdesk-användarkonton eller API:er som tillhandahålls av Jitbit Helpdesk för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Jitbit Helpdesk i åtkomstpanelen, bör det vara loggas in automatiskt Jitbit-Helpdesk som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Jitbit Helpdesk på åtkomstpanelen bör du automatiskt loggas in på den Jitbit-helpdesk som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

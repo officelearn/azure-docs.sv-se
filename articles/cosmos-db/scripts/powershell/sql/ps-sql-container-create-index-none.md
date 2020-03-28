@@ -1,20 +1,20 @@
 ---
-title: PowerShell-skript för att skapa en behållare utan index i ett Azure Cosmos-konto
-description: Azure PowerShell skript exempel – skapa en behållar indexering inaktive rad i ett Azure Cosmos-konto
+title: PowerShell-skript för att skapa en behållare med indexering inaktiverad i ett Azure Cosmos DB-konto
+description: Exempel på Azure PowerShell-skript – Skapa en behållare med indexering inaktiverad i ett Azure Cosmos DB-konto
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 13bec89b0c6f713a4b8c66f7bab6cda3d6513ef9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e4cf09ede1ea532d784b6d486cdb54d510d13652
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441376"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365645"
 ---
-# <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Skapa en behållar indexering inaktive rad i ett Azure Cosmos-konto med PowerShell
+# <a name="create-a-container-with-indexing-turned-off-in-an-azure-cosmos-db-account-using-powershell"></a>Skapa en behållare med indexering inaktiverad i ett Azure Cosmos DB-konto med PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "75441376"
 
 ## <a name="sample-script"></a>Exempelskript
 
-[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-none.ps1 "Create a container indexing turned off in an Azure Cosmos account")]
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/sql/ps-container-create-index-none.ps1 "Create a container with indexing turned off in an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
@@ -38,9 +38,12 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-|**Azure-resurser**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Skapar en resurs. |
-|**Resurs grupper i Azure**| |
+|**Azure Cosmos DB**| |
+| [Ny-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Skapar ett nytt Cosmos DB-konto. |
+| [Set-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqldatabase) | Skapar en ny eller uppdaterar en befintlig Cosmos DB SQL Database. |
+| [Ny-AzCosmosDBSqlIndexingPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Skapar ett nytt objekt av typen PSSqlIndexingPolicy som används som parameter för Set-AzCosmosDBSqlContainer. |
+| [Set-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/set-azcosmosdbsqlcontainer) | Skapar en ny eller uppdaterar en befintlig Cosmos DB SQL Container. |
+|**Azure-resursgrupper**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

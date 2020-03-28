@@ -1,11 +1,11 @@
 ---
 ms.openlocfilehash: a673f02af9d92b7135e47961f13e0899a1f0e02f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67187042"
 ---
-Om en åtkomst-token inte anges, måste du hantera den `TokenRequired` händelse eller implementera de `tokenRequired` metoden på protokollet som ombud.
+Om en åtkomsttoken inte har angetts måste du hantera `TokenRequired` händelsen eller implementera `tokenRequired` metoden i ombudsprotokollet.
 
-Du kan hantera händelsen synkront genom att ge egenskapen i event-argumenten.
+Du kan hantera händelsen synkront genom att ange egenskapen på händelseargumenten.

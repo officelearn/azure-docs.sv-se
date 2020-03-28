@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, virtuell dator, agenter
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: 2e811d628c017316a5bc50a8ddc22ee24d6f744e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158528"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Skala dina Jenkins-distributioner för att uppfylla behovet med Azure VM-agenter
@@ -138,7 +138,7 @@ Välj **Verify Template** (Verifiera mall) för att kontrollera konfigurationen 
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Felsökning av Jenkins-plugin-programmet
 
-Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
+Om du stöter på några buggar med Jenkins plugins, lämna in ett problem i [Jenkins JIRA](https://issues.jenkins-ci.org/) för den specifika komponenten.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Självstudie – hantera virtuella datorer med CLI
-description: I den här självstudien får du lära dig hur du använder Azure CLI för att hantera virtuella Azure-datorer genom att använda RBAC, principer, lås och taggar.
+title: Självstudiekurs - Hantera virtuella datorer med CLI
+description: I den här självstudien får du lära dig hur du använder Azure CLI för att hantera virtuella Azure-datorer genom att använda RBAC, polis, lås och taggar.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -14,13 +14,13 @@ ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
 ms.openlocfilehash: b9595c6ce464cf9e4ab0baff9ef842e76f3d18a3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75970148"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Självstudie: Lär dig mer om hantering av virtuella Linux-datorer med Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Självstudiekurs: Lär dig mer om hantering av virtuella Linux-datorer med Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -64,7 +64,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Om du får ett fel meddelande om att **huvud kontots \<-guid > inte finns i katalogen**, sprids inte den nya gruppen till hela Azure Active Directory. Prova att köra kommandot igen.
+Om du får ett felmeddelande om **att Principal \<guid> inte finns i katalogen**har den nya gruppen inte spridits i Azure Active Directory. Prova att köra kommandot igen.
 
 Normalt upprepar du processen för *Nätverksdeltagare* och *Lagringskontodeltagare* för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 
@@ -172,7 +172,7 @@ Ett felmeddelande visas som anger att borttagningsåtgärden inte kan slutföras
 
 ## <a name="tag-resources"></a>Tagga resurser
 
-Du kan ordna Azure-resurser i kategorier genom att lägga till [taggar](../../azure-resource-manager/management/tag-resources.md). Varje tagg består av ett namn och ett värde. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
+Du använder [taggar](../../azure-resource-manager/management/tag-resources.md) på dina Azure-resurser för att logiskt ordna dem efter kategorier. Varje tagg består av ett namn och ett värde. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
@@ -219,7 +219,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-När den inte längre behövs du använda kommandot [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. Avsluta SSH-sessionen till den virtuella datorn och ta sedan bort resurserna enligt följande:
+När det inte längre behövs kan du använda kommandot [az-gruppborttagning](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. Avsluta SSH-sessionen till den virtuella datorn och ta sedan bort resurserna enligt följande:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -236,7 +236,7 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 > * Skydda viktiga resurser med lås
 > * Tagga resurser för fakturering och hantering
 
-Gå vidare till nästa självstudie för att lära dig att identifiera ändringar och hantera paket uppdateringar på en virtuell dator.
+Gå vidare till nästa självstudiekurs om du vill lära dig hur du identifierar ändringar och hanterar paketuppdateringar på en virtuell dator.
 
 > [!div class="nextstepaction"]
 > [Hantera virtuella datorer](tutorial-config-management.md)

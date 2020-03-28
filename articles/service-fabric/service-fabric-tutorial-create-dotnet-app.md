@@ -5,17 +5,17 @@ ms.topic: tutorial
 ms.date: 07/10/2019
 ms.custom: mvc
 ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75465470"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera en app med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 
 Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).  Om du vill kan du visa en [videogenomgång](https://channel9.msdn.com/Events/Connect/2017/E100) av den här kursen.
 
-![AngularJS + ASP. NET API-klient del, ansluta till en tillstånds känslig Server dels tjänst på Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+![AngularJS+ASP.NET API Front End, Ansluta till en tillståndskänslig serverdelstjänst på Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 I del ett i den här serien lärde du dig att:
 
@@ -36,7 +36,7 @@ I den här självstudieserien får du lära du dig att:
 
 Innan du börjar den här självstudien:
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15,5 eller senare med arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) version 15.5 eller senare med **Azure-utvecklings-** och **ASP.NET- och webbutvecklingsarbetsbelastningar.**
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Skapa en ASP.NET Core Web API-tjänst som en tillförlitlig tjänst
@@ -45,7 +45,7 @@ Skapa först webbklientdelen i röstningsprogrammet med ASP.NET Core. ASP.NET Co
 
 1. Starta Visual Studio som **administratör**.
 
-2. Skapa ett projekt med **Arkiv**->**Nytt**->**Projekt**.
+2. Skapa ett projekt med **File**->**New**->**Project**.
 
 3. Klicka på **Moln > Service Fabric-program** i dialogrutan **Nytt projekt**.
 
@@ -300,7 +300,7 @@ namespace VotingWeb.Controllers
 
 När klientdelstjänsten VotingWeb skapas väljer Visual Studio slumpmässigt en port där tjänsten ska lyssna.  VotingWeb-tjänsten fungerar som klientdel för det här programmet och godkänner extern trafik, så vi kopplar den tjänsten till en fast och välkänd port.  I [tjänstmanifestet](service-fabric-application-and-service-manifests.md) anges tjänstens slutpunkter.
 
-I Solution Explorer öppnar du *VotingWeb/PackageRoot/ServiceManifest.xml*.  Leta rätt på elementet **Endpoint** i avsnittet **Resources** och ändra värdet för **Port** till **8080**. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn.
+Öppna *VotingWeb/PackageRoot/ServiceManifest.xml*i Solution Explorer .  Leta rätt på elementet **Endpoint** i avsnittet **Resources** och ändra värdet för **Port** till **8080**. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn.
 
 ```xml
 <Resources>
@@ -455,7 +455,7 @@ I den här självstudien använder du [ASP.NET Core Web API](service-fabric-reli
         ],
 ```
 Porten för omvänd proxy som används i det lokala utvecklingsklustret visar elementet **HttpApplicationGatewayEndpoint** i det lokala Service Fabric-klustermanifestet:
-1. Öppna ett webbläsarfönster och gå till http:\//localhost: 19080 för att öppna Service Fabric Explorer-verktyget.
+1. Öppna ett webbläsarfönster och\/navigera till http: /localhost:19080 för att öppna verktyget Service Fabric Explorer.
 2. Välj **Kluster -> Manifest**.
 3. Anteckna porten för elementet HttpApplicationGatewayEndpoint. Den bör vara 19081. Om den inte är 19081 måste du ändra porten i metoden GetProxyAddress i följande VotesController.cs-kod.
 
@@ -614,9 +614,9 @@ Gör så här om du vill se vad som händer i koden:
 
       ![Lägg till röst för frontwebbtjänst](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-   2. Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)** .
-   3. Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)** .
-   4. Till sist returneras svaret från serverdelstjänsten till klienten **(3)** .
+   2. Skapa först URL:en till ReverseProxy för serverdelstjänsten **(1)**.
+   3. Skicka sedan HTTP PUT-begäran till ReverseProxy **(2)**.
+   4. Till sist returneras svaret från serverdelstjänsten till klienten **(3)**.
 
 5. Tryck på **F5** för att fortsätta.
    1. Du befinner dig nu på brytpunkten i serverdelstjänsten.
@@ -625,7 +625,7 @@ Gör så här om du vill se vad som händer i koden:
 
    2. På den första raden i metoden **(1)** använder du `StateManager` för att hämta eller lägga till en tillförlitlig ordlista med namnet `counts`.
    3. All interaktion med värden i en tillförlitlig ordlista kräver en transaktion, den här använder instruktionen **(2)** som skapar den transaktionen.
-   4. I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)** . När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
+   4. I transaktionen uppdaterar du värdet för den relevanta nyckeln för röstningsalternativet och utför åtgärden **(3)**. När utförandemetoden returneras uppdateras data i ordlistan och replikeras till andra noder i klustret. Data har nu lagrats i klustret och serverdelstjänsten kan redundansväxla till andra noder och fortfarande ha data tillgängliga.
 6. Tryck på **F5** för att fortsätta.
 
 Stoppa felsökningssessionen genom att trycka på **Skift + F5**.

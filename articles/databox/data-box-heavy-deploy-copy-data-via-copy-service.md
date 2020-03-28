@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: kopiera data till Azure Data Box Heavy via tjänsten data kopiering'
-description: I den här självstudien får du lära dig hur du kopierar data till din Azure Data Box Heavy-enhet via tjänsten för data kopiering
+title: 'Självstudiekurs: Kopiera data till Azure Data Box Heavy via datakopieringstjänst'
+description: I den här självstudien får du lära dig hur du kopierar data till din Azure Data Box Heavy-enhet via datakopieringstjänsten
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77560228"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Självstudie: Använd tjänsten data kopiering för att kopiera data till Azure Data Box Heavy (för hands version)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Självstudiekurs: Använd datakopieringstjänsten för att kopiera data till Azure Data Box Heavy (förhandsgranskning)
 
-I den här självstudien beskrivs hur du matar in data med hjälp av datakopieringstjänsten utan en mellanliggande värd. Tjänsten data kopiering körs lokalt på Azure Data Box Heavy, ansluter till din nätverksanslutna lagrings enhet (NAS) via SMB och kopierar data till Data Box Heavy.
+I den här självstudien beskrivs hur du matar in data med hjälp av datakopieringstjänsten utan en mellanliggande värd. Datakopieringstjänsten körs lokalt på Azure Data Box Heavy, ansluter till din nätverksanslutna lagringsenhet (NAS) via SMB och kopierar data till Data Box Heavy.
 
 Använd datakopieringstjänsten:
 
 - I NAS miljöer där mellanliggande värdar kanske inte är tillgängliga.
 - Med små filer som kräver veckor för inmatning och uppladdning av data. Datakopieringstjänsten förbättrar avsevärt tiden för inmatning och uppladdning för små filer.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Kopiera data till Data Box Heavy
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
-1. Du har slutfört den här självstudien: [konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+1. Du har slutfört den här självstudien: [Konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Du har fått din Data Box Heavy-enhet och orderstatusen på portalen är **Levererad**.
 3. Du har autentiseringsuppgifterna för den NAS-källenhet som du kommer att ansluta till för datakopiering.
 4. Du har anslutning till ett höghastighetsnätverk. För snabbast kopieringshastighet kan två 40-GbE-anslutningar (en per nod) användas parallellt. Om du inte har någon tillgänglig 40-GbE-anslutning rekommenderar vi att du har minst två 10 GbE-anslutningar (en per nod). 
@@ -42,29 +42,29 @@ Innan du börjar ska du kontrollera att:
 
 När du har anslutit till NAS är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
-- När du kopierar data måste du se till att data storleken överensstämmer med storleks begränsningarna som beskrivs i artikeln [Azure Storage och data Box Heavy gränser](data-box-heavy-limits.md).
-- Om data som laddas upp av Data Box Heavy samtidigt laddas upp av andra program utanför Data Box Heavy, kan uppladdning av jobbfel och data skada uppstå.
+- När du kopierar data, se till att datastorleken överensstämmer med de storleksbegränsningar som beskrivs i artikeln [Azure storage and Data Box Heavy limits](data-box-heavy-limits.md).
+- Om data som överförs av Data Box Heavy samtidigt överförs av andra program utanför Data Box Heavy kan uppladdningsjobbfel och dataskador uppstå.
 - Om data ändras när datakopieringstjänsten läser dem kan det uppstå fel eller skadade data.
 
 För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa ett jobb:
 
-1. I det lokala webb gränssnittet för din Data Box Heavy-enhet går du till **hantera** > **Kopiera data**.
+1. I det lokala webbgränssnittet för din Data Box Heavy-enhet går du till **Hantera** > **kopieringsdata**.
 2. På sidan **Kopiera data** väljer du **Skapa**.
 
     ![Välj Skapa på sidan ”Kopiera data”](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
 
 3. I dialogrutan **Konfigurera och starta** fyller du i följande fält:
     
-    |Fält                          |Värde    |
+    |Field                          |Värde    |
     |-------------------------------|---------|
     |**Jobbnamn**                       |Ett unikt namn med färre än 230 tecken för jobbet. Följande tecken tillåts inte i jobbnamnet: \<, \>, \|, \?, \*, \\, \:, \/ och \\\.         |
     |**Källplats**                |Ange SMB-sökvägen till datakällan i formatet: `\\<ServerIPAddress>\<ShareName>` eller `\\<ServerName>\<ShareName>`.        |
-    |**Användarnamn**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan. Om en lokal administratör ansluter behöver de uttryckliga säkerhets behörigheter. Högerklicka på mappen, Välj **Egenskaper** och välj sedan **säkerhet**. Detta bör lägga till den lokala administratören på fliken **säkerhet** .       |
+    |**Användarnamn**                       |Användarnamn i `\\<DomainName><UserName>`-format för åtkomst till datakällan. Om en lokal administratör ansluter behöver de uttryckliga säkerhetsbehörigheter. Högerklicka på mappen, välj **Egenskaper** och välj sedan **Säkerhet**. Detta bör lägga till den lokala administratören på fliken **Säkerhet.**       |
     |**Lösenord**                       |Lösenord för åtkomst till datakällan.           |
     |**Mållagringskonto**    |Välj mållagringskonto för uppladdning av data från listan.         |
-    |**Måltyp**       |Välj mål lagrings typ i listan: **Block-Blob**, **Page BLOB**eller **Azure Files**.        |
+    |**Måltyp**       |Välj mållagringstypen i listan: **Blockera Blob,** **Sidblob**eller **Azure-filer**.        |
     |**Målcontainer/-resurs**    |Ange namnet på den container eller resurs som du vill ladda upp data till i ditt mållagringskonto. Namnet kan vara ett resursnamn eller ett containernamn. Använd till exempel `myshare` eller `mycontainer`. Du kan även ange namnet i formatet `sharename\directory_name` eller `containername\virtual_directory_name`.        |
-    |**Matchningsmönster för filkopiering**    | Du kan ange matchningsmönstret för filnamn på följande två sätt:<ul><li>**Använd jokertecken:** Endast `*` och `?` stöds i jokertecken. Till exempel matchar uttrycket `*.vhd` alla filer som har filnamnstillägget `.vhd`. På ett liknande sätt matchar `*.dl?` alla filer med antingen filnamnstillägget `.dl` eller som börjar med `.dl`, till exempel `.dll`. Och `*foo` matchar alla filer vars namn slutar med `foo`.<br>Du kan ange uttrycket med jokertecken direkt i fältet. Som standard behandlas det värde som du anger i fältet som ett uttryck med jokertecken.</li><li>**Använd reguljära uttryck:** POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Matchningsmönster för filkopiering**    | Du kan ange matchningsmönstret för filnamn på följande två sätt:<ul><li>**Använda jokerteckenuttryck:** Endast `*` `?` och stöds i jokerteckenuttryck. Till exempel matchar uttrycket `*.vhd` alla filer som har filnamnstillägget `.vhd`. På ett liknande sätt matchar `*.dl?` alla filer med antingen filnamnstillägget `.dl` eller som börjar med `.dl`, till exempel `.dll`. Och `*foo` matchar alla filer vars namn slutar med `foo`.<br>Du kan ange uttrycket med jokertecken direkt i fältet. Som standard behandlas det värde som du anger i fältet som ett uttryck med jokertecken.</li><li>**Använd reguljära uttryck:** POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Filoptimering**              |När den här funktionen är aktiverad packas filer som är mindre än 1 MB under inmatning. Paketeringen gör datakopieringen snabbare för små filer. Den sparar även betydande tid när antalet filer långt överstiger antalet kataloger.        |
  
 4. Välj **Starta**. Indata valideras, och om validering lyckas startas jobbet. Det kan ta några minuter för jobbet att startas.
@@ -139,11 +139,11 @@ För att säkerställa dataintegriteten beräknas en kontrollsumma infogat när 
 När kopieringsjobbet är klart kan du välja **Förbered för att skicka**.
 
 >[!NOTE]
-> **Förbered för att skicka** kan inte köras medan kopieringsjobb pågår.
+> **Förbereda leveransen** kan inte köras medan kopieringsjobb pågår.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa självstudie och lär dig hur du skickar din Data Box Heavy-enhet tillbaka till Microsoft.
+Gå vidare till nästa självstudiekurs om du vill lära dig hur du skickar tillbaka din Data Box Heavy-enhet till Microsoft.
 
 > [!div class="nextstepaction"]
 > [Skicka din Azure Data Box Heavy-enhet till Microsoft](./data-box-heavy-deploy-picked-up.md)

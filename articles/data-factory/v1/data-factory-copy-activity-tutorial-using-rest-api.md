@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: använda REST API för att skapa en Azure Data Factory pipeline '
+title: 'Självstudiekurs: Använda REST API för att skapa en Azure Data Factory-pipeline '
 description: I den här självstudiekursen kommer du att använda REST API för att skapa en Azure-datafabrik och kopiera data från en Azure-blob till en Azure SQL-databas.
 services: data-factory
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75438881"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd REST API för att skapa ett Azure Data Factory-pipeline för att kopiera data 
@@ -25,7 +25,7 @@ ms.locfileid: "75438881"
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Powershell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
@@ -37,7 +37,7 @@ ms.locfileid: "75438881"
 
 I den här artikeln får du lära dig hur du använder REST API för att skapa en datafabrik med en pipeline som kopierar data från en Azure-bloblagring till en Azure SQL-databas. Om du inte har använt Azure Data Factory, bör du läsa igenom artikeln [Introduktion till Azure Data Factory](data-factory-introduction.md) innan du genomför den här självstudien.   
 
-I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
+I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Mer information om kopieringsaktiviteten finns i [Dataflyttningsaktiviteter](data-factory-data-movement-activities.md).
 
 En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer information finns i [flera aktiviteter i en pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
@@ -55,9 +55,9 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 * Gör följande genom att följa anvisningarna i [den här artikeln](../../active-directory/develop/howto-create-service-principal-portal.md): 
   1. Skapa en webbapp med namnet **ADFCopyTutorialApp** i Azure Active Directory.
   2. Hämta ett **klient-ID** och en **hemlig nyckel**. 
-  3. Hämta ett **klientorganisations-ID**. 
+  3. Hämta **klient-ID**. 
   4. Tilldela **ADFCopyTutorialApp**-programmet rollen som **Data Factory-deltagare**.  
-* [Installera Azure PowerShell](/powershell/azure/overview).  
+* Installera [Azure PowerShell](/powershell/azure/overview).  
 * Starta **PowerShell** och kör följande kommando. Låt Azure PowerShell vara öppet tills du är klar med självstudien. Om du stänger och öppnar det igen måste du köra kommandona en gång till.
   
   1. Kör följande kommando och ange det användarnamn och lösenord som du använder för att logga in på Azure-portalen:
@@ -70,7 +70,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
      ```PowerShell     
      Get-AzSubscription
      ``` 
-  3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration. 
+  3. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt;NameOfAzureAbonnemang med** &gt; namnet på din Azure-prenumeration. 
      
      ```PowerShell
      Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -103,7 +103,7 @@ Skapa följande JSON-filer i mappen som curl.exe finns i.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Ersätt **accountname** och **accountkey** med namnet och nyckeln för ditt Azure-lagringskonto. Information om hur du hämtar din lagrings åtkomst nyckel finns i [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
+> Ersätt **accountname** och **accountkey** med namnet och nyckeln för ditt Azure-lagringskonto. Mer information om hur du hämtar åtkomstnyckeln för lagring finns i [Hantera åtkomstnycklar för lagringskonto](../../storage/common/storage-account-keys-manage.md).
 
 ```JSON
 {
@@ -181,10 +181,10 @@ Följande tabell innehåller beskrivningar av de JSON-egenskaper som användes i
 |:--- |:--- |
 | typ | Typegenskapen har angetts till **AzureBlob** eftersom det finns data i Azure Blob-lagringen. |
 | linkedServiceName | Refererar till **AzureStorageLinkedService** som du skapade tidigare. |
-| folderPath | Anger vilken **blobcontainer** och **mapp** som innehåller indatablobar. I den här självstudiekursen adftutorial är blobcontainern och -mappen rotmappen. | 
+| folderPath | Anger **blob-behållaren** och **mappen** som innehåller indatablobar. I den här självstudiekursen adftutorial är blobcontainern och -mappen rotmappen. | 
 | fileName | Den här egenskapen är valfri. Om du tar bort egenskapen kommer alla filer från folderPath hämtas. I den här självstudiekursen har angetts **emp.txt** som filnamn så att endast den filen hämtas för bearbetning. |
 | format -> typ |Indatafilen är i textformat, så vi använder **TextFormat**. |
-| columnDelimiter | Kolumner i loggfilerna avgränsas med **kommatecken (`,`)** . |
+| columnDelimiter | Kolumner i loggfilerna avgränsas med **kommatecken (`,`)**. |
 | frekvens/intervall | Frekvensen är **timme** och intervallet är **1**, vilket innebär att indatasektorerna är tillgängliga en gång i **timmen**. Det betyder att tjänsten Data Factory söker efter indata varje timme i rotmappen för den angivna blobcontainern (**adftutorial**). Den söker data i pipelinens start- och sluttider och inte före eller efter dessa tider.  |
 | extern | Den här egenskapen anges som **true** om indatan inte skapades av denna pipeline. Inkommande data i den här självstudien finns i filen emp.txt som genereras av denna pipeline, så vi ställer in den här egenskapen på true. |
 
@@ -287,7 +287,7 @@ Ersätt värdet i **start**egenskapen med den aktuella dagen och **slut**värdet
  
 Både start- och slutdatum måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2016-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen. 
  
-Om du inte anger värdet för **slut**egenskapen, beräknas det som ”**start + 48 timmar**”. Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen.
+Om du inte anger värdet för **slutegenskapen** beräknas det som "**start + 48 timmar**". Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen.
  
 I det föregående exemplet finns det 24 datasektorer eftersom varje datasektor skapas varje timme.
 
@@ -372,7 +372,7 @@ Observera följande punkter:
     ```PowerShell
     Get-AzResourceProvider
     ```
-  * Logga in med Azure-prenumerationen i [Azure-portalen](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure-portalen. Med den här åtgärden registreras providern automatiskt.
+  * Logga in med Azure-prenumerationen i [Azure Portal](https://portal.azure.com) och navigera till ett Data Factory-blad (eller) skapa en datafabrik i Azure Portal. Med den här åtgärden registreras providern automatiskt.
 
 Du måste först skapa några Data Factory-entiteter innan du skapar en pipeline. Först skapar du länkade tjänster för att länka käll- och måldatalager till ditt datalager. Sedan definierar du in- och utdatauppsättningar för att representera data i länkade datalager. Slutligen skapar du pipelinen med en aktivitet som använder dessa datauppsättningar.
 

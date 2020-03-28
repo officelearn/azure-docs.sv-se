@@ -1,17 +1,17 @@
 ---
-title: Självstudie – distribuera appar till skalnings uppsättningar för virtuella datorer i Azure med Ansible
-description: Lär dig hur du använder Ansible för att konfigurera skalnings uppsättningar för virtuella Azure-datorer och distribuera program på skalnings uppsättningen
+title: Självstudiekurs - Distribuera appar till skalningsuppsättningar för virtuella datorer i Azure med Ansible
+description: Lär dig hur du använder Ansible för att konfigurera Azure-skalningsuppsättningar för virtuella datorer och distribuera program i skalningsuppsättningen
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.date: 01/13/2020
 ms.openlocfilehash: d638ae3f0c33734b42ef5456772fcd2bc62e35a4
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75940865"
 ---
-# <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudie: distribuera appar till skalnings uppsättningar för virtuella datorer i Azure med Ansible
+# <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudiekurs: Distribuera appar till skalningsuppsättningar för virtuella datorer i Azure med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -21,23 +21,23 @@ ms.locfileid: "75940865"
 
 > [!div class="checklist"]
 >
-> * Hämta värd information för en grupp med virtuella Azure-datorer
-> * Klona och bygg exempel appen
-> * Installera JRE (Java Runtime Environment) på en skalnings uppsättning
-> * Distribuera Java-programmet till en skalnings uppsättning
+> * Hämta värdinformation för en grupp virtuella Azure-datorer
+> * Klona och skapa exempelappen
+> * Installera JRE (Java Runtime Environment) på en skalningsuppsättning
+> * Distribuera Java-programmet till en skalningsuppsättning
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
 [!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
-- **git** - [git](https://git-scm.com) används för att ladda ned ett Java-exempel som används in den här självstudien.
+- **git** - [git](https://git-scm.com) används för att ladda ner ett Java-exempel som används i den här självstudien.
 - **Java SE Development Kit (JDK)** – [JDK](https://aka.ms/azure-jdks) används till att skapa Java-exempelprojektet.
-- **Apache Maven** - [Apache maven](https://maven.apache.org/download.cgi) används för att bygga exempel-Java-projektet.
+- **Apache Maven** - [Apache Maven](https://maven.apache.org/download.cgi) används för att bygga exempel Java-projektet.
 
 ## <a name="get-host-information"></a>Hämta värdinformation
 
-Spelbok-koden i det här avsnittet hämtar värd information för en grupp virtuella datorer. Koden hämtar de offentliga IP-adresserna och belastningsutjämnaren i en angiven resurs grupp och skapar en värd grupp med namnet `scalesethosts` i inventeringen.
+Spelbokskoden i det här avsnittet hämtar värdinformation för en grupp virtuella datorer. Koden hämtar offentliga IP-adresser och belastningsutjämnaren inom en `scalesethosts` angiven resursgrupp och skapar en värdgrupp med namnet i lagret.
 
 Spara följande exempelspelbok som `get-hosts-tasks.yml`:
 
@@ -67,7 +67,7 @@ Spara följande exempelspelbok som `get-hosts-tasks.yml`:
 
 ## <a name="prepare-an-application-for-deployment"></a>Förbereda ett program för distribution
 
-Spelbok-koden i det här avsnittet använder `git` för att klona ett Java-exempel projekt från GitHub och skapar projektet. 
+Spelbokskoden i det `git` här avsnittet används för att klona ett Java-exempelprojekt från GitHub och bygger projektet. 
 
 Spara följande spelbok som `app.yml`:
 
@@ -93,7 +93,7 @@ Kör Ansible-spelboksexemplet med följande kommando:
   ansible-playbook app.yml
   ```
 
-När du har kört Spelbok visas utdata som liknar följande resultat:
+När du har kört spelboken visas utdata som liknar följande resultat:
 
   ```Output
   PLAY [localhost] 
@@ -112,17 +112,17 @@ När du har kört Spelbok visas utdata som liknar följande resultat:
 
   ```
 
-## <a name="deploy-the-application-to-a-scale-set"></a>Distribuera programmet till en skalnings uppsättning
+## <a name="deploy-the-application-to-a-scale-set"></a>Distribuera programmet till en skalningsuppsättning
 
-Spelbok-koden i det här avsnittet används för att:
+Spelbokskoden i det här avsnittet används för att:
 
-* Installera JRE på en värd grupp med namnet `saclesethosts`
-* Distribuera Java-programmet till en värd grupp med namnet `saclesethosts`
+* Installera JRE på en värdgrupp med namnet`saclesethosts`
+* Distribuera Java-programmet till en värdgrupp med namnet`saclesethosts`
 
-Det finns två sätt att hämta exempel Spelbok:
+Det finns två sätt att hämta exempelspelboken:
 
-* [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) och spara den till `vmss-setup-deploy.yml`.
-* Skapa en ny fil med namnet `vmss-setup-deploy.yml` och kopiera den till följande innehåll:
+* [Ladda ner spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) och `vmss-setup-deploy.yml`spara den på .
+* Skapa en ny `vmss-setup-deploy.yml` fil med namnet och kopiera följande innehåll till den:
 
 ```yml
 - hosts: localhost
@@ -161,10 +161,10 @@ Det finns två sätt att hämta exempel Spelbok:
     poll: 0
 ```
 
-Se följande anmärkningar innan du kör Spelbok:
+Innan du kör spelboken läser du följande anmärkningar:
 
-* I avsnittet `vars` ersätter du plats hållaren för `{{ admin_password }}` med ditt eget lösen ord.
-* Om du vill använda SSH-anslutnings typen med lösen ord installerar du sshpass-programmet:
+* I `vars` avsnittet ersätter `{{ admin_password }}` du platshållaren med ditt eget lösenord.
+* Om du vill använda ssh-anslutningstypen med lösenord installerar du sshpass-programmet:
 
     Ubuntu:
 
@@ -172,13 +172,13 @@ Se följande anmärkningar innan du kör Spelbok:
     apt-get install sshpass
     ```
 
-    CentOS:
+    Centos:
 
     ```bash
     yum install sshpass
     ```
 
-* I vissa miljöer kan du se ett fel meddelande om att använda ett SSH-lösenord i stället för en nyckel. Om du får ett fel meddelande kan du inaktivera värd nyckel kontrollen genom att lägga till följande rad för att `/etc/ansible/ansible.cfg` eller `~/.ansible.cfg`:
+* I vissa miljöer kan du se ett fel om hur du använder ett SSH-lösenord i stället för en nyckel. Om felet visas kan du inaktivera värdnyckelkontroll genom att `/etc/ansible/ansible.cfg` `~/.ansible.cfg`lägga till följande rad i eller:
 
     ```bash
     [defaults]
@@ -191,7 +191,7 @@ Kör spelboken med följande kommando:
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-Utdata från att köra kommandot Ansible-Spelbok anger att Java-exemplet i Java-programmet har installerats till värd gruppen i skalnings uppsättningen:
+Utdata från att köra kommandot ansible-playbook anger att exempelt Java-programmet har installerats i värdgruppen för skalningsuppsättningen:
 
   ```Output
   PLAY [localhost]
@@ -230,11 +230,11 @@ Utdata från att köra kommandot Ansible-Spelbok anger att Java-exemplet i Java-
 
 ## <a name="verify-the-results"></a>Verifiera resultaten
 
-Verifiera resultatet av ditt arbete genom att gå till URL: en för belastningsutjämnaren för din skalnings uppsättning:
+Verifiera resultatet av ditt arbete genom att navigera till url:en för belastningsutjämnaren för skalningsuppsättningen:
 
-![Java-app som körs i en skalnings uppsättning i Azure.](media/ansible-vmss-deploy/ansible-deploy-app-vmss.png)
+![Java-app som körs i en skalningsuppsättning i Azure.](media/ansible-vmss-deploy/ansible-deploy-app-vmss.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: skala skalnings uppsättningar för virtuella datorer i Azure med Ansible](./ansible-auto-scale-vmss.md)
+> [Självstudiekurs: Skalning av virtuella datorskalor i Azure med Ansible](./ansible-auto-scale-vmss.md)

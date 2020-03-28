@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: kumud
 ms.openlocfilehash: 5971b3251812ea4193e71173943ffc0d48207567
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75975356"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>Azure Resource Manager-exempelmallar för virtuella nätverk
@@ -36,4 +36,4 @@ Den JSON-syntax och de egenskaper som ska användas i mallar finns i avsnittet o
 |[ Skapa en tjänstslutpunkt för virtuellt nätverk för Azure Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)|Skapar ett nytt virtuellt nätverk med två undernät och ett nätverksgränssnitt i varje undernät. Aktiverar en tjänstslutpunkt till Azure Storage för ett av undernäten och kopplar ett nytt lagringskonto till det undernätet.|
 |[Ansluta två virtuella nätverk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-to-vnet-peering)| Skapar två virtuella nätverk och peering mellan dem.|
 |[Skapa en virtuell dator med flera IP-adresser](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-ipconfig)| Skapar en virtuell Windows- eller Linux-dator med flera IP-adresser.|
-|[Konfigurera IPv4 + IPv6-virtuellt nätverk med dubbla stackar](https://github.com/Azure/azure-quickstart-templates/tree/master/ipv6-in-vnet)|Distribuerar ett virtuellt nätverk med dubbla stackar (IPv4 + IPv6) med två virtuella datorer och en Azure Basic-Load Balancer med IPv4-och IPv6-offentliga IP-adresser. |
+|[Konfigurera virtuellt nätverk för IPv4 + IPv6-dubbel stack](https://github.com/Azure/azure-quickstart-templates/tree/master/ipv6-in-vnet)|Distribuerar virtuella nätverk med dubbla stackar (IPv4+IPv6) med två virtuella datorer och en Azure Basic Load Balancer med offentliga IP-adresser iPv4 och IPv6. |

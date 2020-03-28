@@ -1,37 +1,37 @@
 ---
-title: Självstudie – resurs onboarding
-description: Med resurs onboarding via anpassade providers kan du ändra och utöka befintliga Azure-resurser.
+title: Självstudiekurs - onboarding av resurser
+description: Med onboarding av resurser via anpassade leverantörer kan du manipulera och utöka befintliga Azure-resurser.
 ms.topic: tutorial
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75649941"
 ---
-# <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Självstudie: resurs onboarding med Azure-anpassade leverantörer
+# <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Självstudiekurs: Onboarding av resurser med Azure Custom Providers
 
-I den här självstudien distribuerar du till Azure en anpassad resurs leverantör som utökar Azure Resource Manager-API: t med resurs typen Microsoft. CustomProviders/associationer. I självstudien visas hur du utökar befintliga resurser som ligger utanför resurs gruppen där den anpassade Provider-instansen finns. I den här självstudien drivs den anpassade resurs leverantören av en Azure Logic-app, men du kan använda valfri offentlig API-slutpunkt.
+I den här självstudien distribuerar du till Azure en anpassad resursleverantör som utökar Azure Resource Manager-API:et med resurstypen Microsoft.CustomProviders/associations. Självstudien visar hur du utökar befintliga resurser som ligger utanför resursgruppen där den anpassade providerinstansen finns. I den här självstudien drivs den anpassade resursleverantören av en Azure-logikapp, men du kan använda alla offentliga API-slutpunkter.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien måste du känna till följande:
+För att slutföra den här självstudien måste du veta:
 
-* Funktionerna i [Azure-anpassade providers](overview.md).
-* Grundläggande information om [resurs onboarding med anpassade providers](concepts-resource-onboarding.md).
+* Funktionerna för [Azure Custom Providers](overview.md).
+* Grundläggande information om [resursanlökar med anpassade leverantörer](concepts-resource-onboarding.md).
 
-## <a name="get-started-with-resource-onboarding"></a>Kom igång med resurs onboarding
+## <a name="get-started-with-resource-onboarding"></a>Komma igång med resursboarding
 
-I den här självstudien finns det två delar som måste distribueras: den anpassade providern och associationen. Om du vill göra processen enklare kan du välja att använda en enda mall som distribuerar båda.
+I den här självstudien finns det två bitar som måste distribueras: den anpassade providern och associationen. Om du vill göra processen enklare kan du också använda en enda mall som distribuerar båda.
 
-Mallen kommer att använda dessa resurser:
+Mallen använder dessa resurser:
 
-* Microsoft. CustomProviders/resourceProviders
-* Microsoft.Logic/workflows
-* Microsoft. CustomProviders/associationer
+* Microsoft.CustomProviders/resourceProviders
+* Microsoft.Logic/arbetsflöden
+* Microsoft.CustomProviders/associationer
 
 ```json
 {
@@ -203,89 +203,89 @@ Mallen kommer att använda dessa resurser:
 }
 ```
 
-### <a name="deploy-the-custom-provider-infrastructure"></a>Distribuera infrastrukturen för anpassad Provider
+### <a name="deploy-the-custom-provider-infrastructure"></a>Distribuera den anpassade providerinfrastrukturen
 
-Den första delen av mallen distribuerar den anpassade providerns infrastruktur. Den här infrastrukturen definierar resultatet av kopplings resursen. Om du inte är bekant med anpassade providers kan du läsa [grunderna för anpassad Provider](overview.md).
+Den första delen av mallen distribuerar den anpassade providerinfrastrukturen. Den här infrastrukturen definierar effekten av associationsresursen. Om du inte är bekant med anpassade leverantörer läser du [Grunderna för anpassade leverantörer](overview.md).
 
-Nu ska vi distribuera infrastrukturen för anpassad Provider. Kopiera, Spara och distribuera föregående mall, eller följ med och distribuera infrastrukturen med hjälp av Azure Portal.
+Nu ska vi distribuera den anpassade providerinfrastrukturen. Antingen kopiera, spara och distribuera föregående mall eller följa med och distribuera infrastrukturen med hjälp av Azure-portalen.
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
 
-2. Sök efter **mallar** i **alla tjänster** eller med hjälp av huvud Sök rutan:
+2. Sök efter **mallar** i **Alla tjänster** eller med hjälp av huvudsökrutan:
 
    ![Sök efter mallar](media/tutorial-resource-onboarding/templates.png)
 
-3. Välj **Lägg till** i fönstret **mallar** :
+3. Välj **Lägg till** i fönstret **Mallar:**
 
    ![Välj Lägg till](media/tutorial-resource-onboarding/templatesadd.png)
 
-4. Under **Allmänt**anger du ett **namn** och en **Beskrivning** för den nya mallen:
+4. Under **Allmänt**anger du ett **namn** och **en beskrivning** för den nya mallen:
 
-   ![Mallens namn och beskrivning](media/tutorial-resource-onboarding/templatesdescription.png)
+   ![Mallnamn och beskrivning](media/tutorial-resource-onboarding/templatesdescription.png)
 
-5. Skapa Resource Manager-mallen genom att kopiera i JSON-mallen från avsnittet "kom igång med resurs onboarding" i den här artikeln:
+5. Skapa Resource Manager-mallen genom att kopiera i JSON-mallen från avsnittet "Kom igång med resursbelöningen" i den här artikeln:
 
    ![Skapa en Azure Resource Manager-mall](media/tutorial-resource-onboarding/templatesarmtemplate.png)
 
-6. Välj **Lägg till** för att skapa mallen. Om den nya mallen inte visas väljer du **Uppdatera**.
+6. Välj **Lägg till** om du vill skapa mallen. Om den nya mallen inte visas väljer du **Uppdatera**.
 
-7. Välj den nya mallen och välj sedan **distribuera**:
+7. Välj den nyskapade mallen och välj sedan **Distribuera:**
 
-   ![Välj den nya mallen och välj sedan distribuera](media/tutorial-resource-onboarding/templateselectspecific.png)
+   ![Markera den nya mallen och välj sedan Distribuera](media/tutorial-resource-onboarding/templateselectspecific.png)
 
-8. Ange inställningarna för de obligatoriska fälten och välj sedan prenumerationen och resurs gruppen. Du kan lämna rutan **anpassad resurs leverantörs-ID** tom.
+8. Ange inställningarna för de obligatoriska fälten och välj sedan prenumerations- och resursgruppen. Du kan lämna rutan **Anpassad resursprovider i** tom.
 
    | Inställningsnamn | Krävs? | Beskrivning |
    | ------------ | -------- | ----------- |
    | Location | Ja | Platsen för resurserna i mallen. |
-   | Namn på Logic app | Inga | Namnet på Logic-appen. |
-   | Namn på anpassad resurs leverantör | Inga | Namnet på den anpassade resurs leverantören. |
-   | ID för anpassad resurs leverantör | Inga | En befintlig anpassad resurs leverantör som stöder Associations resursen. Om du anger ett värde här hoppas Logic app och distributionen av den anpassade providern över. |
-   | Kopplings namn | Inga | Namnet på Associations resursen. |
+   | Namn på Logikapp | Inga | Namnet på logikappen. |
+   | Namn på anpassad resursprovider | Inga | Den anpassade resursleverantörens namn. |
+   | Id för anpassad resursprovider | Inga | En befintlig anpassad resursprovider som stöder associationsresursen. Om du anger ett värde här hoppas logikappen och den anpassade providerdistributionen över. |
+   | Associationsnamn | Inga | Namnet på associationsresursen. |
 
-   Exempel parametrar:
+   Exempelparametrar:
 
    ![Ange mallparametrar](media/tutorial-resource-onboarding/templatescustomprovider.png)
 
-9. Gå till distributionen och vänta tills den är klar. Du bör se något som liknar följande skärm bild. Du bör se den nya Associations resursen som utdata:
+9. Gå till distributionen och vänta tills den är klar. Du bör se något i stil med följande skärmdump. Du bör se den nya associationsresursen som en utdata:
 
-   ![Distributionen har slutförts](media/tutorial-resource-onboarding/customproviderdeployment.png)
+   ![Lyckad distribution](media/tutorial-resource-onboarding/customproviderdeployment.png)
 
-   Här är resurs gruppen, där **Visa dolda typer** har valts:
+   Här är resursgruppen med **Visa dolda typer** markerade:
 
-   ![Distribution av anpassad Provider](media/tutorial-resource-onboarding/showhidden.png)
+   ![Distribuera anpassad provider](media/tutorial-resource-onboarding/showhidden.png)
 
-10. Utforska fliken **tidigare körnings historik** för att se anropen för associationen Create:
+10. Utforska fliken Logikapp **Kör historik** för att se anropen för associationen skapa:
 
-    ![Körnings historik för Logic app](media/tutorial-resource-onboarding/logicapprun.png)
+    ![Logikapp kör historik](media/tutorial-resource-onboarding/logicapprun.png)
 
 ## <a name="deploy-additional-associations"></a>Distribuera ytterligare associationer
 
-När du har konfigurerat den anpassade providern av infrastrukturen kan du enkelt distribuera fler associationer. Resurs gruppen för ytterligare associationer behöver inte vara samma som den resurs grupp där du har distribuerat den anpassade providern för infrastrukturen. Om du vill skapa en Association måste du ha Microsoft. CustomProviders/resourceproviders/Write-behörigheter för det angivna anpassade resurs-ID: t.
+När du har konfigurerat den anpassade providerinfrastrukturen kan du enkelt distribuera fler associationer. Resursgruppen för ytterligare associationer behöver inte vara samma som resursgruppen där du distribuerade den anpassade providerinfrastrukturen. Om du vill skapa en association måste du ha behörigheterna Microsoft.CustomProviders/resourceproviders/write på det angivna custom resource provider-ID:t.
 
-1. Gå till den anpassade providern **Microsoft. CustomProviders/resourceProviders** Resource i resurs gruppen för den tidigare distributionen. Du måste markera kryss rutan **Visa dolda typer** :
+1. Gå till den anpassade providern **Microsoft.CustomProviders/resourceProviders** resurs i resursgruppen för den tidigare distributionen. Du måste markera kryssrutan **Visa dolda typer:**
 
    ![Gå till resursen](media/tutorial-resource-onboarding/showhidden.png)
 
-2. Kopiera egenskapen resurs-ID för den anpassade providern.
+2. Kopiera egenskapen Resurs-ID för den anpassade providern.
 
-3. Sök efter **mallar** i **alla tjänster** eller med hjälp av huvud Sök rutan:
+3. Sök efter **mallar** i **Alla tjänster** eller med hjälp av huvudsökrutan:
 
    ![Sök efter mallar](media/tutorial-resource-onboarding/templates.png)
 
-4. Välj den mall som skapats tidigare och välj sedan **distribuera**:
+4. Markera den tidigare skapade mallen och välj sedan **Distribuera:**
 
-   ![Välj den mall som skapats tidigare och välj sedan distribuera](media/tutorial-resource-onboarding/templateselectspecific.png)
+   ![Markera den tidigare skapade mallen och välj sedan Distribuera](media/tutorial-resource-onboarding/templateselectspecific.png)
 
-5. Ange inställningarna för de obligatoriska fälten och välj sedan prenumerationen och en annan resurs grupp. För inställningen **anpassad resurs leverantörs-ID** anger du det resurs-ID som du kopierade från den anpassade provider som du distribuerade tidigare.
+5. Ange inställningarna för de obligatoriska fälten och välj sedan prenumerationen och en annan resursgrupp. För inställningen **Anpassad resursprovider-ID** anger du det resurs-ID som du kopierade från den anpassade providern som du distribuerade tidigare.
 
-6. Gå till distributionen och vänta tills den är klar. Den ska nu bara distribuera den nya Associations resursen:
+6. Gå till distributionen och vänta tills den är klar. Den bör nu bara distribuera den nya associationsresursen:
 
-   ![Ny Association resurs](media/tutorial-resource-onboarding/createdassociationresource.png)
+   ![Ny associationsresurs](media/tutorial-resource-onboarding/createdassociationresource.png)
 
-Om du vill kan du gå tillbaka till **körnings historiken** för Logic app och se att ett annat anrop gjordes till Logic-appen. Du kan uppdatera Logic app för att utöka ytterligare funktioner för varje skapad Association.
+Om du vill kan du gå tillbaka till logikappen **Körhistorik** och se att ett annat samtal gjordes till logikappen. Du kan uppdatera logikappen för att utöka ytterligare funktioner för varje skapad association.
 
 ## <a name="getting-help"></a>Få hjälp
 
-Om du har frågor om Azure-anpassade leverantörer kan du prova att be dem om [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). En liknande fråga kanske redan har besvarats. kontrol lera först innan du publicerar. Lägg till taggen `azure-custom-providers` för att få ett snabbt svar!
+Om du har frågor om Azure Custom Providers kan du prova att fråga dem på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). En liknande fråga kan redan ha besvarats, så kontrollera först innan du postar. Lägg till `azure-custom-providers` taggen för att få ett snabbt svar!
 

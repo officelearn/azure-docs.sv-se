@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75768543"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Felsöka API:er med hjälp av spårning av förfrågningar
 
 I den här självstudien beskrivs hur du kontrollerar bearbetning av begäran för felsökning av ditt API. 
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Spåra ett anrop
@@ -49,10 +49,10 @@ I den här guiden får du lära dig hur man:
 
    > [!NOTE]
    > * Om Ocp-Apim-Subscription-Key inte fylls i automatiskt kan du hämta den genom att gå till Utvecklarportalen och exponera nycklarna på profilsidan.
-   > * För att få en spårning när HTTP-huvudet OCP-APIM-trace används måste inställningen **Tillåt spårning** för prenumerations nyckeln vara aktive rad. Om du vill konfigurera inställningen **Tillåt spårning** , under **API Management** på den vänstra menyn, väljer du **prenumerationer**.
-   >   ![Tillåt spårning i fönstret API Management prenumerationer](media/api-management-howto-api-inspector/allowtracing.png)
+   > * Om du vill få en spårning när HTTP-huvudet för Ocp-Apim-Trace används måste inställningen **Tillåt spårning** för prenumerationsnyckeln vara aktiverad. Om du vill konfigurera inställningen **Tillåt spårning** väljer du **Prenumerationer**under **API-hantering** på den vänstra menyn .
+   >   ![Tillåt spårning i fönstret API Management-prenumerationer](media/api-management-howto-api-inspector/allowtracing.png)
 
-6. Klicka på **Skicka** för att göra ett API-anrop. 
+6. Klicka på **Skicka** om du vill ringa ett API-anrop. 
 7. Vänta tills anropet är klart. 
 8. Gå till fliken **Spåra** i **API-konsolen**. Klicka på någon av följande länkar för att komma till detaljerad spårningsinfo: **inkommande**, **serverdel**, **utgående**.
 

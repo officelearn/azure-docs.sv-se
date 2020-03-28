@@ -8,10 +8,10 @@ ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273380"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(INAKTUELL) Belastningsutjämna containrar i ett Azure Container Service DC/OS-kluster
@@ -43,7 +43,7 @@ Det finns två lager av belastningsutjämning i ett Azure Container Service DC/O
 
 Marathon Load Balancer konfigurerar om sig själv dynamiskt baserat på de containrar som du har distribuerat. Den kan även återhämta sig automatiskt vid en eventuell förlust av en container eller agent. Om detta inträffar startar Apache Mesos om containern någon annanstans och marathon-lb anpassas automatiskt.
 
-Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren.
+Gå [https://shell.azure.com](https://shell.azure.com) till för att öppna Cloud Shell i din webbläsare.
 
 Kör följande kommando för att installera Marathon-lastbalanseraren på den offentliga agentens kluster.
 

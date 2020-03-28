@@ -1,5 +1,5 @@
 ---
-title: Självstudie – installera program i en skalnings uppsättning med Azure CLI
+title: Självstudiekurs - Installera program i en skalningsuppsättning med Azure CLI
 description: Läs hur du använder Azure CLI för att installera program på VM-skalningsuppsättningar med det anpassade skripttillägget
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: b1f26444a2ab5407d3e98996f6826443b107e76a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76271397"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Installera program i VM-skalningsuppsättningar med Azure CLI
@@ -23,7 +23,7 @@ Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning
 > * Använd det anpassade Azure-skripttillägget
 > * Uppdatera ett program som körs på en skalningsuppsättning
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -52,7 +52,7 @@ I ditt nuvarande gränssnitt, skapar du en fil med namnet *customConfig.json* oc
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -122,7 +122,7 @@ Lämna webbläsaren öppen så att du kan se en uppdaterad version i nästa steg
 
 
 ## <a name="update-app-deployment"></a>Uppdatera appdistributionen
-Under livscykeln för en skalningsuppsättning, kan du behöva distribuera en uppdaterad version av ditt program. Med det anpassade skripttillägget, kan du referera till ett uppdaterat distributionsskript och sedan tillämpa tillägget till din skalningsuppsättning igen. När skalningsuppsättningen skapades i ett föregående steg, angavs `--upgrade-policy-mode` som *automatiskt*. Den här inställningen låter virtuella datorinstanser i skalningsuppsättningen att automatiskt uppdatera och tillämpa den senaste versionen av ditt program.
+Under livscykeln för en skalningsuppsättning, kan du behöva distribuera en uppdaterad version av ditt program. Med det anpassade skripttillägget, kan du referera till ett uppdaterat distributionsskript och sedan tillämpa tillägget till din skalningsuppsättning igen. När skalningsuppsättningen skapades i `--upgrade-policy-mode` ett tidigare steg angavs den *automatiska*. Den här inställningen låter virtuella datorinstanser i skalningsuppsättningen att automatiskt uppdatera och tillämpa den senaste versionen av ditt program.
 
 I ditt nuvarande gränssnitt, skapar du en fil med namnet *cusomConfigv2.json* och klistrar in följande konfiguration. Den här definitionen kör en uppdaterad *v2*-version av installationsskriptet för programmet:
 
@@ -151,7 +151,7 @@ Alla virtuella datorinstanser i skalningsuppsättningen uppdateras automatiskt m
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+Om du vill ta bort skalningsuppsättningen och ytterligare resurser tar du bort resursgruppen och alla dess resurser med [az-gruppborttagning](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

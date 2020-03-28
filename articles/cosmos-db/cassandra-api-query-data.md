@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Fråga efter data från ett konto för Cassandra-API:et i Azure Cosmos DB'
+title: 'Självstudie: Fråga efter data från ett konto för Cassandra-API:t i Azure Cosmos DB'
 description: Den här självstudien beskriver hur du frågar efter användardata från ett konto för Cassandra-API:t för Azure Cosmos DB med hjälp av ett Java-program.
 ms.service: cosmos-db
 author: kanshiG
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 69a9bc912f2cd52e52ca6403187f993413539ecd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "60899907"
 ---
-# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Självstudier: Fråga efter data från ett konto för Cassandra-API:et i Azure Cosmos DB
+# <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Självstudie: Fråga efter data från ett konto för Cassandra-API:t i Azure Cosmos DB
 
 Som utvecklare kan du ha program som använder nyckel/värde-par. Du kan använda ett konto för Cassandra-API:t i Azure Cosmos DB för att lagra och fråga efter nyckel/värde-data. Den här självstudien beskriver hur du frågar efter användardata från ett konto för Cassandra-API:t i Azure Cosmos DB med hjälp av ett Java-program. Java-programmet använder [Java-drivrutinen](https://github.com/datastax/java-driver) och frågar efter användardata, till exempel användar-ID, användarnamn och användarens stad. 
 
@@ -26,11 +26,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Fråga efter data från en Cassandra-tabell
 > * Kör appen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Den här artikeln tillhör en självstudiekursen i flera delar. Slutför de föregående stegen som beskriver hur du skapar kontot, nyckelutrymmet och tabellen för Cassandra-API:t och hur du [läser in exempeldata i tabellen](cassandra-api-load-data.md) innan du börjar. 
+* Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar måste du slutföra föregående steg för att skapa Cassandra API-kontot, nyckelutrymmet, tabellen och [inläsningen av exempeldata i tabellen](cassandra-api-load-data.md). 
 
 ## <a name="query-data"></a>Söka i data
 

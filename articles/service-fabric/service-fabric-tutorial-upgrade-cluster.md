@@ -1,26 +1,26 @@
 ---
-title: Uppgradera Service Fabric runtime i Azure
+title: Uppgradera service fabric-körningen i Azure
 description: I den här guiden får du lära dig hur du använder PowerShell och uppgraderar körningen för ett Service Fabric-kluster med Azure som värd.
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252738"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudie: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
-Den här självstudien är del fyra i en serie och visar hur du uppgraderar Service Fabric runtime på ett Azure Service Fabric-kluster. Den här själv studie kursen är skriven för Service Fabric kluster som körs på Azure och som inte gäller för fristående Service Fabric-kluster.
+Den här självstudien är del fyra i en serie och visar hur du uppgraderar Service Fabric-körningen på ett Azure Service Fabric-kluster. Den här självstudiedelen är skriven för Service Fabric-kluster som körs på Azure och gäller inte för fristående Service Fabric-kluster.
 
 > [!WARNING]
 > För den delen av kursen krävs PowerShell. Stöd för uppgradering av klusterkörning finns inte i Azure CLI-verktygen ännu. Ett kluster kan också uppgraderas på portalen. Mer information finns i [Uppgradera till ett Azure Service Fabric-kluster](service-fabric-cluster-upgrade.md).
 
-Om klustret redan kör den senaste Service Fabric körningen behöver du inte göra det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
+Om klustret redan kör den senaste Service Fabric-körningen behöver du inte göra det här steget. Den här artikeln kan dock användas för att installera alla stödda körningar på ett Azure Service Fabric-kluster.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * läser klusterversionen
@@ -28,23 +28,23 @@ I den här guiden får du lära dig att:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) på Azure med hjälp av en mall
+> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure med hjälp av en mall
 > * [Övervaka ett kluster](service-fabric-tutorial-monitor-cluster.md)
-> * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
+> * [Skala in eller ut ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * uppgradera körningen för ett kluster
 > * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
 * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
-* Konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2019](https://www.visualstudio.com) och **Azure-utveckling**, **ASP.net och webb utveckling**, och **.net Core plattforms oberoende utvecklings** arbets belastningar.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
+* Konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2019](https://www.visualstudio.com) och **Azure-utveckling,** **ASP.NET och webbutveckling**och **.NET Core-arbetsbelastningar för utveckling av plattformar.**  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -58,14 +58,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>Hämta körningsversion
 
-När du har anslutit till Azure, valt den prenumeration som innehåller Service Fabric klustret, kan du hämta kör tids versionen av klustret.
+När du har anslutit till Azure, valt prenumerationen som innehåller Service Fabric-klustret, kan du hämta körningsversionen av klustret.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Eller så får du bara en lista över alla kluster i din prenumeration med följande exempel:
+Du kan också få en lista över alla kluster i prenumerationen med följande exempel:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion

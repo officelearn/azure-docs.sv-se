@@ -8,10 +8,10 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75420638"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
@@ -35,7 +35,7 @@ I den här guiden får du lära du dig hur man:
 För att slutföra den här kursen behöver du:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Ett [Automation-konto](automation-offering-get-started.md) för bevakaren och åtgärdsrunbooks och bevakaraktiviteten.
+* Ett [Automation-konto](automation-offering-get-started.md) som innehåller watcher- och action-runbooks och Watcher-uppgiften.
 * En [virtuell dator](../virtual-machines/windows/quick-create-portal.md) som du vill publicera.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -191,9 +191,9 @@ Under **Aviseringslogik** går du till **Tröskelvärde** och anger **0**. När 
 
 ![Konfigurera signallogiken](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-Välj **Skapa ny** under **Åtgärdsgrupper**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
+Välj **Skapa ny** under **Åtgärdsgrupper**. En åtgärdsgrupp är en grupp av åtgärder som kan användas i flera aviseringar. Dessa åtgärder kan inkludera, men är inte begränsade till, e-postmeddelanden, runbooks, webhooks och mycket mer. Mer information om åtgärdsgrupper finns i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
 
-Under **Aviseringsinformation** anger du ett namn och en beskrivning för aviseringen. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)** , **Varning (Sev 1)** eller **Kritisk (Sev 0)** .
+Under **Aviseringsinformation** anger du ett namn och en beskrivning för aviseringen. Ställ in **Allvarlighetsgrad** på **Information (Sev 2)**, **Varning (Sev 1)** eller **Kritisk (Sev 0)**.
 
 I rutan **Åtgärdsgruppnamn** anger du ett namn för aviseringen och ett kortnamn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 

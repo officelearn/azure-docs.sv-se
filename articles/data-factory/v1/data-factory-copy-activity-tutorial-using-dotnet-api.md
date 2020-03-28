@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b907663971e7a8a7c3b2c6cac95c38131e1ccb26
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74931739"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Självstudiekurs: Skapa en pipeline med en kopieringsaktivitet med hjälp av .NET-API:et
@@ -24,17 +24,17 @@ ms.locfileid: "74931739"
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Powershell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten bör du gå igenom [självstudien för kopieringsaktiviteter](../quickstart-create-data-factory-dot-net.md). 
+> Den här artikeln gäller för version 1 av Data Factory. Läs [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md) (kopiera aktivitetssjälvstudien i dokumentationen för version 2) om du använder den aktuella versionen av Data Factory-tjänsten. 
 
 I den här artikeln får du lära dig hur du använder [.NET API](https://portal.azure.com) för att skapa en datafabrik med en pipeline som kopierar data från en Azure-bloblagring till en Azure SQL-databas. Om du inte har använt Azure Data Factory, bör du läsa igenom artikeln [Introduktion till Azure Data Factory](data-factory-introduction.md) innan du genomför den här självstudien.   
 
-I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
+I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Mer information om kopieringsaktiviteten finns i [Dataflyttningsaktiviteter](data-factory-data-movement-activities.md).
 
 En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer information finns i [flera aktiviteter i en pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
@@ -66,7 +66,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
     ```powershell
     Get-AzSubscription
     ```
-4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration.
+4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt;NameOfAzureAbonnemang med** &gt; namnet på din Azure-prenumeration.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -115,7 +115,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 * Klient-ID:t
-* Prenumerations-ID
+* Prenumerations-ID:t
 * Program-ID:t
 * Lösenord (anges i det första kommandot)
 
@@ -123,18 +123,18 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 1. Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2012/2013/2015.
    1. Starta **Visual Studio** 2012/2013/2015.
    2. Klicka på **Arkiv**, peka på **Nytt** och klicka på **Projekt**.
-   3. Expandera **Mallar** och välj **Visual C#** . I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk.
+   3. Expandera **Mallar** och välj **Visual C#**. I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk.
    4. Välj **Konsolprogram** i listan över projekttyper till höger.
    5. Ange **DataFactoryAPITestApp** som namn.
    6. Välj **C:\ADFGetStarted** som plats.
    7. Klicka på **OK** för att skapa projektet.
-2. Klicka på **Verktyg**, peka på **NuGet Package Manager** och klicka på **Package Manager Console**.
+2. Klicka på **Verktyg**, peka på **NuGet Package Manager**och klicka på Package Manager **Console**.
 3. I **Package Manager Console** gör du följande steg:
    1. Kör följande kommando för att installera Data Factory-paketet: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Kör följande kommando för att installera Azure Active Directory-paketet (du använder Active Directory-API i koden): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Lägg till följande **appSetttings**-avsnitt i filen **App.config**. De här inställningarna används av helper-metoden: **GetAuthorizationHeader**.
 
-    Ersätt värdena för **&lt;Program-ID&gt;** , **&lt;Lösenord&gt;** , **&lt;Prenumerations-ID&gt;** och **&lt;Klient-ID&gt;** med dina egna värden.
+    Ersätt värden för ** &lt;&gt;program-ID,** ** &lt;&gt;Lösenord,** ** &lt;Prenumerations-ID&gt;** och ** &lt;klient-ID&gt; ** med dina egna värden.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -511,12 +511,12 @@ Du bör nu ha tillgång till följande fyra värden efter de här stegen:
     John, Doe
     Jane, Doe
     ```
-18. Kör exemplet genom att klicka på **Felsök** -> **Börja felsöka** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
+18. Kör exemplet genom att klicka på **Felsökning** -> **Avsöka på** menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
 19. Använd Azure-portalen och kontrollera att datafabriken **APITutorialFactory** har skapats med följande artefakter:
     * Länkad tjänst: **LinkedService_AzureStorage**
     * DataSet: **InputDataset** och **OutputDataset**.
     * Pipeline: **PipelineBlobSample**
-20. Kontrollera att de två medarbetarposterna skapas i tabellen **emp** i den angivna Azure SQL-databasen.
+20. Kontrollera att de två medarbetarposterna skapas i **emp-tabellen** i den angivna Azure SQL-databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 Fullständig dokumentation för .NET-API för Data Factory finns [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).

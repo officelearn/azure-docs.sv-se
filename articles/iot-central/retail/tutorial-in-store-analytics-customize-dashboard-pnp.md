@@ -1,6 +1,6 @@
 ---
-title: Självstudie – anpassa instrument panelen för operatören i Azure IoT Central
-description: I den här självstudien visas hur du anpassar instrument panelen för operatören i ett IoT Central program och hanterar enheter.
+title: Självstudiekurs - Anpassa operatörsinstrumentpanelen i Azure IoT Central
+description: Den här självstudien visar hur du anpassar operatörsinstrumentpanelen i ett IoT Central-program och hanterar enheter.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -12,116 +12,116 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77022179"
 ---
-# <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Självstudie: anpassa instrument panelen för operatör och hantera enheter i Azure IoT Central
+# <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Självstudiekurs: Anpassa operatörsinstrumentpanelen och hantera enheter i Azure IoT Central
 
 
-I den här självstudien får du lära dig att anpassa instrument panelen för operatören i Azure IoT Central i Store Analytics-program. Program operatörer kan använda den anpassade instrument panelen för att köra programmet och hantera anslutna enheter.
+I den här självstudien får du lära dig hur du anpassar operatörsinstrumentpanelen i ditt Azure IoT Central-analysprogram i butik. Programoperatorer kan använda den anpassade instrumentpanelen för att köra programmet och hantera de anslutna enheterna.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
-> * Ändra instrument panelens namn
-> * Anpassa bild paneler på instrument panelen
-> * Arrangera paneler för att ändra layouten
-> * Lägg till telemetri paneler i visnings villkor
-> * Lägg till egenskaps paneler för att Visa enhets information
-> * Lägg till kommando paneler för att köra kommandon
+> * Ändra instrumentpanelens namn
+> * Anpassa bildpaneler på instrumentpanelen
+> * Ordna paneler för att ändra layouten
+> * Lägga till telemetripaneler för att visa förhållanden
+> * Lägga till egenskapspaneler för att visa enhetsinformation
+> * Lägga till kommandopaneler för att köra kommandon
 
 ## <a name="prerequisites"></a>Krav
 
-Verktyget bör slutföra självstudien för att skapa Azure IoT Central i Store Analytics-program och lägga till enheter:
+Byggaren bör slutföra självstudien för att skapa Azure IoT Central i butik analytics program och lägga till enheter:
 
-* [Skapa ett in-Store Analytics-program i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (krävs)
+* [Skapa ett analysprogram i butik i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (obligatoriskt)
 
-## <a name="change-the-dashboard-name"></a>Ändra instrument panelens namn
-Om du vill anpassa instrument panelen för operatören måste du redigera standard instrument panelen i ditt program. Du kan också skapa ytterligare nya instrument paneler. Det första steget för att anpassa instrument panelen i programmet är att ändra namnet.
+## <a name="change-the-dashboard-name"></a>Ändra instrumentpanelens namn
+Om du vill anpassa operatörsinstrumentpanelen måste du redigera standardinstrumentpanelen i programmet. Du kan också skapa ytterligare nya instrumentpaneler. Det första steget för att anpassa instrumentpanelen i ditt program är att ändra namnet.
 
-1. Gå till webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) .
+1. Navigera till [Azure IoT Central application manager](https://aka.ms/iotcentral) webbplats.
 
-1. Öppna programmet för villkors övervakning som du skapade i själv studie kursen [skapa ett program för analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) .
+1. Öppna det tillståndsövervakningsprogram som du skapade i [programmet Skapa ett analysprogram i Azure IoT Central.](./tutorial-in-store-analytics-create-app-pnp.md)
 
-1. Välj **Redigera** i instrument panelens verktygsfält. I redigerings läge kan du anpassa utseendet, layouten och innehållet på instrument panelen.
+1. Välj **Redigera** i instrumentpanelsverktygsfältet. I redigeringsläge kan du anpassa instrumentpanelens utseende, layout och innehåll.
 
-    ![Azure IoT Central redigera instrument panel](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-edit.png)
+    ![Azure IoT Central redigera instrumentpanel](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-edit.png)
 
-1. Alternativt kan du dölja det vänstra fönstret. Om du döljer det vänstra fönstret får du ett större arbets yta för att redigera instrument panelen.
+1. Du kan också dölja den vänstra rutan. Om du döljer den vänstra rutan får du ett större arbetsområde för redigering av instrumentpanelen.
 
-1. Ange ett eget namn för instrument panelen i **namn på instrument panelen.** I den här självstudien används ett fiktivt företag som heter Contoso, och exempel på instrument panelen är *contoso-instrumentpanel*. 
+1. Ange ett eget namn för instrumentpanelen i **Instrumentpanelsnamnet.** Den här självstudien använder ett fiktivt företag med namnet Contoso och exempelinstrumentpanelens namn är *Contoso-instrumentpanelen*. 
 
-1. Välj **Spara**. Ändringarna sparas i instrument panelen och redigerings läget är inaktiverat.
+1. Välj **Spara**. Ändringarna sparas på instrumentpanelen och redigeringsläget är inaktiverat.
 
-    ![Azure IoT Central ändra instrument panels namn](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
+    ![Azure IoT Central ändra instrumentpanelsnamn](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
-## <a name="customize-image-tiles-on-the-dashboard"></a>Anpassa bild paneler på instrument panelen
-En instrument panel för Azure IoT Central-program består av en eller flera paneler. En panel är en rektangulär behållare för visning av innehåll på en instrument panel. Du kopplar olika typer av innehåll med paneler och du kan dra, släppa och ändra storlek på paneler för att anpassa en layout för instrument panelen. Det finns flera typer av paneler för att visa innehåll. Bild paneler innehåller bilder och du kan lägga till en URL som gör det möjligt för användare att klicka på avbildningen. Etikett paneler visar oformaterad text. Markdown paneler innehåller formaterat innehåll och gör att du kan ange en bild, en URL, en rubrik och markdown kod som återges som HTML. Telemetri, egenskaper eller kommando paneler visar enhets information. 
+## <a name="customize-image-tiles-on-the-dashboard"></a>Anpassa bildpaneler på instrumentpanelen
+Instrumentpanelen för Ett Azure IoT Central-program består av en eller flera paneler. En panel är en rektangulär behållare för att visa innehåll på en instrumentpanel. Du associerar olika typer av innehåll med paneler och du drar, släpper och ändrar storlek på paneler för att anpassa en instrumentpanelslayout. Det finns flera typer av paneler för att visa innehåll. Bildpaneler innehåller bilder och du kan lägga till en URL som gör det möjligt för användare att klicka på bilden. Etikettpaneler visar oformaterad text. Markdown-paneler innehåller formaterat innehåll och låter dig ange en bild, en URL, en rubrik och markeringskod som återges som HTML. Telemetri-, egenskaps- eller kommandopaneler visar enhetsspecifika data. 
 
-I det här avsnittet får du lära dig hur du anpassar bild paneler på instrument panelen.
+I det här avsnittet får du lära dig hur du anpassar bildpaneler på instrumentpanelen.
 
-Anpassa bild panelen som visar en varumärkes bild på instrument panelen:
+Så här anpassar du bildpanelen som visar en varumärkesbild på instrumentpanelen:
 
-1. Välj **Redigera** i instrument panelens verktygsfält. 
+1. Välj **Redigera** i instrumentpanelsverktygsfältet. 
 
-1. Välj **Konfigurera** på bild panelen som visar Northwinds varumärkes avbildningen. 
+1. Välj **Konfigurera** på bildpanelen som visar varumärkesbilden Northwind. 
 
-    ![Azure IoT Central redigera varumärkes avbildning](./media/tutorial-in-store-analytics-customize-dashboard-pnp/brand-image-edit.png)
+    ![Azure IoT Central redigera varumärkesbild](./media/tutorial-in-store-analytics-customize-dashboard-pnp/brand-image-edit.png)
 
-1. Ändra **rubriken**. Rubriken visas när en användare hovrar över avbildningen.
+1. Ändra **rubriken**. Titeln visas när en användare hovrar över bilden.
 
-1. Välj **bild**. En dialog ruta öppnas där du kan ladda upp en anpassad avbildning. 
+1. Välj **Bild**. En dialogruta öppnas och du kan ladda upp en anpassad bild. 
 
-1. Du kan också ange en URL för avbildningen.
+1. Du kan också ange en URL för bilden.
 
-1. Välj **uppdaterings konfiguration**. Knappen **Uppdatera konfiguration** sparar ändringar i instrument panelen och låter redigerings läget vara aktiverat.
+1. Välj **Uppdatera konfiguration**. Knappen **Uppdatera konfiguration** sparar ändringar på instrumentpanelen och lämnar redigeringsläget aktiverat.
 
-    ![Azure IoT Central Spara varumärkes avbildning](./media/tutorial-in-store-analytics-customize-dashboard-pnp/brand-image-save.png)
+    ![Azure IoT Central spara varumärkesavbildning](./media/tutorial-in-store-analytics-customize-dashboard-pnp/brand-image-save.png)
 
-1. Du kan också välja **Konfigurera** i panelen med namnet **dokumentation**och ange en URL för support innehåll. 
+1. Du kan också välja **Konfigurera** på panelen **Dokumentation**och ange en URL för supportinnehåll. 
 
-För att anpassa bild panelen som visar en karta över sensor zonerna i butiken:
+Så här anpassar du bildpanelen som visar en karta över sensorzonerna i butiken:
 
-1. Välj **Konfigurera** på panelen avbildning som visar standard kartan för lagrings zon. 
+1. Välj **Konfigurera** på bildpanelen som visar standardkartan för butikszon. 
 
-1. Välj **bild**och Använd dialog rutan för att ladda upp en anpassad avbildning av en lagrings zon karta. 
+1. Välj **Bild**och använd dialogrutan för att ladda upp en anpassad bild av en karta över butikszoner. 
 
-1. Välj **uppdaterings konfiguration**.
+1. Välj **Uppdatera konfiguration**.
 
-    ![Azure IoT Central Spara butiks karta](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-map-save.png)
+    ![Azure IoT Central spara butikskarta](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-map-save.png)
 
-    I exemplet contoso Store-kartan visas fyra zoner: två arbets zoner, en zon för kläder och personlig vård samt en zon för livsmedels-och Le. I den här självstudien kopplar du sensorer till dessa zoner för att ge telemetri.
+    Exemplet Contoso butikskarta visar fyra zoner: två kassazoner, en zon för kläder och personlig vård, och en zon för livsmedel och deli. I den här självstudien associerar du sensorer med dessa zoner för att tillhandahålla telemetri.
 
-    ![Azure IoT Central lagrings zoner](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-zones.png)
+    ![Azure IoT Centrala butikszoner](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-zones.png)
 
 1. Välj **Spara**. 
 
-## <a name="arrange-tiles-to-modify-the-layout"></a>Arrangera paneler för att ändra layouten
-Ett viktigt steg i anpassningen av en instrument panel är att ordna om panelerna för att skapa en användbar vy. Program operatörer använder instrument panelen för att visualisera telemetri, hantera enheter och övervaka villkor i en butik. Azure IoT Central fören klar Application Builder-uppgiften att skapa en instrument panel. I redigerings läget för instrument panelen kan du snabbt lägga till, flytta, ändra storlek på och ta bort paneler. Program mal len **BA-utcheckning i butiken** fören klar också uppgiften att skapa en instrument panel. Den innehåller en fungerande instrument panels layout, med sensorer anslutna och paneler som visar antalet betalnings rader och miljö förhållanden.
+## <a name="arrange-tiles-to-modify-the-layout"></a>Ordna paneler för att ändra layouten
+Ett viktigt steg i anpassningen av en instrumentpanel är att ordna om panelerna för att skapa en användbar vy. Programoperatörer använder instrumentpanelen för att visualisera enhetstelemetri, hantera enheter och övervaka förhållanden i en butik. Azure IoT Central förenklar programverktygets uppgift att skapa en instrumentpanel. Med redigeringsläget för instrumentpanelen kan du snabbt lägga till, flytta, ändra storlek på och ta bort paneler. Programmallen **I butik – utcheckningsprogrammet** förenklar också uppgiften att skapa en instrumentpanel. Det ger en fungerande instrumentpanelslayout, med anslutna sensorer och paneler som visar kassalinjeantal och miljöförhållanden.
 
-I det här avsnittet ordnar du om instrument panelen i program mal len **BA-** betalningsprogram för att skapa en anpassad layout.
+I det här avsnittet ordnar du om instrumentpanelen i programmallen **För butiksanalys – utcheckningsprogram** för att skapa en anpassad layout.
 
-Ta bort paneler som du inte planerar att använda i ditt program:
+Så här tar du bort paneler som du inte tänker använda i programmet:
 
-1. Välj **Redigera** i instrument panelens verktygsfält. 
+1. Välj **Redigera** i instrumentpanelsverktygsfältet. 
 
-1. Välj **X ta** bort för att ta bort följande paneler: **tillbaka till alla zoner**, **gå till butiks instrument panel**, **vänte tid**och alla tre paneler som är kopplade till **utcheckning 3**. Contoso Store-instrumentpanelen använder inte dessa paneler. 
+1. Välj **X Ta bort** om du vill ta bort följande paneler: Tillbaka till alla **zoner,** **Besök butiksinstrumentpanelen,** **Väntetiden**och alla tre paneler som är associerade med **Kassan 3**. Instrumentpanelen contoso-arkivet använder inte dessa paneler. 
 
-    ![Ta bort paneler i Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-tiles.png)
+    ![Ta bort azure IoT Central-paneler](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-tiles.png)
 
-1. Rulla för att visa de återstående instrument panelerna i vyn.
+1. Bläddra för att visa de återstående instrumentpanelspanelerna.
 
-1. Välj **X ta** bort om du vill ta bort följande paneler: varm ställnings **zon**, **avkylnings zon**, **beläggnings sensor inställningar**, **termostat sensor inställningar**och **miljö förhållanden**. 
+1. Välj **X Ta bort** om du vill ta bort följande paneler: **Uppvärmningsutcheckningszon,** **Nedkylningsdiskutcheckningszon,** **Inställningar för beläggningssensor,** **Termostatsensorinställningar**och **Miljöförhållanden**. 
 
-   ![Ta bort återstående paneler i Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-tiles-2.png)
+   ![Azure IoT Central ta bort återstående paneler](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-tiles-2.png)
 
-1. Välj **Spara**. Att ta bort oanvända paneler frigör utrymme på sidan Redigera och fören klar vyn för instrument panelen för operatörer.
+1. Välj **Spara**. Om du tar bort oanvända paneler frigörs utrymme på redigeringssidan och instrumentpanelsvyn förenklas för operatorer.
 
-1. Visa dina ändringar på instrument panelen.
+1. Visa ändringarna på instrumentpanelen.
 
-   ![Azure-IoT Central efter borttagning av paneler](./media/tutorial-in-store-analytics-customize-dashboard-pnp/after-delete-tiles.png)
+   ![Azure IoT Central efter att ha tagit bort paneler](./media/tutorial-in-store-analytics-customize-dashboard-pnp/after-delete-tiles.png)
 
 När du har tagit bort oanvända paneler ordnar du om de återstående panelerna för att skapa en ordnad layout. Den nya layouten innehåller utrymme för paneler som du lägger till i ett senare steg.
 
@@ -129,134 +129,134 @@ Så här ordnar du om de återstående panelerna:
 
 1. Välj **Redigera**.
 
-1. Välj den **inbyggda inbyggda program varans** panel och dra den till höger om batteri panelen i **besittning** .
+1. Välj panelen **För inflyttningsanslagsanslag** och dra den till höger om batteripanelen **för beläggning.**
 
-1. Välj den **inbyggda program varans termostat** -panel och dra den till höger om batteri panelen för **termostat** .
+1. Välj **thermostat firmware** kakel och dra den till höger om **Termostat** batteri kakel.
 
 1. Välj **Spara**.
 
-1. Visa layoutändringar. 
+1. Visa dina layoutändringar. 
 
-    ![Batteri paneler för Azure IoT Central inbyggd program vara](./media/tutorial-in-store-analytics-customize-dashboard-pnp/firmware-battery-tiles.png)
+    ![Azure IoT Central firmware batteripaneler](./media/tutorial-in-store-analytics-customize-dashboard-pnp/firmware-battery-tiles.png)
 
-## <a name="add-telemetry-tiles-to-display-conditions"></a>Lägg till telemetri paneler i visnings villkor
-När du har anpassat instrument panelens layout är du redo att lägga till paneler för att Visa telemetri. Om du vill skapa en telemetri-panel väljer du en enhets mall och enhets instans och väljer sedan enhetsspecifika telemetri som ska visas i panelen. Program mal len **BA-utcheckning i butiken** innehåller flera telemetri paneler på instrument panelen. De fyra panelerna i de två arbets zonerna visar telemetri från den simulerade beläggnings sensorn. Panelen **person trafik** visar antalet i de två arbets zonerna. 
+## <a name="add-telemetry-tiles-to-display-conditions"></a>Lägga till telemetripaneler för att visa förhållanden
+När du har anpassat instrumentpanelslayouten är du redo att lägga till paneler för att visa telemetri. Om du vill skapa en telemetripanel markerar du en enhetsmall och enhetsinstans och väljer sedan enhetsspecifik telemetri som ska visas i panelen. Mallen **För analys i butik – utcheckningsprogram** innehåller flera telemetripaneler på instrumentpanelen. De fyra brickorna i de två utcheckningszonerna visar telemetri från den simulerade beläggningssensorn. Trafikpanelen **Kontakter** visar antalet i de två utcheckningszonerna. 
 
-I det här avsnittet lägger du till två fler telemetri paneler för att Visa miljötelemetri från RuuviTag-sensorer som du har lagt till i självstudien [skapa ett in-Store-analys i Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) . 
+I det här avsnittet lägger du till ytterligare två telemetripaneler för att visa miljötelemetri från RuuviTag-sensorerna som du lade till i [analytics-programmet Skapa i butik i Azure IoT](./tutorial-in-store-analytics-create-app-pnp.md) Central-självstudien. 
 
-För att lägga till paneler för att Visa miljö data från RuuviTag-sensorer:
+Så här lägger du till paneler för att visa miljödata från RuuviTag-sensorerna:
 
 1. Välj **Redigera**.
 
-1. Välj `RuuviTag` i listan **enhets mal len** . 
+1. Markera `RuuviTag` i listan **Enhetsmall.** 
 
-1. Välj en **enhets instans** av någon av de två RuuviTag-sensorerna. I exempel contoso Store väljer du `Zone 1 Ruuvi` för att skapa en telemetri panel för Zon 1. 
+1. Välj en **enhetsinstans** av en av de två RuuviTag-sensorerna. I exemplet Contoso-arkivet väljer du `Zone 1 Ruuvi` att skapa en telemetripanel för zon 1. 
 
-1. Välj `Relative humidity` och `temperature` i listan **telemetri** . Detta är de telemetri-objekt som visas för varje zon på panelen.
+1. Markera `Relative humidity` `temperature` och i listan **Telemetri.** Det här är de telemetriobjekt som visas för varje zon på panelen.
 
-1. Välj **kombinera**. 
+1. Välj **Kombinera**. 
 
-    ![Azure IoT Central lägga till RuuviTag panel 1](./media/tutorial-in-store-analytics-customize-dashboard-pnp/add-zone1-ruuvi.png)
+    ![Azure IoT Central lägga RuuviTag kakel 1](./media/tutorial-in-store-analytics-customize-dashboard-pnp/add-zone1-ruuvi.png)
 
-    En ny panel visas för att Visa kombinerad fuktighet och temperatur telemetri för den valda sensorn. 
+    En ny bricka visas för att visa kombinerad luftfuktighet och temperaturtelemetri för den valda sensorn. 
 
 1. Välj **Konfigurera** på den nya panelen för RuuviTag-sensorn. 
 
-1. Ändra **rubriken** till *zon 1 miljö*. 
+1. Ändra **miljön Rubrik** till *zon 1*. 
 
-1. Välj **uppdaterings konfiguration**.
+1. Välj **Uppdatera konfiguration**.
 
-1. Upprepa föregående steg för att skapa en panel för den andra sensor instansen. Ange **titeln** zon 2- *miljö* och välj sedan **Uppdatera konfiguration.**
+1. Upprepa föregående steg för att skapa en panel för den andra sensorinstansen. Ange miljön **Rubrik** till *zon 2* och välj sedan **Uppdatera konfiguration.**
 
-1. Dra panelen **zon 2 miljön** under den **inbyggda termostat** -panelen. 
+1. Dra panelen med titeln **Zon 2-miljö** under **termostatblinkomsan.** 
 
-1. Dra panelen med rubriken **zon 1 miljön** under **personens trafik** panel. 
+1. Dra panelen **Zon 1-miljön** under **trafikpanelen Kontakter.** 
 
-1. Välj **Spara**. På instrument panelen visas Zone-telemetri i de två nya panelerna.
+1. Välj **Spara**. Instrumentpanelen visar zontelemetri i de två nya panelerna.
 
     ![Azure IoT Central alla RuuviTag-paneler](./media/tutorial-in-store-analytics-customize-dashboard-pnp/all-ruuvitag-tiles.png)
 
-Så här redigerar du panelen **personers trafik** för att Visa telemetri för bara två arbets zoner:
+Så här redigerar du **panelen Kontakter trafik** för att visa telemetri för endast två utcheckningszoner:
 
 1. Välj **Redigera**. 
 
-1. Välj **Konfigurera** på **personens trafik** panel.
+1. Välj **Konfigurera** på **persontrafikpanelen.**
 
-1. I **telemetri** väljer du **antal 1**, **antal 2**och **antal 3**. 
+1. I **Telemetri** väljer **du antal 1**, antal **2**och **antal 3**. 
 
-1. Välj **uppdaterings konfiguration**. Den befintliga konfigurationen på panelen rensas. 
+1. Välj **Uppdatera konfiguration**. Den rensar den befintliga konfigurationen på panelen. 
 
-1. Välj **Konfigurera** igen på **personens trafik** panel.
+1. Välj **Konfigurera** igen på **persontrafikpanelen.**
 
-1. I **telemetri** väljer du **antal 1**och **antal 2**. 
+1. I **Telemetri** väljer du **antal 1**och **antal 2**. 
 
-1. Välj **uppdaterings konfiguration**. 
+1. Välj **Uppdatera konfiguration**. 
 
-1. Välj **Spara**.  Den uppdaterade instrument panelen visar antal för dina två arbets zoner, som baseras på den simulerade beläggnings sensorn.
+1. Välj **Spara**.  Den uppdaterade instrumentpanelen visar räknas för endast dina två kassazoner, som baseras på den simulerade beläggningssensorn.
 
-    ![Azure IoT Central människor trafik två band](./media/tutorial-in-store-analytics-customize-dashboard-pnp/people-traffic-two-lanes.png)
+    ![Azure IoT Central personer trafik två körfält](./media/tutorial-in-store-analytics-customize-dashboard-pnp/people-traffic-two-lanes.png)
 
-## <a name="add-property-tiles-to-display-device-details"></a>Lägg till egenskaps paneler för att Visa enhets information
-Program operatörer använder instrument panelen för att hantera enheter och övervaka status. Lägg till en panel för varje RuuviTag för att tillåta operatörer att visa program varu versionen. 
+## <a name="add-property-tiles-to-display-device-details"></a>Lägga till egenskapspaneler för att visa enhetsinformation
+Programoperatorer använder instrumentpanelen för att hantera enheter och övervaka status. Lägg till en panel för varje RuuviTag så att operatörerna kan visa programvaruversionen. 
 
-Så här lägger du till en egenskaps panel för varje RuuviTag:
+Så här lägger du till en egenskapspanel för varje RuuviTag:
 
 1. Välj **Redigera**.
 
-1. Välj `RuuviTag` i listan **enhets mal len** . 
+1. Markera `RuuviTag` i listan **Enhetsmall.** 
 
-1. Välj en **enhets instans** av någon av de två RuuviTag-sensorerna. I exempel contoso Store väljer du `Zone 1 Ruuvi` för att skapa en telemetri panel för Zon 1. 
+1. Välj en **enhetsinstans** av en av de två RuuviTag-sensorerna. I exemplet Contoso-arkivet väljer du `Zone 1 Ruuvi` att skapa en telemetripanel för zon 1. 
 
-1. Välj **egenskaper > program varu version**.
+1. Välj **Egenskaper > Programvaruversion**.
 
-1. Välj **kombinera**. 
+1. Välj **Kombinera**. 
 
-1. Välj **Konfigurera** på den nyligen skapade panelen med titeln **program version**. 
+1. Välj **Konfigurera** på den nyskapade panelen Med namnet **Software version**. 
 
-1. Ändra **titeln** till *Ruuvi 1-program varu version*.
+1. Ändra **titeln** till *Ruuvi 1 mjukvaruversion*.
 
-1. Välj **uppdaterings konfiguration**. 
+1. Välj **Uppdatera konfiguration**. 
 
-1. Dra panel med rubriken **Ruuv 1-programvara** under panelen **zon 1s miljö** .
+1. Dra kakel med titeln **Ruuv 1 mjukvaruversion** under **Zon 1 miljö** kakel.
 
-1. Upprepa föregående steg för att skapa en egenskaps panel för program varu version för den andra RuuviTag. 
+1. Upprepa föregående steg för att skapa en programvaruversionsegenskapspanel för den andra RuuviTag. 
 
 1. Välj **Spara**.  
 
-    ![Egenskaps paneler för Azure IoT Central RuuviTag](./media/tutorial-in-store-analytics-customize-dashboard-pnp/add-ruuvi-property-tiles.png)
+    ![Azure IoT Central RuuviTag egenskapspaneler](./media/tutorial-in-store-analytics-customize-dashboard-pnp/add-ruuvi-property-tiles.png)
 
-## <a name="add-command-tiles-to-run-commands"></a>Lägg till kommando paneler för att köra kommandon
-Program operatörer använder även instrument panelen för att hantera enheter genom att köra kommandon. Du kan lägga till kommando paneler på instrument panelen som ska köra fördefinierade kommandon på en enhet. I det här avsnittet lägger du till en kommando panel för att aktivera operatörer för att starta om Rigado-gatewayen. 
+## <a name="add-command-tiles-to-run-commands"></a>Lägga till kommandopaneler för att köra kommandon
+Programoperatorer använder också instrumentpanelen för att hantera enheter genom att köra kommandon. Du kan lägga till kommandopaneler på instrumentpanelen som kör fördefinierade kommandon på en enhet. I det här avsnittet lägger du till en kommandopanel för att göra det möjligt för operatörer att starta om Rigado-gatewayen. 
 
-Så här lägger du till en kommando panel för att starta om gatewayen:
+Så här lägger du till en kommandopanel för att starta om gatewayen:
 
 1. Välj **Redigera**. 
 
-1. Välj `C500` i listan **enhets mal len** . Det är mallen för Rigado C500-gatewayen. 
+1. Markera `C500` i listan **Enhetsmall.** Det är mallen för Rigado C500 gateway. 
 
-1. Välj Gateway-instansen i **enhets instansen**.
+1. Välj gateway-instans i **Enhetsinstans**.
 
-1. Välj **kommandot > starta om** och dra det till instrument panelen bredvid butiks kartan. 
+1. Välj **Kommando > Starta om** och dra det till instrumentpanelen bredvid butikskartan. 
 
 1. Välj **Spara**. 
 
-1. Visa den slutförda contoso-instrumentpanelen. 
+1. Visa den färdiga Contoso-instrumentpanelen. 
 
-    ![Slutför anpassning av instrument panelen i Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/completed-dashboard.png)
+    ![Azure IoT Central fullständig anpassning av instrumentpanelen](./media/tutorial-in-store-analytics-customize-dashboard-pnp/completed-dashboard.png)
 
-1. Du kan också välja panelen **Starta** om för att köra kommandot starta om på din gateway.
+1. Du kan också välja panelen **Starta om** för att köra omstartskommandot på gatewayen.
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudiekursen lärde du dig att:
 
-* Ändra instrument panelens namn
-* Anpassa bild paneler på instrument panelen
-* Arrangera paneler för att ändra layouten
-* Lägg till telemetri paneler i visnings villkor
-* Lägg till egenskaps paneler för att Visa enhets information
-* Lägg till kommando paneler för att köra kommandon
+* Ändra instrumentpanelens namn
+* Anpassa bildpaneler på instrumentpanelen
+* Ordna paneler för att ändra layouten
+* Lägga till telemetripaneler för att visa förhållanden
+* Lägga till egenskapspaneler för att visa enhetsinformation
+* Lägga till kommandopaneler för att köra kommandon
 
-Nu när du har anpassat instrument panelen i Azure IoT Central in-Store Analytics-program, här är det föreslagna nästa steg:
+Nu när du har anpassat instrumentpanelen i ditt Azure IoT Central-analysprogram i butik är detta det föreslagna nästa steget:
 
 > [!div class="nextstepaction"]
 > [Exportera data och visualisera insikter](./tutorial-in-store-analytics-export-data-visualize-insights-pnp.md)

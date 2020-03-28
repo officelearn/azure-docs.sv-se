@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell exempel – installera appar
+title: Azure PowerShell-exempel – installera appar
 description: Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016 och använder det anpassade skripttillägget för att installera ett grundläggande webbprogram.
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: a885306928fc42be5773c0d1d558d2810e355c54
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76276510"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Installera program till en VM-skalningsuppsättning med PowerShell

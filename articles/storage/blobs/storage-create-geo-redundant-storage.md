@@ -1,7 +1,7 @@
 ---
-title: Självstudie – Bygg ett program med hög tillgänglighet med Blob Storage
+title: Självstudiekurs - Skapa ett program med högtillgänge med Blob-lagring
 titleSuffix: Azure Storage
-description: Använd Geo-redundant lagring med Läs behörighet för att göra dina program data hög tillgängliga.
+description: Använd geo redundant lagring med läsåtkomst för att göra programdata mycket tillgängliga.
 services: storage
 author: tamram
 ms.service: storage
@@ -12,47 +12,47 @@ ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: 0eabd918b5f8f52049792ceb28ef8055945d6475
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77162182"
 ---
-# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudiekurs: Skapa ett program med högtillgänge med Blob-lagring
 
-Den här självstudien är del ett i en serie. I den lär du dig att ge programdata hög tillgänglighet i Azure.
+Den här självstudien ingår i en serie. I den lär du dig att ge programdata hög tillgänglighet i Azure.
 
 När du har slutfört den här självstudien har du ett konsolprogram som laddar upp och hämtar en blob från ett [Read-Access Geo Redundant](../common/storage-redundancy.md)-lagringskonto (RA-GRS).
 
 Med RA-GRS replikeras transaktioner från en primär region till en sekundär region. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. Programmet använder mönstret [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) (Kretsbrytare) för att avgöra vilken slutpunkt som ska anslutas till. Det växlar automatiskt mellan slutpunkter när fel och återställningar simuleras.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-I en del av serien får du lära dig hur du:
+I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
-> * skapar ett lagringskonto
+> * Skapa ett lagringskonto
 > * Ange anslutningssträngen
 > * Kör konsolprogrammet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
-* Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med arbets belastningen **Azure Development** .
+* Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **Azure-utvecklingsarbetsbelastningen.**
 
   ![Azure-utveckling (under Web & Cloud (Webb och moln))](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 * Installera [Python](https://www.python.org/downloads/)
 * Ladda ned och installera [Azure Storage SDK för Python](https://github.com/Azure/azure-storage-python)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-* Installera [Node. js](https://nodejs.org).
+* Installera [Node.js](https://nodejs.org).
 
 ---
 
@@ -60,7 +60,7 @@ För att slutföra den här självstudien behöver du:
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Ett lagringskonto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure-lagringdataobjekt.
 
@@ -79,14 +79,14 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
    | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
    | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
    |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-   |**Plats** | USA, östra | Välj en plats. |
+   |**Resursgrupp** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+   |**Location** | USA, östra | Välj en plats. |
 
 ![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 [Ladda ned exempelprojektet](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) och extrahera (packa upp) filen storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett konsolprogram.
 
@@ -94,7 +94,7 @@ Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 [Ladda ned exempelprojektet](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) och extrahera (packa upp) filen storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Python-program.
 
@@ -102,9 +102,9 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-[Hämta exempelprojektet](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) och packa upp filen. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett Basic Node. js-program.
+[Ladda ner exempelprojektet](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) och packa upp filen. Du kan också använda [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. Exempelprojektet innehåller ett grundläggande Node.js-program.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
@@ -114,11 +114,11 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Du kan lagra den här anslutningssträngen inom en miljövariabel på den lokala dator där programmet körs. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Kör något av följande kommandon baserade på operativ systemet, och ersätt \<yourconnectionstring\> med den faktiska anslutnings strängen. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Kör ett av följande kommandon baserat på \<operativsystemet och\> ersätt din anslutningstring med din faktiska anslutningssträng. Kommandot sparar en miljövariabel till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
 
 ### <a name="linux"></a>Linux
 
@@ -132,11 +132,11 @@ export storageconnectionstring=<yourconnectionstring>
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-I programmet måste du ange autentiseringsuppgifterna för ditt lagrings konto. Du kan lagra informationen i miljövariabler på den lokala datorn som kör programmet. Följ något av exemplen nedan, beroende på vilket operativ system som används för att skapa miljövariablerna.
+I programmet måste du ange dina lagringskontouppgifter. Du kan lagra den här informationen i miljövariabler på den lokala datorn som kör programmet. Följ ett av exemplen nedan beroende på vilket operativsystem du vill skapa miljövariabler.
 
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Klistra in **lagrings kontots namn** och **nyckel** värden i följande kommandon och ersätt \<youraccountname\> och \<youraccountkey\> plats hållare. Det här kommandot sparar miljövariablerna på den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Klistra in **lagringskontonamnet** och **nyckelvärdena** i \<följande kommandon\> \<och ersätter\> platshållarna för ditt konto och dina kontonycklar. Det här kommandot sparar miljövariablerna till den lokala datorn. I Windows är miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** eller gränssnittet på nytt.
 
 ### <a name="linux"></a>Linux
 
@@ -152,36 +152,36 @@ setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Om du vill köra det här exemplet måste du lägga till dina autentiseringsuppgifter för lagrings kontot i `.env.example`-filen och sedan byta namn på den till `.env`.
+Om du vill köra det här exemplet `.env.example` måste du lägga till `.env`autentiseringsuppgifterna för lagringskontot i filen och sedan byta namn på det till .
 
 ```
 AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
 AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 ```
 
-Du kan hitta den här informationen i Azure Portal genom att gå till ditt lagrings konto och välja **åtkomst nycklar** i avsnittet **Inställningar** .
+Du hittar den här informationen i Azure-portalen genom att navigera till ditt lagringskonto och välja **Åtkomstnycklar** i avsnittet **Inställningar.**
 
-Installera de nödvändiga beroendena. Det gör du genom att öppna en kommando tolk, navigera till mappen exempel och sedan ange `npm install`.
+Installera de nödvändiga beroendena. Det gör du genom att öppna en kommandotolk, navigera till exempelmappen och sedan gå in `npm install`i .
 
 ---
 
 ## <a name="run-the-console-application"></a>Kör konsolprogrammet
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 I Visual Studio trycker du på **F5** eller väljer **Start** för att starta felsökning av programmet. Visual Studio återställer automatiskt NuGet-paket som saknas (om konfigurerat). Gå till avsnittet om hur du [installerar och ominstallerar paket med paketåterställning](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) om du vill veta mer.
 
-Ett konsolfönster öppnas och programmet körs. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av en **P** eller en **s**. Där **P** representerar den primära slut punkten och **S** representerar den sekundära slut punkten.
+Ett konsolfönster öppnas och programmet körs. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av ett **P** eller ett **S**. Där **P** representerar den primära effektpunkten och **S** representerar den sekundära slutpunkten.
 
 ![Konsolprogrammet körs](media/storage-create-geo-redundant-storage/figure3.png)
 
-I exempelkoden används aktiviteten `RunCircuitBreakerAsync` i filen `Program.cs` för att ladda ned en bild från lagringskontot med hjälp av metoden [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Före nedladdningen definieras en [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext). Åtgärdskontexten definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
+I exempelkoden används aktiviteten `RunCircuitBreakerAsync` i filen `Program.cs` för att ladda ned en bild från lagringskontot med hjälp av metoden [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Före hämtningen definieras en [OperationContext.](/dotnet/api/microsoft.azure.cosmos.table.operationcontext) Åtgärdskontexten definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Om du vill köra programmet i en terminal eller kommandotolk går du till katalogen **circuitbreaker.py** och skriver `python circuitbreaker.py`. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av en **P** eller en **s**. Där **P** representerar den primära slut punkten och **S** representerar den sekundära slut punkten.
+Om du vill köra programmet i en terminal eller kommandotolk går du till katalogen **circuitbreaker.py** och skriver `python circuitbreaker.py`. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av ett **P** eller ett **S**. Där **P** representerar den primära effektpunkten och **S** representerar den sekundära slutpunkten.
 
 ![Konsolprogrammet körs](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -189,13 +189,13 @@ I exempelkoden används metoden `run_circuit_breaker` i filen `circuitbreaker.py
 
 Återförsöksfunktionen för lagringsobjektet har angetts till en linjär återförsöksprincip. Återförsöksfunktionen bestämmer om det ska göras ett nytt försök med begäran och anger antalet sekunder som ska förflyta innan det görs ett nytt försök. Ange true för värdet **retry\_to\_secondary** om det ska göras ett nytt försök till den sekundära slutpunkten om den första begäran till den primära slutpunkten misslyckas. I exempelprogrammet definieras en anpassad återförsöksprincip i funktionen `retry_callback` för lagringsobjektet.
 
-Innan nedladdningen definieras tjänst objekt [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) -funktionen. Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
+Före hämtningen definieras funktionen Service-objekt [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) och [response_callback.](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) Funktionerna definierar de händelsehanterare som utlöses när en nedladdning slutförs eller om en nedladdning misslyckas och ett nytt försök görs.
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Kör exemplet genom att öppna en kommando tolk, navigera till mappen exempel och sedan ange `node index.js`.
+Om du vill köra exemplet öppnar du en kommandotolk, navigerar till exempelmappen och anger `node index.js`sedan .
 
-Exemplet skapar en behållare i ditt Blob Storage-konto, överför **HelloWorld. png** till behållaren och kontrollerar sedan upprepade gånger om behållaren och avbildningen har repliker ATS till den sekundära regionen. Efter replikeringen tillfrågas du om du vill ange **D** eller **Q** (följt av retur) för att ladda ned eller avsluta. Dina utdata bör se ut ungefär som i följande exempel:
+Exemplet skapar en behållare i ditt Blob-lagringskonto, överför **HelloWorld.png** till behållaren och kontrollerar sedan upprepade gånger om behållaren och avbildningen har replikerats till den sekundära regionen. Efter replikering uppmanas du att ange **D** eller **Q** (följt av RETUR) för att hämta eller avsluta. Utdata ska se ut ungefär som i följande exempel:
 
 ```
 Created container successfully: newcontainer1550799840726
@@ -222,7 +222,7 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
-### <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
 
@@ -273,7 +273,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-### <a name="pythontabpython"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>Händelsehanterare för nytt försök
 
@@ -316,9 +316,9 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-### <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Med Node. js v10 SDK är återanrops hanterare onödig. I stället skapar exemplet en pipeline som kon figurer ATS med alternativ för återförsök och en sekundär slut punkt. Detta gör att programmet automatiskt växlar till den sekundära pipelinen om det inte går att komma åt dina data via den primära pipelinen.
+Med Node.js V10 SDK är motringningshanterare onödiga. I stället skapar exemplet en pipeline som konfigurerats med återförsöksalternativ och en sekundär slutpunkt. Detta gör det möjligt för programmet att automatiskt växla till den sekundära pipelinen om den inte når dina data via den primära pipelinen.
 
 ```javascript
 const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
@@ -348,4 +348,4 @@ I den första delen i serien lärde du dig hur du skapar ett program med hög ti
 Gå vidare till den andra delen i serien och lär dig hur du simulerar ett fel och tvingar programmet att använda den sekundära RA-GRS-slutpunkten.
 
 > [!div class="nextstepaction"]
-> [Simulera ett problem med att läsa från den primära regionen](storage-simulate-failure-ragrs-account-app.md)
+> [Simulera ett fel i läsningen från den primära regionen](storage-simulate-failure-ragrs-account-app.md)

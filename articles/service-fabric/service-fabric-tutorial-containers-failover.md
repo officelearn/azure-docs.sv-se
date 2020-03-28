@@ -1,5 +1,5 @@
 ---
-title: Redundansväxla och skala en behållare app
+title: Redundans och skala en behållarapp
 description: I den här självstudien får du lära dig hur redundansväxling hanteras i ett Azure Service Fabric-containerprogram.  Lär dig också att skala containrarna och tjänsterna som körs i ett kluster.
 author: suhuruli
 ms.topic: tutorial
@@ -7,15 +7,15 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614102"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Självstudie: Visa redundansväxling och skalning av containertjänster med Service Fabric
 
-Den här självstudiekursen är den tredje delen i en serie. I den här självstudien får du lära dig hur redundansväxling hanteras i Service Fabric-containerprogram. Du får också lära dig att skala containrar. I den här kursen har du:
+Den här självstudiekursen är den tredje delen i en serie. I den här självstudien får du lära dig hur redundansväxling hanteras i Service Fabric-containerprogram. Du får också lära dig att skala containrar. I den här kursen får du:
 
 > [!div class="checklist"]
 > * Läs om att redundansväxla en container i ett Service Fabric-kluster

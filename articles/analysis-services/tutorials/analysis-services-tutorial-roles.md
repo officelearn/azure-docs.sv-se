@@ -1,6 +1,6 @@
 ---
-title: Självstudie – konfigurera Azure Analysis Services roller | Microsoft Docs
-description: Lär dig hur du konfigurerar Azure Analysis Services administratör och användar roller med hjälp av Azure Portal eller SQL Server Management Studio.
+title: Självstudiekurs - Konfigurera Azure Analysis Services-roller | Microsoft-dokument
+description: Lär dig hur du konfigurerar Azure Analysis Services administratör och användarroller med hjälp av Azure-portalen eller SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273685"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
@@ -27,7 +27,7 @@ ms.locfileid: "78273685"
 
 Mer information om användarsäkerhet i Azure Analysis Services finns i [Autentisering och användarbehörigheter](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure Active Directory i din prenumeration.
 - Du måste ha skapat en [Azure Analysis Services-server](../analysis-services-create-server.md) i din prenumeration.
@@ -70,7 +70,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 I den här uppgiften lägger du till ett användarkonto eller gruppkonto från Azure AD till serveradministratörsrollen. Om du vill lägga till en säkerhetsgrupp måste den ha egenskapen `MailEnabled` inställd på `True`.
 
 1. Högerklicka på servernamnet i **Object Explorer** och klicka sedan på **Properties** (Egenskaper). 
-2. I fönstret **Analysis Server Properties** (Egenskaper för Analysis Server) klickar du på **Security (Säkerhet)**  > **Add (Lägg till)** .
+2. I fönstret **Analysis Server Properties** (Egenskaper för Analysis Server) klickar du på **Security (Säkerhet)** > **Add (Lägg till)**.
 3. I fönstret **Select a User or Group** (Välj en användare eller grupp) anger du ett användarkonto eller ett gruppkonto i Azure AD och klickar på **Add** (Lägg till). 
    
      ![Lägga till serveradministratör](./media/analysis-services-tutorial-roles/aas-add-server-admin.png)
@@ -84,8 +84,8 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto från A
 
 I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rollen ”Internet Sales Administrator” (Administratör för Internetförsäljning) som redan finns i modellen. Den här rollen har fullständig behörighet (administratör) för exempelmodelldatabasen adventureworks. I uppgiften används TMSL-kommandot [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) i ett skript som skapats åt dig.
 
-1. Expandera **Databases (Databaser)** adventureworks > Roles (Roller) >  i **Object Explorer**. 
-2. Högerklicka på **Internet Sales Administrator** (Administratör för Internetförsäljning) och klicka sedan på **Script Role as (Skriptroll som)**  > **CREATE OR REPLACE To (SKAPA ELLER ERSÄTT till)**  > **New Query Editor Window (Nytt frågeredigerarfönster)** .
+1. Expandera **Databases (Databaser)** > **adventureworks** > **Roles (Roller)** i **Object Explorer**. 
+2. Högerklicka på **Internet Sales Administrator** (Administratör för Internetförsäljning) och klicka sedan på **Script Role as (Skriptroll som)** > **CREATE OR REPLACE To (SKAPA ELLER ERSÄTT till)** > **New Query Editor Window (Nytt frågeredigerarfönster)**.
 
     ![Nytt frågeredigerarfönster](./media/analysis-services-tutorial-roles/aas-add-db-admin.png)
 
@@ -100,7 +100,7 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rolle
 
 I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) i ett TMSL-skript för att skapa en ny Internet Sales Global-roll (Global Internetförsäljning), anger *läsbehörighet* för rollen och lägger till ett användarkonto eller gruppkonto från Azure AD.
 
-1. I **Object Explorer** högerklickar du på **adventureworks** och klickar sedan på **New Query (Ny fråga)**  > **XMLA**. 
+1. I **Object Explorer** högerklickar du på **adventureworks** och klickar sedan på **New Query (Ny fråga)** > **XMLA**. 
 2. Kopiera och klistra in följande TMSL-skript i frågeredigeraren:
 
     ```JSON
@@ -130,13 +130,13 @@ I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/
 ## <a name="verify-your-changes"></a>Kontrollera dina ändringar
 
 1. I **Object Explorer** klickar du på servernamnet och sedan på **Refresh** (Uppdatera) eller trycker på **F5**.
-2. Expandera **Databases (Databaser)**  > **adventureworks** > **Roles (Roller)** . Kontrollera att de ändringar som du lade till i föregående uppgift för användarkonto och den nya rollen visas.   
+2. Expandera databaser > **äventyrsbruk** > **Roller**. **Databases** Kontrollera att de ändringar som du lade till i föregående uppgift för användarkonto och den nya rollen visas.   
 
     ![Kontrollera i Object Explorer](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem. Det gör du  genom att välja **Role Properties (Rollegenskaper)**  > **Membership (Medlemskap)** och ta bort användarkonton, eller genom att högerklicka på en roll och sedan klicka på **Delete (Ta bort)** .
+Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem. Det gör du genom att använda **Rollegenskaper** > **medlemskap** för att ta bort användarkonton, eller högerklicka på en roll och klicka sedan på **Ta bort**.
 
 
 ## <a name="next-steps"></a>Nästa steg

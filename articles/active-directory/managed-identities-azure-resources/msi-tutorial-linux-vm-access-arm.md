@@ -17,19 +17,19 @@ ms.author: markvi
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57b68ebb21c0c10c3fbe3fd77d11785d16a10053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "60443474"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad hanterad identitet på en virtuell Linux-dator för åtkomst till Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Självstudier: Använda en användartilldelad hanterad identitet på en virtuell Linux-dator för att få åtkomst till Azure Resource Manager
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Den här självstudien beskriver hur du skapar en användartilldelad hanterad identitet, hur du tilldelar den till en virtuell Linux-dator (VM) och hur du sedan använder identiteten för att få åtkomst till Azure Resource Manager-API:et. Hanterade identiteter för Azure-resurser hanteras automatiskt av Azure. Det gör det möjligt att autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver bädda in autentiseringsuppgifter i din kod. 
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en användartilldelad hanterad identitet
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 > * Ge den användartilldelade hanterade identiteten åtkomst till en resursgrupp i Azure Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den användartilldelade hanterade identiteten och använd den för att anropa Azure Resource Manager 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -124,19 +124,19 @@ Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi 
 
 För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Gå till **Virtuella datorer** på portalen, gå till den virtuella Linux-datorn och klicka sedan på **Anslut** under **Översikt**. Kopiera strängen för anslutning till din virtuella dator.
-3. Anslut till den virtuella datorn med valfri SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp med att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
+3. Anslut till den virtuella datorn med valfri SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 4. Gör ett anrop i terminalfönstret med hjälp av CURL till IMDS-identitetsslutpunkten (Azure Instance Metadata Service) för att hämta en åtkomsttoken för Azure Resource Manager.  
 
-   CURL-begäran om att hämta en åtkomsttoken visas i följande exempel. Ersätt `<CLIENT ID>` med `clientId`-egenskapen som returnerades av kommandot `az identity create` i [Skapa en användartilldelad hanterad identitet](#create-a-user-assigned-managed-identity): 
+   CURL-begäran om att hämta en åtkomsttoken visas i följande exempel.Ersätt `<CLIENT ID>` med `clientId`-egenskapen som returnerades av kommandot `az identity create` i [Skapa en användartilldelad hanterad identitet](#create-a-user-assigned-managed-identity): 
     
    ```bash
    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > Värdet för parametern `resource` måste vara en exakt matchning av vad som förväntas av Azure AD. När du använder Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n. 
+    > Värdet för parametern `resource` måste vara en exakt matchning av vad som förväntas av Azure AD.När du använder Resource Manager-resurs-ID:t måste du ta med det avslutande snedstrecket i URI:n. 
     
     Svaret innehåller den åtkomsttoken som du behöver för att komma åt Azure Resource Manager. 
     

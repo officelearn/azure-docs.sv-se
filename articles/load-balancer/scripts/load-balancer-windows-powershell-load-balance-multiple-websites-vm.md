@@ -1,5 +1,5 @@
 ---
-title: Belastningsutjämna flera webbplatser – Azure PowerShell – Azure Load Balancer
+title: Belastningsutjämning flera webbplatser - Azure PowerShell - Azure Load Balancer
 description: Det här exemplet på Azure PowerShell-skript visar hur du belastningsutjämnar flera webbplatser på samma virtuella dator
 documentationcenter: load-balancer
 author: asudbring
@@ -10,17 +10,17 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: b7beb5186bd039d7098883915663e8a3286fb99d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274602"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Azure PowerShell-skriptexempel: Belastningsutjämning av flera webbplatser
 
 Det här exemplet på Azure PowerShell-skript skapar ett virtuellt nätverk med två virtuella datorer som är medlemmar i en tillgänglighetsuppsättning. En lastbalanserare dirigerar trafik för två olika IP-adresser till de två virtuella datorerna. När du har kört skriptet kan du distribuera webbserverprogramvara för virtuella datorer och vara värd för flera webbplatser, var och en med egen IP-adress.
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

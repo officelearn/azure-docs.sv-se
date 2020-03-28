@@ -15,10 +15,10 @@ ms.date: 10/09/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: 34526c53757690353ff3756b12ad9f8a5250bb0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75442327"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>Azure PowerShell-exempel för API Management
@@ -38,5 +38,5 @@ Följande tabell innehåller exempelskript för att arbeta med API Management-tj
 |**Skydda**||
 |[Säkra serverdel](./scripts/powershell-secure-backend-with-mutual-certificate-authentication.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Säkrar serverdelen med ömsesidig certifikatautentisering.|
 |**Skydda**||
-|[Konfigurera princip för hastighetsbegränsning](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Tillämpar en hastighetsbegränsning till principen på produktnivå. |
+|[Konfigurera en princip för hastighetsbegränsning](./scripts/powershell-setup-rate-limit-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Tillämpar en hastighetsbegränsning till principen på produktnivå. |
 |||

@@ -1,6 +1,6 @@
 ---
-title: Exempel på Azure CLI-skript – skapa batch-konto – användar prenumeration
-description: Det här skriptet skapar ett Batch-konto i användarprenumerationsläge. Det här kontot allokerar datornoder till din prenumeration.
+title: Azure CLI Script Exempel - Skapa batch-konto - användarprenumeration
+description: Det här skriptet skapar ett Batch-konto i användarprenumerationsläge. Det här kontot allokerar beräkningsnoder i din prenumeration.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: labrenne
 ms.openlocfilehash: 5cab96c148d52597ee024f1ddb0b683db8d52dd7
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77024525"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>CLI-exempel: Skapa ett Batch-konto i användarprenumerationsläge

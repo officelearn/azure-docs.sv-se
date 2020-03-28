@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med StatusPage | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med StatusPage | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och StatusPage.
 services: active-directory
 documentationCenter: na
@@ -16,44 +16,44 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: d947f610e6a753ce2ed349917640b07a55bbb735
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67089876"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Självstudier: Azure Active Directory-integrering med StatusPage
+# <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Självstudiekurs: Azure Active Directory-integrering med StatusPage
 
-I den här självstudien får du lära dig hur du integrerar StatusPage med Azure Active Directory (AD Azure).
-Integrera StatusPage med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar StatusPage med Azure Active Directory (Azure AD).
+Genom att integrera StatusPage med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till StatusPage.
-* Du kan aktivera användarna att vara automatiskt inloggad till StatusPage (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera användarna automatiskt inloggade på StatusPage (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med StatusPage, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med StatusPage behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* StatusPage enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* StatusPage enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för StatusPage **IDP** -initierad SSO
+* StatusPage stöder **IDP-initierad** SSO
 
-## <a name="adding-statuspage-from-the-gallery"></a>Att lägga till StatusPage från galleriet
+## <a name="adding-statuspage-from-the-gallery"></a>Lägga till StatusPage från galleriet
 
-För att konfigurera integrering av StatusPage i Azure AD, som du behöver lägga till StatusPage från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av StatusPage i Azure AD måste du lägga till StatusPage från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till StatusPage från galleriet:**
+**Så här lägger du till StatusPage från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -61,37 +61,37 @@ För att konfigurera integrering av StatusPage i Azure AD, som du behöver lägg
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **StatusPage**väljer **StatusPage** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **StatusPage**i sökrutan och välj **StatusPage** från resultatpanelen och klicka sedan på **Lägg** till för att lägga till programmet.
 
-    ![StatusPage i resultatlistan](common/search-new-app.png)
+    ![StatusSida i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med StatusPage baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i StatusPage upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med StatusPage baserat på en testanvändare som heter **Britta Simon**.
+För enkel inloggning för att fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i StatusPage upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med StatusPage, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med StatusPage måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera StatusPage Single Sign-On](#configure-statuspage-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare StatusPage](#create-statuspage-test-user)**  – du har en motsvarighet för Britta Simon i StatusPage som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Enstaka inloggning för StatusPage](#configure-statuspage-single-sign-on)** – om du vill konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Testanvändare](#create-statuspage-test-user)** för StatusPage – om du vill ha en motsvarighet till Britta Simon i StatusPage som är länkad till Azure AD-representationen för användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med StatusPage:
+Så här konfigurerar du en enkel Azure AD-inloggning med StatusPage:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **StatusPage** application integration markerar **enkel inloggning**.
+1. Välj Enkel inloggning på sidan StatusPage-programintegrering i **StatusPage** [Azure-portalen](https://portal.azure.com/). **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,9 +103,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med StatusP
 
 4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![StatusPage domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![StatusPage-domän och webbadresser med enkel inloggning](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster:
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster:  
     
     | |
     |--|
@@ -120,49 +120,49 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med StatusP
     | `https://<subdomain>.statuspage.io/sso/saml/consume`|
 
     > [!NOTE]
-    > Kontakta supporten StatusPage på [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)att begära metadata som behövs för att konfigurera enkel inloggning. 
+    > Kontakta Supportteamet för [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)StatusPage för att begära metadata som krävs för att konfigurera enkel inloggning. 
     >
-    > a. Kopiera utfärdarvärdet från metadata, och klistra in den i den **identifierare** textrutan.
+    > a. Från metadata kopierar du utfärdarvärdet och klistrar sedan in det i textrutan **Identifierare.**
     >
-    > b. Från metadata, kopiera svars-URL och klistra in den i den **svars-URL** textrutan.
+    > b. Från metadata kopierar du svars-URL:en och klistrar sedan in den i textrutan **Svara på URL.**
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera StatusPage** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera StatusPage.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-statuspage-single-sign-on"></a>Konfigurera StatusPage Single Sign-On
+### <a name="configure-statuspage-single-sign-on"></a>Konfigurera enstaka inloggning för StatusPage
 
-1. I ett nytt webbläsarfönster loggar du in din StatusPage företagets webbplats som administratör.
+1. Logga in på webbplatsen StatusPage som administratör i ett annat webbläsarfönster.
 
-1. I verktygsfältet klickar du på **Hantera konto**.
+1. Klicka på Hantera **konto**i huvudverktygsfältet .
 
     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
-1. Klicka på den **enkel inloggning** fliken.
+1. Klicka på fliken **Enkel inloggning.**
 
     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_07.png)
 
-1. På konfigurationssidan för enkel inloggning utför du följande steg:
+1. Gör följande på sidan SSO-installationsprogrammet:
 
     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_08.png)
 
     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
-    a. I den **mål-URL för enkel inloggning** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    a. Klistra in värdet **för inloggnings-URL**i textrutan **SSO-mål-URL** som du har kopierat från Azure-portalen.
 
-    b. Öppna din nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i den **certifikat** textrutan.
+    b. Öppna det nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra sedan in det i **textrutan Certifikat.**
 
-    c. Klicka på **Spara konfiguration**.
+    c. Klicka på **SPARA KONFIGURATION**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -172,7 +172,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -182,24 +182,24 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
+    b. I fältet **Användarnamn** anger du `brittasimon@yourcompanydomain.extension`  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till StatusPage.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till StatusPage.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **StatusPage**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **StatusPage**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **StatusPage**.
+2. Välj **StatusPage**i programlistan .
 
-    ![Länken StatusPage i listan med program](common/all-applications.png)
+    ![Länken StatusPage i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -211,45 +211,45 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-statuspage-test-user"></a>Skapa StatusPage testanvändare
+### <a name="create-statuspage-test-user"></a>Skapa Testanvändare för StatusPage
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i StatusPage.
+Syftet med det här avsnittet är att skapa en användare som heter Britta Simon i StatusPage.
 
-StatusPage har stöd för just-in-time-etablering. Du har redan har aktiverat det i [konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on).
+StatusPage stöder just-in-time-etablering. Du har redan aktiverat den i [Konfigurera Azure AD Single Sign-On](#configure-azure-ad-single-sign-on).
 
-**Om du vill skapa en användare som kallas Britta Simon i StatusPage, utför du följande steg:**
+**Så här skapar du en användare som heter Britta Simon i StatusPage:**
 
-1. Inloggning till webbplatsen StatusPage företag som administratör.
+1. Logga in på webbplatsen StatusPage som administratör.
 
-1. Klicka på menyn längst upp **Hantera konto**.
+1. Klicka på **Hantera konto**högst upp.
 
     ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
-1. Klicka på den **teammedlemmar** fliken.
+1. Klicka på fliken **Gruppmedlemmar.**
   
-    ![Skapa en Azure AD-användare för testning](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![Skapa en testanvändare för Azure AD](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
 
-1. Klicka på **Lägg till GRUPPMEDLEM**.
+1. Klicka på **LÄGG TILL GRUPPMEDLEM**.
   
-    ![Skapa en Azure AD-användare för testning](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![Skapa en testanvändare för Azure AD](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. Skriv den **e-postadress**, **Förnamn**, och **efternamn** av en giltig användare som du vill etablera till relaterade textrutor. 
+1. Skriv **e-postadress,** **förnamn**och **efternamn för** en giltig användare som du vill etablera i relaterade textrutor. 
 
-    ![Skapa en Azure AD-användare för testning](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![Skapa en testanvändare för Azure AD](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
-1. Som **rollen**, Välj **Klientadministratör**.
+1. Som **roll**väljer du **Klientadministratör**.
 
-1. Klicka på **skapa konto**.
+1. Klicka på **SKAPA KONTO**.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen StatusPage i åtkomstpanelen, bör det vara loggas in automatiskt till StatusPage som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen StatusPage på Åtkomstpanelen bör du automatiskt loggas in på den StatusSida som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

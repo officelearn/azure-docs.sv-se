@@ -8,16 +8,16 @@ ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b8821f3bb3d48786697cbc4137baf530856774fd
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274012"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(INAKTUELL) Distribuera ett Kubernetes-kluster i Azure Container Service
 
 > [!TIP]
-> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: Distribuera ett Azure Kubernetes service-kluster (AKS)](../../aks/tutorial-kubernetes-deploy-cluster.md).
+> Den uppdaterade versionen som används i den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudiekurs: Distribuera ett AKS-kluster (Azure Kubernetes Service).](../../aks/tutorial-kubernetes-deploy-cluster.md)
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -38,7 +38,7 @@ I tidigare självstudier skapades en behållaravbildning som sedan överfördes 
 
 Skapa ett Kubernetes-kluster i Azure Container Service med kommandot [az acs create](/cli/azure/acs#az-acs-create). 
 
-I följande exempel skapas ett kluster med namnet `myK8sCluster` i en resursgrupp med namnet `myResourceGroup`. Den här resursgruppen skapades i [föregående självstudie](./container-service-tutorial-kubernetes-prepare-acr.md).
+I följande exempel skapas ett kluster med namnet `myK8sCluster` i en resursgrupp med namnet `myResourceGroup`. Den här resursgruppen skapades i föregående [självstudie .](./container-service-tutorial-kubernetes-prepare-acr.md)
 
 ```azurecli-interactive
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
@@ -100,4 +100,4 @@ I den här självstudiekursen distribuerades ett Azure Container Service Kuberne
 Gå vidare till nästa självstudie om du vill lära dig om att köra programmet i klustret.
 
 > [!div class="nextstepaction"]
-> [Distribuera programmet i Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
+> [Distribuera program i Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)

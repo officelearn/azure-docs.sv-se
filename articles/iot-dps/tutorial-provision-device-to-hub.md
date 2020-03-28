@@ -1,6 +1,6 @@
 ---
-title: Själv studie kurs – etablera enhet med Azure IoT Hub Device Provisioning Service
-description: Den här självstudien visar hur du kan etablera din enhet till en enda IoT-hubb med Azure IoT Hub Device Provisioning Service (DPS)
+title: Självstudiekurs – etablera enhet med Azure IoT Hub Device Provisioning Service
+description: Den här självstudien visar hur du kan etablera enheten till en enda IoT-hubb med hjälp av AZURE IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74975048"
 ---
-# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: etablera enheten till en IoT-hubb med Azure-IoT Hub Device Provisioning Service
+# <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudiekurs: Etablera enheten till en IoT-hubb med azure IoT Hub Device Provisioning Service
 
-I den förra självstudien lärde du dig att konfigurera en enhet för att ansluta till din enhetsetableringstjänst. I den här självstudien lär du dig att använda tjänsten för att etablera enheten till en enda IoT-hubb, med hjälp av automatisk etablering och **_registreringslistor_** . I den här självstudiekursen lär du dig att:
+I den förra självstudien lärde du dig att konfigurera en enhet för att ansluta till din enhetsetableringstjänst. I den här självstudien lär du dig att använda tjänsten för att etablera enheten till en enda IoT-hubb, med hjälp av automatisk etablering och **_registreringslistor_**. I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > * Registrera enheten
@@ -28,7 +28,7 @@ I den förra självstudien lärde du dig att konfigurera en enhet för att anslu
 
 Innan du fortsätter måste du konfigurera din enhet enligt anvisningarna i självstudien [Konfigurera en enhet för etablering med Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-device.md).
 
-Om du inte är bekant med processen för automatisk etablering ska du läsa avsnittet om [begrepp inom automatisk etablering](concepts-auto-provisioning.md) innan du fortsätter.
+Om du inte är bekant med processen för automatisk etablering ska du läsa [Auto-provisioning concepts](concepts-auto-provisioning.md) (Begrepp inom automatisk etablering) innan du fortsätter.
 
 <a id="enrolldevice"></a>
 ## <a name="enroll-the-device"></a>Registrera enheten
@@ -42,15 +42,15 @@ I det här steget ska du lägga till enhetens unika säkerhetsartefakter till en
       [![Registreringsinformation för TPM i portalen](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - För X.509-baserade enheter behöver du:
-    - [Certifikatet som utfärdats till X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)-kretsen eller -simuleringen, som antingen en *.pem*- eller *.cer*-fil. För enskild registrering måste du använda det *signerade certifikatet* per enhet för ditt X. 509-system, och för registrerings grupper måste du använda *rot certifikatet*. 
+    - [Certifikatet som utfärdats till X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)-kretsen eller -simuleringen, som antingen en *.pem*- eller *.cer*-fil. För individuell registrering måste du använda det *signerade certifikatet* per enhet för X.509-systemet, medan du för registreringsgrupper måste använda *rotcertifikatet*. 
 
-      [![Lägga till en enskild registrering för X.509-attestering i portalen](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
+      [![Lägga till individuell registrering för X.509-intyg i portalen](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Det finns två sätt att registrera enheten till enhetsetableringstjänsten:
 
 - **Registreringsgrupper** Det här representerar en grupp med enheter som delar en specifik attesteringsmekanism. Vi rekommenderar att du använder en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som ska till samma klient. Mer information om identitetsattestering för registreringsgrupper finns i [Säkerhet](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
-    [![Lägga till gruppregistrering för X.509-attestering i portalen](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
+    [![Lägga till gruppregistrering för X.509-intyg i portalen](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **Enskilda registreringar** Detta representerar en inmatning för en enskild enhet som kan registreras med enhetsetableringstjänsten. Enskilda registreringar kan använda antingen x509-certifikat eller SAS-token (i en verklig eller virtuell TPM) som attesteringsmekanismer. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika första konfigurationer och enheter som endast kan använda SAS-token via TPM eller virtuella TPM:er som attesteringsmekanism. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
 

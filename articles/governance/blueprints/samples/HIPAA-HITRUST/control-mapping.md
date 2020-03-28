@@ -1,243 +1,243 @@
 ---
-title: HIPAA HITRUST skiss exempel kontroller
-description: Styr mappningen av HIPAA HITRUST-skiss exemplen. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
+title: HIPAA HITRUST-provkontroller för skiss
+description: Kontrollkartläggning av HIPAA HITRUST-skissproverna. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärdering.
 ms.date: 11/26/2019
 ms.topic: sample
 ms.openlocfilehash: c6680055cfe41a2f893d46cba797783913d880ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75472312"
 ---
-# <a name="control-mapping-of-the-hipaa-hitrust-blueprint-sample"></a>Kontroll mappning av HIPAA HITRUST skiss-exemplet
+# <a name="control-mapping-of-the-hipaa-hitrust-blueprint-sample"></a>Kontrollkartläggning av HIPAA HITRUST-skissprovet
 
-Följande artikel beskriver hur Azure-skisser HIPAA HITRUST skiss-exemplet mappar till HIPAA HITRUST-kontrollerna. Mer information om kontrollerna finns i [HIPAA HiTRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+I följande artikel beskrivs hur azure blueprints HIPAA HITRUST-skissens exempel mappar till HIPAA HITRUST-kontrollerna. Mer information om kontrollerna finns i [HIPAA HITRUST](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
-Följande mappningar är till **HIPAA HiTRUST** -kontrollerna. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[för hands versions\]: granska HIPAA HiTRUST kontrollerar** det inbyggda princip initiativet.
+Följande mappningar är till **HIPAA HITRUST-kontrollerna.** Använd navigeringen till höger för att hoppa direkt till en specifik kontrollmappning. Många av de mappade kontrollerna implementeras med ett [Azure Policy-initiativ.](../../../policy/overview.md) Om du vill granska hela initiativet öppnar du **Princip** i Azure-portalen och väljer sidan **Definitioner.** Leta sedan reda ** \[på\]och välj förhandsversionen: Granska HIPAA HITRUST-kontroller** som är inbyggda i principinitiativet.
 
 > [!IMPORTANT]
-> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/HIPAA-HITRUST/control-mapping.md).
+> Varje kontroll nedan är associerad med en eller flera [Azure-principdefinitioner.](../../../policy/overview.md) Dessa policyer kan hjälpa dig att [bedöma efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta inte en 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan refererar **kompatibel** i Azure-princip endast till principerna själva. Detta säkerställer inte att du är helt kompatibel med alla krav på en kontroll. Dessutom innehåller efterlevnadsstandarden kontroller som inte åtgärdas av några Azure-principdefinitioner just nu. Därför är efterlevnad i Azure Policy bara en partiell bild av din övergripande efterlevnadsstatus. Associationerna mellan kontroller och Azure-principdefinitioner för det härmplet för efterlevnadsritning kan ändras med tiden. Om du vill visa ändringshistoriken läser du [GitHub Commit-historiken](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/HIPAA-HITRUST/control-mapping.md).
 
 ## <a name="control-against-malicious-code"></a>Kontroll mot skadlig kod
 
-Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig kod skydd, genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakas för saknade Endpoint Protection på virtuella datorer i Azure Security Center och tillämpa Microsoft Antimalware-lösningen på virtuella Windows-datorer.
+Den här skissen hjälper dig att hantera slutpunktsskydd, inklusive skadligt kodskydd, genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som övervakar saknade slutpunktsskydd på virtuella datorer i Azure Security Center och framtvingar Microsofts lösning mot skadlig kod på virtuella Windows-datorer.
 
-- Distribuera standard tillägget Microsoft IaaS program mot skadlig kod för Windows Server
-- Diagnostikloggar i batch-konton måste vara aktiverade
-- Systemuppdateringar bör installeras på datorerna
+- Distribuera standardtillägget Microsoft IaaS Antimalware för Windows Server
+- Diagnostikloggar i batchkonton ska aktiveras
+- Systemuppdateringar ska ha installerats på dina datorer
 
 
 ## <a name="management-of-removable-media"></a>Hantering av flyttbara medier
 
-Organisationen, baserat på data klassificerings nivån, registrerar media (inklusive bärbara datorer) före användningen, placerar rimliga begränsningar för hur sådana Media används och ger en lämplig nivå av fysiskt och logiskt skydd (inklusive kryptering) för media som innehåller information som omfattas tills den är korrekt förstörd eller sanerad.
+Organisationen, baserat på dataklassificeringsnivån, registrerar media (inklusive bärbara datorer) före användning, lägger rimliga begränsningar för hur sådana medier används och ger en lämplig nivå av fysiskt och logiskt skydd (inklusive kryptering) för mediet som innehåller information som omfattas tills den är ordentligt förstörd eller sanerad.
 
-- Kräv kryptering för Data Lake Store-konton
-- SQL-hanterad instans TDE-skydd ska vara krypterat med din egen nyckel
+- Kräv kryptering på DataSjölagringskonton
+- SQL-hanterad instans TDE-skydd ska krypteras med din egen nyckel
 - Diskkryptering bör tillämpas på virtuella datorer
-- transparent datakryptering på SQL-databaser ska aktive ras
+- Transparent datakryptering i SQL-databaser bör aktiveras
 
 
-## <a name="information-exchange-policies-and-procedures"></a>Information Exchange-principer och-procedurer
+## <a name="information-exchange-policies-and-procedures"></a>Riktlinjer och förfaranden för informationsutbyte
 
-Moln tjänst leverantörer använder sig av en bransch känd virtualiseringsplattformen och standardformat för virtualisering (t. ex. Open Virtualization Format, OVF) för att säkerställa samverkan och har dokumenterat anpassade ändringar av alla hypervisorer som används och alla lösningar för specifika Virtualization-hookar som är tillgängliga för kund granskning.
+Molntjänstleverantörer använder en branscherkänd virtualiseringsplattform och standardvirtualiseringsformat (t.ex. lösningsspecifika virtualiseringskrokar tillgängliga för kundgranskning.
 
-- Distribuera krav för att granska virtuella Windows-datorer som inte har de angivna programmen installerade
+- Distribuera förutsättningar för granskning av virtuella Windows-datorer som inte har de angivna programmen installerade
 
-## <a name="control-of-operational-software"></a>Kontroll över operativa program 
+## <a name="control-of-operational-software"></a>Kontroll av operativ programvara 
 
-Organisationen identifierar otillåten program vara i informations systemet, inklusive servrar, arbets stationer och bärbara datorer, använder en princip för Tillåt-alla, neka-by-Exception för att förhindra körning av känd illegal program vara i informations systemet och granskar och uppdaterar listan över otillåten program vara regelbundet, men inte mindre än varje år.
+Organisationen identifierar obehörig programvara på informationssystemet, inklusive servrar, arbetsstationer och bärbara datorer, använder en policy för att tillåta alla, neka-för-undantag för att förbjuda körning av känd obehörig programvara på informationssystemet, och granskar och uppdaterar listan över otillåten programvara med jämna mellanrum men inte mindre än årligen.
 
-- \[för hands version\] Visa gransknings resultat från konfigurationer för virtuella Windows-datorer i säkerhets alternativ-granskning
-- \[för hands version\] Visa gransknings resultat från virtuella Windows-konfigurationer i "system gransknings principer-konto hantering"
+- \[Förhandsgranska\] Visa granskningsresultat från Windows virtuella datorer i "Säkerhetsalternativ-granskning"
+- \[Förhandsgranska\] Visa granskningsresultat från Windows virtuella datorer i "Systemgranskningsprinciper- Kontohantering"
 
-## <a name="change-control-procedures"></a>Ändra kontroll procedurer
+## <a name="change-control-procedures"></a>Ändra kontrollprocedurer
 
-Integriteten för alla avbildningar av virtuella datorer är alltid säkerställd genom att logga och höja en avisering för alla ändringar som görs i avbildningar av virtuella datorer och göra dem tillgängliga för företags ägare och/eller kunder via elektroniska metoder (t. ex. portaler eller aviseringar) resultatet av en ändring eller flyttning och den efterföljande verifieringen av avbildningens integritet.
+Integriteten för alla virtuella datoravbildningar säkerställs hela tiden genom att logga och höja en avisering om eventuella ändringar som görs i avbildningar för virtuella datorer och göra resultaten av en ändring eller flyttning tillgängliga för företagets ägare och/eller kunder genom elektroniska metoder (t.ex. portaler eller varningar) och efterföljande validering av bildens integritet.
 
-- \[för hands version\] Visa gransknings resultat från Windows VM-konfiguration i system gransknings principer-detaljerad spårning
+- \[Förhandsgranska\] Visa granskningsresultat från windows-virtuella datorer i "Systemgranskningsprinciper -Detaljerad spårning"
 
-## <a name="inventory-of-assets"></a>Inventering av till gångar 
+## <a name="inventory-of-assets"></a>Lager av tillgångar 
 
-En förteckning över till gångar och tjänster underhålls
+En inventering av tillgångar och tjänster upprätthålls
 
-- Diagnostikloggar i search Services ska vara aktive rad.
-- \[för hands version\] distribuera krav för att granska konfigurationer för virtuella Windows-datorer i "säkerhets alternativ-Microsoft-nätverks server"
-- \[för hands version\] distribuera krav för att granska konfigurationer för virtuella Windows-datorer i "Administrativa mallar-nätverk"
+- Diagnostikloggar i söktjänster bör aktiveras.
+- \[Förhandsgranska\] distributionskrav för granskning av Windows-virtuella datorer i "Säkerhetsalternativ- Microsoft Network Server"
+- \[Förhandsgranska\] distributionskrav för granskning av Windows virtuella datorer i "Administrativa mallar- nätverk"
 
 ## <a name="control-of-technical-vulnerabilities"></a>Kontroll av tekniska sårbarheter 
 
-Det finns en strikt konfigurations standard för alla system-och nätverks komponenter.
+Det finns en härdad konfigurationsstandard för alla system- och nätverkskomponenter.
 
-- Granska Virtual Machines utan haveri beredskap har kon figurer ATS
-- Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
+- Granska virtuella datorer utan haveriberedskap konfigurerad
+- Sårbarhetsbedömning bör aktiveras på dina SQL-hanterade instanser
+- Sårbarheten bör åtgärdas med en lösning för sårbarhetsbedömning
 
-## <a name="segregation-in-networks"></a>Uppdelning i nätverk
+## <a name="segregation-in-networks"></a>Segregering i nätverk
 
-Organisationens säkerhetsgatewayer (t. ex. brand väggar) tillämpar säkerhets principer och är konfigurerade för att filtrera trafik mellan domäner, blockera obehörig åtkomst och används för att upprätthålla uppdelning mellan interna kabelanslutna, interna trådlösa och externa nätverks segment (t. ex. Internet), inklusive DMZs och tillämpa principer för åtkomst kontroll för varje domän.
+Organisationens säkerhetsgateways (t.ex. brandväggar) tillämpar säkerhetsprinciper och är konfigurerade för att filtrera trafik mellan domäner, blockera obehörig åtkomst och används för att upprätthålla segregering mellan interna trådbundna, interna trådlösa och externa nätverkssegment (t.ex. Internet) inklusive DMZs och genomdriva principer för åtkomstkontroll för var och en av domänerna.
 
-- Automatisk etablering av Security Monitoring Agent
-- Distribuera nätverks övervakare när virtuella nätverk skapas
+- Automatisk etablering av säkerhetsövervakningsagent
+- Distribuera nätverksbevakare när virtuella nätverk skapas
 
-## <a name="input-data-validation"></a>Verifiering av indata
+## <a name="input-data-validation"></a>Validering av indata
 
-För alla offentliga webb program implementeras brand väggar på program nivå för att kontrol lera trafiken. För offentliga program som inte är webbaserade har organisationen implementerat en nätverks baserad brand vägg som är specifik för program typen. Om trafiken till det offentliga programmet är krypterad är enheten antingen bakom krypteringen eller kan dekryptera trafiken innan du analyserar.
+För alla offentliga webbprogram implementeras brandväggar på programnivå för att styra trafiken. För program som inte är webbaserade för offentliga program har organisationen implementerat en nätverksbaserad brandvägg som är specifik för programtypen. Om trafiken till det offentliga programmet är krypterad sitter enheten antingen bakom krypteringen eller kan dekryptera trafiken före analysen.
 
-- \[för hands version\] Visa gransknings resultat från Windows VM-konfiguration i "egenskaper för Windows-brandväggen"
+- \[Förhandsgranska\] Visa granskningsresultat från windows-virtuella datorer i "Egenskaper för Windows-brandväggen"
 
 
-## <a name="network-connection-control"></a>Nätverks anslutnings kontroll
+## <a name="network-connection-control"></a>Kontroll av nätverksanslutning
 
-Nätverks trafiken kontrol leras i enlighet med organisationens princip för åtkomst kontroll via brand vägg och andra nätverksrelaterade begränsningar för varje nätverks åtkomst punkt eller extern telekommunikations tjänsts hanterade gränssnitt.
+Nätverkstrafiken styrs i enlighet med organisationens åtkomstkontrollprincip genom brandvägg och andra nätverksrelaterade begränsningar för varje nätverksåtkomstpunkt eller extern telekommunikationstjänsts hanterade gränssnitt.
 
-- Åtkomst via Internet-riktade slut punkter bör begränsas
-- SQL-hanterad instans TDE-skydd ska vara krypterat med din egen nyckel
-- Fjärrfelsökning bör inaktive ras för API Apps
+- Åtkomst via internetvända slutpunkter bör begränsas
+- SQL-hanterad instans TDE-skydd ska krypteras med din egen nyckel
+- Fjärrfelsökning bör inaktiveras för API-appar
 
-## <a name="network-controls"></a>Nätverks kontroller
+## <a name="network-controls"></a>Nätverkskontroller
 
-Organisationen använder säkra och krypterade kommunikations kanaler när du migrerar fysiska servrar, program eller data till virtualiserade servrar.
+Organisationen använder säkra och krypterade kommunikationskanaler när de migrerar fysiska servrar, program eller data till virtualiserade servrar.
 
-- Disk kryptering bör tillämpas på virtuella datorer
-- SQL-serverns TDE-skydd bör krypteras med din egen nyckel
-- \[för hands version\] Visa granskningar resultat från konfigurationer för virtuella Windows-datorer i säkerhets alternativ-nätverks åtkomst
-- Granska obegränsad nätverks åtkomst till lagrings konton
-- \[för hands version\] Visa granskningar resultat från Windows VM-konfiguration i "egenskaper för Windows-brandväggen"
-- Distribuera diagnostikinställningar från nätverks säkerhets grupper
-- Åtkomst via Internet-riktade slut punkter bör begränsas
+- Diskkryptering bör tillämpas på virtuella datorer
+- SQL-server TDE-skydd ska krypteras med din egen nyckel
+- \[Förhandsgranska\] Visa granskningar resultat från Windows virtuella datorer konfigurationer i "Säkerhetsalternativ- Nätverksåtkomst"
+- Granska obegränsad nätverksåtkomst till lagringskonton
+- \[Förhandsgranska\] Visa granskningar resultat från Konfiguration av Virtuella datorer i Windows i "Egenskaper för Windows-brandväggen"
+- Distribuera diagnostikinställningar från nätverkssäkerhetsgrupper
+- Åtkomst via internetvända slutpunkter bör begränsas
 
-## <a name="sensitive-system-isolation"></a>Känslig system isolering
+## <a name="sensitive-system-isolation"></a>Isolering av känsliga system
 
-Delade system resurser (t. ex. register, huvud minne, sekundär lagring) släpps tillbaka till systemet, skyddas från avslöjande till andra system/program/användare och användare kan inte avsiktligt eller oavsiktligt komma åt information som rester.
+Delade systemresurser (t.ex. register, huvudminne, sekundär lagring) släpps tillbaka till systemet, skyddas från utlämnande till andra system/program/användare och användarna kan inte avsiktligt eller oavsiktligt komma åt informationsrester.
 
-- Virtual Machines ska migreras till nya Azure Resource Managers resurser
+- Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
 
-## <a name="security-of-network-services"></a>Säkerhet för Network Services
+## <a name="security-of-network-services"></a>Säkerhet för nätverkstjänster
 
-Överenskomna tjänster som tillhandahålls av en nätverks tjänst leverantör eller hanterare hanteras formellt och övervakas för att säkerställa att de tillhandahålls på ett säkert sätt.
+Överenskomna tjänster som tillhandahålls av en leverantör/förvaltare av nättjänster hanteras och övervakas formellt för att säkerställa att de tillhandahålls på ett säkert sätt.
 
-- Virtual Machines ska migreras till nya Azure Resource Managers resurser
+- Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
 
-## <a name="network-routing-control"></a>Nätverks routnings kontroll
+## <a name="network-routing-control"></a>Kontroll av nätverksdirigering
 
-Routing-kontroller implementeras via säkerhets-gatewayer (t. ex. brand väggar) som används mellan interna och externa nätverk (t. ex. Internet-och tredje parts nätverk).
+Routningskontroller implementeras via säkerhetsgateways (t.ex. brandväggar) som används mellan interna och externa nätverk (t.ex. Internet och tredjepartsnätverk).
 
-- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
+- Adaptiva programkontroller bör aktiveras på virtuella datorer
 
-## <a name="information-exchange-policies-and-procedures"></a>Information Exchange-principer och-procedurer
+## <a name="information-exchange-policies-and-procedures"></a>Riktlinjer och förfaranden för informationsutbyte
 
-Organisationen begränsar användningen av organisations kontrollerade flyttbara lagrings medier av behöriga personer på externa informations system.
+Organisationen begränsar användningen av organisationsstyrda bärbara lagringsmedier av behöriga personer på externa informationssystem.
 
-- Granska obegränsad nätverks åtkomst till lagrings konton
-- Fjärrfelsökning bör inaktive ras för webb program
-- APi-appen bör bara vara tillgänglig via HTTPS
+- Granska obegränsad nätverksåtkomst till lagringskonton
+- Fjärrfelsökning bör inaktiveras för webbprogram
+- APi-app bör endast vara tillgänglig via HTTPS
 
 ## <a name="electronic-messaging"></a>Elektroniska meddelanden
 
-Godkännanden hämtas innan du använder externa offentliga tjänster, inklusive snabb meddelanden eller fildelning.
+Godkännanden erhålls innan externa offentliga tjänster, inklusive snabbmeddelanden eller fildelning.
 
-- \[för hands version\] Visa gransknings resultat från virtuella Linux-datorer som inte har lösen ords fil behörigheterna inställd på 0644
+- \[Förhandsgranska\] Visa granskningsresultat från virtuella Linux-datorer som inte har behörigheterna för lösenordsfilen inställd på 0644
 
 ## <a name="on-line-transactions"></a>Online-transaktioner
 
-Organisationen kräver att kryptering används mellan, och användningen av elektroniska signaturer av, var och en av de parter som ingår i transaktionen. Organisationen säkerställer att lagringen av transaktions informationen finns utanför alla offentligt tillgängliga miljöer (t. ex. på en lagrings plattform som finns på organisationens intranät) och inte behålls och exponeras på ett lagrings medium som är direkt tillgängligt från Internet. där en betrodd utfärdare används (t. ex. för att utfärda och underhålla digitala signaturer och/eller digitala certifikat), är säkerhet integrerat och inbäddat i hela hela end-to-end-hantering av certifikat/signaturer uppgraderingen.
+Organisationen kräver användning av kryptering mellan och användning av elektroniska signaturer av var och en av de parter som deltar i transaktionen. Organisationen säkerställer att lagringen av transaktionsinformationen finns utanför alla allmänt tillgängliga miljöer (t.ex. på en lagringsplattform som finns på organisationens intranät) och inte behålls och exponeras på ett lagringsmedium som är direkt tillgängligt från Internet.Där en betrodd myndighet används (t.ex. för att utfärda och underhålla digitala signaturer och/eller digitala certifikat), är säkerheten integrerad och inbäddad i hela slutkunds-till-slutcertifikat/signaturhantering Process.
 
-- Disk kryptering bör tillämpas på virtuella datorer
-- \[förhandsgranska\] Visa gransknings resultat från virtuella Windows-datorer som inte innehåller de angivna certifikaten i den betrodda roten
+- Diskkryptering bör tillämpas på virtuella datorer
+- \[Förhandsgranska\] Visa granskningsresultat från virtuella windows-datorer som inte innehåller de angivna certifikaten i betrodd rot
 
-## <a name="password-management"></a>Lösen ords hantering
+## <a name="password-management"></a>Lösenordshantering
 
-Lösen ord krypteras vid överföring och lagring på alla system komponenter.
+Lösenord krypteras under överföring och lagring på alla systemkomponenter.
 
-- \[för hands version\] Visa gransknings resultat från virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[Förhandsgranska\] Visa granskningsresultat från virtuella datorer i windows som inte har inställningen för lösenordskomplexitet aktiverad
 
 ## <a name="user-authentication-for-external-connections"></a>Användarautentisering för externa anslutningar
 
-Starka autentiseringsmetoder, till exempel Multi-Factor, RADIUS eller Kerberos (för privilegie rad åtkomst) och CHAP (för kryptering av autentiseringsuppgifter för fjärr anslutnings metoder) implementeras för alla externa anslutningar till organisationens nätverk.
+Starka autentiseringsmetoder som multifaktor, Radius eller Kerberos (för privilegierad åtkomst) och CHAP (för kryptering av autentiseringsuppgifter för fjärranslutningsmetoder) implementeras för alla externa anslutningar till organisationsnätverket.
 
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
-- Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer
+- MFA ska vara aktiverade konton med skrivbehörighet för din prenumeration
+- Just In Time nätverksåtkomstkontroll bör tillämpas på virtuella datorer
 
-## <a name="user-identification-and-authentication"></a>Användar identifiering och autentisering
+## <a name="user-identification-and-authentication"></a>Identifiering och autentisering av användare
 
-Användare som utförde privilegierade funktioner (t. ex. system administration) använder separata konton när de utför de privilegierade funktionerna. Multi-Factor Authentication-metoder används i enlighet med organisations principer (t. ex. för fjärråtkomst till fjärrnätverk).
+Användare som utförde privilegierade funktioner (t.ex. systemadministration) använder separata konton när de utför dessa privilegierade funktioner. Multifaktorautentiseringsmetoder används i enlighet med organisationsprincipen (t.ex. för fjärråtkomst till nätverk).
 
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
-- Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer
+- MFA ska vara aktiverade konton med skrivbehörighet för din prenumeration
+- Just In Time nätverksåtkomstkontroll bör tillämpas på virtuella datorer
 
-## <a name="privilege-management"></a>Behörighets hantering
+## <a name="privilege-management"></a>Hantering av privilegier
 
-Åtkomst till hanterings funktioner eller administrativa konsoler för system som är värdar för virtualiserade system är begränsade till personal baserat på principen om minsta behörighet och support genom tekniska kontroller.
+Åtkomst till hanteringsfunktioner eller administrativa konsoler för system som är värdar för virtualiserade system är begränsade till personal baserat på principen om lägsta behörighet och stöds genom tekniska kontroller.
 
-- Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer
-- \[för hands version\] rollbaserad Access Control (RBAC) ska användas på Kubernetes Services
+- Just In Time nätverksåtkomstkontroll bör tillämpas på virtuella datorer
+- \[RBAC (Preview\] Role Based Access Control) ska användas på Kubernetes-tjänster
 
-## <a name="review-of-user-access-rights"></a>Granskning av användar behörighet
+## <a name="review-of-user-access-rights"></a>Granskning av användaråtkomsträttigheter
 
-Organisationen underhåller en dokumenterad lista över behöriga användare av informations till gångar.
+Organisationen har en dokumenterad lista över behöriga användare av informationstillgångar.
 
-- \[för hands version\] Visa granskningar resultat från virtuella Windows-konfigurationer i "säkerhets alternativ – konton"
+- \[Förhandsgranska\] Visa granskningar resultat från Windows virtuella datorer konfigurationer i "Säkerhetsalternativ-Konton"
 
-## <a name="remote-diagnostic-and-configuration-port-protection"></a>Fjärrdiagnostik och konfiguration av port skydd
+## <a name="remote-diagnostic-and-configuration-port-protection"></a>Skydd mot fjärrdiagnostik och konfigurationsport
 
-Portar, tjänster och liknande program som är installerade på en dator eller ett nätverks system, som inte särskilt krävs för företags funktioner, är inaktiverade eller borttagna.
+Portar, tjänster och liknande program som är installerade på en dator eller nätverkssystem, som inte specifikt krävs för affärsfunktioner, inaktiveras eller tas bort.
 
-- Hanteringsportarna bör vara stängda på de virtuella datorerna
-- Säkerhets problem i säkerhets konfiguration på dina virtuella datorers skalnings uppsättningar bör åtgärdas
+- Hanteringsportar bör stängas på dina virtuella datorer
+- Sårbarheter i säkerhetskonfigurationen på dina skaluppsättningar för virtuella datorer bör åtgärdas
 
-## <a name="audit-logging"></a>Gransknings loggning
+## <a name="audit-logging"></a>Granskningsloggning
 
-Loggar av meddelanden som skickas och tas emot underhålls inklusive datum, tid, ursprung och mål för meddelandet, men inte innehållet. Granskning är alltid tillgängligt när systemet är aktivt och spårar viktiga händelser, lyckade/misslyckade data åtkomst, ändringar i systemets säkerhets konfiguration, privilegie rad eller användning, eventuella larm, aktivering och inaktive ring av skydds system (t. ex. A/V och ID), aktivering och inaktive ring av identifierings-och autentiseringsmekanismer samt skapande och borttagning av objekt på objekt.
+Loggar över meddelanden som skickas och tas emot underhålls, inklusive datum, tid, ursprung och mål för meddelandet, men inte dess innehåll. Granskning är alltid tillgänglig medan systemet är aktivt och spårar viktiga händelser, lyckades/misslyckad dataåtkomst, systemsäkerhetskonfigurationsändringar, privilegierad eller nyttoanvändning, eventuella larm som utlöses, aktivering och avaktivering av skyddssystem (t.ex.
 
-- Diagnostikloggar i Händelsehubben måste vara aktive rad
-- Systemuppdateringar måste installeras på skalningsuppsättningar för virtuell dator
+- Diagnostikloggar i Event Hub ska aktiveras
+- Systemuppdateringar på skalningsuppsättningar för virtuella datorer bör installeras
 
-## <a name="monitoring-system-use"></a>Övervaka system användning
+## <a name="monitoring-system-use"></a>Övervakningssystemanvändning
 
-Automatiserade system som distribueras i hela organisationens miljö används för att övervaka nyckel händelser och avvikande aktivitet och analysera system loggar, vars resultat granskas regelbundet. Övervakning omfattar privilegierade åtgärder, auktoriserad åtkomst eller obehörig åtkomst, inklusive försök att komma åt inaktiverade konton och system varningar eller-haverier.
+Automatiserade system som distribueras i organisationens miljö används för att övervaka viktiga händelser och avvikande aktivitet, och analysera systemloggar, vars resultat granskas regelbundet. Övervakning omfattar privilegierade åtgärder, auktoriserad åtkomst eller obehöriga åtkomstförsök, inklusive försök att komma åt inaktiverade konton och systemaviseringar eller fel.
 
-- Diagnostikloggar i skalnings uppsättningar för virtuella datorer ska aktive ras
+- Diagnostikloggar i skalningsuppsättningar för virtuella datorer bör aktiveras
 
-## <a name="segregation-of-duties"></a>Ansvars fördelning
+## <a name="segregation-of-duties"></a>Segregering av arbetsuppgifter
 
-Separering av uppgifter används för att begränsa risken för obehörig eller oavsiktlig ändring av information och system. Ingen enskild person kan komma åt, ändra eller använda informations system utan auktorisering eller identifiering. Åtkomst för personer som ansvarar för administration och åtkomst kontroll begränsas till den lägsta som krävs baserat på varje användares roll och ansvar och dessa personer kan inte komma åt gransknings funktioner som är relaterade till dessa kontroller.
+Åtskillnad av arbetsuppgifter används för att begränsa risken för obehörig eller oavsiktlig modifiering av information och system. Ingen enskild person kan komma åt, ändra eller använda informationssystem utan tillstånd eller identifiering. Åtkomsten för personer som ansvarar för att administrera och få åtkomstkontroller är begränsad till vad som är absolut nödvändigt på grundval av varje användares roll och ansvar, och dessa personer kan inte få tillgång till granskningsfunktioner som är relaterade till dessa kontroller.
 
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- MFA ska vara aktiverade konton med skrivbehörighet för din prenumeration
 
-## <a name="administrator-and-operator-logs"></a>Administratörs-och operatörs loggar
+## <a name="administrator-and-operator-logs"></a>Administratörs- och operatörsloggar
 
-Organisationen ser till att korrekt loggning är aktiverat för att kunna granska administratörs aktiviteter. och granskar system administratören och operatörs loggar regelbundet.
+Organisationen ser till att korrekt loggning är aktiverad för att granska administratörsaktiviteter. och granskar systemadministratör och operatörsloggar regelbundet.
 
-- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
+- MFA ska vara aktiverade konton med skrivbehörighet för din prenumeration
 
 ## <a name="identification-of-risks-related-to-external-parties"></a>Identifiering av risker relaterade till externa parter
 
-Fjärråtkomstanslutningar mellan organisationen och externa parter är krypterade
+Fjärråtkomstanslutningar mellan organisationen och externa parter krypteras
 
-- Disk kryptering bör tillämpas på virtuella datorer
+- Diskkryptering bör tillämpas på virtuella datorer
 
-## <a name="business-continuity-and-risk-assessment"></a>Verksamhets kontinuitet och riskbedömning
+## <a name="business-continuity-and-risk-assessment"></a>Kontinuitet och riskbedömning
 
-Organisationen identifierar sina kritiska affärs processer och integrerar kraven för informations säkerhets hantering i affärs kontinuitet med andra kontinuitets krav som rör sådana aspekter som drift, personal, material, transport och anläggningar.
+Organisationen identifierar sina kritiska affärsprocesser och integrerar kraven på informationssäkerhetshantering för kontinuitet med andra kontinuitetskrav som rör verksamhet, bemanning, material, transport och faciliteter.
 
-- \[för hands version\] Visa gransknings resultat från virtuella Windows-konfigurationer i säkerhets alternativ-återställnings konsolen
+- \[Förhandsgranska\] Visa granskningsresultat från Windows-virtuella datorer i "Security Options- Recovery Console"
 
 > [!NOTE]
-> Tillgängligheten för vissa Azure Policy definitioner kan variera i Azure Government och andra nationella moln. 
+> Tillgängligheten för specifika Azure-principdefinitioner kan variera i Azure Government och andra nationella moln. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har granskat kontroll mappningen av HIPAA HITRUST skiss-exemplet. Gå sedan till följande artiklar för att lära dig mer om översikten och hur du distribuerar det här exemplet:
+Du har granskat kontrollmappningen av HIPAA HITRUST-skissen. Gå sedan till följande artiklar om du vill veta mer om översikten och hur du distribuerar det här exemplet:
 
 > [!div class="next step action"]
-> [HIPAA HiTRUST skiss – översikt](./control-mapping.md)
-> [HIPAA HiTRUST skiss – distribuera steg](./deploy.md)
+> [HIPAA HITRUST-ritning - Översikt](./control-mapping.md)
+> [HIPAA HITRUST-ritning - Distribuera steg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Läs mer om [skisslivscykeln](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
-- Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
-- Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).
+- Lär dig att anpassa [ordningsföljden för skisssekvensering](../../concepts/sequencing-order.md).
+- Ta reda på hur du använder [skiss resurs låsning](../../concepts/resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../../how-to/update-existing-assignments.md).

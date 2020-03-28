@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa och hantera en skalnings uppsättning för virtuella Azure-datorer
+title: Självstudiekurs - Skapa och hantera en azure-skalningsuppsättning för virtuella datorer
 description: Läs hur du använder Azure PowerShell för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 14616fcc9fd63731c50c5977c88b5030f60664ff
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76271412"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure PowerShell
@@ -26,7 +26,7 @@ Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning i
 > * Skala en skalningsuppsättning automatiskt
 > * Utför vanliga hanteringsåtgärder för skalningsuppsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 ## <a name="list-connection-information"></a>Lista anslutningsinformation
 En offentlig IP-adress är tilldelad till lastbalanseraren som dirigerar trafik till de enskilda virtuella datorinstanserna. Som standard läggs NAT (Network Address Translation)-regler till Azure-lastbalanseraren som vidarebefordrar fjärranslutningstrafik till varje virtuell dator på en viss port. Om du vill ansluta till de virtuella datorinstanserna i en skalningsuppsättning, kan du skapa en fjärranslutning till en tilldelad offentlig IP-adress och portnummer.
 
-Om du vill visa en lista med NAT-portar för anslutning till VM-instanser i en skalningsuppsättning hämtar du först lastbalanseringsobjektet med [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Därefter visar du de ingående NAT-reglerna med [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig):
+Om du vill visa en lista med NAT-portar för anslutning till VM-instanser i en skalningsuppsättning hämtar du först lastbalanseringsobjektet med [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Visa sedan de inkommande [NAT-reglerna med Get-AzLoadBalancerInboundNatRuleConfig:](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig)
 
 
 ```azurepowershell-interactive
@@ -132,7 +132,7 @@ IpAddress
 52.168.121.216
 ```
 
-Skapa en fjärranslutning till din första virtuella datorinstans. Ange din offentliga IP-adress och portnummer för nödvändiga virtuella datorinstanser som de visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalnings uppsättningen (som standard i exempel kommandona, *azureuser* och *P\@Ssw0Rd!* ). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till den virtuella datorinstansen *1*:
+Skapa en fjärranslutning till din första virtuella datorinstans. Ange din offentliga IP-adress och portnummer för nödvändiga virtuella datorinstanser som de visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalningsuppsättningen (som standard i exempelkommandona, *azureuser* och *\@P ssw0rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till den virtuella datorinstansen *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001
@@ -202,7 +202,7 @@ Följande tabell kategoriserar vanliga virtuella datorstorlekar i användningsfa
 | [Generellt syfte](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
 | [Beräkningsoptimerad](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
 | [Minnesoptimerad](../virtual-machines/windows/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
-| [Lagringsoptimerad](../virtual-machines/windows/sizes-storage.md)      | Ls                | Högt diskdataflöde och I/O. Perfekt för stordata, SQL och NoSQL-databaser.                                                         |
+| [Lagringsoptimerad](../virtual-machines/windows/sizes-storage.md)      | Ls                | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
 | [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
 | [Höga prestanda](../virtual-machines/windows/sizes-hpc.md) | H, A8-11          | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). 
 

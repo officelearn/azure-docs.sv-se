@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ms.author: eamono
 ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65521434"
 ---
-# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Självstudie: Integrera Azure Automation med Event Grid och Microsoft Teams
+# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Självstudiekurs: Integrera Azure Automation med Event Grid och Microsoft Teams
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Importera en Event Grid-exempel-runbook.
@@ -28,9 +28,9 @@ I den här guiden får du lära dig att:
 > * Skapa en Event Grid-prenumeration.
 > * Skapa en virtuell dator som utlöser runbooken.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -53,7 +53,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 4. Välj **Importera** och ge den namnet **Watch-VMWrite**.
 
 5. När den har importerats väljer du **Redigera** för att visa runbook-källan. 
-6. Uppdatera raden 74 i skript om du vill använda `Tag` i stället för `Tags`.
+6. Uppdatera rad 74 i skriptet som ska användas `Tag` i stället för `Tags`.
 
     ```powershell
     Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
@@ -70,7 +70,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
 
 3. Ange **AzureAutomationIntegration** som namn och välj **Skapa**.
 
-4. Kopiera en webhook-URL till Urklipp och spara den. Webhooks-URL:en används för att skicka information till Microsoft Teams.
+4. Kopiera webhook-URL:en till Urklipp och spara den. Webhooks-URL:en används för att skicka information till Microsoft Teams.
 
 5. Välj **Klar** för att spara webhooken.
 
@@ -105,7 +105,7 @@ För slutföra den här självstudien krävs ett [Azure Automation-konto](../aut
     4. I listrutan **Definierade händelsetyper** avmarkerar du alla alternativ utom **Resource Write Success** (Resursskrivning lyckades).
 
         > [!NOTE] 
-        > Azure Resource Manager görs inte för närvarande åtskillnad mellan skapa och uppdatera, så att implementera den här självstudien för alla Microsoft.Resources.ResourceWriteSuccess händelser i din Azure-prenumeration kan resultera i ett stort antal anrop.
+        > Azure Resource Manager skiljer för närvarande inte mellan Skapa och uppdatera, så att implementera den här självstudien för alla Microsoft.Resources.ResourceWriteSuccess-händelser i din Azure-prenumeration kan resultera i en hög mängd anrop.
     1. Som **Typ av slutpunkt** väljer du **Webhook**.
     2. Klicka på **Välj en slutpunkt**. På sidan **Välj webhook** som öppnas klistrar du in webhook-URL:en du har skapat för Watch-VMWrite-runbooken.
     3. Under **FILTER** anger du den prenumeration och den resursgrupp där du vill leta efter de nya virtuella datorerna som skapats. Det bör se ut så här: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`

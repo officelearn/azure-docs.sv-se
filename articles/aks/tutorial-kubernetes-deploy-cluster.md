@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: bc31a4197b08cbeb1a99820d7ff490f20147c7bf
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78191273"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Självstudie: Distribuera ett Azure Kubernetes Service-kluster (AKS)
@@ -17,7 +17,7 @@ ms.locfileid: "78191273"
 Kubernetes tillhandahåller en distribuerad plattform för containerbaserade program. Med AKS kan du snabbt skapa ett produktionsklart Kubernetes-kluster. I del tre av sju i den här självstudien distribuerar vi ett Kubernetes-kluster i AKS. Lär dig att:
 
 > [!div class="checklist"]
-> * Distribuera ett Kubernetes AKS-kluster som kan autentisera till ett Azure Container Registry
+> * Distribuera ett Kubernetes AKS-kluster som kan autentisera till ett Azure-behållarregister
 > * Installera Kubernetes CLI (kubectl)
 > * Konfigurera kubectl för anslutning till ditt AKS-kluster
 
@@ -25,15 +25,15 @@ I ytterligare självstudier distribueras Azure-appen Vote till klustret. Sedan s
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier skapades en behållaravbildning som sedan överfördes till en Azure Container Registry-instans. Om du inte har utfört dessa steg och vill följa med, börjar du med [självstudier 1 – Skapa behållar avbildningar][aks-tutorial-prepare-app].
+I tidigare självstudier skapades en behållaravbildning som sedan överfördes till en Azure Container Registry-instans. Om du inte har utfört de här stegen och vill följa med så kan du börja med [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
 
-I den här självstudien krävs att du kör Azure CLI-versionen 2.0.75 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här självstudien kräver att du kör Azure CLI version 2.0.75 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-a-kubernetes-cluster"></a>Skapa ett Kubernetes-kluster
 
 AKS-kluster kan använda rollbaserad Kubernetes-åtkomstkontroll (RBAC). Med dessa kontroller kan du definiera åtkomst till resurser baserat på roller som är tilldelade till användare. Du kan kombinera behörigheter om en användare har tilldelats flera roller, och behörigheter kan begränsas till en enda namnrymd eller tillämpas på hela klustret. Som standard aktiverar Azure CLI automatiskt RBAC när du skapar ett AKS-kluster.
 
-Skapa ett AKS-kluster med [az aks create][]. I följande exempel skapas ett kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*. Den här resurs gruppen skapades i [föregående självstudie][aks-tutorial-prepare-acr]. För att ett AKS-kluster ska kunna interagera med andra Azure-resurser skapas ett Azure Active Directory tjänstens huvud namn automatiskt, eftersom du inte angav något. Här ges tjänstens huvud namn [rätt att hämta avbildningar][container-registry-integration] från den Azure Container Registry-instans (ACR) som du skapade i föregående självstudie.
+Skapa ett AKS-kluster med [az aks create][]. I följande exempel skapas ett kluster med namnet *myAKSCluster* i resursgruppen med namnet *myResourceGroup*. Den här resursgruppen skapades i [föregående självstudie][aks-tutorial-prepare-acr]. För att ett AKS-kluster ska kunna interagera med andra Azure-resurser skapas ett huvudnamn för Azure Active Directory-tjänst automatiskt, eftersom du inte angav något. Här beviljas det här tjänsthuvudhuvudet [rätten att hämta avbildningar][container-registry-integration] från ACR-instansen (Azure Container Registry) som du skapade i föregående självstudie.
 
 ```azurecli
 az aks create \
@@ -44,16 +44,16 @@ az aks create \
     --attach-acr <acrName>
 ```
 
-Du kan också konfigurera ett huvud namn för tjänsten manuellt för att hämta avbildningar från ACR. Mer information finns i [ACR-autentisering med tjänstens huvud namn](../container-registry/container-registry-auth-service-principal.md) eller [autentisera från Kubernetes med en pull-hemlighet](../container-registry/container-registry-auth-kubernetes.md).
+Du kan också konfigurera ett huvudnamn för tjänsten manuellt för att hämta bilder från ACR. Mer information finns i [ACR-autentisering med tjänsthuvudnamn](../container-registry/container-registry-auth-service-principal.md) eller [Autentisera från Kubernetes med pull-hemlighet](../container-registry/container-registry-auth-kubernetes.md).
 
 Efter några minuter slutförs distributionen och JSON-formaterad information om AKS-distributionen returneras.
 
 > [!NOTE]
-> För att klustret ska fungera på ett tillförlitligt sätt bör du köra minst två noder.
+> Om du vill att klustret ska fungera tillförlitligt bör du köra minst 2 (två) noder.
 
 ## <a name="install-the-kubernetes-cli"></a>Installera Kubernetes CLI
 
-Om du vill ansluta till Kubernetes-klustret från den lokala datorn använder du [kubectl][kubectl], Kubernetes kommando rads klient.
+När du ska ansluta till Kubernetes-klustret från din lokala dator använder du [kubectl][kubectl], Kubernetes kommandoradsklient.
 
 Om du använder Azure Cloud Shell är `kubectl` redan installerat. Du kan även installera det lokalt med hjälp av kommandot [az aks install-cli][]:
 
@@ -69,7 +69,7 @@ För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster anv
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Om du vill kontrol lera anslutningen till klustret kör du kommandot [kubectl get Nodes][kubectl-get] för att returnera en lista över klusternoderna:
+Om du vill verifiera anslutningen till klustret kör du kommandot [kubectl get noder][kubectl-get] för att returnera en lista över klusternoderna:
 
 ```
 $ kubectl get nodes
@@ -83,14 +83,14 @@ aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
 I den här självstudiekursen distribuerade du ett Kubernetes-kluster i AKS och konfigurerade `kubectl` för anslutning till klustret. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Distribuera ett Kubernetes AKS-kluster som kan autentisera till ett Azure Container Registry
+> * Distribuera ett Kubernetes AKS-kluster som kan autentisera till ett Azure-behållarregister
 > * Installera Kubernetes CLI (kubectl)
 > * Konfigurera kubectl för anslutning till ditt AKS-kluster
 
 Gå vidare till nästa självstudie och lär dig hur du distribuerar ett program i klustret.
 
 > [!div class="nextstepaction"]
-> [Distribuera programmet i Kubernetes][aks-tutorial-deploy-app]
+> [Distribuera program i Kubernetes][aks-tutorial-deploy-app]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

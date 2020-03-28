@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: indexera data från Azure SQL-databaser iC# '
+title: 'Självstudiekurs: Indexera data från Azure SQL-databaser i C # '
 titleSuffix: Azure Cognitive Search
-description: I den C# här självstudien kan du ansluta till Azure SQL Database, extrahera sökbara data och läsa in den i ett Azure kognitiv sökning-index.
+description: I den här C#-självstudien ansluter du till Azure SQL-databas, extraherar sökbara data och läser in den i ett Azure Cognitive Search-index.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,62 +9,62 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
 ms.openlocfilehash: 7660c89032ea3ef8371655b94b75c1f60603ee32
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78193976"
 ---
-# <a name="tutorial-use-c-to-index-data-from-sql-databases-in-azure-cognitive-search"></a>Självstudie: använda C# för att indexera data från SQL-databaser i Azure kognitiv sökning
+# <a name="tutorial-use-c-to-index-data-from-sql-databases-in-azure-cognitive-search"></a>Självstudiekurs: Använd C# för att indexera data från SQL-databaser i Azure Cognitive Search
 
-Konfigurera en [indexerare](search-indexer-overview.md) för att extrahera sökbara data från Azure SQL Database och skicka dem till ett Sök index i Azure kognitiv sökning. 
+Konfigurera en [indexerare](search-indexer-overview.md) för att extrahera sökbara data från Azure SQL-databas och skicka dem till ett sökindex i Azure Cognitive Search. 
 
-I den här C# självstudien används och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
+Den här självstudien använder C# och [.NET SDK](https://aka.ms/search-sdk) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Skapa en data källa som ansluter till Azure SQL Database
+> * Skapa en datakälla som ansluter till Azure SQL Database
 > * Skapa en indexerare
 > * Köra en indexerare för att läsa in data i ett index
-> * Fråga ett index som ett verifierings steg
+> * Fråga ett index som ett verifieringssteg
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-+ [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
++ [Skapa](search-create-service-portal.md) eller [hitta en befintlig söktjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> Du kan använda den kostnads fria tjänsten för den här självstudien. En kostnads fri Sök tjänst begränsar dig till tre index, tre indexerare och tre data källor. I den här kursen skapar du en av varje. Innan du börjar bör du kontrol lera att du har utrymme på tjänsten för att godkänna de nya resurserna.
+> Du kan använda den kostnadsfria tjänsten för den här självstudien. En kostnadsfri söktjänst begränsar dig till tre index, tre indexerare och tre datakällor. I den här kursen skapar du en av varje. Innan du börjar, se till att du har utrymme på din tjänst för att acceptera de nya resurserna.
 
 ## <a name="download-files"></a>Hämta filer
 
-Käll koden för den här självstudien finns i mappen [DotNetHowToIndexer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) i GitHub-lagringsplatsen [Azure-samples/search-dotNet-kom-igång](https://github.com/Azure-Samples/search-dotnet-getting-started) .
+Källkoden för den här självstudien finns i mappen [DotNetHowToIndexer](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) i [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) GitHub-databasen.
 
-## <a name="1---create-services"></a>1 – skapa tjänster
+## <a name="1---create-services"></a>1 - Skapa tjänster
 
-I den här självstudien används Azure Kognitiv sökning för indexering och frågor, och Azure SQL Database som en extern data källa. Skapa om möjligt båda tjänsterna i samma region och resurs grupp för närhet och hanterbarhet. I praktiken kan Azure SQL Database finnas i vilken region som helst.
+Den här självstudien använder Azure Cognitive Search för indexering och frågor och Azure SQL Database som en extern datakälla. Skapa om möjligt både tjänster i samma region och resursgrupp för närhet och hanterbarhet. I praktiken kan Azure SQL Database finnas i alla regioner.
 
 ### <a name="start-with-azure-sql-database"></a>Börja med Azure SQL Database
 
-I det här steget skapar du en extern data källa på Azure SQL Database som en indexerare kan crawla. Du kan använda Azure Portal och filen *Hotels. SQL* från exempel hämtningen för att skapa data uppsättningen i Azure SQL Database. Azure Kognitiv sökning använder sammanslagna rad uppsättningar, till exempel en som genereras från en vy eller fråga. SQL-filen i exempellösningen skapar och fyller i en enskild tabell.
+Skapa i det här steget en extern datakälla på Azure SQL Database som en indexerare kan genomsöka. Du kan använda Azure-portalen och *hotels.sql-filen* från exempelhämtningen för att skapa datauppsättningen i Azure SQL Database. Azure Cognitive Search förbrukar förenklade raduppsättningar, till exempel en som genereras från en vy eller fråga. SQL-filen i exempellösningen skapar och fyller i en enskild tabell.
 
-Om du har en befintlig Azure SQL Database resurs kan du lägga till hotell tabellen till den från och med steg 4.
+Om du har en befintlig Azure SQL Database-resurs kan du lägga till hotelltabellen i den, med början i steg 4.
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal.
+1. [Logga in på Azure-portalen](https://portal.azure.com/).
 
-1. Hitta eller skapa en **SQL Database**. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
+1. Söka efter eller skapa en **SQL-databas**. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
 
-   ![Sidan ny databas](./media/search-indexer-tutorial/indexer-new-sqldb.png "Ny databassida")
+   ![Ny databassida](./media/search-indexer-tutorial/indexer-new-sqldb.png "Ny databassida")
 
-1. Klicka på **Granska + skapa** för att distribuera den nya servern och databasen. Vänta tills servern och databasen har distribuerats.
+1. Klicka på **Granska + skapa** om du vill distribuera den nya servern och databasen. Vänta tills servern och databasen har distribuerats.
 
-1. Klicka på **Frågeredigeraren (för hands version)** i navigerings fönstret och ange användar namn och lösen ord för Server administratören. 
+1. Klicka på **Frågeredigeraren (förhandsgranskning)** i navigeringsfönstret och ange serveradministratörens användarnamn och lösenord. 
 
-   Om åtkomst nekas kopierar du klientens IP-adress från fel meddelandet och klickar sedan på länken **Ange server brand vägg** för att lägga till en regel som tillåter åtkomst från klient datorn med hjälp av klientens IP-adress för intervallet. Det kan ta flera minuter innan regeln börjar gälla.
+   Om åtkomst nekas kopierar du klient-IP-adressen från felmeddelandet och klickar sedan på länken **Ange serverbrandvägg** för att lägga till en regel som tillåter åtkomst från klientdatorn med hjälp av klient-IP för intervallet. Det kan ta flera minuter innan regeln börjar gälla.
 
-1. I Frågeredigeraren klickar du på **Öppna fråga** och navigerar till platsen för *Hotels. SQL* -filen på den lokala datorn. 
+1. I Frågeredigeraren klickar du på **Öppna fråga** och navigerar till platsen för *hotels.sql-filen* på den lokala datorn. 
 
 1. Markera filen och klicka på **Öppna**. Skriptet bör se ut ungefär som på följande skärmbild:
 
@@ -78,37 +78,37 @@ Om du har en befintlig Azure SQL Database resurs kan du lägga till hotell tabel
     SELECT * FROM Hotels
     ```
 
-1. Kopiera ADO.NET-anslutningssträngen för databasen. Under **inställningar** > **anslutnings strängar**, kopierar du anslutnings strängen ADO.net, som liknar exemplet nedan.
+1. Kopiera den ADO.NET anslutningssträngen för databasen. Under **Inställningar** > **Anslutningssträngar kopierar**du ADO.NET anslutningssträngen, liknande exemplet nedan.
 
     ```sql
     Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
     ```
 
-Du kommer att behöva den här anslutnings strängen i nästa övning, konfigurera din miljö.
+Du behöver den här anslutningssträngen i nästa övning och konfigurerar din miljö.
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-Nästa komponent är Azure Kognitiv sökning, som du kan [skapa i portalen](search-create-service-portal.md). Du kan använda den kostnads fria nivån för att slutföra den här genom gången. 
+Nästa komponent är Azure Cognitive Search, som du kan [skapa i portalen](search-create-service-portal.md). Du kan använda den kostnadsfria nivån för att slutföra den här genomgången. 
 
-### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Hämta en Admin API-nyckel och URL för Azure Kognitiv sökning
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Skaffa en api-nyckel och URL för Azure Cognitive Search
 
-API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
+API-anrop kräver tjänstens URL och en åtkomstnyckel. En söktjänst skapas med båda, så om du har lagt till Azure Cognitive Search i din prenumeration följer du dessa steg för att få nödvändig information:
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Logga in på Azure-portalen](https://portal.azure.com/)och hämta webbadressen i söktjänstens **översiktssida.** Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningsnycklar** > **Keys**får du en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara admin nycklar, som tillhandahålls för kontinuitet i verksamheten om du behöver rulla en över. Du kan använda antingen primär- eller sekundärnyckeln på begäranden om att lägga till, ändra och ta bort objekt.
 
-   ![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
+   ![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomstnyckel")
 
-## <a name="2---set-up-your-environment"></a>2 – Konfigurera din miljö
+## <a name="2---set-up-your-environment"></a>2 - Konfigurera din miljö
 
-1. Starta Visual Studio och öppna **DotNetHowToIndexers. SLN**.
+1. Starta Visual Studio och öppna **DotNetHowToIndexers.sln**.
 
-1. I Solution Explorer öppnar du **appSettings. JSON** för att tillhandahålla anslutnings information.
+1. Öppna **appsettings.json** i Solution Explorer för att tillhandahålla anslutningsinformation.
 
-1. För `searchServiceName`, om den fullständiga URL: en är "https://my-demo-service.search.windows.net", är tjänst namnet som ska tillhandahållas "min-demo-service".
+1. För `searchServiceName`, om denhttps://my-demo-service.search.windows.netfullständiga webbadressen är " ", är tjänstnamnet som ska tillhandahållas "my-demo-service".
 
-1. För `AzureSqlConnectionString`ser sträng formatet ut ungefär så här: `"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
+1. För `AzureSqlConnectionString`är strängformatet ungefär så här:`"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {
@@ -118,13 +118,13 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
     }
     ```
 
-1. I anslutnings strängen ser du till att anslutnings strängen innehåller ett giltigt lösen ord. Medan databasen och användar namnen kommer att kopieras, måste lösen ordet anges manuellt.
+1. Kontrollera att anslutningssträngen innehåller ett giltigt lösenord i anslutningssträngen. Databasen och användarnamnen kopieras över, men lösenordet måste anges manuellt.
 
-## <a name="3---create-the-pipeline"></a>3 – skapa pipelinen
+## <a name="3---create-the-pipeline"></a>3 - Skapa pipelinen
 
-Indexerare kräver ett data käll objekt och ett index. Relevant kod finns i två filer:
+Indexerare kräver ett datakällobjekt och ett index. Relevant kod finns i två filer:
 
-  + **Hotel.cs**, som innehåller ett schema som definierar indexet
+  + **hotel.cs**innehåller ett schema som definierar indexet
   + **Program.cs**, som innehåller funktioner för att skapa och hantera strukturer i din tjänst
 
 ### <a name="in-hotelcs"></a>I hotel.cs
@@ -142,9 +142,9 @@ Ett schema kan även innehålla andra element, till exempel poängprofiler för 
 
 ### <a name="in-programcs"></a>I Program.cs
 
-Huvud programmet innehåller logik för att skapa en klient, ett index, en data källa och en indexerare. Koden söker efter och tar bort befintliga resurser med samma namn, under förutsättning att du kan köra det här programmet flera gånger.
+Huvudprogrammet innehåller logik för att skapa en klient, ett index, en datakälla och en indexerare. Koden söker efter och tar bort befintliga resurser med samma namn, under förutsättning att du kan köra det här programmet flera gånger.
 
-Datakällobjektet konfigureras med inställningar som är speciella för Azure SQL Database-resurser, inklusive [delvis eller stegvis indexering](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) för att använda inbyggda [funktioner för ändrings identifiering](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) i Azure SQL. Demon hotell-databasen i Azure SQL har en "mjuk borttagning"-kolumn med namnet **IsDeleted**. När den här kolumnen har angetts till sant i databasen, tar indexeraren bort motsvarande dokument från Azure Kognitiv sökning-indexet.
+Datakällobjektet är konfigurerat med inställningar som är specifika för Azure SQL-databasresurser, inklusive [partiell eller inkrementell indexering](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) för att utnyttja de inbyggda [ändringsidentifieringsfunktionerna](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) i Azure SQL. Demohotelldatabasen i Azure SQL har kolumnen "mjuk borttagning" med namnet **IsDeleted**. När den här kolumnen är inställd på true i databasen tar indexeraren bort motsvarande dokument från Azure Cognitive Search-indexet.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -161,7 +161,7 @@ Datakällobjektet konfigureras med inställningar som är speciella för Azure S
   searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-Ett indexerare-objekt är plattforms-oberoende, där konfiguration, schemaläggning och anrop är desamma oavsett källa. Den här exempel indexeraren innehåller ett schema, ett återställnings alternativ som rensar indexerings historiken och anropar en metod för att skapa och köra indexeraren direkt.
+Ett indexeringsobjekt är plattformsoberoende, där konfiguration, schemaläggning och anrop är desamma oavsett källa. Det här exemplet innehåller indexeraren ett schema, ett återställningsalternativ som rensar indexerarens historik och anropar en metod för att skapa och köra indexeraren omedelbart.
 
   ```csharp
   Console.WriteLine("Creating Azure SQL indexer...");
@@ -196,31 +196,31 @@ Ett indexerare-objekt är plattforms-oberoende, där konfiguration, schemaläggn
   }
   ```
 
-## <a name="4---build-the-solution"></a>4 – Bygg lösningen
+## <a name="4---build-the-solution"></a>4 - Bygg lösningen
 
-Tryck på F5 för att skapa och köra lösningen. Programmet körs i felsökningsläge. I ett konsolfönster rapporteras status för varje åtgärd.
+Tryck på F5 för att bygga och köra lösningen. Programmet körs i felsökningsläge. I ett konsolfönster rapporteras status för varje åtgärd.
 
    ![Konsolutdata](./media/search-indexer-tutorial/console-output.png "Konsolutdata")
 
-Din kod körs lokalt i Visual Studio, ansluter till din Sök tjänst på Azure, som i sin tur ansluter till Azure SQL Database och hämtar data uppsättningen. Med det här många åtgärder finns det flera möjliga punkter av felet. Om ett fel uppstår kontrollerar du först följande villkor:
+Koden körs lokalt i Visual Studio, som ansluter till söktjänsten på Azure, som i sin tur ansluter till Azure SQL Database och hämtar datauppsättningen. Med så många operationer finns det flera möjliga felpunkter. Om du får ett felmeddelande kontrollerar du först följande villkor:
 
 + Informationen för den söktjänstanslutning som du anger. Den är begränsad till tjänstnamnet i den här kursen. Om du har angett en fullständig URL avbryts åtgärderna när index skapas och det uppstår ett anslutningsfel.
 
-+ Informationen för databasanslutningen i **appsettings.json**. Den bör vara den ADO.NET-anslutningssträng som du fick från portalen och ha ändrats så att den innehåller ett användarnamn och ett lösenord som är giltiga för din databas. Användarkontot måste ha behörighet att hämta data. Din lokala klient-IP-adress måste vara tillåten åtkomst.
++ Informationen för databasanslutningen i **appsettings.json**. Den bör vara den ADO.NET-anslutningssträng som du fick från portalen och ha ändrats så att den innehåller ett användarnamn och ett lösenord som är giltiga för din databas. Användarkontot måste ha behörighet att hämta data. Din lokala klient-IP-adress måste tillåtas åtkomst.
 
-+ Resursbegränsningar. Kom ihåg att den kostnads fria nivån har en gräns på 3 index, indexerare och data källor. När maxgränsen har uppnåtts för en tjänst går det inte att skapa nya objekt.
++ Resursbegränsningar. Kom ihåg att den kostnadsfria nivån har gränser för 3 index, indexerare och datakällor. När maxgränsen har uppnåtts för en tjänst går det inte att skapa nya objekt.
 
-## <a name="5---search"></a>5-Sök
+## <a name="5---search"></a>5 - Sök
 
-Använd Azure Portal för att kontrol lera att objektet skapas och Använd sedan **Sök Utforskaren** för att fråga indexet.
+Använd Azure-portalen för att verifiera att objektet skapas och sedan använda **Sökutforskaren** för att fråga index.
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och på sidan **Översikt** för Search-tjänsten öppnar du varje lista i tur och ett för att kontrol lera att objektet har skapats. **Index**, **indexerare**och **data källor** kommer att ha "Hotels", "Azure-SQL-Indexer" och "Azure-SQL".
+1. [Logga in på Azure-portalen](https://portal.azure.com/)och öppna varje lista i tur och ordning i sidan **Översikt** i söktjänsten för att verifiera att objektet skapas. **Indexerar,** **indexerare**och **datakällor** kommer att ha "hotell", "azure-sql-indexer" respektive "azure-sql".
 
    ![Paneler för indexerare och datakällor](./media/search-indexer-tutorial/tiles-portal.png)
 
-1. Välj hotell indexet. **Sök Utforskaren** är den första fliken på sidan hotell. 
+1. Välj hotellindex. På hotellsidan är **Sökutforskaren** den första fliken. 
 
-1. Klicka på **Sök** för att skicka en tom fråga. 
+1. Klicka på **Sök** om du vill utfärda en tom fråga. 
 
    De tre posterna i ditt index returneras som JSON-dokument. Sökutforskaren returnerar dokument i JSON så att du kan se hela strukturen.
 
@@ -236,21 +236,21 @@ Använd Azure Portal för att kontrol lera att objektet skapas och Använd sedan
 
 ## <a name="reset-and-rerun"></a>Återställa och köra igen
 
-I de tidiga experiment stegen i utvecklingen är den mest praktiska metoden för design upprepning att ta bort objekten från Azure Kognitiv sökning och tillåta att koden återskapas. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
+I de tidiga experimentella utvecklingsstadierna är den mest praktiska metoden för designiteration att ta bort objekten från Azure Cognitive Search och låta koden återskapa dem. Resursnamn är unika. Om du tar bort ett objekt kan du återskapa det med samma namn.
 
-Exempel koden för den här självstudien kontrollerar om det finns befintliga objekt och tar bort dem så att du kan köra koden igen.
+Exempelkoden för den här självstudien söker efter befintliga objekt och tar bort dem så att du kan köra koden igen.
 
-Du kan också använda portalen för att ta bort index, indexerare och data källor.
+Du kan också använda portalen för att ta bort index, indexerare och datakällor.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration är det i slutet av ett projekt en bra idé att ta bort de resurser som du inte längre behöver. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
-Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
+Du kan hitta och hantera resurser i portalen med hjälp av länken Alla resurser eller Resursgrupper i fönstret för vänsternavigering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig grunderna i SQL Database indexering, tar vi en närmare titt på indexerings konfigurationen.
+Nu när du är bekant med grunderna i SQL Database indexering, låt oss ta en närmare titt på indexeringskonfiguration.
 
 > [!div class="nextstepaction"]
-> [Konfigurera en Azure SQL Database-indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Konfigurera en Azure SQL-databasindexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

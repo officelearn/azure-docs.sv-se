@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell exempel – zon-redundant skalnings uppsättning
+title: Azure PowerShell-exempel – zon redundant skalningsuppsättning
 description: Det här skriptet skapar en VM-skalningsuppsättning som kör Windows Server 2016 över flera tillgänglighetszoner.
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 996701f554858a503d5b8fe8a8e2711c7f968c2e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76276464"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Skapa en zonredundant VM-skalningsuppsättning med PowerShell

@@ -1,5 +1,5 @@
 ---
-title: Transformera data med Hive i Azure Virtual Network att använda Azure Portal
+title: Omvandla data med Hive i Azure Virtual Network med Azure-portalen
 description: Den här självstudiekursen innehåller stegvisa instruktioner för hur du transformerar data genom att använda en Hive-aktivitet i Azure Data Factory.
 services: data-factory
 ms.service: data-factory
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
 ms.openlocfilehash: dd0de5415dc001f107221add7ea223450290b3f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75439269"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
@@ -30,14 +30,14 @@ I den här självstudien använder du Azure Portal för att skapa en Data Factor
 > * Övervaka pipelinekörningen 
 > * Verifiera utdata
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - **Azure Storage-konto**. Du skapar ett hive-skript och överför det till Azure Storage. Hive-skriptets utdata lagras på det här lagringskontot. I det här exemplet använder HDInsight-klustret det här Azure Storage-kontot som primär lagring. 
-- **Azure Virtual Network.** Om du inte har något virtuellt Azure-nätverk skapar du det genom att följa [de här instruktionerna](../virtual-network/quick-create-portal.md). I det här exemplet är HDInsight i ett virtuellt Azure-nätverk. Här är en exempelkonfiguration av Azure Virtual Network. 
+- **Virtuella Azure-nätverk.** Om du inte har något virtuellt Azure-nätverk skapar du det genom att följa [de här instruktionerna](../virtual-network/quick-create-portal.md). I det här exemplet är HDInsight i ett virtuellt Azure-nätverk. Här är en exempelkonfiguration av Azure Virtual Network. 
 
     ![Skapa det virtuella nätverket](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
 - **HDInsight-kluster.** Skapa ett HDInsight-kluster och anslut det till det virtuella nätverket som du skapade i föregående steg genom att följa stegen i den här artikeln: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) (Utöka HDInsight med ett Azure Virtual Network). Här är en exempelkonfiguration av HDInsight i ett virtuellt nätverk. 
@@ -70,7 +70,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
 1. Logga in på [Azure-portalen](https://portal.azure.com/).    
 2. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 
    
@@ -79,21 +79,21 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
       
      ![Sidan Ny datafabrik](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-azure-data-factory.png)
  
-   Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnMyAzureSsisDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+   Namnet på Azure-datafabriken måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnMyAzureSsisDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
   
        `Data factory name “MyAzureSsisDataFactory” is not available`
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
 4. För **resursgruppen** utför du något av följande steg:
      
-   - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan. 
-   - Välj **Skapa ny** och ange namnet på en resursgrupp.   
+   - Välj **Använd befintlig**och välj en befintlig resursgrupp i listrutan. 
+   - Välj **Skapa ny**och ange namnet på en resursgrupp.   
          
      Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 4. Välj **V2** för **versionen**.
 5. Välj **plats** för datafabriken. Endast de platser som har stöd för att skapa datafabriker visas i listan.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.
-8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**. 
+8. På instrumentpanelen visas följande panel med status: **Distribuera datafabrik**. 
 
      ![panelen distribuerar datafabrik](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
@@ -125,7 +125,7 @@ Eftersom Hadoop-klustret är inne i ett virtuellt nätverk måste du installera 
 
 ### <a name="install-ir-on-a-virtual-machine"></a>Installera IR på en virtuell dator
 
-1. Ladda ned [integration runtime med egen värd](https://www.microsoft.com/download/details.aspx?id=39717) till den virtuella Azure-datorn. Använd **autentiseringsnyckeln** som hämtades i föregående steg för att manuellt registrera den lokala integreringskörningen. 
+1. Ladda ned [integration runtime med egen värd](https://www.microsoft.com/download/details.aspx?id=39717) till den virtuella Azure-datorn. Använd **autentiseringsnyckeln** som erhölls i föregående steg för att manuellt registrera den självvärderade integrationskörningen. 
 
     ![Registrera Integration Runtime](media/tutorial-transform-data-using-hive-in-vnet-portal/register-integration-runtime.png)
 
@@ -150,7 +150,7 @@ Eftersom Hadoop-klustret är inne i ett virtuellt nätverk måste du installera 
 
 Du skapar och distribuerar två länkade tjänster i det här avsnittet:
 - Den **länkade Azure Storage-tjänsten** som länkar ditt Azure Storage-konto till datafabriken. Den här lagringen är den som primärt används av ditt HDInsight-kluster. I det här fallet använder du det här Azure Storage-kontot för att lagra Hive-skriptet och dess utdata.
-- En **länkad HDInsight-tjänst**. Azure Data Factory skickar Hive-skriptet till det här HDInsight-klustret för körning.
+- En **HDInsight-länkad tjänst**. Azure Data Factory skickar Hive-skriptet till det här HDInsight-klustret för körning.
 
 ### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
 
@@ -164,7 +164,7 @@ Du skapar och distribuerar två länkade tjänster i det här avsnittet:
 
     1. Ange **AzureStorageLinkedService** som **namn**.
     2. Välj **MySelfHostedIR** för **Connect via integration runtime** (Anslut via Integration Runtime).
-    3. Välj ditt Azure-lagringskonto i **Lagringskontonamn**. 
+    3. Välj ditt Azure-lagringskonto för **lagringskontonamn**. 
     4. Testa anslutningen till lagringskontot genom att klicka på **Testa anslutning**.
     5. Klicka på **Spara**.
    
@@ -235,7 +235,7 @@ Observera följande punkter:
 
 ## <a name="trigger-a-pipeline-run"></a>Utlösa en pipelinekörning
 
-1. Verifiera först pipelinen genom att klicka på knappen **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **högerpil (>>)** . 
+1. Verifiera först pipelinen genom att klicka på knappen **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **högerpil (>>)**. 
 
     ![Verifiera pipeline](./media/tutorial-transform-data-using-hive-in-vnet-portal/validate-pipeline.png) 
 2. Om du vill utlösa en pipelinekörning klickar du på Utlösare i verktygsfältet och klickar på Trigger Now (Utlös nu). 
@@ -259,7 +259,7 @@ Observera följande punkter:
     ![Utdatafil](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudiekursen fick du: 
 
 > [!div class="checklist"]
 > * Skapa en datafabrik. 

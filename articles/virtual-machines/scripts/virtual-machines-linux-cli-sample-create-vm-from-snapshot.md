@@ -1,5 +1,5 @@
 ---
-title: Skapa en virtuell dator från ett snapshot-CLI-exempel
+title: Skapa en virtuell dator från en ögonblicksbild - CLI-exempel
 description: Azure CLI-skriptexempel – Skapa en virtuell dator från en ögonblicksbild
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,10 +17,10 @@ ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: ffc1a735f743796b73c2b58353638dba7ed60985
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75458450"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Skapa en virtuell dator från en ögonblicksbild med CLI
@@ -57,4 +57,4 @@ I det här skriptet används följande kommandon för att skapa en hanterad disk
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare CLI-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

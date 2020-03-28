@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Knowledge Anywhere LMS | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Knowledge Anywhere LMS | Microsoft-dokument'
 description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och Knowledge Anywhere LMS.
 services: active-directory
 documentationCenter: na
@@ -17,102 +17,102 @@ ms.date: 05/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f44324bbdd5af6675dfb4f5664cbbde2627edfec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098570"
 ---
-# <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Självstudier: Integrering av Knowledge var som helst LMS med Azure Active Directory
+# <a name="tutorial-integrate-knowledge-anywhere-lms-with-azure-active-directory"></a>Självstudiekurs: Integrera kunskap överallt LMS med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera LMS för Knowledge var som helst med Azure Active Directory (AD Azure). När du integrerar LMS för Knowledge var som helst med Azure AD, kan du:
+I den här självstudien får du lära dig hur du integrerar Knowledge Anywhere LMS med Azure Active Directory (Azure AD). När du integrerar Knowledge Anywhere LMS med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till LMS för Knowledge var som helst.
-* Ge dina användare att automatiskt inloggad till LMS för Knowledge var som helst med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till Knowledge Anywhere LMS.
+* Gör att användarna automatiskt loggas in på Knowledge Anywhere LMS med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Aktiverat prenumeration Knowledge var som helst LMS enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
+* Knowledge Anywhere LMS enkel inloggning (SSO) aktiverad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö. Har stöd för Knowledge var som helst LMS **SP** initierad SSO och stöder **Just In Time** etableringen av användare.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö. Knowledge Anywhere LMS stöder **SP** initierade SSO och stöder **just in** time-användaretablering.
 
 ## <a name="adding-knowledge-anywhere-lms-from-the-gallery"></a>Lägga till Knowledge Anywhere LMS från galleriet
 
 När du konfigurerar integreringen av Knowledge Anywhere LMS i Azure Active Directory, måste du lägga till Knowledge Anywhere LMS från galleriet i din lista med hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **Knowledge var som helst LMS** i sökrutan.
-1. Välj **Knowledge var som helst LMS** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Knowledge Anywhere LMS** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **Kunskap överallt LMS** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD enkel inloggning med kunskaper som helst LMS med en testanvändare kallas **B. Simon**. För enkel inloggning ska fungera, måste du upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i LMS för Knowledge var som helst.
+Konfigurera och testa Azure AD SSO med Knowledge Anywhere LMS med en testanvändare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Knowledge Anywhere LMS.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med kunskaper som helst LMS, utför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Knowledge Anywhere LMS slutför du följande byggblock:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  vill tillåta att användarna använda den här funktionen.
-2. **[Konfigurera Knowledge var som helst LMS](#configure-knowledge-anywhere-lms)**  att konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  att testa Azure AD enkel inloggning med B. Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  att aktivera B. Simon att använda Azure AD enkel inloggning.
-5. **[Skapa LMS-Knowledge var som helst testanvändare](#create-knowledge-anywhere-lms-test-user)**  har en motsvarighet för B. Simon i Knowledge var som helst LMS som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  att kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
+2. **[Konfigurera Knowledge Anywhere LMS](#configure-knowledge-anywhere-lms)** för att konfigurera SSO-inställningarna på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa Azure AD enkel inloggning med B. Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** för att aktivera B. Simon för att använda Azure AD enkel inloggning.
+5. **[Skapa kunskap överallt LMS-testanvändare](#create-knowledge-anywhere-lms-test-user)** för att ha en motsvarighet till B. Simon in Knowledge Anywhere LMS som är länkad till Azure AD-representationen av användaren.
+6. **[Testa SSO](#test-sso)** för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Knowledge var som helst LMS** programsidan integration, hitta den **hantera** och väljer **enkelinloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. I [Azure-portalen](https://portal.azure.com/)hittar du avsnittet **Hantera** på sidan **Kunskap överallt LMS-programintegration** och väljer **Enkel inloggning**.
+1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
-    1. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<CLIENTNAME>.knowledgeanywhere.com/`
+    1. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<CLIENTNAME>.knowledgeanywhere.com/`
 
-    1. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<CLIENTNAME>.knowledgeanywhere.com/SSO/SAML/Response.aspx?<IDPNAME>`
+    1. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<CLIENTNAME>.knowledgeanywhere.com/SSO/SAML/Response.aspx?<IDPNAME>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren och svars-URL:en. Detta beskrivs senare i självstudien.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<CLIENTNAME>.knowledgeanywhere.com/`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<CLIENTNAME>.knowledgeanywhere.com/`
 
     > [!NOTE]
     > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Knowledge Anywhere LMS-klientens supportteam](https://knowany.zendesk.com/hc/en-us/articles/360000469034-SAML-2-0-Single-Sign-On-SSO-Set-Up-Guide) för att hämta det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Base64)** och välj **hämta** att hämta certifikatet och spara den på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML,** i avsnittet **SAML-signeringscertifikat,** hittar **du certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 
-   ![Länk för hämtning av certifikat](common/certificatebase64.png)
+   ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. På den **konfigurera Knowledge var som helst LMS** avsnittet, kopiera den lämpliga URL: er efter behov.
+1. Kopiera lämpliga webbadresser baserat på dina behov i avsnittet **Konfigurera kunskap överallt.**
 
    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-knowledge-anywhere-lms"></a>Konfigurera Knowledge var som helst LMS
+### <a name="configure-knowledge-anywhere-lms"></a>Konfigurera kunskap var som helst LMS
 
-1. Om du vill automatisera konfigurationen inom LMS för Knowledge var som helst, måste du installera **Mina appar skyddat inloggning webbläsartillägget** genom att klicka på **installera tillägget**.
+1. Om du vill automatisera konfigurationen i Knowledge Anywhere LMS måste du installera **webbläsartillägget My Apps Secure Sign-in** genom att klicka på **Installera tillägget**.
 
-    ![Mina appar-tillägg](common/install-myappssecure-extension.png)
+    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
 
-2. När du lägger till tillägg till webbläsaren, klickar på **installationsprogrammet Knowledge var som helst LMS** omdirigerar dig till programmet LMS-Knowledge var som helst. Ange administratörsautentiseringsuppgifter för att logga in på kunskap som helst LMS därifrån. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
+2. När du har lagt till tillägget i webbläsaren klickar du på **Setup Knowledge Anywhere LMS** leder dig till Knowledge Anywhere LMS-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Knowledge Anywhere LMS. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
 
-    ![Installationskonfiguration](common/setup-sso.png)
+    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
 
-3. Om du vill konfigurera Knowledge var som helst LMS manuellt, öppna ett nytt webbläsarfönster och logga in på din LMS-Knowledge var som helst företagets webbplats som administratör och utför följande steg:
+3. Om du vill konfigurera Knowledge Anywhere LMS manuellt öppnar du ett nytt webbläsarfönster och loggar in på webbplatsen Knowledge Anywhere LMS som administratör och utför följande steg:
 
 4. Välj fliken **Webbplats**.
 
@@ -132,13 +132,13 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
     a. Ange IDP-namnet för din organisation. För exempelvis: `Azure`.
 
-    b. I den **IDP entitets-ID** textrutan klistra in **Azure AD-identifierare** värde, som du har kopierat från Azure-portalen.
+    b. I **textrutan IDP-entitets-ID** klistrar du in **Azure AD-identifierare** som du har kopierat från Azure-portalen.
 
-    c. I den **IDP URL** textrutan klistra in **inloggnings-URL** värde, som du har kopierat från Azure-portalen.
+    c. I **textrutan URL i IDP** klistrar du in **url-värde** för inloggning, som du har kopierat från Azure-portalen.
 
     d. Öppna den nedladdade certifikatfilen från Azure-portalen i Anteckningar, kopiera innehållet för certifikatet och klistra in det i textrutan **Certifikat**.
 
-    e. I den **URL för utloggning** textrutan klistra in **URL för utloggning** värde, som du har kopierat från Azure-portalen.
+    e. I textrutan **Utloggnings-URL:en** klistrar du in **URL-värdet för utloggning,** som du har kopierat från Azure-portalen.
 
     f. Välj **Huvudwebbplats** i listrutan för **Domän**.
 
@@ -150,41 +150,41 @@ Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-port
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B. Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B. Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B. Simon`.  
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon att använda Azure enkel inloggning om du beviljar åtkomst till LMS för Knowledge var som helst.
+I det här avsnittet ska du aktivera B. Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Knowledge Anywhere LMS.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
 1. I listan med program väljer du **Knowledge Anywhere LMS**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B. Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B. Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
 ### <a name="create-knowledge-anywhere-lms-test-user"></a>Skapa testanvändare för Knowledge Anywhere LMS
 
-I det här avsnittet skapas en användare som kallas B. Simon i LMS för Knowledge var som helst. Knowledge Anywhere LMS stöder just-in-time-etablering av användare, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Knowledge Anywhere LMS, skapas en ny efter autentiseringen.
+I det här avsnittet skapas en användare som heter B. Simon i Knowledge Anywhere LMS. Knowledge Anywhere LMS stöder just-in-time-etablering av användare, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Knowledge Anywhere LMS, skapas en ny efter autentiseringen.
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen LMS-Knowledge var som helst i åtkomstpanelen, bör det vara loggas in automatiskt till Knowledge var som helst LMS som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Knowledge Anywhere LMS på åtkomstpanelen bör du automatiskt loggas in på den Knowledge Anywhere LMS som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,5 +1,5 @@
 ---
-title: Använd revideringar för att göra icke-brytande ändringar på ett säkert sätt i API Management
+title: Använd ändringar för att göra icke-brytande ändringar på ett säkert sätt i API Management
 titleSuffix: Azure API Management
 description: Följ stegen i den här självstudien för att lära dig hur du gör ändringar som är bakåtkompatibla i API Management.
 services: api-management
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: c91d42f3445bb2ffc02366e6cb9ae49ec2db1be4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75442753"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Använd revideringar för att göra bakåtkompatibla ändringar på ett säkert sätt
 När ditt API är klart och börjar användas av utvecklare, måste du så småningom göra ändringar för det API:et och samtidigt se till att du inte stör anropen till API:et. Det är också bra att informera utvecklarna om de ändringar du gjort. Det kan vi göra i Azure API Management med hjälp av **revisioner**. Mer information finns i avsnittet om [versioner & revisioner](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) och [API-versioner med Azure API Management](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Lägga till en ny version
@@ -50,7 +50,7 @@ I den här guiden får du lära dig hur man:
 4. Välj **+ Lägg till revision**
 
     > [!TIP]
-    > Du kan också välja **Lägg till revision** i snabbmenyn ( **...** ) för API:et.
+    > Du kan också välja **Lägg till revision** i snabbmenyn (**...**) för API:et.
 
 5. Ange en beskrivning för din nya revision så att du kommer ihåg vad den ska användas för.
 6. Välj **Skapa**
@@ -82,18 +82,18 @@ I den här guiden får du lära dig hur man:
 
     ![Revisionsmenyn på revisionsskärmen.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 
-2. Öppna snabbmenyn ( **...** ) för **revision 2**.
+2. Öppna snabbmenyn (**...**) för **revision 2**.
 3. Välj **Make Current** (Gör aktuell).
-4. Markera **Post to Public Change log for this API** (Posta till publik ändringslogg för detta API) för att skicka meddelanden om ändringen. Ange en beskrivning av din ändring som utvecklarna ser, till exempel: **testa revisioner. Ny "test"-åtgärd har lagts till.**
+4. Markera **Post to Public Change log for this API** (Posta till publik ändringslogg för detta API) för att skicka meddelanden om ändringen. Ange en beskrivning av ändringen som utvecklare ser, till exempel: **Testa ändringar. Lade till ny "test"-åtgärd.**
 5. Nu är **Revision 2** aktuell.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Gå till utvecklarportalen för att se dina ändringar och ändringsloggen
 
-1. I Azure-portalen väljer du **API:er**.
+1. Välj **API:er**i Azure-portalen .
 2. Välj **Utvecklarportal** i den översta menyn.
 3. Välj **API:er** och sedan **Demo Conference API**.
 4. Lägg märke till att din nya **teståtgärd** nu är tillgänglig.
-5. Klicka på **ändringsloggen** nära API-namnet.
+5. Klicka på **Changelog** nära API-namnet.
 6. Observera att din post i ändringsloggen visas i den här listan.
 
 ## <a name="next-steps"></a>Nästa steg

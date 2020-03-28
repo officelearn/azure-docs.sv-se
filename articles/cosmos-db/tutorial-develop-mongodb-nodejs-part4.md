@@ -1,5 +1,5 @@
 ---
-title: Skapa en vinkel-app med Azure Cosmos DB s API för MongoDB (part1)
+title: Skapa en vinkelapp med Azure Cosmos DB:s API för MongoDB (Part1)
 description: Del 4 i självstudieserien om hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med exakt samma API:er som du använder för MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: d5ed706a0577423f0a95b8eb5f7a563da74a0e7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75441175"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – skapa ett Cosmos-konto
@@ -48,7 +48,7 @@ I den här delen av självstudiekursen kan du antingen använda Azure Cloud Shel
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
-Skapa ett Azure Cosmos DB-konto med kommandot [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create).
+Skapa ett Azure Cosmos [`az cosmosdb create`](/cli/azure/cosmosdb#az-cosmosdb-create) DB-konto med kommandot.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -60,7 +60,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 Det kan ta ett par minuter innan kommandot har slutförts. När det är klart visas information om den nya databasen i terminalfönstret. 
 
 När Azure Cosmos DB-kontot har skapats:
-1. Öppna ett nytt webbläsarfönster och gå till [https://portal.azure.com](https://portal.azure.com)
+1. Öppna ett nytt webbläsarfönster och gå till[https://portal.azure.com](https://portal.azure.com)
 1. Klicka på Azure Cosmos DB-logotypen ![Azure Cosmos DB-ikon på Azure-portalen](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) i det vänstra fältet så ser du alla dina Azure Cosmos DB-databaser.
 1. Klicka på det Azure Cosmos DB-konto som du precis skapat, välj fliken **Översikt** och rulla nedåt tills du ser kartan som visar databasens plats. 
 

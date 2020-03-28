@@ -1,57 +1,57 @@
 ---
-title: Snabb start – konfigurera en virtuell Windows-dator i Azure med chef
-description: I den här snabb starten lär du dig att använda chef för att distribuera och konfigurera en virtuell Windows-dator i Azure
-keywords: chef, Azure, DevOps, virtuell dator
+title: Snabbstart – Konfigurera en virtuell Windows-dator i Azure med Chef
+description: I den här snabbstarten får du lära dig hur du använder Chef för att distribuera och konfigurera en virtuell Windows-dator i Azure
+keywords: ', azurblå, devops, virtuell maskin'
 ms.topic: tutorial
 ms.service: chef
 author: tomarchermsft
 ms.author: tarcher
 ms.date: 02/22/2020
 ms.openlocfilehash: 824e4df7662ee67c3f0786877053c39a8d952d49
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77590071"
 ---
-# <a name="quickstart---configure-a-windows-virtual-machine-in-azure-using-chef"></a>Snabb start – konfigurera en virtuell Windows-dator i Azure med chef
+# <a name="quickstart---configure-a-windows-virtual-machine-in-azure-using-chef"></a>Snabbstart – Konfigurera en virtuell Windows-dator i Azure med Chef
 
-Chef ger dig möjlighet att leverera automatisering och önskade tillstånds konfigurationer.
+Med Chef kan du leverera automatisering och önskade tillståndskonfigurationer.
 
-Med den senaste Cloud API-versionen ger chef sömlös integrering med Azure, vilket ger dig möjlighet att etablera och distribuera konfigurations tillstånd via ett enda kommando.
+Med den senaste moln-API-versionen ger Chef sömlös integrering med Azure, vilket ger dig möjlighet att etablera och distribuera konfigurationstillstånd via ett enda kommando.
 
-I den här artikeln ställer du in din chefs miljö för att etablera virtuella Azure-datorer och gå igenom hur du skapar en princip-eller Cookbook och distribuerar sedan Cookbook till en virtuell Azure-dator.
+I den här artikeln konfigurerar du din chef-miljö för att etablera virtuella Azure-datorer och gå igenom skapandet av en princip eller kokbok och sedan distribuera den här kokboken till en virtuell Azure-dator.
 
-## <a name="chef-basics"></a>Grunderna om chef
+## <a name="chef-basics"></a>Grunderna i kocken
 
-Innan du börjar med den här artikeln bör du [gå igenom de grundläggande begreppen chef](https://www.chef.io/chef).
+Innan du börjar med den här artikeln, [granska de grundläggande begreppen i Chef](https://www.chef.io/chef).
 
-Följande diagram visar chefs arkitekturen på hög nivå.
+Följande diagram visar den högnivåarkitekturen Chef.
 
-![Chefs arkitektur](media/chef-automation/chef-architecure.png)
+![Chef arkitektur](media/chef-automation/chef-architecure.png)
 
-Chef har tre huvudsakliga arkitektur komponenter: 
-- Chefs Server – hanterings platsen och det finns två alternativ för chefs servern: en värdbaserad lösning eller en lokal lösning.
-- Chefs klient (nod) – agenten som finns på de servrar som du hanterar.
-- Chefs arbets Station – namnet på både admin-arbetsstationen (där du skapar principer och kör hanterings kommandon) och program varu paketet för chefs verktyg.
+Chef har tre huvudsakliga arkitektoniska komponenter: 
+- Chef Server - Hanteringsplatsen och det finns två alternativ för Chef Server: en värdbaserad lösning eller en lokal lösning.
+- Chef Client (nod) - Agenten som sitter på servrarna du hanterar.
+- Chef Workstation - Namnet på både admin arbetsstation (där du skapar principer och kör ledningskommandon) och mjukvarupaketet med Chef-verktyg.
 
-I allmänhet ser du **din arbets Station** som den plats där du kör kommandon och **chefs arbets Station** för program varu paketet.
+I allmänhet ser du **din arbetsstation** som den plats där du kör kommandon och **Chef Workstation** för programvarupaketet.
 
-Du kan till exempel hämta kniv-kommandot som en del av **chefs arbets stationen**, men du kör kniv-kommandon från **din arbets Station** för att hantera infrastrukturen.
+Du kan till exempel hämta knivkommandot som en del av **Chef Workstation,** men du kör knivkommandon från **din arbetsstation** för att hantera infrastruktur.
 
-Chef använder också begreppen *Kok böcker* och *recept*. Dessa villkor är de principer som definieras och tillämpas på servrarna.
+Chef använder också begreppen *kokböcker* och *recept*. Dessa termer är de principer som definieras och tillämpas på servrarna.
 
-## <a name="preparing-your-workstation"></a>Förbereda din arbets Station
+## <a name="preparing-your-workstation"></a>Förbereda din arbetsstation
 
-Förbered först din arbets station genom att skapa en katalog för att lagra chefens konfigurationsfiler och Kok böcker.
+Förbered först din arbetsstation genom att skapa en katalog för att lagra Chef-konfigurationsfiler och kokböcker.
 
 Skapa en katalog som heter `C:\Chef`.
 
-Hämta och installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) på din arbets Station.
+Hämta och installera den senaste [Azure CLI-versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) på din arbetsstation.
 
 ## <a name="configure-azure-service-principal"></a>Konfigurera tjänstens huvudnamn för Azure
 
-Vi använder ett huvud namn för tjänsten för att hjälpa oss att skapa Azure-resurser från vår chefs arbets Station.  Om du vill skapa relevant huvud namn för tjänsten med de behörigheter som krävs kör du följande kommandon i PowerShell:
+Vi använder en serviceansvarig för att hjälpa oss att skapa Azure-resurser från vår Chef Workstation.  Om du vill skapa relevant tjänsthuvudnamn med de behörigheter som krävs kör du följande kommandon i PowerShell:
  
 ```powershell
 Login-AzureRmAccount
@@ -62,46 +62,46 @@ New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
 New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
 ```
 
-Anteckna ditt SubscriptionID, TenantID, ClientID och klient hemligheten (lösen ordet du angav tidigare i den här självstudien) eftersom du behöver dessa värden. 
+Notera ditt SubscriptionID, TenantID, ClientID och Client Secret (lösenordet du angav tidigare i den här självstudien) eftersom du behöver dessa värden. 
 
-## <a name="setup-chef-server"></a>Konfigurera chefs Server
+## <a name="setup-chef-server"></a>Chef-server för konfigurera
 
-Den här guiden förutsätter att du registrerar dig för en värdbaserad chef.
+Den här guiden förutsätter att du registrerar dig för Hosted Chef.
 
-Om du inte redan använder en chefs Server kan du:
+Om du inte redan använder en Chef Server kan du:
 
-* Registrera dig för [värdbaserad chef](https://manage.chef.io/signup), vilket är det snabbaste sättet att komma igång med chef.
-* Installera en fristående chefs server på en Linux-baserad dator genom att följa [installations anvisningarna](https://docs.chef.io/install_server.html) från [chefs dokumenten](https://docs.chef.io/).
+* Registrera dig för [Hosted Chef](https://manage.chef.io/signup), vilket är det snabbaste sättet att komma igång med Chef.
+* Installera en fristående Chef Server på Linux-baserad dator, enligt [installationsanvisningarna](https://docs.chef.io/install_server.html) från [Chef Docs](https://docs.chef.io/).
 
-### <a name="creating-a-hosted-chef-account"></a>Skapa ett värd chefs konto
+### <a name="creating-a-hosted-chef-account"></a>Skapa ett värdchefskonto
 
-Registrera dig för ett värd chefs konto [här](https://manage.chef.io/signup).
+Registrera dig för ett Hosted Chef-konto [här](https://manage.chef.io/signup).
 
-Under registrerings processen blir du ombedd att skapa en ny organisation.
+Under registreringsprocessen blir du ombedd att skapa en ny organisation.
 
-![Skapa organisations fönster](media/chef-automation/create-organization.png)
+![Skapa organisationsfönster](media/chef-automation/create-organization.png)
 
-När din organisation har skapats laddar du ned start paketet.
+När din organisation har skapats laddar du ned startpaketet.
 
 ![Konfigurera chef](media/chef-automation/configure-chef.png)
 
 > [!NOTE]
-> Om du får ett varnings meddelande om att dina nycklar kommer att återställas, är det dags att fortsätta eftersom vi inte har en befintlig infrastruktur som har kon figurer ATS ännu.
+> Om du får en uppmaning om att dina nycklar kommer att återställas, är det okej att fortsätta eftersom vi inte har någon befintlig infrastruktur konfigurerad ännu.
 >
 
-Den här zip-filen för start paket innehåller din organisations konfigurationsfiler och användar nyckel i `.chef`-katalogen.
+Den här zip-filen för startpaket innehåller organisationens konfigurationsfiler och användarnyckel i katalogen. `.chef`
 
-`organization-validator.pem` måste laddas ned separat eftersom det är en privat nyckel och privata nycklar bör inte lagras på chefs servern. Från [chef hantera](https://manage.chef.io/), går du till avsnittet Administration och väljer "Återställ validerings nyckel", som innehåller en fil som du kan hämta separat. Spara filen till c:\chef.
+Måste `organization-validator.pem` hämtas separat eftersom det är en privat nyckel och privata nycklar bör inte lagras på Chef Server. Från [Chef Manage](https://manage.chef.io/)går du till avsnittet Administration och väljer "Återställ valideringsnyckel", som innehåller en fil där du kan hämta separat. Spara filen på c:\chef.
 
-### <a name="configuring-your-chef-workstation"></a>Konfigurera din chefs arbets Station
+### <a name="configuring-your-chef-workstation"></a>Konfigurera din Chef-arbetsstation
 
-Extrahera innehållet i `chef-starter.zip` till `c:\chef`.
+Extrahera innehållet i `chef-starter.zip` `c:\chef`till .
 
-Kopiera alla filer under `chef-starter\chef-repo\.chef` till `c:\chef`-katalogen.
+Kopiera alla `chef-starter\chef-repo\.chef` filer `c:\chef` under till din katalog.
 
-Kopiera `organization-validator.pem`-filen till `c:\chef`, om den sparas i `c:\Downloads`.
+Kopiera `organization-validator.pem` filen `c:\chef`till , om den `c:\Downloads`sparas i .
 
-Din katalog bör nu se ut ungefär som i följande exempel.
+Katalogen ska nu se ut ungefär som följande exempel.
 
 ```powershell
     Directory: C:\Users\username\chef
@@ -119,13 +119,13 @@ d-----    12/6/2018   5:38 PM           roles
 -a----    12/6/2018   5:38 PM      2341 README.md
 ```
 
-Nu bör du ha fem filer och fyra kataloger (inklusive den tomma lagrings platsen-katalogen) i roten av c:\chef.
+Du bör nu ha fem filer och fyra kataloger (inklusive den tomma chef-repo katalogen) i roten av c:\chef.
 
-### <a name="edit-kniferb"></a>Redigera kniv. RB
+### <a name="edit-kniferb"></a>Redigera kniv.rb
 
-PEM-filerna innehåller din organisation och dina administrativa privata nycklar för kommunikation och filen kniv. RB innehåller din kniva konfiguration. Vi kommer att behöva redigera filen kniv. RB.
+PEM-filerna innehåller din organisation och administrativa privata nycklar för kommunikation och filen knife.rb innehåller din knivkonfiguration. Vi måste redigera filen knife.rb.
 
-Öppna filen kniv. RB i valfritt redigerings program. Den oförändrade filen bör se ut ungefär så här:
+Öppna filen knife.rb i den redaktion du väljer. Den oförändrade filen ska se ut ungefär som:
 
 ```rb
 current_dir = File.dirname(__FILE__)
@@ -137,7 +137,7 @@ chef_server_url     "https://api.chef.io/organizations/myorg"
 cookbook_path       ["#{current_dir}/cookbooks"]
 ```
 
-Lägg till följande information i din kniv. RB och ersätt plats hållarna med din information:
+Lägg till följande information till din knife.rb och ersätt platshållarna med din information:
 
 ```rb
 validation_client_name   "myorg-validator"
@@ -148,11 +148,11 @@ knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 knife[:azure_client_secret] =     "#1234p$wdchef19"
 ```
 
-Dessa rader ser till att kniven refererar till Kok böcker-katalogen under `c:\chef\cookbooks`.
+Dessa rader kommer att se till att `c:\chef\cookbooks`Kniv refererar kokböcker katalogen under .
 
-Din `knife.rb`-fil bör nu se ut ungefär som i följande exempel:
+Filen `knife.rb` ska nu se ut ungefär som följande exempel:
 
-![Exempel på kniv fil](./media/chef-automation/knife-file-example.png)
+![Exempel på knivfil](./media/chef-automation/knife-file-example.png)
 
 ```rb
 current_dir = File.dirname(__FILE__)
@@ -170,15 +170,15 @@ knife[:azure_client_id] = "11111111-bbbbb-cccc-1111-2222222222222"
 knife[:azure_client_secret] = "#1234p$wdchef19"
 ```
 
-## <a name="install-chef-workstation"></a>Installera chefs arbets Station
+## <a name="install-chef-workstation"></a>Installera chefarbetsstation
 
-Hämta sedan [och installera chefs arbets stationen](https://downloads.chef.io/chef-workstation/).
+Hämta [sedan och installera Chef Workstation](https://downloads.chef.io/chef-workstation/).
 
-Installera chefs arbets Station på standard platsen.
+Installera Chef Workstation till standardplatsen.
 
-På Skriv bordet ser du en FV-PowerShell. Det här verktyget används för att interagera med chefs produkter. Med den här PowerShell-funktionen blir nya kommandon tillgängliga, till exempel `chef-run`-och chef CLI-kommandon (till exempel `chef`). Se den installerade versionen av chef-arbetsstationen och chefs verktygen med `chef -v`. Du kan också kontrol lera din arbets Stations version genom att välja **om chef arbets Station** från appen chef Workstation.
+På skrivbordet visas en CW PowerShell. Detta verktyg används för att interagera med Chef produkter. CW PowerShell gör nya kommandon tillgängliga, till exempel `chef-run` och `chef`Chef CLI-kommandon (till exempel ). Se din installerade version av Chef Workstation och Chef-verktygen med `chef -v`. Du kan också kontrollera din arbetsstationsversion genom att välja **Om Chef Workstation** från Chef Workstation-appen.
 
-`chef --version` ska returnera något som:
+`chef --version`bör återvända något i stil med:
 
 ```
 Chef Workstation: 0.4.2
@@ -191,51 +191,51 @@ Chef Workstation: 0.4.2
 ```
 
 > [!NOTE]
-> Sök vägens ordning är viktig! Om dina opscode sökvägar inte befinner sig i rätt ordning kommer problemen att uppstå.
+> Ordningen på stigen är viktig! Om dina opscode-sökvägar inte är i rätt ordning uppstår problem.
 >
 
-Starta om arbets stationen innan du fortsätter.
+Starta om arbetsstationen innan du fortsätter.
 
-### <a name="install-knife-azure"></a>Installera kniv Azure
+### <a name="install-knife-azure"></a>Installera Kniv Azure
 
-I den här självstudien förutsätter vi att du använder Azure Resource Manager för att interagera med den virtuella datorn.
+Den här självstudien förutsätter att du använder Azure Resource Manager för att interagera med din virtuella dator.
 
-Installera kniv Azure-tillägget, som innehåller Azure-plugin-programmet.
+Installera tillägget Knife Azure, som innehåller Azure-insticksprogrammet.
 
 Kör följande kommando.
 
     chef gem install knife-azure ––pre
 
 > [!NOTE]
-> Argumentet `–-pre` garanterar att du får den senaste RC-versionen av kniv Azure-plugin-programmet som ger åtkomst till den senaste uppsättningen API: er.
+> Argumentet `–-pre` säkerställer att du får den senaste RC-versionen av Knife Azure Plugin som ger åtkomst till den senaste uppsättningen API:er.
 >
 >
 
-Det är troligt att ett antal beroenden även kommer att installeras samtidigt.
+Det är troligt att ett antal beroenden också kommer att installeras samtidigt.
 
-![Utdata från installation av kniv – Azure](./media/chef-automation/install-knife-azure.png)
+![Utdata från installation av kniv-azure](./media/chef-automation/install-knife-azure.png)
 
-Kör följande kommando för att se till att allt är korrekt konfigurerat.
+Kör följande kommando för att säkerställa att allt är korrekt konfigurerat.
 
     knife azurerm server list
 
-Om allt är korrekt konfigurerat visas en lista över tillgängliga Azure-avbildningar.
+Om allt är korrekt konfigurerat visas en lista över tillgängliga Azure-avbildningar bläddrar igenom.
 
-Grattis! Din arbets Station har kon figurer ATS!
+Grattis! Din arbetsstation är inställd!
 
-## <a name="creating-a-cookbook"></a>Skapa en Cookbook
+## <a name="creating-a-cookbook"></a>Skapa en kokbok
 
-En Cookbook används av chef för att definiera en uppsättning kommandon som du vill köra på den hanterade klienten. Det är enkelt att skapa en Cookbook genom att bara använda kommandot `chef generate cookbook` för att generera Cookbook-mallen. Den här Cookbook är för en webb server som automatiskt distribuerar IIS.
+En kokbok används av Chef för att definiera en uppsättning kommandon som du vill köra på din hanterade klient. Skapa en kokbok är enkelt, bara använda `chef generate cookbook` kommandot för att generera kokbok mall. Den här kokboken är till för en webbserver som automatiskt distribuerar IIS.
 
-Kör följande kommando under `C:\Chef directory`.
+Kör `C:\Chef directory`följande kommando under ditt.
 
     chef generate cookbook webserver
 
-Det här kommandot genererar en uppsättning filer under katalogen C:\Chef\cookbooks\webserver. Definiera sedan den uppsättning kommandon som chef klienten ska köra på den hanterade virtuella datorn.
+Det här kommandot genererar en uppsättning filer under katalogen C:\Chef\kokböcker\webbserver. Definiera sedan uppsättningen kommandon för chefklienten som ska köras på den hanterade virtuella datorn.
 
-Kommandona lagras i filen default. RB. I den här filen definierar du en uppsättning kommandon som installerar IIS, startar IIS och kopierar en mallfil till mappen `wwwroot`.
+Kommandona lagras i filen default.rb. I den här filen definierar du en uppsättning kommandon som installerar IIS, `wwwroot` startar IIS och kopierar en mallfil till mappen.
 
-Ändra C:\chef\cookbooks\webserver\recipes\default.RB-filen och Lägg till följande rader.
+Ändra filen C:\chef\kokböcker\webserver\recipes\default.rb och lägg till följande rader.
 
     powershell_script 'Install IIS' do
          action :run
@@ -251,31 +251,31 @@ Kommandona lagras i filen default. RB. I den här filen definierar du en uppsät
          rights :read, 'Everyone'
     end
 
-Spara filen när du är färdig.
+Spara filen när du är klar.
 
 ## <a name="creating-a-template"></a>Skapa en mall
 
-I det här steget ska du skapa en mallfil som ska användas som `default.html` sida.
+I det här steget ska du generera en `default.html` mallfil som ska användas som sida.
 
 Kör följande kommando för att generera mallen:
 
     chef generate template webserver Default.htm
 
-Navigera till `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb`-filen. Redigera filen genom att lägga till några enkla *Hello World* HTML-kod och spara sedan filen.
+Navigera till `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` filen. Redigera filen genom att lägga till några enkla *Hello World* HTML-kod och sedan spara filen.
 
-## <a name="upload-the-cookbook-to-the-chef-server"></a>Ladda upp Cookbook till chefs servern
+## <a name="upload-the-cookbook-to-the-chef-server"></a>Ladda upp kokboken till Chef Server
 
-I det här steget ska du göra en kopia av den Cookbook som du har skapat på den lokala datorn och ladda upp den till den server som är värd för chef. När den har laddats upp visas Cookbook under fliken **princip** .
+I det här steget gör du en kopia av kokboken som du har skapat på den lokala datorn och laddar upp den till chef värdservern. När kokboken har laddats upp visas den under fliken **Policy.**
 
     knife cookbook upload webserver
 
-![Resultat av att installera Cookbook till chefs servern](./media/chef-automation/cookbook-installation-under-policy-tab.png)
+![Resultat av att installera kokbok till Chef Server](./media/chef-automation/cookbook-installation-under-policy-tab.png)
 
-## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Distribuera en virtuell dator med kniv Azure
+## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Distribuera en virtuell dator med Knife Azure
 
-Distribuera en virtuell Azure-dator och tillämpa `Webserver`-Cookbook med kommandot `knife`.
+Distribuera en virtuell Azure-dator och tillämpa `Webserver` kokboken med `knife` kommandot.
 
-Kommandot `knife` kommer också att installera IIS-webbtjänsten och standard webb sidan.
+Kommandot `knife` kommer också att installera IIS webbtjänst och standardwebbsida.
 
 ```bash
     knife azurerm server create `
@@ -294,27 +294,27 @@ Kommandot `knife` kommer också att installera IIS-webbtjänsten och standard we
     -r "recipe[webserver]"
 ```
 
-Kommandot `knife` skapar en *Standard_DS2_v2* virtuell dator med Windows Server 2016 installerat i regionen USA, västra. Ändra värdena till per app-behov.
+I `knife` kommandoexemplet skapas en *Standard_DS2_v2* virtuell dator med Windows Server 2016 installerat i regionen Västra USA. Ändra dessa värden enligt appens behov.
 
-När du har kört kommandot bläddrar du till Azure Portal för att se att datorn börjar etablera.
+När du har kört kommandot bläddrar du till Azure-portalen för att se din dator börja etablera.
 
-![Virtuell dator har allokerats](./media/chef-automation/virtual-machine-being-provisioned.png)
+![Virtuell dator etableras](./media/chef-automation/virtual-machine-being-provisioned.png)
 
-Kommando tolken visas härnäst.
+Kommandotolken visas härnäst.
 
-![Kniva utdata vid skapande av virtuell dator](./media/chef-automation/knife-output-when-creating-vm.png)
+![Knivutgång när du skapar virtuell maskin](./media/chef-automation/knife-output-when-creating-vm.png)
 
-När distributionen är klar visas den offentliga IP-adressen för den nya virtuella datorn. Klistra in det här värdet i en webbläsare för att visa den nya webbplatsen. När vi har distribuerat den virtuella datorn öppnade vi port 80 så den bör vara tillgänglig externt.   
+När distributionen är klar visas den offentliga IP-adressen för den nya virtuella datorn. Klistra in det här värdet i en webbläsare för att visa den nya webbplatsen. När vi distribuerade den virtuella datorn öppnade vi port 80 så den ska vara tillgänglig externt.   
 
-![Testar den virtuella datorn](./media/chef-automation/testing-the-virtual-machine.png)
+![Testa den virtuella datorn](./media/chef-automation/testing-the-virtual-machine.png)
 
-I det här exemplet används Creative HTML-kod.
+I det här exemplet används kreativ HTML-kod.
 
-Du kan också visa nodens status [chefs hantering](https://manage.chef.io/). 
+Du kan också visa nodens status [Chef Manage](https://manage.chef.io/). 
 
-![Visa nodens status](./media/chef-automation/viewing-node-status.png)
+![Visa nodstatus](./media/chef-automation/viewing-node-status.png)
 
-Glöm inte att du kan ansluta via en RDP-session från Azure Portal via port 3389.
+Glöm inte att du också kan ansluta via en RDP-session från Azure-portalen via port 3389.
 
 ## <a name="next-steps"></a>Nästa steg
 

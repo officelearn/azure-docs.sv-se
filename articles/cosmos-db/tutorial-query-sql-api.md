@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: så här frågar du med SQL i Azure Cosmos DB?'
-description: 'Självstudie: Lär dig hur du frågar med SQL-frågor i Azure Cosmos DB att använda THW Query Playground'
+title: 'Självstudiekurs: Hur frågar du med SQL i Azure Cosmos DB?'
+description: 'Självstudiekurs: Lär dig hur du frågar med SQL-frågor i Azure Cosmos DB med thw-frågelekplats'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 7e83ed0f9e635ed24b7e6115eeaaa9057d422c69
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870079"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av SQL API
 
 Azure Cosmos DB [SQL API](documentdb-introduction.md) stöder frågedokument med hjälp av SQL. Den här artikeln innehåller ett dokumentexempel och två exempel på SQL-frågor och resultat.
 
-I den här artikeln beskrivs följande uppgifter: 
+Den här artikeln beskriver följande uppgifter: 
 
 > [!div class="checklist"]
 > * Fråga efter data med SQL
@@ -126,7 +126,7 @@ Nästa fråga returnerar alla angivna namn på barnen i familjen vars ID matchar
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen har du gjort följande:
+I den här självstudien har du gjort följande:
 
 > [!div class="checklist"]
 > * Lärt dig hur man frågar med SQL  

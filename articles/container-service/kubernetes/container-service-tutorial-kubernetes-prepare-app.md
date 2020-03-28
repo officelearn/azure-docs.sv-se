@@ -8,16 +8,16 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b67e3008bc2ad681e222af6b9edc4a08875732e4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76275433"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(INAKTUELL) Skapa containeravbildningar som ska användas med Azure Container Service
 
 > [!TIP]
-> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: förbereda ett program för Azure Kubernetes service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+> Den uppdaterade versionen som används i den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudiekurs: Förbered ett program för Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -38,7 +38,7 @@ I efterföljande självstudier har behållaravbildningen laddats upp till ett Az
 
 Den här självstudien förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och grundläggande docker-kommandon. Om det behövs kan du läsa [Get started with Docker]( https://docs.docker.com/get-started/) (Komma igång med Docker) för att få en genomgång av grunden för containrar. 
 
-För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac-](https://docs.docker.com/docker-for-mac/), [Windows-](https://docs.docker.com/docker-for-windows/) eller [Linux-](https://docs.docker.com/engine/installation/#supported-platforms)dator.
+För att slutföra den här självstudien behöver du en Docker-utvecklingsmiljö. Docker innehåller paket som enkelt kan konfigurera Docker på en [Mac](https://docs.docker.com/docker-for-mac/)-, [Windows](https://docs.docker.com/docker-for-windows/)- eller [Linux](https://docs.docker.com/engine/installation/#supported-platforms)-dator.
 
 Azure Cloud Shell inkluderar inte de Docker-komponenter som krävs för att slutföra stegen i den här självstudien. Därför rekommenderar vi att du använder en fullständig Docker-utvecklingsmiljö.
 
@@ -62,7 +62,7 @@ Inuti katalogen finns programmets källkod, en förskapad Docker Compose-fil och
 
 ## <a name="create-container-images"></a>Skapa containeravbildningar
 
-[Docker Compose](https://docs.docker.com/compose/) kan användas för att automatisera kompilering från containeravbildningar och distribution av program med flera containrar.
+[Docker Compose](https://docs.docker.com/compose/) kan användas för att automatisera kompilering från containeravbildningar och distribution av program med flera containern.
 
 Kör filen `docker-compose.yml` för att skapa containeravbildningen, ladda ned Redis-avbildningen och starta programmet.
 
@@ -85,7 +85,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Kör kommandot [docker ps](https://docs.docker.com/engine/reference/commandline/ps/) för att se de containrar som körs.
+Kör [kommandot docker ps](https://docs.docker.com/engine/reference/commandline/ps/) för att se de löpande behållarna.
 
 ```bash
 docker ps
@@ -135,4 +135,4 @@ I den här självstudien testades ett program och containeravbildningar skapades
 Fortsätt till nästa självstudie och lär dig om att lagra behållaravbildningar i ett Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Push-avbildningar med Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)
+> [Push-överföra avbildningar till Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)

@@ -1,17 +1,17 @@
 ---
-title: Självstudie – bygge för snabb behållar avbildning
+title: Självstudiekurs - Snabb behållare bild bygga
 description: I den här självstudien lär du dig att skapa en avbildning av en dockercontainer i Azure med Azure Container Registry Tasks (ACR Tasks) och sedan distribuera den till Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 82b539ba8f275755ee31a00c2127a0dba7c38d9f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78398508"
 ---
-# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudie: bygga och distribuera behållar avbildningar i molnet med Azure Container Registry uppgifter
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Självstudiekurs: Skapa och distribuera behållaravbildningar i molnet med Azure Container Registry Tasks
 
 **ACR Tasks** är en uppsättning funktioner i Azure Container Registry som ger effektiva avbildningar av dockercontainrar i Azure. I den här artikeln får du lära dig att använda funktionen *Quick Build* (Snabbskapa) i ACR Tasks.
 
@@ -26,13 +26,13 @@ I den här självstudien, som är del ett i en serie:
 > * Skapa en containeravbildning i Azure
 > * Distribuera en behållare till Azure Container Instances
 
-I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar. ACR-aktiviteter kan också köra [aktiviteter med flera steg](container-registry-tasks-multi-step.md), med hjälp av en yaml-fil för att definiera steg för att skapa, skicka och välja att testa flera behållare.
+I kommande självstudier får du lära dig att använda i ACR Tasks för automatiska containeravbildningsversioner som bygger på kodincheckning och uppdateringar av basavbildningar. ACR-uppgifter kan också köra [flerstegsaktiviteter](container-registry-tasks-multi-step.md)med hjälp av en YAML-fil för att definiera steg för att skapa, pusha och eventuellt testa flera behållare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du vill använda Azure CLI lokalt måste du ha Azure CLI-version **2.0.46** eller senare installerat och loggat in med AZ- [inloggning][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI][azure-cli].
+Om du vill använda Azure CLI lokalt, måste du ha Azure CLI version **2.0.46** eller senare installerat och vara inloggad med [az-inloggningen][az-login]. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa mer i [Installera Azure CLI][azure-cli].
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="github-account"></a>GitHub-konto
 
@@ -50,7 +50,7 @@ Förgrena den här lagringsplatsen: https://github.com/Azure-Samples/acr-build-h
 
 När du har förgrenat lagringsplatsen kan du klona din förgrening och ange den katalog som innehåller din lokala klon.
 
-Klona lagringsplatsen med `git`, samt ersätt **\<your-github-username\>** med ditt GitHub-användarnamn:
+Klona repoen med `git`, ersätt ** \<ditt-github-användarnamn\> ** med ditt GitHub-användarnamn:
 
 ```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
@@ -70,7 +70,7 @@ Kommandona i den här självstudieserien är formaterade för Bash-gränssnittet
 
 Nu när du har hämtat källkoden till din dator, följer du dessa steg för att skapa ett containerregister och en containeravbildning med ACR Tasks.
 
-För att göra det enklare att köra exempelkommandona, använder självstudierna i serien gränssnittets miljövariabler. Kör följande kommando för att ange variabeln `ACR_NAME`. Ersätt **\<registry-name\>** med ett unikt namn för ditt nya containerregister. Register namnet måste vara unikt inom Azure, får bara innehålla gemena bokstäver och innehålla 5-50 alfanumeriska tecken. De andra resurser som du skapar i självstudien baseras på det här namnet, så du behöver bara ändra den första variabeln.
+För att göra det enklare att köra exempelkommandona, använder självstudierna i serien gränssnittets miljövariabler. Kör följande kommando för att ange variabeln `ACR_NAME`. Ersätt ** \<registernamn\> ** med ett unikt namn för det nya behållarregistret. Registernamnet måste vara unikt i Azure, endast innehålla gemener och innehålla 5-50 alfanumeriska tecken. De andra resurser som du skapar i självstudien baseras på det här namnet, så du behöver bara ändra den första variabeln.
 
 [![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 
@@ -87,13 +87,13 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Nu när du har ett register kan du använda ACR Tasks till att skapa en containeravbildning från exempelkoden. Kör kommandot [AZ ACR build][az-acr-build] för att utföra en *snabb uppgift*:
+Nu när du har ett register kan du använda ACR Tasks till att skapa en containeravbildning från exempelkoden. Utför kommandot [az acr build][az-acr-build] för att utföra en *snabbuppgift*:
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 ```
 
-Utdata från kommandot [AZ ACR build][az-acr-build] ser ut ungefär så här. Du kan se uppladdningen av källkoden (”sammanhanget”) till Azure, samt information om åtgärden `docker build` som ACR Tasks kör i molnet. Eftersom ACR Tasks använder `docker build` för att skapa dina avbildningar, krävs inga ändringar av dina Dockerfiles-filer för att du ska kunna börja använda ACR Tasks omedelbart.
+Utdata från kommandot [az acr build][az-acr-build] liknar följande. Du kan se uppladdningen av källkoden (”sammanhanget”) till Azure, samt information om åtgärden `docker build` som ACR Tasks kör i molnet. Eftersom ACR Tasks använder `docker build` för att skapa dina avbildningar, krävs inga ändringar av dina Dockerfiles-filer för att du ska kunna börja använda ACR Tasks omedelbart.
 
 ```output
 Packing source code into tar file to upload...
@@ -172,7 +172,7 @@ I det här avsnittet skapar du ett Azure Key Vault och tjänstens huvudnamn. Sed
 
 ### <a name="configure-registry-authentication"></a>Konfigurera registerautentisering
 
-Alla produktions scenarier bör använda [tjänstens huvud namn][service-principal-auth] för att få åtkomst till ett Azure Container Registry. Med tjänstens huvudnamn får du rollbaserad åtkomstkontroll till containeravbildningarna. Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
+Alla produktionsscenarier bör använda [huvudnamnen för tjänsten][service-principal-auth] för att få åtkomst till ett containerregister i Azure. Med tjänstens huvudnamn får du rollbaserad åtkomstkontroll till containeravbildningarna. Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
 
 #### <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
@@ -188,7 +188,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 Du måste nu skapa ett huvudnamn för tjänsten och lagra dess autentiseringsuppgifter i nyckelvalvet.
 
-Använd kommandot [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] för att skapa tjänstens huvud namn och [hemligheten för AZ-valv][az-keyvault-secret-set] för att lagra tjänstens huvud **namn i** valvet:
+Använd kommandot [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] till att skapa tjänstens huvudnamn och [az keyvault secret set][az-keyvault-secret-set] för att lagra **lösenordet** till tjänstens huvudnamn i valvet:
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)
@@ -226,7 +226,7 @@ Nu kan du referera till dessa hemligheter efter namn när du eller dina program 
 
 Nu när autentiseringsuppgifterna för tjänstens huvudnamn lagras som Azure Key Vault-hemligheter, kan dina program och tjänster använda dem för att få åtkomst till ditt privata register.
 
-Kör följande kommando för [AZ container Create][az-container-create] för att distribuera en behållar instans. Kommandot använder de autentiseringsuppgifter för tjänstens huvudnamn som lagras i Azure Key Vault för autentiseringen till containerregistret.
+Kör kommandot [az container create][az-container-create] för att distribuera en behållarinstans. Kommandot använder de autentiseringsuppgifter för tjänstens huvudnamn som lagras i Azure Key Vault för autentiseringen till containerregistret.
 
 ```azurecli-interactive
 az container create \
@@ -253,7 +253,7 @@ Anteckna containerns FQDN – du behöver det i nästa avsnitt.
 
 ### <a name="verify-the-deployment"></a>Verifiera distributionen
 
-Om du vill se start processen för behållaren använder du kommandot [AZ container Attach][az-container-attach] :
+Om du vill se startprocessen i behållaren använder du kommandot [az container attach][az-container-attach]:
 
 ```azurecli-interactive
 az container attach --resource-group $RES_GROUP --name acr-tasks
@@ -280,7 +280,7 @@ Om du vill ta bort konsolen från containern trycker du på `Control+C`.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Stoppa behållar instansen med kommandot [AZ container Delete][az-container-delete] :
+Stoppa behållarinstansen med kommandot [az container delete][az-container-delete]:
 
 ```azurecli-interactive
 az container delete --resource-group $RES_GROUP --name acr-tasks

@@ -1,5 +1,5 @@
 ---
-title: Kopiera en hanterad disk till ett lagrings konto – CLI-exempel
+title: Kopiera en hanterad disk till ett lagringskonto - CLI-exempel
 description: Azure CLI-exempel – Exportera eller kopiera en hanterad disk till ett lagringskonto.
 services: virtual-machines-windows
 documentationcenter: storage
@@ -17,10 +17,10 @@ ms.date: 09/17/2018
 ms.author: ramankum
 ms.custom: mvc,seodec18
 ms.openlocfilehash: 92c752c56c37b854bc793d897c664337cf8bfccd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75463620"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportera/kopiera en hanterad disk till ett lagringskonto med hjälp av Azure CLI
@@ -50,4 +50,4 @@ Det här skriptet använder följande kommandon för att generera SAS-URI:n för
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Fler CLI-skript exempel för virtuella datorer och hanterade diskar finns i [Azures dokumentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)om virtuella Windows-datorer.
+Ytterligare klimaxator- och hanterade diskar CLI-skriptexempel finns i [Azure Windows VM-dokumentationen](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

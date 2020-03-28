@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` använda en hanterad identitet för att få åtkomst till Azure Cosmos DB-Windows-Azure AD
+title: Självstudiekurs`:` Använd en hanterad identitet för att komma åt Azure Cosmos DB - Windows - Azure AD
 description: En självstudiekurs som beskriver steg för steg hur du använder en systemtilldelad hanterad identitet på en virtuell Windows-dator för att få åtkomst till Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78248221"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Cosmos DB
@@ -34,7 +34,7 @@ I den här självstudien lär du dig att komma åt Cosmos DB med en systemtillde
 > * Hämta en åtkomsttoken med hjälp av den virtuella Windows-datorns systemtilldelade hanterade identitet för att anropa Azure Resource Manager
 > * Hämta åtkomstnycklar från Azure Resource Manager för att göra Cosmos DB-anrop
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -52,13 +52,13 @@ I den här självstudien lär du dig att komma åt Cosmos DB med en systemtillde
 
 ### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto 
 
-Om du inte redan har ett skapar du ett Cosmos DB-konto. Du kan hoppa över det här steget och använda ett befintligt Cosmos DB-konto. 
+Om du inte redan har ett Cosmos DB-konto skapar du ett. Du kan hoppa över det här steget och använda ett befintligt Cosmos DB-konto. 
 
-1. Klicka på knappen **+/Skapa ny tjänst** som finns i det övre vänstra hörnet på Azure Portal.
+1. Klicka på knappen **+/Skapa ny tjänst** som finns i övre vänstra hörnet i Azure-portalen.
 2. Klicka på **Databaser** och sedan på **Azure Cosmos DB**. Panelen ”Nytt konto” visas.
 3. Ange ett **ID** för Cosmos DB-kontot som du ska använda senare.  
 4. **API** bör ha värdet ”SQL”. Metoden som beskrivs i den här självstudien kan användas med de andra tillgängliga API-typerna, men stegen i den här självstudien gäller för SQL-API:et.
-5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.  Välj en **plats** där Cosmos DB är tillgänglig.
+5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.  Välj en **plats** där Cosmos DB är tillgänglig.
 6. Klicka på **Skapa**.
 
 ### <a name="create-a-collection"></a>Skapa en samling 
@@ -67,12 +67,12 @@ Lägg till en datasamling till Cosmos DB-kontot som du kan skicka frågor mot i 
 
 1. Gå till Cosmos DB-kontot som du precis skapat.
 2. Klicka på knappen **+/Lägg till samling** på fliken **Översikt**. Panelen ”Lägg till samling” visas.
-3. Tilldela samlingen ett databas-ID och ett samlings-ID, välj en lagringskapacitet, ange en partitionsnyckel, ange ett värde för dataflöde och klicka sedan på **OK**.  I den här självstudien kan du använda ”Test” som databas-ID och samlings-ID, välja en fast lagringskapacitet och det lägsta dataflöde (400 RU/s).  
+3. Tilldela samlingen ett databas-ID och ett samlings-ID, välj en lagringskapacitet, ange en partitionsnyckel, ange ett värde för dataflöde och klicka sedan på **OK**.  I den här självstudien räcker det att du använder ”Test” som databas-ID och samlings-ID, väljer en fast lagringskapacitet och det lägsta dataflödet (400 RU/s).  
 
 
-### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Bevilja åtkomst till Cosmos DB kontots åtkomst nycklar
+### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Bevilja åtkomst till cosmos DB-kontonycklar
 
-Det här avsnittet visar hur du beviljar Windows VM-systemtilldelad åtkomst till hanterad identitet till Cosmos DB kontots åtkomst nycklar. Cosmos DB har inte inbyggt stöd för Azure AD-autentisering. Du kan emellertid använda en systemtilldelad hanterad identitet för att hämta en åtkomstnyckel för Cosmos DB från Resource Manager och sedan använda nyckeln för att komma åt Cosmos DB. I det här steget ger du den virtuella Windows-datorns systemtilldelade hanterade identitet åtkomst till nycklarna till Cosmos DB-kontot.
+I det här avsnittet visas hur du beviljar Windows VM-systemtilldelade hanterade identitetsåtkomst till cosmos DB-kontoåtkomstnycklar. Cosmos DB har inte inbyggt stöd för Azure AD-autentisering. Du kan emellertid använda en systemtilldelad hanterad identitet för att hämta en åtkomstnyckel för Cosmos DB från Resource Manager och sedan använda nyckeln för att komma åt Cosmos DB. I det här steget ger du den virtuella Windows-datorns systemtilldelade hanterade identitet åtkomst till nycklarna till Cosmos DB-kontot.
 
 Om du ska ge den virtuella Windows-datorns systemtilldelade hanterade identitet åtkomst till Cosmos DB-kontot i Azure Resource Manager med hjälp av PowerShell uppdaterar du värdet för `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` för din miljö. Cosmos DB stöder två detaljnivåer när åtkomstnycklar används: läs- och skrivåtkomst till kontot samt skrivskyddad åtkomst till kontot.  Tilldela rollen `DocumentDB Account Contributor` om du vill hämta läs-/skrivnycklar för kontot, eller rollen `Cosmos DB Account Reader Role` om du vill hämta skrivskyddade nycklar för kontot.  För den här självstudien tilldelar du `Cosmos DB Account Reader Role`:
 
@@ -82,15 +82,15 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 ```
 ## <a name="access-data"></a>Åtkomst till data
 
-Det här avsnittet visar hur du anropar Azure Resource Manager med hjälp av en åtkomsttoken för den hanterade identiteten för den virtuella Windows-datorn. Under resten av självstudien arbetar vi från den virtuella datorn som vi skapade tidigare. 
+Det här avsnittet visar hur du anropar Azure Resource Manager med hjälp av en åtkomsttoken för den systemtilldelade windows VM-systemtilldelade hanterade identiteten. Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare. 
 
-Du måste installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på din virtuella Windows-dator.
+Du måste installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på din Virtuella Windows-dator.
 
 
 
 ### <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-1. Gå till **Virtuella datorer** i Microsoft Azure-portalen, gå till den virtuella Windows-datorn och klicka sedan på **Anslut** under **Översikt** längst upp. 
+1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**. 
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen.
 4. Använd PowerShells Invoke-WebRequest och skicka en begäran till den lokala slutpunkten för hanterade identiteter för Azure-resurser för att hämta en åtkomsttoken för Azure Resource Manager.
@@ -115,7 +115,7 @@ Du måste installera den senaste versionen av [Azure CLI](https://docs.microsoft
 
 ### <a name="get-access-keys"></a>Hämta åtkomstnycklar 
 
-Det här avsnittet visar hur du hämtar åtkomst nycklar från Azure Resource Manager för att göra Cosmos DB-anrop. Nu använder du PowerShell för att anropa Resource Manager med hjälp av den åtkomsttoken som du fick i föregående avsnitt för att hämta åtkomstnyckeln för Cosmos DB-kontot. När vi väl har åtkomstnyckeln kan vi skicka frågor mot Cosmos DB. Ersätt parametervärdena `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` med dina egna värden. Ersätt värdet `<ACCESS TOKEN>` med den åtkomsttoken som du hämtade tidigare.  Om du vill hämta läs- och skrivnycklar använder du nyckelåtgärdstypen `listKeys`.  Om du vill hämta skrivskyddade nycklar använder du nyckelåtgärdstypen `readonlykeys`:
+Det här avsnittet visar hur du får åtkomstnycklar från Azure Resource Manager för att ringa Cosmos DB-anrop. Nu använder du PowerShell för att anropa Resource Manager med hjälp av den åtkomsttoken som du fick i föregående avsnitt för att hämta åtkomstnyckeln för Cosmos DB-kontot. När vi väl har åtkomstnyckeln kan vi skicka frågor mot Cosmos DB. Ersätt parametervärdena `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` med dina egna värden. Ersätt värdet `<ACCESS TOKEN>` med den åtkomsttoken som du hämtade tidigare.  Om du vill hämta läs- och skrivnycklar använder du nyckelåtgärdstypen `listKeys`.  Om du vill hämta skrivskyddade nycklar använder du nyckelåtgärdstypen `readonlykeys`:
 
 ```powershell
 Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>/listKeys/?api-version=2016-03-31' -Method POST -Headers @{Authorization="Bearer $ARMToken"}

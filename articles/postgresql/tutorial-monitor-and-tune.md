@@ -1,19 +1,19 @@
 ---
-title: 'Självstudie: övervaka och finjustera – Azure Database for PostgreSQL-enskild server'
-description: Den här självstudien vägleder dig genom övervakning och justering i Azure Database for PostgreSQL-enskild server.
+title: 'Självstudiekurs: Övervaka och finjustera – Azure Database för PostgreSQL - Single Server'
+description: Den här självstudien går igenom övervakning och justering i Azure Database för PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74774745"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Självstudie: övervaka och finjustera Azure Database for PostgreSQL-enskild server
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Självstudiekurs: Övervaka och finjustera Azure Database för PostgreSQL - Single Server
 
 Azure Database for PostgreSQL har funktioner som hjälper dig att förstå och förbättra din serverprestanda. I den här självstudien får du lära dig hur man
 > [!div class="checklist"]

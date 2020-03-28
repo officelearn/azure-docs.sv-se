@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` använda en hanterad identitet för att få åtkomst till Azure SQL – Windows-Azure AD
+title: Självstudiekurs`:` Använd en hanterad identitet för att komma åt Azure SQL - Windows - Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure SQL.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977863"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure SQL
@@ -54,7 +54,7 @@ Det finns två steg för att ge den virtuella datorn åtkomst till en databas:
 
 ### <a name="enable-azure-ad-authentication"></a>Aktivera Azure AD-autentisering
 
-**[Konfigurera Azure AD-autentisering för SQL Server](/azure/sql-database/sql-database-aad-authentication-configure):**
+**Så här konfigurerar du [Azure AD-autentisering för SQL-servern:](/azure/sql-database/sql-database-aad-authentication-configure)**
 
 1.  I Azure-portalen väljer du **SQL-servrar** från det vänstra navigeringsfältet.
 2.  Klicka på den SQL server som ska aktiveras för Azure AD-autentisering.
@@ -65,12 +65,12 @@ Det finns två steg för att ge den virtuella datorn åtkomst till en databas:
 
 ### <a name="create-contained-user"></a>Skapa innesluten användare
 
-I det här avsnittet visas hur du skapar en innesluten användare i databasen som representerar den virtuella datorns tilldelade identitet. För det här steget behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för att få bakgrundsinformation om Azure AD-integrering:
+Det här avsnittet visar hur du skapar en innesluten användare i databasen som representerar den tilldelade datorns systemtilldelade identitet. I det här steget behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för att få bakgrundsinformation om Azure AD-integrering:
 
 - [Universell autentisering med SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
-SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-konton, till exempel användare, grupper och tjänstens huvudnamn (program) och namn på virtuella datorer som aktiverats för hanterad identitet definieras unikt i AAD om sina visningsnamn. SQL DB kontrollerar AADs visnings namn vid T-SQL-skapandet av sådana användare och om det inte är unikt, Miss lyckas begäran att tillhandahålla ett unikt AAD-visnings namn för ett angivet konto.
+SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-konton, till exempel användare, grupper och tjänstens huvudnamn (program) och namn på virtuella datorer som aktiverats för hanterad identitet definieras unikt i AAD om sina visningsnamn. SQL DB kontrollerar AAD-visningsnamnet under T-SQL-skapandet av sådana användare och om det inte är unikt, misslyckas kommandot med begäran om att tillhandahålla ett unikt AAD-visningsnamn för ett visst konto.
 
 **Så här skapar du en innesluten användare:**
 
@@ -80,7 +80,7 @@ SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-konton, till exempel
 4. I fältet **Användarnamn** anger du namnet på det Azure AD-konto som du anger som serveradministratör, till exempel helen@woodgroveonline.com
 5. Klicka på **Alternativ**.
 6. I fältet **Anslut till databas** anger du namnet på den icke-systembaserade databas som du vill konfigurera.
-7. Klicka på **anslut**. Slutför inloggningsprocessen.
+7. Klicka på **Anslut**. Slutför inloggningsprocessen.
 8. I **Object Explorer** expanderar du mappen **Databaser**.
 9. Högerklicka på en användardatabas och klicka på **Ny fråga**.
 10. I frågefönstret anger du följande rad och klickar på **Kör** i verktygsfältet:
@@ -108,9 +108,9 @@ Kod som körs i den virtuella datorn kan nu få en token från den systemtilldel
 
 ## <a name="access-data"></a>Åtkomst till data
 
-Det här avsnittet visar hur du hämtar en åtkomsttoken med den virtuella datorns systemtilldelade identitet och använder den för att anropa Azure SQL. Azure SQL har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hanterade identiteter för Azure-resurser kan accepteras direkt. Du använder metoden med **åtkomsttoken** för att skapa en anslutning till SQL. Detta är en del av integreringen av Azure SQL med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
+Det här avsnittet visar hur du hämtar en åtkomsttoken med den virtuella datorns systemtilldelade hanterade identitet och använder den för att anropa Azure SQL. Azure SQL har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hanterade identiteter för Azure-resurser kan accepteras direkt. Du använder metoden med **åtkomsttoken** för att skapa en anslutning till SQL. Detta är en del av integreringen av Azure SQL med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
-Här är ett .NET-kod exempel för att öppna en anslutning till SQL med hjälp av en åtkomsttoken. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns systemtilldelade hanterade identitet. **.NET Framework 4,6** eller högre eller **.net Core 2,2** eller högre krävs för att använda åtkomsttoken. Ersätt värdena för AZURE-SQL-SERVERNAME och DATABASE i enlighet med detta. Observera att resurs-ID: t för Azure SQL är `https://database.windows.net/`.
+Här är ett .NET-kodexempel för att öppna en anslutning till SQL med hjälp av en åtkomsttoken. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns systemtilldelade hanterade identitet. **.NET Framework 4.6** eller senare eller **.NET Core 2.2** eller senare krävs för att använda åtkomsttokenmetoden. Ersätt värdena för AZURE-SQL-SERVERNAME och DATABASE i enlighet med detta. Observera att resurs-ID `https://database.windows.net/`för Azure SQL är .
 
 ```csharp
 using System.Net;

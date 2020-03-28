@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
 ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77565586"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudie: Hantera dina anslutna enheter i grupp
@@ -21,17 +21,17 @@ I den här självstudien använder du lösningsacceleratorn för fjärrövervakn
 
 Som operatör på Contoso behöver du konfigurera en grupp med enheter med en ny version av inbyggd programvara. Du vill inte bli tvungen att uppdatera den inbyggda programvaran enskilt på varje enhet. Om du vill uppdatera den inbyggda programvaran på en grupp med enheter kan du använda enhetsgrupper och automatisk enhetshantering i lösningsacceleratorn för fjärrövervakning. Alla enheter som du lägger till i enhetsgruppen får den senaste inbyggda programvaran så snart enheten är online.
 
-I den här kursen har du:
+I den här kursen får du:
 
 >[!div class="checklist"]
-> * Skapa en enhetsgrupp
+> * Skapa en enhetsgrupp.
 > * Förbereda och hantera den inbyggda programvaran.
 > * Skapa en enhetskonfiguration på Azure-portalen.
 > * Importera en enhetskonfiguration till fjärrövervakningslösningen.
 > * Distribuera konfigurationen till enheterna i enhetsgruppen.
 > * Övervaka distributionen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 <!--
 If this is going to be a tutorial - we need to split this include into two so that we can accommodate the additional prerequisites:
@@ -39,7 +39,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa den här självstudien behöver du en distribuerad instans av acceleratorn Fjärrövervakningslösning i Azure-prenumerationen.
 
@@ -67,15 +67,15 @@ Om du vill visa fjärrövervakningslösningens instrumentpanel i webbläsaren g�
 
 Klicka sedan på **Starta** på panelen för den accelerator för fjärrövervakningslösningen som du distribuerade i [Snabbstarten](quickstart-remote-monitoring-deploy.md).
 
-## <a name="create-a-device-group"></a>Skapa en enhetsgrupp
+## <a name="create-a-device-group"></a>Skapa en enhetsgrupp.
 
 För att den inbyggda programvaran ska uppdateras automatiskt på en grupp med enheter måste enheterna vara medlemmar i en enhetsgrupp i fjärrövervakningslösningen:
 
 1. På sidan **Enheter** markerar du alla de **IoT DevKit**-enheter som du har anslutit till lösningsacceleratorn. Klicka sedan på **Jobb**.
 
-1. I panelen **jobb** väljer du **taggar**, anger jobb namnet till **AddDevKitTag**och lägger sedan till en text-tagg med namnet **IsDevKitDevice** med värdet **Y**. Klicka sedan på **Använd**.
+1. På **jobbpanelen** väljer du **Taggar,** anger jobbnamnet till **AddDevKitTag**och lägger sedan till en texttagg med namnet **IsDevKitDevice** med värdet **Y**. Klicka sedan på **Använd**.
 
-1. Nu kan du använda taggvärdena till att skapa en enhetsgrupp. På sidan **Enheter** klickar du på **Hantera enhetsgrupper**.
+1. Nu kan du använda taggvärdena till att skapa en enhetsgrupp. Klicka på Hantera **enhetsgrupper**på sidan **Enheter** .
 
 1. Skapa ett textfilter som använder taggnamnet **IsDevKitDevice** och värdet **Y** i villkoret. Spara enhetsgruppen som **IoT DevKit devices**.
 
@@ -237,7 +237,7 @@ I det här avsnittet skapar och kör du en distribution som tillämpar enhetskon
 
     ![Skapa distribution](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 
-    Klicka på **Verkställ**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
+    Klicka på **Använd**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
 
     * **Riktade** visar antalet enheter i enhetsgruppen.
     * **Tillämpade** visar antalet enheter som uppdaterades med konfigurationsinnehållet.

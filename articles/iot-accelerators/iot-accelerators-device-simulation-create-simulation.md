@@ -10,17 +10,17 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "61448570"
 ---
-# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Självstudier: Skapa och köra en IoT-enhetssimulering
+# <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Självstudie: Skapa och köra en IoT-enhetssimulering
 
 I den här självstudien använder du enhetssimulering för att skapa och köra en ny IoT-simulering med hjälp av en eller flera simulerade enheter.
 
-I den här kursen för du göra följande:
+I den här kursen får du:
 
 >[!div class="checklist"]
 > * Visa alla aktiva och historiska simuleringar
@@ -28,9 +28,9 @@ I den här kursen för du göra följande:
 > * Visa mått för en simulering
 > * Stoppa en simulering
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att följa den här självstudien behöver du en distribuerad instans av enhetssimuleringen i din Azure-prenumeration.
 

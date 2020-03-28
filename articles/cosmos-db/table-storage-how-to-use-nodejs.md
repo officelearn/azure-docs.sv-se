@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Table Storage eller Azure Cosmos DB Tabell-API från Node. js
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
+title: Använda Azure Table Storage eller Azure Cosmos DB Table API från Node.js
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: d04cf082f5dc7ca3ae07b60dc193c66613fa5c4f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76771083"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
@@ -68,7 +68,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
 ## <a name="add-an-azure-cosmos-db-connection"></a>Lägga till en Azure Cosmos DB-anslutning
-Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från **Inställningar** > **Anslutningssträng** på Azure Portal för ditt Cosmos-DB-konto. Ett exempel:
+Du lägger till en Azure Cosmos DB-anslutning genom att skapa ett **TableService**-objekt och ange ditt kontonamn, primärnyckeln och slutpunkten. Du kan kopiera dessa värden från > **Anslutningssträngen** för **inställningar**i Azure-portalen för ditt Cosmos DB-konto. Ett exempel:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -94,7 +94,7 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 `result.created` är `true` om en ny tabell skapas och `false` om tabellen redan finns. `response` innehåller information om begäran.
 
 ### <a name="filters"></a>Filter
-Om du vill kan du tillämpa filtrering på åtgärder som utförs med **TableService**. Filtrerings åtgärder kan omfatta loggning, automatiska återförsök osv. Filter är objekt som implementerar en metod med signaturen:
+Om du vill kan du tillämpa filtrering på åtgärder som utförs med **TableService**. Filtrering kan omfatta loggning, automatiska återförsök, etc. Filter är objekt som implementerar en metod med signaturen:
 
 ```javascript
 function handle (requestOptions, next)
@@ -264,7 +264,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 
 När den här åtgärden har slutförts innehåller `result` entiteten.
 
-## <a name="query-a-set-of-entities"></a>Köra frågor mot en uppsättning entiteter
+## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
 Om du vill hämta data från en tabell använder du objektet **TableQuery** för att skapa ett frågeuttryck med hjälp av följande satser:
 
 * **select** – Fälten som ska returneras från frågan.
@@ -365,7 +365,7 @@ dc.table.queryEntities(tableName,
 
 Om du granskar `continuationToken`-objektet hittar du egenskaper som `nextPartitionKey`, `nextRowKey` och `targetLocation`, som du kan använda för att gå igenom alla resultat.
 
-Du kan också använda `top` tillsammans med `continuationToken` för att ange sid storlek. 
+Du kan `top` också `continuationToken` använda tillsammans med för att ställa in sidstorleken. 
 
 ## <a name="work-with-shared-access-signatures"></a>Arbeta med signaturer för delad åtkomst
 Signaturer för delad åtkomst (SAS) är ett säkert sätt att ge detaljerad åtkomst till tabeller utan att ange namnet på eller nycklarna för ditt lagringskontot. SAS används ofta för att ge begränsad åtkomst till data, till exempel om du vill tillåta att en mobilapp frågar efter poster.
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 Observera att du också måste ange värdinformationen eftersom den krävs när SAS-innehavaren försöker få åtkomst till tabellen.
 
-Klientprogrammet använder sedan signaturen för delad åtkomst med **TableServiceWithSAS** för att köra åtgärder mot tabellen. Koden i följande exempel ansluter till tabellen och kör en fråga. Se [bevilja begränsad åtkomst till Azure Storage resurser med hjälp av SAS-artikel (signatur för delad åtkomst)](../storage/common/storage-sas-overview.md) för tabell formatet. 
+Klientprogrammet använder sedan signaturen för delad åtkomst med **TableServiceWithSAS** för att köra åtgärder mot tabellen. Koden i följande exempel ansluter till tabellen och kör en fråga. Se [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SAS-artikel (Shared Access Signatures)](../storage/common/storage-sas-overview.md) för formatet tableSAS. 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

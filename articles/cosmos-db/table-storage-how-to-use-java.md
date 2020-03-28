@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Table Storage eller Azure Cosmos DB Tabell-API från Java
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
+title: Använda Azure Table storage eller Azure Cosmos DB Table API från Java
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 author: sakash279
 ms.author: akshanka
 ms.openlocfilehash: 33569730e565c68d66539feb4491b1925796b300
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76771150"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Så använder du Azure Table Storage eller Azure Cosmos DB Table API från Java
@@ -38,7 +38,7 @@ I den här artikeln visas hur du utför vanliga scenarier med hjälp av tjänste
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
 I den här guiden använder du lagringsfunktioner som du kan köra i ett Java-program lokalt eller i kod som körs i en webbroll eller i en arbetsroll i Azure.
 
-För att använda exemplen i den här artikeln installerar du Java Development Kit (JDK) och skapar sedan ett Azure Storage-konto eller ett Azure Cosmos DB-konto i din Azure-prenumeration. När du har gjort det kontrollerar du att ditt utvecklings system uppfyller de minimi krav och beroenden som anges i [Azure Storage SDK för Java][Azure Storage SDK for Java] -lagringsplatsen på GitHub. Om datorn uppfyller kraven kan du följa instruktionerna för att ladda ned och installera Azure Storage-biblioteken för Java på datorn från lagringsplatsen. När du har slutfört de uppgifterna kan du skapa ett Java-program som använder exemplen i den här artikeln.
+För att använda exemplen i den här artikeln installerar du Java Development Kit (JDK) och skapar sedan ett Azure Storage-konto eller ett Azure Cosmos DB-konto i din Azure-prenumeration. När du har gjort det verifierar du att utvecklingsdatorn uppfyller de minimikrav och de beroenden som anges i lagringsplatsen för [Azure Storage SDK för Java][Azure Storage SDK for Java] på GitHub. Om datorn uppfyller kraven kan du följa instruktionerna för att ladda ned och installera Azure Storage-biblioteken för Java på datorn från lagringsplatsen. När du har slutfört de uppgifterna kan du skapa ett Java-program som använder exemplen i den här artikeln.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Konfigurera programmet för att använda Table-lagring
 Lägg till följande importinstruktioner överst i Java-filen där du vill använda Azure Storage-API:er eller Azure Cosmos DB Table API för att komma åt tabeller:
@@ -76,7 +76,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-I ett program som körs inuti en roll i Azure kan du lagra den här strängen i tjänstkonfigurationsfilen *ServiceConfiguration.cscfg*, och du kan komma åt den med ett anrop till metoden  **RoleEnvironment.getConfigurationSettings**. Här är ett exempel på hur anslutningssträngen från ett **inställningselement** med namnet *StorageConnectionString* i tjänstkonfigurationsfilen kan hämtas:
+I ett program som körs inuti en roll i Azure kan du lagra den här strängen i tjänstkonfigurationsfilen *ServiceConfiguration.cscfg*, och du kan komma åt den med ett anrop till metoden ** RoleEnvironment.getConfigurationSettings**. Här är ett exempel på hur anslutningssträngen från ett **inställningselement** med namnet *StorageConnectionString* i tjänstkonfigurationsfilen kan hämtas:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -96,7 +96,7 @@ Följande exempel förutsätter att du har använt någon av dessa metoder för 
 Med ett **CloudTableClient**-objekt kan du hämta referensobjekt för tabeller och entiteter. Följande kod skapar ett **CloudTableClient**-objekt och använder det för att skapa ett nytt **CloudTable**-objekt som representerar en tabell med namnet ”people” (personer). 
 
 > [!NOTE]
-> Det finns andra sätt att skapa **CloudStorageAccount**-objekt; mer information finns i **CloudStorageAccount** i [Azure Storage Client SDK-referens]).
+> Det finns andra sätt att skapa **CloudStorageAccount**-objekt; mer information finns i **CloudStorageAccount** i [referensen för Azure Storage Client SDK]).
 >
 
 ```java
@@ -149,7 +149,7 @@ catch (Exception e)
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
-Entiteter mappar till Java-objekt med hjälp av en anpassad klass som implementerar **TableEntity**. För enkelhetens skull implementerar klassen **TableServiceEntity** **TableEntity** och använder reflektion för att mappa egenskaper till getter- och setter-metoder som namngivits efter egenskaperna. Om du vill lägga till en entitet i en tabell skapar du först en klass som definierar egenskaperna för entiteten. Följande kod definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Entiteter med samma partitionsnyckel kan frågas snabbare än dem som har olika partitionsnycklar.
+Entiteter mappar till Java-objekt med hjälp av en anpassad klass som implementerar **TableEntity**. För enkelhetens skull implementerar klassen **TableServiceEntity****TableEntity** och använder reflektion för att mappa egenskaper till getter- och setter-metoder som namngivits efter egenskaperna. Om du vill lägga till en entitet i en tabell skapar du först en klass som definierar egenskaperna för entiteten. Följande kod definierar en entitetsklass som använder kundens förnamn som radnyckel och efternamn som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Entiteter med samma partitionsnyckel kan frågas snabbare än dem som har olika partitionsnycklar.
 
 ```java
 public class CustomerEntity extends TableServiceEntity {
@@ -454,7 +454,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Fråga en deluppsättning entitetsegenskaper
-En fråga till en tabell kan bara hämta några få egenskaper från en entitet. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod använder metoden **select** för att bara returnera e-postadresserna för entiteter i tabellen. Resultatet projiceras till en samling av **String** med hjälp av en **EntityResolver**, som utför typkonvertering på de entiteter som returneras från servern. Du kan lära dig mer om projektion i [Azure tables: Introduktion av upsert och frågans projektion] [Azure tables: Introduktion av upsert och frågans projektion]. Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service.
+En fråga till en tabell kan bara hämta några få egenskaper från en entitet. Den här tekniken, kallad projektion, minskar bandbredden och kan förbättra frågeprestanda, i synnerhet för stora entiteter. Frågan i följande kod använder metoden **select** för att bara returnera e-postadresserna för entiteter i tabellen. Resultatet projiceras till en samling av **String** med hjälp av en **EntityResolver**, som utför typkonvertering på de entiteter som returneras från servern. Du kan läsa mer om projektion i [Azure-tabeller: Introduktion till Upsert och Query Projection][Azure-tabeller: Introduktion till Upsert och Frågeprojektion]. Observera att projektion inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service.
 
 ```java
 try
@@ -496,7 +496,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Infoga eller ersätta en entitet
-Ofta finns det ett behov av att lägga till en entitet i en tabell utan kännedom om huruvida den redan finns i tabellen. Med en insert-or-replace-åtgärd kan du göra en enskild begäran som infogar entiteten om den inte redan finns eller ersätter den befintliga om den finns. Följande kod bygger på föregående exempel och infogar eller ersätter entiteten för ”Walter Harp”. När du har skapat en ny entitet anropar koden metoden **TableOperation.insertOrReplace**. Den här koden anropar sedan **execute** på **CloudTable**-objektet med tabellen och insert- eller replace-åtgärder för tabell som parametrar. Om du vill uppdatera endast en del av en entitet går det att använda metoden **TableOperation.insertOrMerge** i stället. Observera att insert-or-replace inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service. Du kan lära dig mer om INSERT-eller-replace-och INSERT-eller-merge i detta [Azure-tabeller: Introduktion av upsert och frågekörning] [Azure tables: Introduktion av upsert och frågans projektion].
+Ofta finns det ett behov av att lägga till en entitet i en tabell utan kännedom om huruvida den redan finns i tabellen. Med en insert-or-replace-åtgärd kan du göra en enskild begäran som infogar entiteten om den inte redan finns eller ersätter den befintliga om den finns. Följande kod bygger på föregående exempel och infogar eller ersätter entiteten för ”Walter Harp”. När du har skapat en ny entitet anropar koden metoden **TableOperation.insertOrReplace**. Den här koden anropar sedan **execute** på **CloudTable**-objektet med tabellen och insert- eller replace-åtgärder för tabell som parametrar. Om du vill uppdatera endast en del av en entitet går det att använda metoden **TableOperation.insertOrMerge** i stället. Observera att insert-or-replace inte stöds i den lokala lagringsemulatorn. Det betyder att den här koden endast körs vid användning av ett konto i Table Service. Du kan läsa mer om att infoga eller ersätta och infoga eller sammanfoga i detta [Azure-tabeller: Introduktion till Upsert och Frågeprojektion][Azure-tabeller: Introduktion till Upsert och Frågeprojektion].
 
 ```java
 try

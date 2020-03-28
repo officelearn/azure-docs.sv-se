@@ -1,5 +1,5 @@
 ---
-title: Anslut vinkel appen till Azure Cosmos DB s API för MongoDB med Mongoose
+title: Ansluta appen Vinkel till Azure Cosmos DB:s API för MongoDB med Mongoose
 description: I den här självstudien beskrivs hur du skapar en Node.js-app med hjälp av Angular och Express för att hantera data som lagras i Cosmos DB. I den här delen använder du Mongoose till att ansluta till Azure Cosmos DB.
 author: johnpapa
 ms.service: cosmos-db
@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
 ms.openlocfilehash: ba893eeb8c2560397f3524d1042566dbafee7d1b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75444697"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB – Ansluta till Cosmos DB med hjälp av Mongoose
@@ -31,7 +31,7 @@ I den här delen av självstudien får du göra följande:
 > * Skapa Hero-tjänsten för att hämta Hero-data.
 > * Kör appen lokalt.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -233,11 +233,11 @@ Kör sedan appen med hjälp av följande steg:
 
 1. Spara alla ändringar i Visual Studio Code. Till vänster väljer du knappen **Felsökning**![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) och väljer sedan knappen **Starta felsökning**![felsökningsikon i Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
-1. Byt nu till webbläsaren. Öppna **utvecklarverktyg** och **fliken nätverk**. Gå till `http://localhost:3000`och se vårt program.
+1. Byt nu till webbläsaren. Öppna **utvecklarverktygen** och **fliken Nätverk**. Gå `http://localhost:3000`till, och där ser du vår ansökan.
 
     ![Nytt Azure Cosmos DB-konto på Azure-portalen](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-Det finns ännu inga heroes-komponenter lagrade i appen. I nästa del av den här självstudien lägger vi till funktioner put, push och delete. Sedan kan vi lägga till, uppdatera och ta bort hjältar från användar gränssnittet genom att använda Mongoose-anslutningar till vår Azure Cosmos-databas. 
+Det finns ännu inga heroes-komponenter lagrade i appen. I nästa del av den här självstudien lägger vi till funktioner put, push och delete. Sedan kan vi lägga till, uppdatera och ta bort hjältar från användargränssnittet genom att använda Mongoose-anslutningar till vår Azure Cosmos-databas. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -252,4 +252,4 @@ Du kan ta bort resursgruppen, Azure Cosmos DB-kontot och alla relaterade resurse
 Fortsätt till del 6 av självstudien för att lägga till Post-, Put- och Delete-funktioner i appen:
 
 > [!div class="nextstepaction"]
-> [Del 6: Lägg till post-, placerings-och borttagnings funktioner i appen](tutorial-develop-mongodb-nodejs-part6.md)
+> [Del 6: Lägg till funktioner för inlägg, inlägg och ta bort i appen](tutorial-develop-mongodb-nodejs-part6.md)

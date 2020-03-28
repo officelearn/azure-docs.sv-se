@@ -5,16 +5,16 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Den här självstudien visar hur du använder Azure dev Spaces och Visual Studio för att felsöka ett .NET Core-program med flera tjänster i Azure Kubernetes service
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
+description: Den här självstudien visar hur du använder Azure Dev Spaces och Visual Studio för att felsöka ett MULTI-Service .NET Core-program på Azure Kubernetes Service
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
 ms.openlocfilehash: 7f95c21c2cf5b7adcdb34d7bbe2b1f8314c20333
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75438391"
 ---
-# <a name="running-multiple-dependent-services-net-core-and-visual-studio-with-azure-dev-spaces"></a>Köra flera beroende tjänster: .NET Core och Visual Studio med Azure dev Spaces
+# <a name="running-multiple-dependent-services-net-core-and-visual-studio-with-azure-dev-spaces"></a>Köra flera beroende tjänster: .NET Core och Visual Studio med Azure Dev Spaces
 
 I den här självstudien lär du dig att utveckla program för flera tjänster med hjälp av Azure Dev Spaces samt några av de fördelar som finns i Dev Spaces.
 
@@ -28,7 +28,7 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 
 ### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna projektet `mywebapi` i ett *separat fönster i Visual Studio*.
-1. Välj **Azure Dev Spaces** i listrutan med startinställningar som du gjorde tidigare för projektet `webfrontend`. I stället för att skapa ett nytt AKS-kluster väljer du den här gången samma som du redan skapat. Precis som förut lämnar du standardinställningen `default` för Utrymme och klickar på **OK**. I fönstret utdata kanske du märker att Visual Studio börjar "värma upp" den här nya tjänsten i ditt utvecklings utrymme för att snabba upp saker när du startar fel sökning.
+1. Välj **Azure Dev Spaces** i listrutan med startinställningar som du gjorde tidigare för projektet `webfrontend`. I stället för att skapa ett nytt AKS-kluster väljer du den här gången samma som du redan skapat. Precis som förut lämnar du standardinställningen `default` för Utrymme och klickar på **OK**. I utdatafönstret kanske du märker att Visual Studio börjar "värma upp" den här nya tjänsten i ditt utvecklingsutrymme för att snabba upp saker när du börjar felsöka.
 1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Processen är klar när statusfältet i Visual Studio blir orange
 1. Anteckna slutpunktens webbadress som visas i fönstret **Azure Dev Spaces för AKS** i fönstret **Utdata**. Den ser ut ungefär så här: `http://localhost:<portnumber>`. Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklingsmiljön i Azure.
 2. När `mywebapi` är klar öppnar du webbläsaren på localhost-adressen och lägger till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`. 

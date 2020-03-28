@@ -1,6 +1,6 @@
 ---
-title: Självstudie – ansluta en generisk Node. js-klient app till Azure IoT Central | Microsoft Docs
-description: Den här självstudien visar hur du, som enhets utvecklare, ansluter en enhet som kör en Node. js-klient till ditt Azure IoT Central-program. Du skapar en enhets mall genom att importera en enhets kapacitets modell och lägga till vyer som gör att du kan interagera med en ansluten enhet
+title: Självstudiekurs - Anslut en allmän Node.js-klientapp till Azure IoT Central | Microsoft-dokument
+description: Den här självstudien visar hur du som enhetsutvecklare ansluter en enhet som kör en Node.js-klientapp till ditt Azure IoT Central-program. Du skapar en enhetsmall genom att importera en enhetskapacitetsmodell och lägga till vyer som gör att du kan interagera med en ansluten enhet
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/26/2020
@@ -8,122 +8,122 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 1bcfc949eff0639dd1b4a063687e2c198f480ea3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77624545"
 ---
-# <a name="tutorial-create-and-connect-a-nodejs-client-application-to-your-azure-iot-central-application-nodejs"></a>Självstudie: skapa och Anslut ett Node. js-klientprogram till ditt Azure IoT Central-program (Node. js)
+# <a name="tutorial-create-and-connect-a-nodejs-client-application-to-your-azure-iot-central-application-nodejs"></a>Självstudiekurs: Skapa och ansluta ett Node.js-klientprogram till ditt Azure IoT Central-program (Node.js)
 
-Den här självstudien visar hur du, som enhets utvecklare, ansluter ett Node. js-klientprogram till ditt Azure IoT Central-program. Node. js-programmet simulerar beteendet hos en riktig enhet. Du använder en _enhets funktions modell_ för en miljö sensor för att skapa en _enhets mall_ i IoT Central. Du lägger till vyer i enhets mal len så att du kan visualisera enhetens telemetri, hantera enhets egenskaper och använda kommandon för att kontrol lera dina enheter.
+Den här självstudien visar hur du som enhetsutvecklare ansluter ett Node.js-klientprogram till ditt Azure IoT Central-program. Node.js-programmet simulerar beteendet hos en riktig enhet. Du använder en _exempelenhetsfunktionsmodell_ för en miljösensorenhet för att skapa en _enhetsmall_ i IoT Central. Du lägger till vyer i enhetsmallen så att du kan visualisera enhetstelemetri, hantera enhetsegenskaper och använda kommandon för att styra dina enheter.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Importera en enhets kapacitets modell för att skapa en enhets mall.
-> * Lägg till standard-och anpassade vyer i en enhets mall.
-> * Publicera en enhets mall och Lägg till en riktig enhet i IoT Central programmet.
-> * Skapa och kör Node. js-enhets koden och se hur den ansluter till ditt IoT Central-program.
+> * Importera en enhetsfunktionsmodell för att skapa en enhetsmall.
+> * Lägg till standardvyer och anpassade vyer i en enhetsmall.
+> * Publicera en enhetsmall och lägg till en riktig enhet i ditt IoT Central-program.
+> * Skapa och kör nod.js-enhetskoden och se den ansluta till ditt IoT Central-program.
 > * Visa den simulerade telemetri som enheten skickar.
-> * Använd en vy för att hantera enhets egenskaper.
-> * Anropa kommandon för att kontrol lera enheten.
+> * Använd en vy för att hantera enhetsegenskaper.
+> * Anropa kommandon för att styra enheten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* Ett Azure IoT Central-program som skapats med hjälp av mallen * * Custom program * *. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
-* En utvecklings dator med [Node. js](https://nodejs.org/) version 10.0.0 eller senare installerad. Du kan kontrol lera din version genom att köra `node --version` på kommando raden. Node.js är tillgängligt för många olika operativsystem. Anvisningarna i den här självstudien förutsätter att du kör **Node** -kommandot i kommando tolken i Windows. Du kan använda Node. js på flera olika operativ system.
+* Ett Azure IoT Central-program som skapats med hjälp av **Custom application **template. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
+* En utvecklingsmaskin med [Node.js](https://nodejs.org/) version 10.0.0 eller senare installerad. Du kan `node --version` köra på kommandoraden för att kontrollera din version. Node.js är tillgängligt för många olika operativsystem. Instruktionerna i den här självstudien förutsätter att du kör **nodkommandot** i Kommandotolken i Windows. Du kan använda Node.js på en mängd olika operativsystem.
 
-## <a name="create-a-device-template"></a>Skapa en enhets mall
+## <a name="create-a-device-template"></a>Skapa en enhetsmall
 
-Skapa en mapp med namnet `environmental-sensor` på den lokala datorn.
+Skapa en `environmental-sensor` mapp som anropas på den lokala datorn.
 
-Ladda ned JSON-filen för [miljö sensorns kapacitets modell](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) och spara den i mappen `environmental-sensor`.
+Ladda ner [miljösensor kapacitet modell](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) JSON `environmental-sensor` fil och spara den i mappen.
 
-Använd en text redigerare för att ersätta de två instanserna av `{YOUR_COMPANY_NAME_HERE}` med ditt företags namn i `EnvironmentalSensorInline.capabilitymodel.json` filen som du laddade ned.
+Använd en textredigerare för `{YOUR_COMPANY_NAME_HERE}` att ersätta de `EnvironmentalSensorInline.capabilitymodel.json` två instanserna med ditt företagsnamn i filen som du hämtade.
 
-I ditt Azure IoT Central-program skapar du en enhets mall som kallas *miljö sensor* genom att importera `EnvironmentalSensorInline.capabilitymodel.json` enhetens kapacitets modell fil:
+Skapa en enhetsmall som heter *Miljösensor* i azure IoT Central-programmet genom att importera `EnvironmentalSensorInline.capabilitymodel.json` enhetsfunktionsmodellfilen:
 
-![Enhets mal len med importerad enhets kapacitets modell](./media/tutorial-connect-device/device-template.png)
+![Enhetsmall med standardmodell för importerad enhetskapacitet](./media/tutorial-connect-device/device-template.png)
 
-Enhetens kapacitets modell innehåller två gränssnitt: standard gränssnittet för **enhets information** och det anpassade **miljö sensor** gränssnittet. Gränssnittet för **miljö sensor** definierar följande funktioner:
+Enhetskapacitetsmodellen innehåller två gränssnitt: **standardgränssnittet för enhetsinformation** och det anpassade **miljösensorgränssnittet.** **Gränssnittet för miljösensor** definierar följande funktioner:
 
-| Typ | Visningsnamn | Description |
+| Typ | Visningsnamn | Beskrivning |
 | ---- | ------------ | ----------- |
-| Egenskap | Enhetstillstånd     | Enhetens status. Två tillstånd online/offline är tillgängligt. |
-| Egenskap | Kund namn    | Namnet på kunden som har bearbetat enheten. |
-| Egenskap | Ljus styrke nivå | Ljus styrke nivån för ljuset på enheten. Kan anges som 1 (hög), 2 (medel), 3 (låg). |
+| Egenskap | Enhetstillstånd     | Enhetens tillstånd. Två tillstånd online/offline är tillgängliga. |
+| Egenskap | Kundens namn    | Namnet på den kund som för närvarande använder enheten. |
+| Egenskap | Ljusstyrka | Ljusstyrkan för lampan på enheten. Kan anges som 1 (hög), 2 (medium), 3 (låg). |
 | Telemetri | Temperatur | Aktuell temperatur på enheten. |
-| Telemetri | Fuktighet    | Aktuell fuktighet på enheten. |
-| Kommando | Blink          | Börja blinka LYSDIODen för angivet tidsintervall. |
-| Kommando | turnon         | Sätt på LAMPAn på enheten. |
-| Kommando | turnoff        | Stäng av indikator lampan på enheten. |
-| Kommando | rundiagnostics | Det här kommandot startar en diagnostisk körning. |
+| Telemetri | Fuktighet    | Aktuell luftfuktighet på enheten. |
+| Kommando | Blinka          | Börja blinka lysdioden för givet tidsintervall. |
+| Kommando | Turnon         | Slå på LED-lampan på enheten. |
+| Kommando | Avfarten        | Stäng av LED-lampan på enheten. |
+| Kommando | rundiagnostics (rundiagnostics) | Det här kommandot startar en diagnostikkörning. |
 
-Om du vill anpassa hur egenskapen **enhets tillstånd** visas i IoT Central programmet väljer du **Anpassa** i enhets mal len. Expandera **enhets tillstånds** posten, ange _online_ som det **sanna namnet** och _offline_ som det **falska namnet**. Spara sedan ändringarna:
+Om du vill anpassa hur egenskapen **Enhetstillstånd** visas i i ditt IoT Central-program väljer du **Anpassa** i enhetsmallen. Expandera **enhetstillståndsposten,** ange _Online_ som **sant namn** och _Offline_ som **falskt namn**. Spara sedan ändringarna:
 
-![Anpassa enhets mal len](media/tutorial-connect-device/customize-template.png)
+![Anpassa enhetsmallen](media/tutorial-connect-device/customize-template.png)
 
 ## <a name="create-views"></a>Skapa vyer
 
-Med vyer kan du interagera med enheter som är anslutna till ditt IoT Central-program. Du kan till exempel ha vyer som visar telemetri, vyer som visar egenskaper och vyer som låter dig redigera skrivbara och moln egenskaper. Vyer ingår i en enhets mall.
+Med vyer kan du interagera med enheter som är anslutna till ditt IoT Central-program. Du kan till exempel ha vyer som visar telemetri, vyer som visar egenskaper och vyer som gör att du kan redigera skrivbara och molnegenskaper. Vyer är en del av en enhetsmall.
 
-Om du vill lägga till några standardvyer i din **miljö sensors** enhets mall, navigerar du till din enhets mall, väljer **vyer**och väljer sedan panelen **generera standardvyer** . Se till att **översikten** och **om** är **på**och välj sedan **skapa standard instrument panels visningar**. Nu har du två standardvyer som definierats i mallen.
+Om du vill lägga till några standardvyer i **mallen Miljösensorenhet** navigerar du till enhetsmallen, väljer **Vyer**och väljer panelen **Generera standardvyer.** Kontrollera att **Översikt** och **Om** är **På**och välj sedan **Generera standardinstrumentpanelsvyer**. Nu har du definierat två standardvyer i mallen.
 
-**Miljö sensor** gränssnittet innehåller två skrivbara egenskaper – **kundens namn** och **ljus styrke nivå**. Om du vill skapa en vy kan du använda för att redigera dessa egenskaper:
+**Gränssnittet för miljösensor** innehåller två skrivbara egenskaper - **Kundnamn** och **ljusstyrka**. Om du vill skapa en vy kan du använda för att redigera dessa egenskaper:
 
-1. Välj **vyer** och välj sedan panelen **Redigera enhet och moln data** .
+1. Välj **Vyer** och välj sedan panelen **Redigera enhet och molndata.**
 
-1. Ange _Egenskaper_ som formulär namn.
+1. Ange _egenskaper_ som formulärnamn.
 
-1. Välj Egenskaper för **ljus styrke nivå** och **kundnamn** . Välj sedan **Lägg till avsnitt**.
+1. Välj egenskaperna **Ljusstyrka** och **Kundnamn.** Välj sedan **Lägg till avsnitt**.
 
 1. Spara ändringarna.
 
-![Lägga till en vy för att aktivera redigering av egenskaper](media/tutorial-connect-device/properties-view.png)
+![Lägga till en vy för att aktivera egenskapsredigering](media/tutorial-connect-device/properties-view.png)
 
 ## <a name="publish-the-template"></a>Publicera mallen
 
-Innan du lägger till en enhet till ditt IoT Central program som använder **miljösensorns** enhets mall måste du publicera mallen.
+Innan du lägger till en enhet i ditt IoT Central-program som använder mallen **miljösensorenhet** måste du publicera mallen.
 
-I enhets mal len väljer du **publicera**. Välj **publicera**i panelen som visar de ändringar som ska publiceras.
+Välj **Publicera**i enhetsmallen . Välj **Publicera**på panelen som visar de ändringar som ska publiceras .
 
-Kontrol lera att mallen är redo att användas genom att gå till sidan **enheter** i IoT Central programmet. Avsnittet **enheter** visar en lista över de publicerade enheterna i programmet:
+Om du vill kontrollera att mallen är klar att användas navigerar du till sidan **Enheter** i ditt IoT Central-program. Avsnittet **Enheter** visar en lista över de publicerade enheterna i programmet:
 
 ![Publicerade mallar på sidan enheter](media/tutorial-connect-device/published-templates.png)
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-I ditt Azure IoT Central-program lägger du till en riktig enhet i enhets mal len som du skapade i föregående avsnitt:
+I ditt Azure IoT Central-program lägger du till en riktig enhet i enhetsmallen som du skapade i föregående avsnitt:
 
-1. På sidan **enheter** väljer du mallen **miljö sensor** enhet.
+1. På sidan **Enheter** väljer du mallen **miljösensorenhet.**
 
-1. Välj **+ ny**.
+1. Välj **+ Nytt**.
 
-1. Se till att den **simulerade** är **avstängd**. Välj sedan **Skapa**.
+1. Kontrollera att **simulerad** är **Av**. Välj sedan **Skapa**.
 
-Klicka på enhetens namn och välj sedan **Anslut**. Anteckna anslutnings informationen för enheten på sidan för **enhets anslutningens** ID- **omfång**, **enhets-ID**och **primär nyckel**. Du behöver dessa värden när du skapar din enhets kod:
+Klicka på enhetens namn och välj sedan **Anslut**. Anteckna enhetsanslutningsinformationen på sidan **Enhetsanslutning** - **ID-scope,** **Enhets-ID**och **Primärnyckel**. Du behöver dessa värden när du skapar enhetskoden:
 
-![Information om enhets anslutning](./media/tutorial-connect-device/device-connection.png)
+![Information om enhetsanslutning](./media/tutorial-connect-device/device-connection.png)
 
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
-Följande steg visar hur du skapar ett Node. js-klientprogram som implementerar den riktiga enheten som du har lagt till i programmet. Detta Node. js-program simulerar beteendet hos en riktig enhet.
+Följande steg visar hur du skapar ett Node.js-klientprogram som implementerar den verkliga enheten som du har lagt till i programmet. Det här nod.js-programmet simulerar beteendet hos en riktig enhet.
 
-1. I din kommando rads miljö navigerar du till den `environmental-sensor` mapp som du skapade tidigare.
+1. I kommandoradsmiljön navigerar `environmental-sensor` du till mappen som du skapade tidigare.
 
-1. Initiera Node. js-projektet och installera de nödvändiga beroendena genom att köra följande kommandon – acceptera alla standard alternativ när du kör `npm init`:
+1. Om du vill initiera node.js-projektet och installera de nödvändiga beroendena kör du `npm init`följande kommandon – accepterar alla standardalternativ när du kör:
 
     ```cmd/sh
     npm init
     npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
-1. Skapa en fil med namnet **environmentalSensor. js** i mappen `environmental-sensor`.
+1. Skapa en fil som heter **environmentalSensor.js** i `environmental-sensor` mappen.
 
-1. Lägg till följande `require`-instruktioner i början av filen **environmentalSensor. js** :
+1. Lägg till `require` följande satser i början av **filen environmentalSensor.js:**
 
     ```javascript
     "use strict";
@@ -151,7 +151,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som implementerar 
     var ledOn = true;
     ```
 
-    Uppdatera plats hållarna `{your Scope ID}`, `{your Device ID}`och `{your Primary Key}` med de värden som du antecknade tidigare. I det här exemplet initierar du `targetTemperature` till noll, du kan använda den aktuella läsningen från enheten eller ett värde från enheten med dubbla.
+    Uppdatera platshållarna `{your Scope ID}` `{your Device ID}`och `{your Primary Key}` med de värden som du har noterat tidigare. I det här exemplet `targetTemperature` initierar du till noll, du kan använda den aktuella avläsningen från enheten eller ett värde från enhetstvillingen.
 
 1. Om du vill skicka telemetri till ditt Azure IoT Central-program lägger du till följande funktion i filen:
 
@@ -171,7 +171,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som implementerar 
     }
     ```
 
-1. Om du vill skicka enhets egenskaper till ditt Azure IoT Central-program lägger du till följande funktion i filen:
+1. Om du vill skicka enhetsegenskaper till ditt Azure IoT Central-program lägger du till följande funktion i filen:
 
     ```javascript
     // Send device reported properties.
@@ -222,7 +222,7 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som implementerar 
     }
     ```
 
-1. Lägg till följande kod för att hantera de kommandon som skickas från IoT Central-programmet:
+1. Lägg till följande kod för att hantera kommandon som skickats från IoT Central-programmet:
 
     ```javascript
     // Handle blink command
@@ -325,43 +325,43 @@ Följande steg visar hur du skapar ett Node. js-klientprogram som implementerar 
     });
     ```
 
-## <a name="run-your-nodejs-application"></a>Köra Node. js-programmet
+## <a name="run-your-nodejs-application"></a>Kör Node.js-programmet
 
-Starta enhets klient programmet genom att köra följande kommando i din kommando rads miljö:
+Om du vill starta enhetsklientprogrammet kör du följande kommando i kommandoradsmiljön:
 
 ```cmd/sh
 node environmentalSensor.js
 ```
 
-Du kan se att enheten ansluter till ditt Azure IoT Central-program och börjar skicka telemetri:
+Du kan se enheten ansluter till ditt Azure IoT Central-program och börjar skicka telemetri:
 
-![Kör klient programmet](media/tutorial-connect-device/run-application.png)
+![Kör klientprogrammet](media/tutorial-connect-device/run-application.png)
 
 Som operatör i ditt Azure IoT Central-program kan du:
 
-* Visa telemetri som skickats av enheten på sidan **Översikt** :
+* Visa den telemetri som enheten skickar på sidan **Översikt:**
 
     ![Visa telemetrin](media/tutorial-connect-device/view-telemetry.png)
 
-* Uppdatera skrivbara egenskaps värden på sidan **Egenskaper** :
+* Uppdatera egenskapsvärden för skrivbara egenskaper på sidan **Egenskaper:**
 
     ![Uppdatera egenskaper](media/tutorial-connect-device/update-properties.png)
 
-    ![Uppdatera egenskaper enhet](media/tutorial-connect-device/update-properties-device.png)
+    ![Enhet för uppdatera egenskaper](media/tutorial-connect-device/update-properties-device.png)
 
-* Anropa kommandona från **kommando** sidan:
+* Anropa kommandona från sidan **Kommandon:**
 
-    ![Anropa Blink-kommando](media/tutorial-connect-device/call-command.png)
+    ![Kommandot Ring blink](media/tutorial-connect-device/call-command.png)
 
-    ![Anropa blinkande kommando enhet](media/tutorial-connect-device/call-command-device.png)
+    ![Anropa blinkkommandoenhet](media/tutorial-connect-device/call-command-device.png)
 
-* Visa enhets egenskaperna på sidan **om** :
+* Visa enhetsegenskaperna på sidan **Om:**
 
     ![Visa egenskaper](media/tutorial-connect-device/about-properties.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om enhets kapacitets modeller och hur du skapar egna enhetsspecifika mallar, Fortsätt till instruktions guiden:
+Om du vill veta mer om enhetskapacitetsmodeller och hur du skapar egna enhetsmallar fortsätter du till instruktioner:
 
 > [!div class="nextstepaction"]
-> [Definiera en ny IoT-enhets typ](./howto-set-up-template.md)
+> [Definiera en ny IoT-enhetstyp](./howto-set-up-template.md)

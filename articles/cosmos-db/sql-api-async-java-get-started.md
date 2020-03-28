@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: utveckla en Java-app med Azure Cosmos DB asynkron Java SDK för att hantera data i SQL API-kontot'
+title: 'Självstudiekurs: Skapa en Java-app med Azure Cosmos DB Async Java SDK för att hantera data i SQL API-konto'
 description: Den här självstudien visar hur du lagrar och kommer åt data i ett SQL API-konto i Azure Cosmos DB med hjälp av ett Async Java-program.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -10,13 +10,13 @@ ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 8704e399156b9cfc6b04ff47af49b956b597a539
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75444895"
 ---
-# <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Självstudie: utveckla en Java-app med asynkron Java SDK för att hantera data som lagras i ett SQL API-konto
+# <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Självstudiekurs: Skapa en Java-app med Async Java SDK för att hantera data som lagras i ett SQL API-konto
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -54,7 +54,7 @@ Skapa ett Azure Cosmos-konto med hjälp av följande steg:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Klona GitHub-lagringsplatsen
+## <a name="clone-the-github-repository"></a><a id="GitClone"></a>Klona GitHub-databasen
 
 Klona GitHub-lagringsplatsen för [Komma igång med Azure Cosmos DB och Java](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started). Från en lokal katalog kör du till exempel följande för att hämta exempelprojektet lokalt.
 
@@ -75,9 +75,9 @@ Katalogen innehåller en `pom.xml`-fil och en `src/main/java/com/microsoft/azure
 </dependency>
 ```
 
-## <a id="Connect"></a>Ansluta till ett Azure Cosmos-konto
+## <a name="connect-to-an-azure-cosmos-account"></a><a id="Connect"></a>Ansluta till ett Azure Cosmos-konto
 
-Gå sedan tillbaka till [Azure-portalen](https://portal.azure.com) för att hämta din slutpunkt och primära huvudnyckel. Azure DB Cosmos-slutpunkten och den primära nyckeln krävs för att ditt program ska veta vart det ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning. Filen `AccountSettings.java` innehåller den primära nyckeln och URI-värden. 
+Gå sedan tillbaka till [Azure-portalen](https://portal.azure.com) för att hämta din slutpunkt och primär huvudnyckel. Azure DB Cosmos-slutpunkten och den primära nyckeln krävs för att ditt program ska veta vart det ska ansluta, och för att Azure Cosmos DB ska lita på programmets anslutning. Filen `AccountSettings.java` innehåller den primära nyckeln och URI-värden. 
 
 Gå till ditt Azure Cosmos-konto på Azure-portalen och klicka på **Nycklar**. Kopiera URI och PRIMÄRNYCKEL från portalen och klistra in den i filen `AccountSettings.java`. 
 
@@ -112,9 +112,9 @@ client = new AsyncDocumentClient.Builder()
          .build();
 ```
 
-## <a id="CreateDatabase"></a>Skapa en databas
+## <a name="create-a-database"></a><a id="CreateDatabase"></a>Skapa en databas
 
-Skapa din Azure Cosmos-databas med hjälp av metoden `createDatabaseIfNotExists()` i DocumentClient-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
+Skapa din Azure Cosmos-databas med hjälp av `createDatabaseIfNotExists()` metoden för klassen DocumentClient. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 
@@ -156,7 +156,7 @@ private void createDatabaseIfNotExists() throws Exception
 }
 ```
 
-## <a id="CreateColl"></a>Skapa en samling
+## <a name="create-a-collection"></a><a id="CreateColl"></a>Skapa en samling
 
 Du kan skapa en samling med hjälp av metoden `createDocumentCollectionIfNotExists()` i klassen DocumentClient. En samling är en container för JSON-dokument och associerad JavaScript-applogik.
 
@@ -200,7 +200,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
     }
 ```
 
-## <a id="CreateDoc"></a>Skapa JSON-dokument
+## <a name="create-json-documents"></a><a id="CreateDoc"></a>Skapa JSON-dokument
 
 Skapa ett dokument med hjälp av metoden createDocument i klassen DocumentClient. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Filen ”src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java” definierar familjen med JSON-dokument. 
 
@@ -220,7 +220,7 @@ public static Family getJohnsonFamilyDocument() {
     }
 ```
 
-## <a id="Query"></a>Skicka frågor mot Azure Cosmos DB-resurser
+## <a name="query-azure-cosmos-db-resources"></a><a id="Query"></a>Skicka frågor mot Azure Cosmos DB-resurser
 
 Azure Cosmos DB stöder komplexa frågor mot JSON-dokument som lagras i varje samling. Följande exempelkod visar hur du kör frågor mot dokument i Azure Cosmos DB med hjälp av SQL-syntaxen med metoden `queryDocuments`.
 
@@ -254,7 +254,7 @@ private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch 
 }
 ```
 
-## <a id="Run"></a>Köra ditt Java-konsolprogram
+## <a name="run-your-java-console-application"></a><a id="Run"></a>Köra ditt Java-konsolprogram
 
 Om du vill köra programmet från konsolen går du till projektmappen och kompilerar med hjälp av Maven:
 

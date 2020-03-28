@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa en pipeline med Resource Manager-mall '
+title: 'Självstudiekurs: Skapa en pipeline med Resource Manager-mall '
 description: I de här självstudierna skapar du ett exempel på en Azure Data Factory-pipeline med hjälp av en Azure Resource Manager-mall. Pipelinen kopierar data från Azure bloblagring till en Azure SQL-databas.
 services: data-factory
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: dd559a8dd0bd59b50f4a3fa663f57874d948bf71
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75438859"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Självstudier: Använd Azure Resource Manager-mall för att skapa Data Factory-pipeline för att kopiera data 
@@ -25,7 +25,7 @@ ms.locfileid: "75438859"
 > * [Översikt och förutsättningar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Guiden Kopiera](data-factory-copy-data-wizard-tutorial.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Powershell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager-mall](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
@@ -36,7 +36,7 @@ ms.locfileid: "75438859"
 
 I den här självstudien får du se hur du skapar en Azure Data Factory med en Azure Resource Manager-mall. Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. Om du vill se en självstudie som visar hur du omvandlar data med Azure Data Factory går du till [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md) (Självstudie: Bygg en pipeline för att omvandla data med Hadoop-kluster).
 
-I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
+I den här självstudien får du skapa en pipeline i en aktivitet: kopieringsaktivitet. Kopieringsaktiviteten kopierar data från källans datalager till mottagarens datalager. En lista över datakällor som stöds som källor och mottagare finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Mer information om kopieringsaktiviteten finns i [Dataflyttningsaktiviteter](data-factory-data-movement-activities.md).
 
 En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer information finns i [flera aktiviteter i en pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
@@ -54,7 +54,7 @@ En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra 
 ## <a name="in-this-tutorial"></a>I den här självstudien
 I den här självstudien får skapa du en datafabrik med följande Data Factory-enheter:
 
-| Enhet | Beskrivning |
+| Entitet | Beskrivning |
 | --- | --- |
 | Länkad Azure-lagringstjänst |Länkar ditt Azure Storage-konto till datafabriken. Azure Storage är källdatalagret och Azure SQL-databasen är det mottagande datalagret för kopieringsaktiviteten i självstudien. Det anger lagringskontot som innehåller indatan för kopieringsaktiviteten. |
 | Länkad Azure SQL Database-tjänst |Länkar din Azure SQL-databas till datafabriken. Det anger Azure SQL-databasen som innehåller utdatan för kopieringsaktiviteten. |
@@ -383,7 +383,7 @@ Det är en unik sträng som baseras på resursgruppens ID.
 ### <a name="defining-data-factory-entities"></a>Definiera Data Factory-entiteter
 Följande Data Factory-entiteter har definierats i JSON-mallen: 
 
-1. [Länkad Azure Storage-tjänst](#azure-storage-linked-service)
+1. [Azure Storage-länkad tjänst](#azure-storage-linked-service)
 2. [Länkad Azure SQL-tjänst](#azure-sql-database-linked-service)
 3. [Azure-blobdatauppsättning](#azure-blob-dataset)
 4. [Azure SQL-datauppsättning](#azure-sql-dataset)

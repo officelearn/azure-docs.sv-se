@@ -1,6 +1,6 @@
 ---
-title: Azure Storage exempel med Java Script | Microsoft Docs
-description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Identifiera exempel på att komma igång med blobbar, köer, tabeller och filer med hjälp av Java Script/Node. js-lagrings klient bibliotek.
+title: Azure Storage-exempel med JavaScript | Microsoft-dokument
+description: Visa, hämta och kör exempelkod och program för Azure Storage. Upptäck komma igång-exempel för blobbar, köer, tabeller och filer med hjälp av JavaScript/Node.js-lagringsklientbiblioteken.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/19/2020
@@ -8,26 +8,26 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 1d6b4d37a3d7c4accc3e407fb6cf841600ac1c16
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77485853"
 ---
-# <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Azure Storage exempel med V12 Java Script-klient bibliotek
+# <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Azure Storage-exempel med v12 JavaScript-klientbibliotek
 
-Följande tabeller ger en översikt över våra exempel lager och scenarier som beskrivs i varje exempel. Klicka på länkarna om du vill visa motsvarande exempel kod i GitHub.
+Följande tabeller ger en översikt över vår exempeldatabas och de scenarier som ingår i varje exempel. Klicka på länkarna för att visa motsvarande exempelkod i GitHub.
 
 > [!NOTE]
-> De här exemplen använder det senaste Azure Storage Java Script V12-biblioteket. För äldre V11-kod, se [komma igång med Azure Blob service i Node. js](https://github.com/Azure-Samples/storage-blob-node-getting-started) i GitHub-lagringsplatsen.
+> Dessa exempel använder det senaste Azure Storage JavaScript v12-biblioteket. Äldre v11-kod finns [i Komma igång med Azure Blob Service i Node.js](https://github.com/Azure-Samples/storage-blob-node-getting-started) i GitHub-databasen.
 
-## <a name="blob-samples"></a>BLOB-exempel
+## <a name="blob-samples"></a>Blob-exempel
 
 ### <a name="authentication"></a>Autentisering
 
 :::row:::
    :::column span="":::
-      [Autentisera med anslutnings sträng](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/withConnString.js#L14)
+      [Autentisera med anslutningssträng](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/withConnString.js#L14)
    :::column-end:::
    :::column span="":::
       [Autentisera med SAS-anslutningssträng](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/withConnString.js#L14)
@@ -51,7 +51,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Anslut med en anpassad pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/customPipeline.js#L26)
+      [Ansluta med en anpassad pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/customPipeline.js#L26)
    :::column-end:::
 :::row-end:::
 
@@ -59,7 +59,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 
 :::row:::
    :::column span="2":::
-      [Skapa en BLOB service-klient med en SAS-URL](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L39)
+      [Skapa blob-tjänstklient med en SAS-URL](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L39)
    :::column-end:::
 :::row-end:::
 
@@ -70,12 +70,12 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Skapa en behållare](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L53)
    :::column-end:::
    :::column span="":::
-      [Skapa en behållare med hjälp av autentiseringsuppgifter för delad nyckel](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L38)
+      [Skapa en behållare med hjälp av en autentiseringsuppgifter för delad nyckel](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L38)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista behållare](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L48)
+      [Visa en lista med containrar](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L48)
    :::column-end:::
    :::column span="":::
       [Lista behållare med hjälp av en iterator](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-containers.js#L28)
@@ -94,15 +94,15 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 
 :::row:::
    :::column span="":::
-      [Skapa en BLOB](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L60)
+      [Skapa en blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L60)
    :::column-end:::
    :::column span="":::
-      [Lista blobbar](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L67)
+      [Lista blobar](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L67)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Ladda ned en BLOB](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L73)
+      [Ladda ned en blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/basic.js#L73)
    :::column-end:::
    :::column span="":::
       [Lista blobbar med hjälp av en iterator](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-blobs.js#L41)
@@ -110,7 +110,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista blobbar per sida](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-blobs.js#L66)
+      [Lista blobbar efter sida](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-blobs.js#L66)
    :::column-end:::
    :::column span="":::
       [Lista blobbar efter hierarki](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-blobs-hierarchy.js#L70)
@@ -118,26 +118,26 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista blobbar utan att använda await](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-without-await.js#L42)
+      [Lista blobbar utan att använda väntar](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/iterators-without-await.js#L42)
    :::column-end:::
    :::column span="":::
-      [Skapa en BLOB-ögonblicksbild](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L56)
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="":::
-      [Ladda ned en BLOB-ögonblicksbild](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L61)
-   :::column-end:::
-   :::column span="":::
-      [Parallell uppladdning av en ström till en BLOB](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L74)
+      [Skapa en blob-ögonblicksbild](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L56)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [BLOB för parallell nedladdnings block](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L99)
+      [Ladda ned en blob-ögonblicksbild](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/readingSnapshot.js#L61)
    :::column-end:::
    :::column span="":::
-      [Ange åtkomst nivå för en BLOB](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L118)
+      [Parallelluppladdning av en ström till en blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L74)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Parallell nedladdning block blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L99)
+   :::column-end:::
+   :::column span="":::
+      [Ange åtkomstnivån på en blob](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/advanced.js#L118)
    :::column-end:::
 :::row-end:::
 
@@ -145,24 +145,24 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 
 :::row:::
    :::column span="2":::
-      [Utlösa ett återställnings Bart fel med hjälp av en behållar klient](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/errorsAndResponses.js#L33)
+      [Utlösa ett återställningsbart fel med hjälp av en behållarklient](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/samples/javascript/errorsAndResponses.js#L33)
    :::column-end:::
 :::row-end:::
 
 
-## <a name="data-lake-storage-gen2-samples"></a>Data Lake Storage Gen2 exempel
+## <a name="data-lake-storage-gen2-samples"></a>Data Lake Storage Gen2-exempel
 
 :::row:::
    :::column span="":::
-      [Skapa en Data Lake tjänst klient](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L36)
+      [Skapa en DataSjötjänstklient](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L36)
    :::column-end:::
    :::column span="":::
-      [Skapa ett fil system](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L47)
+      [Skapa ett filsystem](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L47)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista fil system](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L42)
+      [Lista filsystem](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L42)
    :::column-end:::
    :::column span="":::
       [Skapa en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L54)
@@ -170,28 +170,28 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Lista sökvägar i ett fil system](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L63)
+      [Lista sökvägar i ett filsystem](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L63)
    :::column-end:::
    :::column span="":::
-      [Ladda ned en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L69)
+      [Hämta en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L69)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Ta bort ett fil system](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L78)
+      [Ta bort ett filsystem](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/samples/javascript/basic.js#L78)
    :::column-end:::
 :::row-end:::
 
-## <a name="azure-files-samples"></a>Azure Files exempel
+## <a name="azure-files-samples"></a>Exempel på Azure-filer
 
 ### <a name="authentication"></a>Autentisering
 
 :::row:::
    :::column span="":::
-      [Autentisera med hjälp av en anslutnings sträng](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/withConnString.js)
+      [Autentisera med hjälp av en anslutningssträng](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/withConnString.js)
    :::column-end:::
    :::column span="":::
-      [Autentisera med autentiseringsuppgifter för delad nyckel](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/sharedKeyCred.js)
+      [Autentisera med en autentiserings bekräftande av delad nyckel](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/sharedKeyCred.js)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -199,12 +199,12 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Autentisera med AnonymousCredential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/anonymousCred.js)
    :::column-end:::
    :::column span="":::
-      [Anslut med en anpassad pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/customPipeline.js)
+      [Ansluta med en anpassad pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/customPipeline.js)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Anslut med en proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/proxyAuth.js)
+      [Ansluta med en proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/proxyAuth.js)
    :::column-end:::
 :::row-end:::
 
@@ -215,7 +215,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Skapa en resurs](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L48)
    :::column-end:::
    :::column span="":::
-      [List resurser](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-shares.js#L27)
+      [Lista aktier](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-shares.js#L27)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -234,12 +234,12 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Skapa en katalog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L54)
    :::column-end:::
    :::column span="":::
-      [Visa filer och kataloger](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-files-and-directories.js#L56)
+      [Lista filer och kataloger](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-files-and-directories.js#L56)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Visa lista över filer och kataloger efter sida](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-files-and-directories.js#L90)
+      [Lista filer och kataloger efter sida](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-files-and-directories.js#L90)
    :::column-end:::
 :::row-end:::
 
@@ -247,36 +247,36 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 
 :::row:::
    :::column span="":::
-      [Parallell uppladdning av en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L65)
+      [Parallelluppladdning av en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L65)
    :::column-end:::
    :::column span="":::
-      [Parallell uppladdning av en läsbar ström](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L74)
+      [Parallelluppladdning en läsbar ström](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L74)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Parallell nedladdning av en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L93)
+      [Parallellhämtning av en fil](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/advanced.js#L93)
    :::column-end:::
    :::column span="":::
-      [Lista fil referenser](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-handles.js#L43)
+      [Listfilhandtag](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-handles.js#L43)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="2":::
-      [Lista fil referenser per sida](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-handles.js#L79)
+      [Lista filhandtag efter sida](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/samples/javascript/iterators-handles.js#L79)
    :::column-end:::
 :::row-end:::
 
-## <a name="queue-samples"></a>Köa exempel
+## <a name="queue-samples"></a>Exempel på kö
 
 ### <a name="authentication"></a>Autentisering
 
 :::row:::
    :::column span="":::
-      [Autentisera med hjälp av en anslutnings sträng](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/withConnString.js)
+      [Autentisera med hjälp av en anslutningssträng](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/withConnString.js)
    :::column-end:::
    :::column span="":::
-      [Autentisera med autentiseringsuppgifter för delad nyckel](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/sharedKeyCred.js)
+      [Autentisera med en autentiserings bekräftande av delad nyckel](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/sharedKeyCred.js)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -284,12 +284,12 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Autentisera med AnonymousCredential](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/anonymousCred.js)
    :::column-end:::
    :::column span="":::
-      [Anslut med en anpassad pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/customPipeline.js)
+      [Ansluta med en anpassad pipeline](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/customPipeline.js)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Anslut med en proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/proxyAuth.js)
+      [Ansluta med en proxy](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/proxyAuth.js)
    :::column-end:::
    :::column span="":::
       [Autentisera med hjälp av Azure Active Directory](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/azureAdAuth.js)
@@ -300,7 +300,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 
 :::row:::
    :::column span="2":::
-      [Skapa en Queue Service-klient](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L42)
+      [Skapa en kötjänstklient](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L42)
    :::column-end:::
 :::row-end:::
 
@@ -316,7 +316,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Visa lista över köer per sida](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/iterators.js#L51)
+      [Lista köer efter sida](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/iterators.js#L51)
    :::column-end:::
    :::column span="":::
       [Ta bort en kö](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L89)
@@ -330,7 +330,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Skicka ett meddelande till en kö](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L62)
    :::column-end:::
    :::column span="":::
-      [Titta på meddelanden](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L68)
+      [Kika på meddelanden](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/samples/javascript/basic.js#L68)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -342,11 +342,11 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
    :::column-end:::
 :::row-end:::
 
-## <a name="table-samples-v11"></a>Tabell exempel (V11)
+## <a name="table-samples-v11"></a>Tabellprover (v11)
 
 :::row:::
    :::column span="":::
-      [Batch-entiteter](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L87)
+      [Batchentiteter](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L87)
    :::column-end:::
    :::column span="":::
       [Skapa tabell](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L41)
@@ -357,15 +357,15 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Ta bort entitet/tabell](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L67)
    :::column-end:::
    :::column span="":::
-      [Infoga/sammanfoga/Ersätt entitet](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49)
+      [Infoga/sammanfoga/ersätta entiteten](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [List tabeller](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L63)
+      [Lista tabeller](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L63)
    :::column-end:::
    :::column span="":::
-      [Fråga entiteter](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L59)
+      [Frågeentiteter](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L59)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -373,7 +373,7 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Frågetabeller](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L140)
    :::column-end:::
    :::column span="":::
-      [Intervall fråga](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L102)
+      [Områdesfråga](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L102)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -381,15 +381,15 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
       [Signatur för delad åtkomst (SAS)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87)
    :::column-end:::
    :::column span="":::
-      [Tabell-ACL](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L255)
+      [Tabell ACL](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L255)
    :::column-end:::
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Regler för resurs delning mellan ursprung (CORS)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L149)
+      [Cors-regler (Table Cross-Origin Resource Sharing)](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L149)
    :::column-end:::
    :::column span="":::
-      [Tabell egenskaper](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188)
+      [Tabellegenskaper](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -401,30 +401,30 @@ Följande tabeller ger en översikt över våra exempel lager och scenarier som 
    :::column-end:::
 :::row-end:::
 
-## <a name="azure-code-sample-libraries"></a>Exempel bibliotek för Azure-kod
+## <a name="azure-code-sample-libraries"></a>Exempelbibliotek för Azure-kod
 
-Om du vill visa de kompletta biblioteken med JavaScript-exempel går du till:
+Om du vill visa hela JavaScript-exempelbiblioteken går du till:
 
-* [Kod exempel för Azure-Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
-* [Azure Data Lake kod exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
-* [Azure Files kod exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
-* [Kod exempel för Azure-kö](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
+* [Exempel på Azure-blobkod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
+* [Exempel på Azure Data Lake-kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
+* [Exempel på Azure Files-kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
+* [Exempel på Azure-kökod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
 
-Du kan bläddra och klona GitHub-lagringsplatsen för varje bibliotek.
+Du kan bläddra bland och klona GitHub-databasen för varje bibliotek.
 
-## <a name="getting-started-guides"></a>Komma igång guider
+## <a name="getting-started-guides"></a>Komma igång-guider
 
-Kolla in följande guider om du behöver instruktioner om hur du installerar och kommer igång med Azure Storage klient bibliotek.
+Kolla in följande guider om du letar efter instruktioner om hur du installerar och kommer igång med Azure Storage Client Libraries.
 
-* [Komma igång med Azure Blob service i Java Script](../blobs/storage-quickstart-blobs-nodejs.md)
-* [Komma igång med Azure Queue Service i Java Script](../queues/storage-quickstart-queues-nodejs.md)
-* [Komma igång med Azure Table service i Java Script](../../cosmos-db/table-storage-how-to-use-nodejs.md)
+* [Komma igång med Azure Blob Service i JavaScript](../blobs/storage-quickstart-blobs-nodejs.md)
+* [Komma igång med Azure Queue Service i JavaScript](../queues/storage-quickstart-queues-nodejs.md)
+* [Komma igång med Azure Table Service i JavaScript](../../cosmos-db/table-storage-how-to-use-nodejs.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om exempel för andra språk:
+För information om exempel för andra språk:
 
-* .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
-* Java: [Azure Storage exempel med Java](storage-samples-java.md)
-* Python: [Azure Storage exempel med python](storage-samples-python.md)
-* Alla andra språk: [Azure Storage exempel](storage-samples.md)
+* .NET: [Azure Storage-exempel med .NET](storage-samples-dotnet.md)
+* Java: [Azure Storage-exempel med Java](storage-samples-java.md)
+* Python: [Azure Storage-exempel med Python](storage-samples-python.md)
+* Alla andra språk: [Azure Storage-exempel](storage-samples.md)

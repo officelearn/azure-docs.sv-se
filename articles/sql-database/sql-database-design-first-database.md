@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: utforma din första Relations databas med SSMS'
+title: 'Självstudiekurs: Utforma din första relationsdatabas med SSMS'
 description: Lär dig hur du utformar din första relationsdatabas i en enkel databas i Azure SQL Database med hjälp av SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75459626"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i en enda databas inom Azure SQL Database med SSMS
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Självstudiekurs: Utforma en relationsdatabas i en enda databas i Azure SQL Database med SSMS
 
 Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Microsoft Cloud (Azure). I de här självstudierna får du lära dig att använda Azure-portalen och [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) för att:
 
@@ -28,12 +28,12 @@ Azure SQL Database är en relationsdatabas-som-tjänst (DBaaS) som bygger på Mi
 > - Massinläsa data med BCP
 > - Fråga efter data med SSMS
 
-*Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+*Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 > [!TIP]
-> Följande Microsoft Learn-modul hjälper dig att lära dig kostnads fritt hur du [utvecklar och konfigurerar ett ASP.NET-program som skickar frågor till en Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inklusive skapandet av en enkel databas.
+> Följande Microsoft Learn-modul hjälper dig att lära dig kostnadsfritt hur du [utvecklar och konfigurerar ett ASP.NET program som frågar en Azure SQL-databas](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), inklusive skapandet av en enkel databas.
 > [!NOTE]
-> I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. För anslutning till en hanterad instans, se följande snabb starter för hanterade instanser: [snabb start: Konfigurera virtuell Azure-dator för att ansluta till en Azure SQL Database Hanterad instans](sql-database-managed-instance-configure-vm.md) och [snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Hanterad instans från den lokala](sql-database-managed-instance-configure-p2s.md)datorn.
+> I den här självstudien använder vi enkel databas. Du skulle även kunna använda en pooldatabas i en elastisk pool eller en instansdatabas i en hanterad instans. För anslutning till en hanterad instans finns i dessa snabbstartar för hanterade instanser: [Snabbstart: Konfigurera Azure VM för att ansluta till en Azure SQL-databashanterad instans](sql-database-managed-instance-configure-vm.md) och [snabbstart: Konfigurera en point-to-site-anslutning till en Azure SQL-databashanterad instans från lokala](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -44,7 +44,7 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Skapa en enda tom databas
 
@@ -57,7 +57,7 @@ Följ dessa steg för att skapa en enskild tom databas.
 
    ![skapa tom databas](./media/sql-database-design-first-database/create-empty-database.png)
 
-3. Fyll i följande information i **SQL Database**-formuläret (se föregående bild):
+3. Fyll i **SQL Database-formuläret** med följande information, som visas på föregående bild:
 
     | Inställning       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
@@ -71,13 +71,13 @@ Följ dessa steg för att skapa en enskild tom databas.
     | Inställning       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-    | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Logga in för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Location** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databas-server](./media/sql-database-design-first-database/create-database-server.png)
 
-5. Klicka på **Välj**.
+5. Klicka på **Markera**.
 6. Klicka på **Prisnivå** för att ange tjänstnivå, antalet DTU:er eller V-kärnor och mängden lagring. Du kan undersöka alternativen för antalet DTU:er/V-kärnor och lagringsutrymme som du har tillgång till på varje tjänstnivå.
 
     När du har valt tjänstnivå, antalet DTU:er eller virtuella kärnor samt mängden lagring klickar du på **Använd**.
@@ -97,9 +97,9 @@ SQL Database-tjänsten skapar en IP-brandvägg på servernivå. Den här brandv�
 > [!IMPORTANT]
 > SQL Database-tjänsten kommunicerar via port 1433. Om du försöker ansluta till den här tjänsten från ett företagsnätverk kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till din enkla databas om inte administratören öppnar port 1433.
 
-1. När distributionen är klar väljer du **SQL-databaser** på Azure Portal-menyn eller söker efter och väljer *SQL-databaser* från vilken sida som helst.  
+1. När distributionen är klar väljer du **SQL-databaser** på Azure-portalmenyn eller söker efter och väljer *SQL-databaser* från valfri sida.  
 
-1. Välj *yourDatabase* på sidan **SQL-databaser** . Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade **Server namnet** (till exempel `contosodatabaseserver01.database.windows.net`) och innehåller alternativ för ytterligare konfiguration.
+1. Välj *dinDatabas* på sidan **SQL-databaser.** Översiktssidan för databasen öppnas, som visar det fullständigt `contosodatabaseserver01.database.windows.net`kvalificerade **servernamnet** (till exempel) och innehåller alternativ för ytterligare konfiguration.
 
    ![servernamn](./media/sql-database-design-first-database/server-name.png)
 
@@ -132,7 +132,7 @@ Använd [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ss
    | **Servertyp** | Databasmotor | Det här värdet är obligatoriskt. |
    | **Servernamn** | Fullständigt kvalificerat servernamn | Till exempel *yourserver.database.windows.net*. |
    | **Autentisering** | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här självstudien. |
-   | **Inloggning** | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
+   | **Logga in** | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
    | **Lösenord** | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
    ![Anslut till server](./media/sql-database-design-first-database/connect.png)

@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Cosmos DB Tabell-API och Azure Table Storage med ruby
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
+title: Använda Azure Cosmos DB Table API och Azure Table Storage med Ruby
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: ruby
@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 7994b478321c925b3eab73291a109d50b9066fef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770879"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med Ruby
@@ -71,7 +71,7 @@ table_client = Azure::Storage::Table::TableService.new(client: common_client)
 ```
 
 ## <a name="create-a-table"></a>Skapa en tabell
-Du kan arbeta med tabeller och entiteter med objektet **Azure::Storage::Table::TableService**. Du skapar en tabell med hjälp av metoden **create_table()** . Koden i följande exempel skapar en tabell eller returnerar eventuella fel.
+Du kan arbeta med tabeller och entiteter med objektet **Azure::Storage::Table::TableService**. Du skapar en tabell med hjälp av metoden **create_table()**. Koden i följande exempel skapar en tabell eller returnerar eventuella fel.
 
 ```ruby
 azure_table_service = Azure::Storage::Table::TableService.new
@@ -99,7 +99,7 @@ Du kan uppdatera en befintlig entitet med hjälp av olika metoder:
 * **insert_or_merge_entity():** Uppdaterar en befintlig entitet genom att ersätta den. Om det inte finns någon entitet, infogas en ny:
 * **insert_or_replace_entity():** Uppdaterar en befintlig entitet genom att sammanfoga nya egenskapsvärden i den befintliga entiteten. Om det inte finns någon entitet, infogas en ny.
 
-Exemplet nedan visar hur en entitet uppdateras med hjälp av **update_entity()** :
+Exemplet nedan visar hur en entitet uppdateras med hjälp av **update_entity()**:
 
 ```ruby
 entity = { "content" => "test entity with updated content",
@@ -130,8 +130,8 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
     "1")
 ```
 
-## <a name="query-a-set-of-entities"></a>Köra frågor mot en uppsättning entiteter
-Om du vill fråga efter en uppsättning enheter i en tabell skapar du ett hash-objekt för frågan och använder metoden **query_entities()** . Exemplet nedan visar hur du hämtar alla entiteter med samma **PartitionKey**:
+## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
+Om du vill fråga efter en uppsättning enheter i en tabell skapar du ett hash-objekt för frågan och använder metoden **query_entities()**. Exemplet nedan visar hur du hämtar alla entiteter med samma **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -153,7 +153,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## <a name="delete-an-entity"></a>Ta bort en entitet
-Om du vill ta bort en entitet använder du metoden **delete_entity()** . Ange namnet på tabellen som innehåller entiteten, samt PartitionKey och RowKey för entiteten.
+Om du vill ta bort en entitet använder du metoden **delete_entity()**. Ange namnet på tabellen som innehåller entiteten, samt PartitionKey och RowKey för entiteten.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")

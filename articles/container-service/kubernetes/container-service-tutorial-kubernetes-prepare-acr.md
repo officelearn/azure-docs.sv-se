@@ -8,16 +8,16 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 087530fd3834c4ec4620c087134bee0ed26bb6c9
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78399775"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(INAKTUELL) Distribuera och använda Azure Container Registry
 
 > [!TIP]
-> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: Distribuera och använda Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
+> Den uppdaterade versionen som används i den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudiekurs: Distribuera och använda Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -32,7 +32,7 @@ I senare självstudier integreras den här ACR-instansen med ett Azure Container
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I [föregående självstudie](./container-service-tutorial-kubernetes-prepare-app.md) skapade du en containeravbildning för det enkla programmet Azure Voting. Om du inte har skapat appavbildningen för Azure Voting återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md).
+I [föregående självstudie](./container-service-tutorial-kubernetes-prepare-app.md) skapade du en containeravbildning för det enkla programmet Azure Voting. Om du inte har skapat appavbildningen för Azure Voting återgår du till [Självstudie 1 – skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md).
 
 I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
@@ -46,7 +46,7 @@ Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-c
 az group create --name myResourceGroup --location westeurope
 ```
 
-Skapa ett Azure-containerregister med kommandot [az acr create](/cli/azure/acr#az-acr-create). Namnet på ett containerregister **måste vara unikt**.
+Skapa ett Azure Container-register med kommandot [az acr create.](/cli/azure/acr#az-acr-create) Namnet på ett containerregister **måste vara unikt**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -56,7 +56,7 @@ I resten av den här självstudien använder vi `<acrname>` som platshållare f�
 
 ## <a name="container-registry-login"></a>Logga in på containerregistret
 
-Använd kommandot [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) och logga in på ACR-instansen. Du måste ange det unika namn du angav för containerregistret när det skapades.
+Använd kommandot [docker login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) och logga in på ACR-instansen. Du måste ange det unika namn du angav för containerregistret när det skapades.
 
 ```azurecli
 az acr login --name <acrName>
@@ -139,7 +139,7 @@ Result
 azure-vote-front
 ```
 
-Om du sedan vill se taggarna för en viss avbildning använder du kommandot [az acr repository show-tags](/cli/azure/acr/repository).
+Om du sedan vill se taggar för en viss avbildning använder du kommandot [az acr repository show-tags](/cli/azure/acr/repository).
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table

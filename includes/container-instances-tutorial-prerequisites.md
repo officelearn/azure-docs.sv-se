@@ -9,19 +9,19 @@ ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 10fb9e8169b7f4159ccbf4a0ff36021f6033f811
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75552433"
 ---
 Du måste uppfylla följande krav för att kunna slutföra den här självstudiekursen:
 
 **Azure CLI**: Du måste ha Azure CLI version 2.0.29 eller senare installerat på den lokala datorn. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI][azure-cli-install].
 
-**Docker**: Den här självstudiekursen förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och grundläggande `docker`-kommandon. Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker][docker-get-started].
+**Docker**: Den här självstudiekursen förutsätter grundläggande kunskaper om grundläggande Docker-begrepp som containrar, containeravbildningar och grundläggande `docker`-kommandon. En introduktion till grunderna för Docker och containrar finns i [Docker-översikt][docker-get-started].
 
-**Docker**: du måste ha Docker installerat lokalt för att kunna slutföra den här självstudien. Docker innehåller paket som konfigurerar Docker-miljön på [MacOS][docker-mac], [Windows][docker-windows]och [Linux][docker-linux].
+**Docker**: För att slutföra den här självstudien behöver du Docker installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS][docker-mac], [Windows][docker-windows] och [Linux][docker-linux].
 
 > [!IMPORTANT]
 > Eftersom Azure Cloud Shell inte innehåller Docker-daemon *måste* du installera både Azure CLI och Docker-motorn på din *lokala dator* för att kunna fullfölja den här självstudiekursen. Du kan använda Azure Cloud Shell för den här självstudiekursen.

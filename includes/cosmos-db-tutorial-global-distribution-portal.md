@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.custom: include file
 ms.openlocfilehash: cb9899712fd023aaec41f4b6bb34357b60ecb106
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75752104"
 ---
-## <a id="addregion"></a>Lägg till globala databasregioner med Azure Portal
-Azure Cosmos DB är tillgängligt i alla [Azure-regioner][azureregions] i hela världen. När du har valt standardkonsekvensnivå för ditt databaskonto, så kan du associera en eller flera regioner (beroende på ditt val av standardkonsekvensnivå och globala distributionsbehov).
+## <a name="add-global-database-regions-using-the-azure-portal"></a><a id="addregion"></a>Lägg till globala databasregioner med Azure Portal
+Azure Cosmos DB är tillgängligt i alla [Azure-regioner][azureregions] över hela världen. När du har valt standardkonsekvensnivå för ditt databaskonto, så kan du associera en eller flera regioner (beroende på ditt val av standardkonsekvensnivå och globala distributionsbehov).
 
 1. Klicka på **Azure Cosmos DB** i fältet till vänster i [Azure Portal](https://portal.azure.com/).
 2. Markera det databaskonto du vill ändra på sidan **Azure Cosmos DB**.
@@ -35,7 +35,7 @@ Det finns två vanliga scenarier när det gäller att konfigurera två eller fle
 
 När det gäller att leverera låg latens till slutanvändare bör du distribuera både programmet och Azure Cosmos DB i de regioner som motsvarar de platser där programmets användare finns.
 
-För BCDR rekommenderar vi att du lägger till regioner baserat på de regions par som beskrivs i artikeln [affärs kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner][bcdr] .
+När det gäller affärskontinuitet och haveriberedskap bör du lägga till regioner utifrån de regionpar som beskrivs i artikeln [Affärskontinuitet och haveriberedskap (BCDR): parade Azure-regioner][bcdr].
 
 <!--
 

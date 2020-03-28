@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66117576"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudier: Identifiera avvikelser vid gränsen med acceleratorn för fjärrövervakningslösningen
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudie: Identifiera avvikelser vid gränsen med acceleratorn för fjärrövervakningslösningen
 
 I den här självstudien konfigurerar du fjärrövervakningslösningen för att svara på avvikelser som identifierats av en IoT Edge-enhet. Med IoT Edge-enheter kan du bearbeta telemetri vid gränsen för att minska mängden telemetri som skickas till lösningen och få snabbare svar på händelser på enheter. Läs mer om fördelarna med Edge-bearbetning i [Vad är Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
@@ -28,7 +28,7 @@ Följande diagram visar huvudkomponenterna i självstudiescenariot:
 
 ![Översikt](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
-I den här kursen för du göra följande:
+I den här kursen får du:
 
 >[!div class="checklist"]
 > * Lägga till en IoT Edge-enhet till lösningen
@@ -45,7 +45,7 @@ På IoT Edge-enheten:
 
 I den här självstudien används en virtuell Linux-dator som en IoT Edge-enhet. Du installerar också en Edge-modul för att simulera oljepumpjackenheten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -62,7 +62,7 @@ Det finns två steg för att lägga till en IoT Edge-enhet i acceleratorn för f
 
 Om du vill lägga till en IoT Edge-enhet till acceleratorn för fjärrövervakningslösningen navigerar du till sidan **Device Explorer** i webbgränssnittet och klickar på **+ Ny enhet**.
 
-I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som enhetens ID. Du kan behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
+I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som enhetens ID. Du behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
 
 [![Lägga till IoT Edge-enhet](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
 
@@ -90,14 +90,14 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
 
 1. Klicka på **Använd** och sedan på **Stäng**.
 
-1. På sidan **Device Explorer** klickar du på **Hantera enhetsgrupper**.
+1. Klicka på **Hantera enhetsgrupper**på sidan **Enhetsutforskaren** .
 
 1. Klicka på **Skapa ny enhetsgrupp**. Skapa en ny enhetsgrupp med följande inställningar:
 
     | Inställning | Värde |
     | ------- | ----- |
     | Namn    | OilPumps |
-    | Fält   | Tags.IsOilPump |
+    | Field   | Tags.IsOilPump |
     | Operator | = Lika med |
     | Värde    | Y |
     | Typ     | Text |
@@ -163,11 +163,11 @@ Du definierar Stream Analytics-jobbet i portalen innan du paketerar den som en E
     | Jobbnamn | EdgeDeviceJob |
     | Prenumeration | Din Azure-prenumeration |
     | Resursgrupp | IoTEdgeDevices |
-    | Plats | Östra USA |
+    | Location | USA, östra |
     | Värdmiljö | Edge |
     | Strömningsenheter | 1 |
 
-1. Öppna Stream Analytics-jobbet **EdgeDeviceJob** i portalen, klicka på Indata och lägg till **Edge Hub**-strömindata med namnet **telemetry**.
+1. Öppna Stream Analytics-jobbet **EdgeDeviceJob** i portalen, klicka på Indata och lägger till **Edge Hub**-strömindata med namnet **telemetry**.
 
 1. I Stream Analytics-jobbet **EdgeDeviceJob** i portalen klickar du på **Utdata** och lägger till **Edge Hub**-utdata med namnet **output**.
 
@@ -239,13 +239,13 @@ Därefter skapar du ett IoT Edge-distributionsmanifest som definierar vilka modu
 
 1. På sidan **Skapa distribution > Granska distributionen** klickar du på **Skicka**:
 
-    [![Granska distribution](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
+    [![Granska distributionen](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/reviewdeployment-expanded.png#lightbox)
 
 1. På huvudsidan **IoT Edge** klickar du på **IoT Edge-distributioner**. Du kan se **oil-pump-device** i listan över distributioner.
 
 1. Klicka på distributionen **oil-pump-device** och klicka sedan på **Ladda ned IoT Edge-manifest**. Spara filen som **oil-pump-device.json** på en lämplig plats på din lokala datorn. Du behöver den här filen i nästa avsnitt i den här självstudien.
 
-Nu har du skapat en IoT Edge-manifestet för att importera till lösningen för fjärrövervakning som ett paket. Vanligtvis skapar en utvecklare IoT Edge-modulerna och manifestfilen.
+Du har nu skapat ett IoT Edge-manifest för att importera till lösningen för fjärrövervakning som ett paket. Vanligtvis skapar en utvecklare IoT Edge-modulerna och manifestfilen.
 
 ## <a name="import-a-package"></a>Importera ett paket
 
@@ -283,11 +283,11 @@ Nu är du redo att distribuera paketet till din enhet.
 
     [![Skapa distribution](./media/iot-accelerators-remote-monitoring-edge/createdeployment-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdeployment-expanded.png#lightbox)
 
-    Klicka på **Verkställ**.
+    Klicka på **Använd**.
 
 Du måste vänta några minuter medan paketet distribueras till din enhet och telemetri börjar flöda från enheten.
 
-[![Aktiv distribution](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-inline.png)](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-expanded.png#lightbox)
+[![Driftsättning aktiv](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-inline.png)](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-expanded.png#lightbox)
 
 På sidan**Distributioner** visas följande mått:
 
@@ -318,14 +318,14 @@ Om du vill meddela operatörer när tröskelvärdet har uppnåtts kan du skapa e
     | Beskrivning | Oljapumptemperaturen överskred 300 |
     | Enhetsgrupp | OilPumps |
     | Beräkning | Omedelbar |
-    | Fält | temperatur |
+    | Field | temperatur |
     | Operator | > |
     | Värde | 300 |
     | Allvarlighetsgrad | Information |
 
     [![Skapa regel](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
 
-    Klicka på **Verkställ**.
+    Klicka på **Använd**.
 
 1. Gå till sidan **Instrumentpanel**. En avisering som visas i panelen **Aviseringar** när temperaturen i enheten **oil-pump** överstiger 300.
 
@@ -334,7 +334,7 @@ Om du vill meddela operatörer när tröskelvärdet har uppnåtts kan du skapa e
 I den här självstudiekursen visades hur du lägger till och konfigurerar en IoT Edge-enhet i acceleratorn för fjärrövervakningslösningen. Om du vill lära dig mer om hur du arbetar med IoT Edge-paket i fjärrövervakningslösningen kan du läsa följande instruktionsguide:
 
 > [!div class="nextstepaction"]
-> [Importera ett IoT Edge-paket till lösningsacceleratorn för fjärrövervakning](iot-accelerators-remote-monitoring-import-edge-package.md)
+> [Importera ett IoT Edge-paket till acceleratorn för fjärrövervakningslösningen](iot-accelerators-remote-monitoring-import-edge-package.md)
 
 Mer information om hur du installerar IoT Edge-körningen finns i [Installera Azure IoT Edge-körning på Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md).
 

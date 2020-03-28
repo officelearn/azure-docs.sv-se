@@ -1,5 +1,5 @@
 ---
-title: CLI-skript – skapa server-Azure Database for MySQL
+title: CLI-skript - Skapa server - Azure Database för MySQL
 description: Det här CLI-skriptexemplet skapar en Azure Database for MySQL-server och konfigurerar en brandväggsregel på servernivå.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: sample
 ms.date: 12/02/2019
 ms.openlocfilehash: a210d2d11c9d9fccd000a6dffbf1f8730bda0c8b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74765808"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Skapa en MySQL-server och konfigurera en brandväggsregel med hjälp av Azure CLI
@@ -33,7 +33,7 @@ När skriptet har körts kan följande kommando användas för att ta bort resur
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
-| **Kommando** | **Anteckningar** |
+| **Kommandot** | **Obs!** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Skapar en MySQL-server som är värd för databaserna. |

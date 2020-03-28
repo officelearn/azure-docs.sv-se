@@ -1,6 +1,6 @@
 ---
-title: Köra Python-skript via Data Factory-Azure Batch python
-description: Självstudie – lär dig hur du kör Python-skript som en del av en pipeline genom Azure Data Factory att använda Azure Batch.
+title: Kör Python-skript via Data Factory - Azure Batch Python
+description: Självstudiekurs - Lär dig hur du kör Python-skript som en del av en pipeline via Azure Data Factory med Azure Batch.
 services: batch
 author: mammask
 manager: jeconnoc
@@ -11,70 +11,70 @@ ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
 ms.openlocfilehash: 2995c5da4491f14471d9ed03022a144a02beab5a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78201838"
 ---
-# <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Självstudie: köra Python-skript via Azure Data Factory med Azure Batch
+# <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Självstudiekurs: Kör Python-skript via Azure Data Factory med Azure Batch
 
 I den här kursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * autentisera med Batch- och Storage-konton
-> * Utveckla och köra ett skript i python
+> * Utveckla och köra ett skript i Python
 > * skapa en pool med beräkningsnoder för att köra ett program
-> * Schemalägg dina python-arbetsbelastningar
-> * Övervaka din Analytics-pipeline
+> * Schemalägg dina Python-arbetsbelastningar
+> * Övervaka din analyspipeline
 > * Komma åt dina loggfiler
 
-Exemplet nedan kör ett Python-skript som tar emot CSV-indata från en Blob Storage-behållare, utför en data behandlings process och skriver utdata till en separat Blob Storage-behållare.
+Exemplet nedan kör ett Python-skript som tar emot CSV-indata från en blob-lagringsbehållare, utför en datamanipuleringsprocess och skriver utdata till en separat blob-lagringsbehållare.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En installerad [python](https://www.python.org/downloads/) -distribution för lokal testning.
-* [Azure](https://pypi.org/project/azure/) `pip`-paketet.
-* Ett Azure Batch-konto och ett länkat Azure Storage-konto. Mer information om hur du skapar och länkar batch-konton till lagrings konton finns i [skapa ett batch-konto](quick-create-portal.md#create-a-batch-account) .
-* Ett Azure Data Factory konto. Se [skapa en data fabrik](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) för mer information om hur du skapar en data fabrik via Azure Portal.
+* En installerad [Python-distribution](https://www.python.org/downloads/) för lokal testning.
+* [Azure-paketet.](https://pypi.org/project/azure/) `pip`
+* Ett Azure Batch-konto och ett länkat Azure Storage-konto. Se [Skapa ett batchkonto](quick-create-portal.md#create-a-batch-account) för mer information om hur du skapar och länkar batchkonton till lagringskonton.
+* Ett Azure Data Factory-konto. Se [Skapa en datafabrik](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) för mer information om hur du skapar en datafabrik via Azure-portalen.
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
-* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+* [Utforskaren för Azure Storage](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-## <a name="create-a-batch-pool-using-batch-explorer"></a>Skapa en batch-pool med Batch Explorer
+## <a name="create-a-batch-pool-using-batch-explorer"></a>Skapa en batchpool med Batch Explorer
 
-I det här avsnittet ska du använda Batch Explorer för att skapa batch-poolen som din Azure Data Factory-pipeline ska använda. 
+I det här avsnittet ska du använda Batch Explorer för att skapa batchpoolen som din Azure Data-fabrikspipeline ska använda. 
 
-1. Logga in för att Batch Explorer med dina Azure-autentiseringsuppgifter.
-1. Välj ditt batch-konto
-1. Skapa en pool genom att välja **pooler** i det vänstra fältet och sedan knappen **Lägg till** ovanför Sök formuläret. 
-    1. Välj ett ID och visnings namn. Vi använder `custom-activity-pool` i det här exemplet.
-    1. Ange skalnings typen till **fast storlek**och ange antalet dedikerade noder till 2.
-    1. Under **data vetenskap**väljer du **Dsvm Windows** som operativ system.
+1. Logga in på Batch Explorer med dina Azure-autentiseringsuppgifter.
+1. Välj ditt batchkonto
+1. Skapa en pool genom att välja **Pooler** i det vänstra sidofältet och sedan knappen **Lägg till** ovanför sökformuläret. 
+    1. Välj ett ID och visningsnamn. Vi använder `custom-activity-pool` för det här exemplet.
+    1. Ange skalningstypen till **Fast storlek**och ange antalet dedikerade noder till 2.
+    1. Under **Data science**väljer du **Dsvm Windows** som operativsystem.
     1. Välj `Standard_f2s_v2` som storlek på den virtuella datorn.
-    1. Aktivera start uppgiften och Lägg till kommandot `cmd /c "pip install pandas"`. Användar identiteten kan vara som standard **användare av poolen**.
+    1. Aktivera startuppgiften och `cmd /c "pip install pandas"`lägg till kommandot . Användaridentiteten kan förbli **standardanvändaren**för pool.
     1. Välj **OK**.
 
-## <a name="create-blob-containers"></a>Skapa BLOB-behållare
+## <a name="create-blob-containers"></a>Skapa blob-behållare
 
-Här skapar du Blob-behållare som lagrar dina indata och utdatafiler för OCR-batchjobbet.
+Här ska du skapa blob-behållare som lagrar dina indata- och utdatafiler för OCR Batch-jobbet.
 
-1. Logga in för att Storage Explorer med dina Azure-autentiseringsuppgifter.
-1. Skapa två BLOB-behållare (en för indatafiler, en för utdatafiler) med hjälp av det lagrings konto som är kopplat till ditt batch-konto genom att följa stegen i [skapa en BLOB-behållare](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
-    * I det här exemplet ska vi anropa vår behållare för indata-`input`och vår `output`för utdata.
-1. Ladda upp `main.py` och `iris.csv` till din indatamängds-behållare `input` att använda Storage Explorer genom att följa stegen i [Hantera blobbar i en BLOB-behållare](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
+1. Logga in i Storage Explorer med dina Azure-autentiseringsuppgifter.
+1. Med hjälp av lagringskontot som är länkat till ditt Batch-konto skapar du två blob-behållare (en för indatafiler, en för utdatafiler) genom att följa stegen i [Skapa en blob-behållare](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
+    * I det här exemplet anropar `input`vi vår indatabehållare och vår utdatabehållare `output`.
+1. Ladda `main.py` `iris.csv` upp och `input` till indatabehållaren med Storage Explorer genom att följa stegen vid [Hantera blobbar i en blob-behållare](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 
-## <a name="develop-a-script-in-python"></a>Utveckla ett skript i python
+## <a name="develop-a-script-in-python"></a>Utveckla ett skript i Python
 
-Följande Python-skript läser in `iris.csv` data uppsättningen från din `input`-behållare, utför en data behandlings process och sparar tillbaka resultatet i `output`-behållaren.
+Följande Python-skript `iris.csv` läser in datauppsättningen från `input` behållaren, utför en datamanipuleringsprocess och sparar resultaten tillbaka till behållaren. `output`
 
 ``` python
 # Load libraries
@@ -104,58 +104,58 @@ df.to_csv("iris_setosa.csv", index = False)
 blobService.create_blob_from_text(containerName, "iris_setosa.csv", "iris_setosa.csv")
 ```
 
-Spara skriptet som `main.py` och ladda upp det till **Azure Storage** -behållaren. Se till att testa och verifiera dess funktioner lokalt innan du laddar upp den till BLOB-behållaren:
+Spara skriptet `main.py` som och ladda upp det till Azure Storage-behållaren. **Azure Storage** Var noga med att testa och validera dess funktioner lokalt innan du laddar upp den till din blob-behållare:
 
 ``` bash
 python main.py
 ```
 
-## <a name="set-up-an-azure-data-factory-pipeline"></a>Konfigurera en Azure Data Factory pipeline
+## <a name="set-up-an-azure-data-factory-pipeline"></a>Konfigurera en Azure Data Factory-pipeline
 
-I det här avsnittet ska du skapa och validera en pipeline med hjälp av python-skriptet.
+I det här avsnittet ska du skapa och validera en pipeline med ditt Python-skript.
 
-1. Följ stegen för att skapa en data fabrik under avsnittet "skapa en data fabrik" i [den här artikeln](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
-1. I rutan **fabriks resurser** väljer du knappen + (plus) och väljer sedan **pipeline**
-1. På fliken **Allmänt** anger du namnet på pipelinen som "kör python"
+1. Följ stegen för att skapa en datafabrik under avsnittet "Skapa en datafabrik" [i den här artikeln](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory).
+1. I rutan **Fabriksresurser** väljer du knappen + (plus) och väljer sedan **Pipeline**
+1. På fliken **Allmänt** anger du namnet på pipelinen som "Kör Python"
 
     ![](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
-1. I rutan **aktiviteter** expanderar du **batch-tjänsten**. Dra den anpassade aktiviteten från **aktivitets** verktygs lådan till pipelinens designer-yta.
-1. På fliken **Allmänt** anger du **testPipeline** som namn
+1. Expandera **Batchservice**i rutan **Aktiviteter** . Dra den anpassade aktiviteten från **verktygslådan Aktiviteter** till pipelinedesignerytan.
+1. På fliken **Allmänt** anger du **testPipeline** för Namn
 
     ![](./media/run-python-batch-azure-data-factory/create-custom-task.png)
-1. På fliken **Azure Batch** lägger du till det **Batch-konto** som skapades i föregående steg och **testar anslutningen** för att kontrol lera att det lyckades
+1. På fliken **Azure Batch** lägger du till **batchkontot** som skapades i föregående steg och **Test-anslutning** för att säkerställa att det lyckas
 
     ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
-1. På fliken **Inställningar** anger du kommandot `python main.py`.
-1. För den **länkade resurs tjänsten**lägger du till det lagrings konto som skapades i föregående steg. Testa anslutningen för att säkerställa att den lyckas.
-1. I **mappsökvägen**väljer du namnet på den **Azure Blob Storage** -behållare som innehåller python-skriptet och tillhör ande indata. Detta laddar ned de valda filerna från behållaren till poolens noder innan python-skriptet körs.
+1. Ange **Settings** kommandot `python main.py`.
+1. Lägg till lagringskontot som skapades i föregående steg för den **resurslänkade tjänsten.** Testa anslutningen för att säkerställa att den lyckas.
+1. I **mappsökvägen**väljer du namnet på **Azure Blob** Storage-behållaren som innehåller Python-skriptet och tillhörande indata. Detta hämtar de valda filerna från behållaren till poolnodinstanserna före körningen av Python-skriptet.
 
     ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
-1. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet för pipelinen. Bekräfta att pipelinen har verifierats. Om du vill stänga verifieringen av utdata väljer du knappen &gt;&gt; (högerpil).
-1. Klicka på **Felsök** för att testa pipelinen och se till att den fungerar korrekt.
-1. Klicka på **publicera** för att publicera pipelinen.
-1. Klicka på **Utlös** för att köra python-skriptet som en del av en batch-process.
+1. Verifiera pipelineinställningarna genom att klicka på **Verifiera** i verktygsfältet för pipelinen. Bekräfta att pipelinen har verifierats. Du stänger utdata från verifieringen genom att välja &gt;&gt; (högerpil).
+1. Klicka på **Felsökning** för att testa pipelinen och se till att den fungerar korrekt.
+1. Klicka på **Publicera** om du vill publicera pipelinen.
+1. Klicka på **Utlösare** om du vill köra Python-skriptet som en del av en batchprocess.
 
     ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ### <a name="monitor-the-log-files"></a>Övervaka loggfilerna
 
-Om varningar eller fel skapas vid körning av skriptet kan du checka ut `stdout.txt` eller `stderr.txt` för mer information om utdata som loggats.
+Om varningar eller fel uppstår genom att skriptet körs kan `stdout.txt` `stderr.txt` du checka ut eller för mer information om utdata som loggats.
 
-1. Välj **jobb** från vänster sida av batch Explorer.
-1. Välj det jobb som skapats av din data fabrik. Under förutsättning att du har namngett din pool `custom-activity-pool`väljer du `adfv2-custom-activity-pool`.
-1. Klicka på den aktivitet som hade slut på stängnings kod.
-1. Visa `stdout.txt` och `stderr.txt` för att undersöka och diagnostisera problemet.
+1. Välj **Jobb** till vänster i Batch Explorer.
+1. Välj det jobb som skapats av datafabriken. Om du har `custom-activity-pool`namngett `adfv2-custom-activity-pool`poolen väljer du .
+1. Klicka på aktiviteten som hade en felutträdeskod.
+1. Visa `stdout.txt` `stderr.txt` och undersöka och diagnostisera ditt problem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du utforskat ett exempel som visar hur du kör Python-skript som en del av en pipeline genom Azure Data Factory att använda Azure Batch.
+I den här självstudien utforskade du ett exempel som lärde dig hur du kör Python-skript som en del av en pipeline via Azure Data Factory med Azure Batch.
 
 Mer information om Azure Data Factory finns i:
 
 > [!div class="nextstepaction"]
 > [Azure Data Factory](../data-factory/introduction.md)
-> [pipelines och aktiviteter](../data-factory/concepts-pipelines-activities.md)
-> [anpassade aktiviteter](../data-factory/transform-data-using-dotnet-custom-activity.md)
+> [Pipelines och aktiviteter](../data-factory/concepts-pipelines-activities.md)
+> [Anpassade aktiviteter](../data-factory/transform-data-using-dotnet-custom-activity.md)

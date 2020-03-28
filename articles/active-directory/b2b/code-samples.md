@@ -1,5 +1,5 @@
 ---
-title: B2B-samarbets kod och PowerShell-exempel – Azure AD
+title: B2B-samarbetskod och PowerShell-exempel - Azure AD
 description: Kod- och PowerShell-exempel för Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 03a7a9c0c9ed308944b57e7659fefa81178af78b
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77368141"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B-samarbetskod och PowerShell-exempel
@@ -56,7 +56,7 @@ Den här cmdleten skickar en inbjudan till e-postadresserna i invitations.csv. Y
 - Skicka meddelanden till CC eller förhindra e-postmeddelanden helt
 
 ## <a name="code-sample"></a>Kodexempel
-Här visar vi hur du anropar inbjudan API:et i appspecifikt läge för att hämta inlösens-URL:en för den resurs som du bjuder in B2B-användaren till. Målet är att skicka ett anpassat e-postmeddelande med inbjudan. E-postmeddelandet kan bestå av en HTTP-klient så att du kan anpassa hur den ser ut och skickas via Microsoft Graph API.
+Här visar vi hur du anropar inbjudan API:et i appspecifikt läge för att hämta inlösens-URL:en för den resurs som du bjuder in B2B-användaren till. Målet är att skicka ett anpassat e-postmeddelande med inbjudan. E-postmeddelandet kan skrivas med en HTTP-klient, så att du kan anpassa hur det ser ut och skicka det via Microsoft Graph API.
 
 ```csharp
 namespace SampleInviteApp

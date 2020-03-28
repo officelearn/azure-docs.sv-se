@@ -1,6 +1,6 @@
 ---
-title: Kopiera hanterade diskar till ett exempel på en prenumerations-CLI
-description: Skript exempel för Azure CLI – kopiera (eller flytta) hanterade diskar till samma eller en annan prenumeration
+title: Kopiera hanterade diskar till en prenumeration - CLI-exempel
+description: Exempel på Azure CLI Script - Kopiera (eller flytta) hanterade diskar till samma eller en annan prenumeration
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -17,10 +17,10 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: 7ccdec703781a4e48870d5b4c27ec9d23de71dd0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75458577"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Kopiera hanterade diskar till samma eller en annan prenumeration med CLI

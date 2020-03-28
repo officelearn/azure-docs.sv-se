@@ -1,5 +1,5 @@
 ---
-title: Skicka push-meddelanden till vissa Android-appar med hjälp av Azure Notification Hubs
+title: Skicka push-meddelanden till specifika Android-appar med Azure Notification Hubs
 description: Lär dig att använda Azure Notification Hubs till att skicka push-meddelanden till specifika användare.
 documentationcenter: android
 services: notification-hubs
@@ -18,17 +18,17 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
 ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75531130"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa Android-appar med hjälp av Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Självstudiekurs: Skicka push-meddelanden till specifika Android-appar med Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Denna självstudie visar hur du använder Azure-meddelandehubbar för att skicka push-meddelanden till en specifik app-användare på en viss enhet. En ASP.NET WebAPI-serverdel används för att autentisera klienter och generera meddelanden, vilket visas i artikeln [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den här självstudien bygger på den meddelande hubb som du skapade i [självstudien: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Denna självstudie visar hur du använder Azure Notification Hubs till att skicka push-meddelanden till en specifik appanvändare på en specifik enhet. En ASP.NET WebAPI-serverdel används för att autentisera klienter och generera meddelanden, vilket visas i artikeln [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den här självstudien bygger på meddelandehubben som du skapade i [självstudien: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 I den här självstudien gör du följande:
 
@@ -39,13 +39,13 @@ I den här självstudien gör du följande:
 
 ## <a name="prerequisites"></a>Krav
 
-Slutför [självstudien: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) innan du gör den här kursen.
+Slutför [självstudien: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) innan du gör den här självstudien.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="create-the-android-project"></a>Skapa Android-projektet
 
-Nästa steg är att uppdatera det Android-program som skapats i [självstudien: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Nästa steg är att uppdatera Android-programmet som skapats i [självstudien: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 1. Öppna filen `res/layout/activity_main.xml` och ersätt följande innehållsdefinitioner:
 
@@ -260,8 +260,8 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     }
     ```
 
-    Den här komponenten implementerar de REST-anrop som krävs för att kontakta appens Server del för att registrera sig för push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en autentiseringstoken som lagras i lokal lagring när du klickar på knappen **Logga in** .
-4. I `MainActivity`-klassen och lägga till ett fält för klassen `RegisterClient` och en sträng för din ASP.NET-backend-slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
+    Den här komponenten implementerar REST-anropen som krävs för att kontakta appens backend för att registrera sig för push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en auktoriseringstoken som lagras i lokal lagring när du klickar på **inloggningsknappen.**
+4. I `MainActivity` klassen och lägg till `RegisterClient` ett fält för klassen och en sträng för ASP.NET slutpunkt för ASP.NET. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
 
     ```java
     private RegisterClient registerClient;
@@ -322,7 +322,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Lägg sedan till följande metoder för att hantera knappen **Logga** in genom att klicka på händelse och skicka push-meddelanden.
+9. Lägg sedan till följande metoder för att hantera **inloggningsknappen** klicka på händelsen och skicka push-meddelanden.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -412,7 +412,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     }
     ```
 
-    `login` hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (den representerar alla token som autentiseringsschemat använder) och använder sedan `RegisterClient` för att anropa Server delen för registrering.
+    Hanteraren `login` för **inloggningsknappen** genererar en grundläggande autentiseringstoken med hjälp av indataanvändarnamnet och `RegisterClient` lösenordet (den representerar alla token som autentiseringsschemat använder), och sedan används den för att anropa serverda för registrering.
 
     `sendPush`-metoden anropar serverdelen för att utlösa ett säkert meddelande till användaren baserat på användartaggen. Plattformens meddelandetjänst som `sendPush` har som mål är beroende av `pns`-strängen som skickats.
 
@@ -472,7 +472,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
     ```java
     useLibrary 'org.apache.http.legacy'
     ```
-13. Om din app är riktad mot API-nivå 28 (Android 9,0) eller senare, inkluderar du följande deklaration i `<application>`-elementet i `AndroidManifest.xml`.
+13. Om din app är inriktad på API-nivå 28 (Android 9.0) eller högre, inkludera följande deklaration i elementet `<application>` `AndroidManifest.xml`i .
 
     ```xml
     <uses-library
@@ -485,7 +485,7 @@ Nästa steg är att uppdatera det Android-program som skapats i [självstudien: 
 
 1. Kör programmet på en enhet eller i en emulator med Android Studio.
 2. Ange ett användarnamn och lösenord i Android-appen. De måste båda ha samma strängvärde och får inte innehålla blanksteg eller specialtecken.
-3. Klicka på **Logga**in i Android-appen. Vänta på ett popup-meddelande om att tillstånd har **loggat in och registrerats**. Detta aktiverar knappen **Skicka meddelande**.
+3. Klicka på Logga **in i**Android-appen . Vänta på ett popup-meddelande som anger **Inloggad och registrerad**. Detta aktiverar knappen **Skicka meddelande**.
 
     ![][A2]
 4. Klicka på växlingsknapparna för att aktivera alla plattformar där du körde appen och registrerade en användare.

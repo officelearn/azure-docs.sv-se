@@ -1,124 +1,124 @@
 ---
-title: Kom igång med logg frågor i Azure Monitor | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att komma igång med att skriva logg frågor i Azure Monitor.
+title: Komma igång med loggfrågor i Azure Monitor | Microsoft-dokument
+description: Den här artikeln innehåller en självstudiekurs för att komma igång med att skriva loggfrågor i Azure Monitor.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
 ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77670187"
 ---
-# <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med logg frågor i Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Komma igång med loggfrågor i Azure Monitor
 
 > [!NOTE]
-> Du kan arbeta med den här övningen i din egen miljö om du samlar in data från minst en virtuell dator. Om du inte gör det använder du vår [demo miljö](https://portal.loganalytics.io/demo), som innehåller massor av exempel data.
+> Du kan arbeta igenom den här övningen i din egen miljö om du samlar in data från minst en virtuell dator. Om inte sedan använda vår [Demo-miljö](https://portal.loganalytics.io/demo), som innehåller massor av exempeldata.
 
-I den här självstudien får du lära dig att skriva logg frågor i Azure Monitor. Du får lära dig att:
+I den här självstudien får du lära dig att skriva loggfrågor i Azure Monitor. Det kommer att lära dig att:
 
-- Förstå frågans struktur
+- Förstå frågestruktur
 - Sortera frågeresultat
 - Filtrera frågeresultat
 - Ange ett tidsintervall
 - Välj vilka fält som ska inkluderas i resultaten
-- Definiera och Använd anpassade fält
-- Sammanställda och grupp resultat
+- Definiera och använda anpassade fält
+- Aggregera och gruppresultat
 
-En själv studie kurs om hur du använder Log Analytics i Azure Portal finns i [Kom igång med Azure Monitor Log Analytics](get-started-portal.md).<br>
-Mer information om logg frågor i Azure Monitor finns i [Översikt över logg frågor i Azure Monitor](log-query-overview.md).
+En självstudiekurs om hur du använder Logganalys i Azure-portalen finns i [Komma igång med Azure Monitor Log Analytics](get-started-portal.md).<br>
+Mer information om loggfrågor i Azure Monitor finns i [Översikt över loggfrågor i Azure Monitor](log-query-overview.md).
 
-Följ tillsammans med en video version av den här kursen nedan:
+Följ med en videoversion av den här guiden nedan:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
-## <a name="writing-a-new-query"></a>Skriver en ny fråga
-Frågor kan inledas med antingen ett tabell namn eller kommandot *search* . Du måste börja med ett tabell namn, eftersom det definierar en tydlig omfattning för frågan och förbättrar både frågans prestanda och relevansen för resultatet.
+## <a name="writing-a-new-query"></a>Skriva en ny fråga
+Frågor kan börja med antingen ett *search* tabellnamn eller sökkommandot. Du bör börja med ett tabellnamn, eftersom det definierar ett tydligt omfång för frågan och förbättrar både frågeprestanda och relevans för resultaten.
 
 > [!NOTE]
-> Det Kusto frågespråk som används av Azure Monitor är Skift läges känsligt. Språk nyckelord skrivs vanligt vis i gemener. När du använder namn på tabeller eller kolumner i en fråga, se till att använda rätt Skift läge, som du ser i rutan schema.
+> Frågespråket Kusto som används i Azure Monitor är skiftlägeskänsligt. Språkets nyckelord skrivs vanligtvis med gemener. När du använder namn på tabeller eller kolumner i en fråga måste du använda rätt skiftläge, som visas i schemafönstret.
 
 ### <a name="table-based-queries"></a>Tabellbaserade frågor
-Azure Monitor ordnar loggdata i tabeller, var och en består av flera kolumner. Alla tabeller och kolumner visas i rutan schema i Log Analytics i Analytics-portalen. Identifiera en tabell som du är intresse rad av och ta en titt på data:
+Azure Monitor organiserar loggdata i tabeller, som var och en består av flera kolumner. Alla tabeller och kolumner visas i schemafönstret i Logganalys i Analytics-portalen. Identifiera en tabell som du är intresserad av och ta sedan en titt på lite data:
 
 ```Kusto
 SecurityEvent
 | take 10
 ```
 
-Frågan som visas ovan returnerar 10 resultat från tabellen *SecurityEvent* , i någon speciell ordning. Det här är ett mycket vanligt sätt att ta en titt på en tabell och förstå dess struktur och innehåll. Nu ska vi kontrol lera hur det är byggt:
+Frågan som visas ovan returnerar 10 resultat från tabellen *SecurityEvent,* utan någon specifik ordning. Detta är ett mycket vanligt sätt att ta en titt på ett bord och förstå dess struktur och innehåll. Låt oss undersöka hur det är byggt:
 
-* Frågan börjar med tabell namnet *SecurityEvent* – den här delen definierar frågans omfång.
-* Pipe-tecknet (|) separerar kommandon, så utdata från den första i indata för följande kommando. Du kan lägga till valfritt antal skickas-element.
-* Efter denna pipe finns kommandot **ta** , som returnerar ett angivet antal godtyckliga poster från tabellen.
+* Frågan börjar med tabellnamnet *SecurityEvent* - den här delen definierar frågans omfattning.
+* Pipe -tecknet (|) separerar kommandon, så utdata från det första i indata för följande kommando. Du kan lägga till valfritt antal rörelement.
+* Efter pipe är **take** take-kommandot, som returnerar ett visst antal godtyckliga poster från tabellen.
 
-Vi kunde faktiskt köra frågan även utan att lägga till `| take 10` – som fortfarande är giltig, men den kan returnera upp till 10 000 resultat.
+Vi skulle faktiskt kunna köra `| take 10` frågan även utan att lägga till - det skulle fortfarande vara giltigt, men det kan returnera upp till 10.000 resultat.
 
 ### <a name="search-queries"></a>Sökfrågor
-Sök frågor är mindre strukturerade och passar i allmänhet bättre för att hitta poster som innehåller ett särskilt värde i någon av kolumnerna:
+Sökfrågorna är mindre strukturerade och i allmänhet mer lämpade för att hitta poster som innehåller ett visst värde i någon av deras kolumner:
 
 ```Kusto
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
 
-Den här frågan söker efter poster som innehåller frasen "kryptografisk" i *SecurityEvent* -tabellen. Av dessa poster returneras och visas 10 poster. Om vi utelämnar `in (SecurityEvent)` delen och bara kör `search "Cryptographic"`, fortsätter sökningen över *alla* tabeller, vilket skulle ta längre tid och vara mindre effektivt.
+Den här frågan söker i tabellen *SecurityEvent* efter poster som innehåller frasen "Kryptografisk". Av dessa poster returneras 10 poster och visas. Om vi utelämnar delen `in (SecurityEvent)` `search "Cryptographic"`och bara kör, kommer sökningen att gå över *alla* tabeller, vilket skulle ta längre tid och vara mindre effektiv.
 
 > [!WARNING]
-> Sök frågor är vanligt vis långsammare än tabellbaserade frågor eftersom de måste bearbeta mer data. 
+> Sökfrågor är vanligtvis långsammare än tabellbaserade frågor eftersom de måste bearbeta mer data. 
 
 ## <a name="sort-and-top"></a>Sortera och överst
-Det kan vara praktiskt att **ta** emot några poster, men resultaten är markerade och visas inte i någon viss ordning. Om du vill hämta en ordnad vy kan du **Sortera** efter den önskade kolumnen:
+Ta **take** är användbart för att få några poster, men resultaten väljs och visas inte i någon särskild ordning. Om du vill hämta en ordnad vy kan du **sortera efter** önskad kolumn:
 
 ```Kusto
 SecurityEvent   
 | sort by TimeGenerated desc
 ```
 
-Det kan returnera för många resultat, men kan också ta lite tid. Frågan ovan sorterar *hela* SecurityEvent-tabellen efter kolumnen TimeGenerated. Analys portalen begränsar sedan visningen så att endast 10 000 poster visas. Den här metoden är naturligtvis inte optimal.
+Det kan ge för många resultat dock och kan också ta lite tid. Ovanstående fråga sorterar *hela* SecurityEvent-tabellen efter kolumnen TimeGenerated. Analytics-portalen begränsar sedan visningen så att endast 10 000 poster visas. Detta tillvägagångssätt är naturligtvis inte optimalt.
 
-Det bästa sättet att bara hämta de senaste 10 posterna är att använda **överst**, som sorterar hela tabellen på Server sidan och sedan returnerar de översta posterna:
+Det bästa sättet att få bara de senaste 10 posterna är att använda **toppen**, som sorterar hela tabellen på serversidan och sedan returnerar de översta posterna:
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Fallande sorterings ordning är standard sorterings ordningen, så vi utesluter vanligt vis argumentet **DESC** . Utdata kommer att se ut så här:
+Fallande är standardsorteringsordningen, så vi utelämnar vanligtvis **argumentet desc.** Utdata kommer att se ut så här:
 
 ![Topp 10](media/get-started-queries/top10.png)
 
 
-## <a name="where-filtering-on-a-condition"></a>Där: filtrera på ett villkor
-Filter, som de anges efter namn, filtrerar data efter ett angivet villkor. Detta är det vanligaste sättet att begränsa frågeresultaten till relevant information.
+## <a name="where-filtering-on-a-condition"></a>Var: filtrering på ett villkor
+Filter, som anges med namnet, filtrerar data efter ett visst villkor. Detta är det vanligaste sättet att begränsa frågeresultat till relevant information.
 
-Om du vill lägga till ett filter i en fråga använder du operatorn **WHERE** följt av ett eller flera villkor. Följande fråga returnerar till exempel bara *SecurityEvent* -poster där _Level_ är lika med _8_:
+Om du vill lägga till ett filter i en fråga använder du den **där** operatorn följt av ett eller flera villkor. Följande fråga returnerar till exempel endast *SecurityEvent-poster* där _nivå_ är lika med _8:_
 
 ```Kusto
 SecurityEvent
 | where Level == 8
 ```
 
-När du skriver filter villkor kan du använda följande uttryck:
+När du skriver filtervillkor kan du använda följande uttryck:
 
 | Uttryck | Beskrivning | Exempel |
 |:---|:---|:---|
-| == | Kontrol lera likhet<br>(Skift läges känsligt) | `Level == 8` |
-| =~ | Kontrol lera likhet<br>(inte Skift läges känsligt) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
-| ! =, < > | Kontrol lera olikhet<br>(båda uttrycken är identiska) | `Level != 4` |
+| == | Kontrollera jämställdhet<br>(skiftlägeskänsligt) | `Level == 8` |
+| =~ | Kontrollera jämställdhet<br>(skiftlägesokänsligt) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
+| !=, <> | Kontrollera ojämlikhet<br>(båda uttrycken är identiska) | `Level != 4` |
 | *och*, *eller* | Krävs mellan villkor| `Level == 16 or CommandLine != ""` |
 
-Om du vill filtrera efter flera villkor kan du antingen använda **och**:
+Om du vill filtrera efter flera villkor kan du antingen använda **och:**
 
 ```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
-eller rör flera **där** elementen ett efter den andra:
+eller rörmultna **där** element en efter en:
 
 ```Kusto
 SecurityEvent
@@ -127,18 +127,18 @@ SecurityEvent
 ```
     
 > [!NOTE]
-> Värden kan ha olika typer, så du kan behöva omvandla dem för att utföra jämförelse av rätt typ. Till exempel är kolumnen SecurityEvent *nivå* av typen sträng, så du måste omvandla den till en numerisk typ, till exempel *int* eller *Long*, innan du kan använda numeriska operatorer på den: `SecurityEvent | where toint(Level) >= 10`
+> Värden kan ha olika typer, så du kan behöva casta dem för att utföra jämförelser på rätt typ. Kolumnen SecurityEvent *Level* är till exempel av typen Sträng, så du måste casta den till en numerisk typ, till exempel *int* eller *long*, innan du kan använda numeriska operatorer på den:`SecurityEvent | where toint(Level) >= 10`
 
 ## <a name="specify-a-time-range"></a>Ange ett tidsintervall
 
-### <a name="time-picker"></a>Tids väljare
-Tids väljaren är bredvid knappen Kör och anger att vi bara vill fråga efter poster från de senaste 24 timmarna. Detta är standard tidsintervallet som används för alla frågor. Om du bara vill hämta poster från den senaste timmen väljer du _senaste timmen_ och kör frågan igen.
+### <a name="time-picker"></a>Tidplockare
+Tidsväljaren är bredvid knappen Kör och anger att vi bara frågar efter poster från de senaste 24 timmarna. Det här är standardtidsintervallet som tillämpas på alla frågor. Om du bara vill hämta poster från den senaste timmen väljer du _Förra timmen_ och kör frågan igen.
 
 ![Tidväljaren](media/get-started-queries/timepicker.png)
 
 
-### <a name="time-filter-in-query"></a>Tids filter i fråga
-Du kan också definiera ett eget tidsintervall genom att lägga till ett tids filter i frågan. Det är bäst att placera tids filtret omedelbart efter tabell namnet: 
+### <a name="time-filter-in-query"></a>Tidsfilter i fråga
+Du kan också definiera ditt eget tidsintervall genom att lägga till ett tidsfilter i frågan. Det är bäst att placera tidsfiltret direkt efter tabellnamnet: 
 
 ```Kusto
 SecurityEvent
@@ -146,11 +146,11 @@ SecurityEvent
 | where toint(Level) >= 10
 ```
 
-I ovanstående tids filter `ago(30m)` innebär "30 minuter sedan" så att den här frågan endast returnerar poster från de senaste 30 minuterna. Andra tidsenheter inkluderar dagar (2D), minuter (25m) och sekunder (tiotal).
+I ovanstående tidsfilter `ago(30m)` betyder "30 minuter sedan" så den här frågan returnerar bara poster från de senaste 30 minuterna. Andra tidsenheter inkluderar dagar (2d), minuter (25m) och sekunder (10s).
 
 
-## <a name="project-and-extend-select-and-compute-columns"></a>Projekt och utöka: Välj och beräkna kolumner
-Använd **Project** för att välja vilka kolumner som ska ingå i resultaten:
+## <a name="project-and-extend-select-and-compute-columns"></a>Projekt och utöka: markera och beräkna kolumner
+Använd **projekt** för att välja specifika kolumner som ska inkluderas i resultaten:
 
 ```Kusto
 SecurityEvent 
@@ -158,15 +158,15 @@ SecurityEvent
 | project TimeGenerated, Computer, Activity
 ```
 
-Föregående exempel genererar följande utdata:
+I föregående exempel genereras den här utdatan:
 
-![Frågeresultat för projekt](media/get-started-queries/project.png)
+![Frågeprojektresultat](media/get-started-queries/project.png)
 
-Du kan också använda **Project** för att byta namn på kolumner och definiera nya. I följande exempel används Project för att göra följande:
+Du kan också använda **projekt** för att byta namn på kolumner och definiera nya. I följande exempel används projekt för att göra följande:
 
-* Välj endast de ursprungliga kolumnerna för *dator* och *TimeGenerated* .
-* Byt namn på kolumnen *aktivitet* till *EventDetails*.
-* Skapa en ny kolumn med namnet *EventCode*. Funktionen **substring ()** används för att bara hämta de första fyra tecknen från fältet aktivitet.
+* Markera endast de ursprungliga kolumnerna *Computer* och *TimeGenerated.*
+* Byt namn på kolumnen *Aktivitet* till *EventDetails*.
+* Skapa en ny kolumn med namnet *EventCode*. Funktionen **substring()** används för att bara hämta de fyra första tecknen från fältet Aktivitet.
 
 
 ```Kusto
@@ -175,7 +175,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**utöka** behåller alla ursprungliga kolumner i resultat uppsättningen och definierar ytterligare dem. Följande fråga använder **utöka** för att lägga till kolumnen *EventCode* . Observera att den här kolumnen kanske inte visas i slutet av tabellen, vilket innebär att du skulle behöva expandera informationen i en post för att visa den.
+**utöka** behåller alla ursprungliga kolumner i resultatuppsättningen och definierar ytterligare. Följande fråga använder **utöka** för att lägga till *kolumnen EventCode.* Observera att den här kolumnen kanske inte visas i slutet av tabellen resulterar i vilket fall du skulle behöva expandera information om en post för att visa den.
 
 ```Kusto
 SecurityEvent
@@ -183,17 +183,17 @@ SecurityEvent
 | extend EventCode=substring(Activity, 0, 4)
 ```
 
-## <a name="summarize-aggregate-groups-of-rows"></a>Sammanfatta: aggregerade grupper av rader
-Använd **sammanfatta** för att identifiera grupper av poster, enligt en eller flera kolumner, och tillämpa agg regeringar för dem. Den vanligaste användningen av **Sammanfattning** är *Count*, som returnerar antalet resultat i varje grupp.
+## <a name="summarize-aggregate-groups-of-rows"></a>Sammanfattning: aggregerade grupper av rader
+Använd **sammanfattning** för att identifiera grupper av poster, enligt en eller flera kolumner, och tillämpa aggregeringar på dem. Den vanligaste användningen av **summarize** är *antal*, som returnerar antalet resultat i varje grupp.
 
-Följande fråga granskar alla *perf* -poster från den senaste timmen, grupperar dem efter *ObjectName*och räknar posterna i varje grupp: 
+Följande fråga granskar alla *Perf-poster* från den senaste timmen, grupperar dem efter *ObjectName*och räknar posterna i varje grupp: 
 ```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
 ```
 
-Ibland är det klokt att definiera grupper efter flera dimensioner. Varje unik kombination av dessa värden definierar en separat grupp:
+Ibland är det vettigt att definiera grupper efter flera dimensioner. Varje unik kombination av dessa värden definierar en separat grupp:
 
 ```Kusto
 Perf
@@ -201,7 +201,7 @@ Perf
 | summarize count() by ObjectName, CounterName
 ```
 
-En annan vanlig användning är att utföra matematiska eller statistiska beräkningar på varje grupp. Följande beräknar till exempel den genomsnittliga *CounterValue* för varje dator:
+En annan vanlig användning är att utföra matematiska eller statistiska beräkningar på varje grupp. Följande beräknar till exempel det genomsnittliga *motvärde för* varje dator:
 
 ```Kusto
 Perf
@@ -209,7 +209,7 @@ Perf
 | summarize avg(CounterValue) by Computer
 ```
 
-Tyvärr är resultatet av frågan meningslöst eftersom vi blandade olika prestanda räknare. För att göra detta mer meningsfullt bör du beräkna genomsnittet separat för varje kombination av *CounterName* och *dator*:
+Tyvärr är resultatet av den här frågan meningslösa eftersom vi blandade ihop olika prestandaräknare. För att göra detta mer meningsfullt, bör vi beräkna genomsnittet separat för varje kombination av *CounterName* och *dator:*
 
 ```Kusto
 Perf
@@ -217,10 +217,10 @@ Perf
 | summarize avg(CounterValue) by Computer, CounterName
 ```
 
-### <a name="summarize-by-a-time-column"></a>Sammanfatta per tids kolumn
-Grupp resultat kan också baseras på en tids kolumn eller ett annat kontinuerligt värde. Om du bara sammanfattar `by TimeGenerated` skapas grupper för varje enskild millisekund över tidsintervallet, eftersom dessa är unika värden. 
+### <a name="summarize-by-a-time-column"></a>Summera med en tidskolumn
+Gruppering av resultat kan också baseras på en tidskolumn eller ett annat kontinuerligt värde. Bara sammanfatta `by TimeGenerated` men skulle skapa grupper för varje millisekund över tidsintervallet, eftersom dessa är unika värden. 
 
-Om du vill skapa grupper baserat på kontinuerliga värden, är det bäst att dela upp intervallet i hanterbara enheter med hjälp av **lager**. Följande fråga analyserar *prestanda* poster som mäter ledigt minne (*Tillgängliga megabyte*) på en speciell dator. Den beräknar genomsnitts värdet för varje timme-period under de senaste 7 dagarna:
+Om du vill skapa grupper baserat på kontinuerliga värden är det bäst att dela upp intervallet i hanterbara enheter med **lagerplats**. Följande fråga analyserar *Perf-poster* som mäter ledigt minne (*Tillgängligt MBytes*) på en viss dator. Det beräknar det genomsnittliga värdet för varje 1-timmarsperiod under de senaste 7 dagarna:
 
 ```Kusto
 Perf 
@@ -230,15 +230,15 @@ Perf
 | summarize avg(CounterValue) by bin(TimeGenerated, 1h)
 ```
 
-Om du vill göra resultatet tydligare väljer du att visa det som ett tids diagram med tillgängligt minne över tid:
+Om du vill göra utdata tydligare väljer du att visa den som ett tidsschema som visar det tillgängliga minnet över tid:
 
-![Fråga efter minne över tid](media/get-started-queries/chart.png)
+![Fråga minne över tid](media/get-started-queries/chart.png)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du använder sträng data i en logg fråga med att [arbeta med strängar i Azure Monitor logg frågor](string-operations.md).
-- Lär dig mer om att aggregera data i en logg fråga med [avancerade agg regeringar i Azure Monitor logg frågor](advanced-aggregations.md).
-- Lär dig hur du kopplar data från flera tabeller med [kopplingar i Azure Monitor logg frågor](joins.md).
-- Hämta dokumentation om hela Kusto-frågespråket i [språk referens för KQL](/azure/kusto/query/).
+- Läs mer om hur du använder strängdata i en loggfråga med [Arbeta med strängar i Azure Monitor-loggfrågor](string-operations.md).
+- Läs mer om att samla in data i en loggfråga med [avancerade aggregeringar i Azure Monitor-loggfrågor](advanced-aggregations.md).
+- Lär dig hur du ansluter data från flera tabeller med [loggfrågor för Kopplingar i Azure Monitor](joins.md).
+- Hämta dokumentation om hela Kusto-frågespråket i [KQL-språkreferensen](/azure/kusto/query/).

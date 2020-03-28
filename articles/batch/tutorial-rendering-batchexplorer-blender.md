@@ -8,24 +8,24 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "60617680"
 ---
-# <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Självstudier: Rendera en scen för Blender med Batch Explorer
+# <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Självstudie: Rendera en Blender-scen med Batch Explorer
 
 I den här självstudiekursen visas hur du renderar flera bildrutor från en Blender-demoscen. Blender används för den här självstudien eftersom det är kostnadsfritt för både klienten och virtuella renderingsdatorer, men processen är mycket lik om andra program, till exempel Maya eller 3ds Max, skulle användas.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Ladda upp en Blender-scen till Azure Storage
 > * Skapa en Batch-pool med flera noder för att utföra renderingen
 > * Rendera flera bildrutor
 > * Visa och ladda ned de renderade bildrutefilerna
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.
 
@@ -90,7 +90,7 @@ Skapa en Batch-pool med rendering av Azure Marketplace VM-avbildning som innehå
 > [!WARNING]
 > Obs! När det finns virtuella datorer i en pool debiteras dessa virtuella datorer i din Azure-prenumeration. Poolen eller de virtuella datorerna måste tas bort för att stoppa debiteringarna. Ta bort poolen i slutet av den här självstudiekursen för att undvika löpande avgifter.
 
-Status för poolen och virtuella datorer kan övervakas i vyn 'Pooler'; i följande exempel visas alla tre virtuella datorer som har tilldelats två har startats och är inaktiva, en fortfarande startas: ![Termisk karta för pool](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap.png)
+Statusen för poolen och de virtuella datorerna kan övervakas i vyn ”Pools” (Pooler). I följande exempel visas att alla tre virtuella datorer har tilldelats, två har startats och är inaktiva och en fortfarande startas: ![termisk poolkarta](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap.png)
 
 ## <a name="create-a-rendering-job"></a>Skapa ett renderingsjobb
 
@@ -109,25 +109,25 @@ Skapa ett renderingsjobb för att rendera några bildrutor med poolen som har sk
 
 ![Jobbmall för Blender](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_template.png)
 
-När jobbet och alla aktiviteter har skapats, visas jobbet tillsammans med jobbuppgifter: ![Lista över projektaktiviteter](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
+När jobbet och alla uppgifter har skapats visas jobbet tillsammans med jobbuppgifterna: ![Lista över jobbuppgifter](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
 
 När en uppgift börjar köras för första gången på en virtuell dator i poolen körs en förberedelseuppgift för Batch-jobb, som kopierar scenfilerna från lagringsfilgruppen till den virtuella datorn så att Blender kan komma åt dem.
 Statusen för renderingen kan fastställas genom att visa loggfilen stdout.txt som skapas av Blender.  Välj en uppgift, ”Task Outputs” (Uppgiftsutdata), visas som standard, och filen ”stdout.txt” kan väljas och visas.
 ![stdout-filen](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_stdout.png)
 
-Om blender – windows-poolen väljs, visas poolen med virtuella datorer körs: ![Termisk karta pool med noder](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
+Om du väljer poolen ”blender-windows” visas de virtuella datorerna i poolen i körningstillstånd: ![Termisk poolkarta med noder som körs](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
 
 De renderade bilderna tar flera minuter att skapa, beroende på vilken virtuell dator-storlek som har valts.  Med virtuell dator F16 som angavs tidigare tog bildrutorna 16 minuter att rendera.
 
 ## <a name="view-the-rendering-output"></a>Visa renderingens utdata
 
-När bildrutor är klar med rendering, visas aktiviteterna som slutförda: ![Uppgifter som du har slutfört](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
+När renderingen av bildrutorna är klar visas de uppgifterna som slutförda: ![Uppgifter slutförs](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_tasks_complete.png)
 
-Bilden som återges skrivs till den virtuella datorn först och kan ses genom att välja ”wd' mappen: ![Återgiven bild på pool-nod](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
+Den renderade bilden skrivs först till den virtuella datorn och kan visas genom att välja mappen ”wd”: ![Renderad bild på poolnod](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image.png)
 
-Jobbmallen anger också att utdatabildrutan och loggfilerna skrivs tillbaka till Azure Storage-kontofilgruppen som angavs när jobbet skapades.  Data Användargränssnittet kan användas för att visa utdatafilerna och loggar. Det kan också användas för att ladda ned filerna: ![Återgiven bild i filen lagringsgrupp](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
+Jobbmallen anger också att utdatabildrutan och loggfilerna skrivs tillbaka till Azure Storage-kontofilgruppen som angavs när jobbet skapades.  Användargränssnittet ”Data” kan användas för att visa utdatafilerna och loggarna. Det kan också användas till att ladda ned filerna: ![Renderad bild i lagringsfilgruppen](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_output_image_storage.png)
 
-När alla aktiviteter har slutförts markeras jobbet som håller på att slutföras: ![Jobbet och alla aktiviteter har slutförts](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
+När alla uppgifter har slutförts markeras jobbet som klart: ![Jobbet och alla uppgifter slutförda](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell exempel – Använd en anpassad VM-avbildning
+title: Azure PowerShell-exempel – Använd en anpassad vm-avbildning
 description: Det här skriptet skapar en VM-skalningsuppsättning som använder en anpassad virtuell datoravbildning som källa för de virtuella datorinstanserna.
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 2a272cf534ef8ac9cbc45c05f1b9d3f0fecfa1f3
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76276669"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-powershell"></a>Skapa en VM-skalningsuppsättning från en anpassad virtuell datoravbildning med PowerShell

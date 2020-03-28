@@ -1,5 +1,5 @@
 ---
-title: Övervaka och diagnostisera ASP.NET Core tjänster
+title: Övervaka och diagnostisera ASP.NET Core-tjänster
 description: I den här självstudien får du lära dig hur du konfigurerar övervakning och diagnostik för ett Azure Service Fabric ASP.NET Core-program.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614051"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Självstudie: Övervaka och diagnostisera en ASP.NET Core-app för Service Fabric med Application Insights
@@ -37,7 +37,7 @@ I den här självstudieserien får du lära du dig att:
 Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera arbets belastningarna **Azure Development** och **ASP.net och webb utveckling** .
+* [Installera Visual Studio 2019](https://www.visualstudio.com/) och installera **Azure-utvecklings-** och **ASP.NET- och webbutvecklingsarbetsbelastningar.**
 * [Installera Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Ladda ned exempelprogrammet Röstning
@@ -65,9 +65,9 @@ När du har fyllt i informationen som krävs, klickar du på **Skapa** för att 
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Lägga till Application Insights i tillämpningstjänsterna
 
-Starta Visual Studio 2019 med utökade privilegier genom att högerklicka på Visual Studio-ikonen på Start-menyn och välja **Kör som administratör**. Klicka på **Arkiv** > **Öppna** > **Projekt/lösning** och gå till programmet Röstning (antingen skapat i del ett av självstudien eller Git-klonad). Öppna *röstning. SLN*. Om du uppmanas att återställa programmets NuGet-paket klickar du på **Ja**.
+Starta Visual Studio 2019 med förhöjda privilegier genom att högerklicka på Visual Studio-ikonen på Start-menyn och välja **Kör som administratör**. Klicka på Öppna**Open** > **filprojekt/lösning** **File** > och navigera till röstningsprogrammet (antingen skapad i del ett av självstudien eller git klonad). Öppna *Voting.sln*. Om du uppmanas att återställa programmets NuGet-paket klickar du på **Ja**.
 
-Följ dessa steg om du vill konfigurera Application Insights för både VotingWeb-och VotingData-tjänsterna:
+Så här konfigurerar du Programinsikter för både VotingWeb- och VotingData-tjänsterna:
 
 1. Högerklicka på namnet på tjänsten och klicka på **Lägg till > anslutna tjänster > övervakning med Application Insights**.
 
@@ -75,8 +75,8 @@ Följ dessa steg om du vill konfigurera Application Insights för både VotingWe
 >[!NOTE]
 >Beroende på projekttypen kan du, när du högerklickar på tjänstens namn, behöva lägga till Lägg till -> Application Insights Telemetry ...
 
-2. Klicka på **Komma igång**.
-3. Logga in på det konto som du använde för att konfigurera din Azure-prenumeration och välj den prenumeration där du skapade Application Insights resursen. Resursen finns under *Befintlig Application Insights-resurs* i listrutan ”Resurs”. Klicka på **Registrera** för att lägga till Application Insights i din tjänst.
+2. Klicka på **Kom igång**.
+3. Logga in på kontot som du använde för att konfigurera din Azure-prenumeration och välj den prenumeration där du skapade application insights-resursen. Resursen finns under *Befintlig Application Insights-resurs* i listrutan ”Resurs”. Klicka på **Registrera** för att lägga till Application Insights i din tjänst.
 
     ![Registrera AI](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
 
@@ -90,26 +90,26 @@ Följ dessa steg om du vill konfigurera Application Insights för både VotingWe
 
 Application Insights har två Service Fabric-specifika NuGets som kan användas beroende på scenario. Den ena används med Service Fabrics ursprungliga tjänster och andra med containrar och körbara gästfiler. I det här fallet ska vi använda Microsoft.ApplicationInsights.ServiceFabric.Native NuGet till att förstå vilken tjänstkontext den har. Du kan läsa mer om Application Insights SDK och Service Fabric-specifika NuGets i [Microsoft Application Insights för Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md).
 
-Så här konfigurerar du NuGet-paketet:
+Här är stegen för att ställa in NuGet-paketet:
 
-1. Högerklicka på **lösningen "röstning"** överst i Solution Explorer och klicka på **Hantera NuGet-paket för lösning...** .
+1. Högerklicka på **Lösning "Röstning"** högst upp i din Solution Explorer, och klicka på **Hantera NuGet paket för lösning ...**.
 2. Klicka på **Bläddra** på den översta navigeringsmenyn i fönstret ”NuGet - Solution” (NuGet – Lösning) och markera rutan för att **ta med förhandsversionen** bredvid sökfältet.
 >[!NOTE]
 >Du kan behöva installera paketet Microsoft.ServiceFabric.Diagnostics.Internal på liknande sätt, om det inte finns förinstallerat, innan du installerar Application Insights-paketet
 
 3. Sök efter `Microsoft.ApplicationInsights.ServiceFabric.Native` och klicka på lämpligt NuGet-paket.
-4. Till höger klickar du på de två kryss rutorna bredvid de två tjänsterna i programmet, **VotingWeb** och **VotingData** och klickar på **Installera**.
+4. Till höger klickar du på de två kryssrutorna bredvid de två tjänsterna i programmet, **VotingWeb** och **VotingData** och klickar på **Installera**.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
-5. Klicka på **OK** i dialog rutan *Förhandsgranska ändringar* som visas och godkänn *licens godkännandet*. Du är nu klar med att lägga till NuGet till tjänsterna.
-6. Nu måste du konfigurera telemetriinitieraren i de två tjänsterna. Det gör du genom att öppna *VotingWeb.cs* och *VotingData.cs*. Gör följande i båda två:
-    1. Lägg till dessa två *using* -satser överst i varje *\<ServiceName >. cs*, efter de befintliga *using* -satserna:
+5. Klicka på **OK** i dialogrutan *Förhandsgranska ändringar* som visas och acceptera *licensacceptansen*. Du är nu klar med att lägga till NuGet till tjänsterna.
+6. Nu måste du konfigurera telemetriinitieraren i de två tjänsterna. För att göra detta, öppna *VotingWeb.cs* och *VotingData.cs*. Gör följande i båda två:
+    1. Lägg till dessa två *med hjälp av* satser högst upp i varje * \<ServiceName>.cs*, efter den befintliga med hjälp *av* satser:
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. I båda filerna i den kapslade *Return* -instruktionen för *CreateServiceInstanceListeners ()* eller *CreateServiceReplicaListeners ()* under *ConfigureServices* > *Services*, med de andra singleton-tjänsterna deklarerad, lägger du till:
+    2. I båda filerna, i den kapslade *retursatsen* för *CreateServiceInstanceListeners()* eller *CreateServiceReplicaListeners()* under *ConfigureServices-tjänster* > *services*, med de andra singleton-tjänsterna deklarerade, lägger du till:
     ```csharp
     .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
     ```
@@ -150,7 +150,7 @@ Så här konfigurerar du NuGet-paketet:
         .Build();
     ```
 
-Kontrol lera att metoden `UseApplicationInsights()` anropas i både *VotingWeb.cs* och *VotingData.cs* som visas ovan.
+Dubbelkolla `UseApplicationInsights()` att metoden anropas i både *VotingWeb.cs* och *VotingData.cs* som visas ovan.
 
 >[!NOTE]
 >Det här exempelprogrammet använder http för tjänster för att kommunicera. Om du utvecklar ett program med Service Remoting V2 behöver du även lägga till följande kodrader på samma plats som ovan
@@ -166,7 +166,7 @@ ConfigureServices(services => services
 Nu är du redo att distribuera programmet. Klicka på **Start** överst (eller **F5**). Visual Studio skapar och paketerar programmet, konfigurerar ditt lokala kluster och distribuerar programmet till det.
 
 >[!NOTE]
->Du kan få ett build-fel om du inte har en uppdaterad version av .NET Core SDK installerad.
+>Du kan få ett byggfel om du inte har en uppdaterad version av .NET Core SDK installerad.
 
 När programmet har distribuerats kan du gå till [localhost:8080](localhost:8080), där du ska kunna se sidan Röstning i exempelprogrammet. Rösta på några olika objekt för att skapa exempeldata och telemetri – jag valde efterrätter!
 
@@ -183,13 +183,13 @@ Klicka på **Översikt** för att gå tillbaka till startsidan för din resurs. 
 
 Rulla nedåt i fönstret *Sök* för att se all inkommande telemetri som medföljer Application Insights. För varje åtgärd som du har gjort i programmet Röstning ska det finnas en utgående PUT-förfrågan från *VotingWeb* (PUT Votes/Put [namn]), en inkommande PUT-begäran från *VotingData* (PUT VoteData/Put [namn]), följt av ett par GET-begäranden om att uppdatera de data som visas. Det finns också en beroendespårning för HTTP på localhost, eftersom det är HTTP-begäranden. Här är ett exempel på vad som ska visas när en röst har lagts till:
 
-![Spårning av AI-exempel begär Anden](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+![AI-exempel på spårningsbegäran](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 Du kan klicka på en av spårningarna för att se mer information om den. Det är användbar information om den begäran som kommit från Application Insights, inklusive *Svarstid* och *Fråge-URL*. Eftersom du dessutom lade till den Service Fabric-specifika NuGet, visas också data om ditt program i kontexten för ett Service Fabric-kluster i avsnittet *Anpassade data*. Detta inkluderar tjänstkontexten, så du kan se *PartitionID* och *ReplicaId* från källan för begäran, vilket gör det lättare att hitta problem vid diagnostisering av fel i programmet.
 
 ![AI spårar information](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-Du kan också klicka på den vänstra menyn på översiktssidan för att visa *programkartan*, eller klicka på  **programkarteikonen**. Nu visas programkartan med de två kopplade tjänsterna.
+Du kan också klicka på den vänstra menyn på översiktssidan för att visa *programkartan*, eller klicka på ** programkarteikonen**. Nu visas programkartan med de två kopplade tjänsterna.
 
 ![AI spårar information](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
@@ -205,10 +205,10 @@ Låt oss lägga till vissa anpassade händelser i *VoteDataController.cs* (under
 2. Deklarera en ny *TelemetryClient* i början av klassen under skapandet av *IReliableStateManager*: `private TelemetryClient telemetry = new TelemetryClient();`.
 3. I funktionen *Put()* lägger du till en händelse som bekräftar en röst har lagts till. Lägg till `telemetry.TrackEvent($"Added a vote for {name}");` när transaktionen har slutförts, direkt före return-instruktionen *OkResult*.
 4. I *Delete()* finns det ett ”if/else” som baseras på villkoret att *votesDictionary* innehåller röster för ett specifikt röstningsalternativ.
-    1. Lägg till en händelse som bekräftar borttagningen av en röst i *if*-instruktionen, efter *await tx.CommitAsync()* : `telemetry.TrackEvent($"Deleted votes for {name}");`
+    1. Lägg till en händelse som bekräftar borttagningen av en röst i *if*-instruktionen, efter *await tx.CommitAsync()*: `telemetry.TrackEvent($"Deleted votes for {name}");`
     2. Lägg till en händelse som visar att borttagningen inte ägde rum i *else*-instruktionen före return-instruktionen: `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
 
-Här är ett exempel på hur dina *Put()* - och *Delete()* -funktioner kan se ut när du har lagt till händelserna:
+Här är ett exempel på hur dina *Put()*- och *Delete()*-funktioner kan se ut när du har lagt till händelserna:
 
 ```csharp
 // PUT api/VoteData/name

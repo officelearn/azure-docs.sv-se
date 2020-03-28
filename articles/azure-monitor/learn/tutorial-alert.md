@@ -8,15 +8,15 @@ ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77656270"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Övervaka och skicka aviseringar om programmets hälsotillstånd med Azure Application Insights
 
-Med Azure Application Insights kan du övervaka programmet och skicka aviseringar när det inte är tillgängligt, har drabbats av fel eller har prestandaproblem.  Den här självstudien vägleder dig genom processen att skapa tester för att kontinuerligt kontrol lera tillgängligheten för ditt program.
+Med Azure Application Insights kan du övervaka programmet och skicka aviseringar när det inte är tillgängligt, har drabbats av fel eller har prestandaproblem.  Den här självstudien tar dig igenom processen att skapa tester för att kontinuerligt kontrollera tillgängligheten för ditt program.
 
 Lär dig att:
 
@@ -24,47 +24,47 @@ Lär dig att:
 > * Skapa tillgänglighetstest för att kontinuerligt kontrollera programmets respons
 > * Skicka e-post till administratörer när ett problem uppstår
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien behöver du:
+För att slutföra den här kursen behöver du:
 
-Skapa en [Application Insights-resurs](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
+Skapa en [application insights-resurs](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start#enable-application-insights).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-availability-test"></a>Skapa tillgänglighetstest
 
-Med tillgänglighetstester i Application Insights kan du automatiskt testa ditt program från olika platser runt om i världen.   I den här självstudien utför du ett URL-test för att säkerställa att webb programmet är tillgängligt.  Du kan även skapa en fullständig genomgång för att testa driften detaljerat. 
+Med tillgänglighetstester i Application Insights kan du automatiskt testa ditt program från olika platser runt om i världen.   I den här självstudien kommer du att utföra ett url-test för att säkerställa att webbprogrammet är tillgängligt.  Du kan även skapa en fullständig genomgång för att testa driften detaljerat. 
 
 1. Välj **Application Insights** och sedan din prenumeration.  
 
-2. Välj **tillgänglighet** under menyn **Undersök** och klicka sedan på **skapa test**.
+2. Välj **Tillgänglighet** under menyn **Undersök** och klicka sedan på **Skapa test**.
 
     ![Lägga till tillgänglighetstest](media/tutorial-alert/add-test-001.png)
 
-3. Skriv ett namn på testet och lämna de andra standardvärdena.  Det här valet utlöser begär Anden för programmets URL var 5: e minut från fem olika geografiska platser.
+3. Skriv ett namn på testet och lämna de andra standardvärdena.  Det här valet utlöser begäranden om programadressen var femte minut från fem olika geografiska platser.
 
-4. Välj **aviseringar** för att öppna List rutan **varningar** där du kan definiera information för hur du ska svara om testet Miss lyckas. Välj **nära Real** tid och Ställ in statusen på **aktive rad.**
+4. Välj **Aviseringar om** du vill öppna listrutan **Aviseringar** där du kan definiera information om hur du ska svara om testet misslyckas. Välj **Nästan realtid** och ange statusen till **Aktiverad.**
 
     Skriv en e-postadress att skicka när aviseringsvillkoren uppfylls.  Om du vill kan du ange adressen till en webhook att anropa när aviseringsvillkoren uppfylls.
 
     ![Skapa test](media/tutorial-alert/create-test-001.png)
 
-5. Gå tillbaka till test panelen, Välj ellipserna och redigera aviseringen för att ange konfigurationen för din nära real tids avisering.
+5. Gå tillbaka till testpanelen, välj ellipserna och redigera aviseringen för att ange konfigurationen för din nästan realtidsavisering.
 
     ![Redigera avisering](media/tutorial-alert/edit-alert-001.png)
 
-6. Ange att platser som inte är större än eller lika med 3. Skapa en [Åtgärds grupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) för att konfigurera vem som får ett meddelande när tröskelvärdet för aviseringar överskrids.
+6. Ange att misslyckade platser ska vara större än eller lika med 3. Skapa en [åtgärdsgrupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) för att konfigurera vem som får ett meddelande när tröskelvärdet för aviseringar överskrids.
 
-    ![Spara aviserings gränssnitt](media/tutorial-alert/save-alert-001.png)
+    ![Spara varningsgränssnitt](media/tutorial-alert/save-alert-001.png)
 
-7. När du har konfigurerat aviseringen klickar du på test namnet för att visa information från varje plats. Tester kan visas i både linje diagram-och punkt diagram format för att visualisera lyckade/misslyckade under ett angivet tidsintervall.
+7. När du har konfigurerat aviseringen klickar du på testnamnet för att visa information från varje plats. Tester kan visas i både linjediagram och punktdiagramformat för att visualisera framgång/fel för ett visst tidsintervall.
 
     ![Testinformation](media/tutorial-alert/test-details-001.png)
 
-8. Du kan öka detalj nivån för alla tester genom att klicka på dess punkt i punkt diagrammet. Då startas vyn transaktions detaljer från slut punkt till slut punkt. Exemplet nedan visar informationen för en misslyckad begäran.
+8. Du kan öka detaljnivån i information om ett test genom att klicka på dess punkt i punktdiagrammet. Detta kommer att starta vyn heltäckande transaktionsinformation. Exemplet nedan visar informationen för en misslyckad begäran.
 
     ![Testresultat](media/tutorial-alert/test-result-001.png)
   

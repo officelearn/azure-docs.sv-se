@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: använda Azure Automation runbooks för att skapa kluster – Azure HDInsight'
-description: Lär dig hur du skapar och tar bort Azure HDInsight-kluster med skript som körs i molnet med hjälp av Azure Automation runbooks.
+title: 'Självstudiekurs: Använda Azure Automation-runbooks för att skapa kluster - Azure HDInsight'
+description: Lär dig hur du skapar och tar bort Azure HDInsight-kluster med skript som körs i molnet med hjälp av Azure Automation-runbooks.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,54 +9,54 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75553515"
 ---
-# <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Självstudie: Skapa Azure HDInsight-kluster med Azure Automation
+# <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Självstudiekurs: Skapa Azure HDInsight-kluster med Azure Automation
 
-Med Azure Automation kan du skapa skript som körs i molnet och hantera Azure-resurser på begäran eller enligt ett schema. Den här artikeln beskriver hur du skapar och tar bort Azure HDInsight-kluster med PowerShell-Runbooks.
+Med Azure Automation kan du skapa skript som körs i molnet och hantera Azure-resurser på begäran eller baserat på ett schema. I den här artikeln beskrivs hur du skapar PowerShell-runbooks för att skapa och ta bort Azure HDInsight-kluster.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Installera moduler som krävs för att interagera med HDInsight.
-> * Skapa och lagra autentiseringsuppgifter som krävs när klustret skapas.
-> * Skapa en ny Azure Automation Runbook för att skapa ett HDInsight-kluster.
+> * Installera moduler som behövs för att interagera med HDInsight.
+> * Skapa och lagra autentiseringsuppgifter som behövs när klustret skapas.
+> * Skapa en ny Azure Automation-runbook för att skapa ett HDInsight-kluster.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 * Ett befintligt [Azure Automation-konto](../automation/automation-quickstart-create-account.md).
-* Ett befintligt [Azure Storage-konto](../storage/common/storage-account-create.md)som kommer att användas som kluster lagring.
+* Ett befintligt [Azure Storage-konto](../storage/common/storage-account-create.md), som kommer att användas som klusterlagring.
 
 ## <a name="install-hdinsight-modules"></a>Installera HDInsight-moduler
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj dina Azure Automation-konton.
-1. Välj **moduler-Galleri** under **delade resurser**.
-1. Skriv **AzureRM. Profile** i rutan och tryck på RETUR för att söka. Välj det tillgängliga Sök resultatet.
-1. På skärmen **AzureRM. Profile** väljer du **Importera**. Markera kryss rutan för att uppdatera Azure-moduler och välj sedan **OK**.
+1. Välj **galleriet Moduler** under **Delade resurser**.
+1. Skriv **AzureRM.Profile** i rutan och tryck enter för att söka. Välj tillgängligt sökresultat.
+1. Välj **Importera**på skärmen **AzureRM.profile** . Markera rutan för att uppdatera Azure-moduler och välj sedan **OK**.
 
-    ![Importera AzureRM. Profile-modul](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
+    ![importera AzureRM.profile-modul](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
 
-1. Gå tillbaka till modulens Galleri genom att välja **Galleri** under **delade resurser**.
-1. Skriv **HDInsight**. Välj **AzureRM. HDInsight**.
+1. Gå tillbaka till modulernas galleri genom att välja **galleriet Moduler** under **Delade resurser**.
+1. Skriv **HDInsight**. Välj **AzureRM.HDInsight**.
 
-    ![Bläddra bland HDInsight-moduler](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
+    ![bläddra i HDInsight-moduler](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
 
-1. På panelen **AzureRM. HDInsight** väljer du **Importera** och **OK**.
+1. På panelen **AzureRM.HDInsight** väljer du **Importera** och **OK**.
 
-    ![Importera AzureRM. HDInsight-modul](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
+    ![importera AzureRM.HDInsight-modul](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
 
 ## <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-1. Under **delade resurser**väljer du **autentiseringsuppgifter**.
-1. Välj **Lägg till en autentiseringsuppgift**.
-1. Ange den information som krävs på panelen **ny autentiseringsuppgift** . Den här autentiseringsuppgiften är att lagra kluster lösen ordet, vilket gör att du kan logga in på Ambari.
+1. Under **Delade resurser**väljer du **Autentiseringsuppgifter**.
+1. Välj **Lägg till en autentiseringstillstånd**.
+1. Ange nödvändig information på panelen **Ny autentiseringsuppgifter.** Den här autentiseringsinformationen är att lagra klusterlösenordet, vilket gör att du kan logga in på Ambari.
 
     | Egenskap | Värde |
     | --- | --- |
@@ -66,22 +66,22 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     | Bekräfta lösenord | `SECURE_PASSWORD` |
 
 1. Välj **Skapa**.
-1. Upprepa samma process för en ny autentiseringsuppgift `ssh-password` med användar namn `sshuser` och valfritt lösen ord. Välj **Skapa**. Den här autentiseringsuppgiften är att lagra SSH-lösenordet för klustret.
+1. Upprepa samma process för en ny `ssh-password` autentiseringsdatabas med användarnamn `sshuser` och ett lösenord som du väljer. Välj **Skapa**. Den här autentiseringsdatabasen är att lagra SSH-lösenordet för klustret.
 
     ![skapa autentiseringsuppgift](./media/manage-clusters-runbooks/create-credentials.png)
 
-## <a name="create-a-runbook-to-create-a-cluster"></a>Skapa en Runbook för att skapa ett kluster
+## <a name="create-a-runbook-to-create-a-cluster"></a>Skapa en runbook för att skapa ett kluster
 
-1. Välj **Runbooks** under **process automatisering**.
-1. Välj **skapa en Runbook**.
-1. På panelen **skapa en Runbook** anger du ett namn för runbooken, till exempel `hdinsight-cluster-create`. Välj **PowerShell** i list rutan **Runbook-typ** .
+1. Välj **Runbooks** under **Process Automation**.
+1. Välj **Skapa en runbook**.
+1. Ange ett namn på runbooken på panelen Skapa `hdinsight-cluster-create`en **runbook,** till exempel . Välj **Powershell** i listrutan **Runbook-typ.**
 1. Välj **Skapa**.
 
-    ![Skapa Runbook](./media/manage-clusters-runbooks/create-runbook.png)
+    ![skapa runbook](./media/manage-clusters-runbooks/create-runbook.png)
 
-1. Ange följande kod på skärmen **Redigera PowerShell-Runbook** och välj **publicera**:
+1. Ange följande kod på skärmen **Redigera PowerShell Runbook** och välj **Publicera:**
 
-    ![publicera Runbook](./media/manage-clusters-runbooks/publish-runbook.png)
+    ![publicera runbook](./media/manage-clusters-runbooks/publish-runbook.png)
 
     ```powershell
     Param
@@ -126,13 +126,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     New-AzureRmHDInsightCluster –ClusterName $clusterName –ResourceGroupName $resourceGroup –Location $location –DefaultStorageAccountName "$storageAccount.blob.core.windows.net" –DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName –ClusterType $clusterType –OSType $clusterOS –Version “3.6” –HttpCredential $clusterCreds –SshCredential $sshCreds –ClusterSizeInNodes $clusterWorkerNodes –HeadNodeSize $clusterNodeSize –WorkerNodeSize $clusterNodeSize
     ```
 
-## <a name="create-a-runbook-to-delete-a-cluster"></a>Skapa en Runbook för att ta bort ett kluster
+## <a name="create-a-runbook-to-delete-a-cluster"></a>Skapa en runbook för att ta bort ett kluster
 
-1. Välj **Runbooks** under **process automatisering**.
-1. Välj **skapa en Runbook**.
-1. På panelen **skapa en Runbook** anger du ett namn för runbooken, till exempel `hdinsight-cluster-delete`. Välj **PowerShell** i list rutan **Runbook-typ** .
+1. Välj **Runbooks** under **Process Automation**.
+1. Välj **Skapa en runbook**.
+1. Ange ett namn på runbooken på panelen Skapa `hdinsight-cluster-delete`en **runbook,** till exempel . Välj **Powershell** i listrutan **Runbook-typ.**
 1. Välj **Skapa**.
-1. Ange följande kod på skärmen **Redigera PowerShell-Runbook** och välj **publicera**:
+1. Ange följande kod på skärmen **Redigera PowerShell Runbook** och välj **Publicera:**
 
     ```powershell
     Param
@@ -148,26 +148,26 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
     Remove-AzureRmHDInsightCluster -ClusterName $clusterName
     ```
 
-## <a name="execute-runbooks"></a>Köra Runbooks
+## <a name="execute-runbooks"></a>Kör runbooks
 
 ### <a name="create-a-cluster"></a>Skapa ett kluster
 
-1. Visa listan över Runbooks för ditt Automation-konto genom att välja **Runbooks** under **process automatisering**.
-1. Välj `hdinsight-cluster-create`eller namnet som du använde när du skapade din Runbook för att skapa klustret.
-1. Välj **Starta** för att köra runbooken omedelbart. Du kan också schemalägga att Runbooks ska köras regelbundet. Se [schemaläggning av en Runbook i Azure Automation](../automation/shared-resources/schedules.md)
-1. Ange de parametrar som krävs för skriptet och välj **OK**. Då skapas ett nytt HDInsight-kluster med det namn som du angav i parametern **kluster** namn.
+1. Visa listan över Runbooks för ditt Automation-konto genom att välja **Runbooks** under **Process Automation**.
+1. Välj `hdinsight-cluster-create`eller det namn som du använde när du skapade runbooken för klusterskapande.
+1. Välj **Start** om du vill köra runbooken omedelbart. Du kan också schemalägga runbooks så att de körs med jämna mellanrum. Se [Schemalägga en runbook i Azure Automation](../automation/shared-resources/schedules.md)
+1. Ange de parametrar som krävs för skriptet och välj **OK**. Då skapas ett nytt HDInsight-kluster med det namn som du angav i **parametern CLUSTERNAME.**
 
-    ![Kör skapa kluster-Runbook](./media/manage-clusters-runbooks/execute-create-runbook.png)
+    ![köra skapa klusterkörningsbok](./media/manage-clusters-runbooks/execute-create-runbook.png)
 
 ### <a name="delete-a-cluster"></a>Ta bort ett kluster
 
-Ta bort klustret genom att välja `hdinsight-cluster-delete` Runbook som du skapade. Välj **Start**, ange parametern **kluster** namn och sselect **OK**.
+Ta bort klustret `hdinsight-cluster-delete` genom att välja den runbook som du skapade. Välj **Start**, ange parametern **CLUSTERNAME** och sselect **OK**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs tar du bort det Azure Automation konto som skapades för att undvika oönskade avgifter. Om du vill göra det navigerar du till Azure Portal, väljer den resurs grupp där du skapade Azure Automation-kontot, väljer Automation-kontot och väljer sedan **ta bort**.
+När det inte längre behövs tar du bort Det Azure Automation-konto som skapades för att undvika oavsiktliga avgifter. Det gör du genom att navigera till Azure-portalen, välja den resursgrupp där du skapade Azure Automation-kontot, välja Automation-kontot och välj sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera Apache Hadoop kluster i HDInsight med Azure PowerShell](hdinsight-administer-use-powershell.md)
+> [Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure PowerShell](hdinsight-administer-use-powershell.md)

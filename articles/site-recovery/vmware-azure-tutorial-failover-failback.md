@@ -1,105 +1,105 @@
 ---
-title: Redundansväxla virtuella VMware-datorer till Azure med Site Recovery
-description: Lär dig hur du växlar över virtuella VMware-datorer till Azure i Azure Site Recovery
+title: Växla över virtuella virtuella datorer med VMware till Azure med platsåterställning
+description: Lär dig hur du växlar över virtuella virtuella datorer med VMware till Azure i Azure Site Recovery
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.custom: MVC
 ms.openlocfilehash: 8501bb1a998eb08984a118bfa5d52d1e3f3e4f84
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75498077"
 ---
-# <a name="fail-over--vmware-vms"></a>Redundansväxla virtuella VMware-datorer
+# <a name="fail-over--vmware-vms"></a>Växla över virtuella virtuella datorer med VMware
 
-Den här artikeln beskriver hur du växlar över en lokal virtuell VMware-dator (VM) till Azure med [Azure Site Recovery](site-recovery-overview.md).
+I den här artikeln beskrivs hur du växlar över en lokal virtuell virtuell dator (VM) till Azure med [Azure Site Recovery](site-recovery-overview.md).
 
-Det här är den femte självstudien i en serie som visar hur du konfigurerar haveri beredskap till Azure för lokala datorer.
+Det här är den femte självstudien i en serie som visar hur du konfigurerar haveriberedskap till Azure för lokala datorer.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Verifiera att VMware VM-egenskaperna uppfyller Azure-kraven.
-> * Redundansväxla vissa virtuella datorer till Azure.
+> * Kontrollera att VMware VM-egenskaperna överensstämmer med Azure-kraven.
+> * Växla över specifika virtuella datorer till Azure.
 
 > [!NOTE]
-> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standard alternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Om du vill veta mer om redundans i detalj kan du läsa mer i [redundansväxla virtuella datorer och fysiska servrar](site-recovery-failover.md).
+> Självstudier visar den enklaste distributionsvägen för ett scenario. De använder standardalternativ där det är möjligt och visar inte alla möjliga inställningar och sökvägar. Om du vill lära dig mer om redundans i detalj läser du [Fela över virtuella datorer och fysiska servrar](site-recovery-failover.md).
 
-[Lär dig mer om](failover-failback-overview.md#types-of-failover) olika typer av redundans. Läs [den här artikeln](site-recovery-failover.md)om du vill redundansväxla flera virtuella datorer i en återställnings plan.
+[Läs mer om](failover-failback-overview.md#types-of-failover) olika typer av redundans. Om du vill växla över flera virtuella datorer i en återställningsplan läser du [den här artikeln](site-recovery-failover.md).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Slutför de föregående självstudierna:
+Slutför de tidigare självstudierna:
 
-1. Se till att du har [konfigurerat Azure](tutorial-prepare-azure.md) för lokal katastrof återställning av virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska datorer till Azure.
-2. Förbered din lokala [VMware](vmware-azure-tutorial-prepare-on-premises.md) -miljö för haveri beredskap. 
-3. Konfigurera katastrof återställning för [virtuella VMware-datorer](vmware-azure-tutorial.md).
-4. Kör en [granskning av haveri beredskap](tutorial-dr-drill-azure.md) för att se till att allt fungerar som förväntat.
+1. Kontrollera att du har [konfigurerat Azure](tutorial-prepare-azure.md) för lokal haveriberedskap av virtuella datorer, virtuella datorer med hyper-V och fysiska datorer till Azure.
+2. Förbered din lokala [VMware-miljö](vmware-azure-tutorial-prepare-on-premises.md) för haveriberedskap. 
+3. Konfigurera haveriberedskap för virtuella datorer med [VMware](vmware-azure-tutorial.md).
+4. Kör en [haveriberedskapsövning](tutorial-dr-drill-azure.md) för att se till att allt fungerar som förväntat.
 
 ## <a name="verify-vm-properties"></a>Kontrollera VM-egenskaperna
 
-Innan du kör en redundansväxling kontrollerar du VM-egenskaperna för att se till att de virtuella datorerna uppfyller [Azure-kraven](vmware-physical-azure-support-matrix.md#replicated-machines).
+Innan du kör en redundans kontrollerar du egenskaperna för den virtuella datorn för att se till att de virtuella datorerna uppfyller [Azure-kraven](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-Verifiera egenskaperna enligt följande:
+Verifiera egenskaper enligt följande:
 
-1. I **skyddade objekt**väljer du **replikerade objekt**och väljer sedan den virtuella dator som du vill verifiera.
+1. I **Skyddade objekt**väljer du **Replikerade objekt**och väljer sedan den virtuella dator som du vill verifiera.
 
 2. I fönstret **Replikerade objekt** finns det en sammanfattning av VM-informationen, hälsostatus och de senaste tillgängliga återställningspunkterna. Välj **Egenskaper** om du vill visa mer information.
 
-3. I **beräkning och nätverk**kan du ändra dessa egenskaper efter behov:
+3. I **Beräkning och Nätverk**kan du ändra dessa egenskaper efter behov:
     * Azure-namn
     * Resursgrupp
-    * Mål storlek
+    * Målstorlek
     * [Tillgänglighetsuppsättning](../virtual-machines/windows/tutorial-availability-sets.md)
     * Inställningar för hanterade diskar
 
-4. Du kan visa och ändra nätverks inställningar, inklusive:
+4. Du kan visa och ändra nätverksinställningar, till exempel:
 
-    * Nätverket och under nätet där den virtuella Azure-datorn finns efter redundansväxlingen.
-    * Den IP-adress som ska tilldelas till den.
+    * Nätverket och undernätet där Den virtuella Azure-datorn kommer att finnas efter redundans.
+    * IP-adressen som ska tilldelas den.
 
 5. I **Diskar** kan du se information om operativsystemet och vilka datadiskar som finns på den virtuella datorn.
 
 ## <a name="run-a-failover-to-azure"></a>Köra en redundans i Azure
 
-1. I **inställningar** > **replikerade objekt**väljer du den virtuella dator som du vill redundansväxla och väljer sedan **redundans**.
+1. I **Inställningar** > **replikerade objekt**väljer du den virtuella dator som du vill växla över och väljer sedan **Redundans**.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Du kan välja något av följande alternativ:
-   * **Senaste**: Det här alternativet bearbetar först alla data som skickas till Site Recovery. Det ger det lägsta återställnings punkt målet, eftersom den virtuella Azure-datorn som skapas efter redundansväxlingen har alla data som repliker ATS till Site Recovery När redundansväxlingen utlöstes.
-   * **Senaste bearbetning**: det här alternativet Miss lyckas den virtuella datorn över till den senaste återställnings punkten som bearbetades av Site Recovery. Det här alternativet ger en låg RTO (återställnings tid) eftersom ingen tid har använts för bearbetning av obearbetade data.
-   * **Senaste program – konsekvent**: det här alternativet Miss lyckas den virtuella datorn till den senaste programkonsekventa återställnings punkten som bearbetas av Site Recovery.
-   * **Anpassad**: med det här alternativet kan du ange en återställnings punkt.
+   * **Senaste**: Det här alternativet bearbetar först alla data som skickas till Site Recovery. Det ger det lägsta återställningspunktmålet (RPO) eftersom den virtuella Azure-datorn som skapas efter redundans har alla data som replikerades till platsåterställning när redundansen utlöstes.
+   * **Senast bearbetad:** Det här alternativet växlar inte den virtuella datorn över till den senaste återställningspunkten som bearbetas av Site Recovery. Det här alternativet ger en låg RTO (Återställningstid mål) eftersom ingen tid går åt att bearbeta obearbetade data.
+   * **Senaste app-konsekvent:** Det här alternativet misslyckas den virtuella datorn över till den senaste app-konsekvent återställningspunkt som bearbetas av Site Recovery.
+   * **Anpassad:** Med det här alternativet kan du ange en återställningspunkt.
 
-3. Välj **Stäng datorn innan du påbörjar redundans** för att försöka stänga av virtuella käll datorer innan du utlöser redundansväxlingen. Redundansväxlingen fortsätter även om avstängningen Miss lyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
+3. Välj **Stäng av datorn innan du börjar redundans** för att försöka stänga av käll-virtuella datorer innan du utlöser redundansen. Redundans fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundans på sidan **Jobb**.
 
-I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kan lägga märke till längre redundanstest för:
+I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 minuter att slutföra. Du kanske märker längre test redundanstider för:
 
-* Virtuella VMware-datorer som kör en mobilitets tjänst version som är äldre än 9,8.
+* Virtuella datorer med VMware som kör en mobilitetstjänstversion som är äldre än 9.8.
 * Fysiska servrar.
-* Virtuella VMware Linux-datorer.
-* Virtuella Hyper-V-datorer som är skyddade som fysiska servrar.
-* Virtuella VMware-datorer som inte har DHCP-tjänsten aktive rad.
-* Virtuella VMware-datorer som inte har följande start driv rutiner: storvsc, VMBus, storflt, intelide, ATAPI.
+* Virtuella Linux-datorer.
+* Virtuella datorer med hyper-V skyddas som fysiska servrar.
+* Virtuella datorer med VMware som inte har DHCP-tjänsten aktiverad.
+* Virtuella datorer med VMware som inte har följande startdrivrutiner: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
-> Avbryt inte en pågående redundansväxling. Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
+> Avbryt inte en pågående redundans. Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
 
-## <a name="connect-to-failed-over-vm"></a>Anslut till misslyckad virtuell dator
+## <a name="connect-to-failed-over-vm"></a>Ansluta till en virtuell virtuell dator med fel övergående
 
-1. Om du vill ansluta till virtuella Azure-datorer efter en redundansväxling med hjälp av Remote Desktop Protocol (RDP) och SSH (Secure Shell) [kontrollerar du att kraven har uppfyllts] ((ailover-failback-overview. MD # Connect-to-Azure-after-redundans).
-2. Efter redundansväxlingen går du till den virtuella datorn och validerar genom att [ansluta](../virtual-machines/windows/connect-logon.md) till den.
-3. Använd **ändrings återställnings punkt** om du vill använda en annan återställnings punkt efter redundansväxlingen. När du har bekräftat redundansväxlingen i nästa steg kommer det här alternativet inte längre att vara tillgängligt.
-4. När du har verifierat väljer du **genomför** för att slutföra återställnings punkten för den virtuella datorn efter redundansväxlingen.
-5. När du har bekräftat raderas alla andra tillgängliga återställnings punkter. I det här steget slutförs redundansväxlingen.
+1. Om du vill ansluta till virtuella Azure-datorer efter redundans med hjälp av Fjärrskrivbordsprotokoll (RDP) och Secure Shell (SSH), [kontrollera att kraven har uppfyllts]((ailover-failback-overview.md#connect-to-azure-after-failover).
+2. Efter redundans går du till den virtuella datorn och validerar genom att [ansluta](../virtual-machines/windows/connect-logon.md) till den.
+3. Använd **Ändra återställningspunkt** om du vill använda en annan återställningspunkt efter redundans. När du har genomför redundansen i nästa steg är det här alternativet inte längre tillgängligt.
+4. Efter verifiering väljer du **Commit** för att slutföra återställningspunkten för den virtuella datorn efter redundans.
+5. När du har begått det tas alla andra tillgängliga återställningspunkter bort. Det här steget slutför redundansen.
 
 >[!TIP]
-> Om det uppstår anslutnings problem efter redundansväxlingen följer du [fel söknings guiden](site-recovery-failover-to-azure-troubleshoot.md).
+> Om du stöter på anslutningsproblem efter redundans följer du [felsökningsguiden](site-recovery-failover-to-azure-troubleshoot.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skydda virtuella Azure-datorer på plats igen efter redundansväxlingen. Efter det att de virtuella datorerna har återskyddats och repliker ATS till den lokala platsen går du tillbaka från Azure när du är klar.
+Efter redundans, återrotera Azure virtuella datorer till lokala. Sedan, när de virtuella datorerna har reprotecteds och replikera till den lokala platsen, misslyckas tillbaka från Azure när du är redo.
 
 > [!div class="nextstepaction"]
-> [Skydda virtuella Azure-datorer](vmware-azure-reprotect.md)
-> [återställas från Azure](vmware-azure-failback.md)
+> [Reprotect Azure virtuella datorer](vmware-azure-reprotect.md)
+> [växla tillbaka från Azure](vmware-azure-failback.md)

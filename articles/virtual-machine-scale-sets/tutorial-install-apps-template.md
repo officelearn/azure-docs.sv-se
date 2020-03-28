@@ -1,5 +1,5 @@
 ---
-title: Självstudie – installera appar i en skalnings uppsättning med Azure-mallar
+title: Självstudiekurs - Installera appar i en skalningsuppsättning med Azure-mallar
 description: Läs hur du använder Azure Resource Manager-mallar för att installera program på VM-skalningsuppsättningar med det anpassade skripttillägget
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 4f2d30cc10ff2387a31101bae663ef920a22384a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76279096"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Självstudie: Installera program i VM-skalningsuppsättningar med en Azure-mall
@@ -23,7 +23,7 @@ Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning
 > * Använd det anpassade Azure-skripttillägget
 > * Uppdatera ett program som körs på en skalningsuppsättning
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -65,11 +65,11 @@ Egenskapen *fileUris* används för att definiera källan för installationsskri
 }
 ```
 
-En komplett exempel på en Azure-mall som distribuerar en skalningsuppsättning och det anpassade skripttillägget finns i [https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json). Den här exempelmallen används i nästa avsnitt.
+Ett fullständigt exempel på en Azure-mall som distribuerar en [https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/azuredeploy.json)skalningsuppsättning och tillägget anpassat skript finns i . Den här exempelmallen används i nästa avsnitt.
 
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
-Vi använder exempelmallen för att skapa en skalningsuppsättning och tillämpa det anpassade skripttillägget. Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Vi använder exempelmallen för att skapa en skalningsuppsättning och tillämpa det anpassade skripttillägget. Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -107,7 +107,7 @@ Lämna webbläsaren öppen så att du kan se en uppdaterad version i nästa steg
 
 
 ## <a name="update-app-deployment"></a>Uppdatera appdistributionen
-Under livscykeln för en skalningsuppsättning, kan du behöva distribuera en uppdaterad version av ditt program. Med det anpassade skripttillägget, kan du referera till ett uppdaterat distributionsskript och sedan tillämpa tillägget till din skalningsuppsättning igen. När skalnings uppsättningen skapades i ett föregående steg var *upgradePolicy* inställd på *Automatisk*. Den här inställningen låter virtuella datorinstanser i skalningsuppsättningen att automatiskt uppdatera och tillämpa den senaste versionen av ditt program.
+Under livscykeln för en skalningsuppsättning, kan du behöva distribuera en uppdaterad version av ditt program. Med det anpassade skripttillägget, kan du referera till ett uppdaterat distributionsskript och sedan tillämpa tillägget till din skalningsuppsättning igen. När skalningsuppsättningen skapades i ett tidigare steg angavs *upgradePolicy* till *Automatisk*. Den här inställningen låter virtuella datorinstanser i skalningsuppsättningen att automatiskt uppdatera och tillämpa den senaste versionen av ditt program.
 
 Om du vill uppdatera definitionen för ditt anpassade skripttillägg, redigerar du din mall för att referera till ett nytt installationsskript. Det nya filnamnet måste användas för att det anpassade skripttillägget ska identifiera ändringen. Det anpassade skripttillägget utvärderar inte innehållet i skriptet för att avgöra om ändringar gjorts. Följande definition använder ett uppdaterat installationsskript med *_v2* i slutet av namnet:
 
@@ -147,7 +147,7 @@ Alla virtuella datorinstanser i skalningsuppsättningen uppdateras automatiskt m
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort din skalningsuppsättning och ytterligare resurser så tar du bort resursgruppen och alla dess resurser med [az group delete](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
+Om du vill ta bort skalningsuppsättningen och ytterligare resurser tar du bort resursgruppen och alla dess resurser med [az-gruppborttagning](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes

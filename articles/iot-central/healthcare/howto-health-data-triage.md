@@ -1,6 +1,6 @@
 ---
-title: Skapa en hälso data prioritering-instrumentpanel med Azure IoT Central | Microsoft Docs
-description: Lär dig att bygga en hälso data prioritering-instrumentpanel med Azure IoT Central programmallar.
+title: Skapa en instrumentpanel för hälsodatatriage med Azure IoT Central | Microsoft-dokument
+description: Lär dig att skapa en instrumentpanel för hälsodatatriage med hjälp av Azure IoT Central-programmallar.
 author: philmea
 ms.author: philmea
 ms.date: 10/23/2019
@@ -9,91 +9,91 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77021652"
 ---
-# <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Självstudie: Bygg en Power BI leverantörs instrument panel
+# <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Självstudiekurs: Skapa en instrumentpanel för Power BI-provider
 
 
 
-När du skapar en kontinuerlig övervaknings lösning för patienter kan du också skapa en instrument panel för ett sjukhus för att visualisera patient data. I den här självstudien får du lära dig hur du skapar en Power BI direkt uppspelnings instrument panel i real tid från din IoT Central Mall för kontinuerlig övervakning av patienter.
+När du bygger din kontinuerliga patientövervakningslösning kan du också skapa en instrumentpanel för ett sjukhusvårdsteam för att visualisera patientdata. I den här självstudien får du lära dig hur du skapar en Power BI-instrumentpanel för direktuppspelning i realtid från din IoT Central kontinuerlig patientövervakningsprogrammall.
 
 >[!div class="mx-imgBorder"]
->GIF-![instrument panel](media/dashboard-gif-3.gif)
+>![GIF-instrumentpanel](media/dashboard-gif-3.gif)
 
-Den grundläggande arkitekturen följer den här strukturen:
+Den grundläggande arkitekturen kommer att följa denna struktur:
 
 >[!div class="mx-imgBorder"] 
->![providern prioritering Dashboard](media/dashboard-architecture.png)
+>![Trageinstrumentpanel för leverantör](media/dashboard-architecture.png)
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Exportera data från Azure IoT Central till Azure Event Hubs
-> * Konfigurera en Power BI strömmande data uppsättning
-> * Anslut din Logic app till Azure Event Hubs
-> * Strömma data till Power BI från din Logic app
-> * Bygg en real tids instrument panel för patients viktigare
+> * Konfigurera en Power BI-direktuppspelningsdatauppsättning
+> * Ansluta din Logic App till Azure Event Hubs
+> * Strömma data till Power BI från logikappen
+> * Skapa en instrumentpanel i realtid för patient vitala
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* En Azure IoT Central-Mall för kontinuerlig övervakning av patienter. Om du inte redan har en, kan du följa stegen för att [distribuera en Programmall](overview-iot-central-healthcare.md).
+* En Azure IoT Central kontinuerlig patientövervakning programmall. Om du inte redan har någon kan du följa stegen för att [distribuera en programmall](overview-iot-central-healthcare.md).
 
-* Ett Azure [Event Hubs-namnområde och händelsehubben](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Ett [namnområde för](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)Azure Event Hubs och Event Hub .
 
-* Den Logic-app som du vill använda för att komma åt Händelsehubben. Om du vill starta din Logic-app med en Azure Event Hubs-utlösare behöver du en [Tom Logic-app](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+* Logikappen som du vill komma åt din eventhubb. Om du vill starta logikappen med en Azure Event Hubs-utlösare behöver du en [tom Logic App](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
 
-* Ett Power BI-tjänst konto. Om du inte redan har en, kan du [skapa ett kostnads fritt utvärderings konto för Power BI-tjänst](https://app.powerbi.com/). Om du inte har använt Power BI tidigare kan det vara bra att gå igenom [Kom igång med Power BI](https://docs.microsoft.com/power-bi/service-get-started).
+* Ett Power BI-tjänstkonto. Om du inte redan har ett konto kan du [skapa ett kostnadsfritt utvärderingskonto för Power BI-tjänsten](https://app.powerbi.com/). Om du inte har använt Power BI tidigare kan det vara bra att gå igenom [Kom igång med Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
-## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Konfigurera en kontinuerlig data export till Azure Event Hubs
-Du måste först konfigurera en kontinuerlig data export från din Azure IoT Central-app-mall till Azure Event Hub i din prenumeration. Det kan du göra genom att följa stegen i den här Azure IoT Central själv studie kursen för [att exportera till Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). Du behöver bara exportera för telemetri för den här självstudien.
+## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Konfigurera en kontinuerlig dataexport till Azure Event Hubs
+Du måste först konfigurera en kontinuerlig dataexport från din Azure IoT Central-appmall till Azure Event Hub i din prenumeration. Du kan göra det genom att följa stegen i den här Azure IoT Central-självstudien för [export till händelsehubbar](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). Du behöver bara exportera för telemetri för den här självstudien.
 
-## <a name="create-a-power-bi-streaming-dataset"></a>Skapa en Power BI strömmande data uppsättning
+## <a name="create-a-power-bi-streaming-dataset"></a>Skapa en Strömningsdatauppsättning för Power BI
 
 1. Logga in på ditt Power BI-konto.
 
-2. På din önskade arbets yta skapar du en ny strömmande data uppsättning genom att välja knappen **+ skapa** i det övre högra hörnet i verktygsfältet. Du måste skapa en separat data uppsättning för varje patient som du vill ha på din instrument panel.
+2. Skapa en ny strömmande datauppsättning på önskad arbetsyta genom att välja knappen **+ Skapa** i det övre högra hörnet i verktygsfältet. Du måste skapa en separat datauppsättning för varje patient som du vill ha på instrumentpanelen.
 
     >[!div class="mx-imgBorder"] 
-    >![skapa strömmande data uppsättning](media/create-streaming-dataset.png)
+    >![Skapa strömmande datauppsättning](media/create-streaming-dataset.png)
 
-3. Välj **API** för källan till din data uppsättning.
+3. Välj **API** för datauppsättningens källa.
 
-4. Ange ett **namn** (till exempel ett namn på en patient) för din data uppsättning och fyll sedan i värdena från data strömmen. Du kan se ett exempel nedan baserat på värden som kommer från de simulerade enheterna i program mal len kontinuerlig övervakning av patienter. Exemplet har två patienter:
+4. Ange ett **namn** (till exempel en patients namn) för datauppsättningen och fyll sedan i värdena från din ström. Du kan se ett exempel nedan baserat på värden som kommer från de simulerade enheterna i den kontinuerliga patientövervakningsapplikationsmallen. Exemplet har två patienter:
 
-    * Teddy silver, som har data från den smarta Knee-klammern
-    * Yesenia Sanford, som har data från den smarta viktiga uppdateringen
+    * Teddy Silvers, som har data från Smart Knee Brace
+    * Yesenia Sanford, som har data från Smart Vitals Patch
 
     >[!div class="mx-imgBorder"] 
-    >![ange data uppsättnings värden](media/enter-dataset-values.png)
+    >![Ange datauppsättningsvärden](media/enter-dataset-values.png)
 
-Om du vill veta mer om strömmande data uppsättningar i Power BI kan du läsa det här dokumentet för [strömning i real tid i Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+Om du vill veta mer om direktuppspelning av datauppsättningar i Power BI kan du läsa det här dokumentet om [direktuppspelning i realtid i Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
 
-## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Anslut din Logic app till Azure Event Hubs
-Om du vill ansluta din Logic app till Azure Event Hubs kan du följa instruktionerna som beskrivs i det här dokumentet för att [skicka händelser med Azure Event Hubs och Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Här följer några föreslagna parametrar:
+## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Ansluta din Logic App till Azure Event Hubs
+Om du vill ansluta din Logic App till Azure Event Hubs kan du följa instruktionerna i det här dokumentet om [hur du skickar händelser med Azure Event Hubs och Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Här är några föreslagna parametrar:
 
 |Parameter|Värde|
 |---|---|
-|Innehålls typ|application/json|
+|Innehållstyp|application/json|
 |Intervall|3|
 |Frequency|Sekund|
 
-I slutet av det här steget bör din Logic Apps designer se ut så här:
+I slutet av det här steget bör logikappdesignern se ut så här:
 
 >[!div class="mx-imgBorder"] 
->![Logic Apps ansluter till Event Hubs](media/eh-logic-app.png)
+>![Logic Apps ansluter till eventhubbar](media/eh-logic-app.png)
 
-## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Strömma data till Power BI från din Logic app
-Nästa steg är att parsa de data som kommer från Händelsehubben för att strömma dem till de Power BI data uppsättningar som du har skapat tidigare.
+## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Strömma data till Power BI från logikappen
+Nästa steg blir att tolka data som kommer från händelsehubben för att strömma dem till Power BI-datauppsättningar som du tidigare har skapat.
 
-1. Innan du kan göra detta måste du förstå den JSON-nyttolast som skickas från din enhet till Händelsehubben. Du kan göra detta genom att titta på det här [exempel schemat](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) och ändra det så att det matchar ditt schema eller använder [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) för att granska meddelandena. Om du använder de kontinuerliga programmen för patient övervakning ser dina meddelanden ut så här:
+1. Innan du kan göra detta måste du förstå den JSON-nyttolast som skickas från enheten till din Event Hub. Du kan göra det genom att titta på det här [exempelschemat](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) och ändra det så att det matchar schemat eller använder [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) för att granska meddelandena. Om du använder de kontinuerliga patientövervakningsapplikationerna kommer dina meddelanden att se ut så här:
 
-**Smart viktigare patch-telemetri**
+**Smart Vitals Patch telemetri**
 
 ```json
 {
@@ -109,7 +109,7 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 }
 ```
 
-**Telemetri för smart Knee-klammer**
+**Smart knä stag telemetri**
 
 ```json
 {
@@ -123,7 +123,7 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 }
 ```
 
-**Egenskaperna**
+**Egenskaper**
 
 ```json
 {
@@ -139,7 +139,7 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 }
 ```
 
-2. Nu när du har kontrollerat dina JSON-nyttolaster går du tillbaka till din Logic Apps designer och väljer **+ nytt steg**. Sök och Lägg till **initiera variabel** som nästa steg och ange följande parametrar:
+2. Nu när du har inspekterat dina JSON-nyttolaster går du tillbaka till logikappdesignern och väljer **+ Nytt steg**. Sök och lägg till **Initialize-variabeln** som nästa steg och ange följande parametrar:
 
     |Parameter|Värde|
     |---|---|
@@ -148,63 +148,63 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 
     Tryck på **Save** (Spara). 
 
-3. Lägg till en annan variabel med namnet **Body** med typen **String**. Din Logic app kommer att ha följande åtgärder tillagda:
+3. Lägg till en annan variabel som kallas **Brödtext** med Typ som **Sträng**. Logikappen har lagt till följande åtgärder:
 
     >[!div class="mx-imgBorder"]
-    >![initiera variabler](media/initialize-string-variables.png)
+    >![Initiera variabler](media/initialize-string-variables.png)
     
-4. Välj **+ nytt steg** och Lägg till en **parsa JSON** -åtgärd. Byt namn på detta för att **parsa egenskaper**. För innehållet väljer du **Egenskaper** som kommer från händelsehubben. Välj **Använd exempel nytto last för att generera schemat** längst ned och klistra in exempel nytto lasten från avsnittet Egenskaper ovan.
+4. Välj **+ Nytt steg** och lägg till en **Parse JSON-åtgärd.** Byt namn på detta till **Parse Properties**. För innehållet väljer du **Egenskaper** som kommer från händelsehubben. Välj **Använd exempelnyttolaster för att generera schemat** längst ned och klistra in exempelnyttolasten i avsnittet Egenskaper ovan.
 
-5. Sedan väljer du åtgärden **Ställ in variabel** och uppdaterar variabeln **gränssnitts namn** med **iothub-Interface-Name** från de parsade JSON-egenskaperna.
+5. Välj sedan åtgärden **Ange variabel** och uppdatera **variabeln Gränssnittsnamn** med **iothub-interface-namnet** från de tolkade JSON-egenskaperna.
 
-6. Lägg till en **delad** kontroll som nästa åtgärd och välj variabeln **gränssnitts namn** som parametern on. Du kommer att använda den här för att tratta data till rätt data uppsättning.
+6. Lägg till en **delad** kontroll som nästa åtgärd och välj variabeln **Gränssnittsnamn** som parameter på. Du kommer att använda detta för att kanalisera data till rätt datauppsättning.
 
-7. I ditt Azure IoT Central-program hittar du gränssnitts namnet för hälso tillstånds data för smarta viktigare och den smarta Knee-klammern från vyn **enhets mallar** . Skapa två olika fall för **växel** kontrollen för varje gränssnitts namn och Byt namn på kontrollen på rätt sätt. Du kan ställa in standard fallet för att använda **avslutnings** kontrollen och välja vilken status som du vill visa.
-
-    >[!div class="mx-imgBorder"] 
-    >](media/split-by-interface.png) för ![delad kontroll
-
-8. Lägg till en **parsa JSON** -åtgärd för den **smarta viktigare korrigerings** situationen. För innehållet väljer du **innehåll** som kommer från händelsehubben. Kopiera och klistra in exempel nytto lasterna för den smarta viktiga korrigerings filen ovan för att generera schemat.
-
-9. Lägg till en **uppsättnings variabel** åtgärd och uppdatera **Body** -variabeln med **bröd texten** från den parsade JSON-filen i steg 7.
-
-10. Lägg till en **villkors** kontroll som nästa åtgärd och ange villkoret till **Body**, **innehåller**, **HeartRate**. På så sätt ser du till att du har rätt uppsättning data från den smarta viktiga uppdateringen innan du fyller i Power BI data uppsättningen. Steg 7-9 ser ut så här:
+7. I ditt Azure IoT Central-program letar du reda på gränssnittsnamnet för hälsodata för Smart Vitals Patch och hälsodata för Smart Knee Brace från **enhetsmallvyn.** Skapa två olika ärenden för **switchkontrollen** för varje gränssnittsnamn och byt namn på kontrollen på rätt sätt. Du kan ange att standardfallet ska använda **avsluta** kontrollen och välja vilken status du vill visa.
 
     >[!div class="mx-imgBorder"] 
-    >![smarta viktigare Lägg till villkor](media/smart-vitals-pbi.png)
+    >![Delad kontroll](media/split-by-interface.png)
 
-11. För det **sanna** fallet för villkoret lägger du till en åtgärd som anropar **Lägg till rader i en data uppsättning** Power BI funktion. Du måste logga in på Power BI för detta. Ditt **falska** ärende kan använda **avslutnings** kontrollen igen.
+8. För **Fallet Smart Vitals Patch** lägger du till en **Parse JSON-åtgärd.** För innehållet väljer du **Innehåll** som kommer från händelsehubben. Kopiera och klistra in exempelnyttolaster för Smart Vitals Patch ovan för att generera schemat.
 
-12. Välj lämplig **arbets yta**, **data uppsättning**och **tabell**. Mappa de parametrar som du angav när du skapade din strömmande data uppsättning i Power BI till de parsade JSON-värdena som kommer från Händelsehubben. Dina fyllda åtgärder bör se ut så här:
+9. Lägg till en **variabel åtgärd och** uppdatera variabeln **Brödtext** med **brödtexten** från den tolkade JSON i steg 7.
 
-    >[!div class="mx-imgBorder"] 
-    >![lägga till rader i Power BI](media/add-rows-yesenia.png)
-
-13. Lägg till en **parsa JSON** -åtgärd för att parsa innehållet, på samma sätt som steg 7, för det **smarta Knee** . **Lägg sedan till rader till en data uppsättning** för att uppdatera din Teddy silver-datauppsättning i Power BI.
+10. Lägg till en **villkorskontroll** som nästa åtgärd och ställ in villkoret på **Brödtext**, **innehåller**, **HeartRate**. Detta kommer att se till att du har rätt uppsättning data som kommer från Smart Vitals Patch innan du fyller i Power BI-datauppsättningen. Steg 7-9 kommer att se ut så här:
 
     >[!div class="mx-imgBorder"] 
-    >![smarta viktigare Lägg till villkor](media/knee-brace-pbi.png)
+    >![Smart Vitals lägger till villkor](media/smart-vitals-pbi.png)
 
-14. Tryck på **Spara** och kör sedan din Logic app.
+11. Lägg till en åtgärd som **anropar raden Lägg till i en Power** BI-funktion för true-fallet. **True** Du måste logga in på Power BI för detta. Falskt **False** fall kan återigen använda **avsluta** kontrollen.
 
-## <a name="build-a-real-time-dashboard-for-patient-vitals"></a>Bygg en real tids instrument panel för patients viktigare
-Gå nu tillbaka till Power BI och välj **+ skapa** för att skapa en ny **instrument panel**. Ge instrument panelen ett namn och tryck på **skapa**.
+12. Välj lämplig **arbetsyta,** **datauppsättning**och **tabell**. Mappa de parametrar som du angav när du skapade din strömmande datauppsättning i Power BI till de tolkade JSON-värden som kommer från händelsehubben. Dina ifyllda åtgärder ska se ut så här:
 
-Välj de tre punkterna i det övre navigerings fältet och välj sedan **+ Lägg till panel**.
+    >[!div class="mx-imgBorder"] 
+    >![Lägga till rader i Power BI](media/add-rows-yesenia.png)
+
+13. För **smart knästödsväpningsfodralet** lägger du till en **Parse JSON-åtgärd** för att tolka innehållet, liknande steg 7. Lägg sedan **till rader i en datauppsättning** för att uppdatera nalle Silvers-datauppsättningen i Power BI.
+
+    >[!div class="mx-imgBorder"] 
+    >![Smart Vitals lägger till villkor](media/knee-brace-pbi.png)
+
+14. Tryck på **Spara** och kör sedan logikappen.
+
+## <a name="build-a-real-time-dashboard-for-patient-vitals"></a>Skapa en instrumentpanel i realtid för patient vitala
+Gå nu tillbaka till Power BI och välj **+ Skapa** för att skapa en ny **instrumentpanel**. Ge instrumentpanelen ett namn och tryck på **Skapa**.
+
+Markera de tre punkterna i det övre navigeringsfältet och välj sedan **+ Lägg till panel**.
 
 >[!div class="mx-imgBorder"] 
->![lägga till panel i instrument panelen](media/add-tile.png)
+>![Lägga till panel på instrumentpanelen](media/add-tile.png)
 
-Välj den typ av panel som du vill lägga till och anpassa appen som du vill.
+Välj den typ av panel som du vill lägga till och anpassa appen hur du vill.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet tar du bort dina resurser med följande steg:
+Om du inte ska fortsätta att använda det här programmet tar du bort resurserna med följande steg:
 
-1. Från Azure Portal kan du ta bort Händelsehubben och Logic Apps resurser som du har skapat.
+1. Från Azure-portalen kan du ta bort resurser för eventhubben och logikappar som du har skapat.
 
-2. För ditt IoT Central-program går du till fliken Administration och väljer **ta bort**.
+2. För ditt IoT Central-program går du till fliken Administration och väljer **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [rikt linjerna för den kontinuerliga övervakningen av patient övervakning](concept-continuous-patient-monitoring-architecture.md).
+* Granska den [kontinuerliga patientövervakningsarkitekturvägledningen](concept-continuous-patient-monitoring-architecture.md).

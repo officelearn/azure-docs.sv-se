@@ -1,5 +1,5 @@
 ---
-title: "Självstudier: Azure Active Directory-integrering med Bpm'online | Microsoft Docs"
+title: "Självstudiekurs: Azure Active Directory-integrering med Bpm'online | Microsoft-dokument"
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bpm'online.
 services: active-directory
 documentationCenter: na
@@ -17,42 +17,42 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 937278f6a9261ca807f934718bc108bf125f44a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67106030"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Självstudier: Azure Active Directory-integrering med Bpm'online
+# <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Självstudiekurs: Azure Active Directory-integrering med Bpm'online
 
-I den här självstudien får du lära dig hur du integrerar Bpm'online med Azure Active Directory (AD Azure).
-Integrera Bpm'online med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Bpm'online med Azure Active Directory (Azure AD).
+Genom att integrera Bpm'online med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Bpm'online.
-* Du kan aktivera användarna att vara automatiskt inloggad till Bpm'online (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan aktivera dina användare så att de automatiskt loggas in på Bpm'online (Enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med Bpm'online, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Bpm'online behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Bpm'online enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnadsfritt konto](https://azure.microsoft.com/free/)
+* Bpm'online enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Bpm'online **SP och IDP** -initierad SSO
+* Bpm'online stöder **SP och IDP** initierade SSO
 
-## <a name="adding-bpmonline-from-the-gallery"></a>Att lägga till Bpm'online från galleriet
+## <a name="adding-bpmonline-from-the-gallery"></a>Lägga till Bpm'online från galleriet
 
-För att konfigurera integrering av Bpm'online i Azure AD, som du behöver lägga till Bpm'online från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Bpm'online i Azure AD måste du lägga till Bpm'online från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Bpm'online från galleriet:**
+**Så här lägger du till Bpm'online från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
@@ -60,39 +60,39 @@ För att konfigurera integrering av Bpm'online i Azure AD, som du behöver lägg
 
 2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program, klicka på den **nytt program** längst upp i dialogrutan.
+3. Om du vill lägga till ett nytt program klickar du på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Bpm'online**väljer **Bpm'online** från panelen resultatet klickar på **Lägg till** för att lägga till programmet.
+4. Skriv **Bpm'online**i sökrutan och välj **Bpm'online** på resultatpanelen och klicka sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Bpm'online i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Bpm'online baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Bpm'online upprättas.
+I det här avsnittet konfigurerar och testar du azure AD-enkel inloggning med Bpm'online baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Bpm'online upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Bpm'online, måste du utföra följande byggblock:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med Bpm'online måste du slutföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Bpm'online Single Sign-On](#configure-bpmonline-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Bpm'online](#create-bpmonline-test-user)**  – du har en motsvarighet för Britta Simon i Bpm'online som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Bpm'online Enkel inloggning](#configure-bpmonline-single-sign-on)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Bpm'online testanvändare](#create-bpmonline-test-user)** - att ha en motsvarighet till Britta Simon i Bpm'online som är kopplad till Azure AD representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Bpm'online:
+Så här konfigurerar du en enkel Azure AD-inloggning med Bpm'online:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Bpm'online** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Bpm'online-programintegration** . **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -102,30 +102,30 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Bpm'onl
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+4. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
-    ![Bpm'online domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Bpm'online Domän och webbadresser enkel inloggningsinformation](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<client site name>.bpmonline.com/`
+    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<client site name>.bpmonline.com/`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Bpm'online domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Bpm'online Domän och webbadresser enkel inloggningsinformation](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<client site name>.bpmonline.com/`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<client site name>.bpmonline.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Bpm'online klienten supportteamet](mailto:support@bpmonline.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Bpm'online Client support team](mailto:support@bpmonline.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-### <a name="configure-bpmonline-single-sign-on"></a>Konfigurera Bpm'online enkel inloggning
+### <a name="configure-bpmonline-single-sign-on"></a>Konfigurera Bpm'online Enkel inloggning
 
-Att konfigurera enkel inloggning på **Bpm'online** sida, som du behöver skicka den **Appfederationsmetadata** till [Bpm'online supportteamet](mailto:support@bpmonline.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Bpm'online-sidan** måste du skicka **url:en till App Federation Metadata url** till [Bpm'online supportteam](mailto:support@bpmonline.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -135,7 +135,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -145,23 +145,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **Användarnamn** `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Bpm'online.
+I det här avsnittet kan du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till Bpm'online.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Bpm'online**.
+1. I Azure-portalen väljer du **Enterprise Applications**, väljer **Alla program**och väljer sedan **Bpm'online**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Bpm'online**.
+2. Välj **Bpm'online**i programlistan .
 
-    ![Länken Bpm'online i listan med program](common/all-applications.png)
+    ![Länken Bpm'online i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -173,19 +173,19 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
 ### <a name="create-bpmonline-test-user"></a>Skapa Bpm'online testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Bpm'online. Arbeta med [Bpm'online supportteamet](mailto:support@bpmonline.com) att lägga till användare i Bpm'online-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Bpm'online. Arbeta med [Bpm'online supportteam](mailto:support@bpmonline.com) för att lägga till användarna i Bpm'online-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Bpm'online i åtkomstpanelen, bör det vara loggas in automatiskt till Bpm'online som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Bpm'online på åtkomstpanelen ska du automatiskt loggas in på den Bpm'online som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,5 +1,5 @@
 ---
-title: Anpassa sid format på API Management äldre utvecklings Portal
+title: Anpassa sidformat på api management äldre utvecklarportal
 titleSuffix: Azure API Management
 description: Följ stegen i den här snabbstarten för att anpassa stilen för elementen i utvecklarportalen för Azure API Management.
 services: api-management
@@ -15,21 +15,21 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75430737"
 ---
-# <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklings portalens sidor
+# <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklarportalsidorna
 
-Det finns tre vanligaste sätt att anpassa Developer-portalen i Azure API Management:
+Det finns tre vanligaste sätten att anpassa utvecklarportalen i Azure API Management:
  
 * [Redigera innehållet på statiska sidor och sidlayoutelement](api-management-modify-content-layout.md)
 * Uppdatera stilarna som används för sidelement i utvecklarportalen (förklaras i den här guiden)
 * [Ändra mallarna som används för sidor som genereras av portalen](api-management-developer-portal-templates.md) (t.ex. API-dokumentation, produkter, användarautentisering)
 
-I den här artikeln får du lära dig hur du anpassar formatet för element på sidor i den äldre **Developer** -portalen och ser dina ändringar.
+I den här artikeln får du lära dig hur du anpassar elementens stil på sidor i den äldre **utvecklarportalen** och visar dina ändringar.
 
 ![anpassa stil](./media/modify-developer-portal-style/developer_portal.png)
 
@@ -46,7 +46,7 @@ I den här artikeln får du lära dig hur du anpassar formatet för element på 
 ## <a name="customize-the-developer-portal"></a>Anpassa utvecklarportalen
 
 1. Välj **Översikt**.
-2. Klicka på knappen **Developer portal (bakåtkompatibelt)** överst i **översikts** fönstret.
+2. Klicka på knappen **Utvecklarportal (äldre)** högst upp i **översiktsfönstret.**
 3. Upptill på den vänstra sidan av skärmen visas en ikon med två penslar. Hovra över ikonen för att öppna menyn för anpassning av portalen.
 
     ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
@@ -55,11 +55,11 @@ I den här artikeln får du lära dig hur du anpassar formatet för element på 
     Alla element som du kan anpassa med **stilar** visas på sidan
 5. Ange färg för rubriker i fältet **Change variable values to customize developer portal appearance:** (Anpassa variabelvärden för att anpassa utvecklarportalens utseende).
 
-    **\@rubrik-färgs** element visas på sidan. Den här variabeln anger färgen på texten.
+    Elementet för ** \@rubriker och färg** visas på sidan. Den här variabeln anger färgen på texten.
 
     ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Klicka på fältet för **\@header-färg-** variabeln. 
+6. Klicka på fältet för ** \@variabeln rubriker-färg.** 
     
     En nedrullningsbar meny för val av färg öppnas.
 7. Välj en ny färg i den nedrullningsbara menyn för val av färg.
@@ -72,7 +72,7 @@ I den här artikeln får du lära dig hur du anpassar formatet för element på 
 
 ## <a name="view-your-change"></a>Visa din ändring
 
-1. Gå till Developer-portalen.
+1. Navigera till utvecklarportalen.
 2. Ändringen du gjorde visas.
 
 ## <a name="next-steps"></a>Nästa steg

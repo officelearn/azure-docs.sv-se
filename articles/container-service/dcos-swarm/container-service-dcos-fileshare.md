@@ -10,10 +10,10 @@ ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "60480392"
 ---
 # <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(INAKTUELL) Skapa och montera en filresurs till ett DC/OS-kluster

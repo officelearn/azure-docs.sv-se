@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med snö flingor | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Snowflake | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Snowflake.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fda662d7de66bfb56feba8f405bd0e52c4cf3e76
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76121462"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudie: Azure Active Directory integrering med snö flingor
+# <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudiekurs: Azure Active Directory-integrering med Snowflake
 
 I den här självstudien lär du dig att integrera Snowflake med Azure Active Directory (Azure AD).
 Genom att integrera Snowflake med Azure AD får du följande fördelar:
@@ -33,7 +33,7 @@ Genom att integrera Snowflake med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -47,7 +47,7 @@ Om du vill konfigurera Azure AD-integrering med Snowflake behöver du följande 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
 * Snowflake har stöd för **SP- och IDP**-initierad enkel inloggning
-* Snö har stöd för [Automatisk användar etablering och avetablering](snowflake-provisioning-tutorial.md) (rekommenderas)
+* Snowflake stöder [automatiserad användaretablering och avetablering](snowflake-provisioning-tutorial.md) (rekommenderas)
 
 ## <a name="adding-snowflake-from-the-gallery"></a>Lägga till Snowflake från galleriet
 
@@ -55,7 +55,7 @@ För att konfigurera integrering av Snowflake i Azure AD behöver du lägga till
 
 **Utför följande steg för att lägga till Snowflake från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -80,7 +80,7 @@ Om du vill konfigurera och testa enkel inloggning med Azure AD med hjälp av Sno
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Snowflake](#configure-snowflake-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Snowflake-testanvändare](#create-snowflake-test-user)** – för att ha en motsvarighet för Britta Simon i Snowflake som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -93,7 +93,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **Snowflake** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -103,21 +103,21 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera programmet i **IDP-initierat** läge:
 
     ![Information om enkel inloggning med Snowflake-domäner och URL:er](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    a. Skriv en URL med följande mönster i textrutan **Identifierare:**`https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
+    b. Skriv en URL med följande mönster i textrutan **Svara URL:**`https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i SP-initierat läge:
 
     ![Information om enkel inloggning med Snowflake-domäner och URL:er](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<SNOWFLAKE-URL>.snowflakecomputing.com`
     
-    I text rutan **utloggnings-URL** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
+    Skriv en URL med hjälp av följande mönster i textrutan **Utloggningsadress:**`https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Hämta värdena genom att kontakta [supportteamet för Snowflake-klienten](https://support.snowflake.net/s/). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -170,7 +170,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -180,7 +180,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -209,7 +209,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -217,7 +217,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 Om du vill ge Azure AD-användare möjlighet att logga in på Snowflake måste de etableras i Snowflake. I Snowflake är etablering en manuell aktivitet.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på Snowflake som en säkerhetsadministratör.
 

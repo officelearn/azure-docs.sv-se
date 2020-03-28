@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77192907"
 ---
 ## <a name="create-the-webapi-project"></a>Skapa ett WebAPI-projekt
@@ -33,14 +33,14 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
 ![][B4]
 
 > [!NOTE]
-> Kontrollera att du har installerat [Azure SDK](https://azure.microsoft.com/downloads/) för Visual Studio för webbplatsdistribution.
+> Kontrollera att du har installerat Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) för webbplatsdistribution.
 
 1. Starta Visual Studio eller Visual Studio Express.
 
 2. Välj **Server Explorer** och logga in på ditt Azure-konto. För att skapa webbplatsresurser på ditt konto, måste du vara inloggad.
 
 3. Högerklicka på Visual Studio-lösningen i Visual Studio, peka på **Lägg till** och klicka på **Nytt projekt**.
-4. Expandera **Visual C#** , välj **Webb** och klicka på **ASP.NET-webbprogram**.
+4. Expandera **Visual C#**, välj **Webb** och klicka på **ASP.NET-webbprogram**.
 
 5. I rutan **Namn** skriver du **AppBackend** och väljer sedan **OK**.
 
@@ -59,14 +59,14 @@ Skapa en ny ASP.NET-WebAPI-serverdel genom att göra följande:
 
     ![Konfigurera Microsoft Azure Web App-fönstret][B5]
 
-    Om du inte ser den här sidan för att konfigurera App Service-plan fortsätter du med självstudien. Du kan konfigurera den när du publicerar appen senare. 
+    Om du inte ser den här sidan för att konfigurera appserviceplanen fortsätter du med självstudien. Du kan konfigurera den när du publicerar appen senare. 
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>Autentisera klienter mot WebAPI-serverdelen
 
 I det här avsnittet skapar du en ny meddelandehanterarklass med namnet **AuthenticationTestHandler** för den nya serverdelen. Den här klassen härleds från [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) och läggs till som en meddelandehanterare så att den kan bearbeta alla begäranden som kommer till serverdelen.
 
 1. I Solution Explorer högerklickar du på projektet **AppBackend** och väljer sedan **Lägg till** och sedan **Klass**.
-2. Ge den nya klassen namnet **AuthenticationTestHandler.cs** och välj sedan **Lägg till**  för att generera klassen. Den här klassen autentiserar användare med hjälp av *Grundläggande autentisering* för enkelhetens skull. Din app kan använda alla autentiseringsscheman.
+2. Ge den nya klassen namnet **AuthenticationTestHandler.cs** och välj sedan **Lägg till ** för att generera klassen. Den här klassen autentiserar användare med hjälp av *Grundläggande autentisering* för enkelhetens skull. Din app kan använda alla autentiseringsscheman.
 3. Lägg till följande `using`-instruktioner i AuthenticationTestHandler.cs:
 
     ```csharp
@@ -186,7 +186,7 @@ I det här avsnittet lägger du till en ny kontrollant till WebAPI-serverdelen s
     }
     ```
     > [!IMPORTANT]
-    > Ange **namn** och **DefaultFullSharedAccessSignature** för navet innan du fortsätter. 
+    > Ange **namnet** och **StandardFullSharedAccessSignature** för ditt nav innan du fortsätter vidare. 
     
 7. Skapa nu en ny kontrollant med namnet **RegisterController**. I Solution Explorer högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**.
 
@@ -390,7 +390,7 @@ Därefter distribuerar du appen till en Azure-webbplats så att den är tillgän
 
     ![Panelen Microsoft Azure App Service][B15]
 
-3. Välj ditt Azure-konto i fönstret **Skapa App Service**. Välj **Ändra typ** > **Webbapp**. Behåll **standardnamnet på webbappen** och välj sedan **Prenumeration**, **Resursgrupp** och **App Service Plan**.
+3. Välj ditt Azure-konto i fönstret **Skapa App Service**. Välj **Ändra typ** > **Web App**. Behåll **standardnamnet på webbappen** och välj sedan **Prenumeration**, **Resursgrupp** och **App Service Plan**.
 
 4. Välj **Skapa**.
 

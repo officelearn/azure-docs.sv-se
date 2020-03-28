@@ -1,5 +1,5 @@
 ---
-title: Använd lösningen för fjärrövervakning för att identifiera enhets problem – Azure | Microsoft Docs
+title: Använd lösningen för fjärrövervakning för att identifiera enhetsproblem – Azure | Microsoft-dokument
 description: I den här självstudien får du lära dig att använda regler och åtgärder till att automatiskt identifiera problem med tröskelvärden i fjärrövervakningslösningen.
 author: dominicbetts
 manager: timlt
@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79239520"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
@@ -33,7 +33,7 @@ I den här kursen får du:
 > * Redigera en befintlig regel
 > * Aktivera och inaktivera regler
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -68,11 +68,11 @@ Om du vill spara den nya regeln klickar du på **Tillämpa**.
 
 Du kan se när regeln utlöses på sidan **Regler** eller på **instrumentpanelen**:
 
-[![Utlöst varningsregel](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
+[![Varningsregel utlöses](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
 ## <a name="create-an-advanced-rule"></a>Skapa en avancerad regel
 
-Om du vill skapa en regel med flera villkor som genererar en kritisk varning när den genomsnittliga luftfuktigheten har varit högre än 80 % och medeltemperaturen varit högre än 75 grader fahrenheit under de senaste fem minuterna klickar du på **Ny regel** . Skapa regeln med följande värden:
+Om du vill skapa en regel med flera villkor som genererar en kritisk varning när den genomsnittliga luftfuktigheten har varit högre än 80 % och medeltemperaturen varit högre än 75 grader fahrenheit under de senaste fem minuterna klickar du på **Ny regel **. Skapa regeln med följande värden:
 
 | Inställning          | Värde                                 |
 | ---------------- | ------------------------------------- |
@@ -86,7 +86,7 @@ Om du vill skapa en regel med flera villkor som genererar en kritisk varning nä
 | Villkor 1 värde    | 80                                |
 | Allvarlighetsgrad  | Kritisk                              |
 
-[![Skapa regel med flera villkor – del ett](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
+[![Skapa regeldel för flera villkor en](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
 Lägg till det andra villkoret genom att klicka på ”+ Lägg till villkor”. Använd följande värden för det nya villkoret:
 
@@ -96,13 +96,13 @@ Lägg till det andra villkoret genom att klicka på ”+ Lägg till villkor”. 
 | Villkor 2 operator | Större än                      |
 | Villkor 2 värde    | 75                                |
 
-[![Skapa regel med flera villkor – del två](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
+[![Skapa flera villkorsregeldel två](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
 
 Om du vill spara den nya regeln klickar du på **Tillämpa**.
 
 Du kan se när regeln utlöses på sidan **Regler** eller på **instrumentpanelen**:
 
-[![Utlöst regel med flera villkor](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
+[![Regel för flera villkor utlöses](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
 
 ## <a name="edit-an-existing-rule"></a>Redigera en befintlig regel
 

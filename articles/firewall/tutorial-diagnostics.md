@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75974535"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudie: Övervaka Azure Firewall-loggar och mått
@@ -22,7 +22,7 @@ Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar ti
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * aktivera loggning via Azure Portal
@@ -44,7 +44,7 @@ Innan du påbörjar den här självstudien bör du läsa [Azure Firewall-loggar 
 Det kan ta några minuter innan data visas i loggarna när du har aktiverat diagnostisk loggning. Om du inte ser någonting direkt kan du kontrollera igen om några minuter.
 
 1. Öppna brandväggens resursgrupp i Azure Portal och klicka på brandväggen.
-2. Under **övervakning**klickar du på **diagnostiska inställningar**.
+2. Klicka på **Diagnostikinställningar**under **Övervakning**.
 
    Azure Firewall har två loggar som är specifika för tjänsten:
 
@@ -71,11 +71,11 @@ Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser
 
 Så här aktiverar du diagnostisk loggning:
 
-1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet har följande format: */subscriptions/\<prenumerations-ID\>/resourceGroups/\<resursgruppsnamn\>/providers/Microsoft.Storage/storageAccounts/\<lagringskontonamn\>* .
+1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet har följande format: */subscriptions/\<prenumerations-ID\>/resourceGroups/\<resursgruppsnamn\>/providers/Microsoft.Storage/storageAccounts/\<lagringskontonamn\>*.
 
    Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal. Informationen finns på sidan **Egenskaper** för resursen.
 
-2. Anteckna resurs-ID:t för den brandvägg som ska loggas. Det här värdet har följande format: */subscriptions/\<prenumerations-ID\>/resourceGroups/\<resursgruppsnamn\>/providers/Microsoft.Network/azureFirewalls/\<brandväggsnamn\>* .
+2. Anteckna resurs-ID:t för den brandvägg som ska loggas. Det här värdet har följande format: */subscriptions/\<prenumerations-ID\>/resourceGroups/\<resursgruppsnamn\>/providers/Microsoft.Network/azureFirewalls/\<brandväggsnamn\>*.
 
    Du hittar den här informationen i Azure Portal.
 

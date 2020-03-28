@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Zoho | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Zoho | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Zoho.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3b5d0e52e927a44d5bce5314e724c1c753809ce0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74231946"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Självstudie: Azure Active Directory integrering med Zoho
+# <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Självstudiekurs: Azure Active Directory-integrering med Zoho
 
 I den här självstudien lär du dig hur du integrerar Zoho med Azure Active Directory (Azure AD).
 Du får följande fördelar när du integrerar Zoho med Azure AD:
@@ -33,7 +33,7 @@ Du får följande fördelar när du integrerar Zoho med Azure AD:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -106,10 +106,10 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Zoho:
 
     ![Zoho – enkel inloggning-information för domän och -URL:er](common/sp-signonurl.png)
 
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<company name>.zohomail.com`
+    Skriv en URL med hjälp av följande mönster i textrutan **Sign-on-URL:**`https://<company name>.zohomail.com`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Zoho-supporten](https://www.zoho.com/mail/contact.html) för att få värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Zoho-supporten](https://www.zoho.com/mail/contact.html) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -131,7 +131,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Zoho:
 
 2. Gå till **Kontrollpanelen**.
    
-    ![Kontroll panel](./media/zoho-mail-tutorial/ic789607.png "Kontroll panel")
+    ![Kontrollpanelen](./media/zoho-mail-tutorial/ic789607.png "Kontrollpanelen")
 
 3. Klicka på fliken **SAML-autentisering**.
    
@@ -161,7 +161,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -171,7 +171,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -200,7 +200,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -209,7 +209,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 För att kunna göra det möjligt för Azure AD-användare att logga in på Zoho Mail måste de etableras i Zoho Mail. När det gäller Zoho Mail är etablering en manuell uppgift.
 
 > [!NOTE]
-> Du kan använda andra Zoho e-postverktyg eller API: er som tillhandahålls av Zoho-e-post för att etablera Azure AD-användarkonton.
+> Du kan använda andra verktyg eller API:er för att skapa zooaskonton för att etablera Azure AD-användarkonton.
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Gör följande för att etablera ett användarkonto:
 
@@ -229,7 +229,7 @@ För att kunna göra det möjligt för Azure AD-användare att logga in på Zoho
 
     b. I textrutan **Efternamn** skriver du efternamnet: **Simon**.
 
-    c. I text rutan **email-ID** anger du e-post-ID för användaren som **brittasimon\@contoso.com**.
+    c. I textrutan **E-post-ID** skriver du e-post-ID för användare som **\@brittasimon contoso.com**.
 
     d. I textrutan **Lösenord** anger du användarens lösenord.
    

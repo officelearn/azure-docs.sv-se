@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa och hantera en gateway med Azure VPN Gateway
+title: Självstudiekurs - Skapa och hantera en gateway med Azure VPN Gateway
 description: Självstudie – Skapa och hantera en VPN-gateway med Azure PowerShell-modulen
 services: vpn-gateway
 author: cherylmc
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 03/11/2020
 ms.author: cherylmc
 ms.openlocfilehash: 66efa0f2922e70908616c7c447d782efee8f6b1b
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79137185"
 ---
-# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudie: skapa och hantera en VPN-gateway med PowerShell
+# <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudiekurs: Skapa och hantera en VPN-gateway med PowerShell
 
 Azure VPN-gatewayer ger anslutningar mellan olika platser, t.ex. mellan kundens lokaler och Azure. Den här självstudien beskriver grundläggande distributionsobjekt i Azure VPN-gatewayen, till exempel att skapa och hantera en VPN-gateway. Lär dig att:
 
@@ -34,7 +34,7 @@ Följande diagram visar det virtuella nätverket och den VPN-gateway som skapats
 
 ## <a name="common-network-parameter-values"></a>Gemensamma parametervärden för nätverk
 
-Nedan visas de parameter värden som används för den här självstudien. Variablerna i exemplen översätts till följande:
+Nedan visas de parametervärden som används för den här självstudien. I exemplen översätter variablerna till följande:
 
 ```
 #$RG1         = The name of the resource group
@@ -82,7 +82,7 @@ New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Azure VPN-gatewayen ger anslutning mellan olika platser och P2S VPN-serverfunktioner för det virtuella nätverket. Lägg till VPN-gatewayen i ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk och gatewayen. Observera att exemplet anger namnet på Gateway-undernätet specifikt. Du måste alltid ange namnet på Gateway-undernätet som "GatewaySubnet" för att det ska fungera korrekt. Det här exemplet skapar ett nytt virtuellt nätverk med tre undernät: frontend, backend och GatewaySubnet med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) och [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
+Azure VPN-gatewayen ger anslutning mellan olika platser och P2S VPN-serverfunktioner för det virtuella nätverket. Lägg till VPN-gatewayen i ett befintligt virtuellt nätverk eller skapa ett nytt virtuellt nätverk och gatewayen. Observera att exemplet anger namnet på gateway-undernätet specifikt. Du måste alltid ange namnet på gateway-undernätet som "GatewaySubnet" för att det ska fungera korrekt. I det här exemplet skapas ett nytt virtuellt nätverk med tre undernät: Frontend, Backend och GatewaySubnet med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) och [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
@@ -125,9 +125,9 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 Värden för nyckelparameter:
 * GatewayType: Använd **Vpn** för anslutningar från plats till plats och mellan virtuella nätverk
 * VpnType: Använd **RouteBased** för att interagera med ett bredare urval av VPN-enheter och fler routningsfunktioner
-* GatewaySku: **VpnGw1** är standard. ändra den till en annan VpnGw-SKU om du behöver högre data flöden eller fler anslutningar. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
+* GatewaySku: **VpnGw1** är standard; ändra den till en annan VpnGw SKU om du behöver högre dataflöde eller fler anslutningar. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
 
-Om du använder TryIt kan det ta lång tid att kontakta sessionen. Det är ok. Gatewayen kommer fortfarande att skapas.
+Om du använder TryIt kan sessionen ta time out. Det är ok. Gatewayen kommer fortfarande att skapas.
 
 När gatewayen har skapats kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat virtuellt nätverk, eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats. Du kan också konfigurera en P2S-anslutning till ditt virtuella nätverk från en klientdator.
 
@@ -144,7 +144,7 @@ $myGwIp.IpAddress
 
 ## <a name="resize-a-gateway"></a>Ändra storlek på en gateway
 
-Du kan ändra VPN-gatewayens SKU när gatewayen har skapats. Olika Gateway-SKU: er har stöd för olika specifikationer, till exempel data flöden, antal anslutningar osv. I följande exempel används [ändra storlek-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) för att ändra storlek på gatewayen från VpnGw1 till VpnGw2. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
+Du kan ändra VPN-gatewayens SKU när gatewayen har skapats. Olika gateway SKU:er stöder olika specifikationer, till exempel dataflöde, antal anslutningar osv. I följande exempel används [Resize-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) för att ändra storlek på din gateway från VpnGw1 till VpnGw2. Se [Gateway SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för mer information.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
@@ -166,7 +166,7 @@ Mer information finns i [Återställa en VPN-gateway](vpn-gateway-resetgw-classi
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du går [vidare till nästa självstudie](vpn-gateway-tutorial-vpnconnection-powershell.md)ska du behålla dessa resurser eftersom de är nödvändiga.
+Om du går vidare till [nästa självstudiekurs,](vpn-gateway-tutorial-vpnconnection-powershell.md)kommer du att vilja behålla dessa resurser eftersom de är förutsättningarna.
 
 Men om gatewayen ingår i en prototyp-, ett test- eller en Proof of Concept-distribution, kan du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) till att ta bort resursgruppen, VPN-gatewayen och alla relaterade resurser.
 

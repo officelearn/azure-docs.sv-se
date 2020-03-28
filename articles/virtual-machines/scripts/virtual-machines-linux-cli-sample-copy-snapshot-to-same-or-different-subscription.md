@@ -1,6 +1,6 @@
 ---
-title: Kopiera ögonblicks bild av hanterade diskar till ett exempel på en prenumerations-CLI
-description: Skript exempel för Azure CLI – kopiera (eller flytta) ögonblicks bild av en hanterad disk till samma eller en annan prenumeration med CLI
+title: Kopiera hanterad diskögonblicksbild till en prenumeration - CLI-exempel
+description: Azure CLI Script Sample - Kopiera (eller flytta) ögonblicksbild av en hanterad disk till samma eller annan prenumeration med CLI
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -17,19 +17,19 @@ ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: 19c791cf1f394f5aab6ad2fcd7f98c4b30497286
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75458549"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Kopiera en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration med CLI
 
 Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
 
-1. Migrera en ögonblicks bild i Premium Storage (Premium_LRS) till standard lagring (Standard_LRS eller Standard_ZRS) för att minska kostnaderna.
-1. Migrera en ögonblicks bild från lokalt redundant lagring (Premium_LRS Standard_LRS) till zonens redundanta lagring (Standard_ZRS) för att dra nytta av ZRS-lagringens högre tillförlitlighet.
-1. Flytta en ögonblicks bild till en annan prenumeration i samma region för längre kvarhållning.
+1. Migrera en ögonblicksbild i Premium-lagring (Premium_LRS) till standardlagring (Standard_LRS eller Standard_ZRS) för att minska din kostnad.
+1. Migrera en ögonblicksbild från lokalt redundant lagring (Premium_LRS, Standard_LRS) till zon redundant lagring (Standard_ZRS) för att dra nytta av den högre tillförlitligheten hos ZRS-lagring.
+1. Flytta en ögonblicksbild till olika prenumerationer i samma region för längre kvarhållning.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

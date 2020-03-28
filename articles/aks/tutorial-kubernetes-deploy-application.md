@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77593282"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Köra program i Azure Kubernetes Service (AKS)
@@ -17,27 +17,27 @@ ms.locfileid: "77593282"
 Kubernetes tillhandahåller en distribuerad plattform för containerbaserade program. Du kan bygga och distribuera dina egna program och tjänster till ett Kubernetes-kluster och låta klustret hantera tillgänglighet och anslutningsfunktioner. I den här självstudien, som är del fyra av sju, distribuerar du ett exempelprogram till ett Kubernetes-kluster. Lär dig att:
 
 > [!div class="checklist"]
-> * Uppdatera en Kubernetes manifest fil
+> * Uppdatera en Kubernetes manifestfil
 > * Köra ett program i Kubernetes
 > * Testa programmet
 
 I senare självstudier så kommer den här appen att skalas ut och uppdateras.
 
-Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Kubernetes Core Concepts for Azure Kubernetes service (AKS)][kubernetes-concepts].
+Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Viktiga koncept för Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades.
 
-I den här självstudien behöver du Kubernetes-manifestfilen `azure-vote-all-in-one-redis.yaml` som skapats i förväg. Den här filen laddades ned med källkoden för programmet i en tidigare självstudie. Verifiera att du har klonat lagringsplatsen och att du har ändrat katalogerna i den klonade lagringsplatsen. Om du inte har utfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa behållar avbildningar][aks-tutorial-prepare-app].
+I den här självstudien behöver du Kubernetes-manifestfilen `azure-vote-all-in-one-redis.yaml` som skapats i förväg. Den här filen laddades ned med källkoden för programmet i en tidigare självstudie. Verifiera att du har klonat lagringsplatsen och att du har ändrat katalogerna i den klonade lagringsplatsen. Om du inte har utfört de här stegen och vill följa med så kan du börja med [Självstudie 1 – Skapa containeravbildningar][aks-tutorial-prepare-app].
 
-I den här självstudien måste du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="update-the-manifest-file"></a>Uppdatera manifestfilen
 
 I dessa självstudier lagrar en Azure Container Registry-instans (ACR) containeravbildningen för exempelprogrammet. För att distribuera programmet måste du uppdatera avbildningens namn i Kubernetes-manifestfilen så att det inkluderar namnet på ACR-inloggningsservern.
 
-Hämta ACR-inloggnings serverns namn med kommandot [AZ ACR List][az-acr-list] på följande sätt:
+Du hämtar namnet på ACR-inloggningsservern med hjälp av kommandot [az acr list][az-acr-list] enligt följande:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -49,7 +49,7 @@ Exempelmanifestfilen från den git-lagringsplats som klonades i den första sjä
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Ersätt *microsoft* med namnet ditt ACR-inloggningsservernamn. Avbildningens namn finns på rad 51 i manifest filen. I följande exempel visas standardnamnet för avbildning:
+Ersätt *microsoft* med namnet ditt ACR-inloggningsservernamn. Bildnamnet finns på rad 51 i manifestfilen. I följande exempel visas standardnamnet för avbildning:
 
 ```yaml
 containers:
@@ -69,7 +69,7 @@ Spara och stäng filen. I `vi` använder du `:wq`.
 
 ## <a name="deploy-the-application"></a>Distribuera programmet
 
-Använd kommandot [kubectl Apply][kubectl-apply] för att distribuera ditt program. Det här kommandot parsar manifestfilen och skapar de definierade Kubernetes-objekten. Ange exempelmanifestfilen enligt vad som visas i följande exempel:
+För att distribuera ditt program använder du kommandot [kubectl apply][kubectl-apply]. Det här kommandot parsar manifestfilen och skapar de definierade Kubernetes-objekten. Ange exempelmanifestfilen enligt vad som visas i följande exempel:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
@@ -96,13 +96,13 @@ Du kan övervaka förloppet genom att använda kommandot [kubectl get service][k
 kubectl get service azure-vote-front --watch
 ```
 
-Till en början visas *EXTERNAL-IP* för *azure-vote-front*-tjänsten som *väntande*:
+Inledningsvis visas *EXTERNAL-IP* för *azure-vote-front-tjänsten* som *väntande:*
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
-När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress, använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
+När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
@@ -112,7 +112,7 @@ Om du vill se hur programmet fungerar i praktiken så öppnar du en webbläsare 
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Om det inte gick att läsa in programmet så kan det bero på ett auktoriseringsproblem med ditt avbildningsregister. Du kan visa statusen för dina containrar med hjälp av kommandot `kubectl get pods`. Om behållar avbildningarna inte kan hämtas, se [autentisera med Azure Container Registry från Azure Kubernetes-tjänsten](cluster-container-registry-integration.md).
+Om det inte gick att läsa in programmet så kan det bero på ett auktoriseringsproblem med ditt avbildningsregister. Du kan visa statusen för dina containrar med hjälp av kommandot `kubectl get pods`. Om behållaravbildningarna inte kan hämtas läser du [Autentisera med Azure Container Registry från Azure Kubernetes Service](cluster-container-registry-integration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

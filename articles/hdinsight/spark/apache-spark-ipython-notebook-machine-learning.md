@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: bygga Spark Machine Learning-app – Azure HDInsight'
-description: Självstudie – stegvisa anvisningar om hur du skapar Apache Spark Machine Learning-program i HDInsight Spark-kluster med hjälp av Jupyter Notebook.
+title: 'Självstudiekurs: Skapa Spark-maskininlärningsapp - Azure HDInsight'
+description: Självstudiekurs - Steg-för-steg-instruktioner om hur du bygger Apache Spark maskininlärningsprogram i HDInsight Spark-kluster med Jupyter-anteckningsbok.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,33 +9,33 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494571"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Självstudie: utveckla ett Apache Spark Machine Learning-program i Azure HDInsight
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Självstudiekurs: Skapa ett Apache Spark-maskininlärningsprogram i Azure HDInsight
 
 I den här självstudien lär du dig att använda [Jupyter Notebook](https://jupyter.org/) för att skapa ett [Apache Spark](https://spark.apache.org/)-maskininlärningsprogram för Azure HDInsight.
 
 [MLib](https://spark.apache.org/docs/latest/ml-guide.html) är Sparks skalbara Machine Learning-bibliotek som består av vanliga algoritmer och verktyg, inklusive klassificering, regression, klustring, samarbetsfilter, dimensionsminskning samt underliggande optimeringsprimitiver.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > * Utveckla ett Apache Spark-maskininlärningsprogram
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
+* Ett Apache Spark-kluster i HDInsight. Se [Skapa ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
-* Kunskaper om Jupyter Notebooks med Spark på HDInsight. Mer information finns i [läsa in data och köra frågor med Apache Spark på HDInsight](./apache-spark-load-data-run-query.md).
+* Kunskaper om Jupyter Notebooks med Spark på HDInsight. Mer information finns i [Läsa in data och köra frågor med Apache Spark på HDInsight](./apache-spark-load-data-run-query.md).
 
 ## <a name="understand-the-data-set"></a>Förstå datauppsättningen
 
-Programmet använder exempel data för **HVAC. csv** som är tillgängliga i alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Med dessa data kan du förutsäga om en byggnad kommer att bli varmare eller kallare baserat på måltemperaturen baserat på ett system-ID och systemets ålder.
+Programmet använder exempel **HVAC.csv-data** som är tillgängliga i alla kluster som standard. Filen finns på `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Data visar måltemperaturen och den faktiska temperaturen för några byggnader som har installerade HVAC-system. Kolumnen **System** representerar system-ID:t, och kolumnen **SystemAge** representerar antalet år som HVAC-systemet har funnits i byggnaden. Med dessa data kan du förutsäga om en byggnad kommer att bli varmare eller kallare baserat på måltemperaturen baserat på ett system-ID och systemets ålder.
 
-![Ögonblicks bild av data som används för Spark Machine Learning-exempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Ögonblicks bild av data som används för Spark Machine Learning-exempel")
+![Ögonblicksbild av data som används för Spark-maskininlärningsexempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Ögonblicksbild av data som används för Spark-maskininlärningsexempel")
 
 ## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>Utveckla ett Spark-maskininlärningsprogram med Spark MLlib
 
@@ -141,7 +141,7 @@ I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.o
 
     Jämföra utdata med CSV-råfilen. Den första raden i CSV-filen har dessa data till exempel:
 
-    ![Ögonblicks bild av utdata för Spark Machine Learning-exempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Ögonblicks bild av utdata för Spark Machine Learning-exempel")
+    ![Ögonblicksbild av utdata för Spark-maskininlärningsexempel](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Ögonblicksbild av utdata för Spark-maskininlärningsexempel")
 
     Lägg märke till att den faktiska temperaturen är lägre än måltemperaturen, vilket indikerar att byggnaden är kall. I utbildningsutdata är därför värdet för **etikett** i den första raden **0.0**, vilket betyder att byggnaden inte är varm.
 
@@ -182,15 +182,15 @@ I det här programmet använder du en Spark [ML-pipeline](https://spark.apache.o
 
    Från den första raden i förutsägelsen kan du se att för ett HVAC-system med ID 20 och en systemålder på 25 år är byggnaden varm (**förutsägelse=1.0**). Det första värdet för DenseVector (0,49999) motsvarar förutsägelsen 0.0 och det andra värdet (0,5001) motsvarar förutsägelsen 1.0. I utdata, trots att det andra värdet bara är marginellt högre, visar modellen **förutsägelse=1.0**.
 
-1. Stäng anteckningsboken för att frigöra resurserna. Du gör det genom att välja **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Åtgärden stänger anteckningsboken.
+1. Stäng anteckningsboken för att frigöra resurser. Du gör det genom att välja **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Åtgärden stänger anteckningsboken.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Använda Anaconda scikit-bibliotek för Spark machine learning
 
-Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Det innehåller också **scikit-learn**-bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogram direkt från en Jupyter Notebook. För exempel på hur du använder scikit-learn-biblioteket, se [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
+Apache Spark-kluster i HDInsight innehåller Anaconda-bibliotek. Det innehåller också **scikit-learn**-bibliotek för machine learning. Biblioteket innehåller också olika datauppsättningar som du kan använda för att skapa exempelprogram direkt från en Jupyter Notebook. Exempel på hur du använder biblioteket [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)scikit-learn finns i .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet, tar du bort det kluster som du skapade med följande steg:
+Om du inte ska fortsätta att använda det här programmet tar du bort klustret som du skapade med följande steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -198,15 +198,15 @@ Om du inte kommer att fortsätta att använda det här programmet, tar du bort d
 
 1. Välj **HDInsight-kluster** under **Tjänster**.
 
-1. I listan med HDInsight-kluster som visas väljer du **...** bredvid det kluster som du skapade för den här självstudien.
+1. I listan över HDInsight-kluster som visas väljer du **det ...** bredvid klustret som du skapade för den här självstudien.
 
 1. Välj **Ta bort**. Välj **Ja**.
 
-![Azure Portal ta bort ett HDInsight-kluster](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
+![Azure-portalen tar bort ett HDInsight-kluster](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du använder Jupyter Notebook för att bygga ett Apache Spark Machine Learning-program för Azure HDInsight. Gå vidare till nästa självstudie om du vill lära dig hur du använder IntelliJ IDEA för Spark-jobb.
+I den här självstudien lärde du dig hur du använder Jupyter Notebook för att skapa ett Apache Spark-maskininlärningsprogram för Azure HDInsight. Gå vidare till nästa självstudie om du vill lära dig hur du använder IntelliJ IDEA för Spark-jobb.
 
 > [!div class="nextstepaction"]
-> [Skapa ett Scala maven-program med hjälp av IntelliJ](./apache-spark-create-standalone-application.md)
+> [Skapa ett Scala Maven-program med IntelliJ](./apache-spark-create-standalone-application.md)

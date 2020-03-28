@@ -1,5 +1,5 @@
 ---
-title: Självstudie – uppgradera en app som körs i Azure Service Fabric nät
+title: Självstudiekurs- Uppgradera en app som körs i Azure Service Fabric Mesh
 description: I den här självstudien lär du dig hur du uppgraderar ett program som körs i Service Fabric Mesh.
 author: dkkapur
 ms.topic: tutorial
@@ -7,17 +7,17 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 42db17fa6474d3230bc523d0cf65b375cf01276e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351735"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Självstudie: uppgradera ett program som körs i Service Fabric Mesh
 
 Den här självstudiekursen är den tredje delen i en serie. Du får lära dig hur du uppgraderar ett Service Fabric-program som [tidigare har distribuerat till Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md) genom att öka de tilldelade CPU-resurserna.  När du är klar har du en webbtjänst för klientdelen som körs med högre CPU-resurser.
 
-I den tredje delen i serien får du lära dig hur du:
+I den tredje delen i serien får du lära dig att:
 
 > [!div class="checklist"]
 > * Ändra programkonfigurationerna
@@ -25,7 +25,7 @@ I den tredje delen i serien får du lära dig hur du:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * [Distribuera ett program till Service Fabric Mesh med hjälp av en mall](service-fabric-mesh-tutorial-template-deploy-app.md)
+> * [Distribuera ett program till Service Fabric Mesh med en mall](service-fabric-mesh-tutorial-template-deploy-app.md)
 > * [Skala ett program som körs i Service Fabric Mesh](service-fabric-mesh-tutorial-template-scale-services.md)
 > * Uppgradera ett program som körs i Service Fabric Mesh
 > * [Ta bort ett program](service-fabric-mesh-tutorial-template-remove-app.md)

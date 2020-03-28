@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 05/23/2019
 ms.author: rgarcia
 ms.openlocfilehash: e0038fd5632d512f18d50c4d11577b7f5756baa3
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67235469"
 ---
-Öppna projektet i i Unity, den `Unity` mapp. Unity kan du bli ombedd om en annan Unity-version mellan projektet och de som du har installerat på din dator. Den här varningen är okej, så länge din Redigeraren för Unity-versionen är nyare än den som projektet har skapats med. Klicka i så fall bara **Fortsätt**. Om din redigeringsprogram för Unity-version är äldre än en projektet måste, klickar du på **avsluta**, och uppgradera dina Unity-redigeraren.
+Öppna projektet i `Unity` mappen i Unity. Unity kan fråga dig om en annan Unity-version mellan projektet och den du har installerat på datorn. Denna varning är okej, så länge din version av Unity Editor är nyare än den som projektet skapades med. I så fall klickar du bara på **Fortsätt**. Om Unity Editor-versionen är äldre än den som projektet behöver klickar du på **Avsluta**och uppgraderar Unity Editor.
 
-![Unity-fönstret](./media/spatial-anchors-unity/unity-window.png)
+![Enhetsfönster](./media/spatial-anchors-unity/unity-window.png)

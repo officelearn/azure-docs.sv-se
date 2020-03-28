@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa virtuella datorer som kör en SQL-, IIS-, .NET-stack i Azure
+title: Självstudiekurs - Skapa virtuella datorer som kör en SQL-, IIS-, .NET-stack i Azure
 description: I den här självstudien lär du dig hur du installerar Azure SQL, IIS, .NET-stacken på en virtuell Windows-dator i Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 286d00ce718a34dea15a075984cc3b2a5e4cfec3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 762d67a291ec33e13ca9e7311b0cf11da140dd6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064664"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80154278"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Självstudie: Installera SQL-, IIS-, .NET-stacken på en virtuell Windows-dator med Azure PowerShell
 
@@ -35,7 +35,7 @@ I den här självstudien installerar vi en SQL-, IIS-, .NET-stack med Azure Powe
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/powershell](https://shell.azure.com/powershell)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 ## <a name="create-an-iis-vm"></a>Skapa en virtuell IIS-dator 
 
@@ -137,8 +137,8 @@ I den här självstudien har du installerat en SQL&#92;IIS&#92;.NET-stack med Az
 > * Skapa en virtuell dator som kör SQL Server
 > * Installera SQL Server-tillägget
 
-Gå vidare till nästa självstudiekurs där du får lära dig att skydda IIS-webbservern med SSL-certifikat.
+Gå vidare till nästa självstudiekurs om du vill lära dig hur du skyddar IIS-webbservern med TLS/SSL-certifikat.
 
 > [!div class="nextstepaction"]
-> [Säker IIS-webbserver med SSL-certifikat](tutorial-secure-web-server.md)
+> [Säker IIS-webbserver med TLS/SSL-certifikat](tutorial-secure-web-server.md)
 

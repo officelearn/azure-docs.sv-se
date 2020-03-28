@@ -1,41 +1,41 @@
 ---
-title: Självstudie – Skapa ett virtuellt Hubbs nätverk i Azure med hjälp av terraform
-description: Självstudie som illustrerar hur du skapar ett virtuellt Hubbs nätverk i Azure som fungerar som en gemensam kopplings punkt mellan andra nätverk
+title: Självstudiekurs - Skapa ett virtuellt navnätverk i Azure med hjälp av Terraform
+description: Självstudiekurs som illustrerar hur du skapar ett virtuellt navnätverk i Azure som fungerar som en gemensam anslutningspunkt mellan andra nätverk
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 6669e90c3d12fcf55bcb1ad69c3b275c5117a8fc
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159039"
 ---
-# <a name="tutorial-create-a-hub-virtual-network-in-azure-by-using-terraform"></a>Självstudie: skapa ett virtuellt hubb nätverk i Azure med hjälp av terraform
+# <a name="tutorial-create-a-hub-virtual-network-in-azure-by-using-terraform"></a>Självstudiekurs: Skapa ett virtuellt navnätverk i Azure med terraform
 
-Det virtuella hubb nätverket fungerar som central punkt för anslutning till det lokala nätverket. Det virtuella nätverket är värd för delade tjänster som förbrukas av arbets belastningar som finns i de virtuella eker-nätverken. I demonstrations syfte är inga delade tjänster implementerade i den här självstudien.
+Det virtuella navnätverket fungerar som den centrala anslutningspunkten till det lokala nätverket. Det virtuella nätverket är värd för delade tjänster som förbrukas av arbetsbelastningar som finns i de virtuella ekrarna. För demoändamål implementeras inga delade tjänster i den här självstudien.
 
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
-> * Använd HCL (HashiCorp Configuration Language) för att implementera det virtuella hubb nätverket i en nav-och-eker-topologi.
-> * Använd terraform för att skapa en nav-hoppsida för virtuella datorer.
-> * Använd terraform för att skapa en hubb för virtuell privat nätverksgateway.
-> * Använd terraform för att skapa hubb och lokala gateway-anslutningar.
+> * Använd HashiCorp Configuration Language (HCL) för att implementera hubbvirt nätverk i en hub-and-spoke-topologi.
+> * Använd Terraform för att skapa en virtuell hubbinkartator.
+> * Använd Terraform för att skapa en virtuell hubb-gateway för privata nätverk.
+> * Använd Terraform för att skapa hubb- och lokala gatewayanslutningar.
 
 ## <a name="prerequisites"></a>Krav
 
-1. [Skapa en topologi för topologi-och-eker hybrid nätverk med terraform i Azure](./terraform-hub-spoke-introduction.md).
-1. [Skapa ett lokalt virtuellt nätverk med terraform i Azure](./terraform-hub-spoke-on-prem.md).
+1. [Skapa en hub-and-spoke hybrid nätverkstopologi med Terraform i Azure](./terraform-hub-spoke-introduction.md).
+1. [Skapa ett lokalt virtuellt nätverk med Terraform i Azure](./terraform-hub-spoke-on-prem.md).
 
 ## <a name="create-the-directory-structure"></a>Skapa katalogstrukturen
 
-Hubbs nätverket består av följande komponenter:
+Navnätverket består av följande komponenter:
 
-- Ett virtuellt hubb nätverk
-- En hubb för virtuell nätverksgateway
-- Hubb Gateway-anslutningar 
+- Ett virtuellt navnätverk
+- En virtuell hubbnätverksgateway
+- Hub gateway-anslutningar 
 
-Följande konfigurations fil för terraform definierar resurserna:
+Följande konfigurationsfil för Terraform definierar resurserna:
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com).
 
@@ -55,9 +55,9 @@ Följande konfigurations fil för terraform definierar resurserna:
     cd hub-spoke
     ```
 
-## <a name="declare-the-hub-virtual-network"></a>Deklarera det virtuella hubb nätverket
+## <a name="declare-the-hub-virtual-network"></a>Deklarera det virtuella navnätverket
 
-Skapa konfigurations filen terraform som deklarerar det virtuella hubb nätverket.
+Skapa konfigurationsfilen för Terraform som deklarerar hubbvirt nätverk.
 
 1. I Cloud Shell skapar du en fil som heter `hub-vnet.tf`.
 
@@ -228,4 +228,4 @@ Skapa konfigurations filen terraform som deklarerar det virtuella hubb nätverke
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Skapa en hubb för virtuella nätverk med terraform i Azure](./terraform-hub-spoke-hub-nva.md)
+> [Skapa en virtuell hubbnätverksinstallation med Terraform i Azure](./terraform-hub-spoke-hub-nva.md)

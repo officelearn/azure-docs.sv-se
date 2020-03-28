@@ -1,6 +1,6 @@
 ---
 title: Azure CLI-exempel
-description: En tabell som innehåller länkar till exempel på bash-skript som skapats med hjälp av Azure CLI, som att skapa och hantera en skalnings uppsättning.
+description: En tabell som innehåller länkar till exempel bash skript som skapats med Hjälp av Azure CLI, som att skapa och hantera en skalningsuppsättning.
 author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -10,10 +10,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: ca1c85224959840e4137eab68e3d089283827bb5
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76275149"
 ---
 # <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>Azure CLI-exempel för VM-skalningsuppsättningar
@@ -23,7 +23,7 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 | | |
 |---|---|
 |**Skapa och hantera en skalningsuppsättning**||
-| [Skapa en VM-skalningsuppsättning](scripts/cli-sample-create-simple-scale-set.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en VM-skalningsuppsättning med minimal konfiguration. |
+| [Skapa en skalningsuppsättning för virtuella datorer](scripts/cli-sample-create-simple-scale-set.md?toc=%2fcli%2fazure%2ftoc.json) | Skapar en VM-skalningsuppsättning med minimal konfiguration. |
 | [Skapa en skalningsuppsättning från en anpassad virtuell datoravbildning](scripts/cli-sample-create-scale-set-from-custom-image.md?toc=%2fcli%2fmodule%2ftoc.json) | Skapar en VM-skalningsuppsättning som använder en anpassad virtuell datoravbildning. |
 | [Installerar program till en skalningsuppsättning](scripts/cli-sample-install-apps.md?toc=%2fcli%2fmodule%2ftoc.json) | Använd det anpassade Azure-skripttillägget för att installera ett grundläggande webbprogram i en skalningsuppsättning. |
 |**Hantera lagring**||

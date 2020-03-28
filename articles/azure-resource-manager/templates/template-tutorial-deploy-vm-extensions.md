@@ -5,16 +5,16 @@ author: mumian
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 30b7aeaed0bfc2621cb2c71ab3f5e618771a1c26
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 469948d3d3207dd684d5a9b752e0c448ac7e83a9
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250075"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239252"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar
+# <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Självstudiekurs: Distribuera tillägg för virtuella datorer med ARM-mallar
 
-Lär dig hur du använder [Azure-tillägg för virtuell dator](../../virtual-machines/extensions/features-windows.md) för att utföra konfigurations- och automatiseringsuppgifter efter distribution på virtuella Azure-datorer. Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. I den här självstudien distribuerar du ett anpassat skripttillägg från en Azure Resource Manager-mall för att köra ett PowerShell-skript på en virtuell Windows-dator.  Skriptet installerar webbserver på den virtuella datorn.
+Lär dig hur du använder [Azure-tillägg för virtuell dator](../../virtual-machines/extensions/features-windows.md) för att utföra konfigurations- och automatiseringsuppgifter efter distribution på virtuella Azure-datorer. Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. I den här självstudien distribuerar du ett anpassat skripttillägg från en AZURE Resource Manager-mall (ARM) för att köra ett PowerShell-skript på en Virtuell Windows.In this tutorial, you deploy a Custom Script extension from an Azure Resource Manager (ARM) template to run a PowerShell script on a Windows VM.  Skriptet installerar webbserver på den virtuella datorn.
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -25,24 +25,24 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera mallen
 > * Verifiera distributionen
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
-* Visual Studio Code med Resource Manager Tools-tillägg. [Skapa Azure Resource Manager mallar i använda Visual Studio Code](use-vs-code-to-create-template.md).
+* Visual Studio-kod med resurshanterarens verktygstillägg. Se [Använda Visual Studio-kod för att skapa ARM-mallar](use-vs-code-to-create-template.md).
 * För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```console
     openssl rand -base64 32
     ```
 
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./template-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudiekurs: Integrera Azure Key Vault i ARM-malldistribution](./template-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="prepare-a-powershell-script"></a>Förbereda ett PowerShell-skript
 
-Ett PowerShell-skript med följande innehåll delas från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
+Ett PowerShell-skript med följande innehåll delas från [GitHub:](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1)
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -52,9 +52,9 @@ Om du väljer att publicera filen till en egen plats måste du uppdatera element
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
-Azure-snabbstartsmallar är lagringsplatser för Resource Manager-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator).
+Azure Quickstart Templates är en lagringsplats för ARM-mallar. I stället för att skapa en mall från början får du en exempelmall som du anpassar. Den mall som används i den här självstudien heter [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/) (Distribuera en enkel virtuell Windows-dator).
 
-1. I Visual Studio Code väljer du **Arkiv** > **Öppna fil**.
+1. Välj **Öppna** > **fil**i Visual Studio-kod .
 1. I rutan **Filnamn** klistrar du in följande webbadress: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
 1. Välj **Öppna** för att öppna filen.
@@ -101,18 +101,18 @@ Lägg till en resurs för tillägg för virtuell dator i den befintliga mallen m
 Mer information om den här resursdefinitionen finns i [tilläggsreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Här följer några viktiga element:
 
 * **name** (namn): eftersom tilläggsresursen är en underordnad resurs för det virtuella datorobjektet måste namnet ha den virtuella datorns namnprefix. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md).
-* **dependsOn**: skapa tilläggs resursen när du har skapat den virtuella datorn.
-* **fileUris**: de platser där skriptfilerna lagras. Om du väljer att inte använda den angivna platsen måste du uppdatera värdena.
-* **commandToExecute**: det här kommandot anropar skriptet.
+* **dependsOn**: Skapa tilläggsresursen när du har skapat den virtuella datorn.
+* **fileUris**: De platser där skriptfilerna lagras. Om du väljer att inte använda den angivna platsen måste du uppdatera värdena.
+* **commandToExecute**: Det här kommandot anropar skriptet.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Information om distributions proceduren finns i avsnittet "distribuera mallen" i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Du bör använda ett genererat lösenord för den virtuella datorns administratörskonto. Läs mer i avsnittet om [förutsättningar](#prerequisites) i den här artikeln.
+Distributionsproceduren finns i avsnittet "Distribuera mallen" i [Självstudiekurs: Skapa ARM-mallar med beroende resurser](./template-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Du bör använda ett genererat lösenord för den virtuella datorns administratörskonto. Läs mer i avsnittet om [förutsättningar](#prerequisites) i den här artikeln.
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
 1. Välj den virtuella datorn i Azure Portal.
-1. I översikten för den virtuella datorn kopierar du IP-adressen genom att välja **Klicka för att kopiera**och klistra in den i en webbläsare-flik. Välkomst sidan för standard Internet Information Services (IIS) öppnas:
+1. Kopiera IP-adressen i översikten för den virtuella datorn genom att välja **Klicka för att kopiera**och klistra sedan in den på en webbläsarflik. Standardmeddelandesidan för Internet Information Services (IIS) öppnas:
 
 ![Välkomstsida för Internet Information Services](./media/template-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 

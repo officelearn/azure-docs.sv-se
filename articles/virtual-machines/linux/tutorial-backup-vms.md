@@ -1,5 +1,5 @@
 ---
-title: Självstudie – säkerhetskopiera virtuella Linux-datorer i Azure Portal
+title: Självstudiekurs - Säkerhetskopiera virtuella Linux-datorer i Azure-portalen
 description: I den här självstudiekursen lär du dig hur du använder Azure Portal för att skydda dina virtuella Linux-datorer med Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c8b29052b4ca1d3ccd6f1f9b6afba5177dbd6c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034586"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066499"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Självstudier: Säkerhetskopiera och återställa filer för virtuella Linux-datorer i Azure
 
-Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller specifika filer. I den här artikeln förklaras hur du återställer en enda fil till en virtuell Linux-dator som kör nginx. Om du inte redan har en virtuell dator att använda kan du skapa en med hjälp av [Linux-snabbstarten](quick-create-cli.md). I den här guiden får du lära dig hur man:
+Du kan skydda dina data genom att säkerhetskopiera med jämna mellanrum. Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller specifika filer. I den här artikeln förklaras hur du återställer en enda fil till en virtuell Linux-dator som kör nginx. Om du inte redan har en virtuell dator att använda kan du skapa en med hjälp av [Linux-snabbstarten](quick-create-cli.md). I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en säkerhetskopia av en virtuell dator
@@ -51,7 +51,7 @@ Skapa en schemalagd daglig säkerhetskopiering till ett Recovery Services-valv:
 6. Klicka på **Säkerhetskopieringspolicy**. I det här exemplet behåller du standardvärdena och klickar på **OK**.
 7. Klicka på **Aktivera säkerhetskopiering** på bladet **Aktivera säkerhetskopiering**. Då skapas en daglig säkerhetskopia baserat på standardschemat.
 10. Om du vill skapa en första återställningspunkt går du till bladet **Säkerhetskopiera** och klickar på **Säkerhetskopiera nu**.
-11. På bladet **Säkerhetskopiera nu** klickar du på kalenderikonen, använder kalenderkontrollen för att välja den sista dagen som den här återställningspunkten ska behållas och klickar sedan på **Säkerhetskopiera**.
+11. Klicka på kalenderikonen på bladet **Säkerhetskopiera nu,** använd kalenderkontrollen för att välja den sista dagen då återställningspunkten behålls och klicka på **Säkerhetskopiering**.
 12. På bladet **Säkerhetskopiera** för din virtuella dator ser du antalet återställningspunkter som är klara.
 
     ![Återställningspunkter](./media/tutorial-backup-vms/backup-complete.png)
@@ -64,7 +64,7 @@ Om du oavsiktligt råkar ta bort eller göra ändringar i en fil kan du använda
 
 I det här exemplet visar vi hur du återställer standardversionen av nginx-webbsidan /var/www/html/index.nginx-debian.html. Den virtuella datorns offentliga IP-adress i det här exemplet är *13.69.75.209*. Du hittar IP-adressen till den virtuella datorn med:
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
@@ -78,6 +78,7 @@ I det här exemplet visar vi hur du återställer standardversionen av nginx-web
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Ta bort /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -122,7 +123,7 @@ I det här exemplet visar vi hur du återställer standardversionen av nginx-web
     
 12. Utdata från skriptet ger dig sökvägen till monteringspunkten. Utdata ser ut ungefär så här:
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
                           

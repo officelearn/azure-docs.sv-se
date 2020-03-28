@@ -1,5 +1,5 @@
 ---
-title: Branchning och länkning av aktiviteter i en pipeline med hjälp av Azure Portal
+title: Förgrenings- och kedjekopplingsaktiviteter i en pipeline med Azure-portal
 description: Lär dig hur du styr flödet av data i Azure Data Factory genom branchning och kedjesammansättning av aktiviteter.
 services: data-factory
 author: djpmsft
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
 ms.openlocfilehash: 3fe4dc76e8ece0d525f307626b1772a3239805db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977498"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
@@ -36,13 +36,13 @@ I den här självstudiekursen får du göra följande:
 > * Starta en pipelinekörning
 > * Övervaka pipelinen och aktivitetskörningar
 
-I den här självstudien används Azure Portal. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
+I den här självstudien används Azure-portalen. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
 ## <a name="prerequisites"></a>Krav
 
-* **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md) .
-* **Azure SQL Database**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure-lagringskonto läser du artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md) för steg för att skapa ett.
+* **Azure SQL-databas**. Du använder databasen som **mottagare** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-blob-table"></a>Skapa blob-tabell
 
@@ -126,8 +126,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Just nu är det bara webbläsarna Microsoft Edge och Google Chrome som har stöd för Data Factory UI.
-1. På den vänstra menyn väljer du **skapa en resurs** > **data och analys** > **Data Factory**:
+1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome.
+1. På den vänstra menyn väljer du **Skapa en resursData** > **+ Analytics** > **Data Factory:**
 
    ![Valet Data Factory i fönstret Nytt](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -135,21 +135,21 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
      ![Sidan Ny datafabrik](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
 
-   Namnet på Azure Data Factory måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
+   Namnet på Azure-datafabriken måste vara **globalt unikt**. Om följande fel returneras ändrar du namnet på datafabriken (till exempel dittnamnADFTutorialDataFactory) och provar att skapa fabriken igen. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
 
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
 4. För **resursgruppen** utför du något av följande steg:
 
-      - Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan.
-      - Välj **Skapa ny** och ange namnet på en resursgrupp.   
+      - Välj **Använd befintlig**och välj en befintlig resursgrupp i listrutan.
+      - Välj **Skapa ny**och ange namnet på en resursgrupp.   
          
         Mer information om resursgrupper finns i [Använda resursgrupper till att hantera Azure-resurser](../azure-resource-manager/management/overview.md).  
 4. Välj **V2** för **versionen**.
 5. Välj **plats** för datafabriken. Endast platser som stöds visas i listrutan. Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 6. Välj **fäst till instrumentpanelen**.     
 7. Klicka på **Skapa**.      
-8. På instrumentpanelen visas följande panel med statusen: **Distribuerar datafabrik**.
+8. På instrumentpanelen visas följande panel med status: **Distribuera datafabrik**.
 
     ![panelen distribuerar datafabrik](media/tutorial-control-flow-portal/deploying-data-factory.png)
 9. När datafabriken har skapats visas sidan **Datafabrik** som på bilden.
@@ -173,7 +173,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 
     - **sourceBlobContainer** – parameter i pipelinen som används av blob-datauppsättningen för källan.
     - **sinkBlobContainer** – parameter i pipelinen som används av blob-datauppsättningen för mottagaren
-    - **receiver** – den här parametern används av de två webbaktiviteterna i pipelinen som skickar e-postmeddelanden om lyckat eller misslyckat resultat till mottagaren vars e-postadress anges av den här parametern.
+    - **mottagare** – den här parametern används av de två webbaktiviteterna på pipelinen som skickar lyckade eller misslyckade e-postmeddelanden till mottagaren vars e-postadress anges av den här parametern.
 
    ![Meny för ny pipeline](./media/tutorial-control-flow-portal/pipeline-parameters.png)
 4. I verktygslådan **Aktiviteter** visar du **Dataflöde** och drar och släpper aktiviteten **Kopiera** till pipelinedesignytan.
@@ -272,7 +272,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
 23. Dra den **röda** knappen bredvid kopieringsaktiviteten till den andra webbaktiviteten, **SendFailureEmailActivity**. Du kan flytta aktiviteterna så att pipelinen ser ut som på följande bild:
 
     ![Fullständig pipeline med alla aktiviteter](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Verifiera pipelinen genom att klicka på knappen **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **>>** .
+24. Verifiera pipelinen genom att klicka på **Verifiera** i verktygsfältet. Stäng fönstret **Pipeline Validation Output** (Resultat av pipelineverifiering) genom att klicka på **>>**.
 
     ![Verifiera pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Om du vill publicera entiteter (datauppsättningar, pipeliner osv.) till Data Factory-tjänsten väljer du **Publicera alla**. Vänta tills du ser meddelandet om att entiteterna **har publicerats**.
@@ -327,7 +327,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
     ![Aktivitetskörningsfel](./media/tutorial-control-flow-portal/activity-run-error.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått:
+I den här självstudiekursen fick du:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.

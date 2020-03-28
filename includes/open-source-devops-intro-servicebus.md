@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 04/22/2019
 ms.author: tarcher
 ms.openlocfilehash: eb96027351cf244e9cd4404f702544411130db5e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67188033"
 ---
-[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) är ett företag [integrering](https://azure.microsoft.com/product-categories/integration/) meddelandekö. Service bus stöder två typer av kommunikation: köer och ämnen. 
+[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) är en meddelandemäklare [för företagsintegrering.](https://azure.microsoft.com/product-categories/integration/) Servicebuss stöder två typer av kommunikation: köer och ämnen. 
 
-Köerna stöder asynkron kommunikation mellan program. En app skickar meddelanden till en kö, som lagrar meddelanden. Det mottagande programmet sedan ansluter till och läser in meddelanden från kön.
+Köer stöder asynkron kommunikation mellan program. En app skickar meddelanden till en kö som lagrar meddelandena. Det mottagande programmet ansluter sedan till och läser meddelandena från kön.
 
-Ämnena stöder Publicera-prenumerera mönster som gör det möjligt för en en-till-många-relation mellan meddelande avsändaren och meddelande receiver(s).
+Avsnitten stöder mönstret publicera och prenumerera, vilket möjliggör en 1:1-relation mellan meddelandeass upphovsmannen och meddelandemottagaren.Topics support the publish-subscribe pattern, which enables a one-to-many relation between the message originator and the messager receiver(s).

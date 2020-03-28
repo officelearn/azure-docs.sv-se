@@ -1,14 +1,14 @@
 ---
-title: Distribuera ett behållar program med CI/CD
+title: Distribuera ett behållarprogram med CI/CD
 description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio Azure DevOps.
 ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
 ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614142"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
@@ -42,9 +42,9 @@ Välj en målprofil inom programprojektet att använda för arbetsflödet för d
 
 Dela programkällfilerna till ett teamprojekt i Azure DevOps så att du kan generera byggen.
 
-Skapa en ny lokal Git-lagringsplats för projektet genom att välja alternativet för att **lägga till källkontroll** -> **Git** i statusfältet i det nedre högra hörnet av Visual Studio.
+Skapa en ny lokal Git-repo för ditt projekt genom att välja **Lägg till i källkontroll** -> **Git** i statusfältet i det nedre högra hörnet av Visual Studio.
 
-I vyn för **Push-överföring**  i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
+I vyn för **Push-överföring ** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
 
 ![Push-överföring med Git-lagringsplats][push-git-repo]
 
@@ -99,7 +99,7 @@ I **dialogrutan för att spara bygg-pipeline och kö** klickar du på **Save & q
 
 ![Välj utlösare][save-and-queue]
 
-Byggen utlöser också vid push och incheckning. Om du vill kontrol lera Bygg förloppet växlar du till fliken **versioner** .  När du har kontrollerat att genereringen körs korrekt definierar du en versions definition som distribuerar ditt program till ett kluster.
+Byggen utlöser också vid push och incheckning. Om du vill kontrollera byggstatusen växlar du till fliken **Bygg.**  När du har verifierat att versionen har körs definierar du en versionsdefinition som distribuerar ditt program till ett kluster.
 
 ### <a name="create-a-release-definition"></a>Skapa en versionsdefinition
 
@@ -126,7 +126,7 @@ Klicka på **Docker Settings** (Docker-inställningar) och klicka sedan på **Co
 
 ![Agent för versionspipeline][release-pipeline-agent]
 
-Lägg sedan till en byggesartefakt i pipelinen så versionsdefinitionen kan hitta utdata från bygget. Välj **Pipeline** och **artefakter**-> **+ Lägg till**.  I **Source (Build definition)** (Källa (byggesdefinition)) väljer du den byggesdefinition som du skapade tidigare.  Klicka på **Lägg till** för att spara byggesartefakten.
+Lägg sedan till en byggesartefakt i pipelinen så versionsdefinitionen kan hitta utdata från bygget. Välj **Pipeline** och **artefakter**->**+ Lägg till**.  I **Source (Build definition)** (Källa (byggesdefinition)) väljer du den byggesdefinition som du skapade tidigare.  Klicka på **Lägg till** för att spara byggesartefakten.
 
 ![Lägg till artefakt][add-artifact]
 
@@ -134,7 +134,7 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 ![Aktivera utlösare][enable-trigger]
 
-Välj **+Release** -> **Create a Release**  -> **Create** (+Version, Skapa en version, Skapa) för att manuellt skapa en version. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
+Välj **+ Släpp** -> **Skapa en release** -> **Skapa** för att manuellt skapa en version. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
 
 Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 

@@ -1,40 +1,40 @@
 ---
-title: 'Självstudie: hantera frågor i Azure Portal'
-description: I den här självstudien skapar du en resurs diagram fråga och delar den nya frågan med andra i Azure Portal.
+title: 'Självstudiekurs: Hantera frågor i Azure Portal'
+description: I den här självstudien skapar du en Resource Graph Query och delar den nya frågan med andra i Azure-portalen.
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74303959"
 ---
-# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Självstudie: skapa och dela en Azure Resource Graph-fråga i Azure Portal
+# <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Självstudiekurs: Skapa och dela en Azure Resource Graph-fråga i Azure-portalen
 
-Med Azure Resource Graph Explorer kan du spara dina resurs diagram frågor direkt i Azure Portal. Det finns två typer av frågor: _privata_ och _delade_. En privat fråga sparas i Azure Portal inställningar. En delad fråga är en Resource Manager-resurs som kan hanteras med rollbaserad åtkomst kontroll (RBAC) och skyddas med resurs lås. Båda typerna av frågor är krypterade i vila.
+Med Azure Resource Graph Explorer kan du spara dina Resource Graph-frågor direkt i Azure-portalen. Det finns två typer av frågor: _Privat_ och _Delad_. En privat fråga sparas i inställningarna för Azure-portalen. Medan en delad fråga är en Resource Manager-resurs som kan hanteras med rollbaserade åtkomstkontroller (RBAC) och skyddas med resurslås. Båda typerna av frågor krypteras i vila.
 
-Genom att spara frågor i Azure Portal sparar du tiden som du kan lägga på på annat sätt för dina favorit frågor eller vanliga frågor. När du delar frågor hjälper du ditt team att realisera målen för konsekvens och effektivitet genom upprepning.
+Genom att spara frågor i Azure-portalen sparar du den tid du annars kan ägna åt att leta efter dina favorit- eller vanliga frågor. När du delar frågor hjälper du ditt team att förverkliga mål om konsekvens och effektivitet genom upprepning.
 
-I den här självstudien utför du följande aktiviteter:
+I den här självstudien ska du utföra följande uppgifter:
 
 > [!div class="checklist"]
 > - Skapa och ta bort en privat fråga
 > - Skapa en delad fråga
-> - Identifiera delade frågor
+> - Upptäck delade frågor
 > - Ta bort en delad fråga
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har ett, skapa ett [gratis konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-and-delete-a-private-query"></a>Skapa och ta bort en privat fråga
 
-Privata frågor är tillgängliga och endast synliga för det konto som skapar dem. När de har sparats i ett kontos Azure Portal inställningar kan de skapas, användas och tas bort endast inifrån Azure Portal. En privat fråga är inte en Resource Manager-resurs. Följ dessa steg om du vill skapa en ny privat fråga:
+Privata frågor är endast tillgängliga och synliga för kontot som skapar dem. När de sparas i ett kontos Azure-portalinställningar kan de skapas, användas och tas bort endast inifrån Azure-portalen. En privat fråga är inte en Resource Manager-resurs. Så här skapar du en ny privat fråga:
 
-1. Välj **alla tjänster** på menyn portal eller Använd Azure Search-rutan längst upp på alla sidor. Sök efter och välj sedan **resurs diagram Utforskaren**.
+1. På portalmenyn väljer du **Alla tjänster** eller använder sökrutan i Azure högst upp på alla sidor. Sök efter och välj sedan **Resource Graph Explorer**.
 
-1. På fliken **fråga 1** på sidan för Azure Resource Graph-Utforskaren anger du följande fråga:
+1. På fliken **Fråga 1** på sidan Utforskaren i Azure Resource Graph anger du följande fråga:
 
    ```kusto
    Resources
@@ -42,31 +42,31 @@ Privata frågor är tillgängliga och endast synliga för det konto som skapar d
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 
-   Välj **Kör fråga** för att se frågeresultaten i det nedre fönstret.
+   Välj **Kör fråga** om du vill visa frågeresultaten i det nedre fönstret.
 
-   Mer information om den här frågan finns i [samples – räkna virtuella datorer efter typ av operativ system](../samples/starter.md#count-virtual-machines-by-os-type).
+   Mer information om den här frågan finns i [Exempel – Räkna virtuella datorer efter OS-typ](../samples/starter.md#count-virtual-machines-by-os-type).
 
 
-1. Välj **Spara** eller **Spara som**, ange **antal virtuella datorer efter operativ system** som namn, lämna typen som **privat fråga**och välj sedan **Spara** längst ned i fönstret **Spara fråga** . Flikens rubrik ändras från **fråga 1** för att **räkna virtuella datorer efter operativ system**.
+1. Välj **Spara** eller **Spara som**, ange Antal virtuella datorer efter **operativsystemet** som namn, lämna typen som **privat fråga**och välj sedan **Spara** längst ned i **frågefönstret Spara.** Tabbrubriken ändras från **fråga 1** till **Antal virtuella datorer efter operativsystem**.
 
-1. Flytta bort från Azure Resource Graph Explorer i Azure Portal och återgå sedan till den. Observera att den sparade frågan inte längre visas och att fliken **fråga 1** har returnerats.
+1. Flytta dig bort från Azure Resource Graph Explorer i Azure-portalen och sedan återgå till den. Observera att den sparade frågan inte längre visas och fliken **Fråga 1** har returnerats.
 
-1. Välj **öppna en fråga**. Kontrol lera att typen är en **privat fråga**. Det sparade namnet **antal virtuella datorer per operativ system** visas nu i listan **frågenamn** . När du väljer rubrik länken för den sparade frågan läses den in på en ny flik med frågans namn.
+1. Välj **Öppna en fråga**. Kontrollera att typen är **Privat fråga**. Det sparade namnet **Antal virtuella datorer efter operativsystem** visas nu i listan **Frågenamn.** När du väljer rubriklänken för den sparade frågan läses den in på en ny flik med frågans namn.
 
    > [!NOTE] 
-   > När en sparad fråga är öppen och fliken visar sitt namn, kan du välja knappen **Spara** om du vill uppdatera den med alla ändringar som har gjorts. Om du vill skapa en ny sparad fråga från den här öppna frågan väljer du **Spara som** och fortsätter som om du sparar en helt ny fråga.
+   > När en sparad fråga är öppen och fliken visar dess namn uppdateras den med alla ändringar som har gjorts om du väljer knappen **Spara.** Om du vill skapa en ny sparad fråga från den här öppna frågan väljer du **Spara som** och fortsätter som om du sparade en helt ny fråga.
 
-1. Om du vill ta bort den sparade frågan väljer du **öppna en fråga** igen och kontrollerar att fältet **typ** är inställt på **privat fråga**. Välj **ta bort** (pappers korgs ikon) på raden i den sparade `Count VMs by OS`s frågan. I bekräftelse dialog rutan väljer du **Ja** för att slutföra borttagningen av frågan.
-   Stäng sedan fönstret **öppna en fråga** .
+1. Om du vill ta bort den sparade frågan väljer du **Öppna en fråga** igen och kontrollerar att fältet **Typ** är inställt på **Privat fråga**. På raden med `Count VMs by OS` den sparade frågan väljer du **Ta bort** (ikonen Papperskorgen). Välj **Ja** för att slutföra borttagningen av frågan i bekräftelsedialogrutan.
+   Stäng sedan **ett frågefönster.**
 
 ## <a name="create-a-shared-query"></a>Skapa en delad fråga
 
-Till skillnad från en privat fråga är en delad fråga en Resource Manager-resurs. Detta faktum innebär att frågan sparas i en resurs grupp, kan hanteras och kontrol leras med RBAC och kan även skyddas med resurs lås. Som en resurs kan alla som har rätt behörigheter Se och använda den.
-Följ dessa steg om du vill skapa en ny delad fråga:
+Till skillnad från en privat fråga är en delad fråga en Resource Manager-resurs. Detta innebär att frågan sparas i en resursgrupp, kan hanteras och kontrolleras med RBAC och kan även skyddas med resurslås. Som en resurs kan alla som har rätt behörighet se och använda den.
+Så här skapar du en ny delad fråga:
 
-1. Välj **alla tjänster**på menyn portal eller Använd Azure Search-rutan längst upp på alla sidor för att söka efter och välja **resurs diagram Utforskaren**.
+1. På portalmenyn väljer du **Alla tjänster**eller använder sökrutan i Azure högst upp på alla sidor för att söka efter och välj Resource **Graph Explorer**.
 
-1. På fliken **fråga 1** på sidan för Azure Resource Graph-Utforskaren anger du följande fråga:
+1. På fliken **Fråga 1** på sidan Utforskaren i Azure Resource Graph anger du följande fråga:
 
    ```kusto
    Resources
@@ -74,62 +74,62 @@ Följ dessa steg om du vill skapa en ny delad fråga:
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
     
-   Välj **Kör fråga** för att se frågeresultaten i det nedre fönstret.
+   Välj **Kör fråga** om du vill visa frågeresultaten i det nedre fönstret.
 
-   Mer information om den här frågan finns i [samples – räkna virtuella datorer efter typ av operativ system](../samples/starter.md#count-virtual-machines-by-os-type).
+   Mer information om den här frågan finns i [Exempel – Räkna virtuella datorer efter OS-typ](../samples/starter.md#count-virtual-machines-by-os-type).
 
 1. Välj **Spara** eller **Spara som**.
 
    
-   ![Spara den nya frågan med knappen Spara](../media/create-share-query/save-shared-query-buttons.png)
+   ![Spara den nya frågan med hjälp av spara-knappen](../media/create-share-query/save-shared-query-buttons.png)
 
-1. I fönstret **Spara fråga** anger du **antal virtuella datorer per OS** som namn.
+1. I **fönstret Spara fråga** anger du **Antal virtuella datorer efter operativsystem** för namnet.
 
-1. Ändra typen till **delad fråga**, ange beskrivningen till **antal virtuella datorer efter OS-typ**och ange en **prenumeration** för att ange var frågans resurs skapas.
+1. Ändra typen till **Delad fråga,** ange beskrivningen till **Antal virtuella datorer efter OS-typ**och ange **Prenumeration** för att ange var frågeresursen skapas.
 
-1. Låt kryss rutan **Publicera till resurs-Graph-fråga resurs grupp** vara markerad och **resurs grupps platsen** är inställd på **(USA) västra centrala USA**.
+1. Lämna **resursgruppen Publicera till resursdiagramfrågor** markerad och **plats för resursgrupp** inställd på **(USA) Västra centrala USA**.
 
-1. Välj **Spara** längst ned i fönstret **Spara fråga** . Flikens rubrik ändras från **fråga 1** för att **räkna virtuella datorer efter operativ system**. Första gången resurs gruppen **Resource-Graph-frågar** används, tar det längre tid än förväntat att spara när resurs gruppen skapas.
+1. Välj **Spara** längst ned i **fönstret Spara fråga.** Tabbrubriken ändras från **fråga 1** till **Antal virtuella datorer efter operativsystem**. Första gången resursgruppen **resursgrupper för resursdiagramfrågor** används tar det längre tid än förväntat att spara när resursgruppen skapas.
    
    ![Spara den nya frågan som en delad fråga](../media/create-share-query/save-shared-query-window.png)
 
    > [!NOTE] 
-   > Du kan avmarkera kryss rutan **Publicera till resurs-fråga resurs grupp** om du vill ange namnet på en befintlig resurs grupp för att spara den delade frågan i. Om du använder standard resurs gruppen för frågor blir det enklare att upptäcka delade frågor. Det gör även syftet med den här resurs gruppen tydligare. Du kan dock välja att välja en befintlig resurs grupp av säkerhets skäl baserat på befintliga behörigheter.
+   > Du kan avmarkera **resursgruppen Publicera till resursdiagramfrågor** om du vill ange namnet på en befintlig resursgrupp som du vill spara den delade frågan i. Om du använder standardnamnet resursgrupp för frågor blir delade frågor lättare att identifiera. Det gör också syftet med denna resursgrupp tydligare. Du kan dock välja att välja en befintlig resursgrupp av säkerhetsskäl baserat på befintliga behörigheter.
 
-1. Flytta bort från Azure Resource Graph Explorer i Azure Portal och återgå sedan till den. Observera att den sparade frågan inte längre visas och att fliken **fråga 1** har returnerats.
+1. Flytta dig bort från Azure Resource Graph Explorer i Azure-portalen och sedan återgå till den. Observera att den sparade frågan inte längre visas och fliken **Fråga 1** har returnerats.
 
-1. Välj **öppna en fråga**. Kontrol lera att typen har angetts till en **delad fråga** och kombinationen av **prenumeration** och **resurs grupp** matchning där du sparade frågan. Objektet **antal sparade virtuella datorer per operativ system** visas nu i listan över **frågenamn** . Välj rubrik länken för den sparade frågan för att läsa in den på en ny flik med frågans namn. Som en delad fråga visas en ikon på fliken bredvid rubriken som visar den som delad.
+1. Välj **Öppna en fråga**. Kontrollera att typen är inställd på **Delad fråga** och kombinationen av **prenumerations-** och **resursgruppmatchning** där du sparade frågan. Det sparade **objektet Antal virtuella datorer per operativsystem** visas nu i listan **Frågenamn.** Välj rubriklänken för den sparade frågan om du vill läsa in den på en ny flik med frågans namn. Som en delad fråga visas en ikon på fliken bredvid titeln och den betecknas som delad.
 
-   ![Visa den delade frågan med ikonen](../media/create-share-query/show-saved-shared-query.png)
+   ![Visa ikonen Delad fråga med](../media/create-share-query/show-saved-shared-query.png)
 
    > [!NOTE] 
-   > När en sparad fråga är öppen och fliken visar sitt namn, uppdaterar knappen **Spara** med de ändringar som har gjorts. Om du vill skapa en ny sparad fråga väljer du **Spara som** och fortsätter som om du sparar en helt ny fråga.
+   > När en sparad fråga är öppen och fliken visar dess namn **uppdateras** den med alla ändringar som har gjorts. Om du vill skapa en ny sparad fråga väljer du **Spara som** och fortsätter som om du sparade en helt ny fråga.
 
-## <a name="discover-shared-queries"></a>Identifiera delade frågor
+## <a name="discover-shared-queries"></a>Upptäck delade frågor
 
 Eftersom en delad fråga är en Resource Manager-resurs finns det flera sätt att hitta en:
 
-- I resurs diagram Utforskaren väljer du **öppna en fråga** och anger typen till **delad fråga**.
-- Från Portal sidan resurs diagram frågor.
-- Från resurs gruppen som den delade frågan sparades i.
-- Via en fråga till resurs diagram.
+- I Resource Graph Explorer väljer du **Öppna en fråga** och anger typen till Delad **fråga**.
+- Från portalsidan för Resource Graph-frågor.
+- Från resursgruppen som den delade frågan sparades i.
+- Genom en fråga till Resource Graph.
 
-### <a name="view-resource-graph-queries"></a>Visa resurs diagram frågor
+### <a name="view-resource-graph-queries"></a>Visa resursdiagramfrågor
 
-På sidan Azure Portal visar sidan för resurs diagram frågor delade frågor som det inloggade kontot har åtkomst till. På den här sidan kan du filtrera efter namn, prenumeration, resurs grupp och andra egenskaper för resurs diagram frågan. Du kan också tagga, exportera och ta bort resurs diagram frågor med hjälp av det här gränssnittet.
+På Azure-portalen visar sidan Resource Graph-frågor Delade frågor som det inloggade kontot har åtkomst till. På den här sidan kan du filtrera efter namn, prenumeration, resursgrupp och andra egenskaper i resursdiagramfrågan. Du kan också tagga, exportera och ta bort Resource Graph-frågor med hjälp av det här gränssnittet.
 
-Om du väljer en av frågorna öppnas sidan resurs diagram fråga. Precis som andra Resource Manager-resurser erbjuder den här sidan en interaktiv översikt tillsammans med aktivitets loggen, åtkomst kontrollen och taggarna. Du kan också använda ett resurs lås direkt från den här sidan.
+Om du väljer en av frågorna öppnas frågesidan för Resursdiagram. Precis som andra Resource Manager-resurser erbjuder den här sidan en interaktiv översikt tillsammans med aktivitetsloggen, åtkomstkontrollen och taggarna. Du kan också använda ett resurslås direkt från den här sidan.
 
-Gå till sidan för resurs diagram frågor från Portal-menyn genom att välja **alla tjänster** eller genom att använda Azure Search-rutan längst upp på alla sidor. Sök efter och välj **resurs diagram Utforskaren**.
+Gå till sidan Resource Graph-frågor på portalmenyn genom att välja **Alla tjänster** eller genom att använda sökrutan i Azure högst upp på alla sidor. Sök efter och välj **Resource Graph Explorer**.
 
-### <a name="list-resource-groups-resources"></a>Visa resurs grupp resurser
+### <a name="list-resource-groups-resources"></a>Ange resursgrupper för lista
 
-Resurs diagram frågan visas bredvid andra resurser som ingår i en resurs grupp.
-Om du väljer resurs diagram frågan öppnas sidan för frågan. Meny alternativen tre punkter och snabb menyer (utlösta genom att högerklicka) fungerar på samma sätt som på sidan resurs diagram fråga.
+Resursdiagramfrågan visas tillsammans med andra resurser som ingår i en resursgrupp.
+Om du väljer frågan Resursdiagram öppnas sidan för den frågan. Ellips- och snabbmenyalternativen (utlöses av högerklickning) fungerar på samma sätt som på frågesidan för Resursdiagram.
 
-### <a name="query-resource-graph"></a>Fråga resurs diagram
+### <a name="query-resource-graph"></a>Frågeresursdiagram
 
-Du kan hitta resurs diagram frågor via en fråga till resurs diagram. Följande resurs diagram fråga begränsar gränser efter typ `Microsoft.ResourceGraph/queries`och använder sedan `project` för att bara visa en lista över namnet, tiden som har ändrats och själva frågan:
+Du kan hitta Resource Graph-frågor via en fråga till Resursdiagram. Följande resursdiagram fråga gränser `Microsoft.ResourceGraph/queries`efter typ `project` och sedan används för att lista endast namn, tid ändras och frågan själv:
 
 ```kusto
 Resources
@@ -139,21 +139,21 @@ Resources
 
 ## <a name="delete-a-shared-query"></a>Ta bort en delad fråga
 
-Om en delad fråga inte längre behövs tar du bort den. Genom att ta bort en delad fråga tar du bort motsvarande Resource Manager-resurs. Alla instrument paneler som resultat diagrammet var fästa i visar nu ett fel meddelande. När fel meddelandet visas använder du knappen **ta bort från instrument panelen** för att rensa instrument panelen.
+Om en delad fråga inte längre behövs tar du bort den. Genom att ta bort en delad fråga tar du bort motsvarande Resource Manager-resurs. Alla instrumentpaneler som resultatdiagrammet har fästs på visar nu ett felmeddelande. När felmeddelandet visas använder du knappen **Ta bort från instrumentpanelen** för att rensa instrumentpanelen.
 
 Du kan ta bort en delad fråga via följande gränssnitt:
-- Sidan frågor för resurs diagram
-- Sidan resurs diagram fråga
-- Sidan **öppna en fråga** i resurs diagram Utforskaren
-- Sidan resurs grupper
+- Sidan Resursdiagramfrågor
+- Frågesida för resursdiagram
+- Sidan **Öppna en fråga** i Utforskaren För resursdiagram
+- Sidan Resursgrupper
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med den här självstudien tar du bort privata och delade frågor som du har skapat om du inte längre vill ha dem.
+När du är klar med den här självstudien tar du bort de privata och delade frågor som du har skapat om du inte längre vill ha dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du skapat privata och delade frågor. Om du vill veta mer om det här resurs språket fortsätter du till sidan information om frågespråk.
+I den här självstudien har du skapat privata och delade frågor. Om du vill veta mer om resursdiagramspråket fortsätter du till sidan med frågespråkinformation.
 
 > [!div class="nextstepaction"]
 > [Få mer information om frågespråket](../concepts/query-language.md)

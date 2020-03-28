@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa en intern belastningsutjämnare – Azure Portal'
+title: 'Självstudiekurs: Skapa en intern belastningsutjämnare - Azure-portal'
 titleSuffix: Azure Load Balancer
 description: Den här självstudien beskriver hur du skapar en grundläggande intern lastbalanserare med hjälp av Azure-portalen.
 services: load-balancer
@@ -16,21 +16,21 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: 6f62771d707d1aebccbfaf809dee7d0dedf5fefa
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79096129"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare i Azure-portalen
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande begäranden sprids över virtuella datorer. Du kan använda Azure-portalen för att skapa en grundläggande lastbalanserare och balansera intern trafik över virtuella datorer. Den här självstudien visar hur du skapar och konfigurerar en intern lastbalanserare, serverdelsservrar och nätverksresurser på prisnivån Grundläggande.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
 
 Om du vill kan du utföra de här stegen med hjälp av [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) eller [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md) i stället för portalen.
 
-Om du vill utföra stegen med den här självstudien loggar du in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-vnet-back-end-servers-and-a-test-vm"></a>Skapa ett virtuellt nätverk, serverdelsservrar och en virtuell testdator
 
@@ -38,13 +38,13 @@ Först skapar du ett virtuellt nätverk (VNet). I det virtuella nätverket skapa
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+1. Välj **Skapa ett** > **virtuellt** > **nätverk**för nätverk längst upp till vänster i portalen .
    
 1. I fönsterrutan **Skapa virtuellt nätverk** skriver eller väljer du dessa värden:
    
    - **Namn**: Skriv *MyVNet*.
    - **ResourceGroup**: Välj **Skapa ny**, ange *MyResourceGroupLB* och välj **OK**. 
-   - **Undernät** > **Namn**: Skriv *MyBackendSubnet*.
+   - **Subnet** > **Undernätsnamn**: Skriv *MyBackendSubnet*.
    
 1. Välj **Skapa**.
 
@@ -52,19 +52,19 @@ Först skapar du ett virtuellt nätverk (VNet). I det virtuella nätverket skapa
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**. 
+1. På portalens övre vänstra sida väljer du Skapa ett > **resursberäkningscenter** > för**Windows Server 2016**. **Create a resource** 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumeration** > **Resursgrupp**: i listrutan väljer du **MyResourceGroupLB**.
-   - **Instansinformation** > **Namn på virtuell dator**: Skriv *MyVM1*.
-   - **Instansinformation** > **Tillgänglighetsalternativ**: 
+   - **Subscription** > **Prenumerationsresursgrupp:** Släpp ned och välj **MyResourceGroupLB**.
+   - **Instansinformation** > **Virtuell datornamn:** Skriv *MyVM1*.
+   - **Tillgänglighetsalternativ för instansinformation:** > **Availability Options** 
      1. I listrutan väljer du **Tillgänglighetsuppsättning**. 
      2. Välj **Skapa ny**, skriv *MyAvailabilitySet* och välj **OK**.
    
 1. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**. 
    
    Kontrollera att följande har valts:
-   - **Virtuellt nätverk**: **MyVNet**
+   - **Virtuellt nätverk:** **MyVNet**
    - **Undernät**: **MyBackendSubnet**
    
    Under **Nätverkssäkerhetsgrupp**:
@@ -85,7 +85,7 @@ Först skapar du ett virtuellt nätverk (VNet). I det virtuella nätverket skapa
 
 Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn och den IP-adress som du skapar konfigureras automatiskt som lastbalanserarens klientdel.
 
-1. Längst upp till vänster i portalen väljer du **Skapa en resurs** > **Netverk** > **Lastbalanserare**.
+1. Välj **Skapa en resurs** > **Nätverksbelastningsutjämnare****Networking** > längst upp till vänster i portalen .
    
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
@@ -98,7 +98,7 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
     | Typ          | Välj **Intern**.                                        |
     | SKU           | Välj **Grundläggande**.                          |
     | Virtuellt nätverk           | Välj *MyVNet*.                          |    
-    | Tilldelning av IP-adress              | Välj **Statisk**.   |
+    | TILLDELNING AV IP-adress              | Välj **Statisk**.   |
     | Privat IP-adress|Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
 
 3. På fliken **Granska + skapa** klickar du på **Skapa**. 
@@ -120,8 +120,8 @@ Lastbalanseraren använder en serverdelsadresspool för att distribuera trafik t
    
 1. På sidan **Lägg till serverdelspool** skriver eller väljer du följande värden:
    
-   - **Namn**: Skriv *MyBackendPool*.
-   - **Kopplad till**: listruta och välj **virtuell dator**.
+   - **Namn**: Type *MyBackendPool*.
+   - **Associerad med**: List ned och välj **Virtuell dator**.
    
    
 1. Välj **virtuell dator**. 
@@ -147,7 +147,7 @@ Om du vill att lastbalanseraren ska övervaka VM-status använder du en hälsoav
    
 1. Under **Inställningar** väljer du **Hälsoavsökningar** och sedan **Lägg till**.
    
-1. På sidan **Lägg till en hälsoavsökning**  skriver eller väljer du följande värden:
+1. På sidan **Lägg till en hälsoavsökning ** skriver eller väljer du följande värden:
    
    - **Namn**: Skriv *MyHealthProbe*.
    - **Protokoll**: I listrutan väljer du **HTTP**. 

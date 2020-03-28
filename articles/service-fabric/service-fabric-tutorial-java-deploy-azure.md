@@ -1,17 +1,17 @@
 ---
-title: Distribuera en Java-app till ett Service Fabric kluster i Azure
+title: Distribuera en Java-app till ett Service Fabric-kluster i Azure
 description: I den här självstudiekursen får du lära dig hur du distribuerar en Java Service Fabric-tillämpning till ett Service Fabric-kluster i Azure.
 author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: df6719cad79bdb063c2d4d74892206b6e5bbd414
+ms.sourcegitcommit: fab450a18a600d72b583ecfbe6c5e53afd43408c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78252807"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80292042"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Självstudie: Distribuera en Java-tillämpning till ett Service Fabric-kluster i Azure
 
@@ -26,17 +26,17 @@ I den tredje delen i serien får du lära dig att:
 I den här självstudieserien får du lära du dig att:
 
 > [!div class="checklist"]
-> * [Skapa ett Java Service Fabric-program (tillförlitliga tjänster)](service-fabric-tutorial-create-java-app.md)
-> * [Distribuera och felsöka programmet på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
+> * [Skapa ett Java Service Fabric Reliable Services-program](service-fabric-tutorial-create-java-app.md)
+> * [Distribuera och felsöka ditt program på ett lokalt kluster](service-fabric-tutorial-debug-log-local-cluster.md)
 > * Distribuera programmet till ett Azure-kluster
-> * [konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
+> * [Konfigurera övervakning och diagnostik för programmet](service-fabric-tutorial-java-elk.md)
 > * [Konfigurera CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här självstudien:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Installera Service Fabric SDK för [Mac](service-fabric-get-started-mac.md) eller [Linux](service-fabric-get-started-linux.md)
 * [Installera Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
@@ -162,7 +162,7 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    Din SAS-URL för EventHubs följer strukturen: `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`. Till exempel, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
+    Din SAS-URL för EventHubs följer `https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>`strukturen: . Till exempel, `https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. Öppna filen *sfdeploy.parameters.json* och ersätt följande innehåll från föregående steg. [SAS-URL-STORAGE-ACCOUNT] beskrevs i steg 8. [SAS-URL-EVENT-HUBS] beskrevs i steg 11.
 
@@ -217,11 +217,11 @@ Med följande steg skapar du de resurser som krävs för att distribuera tilläm
     ./install.sh
     ```
 
-5. Du kommer åt Service Fabric Explorer genom at öppna din vanliga webbläsare och skriva https://testlinuxcluster.westus.cloudapp.azure.com:19080. Välj certifikatet från det certifikatarkiv som du vill använda för att ansluta till slutpunkten. Om du använder en Linux-dator måste de certifikat som genererats av skriptet *new-service-fabric-cluster-certificate.sh* importeras till Chrome för att du ska kunna visa Service Fabric Explorer. Om du använder en Mac-dator måste du installera PFX-filen i din nyckelring. Du kan nu se att din tillämpning har installerats i klustret.
+5. Du kommer åt Service Fabric Explorer genom at öppna din vanliga webbläsare och skriva `https://testlinuxcluster.westus.cloudapp.azure.com:19080`. Välj certifikatet från det certifikatarkiv som du vill använda för att ansluta till slutpunkten. Om du använder en Linux-dator måste de certifikat som genererats av skriptet *new-service-fabric-cluster-certificate.sh* importeras till Chrome för att du ska kunna visa Service Fabric Explorer. Om du använder en Mac-dator måste du installera PFX-filen i din nyckelring. Du kan nu se att din tillämpning har installerats i klustret.
 
     ![SFX Java i Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. Du kommer åt din tillämpning genom att skriva https://testlinuxcluster.westus.cloudapp.azure.com:8080
+6. Du kommer åt din tillämpning genom att skriva `https://testlinuxcluster.westus.cloudapp.azure.com:8080`
 
     ![Röstningsapp i Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 

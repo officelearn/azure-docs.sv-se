@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/22/2019
 ms.author: tarcher
 ms.openlocfilehash: 3b639e0dcd852ddf34c4ce29292256b1285b2574
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67188032"
 ---
-[Azure VM-skalningsuppsättningar](../articles/virtual-machine-scale-sets/overview.md) är en funktion i Azure som låter dig konfigurera en grupp med identiska, load belastningsutjämnade virtuella datorer. Det finns ingen extra kostnad för att skala anger och de byggs från virtuella datorer. Du betalar bara för de underliggande beräkningsresurserna som VM-instanser, belastningsutjämnare eller hanterad disklagring. Med skalningsuppsättningar tillhandahålls hantering och automatiseringsnivåer för körning och skalning av dina program. I stället kan du manuellt skapa och hantera enskilda virtuella datorer. Men finns det två viktiga fördelar med att använda skalningsuppsättningar. De är inbyggda i Azure och de skala automatiskt dina virtuella datorer för alla programbehov.
+[Azure-skalningsuppsättningar för virtuella](../articles/virtual-machine-scale-sets/overview.md) datorer är en Azure-funktion som gör att du kan konfigurera en grupp av identiska, belastningsbalanserade virtuella datorer. Det finns ingen extra kostnad för att skala uppsättningar och de är byggda från virtuella datorer. Du betalar bara för underliggande beräkningsresurser som VM-instanser, belastningsutjämnare eller lagring av hanterad disk. Med skalningsuppsättningar tillhandahålls hantering och automatiseringsnivåer för körning och skalning av dina program. Du kan i stället manuellt skapa och hantera enskilda virtuella datorer. Det finns dock två viktiga fördelar med att använda skalningsuppsättningar. De är inbyggda i Azure och de skalar automatiskt dina virtuella datorer för att uppfylla programmets behov.

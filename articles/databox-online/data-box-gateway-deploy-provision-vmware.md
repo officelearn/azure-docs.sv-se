@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "60757794"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudier: Etablera Azure Data Box-Gateway i VMware
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Självstudiekurs: Etablera Azure Data Box Gateway i VMware
 
 ## <a name="overview"></a>Översikt
 
@@ -23,23 +23,23 @@ I den här självstudien beskrivs hur du etablerar Data Box Gateway på ett vär
 
 Du måste ha administratörsbehörighet för att etablera och ansluta till en virtuell enhet. Etableringen och den inledande installationen kan ta ungefär 10 minuter att slutföra.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Se till att värden uppfyller minimikraven för enhet
 > * Etablera en virtuell enhet i VMware
 > * Starta den virtuella enheten och hämta IP-adressen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kraven för att etablera en virtuell enhet på ett värdsystem som kör VMware ESXi 6.0, 6.5 eller 6.7 är följande.
 
 ### <a name="for-the-data-box-gateway-resource"></a>För Data Box Gateway-resursen
 
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 * Du har slutfört alla stegen i [Förbereda portalen för Data Box Gateway](data-box-gateway-deploy-prep.md).
 * Du har laddat ned avbildningen av den virtuella enheten för VMware från Azure-portalen enligt beskrivningen i [Förbereda portalen för Data Box Gateway](data-box-gateway-deploy-prep.md).
@@ -58,7 +58,7 @@ Innan du distribuerar en virtuell enhet kontrollerar du att:
   * Minst 8 GB RAM.
   * Ett nätverksgränssnitt.
   * En operativsystemdisk på 250 GB.
-  * En 2 TB virtuell disk för systemdata.
+  * En virtuell disk på 2 TB för systemdata.
 
 ### <a name="for-the-network-in-datacenter"></a>För nätverket i datacentret
 
@@ -77,7 +77,7 @@ För att skapa en virtuell enhet behöver du följande:
   * Minst 8 GB RAM. 
   * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet.
   * En operativsystemdisk på 250 GB.
-  * En 2 TB virtuell disk för data.
+  * En virtuell disk på 2 TB för data.
 * VMware vSphere-klient i systemet för att hantera ESXi-värden.
 
 
@@ -85,7 +85,7 @@ För att skapa en virtuell enhet behöver du följande:
 
 Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-program.
 
-1. Kopiera avbildningen av den virtuella enheten i ditt system. Du har laddat ned den här virtuella avbildningen (två filer) via Azure-portalen. Anteckna den plats dit du kopierade avbildningen eftersom du använder den här avbildningen senare under proceduren.
+1. Kopiera avbildningen av den virtuella enheten i ditt system. Du har laddat ned den här virtuella avbildningen (två filer) via Azure-portalen. Anteckna den plats dit du har kopierat avbildningen eftersom du använder den här avbildningen senare i proceduren.
 
 2. Logga in på ESXi-servern via en webbläsare på följande URL: `https://<IP address of the ESXi server>`. Du måste ha administratörsbehörighet för att kunna skapa en virtuell dator.
 
@@ -102,11 +102,11 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
    
 5. Högerklicka och välj **Browse Datastore** (Bläddra i datalager).
 
-   ![Bläddra i datalagret](./media/data-box-gateway-deploy-provision-vmware/image3.png)
+   ![Bläddra i datalager](./media/data-box-gateway-deploy-provision-vmware/image3.png)
 
 6. Ett **Datastore Browser**-fönster öppnas.
 
-   ![DataStore-webbläsare](./media/data-box-gateway-deploy-provision-vmware/image4.png)
+   ![Datastore webbläsare](./media/data-box-gateway-deploy-provision-vmware/image4.png)
 
 7. Klicka på ikonen **Create directory** (Skapa katalog) i verktygsfältet för att skapa en ny mapp. Ange mappnamnet och anteckna det. Du använder det här mappnamnet senare när du skapar en virtuell dator (rekommenderad bästa praxis). Klicka på **Create directory** (Skapa katalog).
 
@@ -118,47 +118,47 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 
 9. Bläddra till och peka på de VMDK-filer du har laddat ned. Det finns två filer. Välj en fil att ladda upp.
 
-    ![Välj fil att överföra](./media/data-box-gateway-deploy-provision-vmware/image7.png)
+    ![Välj fil som ska överföras](./media/data-box-gateway-deploy-provision-vmware/image7.png)
 
 10. Klicka på **Open** (Öppna). Uppladdningen av VMDK-filen till det angivna datalagret startar. Det kan ta flera minuter för filen att laddas upp.
 11. När uppladdningen är klar visas filen i datalagret i den mapp du har skapat. Ladda nu upp den andra VMDK-filen till samma datalager. När båda filerna har laddats upp slås de två filerna ihop till en enda fil. Då visas en enda fil i katalogen.
 
-    ![Två VMDK-filer slås samman i en enda fil](./media/data-box-gateway-deploy-provision-vmware/image8.png)
+    ![Två VMDK-filer slås samman till en enda fil](./media/data-box-gateway-deploy-provision-vmware/image8.png)
 
 12. Återgå till vSphere-klientfönstret. Välj **Virtual Machines** (Virtuella datorer) i navigeringsfönstret. Klicka på **Create/Register VM** (Skapa/registrera virtuell dator) i fönstret till höger.
 
     ![Skapa eller registrera virtuell dator](./media/data-box-gateway-deploy-provision-vmware/image9.png)
 
 13. **New Virtual Machine** (Ny virtuell dator) visas. Under Select creation type (Välj skapandetyp) väljer du **Create a new virtual machine** (Skapa en ny virtuell dator) och klicka på **Next** (Nästa).
-    ![Välj sidan för att skapa typ](./media/data-box-gateway-deploy-provision-vmware/image10.png)
+    ![Välj sida för skapandetyp](./media/data-box-gateway-deploy-provision-vmware/image10.png)
 
 14. På sidan **Select a Name and OS Name and Location** (Välj ett namn och OS-namn och plats) anger du **namnet** på den virtuella datorn. Det här namnet ska matcha mappnamnet (rekommenderad bästa praxis) du angav tidigare i steg 7. Välj Windows i **Guest OS family** (Gäst-OS-familj) och Microsoft Windows Server 2016 (64-bitars) i **Guest OS version** (Gäst-OS-version). Klicka på **Nästa**.
 
-    ![Välj en sida med namn och namn på operativsystem och plats](./media/data-box-gateway-deploy-provision-vmware/image11.png)
+    ![Välj en namn och os-namn och platssida](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
 15. På sidan **Select storage** (Välj lagring) väljer du ett datalager du vill använda för att etablera den virtuella datorn. Klicka på **Nästa**.
 
-    ![Välj lagringssidan](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. På sidan **Customize settings** (Anpassa inställningar) anger du 4 i **CPU**, 8 192 MB (eller mer) i **Memory** (Minne), 2 TB (eller mer) i **Hard disk 1** (Hårddisk). Välj **SCSI-hårddisk** som ska läggas till. I det här fallet var det LSI Logic SAS. **De statiska IDE-diskarna stöds inte.** **Hard disk 1** (Hårddisk 1) är den virtuella datadisken. Observera att du inte kan komprimera disken när den har etablerats. Försök att minska disk resulterar i förlust av lokala data på enheten. 
+    ![Välj lagringssida](./media/data-box-gateway-deploy-provision-vmware/image12.png)
+16. På sidan **Customize settings** (Anpassa inställningar) anger du 4 i **CPU**, 8 192 MB (eller mer) i **Memory** (Minne), 2 TB (eller mer) i **Hard disk 1** (Hårddisk). Välj **SCSI-hårddisk** som ska läggas till. I det här fallet var det LSI Logic SAS. **De statiska IDE-diskarna stöds inte.** **Hard disk 1** (Hårddisk 1) är den virtuella datadisken. Observera att du inte kan komprimera disken när den har etablerats. Om du försöker krympa disken går alla lokala data på enheten förlorades. 
 
-    ![Anpassa inställningssidan](./media/data-box-gateway-deploy-provision-vmware/image13.png)
+    ![Sidan Anpassa inställningar](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
     På samma sidan klickar du på **Add hard disk** (Lägg till hårddisk) och väljer sedan **Existing hard disk** (Befintlig hårddisk). Välj VMDK-filen i datalagret. Detta lägger till en OS-disk. 
 
-     !Anpassa inställningssidan[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ! Sidan Anpassa inställningar[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     Rulla ned tills du ser **New hard disk** (Ny hårddisk) och expandera den för att visa inställningarna. Ställ in **Virtual Device Node** (Nod för virtuell enhet) på **IDE controller 0** (IDE-styrenhet 0).
 
-     ![Anpassa inställningssidan](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Sidan Anpassa inställningar](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (Valfritt) *Utför bara det här steget om du använder VMware ESXi Server 6.7*. På sidan **Customize settings** (Anpassa inställningar) klickar du på **VM options** (VM-alternativ). Gå till **Boot options > Firmware** (Startalternativ > Inbyggd programvara) och ändra den till **BIOS**. Som standard är värdet inställt på EFI. Klicka på **Nästa**.
 
-    ![Anpassa inställningssidan om som kör VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+    ![Sidan Anpassa inställningar om VMware ESXi Server 6.7 körs](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
 
 18. På sidan **Ready to Complete** (Redo att slutföra)granskar du alla inställningar associerade med den nya virtuella datorn. Kontrollera att CPU är 4, minnet är 8 192 MB, nätverksgränssnittet är 1 och hårddisk 2 har IDE-styrenhet 0. Klicka på **Slutför**.
    
-    ![Redo att sidan](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![redo att sidan har slutförts](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![Klar att](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![slutföra sidan Klar att slutföra](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 Den virtuella datorn är nu etablerad. Ett meddelande om detta visas och den nya virtuella datorn har lagts till i listan över virtuella datorer.
 
@@ -176,15 +176,15 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 #### <a name="to-start-the-virtual-device"></a>Så startar du den virtuella enheten
 1. Starta den virtuella enheten. I det högra fönstret väljer du din enhet i listan över virtuella datorer och högerklickar för att ta fram snabbmenyn. Välj **Power** (Av/på) och sedan **Power on** (På). Den virtuella datorn bör aktiveras. Du kan visa statusen i fönstret längst ned i webbklienten.
 
-    ![Starta den virtuella enheten](./media/data-box-gateway-deploy-provision-vmware/image19.png)
+    ![Slå på den virtuella enheten](./media/data-box-gateway-deploy-provision-vmware/image19.png)
 
 2. Välj din virtuella dator igen. Högerklicka och välj **Console** (Konsol) och välj sedan **Open in a new window** (Öppna i nytt fönster).
 
-    ![Öppna konsolen virtuell enhet](./media/data-box-gateway-deploy-provision-vmware/image20.png)
+    ![Öppna konsolen för virtuella enheter](./media/data-box-gateway-deploy-provision-vmware/image20.png)
 
 3. Konsolen för virtuell dator öppnas i ett nytt fönster. 
 
-    ![Virtuell enhet-konsolen](./media/data-box-gateway-deploy-provision-vmware/image21.png)
+    ![Konsolen Virtuell enhet](./media/data-box-gateway-deploy-provision-vmware/image21.png)
 
 4. När enheten körs pekar och klickar du på markören på fliken uppe i mitten i konsolfönstret. Välj **Guest OS (Gäst-OS) > Send keys (Skicka nycklar) > Ctrl+Alt+Delete**. Den virtuella datorn låses upp.
 
@@ -192,9 +192,9 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 
 5. Ange lösenordet för att logga in på datorn. Standardlösenordet är *Password1*.
 
-   ![Ange lösenord för virtuell enhet](./media/data-box-gateway-deploy-provision-vmware/image23.png)
+   ![Ange lösenord för den virtuella enheten](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Steg 5–7 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg och går till steg 8. Om du startade enheten i en icke-DHCP-miljö visas ett meddelande som reflekterar det: **Använd cmdlet Set-HcsIPAddress för att ställa in nätverket**. 
+6. Steg 5–7 gäller bara när du startar i en icke-DHCP-miljö. Om du använder en DHCP-miljö hoppar du över dessa steg och går till steg 8. Om du har startat enheten i en icke-DHCP-miljö visas ett meddelande om detta: **Use the Set-HcsIPAddress cmdlet to configure the network** (Använd cmdleten Set-HcsIPAddress för att konfigurera nätverket). 
    
 7. Konfigurera nätverket genom att i kommandotolken använda kommandot `Get-HcsIpAddress` för att lista de nätverksgränssnitt som har aktiverats på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
 
@@ -202,16 +202,16 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
-9. När den inledande installationen är klar och enheten har startats visas enhetens banderollstext. Anteckna IP-adressen och URL:en som visas i banderollstexten för att hantera enheten. Du använder den här IP-adressen för att ansluta till webbgränssnittet för den virtuella enheten och slutföra den lokala installationen och aktiveringen.
+9. När den inledande installationen är klar och enheten har startats visas enhetens banderollstext. Anteckna den IP-adress och den URL som visas i banderollstexten för att hantera enheten. Du använder den här IP-adressen för att ansluta till webbgränssnittet för den virtuella enheten och slutföra den lokala installationen och aktiveringen.
 
-   ![Banderoll text och anslutningen URL: en för virtuell enhet](./media/data-box-gateway-deploy-provision-vmware/image24.png)
+   ![Url för banderolltext och anslutning för virtuell enhet](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
 Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten (visas nedan). Du måste ändra enhetskonfigurationen så att den har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se till minikraven för konfiguration i [Kontrollera att värdsystemet uppfyller minimikraven för virtuella enheter](#check-the-host-system).
 
-Om du får ett fel under den första konfigurationen med hjälp av det lokala webbgränssnittet finns följande arbetsflöden:
+Om du stöter på något annat fel under den första konfigurationen med hjälp av det lokala webbgränssnittet läser du följande arbetsflöden:
 
-- [Kör diagnostiktest för att felsöka konfigurationen av webbaserade Användargränssnittet](data-box-gateway-troubleshoot.md#run-diagnostics).
-- [Skapa log paket och visa loggfiler](data-box-gateway-troubleshoot.md#collect-support-package).
+- [Kör diagnostiska tester för att felsöka konfigurationen av webbgränssnitt .](data-box-gateway-troubleshoot.md#run-diagnostics)
+- [Generera loggpaket och visa loggfiler](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Nästa steg
 

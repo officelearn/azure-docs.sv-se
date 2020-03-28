@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Skapa och Använd diskar för skalnings uppsättningar med Azure CLI
+title: Självstudiekurs - Skapa och använda diskar för skalningsuppsättningar med Azure CLI
 description: Läs om hur du använder Azure CLI för att skapa och använda hanterade diskar med en VM-skalningsuppsättning, inklusive hur du lägger till, förbereder, listar och kopplar från diskarna.
 author: cynthn
 tags: azure-resource-manager
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278236"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067047"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här guiden får du lära du dig hur man:
@@ -25,7 +25,7 @@ VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorin
 > * Diskprestanda
 > * Anslut och förbered datadiskar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -76,7 +76,7 @@ Premiumdiskar backas upp av SSD-baserade diskar med höga prestanda och låg lat
 ### <a name="premium-disk-performance"></a>Premiumdiskprestanda
 |Premium Storage-disktyp | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Diskens storlek (avrundas uppåt) | 32 GB | 64 GB | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) |
+| Diskens storlek (avrundas uppåt) | 32 GB | 64 GB | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) |
 | Högsta IOPS per disk | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 |
 Dataflöde per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
@@ -87,13 +87,13 @@ I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås ge
 Du kan skapa och ansluta diskar när du skapar en skalningsuppsättning eller med en befintlig skalningsuppsättning.
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anslut diskarna när skalningsuppsättningen skapas
-Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i regionen *eastus*.
+Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resursgrupp med namnet *myResourceGroup* i *regionen eastus.*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa en VM-skalningsuppsättning med kommandot [az vmss create](/cli/azure/vmss). Följande exempel skapar en skalningsuppsättning med namnet *myScaleSet* och genererar SSH-nycklar om de inte redan finns. Två diskar skapas med parametern `--data-disk-sizes-gb`. Den första disken är *64* GB stor och den andra disken är *128* GB:
+Skapa en VM-skalningsuppsättning med kommandot [az vmss create](/cli/azure/vmss). I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet*och SSH-nycklar genereras om de inte finns. Två diskar skapas med parametern `--data-disk-sizes-gb`. Den första disken är *64* GB stor och den andra disken är *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -146,7 +146,7 @@ az vmss list-instance-connection-info \
 
 Använd din egna offentliga IP-adress och portnummer för att ansluta till den första virtuella datorinstansen som visas i följande exempel:
 
-```azurecli-interactive
+```console
 ssh azureuser@52.226.67.166 -p 50001
 ```
 
@@ -198,7 +198,7 @@ sudo df -h
 
 Följande exempelutdata visar att de tre diskarna har sina filsystem korrekt monterade under */datadisks*:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        30G  1.3G   28G   5% /
 /dev/sdb1        50G   52M   47G   1% /mnt

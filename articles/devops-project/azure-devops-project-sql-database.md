@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Distribuera ASP.NET-appen och Azure SQL Database kod med Azure DevOps Projects'
+title: 'Självstudie: Distribuera din ASP.NET-app och Azure SQL Database-kod med Azure DevOps-projekt'
 description: DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps-projekt kan du distribuera din ASP.NET-app och Azure SQL Database-kod i några få enkla steg.
 ms.author: mlearned
 ms.manager: gwallace
@@ -10,13 +10,13 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 560b16a40d73d07df6c9f446c7196cd930e2274e
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71971489"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Självstudier: Distribuera ASP.NET-appen och Azure SQL Database kod med Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Självstudie: Distribuera din ASP.NET-app och Azure SQL Database-kod med Azure DevOps-projekt
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
@@ -37,7 +37,7 @@ I den här kursen ska du:
 > * Ansluta till Azure SQL-databasen 
 > * Rensa resurser
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -45,7 +45,7 @@ I den här kursen ska du:
 
 DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser som en Azure SQL-databas i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
@@ -78,7 +78,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 DevOps Projects konfigurerar automatiskt en fullständig CI/CD-pipeline i Azure Repos. Du kan utforska och anpassa pipelinen. För att bekanta dig med Azure DevOps-bygg-pipelinen gör du följande:
 
-1. Välj **Skapa pipelines** längst upp på DevOps Projects-instrumentpanelen.  
+1. Högst upp på instrumentpanelen För DevOps-projekt väljer du **Skapa pipelines**.  
     En webbläsarflik visar bygg-pipelinen för det nya projektet.
 
 1. Peka på fältet **Status** och välj ellipsen (...).  
@@ -91,7 +91,7 @@ DevOps Projects konfigurerar automatiskt en fullständig CI/CD-pipeline i Azure 
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
     I den här fönsterrutan visas en spårningslogg över de senaste ändringarna för versionen. Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
@@ -104,12 +104,12 @@ DevOps Projects konfigurerar automatiskt en fullständig CI/CD-pipeline i Azure 
 
 ## <a name="examine-the-cd-pipeline"></a>Granska CD-pipelinen
 
-DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatiskt distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar också en CD-pipeline som tillhandahåller CD:n för den virtuella Azure-datorn. Om du vill veta mer om Azure DevOps CD-pipelinen kan du göra följande:
+DevOps-projekt skapar och konfigurerar automatiskt de steg som är nödvändiga för att distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar också en CD-pipeline som tillhandahåller CD:n för den virtuella Azure-datorn. Om du vill veta mer om Azure DevOps CD-pipelinen kan du göra följande:
 
-1. Välj **Build and Release** (Build-versioner och versioner) och sedan **Versioner**.  
+1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
     DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
+1. Välj ellipsen (...) bredvid din releasepipeline och välj sedan **Redigera**.  
     Versionspipelinen innehåller en *pipeline* som definierar släpprocessen.
 
 1. Under **Artefakter** väljer du **Släpp**.  
@@ -182,7 +182,7 @@ Du behöver rätt behörigheter för att ansluta till Azure SQL-databasen.
 
     Du kan nu även använda klientverktyg som SQL Server Management Studio eller Visual Studio för att ansluta till SQL Server och Azure SQL-databasen. Använd egenskapen **servernamn** för att ansluta.
 
-    Om du inte ändrade databasanvändarnamnet när du först konfigurerade projektet i DevOps Projects är ditt användarnamn den lokala delen av din e-postadress. Om din e-postadress till exempel är *johndoe\@microsoft.com*, är ditt användar namn *johndoe*.
+    Om du inte ändrade databasanvändarnamnet när du först konfigurerade projektet i DevOps Projects är ditt användarnamn den lokala delen av din e-postadress. Om din e-postadress till exempel är *johndoe\@microsoft.com*är ditt användarnamn *johndoe*.
 
    > [!NOTE]
    > Om du ändrar ditt lösenord för SQL-inloggningen måste du ändra lösenordet i variabeln för versionspipelinen enligt beskrivningen i avsnittet Granska CD-pipelinen.
@@ -216,6 +216,6 @@ Mer information om CI/CD-pipelinen finns i:
 > [!div class="nextstepaction"]
 > [Definiera din CD-pipeline med flera steg](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videoklipp
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3308/player]

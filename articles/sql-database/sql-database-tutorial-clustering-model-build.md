@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Skapa en klustringsmodell i R'
+title: 'Självstudiekurs: Skapa en klustermodell i R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: I del två av den här själv studie serien i tre delar skapar du en K-metod modell för att utföra klustring i R med Azure SQL Database Machine Learning Services (för hands version).
+description: I del två av den här självstudieserien i tre delar skapar du en K-Means-modell för att utföra klustring i R med Azure SQL Database Machine Learning Services (förhandsversion).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,43 +13,45 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
-ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 0a73a2bc3fa76c945cf699133a41b38a9983a234
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640006"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80345816"
 ---
-# <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudier: Bygg en kluster modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
+# <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Självstudiekurs: Skapa en klustermodell i R med Azure SQL Database Machine Learning Services (förhandsversion)
 
-I del två av den här själv studie serien i tre delar skapar du en K-medels modell i R för att utföra klustring. I nästa del av serien distribuerar du den här modellen i en SQL-databas med Azure SQL Database Machine Learning Services (för hands version).
+I del två av den här självstudieserien i tre delar ska du skapa en K-Means-modell i R för att utföra klustring. I nästa del av den här serien distribuerar du den här modellen i en SQL-databas med Azure SQL Database Machine Learning Services (förhandsversion).
 
-I den här artikeln får du lära dig att:
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
+I den här artikeln får du lära dig hur du:
 
 > [!div class="checklist"]
-> * Definiera antalet kluster för en K-= algoritm
-> * Utför klustring
+> * Definiera antalet kluster för en K-Means-algoritm
+> * Utföra klustring
 > * Analysera resultaten
 
-I [del ett](sql-database-tutorial-clustering-model-prepare-data.md)har du lärt dig hur du förbereder data från en Azure SQL-databas för att utföra klustring.
+I [del ett](sql-database-tutorial-clustering-model-prepare-data.md)lärde du dig hur du förbereder data från en Azure SQL-databas för att utföra klustring.
 
 I [del tre](sql-database-tutorial-clustering-model-deploy.md)får du lära dig hur du skapar en lagrad procedur i en Azure SQL-databas som kan utföra klustring i R baserat på nya data.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Del två i den här självstudien förutsätter att du har slutfört [**del en**](sql-database-tutorial-clustering-model-prepare-data.md) och dess krav.
+* Del två av den här självstudien förutsätter att du har slutfört [**del ett**](sql-database-tutorial-clustering-model-prepare-data.md) och dess förutsättningar.
 
 ## <a name="define-the-number-of-clusters"></a>Definiera antalet kluster
 
-Om du vill klustra dina kund data använder du algoritmen för **medel-** till-kluster, ett av de enklaste och mest välkända sätten att gruppera data.
-Du kan läsa mer om K-medel i [en fullständig guide till en algoritm för att köra kluster](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
+Om du vill samla dina kunddata använder du **K-Means-klusteralgoritmen,** ett av de enklaste och mest kända sätten att gruppera data.
+Du kan läsa mer om K-Means i [en komplett guide till K-medel klustring algoritm](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
 
-Algoritmen accepterar två indata: Själva data och ett fördefinierat nummer "*k*" som representerar antalet kluster som ska genereras.
-Utdatan är *k* kluster med indata som partitioneras bland klustren.
+Algoritmen accepterar två indata: Själva data och ett fördefinierat tal "*k*" som representerar antalet kluster att generera.
+Utdata är *k-kluster* med indata som är partitionerade mellan klustren.
 
-Om du vill fastställa antalet kluster för algoritmen som ska användas, använder du en observations kurva inom grupper summan av rutorna efter antalet extraherade kluster. Det korrekta antalet kluster som ska användas finns i ritytans böjning eller "vinkel".
+Om du vill bestämma antalet kluster som algoritmen ska använda använder du ett område för inomgruppssumman för kvadrater, efter antal kluster som extraherats. Det lämpliga antalet kluster som ska användas är vid böjen eller "armbågen" i området.
 
 ```r
 # Determine number of clusters by using a plot of the within groups sum of squares,
@@ -60,13 +62,13 @@ for (i in 2:20)
 plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups sum of squares")
 ```
 
-![Vinklat diagram](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
+![Diagram över armbåge](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
 
-Baserat på diagrammet ser det ut som *k = 4* är ett bra värde att prova. Det *k* värdet kommer att gruppera kunderna i fyra kluster.
+Baserat på diagrammet, det ser ut som *k = 4* skulle vara ett bra värde att prova. Det *k-värdet* grupperar kunderna i fyra kluster.
 
-## <a name="perform-clustering"></a>Utför klustring
+## <a name="perform-clustering"></a>Utföra klustring
 
-I följande R-skript använder du funktionen **rxKmeans**, som är funktionen K-medel i RevoScaleR-paketet.
+I följande R-skript ska du använda funktionen **rxKmeans**, som är funktionen K-Means i Paketet RevoScaleR.
 
 ```r
 # Output table to hold the customer group mappings.
@@ -90,9 +92,9 @@ customer_cluster <- rxDataStep(return_cluster);
 
 ## <a name="analyze-the-results"></a>Analysera resultaten
 
-Nu när du har utfört klustren med hjälp av K--medel är nästa steg att analysera resultatet och se om du kan hitta information som kan åtgärdas.
+Nu när du har gjort klustring med K-Means, är nästa steg att analysera resultatet och se om du kan hitta någon användbar information.
 
-**Clust** -objektet innehåller resultatet från K-innebär klustring.
+**Clust-objektet** innehåller resultaten från K-Means-klustring.
 
 ```r
 #Look at the clustering details to analyze results
@@ -122,39 +124,39 @@ Within cluster sum of squares by cluster:
     0.0000  1329.0160 18561.3157   363.2188
 ```
 
-De fyra klustren innebär att använda de variabler som definieras i [del ett](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
+De fyra klustermedelen anges med hjälp av de variabler som definieras i [del ett:](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers)
 
-* *orderRatio* = retur order kvot (totalt antal beställningar som delvis eller helt returnerade jämfört med det totala antalet beställningar)
-* *itemsRatio* = returnera objekts kvot (totalt antal returnerade objekt jämfört med antalet köpta objekt)
-* *monetaryRatio* = retur belopps kvot (total belopps summa för artiklar som returneras jämfört med det belopp som köpts)
-* *frekvens* = retur frekvens
+* *orderRatio* = returorderförhållande (totalt antal order som helt eller delvis returnerats jämfört med det totala antalet order)
+* *itemsRatio* = returartikelförhållande (totalt antal returnerade artiklar jämfört med antalet inköpta artiklar)
+* *monetaryRatio* = avkastningsbelopp (totalt monetärt belopp för poster som returneras jämfört med det köpta beloppet)
+* *frekvens* = returfrekvens
 
-Data utvinning med hjälp av K-medel kräver ofta ytterligare analys av resultaten och ytterligare steg för att bättre förstå varje kluster, men det kan ge en del bra leads.
-Här är några sätt som du kan tolka följande resultat:
+Datautvinning med K-Means kräver ofta ytterligare analys av resultaten och ytterligare steg för att bättre förstå varje kluster, men det kan ge några bra leads.
+Här är några sätt du kan tolka dessa resultat:
 
-* Kluster 1 (det största klustret) verkar vara en grupp Kunder som inte är aktiva (alla värden är noll).
-* Kluster 3 verkar vara en grupp som motsvarar retur beteendet.
+* Kluster 1 (det största klustret) verkar vara en grupp kunder som inte är aktiva (alla värden är noll).
+* Cluster 3 verkar vara en grupp som sticker ut när det gäller returbeteende.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-***Om du inte kommer att fortsätta med den här***självstudien tar du bort tpcxbb_1gb-databasen från Azure SQL Database-servern.
+Om du inte ska fortsätta med den ***här självstudien***tar du bort tpcxbb_1gb-databasen från din Azure SQL Database-server.
 
-Följ de här stegen i Azure Portal:
+Gör så här på Azure-portalen:
 
-1. Välj **alla resurser** eller **SQL-databaser**på den vänstra menyn i Azure Portal.
+1. Välj **Alla resurser** eller **SQL-databaser**på menyn till vänster i Azure-portalen .
 1. I fältet **Filtrera efter namn...** anger du **tpcxbb_1gb**och väljer din prenumeration.
-1. Välj din **tpcxbb_1gb** -databas.
+1. Välj **din tpcxbb_1gb** databas.
 1. Välj **Ta bort** på sidan **Översikt**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del två av den här själv studie serien slutförde du följande steg:
+I del två av den här självstudieserien har du slutfört följande steg:
 
-* Definiera antalet kluster för en K-= algoritm
-* Utför klustring
+* Definiera antalet kluster för en K-Means-algoritm
+* Utföra klustring
 * Analysera resultaten
 
-Om du vill distribuera Machine Learning-modellen som du har skapat följer du del tre i den här själv studie serien:
+Om du vill distribuera den maskininlärningsmodell som du har skapat följer du del tre i den här självstudieserien:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Distribuera en kluster modell i R med Azure SQL Database Machine Learning Services (förhands granskning)](sql-database-tutorial-clustering-model-deploy.md)
+> [Självstudiekurs: Distribuera en klustermodell i R med Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-tutorial-clustering-model-deploy.md)

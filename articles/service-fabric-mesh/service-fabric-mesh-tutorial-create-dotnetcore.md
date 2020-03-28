@@ -1,5 +1,5 @@
 ---
-title: Skapa, distribuera en app med flera tjänster till Service Fabric nät
+title: Skapa, distribuera en multi-service-app till Service Fabric Mesh
 description: I den här självstudien skapar du ett Azure Service Fabric Mesh-program för flera tjänster som består av en ASP.NET Core-webbplats som kommunicerar med en serversidewebbtjänst, felsöker lokalt och publicerar till Azure.
 author: dkkapur
 ms.topic: tutorial
@@ -7,10 +7,10 @@ ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: e3a6ee382208119e46a816790c15ae47f16be57e
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75495186"
 ---
 # <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Självstudie: skapa, felsök, distribuera och uppgradera en webbapp för flera tjänster till Service Fabric Mesh
@@ -51,7 +51,7 @@ Innan du börjar den här självstudien:
 
 ## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Skapa ett Service Fabric Mesh-projekt i Visual Studio
 
-Kör Visual Studio och välj **File** > **New** > **Project...** (Arkiv > Nytt > Projekt...).
+Kör Visual Studio och välj **Arkiv** > **Nytt** > **projekt...**
 
 I dialogrutan **Nytt projekt** dialogrutan, i rutan **Sök** längst upp skriver du `mesh`. Välj mallen **Service Fabric Mesh Application**. (Om du inte ser mallen kontrollerar du att du har installerat Mesh-SDK och förhandsversionen av VS-verktygen enligt anvisningarna om att [skapa en utvecklingsmiljö](service-fabric-mesh-howto-setup-developer-environment-sdk.md).  
 
@@ -81,7 +81,7 @@ Nu har du ett Service Fabric Mesh-program. Skapa sedan modellen för att göra-i
 
 För enkelhetens skull lagras att göra-objekten i en lista i minnet. Skapa ett klassbibliotek för att göra-objekt och en lista för att lagra dem. I Visual Studio, som för närvarande har lösningen **todolistapp** inläst, väljer du **File** > **Add** > **New Project** (Arkiv > Lägg till > Nytt projekt).
 
-I dialogrutan **Add New Project** (Lägg till nytt projekt) går du till rutan **Search** (Sök) längst upp och skriver `C# .net core class`. Välj mallen **Class Library (.NET Core)** .
+I dialogrutan **Add New Project** (Lägg till nytt projekt) går du till rutan **Search** (Sök) längst upp och skriver `C# .net core class`. Välj mallen **Class Library (.NET Core)**.
 
 I rutan **Name** (Namn) skriver du `Model`. Klicka på **OK** för att skapa klassbiblioteket.
 
@@ -175,7 +175,7 @@ Skapa därefter Service Fabric-tjänsten som spårar att göra-objekten.
 
 ## <a name="create-the-back-end-service"></a>Skapa serversidetjänsten
 
-I fönstret **Solution Explorer** i Visual Studio högerklickar du på **todolistapp** och klickar på **Lägg till** > **Ny Fabric Service-tjänst...** .
+I fönstret **Solution Explorer** i Visual Studio högerklickar du på **todolistapp** och klickar på **Lägg till** > **Ny Fabric Service-tjänst...**.
 
 Dialogrutan **Ny Fabric Service-tjänst** visas. Välj projekttypen **ASP.NET Core** och se till att **operativsystem för container** är **Windows**. Ange **Service Name** (Tjänstnamn) som **ToDoService**. Klicka på **OK** för att skapa ASP.NET Core-tjänsten.
 
@@ -185,7 +185,7 @@ Dialogrutan **Nytt ASP.NET-webbprogram** visas därefter. I den dialogrutan väl
 
 Eftersom serversidetjänsten inte ger något användargränssnitt kan du inaktivera webbläsarstarten när tjänsten startas. I **Solution Explorer** högerklickar du på **ToDoService** och väljer **Properties** (Egenskaper). I egenskapsfönstret som visas väljer du fliken **Debug** (Felsök) till vänster och avmarkerar **Launch browser** (Starta webbläsare). Tryck på **Ctrl+S** för att spara ändringen.
 
-Eftersom den här tjänsten underhåller att göra-informationen lägger du till en referens till modellklassbiblioteket. I Solution Explorer högerklickar du på **ToDoService** och väljer sedan **Lägg till** > **referens...** . Dialog rutan **referens hanterare** visas.
+Eftersom den här tjänsten underhåller att göra-informationen lägger du till en referens till modellklassbiblioteket. Högerklicka på **ToDoService** i Lösningsutforskaren och välj sedan **Lägg till** > **referens...**. **Dialogrutan Referenshanteraren** visas.
 
 I **Reference Manager** väljer du kryssrutan för **Model** (Modell) och klickar på **OK**.
 
@@ -268,7 +268,7 @@ Den här självstudien implementerar inte lägga till, ta bort och så vidare, f
 Med serversidetjänsten implementerad kodar du webbplatsen som visar de att göra-objekt som tillhandahålls. Följande steg äger rum inom projektet **WebFrontEnd**.
 
 Webbplatsen som visar att göra-objekten behöver åtkomst till klass och lista för **ToDoItem**.
-I **Solution Explorer**lägger du till en referens i modell projektet genom att högerklicka på **webfrontend** och välja **Lägg till** > **referens...** Dialog rutan **referens hanterare** visas.
+Lägg till en referens till modellprojektet i **Lösningsutforskaren**genom att högerklicka på **WebFrontEnd** och välja **Lägg till** > **referens...** **Dialogrutan Referenshanteraren** visas.
 
 I **Reference Manager** klickar du i kryssrutan **Model** (Modell) och klickar på **OK**.
 
@@ -346,7 +346,7 @@ Webbadressen består av tjänstens namn och porten. All information finns i file
 
 > [!IMPORTANT]
 > I följande steg kommer YAML-filer att ändras.
-> Blanksteg måste användas, inte tabbar, för att dra in variabler i filen service.yaml. Annars kompileras den inte. Visual Studio kan infoga tabbar när du skapar miljövariablerna. Ersätt alla tabbar med blanksteg. Programmet startar även om du ser fel i felsökningsutdata för **build** (version), men inte förrän du konverterar tabbarna till blanksteg och återskapar. För att säkerställa att inga tabbar finns i filen service.yaml kan du synliggöra blanksteg i Visual Studio-redigeraren med **Edit**  > **Advanced**  > **View White Space** (Redigera > Avancerat > Visa blanksteg).
+> Blanksteg måste användas, inte tabbar, för att dra in variabler i filen service.yaml. Annars kompileras den inte. Visual Studio kan infoga tabbar när du skapar miljövariablerna. Ersätt alla tabbar med blanksteg. Programmet startar även om du ser fel i felsökningsutdata för **build** (version), men inte förrän du konverterar tabbarna till blanksteg och återskapar. Om du vill vara säker på att inga flikar finns i filen service.yaml kan du göra blanksteg synligt i Visual Studio-redigeraren med **Redigera**  > **avancerat**  > **vy tomt utrymme**.
 > Observera att service.yaml-filer bearbetas på engelska. Om du behöver använda en decimalavgränsare använder du till exempel en punkt i stället för ett kommatecken.
 
 Navigera i **Solution Explorer** till projektet **ToDoService** och öppna **Service Resources** (Serviceresurser)  > **service.yaml**.

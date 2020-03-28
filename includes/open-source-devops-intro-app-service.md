@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/22/2019
 ms.author: tarcher
 ms.openlocfilehash: 3c1aef84e069233a2ca89df61e6b32aa8cf5c76b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67188034"
 ---
-[Azure App Service](/azure/app-service/overview) gör det möjligt att bygga och hantera kod. Den här koden kan vara i form av web apps, mobila serverdelar och RESTful API: er. Med App Service kan utveckla du kod med valfritt programmeringsspråk utan att behöva hantera infrastrukturen. App Service har stöd för både Windows och Linux. Automatiska distributioner från valfri Git-lagringsplats stöds, inklusive GitHub och Azure DevOps.
+[Med Azure App Service](/azure/app-service/overview) kan du skapa och vara värdkod. Den här koden kan vara i form av webbappar, mobila backends och RESTful API:er. Med App Service kan du utveckla koden med det programmeringsspråk du väljer utan att hantera infrastrukturen. App Service stöder både Windows och Linux. Automatiserade distributioner från alla Git-repoer stöds, inklusive GitHub och Azure DevOps.

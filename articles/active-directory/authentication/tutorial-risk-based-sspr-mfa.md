@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74846359"
 ---
-# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Självstudie: använda risk identifieringar för att utlösa Multi-Factor Authentication-och lösen ords ändringar
+# <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Självstudiekurs: Använd riskidentifieringar för att utlösa multifaktorautentisering och lösenordsändringar
 
 I den här självstudien aktiverar du funktionerna för Azure Active Directory (Azure AD) Identity Protection, en Azure AD Premium P2-funktion som är mer än bara ett övervaknings- och rapporteringsverktyg. För att skydda organisationens identiteter kan du konfigurera riskbaserade principer som automatiskt svarar på riskfyllda beteenden. Dessa principer kan antingen automatiskt blockera eller initiera reparationer, inklusive att kräva lösenordsändring och framtvinga multifaktorautentisering.
 
-Azure AD Identity Protection principer kan användas tillsammans med befintliga principer för villkorlig åtkomst som ett extra skydds lager. Det kan hända att användarna aldrig utlöser en riskfyllt beteende som kräver någon av dessa principer, men som administratör vet du att de ändå är skyddade.
+Azure AD Identity Protection-principer kan användas utöver befintliga principer för villkorlig åtkomst som ett extra skyddslager. Det kan hända att användarna aldrig utlöser en riskfyllt beteende som kräver någon av dessa principer, men som administratör vet du att de ändå är skyddade.
 
-Vissa objekt som kan utlösa en risk identifiering är:
+Vissa objekt som kan utlösa en riskidentifiering är:
 
 * Användare med läckta autentiseringsuppgifter
 * Inloggningar från anonyma IP-adresser
@@ -59,7 +59,7 @@ Azure AD Identity Protection innehåller en standardprincip som kan hjälpa dig 
 1. Klicka på **MFA-registrering**.
 1. Ange Tillämpa princip till **På**.
    1. Om du anger den här principen måste alla användare registrera metoder för att förbereda användningen av multifaktorautentisering.
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
    ![Kräv att användare registrerar sig för MFA vid inloggning](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 

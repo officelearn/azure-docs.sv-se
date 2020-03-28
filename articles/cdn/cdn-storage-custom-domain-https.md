@@ -1,5 +1,6 @@
 ---
-title: Åtkomst till Storage-blobbar med en Azure CDN anpassad domän över HTTPS
+title: Komma åt lagringsblobar med en anpassad Azure CDN-domän via HTTPS
+description: Lär dig hur du lägger till en anpassad Azure CDN-domän och aktiverar HTTPS på den domänen för din anpassade slutpunkt för bloblagring.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -14,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: be09229136289e343856f1e2ba61cda63730d21f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279123"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80053937"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Självstudie – Använda lagringsblobar via en anpassad Azure CDN-domän och HTTPS
 
@@ -43,15 +44,15 @@ Azure CDN ignorerar eventuella begränsningar som läggs till i SAS-token. Alla 
 Överväg att aktivera cachelagring av frågesträngar om du skapar flera SAS-webbadresser för samma blobslutpunkt. Då ser du till att varje webbadress behandlas som en unik entitet. Mer information finns i [Kontrollera cachelagringsbeteendet i Azure CDN med frågesträngar](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Omdirigering från HTTP till HTTPS
-Du kan välja att omdirigera HTTP-trafik till HTTPS genom att skapa en regel för att omdirigera en URL med [standard regel motorn](cdn-standard-rules-engine.md) eller [Verizon Premium-regel motorn](cdn-verizon-premium-rules-engine.md). Standard regel motor är bara tillgänglig för Azure CDN från Microsoft-profiler, medan Verizon Premium Rules-motorn endast är tillgänglig från Azure CDN Premium från Verizon-profiler.
+Du kan välja att omdirigera HTTP-trafik till HTTPS genom att skapa en url-omdirigeringsregel med [standardregelmotorn](cdn-standard-rules-engine.md) eller [Verizon Premium-regelmotorn](cdn-verizon-premium-rules-engine.md). Standardregler motorn är endast tillgänglig för Azure CDN från Microsoft-profiler, medan Verizon premium regler motorn är endast tillgänglig från Azure CDN Premium från Verizon profiler.
 
-![Microsoft-Omdirigerad regel](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
+![Microsoft-omdirigeringsregel](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
-I regeln ovan lämnar du värdnamn, sökväg, frågesträng och fragment till att de inkommande värdena används i omdirigeringen. 
+Om du lämnar Värdnamn, Sökväg, Frågesträng och Fragment i ovanstående regel resulterar de inkommande värdena i omdirigeringen. 
 
-![Regel för att omdirigera Verizon](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+![Verizon-omdirigeringsregel](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 
-I regeln ovan refererar *CDN-slutpunkt-Name* till det namn som du konfigurerade för CDN-slutpunkten, som du kan välja i list rutan. Värdet för *origin-path* avser sökvägen i ditt ursprungliga lagringskonto där det statiska innehållet finns. Om du har allt statiskt innehåll i en enda container ska du byta ut *origin-path* mot namnet på containern.
+I ovanstående regel refererar *Cdn-slutpunktsnamn* till det namn som du har konfigurerat för CDN-slutpunkten, som du kan välja i listrutan. Värdet för *origin-path* avser sökvägen i ditt ursprungliga lagringskonto där det statiska innehållet finns. Om du har allt statiskt innehåll i en enda container ska du byta ut *origin-path* mot namnet på containern.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 När du använder blobar via Azure CDN betalar du [bloblagringspriser](https://azure.microsoft.com/pricing/details/storage/blobs/) för trafiken mellan POP-servrarna och ursprunget (bloblagringen), och [Azure CDN-priser](https://azure.microsoft.com/pricing/details/cdn/) för data som nås via POP-servrarna.

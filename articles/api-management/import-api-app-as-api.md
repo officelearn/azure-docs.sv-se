@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108500"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importera en API-app som ett API
@@ -28,7 +28,7 @@ I den här artikeln kan du se hur du:
 > [!div class="checklist"]
 > * Importera en API-app som ett API
 > * Testa API:et i Azure Portal
-> * Testa API:et i utvecklarportalen
+> * Testa API:et i Developer-portalen
 
 ## <a name="prerequisites"></a>Krav
 
@@ -37,7 +37,7 @@ I den här artikeln kan du se hur du:
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importera och publicera ett serverdels-API
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importera och publicera ett serverdels-API
 
 1. Välj **API: er** under **API-HANTERING**.
 2. Välj **API-app** från listan **Lägg till ett nytt API**.
@@ -55,10 +55,10 @@ I den här artikeln kan du se hur du:
     Som standard medföljer två exempelprodukter varje API Management-instans:
 
     * **Starter**
-    * **Obegränsat**   
+    * **Unlimited**   
 7. Välj **Skapa**.
 
-## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API: et i Azure Portal
+## <a name="test-the-new-api-in-the-azure-portal"></a>Testa det nya API:et i Azure-portalen
 
 Du kan anropa åtgärder direkt från Azure Portal, vilket är ett enkelt sätt att visa och testa åtgärderna i ett API.  
 

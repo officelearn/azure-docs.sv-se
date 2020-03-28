@@ -1,16 +1,16 @@
 ---
-title: Azure PowerShell skript exempel – distribuera ett hanterat program
-description: Innehåller Azure PowerShell exempel skript som distribuerar en definition för ett hanterat program till prenumerationen.
+title: Exempel på Azure PowerShell-skript – distribuera ett hanterat program
+description: Innehåller exempel på Azure PowerShell-exempelskript som distribuerar en hanterad programdefinition till prenumerationen.
 author: tfitzmac
 ms.devlang: powershell
 ms.topic: sample
 ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: e076128a5be453028635b1657bf3f90980863148
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75650172"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Distribuera ett hanterat program för en tjänstkatalog med PowerShell

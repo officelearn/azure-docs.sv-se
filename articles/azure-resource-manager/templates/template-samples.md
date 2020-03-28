@@ -1,13 +1,13 @@
 ---
 title: Exempel på mallar
-description: Azure Resource Manager mall exempel för distribution av hanterings funktioner, som roller och lås.
+description: Mallexempel för Azure Resource Manager för distribution av hanteringsfunktioner, till exempel roller och lås.
 ms.topic: sample
 ms.date: 11/16/2018
 ms.openlocfilehash: 61d46d4b032a4eaf326acd21e85b332bdb407f40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75473040"
 ---
 # <a name="azure-resource-manager-templates-for-management-features"></a>Azure Resource Manager-mallar för hanteringsfunktioner

@@ -1,76 +1,76 @@
 ---
-title: Självstudie – Skapa och köra en Jupyter Notebook – Azure Notebooks för hands version
-description: Lär dig hur du skapar och kör en Jupyter Notebook i Azure Notebooks Preview som demonstrerar processen för linjär regression i data vetenskap.
+title: Självstudiekurs - skapa och köra en Jupyter-anteckningsbok - Förhandsversionen av Azure Notebooks
+description: Lär dig hur du skapar och kör en Jupyter-anteckningsbok i förhandsversionen av Azure Notebooks som demonstrerar processen med linjär regression i datavetenskap.
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75660825"
 ---
-# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och köra en Jupyter-anteckningsbok med Python
+# <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudiekurs: skapa och kör en Jupyter-anteckningsbok med Python
 
-Den här självstudien vägleder dig genom processen för att skapa en fullständig Jupyter-anteckningsbok som visar enkel linjär regression med Azure-anteckningsböcker. Under den här självstudien får bekanta du dig med Jupyter-anteckningsboken användargränssnitt, vilket inkluderar skapa olika celler, kör celler och presentera anteckningsboken som ett bildspel.
+Den här självstudien går igenom processen att använda Azure Notebooks för att skapa en komplett Jupyter-anteckningsbok som visar enkel linjär regression. Under den här självstudien bekantar du dig med jupyterns anteckningsboksgränssnitt, som inkluderar att skapa olika celler, köra celler och presentera anteckningsboken som ett bildspel.
 
-Slutförda anteckningsboken kan hittas på [GitHub - exempel för Azure-anteckningsböcker](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Den här självstudien börjar dock med ett nytt projekt och en tom anteckningsbok så får du skapa det steg för steg.
+Den färdiga anteckningsboken finns på [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Den här självstudien börjar dock med ett nytt projekt och en tom anteckningsbok så att du kan uppleva att skapa den steg för steg.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa en projekt antecknings bok med exempel data
-> * Använd Notebook-gränssnittet för att skapa en mängd olika typer av celler
+> * Skapa en projektanteckningsbok med några exempeldata
+> * Använda gränssnittet för bärbara datorer för att skapa en mängd olika typer av celler
 > * Köra anteckningsboken
-> * Spara antecknings boken
-> * Felsöka antecknings boken i Visual Studio Code
+> * Spara anteckningsboken
+> * Felsöka anteckningsboken i Visual Studio-kod
 
 ## <a name="create-the-project"></a>Skapa projektet
 
-1. Gå till [Azure anteckningsböcker](https://notebooks.azure.com) och logga in. (Mer information finns i [Snabbstart – logga in på Azure-anteckningsböcker](quickstart-sign-in-azure-notebooks.md)).
+1. Gå till [Azure-anteckningsböcker](https://notebooks.azure.com) och logga in. (Mer information finns [i Snabbstart - Logga in på Azure-anteckningsböcker](quickstart-sign-in-azure-notebooks.md)).
 
-1. Din offentliga profil-sida väljer du **Mina projekt** överst på sidan:
+1. På din offentliga profilsida väljer du **Mina projekt** högst upp på sidan:
 
-    ![Mina projekt länk överst i webbläsarfönstret](media/quickstarts/my-projects-link.png)
+    ![Länken Mina projekt visas högst upp i webbläsarfönstret](media/quickstarts/my-projects-link.png)
 
-1. På den **Mina projekt** väljer **+ nytt projekt** (kortkommandot: n); knappen kan visas endast som **+** om webbläsaren är smal:
+1. På sidan **Mina projekt** väljer du + **Nytt projekt** (kortkommando: n); knappen får bara **+** visas som om webbläsarfönstret är smalt:
 
-    ![Nytt projekt-kommando på sidan Mina projekt](media/quickstarts/new-project-command.png)
+    ![Nytt projektkommando på sidan Mina projekt](media/quickstarts/new-project-command.png)
 
-1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
+1. Ange eller ange följande information **i popup-fönstret Skapa nytt projekt** som visas och välj sedan **Skapa:**
 
-   - **Projektnamnet**: exempel på linjär Regression – Cricket Chirps
-   - **Projektet ID**: linjär regression exempel
-   - **Offentliga projekt**: (avmarkerad)
-   - **Skapa en README.md**: (avmarkerad)
+   - **Projektnamn**: Linjär regression Exempel - Cricket kvittrar
+   - **Projekt-ID:** linjär-regression-exempel
+   - **Offentligt projekt**: (rensat)
+   - **Skapa en README.md:**(rensad)
 
-1. Efter en liten stund navigerar du till det nya projektet i Azure-anteckningsböcker.
+1. Efter en stund navigerar Azure Notebooks dig till det nya projektet.
 
 ## <a name="create-the-data-file"></a>Skapa datafilen
 
-Den linjära regressionsmodellen som du skapar i anteckningsboken hämtar data från en fil i ditt projekt med namnet *cricket_chirps.csv*. Du kan skapa den här filen antingen genom att kopiera den från [GitHub Azure Notebooks-exempel](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)eller genom att ange data direkt. I följande avsnitt beskrivs båda metoderna.
+Den linjära regressionsmodellen som du skapar i anteckningsboken hämtar data från en fil i projektet som kallas *cricket_chirps.csv*. Du kan skapa den här filen antingen genom att kopiera den från [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)eller genom att ange data direkt. I följande avsnitt beskrivs båda tillvägagångssätten.
 
-### <a name="upload-the-data-file"></a>Ladda upp filen
+### <a name="upload-the-data-file"></a>Ladda upp datafilen
 
-1. På instrumentpanelen projekt i Azure anteckningsböcker väljer **överför** > **från URL**
-1. I popup-fönstret anger du följande URL i **URL: en för filen** och *cricket_chirps.csv* i **filnamn**och välj sedan **klar**.
+1. På projektinstrumentpanelen i Azure Notebooks väljer du **Ladda upp** > **från URL**
+1. I popup-fönstret anger du följande URL i **Fil-URL** och *cricket_chirps.csv* i **Filnamn**och väljer sedan **Klar**.
 
     ```url
     https://raw.githubusercontent.com/Microsoft/AzureNotebooks/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps/cricket_chirps.csv
     ```
 
-1. Den *cricket_chirps.csv* fil bör nu visas i listan över filer i ditt projekt:
+1. Filen *cricket_chirps.csv* ska nu visas i projektets fillista:
 
-    ![Nyligen skapade CSV-fil som visar i listan över filer i projektet](media/tutorial/csv-file-in-project.png)
+    ![Nyskapade CSV-filer som visas i projektfilslistan](media/tutorial/csv-file-in-project.png)
 
 ### <a name="create-a-file-from-scratch"></a>Skapa en fil från grunden
 
-1. På instrumentpanelen projekt i Azure anteckningsböcker väljer **+ ny** > **tom fil**
-1. Ett fält visas i listan över filer i projektet. Ange *cricket_chirps.csv* och tryck på RETUR.
-1. Högerklicka på *cricket_chirps.csv* och välj **redigera filen**.
-1. I redigeringsprogrammet som visas anger du följande information:
+1. På projektinstrumentpanelen i Azure Notebooks väljer du **+ Ny** > **tom fil**
+1. Ett fält visas i projektets fillista. Ange *cricket_chirps.csv* och tryck på Retur.
+1. Högerklicka *på cricket_chirps.csv* och välj **Redigera fil**.
+1. Ange följande data i redigeraren som visas:
 
     ```csv
     Chirps/Minute,Temperature
@@ -91,13 +91,13 @@ Den linjära regressionsmodellen som du skapar i anteckningsboken hämtar data f
     14.4,76.3
     ```
 
-1. Välj **spara fil** att spara filen och återgå till instrumentpanelen för projektet.
+1. Välj **Spara fil** om du vill spara filen och gå tillbaka till projektinstrumentpanelen.
 
-## <a name="install-project-level-packages"></a>Installera på paket i projektet
+## <a name="install-project-level-packages"></a>Installera projektnivåpaket
 
-Inom en bärbar dator, kan du alltid använda kommandon som `!pip install` i en kodcell för att installera nödvändiga paket. Dessa kommandon körs varje gång du kör denna notebook kod celler och kan ta lång tid. Därför kan du i stället installera paket i projektet nivå med en `requirements.txt` fil.
+I en anteckningsbok kan du alltid `!pip install` använda kommandon som i en kodcell för att installera nödvändiga paket. Sådana kommandon körs dock varje gång du kör anteckningsbokens kodceller och kan ta lång tid. Därför kan du i stället installera paket på `requirements.txt` projektnivå med hjälp av en fil.
 
-1. Använda processen som beskrivs i [skapa en fil från grunden](#create-a-file-from-scratch) att skapa en fil med namnet `requirements.txt` med följande innehåll:
+1. Använd processen som beskrivs i Skapa en `requirements.txt` fil från [grunden](#create-a-file-from-scratch) för att skapa en fil med namnet med följande innehåll:
 
     ```text
     matplotlib==3.0.0
@@ -106,78 +106,78 @@ Inom en bärbar dator, kan du alltid använda kommandon som `!pip install` i en 
     scikit-learn==0.20.0
     ```
 
-    Du kan också ladda upp en `requirements.txt` filen från den lokala datorn om du föredrar, enligt beskrivningen på [har laddat upp datafilen](#upload-the-data-file).
+    Du kan också `requirements.txt` ladda upp en fil från den lokala datorn om du vill, enligt beskrivningen [i Ladda upp datafilen](#upload-the-data-file).
 
-1. På instrumentpanelen för projektet väljer **Projektinställningar**.
-1. I popup-fönstret som visas väljer du den **miljö** och sedan välja **+ Lägg till**.
-1. I den första listruta-kontrollen (åtgärd) under **steg för konfiguration av miljö**, Välj **Requirements.txt**.
-1. I den andra listruta kontrollen (filnamn), väljer *requirements.txt* (filen som du skapade).
-1. I den tredje nedrullningsbar listruta (Python-version), väljer **Python Version 3.6**.
+1. Välj Projektinställningar på **instrumentpanelen**för projektet .
+1. I popup-fönstret som visas väljer du fliken **Miljö** och väljer sedan **+Lägg till**.
+1. I den första rullgardinsmenyn (åtgärden) under **Steg för miljöinställningar**väljer du **Requirements.txt**.
+1. I den andra listrutan (filnamnet) väljer du *requirements.txt* (filen du skapade).
+1. I den tredje rullgardinsmenyn (Python-versionen) väljer du **Python Version 3.6**.
 1. Välj **Spara**.
 
-![Fliken Projekt inställningar miljö att ange en requirements.txt-fil](media/tutorial/tutorial-requirements-txt.png)
+![Fliken Miljö i Project Settings som anger en requirements.txt-fil](media/tutorial/tutorial-requirements-txt.png)
 
-Med det här steget av installationen på plats körs alla anteckningsboken som du kör i projektet i en miljö där de paket som är installerade.
+Med det här installationssteget på plats körs alla bärbara datorer som du kör i projektet i en miljö där dessa paket är installerade.
 
 ## <a name="create-and-run-a-notebook"></a>Skapa och kör en notebook-fil
 
-Du kan nu skapa och öppna anteckningsboken med redo datafilen och projekt miljö uppsättningen.
+När datafilen är klar och projektmiljön är inställd kan du nu skapa och öppna anteckningsboken.
 
-1. På instrumentpanelen för projektet väljer **+ ny** > **Notebook**.
-1. I popup-fönstret anger du *linjär Regression exempel – Cricket Chirps.ipynb* för **objektnamn**, Välj **Python 3.6** för språket, Välj **New**.
-1. När denna nya notebook visas på listan, väljer du det startar den bärbara datorn. En ny webbläsarflik öppnas automatiskt.
-1. Eftersom du har en *requirements.txt* filen i miljöinställningarna för visas meddelandet ”väntar på din behållare till Slutför förbereds”. Du kan välja **OK** att stänga meddelandet och fortsätta arbeta i anteckningsboken; du kan inte köra kod celler, men tills miljön är fullständigt konfigurerad.
-1. Anteckningsboken öppnas i Jupyter-gränssnitt med en enda tom kodcell som standard.
+1. Välj **+ Ny** > **anteckningsbok på**instrumentpanelen .
+1. I popup-fönstret anger du *Linjärt regressionsexempel - Cricket Chirps.ipynb* för **objektnamn**, väljer **Python 3.6** för språket och väljer sedan **Nytt**.
+1. När den nya anteckningsboken visas i fillistan markerar du den för att starta anteckningsboken. En ny webbläsarflik öppnas automatiskt.
+1. Eftersom du har en *requirements.txt-fil* i miljöinställningarna visas meddelandet "Väntar på att behållaren ska förberedas igen". Du kan välja **OK** för att stänga meddelandet och fortsätta arbeta i anteckningsboken. Du kan dock inte köra kodceller förrän miljön har konfigurerats helt.
+1. Anteckningsboken öppnas i Jupyter-gränssnittet med en enda tom kodcell som standard.
 
-    [![inledande vy av en ny antecknings bok i Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Inledande vy av en ny anteckningsbok i Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
-## <a name="tour-the-notebook-interface"></a>Tour bärbar dator-gränssnitt
+## <a name="tour-the-notebook-interface"></a>Tour gränssnittet för bärbara datorer
 
-Med den bärbara datorn körs, kan du lägga till kod och Markdown-celler kör cellerna och hantera anteckningsboken. Först, men det är värt att ta en stund åt att bekanta dig med gränssnittet. Fullständig dokumentation, Välj den **hjälpa** > **Notebook hjälpa** menykommandot.
+När anteckningsboken körs kan du lägga till kod- och Markdown-celler, köra dessa celler och hantera anteckningsbokens funktion. Först är det dock värt att ta några minuter att bekanta dig med gränssnittet. Om du vill **Help** > ha fullständig dokumentation väljer du**hjälpanteckningsanteckningsmenyn** Hjälpanteckningsbok.
 
-Överst i fönstret kan du se följande objekt:
+Längst upp i fönstret visas följande objekt:
 
-(A) namnet på din bärbara dator som du kan redigera genom att klicka på.
-(B) knappar för att navigera till som innehåller projektet och instrumentpanelen projekt som öppnar nya flikar i webbläsaren.
-(C) en meny med kommandon för att arbeta med den bärbara datorn.
+(A) Namnet på anteckningsboken, som du kan redigera genom att klicka.
+(B) Knappar för att navigera till det innehållande projektet och instrumentpanelen för projekt, som öppnar nya flikar i webbläsaren.
+(C) En meny med kommandon för att arbeta med anteckningsboken.
 (D) ett verktygsfält med genvägar för vanliga åtgärder.
-(E) Redigering arbetsytan som innehåller celler.
-(F) indikator för om anteckningsboken är betrodd (standardvärdet är **ej betrodd**).
-(G) kernel som används för att köra anteckningsboken tillsammans med en indikator för aktiviteten.
+(E) redigeringsduken som innehåller celler.
+(F) indikator på om anteckningsboken är betrodd (standard är **inte betrodd**).
+(G) kärnan som används för att köra anteckningsboken tillsammans med en aktivitetsindikator.
 
-[![primära UI-områden i Jupyter-gränssnittet](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Primära gränssnittsområden i Jupyter-gränssnittet](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
-Jupyter innehåller en inbyggd genomgång av de primära UI-element. Starta den guidade visningen genom att välja den **hjälpa** > **användaren gränssnittet rundtur** kommando och klicka på via de popup-fönster.
+Jupyter ger en inbyggd rundtur i de primära gränssnittselementen. Starta turnén genom att välja kommandot **Hjälp** > **användargränssnittsturné** och klicka igenom popup-fönster.
 
-Grupper av menykommandon är följande:
+Grupperna med menykommandon är följande:
 
 | Meny | Beskrivning |
 | --- | --- |
-| Fil | Kommandon för att hantera notebook-filen, inklusive kommandon för att skapa och kopiera notebooks, visa en förhandsgranskning och hämta anteckningsboken i olika format. |
-| Redigera | Vanliga kommandon klipp ut, kopiera, klistra in celler, hitta och Ersätt värden, hantera cell bifogade filer och infoga bilder.  |
-| Visa | Kommandon för att styra synligheten för olika delar av Jupyter UI. |
-| Infogning | Kommandon för att infoga en ny cell ovanför eller under den aktuella cellen. Du kan använda dessa kommandon ofta när du skapar en anteckningsbok. |
-| Cell | De olika **kör** kommandon körs en eller flera celler i olika kombinationer. Den **celltyp** kommandon ändra typen av en cell mellan **kod**, **Markdown**, och **Raw NBConvert** (klartext). Den **aktuella utdata** och **alla utdata** kommandona bestämmer hur utdata från kör kod visas och inkludera ett kommando för att rensa alla utdata. |
-| Kernel | Kommandon för att hantera hur koden körs i kerneln, tillsammans med **ändra kernel** ändra språk eller Python-version som används för att köra anteckningsboken. |
-| Data | Kommandon för att ladda upp och ladda ned filer från projektet eller session. Se [arbetar med data projektfiler](work-with-project-data-files.md) |
-| Widgets | Kommandon för att hantera [Jupyter widgetar](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), som ger ytterligare funktioner för visualisering, mappa och ritning.|
-| Hjälp | Kommandon som du ger hjälp och dokumentation för Jupyter-gränssnittet. |
+| Fil | Kommandon för att hantera anteckningsboksfilen, inklusive kommandon för att skapa och kopiera anteckningsböcker, visa en förhandsgranskning och hämta anteckningsboken i en mängd olika format. |
+| Redigera | Vanliga kommandon för att klippa ut, kopiera och klistra in celler, söka efter och ersätta värden, hantera cellbilagor och infoga bilder.  |
+| Visa | Kommandon för att styra synligheten för olika delar av Jupyter-användargränssnittet. |
+| Infogning | Kommandon för att infoga en ny cell ovanför eller under den aktuella cellen. Du använder dessa kommandon ofta när du skapar en anteckningsbok. |
+| Mobiltelefon | De olika **runkommandona** kör en eller flera celler i olika kombinationer. Kommandona **Celltyp** ändrar celltypens typ mellan **Kod**, **Markdown**och **Raw NBConvert** (oformaterad text). Kommandona **Aktuella utdata** och **alla utdata** styr hur utdata från körningskoden visas och innehåller ett kommando för att rensa alla utdata. |
+| Kernel | Kommandon för att hantera hur kod körs i kärnan, tillsammans med **Ändra kärna** för att ändra språket eller Python-versionen som används för att köra anteckningsboken. |
+| Data | Kommandon för att ladda upp och ladda ned filer från projektet eller sessionen. Se [Arbeta med projektdatafiler](work-with-project-data-files.md) |
+| Widgets | Kommandon för att hantera [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), som ger ytterligare funktioner för visualisering, mappning och plottning.|
+| Hjälp | Kommandon som ger hjälp och dokumentation för Jupyter-gränssnittet. |
 
-De flesta av kommandona i verktygsfältet har motsvarande menykommandon. Ett undantag är **RETUR/redigera öka bildspel**, vilket beskrivs på [resurs- och finns anteckningsböcker](present-jupyter-notebooks-slideshow.md).
+De flesta kommandon i verktygsfältet har motsvarande menykommandon. Ett undantag är **Enter/Edit RISE Bildspel**, som diskuteras på [Dela och presentera anteckningsböcker](present-jupyter-notebooks-slideshow.md).
 
-Du kan använda ett antal dessa kommandon som du fylla i anteckningsboken i avsnitten som följer.
+Du använder ett antal av dessa kommandon när du fyller i anteckningsboken i de avsnitt som följer.
 
 ## <a name="create-a-markdown-cell"></a>Skapa en Markdown-cell
 
-1. Klicka på den första tomma cellen som visas på arbetsytan anteckningsboken. En cell är som standard en **kod** typ, vilket innebär att den har utformats för att innehålla att köra flödet kod för den valda kerneln (Python, R, eller F#). Den aktuella typen visas i typen listrutan i verktygsfältet:
+1. Klicka i den första tomma cellen som visas på arbetsytan för bärbara datorer. Som standard är en cell en **kodtyp,** vilket innebär att den är utformad för att innehålla körbar kod för den valda kärnan (Python, R eller F#). Den aktuella typen visas i textrutan i verktygsfältet:
 
-    ![Cell listruta verktygsfältet](media/tutorial/tutorial-cell-type-drop-down.png)
+    ![Nedrullningsgrupp för celltyp](media/tutorial/tutorial-cell-type-drop-down.png)
 
-1. Ändra typen till cellen **Markdown** med verktygsfältet listrutan; Alternativt kan använda den **Cell** > **celltyp**  >   **Markdown** menykommandot:
+1. Ändra celltypen till **Markdown** med hjälp av verktygsfältets listruta. alternativt använder du menykommandot **Cell** > **celltyp** > **Markdown:**
 
-    ![Kommandot i cell typ-menyn](media/tutorial/tutorial-cell-type-menu.png)
+    ![Menykommando för celltyp](media/tutorial/tutorial-cell-type-menu.png)
 
-1. Klicka på cellen för att börja redigera genom att ange sedan följande Markdown:
+1. Klicka i cellen för att börja redigera och ange sedan följande Markdown:
 
     ```markdown
     # Example Linear Regression
@@ -198,9 +198,9 @@ Du kan använda ett antal dessa kommandon som du fylla i anteckningsboken i avsn
     When you run a code cell, Jupyter executes the code; when you run a Markdown cell, Jupyter renders all the formatting into text that's suitable for presentation.
     ```
 
-1. För att rendera Markdown i HTML-format för webbläsaren, Välj den **kör** kommandot i verktygsfältet, eller använda den **Cell** > **kör celler** kommando. Markdown-kod för att formatera och länkar visas nu som du förväntade dig i en webbläsare.
+1. Om du vill rendera markdownen till HTML för webbläsaren markerar du kommandot **Kör** i verktygsfältet eller använder kommandot **Cell** > **Run Cells.** Markdown-koden för formatering och länkar visas nu som du förväntar dig att de ska i en webbläsare.
 
-1. När du kör den sista cellen i anteckningsboken skapar Jupyter automatiskt en ny cell under den som du körde. Placera mer Markdown i den här cellen genom att upprepa stegen i det här avsnittet med följande Markdown:
+1. När du kör den sista cellen i anteckningsboken skapar Jupyter automatiskt en ny cell under den du körde. Placera mer Markdown i den här cellen genom att upprepa stegen i det här avsnittet med följande Markdown:
 
     ```markdown
     ## Install packages using pip or conda
@@ -214,13 +214,13 @@ Du kan använda ett antal dessa kommandon som du fylla i anteckningsboken i avsn
     \```
     ```
 
-1. Dubbelklicka i den renderade cellen om du vill redigera Markdown igen. Kör cellen för att rendera HTML igen när du har gjort ändringar.
+1. Om du vill redigera Markdown igen dubbelklickar du i den renderade cellen. Om du vill rendera HTML igen efter att du har gjort ändringar kör du cellen.
 
 ## <a name="create-a-code-cell-with-commands"></a>Skapa en kodcell med kommandon
 
-Som det beskrivs i föregående cell i Markdown, kan du inkludera kommandon direkt i anteckningsboken. Du kan använda kommandon för att installera paket genom att köra curl eller wget att hämta data eller något annat. Jupyter-anteckningsböcker köras effektivt i en Linux-dator, så att du har fullständig Linux-kommandot Ange att arbeta med.
+Som den tidigare Markdown-cellen förklarade kan du inkludera kommandon direkt i anteckningsboken. Du kan använda kommandon för att installera paket, köra curl eller wget för att hämta data eller något annat. Jupyter bärbara datorer körs effektivt inom en Virtuell Linux-maskin, så du har hela Linux-kommandot inställt på att arbeta med.
 
-1. Ange kommandot nedan i cellen koden som visas när du använt **kör** på föregående cell i Markdown. Om du inte ser en ny cell, skapa en med **infoga** > **Cell nedan** eller Använd den **+** i verktygsfältet.
+1. Ange kommandona nedan i kodcellen som visades efter att du använde **Kör** på den tidigare Markdown-cellen. Om du inte ser en ny cell skapar du en **+** med **Infoga** > cell**nedan** eller använder knappen i verktygsfältet.
 
     ```bash
     !pip install numpy
@@ -229,21 +229,21 @@ Som det beskrivs i föregående cell i Markdown, kan du inkludera kommandon dire
     !pip install sklearn
     ```
 
-1. Innan du kör cellen måste du skapa en ny cell med den **+** i verktygsfältet, ange den till Markdown och anger följande förklaring:
+1. Innan du kör cellen ska **+** du skapa en ny cell med knappen i verktygsfältet, ställa in den på Markdown och ange följande förklaring:
 
     ```markdown
     Note that when you run a code block that contains install commands, and also those with `import` statements, it make take the notebooks a little time to complete the task. To the left of the code block you see `In [*]` to indicate that execution is happening. The Notebook's kernel on the upper right also shows a filled-in circle to indicate "busy."
     ```
 
-1. Välj den **Cell** > **kör alla** kommando för att köra alla celler i anteckningsboken. Observera att Markdown-celler återges som HTML och kommandot Kör i kerneln och notera kernel-indikator som beskrivs i Markdown själva:
+1. Markera kommandot **Cell** > **kör alla** om du vill köra alla celler i anteckningsboken. Observera att Markdown-cellerna återges som HTML och kommandot körs i kärnan och observerar kärnindikatorn enligt beskrivningen i Markdown själv:
 
-    ![Upptagen indikator för notebook-kernel](media/tutorial/tutorial-kernel-busy.png)
+    ![Upptagen indikator för den bärbara kärnan](media/tutorial/tutorial-kernel-busy.png)
 
-1. Det tar lite tid för alla också den `pip install` kommandon som ska köras, och eftersom du redan har installerat paketen i projektet-miljö (och eftersom de är också inkluderat i Azure-anteckningsböcker som standard), många meddelanden som läser ”krav visas redan uppfyllde ”. Alla utdata kan subtraheras visuellt, så Markera cellen (med ett enda klick) och sedan använda **cellen** > **cell-utdata** > **Växla** för att dölja utdata. Du kan också använda den **Rensa** på samma undermenyn ta bort utdata helt.
+1. Det tar också lite tid `pip install` för alla kommandon att köras, och eftersom du redan har installerat dessa paket i projektmiljön (och eftersom de också ingår i Azure Notebooks som standard), ser du många meddelanden som lyder, "Krav redan uppfyllt." Allt detta utdata kan vara visuellt störande, så markera cellen (med ett enda klick), och använd sedan > **cellcellutdata** > **växla** för att dölja utdata. **Cell** Du kan också använda kommandot **Rensa** på samma undermeny för att ta bort utdata helt.
 
-    Den **växla** kommandot är aktiverad visas endast de senaste utdata från cellen; om du kör cellen igen utdata visas igen.
+    Kommandot **Växla** döljer bara den senaste utdata från cellen. Om du kör cellen igen visas utdata igen.
 
-1. Eftersom paket som är installerade i projektmiljön, kommentera ut den `! pip install` kommandon med hjälp av `#`; det här sättet de ligger kvar i anteckningsboken som instruerande material, men tar inte som helst för att köra och inte producerar utdata som är onödiga. I det här fallet anger att hålla kommenterade kommandona i anteckningsboken även denna notebook beroenden.
+1. Eftersom paketen är installerade i projektmiljön `! pip install` kommenterar `#`du kommandona med ; på så sätt kan de finnas kvar i anteckningsboken som instruktionsmaterial men tar inte någon tid att köra och kommer inte att producera onödiga utdata. I det här fallet anger om du behåller de kommenterade kommandona i anteckningsboken också anteckningsbokens beroenden.
 
     ```bash
     # !pip install numpy
@@ -254,15 +254,15 @@ Som det beskrivs i föregående cell i Markdown, kan du inkludera kommandon dire
 
 ## <a name="create-the-remaining-cells"></a>Skapa de återstående cellerna
 
-För att fylla i resten av anteckningsboken skapa du sedan ett antal celler som Markdown och kod. För varje cell som anges nedan, först skapa den nya cellen, sedan ange vilket och sedan klistra in innehållet.
+Om du vill fylla i resten av anteckningsboken skapar du nästa serie Markdown- och kodceller. För varje cell som visas nedan skapar du först den nya cellen och anger sedan typen och klistrar sedan in innehållet.
 
-Du kan vänta med att köra anteckningsboken när du har skapat varje cell, är det intressant att köras varje cell som du har skapat den. Inte alla celler visa utdata; Om du inte ser några fel, förutsätter cellen körde normalt.
+Även om du kan vänta med att köra anteckningsboken när du har skapat varje cell, är det intressant att köra varje cell när du skapar den. Alla celler visar inte utdata. Om du inte ser några fel antar du att cellen kördes normalt.
 
-Varje kodcell är beroende av den kod som körs i föregående celler och om du inte att köra en av cellerna senare celler kan ge fel. Om du upptäcker att du har glömt att köra en cell, försök med den **Cell** > **kör alla ovan** innan du kör den aktiva cellen.
+Varje kodcell beror på vilken kod som har körts i tidigare celler, och om du försummar att köra en av cellerna kan senare celler skapa fel. Om du upptäcker att du har glömt att köra en cell kan du prova att använda **cellen** > **Kör alla ovanstående** innan du kör den aktuella cellen.
 
-Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att varje cell är inställd på ”Code” eller ”Markdown” efter behov. Ett ”ogiltig syntax”-fel uppstår till exempel vanligtvis när du har angett Markdown i kodcellen.
+Om du ser oväntade resultat (som du förmodligen kommer!), kontrollera att varje cell är inställd på "Kod" eller "Markdown" om det behövs. Ett ogiltigt syntaxfel uppstår till exempel vanligtvis när du har angett Markdown i kodcellen.
 
-1. Markdown-cellen:
+1. Markdown cell:
 
     ```markdown
     ## Import packages and prepare the dataset
@@ -270,7 +270,7 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     In this example we're using numpy, pandas, and matplotlib. Data is in the file cricket_chirps.csv. Because this file is in the same project as this present Notebook, we can just load it using a relative pathname.
     ```
 
-1. Kodcell; När du kör, visar innehåll som utdata. Du kan ignorera utdata genom att kommentera ut den `print` instruktionen.
+1. Kodcell; när du kör, visar tabellinnehållet som utdata. Du kan undertrycka utdata genom `print` att kommentera utsatsen.
 
     ```python
     import numpy as np
@@ -283,15 +283,15 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     ```
 
     > [!Note]
-    > Du kan se varningar från den här koden om ”numpy.dtype storlek ändras”. varningar kan ignoreras.
+    > Du kan se varningar från den här koden om "numpy.dtype size changed"; varningarna kan ignoreras på ett säkert sätt.
 
-1. Markdown-cellen:
+1. Markdown cell:
 
     ```markdown
     Next, split the dataset into a Training set (2/3rds) and Test set (1/3rd). We don't need to do any feature scaling because there is only one column of independent variables, and packages typically do scaling for you.
     ```
 
-1. Kodcell; När du kör, har den här cellen inga utdata.
+1. Kodcell; När den körs har den här cellen inga utdata.
 
     ```python
     from sklearn.model_selection import train_test_split
@@ -299,7 +299,7 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 1/3, random_state = 0)
     ```
 
-1. Markdown-cellen:
+1. Markdown cell:
 
     ```markdown
     ## Fit the data to the training set
@@ -311,7 +311,7 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
-1. Kodcell; När du kör, den här cellen visar utdata, `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)`.
+1. Kodcell; när den körs visar den `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)`här cellen utdata.
 
     ```python
     from sklearn.linear_model import LinearRegression
@@ -320,7 +320,7 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     regressor.fit(X_train, y_train)   # Provide training data so the machine can learn to predict using a learned model.
     ```
 
-1. Markdown-cellen:
+1. Markdown cell:
 
     ```markdown
     ## Predict the results
@@ -332,14 +332,14 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```
 
-1. Kodcell; När du kör, den här cellen visar resultat som `[79.49588055 75.98873911 77.87719989 80.03544077 75.17939878]`.
+1. Kodcell; när den körs visar `[79.49588055 75.98873911 77.87719989 80.03544077 75.17939878]`den här cellen resultat som .
 
     ```python
     y_pred = regressor.predict(X_test)
     print(y_pred)
     ```
 
-1. Markdown-cellen:
+1. Markdown cell:
 
     ```markdown
     It's interesting to think that all the "predictions" we use in daily life, like weather forecasts, are just regression models of some sort working with various data sets. Those models are much more complicated than what's shown here, but the idea is the same.
@@ -351,7 +351,7 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     The challenge is determining what data to actually use. For example, with weather, how far back in time do you go? How have weather patterns been changing decade by decade? In any case, something like weather predictions will be doing things hour by hour, day by day, for things like temperature, precipitation, winds, cloud cover, etc. Radar and other observations are of course fed into the model and the predictions are reduced to mathematics.
     ```
 
-1. Markdown-cellen:
+1. Markdown cell:
 
     ```markdown
     ## Visualize the results
@@ -359,7 +359,7 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     The following code generates a plot: green dots are training data, red dots are test data, blue dots are predictions. Gray line is the regression itself. You see that all the blue dots are exactly on the line, as they should be, because the predictions exactly fit the model (the line).
     ```
 
-1. Kodcell; När du kör, skapar den här cellen en grafisk rityta. Om du inte se diagram först gången (och i stället finns i ”bild storlek 640 x 480 med 1 axlar”), kör du cellen igen.
+1. Kodcell; När den körs skapar cellen ett grafiskt ritdiagram. Om du inte ser diagrammet första gången (och i stället ser "Bildstorlek 640x480 med 1 axlar" kör du cellen igen.
 
     ```python
     import matplotlib.pyplot as plt
@@ -374,9 +374,9 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     plt.show()
     ```
 
-    ![Diagram utdata från matplotlib-kod](media/tutorial/tutorial-plot-output.png)
+    ![Ritutgång från matplotlib-koden](media/tutorial/tutorial-plot-output.png)
 
-1. Markdown-cellen:
+1. Markdown cell:
 
     ```markdown
     ## Closing comments
@@ -388,37 +388,37 @@ Om du ser oväntade resultat (som du förmodligen kommer!), kontrollerar du att 
     Again, once you are working with more than one or two independent variables, it's much easier to use machine learning to crunch the numbers than to try to visualize it graphically.
     ```
 
-## <a name="clear-outputs-and-rerun-all-cells"></a>Rensa utdata och kör alla celler
+## <a name="clear-outputs-and-rerun-all-cells"></a>Rensa utdata och kör alla celler igen
 
-Du har skapat både en del av att köra kod i kontexten för en fullständig genomgång om linjär regression när du har följt stegen i föregående avsnitt för att fylla i anteckningsboken. Den här direkt kombinationen av kod och text är en av de stora fördelarna med anteckningsböcker!
+När du har följt stegen i föregående avsnitt för att fylla i hela anteckningsboken har du skapat både en kod som körs i samband med en fullständig självstudiekurs om linjär regression. Denna direkta kombination av kod och text är en av de stora fördelarna med bärbara datorer!
 
-Försöka köra hela anteckningsboken nu:
+Prova att köra hela anteckningsboken igen nu:
 
-1. Rensa alla kernel sessionsdata och alla cell utdata genom att välja **Kernel** > **omstart och rensa utdata**. Det här kommandot är alltid en bra som ska köras när du har slutfört en bärbar dator, utan bara för att se till att du inte har skapat några onormalt beroenden mellan kod celler.
+1. Rensa alla kärnets sessionsdata och alla cellutdata genom att välja **Kernel** > **Restart & Clear Output**. Det här kommandot är alltid bra att köra när du har slutfört en anteckningsbok, bara för att se till att du inte har skapat några konstiga beroenden mellan kodceller.
 
-1. Kör en notebook med hjälp av **Cell** > **kör alla**. Observera kernel-indikatorn är ifyllt när koden körs.
+1. Kör anteckningsboken igen med **Cell** > **Run All**. Observera att kärnindikatorn är ifylld medan koden körs.
 
-    Om du har någon kod som körs för länge eller på annat sätt fastnar, du kan stoppa kernel genom att använda den **Kernel** > **avbryter** kommando.
+    Om du har någon kod som körs för länge eller på annat sätt fastnar kan du stoppa kärnan med kommandot **Kernel** > **Interrupt.**
 
-1. Bläddra igenom anteckningsboken för att granska resultaten. (Om igen området inte visas kan du köra cellen.)
+1. Bläddra igenom anteckningsboken för att undersöka resultaten. (Om diagrammet inte visas igen körs cellen igen.)
 
-## <a name="save-halt-and-close-the-notebook"></a>Spara, stoppa och stänger anteckningsboken
+## <a name="save-halt-and-close-the-notebook"></a>Spara, stoppa och stänga anteckningsboken
 
-Under den tid som du redigerar en bärbar dator, kan du spara det aktuella tillståndet med den **filen** > **spara och kontrollpunkt** kommando eller spara i verktygsfältet. En ”kontrollpunkt” skapas en ögonblicksbild som du kan återgå till när som helst under sessionen. Kontrollpunkter om du vill göra en serie experimentella ändringar och om dessa ändringar inte fungerar kan du bara kan återgå till en kontrollpunkt med hjälp av den **filen** > **återgå till kontrollpunkt** kommando. En annan metod är att skapa extra celler och kommentera ut all kod som du inte vill köra. i båda fallen fungerar.
+Under den tid du redigerar en anteckningsbok kan du spara dess aktuella tillstånd med kommandot**Spara och kontrollpunkt** **för fil** > eller spara i verktygsfältet. En "kontrollpunkt" skapar en ögonblicksbild som du kan återgå till när som helst under sessionen. Med kontrollpunkter kan du göra en serie experimentella ändringar, och om dessa ändringar inte **File** > fungerar kan du bara återgå till en kontrollpunkt med kommandot**Återgå till kontrollpunkt.** En alternativ metod är att skapa extra celler och kommentera alla koder som du inte vill köra. hur som helst fungerar.
 
-Du kan också använda den **filen** > **kopierar** kommandot när du vill göra en kopia av det aktuella tillståndet för anteckningsboken i en ny fil i projektet. Denna kopia öppnas automatiskt i en ny webbläsarflik.
+Du kan också använda kommandot **Skapa** > **fil en kopia** när som helst för att göra en kopia av anteckningsbokens aktuella tillstånd till en ny fil i projektet. Den kopian öppnas automatiskt på en ny webbläsarflik.
 
-När du är klar med en bärbar dator, använder den **filen** > **Stäng och stanna** kommando som stänger anteckningsboken och stängs av kernel som har körts den. Azure anteckningsböcker stänger sedan webbläsarfliken automatiskt.
+När du är klar med en anteckningsbok använder du kommandot **Stäng** > **fil och stoppar,** som stänger anteckningsboken och stänger av kärnan som har kört den. Azure-anteckningsböcker stänger sedan webbläsarfliken automatiskt.
 
-## <a name="debug-notebooks-using-visual-studio-code"></a>Felsöka anteckningsböcker som använder Visual Studio Code
+## <a name="debug-notebooks-using-visual-studio-code"></a>Felsöka anteckningsböcker med Visual Studio-kod
 
-Om koden cellerna i anteckningsboken inte fungerar på det sätt som du förväntar dig, kan du ha koden buggar eller andra fel. Men förutom att använda `print`-instruktioner för att visa värdet för variabler, erbjuder en typisk Jupyter-miljö inga fel söknings funktioner.
+Om kodcellerna i anteckningsboken inte beter sig som du förväntar dig kan du ha kodfel eller andra defekter. Men förutom att `print` använda satser för att visa värdet av variabler, erbjuder en typisk Jupyter-miljö inte några felsökningsmöjligheter.
 
-Lyckligt vis kan du hämta Notebook *. ipynb* -filen och sedan öppna den i Visual Studio Code med hjälp av python-tillägget. Tillägget importerar en antecknings bok direkt som en enda kod fil och bevarar markdown-cellerna i kommentarer. När du har importerat antecknings boken kan du använda Visual Studio Code debugger för att gå igenom koden, ange Bryt punkter, granska status och så vidare. När du har gjort ändringar i koden exporterar du *. ipynb* -filen från Visual Studio Code och laddar upp den igen till Azure Notebooks.
+Lyckligtvis kan du ladda ner anteckningsbokens *IPynb-fil* och sedan öppna den i Visual Studio-kod med Python-tillägget. Tillägget importerar direkt en anteckningsbok som en enda kodfil och bevarar Dina Markdown-celler i kommentarer. När du har importerat anteckningsboken kan du använda felsökningen av Visual Studio-kod för att gå igenom koden, ange brytpunkter, undersöka tillstånd och så vidare. När du har korrigerat koden exporterar du sedan *IPynb-filen* från Visual Studio-koden och överför den till Azure Notebooks.
 
-Mer information finns i [Felsöka en Jupyter Notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) i Visual Studio Code-dokumentationen.
+Mer information finns i [Felsöka en Jupyter-anteckningsbok](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) i Dokumentationen för Visual Studio-kod.
 
-Se även [Visual Studio Code-Jupyter support](https://code.visualstudio.com/docs/python/jupyter-support) för ytterligare funktioner i Visual Studio Code för Jupyter Notebooks.
+Se även [Visual Studio Code - Jupyter stöd](https://code.visualstudio.com/docs/python/jupyter-support) för ytterligare funktioner i Visual Studio Code för Jupyter bärbara datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 

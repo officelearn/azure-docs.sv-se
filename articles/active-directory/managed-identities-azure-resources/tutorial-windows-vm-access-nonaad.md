@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` använda en hanterad identitet för att få åtkomst till Azure Key Vault-Windows-Azure AD
+title: Självstudiekurs`:` Använd en hanterad identitet för att komma åt Azure Key Vault - Windows - Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure Key Vault.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75971812"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Key Vault 
@@ -48,16 +48,16 @@ Lär dig att:
 
 ## <a name="grant-access"></a>Bevilja åtkomst  
  
-I det här avsnittet visas hur du beviljar din VM-åtkomst till en hemlighet som lagras i en Key Vault. Med hjälp av hanterade identiteter för Azure-resurser kan din kod hämta åtkomsttoken för att autentisera mot resurser som har stöd för Azure AD-autentisering.  Men alla Azure-tjänster har inte stöd för Azure AD-autentisering. Om du vill använda hanterade identiteter för Azure-resurser med dessa tjänster lagrar du autentiseringsuppgifterna för tjänsten i Azure Key Vault och använder den virtuella datorns hanterade identitet för att få åtkomst till Key Vault för att hämta autentiseringsuppgifterna. 
+Det här avsnittet visar hur du ger din virtuella dator åtkomst till en hemlighet som lagras i ett nyckelvalv. Med hjälp av hanterade identiteter för Azure-resurser kan din kod hämta åtkomsttoken för att autentisera mot resurser som har stöd för Azure AD-autentisering.Men alla Azure-tjänster stöder inte Azure Active Directory-autentisering.Om du vill använda hanterade identiteter för Azure-resurser med dessa tjänster lagrar du autentiseringsuppgifterna för tjänsten i Azure Key Vault och får åtkomst till Key Vault och hämtar autentiseringsuppgifterna med hjälp av den virtuella datorns hanterade identitet. 
 
 Börja med att skapa ett Key Vault och bevilja den virtuella datorns systemtilldelade hanterade identitet åtkomst till Key Vault.   
 
-1. Överst i det vänstra navigeringsfältet väljer du **Skapa en resurs** > **Säkerhet och identitet** > **Key Vault**.  
+1. Högst upp i det vänstra navigeringsfältet väljer du **Skapa en resurssäkerhet** > +**identitetsnyckelvalv****Security + Identity** > .  
 2. Ange ett **namn** för det nya Key Vault. 
 3. Leta upp Key Vault i samma prenumerations- och resursgrupp som den virtuella dator du skapade tidigare. 
 4. Välj **Åtkomstprinciper** och klicka på **Lägg till**. 
 5. I Konfigurera från mall väljer du **Hemlighetshantering**. 
-6. Välj **Välj huvudkonto** och ange namnet på den virtuella dator som du skapade tidigare i sökfältet.  Välj den virtuella datorn i resultat listan och klicka på **Välj**. 
+6. Välj **Välj huvudkonto** och ange namnet på den virtuella dator som du skapade tidigare i sökfältet.Välj den virtuella datorn i resultatlistan och klicka på **Välj**. 
 7. Klicka på **OK** och lägg till den nya åtkomstprincipen. Klicka sedan på **OK** och slutför valet av åtkomstprincip. 
 8. Klicka på **Skapa** och skapa Key Vault. 
 
@@ -69,18 +69,18 @@ Lägg sedan till en hemlighet i Key Vault, så att du senare kan hämta hemlighe
 1. Välj **Alla resurser** och leta upp och välj det Key Vault som du skapade. 
 2. Välj **Hemligheter** och klicka på **Lägg till**. 
 3. Välj **Manuell** från **Uppladdningsalternativ**. 
-4. Ange ett namn och värde för hemligheten.  Värdet kan vara vad du vill. 
+4. Ange ett namn och värde för hemligheten.Värdet kan vara vad du vill. 
 5. Låt aktiveringsdatum och förfallodatum vara tomt och sätt **Aktiverad** som **Ja**. 
 6. Klicka på **Skapa** och skapa hemligheten. 
  
 ## <a name="access-data"></a>Åtkomst till data  
 
-Det här avsnittet visar hur du hämtar en åtkomsttoken med hjälp av den virtuella datorns identitet och hur du hämtar hemligheten från Key Vault. Om du inte har PowerShell 4.3.1 eller senaste installerat måste du [ladda ned och installera den senaste versionen](https://docs.microsoft.com/powershell/azure/overview).
+Det här avsnittet visar hur du hämtar en åtkomsttoken med vm-identiteten och använder den för att hämta hemligheten från Key Vault. Om du inte har PowerShell 4.3.1 eller senaste installerat måste du [ladda ned och installera den senaste versionen](https://docs.microsoft.com/powershell/azure/overview).
 
 Först måste vi använda den virtuella datorns systemtilldelade hanterade identitet för att få ett åtkomsttoken och autentisera mot Key Vault:
  
 1. Gå till **Virtuella datorer** på portalen och sedan till den virtuella Windows-datorn. Under **Översikt** klickar du på **Anslut**.
-2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den **virtuella Windows-datorn**.  
+2. Ange i ditt **användarnamn** och **lösenord** som du lade till när du skapade **Windows VM**.  
 3. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du PowerShell i fjärrsessionen.  
 4. I PowerShell anropar du webbegäran för klientorganisationen om du vill få en token för den lokala värden i porten för den virtuella datorn.  
 
@@ -102,7 +102,7 @@ Först måste vi använda den virtuella datorns systemtilldelade hanterade ident
     $KeyVaultToken = $content.access_token 
     ```
     
-    Slutligen använder du PowerShell-kommandot Invoke-WebRequest och hämtar hemligheten som du skapade tidigare i Key Vault, och skickar ditt åtkomsttoken i auktoriseringsrubriken.  Du behöver URL: en för din Key Vault, som finns i avsnittet **Essentials** på **översikts** sidan för Key Vault.  
+    Slutligen använder du PowerShell-kommandot Invoke-WebRequest och hämtar hemligheten som du skapade tidigare i Key Vault, och skickar ditt åtkomsttoken i auktoriseringsrubriken.Du behöver URL:en till ditt Key Vault, som finns i avsnittet **Essentials** på Key Vault-sidan **Översikt**.  
     
     ```powershell
     (Invoke-WebRequest -Uri https://<your-key-vault-URL>/secrets/<secret-name>?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).content 

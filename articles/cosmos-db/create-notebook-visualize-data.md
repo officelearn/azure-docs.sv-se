@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data'
-description: 'Självstudie: Lär dig hur du använder inbyggda Jupyter-anteckningsböcker för att importera data till Azure Cosmos DB, analysera data och visualisera utdata.'
+title: 'Självstudiekurs: Skapa en anteckningsbok i Azure Cosmos DB för att analysera och visualisera data'
+description: 'Självstudiekurs: Lär dig hur du använder inbyggda Jupyter-anteckningsböcker för att importera data till Azure Cosmos DB, analysera data och visualisera utdata.'
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
@@ -8,33 +8,33 @@ ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720924"
 ---
-# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
+# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudiekurs: Skapa en anteckningsbok i Azure Cosmos DB för att analysera och visualisera data
 
-Den här artikeln beskriver hur du använder inbyggda Jupyter-anteckningsböcker för att importera exempel på detalj handels data till Azure Cosmos DB. Du kommer att se hur du använder SQL-och Azure Cosmos DB Magic-kommandon för att köra frågor, analysera data och visualisera resultaten.
+I den här artikeln beskrivs hur du använder inbyggda Jupyter-anteckningsböcker för att importera exempelbeädlardata till Azure Cosmos DB. Du kommer att se hur du använder SQL och Azure Cosmos DB magiska kommandon för att köra frågor, analysera data och visualisera resultaten.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* [Aktivera stöd för bärbara datorer när du skapar ett Azure Cosmos-konto](enable-notebooks.md)
+* [Aktivera stöd för anteckningsböcker när du skapar Azure Cosmos-kontot](enable-notebooks.md)
 
 ## <a name="create-the-resources-and-import-data"></a>Skapa resurser och importera data
  
-I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importera detalj handels data till behållaren.
+I det här avsnittet skapar du Azure Cosmos-databasen, behållaren och importerar återförsäljardata till behållaren.
 
-1. Gå till ditt Azure Cosmos-konto och öppna **datautforskaren.**
+1. Navigera till ditt Azure Cosmos-konto och öppna **Data Explorer.**
 
-1. Gå till fliken **antecknings böcker** , Välj `…` bredvid **Mina antecknings böcker** och skapa en **ny antecknings bok**. Välj **python 3** som standard kernel.
+1. Gå till fliken **Anteckningsböcker,** välj `…` bredvid **Mina anteckningsböcker** och skapa en **ny anteckningsbok**. Välj **Python 3** som standardkärna.
 
    ![Skapa en ny notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
 
-1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
+1. När en ny anteckningsbok har skapats kan du byta namn på den till något som **VisualizeRetailData.ipynb.**
 
-1. Härnäst ska du skapa en databas med namnet "RetailDemo" och en behållare med namnet "WebsiteData" för att lagra detalj handels data. Du kan använda/CardID som partitionsnyckel. Kopiera och klistra in följande kod i en ny cell i din bärbara dator och kör den:
+1. Därefter kommer du att skapa en databas med namnet "RetailDemo" och en behållare med namnet "WebsiteData" för att lagra butiksdata. Du kan använda /CardID som partitionsnyckel. Kopiera och klistra in följande kod i en ny cell i anteckningsboken och kör den:
 
    ```python
    import azure.cosmos
@@ -47,22 +47,22 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
    print('Container WebsiteData created')
    ```
 
-   Om du vill köra en cell markerar du `Shift + Enter` eller markerar cellen och väljer alternativet **Kör aktiv cell** i navigerings fältet i data Explorer.
+   Om du vill `Shift + Enter` köra en cell markerar du Eller markerar cellen och väljer **Alternativet Kör aktiv cell** i navigeringsfältet för datauterare.
 
-   ![Kör den aktiva cellen](./media/create-notebook-visualize-data/run-active-cell.png)
+   ![Köra den aktiva cellen](./media/create-notebook-visualize-data/run-active-cell.png)
 
-   Databasen och behållaren skapas i ditt nuvarande Azure Cosmos-konto. Behållaren har tillhandahållits med 400 RU/s. Följande utdata visas när databasen och behållaren har skapats. 
+   Databasen och behållaren skapas i ditt aktuella Azure Cosmos-konto. Behållaren är etablerad med 400 RU/s. Följande utdata visas när databasen och behållaren har skapats. 
 
    ```console
     Database RetailDemo created
     Container WebsiteData created
    ```
 
-   Du kan också uppdatera fliken **data** och se de nyligen skapade resurserna:
+   Du kan också uppdatera fliken **Data** och se de nyligen skapade resurserna:
 
-   ![Uppdatera fliken data om du vill se den nya behållaren](media/create-notebook-visualize-data/refresh-data-tab.png)
+   ![Uppdatera datafliken för att se den nya behållaren](media/create-notebook-visualize-data/refresh-data-tab.png)
 
-1. Härnäst ska du importera exempel detalj handels data till Azure Cosmos-behållaren. Här är formatet för ett objekt från detalj handels data:
+1. Därefter importerar du exempelbevarardata till Azure Cosmos-behållaren. Här är formatet för ett objekt från butiksdata:
 
    ```json
     {
@@ -80,7 +80,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
     }
    ```
 
-   I själv studie kursen lagras exempel detalj handels data i Azure Blob Storage. Du kan importera den till Azure Cosmos-behållaren genom att klistra in följande kod i en ny cell. Du kan bekräfta att data har importer ATS genom att köra en fråga för att välja antalet objekt.
+   För självstudien lagras exempelbevarar data i Azure blob-lagring. Du kan importera den till Azure Cosmos-behållaren genom att klistra in följande kod i en ny cell. Du kan bekräfta att data har importerats genom att köra en fråga för att välja antalet objekt.
 
    ```python
     # Read data from storage
@@ -104,7 +104,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
     print('Container with id \'{0}\' contains \'{1}\' items'.format(container.id, result[0]))
    ```
 
-   När du kör den föregående frågan returneras följande utdata:
+   När du kör föregående fråga returneras följande utdata:
 
    ```console
    Importing data. This will take a few minutes...
@@ -114,43 +114,43 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
 ## <a name="get-your-data-into-a-dataframe"></a>Hämta dina data till en DataFrame
 
-Innan du kör frågor för att analysera data kan du läsa data från container till en [Pandas-DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) för analys. Använd följande SQL Magic-kommando för att läsa data till en DataFrame:
+Innan du kör frågor för att analysera data kan du läsa data från behållaren till en [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) för analys. Använd följande sql magic-kommando för att läsa data i en DataFrame:
 
 ```bash
 %%sql --database {database_id} --container {container_id} --output outputDataframeVar 
 {Query text}
 ```
 
-Mer information finns i de [inbyggda antecknings kommandon och funktioner i Azure Cosmos DB](use-notebook-features-and-commands.md) artikel. Du kommer att köra frågan-`SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Resultaten kommer att sparas i en Pandas-DataFrame med namnet df_cosmos. Klistra in följande kommando i en ny Notebook-cell och kör den:
+Mer information finns i de [inbyggda kommandona och funktionerna i den bärbara datorn i Azure Cosmos DB-artikeln.](use-notebook-features-and-commands.md) Du kommer att `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`köra frågan- . Resultaten sparas i en Pandas DataFrame som heter df_cosmos. Klistra in följande kommando i en ny anteckningsbokscell och kör den:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```
 
-I en ny Notebook-cell kör du följande kod för att läsa de första 10 objekten från utdata:
+I en ny anteckningsbokscell kör du följande kod för att läsa de första 10 objekten från utdata:
 
 ```python
 # See a sample of the result
 df_cosmos.head(10)
 ```
 
-![Kör fråga för att hämta de 10 främsta objekten](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
+![Kör fråga för att få topp 10 objekt](./media/create-notebook-visualize-data/run-query-get-top10-items.png)
 
 ## <a name="run-queries-and-analyze-your-data"></a>Köra frågor och analysera dina data
 
-I det här avsnittet ska du köra några frågor om hämtade data.
+I det här avsnittet kör du vissa frågor om data som hämtas.
 
-* **Fråga1:** Kör en grupp efter fråga på DataFrame för att få summan av total försäljnings intäkter för varje land och Visa 5 objekt från resultatet. Kör följande kod i en ny Notebook-cell:
+* **Fråga1:** Kör en grupp efter fråga på DataFrame för att få summan av de totala försäljningsintäkterna för varje land och visa 5 artiklar från resultaten. I en ny anteckningsbokscell kör du följande kod:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
    display(df_revenue.head(5))
    ```
 
-   ![Total försäljnings intäkt, utdata](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
+   ![Total försäljningsintäkter](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
 
-* **Query2:** Öppna en ny Notebook-cell och kör följande kod för att få en lista över de fem främsta inköpta objekten:
+* **Fråga2:** Om du vill hämta en lista över de fem inköpta objekten öppnar du en ny anteckningsbokscell och kör följande kod:
 
    ```python
    import pandas as pd
@@ -159,18 +159,18 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![De fem främsta inköpta artiklarna](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   ![Topp fem inköpta artiklar](./media/create-notebook-visualize-data/top5-purchased-items.png)
 
 ## <a name="visualize-your-data"></a>Visualisera dina data  
 
-1. Nu när vi har våra data på intäkter från Azure Cosmos-behållaren kan du visualisera dina data med ett visualiserings bibliotek som du själv väljer. I den här självstudien kommer vi att använda bokeh-bibliotek. Öppna en ny Notebook-cell och kör följande kod för att installera bokeh-biblioteket. När alla krav är uppfyllda kommer biblioteket att installeras.
+1. Nu när vi har våra data om intäkter från Azure Cosmos-behållaren kan du visualisera dina data med ett visualiseringsbibliotek som du väljer. I den här guiden kommer vi att använda Bokeh bibliotek. Öppna en ny anteckningsbokscell och kör följande kod för att installera Bokeh-biblioteket. När alla krav är uppfyllda installeras biblioteket.
 
    ```python
    import sys
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Förbered sedan för att rita data på en karta. Koppla data i Azure Cosmos DB med lands information som finns i Azure Blob Storage och konvertera resultatet till formatet interjson. Kopiera följande kod till en ny Notebook-cell och kör den.
+1. Nästa förbereda att rita data på en karta. Gå med i data i Azure Cosmos DB med landsinformation i Azure Blob-lagring och konvertera resultatet till GeoJSON-format. Kopiera följande kod till en ny anteckningsbokscell och kör den.
 
    ```python
    import urllib.request, json
@@ -187,7 +187,7 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    json_data = json.dumps(merged_json)
    ```
 
-1. Visualisera försäljnings intäkterna för olika länder på en världs karta genom att köra följande kod i en ny Notebook-cell:
+1. Visualisera försäljningsintäkterna för olika länder på en världskarta genom att köra följande kod i en ny anteckningsbokscell:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,11 +233,11 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    show(p)
    ```
 
-   I utdata visas världs kartan med olika färger. Färgerna mörkare till ljusare representerar länderna med högst intäkter till lägsta intäkter.
+   Utdata visar världskartan med olika färger. Färgerna mörkare till ljusare representerar de länder som har högst intäkter till lägsta intäkter.
 
-   ![Visualisering av intäkts karta för länder](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Länder intäktskarta visualisering](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
-1. Nu ska vi se ett annat fall av data visualisering. Behållaren WebsiteData innehåller en lista över användare som har visat ett objekt, lagt till i sin varukorg och köpt objektet. Vi ska Rita in konverterings takten för de köpta objekten. Kör följande kod i en ny cell för att visualisera konverterings takten för varje objekt:
+1. Låt oss se ett annat fall av datavisualisering. Behållaren WebsiteData har register över användare som har tittat på ett objekt, lagt till i kundvagnen och köpt varan. Nu ska vi rita omräkningskursen för köpta artiklar. Kör följande kod i en ny cell för att visualisera konverteringsfrekvensen för varje objekt:
 
    ```python
    from bokeh.io import show, output_notebook
@@ -286,8 +286,8 @@ I det här avsnittet ska du köra några frågor om hämtade data.
    show(p)
    ```
 
-   ![Visualisera inköps konverterings takt](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
+   ![Visualisera konverteringsfrekvens för inköp](./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om antecknings kommandon finns i [så här använder du inbyggda Notebook-kommandon och-funktioner i Azure Cosmos DB](use-notebook-features-and-commands.md) artikel.
+* Mer information om kommandon för anteckningsböcker finns [i hur du använder inbyggda kommandon och funktioner för bärbara datorer i Azure Cosmos DB-artikeln.](use-notebook-features-and-commands.md)

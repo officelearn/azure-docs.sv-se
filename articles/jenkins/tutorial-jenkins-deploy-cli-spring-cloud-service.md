@@ -1,85 +1,85 @@
 ---
-title: Distribuera appar till Azure våren Cloud med Jenkins och Azure CLI
-description: Lär dig hur du använder Azure CLI i en kontinuerlig integrering och distributions pipeline för att distribuera mikrotjänster till Azure våren Cloud service
+title: Distribuera appar till Azure Spring Cloud med hjälp av Jenkins och Azure CLI
+description: Lär dig hur du använder Azure CLI i en pipeline för kontinuerlig integrering och distribution för att distribuera mikrotjänster till Azure Spring Cloud-tjänsten
 ms.topic: tutorial
 ms.date: 01/07/2020
 ms.openlocfilehash: 67ad97bb762ed302ef52c404d47c5755ea4b245b
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75734980"
 ---
-# <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Självstudie: distribuera appar till Azure våren Cloud med Jenkins och Azure CLI
+# <a name="tutorial-deploy-apps-to-azure-spring-cloud-using-jenkins-and-the-azure-cli"></a>Självstudiekurs: Distribuera appar till Azure Spring Cloud med Jenkins och Azure CLI
 
-[Azure våren Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-overview) är en helt hanterad mikroservice-utveckling med inbyggd tjänst identifiering och konfigurations hantering. Tjänsten gör det enkelt att distribuera våren Boot-baserade mikroservice-program till Azure. Den här självstudien visar hur du kan använda Azure CLI i Jenkins för att automatisera kontinuerlig integrering och leverans (CI/CD) för Azure våren Cloud.
+[Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-overview) är en fullständigt hanterad mikrotjänstutveckling med inbyggd tjänstidentifiering och konfigurationshantering. Tjänsten gör det enkelt att distribuera Spring Boot-baserade mikrotjänstprogram till Azure. Den här självstudien visar hur du kan använda Azure CLI i Jenkins för att automatisera kontinuerlig integrering och leverans (CI/CD) för Azure Spring Cloud.
 
 I den här självstudien får du utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Etablera en tjänst instans och starta ett Java våren-program
-> * Förbered din Jenkins-Server
-> * Använd Azure CLI i en Jenkins-pipeline för att bygga och distribuera mikrotjänst program 
+> * Etablera en tjänstinstans och starta ett Java Spring-program
+> * Förbered Jenkins-servern
+> * Använda Azure CLI i en Jenkins-pipeline för att skapa och distribuera mikrotjänstprogrammen 
 
-Den här självstudien förutsätter mellanliggande kunskaper om grundläggande Azure-tjänster, Azure våren-moln, Jenkins- [pipelines](https://jenkins.io/doc/book/pipeline/) och plugin-program och GitHub.
+Den här självstudien förutsätter mellanliggande kunskap om grundläggande Azure-tjänster, Azure Spring Cloud, [Jenkins-pipelines](https://jenkins.io/doc/book/pipeline/) och plugin-program och GitHub.
 
 ## <a name="prerequisites"></a>Krav
 
 >[!Note]
-> Azure våren Cloud erbjuds för närvarande som en offentlig för hands version. Med den offentliga för hands versionen kan kunder experimentera med nya funktioner före den officiella versionen.  Funktioner och tjänster för offentliga för hands versioner är inte avsedda för användning i produktion.  Om du vill ha mer information om support under för hands versionerna kan du läsa [vanliga frågor och svar](https://azure.microsoft.com/support/faq/) eller arkiv en [supportbegäran](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) .
+> Azure Spring Cloud erbjuds för närvarande som en offentlig förhandsversion. Offentliga förhandsversioner gör det möjligt för kunder att experimentera med nya funktioner innan de släpps officiellt.  Offentliga förhandsversionsfunktioner och tjänster är inte avsedda för produktionsanvändning.  Mer information om support under förhandsversioner finns i våra [vanliga frågor](https://azure.microsoft.com/support/faq/) och svar eller en [supportförfrågan för](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) att få veta mer.
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-* Ett GitHub-konto. Om du inte har ett GitHub-konto kan du skapa ett [kostnads fritt konto](https://github.com/) innan du börjar.
+* Ett GitHub-konto. Om du inte har ett GitHub-konto skapar du ett [kostnadsfritt konto](https://github.com/) innan du börjar.
 
-* En Jenkins-huvudserver. Om du inte redan har en Jenkins-Master distribuerar du [Jenkins](https://aka.ms/jenkins-on-azure) på Azure genom att följa stegen i den här [snabb](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template)starten. Följande krävs för Jenkins-noden/agenten (till exempel. Build-Server):
+* En Jenkins-huvudserver. Om du inte redan har en Jenkins-hanterare distribuerar du [Jenkins](https://aka.ms/jenkins-on-azure) på Azure genom att följa stegen i den här [snabbstarten](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). Följande krävs på Jenkins-noden/agenten (till exempel. byggserver):
 
     * [Git](https://git-scm.com/)
     * [JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-    * [Maven 3,0 eller senare](https://maven.apache.org/download.cgi)
-    * [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.67 eller högre
+    * [Maven 3.0 eller högre](https://maven.apache.org/download.cgi)
+    * [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.67 eller senare
 
     >[!TIP]
-    > Verktyg som git, JDK, AZ CLI och Azure-plugin-ius ingår som standard i Azure Marketplace [Microsoft Jenkins](https://aka.ms/jenkins-on-azure) Solution Template.
+    > Verktyg som Git, JDK, Az CLI och Azure plug-ius ingår som standard i lösningsmallen För Azure Marketplace [Microsoft Jenkins.](https://aka.ms/jenkins-on-azure) 
     
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
  
-## <a name="provision-a-service-instance-and-launch-a-java-spring-application"></a>Etablera en tjänst instans och starta ett Java våren-program
+## <a name="provision-a-service-instance-and-launch-a-java-spring-application"></a>Etablera en tjänstinstans och starta ett Java Spring-program
 
-Vi använder [Piggy-mått](https://github.com/Azure-Samples/piggymetrics) som exempel på Microsoft-tjänstprogrammet och följer samma steg i [snabb start: starta ett Java våren-program med Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) för att etablera tjänst instansen och konfigurera programmen. Om du redan har gått igenom samma process kan du gå vidare till nästa avsnitt. Annars ingår Azure CLI-kommandona i följande avsnitt. Se [snabb start: starta ett Java våren-program med hjälp av Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) för att få mer bakgrunds information.
+Vi använder [Piggy Metrics](https://github.com/Azure-Samples/piggymetrics) som exempelprogram för Microsoft-tjänster och följer samma steg i [Snabbstart: Starta ett Java Spring-program med Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) för att etablera tjänstinstansen och konfigurera programmen. Om du redan har gått igenom samma process kan du hoppa till nästa avsnitt. Annars ingår azure CLI-kommandona i följande fall. Se [Snabbstart: Starta ett Java Spring-program med Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli) för att hämta ytterligare bakgrundsinformation.
 
-Den lokala datorn måste uppfylla samma krav som Jenkins build-servern. Kontrol lera att följande är installerat för att skapa och distribuera mikrotjänst program:
+Din lokala dator måste uppfylla samma förutsättningar som Jenkins-byggservern. Kontrollera att följande är installerade för att skapa och distribuera mikrotjänstprogrammen:
     * [Git](https://git-scm.com/)
     * [JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-    * [Maven 3,0 eller senare](https://maven.apache.org/download.cgi)
-    * [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.67 eller högre
+    * [Maven 3.0 eller högre](https://maven.apache.org/download.cgi)
+    * [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest), version 2.0.67 eller senare
 
-1. Installera Azure våren Cloud-tillägget:
+1. Installera Azure Spring Cloud-tillägget:
 
     ```Azure CLI
         az extension add --name spring-cloud
     ```
 
-2. Skapa en resurs grupp som innehåller din Azure våren Cloud-tjänst:
+2. Skapa en resursgrupp som innehåller din Azure Spring Cloud-tjänst:
 
     ```Azure CLI
         az group create --location eastus --name <resource group name>
     ```
 
-3. Etablera en instans av Azure våren Cloud:
+3. Etablera en instans av Azure Spring Cloud:
 
     ```Azure CLI
         az spring-cloud create -n <service name> -g <resource group name>
     ```
 
-4. Förgrena [Piggy-måtten](https://github.com/Azure-Samples/piggymetrics) lagrings platsen till ditt eget GitHub-konto. Klona din lagrings platsen i en katalog med namnet `source-code`på den lokala datorn:
+4. Gaffel [piggy metrics](https://github.com/Azure-Samples/piggymetrics) repo till ditt eget GitHub-konto. I din lokala dator, klona din `source-code`repo i en katalog som heter:
 
     ```bash
         mkdir source-code
         git clone https://github.com/<your GitHub id>/piggymetrics
     ```
 
-5. Konfigurera konfigurations servern. Se till att du ersätter &lt;ditt GitHub-ID&gt; med rätt värde.
+5. Konfigurera konfigurationsservern. Se till &lt;att du ersätter&gt; ditt GitHub-id med rätt värde.
 
     ```Azure CLI
         az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/<your GitHub id>/piggymetrics --label config
@@ -92,7 +92,7 @@ Den lokala datorn måste uppfylla samma krav som Jenkins build-servern. Kontrol 
         mvn clean package -D skipTests
     ```
 
-7. Skapa tre mikrotjänster: **Gateway**, **auth-service**och **Account-service**:
+7. Skapa de tre mikrotjänsterna: **gateway,** **auth-service**och **kontotjänst:**
 
     ```Azure CLI
         az spring-cloud app create --n gateway -s <service name> -g <resource group name>
@@ -108,40 +108,40 @@ Den lokala datorn måste uppfylla samma krav som Jenkins build-servern. Kontrol 
         az spring-cloud app deploy -n auth-service -s <service name> -g <resource group name> --jar-path ./auth-service/target/auth-service.jar
     ```
 
-9. Tilldela en offentlig slut punkt till Gateway:
+9. Tilldela offentlig slutpunkt till gateway:
 
     ```Azure CLI
         az spring-cloud app update -n gateway -s <service name> -g <resource group name> --is-public true
     ```
 
-10. Fråga Gateway-appen för att hämta URL: en så att du kan kontrol lera att programmet körs.
+10. Fråga gateway-programmet för att hämta url:en så att du kan verifiera att programmet körs.
 
     ```Azure CLI
     az spring-cloud app show --name gateway | grep url
     ```
     
-    Gå till URL: en som tillhandahålls av föregående kommando för att köra PiggyMetrics-programmet. 
+    Navigera till url:en som angavs av föregående kommando för att köra PiggyMetrics-programmet. 
 
 ## <a name="prepare-jenkins-server"></a>Förbereda Jenkins-servern
 
-I det här avsnittet förbereder du Jenkins-servern för att köra en version, vilket är bra för testning. Men på grund av säkerhets indirekt bör du använda en [Azure VM-agent](https://plugins.jenkins.io/azure-vm-agents) eller [Azure Container agent](https://plugins.jenkins.io/azure-container-agents) för att skapa en agent i Azure för att köra dina build-versioner. Mer information finns i Jenkins-artikeln om [säkerhetsriskerna med att kompilera på ett original](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
+I det här avsnittet förbereder du Jenkins-servern för att köra en version, vilket är bra för testning. På grund av säkerhetskonsekvenser bör du dock använda en [Azure VM-agent](https://plugins.jenkins.io/azure-vm-agents) eller [Azure Container-agent](https://plugins.jenkins.io/azure-container-agents) för att starta en agent i Azure för att köra dina versioner. Mer information finns i Jenkins-artikeln om [säkerhetsriskerna med att kompilera på ett original](https://wiki.jenkins.io/display/JENKINS/Security+implication+of+building+on+master).
 
 ### <a name="install-plug-ins"></a>Installera plugin-program
 
-1. Logga in på din Jenkins-Server. Välj **Hantera Jenkins > hantera plugin**-program.
-2. På fliken **tillgänglig** väljer du följande plugin-program:
+1. Logga in på Jenkins-servern. Välj **Hantera Jenkins > Hantera plugins**.
+2. På fliken **Tillgänglig** väljer du följande plugin-program:
     * [GitHub-integrering](https://plugins.jenkins.io/github-pullrequest)
-    * [Azure-autentiseringsuppgift](https://plugins.jenkins.io/azure-credentials)
+    * [Azure-autentiseringsuppgifter](https://plugins.jenkins.io/azure-credentials)
 
-    Om dessa plugin-program inte visas i listan, kontrollerar du fliken **Installera** för att se om de redan är installerade.
+    Om dessa plugin-program inte visas i listan kontrollerar du fliken **Installerad** för att se om de redan är installerade.
 
-3. Installera plugin-programmen genom att välja **Hämta nu och installera efter omstart**.
+3. Om du vill installera plugin-programmen väljer du **Hämta nu och installerar efter omstart**.
 
 4. Starta om Jenkins-servern för att slutföra installationen.
 
-### <a name="add-your-azure-service-principal-credential-in-jenkins-credential-store"></a>Lägg till dina autentiseringsuppgifter för Azure-tjänstens huvud namn i Jenkins Credential Store
+### <a name="add-your-azure-service-principal-credential-in-jenkins-credential-store"></a>Lägga till din Azure Service Principal-autentiseringsautentiseringsuppgifter i Jenkins autentiseringsuppgifter
 
-1. Du behöver ett Azure-tjänstens huvud namn för att distribuera till Azure. Mer information finns i avsnittet [skapa tjänstens huvud namn](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) i självstudien distribuera till Azure App Service. Resultatet från `az ad sp create-for-rbac` ser ut ungefär så här:
+1. Du behöver en Azure-tjänstansvarig för att distribuera till Azure. Mer information finns i avsnittet [Skapa tjänstens huvudnamn](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#create-service-principal) i självstudien Distribuera till Azure App Service. Utdata `az ad sp create-for-rbac` från ser ut ungefär så här:
 
     ```
     {
@@ -153,44 +153,44 @@ I det här avsnittet förbereder du Jenkins-servern för att köra en version, v
     }
     ```
 
-2. På Jenkins-instrumentpanelen väljer du **Autentiseringsuppgifter** > **System**. Välj sedan **Globala autentiseringsuppgifter (obegränsade)** .
+2. På Jenkins-instrumentpanelen väljer du **Autentiseringssystem** > **System**. Välj sedan **Globala autentiseringsuppgifter (obegränsade)**.
 
 3. Välj **Lägg till autentiseringsuppgifter**. 
 
-4. Välj **Microsoft Azure tjänstens huvud namn** som typ.
+4. Välj **Microsoft Azure Service Principal** som slag.
 
-5. Ange värden för: * prenumerations-ID: Använd ditt Azure-prenumerations-ID * klient-ID: Använd `appId` * klient hemlighet: Använd `password` * klient organisations-ID: Använd `tenant` * Azure-miljö: Välj ett värde för fördefinierat värde. Använd exempelvis **Azure** för Azure Global * ID: ange som **azure_service_principal**. Vi använder detta ID i ett senare steg i den här artikeln * Beskrivning: är ett valfritt fält. Vi rekommenderar att du anger ett meningsfullt värde här.
+5. Ange värden för: * Prenumerations-ID: använd ditt Azure-prenumerations-ID * Klient-ID: använd `appId` * Client Secret: använd `password` * Klient-ID: använd `tenant` * Azure Environment: välj ett förinställt värde. Använd till exempel **Azure** för Azure Global * ID: ange som **azure_service_principal**. Vi använder detta ID i ett senare steg i den här artikeln * Beskrivning: är ett valfritt fält. Vi rekommenderar att du ger ett meningsfullt värde här.
 
-### <a name="install-maven-and-az-cli-spring-cloud-extension"></a>Installera Maven och AZ CLI våren-Cloud extension
+### <a name="install-maven-and-az-cli-spring-cloud-extension"></a>Installera förlängning av Maven och Az CLI-fjädermoln
 
-Exempel pipelinen använder Maven för att bygga och AZ CLI för att distribuera till tjänst instansen. När Jenkins är installerat skapas ett administratörs konto med namnet *Jenkins*. Se till att användaren *Jenkins* har behörighet att köra våren-Cloud-tillägget.
+Exempelpipelinen använder Maven för att bygga och Az CLI för att distribuera till tjänstinstansen. När Jenkins installeras skapas ett administratörskonto med namnet *jenkins*. Kontrollera att användaren *jenkins* har behörighet att köra fjädermoln-tillägget.
 
-1. Anslut till Jenkins-huvudservern via SSH. 
+1. Anslut till Jenkins-mästaren via SSH. 
 
-2. Installera maven
+2. Installera Maven
 
     ```bash
         sudo apt-get install maven 
     ```
 
-3. Installera Azure CLI. Mer information finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI installeras som standard om du använder [Jenkins-Master på Azure](https://aka.ms/jenkins-on-azure).
+3. Installera Azure CLI. Mer information finns [i Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Azure CLI installeras som standard om du använder [Jenkins Master på Azure](https://aka.ms/jenkins-on-azure).
 
-4. Växla till `jenkins` användare:
+4. Växla till `jenkins` användaren:
 
     ```bash
         sudo su jenkins
     ```
 
-5. Lägg till tillägget **fjäder moln** :
+5. Lägg till **fjädermoln-tillägget:**
 
     ```bash
         az extension add --name spring-cloud
     ```
 
 ## <a name="create-a-jenkinsfile"></a>Skapa en Jenkinsfile
-1. I din egen lagrings platsen (https://github.com/&lt ; ditt GitHub-ID&gt; /piggymetrics) skapar du en **Jenkinsfile** i roten.
+1. Skapa en **Jenkinsfile** i roten&gt;i din egen repo (;yourhttps://github.com/&ltGitHub id /piggymetrics).
 
-2. Uppdatera filen på följande sätt. Se till att du ersätter värdena för **\<resurs grupp namn >** och **\<tjänst namn >** . Ersätt **azure_service_principal** med rätt ID om du använder ett annat värde när du har lagt till autentiseringsuppgiften i Jenkins. 
+2. Uppdatera filen enligt följande. Se till att du ersätter värdena för ** \<resursgruppsnamnet>** och ** \<tjänstnamnet>**. Ersätt **azure_service_principal** med rätt ID om du använder ett annat värde när du har lagt till autentiseringsuppgifterna i Jenkins. 
 
 ```groovy
     node {
@@ -224,9 +224,9 @@ Exempel pipelinen använder Maven för att bygga och AZ CLI för att distribuera
 
 ## <a name="create-the-job"></a>Skapa jobbet
 
-1. Klicka på **nytt objekt**på Jenkins-instrumentpanelen.
+1. Klicka på Nytt **objekt**på Jenkins-instrumentpanelen .
 
-2. Ange ett namn, *distribuera PiggyMetrics* för jobbet och välj **pipeline**. Klicka på OK.
+2. Ange ett namn, *Distribuera-PiggyMetrics* för jobbet och välj **Pipeline**. Klicka på OK.
 
 3. Klicka på fliken **Pipeline**.
 
@@ -234,21 +234,21 @@ Exempel pipelinen använder Maven för att bygga och AZ CLI för att distribuera
 
 5. För **SCM** väljer du **Git**.
 
-6. Ange GitHub-URL: en för din förgrenade lagrings platsen: **https://github.com/&lt ; ditt GitHub-id&gt; /piggymetrics.git**
+6. Ange GitHub-URL:en för din kluvna repo: ** https://github.com/&lt;ditt&gt;GitHub-id /piggymetrics.git**
 
-7. Se till att **gren specifikation (svart för valfri)** är * **/Azure**
+7. Kontrollera att **Branch Specifier (svart för "any")** är ***/Azure**
 
-8. Behåll **skript Sök vägen** som **Jenkinsfile**
+8. Behåll **skriptsökväg** som **Jenkinsfile**
 
 7. Klicka på **Spara**
 
-## <a name="validate-and-run-the-job"></a>Verifiera och kör jobbet
+## <a name="validate-and-run-the-job"></a>Validera och köra jobbet
 
-Innan du kör jobbet uppdaterar vi texten i rutan logga in för att **ange inloggnings-ID**.
+Innan du kör jobbet ska vi uppdatera texten i inloggningsinmatningsrutan för att **ange inloggnings-ID**.
 
-1. Öppna `index.html` i **/Gateway/src/main/Resources/static/** i din egen lagrings platsen
+1. Öppna `index.html` i **/gateway/src/main/resources/static/**
 
-2. Sök efter "Ange din inloggning" och uppdatera till "ange inloggnings-ID"
+2. Sök efter "ange din inloggning" och uppdatera till "ange inloggnings-ID"
 
     ```HTML
         <input class="frontforms" id="frontloginform" name="username" placeholder="enter login ID" type="text" autocomplete="off"/>
@@ -256,15 +256,15 @@ Innan du kör jobbet uppdaterar vi texten i rutan logga in för att **ange inlog
 
 3. Genomför ändringarna
 
-4. Kör jobbet i Jenkins manuellt. På instrument panelen för Jenkins klickar du på jobbet *Deploy-PiggyMetrics* och **skapar sedan nu**.
+4. Kör jobbet i Jenkins manuellt. Klicka på jobbet *Deploy-PiggyMetrics* på Jenkins-instrumentpanelen och sedan **skapa nu**.
 
-När jobbet är klart navigerar du till den offentliga IP-adressen för **Gateway** -programmet och kontrollerar att programmet har uppdaterats. 
+När jobbet är klart navigerar du till den offentliga IP-adressen för **gateway-programmet** och kontrollerar att ditt program har uppdaterats. 
 
-![Uppdaterade Piggy-mått](media/tutorial-jenkins-deploy-cli-spring-cloud/piggymetrics.png)
+![Uppdaterade Piggy Metrics](media/tutorial-jenkins-deploy-cli-spring-cloud/piggymetrics.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs:
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln:
 
 ```bash
 az group delete -y --no-wait -n <resource group name>
@@ -272,9 +272,9 @@ az group delete -y --no-wait -n <resource group name>
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du använder Azure CLI i Jenkins för att automatisera kontinuerlig integrering och leverans (CI/CD) för Azure våren Cloud.
+I den här artikeln lärde du dig hur du använder Azure CLI i Jenkins för att automatisera kontinuerlig integrering och leverans (CI/CD) för Azure Spring Cloud.
 
-Mer information om Azure Jenkins-providern finns på Jenkins på Azure-webbplatsen.
+Mer information om Azure Jenkins-provider finns på Jenkins på Azure-webbplatsen.
 
 > [!div class="nextstepaction"]
 > [Jenkins på Azure](/azure/jenkins/)

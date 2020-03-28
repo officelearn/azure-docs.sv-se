@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier:  Integrera en enda AD-skog till Azure med PTA'
+title: 'Självstudiekurs: Integrera en enda AD-skog till Azure med PTA'
 description: Visar hur du konfigurerar en hybrididentitetsmiljö med hjälp av direktautentisering.
 services: active-directory
 author: billmath
@@ -12,19 +12,19 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66473003"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudier:  Integrera en enskild AD-skog med hjälp av direktautentisering (PTA)
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudiekurs: Integrera en enda AD-skog med hjälp av direktautentisering (PTA)
 
 ![Skapa](media/tutorial-passthrough-authentication/diagram.png)
 
 Självstudien vägleder dig genom att skapa en hybrididentitetsmiljö med hjälp av direktautentisering.  Du kan sedan använda miljön för att testa eller bli mer bekant med hur en hybrididentitet fungerar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - En [Azure-prenumeration](https://azure.microsoft.com/free)
@@ -85,7 +85,7 @@ För att slutföra skapande av den virtuella datorn kan du behöva slutföra ins
 5. Klicka på **Installera nu**.
 6. Ange licensnyckeln och klicka på **Nästa**.
 7. Markera **I accept the license terms (Jag godkänner licensvillkoren) och klicka på **Nästa**.
-8. Välj **Custom:  Install Windows Only (Advanced)** (Anpassad: Installera endast Windows (Avancerat))
+8. Välj **Anpassad: Installera endast Windows (avancerat)**
 9. Klicka på **Nästa**
 10. När installationen är klar startar du om den virtuella datorn, loggar in och kör Windows-uppdateringar för att säkerställa att den virtuella datorn är den mest aktuella.  Installera de senaste uppdateringarna.
 
@@ -208,9 +208,9 @@ Nu när vi har en klientorganisation och en global administratör behöver vi l�
 
 1. När du är i [Azure-portalen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) igen ska du stänga bladet **Alla användare**.
 2. Till vänster väljer du **Anpassade domännamn**.
-3. Välj **Lägg till en anpassad domän**.</br>
-![Anpassat](media/tutorial-federation/custom1.png)</br>
-4. I **Anpassade domännamn** anger du namnet på din anpassade domän i rutan och klickar sedan på **Lägg till domän**.
+3. Välj **Lägg till anpassad domän**.</br>
+![Anpassad](media/tutorial-federation/custom1.png)</br>
+4. På **Anpassade domännamn** anger du namnet på din anpassade domän i rutan och klickar sedan på **Lägg till domän**.
 5. På skärmen för anpassat domännamn får du antingen TXT- eller MX-information.  Den här informationen måste läggas till i DNS-informationen för domänregistratorn under din domän.  Du behöver gå till din domänregistrator. Ange antingen TXT- eller MX-informationen i DNS-inställningarna för din domän.  Detta gör att Azure kan verifiera din domän.  Det kan ta upp till 24 timmar för Azure att verifiera den.  Mer information finns i dokumentationen om att [lägga till en anpassad domän](../../active-directory/fundamentals/add-custom-domain.md).</br>
 ![Anpassad](media/tutorial-federation/custom2.png)</br>
 6. För att säkerställa att den har verifierats klickar du på knappen Verifiera.</br>
@@ -251,15 +251,15 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Bläddra till[https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.
    ![Verifiera](media/tutorial-password-hash-sync/verify1.png)
 
 Du har nu har installerat en hybrididentitetsmiljö som du kan använda för att testa och bekanta dig med allt som Azure har att erbjuda.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 
-- [Maskinvara och krav](how-to-connect-install-prerequisites.md) 
+- [Hårdvara och förutsättningar](how-to-connect-install-prerequisites.md) 
 - [Anpassade inställningar](how-to-connect-install-custom.md)
 - [Direktautentisering](how-to-connect-pta.md)

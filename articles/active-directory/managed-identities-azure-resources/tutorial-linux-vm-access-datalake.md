@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` använda en hanterad identitet för att komma åt Azure Data Lake Store – Linux – Azure AD
+title: Självstudiekurs`:` Använd en hanterad identitet för att komma åt Azure Data Lake Store - Linux - Azure AD
 description: En självstudiekurs som visar hur du använder en systemtilldelad hanterad identitet för virtuell Linux-dator för åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -16,19 +16,19 @@ ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0fe442741ae0b8fa817c9ea177ff244a413720e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75888523"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudier: Använda systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator (VM) för att få åtkomst till Azure Data Lake Store. Lär dig att: 
+Den här självstudien visar hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator (VM) för att komma åt Azure Data Lake Store. Lär dig att: 
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
@@ -40,7 +40,7 @@ I den här guiden får du lära dig hur man:
 
 ## <a name="grant-access"></a>Bevilja åtkomst
 
-I det här avsnittet visas hur du beviljar din VM-åtkomst till filer och mappar i Azure Data Lake Store. Du kan använda en befintlig Data Lake Store-instans eller skapa en ny för det här steget. Så här skapar du en Data Lake Store-instans med hjälp av Azure-portalen i [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+Det här avsnittet visar hur du ger din virtuella dator åtkomst till filer och mappar i Azure Data Lake Store. Du kan använda en befintlig Data Lake Store-instans eller skapa en ny för det här steget. Så här skapar du en Data Lake Store-instans med hjälp av Azure-portalen i [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
 I Data Lake Store skapar du en ny mapp och ger den systemtilldelade hanterade identiteten på virtuell Linux-dator behörighet att läsa, skriva och köra filer i mappen:
 
@@ -49,29 +49,29 @@ I Data Lake Store skapar du en ny mapp och ger den systemtilldelade hanterade id
 3. Klicka på **Datautforskaren** i kommandofältet.
 4. Rotmappen för Data Lake Store-instansen har valts. Välj **Åtkomst** i kommandofältet.
 5. Välj **Lägg till**.  I rutan **Välj** anger du namnet på den virtuella datorn – till exempel **DevTestVM**. Välj den virtuella datorn från sökresultatet och klicka sedan på **Välj**.
-6. Klicka på **Välj behörigheter**.  Välj **Läs** och **Kör**, lägg till **den här mappen** och lägg till den med **endast åtkomstbehörighet**. Välj **OK**.  Behörigheten bör nu har lagts till.
+6. Klicka på **Välj behörigheter**.  Välj **Läs** och **Kör**, lägg till **den här mappen** och lägg till den med **endast åtkomstbehörighet**. Välj **Ok**.  Behörigheten bör nu har lagts till.
 7. Stäng den fönstret **Åtkomst**.
-8. För den här självstudien skapar du en ny mapp. Välj **Ny mapp** i kommandofältet och ge den nya mappen ett namn, till exempel **TestFolder**.  Välj **OK**.
+8. För den här självstudien skapar du en ny mapp. Välj **Ny mapp** i kommandofältet och ge den nya mappen ett namn, till exempel **TestFolder**.  Välj **Ok**.
 9. Välj den mapp du skapade och välj sedan **Åtkomst** i kommandofältet.
 10. Välj **Lägg till**, som i steg 5. I rutan **Välj** anger du namnet på den virtuella datorn. Välj den virtuella datorn från sökresultatet och klicka sedan på **Välj**.
-11. Välj **Välj behörigheter**, som i steg 6. Välj **Läs**, **Skriv** och **Kör**, lägga till **den här mappen** och lägg till den som **åtkomstbehörighetsinlägg och standardbehörighetsinlägg**. Välj **OK**.  Behörigheten bör nu har lagts till.
+11. Välj **Välj behörigheter**, som i steg 6. Välj **Läs**, **Skriv** och **Kör**, lägga till **den här mappen** och lägg till den som **åtkomstbehörighetsinlägg och standardbehörighetsinlägg**. Välj **Ok**.  Behörigheten bör nu har lagts till.
 
 Hanterade identiteter för Azure-resurser kan nu utföra alla åtgärder på filer i mappen du har skapat. Mer information om hur du hanterar åtkomst till Data Lake Store finns i [Åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken 
 
-Det här avsnittet visar hur du hämtar en åtkomsttoken och anropar Data Lake Store fil systemet. Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas via hanterade identiteter för Azure-resurser. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken finns i auktoriseringsrubriken i formatet ”Ägartoken \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Det här avsnittet visar hur du skaffar en åtkomsttoken och anropar filsystemet Data Lake Store. Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas via hanterade identiteter för Azure-resurser. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken finns i auktoriseringsrubriken i formatet ”Ägartoken \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 I den här självstudien autentiserar du REST-API:et för Data Lake Store-filsystemet med hjälp av CURL för att göra REST-begäranden.
 
 > [!NOTE]
 > Klient-SDK:er för Data Lake Store-filsystemet stöder inte ännu hanterade identiteter för Azure-resurser.
 
-För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så använder du SSH-nycklar med Windows på Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp med att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows på Azure](../../virtual-machines/linux/ssh-from-windows.md) eller Så här skapar och använder du ett [SSH-offentligt och privat nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Bläddra till din virtuella Linux-dator i portalen. I **Översikt** väljer du **Anslut**.  
 2. Anslut till den virtuella datorn med valfri SSH-klient. 
-3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs identifieraren för Data Lake Store är `https://datalake.azure.net/`.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
+3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resursidentifieraren för DataSjö `https://datalake.azure.net/`store är .  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

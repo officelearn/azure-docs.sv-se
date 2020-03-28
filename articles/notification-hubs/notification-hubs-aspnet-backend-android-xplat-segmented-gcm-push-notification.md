@@ -1,5 +1,5 @@
 ---
-title: Skicka meddelanden till vissa Android-enheter med Azure Notification Hubs och Google Cloud Messaging | Microsoft Docs
+title: Skicka meddelanden till specifika Android-enheter med Azure Notification Hubs och Google Cloud Messaging | Microsoft-dokument
 description: Lär dig hur du använder Notification Hubs för att skicka meddelanden till specifika Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
@@ -17,17 +17,17 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: aa2aa7b77bf174f4a2ca89408ee037b398a32e4d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 57a11eac47baace0ad9fa7dcae82dca6eeee0988
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387433"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80127292"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudie: push-meddelanden till vissa Android-enheter med Azure Notification Hubs och Google Cloud Messaging (inaktuellt)
+# <a name="tutorial-send-push-notifications-to-specific-android-devices-using-google-cloud-messaging-deprecated"></a>Självstudiekurs: Skicka push-meddelanden till specifika Android-enheter med Google Cloud Messaging (inaktuella)
 
 > [!WARNING]
-> Från och med den 10 april 2018 har Google föråldrad Google Cloud Messaging (GCM). GCM-servern och klient-API: erna är inaktuella och tas bort så snart som den 29 maj 2019. Mer information finns i [GCM och FCM vanliga frågor och svar](https://developers.google.com/cloud-messaging/faq).
+> Från och med den 10 april 2018 har Google föråldrat Google Cloud Messaging (GCM). GCM-servern och klient-API:erna är inaktuella och tas bort redan den 29 maj 2019. Mer information finns i [Vanliga frågor och svar om GCM och FCM](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -47,7 +47,7 @@ I den här självstudien gör du följande:
 
 ## <a name="prerequisites"></a>Krav
 
-Den här självstudien bygger på den app som du skapade i [Självstudier: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started]. Innan du börjar den här självstudien ska du slutföra [självstudien: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started]
+Den här självstudien bygger på den app som du skapade i [Självstudie: Skicka meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started]. Innan du påbörjar den här självstudien så slutför [Självstudie: Skicka meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Lägga till kategorival till appen
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med RingCentral | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med RingCentral | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RingCentral.
 services: active-directory
 documentationCenter: na
@@ -16,66 +16,66 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: de7cf57d177902efdbb44524703481e8c65c75c5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72991478"
 ---
-# <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Självstudie: integrera RingCentral med Azure Active Directory
+# <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Självstudiekurs: Integrera RingCentral med Azure Active Directory
 
 I den här självstudien får du lära dig hur du integrerar RingCentral med Azure Active Directory (Azure AD). När du integrerar RingCentral med Azure AD kan du:
 
 * Kontroll i Azure AD som har åtkomst till RingCentral.
-* Gör det möjligt för användarna att logga in automatiskt till RingCentral med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Gör att användarna automatiskt loggas in på RingCentral med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* RingCentral för enkel inloggning (SSO) aktive rad.
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
+* RingCentral enkel inloggning (SSO) aktiverad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
-* RingCentral stöder **IDP** INITIERAd SSO
+* RingCentral stöder **IDP-initierad** SSO
 
 ## <a name="adding-ringcentral-from-the-gallery"></a>Lägga till RingCentral från galleriet
 
 Om du vill konfigurera integreringen av RingCentral i Azure AD måste du lägga till RingCentral från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **RingCentral** i sökrutan.
-1. Välj **RingCentral** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **RingCentral** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **RingCentral** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD SSO med RingCentral med hjälp av en test användare som kallas **Britta Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i RingCentral.
+Konfigurera och testa Azure AD SSO med RingCentral med en testanvändare som heter **Britta Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i RingCentral.
 
-Om du vill konfigurera och testa Azure AD SSO med RingCentral, slutför du följande Bygg stenar:
+Så här konfigurerar och testar du Azure AD SSO med RingCentral:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera RINGCENTRAL SSO](#configure-ringcentral-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    * **[Skapa RingCentral test User](#create-ringcentral-test-user)** -om du vill ha en motsvarighet till B. Simon i RingCentral som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
+    * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
+1. **[Konfigurera RingCentral SSO](#configure-ringcentral-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
+    * **[Skapa RingCentral-testanvändare](#create-ringcentral-test-user)** – om du vill ha en motsvarighet till B.Simon i RingCentral som är länkad till Azure AD-representationen av användaren.
+1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **RingCentral** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. Leta reda på avsnittet Hantera på sidan Hantera på sidan **RingCentral** **Azure-portalen**och välj Enkel inloggning . [Azure portal](https://portal.azure.com/) **Manage**
+1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
@@ -83,14 +83,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     1. Klicka på **Ladda upp metadatafil**.
     1. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
-    1. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet **grundläggande SAML-konfiguration** .
+    1. När metadatafilen har överförts fylls **url-värdena identifierare** och **svar** i automatiskt i avsnittet **Grundläggande SAML-konfiguration.**
 
     > [!Note]
-    > Du hämtar **metadata-filen för tjänst leverantören** på konfigurations sidan för RingCentral SSO som beskrivs senare i självstudien.
+    > Du får **metadatafilen för Tjänsteleverantören** på ringcentralen SSO-konfigurationssidan som förklaras senare i självstudien.
 
-1. Om du inte har en **metadata-fil för Service Provider**anger du värdena för följande fält:
+1. Om du inte har **metadatafil för Service Provider**anger du värdena för följande fält:
 
-    a. Skriv en URL i text rutan **identifierare** :
+    a. Skriv en URL i textrutan **Identifierare:**
 
     | |
     |--|
@@ -104,97 +104,97 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
     | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
-1. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
+1. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas Britta Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter Britta Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **Ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `Britta Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `BrittaSimon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till RingCentral.
+I det här avsnittet ska du aktivera Britta Simon för att använda Azure enkel inloggning genom att bevilja åtkomst till RingCentral.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **RingCentral**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. Välj **RingCentral**i programlistan .
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **Britta Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
 ## <a name="configure-ringcentral-sso"></a>Konfigurera RingCentral SSO
 
-1. Om du vill automatisera konfigurationen i RingCentral måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
+1. Om du vill automatisera konfigurationen i RingCentral måste du installera **webbläsartillägget My Apps Secure Sign-in** genom att klicka på **Installera tillägget**.
 
-    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
 
-1. När du har lagt till tillägg i webbläsaren kan du klicka på **Konfigurera RingCentral** för att dirigera dig till RingCentral-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på RingCentral. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
+1. När du har lagt till tillägget i webbläsaren, klicka på **Konfigurera RingCentral** kommer att leda dig till RingCentral ansökan. Därifrån anger du administratörsautentiseringsuppgifterna för att logga in på RingCentral. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
 
-    ![Konfigurera konfiguration](common/setup-sso.png)
+    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
 
-1. Om du vill konfigurera RingCentral manuellt öppnar du ett nytt webbläsarfönster och loggar in på din RingCentral-företags webbplats som administratör och utför följande steg:
+1. Om du vill konfigurera RingCentral manuellt öppnar du ett nytt webbläsarfönster och loggar in på din RingCentral-företagswebbplats som administratör och utför följande steg:
 
-1. Klicka på **verktyg**längst upp.
+1. Högst upp klickar du på **Verktyg**.
 
-    ![mallar](./media/ringcentral-tutorial/ringcentral1.png)
+    ![image](./media/ringcentral-tutorial/ringcentral1.png)
 
-1. Navigera till **enkel inloggning**.
+1. Navigera till **Enkel inloggning**.
 
-    ![mallar](./media/ringcentral-tutorial/ringcentral2.png)
+    ![image](./media/ringcentral-tutorial/ringcentral2.png)
 
-1. På sidan **enkel inloggning** under **SSO-konfiguration** går du till **steg 1** och klickar på **Redigera** och utför följande steg:
+1. Klicka på **Redigera** från **steg 1** på sidan Enkel inloggning under **SSO-konfiguration:** **Single Sign-on**
 
-    ![mallar](./media/ringcentral-tutorial/ringcentral3.png)
+    ![image](./media/ringcentral-tutorial/ringcentral3.png)
 
-1. Utför följande steg på sidan **Konfigurera enkel inloggning** :
+1. Gör följande på sidan **Konfigurera enkel inloggning:**
 
-    ![mallar](./media/ringcentral-tutorial/ringcentral4.png)
+    ![image](./media/ringcentral-tutorial/ringcentral4.png)
 
-    a. Klicka på **Bläddra** för att ladda upp metadatafilen som du har laddat ned från Azure Portal.
+    a. Klicka på **Bläddra** om du vill ladda upp metadatafilen som du har hämtat från Azure-portalen.
 
-    b. När du har laddat upp metadata får värdena automatiskt ifyllt i avsnittet om **allmän SSO-information** .
+    b. När metadata har överförts fylls värdena i automatiskt i avsnittet Allmän information för **SSO.**
 
-    c. Under **attribut mappning** väljer **du mappa e-postattribut till** som `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. Under avsnittet **Attributmappning** väljer du **Mappa e-postattribut till** som`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. Klicka på **Save** (Spara).
+    d. Klicka på **Spara**.
 
-    e. Från **steg 2** klickar du på **Ladda ned** för att ladda ned **metadata-filen för tjänste leverantören** och laddar upp den i avsnittet **grundläggande SAML-konfiguration** för att automatiskt fylla i **identifieraren** och **svara på URL** -värden i Azure Portal.
+    e. Från **steg 2** klickar du på **Hämta** för att hämta **metadatafilen för Tjänsteleverantören** och överför den i avsnittet **Grundläggande SAML-konfiguration** för att automatiskt fylla i URL-värdena **för identifierare** och **svar** i Azure-portalen.
 
-    ![mallar](./media/ringcentral-tutorial/ringcentral6.png) 
+    ![image](./media/ringcentral-tutorial/ringcentral6.png) 
 
-    f. På samma sida navigerar du till avsnittet **Aktivera SSO** och utför följande steg:
+    f. På samma sida navigerar du till **Aktivera SSO-avsnitt** och utför följande steg:
 
-    ![mallar](./media/ringcentral-tutorial/ringcentral5.png)
+    ![image](./media/ringcentral-tutorial/ringcentral5.png)
 
     * Välj **Aktivera SSO-tjänst**.
 
-    * Välj **Tillåt att användare loggar in med SSO eller RingCentral-autentiseringsuppgifter**.
+    * Välj **Tillåt användare att logga in med SSO- eller RingCentral-autentiseringsuppgifter**.
 
-    * Klicka på **Save** (Spara).
+    * Klicka på **Spara**.
 
-### <a name="create-ringcentral-test-user"></a>Skapa RingCentral test användare
+### <a name="create-ringcentral-test-user"></a>Skapa RingCentral-testanvändare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i RingCentral. Arbeta med [RingCentral-klientens support team](https://success.ringcentral.com/RCContactSupp) för att lägga till användare i RingCentral-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i RingCentral. Arbeta med [RingCentral Client supportteam](https://success.ringcentral.com/RCContactSupp) för att lägga till användarna i RingCentral-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen RingCentral på åtkomst panelen, bör du loggas in automatiskt på den RingCentral som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du väljer RingCentral-panelen på åtkomstpanelen ska du automatiskt loggas in på den RingCentral som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

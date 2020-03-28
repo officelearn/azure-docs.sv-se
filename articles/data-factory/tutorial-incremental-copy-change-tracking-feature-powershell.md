@@ -1,5 +1,5 @@
 ---
-title: Kopiera data stegvis med Ändringsspårning
+title: Kopiera data stegvis med ändringsspårning
 description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar deltadata stegvis från flera tabeller i en lokal SQL Server-databas till en Azure SQL-databas.
 services: data-factory
 ms.author: yexu
@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: c23eaf438f43743600636e006116e3bba8dfbf70
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75982586"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation
@@ -67,13 +67,13 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
     ![Steg för att läsa in flödesdiagram](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 * Azure PowerShell. Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
-* **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md) . Skapa en container med namnet **adftutorial**. 
+* **Azure SQL-databas**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure-lagringskonto läser du artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md) för steg för att skapa ett. Skapa en container med namnet **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas
 1. Starta **SQL Server Management Studio** och anslut till din Azure SQL-server.
@@ -148,7 +148,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
+Installera de senaste Azure PowerShell-modulerna genom att följa instruktionerna i [Hur du installerar och konfigurerar Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
@@ -177,7 +177,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
     ```
-5. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet:
+5. Om du vill skapa datafabriken kör du följande **Set-AzDataFactoryV2** cmdlet:
 
     ```powershell       
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
@@ -213,8 +213,8 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
         }
     }
     ```
-2. I **Azure PowerShell**växlar du till mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial**
-3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**. I följande exempel skickar du värden för parametrarna **ResourceGroupName** och **DataFactoryName**.
+2. I **Azure PowerShell**växlar du till mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial.**
+3. Kör cmdleten **Set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**. I följande exempel skickar du värden för parametrarna **ResourceGroupName** och **DataFactoryName**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -232,7 +232,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 ### <a name="create-azure-sql-database-linked-service"></a>Skapa länkad Azure SQL Database-tjänst.
 I det här steget länkar du Azure SQL-databasen till datafabriken.
 
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial** med följande innehåll: ersätt **&lt;server&gt; &lt;databas namn&gt;, &lt;användar-ID&gt;och &lt;lösen ord&gt;** med namnet på din Azure SQL-Server, namnet på din databas, ditt användar-ID och lösen ord innan du sparar filen.
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial** med följande innehåll: Ersätt **&lt;serverns&gt; &lt;databasname&gt;, &lt;användar-id&gt;, och &lt;lösenord&gt;** med namnet på din Azure SQL-servern, namnet på din databas, ditt användar-id och lösenord innan du sparar filen.
 
     ```json
     {
@@ -245,7 +245,7 @@ I det här steget länkar du Azure SQL-databasen till datafabriken.
         }
     }
     ```
-2. I **Azure PowerShell**kör du cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**.
+2. I **Azure PowerShell**kör du cmdleten **Set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -284,7 +284,7 @@ I det här steget skapar du en datamängd för att representera källdata.
     }   
     ```
 
-2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa data uppsättningen: SourceDataset
+2.  Kör cmdlet set-azDataFactoryV2Dataset för att skapa datauppsättningen: SourceDataset
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -326,7 +326,7 @@ I det här steget skapar du en datamängd för att representera data som kopiera
     ```
 
     Du skapar containern adftutorial i din Azure Blob Storage som en del av förutsättningarna. Skapa containern om den inte finns (eller) ställ in den för namnet på en befintlig. I den här självstudien genereras filnamnet dynamiskt med uttrycket: @CONCAT('Incremental-', pipeline().RunId, '.txt').
-2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa data uppsättningen: SinkDataset
+2.  Kör cmdlet set-azDataFactoryV2Dataset för att skapa datauppsättningen: SinkDataset
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -364,7 +364,7 @@ I det här steget skapar du en datauppsättning för att lagra ändringsspårnin
     ```
 
     Du kan skapa tabellen table_store_ChangeTracking_version som en del av förutsättningarna.
-2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa data uppsättningen: ChangeTrackingDataset
+2.  Kör cmdlet set-azDataFactoryV2Dataset för att skapa datauppsättningen: ChangeTrackingDataset
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
@@ -430,7 +430,7 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
    ```
 
 ### <a name="run-the-full-copy-pipeline"></a>Kör den fullständiga kopieringspipelinen
-Kör pipelinen: **FullCopyPipeline** med cmdleten **Invoke-AzDataFactoryV2Pipeline** .
+Kör pipelinen: **FullCopyPipeline** med hjälp av **Invoke-AzDataFactoryV2Pipeline** cmdlet.
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -438,7 +438,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Övervaka den fullständiga kopieringspipelinen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **Alla tjänster**, sök med nyckelordet `data factories` och välj **Datafabriker**.
 
     ![Menyn Datafabriker](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
@@ -448,7 +448,7 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
 4. På sidan Datafabrik klickar du på panelen **Övervaka och hantera**.
 
     ![Ikonen Övervaka och hantera](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
-5. **Data integrerings programmet** startar på en separat flik. Du kan se alla **pipeline-körningar** och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**. Klicka på länken i kolumnen **Åtgärder**.
+5. **Dataintegrationsprogrammet** startas på en separat flik. Du kan se alla **pipeline-körningar** och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**. Klicka på länken i kolumnen **Åtgärder**.
 
     ![Pipelinekörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen.
@@ -619,7 +619,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Kör den inkrementella kopieringspipelinen
-Kör pipelinen: **IncrementalCopyPipeline** med cmdleten **Invoke-AzDataFactoryV2Pipeline** .
+Kör pipelinen: **IncrementalCopyPipeline** med hjälp av **Cmdlet Invoke-AzDataFactoryV2Pipeline.**
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -661,4 +661,4 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 Fortsätt till följande självstudie och lär dig mer om hur du kopierar nya och ändrade filer endast baserat på deras LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Kopiera nya filer genom lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+>[Kopiera nya filer efter senastmodifieraddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

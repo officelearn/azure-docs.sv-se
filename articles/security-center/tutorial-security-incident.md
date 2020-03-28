@@ -1,6 +1,6 @@
 ---
-title: Själv studie kurs om incident svar – Azure Security Center
-description: I den här självstudien får du lära dig hur du prioritering säkerhets aviseringar, fastställer rotor saken & omfattningen av en incident och söker efter säkerhets data.
+title: Självstudiekurs för incidentsvar – Azure Security Center
+description: I den här självstudien får du lära dig hur du triage säkerhetsvarningar, fastställa orsaken & omfattningen av en incident och söka säkerhetsdata.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
 ms.openlocfilehash: 49e2af8fd2d71e1e5103f5337d5c7104c2904322
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74559192"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Självstudie: Reagera på säkerhetsincidenter
@@ -29,7 +29,7 @@ Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med a
 > * Undersök ytterligare för att fastställa rotorsaken och omfånget för en säkerhetsincident
 > * Sök säkerhetsdata för enklare undersökning
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 För att gå igenom funktionerna i den här självstudien måste du ha standardnivån i Security Center. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). Snabbstarten för att [registrera Azure-prenumerationen till Security Center Standard](security-center-get-started.md) vägleder dig genom uppgraderingen till Standard.
@@ -48,7 +48,7 @@ Johanna, som arbetar med säkerheten. Deras ansvar omfattar:
 * Övervakning och hantering av säkerhetshot dygnet runt.
 * Eskalering till molnets arbetsbelastningsägare eller säkerhetsanalytiker vid behov.
 
-Sam är en säkerhetsanalytiker och deras ansvar omfattar:
+Sam är en säkerhetsanalytiker och deras ansvar inkluderar:
 
 * Undersöka attacker.
 * Åtgärda aviseringar.
@@ -78,7 +78,7 @@ Security Center tillhandahåller en enhetlig vy över alla säkerhetsvarningar. 
 
    Typen av varning kan variera. Läs [Förstå säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) för mer information om typen av varning och potentiella åtgärder. För varningar som kan avfärdas säkert kan du högerklicka på varningen och välja alternativet **Stäng**:
 
-   ![Avisering](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Varning](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Om rotorsaken och omfånget för den skadliga aktiviteten är okänd fortsätter du till nästa steg för att undersöka närmare.
 
@@ -108,7 +108,7 @@ De andra snabbstarterna och självstudierna i den här samlingen bygger på den 
 
 Om du vill avaktivera automatisk etablering:
 
-1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
+1. Gå tillbaka till huvudmenyn för Säkerhetscenter och välj **Säkerhetsprincipen**.
 2. Välj den prenumeration du vill avaktivera automatisk etablering för.
 3. Under **Säkerhetsprincip – Datainsamling** väljer du **Av** under **Registrering** för att inaktivera automatisk etablering.
 4. Välj **Spara**.

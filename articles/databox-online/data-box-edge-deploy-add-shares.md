@@ -1,5 +1,5 @@
 ---
-title: Självstudie för att överföra data till resurser med Azure Data Box Edge | Microsoft Docs
+title: Självstudiekurs för att överföra data till resurser med Azure Data Box Edge | Microsoft-dokument
 description: Lär dig hur du lägger till och ansluter till resurser på en Data Box Edge-enhet.
 services: databox
 author: alkohli
@@ -10,26 +10,26 @@ ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: 3b1988656e2c15515e121df3ee71e31ce7edd750
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79212952"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Självstudie: överföra data med Azure Data Box Edge
+# <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Självstudiekurs: Överföra data med Azure Data Box Edge
 
 Den här självstudien beskriver hur du lägger till och ansluter till resurser på din Data Box Edge-enhet. När du har lagt till resurserna kan Data Box Edge överföra data till Azure.
 
 Den här proceduren kan ta upp till 10 minuter att slutföra.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Lägga till en resurs
 > * Ansluta till resursen
 
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrollera följande innan du lägger till resurser till din Data Box Edge:
 
@@ -42,48 +42,48 @@ Kontrollera följande innan du lägger till resurser till din Data Box Edge:
 
 Om du vill skapa en resurs, gör du så här:
 
-1. I [Azure Portal](https://portal.azure.com/)väljer du din data Box Edge resurs och går sedan till **översikten**. Enheten bör vara online.
+1. I [Azure-portalen](https://portal.azure.com/)väljer du din Data Box Edge-resurs och går sedan till **översikten**. Enheten ska vara online.
 
-   ![Enhet online](./media/data-box-edge-deploy-add-shares/device-online-1.png)
+   ![Enheten online](./media/data-box-edge-deploy-add-shares/device-online-1.png)
 
-2. Välj **+ Lägg till resurs** i enhetens kommando fält.
+2. Välj **+ Lägg till resurs** i enhetskommandofältet.
 
    ![Lägga till en resurs](./media/data-box-edge-deploy-add-shares/select-add-share-1.png)
 
 3. I fönstret **Lägg till resurs** gör du följande:
 
     a. Ange ett unikt namn på resursen i rutan **Namn**.  
-    Resursnamnet får bara ha gemena bokstäver, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken och börja med en bokstav eller en siffra. Bindestreck måste föregås och följas av en bokstav eller ett numeriskt värde.
+    Resursnamnet får bara ha gemena bokstäver, siffror och bindestreck. Den måste ha mellan 3 till 63 tecken och börja med en bokstav eller en siffra. Bindestreck måste föregås och följas av en bokstav eller ett numeriskt värde.
     
     b. Välj en **typ** för resursen.  
     Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter.  
     Beroende på om du väljer SMB- eller NFS-resurser varierar resten av alternativen något. 
 
-    c. Ange ett lagrings konto där resursen kommer att finnas.
+    c. Ange ett lagringskonto där resursen ska finnas.
 
       > [!IMPORTANT]
-      > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+      > Kontrollera att Azure Storage-kontot som du använder inte har principer för oföränderlighet som angetts för det om du använder det med en Azure Stack Edge- eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera principer för oföränderlighet för bloblagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
     d. Välj **Blockblob**, **Sidblob** eller **Filer** i listrutan **Lagringstjänst**.  
-    Vilken typ av tjänst som du väljer beror på vilket format som du vill att dina data ska använda i Azure. I det här exemplet, eftersom vi vill lagra data som block blobbar i Azure väljer du **blockera BLOB**. Om du väljer **Page BLOB**ser du till att dina data är 512 byte justerade. Till exempel är en VHDX alltid justerad för 512 byte.
+    Vilken typ av tjänst som du väljer beror på vilket format som du vill att dina data ska använda i Azure. I det här exemplet, eftersom vi vill lagra data som blockblobar i Azure, väljer vi **Blockera Blob**. Om du väljer **Sidblobar**kontrollerar du att dina data är 512 byte justerade. Till exempel är en VHDX alltid justerad för 512 byte.
 
-    e. Skapa en ny BLOB-behållare eller Använd en befintlig i list rutan. Om du skapar en BLOB-behållare anger du ett behållar namn. En container skapas på lagringskontot med det nyligen skapade resursnamnet om det inte redan finns en.
+    e. Skapa en ny blob-behållare eller använd en befintlig från listrutan. Om du skapar en blob-behållare anger du ett behållarnamn. En container skapas på lagringskontot med det nyligen skapade resursnamnet om det inte redan finns en.
 
     f. Beroende på om du har skapat en SMB-resurs eller en NFS-resurs, gör du något av följande:
 
-    * **SMB-resurs**: Välj **Skapa ny** eller **Använd befintlig**i **lokal användare för behörighet**. Om du skapar en ny lokal användare, anger du ett användarnamn och ett lösenord och bekräftar därefter lösenordet. Denna åtgärd tilldelar behörigheter till den lokala användaren. Ändring av behörigheter på resurs nivå stöds inte för närvarande.
+    * **SMB-resurs:** Under **Alla privilegier lokal användare**väljer du Skapa **ny** eller **Använd befintlig**. Om du skapar en ny lokal användare, anger du ett användarnamn och ett lösenord och bekräftar därefter lösenordet. Denna åtgärd tilldelar behörigheter till den lokala användaren. Ändring av behörigheter på resursnivå stöds för närvarande inte.
 
-        Om du markerar kryss rutan **Tillåt endast Läs åtgärder** för den här resurs informationen kan du ange skrivskyddade användare.
+        Om du markerar kryssrutan **Tillåt endast läsåtgärder** för dessa delningsdata kan du ange skrivskyddade användare.
 
         ![Lägga till SMB-resurs](./media/data-box-edge-deploy-add-shares/add-share-smb-1.png)
 
-    * **NFS-resurs**: Ange IP-adresserna för tillåtna klienter som har åtkomst till resursen.
+    * **NFS-resurs:** Ange IP-adresser för tillåtna klienter som kan komma åt resursen.
 
         ![Lägga till NFS-resurs](./media/data-box-edge-deploy-add-shares/add-share-nfs-1.png)
 
 4. Klicka på **Skapa** för att skapa resursen.
     
-    Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna **uppdateras delnings panelen så** att den återspeglar den nya resursen.
+    Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna uppdateras panelen **Resurser** för att återspegla den nya resursen.
     
 
 ## <a name="connect-to-the-share"></a>Ansluta till resursen
@@ -138,7 +138,7 @@ Utför följande procedur på en Linux-klient som är ansluten till en Data Box 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
-    > Om du använder `sync` alternativ när du monterar resurser förbättras överförings takten för stora filer.
+    > Användning `sync` av alternativet när du monterar resurser förbättrar överföringshastigheten för stora filer.
     > Innan du monterar filresurserna kontrollerar du om de kataloger som kommer att fungera som monteringspunkter på den lokala datorn redan har skapats. Dessa kataloger får inte innehålla några filer eller undermappar.
 
     I följande exempel visas hur du ansluter via NFS till en resurs på din Data Box Edge-enhet. Enhetens IP-adress är `10.10.10.60`. `mylinuxshare2`-resursen är monterad på den virtuella Ubuntu-datorn. Resursens monteringspunkt är `/home/databoxubuntuhost/edge`.
@@ -146,8 +146,8 @@ Utför följande procedur på en Linux-klient som är ansluten till en Data Box 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
-> Följande varningar gäller för den här versionen:
-> - När en fil har skapats i resursen stöds inte namnbyte av filen. 
+> Följande förbehåll gäller för den här versionen:
+> - När en fil har skapats i resursen stöds inte namnbytet av filen. 
 > - När en fil tas bort från en resurs försvinner inte posten i lagringskontot.
 
 ## <a name="next-steps"></a>Nästa steg

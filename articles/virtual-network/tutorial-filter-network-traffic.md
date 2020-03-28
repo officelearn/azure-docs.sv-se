@@ -1,7 +1,7 @@
 ---
 title: Filtrera nätverkstrafik – självstudie – Azure-portalen
 titlesuffix: Azure Virtual Network
-description: I den här självstudien får du lära dig hur du filtrerar nätverks trafik till ett undernät, med en nätverks säkerhets grupp, med hjälp av Azure Portal.
+description: I den här självstudien får du lära dig hur du filtrerar nätverkstrafik till ett undernät, med en nätverkssäkerhetsgrupp, med hjälp av Azure-portalen.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -15,13 +15,13 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75350142"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudie: filtrera nätverks trafik med en nätverks säkerhets grupp med hjälp av Azure Portal
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudiekurs: Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med Azure-portalen
 
 Du kan filtrera inkommande och utgående nätverkstrafik till och från ett undernät i ett virtuellt nätverk med en nätverkssäkerhetsgrupp. Nätverkssäkerhetsgrupper innehåller säkerhetsregler som filtrerar nätverkstrafik efter IP-adress, port och protokoll. Säkerhetsregler tillämpas på resurser som har distribuerats i ett undernät. I den här självstudiekursen får du lära du dig att:
 
@@ -33,7 +33,7 @@ Du kan filtrera inkommande och utgående nätverkstrafik till och från ett unde
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-filter-network-traffic-cli.md) eller [PowerShell](tutorial-filter-network-traffic-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -51,7 +51,7 @@ Logga in på Azure Portal på https://portal.azure.com.
     | Adressutrymme           | 10.0.0.0/16                                        |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj **Skapa ny** och skriv *myResourceGroup*. |
-    | Location                | Välj **USA, östra**.                                |
+    | Location                | Välj **östra USA**.                                |
     | Undernät – namn            | mySubnet                                           |
     | Undernät – adressintervall  | 10.0.0.0/24                                        |
 
@@ -89,7 +89,7 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
     |---|---|
     |Namn|myNsg|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp | Välj **Använd befintlig** och sedan *myResourceGroup*.|
+    |Resursgrupp | Välj **Använd befintlig** och välj sedan *myResourceGroup*.|
     |Location|USA, östra|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associera nätverkssäkerhetsgrupp till undernät
@@ -140,29 +140,29 @@ Skapa två virtuella datorer i det virtuella nätverket.
 
 1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. 
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
-3. Ange eller Välj följande information och godkänn standardinställningarna för de återstående inställningarna:
+3. Ange eller välj följande information och acceptera standardinställningarna för de återstående inställningarna:
 
     |Inställning|Värde|
     |---|---|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
     |Namn|myVmWeb|
-    |Location| Välj **USA, östra**.|
+    |Location| Välj **östra USA**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 
    
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
-5. Under **nätverk**väljer du följande värden och godkänner de återstående standardvärdena:
+5. Under **Nätverk**väljer du följande värden och accepterar de återstående standardvärdena:
 
     |Inställning|Värde|
     |---|---|
     |Virtuellt nätverk |Välj **myVirtualNetwork**.|
-    |Nätverks säkerhets grupp för nätverkskort |Välj **Ingen**.|
+    |Säkerhetsgrupp för nätverksnätverk för nätverkskort |Välj **Ingen**.|
   
 
-6. Välj **Granska + skapa** längst ned i det vänstra hörnet och välj **skapa** för att starta distributionen av virtuella datorer.
+6. Välj **Granska + Skapa** i det nedre vänstra hörnet, välj **Skapa** för att starta vm-distribution.
 
 ### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
 
@@ -182,8 +182,8 @@ När portalen skapade de virtuella datorerna skapade den ett nätverksgränssnit
 ## <a name="test-traffic-filters"></a>Testa trafikfilter
 
 1. Anslut till den virtuella datorn *myVmMgmt*. Ange *myVmMgmt* i sökrutan längst upp i portalen. Välj **myVmMgmt** när det visas bland sökresultaten. Välj knappen **Anslut**.
-2. Välj **Ladda ned RDP-fil**.
-3. Öppna den nedladdade RDP-filen och välj **Anslut**. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+2. Välj **Hämta RDP-fil**.
+3. Öppna den nedladdade rdp-filen och välj **Anslut**. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 
@@ -217,7 +217,7 @@ Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehå
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
+3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

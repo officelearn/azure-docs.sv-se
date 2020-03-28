@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Help Scout | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Hjälpscout | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Help Scout.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71ccbc6cfdb9d3d37fc46b0e932fa98eee2fb43
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159090"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Självstudie: Azure Active Directory integrering med Help Scout
+# <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Självstudiekurs: Azure Active Directory-integrering med Hjälpscout
 
 I den här självstudien lär du dig att integrera Help Scout med Azure Active Directory (AD Azure).
 Integreringen av Help Scout med Azure AD medför följande fördelar:
@@ -33,13 +33,13 @@ Integreringen av Help Scout med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Help Scout behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
 * Help Scout-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -53,26 +53,26 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 För att konfigurera integreringen av Help Scout i Azure AD måste du lägga till Help Scout från galleriet till din lista över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , Skriv **Help Scout** i sökrutan.
-1. Välj **Hjälp Scout** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Hjälpscout** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **Hjälpscout** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med hjälp av en test användare som heter **B. Simon**.
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Hjälpscout baserat på en testanvändare som heter **B.Simon**.
 För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Help Scout upprättas.
 
 För att konfigurera och testa enkel inloggning för Azure AD med Help Scout behöver du slutföra följande byggstenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    * **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    * **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera hjälp Scout SSO](#configure-help-scout-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
-    * **[Skapa Help Scout test User](#create-help-scout-test-user)** -om du vill ha en motsvarighet till B. Simon i Help Scout som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
+    * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
+1. **[Konfigurera Hjälp Scout SSO](#configure-help-scout-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
+    * **[Skapa Help Scout-testanvändare](#create-help-scout-test-user)** – om du vill ha en motsvarighet till B.Simon i hjälpscouten som är länkad till Azure AD-representationen av användaren.
+1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
@@ -82,7 +82,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för He
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Help Scout** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 1. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för He
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+1. Om du vill konfigurera programmet i **IDP-initierat** läge i avsnittet **Grundläggande SAML-konfiguration** gör du följande:
 
     ![Help Scout-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för He
     b. **Svars-URL** är den **Post-back URL (Assertion Consumer Service URL)** (Återskickande-URL (URL för Assertion Consumer Service)) från Help Scout. Den börjar med `https://` 
 
     > [!NOTE]
-    > Värdena i dessa URL:er är bara exempel. Du måste uppdatera de här värdena från den faktiska svars-URL: en och identifieraren. Du får dessa värden från fliken **Enkel inloggning** under avsnittet Autentisering, som beskrivs senare i självstudien.
+    > Värdena i dessa URL:er är bara exempel. Du behöver uppdatera dessa värden från faktisk svars-URL och identifierare. Du får dessa värden från fliken **Enkel inloggning** under avsnittet Autentisering, som beskrivs senare i självstudien.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -125,13 +125,13 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för He
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Syftet med det här avsnittet är att skapa en test användare i Azure Portal som kallas B. Simon.
+Syftet med det här avsnittet är att skapa en testanvändare i Azure-portalen som heter B.Simon.
 
 1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -139,9 +139,9 @@ Syftet med det här avsnittet är att skapa en test användare i Azure Portal so
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **namn** anger du **B. Simon**.
+    a. I fältet **Namn** anger du **B.Simon**.
   
-    b. I fältet **användar namn** skriver du **B. Simon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@B.Simon dittföretagydomain.extension**  
     Till exempel, B.Simon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -150,7 +150,7 @@ Syftet med det här avsnittet är att skapa en test användare i Azure Portal so
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till hjälp Scout.
+I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Hjälpscout.
 
 1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Help Scout**.
 
@@ -160,7 +160,7 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
     ![Länken för Help Scout i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -168,23 +168,23 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialog rutan **användare och grupper** väljer du **B. Simon** i listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+5. Klicka på knappen **Välj** längst ned på skärmen **i** dialogrutan Användare **och grupper.**
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-## <a name="configure-help-scout-sso"></a>Konfigurera hjälp Scout SSO
+## <a name="configure-help-scout-sso"></a>Konfigurera Hjälp Scout SSO
 
-1. Om du vill automatisera konfigurationen i hjälpen Scout måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
+1. Om du vill automatisera konfigurationen i Help Scout måste du installera **webbläsartillägget My Apps Secure Sign-in** genom att klicka på **Installera tillägget**.
 
-    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+    ![Tillägg för mina appar](common/install-myappssecure-extension.png)
 
-1. När du har lagt till tillägg i webbläsaren, klickar du på **Konfigurera hjälp Scout** så att du kommer till hjälp Scout-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på hjälp Scout. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
+1. När du har lagt till tillägget i webbläsaren klickar du på **Konfigurera Hjälpscout** kommer att hänvisa dig till hjälpscoutprogrammet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Hjälpscouten. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
 
-    ![Konfigurera konfiguration](common/setup-sso.png)
+    ![Konfiguration av installationsprogrammet](common/setup-sso.png)
 
-1. Om du vill konfigurera hjälp Scout manuellt öppnar du ett nytt webbläsarfönster och loggar in på företags webbplatsen för Help Scout som administratör och utför följande steg:
+1. Om du vill konfigurera Help Scout manuellt öppnar du ett nytt webbläsarfönster och loggar in på din help scout-företagswebbplats som administratör och utför följande steg:
 
 1. Klicka på **Hantera** från den översta menyn och välj sedan **Företag** från den nedrullningsbara menyn.
 
@@ -206,7 +206,7 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
     ![Konfigurera enkel inloggning](./media/helpscout-tutorial/settings4.png)
 
-    a. I text rutan för **enkel inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
+    a. I textrutan **För enkel inloggnings-URL** klistrar du in värdet **för inloggnings-URL**, som du har kopierat från Azure-portalen.
 
     b. Klicka på **Ladda upp certifikat** för att ladda upp det **certifikat (Base64)** som laddats ned från Azure-portalen.
 
@@ -214,17 +214,17 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
     d. Slutligen kan du växla på **Force SAML Sign-on** (Framtvinga SAML-inloggning) om du vill att användare endast ska logga in på Help Scout med den här metoden. Om du ändå vill låta alternativet att logga in med deras Help Scout-autentiseringsuppgifter vara kvar kan du lämna detta avstängt. Även om det här aktiveras kan en Kontoägare alltid logga in på Help Scout med sitt kontolösenord.
 
-    e. Klicka på **Save** (Spara).
+    e. Klicka på **Spara**.
 
 ### <a name="create-help-scout-test-user"></a>Skapa Help Scout-testanvändare
 
-I det här avsnittet skapas en användare som heter B. Simon i hjälpen Scout. Help Scout har stöd för just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Help Scout skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter B.Simon i Hjälpscouten. Help Scout har stöd för just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Help Scout skapas en ny efter autentisering.
 
 ### <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Help Scout-panelen i åtkomstpanelen bör du automatiskt loggas in på Help Scout som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Help Scout-panelen i åtkomstpanelen bör du automatiskt loggas in på Help Scout som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -234,4 +234,4 @@ När du klickar på Help Scout-panelen i åtkomstpanelen bör du automatiskt log
 
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Försök använda Scout med Azure AD](https://aad.portal.azure.com/)
+- [Prova hjälpscout med Azure AD](https://aad.portal.azure.com/)

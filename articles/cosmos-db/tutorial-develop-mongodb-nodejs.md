@@ -1,5 +1,5 @@
 ---
-title: Node. js, vinkel-app med Azure Cosmos DB s API för MongoB (part1)
+title: Node.Js, kantig app med Azure Cosmos DB:s API för MongoB (Part1)
 description: Lär dig hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med hjälp av exakt samma API:er som du använder för MongoDB i den här videobaserade självstudieserien.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: d2e7ce959edffdb2e8c929c81837e0ac3fc3da9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75444691"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB
@@ -30,7 +30,7 @@ Den här självstudiekursen i flera delar består av följande uppgifter:
 > * [Skapa användargränssnittet med Angular](tutorial-develop-mongodb-nodejs-part3.md)
 > * [Skapa ett Azure Cosmos DB-konto med hjälp av Azure CLI](tutorial-develop-mongodb-nodejs-part4.md) 
 > * [Ansluta till Azure Cosmos DB med hjälp av Mongoose](tutorial-develop-mongodb-nodejs-part5.md)
-> * [Lägga till Post-, Put- och Delete-funktioner till appen](tutorial-develop-mongodb-nodejs-part6.md)
+> * [Lägg till funktioner för bokföring, inlägg och ta bort i appen](tutorial-develop-mongodb-nodejs-part6.md)
 
 Vill du skapa den här appen med React? Gå [den videobaserade självstudieserien om React](tutorial-develop-mongodb-react.md).
 

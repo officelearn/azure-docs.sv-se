@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie: Distribuera från GitHub till Azure App Service med Jenkins'
+title: 'Självstudiekurs: Distribuera från GitHub till Azure App Service med Jenkins'
 description: Konfigurera Jenkins för kontinuerlig integrering (CI) från GitHub och kontinuerlig distribution (CD) till Azure App Service för Java-webbappar
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: 9fcf178b71ac1f07bfb58cd2502701ae5392b472
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158400"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure App Service med kontinuerlig integrering och distribution i Jenkins
 
 Den här självstudien distribueras en Java-webbexempelapp från GitHub till [Azure App Service i Linux](/azure/app-service/containers/app-service-linux-intro) genom att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) i Jenkins. När du uppdaterar appen genom att push-överföra incheckningar till GitHub skapar och publicerar Jenkins om din app automatiskt till Azure App Service. Exempelappen i den här självstudien har utvecklats med hjälp av [Spring Boot](https://projects.spring.io/spring-boot/)-ramverket. 
 
-![Översikt över GitHub till Azure App Service distribution](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
+![Översikt över distributionen av GitHub till Azure App Service](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 I den här självstudien får du utföra följande uppgifter:
 
@@ -41,7 +41,7 @@ För att slutföra den här självstudien behöver du följande objekt:
 
   Om du inte har någon Jenkins-server kan du slutföra stegen nu i Azure-portalen: [Skapa Jenkins-server på en virtuell Linux-baserad dator i Azure](/azure/jenkins/install-jenkins-solution-template)
 
-* Ett [GitHub](https://github.com)-konto så att du kan få en fungerande kopia (förgrening) av Java-exempelappen. 
+* Ett [GitHub-konto](https://github.com) så att du kan skaffa en fungerande kopia (gaffel) för exempelappen Java.A GitHub account so you can get a working copy (fork) for the sample Java web app. 
 
 * [Azure CLI](/cli/azure/install-azure-cli), som du kan köra antingen från din lokala kommandorad eller [Azure Cloud Shell](/azure/cloud-shell/overview)
 
@@ -51,20 +51,20 @@ För att slutföra den här självstudien behöver du följande objekt:
 
    `https://<Jenkins-server-name>.<Azure-region>.cloudapp.azure.com`
 
-1. På Jenkins-huvudsidan väljer du **Hantera Jenkins** > **Hantera plugin-program**.
+1. På Jenkins huvudsida väljer du **Hantera Jenkins** > **Hantera plugins**.
 
    ![Hantera Jenkins-plugin-program](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-jenkins-plugins.png)
 
 1. På fliken **Tillgängligt** väljer du de här plugin-programmen:
 
-   - [Azure Apptjänst](https://plugins.jenkins.io/azure-app-service)
+   - [Azure App-tjänst](https://plugins.jenkins.io/azure-app-service)
    - [GitHub Branch Source](https://plugins.jenkins.io/github-branch-source)
-   - [Plugin-program för Jenkins Environment-insprutning](https://plugins.jenkins.io/envinject)
+   - Jenkins [miljö injektor Plug-in](https://plugins.jenkins.io/envinject)
    - [Azure-autentiseringsuppgifter](https://plugins.jenkins.io/azure-credentials)
 
    Om plugin-programmen inte visas kontrollerar du att de inte redan har installerats genom att titta på fliken **Installerade**.
 
-1. Installera dina valda plugin-program genom att välja **Ladda ned nu och installera efter omstart**.
+1. Om du vill installera de valda plugin-programmen väljer du **Hämta nu och installerar efter omstart**.
 
 1. När du är klar går du till Jenkins-menyn och väljer **Hantera Jenkins** så du kommer till Jenkins-hanteringssidan för kommande steg.
 
@@ -72,7 +72,7 @@ För att slutföra den här självstudien behöver du följande objekt:
 
 1. [Logga in på GitHub-lagringsplatsen för exempelappen Spring Boot](https://github.com/spring-guides/gs-spring-boot). 
 
-1. I det övre högra hörnet i GitHub väljer du **förgrening**.
+1. Välj **Gaffel**i det övre högra hörnet i GitHub .
 
    ![Förgreningsexempellager från GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/fork-github-repo.png)
 
@@ -96,17 +96,17 @@ Om du vill att Jenkins övervakar GitHub och svarar när nya incheckningar push-
 
 1. I **GitHub**-avsnittet anger du information för din GitHub-server. Från listan **Lägga till GitHub-server** väljer du **GitHub-server**. 
 
-   ![Lägg till GitHub-server i Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
+   ![Lägga till GitHub-server i Jenkins](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. Om egenskapen **Manage hooks** (Hantera hookar) inte är markerad markerar du den här egenskapen. Välj **Avancerat** så att du kan ange andra inställningar. 
 
-   ![Ange avancerade Jenkins-inställningar för GitHub-Server](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
+   ![Ange avancerade Jenkins-inställningar för GitHub Server](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
 1. I listan **Hantera ytterligare GitHub-åtgärder** väljer du **Konvertera inloggning och lösenord till token**.
 
-   ![Konvertera inloggning och lösen ord till token för GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
+   ![Konvertera inloggning och lösenord till token för GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/manage-additional-actions.png)
 
-1. Välj **Från användarnamn och lösenord** och ange ditt GitHub-användarnamn och -lösenord. När du är klar väljer du **skapa autentiseringsuppgifter för token**, vilket skapar en [GitHub-Pat (personal Access token)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
+1. Välj **Från användarnamn och lösenord** och ange ditt GitHub-användarnamn och -lösenord. När du är klar väljer du **Skapa tokenautentiseringsuppgifter**, som skapar en [GitHub-token (Personal Access Token)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
    ![Skapa GitHub-PAT från användarnamn och lösenord](media/tutorial-jenkins-deploy-web-app-azure-app-service/create-github-token-credentials.png)
 
@@ -118,7 +118,7 @@ Skapa därefter tjänstens huvudnamn för Azure som Jenkins använder för auten
 
 ## <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 
-I ett senare avsnitt skapar du ett Jenkins-pipeline-jobb som skapar din app från GitHub och distribuerar appen till Azure App Service. För att ge Jenkins tillgång till Azure utan att ange dina autentiseringsuppgifter skapar du [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) i Azure Active Directory för Jenkins. Tjänstens huvudnamn är en separat identitet som Jenkins kan använda för att autentisera åtkomst till Azure-resurser. Kör Azure CLI-kommandot [ **`az ad sp create-for-rbac`** ](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) för att skapa tjänstens huvudnamn, antingen från din lokala kommandorad eller Azure Cloud Shell, till exempel: 
+I ett senare avsnitt skapar du ett Jenkins-pipeline-jobb som skapar din app från GitHub och distribuerar appen till Azure App Service. För att ge Jenkins tillgång till Azure utan att ange dina autentiseringsuppgifter skapar du [tjänstens huvudnamn](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) i Azure Active Directory för Jenkins. Tjänstens huvudnamn är en separat identitet som Jenkins kan använda för att autentisera åtkomst till Azure-resurser. Om du vill skapa det här [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)tjänstens huvudnamn kör du kommandot Azure CLI , antingen från din lokala kommandorad eller Azure Cloud Shell, till exempel: 
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
@@ -126,7 +126,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
 Kontrollera att du använder tjänstens huvudnamn inom citattecken. Skapa även ett starkt lösenord baserat på [reglerna och begränsningarna för Azure Active Directory-lösenord](/azure/active-directory/active-directory-passwords-policy). Om du inte anger ett lösenord skapar Azure CLI ett lösenord. 
 
-Följande utdata genereras av kommandot **`create-for-rbac`** : 
+Här är utdata som **`create-for-rbac`** genereras av kommandot: 
 
 ```json
 {
@@ -146,7 +146,7 @@ Följande utdata genereras av kommandot **`create-for-rbac`** :
 
 ## <a name="add-service-principal-to-jenkins"></a>Lägga till tjänstens huvudnamn till Jenkins
 
-1. På Jenkins-huvudsidan väljer du **Autentiseringsuppgifter** > **System**. 
+1. På Jenkins huvudsida väljer du **Autentiseringssystem** > **System**. 
 
 1. På sidan **System** under **Domän** väljer du **Global credentials (unrestricted)** (Globala autentiseringsuppgifter (obegränsade)).
 
@@ -160,13 +160,13 @@ Följande utdata genereras av kommandot **`create-for-rbac`** :
 
    | Egenskap | Värde | Beskrivning | 
    |----------|-------|-------------| 
-   | **Prenumerations-ID** | <*yourAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips**! Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från antingen kommandoraden eller i Cloud Shell och sedan använda `id` GUID-värdet: <p>`az account list` | 
-   | **Klient-ID** | <*yourAzureServicePrincipal-ID*> | `appId` GUID-värdet som tidigare har skapats för Azure-tjänstens huvudnamn | 
+   | **Prenumerations-ID** | <*dinAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips**! Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från antingen kommandoraden eller i Cloud Shell och sedan använda `id` GUID-värdet: <p>`az account list` | 
+   | **Klient-ID** | <*dittAzureServicePrincipal-ID*> | `appId` GUID-värdet som tidigare har skapats för Azure-tjänstens huvudnamn | 
    | **Klienthemlighet** | <*yourSecurePassword*> | Värdet `password` eller ”hemligheten” du angav för Azure-tjänstens huvudnamn | 
-   | **Klient-ID** | <*yourAzureActiveDirectoryTenant-ID*> | `tenant` GUID-värdet för din Azure Active Directory-klient | 
-   | **ID** | <*yourAzureServicePrincipalName*> | `displayName`-värdet för Azure-tjänstens huvudnamn | 
+   | **Klient-ID:t** | <*dittAzureActiveDirectoryTenant-ID*> | `tenant` GUID-värdet för din Azure Active Directory-klient | 
+   | **ID** | <*dinAzureServicePrincipalName*> | `displayName`-värdet för Azure-tjänstens huvudnamn | 
 
-1. För att bekräfta att tjänstens huvud namn fungerar väljer du **Verifiera tjänstens huvud namn**. När du är klar väljer du **Ok**.
+1. Om du vill bekräfta att tjänstens huvudnamn fungerar väljer du **Verifiera tjänstens huvudnamn**. När du är klar väljer du **Ok**.
 
 Skapa sedan Jenkins-pipelinen som skapar och distribuerar din app.
 
@@ -178,9 +178,9 @@ I Jenkins skapar du pipeline-jobbet för att skapa och distribuera din app.
 
    ![Skapa en Jenkins-pipeline](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-new-item.png)
 
-1. Ange ett namn för din pipeline-jobb, till exempel ”My-Java-Web-App” och välj **Pipeline**. Klicka på **OK**längst ned.  
+1. Ange ett namn för din pipeline-jobb, till exempel ”My-Java-Web-App” och välj **Pipeline**. Längst ned väljer du **OK**.  
 
-   ![Namnge Jenkins pipeline-jobbet](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
+   ![Namnge Jenkins pipeline-jobb](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
 1. Konfigurera Jenkins med tjänstens huvudnamn så att Jenkins kan distribuera till Azure utan att använda dina autentiseringsuppgifter.
 
@@ -249,7 +249,7 @@ Ange nu det Build and Deployment-skript du vill att Jenkins ska använda.
 
 1. Välj pipeline-jobbet du skapade tidigare i Jenkins. 
 
-   ![Välj pipeline-jobbet Jenkins för din webbapp](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
+   ![Välj Jenkins pipeline-jobb för din webbapp](media/tutorial-jenkins-deploy-web-app-azure-app-service/select-pipeline-job.png)
 
 1. På menyn till vänster väljer du **Konfigurera**.
 
@@ -267,7 +267,7 @@ Ange nu det Build and Deployment-skript du vill att Jenkins ska använda.
 
    När du är klar ser pipelinedefinitionen ut som i det här exemplet: 
 
-   ![Peka din Jenkins-pipeline i skriptet](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
+   ![Peka din Jenkins pipeline på skriptet](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
 1. När du är klar väljer du **Spara**.
 
@@ -305,7 +305,7 @@ Sedan skapar och distribuerar du din app till Azure App Service.
 
    `complete/src/main/java/Hello/Application.java`
    
-1. Välj **Redigera filen**i det övre högra hörnet i GitHub.
+1. Välj **Redigera**filen i det övre högra hörnet i GitHub .
 
 1. Gör den här ändringen i metoden `commandLineRunner()` och checka in ändringen till lagringsplatsens `master`-gren. Incheckningen på `master`-grenen startar en version i Jenkins. 
    

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Speech SDK för python Platform setup – tal service'
+title: 'Snabbstart: Tal SDK för Python-plattformsinstallation - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform för att använda python med Speech service SDK.
+description: Använd den här guiden för att konfigurera din plattform för att använda Python med taltjänsten SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
 ms.openlocfilehash: 458a6940ce214ef1931a2cc9ee95f2cb5ca16779
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924903"
 ---
-Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för python. Om du bara vill att paket namnet ska komma igång med ditt eget kör du `pip install azure-cognitiveservices-speech`.
+Den här guiden visar hur du installerar [Tal SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Python. Om du bara vill att paketnamnet ska `pip install azure-cognitiveservices-speech`komma igång på egen hand kör du .
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -25,28 +25,28 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
 
 - Python Speech SDK-paketet är tillgängligt för dessa operativsystem:
   - Windows: x64 och x86
-  - Mac: macOS X version 10,12 eller senare
-  - Linux: Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8 på x64
+  - Mac: macOS X version 10.12 eller senare
+  - Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8 på x64
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Linux-plattformar som stöds kräver vissa bibliotek installerade (`libssl` för Secure Sockets Layer-support och `libasound2` för ljud support). Se distributionen nedan för de kommandon som behövs för att installera rätt versioner av dessa bibliotek.
+- Linux-plattformar som stöds kräver`libssl` vissa installerade bibliotek (för stöd för säkert socketlager och `libasound2` för ljudstöd). Se din distribution nedan för de kommandon som behövs för att installera rätt versioner av dessa bibliotek.
 
-  - På Ubuntu kör du följande kommandon för att installera de nödvändiga paketen:
+  - På Ubuntu kör du följande kommandon för att installera de paket som krävs:
 
         ```sh
         sudo apt-get update
         sudo apt-get install build-essential libssl1.0.0 libasound2
         ```
 
-  - På Debian 9 kör du följande kommandon för att installera de nödvändiga paketen:
+  - På Debian 9 kör du följande kommandon för att installera de paket som krävs:
 
         ```sh
         sudo apt-get update
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - På RHEL/CentOS 8 kör du följande kommandon för att installera de nödvändiga paketen:
+  - På RHEL/CentOS 8 kör du följande kommandon för att installera de paket som krävs:
 
         ```sh
         sudo yum update
@@ -54,45 +54,45 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
         ```
 
 > [!NOTE]
-> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> På RHEL/CentOS 8 följer du instruktionerna för [hur du konfigurerar OpenSSL för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
-- I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Observera att installationen för första gången kan kräva att du startar om Windows innan du fortsätter med den här guiden.
-- Slutligen behöver du [Python 3,5 till 3,8](https://www.python.org/downloads/). Kontrol lera installationen genom att öppna en kommando tolk och skriva kommandot `python --version` och kontrol lera resultatet. Om den är korrekt installerad får du svaret "python 3.5.1" eller liknande.
+- I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Observera att om du installerar detta för första gången kan det krävas att du startar om Windows innan du fortsätter med den här guiden.
+- Och slutligen behöver du [Python 3,5 till 3,8](https://www.python.org/downloads/). Om du vill kontrollera installationen öppnar du `python --version` en kommandotolk och skriver kommandot och kontrollerar resultatet. Om den är korrekt installerad får du svaret "Python 3.5.1" eller liknande.
 
-## <a name="install-the-speech-sdk-from-pypi"></a>Installera talet SDK från PyPI
+## <a name="install-the-speech-sdk-from-pypi"></a>Installera Tal-SDK från PyPI
 
-Om du använder en egen miljö eller skapar verktyg kör du följande kommando för att installera talet SDK från [pypi](https://pypi.org/). För användare av Visual Studio Code går du vidare till nästa underavsnitt för Guidad installation.
+Om du använder din egen miljö eller byggverktyg kör du följande kommando för att installera Tal SDK från [PyPI](https://pypi.org/). För användare av Visual Studio-kod går du vidare till nästa underavsnitt för guidad installation.
 
 ```sh
 pip install azure-cognitiveservices-speech
 ```
 
-Om du använder macOS kan du behöva köra följande kommando för att få `pip` kommandot ovan att fungera:
+Om du använder macOS kan du behöva köra följande `pip` kommando för att få kommandot ovan att fungera:
 
 ```sh
 python3 -m pip install --upgrade pip
 ```
 
-När du har använt `pip` för att installera `azure-cognitiveservices-speech`kan du använda tal-SDK: n genom att importera namn området till dina python-projekt.
+När du har använt `pip` för `azure-cognitiveservices-speech`att installera kan du använda Tal-SDK genom att importera namnområdet till python-projekten.
 
 ```py
 import azure.cognitiveservices.speech as speechsdk
 ```
 
-## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Installera tal-SDK med Visual Studio Code
+## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Installera Tal-SDK med Visual Studio-kod
 
-1. Hämta och installera den senaste versionen av [python](https://www.python.org/downloads/) som stöds för din plattform, 3,5 till 3,8.
-   - Windows-användare ser till att välja "Lägg till python i sökvägen" under installations processen.
+1. Ladda ned och installera den senaste versionen av [Python](https://www.python.org/downloads/) som stöds för din plattform, 3,5 till 3,8.
+   - Windows-användare ser till att välja "Lägg till Python i din PATH" under installationsprocessen.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Öppna Visual Studio Code och installera Python-tillägget. Välj **Arkiv** > **Inställningar** > **Tillägg** på menyn. Sök efter **python** och klicka på **Installera**.
+1. Öppna Visual Studio Code och installera Python-tillägget. Välj **File** > **Filinställningar** > **Tillägg** på menyn. Sök efter **Python** och klicka på **Installera**.
 
    ![Installera Python-tillägget](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
-1. I Visual Studio Code ska du också installera python-paketet för tal-SDK från den integrerade kommando raden:
-   1. Öppna en Terminal (från de nedrullningsbara menyerna, **terminal** > **ny terminal**)
-   1. I terminalen som öppnas anger du kommandot `python -m pip install azure-cognitiveservices-speech`
+1. Installera även Speech SDK Python-paketet från den integrerade kommandoraden:
+   1. Öppna en terminal (från rullgardinsmenyerna, **Terminal** > **New Terminal**)
+   1. I terminalen som öppnas anger du kommandot`python -m pip install azure-cognitiveservices-speech`
 
-Om du är nybörjare på Visual Studio Code kan du läsa mer i [dokumentationen för Visual Studio Code](https://code.visualstudio.com/docs). Mer information om Visual Studio Code och python finns i [själv studie kursen om Visual Studio Code python](https://code.visualstudio.com/docs/python/python-tutorial).
+Om du inte har någon ny visual studiokod kan du läsa den mer omfattande [Visual Studio-koddokumentationen](https://code.visualstudio.com/docs). Mer information om Visual Studio Code och Python finns i [självstudiekursen Visual Studio Code Python](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ## <a name="support-and-updates"></a>Support och uppdateringar
 

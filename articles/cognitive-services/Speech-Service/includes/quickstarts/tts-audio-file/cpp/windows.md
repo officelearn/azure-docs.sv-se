@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: syntetisera tal i Audio-fil C++ , (Windows) – tal service'
+title: 'Snabbstart: Syntetisera tal i ljudfil, C++ (Windows) - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,25 +11,25 @@ ms.topic: include
 ms.date: 08/19/2019
 ms.author: wolfma
 ms.openlocfilehash: 55bf7a1753b08212eab2026471662de5c1c36452
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925224"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=windows)
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Öppna källfilen **helloworld.cpp**.
 
-1. Ersätt all kod med följande kodfragment:
+1. Ersätt all kod med följande utdrag:
 
    ```C++
 
@@ -72,17 +72,17 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Ersätt strängen `helloworld.wav` med ditt eget fil namn.
+1. Ersätt strängen `helloworld.wav` med ditt eget filnamn.
 
-1. Välj **arkiv** > **Spara alla**på Meny raden.
+1. Välj Spara**alla** **på** > menyraden .
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
+1. Välj **Felsökning** > **Starta felsökning** (eller tryck på **F5)** för att starta **helloworld-programmet.**
 
-1. Texten konverteras till tal och sparas i de ljuddata som anges.
+1. Texten konverteras till tal och sparas i de angivna ljuddata.
 
    ```text
    Speech synthesized to [helloworld.wav] for text [Hello world!]
@@ -95,4 +95,4 @@ Innan du börjar ska du se till att:
 ## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Spela in anpassade röstexempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

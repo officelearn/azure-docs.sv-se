@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Hämta bild insikter med hjälp av C# REST API och-visuell sökning i Bing'
+title: 'Snabbstart: Få bildinsikter med REST API och C# - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
 description: Ta reda på hur du laddar upp en bild till API:et för visuell sökning i Bing och får information om den.
 services: cognitive-services
@@ -11,27 +11,27 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446676"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API ochC#
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Snabbstart: Hämta bildinsikter med hjälp av Bing Visual Search REST API och C #
 
-Den här snabb starten visar hur du laddar upp en avbildning till API för visuell sökning i Bing och visar de insikter som returneras.
+Den här snabbstarten visar hur du laddar upp en bild till API:et för visuell sökning i Bing och visar de insikter som returneras.
 
 ## <a name="prerequisites"></a>Krav
 
-* En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
-* [JSON.net-ramverket](https://www.newtonsoft.com/json), som är tillgängligt som ett NuGet-paket.
-* Om du använder Linux/MacOS kan du köra det här programmet med [mono](https://www.mono-project.com/).
+* Alla utgåvor av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* Den [Json.NET ramen](https://www.newtonsoft.com/json), finns som en NuGet paket.
+* Om du använder Linux/MacOS kan du köra det här programmet med [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny konsol lösning med namnet BingSearchApisQuickStart i Visual Studio. Lägg till följande namn områden i huvud kod filen:
+1. Skapa en ny konsollösning med namnet BingSearchApisQuickStart i Visual Studio. Lägg till följande namnområden i huvudkodfilen:
 
     ```csharp
     using System;
@@ -41,7 +41,7 @@ Den här snabb starten visar hur du laddar upp en avbildning till API för visue
     using System.Collections.Generic;
     ```
 
-2. Lägg till variabler för prenumerations nyckeln, slut punkten och sökvägen till den avbildning som du vill ladda upp. `uriBase` kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för resursen:
+2. Lägg till variabler för din prenumerationsnyckel, slutpunkt och sökväg till den bild du vill överföra. `uriBase`kan vara den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs:
 
     ```csharp
         const string accessKey = "<my_subscription_key>";
@@ -49,7 +49,7 @@ Den här snabb starten visar hur du laddar upp en avbildning till API för visue
         static string imagePath = @"<path_to_image>";
     ```
 
-3. Skapa en metod med namnet `GetImageFileName()` för att hämta sökvägen till din avbildning:
+3. Skapa en `GetImageFileName()` metod som heter för att hämta sökvägen till bilden:
     
     ```csharp
     static string GetImageFileName(string path)
@@ -58,7 +58,7 @@ Den här snabb starten visar hur du laddar upp en avbildning till API för visue
             }
     ```
 
-4. Skapa en metod för att hämta binära data för avbildningen:
+4. Skapa en metod för att hämta den binära data av bilden:
 
     ```csharp
     static byte[] GetImageBinary(string path)
@@ -69,7 +69,7 @@ Den här snabb starten visar hur du laddar upp en avbildning till API för visue
 
 ## <a name="build-the-form-data"></a>Skapa formulärdata
 
-Om du vill ladda upp en lokal avbildning skapar du först formulär data att skicka till API: et. Formulär data måste innehålla `Content-Disposition`s huvudet, men dess `name`-parameter måste anges till "bild" och parametern `filename` kan anges till valfri sträng. Innehållet i formuläret innehåller binära data för bilden. Den maximala bild storlek som du kan ladda upp är 1 MB.
+Om du vill ladda upp en lokal avbildning skapar du först formulärdata som ska skickas till API:et. Formulärdata måste innehålla `Content-Disposition` huvudet, `name` dess parameter måste anges till `filename` "image", och parametern kan ställas in på valfri sträng. Innehållet i formuläret innehåller den binära data i bilden. Den maximala bildstorleken du kan ladda upp är 1 MB.
 
     ```
     --boundary_1234-abcd
@@ -80,7 +80,7 @@ Om du vill ladda upp en lokal avbildning skapar du först formulär data att ski
     --boundary_1234-abcd--
     ```
 
-1. Lägg till sträng strängar för att formatera POST formulär data. Avgränsnings strängar bestämmer Start-, slut-och rad matnings tecken för data:
+1. Lägg till gränssträngar för att formatera POST-formulärdata. Gränssträngar bestämmer start-, slut- och nyradstecken för data:
 
     ```csharp
     // Boundary strings for form data in body of POST.
@@ -90,14 +90,14 @@ Om du vill ladda upp en lokal avbildning skapar du först formulär data att ski
     static string EndBoundaryTemplate = "--{0}--";
     ```
 
-2. Använd följande variabler för att lägga till parametrar i formulär data:
+2. Använd följande variabler för att lägga till parametrar i formulärdata:
 
     ```csharp
     const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
     const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
     ```
 
-3. Skapa en funktion med namnet `BuildFormDataStart()` för att skapa början av formulär data med hjälp av gränser-strängar och avbildnings Sök väg:
+3. Skapa en `BuildFormDataStart()` funktion med namnet för att skapa början av formulärdata med hjälp av gränssträngar och bildsökväg:
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -111,7 +111,7 @@ Om du vill ladda upp en lokal avbildning skapar du först formulär data att ski
         }
     ```
 
-4. Skapa en funktion med namnet `BuildFormDataEnd()` för att skapa slutet av formulär data med hjälp av gränser-strängarna:
+4. Skapa en `BuildFormDataEnd()` funktion med namnet för att skapa slutet av formulärdata med hjälp av gränssträngarna:
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
@@ -122,11 +122,11 @@ Om du vill ladda upp en lokal avbildning skapar du först formulär data att ski
 
 ## <a name="call-the-bing-visual-search-api"></a>Anropa API för visuell sökning i Bing
 
-1. Skapa en funktion för att anropa Visuell sökning i Bing-slutpunkten och returnera JSON-svaret. Funktionen tar början och slutet av formulär data, en byte mat ris som innehåller bilddata och ett `contentType`-värde.
+1. Skapa en funktion för att anropa slutpunkten Bing Visual Search och returnera JSON-svaret. Funktionen startar och avslutar formulärdata, en bytematris som innehåller `contentType` bilddata och ett värde.
 
 2. Använd en `WebRequest` för att lagra URI, contentType-värde och rubriker.  
 
-3. Använd `request.GetRequestStream()` för att skriva dina formulär-och bilddata och hämta sedan svaret. Funktionen bör likna den som anges nedan:
+3. Används `request.GetRequestStream()` för att skriva dina formulär- och bilddata och hämta sedan svaret. Din funktion bör likna den nedan:
         
     ```csharp
         static string BingImageSearch(string startFormData, string endFormData, byte[] image, string contentTypeValue)
@@ -156,16 +156,16 @@ Om du vill ladda upp en lokal avbildning skapar du först formulär data att ski
         }
     ```
 
-## <a name="create-the-main-method"></a>Skapa main-metoden
+## <a name="create-the-main-method"></a>Skapa huvudmetoden
 
-1. Hämta fil namnet och binära data för din avbildning i appens `Main` metod:
+1. I `Main` metoden för ditt program, hämta filnamn och binära data i din bild:
 
     ```csharp
     var filename = GetImageFileName(imagePath);
     var imageBinary = GetImageBinary(imagePath);
     ```
 
-2. Ställ in POST-texten genom att formatera gränsen för den. Anropa sedan `startFormData()` och `endFormData` för att skapa formulär data:
+2. Ställ in POST-texten genom att formatera gränsen för den. Ring `startFormData()` sedan `endFormData` och skapa formulärdata:
 
     ```csharp
     // Set up POST body.
@@ -174,13 +174,13 @@ Om du vill ladda upp en lokal avbildning skapar du först formulär data att ski
     var endFormData = BuildFormDataEnd(boundary);
     ```
 
-3. Skapa `ContentType`-värdet genom att formatera `CONTENT_TYPE_HEADER_PARAMS` och formulärets data gränser:
+3. Skapa `ContentType` värdet genom `CONTENT_TYPE_HEADER_PARAMS` att formatera och formulärdatagränsen:
 
     ```csharp
     var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
     ```
 
-4. Hämta API-svaret genom att anropa `BingImageSearch()` och skriva ut svaret:
+4. Hämta API-svaret `BingImageSearch()` genom att ringa och skriva ut svaret:
 
     ```csharp
     var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
@@ -191,9 +191,9 @@ Om du vill ladda upp en lokal avbildning skapar du först formulär data att ski
 
 ## <a name="using-httpclient"></a>Använda HttpClient
 
-Om du använder `HttpClient`kan du använda klassen `MultipartFormDataContent` för att skapa formulär data. Använd bara följande avsnitt med kod för att ersätta motsvarande metoder i föregående exempel.
+Om du `HttpClient`använder kan `MultipartFormDataContent` du använda klassen för att skapa formulärdata. Använd bara följande kodavsnitt för att ersätta motsvarande metoder i föregående exempel.
 
-Ersätt `Main`-metoden med den här koden:
+Ersätt `Main` metoden med den här koden:
 
 ```csharp
         static void Main()
@@ -233,7 +233,7 @@ Ersätt `Main`-metoden med den här koden:
         }
 ```
 
-Ersätt `BingImageSearch`-metoden med den här koden:
+Ersätt `BingImageSearch` metoden med den här koden:
 
 ```csharp
         /// <summary>
@@ -270,4 +270,4 @@ Ersätt `BingImageSearch`-metoden med den här koden:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en Visuell sökning webb program med en enda sida](../tutorial-bing-visual-search-single-page-app.md)
+> [Skapa en ensidig visuell sökwebbapp](../tutorial-bing-visual-search-single-page-app.md)

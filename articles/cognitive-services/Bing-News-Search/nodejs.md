@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: utföra en nyhets sökning med Node. js – Nyhetssökning i Bing REST API'
+title: 'Snabbstart: Gör en nyhetssökning med Node.js - REST API för bing-nyheters söksökning'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten om du vill skicka en begäran till REST-API:et för nyhetssökning i Bing med hjälp av Node.js och få ett JSON-svar.
 services: cognitive-services
@@ -12,19 +12,19 @@ ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 42ac6cac972374dbd1db42b75742212046d2ce3e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383140"
 ---
-# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snabb start: utför en nyhets sökning med Node. js och Nyhetssökning i Bing REST API
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Snabbstart: Gör en nyhetssökning med Node.js och REST-API:et för sökning efter Bing-nyheter
 
 Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla JavaScript-programmet skickar en sökfråga till API:et och visar rådataresultatet.
 
 Även om det här programmet är skrivet i JavaScript och körs i Node.js, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
+Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingNewsSearchv7.js).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -43,7 +43,7 @@ Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Sa
     let https = require('https');
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs. 
+2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs. 
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -70,7 +70,7 @@ Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Sa
         });
         ```
 
-    3. När en **slut** flagga signaleras kan JSON och huvuden visas.
+    3. När **end** en slutflagga signaleras kan JSON och rubriker visas.
 
         ```javascript
         response.on('end', function () {
@@ -183,4 +183,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en enkelsidig webbapp](tutorial-bing-news-search-single-page-app.md)
+> [Skapa en ensidig webbapp](tutorial-bing-news-search-single-page-app.md)

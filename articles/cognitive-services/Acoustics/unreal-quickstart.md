@@ -1,7 +1,7 @@
 ---
-title: Snabb start för projekt med Unreal
+title: Snabbstart för projektakustik med Unreal
 titlesuffix: Azure Cognitive Services
-description: Använd exempel innehåll för att experimentera med projekts akustiska design kontroller i Unreal och Wwise och distribuera till Windows-skrivbordet.
+description: Använd exempelinnehåll för att experimentera med designkontroller för Projektakustik i Unreal och Wwise och distribuera till Windows-skrivbordet.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,90 +12,90 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: d3afcded894f72626a4f24bcbe85c34ac1329c29
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72242922"
 ---
-# <a name="project-acoustics-unrealwwise-quickstart"></a>Snabb start för projekt Akustisker Unreal/Wwise
-I den här snabb starten ska du experimentera med Project-akustiska design kontroller genom att använda exempel innehåll för Unreal-motorn och Wwise.
+# <a name="project-acoustics-unrealwwise-quickstart"></a>Projekt Akustik Unreal / Wwise snabbstart
+I den här snabbstarten experimenterar du med designkontroller för Projektakustik med hjälp av exempelinnehåll för Unreal Engine och Wwise.
 
-Program varu krav för att använda exempel innehållet:
-* [Unreal-motor](https://www.unrealengine.com/) 4,22
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) -2019.1.2
+Programvarukrav för användning av exempelinnehållet:
+* [Overklig motor](https://www.unrealengine.com/) 4,22
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
-## <a name="download-the-sample-package"></a>Ladda ned exempel paketet
-Hämta [exempel paketet Project Akustiske Unreal och Wwise](https://www.microsoft.com/download/details.aspx?id=58090). Exempel paketet innehåller:
-- Unreal-motorns projekt
-- Wwise-projekt för Unreal-projektet
-- Plugin-programmet för Project Akustisker Wwise
+## <a name="download-the-sample-package"></a>Ladda ner exempelpaketet
+Ladda ner [exempelpaketet Project Acoustics Unreal och Wwise](https://www.microsoft.com/download/details.aspx?id=58090). Provförpackningen innehåller:
+- Overkligt motorprojekt
+- Wwise-projektet för Unreal-projektet
+- Projekt Akustik Wwise plug-in
 
-## <a name="set-up-the-project-acoustics-sample-project"></a>Konfigurera projektets akustiska exempel projekt
-Först installerar du plugin-programmet för Project-akustiskt i Wwise. Distribuera sedan Wwise-binärfilerna till Unreal-projektet. Justera sedan Wwise Unreal-plugin-programmet så att det stöder projekt Akustisker.
+## <a name="set-up-the-project-acoustics-sample-project"></a>Konfigurera exempelprojektet Projekt Akustik
+Installera först plug-in-programmet Project Acoustics i Wwise. Distribuera sedan Wwise-binärfilerna till Unreal-projektet. Justera sedan Wwise Unreal-plugin-programmet för att stödja Projektakustik.
 
-### <a name="install-the-project-acoustics-wwise-plug-in"></a>Installera plugin-programmet för Project Akustisker Wwise
-Öppna Start programmet för Wwise. Välj **Lägg till från katalog**under **installera nya plugin-program**på fliken **plugin** -program. Välj den *AcousticsWwisePlugin\ProjectAcoustics* -katalog som ingår i paketet som du laddade ned.
+### <a name="install-the-project-acoustics-wwise-plug-in"></a>Installera plug-in-programmet Project Acoustics Wwise
+Öppna Wwise Launcher. På fliken **Plugins** under **Installera nya plugin-program**väljer du **Lägg till från katalogen**. Välj katalogen *AcousticsWwisePlugin\ProjectAcoustics* som ingick i paketet som du hämtade.
 
-![Alternativet för att installera plugin-programmet Wwise i Wwise Launcher](media/wwise-install-new-plugin.png)
+![Alternativet att installera Wwise-plugin-programmet i Wwise Launcher](media/wwise-install-new-plugin.png)
 
-### <a name="add-wwise-binaries-to-the-project-acoustics-unreal-sample-project"></a>Lägga till Wwise-binärfiler i projekt Akustiske Unreal-exempelprojektet
-1. I Wwise Launcher väljer du fliken **Unreal motor** . 
-1. Välj menyn "Hamburger" (ikon) bredvid de **senaste Unreal-motorns projekt**och välj sedan **Bläddra efter projekt**. Öppna filen sample Unreal Project *. uproject* i paketet *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
+### <a name="add-wwise-binaries-to-the-project-acoustics-unreal-sample-project"></a>Lägg till Wwise-binärfiler i exempelprojektet Project Acoustics Unreal
+1. Välj fliken **Unreal Engine** i Wwise Launcher. 
+1. Välj menyn "hamburgare" (ikon) **bredvid Senaste unreal engine-projekt**och välj sedan **Bläddra efter projekt**. Öppna exempelfilen Unreal project *.uproject* i paketet *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
 
-   ![Fliken Unreal i Wwise Launcher](media/wwise-unreal-tab.png)
+   ![Fliken Overkligt i Wwise Launcher](media/wwise-unreal-tab.png)
 
-3. Bredvid projektets akustiska exempel projekt väljer du **integrera Wwise i Project**.
+3. Bredvid exempelprojektet Project Acoustics väljer du **Integrera Wwise i Project**.
 
-   ![Wwise-Unreal visar projektet med akustiskt spel med alternativet integrera markerat.](media/wwise-acoustics-game-project.png)
+   ![Wwise Launcher visar akustikspelet Unreal-projektet med alternativet Integrera markerat.](media/wwise-acoustics-game-project.png)
 
-### <a name="extend-wwise-unreal-plug-in-functionality"></a>Utöka funktioner för Wwise Unreal-plugin
-Plugin-programmet för Project Akustiske Unreal behöver ytterligare beteende som exponeras från plugin-API: et för Wwise Unreal. Kör batch-filen som medföljde plugin-programmet för Project Akustiske Unreal för att automatisera dessa ändringar.
-* I *AcousticsGame\Plugins\ProjectAcoustics\Resources*kör du *PatchWwise. bat*.
+### <a name="extend-wwise-unreal-plug-in-functionality"></a>Utöka Wwise Unreal plug-in-funktioner
+Projektet Akustik Unreal plug-in behöver ytterligare beteende exponeras från Wwise Unreal plug-in API. Kör batchfilen som medföljde plugin-programmet Project Acoustics Unreal för att automatisera dessa ändringar.
+* Inuti *AcousticsGame\Plugins\ProjectAcoustics\Resurser*, kör *PatchWwise.bat*.
 
-    ![Skriptet för att korrigera det Wwise-projekt som är markerat i ett fönster i Utforskaren](media/patch-wwise-script.png)
+    ![Skriptet för att korrigera Wwise-projektet markerat i ett Utforskarfönster](media/patch-wwise-script.png)
 
-* Om du inte har installerat DirectX SDK: beroende på vilken version av Wwise du använder kan du behöva kommentera ut raden som innehåller `DXSDK_DIR` i *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs*:
+* Om du inte har DirectX SDK installerat: Beroende på vilken version av Wwise du använder, kan `DXSDK_DIR` du behöva kommentera den linje som finns i *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs*:
 
-    ![Kod redigeraren visar "DXSDK"-kommentaren](media/directx-sdk-comment.png)
+    ![Koden redaktör som visar "DXSDK" kommenterade ut](media/directx-sdk-comment.png)
 
-* Om du kompilerar med hjälp av Visual Studio 2019: för att undvika ett länknings fel med Wwise, ändra standardvärdet *VSVersion* i *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* till **vc150**manuellt:
+* Om du kompilerar med Visual Studio 2019: För att komma runt ett länkfel med Wwise ändrar du standardvärdet *VSVersion* i *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* till **vc150**:
 
-    ![Kod redigeraren med VSVersion ändrades till "vc150"](media/vsversion-comment.png)
+    ![Kodredigeraren med VSVersion har ändrats till "vc150"](media/vsversion-comment.png)
 
-### <a name="open-the-unreal-project"></a>Öppna Unreal-projektet 
-När du öppnar Unreal-projektet kommer du att uppmanas att återskapa moduler. Välj **Ja**.
+### <a name="open-the-unreal-project"></a>Öppna unrealprojektet 
+När du öppnar Unreal-projektet uppmanas du att återskapa moduler. Välj **Ja**.
 
-Om det inte går att öppna projektet på grund av build-fel, kontrol lera att du har installerat plugin-programmet för Project Akustiske Wwise till samma version av Wwise som användes i projektets akustiska exempel projekt.
+Om det går inte att öppna projektet på grund av byggfel kontrollerar du att du har installerat plugin-programmet Project Acoustics Wwise till samma version av Wwise som användes i exempelprojektet Project Acoustics.
 
-Om du använder en version av [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) tidigare än version 2019,1 kan du inte skapa ljud banker med hjälp av projektets akustiska exempel projekt. Du måste integrera Wwise version 2019,1 i exempelprojektet.
+Om du använder en version av [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) tidigare än version 2019.1 kan du inte generera ljudbanker med hjälp av exempelprojektet Project Acoustics. Du måste integrera Wwise version 2019.1 i exempelprojektet.
 
-## <a name="experiment-with-project-acoustics-design-controls"></a>Experimentera med design kontroller för projekt akustiskt
-Lyssna på hur scenen låter genom att välja knappen Spela upp i Unreal-redigeraren. Använd W-, A-, S-och D-nycklarna och musen för att flytta runt. Om du vill se kortkommandon för ytterligare kontroller väljer du F1.
+## <a name="experiment-with-project-acoustics-design-controls"></a>Experimentera med designkontroller för projektakustik
+Lyssna på hur scenen låter genom att välja uppspelningsknappen i Unreal-redigeraren. Använd knapparna W, A, S och D och musen för att flytta runt. Om du vill visa kortkommandon för ytterligare kontroller väljer du F1.
 
-Följande information beskriver några design aktiviteter att testa.
+Följande information beskriver några designaktiviteter att prova.
 
 ### <a name="modify-occlusion-and-transmission"></a>Ändra ocklusion och överföring
-Det finns projekt med projekt akustiskt per käll projekt på varje Unreal ljud aktör.
+Det finns designkontroller per källa för Project Acoustics på varje Unreal-ljudskådespelare.
 
-![Unreal-redigeraren akustiskr design kontroller](media/demo-scene-sound-source-design-controls.png)
+![Designkontrollerna för Overklig editorakustik](media/demo-scene-sound-source-design-controls.png)
 
-Om **ocklusion** multiplikator är större än 1 (Standardvärdet är 1) är ocklusion exaggerated. En inställning på mindre än 1 gör ocklusion-effekterna mer diskreta.
+Om **Ocklusionsmultiplikatorn** är större än 1 (standardvärdet är 1) överdrivs ocklusionen. En inställning på mindre än 1 gör ocklusionseffekten mer subtil.
 
-Om du vill aktivera överföring via vägg flyttar du skjutreglaget för **överföring (dB)** bort från den lägsta nivån.
+Om du vill aktivera växellåda flyttar du skjutreglaget **Transmission (dB)** från den lägsta nivån.
 
-### <a name="modify-wetness-for-a-source"></a>Ändra wetness för en källa
-Om du vill ändra hur snabbt wetness ändringar med avstånd använder du **perceptuellens avstånds tänjning**. Projekt akustiskt beräknar våta nivåer i hela utrymmet genom simulering. Nivåerna varierar smidigt med avstånd och ger en ikon för perceptuell avstånd. Om du vill exaggerate den här åtgärden ökar du avstånds nivåns våta nivåer för att öka avstånds förvrängningen. Om du tänjer värden på mindre än 1 blir den avstånds Reverberation mer diskret. Du kan också göra bättre justeringar av den här funktionen genom inställningen **wetness (dB)** .
+### <a name="modify-wetness-for-a-source"></a>Ändra väta för en källa
+Om du vill ändra hur snabbt vätan förändras med avstånd använder du **Perceptuell distansförskjutning**. Project Acoustics beräknar våta nivåer i hela utrymmet genom simulering. Nivåerna varierar smidigt med avstånd och ger perceptuella avståndssignaler. För att överdriva denna effekt, öka avståndsrelaterade våtnivåer för att öka avståndsförskjutningen. Warping värden på mindre än 1 gör avstånd-baserade efterklang ändras mer subtila. Du kan också göra finare justeringar av denna effekt genom inställningen **Wetness (dB).**
 
-Om du vill öka minsknings tiden i hela utrymmet justerar du **tids skalan för minskning**. Tänk dig ett fall där simulerings resultatet är en minsknings tid på 1,5 sekunder. Att ställa in **minsknings tids skalan** till 2 resulterar i en minsknings tid på 3 sekunder som tillämpas på källan.
+Justera Förfallstiden i hela utrymmet genom att justera **Förfallstidsskalan**. Tänk dig ett fall där simuleringsresultatet är en sönderfallstid på 1,5 sekunder. Om du ställer in **förfallstidsskalan** till 2 resulterar det i en sönderfallstid på 3 sekunder som tillämpas på källan.
 
-### <a name="modify-distance-based-attenuation"></a>Ändra avstånds beroende dämpning
-Plugin-programmet för Project akustisker Wwises mixer respekterar den avstånds dämpning per källa som är inbyggd i Wwise. Om du ändrar den här kurvan ändras den torra Sök vägs nivån. Plugin-programmet för projekt akustiskt justerar den våta nivån för att bibehålla den våta/torra mix som anges av kontrollerna för simulering och design.
+### <a name="modify-distance-based-attenuation"></a>Ändra avståndsbaserad dämpning
+Projektet Akustik Wwise mixer plug-in avseender per källa avstånd-baserad dämpning som är inbyggd i Wwise. Om du ändrar kurvan ändras torrbanasnivån. Plug-in-projektet akustik justerar våtnivån för att bibehålla den våta/torra blandning som anges i simulerings- och konstruktionskontrollerna.
 
-![Den Wwise-dämpande kurv panelen visar att den är dämpad till 0 före simuleringens gränser](media/demo-sounds-attenuation.png)
+![Wwise dämpning kurva panel som visar dämpning går till 0 före simuleringsgränsen](media/demo-sounds-attenuation.png)
 
-Projekt akustiskt beräknas i en "simulerings region"-ruta som är centrerad runt varje simulerad Player-plats. De akustiska till gångarna i exempel paketet var bakade med en radie på 45 meter i en simulerings region. Dämpningar har utformats för att falla 0 före 45 meter. Även om den här utfallet inte är ett strikt krav, innebär det att bara geometrin inom 45 meter från lyssnaren kommer att occlude ljud.
+Project Acoustics beräknar i en "simuleringsregion"-ruta som är centrerad kring varje simulerad spelarplats. Akustiktillgångarna i provpaketet bakades med en simuleringsregionradie på 45 meter. Dämpningar var utformade för att falla till 0 innan 45 meter. Även om denna falloff är inte ett strikt krav, bär det förbehållet att endast geometri inom 45 meter från lyssnaren kommer occlude ljud.
 
 ## <a name="next-steps"></a>Nästa steg
-* Integrera plugin-programmet [för projekt akustisker](unreal-integration.md) i Unreal-projektet.
-* [Skapa ett Azure-konto](create-azure-account.md) för dina egna bagerier.
+* [Integrera plug-in-programmet Project Acoustics](unreal-integration.md) i ditt Unreal-projekt.
+* [Skapa ett Azure-konto](create-azure-account.md) för dina egna bakar.

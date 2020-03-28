@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d1349c096b6a6c9bffef38a8b8b3c7ea6bbd432
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 0be98ac60e11b3e21a864aa4ca18fcac2c7f014c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78301819"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053395"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av ansikts-REST API och C#
 
 I den här snabbstarten ska du använda Azure ansikts-REST API med C# för att identifiera mänskliga ansikten i en bild.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel.
+- En Face-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Ansiktstjänsten och hämta din nyckel.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 1. Skapa ett nytt projekt för **Konsolprogram (.NET Framework)** i Visual Studio och ge det namnet **FaceDetection**.
 1. Om det finns andra projekt i din lösning väljer du den här kopian som det enda startprojektet.
 
-## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsavkänning
+## <a name="add-face-detection-code"></a>Lägga till kod för ansiktsigenkänning
 
 Öppna det nya projektets *Program.cs*-fil. Här lägger du till den kod som behövs för att läsa in bilder och identifiera ansikten.
 
@@ -50,9 +50,9 @@ using System.Net.Http.Headers;
 using System.Text;
 ```
 
-### <a name="add-essential-fields"></a>Lägg till grundläggande fält
+### <a name="add-essential-fields"></a>Lägga till grundläggande fält
 
-Lägg till **program** klassen som innehåller följande fält. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerations nyckel och du kan behöva ändra `uriBase` strängen så att den innehåller din resurs slut punkt sträng.
+Lägg till klassen **Program** som innehåller följande fält. Dessa data anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar indata. Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumerationsnyckel och du `uriBase` kan behöva ändra strängen så att den innehåller resursslutpunktssträngen.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -72,16 +72,11 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>Ta emot indata
 
-Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden skriver en prompt till-konsolen som ber användaren ange en bild-URL. Sedan anropas en annan metod, **MakeAnalysisRequest**, för att bearbeta bilden på den platsen.
+Lägg till följande kod i metoden **Main** i klassen **Program**. Den här koden skriver en uppmaning till konsolen där användaren uppmanas att ange en bild-URL. Sedan anropas en annan metod, **MakeAnalysisRequest**, för att bearbeta bilden på den platsen.
 
 ```csharp
         static void Main(string[] args)
         {
-
-            // Explicitly set TLS 1.2.
-            ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
-                SecurityProtocolType.Tls12;
-
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
             Console.Write(
@@ -108,7 +103,7 @@ Lägg till följande kod i metoden **Main** i klassen **Program**. Den här kode
         }
 ```
 
-### <a name="call-the-face-detection-rest-api"></a>Anropa REST API för ansiktsavkänning
+### <a name="call-the-face-detection-rest-api"></a>Anropa REST API för ansiktsigenkänning
 
 Lägg till följande metod i klassen **Program**. Den skapar ett REST-anrop till Ansikts-API för att identifiera ansiktsinformation i fjärrbilden (`requestParameters`-strängen anger vilka ansiktsattribut som ska hämtas). Sedan skriver den utdata till en JSON-sträng.
 
@@ -161,7 +156,7 @@ Du definierar hjälpmetoden i följande steg.
 
 ### <a name="process-the-input-image-data"></a>Bearbeta inmatade bilddata
 
-Lägg till följande metod i klassen **Program**. Den här metoden konverterar bilden på den angivna URL: en till en byte mat ris.
+Lägg till följande metod i klassen **Program**. Med den här metoden konverteras bilden till den angivna URL:en till en bytematris.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -176,9 +171,9 @@ Lägg till följande metod i klassen **Program**. Den här metoden konverterar b
         }
 ```
 
-### <a name="parse-the-json-response"></a>Tolka JSON-svar
+### <a name="parse-the-json-response"></a>Tolka JSON-svaret
 
-Lägg till följande metod i klassen **Program**. Den här metoden formaterar JSON-ingången så att den blir lättare att läsa. Appen skriver dessa strängdata till konsolen. Sedan kan du stänga klassen och namn området.
+Lägg till följande metod i klassen **Program**. Den här metoden formaterar JSON-indata för att vara lättare att läsa. Appen skriver dessa strängdata till konsolen. Du kan sedan stänga klassen och namnområdet.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.
@@ -249,7 +244,7 @@ Lägg till följande metod i klassen **Program**. Den här metoden formaterar JS
 
 ## <a name="run-the-app"></a>Kör appen
 
-Ett lyckat svar visar ansiktsinformation i lättläst JSON-format. Exempel:
+Ett lyckat svar visar ansiktsinformation i lättläst JSON-format. Ett exempel:
 
 ```json
 [
@@ -347,7 +342,7 @@ Ett lyckat svar visar ansiktsinformation i lättläst JSON-format. Exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett enkelt .NET-konsol program som använder REST-anrop med Azure Face service för att identifiera ansikten i en bild och returnera deras attribut. Utforska sedan referensdokumentationen för Ansikts-API för att lära dig mer om de scenarier som stöds.
+I den här snabbstarten skapade du ett enkelt .NET-konsolprogram som använder REST-anrop med Azure Face-tjänsten för att identifiera ansikten i en avbildning och returnera deras attribut. Utforska sedan referensdokumentationen för Ansikts-API för att lära dig mer om de scenarier som stöds.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

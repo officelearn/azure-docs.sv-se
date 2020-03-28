@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 5586704e098fc568c714e779c2eed44aa3d1df9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383007"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>Vad är API för stavningskontroll i Bing?
@@ -35,7 +35,7 @@ Med API för Bing-stavningskontroll kan du utföra kontextbaserad kontroll av gr
 
 API:et för stavningskontroll för Bing är enkelt att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON-svaren. Tjänsten är tillgänglig med hjälp av REST-API:et och SDK:erna för stavningskontroll i Bing. 
 
-1. Skapa ett [Cognitive Services-API-konto](../cognitive-services-apis-create-account.md) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto. 
+1. Skapa ett [Cognitive Services API-konto](../cognitive-services-apis-create-account.md) med åtkomst till API:erna för Bing-sökning. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto. 
 2. Skicka en begäran till API:et för webbsökning i Bing.
 3. Tolka JSON-svaret
 
@@ -43,6 +43,6 @@ API:et för stavningskontroll för Bing är enkelt att anropa från alla program
 
 Prova först den [interaktiva demon](https://azure.microsoft.com/services/cognitive-services/spell-check/) för söknings-API:et för stavningskontroll i Bing för att se hur du snabbt kan kontrollera en mängd olika texter.
 
-När du är redo att anropa API:et skapar du ett [Cognitive Services-API-konto](../../cognitive-services/cognitive-services-apis-create-account.md). Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnadsfritt.
+När du är redo att anropa API:et skapar du ett [Cognitive Services-API-konto](../../cognitive-services/cognitive-services-apis-create-account.md). Om du inte har en Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratis.
 
-Du kan också besöka [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) för att utforska de andra tillgängliga API: erna.
+Du kan också besöka [hubbsidan för Bing Search API](../bing-web-search/search-the-web.md) för att utforska andra tillgängliga API:er.

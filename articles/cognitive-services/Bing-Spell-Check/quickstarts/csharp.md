@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: kontrol lera stavningen med C# REST API och-stavningskontroll i Bing'
+title: 'Snabbstart: Kontrollera stavning med REST API och C# - Bing Stavningskontroll'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
@@ -11,30 +11,30 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382973"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API ochC#
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Snabbstart: Kontrollera stavning med Bing Stavningskontroll REST API och C #
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla C#-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla C#-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Krav
 
-* En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
-* Så här installerar du `Newtonsoft.Json` som ett NuGet-paket i Visual Studio:
-    1. I **Solution Explorer**högerklickar du på lösnings filen.
-    1. Välj **Hantera NuGet-paket för lösningen**.
-    1. Sök efter `Newtonsoft.Json` och installera paketet.
+* Alla utgåvor av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
+* Så `Newtonsoft.Json` här installerar du som NuGet-paket i Visual studio:
+    1. Högerklicka på lösningsfilen i **Solution Explorer.**
+    1. Välj **Hantera NuGet-paket för lösning**.
+    1. Sök `Newtonsoft.Json` efter och installera paketet.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa en ny konsol lösning med namnet `SpellCheckSample` i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
+1. Skapa en ny `SpellCheckSample` konsollösning med namnet Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
     
     ```csharp
     using System;
@@ -46,7 +46,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     using Newtonsoft.Json;
     ```
 
-2. Skapa variabler för API-slutpunkten, prenumerationsnyckeln och den text som ska stavningskontrolleras. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunkten, prenumerationsnyckeln och den text som ska stavningskontrolleras. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
     ```csharp
     namespace SpellCheckSample
@@ -62,7 +62,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     }
     ```
 
-3. Skapa en variabel för sökparametrarna. Lägg till din marknads kod efter `mkt=`. Marknads koden är det land som du gör begäran från. Lägg också till ditt stavnings kontroll läge efter `&mode=`. Läge är antingen `proof` (fångar de flesta stavnings-och grammatikfel) eller `spell` (fångar upp de flesta stavfel men inte lika många grammatiska fel).
+3. Skapa en variabel för sökparametrarna. Lägg till din `mkt=`marknadskod efter . Marknadskoden är det land du gör begäran från. Lägg också till ditt stavningskontrollläge efter `&mode=`. Läget är `proof` antingen (fångar de flesta stav-/grammatikfel) eller `spell` (fångar mest stavning men inte så många grammatikfel).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -83,7 +83,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     }
     ```
 
-2. Skapa URI: n för din begäran genom att lägga till din värd, sökväg och parametrar.
+2. Skapa URI för din begäran genom att lägga till din värd, sökväg och parametrar.
     
     ```csharp
     string uri = host + path + params_;
@@ -137,9 +137,9 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
-Skapa och kör ditt projekt. Om du använder Visual Studio trycker du på **F5** för att felsöka filen.
+Bygg och kör ditt projekt. Om du använder Visual Studio trycker du på **F5** för att felsöka filen.
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
@@ -186,7 +186,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en enkelsidig webbapp](../tutorials/spellcheck.md)
+> [Skapa en ensidig webbapp](../tutorials/spellcheck.md)
 
 - [Vad är API:et för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

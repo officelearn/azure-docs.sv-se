@@ -1,44 +1,44 @@
 ---
-title: 'Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och Java'
+title: 'Snabbstart: Identifiera avvikelser i dina tidsseriedata med REST API:et för avvikelsedetektor och Java'
 titleSuffix: Azure Cognitive Services
-description: 'I den här snabb starten lär du dig att använda API: t för avvikelse detektor för att identifiera avvikelser i din data serie antingen som en batch eller vid strömmande data.'
+description: Lär dig hur du använder API:et för avvikelsedetektor för att identifiera avvikelser i dataserien, antingen som en batch eller på strömmande data.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 11/19/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc406b22b7e8a684713385dfd15daed99bcf977
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e7cc969ff2c36415b8fd1cebafa1873f9efd38c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448931"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239056"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och Java
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Snabbstart: Identifiera avvikelser i dina tidsseriedata med REST API:et för avvikelsedetektor och Java
 
-Använd den här snabb starten för att börja använda de två identifierings lägena för avvikelse detektor API: erna för att identifiera avvikelser i dina tids serie data. Java-programmet skickar två API-begäranden som innehåller JSON-formaterade Time Series-data och hämtar svaren.
+Använd den här snabbstarten för att börja använda API:et för avvikelsedetektorns två identifieringslägen för att identifiera avvikelser i tidsseriedata. Detta Java-program skickar två API-begäranden som innehåller JSON-formaterade tidsseriedata och får svaren.
 
 | API-begäran                                        | Programutdata                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Identifiera avvikelser som en batch                        | JSON-svaret som innehåller avvikelse status (och andra data) för varje data punkt i tids serie data och positionerna för identifierade avvikelser. |
-| Identifiera avvikelse statusen för den senaste data punkten | JSON-svaret som innehåller avvikelse status (och andra data) för den senaste data punkten i tids serie data.                                                                                                                                         |
+| Identifiera avvikelser som en batch                        | JSON-svaret som innehåller avvikelsestatus (och andra data) för varje datapunkt i tidsseriedata och positionerna för identifierade avvikelser. |
+| Identifiera avvikelsestatus för den senaste datapunkten | JSON-svaret som innehåller avvikelsestatus (och andra data) för den senaste datapunkten i tidsseriedata.                                                                                                                                         |
 
- Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Du hittar käll koden för den här snabb starten på [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
+ Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Du hittar källkoden för den här snabbstarten på [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
 ## <a name="prerequisites"></a>Krav
 
 - [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
-- En avvikelse nyckel och slut punkt
-- Importera de här biblioteken från maven-lagringsplatsen
-    - [JSON i Java](https://mvnrepository.com/artifact/org.json/json) -paket
-    - [Apache httpclient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) -paket
+- En avvikelsedetektornyckel och slutpunkt
+- Importera dessa bibliotek från Maven-databasen
+    - [JSON i Java-paketet](https://mvnrepository.com/artifact/org.json/json)
+    - [Apache HttpClient-paket](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
-- En JSON-fil som innehåller tids serie data punkter. Exempel data för den här snabb starten finns på [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+- En JSON-fil som innehåller tidsseriedatapunkter. Exempeldata för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
-### <a name="create-an-anomaly-detector-resource"></a>Skapa en resurs för avvikelse detektor
+### <a name="create-an-anomaly-detector-resource"></a>Skapa en avvikelsedetektorresurs
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
@@ -48,59 +48,59 @@ Använd den här snabb starten för att börja använda de två identifierings l
     
     [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
-2. Skapa variabler för din prenumerations nyckel och din slut punkt. Nedan visas de URI: er som du kan använda för avvikelse identifiering. Dessa kommer att läggas till i tjänst slut punkten senare för att skapa API-begärandena URL: er.
+2. Skapa variabler för din prenumerationsnyckel och din slutpunkt. Nedan finns de URI:er som du kan använda för avvikelseidentifiering. Dessa läggs till i tjänstslutpunkten senare för att skapa URL:erna för API-begäran.
 
     |Identifieringsmetod  |URI  |
     |---------|---------|
-    |Batch-identifiering    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |Identifiering på den senaste data punkten     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    |Identifiering av batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
+    |Identifiering på den senaste datapunkten     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
     [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
-## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begär Anden
+## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begäranden
 
-1. Skapa en ny funktion med namnet `sendRequest()` som använder variablerna som skapats ovan. Utför sedan följande steg.
+1. Skapa en ny `sendRequest()` funktion som kallas som tar de variabler som skapats ovan. Utför sedan följande steg.
 
-2. Skapa ett `CloseableHttpClient`-objekt som kan skicka begär anden till API: et. Skicka begäran till ett `HttpPost` begär ande objekt genom att kombinera slut punkten och en URL för avvikelse identifiering.
+2. Skapa `CloseableHttpClient` ett objekt som kan skicka begäranden till API:et. Skicka begäran till `HttpPost` ett begärandeobjekt genom att kombinera slutpunkten och url:en avvikelsedetektor.
 
-3. Använd begärans `setHeader()` funktion för att ange `Content-Type`s rubriken till `application/json`och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`-rubriken.
+3. Använd funktionen för `setHeader()` begäran för `Content-Type` att `application/json`ställa in huvudet på `Ocp-Apim-Subscription-Key` och lägg till prenumerationsnyckeln i sidhuvudet.
 
-4. Använd begärans `setEntity()` funktion för att skicka de data som ska skickas.
+4. Använd begärans `setEntity()` funktion till de data som ska skickas.
 
-5. Använd klientens `execute()` funktion för att skicka begäran och spara den till ett `CloseableHttpResponse`-objekt.
+5. Använd klientens `execute()` funktion för att skicka begäran `CloseableHttpResponse` och spara den i ett objekt.
 
-6. Skapa ett `HttpEntity`-objekt för att lagra svars innehållet. Hämta innehållet med `getEntity()`. Returnera det om svaret inte är tomt.
+6. Skapa `HttpEntity` ett objekt för att lagra svarsinnehållet. Hämta innehållet `getEntity()`med . Om svaret inte är tomt returnerar du det.
 
     [!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>Identifiera avvikelser som en batch
 
-1. Skapa en metod som kallas `detectAnomaliesBatch()` för att identifiera avvikelser i alla data som en batch. Anropa metoden `sendRequest()` som skapats ovan med din slut punkt, URL, prenumerations nyckel och JSON-data. Hämta resultatet och skriv ut det till-konsolen.
+1. Skapa en `detectAnomaliesBatch()` metod som anropas för att identifiera avvikelser i data som en batch. Anropa `sendRequest()` den metod som skapats ovan med slutpunkt, url, prenumerationsnyckel och json-data. Hämta resultatet och skriv ut det på konsolen.
 
-2. Om svaret innehåller `code` fältet, skriver du ut felkoden och fel meddelandet.
+2. Om svaret innehåller `code` fält skriver du ut felkoden och felmeddelandet.
 
-3. Annars hittar du positionerna för avvikelser i data uppsättningen. Svarets `isAnomaly` fält innehåller ett booleskt värde som relaterar till om en viss data punkt är en avvikelse. Hämta JSON-matrisen och upprepa den genom att skriva ut indexet för `true` värden. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
+3. Annars hittar du positionerna för avvikelser i datauppsättningen. Svarets `isAnomaly` fält innehåller ett booleskt värde som relaterar till om en viss datapunkt är en avvikelse. Hämta JSON-matrisen och iterera igenom den `true` och skriv ut index över eventuella värden. Dessa värden motsvarar index för avvikande datapunkter, om några hittades.
 
     [!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
 
-## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelse statusen för den senaste data punkten
+## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Identifiera avvikelsestatus för den senaste datapunkten
 
-Skapa en metod med namnet `detectAnomaliesLatest()` för att identifiera avvikelse statusen för den sista data punkten i data uppsättningen. Anropa metoden `sendRequest()` som skapats ovan med din slut punkt, URL, prenumerations nyckel och JSON-data. Hämta resultatet och skriv ut det till-konsolen.
+Skapa en `detectAnomaliesLatest()` metod som anropas för att identifiera avvikelsestatus för den sista datapunkten i datauppsättningen. Anropa `sendRequest()` den metod som skapats ovan med slutpunkt, url, prenumerationsnyckel och json-data. Hämta resultatet och skriv ut det på konsolen.
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
-## <a name="load-your-time-series-data-and-send-the-request"></a>Läs in dina Time Series-data och skicka begäran
+## <a name="load-your-time-series-data-and-send-the-request"></a>Ladda dina tidsseriedata och skicka begäran
 
-1. I appens huvud metod läser du i JSON-filen som innehåller de data som ska läggas till i begäran.
+1. I huvudmetoden för ditt program, läs i JSON-filen som innehåller de data som kommer att läggas till i begäranden.
 
-2. Anropa de två avvikelse identifierings funktionerna som skapats ovan.
+2. Anropa de två avvikelseidentifieringsfunktionerna som skapats ovan.
 
     [!code-java[Main method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=main)]
 
 ### <a name="example-response"></a>Exempelsvar
 
 Ett lyckat svar returneras i JSON-format. Klicka på länkarna nedan om du vill visa JSON-svaret på GitHub:
-* [Exempel svar för batch-identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
-* [Exempel svar på senaste Poäng identifiering](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Exempel på batchidentifieringssvar](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
+* [Exempel på senaste punktidentifieringssvar](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

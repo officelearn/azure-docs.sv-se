@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start – skicka en fråga till API: et i python-Bing lokal företags sökning'
+title: Snabbstart - Skicka en fråga till API:et i Python - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabb starten för att börja använda Bing-API för lokal sökning i python.
+description: Använd den här snabbstarten för att börja använda API:et för lokal företagssökning i Bing i Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: c7e7ef7f052fccfea18b246f41109d5fa7528b4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75379751"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Snabb start: skicka en fråga till API: et för lokal sökning i Bing i python
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Snabbstart: Skicka en fråga till API:et för lokal företagssökning i Python
 
-Använd den här snabb starten för att börja skicka begär anden till API: et för lokal sökning i Bing, som är en Azure-tjänst för inlärning. Även om det här enkla programmet skrivs i python är API: et en RESTful-webbtjänst som är kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON.
+Använd den här snabbstarten för att börja skicka begäranden till API:et för sökning i Bing lokalt företag, som är en Azure Cognitive Service. Även om detta enkla program är skrivet i Python, är API en RESTful webbtjänst kompatibel med alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON.
 
-Det här exempel programmet hämtar lokala svars data från API: et för Sök frågan `hotel in Bellevue`.
+Det här exemplet programmet hämtar lokala svarsdata `hotel in Bellevue`från API för sökfrågan .
 
 ## <a name="prerequisites"></a>Krav
 
-* [Python](https://www.python.org/) 2.x eller 3.x
+* [Python (svenska)](https://www.python.org/) 2.x eller 3.x
  
-Du måste ha ett [COGNITIVE Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd den åtkomst nyckel som tillhandahålls av den kostnads fria utvärderings versionen.  Se även [Priser för Cognitive Services –API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd åtkomstnyckeln som tillhandahålls av den kostnadsfria utvärderingsversionen.  Se även Priser för Cognitive Services –API för Bing-sökning.
 
 ## <a name="run-the-complete-application"></a>Kör hela programmet
 
-Följande kod hämtar lokaliserade resultat. De implementeras i följande steg:
+Följande kod får lokaliserade resultat. De implementeras i följande steg:
 1. Deklarera variabler för att specificera slutpunkten med hjälp av värd och sökväg.
-2. Ange Frågeparametern. 
-3. Definiera Sök funktionen som skapar begäran och lägger till rubriken OCP-APIM-Subscription-Key.
-4. Ange rubriken OCP-APIM-Subscription-Key. 
-5. Upprätta anslutningen och skicka begäran.
+2. Ange frågeparametern. 
+3. Definiera den sökfunktion som skapar begäran och lägger till nyckeln Ocp-Apim-Subscription-Key.
+4. Ange nyckeln Ocp-Apim-Subscription-Key. 
+5. Gör anslutningen och skicka begäran.
 6. Skriv ut JSON-resultaten.
 
 Här följer den fullständiga koden för demon:
@@ -68,6 +68,6 @@ print (json.dumps(json.loads(result), indent=4))
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Lokal affärs sökning Java snabb start](local-search-java-quickstart.md)
-- [Snabb start för C# lokal affärs sökning](local-quickstart.md)
-- [Snabb start för lokal Business search-nod](local-search-node-quickstart.md)
+- [Snabbstart för lokal företagssökning](local-search-java-quickstart.md)
+- [Snabbstart för lokal företagssökning C#](local-quickstart.md)
+- [Snabbstart för söknod för lokalt företag](local-search-node-quickstart.md)

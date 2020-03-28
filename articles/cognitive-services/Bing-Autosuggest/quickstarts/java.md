@@ -1,26 +1,26 @@
 ---
-title: 'Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Java'
+title: 'Snabbstart: Föreslå sökfrågor med Bing Autosuggest REST API och Java'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du snabbt kan börja föreslå Sök termer i real tid med API för automatiska förslag i Bing.
+description: Lär dig hur du snabbt börjar föreslå söktermer i realtid med API:et för automatiska förslag på Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 1593d4079cf7f50d5473f24ecf57351c9d7786e9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b3f279ea50e9923e63f7d6090f4dbaca939eb16c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384925"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80238969"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Java
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Snabbstart: Föreslå sökfrågor med Bing Autosuggest REST API och Java
 
 
-Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Det här enkla Java-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
+Använd den här snabbstarten för att börja ringa till API:et för automatiska förslag på Bing och få JSON-svaret. Detta enkla Java-program skickar en partiell sökfråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -44,7 +44,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa variabler för din prenumerations nyckel, API-värden och sökväg, din [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en Sök fråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för din prenumerationsnyckel, API-värd och sökväg, [din marknadskod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en sökfråga. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -71,9 +71,9 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-and-send-the-search-request"></a>Skapa och skicka sökbegäran
 
-1. Skapa en ny metod med namnet `get_suggestions()` och utför följande steg:
+1. Skapa en ny `get_suggestions()` metod med namnet och utför följande steg:
 
-   1. skapa URL:en för din begäran genom att kombinera din API-värd och sökväg och koda sökfrågan. Se till att URL-koda frågan innan du lägger till den. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=`-parametern och din fråga till `q=`-parametern.
+   1. skapa URL:en för din begäran genom att kombinera din API-värd och sökväg och koda sökfrågan. Var noga med att url-koda frågan innan du lägger till den. Skapa en parametersträng för frågan genom att `mkt=` lägga till marknadskoden `q=` till parametern och frågan till parametern.
     
       ```java
   
@@ -84,7 +84,7 @@ public static String prettify(String json_text) {
       }
       ```
     
-   2. Skapa en ny URL för begäran med API-värd, sökväg och parametrar som skapats ovan. 
+   2. Skapa en ny URL för begäran med API-värden, sökvägen och parametrarna som skapats ovan. 
     
        ```java
        //...
@@ -92,7 +92,7 @@ public static String prettify(String json_text) {
        //...
        ```
     
-   3. Skapa ett `HttpsURLConnection`-objekt och Använd `openConnection()` för att skapa en anslutning. Konfigurera begäransmetoden till `GET` och lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken.
+   3. Skapa `HttpsURLConnection` ett objekt `openConnection()` och använd för att skapa en anslutning. Konfigurera begäransmetoden till `GET` och lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken.
 
       ```java
        //...
@@ -103,7 +103,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. Läs i API-svaret till en `StringBuilder`. När du har hämtat svaret stänger du `InputStreamReader` data strömmen och returnerar svaret.
+   4. Läs i API-svaret `StringBuilder`på en . När svaret har fångats stänger `InputStreamReader` du strömmen och returnerar svaret.
 
        ```java
        //...
@@ -119,7 +119,7 @@ public static String prettify(String json_text) {
        return response.toString();
        ```
 
-2. I programmets huvud funktion, anropa `get_suggestions()`och skriv ut svaret med hjälp av `prettify()`.
+2. I programmets huvudfunktion anropar `get_suggestions()`och skriver `prettify()`du ut svaret med .
     
     ```java
     public static void main(String[] args) {
@@ -204,7 +204,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en enkelsidig webbapp](../tutorials/autosuggest.md)
+> [Skapa en ensidig webbapp](../tutorials/autosuggest.md)
 
-- [Vad är automatiska förslag i Bing?](../get-suggested-search-terms.md)
+- [Vad är Automatiska förslag i Bing?](../get-suggested-search-terms.md)
 - [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

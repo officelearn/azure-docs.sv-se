@@ -1,22 +1,17 @@
 ---
-title: Välj redigerings resurs
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
+title: Välj redigeringsresurs
 ms.topic: include
-ms.date: 11/04/2019
-ms.author: diberry
-ms.openlocfilehash: 969ba0981ecb0a17f0a808e39c3ad15802418f78
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 03/25/2020
+ms.openlocfilehash: 33519f1723ec9e109fc41d5dfc2928427df14643
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580459"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287772"
 ---
-## <a name="select-subscription-and-authoring-resource"></a>Välj prenumeration och redigering av resurs
+## <a name="select-subscription-and-authoring-resource"></a>Välj prenumerations- och redigeringsresurs
 
-I LUIS-portalen kan du Visa en lista över appar eller skapa en app genom att välja prenumerationen och redigeringen av resursen. Appar öppnas av LUIS Authoring-resursen. 
+Om du vill visa en lista över appar eller skapa en app i LUIS-portalen väljer du prenumerations- och redigeringsresursen. Appar nås av LUIS-redigeringsresursen.
 
-![Välj redigering av prenumeration och redigering av resurs](../media/select-authoring-resource/select-authoring-resource.png)
+> [!div class="mx-imgBorder"]
+> ![Välj redigeringsprenumeration och redigeringsresurs](../media/select-authoring-resource/select-authoring-resource.png)

@@ -1,7 +1,7 @@
 ---
 title: Vad är API för nyhetssökning i Bing?
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder API för nyhetssökning i Bing för att söka på webben efter aktuella rubriker över kategorier, inklusive rubriker och trend ämnen.
+description: Lär dig hur du använder API:et för nyhetssökning på Bing för att söka på webben efter aktuella rubriker i kategorier, till exempel rubriker och populära ämnen.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448452"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Vad är API för nyhetssökning i Bing?
@@ -52,8 +52,8 @@ Prova först med den [interaktiva demonstrationen](https://azure.microsoft.com/s
 
 Om du vill komma igång snabbt med en API-begäran kan du prova snabbstarten för [REST API](quickstart.md) eller någon [SDK](sdk.md).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [API för nyhetssökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)-referensavsnittet innehåller definitioner och information om slutpunkterna, rubrikerna, API-svaren och frågeparametrarna som du kan använda till att skicka begäran.
 * I [användnings- och visningskraven för Bing](./useanddisplayrequirements.md) specificeras godtagbar användning för det innehåll och den information du får via API:erna för Bing-sökning.
-* Gå till [sidan Bing-sökning API Hub](../bing-web-search/search-the-web.md) och utforska de andra tillgängliga API: erna.
+* Besök [hubben för Bing Search API](../bing-web-search/search-the-web.md) för att utforska andra tillgängliga API:er.

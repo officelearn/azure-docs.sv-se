@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: syntetisera tal, Java (Windows, Linux, macOS) – tal service'
+title: 'Snabbstart: Syntetisera tal, Java (Windows, Linux, macOS) - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten lär du dig att skapa ett enkelt Java-program som fångar in och syntetiserar tal från text och spelar upp det med standard talare.
+description: I den här snabbstarten får du lära dig att skapa ett enkelt Java-program som fångar och syntetiserar tal från text och spelar upp det med standardhögtalaren.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
 ms.openlocfilehash: a49fadee598d1fa87c6dddbbf6ad388243ea6fb8
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924821"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=jre)
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
+1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **Fil** > **ny** > **klass**.
 
 1. I fönstret **New Java Class** (Ny Java-klass) anger du **speechsdk.quickstart** i fältet **Paket** och anger **Main** i fältet **Namn**.
 
@@ -45,8 +45,8 @@ Innan du börjar ska du se till att:
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-Tryck på F11 eller välj **Kör** > **Felsök**.
-Ange en text när du uppmanas att lyssna på det syntetiserade ljudet som spelas upp från standard talare.
+Tryck på F11 eller välj **Kör** > **felsökning**.
+Mata in en text när du uppmanas att ange den syntetiserade ljud som spelas upp från standardhögtalaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -55,4 +55,4 @@ Ange en text när du uppmanas att lyssna på det syntetiserade ljudet som spelas
 ## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Spela in anpassade röstexempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Översätt tal-till-text-tal-tjänsten'
+title: 'Snabbstart: Översätt tal-till-text - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: d4781808ce8e80f62e86ce1d0c6db9c38b2636d0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74981210"
 ---
-I den här snabb starten ska du använda [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till text på ett annat språk. När ett fåtal krav har uppfyllts tar översättning av tal till text bara fem steg:
+I den här snabbstarten använder du [Tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till text på ett annat språk. När du har uppfyllt några förutsättningar tar översättningen av tal till text bara fem steg:
 > [!div class="checklist"]
-> * Skapa ett ````SpeechConfig````-objekt från din prenumerations nyckel och region.
-> * Uppdatera ````SpeechConfig````-objektet och ange käll-och mål språk.
-> * Skapa ett ````TranslationRecognizer````-objekt med hjälp av ````SpeechConfig````-objektet ovan.
-> * Starta igenkännings processen för en enda uttryck med hjälp av ````TranslationRecognizer````-objektet.
-> * Granska ````TranslationRecognitionResult```` som returneras.
+> * Skapa ````SpeechConfig```` ett objekt från din prenumerationsnyckel och region.
+> * Uppdatera ````SpeechConfig```` objektet för att ange käll- och målspråk.
+> * Skapa ````TranslationRecognizer```` ett objekt ````SpeechConfig```` med objektet ovanifrån.
+> * Starta ````TranslationRecognizer```` igenkänningsprocessen för ett enda uttryck med hjälp av objektet.
+> * Inspektera ````TranslationRecognitionResult```` de returnerade.

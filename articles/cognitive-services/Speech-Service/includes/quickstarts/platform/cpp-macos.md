@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Speech C++ SDK (MacOS) plattforms konfiguration – tal tjänst'
+title: 'Snabbstart: Plattformsinställning för Tal SDK C++ (macOS) – taltjänst'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform C++ för MacOS med Speech service SDK.
+description: Använd den här guiden för att konfigurera din plattform för C++ på macOS med taltjänsten SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 10/14/2019
 ms.author: erhopf
 ms.openlocfilehash: d0f9bc44145f75d7c3b503fffe43042c650025f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75467699"
 ---
-Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för C++ på MacOS 10,13 och senare.
+Den här guiden visar hur du installerar [Tal SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för C++ på macOS 10.13 och högre.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="system-requirements"></a>Systemkrav
 
-macOS 10,13 och senare
+macOS 10.13 och högre
 
 ## <a name="install-speech-sdk"></a>Installera Speech SDK
 
@@ -39,7 +39,7 @@ macOS 10,13 och senare
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Hämta och extrahera `.zip` arkivet som innehåller talet SDK Framework:
+1. Hämta och `.zip` extrahera arkivet som innehåller Speech SDK-ramverket:
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -52,9 +52,9 @@ macOS 10,13 och senare
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   Katalog listan ska innehålla meddelanden från tredje part och licensfiler, samt en `MicrosoftCognitiveServicesSpeech.framework` katalog.
+   Kataloglistan bör innehålla meddelande- och licensfiler från tredje `MicrosoftCognitiveServicesSpeech.framework` part samt en katalog.
 
-Nu kan du gå vidare till [Nästa steg](#next-steps) nedan.
+Du kan nu gå vidare till [Nästa steg](#next-steps) nedan.
 
 ## <a name="next-steps"></a>Nästa steg
 

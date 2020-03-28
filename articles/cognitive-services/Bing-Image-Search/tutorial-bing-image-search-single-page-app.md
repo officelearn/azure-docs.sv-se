@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: 9227417d28eb09a322dd4757033ee62fee97d91c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943890"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för bildsökning i Bing
@@ -31,7 +31,7 @@ I den här självstudieappen visas hur du:
 
 Den fullständiga källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Node.js](https://nodejs.org/).
 * Ramverket [Express.js](https://expressjs.com/) för Node.js. Installationsinstruktioner för källkoden finns i GitHub-exemplets readme-fil.
@@ -40,7 +40,7 @@ Den fullständiga källkoden till det här exemplet finns på [GitHub](https://g
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Hantera och lagra användarens prenumerationsnycklar
 
-Det här programmet använder webbläsarens beständiga lagring för att lagra prenumerationsnycklar för API:et. Om ingen nyckel lagras frågar webbsidan användaren om nyckeln och lagrar den för senare användning. Om nyckeln senare avvisas av API appen tas den bort från lagringen. I det här exemplet används den globala slut punkten. Du kan också använda den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+Det här programmet använder webbläsarens beständiga lagring för att lagra prenumerationsnycklar för API:et. Om ingen nyckel lagras frågar webbsidan användaren om nyckeln och lagrar den för senare användning. Om nyckeln senare avvisas av API appen tas den bort från lagringen. I det här exemplet används den globala slutpunkten. Du kan också använda den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
 
 Vi definierar funktionerna `storeValue` och `retrieveValue`, antingen med objektet `localStorage` (inte i alla webbläsare) eller en cookie.
@@ -120,7 +120,7 @@ Sökning i Bing tillhandahåller flera [filtrerfrågeparametrar](https://docs.mi
 
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `where`      | En nedrullningsbar meny för att välja marknad (plats och språk) som används för sökningen.                                                                                             |
+| `where`      | En listruta för att välja marknad (plats och språk) som används för sökningen.                                                                                             |
 | `query`      | Textfältet för att ange sökvillkor.                                                                                                                                 |
 | `aspect`     | Alternativknapparna för att välja proportioner för den hittade bilden: ungefär kvadratisk, bred eller hög.                                                                                     |
 | `color`      |                                                                                                                                                                                    |
@@ -347,7 +347,7 @@ En funktion för återgivning kan acceptera följande parametrar:
 Parametrarna `index` och `count` används för att numrera resultat, generera HTML-kod för samlingar och ordna innehåll. Mer specifikt:
 
 * Beräknar storleken på miniatyrbilderna (bredd varierar med minst 120 bildpunkter medan höjden högst får vara 90 bildpunkter).
-* Skapar en HTML `<img>`-tagg för att visa miniatyrbilden.
+* Skapar HTML `<img>`-taggen för att visa miniatyrbilden.
 * Skapar HTML `<a>`-taggar som länkar till bilden och den sida som innehåller den.
 * Skapar beskrivning som visar information om bilden och den plats som den finns på.
 
@@ -373,11 +373,11 @@ Miniatyrbildernas `height` och `width` används i både `<img>`-taggen och fält
 
 ## <a name="persisting-client-id"></a>Bestående klient-ID
 
-Svar från API:er för Bing-sökning kan innehålla ett `X-MSEdge-ClientID`-sidhuvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
+Svar från API:er för Bing Search kan innehålla ett `X-MSEdge-ClientID`-huvud som ska skickas tillbaka till API:et med efterföljande förfrågningar. Om flera API:er för Bing-sökning används ska samma klient-ID användas för dem om möjligt.
 
 När `X-MSEdge-ClientID`-huvudet tillhandahålls kan Bing-API:er associera alla sökningar för en användare, vilket är användbart i
 
-Först hjälper Bing-sökmotorn till med att tillämpa den senaste kontext på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
+Först hjälper Bing-sökmotorn till med att tillämpa tidigare kontexter på sökningarna för att hitta resultat som bättre tillfredsställer användaren. Om en användare tidigare har sökt efter termer som exempelvis relaterar till segling kan en senare sökning efter ”knopar” returnera information om knopar som används vid segling.
 
 Därefter väljer Bing slumpmässigt ut användare som ska prova nya funktioner innan de blir allmänt tillgängliga. Genom att tillhandahålla samma klient-ID med varje begäran säkerställs att användare som har valts för att se en funktion alltid ser den. Utan klient-ID kan användaren se en funktion som sedan försvinner, till synes slumpmässigt, i sökresultatet.
 
@@ -386,7 +386,7 @@ Säkerhetsprinciper för webbläsaren (CORS) kan hindra att `X-MSEdge-ClientID`-
 > [!NOTE]
 > Du bör utföra begäran på serversidan i ett produktionsklart webbprogram ändå. I annat fall måste API-nyckeln för Bing-sökning inkluderas i webbsidan där den är tillgänglig för alla som visar källan. Du debiteras för all användning under din API-prenumerationsnyckel, även begäranden som görs av obehöriga personer, så det är viktigt att inte exponera nyckeln.
 
-I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan proxy har ett `Access-Control-Expose-Headers`-huvud som tillåter svarshuvuden och gör dem tillgängliga för Java Script.
+I utvecklingssyfte kan du begära API för webbsökning i Bing via en CORS-proxy. Svaret från en sådan `Access-Control-Expose-Headers` proxy har ett huvud som tillåter svarsrubriker och gör dem tillgängliga för JavaScript.
 
 Det är enkelt att installera en CORS-proxy för att tillåta att självstudien får åtkomst till klientens ID-huvud. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Sedan kör du följande kommando i ett kommandofönster:
 
@@ -409,4 +409,4 @@ Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stä
 
 ## <a name="see-also"></a>Se även
 
-* [Referens för API för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

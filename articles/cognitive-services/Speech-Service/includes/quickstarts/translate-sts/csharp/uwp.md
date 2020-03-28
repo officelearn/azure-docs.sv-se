@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Översätt tal till tal, C# (UWP) – tal tjänst'
+title: 'Snabbstart: Översätt tal-till-tal, C# (UWP) - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,59 +11,59 @@ ms.date: 12/09/2019
 ms.author: erhopf
 ms.topic: include
 ms.openlocfilehash: a0f62db319d54c2db71a86f621985a304dbbb4d2
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925714"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=uwp)
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-Lägg nu till XAML-koden som definierar användar gränssnittet för programmet och Lägg till C# koden för bakomliggande implementering.
+Lägg nu till XAML-koden som definierar programmets användargränssnitt och lägg till C#-implementeringen för bakom-kod.
 
-1. Öppna `MainPage.xaml`i **Solution Explorer**.
+1. Öppna i Solution `MainPage.xaml` **Explorer**.
 
-1. I designerns XAML-vy infogar du följande XAML-kodfragment i **Rutnäts** tag gen (mellan `<Grid>` och `</Grid>`):
+1. I designerns XAML-vy infogar du följande XAML-kodavsnitt `<Grid>` i `</Grid>` **rutnätstaggen** (mellan och ):
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/translate-speech-to-text/helloworld/MainPage.xaml#StackPanel)]
 
-1. Öppna käll filen för bakomliggande kod `MainPage.xaml.cs`i **Solution Explorer**. (Den grupperas under `MainPage.xaml`.)
+1. Öppna **Solution Explorer**den bakomgående källfilen `MainPage.xaml.cs`för kod bakom i Solution Explorer . (Den är grupperad `MainPage.xaml`under .)
 
-1. Ersätt all kod i den med följande kodfragment:
+1. Ersätt all kod i den med följande utdrag:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/translate-speech-to-text/helloworld/MainPage.xaml.cs#code)]
 
-1. Leta upp strängen `YourSubscriptionKey`i `SpeechTranslationFromMicrophone_ButtonClicked` hanteraren i den här filen och ersätt den med din prenumerations nyckel.
+1. Leta `SpeechTranslationFromMicrophone_ButtonClicked` reda på strängen `YourSubscriptionKey`i hanteraren i den här filen och ersätt den med prenumerationsnyckeln.
 
-1. Leta upp strängen `YourServiceRegion`i `SpeechTranslationFromMicrophone_ButtonClicked` hanteraren och ersätt den med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. (Använd till exempel `westus` för den kostnads fria prov prenumerationen.)
+1. Leta `SpeechTranslationFromMicrophone_ButtonClicked` reda på strängen `YourServiceRegion`i hanteraren och ersätt den med den [region som](~/articles/cognitive-services/Speech-Service/regions.md) är associerad med prenumerationen. (Använd `westus` till exempel för den kostnadsfria provprenumerationen.)
 
-1. I meny raden väljer du **arkiv** > **Spara alla** för att spara ändringarna.
+1. På menyraden väljer du**Spara alla** **för** > att spara ändringarna.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
 Nu är du redo att bygga och testa ditt program.
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet genom att välja **felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
+1. Välj **Felsökning** > **Avsökstarts felsökning** (eller tryck på **F5**) för att starta programmet. **Helloworld fönstret** visas.
 
-   ![Exempel på UWP översättnings C# program i-snabb start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-speech-uwp-helloworld-window.png)
+   ![Exempel på UWP-översättningsprogram i C# - snabbstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 
-1. Välj **aktivera mikrofon**och när åtkomst behörighets förfrågan öppnas, Välj **Ja**.
+1. Välj **Aktivera mikrofon**och när åtkomstbehörighetsbegäran dyker upp väljer du **Ja**.
 
-   ![Åtkomst behörighets förfrågan för mikrofon](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Begäran om åtkomstbehörighet för mikrofon](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Välj **Översätt tal från mikrofon inmatningen**och tala en engelsk fras eller mening i enhetens mikrofon. Programmet skickar din röst till tal tjänsten som översätter talet till text på ett annat språk (i det här fallet tyska). Tal tjänsten skickar den översatta texten tillbaka till programmet, som visar översättningen i fönstret.
+1. Välj **Översätt tal från mikrofoningången**och tala en engelsk fras eller mening i enhetens mikrofon. Ansökan överför ditt tal till taltjänsten, vilket översätter talet till text på ett annat språk (i det här fallet tyska). Taltjänsten skickar tillbaka den översatta texten till programmet, som visar översättningen i fönstret.
 
-   ![Användar gränssnitt för tal Översättning](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-csharp-uwp-ui-result.png)
+   ![Användargränssnitt för talöversättning](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa en iOS-app som startar den fördjupade läsaren (SWIFT)'
+title: 'Snabbstart: Skapa en iOS-app som startar Immersive Reader (Swift)'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten skapar du en iOS-app från grunden och lägger till funktionen för avancerad läsare.
+description: I den här snabbstarten ska du skapa en iOS-app från grunden och lägga till Immersive Reader-funktionen.
 author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
@@ -9,24 +9,24 @@ ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: 9003eb85938cc3afaad7fef341b1ed2826e8fbc9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841617"
 ---
-# <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Snabb start: skapa en iOS-app som startar den fördjupade läsaren (SWIFT)
+# <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Snabbstart: Skapa en iOS-app som startar Immersive Reader (Swift)
 
-Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
+[Den uppslukande läsaren](https://www.onenote.com/learningtools) är ett inkluderande utformat verktyg som implementerar beprövade tekniker för att förbättra läsförståelsen.
 
-I den här snabb starten skapar du en iOS-app från grunden och integrerar den fördjupade läsaren. Ett fullständigt fungerande exempel på den här snabb starten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
+I den här snabbstarten skapar du en iOS-app från grunden och integrerar Immersive Reader. Ett fullständigt fungerande exempel på den här snabbstarten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-* En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar exempel projekt egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
+* En Immersive Reader-resurs som konfigurerats för Azure Active Directory-autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att komma igång. Du behöver några av de värden som skapas här när du konfigurerar exempelprojektegenskaperna. Spara utdata från sessionen i en textfil för framtida referens.
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
@@ -34,21 +34,21 @@ Skapa ett nytt projekt i Xcode.
 
 ![Nytt projekt](./media/ios/xcode-create-project.png)
 
-Välj **en app för enskild vy**.
+Välj **App med enkel vy**.
 
-![Ny app för enskild vy](./media/ios/xcode-single-view-app.png)
+![Ny app med en vy](./media/ios/xcode-single-view-app.png)
 
 ## <a name="set-up-authentication"></a>Konfigurera autentisering
 
-I den översta menyn klickar du på **produkt > schema > Redigera schema.** ...
+I den övre menyn klickar du på **Produkt > schema > Redigera schema...**.
 
 ![Redigera schema](./media/ios/quickstart-ios-edit-scheme.png)
 
-I **körnings** vyn klickar du på fliken **argument** .
+Klicka på **fliken Argument** i vyn **Kör.**
 
 ![Redigera schema](./media/ios/quickstart-ios-env-vars.png)
 
-I avsnittet **miljövariabler** lägger du till följande namn och värden, och anger de värden som angavs när du skapade din fördjupade läsare-resurs.
+I avsnittet **Miljövariabler** lägger du till följande namn och värden och anger de värden som angavs när du skapade immersive Reader-resursen.
 
 ```text
 TENANT_ID=<YOUR_TENANT_ID>
@@ -57,9 +57,9 @@ CLIENT_SECRET<YOUR_CLIENT_SECRET>
 SUBDOMAIN=<YOUR_SUBDOMAIN>
 ```
 
-## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Konfigurera appen så att den körs utan en storyboard
+## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Konfigurera appen så att den körs utan storyboard
 
-Öppna *AppDelegate. SWIFT* och Ersätt filen med följande kod.
+Öppna *AppDelegate.swift* och ersätt filen med följande kod.
 
 ```swift
 import UIKit
@@ -108,9 +108,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-## <a name="create-the-view-controllers-and-add-sample-content"></a>Skapa Visa kontrollanter och Lägg till exempel innehåll
+## <a name="create-the-view-controllers-and-add-sample-content"></a>Skapa vykontrollanter och lägga till exempelinnehåll
 
-Byt namn på *ViewController. SWIFT* till *LaunchViewController. SWIFT* och Ersätt filen med följande kod.
+Byt namn *på ViewController.swift* till *LaunchViewController.swift* och ersätta filen med följande kod.
 
 ```swift
 import UIKit
@@ -259,7 +259,7 @@ class LaunchViewController: UIViewController {
 }
 ```
 
-Lägg till en ny fil i Project root-mappen med namnet *ImmersiveReaderViewController. SWIFT* och Lägg till följande kod.
+Lägg till en ny fil i projektets rotmapp med namnet *ImmersiveReaderViewController.swift* och lägg till följande kod.
 
 ```swift
 import UIKit
@@ -438,7 +438,7 @@ extension ImmersiveReaderViewController: WKScriptMessageHandler {
 }
 ```
 
-Lägg till en ny fil i projektets rotmapp som heter *LaunchImmersiveReader. SWIFT* och Lägg till följande kod.
+Lägg till ytterligare en ny fil i projektets rotmapp med namnet *LaunchImmersiveReader.swift* och lägg till följande kod.
 
 ```swift
 import UIKit
@@ -528,7 +528,7 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 }
 ```
 
-Lägg till en fil i mappen *resurser* med namnet *iFrameMessaging. js* och Lägg till följande kod.
+Lägg till en fil i mappen *Resurser* med namnet *iFrameMessaging.js* och lägg till följande kod.
 
 ```javascript
 window.addEventListener("message", function(message) {
@@ -556,22 +556,22 @@ function sendContentToReader(message) {
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-Ange Arkiv schema i Xcode genom att välja en simulator eller ett enhets mål.
+Ställ in arkivschemat i Xcode genom att välja en simulator eller enhetsmål.
 
-![Arkiv schema](./media/ios/xcode-archive-scheme.png)
+![Arkivschema](./media/ios/xcode-archive-scheme.png)
 
 ![Välja mål](./media/ios/xcode-select-target.png)
 
-Tryck på **CTRL + R** i Xcode eller klicka på uppspelnings knappen för att köra projektet. Appen ska starta på den angivna simulatorn eller enheten.
+I Xcode trycker du på **Ctrl+R** eller klickar på uppspelningsknappen för att köra projektet. Appen ska starta på den angivna simulatorn eller enheten.
 
 I din app bör du se:
 
-![Exempel App](./media/ios/sample-app-ipad.png)
+![Exempelapp](./media/ios/sample-app-ipad.png)
 
-När du klickar på knappen **fördjupad läsare** visas den fördjupade läsaren som startas med innehållet på appen.
+När du klickar på knappen **Uppslukande läsare** visas immersive-läsaren som startas med innehållet i appen.
 
 ![Avancerad läsare](./media/ios/immersive-reader-ipad.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [SDK-referensen för avancerad läsare](./reference.md)
+* Utforska [den uppslukande läsar-SDK-referensen](./reference.md)

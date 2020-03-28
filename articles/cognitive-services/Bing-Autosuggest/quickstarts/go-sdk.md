@@ -1,65 +1,65 @@
 ---
-title: 'Snabb start: Automatiska förslag i Bing klient bibliotek för go | Microsoft Docs'
-description: Kom igång med Automatiska förslag i Bing klient biblioteket för go och få Sök förslag baserat på partiella frågesträngar.
+title: 'Snabbstart: Bing Autosuggest klientbibliotek för Go | Microsoft-dokument'
+description: Kom igång med klientbiblioteket För Automatiska Förslag på Bing för Go och få sökförslag baserat på partiella frågesträngar.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 12/18/2019
+ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: e826d69bbf0f94d02799e9b93b26db8d4cbbba54
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 59f704377695be0f3253bdd0d7a7b82b460c86d0
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474090"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80239013"
 ---
-# <a name="quickstart-bing-autosuggest-client-library-for-go"></a>Snabb start: Automatiska förslag i Bing klient bibliotek för go
+# <a name="quickstart-bing-autosuggest-client-library-for-go"></a>Snabbstart: Bing Autosuggest klientbibliotek för Go
 
-Kom igång med Automatiska förslag i Bing klient biblioteket för go. Följ de här stegen för att installera biblioteket och prova våra exempel för grundläggande uppgifter. 
+Kom igång med klientbiblioteket För Start för Bing-kort. Följ dessa steg för att installera biblioteket och prova våra exempel för grundläggande uppgifter. 
 
-Använd Automatiska förslag i Bing klient bibliotek för gå till Hämta Sök förslag baserat på ofullständiga frågesträngar.
+Använd klientbiblioteket För automatiska förslag på Bing för Go för att få sökförslag baserat på partiella frågesträngar.
 
-[Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [exempel kod](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/BingAutoSuggest/BingAutoSuggestQuickstart.go)
+[Exempelkod för referensdokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest) | [Bibliotekskod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [Sample code](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/BingAutoSuggest/BingAutoSuggestQuickstart.go)
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* En Azure-prenumeration – [skapa en gratis](https://azure.microsoft.com/free/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="setting-up"></a>Inrätta
 
 ### <a name="create-an-azure-resource"></a>Skapa en Azure-resurs 
 
-Börja använda Automatiska förslag i Bing klient biblioteket genom att skapa en Azure-resurs. Välj den resurs typ som passar dig bäst:
+Börja använda klientbiblioteket för automatiska förslag på Bing genom att skapa en Azure-resurs. Välj den resurstyp nedan som är rätt för dig:
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
+### <a name="create-an-environment-variable"></a>Skapa en miljövariabel
 
 >[!NOTE]
-> Slut punkterna för icke-testresurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Slutpunkterna för icke-utvärderingsresurser som skapats efter den 1 juli 2019 använder det anpassade underdomänformatet som visas nedan. Mer information och en fullständig lista över regionala slutpunkter finns i [Anpassade underdomännamn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
-Med din nyckel och slut punkt från den resurs som du har skapat skapar du två miljövariabler för autentisering:
+Med hjälp av nyckeln och slutpunkten från resursen du skapade skapar du två miljövariabler för autentisering:
 <!-- replace the below variable names with the names expected in the code sample.-->
-* `AUTOSUGGEST_SUBSCRIPTION_KEY`-resurs nyckeln för att autentisera dina begär Anden.
-* `AUTOSUGGEST_ENDPOINT`-resurs slut punkten för att skicka API-begäranden. Det kommer att se ut så här: 
+* `AUTOSUGGEST_SUBSCRIPTION_KEY`- Resursnyckeln för att autentisera dina begäranden.
+* `AUTOSUGGEST_ENDPOINT`- Resursslutpunkten för att skicka API-begäranden. Det kommer att se ut så här: 
   * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
-Följ anvisningarna för ditt operativ system.
+Följ instruktionerna för operativsystemet.
 <!-- replace the below endpoint and key examples -->
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx BING_AUTOSUGGEST_SUBSCRIPTION_KEY <replace-with-your-autosuggest-api-key>
 setx BING_AUTOSUGGEST_ENDPOINT <replace-with-your-autosuggest-api-endpoint>
 ```
 
-Starta om konsol fönstret när du har lagt till miljövariabeln.
+När du har lagt till miljövariabeln startar du om konsolfönstret.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -68,9 +68,9 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 
 När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[Macos](#tab/unix)
 
-Redigera `.bash_profile`och Lägg till miljövariabeln:
+Redigera `.bash_profile`din och lägg till miljövariabeln:
 
 ```bash
 export AUTOSUGGEST_SUBSCRIPTION_KEY=<replace-with-your-autosuggest-api-key>
@@ -80,27 +80,27 @@ export AUTOSUGGEST_ENDPOINT=<replace-with-your-autosuggest-api-endpoint>
 När du har lagt till miljövariabeln så kör `source .bash_profile` från konsolfönstret så att ändringarna träder i kraft.
 ***
 
-### <a name="create-a-new-go-project"></a>Skapa ett nytt go-projekt
+### <a name="create-a-new-go-project"></a>Skapa ett nytt Go-projekt
 
-I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets yta för ditt go-projekt och navigerar till den. Arbets ytan kommer att innehålla tre mappar: 
+Skapa en ny arbetsyta för Go-projektet i ett konsolfönster (cmd, PowerShell, Terminal, Bash) och navigera till den. Arbetsytan innehåller tre mappar: 
 
-* **src** – den här katalogen innehåller käll kod och paket. Alla paket som installeras med kommandot `go get` kommer att finnas här.
-* **pkg** – den här katalogen innehåller de kompilerade go-paket-objekten. De här filerna har ett `.a`-tillägg.
-* **bin** – den här katalogen innehåller de binära körbara filer som skapas när du kör `go install`.
+* **src** - Den här katalogen innehåller källkod och paket. Alla paket som `go get` installeras med kommandot finns här.
+* **pkg** - Den här katalogen innehåller kompilerade Go-paketobjekt. Dessa filer har `.a` alla ett tillägg.
+* **bin** - Den här katalogen innehåller de binära `go install`körbara filer som skapas när du kör .
 
 > [!TIP]
-> Lär dig mer om strukturen för en [Go-arbetsyta](https://golang.org/doc/code.html#Workspaces). Den här guiden innehåller information om hur du ställer in `$GOPATH` och `$GOROOT`.
+> Läs mer om strukturen på en [Go-arbetsyta](https://golang.org/doc/code.html#Workspaces). Den här guiden `$GOPATH` innehåller `$GOROOT`information för inställning och .
 
-Nu ska vi skapa en arbets yta med namnet `my-app` och de under kataloger som krävs för `src`, `pkg`och `bin`:
+Låt oss skapa en `my-app` arbetsyta som heter och `src` `pkg`de `bin`subkataloger som krävs för , och:
 
 ```
 $ mkdir -p my-app/{src, bin, pkg}  
 $ cd my-app
 ```
 
-### <a name="install-the-client-library-for-go"></a>Installera klient biblioteket för go
+### <a name="install-the-client-library-for-go"></a>Installera klientbiblioteket för Go
 
-Nu ska vi installera klient biblioteket för Go: 
+Nu ska vi installera klientbiblioteket för Go: 
 
 ```bash
 $ go get -u <library-location-or-url>
@@ -114,14 +114,14 @@ $ dep ensure -add <library-location-or-url>
 
 ### <a name="create-your-go-application"></a>Skapa ditt Go-program
 
-Nu ska vi skapa en fil med namnet `src/sample-app.go`:
+Nu ska vi skapa en `src/sample-app.go`fil med namnet:
 
 ```bash
 $ cd src
 $ touch sample-app.go
 ```
 
-Öppna `sample-app.go` och Lägg till paket namnet och importera följande bibliotek:
+Öppna `sample-app.go` och lägg till paketnamnet och importera följande bibliotek:
 
 ```Go
 package main
@@ -136,7 +136,7 @@ import (
 )
 ```
 
-Skapa en funktion med namnet `main`. Skapa sedan miljövariabler för din Automatiska förslag i Bing nyckel och slut punkt.
+Skapa en `main`funktion med namnet . Skapa sedan miljövariabler för nyckeln och slutpunkten för Bing-kortkommando.
 
 ```go
 func main() {
@@ -155,7 +155,7 @@ func main() {
 
 ## <a name="code-examples"></a>Kodexempel
 
-Dessa kod exempel visar hur du utför grundläggande aktiviteter med hjälp av Automatiska förslag i Bing klient bibliotek för Go:
+De här kodexemplen visar hur du slutför grundläggande uppgifter med hjälp av klientbiblioteket Bing Autosuggest for Go:
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Skicka en API-begäran](#send-an-api-request)
@@ -163,9 +163,9 @@ Dessa kod exempel visar hur du utför grundläggande aktiviteter med hjälp av A
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE] 
-> Den här snabb starten förutsätter att du har [skapat en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din automatiska förslags nyckel i Bing, med namnet `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`och en för din slut punkt med namnet `BING_AUTOSUGGEST_ENDPOINT`.
+> Den här snabbstarten förutsätter att du har [skapat en miljövariabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din autosuggestnyckel för Bing, med namnet `BING_AUTOSUGGEST_SUBSCRIPTION_KEY`, och en för slutpunkten med namnet `BING_AUTOSUGGEST_ENDPOINT`.
 
-I funktionen `main()` instansierar du en klient med din slut punkt och nyckel. 
+I `main()` funktionen instansierar du en klient med slutpunkten och nyckeln. 
 
 ```go
 // Get the context, which is required by the SDK methods.
@@ -179,7 +179,7 @@ client.Endpoint = endpoint
 
 ## <a name="send-an-api-request"></a>Skicka en API-begäran
 
-I samma metod använder du klientens [AutoSuggestMethodAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) -Metod för att skicka en fråga till Bing. Iterera sedan över [förslags](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) svaret och skriv ut det första förslaget.
+I samma metod använder du klientens [autosuggestMethodAsync-metod](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) för att skicka en fråga till Bing. Sedan iterera över [förslag](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) svar, och skriva ut det första förslaget.
 
 ```Go
 // This should return the query suggestion "xbox."
@@ -205,9 +205,9 @@ if len(groups) > 0 {
 }
 ```
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
-Kör programmet Go med kommandot `go run [arguments]` från program katalogen.
+Kör go-programmet `go run [arguments]` med kommandot från programkatalogen.
 
 ```Go
 go run sample-app.go
@@ -215,9 +215,9 @@ go run sample-app.go
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
+Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
-* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -225,7 +225,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 > [!div class="nextstepaction"]
 > [Självstudie för automatiska förslag i Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- [Vad är automatiska förslag i Bing?](../get-suggested-search-terms.md)
+- [Vad är Automatiska förslag i Bing?](../get-suggested-search-terms.md)
 - [Referens för API v7 för automatiska förslag i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

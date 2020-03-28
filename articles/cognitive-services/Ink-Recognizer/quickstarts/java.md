@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java'
+title: 'Snabbstart: Känner igen digitalt bläck med INK Recognizer REST API och Java'
 titleSuffix: Azure Cognitive Services
-description: Använd pennan tecknings tolkens API för att börja identifiera digitala penndrag i den här snabb starten.
+description: Använd API:et för bläckreformat för att börja känna igen digitala pennstreck i den här snabbstarten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,35 +11,35 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: d2cd4e56477ea39587ce318538c9ddd84c51b03b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75448127"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabb start: identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Snabbstart: Känner igen digitalt bläck med INK Recognizer REST API och Java
 
-Använd den här snabb starten för att börja använda pennan tecknings tolkens API på digitala penndrag. Det här Java-programmet skickar en API-begäran som innehåller JSON-formaterade penndrag och hämtar svaret.
+Använd den här snabbstarten för att börja använda INK Recognizer-API:et på digitala pennstreck. Detta Java-program skickar en API-begäran som innehåller JSON-formaterade pennstreckdata och får svaret.
 
 Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Normalt anropar du API: et från en digital intecknings app. I den här snabb starten skickas Penn strecks data för följande handskrivna exempel från en JSON-fil.
+Vanligtvis anropar du API:et från en digital inking-app. Den här snabbstarten skickar pennstrecksdata för följande handskrivna exempel från en JSON-fil.
 
 ![en bild av handskriven text](../media/handwriting-sample.jpg)
 
-Du hittar käll koden för den här snabb starten på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Källkoden för den här snabbstarten finns på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
 ## <a name="prerequisites"></a>Krav
 
 - [Java&trade; Development Kit (JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) eller senare.
 
-- Importera de här biblioteken från maven-lagringsplatsen
-    - [JSON i Java](https://mvnrepository.com/artifact/org.json/json) -paket
-    - [Apache httpclient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) -paket
+- Importera dessa bibliotek från Maven-databasen
+    - [JSON i Java-paketet](https://mvnrepository.com/artifact/org.json/json)
+    - [Apache HttpClient-paket](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
-- Du hittar exempel Penn strecks data för den här snabb starten på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
+- Exempelvis pennstreckdata för den här snabbstarten finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
-### <a name="create-an-ink-recognizer-resource"></a>Skapa en tryck färgs igenkännings resurs
+### <a name="create-an-ink-recognizer-resource"></a>Skapa en resurs för pennanteckningskone igen
 
 [!INCLUDE [creating an ink recognizer resource](../includes/setup-instructions.md)]
 
@@ -49,42 +49,42 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
     
     [!code-java[import statements](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=imports)]
 
-2. Skapa variabler för din prenumerations nyckel, slut punkt och JSON-fil. Slut punkten läggs senare till i färg tolknings-URI: n.
+2. Skapa variabler för din prenumerationsnyckel, slutpunkt och JSON-fil. Slutpunkten läggs senare till i bläckrebonader-URI:n.
 
     [!code-java[initial vars](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=vars)]
 
-## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begär Anden
+## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begäranden
 
-1. Skapa en ny funktion med namnet `sendRequest()` som använder variablerna som skapats ovan. Utför sedan följande steg.
+1. Skapa en ny `sendRequest()` funktion som kallas som tar de variabler som skapats ovan. Utför sedan följande steg.
 
-2. Skapa ett `CloseableHttpClient`-objekt som kan skicka begär anden till API: et. Skicka begäran till ett `HttpPut` begär ande objekt genom att kombinera slut punkten och färg tolknings-URL: en.
+2. Skapa `CloseableHttpClient` ett objekt som kan skicka begäranden till API:et. Skicka begäran till `HttpPut` ett begärandeobjekt genom att kombinera slutpunkten och URL:en för bläckkonekänningsverktyget.
 
-3. Använd begärans `setHeader()` funktion för att ange `Content-Type`s rubriken till `application/json`och Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`-rubriken.
+3. Använd funktionen för `setHeader()` begäran för `Content-Type` att `application/json`ställa in huvudet på `Ocp-Apim-Subscription-Key` och lägg till prenumerationsnyckeln i sidhuvudet.
 
-4. Använd begärans `setEntity()` funktion för att skicka de data som ska skickas.   
+4. Använd begärans `setEntity()` funktion till de data som ska skickas.   
 
-5. Använd klientens `execute()` funktion för att skicka begäran och spara den till ett `CloseableHttpResponse`-objekt. 
+5. Använd klientens `execute()` funktion för att skicka begäran `CloseableHttpResponse` och spara den i ett objekt. 
 
-6. Skapa ett `HttpEntity`-objekt för att lagra svars innehållet. Hämta innehållet med `getEntity()`. Returnera det om svaret inte är tomt.
+6. Skapa `HttpEntity` ett objekt för att lagra svarsinnehållet. Hämta innehållet `getEntity()`med . Om svaret inte är tomt returnerar du det.
     
     [!code-java[send a request](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=sendRequest)]
 
-## <a name="send-an-ink-recognition-request"></a>Skicka en begäran om hand SKRIFTS igenkänning
+## <a name="send-an-ink-recognition-request"></a>Skicka en begäran om käckigerkänning
 
-Skapa en metod som heter `recognizeInk()` för att identifiera Penn strecks data. Anropa metoden `sendRequest()` som skapats ovan med din slut punkt, URL, prenumerations nyckel och JSON-data. Hämta resultatet och skriv ut det till-konsolen.
+Skapa en `recognizeInk()` metod som kallas att känna igen dina pennstrecksdata. Anropa `sendRequest()` den metod som skapats ovan med slutpunkt, url, prenumerationsnyckel och json-data. Hämta resultatet och skriv ut det på konsolen.
 
 [!code-java[recognizeInk](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
 
-## <a name="load-your-digital-ink-data-and-send-the-request"></a>Läs in dina digitala pennan tecknings data och skicka begäran
+## <a name="load-your-digital-ink-data-and-send-the-request"></a>Ladda dina digitala bläckdata och skicka begäran
 
-1. I appens huvud metod läser du i JSON-filen som innehåller de data som ska läggas till i begäran.
+1. I huvudmetoden för ditt program, läs i JSON-filen som innehåller de data som kommer att läggas till i begäranden.
 
-2. Anropa funktionen för tryck färgs igenkänning som skapats ovan.
+2. Anropa den bläckigenkänningsfunktion som skapats ovan.
     
     [!code-java[main method](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=main)]
 
 
-## <a name="run-the-application-and-view-the-response"></a>Kör programmet och Visa svaret
+## <a name="run-the-application-and-view-the-response"></a>Kör programmet och visa svaret
 
 Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-svaret på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
@@ -94,7 +94,7 @@ Kör appen. Ett lyckat svar returneras i JSON-format. Du kan också hitta JSON-s
 > [REST API-referens](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Ta en titt på följande exempel program på GitHub för att se hur API: et för färg igenkänning fungerar i en digital inkungs app:
+Om du vill se hur API:et för bläckigenkänning fungerar i en digital pennanteckningsapp kan du ta en titt på följande exempelprogram på GitHub:
 * [C# och Universal Windows-plattform (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
 * [C# och Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [JavaScript-webbläsarappen](https://go.microsoft.com/fwlink/?linkid=2089908)       

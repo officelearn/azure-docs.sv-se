@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 03/13/2020
 ms.author: dapine
 ms.openlocfilehash: 12ab3afed0d1232f126e11d1c227c4c9b50e8ac3
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79372811"
 ---
-## <a name="additional-language-and-platform-support"></a>Ytterligare språk-och plattforms stöd
+## <a name="additional-language-and-platform-support"></a>Ytterligare språk- och plattformsstöd
 
-Om du har klickat på den här fliken ser du förmodligen ingen grundläggande artikel i ditt favorit programmeringsspråk. Oroa dig inte, vi har ytterligare kod exempel tillgängliga på GitHub. Använd tabellen för att hitta rätt exempel för ditt programmeringsspråk och kombinationen av Platform/OS.
+Om du har klickat på den här fliken har du förmodligen inte sett en grundläggande artikel i ditt favoritprogrammeringsspråk. Oroa dig inte, vi har ytterligare kodexempel tillgängliga på GitHub. Använd tabellen för att hitta rätt exempel för ditt programmeringsspråk och plattform/OS-kombination.
 
 | Språk    | Kodexempel                                                                                                                            |
 |-------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| C#          | [.NET Framework][csharp-netframework], [.net Core][csharp-netcore], [UWP][csharp-uwp], [Unity][csharp-unity], [Xamarin][csharp-xamarin] |
-| C++         | [Snabb starter][cpp-quickstarts], [exempel][cpp-samples]                                                                                  |
+| C#          | [.NET Framework][csharp-netframework], [.NET Core][csharp-netcore], [UWP][csharp-uwp], [Unity][csharp-unity], [Xamarin][csharp-xamarin] |
+| C++         | [Snabbstarter][cpp-quickstarts], [exempel][cpp-samples]                                                                                  |
 | Java        | [Android][java-android], [JRE][java-jre]                                                                                                |
 | JavaScript  | [Webbläsare][js-browser]                                                                                                                   |
 | Node.js     | [Windows, Linux, macOS][node-js]                                                                                                        |
-| Objective-C | [iOS][objective-c-ios], [MacOS][objective-c-macos]                                                                                      |
+| Objective-C | [iOS][objective-c-ios], [macOS][objective-c-macos]                                                                                      |
 | Python      | [Windows, Linux, macOS][python]                                                                                                         |
-| Swift       | [iOS][swift-ios], [MacOS][swift-macos]                                                                                                  |
+| Swift       | [iOS][swift-ios], [macOS][swift-macos]                                                                                                  |
 
 <!-- Links -->
 [cpp-quickstarts]: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp

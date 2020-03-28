@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: identifiera tal från en mikrofon, python-tal-tjänst'
+title: 'Snabbstart: Känna igen tal från en mikrofon, Python - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av Speech SDK för Python. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
 ms.openlocfilehash: a2d5614aeeedb88cd9b2c41baed317761443d17c
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924720"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md)
-> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md)
+> * Se till att du har tillgång till en mikrofon för ljudinspelning
 
 ## <a name="support-and-updates"></a>Support och uppdateringar
 
@@ -49,15 +49,15 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
 ### <a name="sample-code"></a>Exempelkod
 
 > [!NOTE]
-> Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
+> Tal-SDK kommer som standard att känna igen med hjälp av en-us för språket, se [Ange källspråk för tal till text](../../../../how-to-specify-source-language.md) för information om hur du väljer källspråk.
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installera och använda Speech SDK med Visual Studio Code
 
-1. Hämta och installera en 64-bitars version av [python](https://www.python.org/downloads/), 3,5 till 3,8, på din dator.
+1. Hämta och installera en 64-bitarsversion av [Python](https://www.python.org/downloads/), 3,5 till 3,8, på datorn.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Öppna Visual Studio Code och installera Python-tillägget. Välj **Arkiv** > **Inställningar** > **Tillägg** på menyn. Sök efter **Python**.
+1. Öppna Visual Studio Code och installera Python-tillägget. Välj **File** > **Filinställningar** > **Tillägg** på menyn. Sök efter **Python**.
 
    ![Installera Python-tillägget](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
 
@@ -73,9 +73,9 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
 1. Kopiera, klistra in och spara [Python-koden](#sample-code) till den nyskapade filen.
 1. Infoga prenumerationsinformationen för taltjänsten.
 1. Om en Python-tolk har valts visas den på statusfältets vänstra sida, längst ner i fönstret.
-   Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommando paletten (Ctrl + Shift + P) och ange **python: Välj tolk**. Välj en som passar.
+   Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommandopaletten (Ctrl+Skift+P) och ange **Python: Välj tolk**. Välj en som passar.
 1. Du kan installera Speech SDK Python-paketet i Visual Studio Code. Gör det om det inte är installerat än för Python-tolken som du valt.
-   Öppna en terminal för att installera Speech SDK-paketet. Öppna kommando rads verktyget igen (Ctrl + Shift + P) och ange **Terminal: skapa ny integrerad Terminal**.
+   Öppna en terminal för att installera Speech SDK-paketet. Ta fram kommandopaletten igen (Ctrl+Skift+P) och ange **Terminal: Skapa ny integrerad terminal**.
    I terminalen som öppnas anger du kommandot `python -m pip install azure-cognitiveservices-speech`, eller lämpligt kommando för ditt system.
 1. Kör exempelkoden genom att högerklicka någonstans i redigeraren. Välj **Kör Python-fil i Terminal**.
    Säg några få ord när du uppmanas. Den transkriberade texten visas strax därefter.

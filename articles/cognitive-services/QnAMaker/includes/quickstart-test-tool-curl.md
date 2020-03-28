@@ -11,38 +11,38 @@ ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
 ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77495221"
 ---
-Den här Spiralbaserade snabb starten vägleder dig genom att få svar från din kunskaps bas.
+Denna cURL-baserade snabbstart går igenom att få ett svar från din kunskapsbas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Senaste [**vändning**](https://curl.haxx.se/).
+* Senaste [**cURL**](https://curl.haxx.se/).
 * Du måste ha
-    * En [QNA Maker tjänst](../How-To/set-up-qnamaker-service-azure.md)
-    * En utbildad och publicerad kunskaps bas med frågor och svar, från föregående [snabb start](../Quickstarts/add-question-metadata-portal.md), konfigurerad med metadata och en CHI2TEST-chatt.
+    * En [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md)
+    * En tränad och publicerad kunskapsbas med frågor och svar, från föregående [snabbstart](../Quickstarts/add-question-metadata-portal.md), konfigurerad med metadata och Chit-chatt.
 
 > [!NOTE]
-> När du är redo att generera ett svar på en fråga från kunskaps basen måste du [träna](../Quickstarts/create-publish-knowledge-base.md#save-and-train) och [publicera](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) din kunskaps bas. När din kunskapsbas publiceras visar sidan **publicera** inställningar för HTTP-begäran för att generera ett svar. På fliken **vändning** visas de inställningar som krävs för att generera ett svar från kommando rads verktyget.
+> När du är redo att skapa ett svar på en fråga från din kunskapsbas måste du [träna](../Quickstarts/create-publish-knowledge-base.md#save-and-train) och [publicera](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) din kunskapsbas. När din kunskapsbas publiceras visar sidan **publicera** inställningar för HTTP-begäran för att generera ett svar. På fliken **cURL** visas de inställningar som krävs för att generera ett svar från kommandoradsverktyget.
 
-## <a name="use-metadata-to-filter-answer"></a>Använd metadata för att filtrera svar
+## <a name="use-metadata-to-filter-answer"></a>Använda metadata för att filtrera svar
 
-Använd kunskaps basen från föregående snabb till-fråga för ett svar baserat på metadata.
+Använd kunskapsbasen från föregående snabb för att fråga efter ett svar baserat på metadata.
 
-1. På sidan **Inställningar** för kunskaps basen väljer du fliken **vändning** för att se ett exempel på ett spiral kommando som används för att generera ett svar från kunskaps basen.
-1. Kopiera kommandot till en redigerbar miljö (till exempel en textfil) så att du kan redigera kommandot. Redigera värdet för fråga enligt följande så att metadata för `service:qna_maker` används som ett filter för QnA-uppsättningarna.
+1. På sidan Inställningar **i** kunskapsbasen väljer du fliken **CURL** för att se ett exempel på cURL-kommando som används för att generera ett svar från kunskapsbasen.
+1. Kopiera kommandot till en redigerbar miljö (till exempel en textfil) så att du kan redigera kommandot. Redigera frågevärdet på följande sätt så `service:qna_maker` att metadata för används som filter för QnA-uppsättningarna.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Frågan är bara ett enda ord, `size`, som kan returnera någon av de två QnA-uppsättningarna. `strictFilters` matrisen visar svaret för att minska till bara `qna_maker` svar.
+    Frågan är bara ett `size`enda ord, som kan returnera någon av de två QnA-uppsättningarna. Matrisen `strictFilters` talar om för svaret `qna_maker` att minska till bara svaren.
 
-1. Svaret innehåller bara det svar som uppfyller filter kriterierna. Följande spiral svar har formaterats för läsbarhet:
+1. Svaret innehåller bara svaret som uppfyller filtervillkoren. Följande cURL-svar har formaterats för läsbarhet:
 
     ```JSON
     {
@@ -77,23 +77,23 @@ Använd kunskaps basen från föregående snabb till-fråga för ett svar basera
     }
     ```
 
-    Om det finns en fråga och en svars uppsättning som inte uppfyllde Sök termen men som uppfyller filtret, returneras den inte. I stället returneras den allmänna svars `No good match found in KB.`.
+    Om det finns en fråge- och svarsuppsättning som inte uppfyllde söktermen men som uppfyllde filtret, skulle den inte returneras. I stället returneras det allmänna svaret. `No good match found in KB.`
 
-## <a name="use-debug-query-property"></a>Använd egenskapen Felsök fråga
+## <a name="use-debug-query-property"></a>Använd egenskapen felsökningsfråga
 
-Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings information lägger du till egenskapen `debug`:
+Felsökningsinformation hjälper dig att förstå hur det returnerade svaret fastställdes. Även om det är till hjälp, är det inte nödvändigt. Om du vill skapa ett svar `debug` med felsökningsinformation lägger du till egenskapen:
 
 ```json
 Debug: {Enable:true}
 ```
 
-1. Redigera kommandot vänd för att ta med egenskapen debug för att se mer information.
+1. Redigera kommandot cURL om du vill inkludera felsökningsegenskapen för att se mer information.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
 
-1. Svaret innehåller relevant information om svaret. I följande JSON-utdata har viss fel söknings information ersatts med tre punkter för det kortfattat.
+1. Svaret innehåller relevant information om svaret. I följande JSON-utgång har vissa felsökningsdetaljer ersatts med ellips för korthet.
 
     ```console
     {
@@ -183,9 +183,9 @@ Debug: {Enable:true}
     }
     ```
 
-## <a name="use-test-knowledge-base"></a>Använd test kunskaps bas
+## <a name="use-test-knowledge-base"></a>Använd testkunskapsbas
 
-Om du vill få ett svar från test kunskaps basen använder du text egenskapen `isTest`.
+Om du vill få ett svar från testkunskapsbasen använder du kroppsegenskapen. `isTest`
 
 Egenskapen är ett booleskt värde.
 
@@ -193,26 +193,26 @@ Egenskapen är ett booleskt värde.
 isTest:true
 ```
 
-Kommandot vändning ser ut så här:
+Kommandot cURL ser ut som:
 
 ```bash
 curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'IsTest':true}"
 ```
 
-JSON-svaret använder samma schema som den publicerade kunskaps bas frågan.
+JSON-svaret använder samma schema som den publicerade kunskapsbasfrågan.
 
 > [!NOTE]
-> Om test-och publicerade kunskaps baser är identiska, kan det fortfarande finnas viss variation eftersom test indexet delas av alla kunskaps baser i resursen.
+> Om testet och de publicerade kunskapsbaserna är exakt desamma kan det fortfarande finnas en liten variation eftersom testindexet delas mellan alla kunskapsbaser i resursen.
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Använd sväng för att fråga efter ett "Chi2test"-svar
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Använd cURL för att fråga efter ett Chit-chat-svar
 
-1. I den vänd-aktiverade terminalen använder du en robots konversations sluts ATS från användaren, till exempel `Thank you` som frågan. Det finns inga andra egenskaper att ange.
+1. I den cURL-aktiverade terminalen använder du en bot-konversationsslutsats från användaren, till exempel `Thank you` frågan. Det finns inga andra egenskaper att ange.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
     ```
 
-1. Kör kommandot vändning och ta emot JSON-svaret, inklusive poäng och svar.
+1. Kör kommandot cURL och ta emot JSON-svaret, inklusive poängen och svaret.
 
     ```json
     {
@@ -294,19 +294,19 @@ JSON-svaret använder samma schema som den publicerade kunskaps bas frågan.
     }
     ```
 
-    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker också returnerade alla relaterade frågor, samt egenskapen metadata som innehåller information om metadata tag gen för Chi2test.
+    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker returnerade också alla relaterade frågor, samt metadataegenskapen som innehåller information om metadatataggen Chit-chat.
 
-## <a name="use-curl-with-threshold-and-default-answer"></a>Använd spiral med tröskelvärde och standard svar
+## <a name="use-curl-with-threshold-and-default-answer"></a>Använd cURL med tröskel och standardsvar
 
-Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte uppfylls returneras standard svaret.
+Du kan begära ett lägsta tröskelvärde för svaret. Om tröskelvärdet inte uppfylls returneras standardsvaret.
 
-1. Använd följande spiral kommando och Ersätt med ditt egna resurs namn, kunskaps bas-ID och slut punkts nyckel för att be om ett svar på `size` med ett tröskelvärde på 80% eller bättre. Kunskaps basen bör inte hitta det svaret eftersom frågans Poäng är 71%. i stället returneras standard svaret som du angav när du skapade kunskaps basen.
+1. Använd följande cURL-kommando, som ersätter med ditt eget resursnamn, kunskapsbas-ID och slutpunktsnyckel, för att be om ett svar på `size` med en tröskel på 80 % eller bättre. Kunskapsbasen bör inte hitta det svaret eftersom frågans poäng är 71 %, och i stället returnera det standardsvar du angav när du skapade kunskapsbasen.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
 
-1. Kör kommandot vändning och ta emot JSON-svaret, inklusive poäng och svar.
+1. Kör kommandot cURL och ta emot JSON-svaret, inklusive poängen och svaret.
 
     ```json
     {
@@ -325,7 +325,7 @@ Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte up
     }
     ```
 
-    QnA Maker returnerade ett resultat av `0`, vilket innebär ingen exakthet. Den returnerade även standard svaret.
+    QnA Maker returnerade `0`en poäng av , vilket innebär inget förtroende. Det returnerade också standardsvaret.
 
     ```json
     {
@@ -407,19 +407,19 @@ Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte up
     }
     ```
 
-    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker också returnerade alla relaterade frågor, samt egenskapen metadata som innehåller information om metadata tag gen för Chi2test.
+    Eftersom frågan `Thank you` exakt matchar en kommunikationsfråga är QnA Maker helt säker med poängen 100. QnA Maker returnerade också alla relaterade frågor, samt metadataegenskapen som innehåller information om metadatataggen Chit-chat.
 
-## <a name="use-curl-with-threshold-and-default-answer"></a>Använd spiral med tröskelvärde och standard svar
+## <a name="use-curl-with-threshold-and-default-answer"></a>Använd cURL med tröskel och standardsvar
 
-Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte uppfylls returneras standard svaret.
+Du kan begära ett lägsta tröskelvärde för svaret. Om tröskelvärdet inte uppfylls returneras standardsvaret.
 
-1. Lägg till egenskapen `threshold` för att be om ett svar på `size` med ett tröskelvärde på 80% eller bättre. Kunskaps basen bör inte hitta det svaret eftersom frågans Poäng är 71%. Resultatet returnerar standard svaret som du angav när du skapade kunskaps basen.
+1. Lägg `threshold` till egenskapen för `size` att be om ett svar på med en tröskel på 80% eller bättre. Kunskapsbasen bör inte hitta det svaret eftersom frågans poäng är 71%. Resultatet returnerar det standardsvar du angav när du skapade kunskapsbasen.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
 
-1. Kör kommandot vändning och ta emot JSON-svaret.
+1. Kör kommandot cURL och ta emot JSON-svaret.
 
     ```json
     {
@@ -438,15 +438,15 @@ Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte up
     }
     ```
 
-    QnA Maker returnerade ett resultat av `0`, vilket innebär ingen exakthet. Den returnerade även standard svaret.
+    QnA Maker returnerade `0`en poäng av , vilket innebär inget förtroende. Det returnerade också standardsvaret.
 
-1. Ändra tröskelvärdet till 60% och begär frågan igen:
+1. Ändra tröskelvärdet till 60 % och begär frågan igen:
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
 
-    Den returnerade JSON-filen hittade svaret.
+    Den returnerade JSON hittade svaret.
 
     ```json
     {

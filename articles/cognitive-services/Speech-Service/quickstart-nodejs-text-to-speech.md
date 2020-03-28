@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: konvertera text till tal, Node. js – tal service'
+title: 'Snabbstart: Konvertera text till tal, node.js - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du konverterar text till tal med Node. js och text till tal-REST API. Exempeltext som ingår i den här guiden är strukturerad som tal syntes Markup Language (SSML). På så sätt kan du välja rösten och språket för tal-svaret.
+description: I den här snabbstarten får du lära dig hur du konverterar text till tal med Node.js och REST API för text-till-tal. Exempeltexten som ingår i den här guiden är strukturerad som SSML (Speech Synthesis Markup Language). På så sätt kan du välja röst och språk för talsvaret.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.openlocfilehash: b120acd25874585a744fb774aafe15d32d7baf08
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976510"
 ---
-# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Snabb start: konvertera text till tal med Node. js
+# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Snabbstart: Konvertera text till tal med Node.js
 
-I den här snabb starten får du lära dig hur du konverterar text till tal med Node. js och text till tal-REST API. Det begärda innehållet i den här guiden är strukturerad som [tal syntes Markup Language (SSML)](speech-synthesis-markup.md), vilket gör att du kan välja rösten och språket i svaret.
+I den här snabbstarten får du lära dig hur du konverterar text till tal med Node.js och REST API för text till tal. Förfrågastexten i den här guiden är strukturerad som [SSML (Speech Synthesis Markup Language),](speech-synthesis-markup.md)vilket gör att du kan välja röst och språk för svaret.
 
-Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Speech service-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
+Den här snabbstarten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en taltjänstresurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](get-started.md) för att hämta en prenumerationsnyckel.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -29,11 +29,11 @@ För den här snabbstarten krävs:
 
 * [Nod 8.12.x eller senare](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) eller valfritt redigeringsprogram
-* En Azure-prenumerationsnyckel för tjänsten Speech. [Hämta en kostnads fri!](get-started.md).
+* En Azure-prenumerationsnyckel för tjänsten Speech. [Få en gratis!](get-started.md).
 
-## <a name="create-a-project-and-require-dependencies"></a>Skapa ett projekt och Kräv beroenden
+## <a name="create-a-project-and-require-dependencies"></a>Skapa ett projekt och kräva beroenden
 
-Skapa ett nytt Node. js-projekt med hjälp av din favorit-IDE eller-redigerare. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `tts.js`.
+Skapa ett nytt Node.js-projekt med din favorit-IDE eller redigerare. Kopiera sedan det här kodavsnittet till projektet i en fil med namnet `tts.js`.
 
 ```javascript
 // Requires request and request-promise for HTTP requests
@@ -52,9 +52,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Text till tal REST-API kräver en åtkomsttoken för autentisering. Om du vill få en åtkomsttoken, krävs ett utbyte. Den här funktionen utbyter din röst tjänst prenumerations nyckel för en åtkomsttoken med hjälp av `issueToken` slut punkten.
+REST API för text-till-tal kräver en åtkomsttoken för autentisering. För att få en åtkomsttoken krävs ett utbyte. Den här funktionen utbyter din taltjänstprenumerationsnyckel mot en åtkomsttoken med `issueToken` slutpunkten.
 
-Det här exemplet förutsätter att din röst tjänst prenumeration är i regionen USA, västra. Om du använder en annan region måste du uppdatera värdet för `uri`. En fullständig lista finns i [regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Det här exemplet förutsätter att prenumerationen på taltjänsten finns i regionen västra USA. Om du använder en annan region uppdaterar `uri`du värdet för . En fullständig lista finns i [Regioner](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Kopiera den här koden till projektet:
 
@@ -73,23 +73,23 @@ function getAccessToken(subscriptionKey) {
 ```
 
 > [!NOTE]
-> Mer information om autentisering finns i [autentisera med en åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
+> Mer information om autentisering finns [i Autentisera med en åtkomsttoken](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
-I nästa avsnitt skapar vi funktionen för att anropa text till tal-API: et och spara det syntetiskt tal svaret.
+I nästa avsnitt skapar vi funktionen för att anropa API:et för text-till-tal och spara det syntetiserade talsvaret.
 
 ## <a name="make-a-request-and-save-the-response"></a>Gör en begäran och spara svaret
 
-Här skapar du begäran till text till tal-API: et och sparar tal svaret. Det här exemplet förutsätter att du använder slutpunkten som USA, västra. Om din resurs har registrerats till en annan region, kontrollera att du uppdaterar den `uri`. Mer information finns i avsnittet om [tal service områden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Här ska du skapa begäran till API:et för text-till-tal och spara talsvaret. Det här exemplet förutsätter att du använder slutpunkten för västra USA. Om resursen är registrerad i en annan `uri`region kontrollerar du att du uppdaterar . Mer information finns i [Taltjänstområden](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Du måste sedan lägga till nödvändiga sidhuvuden för begäran. Se till att du uppdaterar `User-Agent` med namnet på din resurs (finns i Azure portal) och Ställ in `X-Microsoft-OutputFormat` till din önskade ljud. En fullständig lista över utdataformat finns i [ljud matar ut](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+Därefter måste du lägga till obligatoriska rubriker för begäran. Se till att `User-Agent` du uppdaterar med namnet på din resurs `X-Microsoft-OutputFormat` (finns i Azure-portalen) och ange din önskade ljudutdata. En fullständig lista över utdataformat finns i [Ljudutdata](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
-Skapa sedan begärandetexten med tal syntes Markup Language (SSML). Det här exemplet definierar strukturen och använder den `text` indata du skapade tidigare.
+Konstruera sedan begärandetexten med hjälp av SSML (Speech Synthesis Markup Language). Det här exemplet definierar strukturen `text` och använder indata som du skapade tidigare.
 
 >[!NOTE]
-> Det här exemplet används den `JessaRUS` rösttyp. En fullständig lista över Microsoft tillhandahålls röster/språk, finns i [språkstöd](language-support.md).
-> Om du är intresserad av att skapa en unik, identifierbara ton för ditt varumärke, se [skapar anpassade rösttyper](how-to-customize-voice-font.md).
+> I det `JessaRUS` här exemplet används röstteckensnittet. En fullständig lista över röster/språk som tillhandahålls av Microsoft finns i [Språkstöd](language-support.md).
+> Om du är intresserad av att skapa en unik, igenkännbar röst för ditt varumärke läser [du Skapa anpassade röstteckensnitt](how-to-customize-voice-font.md).
 
-Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas och en status kod för 200 returneras, skrivs tal svaret som `TTSOutput.wav`.
+Slutligen ska du göra en begäran till tjänsten. Om begäran lyckas och en 200-statuskod returneras skrivs `TTSOutput.wav`talsvaret som .
 
 ```javascript
 // Make sure to update User-Agent with the name of your resource.
@@ -135,9 +135,9 @@ function textToSpeech(accessToken, text) {
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Nästan klart. Det sista steget är att skapa en asynkron funktion. Den här funktionen kommer att läsa din prenumerations nyckel från en miljö variabel, fråga efter text, hämta en token, vänta tills begäran har slutförts och sedan konvertera text till tal och spara ljudet som. wav.
+Nästan klart. Det sista steget är att skapa en asynkron funktion. Den här funktionen kommer att läsa din prenumerationsnyckel från en miljövariabel, fråga efter text, hämta en token, vänta på att begäran ska slutföras, sedan konvertera text-till-tal och spara ljudet som en WAV.
 
-Om du inte är bekant med miljövariabler eller vill testa med prenumerations nyckeln hårdkodad som en sträng ersätter du `process.env.SPEECH_SERVICE_KEY` med din prenumerations nyckel som en sträng.
+Om du inte är bekant med miljövariabler eller föredrar att testa `process.env.SPEECH_SERVICE_KEY` med din prenumerationsnyckel som är hårdkodad som en sträng ersätter du med prenumerationsnyckeln som en sträng.
 
 ```javascript
 // Use async and await to get the token before attempting
@@ -167,13 +167,13 @@ main()
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
-Det var allt, är du redo att köra din text till tal-exempelapp. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
+Det är allt, du är redo att köra din text-till-tal exempelapp. Från kommandoraden (eller en terminalsession) går du till projektkatalogen och kör:
 
 ```console
 node tts.js
 ```
 
-När du uppmanas, anger du i vad du vill konvertera från text till tal. Om detta lyckas, finns tal-filen i projektmappen. Spela upp den med din favorit media player.
+När du uppmanas till det skriver du in det du vill konvertera från text till tal. Om det lyckas finns talfilen i projektmappen. Spela upp den med din favorit mediaspelare.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -184,8 +184,8 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 > [!div class="nextstepaction"]
 > [Utforska Node.js-exempel på GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NodeJS)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
-* [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)
+* [Skapa anpassade röstteckensnitt](how-to-customize-voice-font.md)
+* [Spela in röstexempel för att skapa en anpassad röst](record-custom-voice-samples.md)

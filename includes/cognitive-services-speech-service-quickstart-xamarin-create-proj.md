@@ -5,88 +5,88 @@ ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
 ms.openlocfilehash: 0bcdd315fe11b7472166a5a9ad4f7395e22d2126
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72675600"
 ---
-Om du vill skapa ett Visual Studio-projekt för plattforms oberoende mobil program .NET-utveckling med Xamarin måste du:
-- Konfigurera alternativ för Visual Studio-utveckling.
-- Skapa projektet och välj mål arkitekturen. 
-- Installera talet SDK.
+Om du vill skapa ett Visual Studio-projekt för plattformsoberoende mobilapp .NET-utveckling med Xamarin måste du:
+- Ställ in utvecklingsalternativ för Visual Studio.
+- Skapa projektet och välj målarkitekturen. 
+- Installera Tal-SDK.
 
-### <a name="set-up-visual-studio-development-options"></a>Konfigurera alternativ för Visual Studio-utveckling
+### <a name="set-up-visual-studio-development-options"></a>Konfigurera utvecklingsalternativ för Visual Studio
 
-Starta genom att kontrol lera att du är korrekt konfigurerad i Visual Studio för mobil utveckling över plattformar med .NET:
+Börja med att se till att du är korrekt konfigurerad i Visual Studio för mobil utveckling över flera plattformar med .NET:
 
 1. Öppna Visual Studio 2019.
 
-1. I meny raden i Visual Studio väljer du **verktyg** > **Hämta verktyg och funktioner** för att öppna Visual Studio Installer och Visa dialog rutan **ändra** .
+1. På menyraden i Visual Studio väljer du **Verktyg** > **hämta verktyg och funktioner** för att öppna Visual Studio Installer och visa dialogrutan **Ändra.**
 
-   ![Fliken arbets belastningar, ändra dialog rutan, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
+   ![Fliken Arbetsbelastningar, dialogrutan Ändra, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-workload.png)
 
-1. På fliken **arbets belastningar** , under **Windows**, letar du upp **mobil utveckling med .net** -arbets belastning. Om kryss rutan bredvid arbets belastningen redan är vald stänger du dialog rutan **ändra** och går till steg 5.
+1. Hitta **mobilutvecklingen med .NET-arbetsbelastning** under **Windows**på fliken **Arbetsbelastningar.** Om kryssrutan bredvid arbetsbelastningen redan är markerad stänger du dialogrutan **Ändra** och går till steg 5.
 
-1. Markera kryss rutan **mobil utveckling med .net** och välj **ändra**. I dialog rutan **innan vi kommer igång** väljer du **Fortsätt** för att installera mobil utveckling med .net-arbets belastning. Det kan ta en stund att installera den nya funktionen.
+1. Markera kryssrutan **Mobilutveckling med .NET** och välj **Ändra**. I dialogrutan **Innan vi kommer igång** väljer du **Fortsätt** att installera den mobila utvecklingen med .NET-arbetsbelastningen. Installationen av den nya funktionen kan ta ett tag.
 
 1. Stäng Visual Studio Installer.
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-1. I meny raden i Visual Studio väljer du **fil**  > **nytt**  > **projekt** för att visa fönstret **skapa ett nytt projekt** .
+1. På menyraden i Visual Studio väljer du **Arkiv** > **nytt** > **projekt** om du vill visa fönstret Skapa ett nytt **projekt.**
 
-   ![Skapa ett nytt projekt – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
+   ![Skapa ett nytt projekt - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
 
-1. Hitta och välj **mobilapp (Xamarin. Forms)** .
+1. Hitta och välj **Mobilapp (Xamarin.Forms)**.
 
-1. Välj **Nästa** för att visa skärmen **Konfigurera ditt nya projekt** .
+1. Välj **Nästa** om du vill visa skärmen **Konfigurera det nya projektet.**
 
-   ![Konfigurera det nya projektet – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
+   ![Konfigurera ditt nya projekt - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
 
-1. Ange *HelloWorld*i **projekt namn**.
+1. Ange *helloworld*i **Projektnamn**.
 
-1. På **plats**går du till och väljer eller skapar mappen där du sparar projektet i.
+1. Gå till och markera eller skapa mappen som projektet ska sparas i i **Plats.**
 
-1. Välj **skapa** för att gå till **projekt fönstret nytt Xamarin formulär i Mobile App** .
+1. Välj **Skapa** om du vill gå till fönstret **Nya mobilapp Xamarin Forms Project.**
 
-   ![Dialog rutan nytt Universell Windows-plattform projekt – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Dialogrutan Nytt universellt Windows-plattformsprojekt - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
-1. Välj den **tomma** mallen.
+1. Markera mallen **Tom.**
 
-1. I **plattform**väljer du rutorna för **Android**, **iOS**och **Windows (UWP)** .
+1. I **Plattform**väljer du rutorna för **Android**, **iOS**och **Windows (UWP).**
 
-1. Välj **OK**. Du kommer tillbaka till Visual Studio IDE, där det nya projektet skapas och visas i rutan **Solution Explorer** .
+1. Välj **OK**. Du är tillbaka i Visual Studio IDE, med det nya projektet skapat och synligt i fönstret **Solution Explorer.**
 
-   ![Projektet HelloWorld – Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-helloworld.png)
+   ![Helloworld-projektet - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-helloworld.png)
 
-Välj nu plattforms arkitektur och start projekt. I verktygsfältet Visual Studio hittar du List rutan med **plattforms plattformar** . (Om du inte ser det väljer du **visa**  > **verktygsfält**  > **standard** för att Visa verktygsfältet som innehåller **plattform för lösningar**.) Om du kör 64-bitars Windows väljer du **x64** i list rutan. Du kan välja **x86** om du vill eftersom 64-bitars Windows också kan köra 32-bitars program. I list rutan **Start-projekt** ställer du in **HelloWorld. UWP (Universal Windows)** .
+Välj nu din målplattformsarkitektur och startprojekt. Leta reda på listrutan **Lösningsplattformar** i verktygsfältet Visual Studio. (Om du inte ser det väljer du **Visa** > **verktygsfält** > **standard** för att visa verktygsfältet som innehåller **lösningsplattformar**.) Om du kör 64-bitars Windows väljer du **x64** i listrutan. Du kan välja **x86** om du vill eftersom 64-bitars Windows också kan köra 32-bitarsprogram. Ställ in helloworld i listrutan **Start-up** **Projects. UWP (Universella Fönster)**.
 
 ### <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)och referera till tal-SDK i projektet.
+Installera [paketet Speech SDK NuGet](https://aka.ms/csspeech/nuget)och referera till Tal-SDK i projektet.
 
-1. Högerklicka på din lösning i **Solution Explorer**. Välj **Hantera NuGet-paket för lösning** för att gå till fönstret **NuGet-lösning** .
+1. Högerklicka på lösningen i **Solution Explorer.** Välj **Hantera NuGet-paket för lösning för** att gå till fönstret **NuGet - Solution.**
 
 1. Välj **Bläddra**.
 
    ![Skärmbild av dialogrutan Hantera paket för lösningen](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
-1. I **paket källa**väljer du NuGet.org.
+1. Välj nuget.org i **Paketkällan.**
 
-1. Skriv *Microsoft. CognitiveServices. Speech*i rutan **Sök** . Välj sedan det paketet efter att det visas i Sök resultaten.
+1. Ange *Microsoft.CognitiveServices.Speech*i **sökrutan** . Välj sedan det paketet när det visas i sökresultaten.
 
    ![Skärmbild av dialogrutan Hantera paket för lösningen](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
    > [!NOTE] 
-   > IOS-biblioteket i `Microsoft.CognitiveServices.Speech` NuGet har inte bitcode aktiverat. Om du behöver bitcode-biblioteket aktiverat för ditt program använder du `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet för iOS-projektet specifikt.
+   > IOS-biblioteket `Microsoft.CognitiveServices.Speech` i NuGet har inte bitkod aktiverat. Om du behöver bitkodbiblioteket aktiverat för `Microsoft.CognitiveServices.Speech.Xamarin.iOS` ditt program använder du NuGet för iOS-projektet specifikt.
 
-1. I fönstret paket status bredvid Sök resultaten väljer du alla projekt: **HelloWorld**, **HelloWorld. Android**, **HelloWorld. iOS**och **HelloWorld. UWP**.
+1. I fönstret paketstatus bredvid sökresultaten väljer du alla projekt: **helloworld**, **helloworld. Android**, **helloworld.iOS**och **helloworld. UWP**.
 
 1. Välj **Installera**.
 
-1. I dialog rutan **Förhandsgranska ändringar** väljer du **OK**.
+1. Välj **OK**i dialogrutan **Förhandsgranska ändringar** .
 
-1. I dialog rutan **licens godkännande** visar du licensen och väljer sedan **Jag accepterar**. Installera tal SDK-paketets referens till alla projekt. När installationen har slutförts kan du se följande varning för HelloWorld. iOS. Detta är ett känt problem och bör inte påverka din app-funktionalitet.
+1. Visa licensen i dialogrutan **Licensacceptans** och välj sedan **Jag accepterar**. Installera paketet Speech SDK-paketreferens till alla projekt. När installationen har slutförts kan följande varning för helloworld.iOS visas. Detta är ett känt problem och bör inte påverka appens funktioner.
 
-   > Det gick inte att lösa referensen "C:\Users\Default \.nuget \packages\microsoft.cognitiveservices.speech\1.7.0\build\Xamarin.iOS\libMicrosoft.CognitiveServices.Speech.core.a". Om den här referensen krävs av din kod kan du få kompileringsfel.
+   > Det gick inte att lösa referensen "C:\Users\Default\.nuget\packages\microsoft.cognitiveservices.speech\1.7.0\build\Xamarin.iOS\libMicrosoft.CognitiveServices.Speech.core.a". Om den här referensen krävs av koden kan du få kompileringsfel.

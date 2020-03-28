@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: reguljär – uttrycks enhet-LUIS'
+title: 'Självstudiekurs: Entiteten för reguljäruttryck - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Extrahera konsekventa formaterade data från en uttryck med hjälp av entiteten för reguljära uttryck.
+description: Extrahera konsekvent formaterade data från ett uttryck med hjälp av entiteten Reguljärt uttryck.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
 ms.openlocfilehash: 0ca6f2a67e01e4c604c2dcc8f8eaa9ffe8bad045
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75381536"
 ---
-# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Självstudie: Hämta välformaterade data från uttryck
-I den här självstudien skapar du en entitet för reguljära uttryck för att extrahera konsekventa formaterade data från en uttryck.
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Självstudiekurs: Få välformaterade data från yttrandet
+I den här självstudien skapar du en entitet för reguljära uttryck för att extrahera konsekvent formaterade data från ett uttryck.
 
 **I den här självstudiekursen får du lära du dig att:**
 
@@ -28,29 +28,29 @@ I den här självstudien skapar du en entitet för reguljära uttryck för att e
 > * Importera app
 > * Lägga till avsikt
 > * Lägg till entitet för reguljära uttryck
-> * Utbilda, publicera och fråga appen för att hämta extraherade data
+> * Träna, publicera och fråga app för att få extraherade data
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="regular-expression-entities"></a>Lägga till entiteter för reguljära uttryck
 
-Använd entiteten reguljära uttryck för att hämta välformaterad text från en uttryck. Även om avsikten med yttrandet alltid fastställs med maskininlärning är just den här entitetstypen inte maskininlärd. En lämplig användning för entiteten för reguljära uttryck är all text som konsekvent kan representeras av ett [reguljärt uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
+Använd entiteten för reguljära uttryck för att dra ut välformaterad text från ett uttryck. Även om avsikten med yttrandet alltid fastställs med maskininlärning är just den här entitetstypen inte maskininlärd. En bra användning för reguljära uttryck entiteten är en text som konsekvent kan representeras av ett [reguljärt uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 `Send pizza delivery time to x123432`
 
-I det här exemplet används en _kort kod_ för att skicka SMS-meddelanden. Den här korta koden är en numerisk kod på 5 eller 6, som föregås av ett x, och som kan beskrivas med det reguljära uttrycket `x\d{5,6}`.
+I det här exemplet används en _kort kod_ för att skicka textmeddelanden. Den här korta koden är en 5- eller 6-siffrig numerisk kod, som `x\d{5,6}`är föregåd med ett x och kan beskrivas med det reguljära uttrycket .
 
-När du lägger till en entitet för reguljära uttryck i en LUIS-app, behöver du inte [märka](label-entity-example-utterance.md) texten med den vanliga Express entiteten. Den används för alla yttranden i alla syften.
+När du lägger till en reguljär uttrycksentitet i en LUIS-app behöver du inte [märka](label-entity-example-utterance.md) texten med den vanliga expressentiteten. Den tillämpas på alla yttranden i alla avseenden.
 
-## <a name="import-example-json-to-begin-app"></a>Importera exempel. JSON för att starta appen
+## <a name="import-example-json-to-begin-app"></a>Importera exempel .json för att starta appen
 
-1.  Ladda ned och spara [app-JSON-filen](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Ladda ner och spara [appen JSON-fil](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-## <a name="create-intent-for-sending-confirmation-text-messages"></a>Skapa avsikt för att skicka bekräftelse meddelande meddelanden
+## <a name="create-intent-for-sending-confirmation-text-messages"></a>Skapa avsikt för att skicka bekräftelse textmeddelanden
 
-1. Välj **+ skapa** för att skapa en ny avsikt att klassificera en uttryck för att skicka en bekräftelse text.
+1. Välj **+ Skapa** om du vill skapa en ny avsikt att klassificera ett uttrycks avsikt att skicka en bekräftelsetext.
 
 1. Ange `ConfirmationText` i popup-dialogrutan och välj sedan **Done** (Klar).
 
@@ -58,35 +58,35 @@ När du lägger till en entitet för reguljära uttryck i en LUIS-app, behöver 
 
     |Exempel på yttranden|
     |--|
-    |Skicka pizza leverans tid till x123432|
-    |Txt-x234567 för tid|
+    |Skicka pizza leveranstid till x123432|
+    |Txt x234567 för tid|
     |x23987 för meddelandet|
 
-    Om du vill extrahera enheter som har registrerats av enheten ska du tillhandahålla exempel som inkluderar entiteten i en mängd olika yttranden, men med den här entiteten som inte är en enhet, är variationen inte viktig. Så länge texten stämmer överens med det reguljära uttrycket kommer den att extraheras.
+    Om du vill extrahera datorinlärda entiteter bör du ge exempel som innehåller entiteten i en mängd olika yttranden, men med den här icke-maskininlärda entiteten är variationen inte viktig. Så länge texten matchar det reguljära uttrycket extraheras den.
 
 ## <a name="use-the-regular-expression-entity-for-well-formatted-data"></a>Använda entiteten för reguljära uttryck för välformaterade data
-Skapa en entitet för reguljära uttryck som matchar text numret. Det reguljära uttrycket matchar text men ignorerar Case-och Culture-varianter.
+Skapa en entitet för reguljära uttryck som matchar textnumret. Det här reguljära uttrycket matchar text men ignorerar fall- och kulturvarianter.
 
 1. Välj **Entities** (Entiteter) på den vänstra panelen.
 
-1. Välj **+ skapa** på sidan entiteter-lista.
+1. Välj **+ Skapa** på listsidan Entiteter.
 
-1. I popup-dialog rutan anger du det nya entitetsnamnet `ConfirmationTextRegEx`väljer du **regex** som entitetstyp och väljer sedan **Nästa**.
-
-    > [!div class="mx-imgBorder"]
-    > ![starta skapande av entitet för entiteten för reguljärt uttryck](./media/luis-quickstart-intents-regex-entity/pizza-create-new-entity.png)
-
-1. Ange `x\d{5,6}` som **regex** -värde på **entiteten skapa en regex**och välj sedan **skapa**.
+1. I popup-dialogrutan anger du det `ConfirmationTextRegEx`nya entitetsnamnet , väljer **RegEx** som entitetstyp och väljer sedan **Nästa**.
 
     > [!div class="mx-imgBorder"]
-    > ![ange reguljärt uttryck för att extrahera data från exempel uttryck](./media/luis-quickstart-intents-regex-entity/pizza-set-regular-expression-for-new-entity.png)
+    > ![Börja skapa entitetssteg för reguljära uttrycksentiteter](./media/luis-quickstart-intents-regex-entity/pizza-create-new-entity.png)
 
-1. Välj **avsikter** på den vänstra menyn och sedan **ConfirmationText** avsikt att se det reguljära uttrycket som är etiketterat i yttranden.
+1. På skapa **en regex-entitet**anger du `x\d{5,6}` som **Regex-värde** och väljer sedan **Skapa**.
 
     > [!div class="mx-imgBorder"]
-    > ![Visa reguljära uttryck som är märkta i exemplet yttranden](./media/luis-quickstart-intents-regex-entity/pizza-reg-ex-entity-shown-example-utterances-intent.png)
+    > ![Ange reguljärt uttryck för att extrahera data från exempelyttrande](./media/luis-quickstart-intents-regex-entity/pizza-set-regular-expression-for-new-entity.png)
 
-    Eftersom entiteten inte är en enhet som har registrerats av enheten används entiteten i yttranden och visas i LUIS-portalen så snart den skapas.
+1. Välj **Avsikter** på den vänstra menyn och sedan **bekräftelsetextens** avsikt att se det reguljära uttrycket som är märkt i yttrandena.
+
+    > [!div class="mx-imgBorder"]
+    > ![Visa reguljärt uttryck märkt i exempelyttranden](./media/luis-quickstart-intents-regex-entity/pizza-reg-ex-entity-shown-example-utterances-intent.png)
+
+    Eftersom entiteten inte är en datorinlärd entitet tillämpas entiteten på yttrandena och visas i LUIS-portalen så snart den har skapats.
 
 ## <a name="train-the-app-before-testing-or-publishing"></a>Träna appen innan du testar eller publicerar
 
@@ -100,11 +100,11 @@ Skapa en entitet för reguljära uttryck som matchar text numret. Det reguljära
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-2. Gå till slutet av URL: en i adressen och ange följande uttryck:
+2. Gå till slutet av webbadressen i adressen och ange följande uttryck:
 
     `Text my pizza delivery to x23456 x234567 x12345`
 
-    Den sista frågesträngsparametern är `query`, yttrande**frågan**.
+    Den senaste frågesträngparametern är `query`, uttrycksfrågan . **query**
 
     ```json
     {
@@ -189,8 +189,8 @@ Skapa en entitet för reguljära uttryck som matchar text numret. Det reguljära
 
 ## <a name="related-information"></a>Relaterad information
 
-* [Begrepp – entiteter](luis-concept-entity-types.md)
-* [JSON-referens för entiteten för reguljärt uttryck](reference-entity-regular-expression.md?tabs=V3)
+* [Koncept - enheter](luis-concept-entity-types.md)
+* [JSON-referens för reguljär uttrycksenhet](reference-entity-regular-expression.md?tabs=V3)
 * [Så här lägger du till entiteter för att extrahera data](luis-how-to-add-entities.md)
 
 ## <a name="next-steps"></a>Nästa steg

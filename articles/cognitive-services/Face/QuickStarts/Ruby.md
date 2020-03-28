@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Identifiera ansikten i en bild med REST API och Ruby'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten identifierar du ansikten från en bild med hjälp av ansikts REST API med ruby.
+description: I den här snabbstarten identifierar du ansikten från en bild med Face REST API med Ruby.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.openlocfilehash: 892e7e0fe362e25cf1ca69146bd27a77baf41f24
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169441"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Ruby
@@ -23,12 +23,12 @@ I den här snabbstarten ska du använda Azures REST API för ansiktsigenkänning
 
 ## <a name="prerequisites"></a>Krav
 
-- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel.
+- En Face-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Ansiktstjänsten och hämta din nyckel.
 - En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>Skriva skriptet
 
-Skapa den nya filen _faceDetection.rb_ och lägg till följande kod. Den här koden anropar Ansikts-API för en viss bild-URL.
+Skapa den nya filen _faceDetection.rb_ och lägg till följande kod. Den här koden anropar Ansikts-API:et för en viss bild-URL.
 
 ```ruby
 require 'net/http'
@@ -60,11 +60,11 @@ end
 puts response.body
 ```
 
-Du måste uppdatera `request['Ocp-Apim-Subscription-Key']`-värdet med din prenumerations nyckel och ändra `uri`s strängen så att den innehåller rätt slut punkt.
+Du måste uppdatera `request['Ocp-Apim-Subscription-Key']` värdet med din prenumerationsnyckel `uri` och ändra strängen så att den innehåller rätt slutpunkt.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-Du kanske också vill ändra fältet `imageUri` så att det pekar på din egna inmatade bild. Du kanske också vill ändra `returnFaceAttributes` fältet, som anger vilka ansikts attribut som ska hämtas.
+Du kanske också vill ändra fältet `imageUri` så att det pekar på din egna inmatade bild. Du kanske också vill `returnFaceAttributes` ändra fältet, som anger vilka ansiktsattribut som ska hämtas.
 
 ## <a name="run-the-script"></a>Kör skriptet
 
@@ -257,7 +257,7 @@ Du bör se en JSON-sträng för identifierade ansiktsdata i konsolen. Följande 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skrev du ett ruby-skript som anropar Azure Face service för att identifiera ansikten i en bild och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
+I den här snabbstarten skrev du ett Ruby-skript som anropar Azure Face-tjänsten för att identifiera ansikten i en avbildning och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

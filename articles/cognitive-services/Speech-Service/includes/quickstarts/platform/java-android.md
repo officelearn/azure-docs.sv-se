@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: tal-SDK för Java (Android) plattforms konfiguration – tal tjänst'
+title: 'Snabbstart: Tal SDK för Java (Android) plattform setup - Tal tjänst'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att konfigurera din plattform för att använda Java (Android) med Speech service SDK.
+description: Använd den här guiden för att konfigurera din plattform för att använda Java (Android) med taltjänsten SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
 ms.openlocfilehash: cd99d6227f32e1382f32f5fa3c7455475ebbbcda
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75467083"
 ---
-Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Java på Android. Installations programmet baseras på tal SDK maven-paketet och Android Studio 3,3.
+Den här guiden visar hur du installerar [Tal SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för Java på Android. Installationen är baserad på Speech SDK Maven-paketet och Android Studio 3.3.
 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md).
@@ -26,13 +26,13 @@ Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
 
-Tal-SDK: n är kompatibel med Android-enheter som har 32/64-bitars ARM-och Intel x86/x64-kompatibla processorer.
+Tal-SDK är kompatibel med Android-enheter med 32/64-bitars ARM- och Intel x86/x64-kompatibla processorer.
 
-## <a name="install-the-speech-sdk-using-android-studio"></a>Installera tal-SDK med hjälp av Android Studio
+## <a name="install-the-speech-sdk-using-android-studio"></a>Installera Tal SDK med Android Studio
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
-Nu kan du gå vidare till [Nästa steg](#next-steps) nedan.
+Du kan nu gå vidare till [Nästa steg](#next-steps) nedan.
 
 ## <a name="next-steps"></a>Nästa steg
 

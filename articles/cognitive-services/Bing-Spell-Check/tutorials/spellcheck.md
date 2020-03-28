@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: Hämta resultat från stavningskontrollen med hjälp av API:et för stavningskontroll i Bing'
+title: 'Självstudie: Visa resultat från stavningskontrollen med hjälp av API:et för stavningskontroll i Bing'
 titleSuffix: Azure Cognitive Services
-description: Använd den här självstudien för att bygga en webb sida som skickar frågor till API för stavningskontroll i Bing och visar resultatet.
+description: Använd den här självstudien om du vill skapa en webbsida som skickar frågor till API:et för stavningskontroll i Bing och visar resultaten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943098"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Självstudie: Skapa en klient för en webbsida med stavningskontroll
 
-I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
+I den här självstudien ska vi skapa en webbsida där användarna kan fråga API:et för stavningskontroll i Bing. Källkoden för det här programmet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
 I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > - Skicka en enkel fråga till API:et för stavningskontroll i Bing
-> - Visa frågeresultat
+> - Visa frågeresultatet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att kunna följa med i självstudiekursen behöver du en prenumerationsnyckel för API:et för stavningskontroll i Bing. Om du inte har ett kan du [skapa en stavningskontroll i Bing resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) i Azure Portal. Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+För att kunna följa med i självstudiekursen behöver du en prenumerationsnyckel för API:et för stavningskontroll i Bing. Om du inte har någon, [Skapa en Bing Stavningskontroll resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) i Azure-portalen. Du kan också använda en [utvärderingsnyckel](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## <a name="create-a-new-web-page"></a>Skapa en ny webbsida
 
@@ -64,9 +64,9 @@ Lägg till HTML-huvudinformationen och börja skriptavsnittet på följande sät
 <script type="text/javascript">
 ```
 
-## <a name="getsubscriptionkey-function"></a>Funktionen getSubscriptionKey
+## <a name="getsubscriptionkey-function"></a>getSubscriptionKey-funktionen
 
-GetSubscriptionKey-funktionen returnerar nyckeln för API:et för stavningskontroll i Bing. Den hämtar nyckeln från lokal lagring (det vill säga en cookie) eller uppmanar användaren att ange nyckeln om det behövs.
+GetSubscriptionKey-funktionen returnerar nyckeln för API:et för stavningskontroll i Bing. Den hämtar den antingen från lokal lagring (det vill säga en cookie) eller frågar användaren efter den om det behövs.
 
 Starta funktionen getSubscriptionKey och deklarera cookie-namnet enligt följande.
 
@@ -76,7 +76,7 @@ getSubscriptionKey = function() {
     var COOKIE = "bing-spell-check-api-key";   // name used to store API key in key/value storage
 ```
 
-Hjälpfunktionen findCookie returnerar värdet för angiven cookie. Om cookien inte hittas, returneras en tom sträng.
+findCookie-hjälpfunktionen returnerar värdet för den angivna cookien. Om cookien inte hittas returneras en tom sträng.
 
 ```html
     function findCookie(name) {
@@ -106,7 +106,7 @@ getSubscriptionKeyCookie-hjälpfunktionen frågar användaren efter värdet på 
     }
 ```
 
-getSubscriptionKeyLocalStorage-hjälpfunktionen försöker först hämta nyckeln för API:et för stavningskontroll i Bing genom att leta upp rätt cookie. Om cookien inte hittas, uppmanas användaren att ange nyckelvärdet. Sedan returneras nyckelvärdet.
+getSubscriptionKeyLocalStorage-hjälpfunktionen försöker först hämta nyckeln för API:et för stavningskontroll i Bing genom att leta upp rätt cookie. Om cookien inte hittas frågar den användaren efter nyckelvärdet. Sedan returneras nyckelvärdet.
 
 ```html
     function getSubscriptionKeyLocalStorage() {
@@ -118,7 +118,7 @@ getSubscriptionKeyLocalStorage-hjälpfunktionen försöker först hämta nyckeln
     }
 ```
 
-Hjälpfunktionen getSubscriptionKey använder en enda parameter, **invalidate**. Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et för stavningskontroll i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et för stavningskontroll i Bing.
+getSubscriptionKey-hjälpfunktionen stöder en parameter, **invalidate**. Om **invalidate** är **true** tar getSubscriptionKey bort cookien som innehåller nyckeln för API:et för stavningskontroll i Bing. Om **invalidate** är **false** returnerar getSubscriptionKey värdet för nyckeln för API:et för stavningskontroll i Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -148,7 +148,7 @@ Returnera getSubscriptionKey-hjälpfunktionen som resultatet av den yttre getSub
 
 ## <a name="helper-functions"></a>Hjälpfunktioner
 
-Pre-hjälpfunktionen returnerar den angivna texten förformaterad med HTML-taggen [pre](https://www.w3schools.com/tags/tag_pre.asp).
+pre-hjälpfunktionen returnerar den angivna texten förformaterad med HTML-taggen [pre](https://www.w3schools.com/tags/tag_pre.asp).
 
 ```html
 function pre(text) {
@@ -164,7 +164,7 @@ function renderSearchResults(results) {
 }
 ```
 
-Funktionen renderErrorMessage visar det angivna felmeddelandet och felkoden.
+renderErrorMessage-funktionen visar det angivna felmeddelandet och felkoden.
 
 ```html
 function renderErrorMessage(message, code) {
@@ -266,7 +266,7 @@ Skapa ett HTML-formulär med ett textfält. Hantera **onsubmit**-händelsen och 
 </form>
 ```
 
-Lägg till HTML-**div**-taggen som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
+Lägg till HTML-taggen **div** som vi använder för att visa resultatet. JavaScript-koden som vi definierade tidigare refererar till den här **div**-taggen.
 
 ```html
 <h2>Results</h2>
@@ -322,4 +322,4 @@ Spara filen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Krav för användning och visning](../UseAndDisplayRequirements.md)
+> [Användnings- och visningskrav](../UseAndDisplayRequirements.md)

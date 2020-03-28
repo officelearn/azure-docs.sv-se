@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 4395e0a14819021bd1e4ae32c89ffb0cf8e07d00
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906574"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
@@ -17,7 +17,7 @@ ms.locfileid: "69906574"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt projekt med hjälp av din favorit-IDE eller-redigerare eller en ny mapp med `translate-text.js` en fil med namnet på Skriv bordet. Kopiera sedan kodfragmentet till projektet/filen:
+Skapa ett nytt projekt med din favorit-IDE eller redigerare, eller en ny mapp med en fil som heter `translate-text.js` på skrivbordet. Kopiera sedan kodavsnittet till projektet/filen:
 
 ```javascript
 const request = require('request');
@@ -29,9 +29,9 @@ const uuidv4 = require('uuid/v4');
 
 De här modulerna krävs för att skapa HTTP-begäran och skapa en unik identifierare för `'X-ClientTraceId'`-sidhuvudet.
 
-## <a name="set-the-subscription-key-and-endpoint"></a>Ange prenumerations nyckel och slut punkt
+## <a name="set-the-subscription-key-and-endpoint"></a>Ange prenumerationsnyckel och slutpunkt
 
-Det här exemplet försöker läsa Translator text prenumerations nyckel och slut punkt från följande miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
+Det här exemplet försöker läsa din prenumerationsnyckel och slutpunkt `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` `TRANSLATOR_TEXT_ENDPOINT`för translatortext från dessa miljövariabler: och . Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera villkorliga satser.
 
 Kopiera den här koden till projektet:
 
@@ -50,10 +50,10 @@ var endpoint = process.env[endpoint_var];
 
 ## <a name="configure-the-request"></a>Konfigurera begäran
 
-Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi kan skicka HTTP-metoden, URL:en, begärandeparametrarna, sidhuvudena och JSON-brödtexten som ett `options`-objekt. I det här kodavsnittet konfigurerar vi begäran:
+Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi kan skicka HTTP-metoden, URL:en, begärandeparametrarna, sidhuvudena och JSON-brödtexten som ett `options`-objekt. I det här kodfragmentet konfigurerar vi begäran:
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Transkribera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Translitterera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```javascript
 let options = {
@@ -80,11 +80,11 @@ let options = {
 
 Det enklaste sättet att autentisera en begäran är att skicka din prenumerationsnyckel som ett `Ocp-Apim-Subscription-Key`-sidhuvud, vilket är det vi använder i det här exemplet. Alternativt kan du byta din prenumerationsnyckel mot en åtkomsttoken och skicka vidare åtkomsttoken som ett `Authorization`-sidhuvud för att verifiera din begäran.
 
-Om du använder en Cognitive Services-prenumeration med flera tjänster måste du även ta `Ocp-Apim-Subscription-Region` med i dina begärandehuvuden.
+Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera rubrikerna i dina begäranden.
 
 Mer information finns i [Autentisering](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-## <a name="make-the-request-and-print-the-response"></a>Göra begäran och skriva ut svaret
+## <a name="make-the-request-and-print-the-response"></a>Göra en begäran och skriva ut svaret
 
 Nu skapar vi begäran med hjälp av metoden `request()`. Det tar det `options`-objekt som vi skapade i föregående avsnitt som det första argumentet, och skriver sedan ut det förenklade JSON-svaret.
 

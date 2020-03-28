@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Anropa API:et för textanalys med hjälp av Ruby'
 titleSuffix: Azure Cognitive Services
-description: Den här snabb starten visar hur du får information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Den här snabbstarten visar hur du hämtar information och kodexempel som hjälper dig att snabbt komma igång med textanalys-API:et i Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: 0e43d6c3565ea8ae019ab624cbc85965678ea3b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378474"
 ---
 # <a name="quickstart-using-ruby-to-call-the-text-analytics-cognitive-service"></a>Snabbstart: Anropa den kognitiva tjänsten för textanalys med hjälp av Ruby
@@ -36,7 +36,7 @@ API:et för språkidentifiering identifierar språket i ett textdokument, med me
 
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
-1. Kopiera Textanalys nyckel och slut punkt till koden. 
+1. Kopiera textanalysnyckeln och slutpunkten till koden. 
 1. Kör programmet.
 
 ```ruby
@@ -127,7 +127,7 @@ API:et för attitydanalys identifierar attityden i en uppsättning textposter, m
 
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
-1. Kopiera Textanalys nyckel och slut punkt till koden. 
+1. Kopiera textanalysnyckeln och slutpunkten till koden. 
 1. Kör programmet.
 
 ```ruby
@@ -191,7 +191,7 @@ API:et för extrahering av diskussionsämnen extraherar diskussionsämnen från 
 
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
-1. Kopiera Textanalys nyckel och slut punkt till koden.
+1. Kopiera textanalysnyckeln och slutpunkten till koden.
 1. Kör programmet.
 
 
@@ -229,7 +229,7 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Svar vid extrahering av diskussionsämne**
+**Svar vid extrahering av nyckelfraser**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -276,7 +276,7 @@ API:et för entiteter identifierar entiteter i ett textdokument med hjälp av [m
 
 1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
 1. Lägg till koden nedan.
-1. Kopiera Textanalys nyckel och slut punkt till koden.
+1. Kopiera textanalysnyckeln och slutpunkten till koden.
 1. Kör programmet.
 
 ```ruby
@@ -311,7 +311,7 @@ end
 puts JSON::pretty_generate (JSON (response.body))
 ```
 
-**Svar vid entitetextrahering**
+**Svar vid entitetsextrahering**
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -365,7 +365,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se också 
+## <a name="see-also"></a>Se även 
 
  [Översikt över Textanalys](../overview.md)  
- [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)
+ [Vanliga frågor och svar (Vanliga frågor)](../text-analytics-resource-faq.md)

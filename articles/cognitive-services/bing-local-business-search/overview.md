@@ -11,37 +11,37 @@ ms.topic: overview
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: 4e08596e8cf71bbb0e88abdc51f5d8e69972464d
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665263"
 ---
-# <a name="what-is-bing-local-business-search"></a>Vad är lokal sökning i Bing Business?
-API: t för lokal sökning i Bing är en RESTful-tjänst som gör det möjligt för dina program att hitta information om lokala företag baserat på Sök frågor. Till exempel `q=<business-name> in Redmond, Washington`eller `q=Italian restaurants near me`. 
+# <a name="what-is-bing-local-business-search"></a>Vad är Bing Local Business Search?
+Api:et för lokala företag i Bing är en RESTful-tjänst som gör att dina program kan hitta information om lokala företag baserat på sökfrågor. Till exempel `q=<business-name> in Redmond, Washington`, `q=Italian restaurants near me`eller . 
 
 ## <a name="features"></a>Funktioner
 | Funktion | Beskrivning |  
 | -- | -- | 
-| [Hitta lokala företag och platser](quickstarts/local-quickstart.md) | API: t för lokal sökning i Bing får lokaliserade resultat från en fråga. Resultatet innehåller en URL för företagets webbplats och visnings text, telefonnummer och geografisk plats, inklusive: GPS-koordinater, stad, gatuadress |  
-| [Filtrera lokala resultat med geografiska gränser](specify-geographic-search.md) | Lägg till koordinater som Sök parametrar för att begränsa resultaten till ett specifikt geografiskt område, angivet av antingen ett cirkulärt område eller kvadratisk begränsnings ruta. | 
-| [Filtrera lokala affärs resultat efter kategori](local-categories.md) | Sök efter lokala affärs resultat efter kategori. Det här alternativet använder omvänd IP-plats eller GPS-koordinater för anroparen för att returnera lokaliserade resultat i olika verksamhets kategorier.|
+| [Hitta lokala företag och platser](quickstarts/local-quickstart.md) | Api:et för lokala företagssökning i Bing får lokaliserade resultat från en fråga. Resultaten inkluderar en webbadress för företagets webbplats och visa text, telefonnummer och geografisk plats, inklusive: GPS-koordinater, stad, gatuadress |  
+| [Filtrera lokala resultat med geografiska gränser](specify-geographic-search.md) | Lägg till koordinater som sökparametrar för att begränsa resultaten till ett visst geografiskt område, som anges av antingen ett cirkulärt område eller en fyrkantig begränsningsram. | 
+| [Filtrera lokala affärsresultat efter kategori](local-categories.md) | Sök efter lokala företagsresultat efter kategori. Det här alternativet använder omvänd IP-plats eller GPS-koordinater för den som ringer för att returnera lokaliserade resultat i olika kategorier av företag.|
 
 ## <a name="workflow"></a>Arbetsflöde
-Anropa Bing-API: et för lokal sökning från alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON-svar. Den här tjänsten kan nås med hjälp av REST API.
+Anropa API:et för lokal företagssökning på Bing från alla programmeringsspråk som kan göra HTTP-begäranden och tolka JSON-svar. Den här tjänsten är tillgänglig med REST API.
  
-1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).   
-2. URL koda Sök villkoren för den `q=""` Frågeparametern. Exempel: `q=nearby+restaurant` eller `q=nearby%20restaurant`. Ange även sid brytning, om det behövs. 
-3. Skicka en [begäran till Bing-API för lokal affärs sökning](quickstarts/local-quickstart.md) 
-4. Tolka JSON-svar 
+1. Skapa ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:erna för Bing-sökning. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).   
+2. URL-koda söktermerna `q=""` för frågeparametern. Exempel: `q=nearby+restaurant` eller `q=nearby%20restaurant`. Ställ sidnumrering också, om det behövs. 
+3. Skicka en [begäran till API:et](quickstarts/local-quickstart.md) för sökning i Bing lokalt företag 
+4. Tolka JSON-svaret 
 
 > [!NOTE]
-> För närvarande kan du söka i lokalt företag: 
-> * Endast stöder `en-US` marknaden. 
-> * Stöder inte Automatiska förslag i Bing. 
+> För närvarande, Local Business Search: 
+> * Stöder endast `en-US` marknaden. 
+> * Stöder inte Automatiska Förslag på Bing. 
 
 ## <a name="next-steps"></a>Nästa steg
 - [Fråga och svar](local-search-query-response.md)
-- [Snabb start för lokal affärs sökning](quickstarts/local-quickstart.md)
-- [API-referens för lokal affärs sökning](local-search-reference.md)
-- [Krav för användning och visning](use-display-requirements.md)
+- [Snabbstart för lokal företagssökning](quickstarts/local-quickstart.md)
+- [API-referens för sökning efter lokala företag](local-search-reference.md)
+- [Användnings- och visningskrav](use-display-requirements.md)

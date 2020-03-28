@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: träna en modell och extrahera formulär data med hjälp av typografiska formulär igenkänning'
+title: 'Snabbstart: Träna en modell och extrahera formulärdata med cURL - Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten använder du formulär tolken REST API med sväng för att träna en modell och extrahera data från formulär.
+description: I den här snabbstarten ska du använda REST-API:et för formulärre recognizeer med cURL för att träna en modell och extrahera data från formulär.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,62 +10,62 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 32756187852de0834afc1dc034d3f7419f0c8087
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118402"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Snabbstart: Träna en formulärmedkänningsmodell och extrahera formulärdata med hjälp av REST API med cURL
 
-I den här snabb starten använder du Azures formulär tolken REST API med sväng för att träna och skapa Poäng för att extrahera nyckel/värde-par och tabeller.
+I den här snabbstarten använder du Azure Form Recognizer REST API med cURL för att träna och betygsätta formulär för att extrahera nyckelvärdespar och tabeller.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabb starten måste du ha:
-- [spiralen](https://curl.haxx.se/windows/) är installerad.
-- En uppsättning av minst sex formulär av samma typ. Du kommer att använda fem av dessa för att träna modellen och sedan testa den med sjätte form. Dina formulär kan vara av olika filtyper men måste vara av samma typ av dokument. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto. Du kan ställa in testfilerna i en separat mapp.
+För att slutföra den här snabbstarten måste du ha:
+- [cURL](https://curl.haxx.se/windows/) installerat.
+- En uppsättning av minst sex former av samma typ. Du kommer att använda fem av dessa för att träna modellen, och sedan ska du testa den med den sjätte formen. Formulären kan vara av olika filtyper men måste vara av samma typ av dokument. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp utbildningsfilerna till roten för en blob-lagringsbehållare i ett Azure Storage-konto. Du kan placera testfilerna i en separat mapp.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulärkonformeringsresurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="train-a-form-recognizer-model"></a>Träna en formulär igenkännings modell
+## <a name="train-a-form-recognizer-model"></a>Träna en formulärakänningsmodell
 
-Först behöver du en uppsättning tränings data i en Azure Storage-blob. Du bör ha minst fem ifyllda formulär (PDF-dokument och/eller bilder) av samma typ/struktur som dina viktigaste indata. Eller så kan du använda ett enda tomt formulär med två ifyllda formulär. Det tomma formulärets fil namn måste innehålla ordet "Empty". Se [skapa en tränings data uppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta samman dina tränings data.
+Först behöver du en uppsättning utbildningsdata i en Azure Storage-blob. Du bör ha minst fem ifyllda formulär (PDF-dokument och/eller bilder) av samma typ/struktur som dina huvudsakliga indata. Du kan också använda ett enda tomt formulär med två ifyllda formulär. Det tomma formulärets filnamn måste innehålla ordet "tom". Se [Skapa en utbildningsdatauppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta ihop dina träningsdata.
 
 > [!NOTE]
-> Du kan använda funktionen märkta data för att manuellt märka vissa eller alla dina utbildnings data i förväg. Detta är en mer komplex process men resulterar i en bättre tränad modell. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
+> Du kan använda den märkta datafunktionen för att manuellt märka vissa eller alla träningsdata i förväg. Detta är en mer komplex process men resulterar i en bättre utbildad modell. Se avsnittet [Träna med etiketter](../overview.md#train-with-labels) i översikten om du vill veta mer om den här funktionen.
 
-Om du vill träna en formulär igenkännings modell med dokumenten i din Azure Blob-behållare anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande spiral-kommando. Innan du kör kommandot gör du följande ändringar:
+Om du vill träna en formulärmedkänningsmodell med dokumenten i azure-blob-behållaren anropar du **[API:et för anpassad tågmodell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** genom att köra följande cURL-kommando. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
-1. Ersätt `<subscription key>` med prenumerations nyckeln som du kopierade från föregående steg.
-1. Ersätt `<SAS URL>` med Azure Blob Storages behållares URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Ersätt `<Endpoint>` med slutpunkten som du fick med din prenumeration på Formulär recognizer.
+1. Ersätt `<subscription key>` med prenumerationsnyckeln som du kopierade från föregående steg.
+1. Ersätt `<SAS URL>` med Azure Blob-lagringsbehållarens SAS-URL (Shared Access Signature). Om du vill hämta SAS-URL:en öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrollera att behörigheterna **Läs** och **Lista** är markerade och klicka på **Skapa**. Kopiera sedan värdet i **avsnittet URL.** Det bör ha `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`formen: .
 
 ```bash
 curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
-Du får ett `201 (Success)` svar med ett **plats** huvud. Värdet för den här rubriken är ID: t för den nya modell som tränas. 
+Du får ett `201 (Success)` svar med ett **platshuvud.** Värdet för det här huvudet är ID:et för den nya modellen som tränas. 
 
-## <a name="get-training-results"></a>Hämta utbildnings resultat
+## <a name="get-training-results"></a>Få träningsresultat
 
-När du har startat träna-åtgärden använder du en ny åtgärd, **[hämtar anpassad modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** för att kontrol lera kursens status. Skicka modell-ID: t till det här API-anropet för att kontrol lera utbildningens status:
+När du har startat tågåtgärden använder du en ny åtgärd, **[Get Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetCustomModel)** för att kontrollera träningsstatusen. Skicka modell-ID:et till det här API-anropet för att kontrollera träningsstatus:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick med din prenumerations nyckel för formulär igenkänning.
-1. Ersätt `<subscription key>` med din prenumerations nyckel
-1. Ersätt `<model ID>` med modell-ID: t som du fick i föregående steg
+1. Ersätt `<Endpoint>` med slutpunkten som du fick med prenumerationsnyckeln För formulärmedkänningsnyckel.
+1. Ersätt `<subscription key>` med din prenumerationsnyckel
+1. Ersätt `<model ID>` med det modell-ID som du fick i föregående steg
 
 ```bash
 curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-Du får ett `200 (Success)` svar med en JSON-text i följande format. Lägg märke till `"status"` fältet. Detta kommer att ha värdet `"ready"` när inlärningen är klar. Om modellen inte är avslutad måste du fråga tjänsten igen genom att köra kommandot på nytt. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
+Du får ett `200 (Success)` svar med en JSON-brödtext i följande format. Lägg `"status"` märke till fältet. Detta kommer att `"ready"` ha värdet när utbildningen är klar. Om modellen inte är klar med träningen måste du fråga tjänsten igen genom att köra kommandot igen. Vi rekommenderar ett intervall på en sekund eller mer mellan samtalen.
 
-Fältet `"modelId"` innehåller ID: t för den modell som du tränar. Du behöver detta för nästa steg.
+Fältet `"modelId"` innehåller ID:et för den modell som du tränar. Du behöver det här för nästa steg.
 
 ```json
 { 
@@ -133,26 +133,26 @@ Fältet `"modelId"` innehåller ID: t för den modell som du tränar. Du behöve
 }
 ```
 
-## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analysera formulär för nyckel/värde-par och tabeller
+## <a name="analyze-forms-for-key-value-pairs-and-tables"></a>Analysera formulär för nyckelvärdespar och tabeller
 
-Sedan använder du din nya tränade modell för att analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **[analys formulärets](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** API genom att köra följande spiral-kommando. Innan du kör kommandot gör du följande ändringar:
+Därefter ska du använda den nyutbildade modellen för att analysera ett dokument och extrahera nyckelvärdespar och tabeller från den. Anropa **[API:et analysera formulär](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)** genom att köra följande cURL-kommando. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick från ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
-1. Ersätt `<model ID>` med modell-ID: t som du fick i föregående avsnitt.
-1. Ersätt `<SAS URL>` med en SAS-URL till din fil i Azure Storage. Följ stegen i avsnittet utbildning, men i stället för att få en SAS-URL för hela BLOB-behållaren, hämta en för den aktuella filen som du vill analysera.
+1. Ersätt `<Endpoint>` med slutpunkten som du har hämtat från prenumerationsnyckeln för Formulärmedkännare. Du hittar den på fliken **Resursöversikt för** formulärdeform.
+1. Ersätt `<model ID>` med det modell-ID som du fick i föregående avsnitt.
+1. Ersätt `<SAS URL>` med en SAS-URL till filen i Azure-lagring. Följ stegen i avsnittet Utbildning, men i stället för att hämta en SAS-URL för hela blob-behållaren får du en för den specifika fil som du vill analysera.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
 ```bash
 curl -v "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
 
-Du får ett `202 (Success)` svar med en **Åtgärds plats** rubrik. Värdet för den här rubriken innehåller ett resultat-ID som du använder för att spåra resultatet av analys åtgärden. Spara detta resultat-ID för nästa steg.
+Du får ett `202 (Success)` svar med ett **operation-platshuvud.** Värdet för det här huvudet innehåller ett resultat-ID som du använder för att spåra resultatet av analysåtgärden. Spara det här resultat-ID:t för nästa steg.
 
-## <a name="get-the-analyze-results"></a>Hämta analys resultatet
+## <a name="get-the-analyze-results"></a>Få analysresultaten
 
-Använd följande API för att fråga resultatet av analys åtgärden.
+Använd följande API för att fråga resultaten av analysåtgärden.
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick från ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<Endpoint>` med slutpunkten som du har hämtat från prenumerationsnyckeln för Formulärmedkännare. Du hittar den på fliken **Resursöversikt för** formulärdeform.
 1. Ersätt `<result ID>` med det ID som du fick i föregående avsnitt.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
@@ -160,9 +160,9 @@ Använd följande API för att fråga resultatet av analys åtgärden.
 curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-Du får ett `200 (Success)` svar med en JSON-text i följande format. Utdatan har kort ATS för enkelhetens skull. Lägg märke till fältet `"status"` längst ned. Detta kommer att ha värdet `"succeeded"` när analys åtgärden har slutförts. Om analys åtgärden inte har slutförts måste du fråga tjänsten igen genom att köra kommandot på nytt. Vi rekommenderar ett intervall på en sekund eller flera anrop mellan anrop.
+Du får ett `200 (Success)` svar med en JSON-brödtext i följande format. Produktionen har förkortats för enkelhetens skull. Lägg `"status"` märke till fältet nära botten. Detta kommer att `"succeeded"` ha värdet när analysåtgärden är klar. Om åtgärden Analysera inte har slutförts måste du fråga tjänsten igen genom att köra kommandot igen. Vi rekommenderar ett intervall på en sekund eller mer mellan samtalen.
 
-Huvud nyckel/värdepar-associationer och tabeller finns i noden `"pageResults"`. Om du även har angett oformaterad text extrahering genom *includeTextDetails* URL-parameter, kommer noden `"readResults"` att visa innehållet och positionerna för all text i dokumentet.
+Huvud-/värdeparföreningarna och tabellerna `"pageResults"` finns i noden. Om du också har angett att oformaterad text har `"readResults"` utvinning av oformaterad text via parametern *includeTextDetails* URL visas innehållet och positionerna för all text i dokumentet.
 
 ```json
 {
@@ -419,7 +419,7 @@ Huvud nyckel/värdepar-associationer och tabeller finns i noden `"pageResults"`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten använde du formulär tolken REST API med sväng för att träna en modell och köra den i ett exempel scenario. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
+I den här snabbstarten använde du REST-API:et för formulärrec med cURL för att träna en modell och köra den i ett exempelscenario. Se sedan referensdokumentationen för att utforska API:et för formulärre recognizeer mer ingående.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [DOKUMENTATION FÖR REST API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)

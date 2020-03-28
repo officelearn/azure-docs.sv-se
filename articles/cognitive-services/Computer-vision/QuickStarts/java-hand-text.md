@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Visuellt innehåll 2,0 och 2,1 – extrahera utskrift och handskriven text – vila, Java'
+title: 'Snabbstart: Computer Vision 2.0 och 2.1 - Utdrag tryckt och handskriven text - REST, Java'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten extraherar du utskriven och handskriven text från en bild med hjälp av API för visuellt innehåll med Java.
+description: I den här snabbstarten extraherar du tryckt och handskriven text från en bild med hjälp av API:et för visuellt innehåll med Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,41 +12,41 @@ ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 15c84b0c4cd4311300b951c3bf86b2bd62d48bfd
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77566139"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-java"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll 2,0 och 2,1 REST API och Java
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-java"></a>Snabbstart: Extrahera tryckt och handskriven text med hjälp av Computer Vision 2.0 och 2.1 REST API och Java
 
-I den här snabb starten ska du extrahera tryckt och/eller handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
+I den här snabbstarten extraherar du tryckt och/eller handskriven text från en bild med hjälp av REST-APIN för visuellt innehåll. Med metoderna [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [läsåtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera tolkade tecken till en maskinläsbar teckenström. API:et avgör vilken igenkänningsmodell som ska användas för varje textrad, så den stöder bilder med både utskriven och handskriven text.
 
-Jämfört med Visuellt innehåll 2,0 och 2,1 ger Visuellt innehåll 3,0 offentlig för hands version:
+Jämfört med Computer Vision 2.0 och 2.1 innehåller Den offentliga förhandsversionen av Computer Vision 3.0:
 
-* ännu bättre precision
+* ännu bättre noggrannhet
 * ett ändrat utdataformat
 * förtroende poäng för ord
-* stöd för både spanska och engelska språk med ytterligare språk parameter
+* stöd för både spanska och engelska språk med den ytterligare språkparametern
 
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 > [!IMPORTANT]
-> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
+> Metoden [Batchläsning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Batchläsning en URI i värdet för `Operation-Location` svarshuvudfältet. Du kan sedan anropa den här URI:n, som representerar [API:et för läsåtgärdsresultat,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) för att både kontrollera status och returnera resultatet av batchläsningsmetodanropet.
 
-#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
 
 > [!IMPORTANT]
-> Läs metoden för [batch](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
+> Metoden [Batchläsning](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar metoden Batchläsning en URI i värdet för `Operation-Location` svarshuvudfältet. Du kan sedan anropa den här URI:n, som representerar [API:et för läsåtgärdsresultat,](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) för att både kontrollera status och returnera resultatet av batchläsningsmetodanropet.
 
 ---
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
 
 - Du måste ha [Java&trade; Platform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8) installerat.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri testversionsnyckel från [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Du kan också följa instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på Datorseende och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel- och `COMPUTER_VISION_SUBSCRIPTION_KEY` tjänstslutpunktssträngen, med namnet respektive `COMPUTER_VISION_ENDPOINT`.
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
@@ -54,7 +54,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Så här skapar du och kör exemplet:
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE eller i ett redigeringsprogram. Om du har det här alternativet kan du skapa Java-projektet från en kommandoradsmall.
+1. Skapa ett nytt Java-projekt i dem IDE eller det redigeringsprogram som du föredrar. Om du har det här alternativet kan du skapa Java-projektet från en kommandoradsmall.
 1. Importera följande bibliotek till Java-projektet. Om du använder Maven så tillhandahålls Maven-koordinaterna för varje bibliotek.
    - [Apache HTTP-klienten](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Apache HTTP-kärnan](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -76,8 +76,8 @@ Så här skapar du och kör exemplet:
    import org.json.JSONObject;
    ```
 
-1. Ersätt `Main` offentliga klassen med följande kod.
-1. Du kan också ersätta värdet för `imageToAnalyze` med URL: en till en annan bild som du vill extrahera text från.
+1. Ersätt `Main` den offentliga klassen med följande kod.
+1. Du kan också ersätta `imageToAnalyze` värdet för med url:en för en annan bild som du vill extrahera text från.
 1. Spara och kompilera sedan Java-projektet.
 1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Till exempel `java Main`.
 
@@ -192,11 +192,11 @@ public class Main {
 }
 ```
 
-#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
 
 Så här skapar du och kör exemplet:
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE eller i ett redigeringsprogram. Om du har det här alternativet kan du skapa Java-projektet från en kommandoradsmall.
+1. Skapa ett nytt Java-projekt i dem IDE eller det redigeringsprogram som du föredrar. Om du har det här alternativet kan du skapa Java-projektet från en kommandoradsmall.
 1. Importera följande bibliotek till Java-projektet. Om du använder Maven så tillhandahålls Maven-koordinaterna för varje bibliotek.
    - [Apache HTTP-klienten](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Apache HTTP-kärnan](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -218,9 +218,9 @@ Så här skapar du och kör exemplet:
     import org.json.JSONObject;
     ```
 
-1. Ersätt `Main` offentliga klassen med följande kod.
-1. Du kan också ersätta värdet för `language` med det språk som du vill identifiera. Godkända värden är "en" för engelska och "es" för spanska.
-1. Du kan också ersätta värdet för `imageToAnalyze` med URL: en till en annan bild som du vill extrahera text från.
+1. Ersätt `Main` den offentliga klassen med följande kod.
+1. Du kan också ersätta `language` värdet för med det språk som du vill känna igen. Godkända värden är "en" för engelska och "es" för spanska.
+1. Du kan också ersätta `imageToAnalyze` värdet för med url:en för en annan bild som du vill extrahera text från.
 1. Spara och kompilera sedan Java-projektet.
 1. Om du använder en IDE kör du `Main`. Annars öppnar du en kommandotolk och kör den kompilerade klassen med kommandot `java`. Till exempel `java Main`.
 
@@ -456,7 +456,7 @@ Text recognition result response:
 }
 ```
 
-#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+#### <a name="version-3-public-preview"></a>[Version 3 (Offentlig förhandsversion)](#tab/version-3)
 
 ```json
 {
@@ -771,7 +771,7 @@ När du inte längre behöver det kan du ta bort Java-projektet inklusive den ko
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska ett Java Swing-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan snabbt experimentera med API:et för visuellt innehåll genom att prova [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Utforska ett Java Swing-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild. Du kan experimentera med API för visuellt innehåll i [Open API-testkonsolen](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Självstudie: API för visuellt innehåll med Java](../Tutorials/java-tutorial.md)

@@ -1,22 +1,14 @@
 ---
-title: 'Snabb start: skapa app-LUIS'
-titleSuffix: Azure Cognitive Services
-description: Den här snabb starten visar hur du skapar en LUIS-app som använder den fördefinierade domänen `HomeAutomation` för att aktivera och inaktivera lampor och apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
+title: 'Snabbstart: skapa app - LUIS'
+description: Den här snabbstarten visar hur du skapar en `HomeAutomation` LUIS-app som använder den fördefinierade domänen för att tända och stänga av lampor och apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: diberry
-ms.openlocfilehash: 302321a36a6ce7526ad5e3144f87b88edbfaaec7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/24/2020
+ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241754"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80287806"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
 
@@ -29,60 +21,62 @@ I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 Du kan skapa och hantera dina appar på **Mina appar**.
 
-1. I LUIS-portalen i listan Mina appar väljer du **+ skapa**.
+1. I listan Mina appar väljer du **+ Ny app för konversation**.
 
-    ![I LUIS-portalen i listan Mina appar väljer du + skapa.](./media/create-app-in-portal.png)
+1. Namnge programmet `Home Automation`i dialogrutan . Välj **engelska** som kultur. Beskrivningen är valfri och används inte för redigering eller förutsägelse. Förutsägelseresursen är också valfri när du skapar en LUIS-app. Välj **Done** (Klar).
 
-1. I dialog rutan namnger du ditt program `Home Automation` väljer sedan **slutfört**. LUIS skapar appen. Beskrivningen är valfri och används inte för redigering eller förutsägelse. Förutsägelse resursen är också valfri när du skapar en LUIS-app. När du publicerar din app till produktion bör du tilldela en förutsägelse resurs så att din app kan hantera många begär Anden.
+    LUIS skapar appen. När du publicerar appen i produktion bör du tilldela en förutsägelseresurs så att appen kan hantera många begäranden.
 
-    ![I dialog rutan namnger du appens hem automatisering](./media/create-new-app-details.png)
+    ![I dialogrutan namnger du programmet "Home Automation"](./media/create-new-app-details.png)
 
     >[!NOTE]
     >Kulturen kan inte ändras när appen har skapats.
 
 ## <a name="add-prebuilt-domain"></a>Lägga till fördefinierad domän
 
-Välj **förinställda domäner** och Sök sedan efter **HomeAutomation**. Välj **Lägg till domän** på HomeAutomation-kortet.
+Välj **Fördefinierade domäner** och sök sedan efter **HomeAutomation**. Välj **Lägg till domän** på HomeAutomation-kortet.
 
-![Välj "förinställda domäner" och Sök efter "HomeAutomation". Välj Lägg till domän på HomeAutomation-kortet.](media/luis-quickstart-new-app/home-automation.png)
+![Välj "Fördefinierade domäner" och sök sedan efter "HomeAutomation". Välj Lägg till domän på HomeAutomation-kortet.](media/luis-quickstart-new-app/home-automation.png)
 
 När domänen har lagts till visar rutan för den fördefinierade domänen knappen **Remove domain** (Ta bort domän).
 
 ## <a name="intents-and-entities"></a>Avsikter och entiteter
 
-Välj **avsikter** för att granska HomeAutomation domän avsikter. De fördefinierade domän exemplen har ett exempel på yttranden.
+Välj **Avsikter om** du vill granska avsikter med HomeAutomation-domänen. De fördefinierade domänavsikterna har exempelyttranden.
 
-![Skärm bild av listan med HomeAutomation-intentor](media/luis-quickstart-new-app/home-automation-intents.png "Skärm bild av listan med HomeAutomation-intentor")
+![Skärmbild av listan över avsikter i HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Skärmbild av listan över avsikter i HomeAutomation")
 
 > [!NOTE]
 > **None** (Ingen) är en avsikt som tillhandahålls av alla LUIS-appar. Du kan använda den till att hantera yttranden som inte motsvarar funktioner som finns i din app.
 
 Välj avsikten **HomeAutomation.TurnOff** (stänga av). Du kan se att avsikten innehåller en lista med yttranden som är märkta med entiteter.
 
-[![Skärm bild av avsikten HomeAutomation. TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Skärm bild av avsikten HomeAutomation. TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+[![Skärmbild av avsikten HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>Testa din app
-När du har tränat appen kan du testa den. Välj **test**. Skriv ett test-uttryck som `Turn off the lights` i det interaktiva test fönstret och tryck på RETUR.
+När du har tränat appen kan du testa den.
 
-```
-Turn off the lights
-```
+1. Välj **Testa** i navigeringen längst upp till höger. 1. Skriv ett testuttryck som `Turn off the lights` i den interaktiva testfönstret och tryck på Retur.
 
-Kontrollera att avsikten med högst poäng motsvarar den avsikt du förväntade dig för varje testyttrande.
+    ```
+    Turn off the lights
+    ```
 
-I det här exemplet identifieras `Turn off the lights` korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff**.
+    Kontrollera att avsikten med högst poäng motsvarar den avsikt du förväntade dig för varje testyttrande.
 
-![Skärm bild av test panelen med uttryck markerat](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+    I det `Turn off the lights` här exemplet identifieras den högsta poängmetoden för **HomeAutomation.TurnOff**.
 
-Välj **Granska** för att granska mer information om förutsägelsen.
+    ![Skärmbild av testpanel med yttranden markerade](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-![Skärm bild av test panelen med gransknings information](media/luis-quickstart-new-app/test.png)
+1. Välj **Granska** om du vill granska mer information om förutsägelsen.
 
-Välj **Test** igen för att dölja testfönstret.
+    ![Skärmbild av testpanelen med inspektionsinformation](media/luis-quickstart-new-app/test.png)
+
+1. Stäng testfönstret.
 
 <a name="publish-your-app"></a>
 
@@ -92,18 +86,18 @@ Välj **Test** igen för att dölja testfönstret.
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 
-## <a name="query-the-v3-api-prediction-endpoint"></a>Fråga v3 API förutsägelse-slutpunkten
+## <a name="query-the-v3-api-prediction-endpoint"></a>Fråga slutpunkten för V3 API-förutsägelse
 
 [!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)]
 
-1. I adress fältet i webbläsaren kontrollerar du att följande namn och värde fält finns i URL: en för frågesträngen. Om de inte finns i frågesträngen lägger du till dem:
+2. Kontrollera att följande namn och värdestaplar finns i URL:en i url:en i webbläsarens adressfält. Om de inte finns i frågesträngen lägger du till dem:
 
-    |Namn/värde-par|
+    |Namn/värdepar|
     |--|
     |`verbose=true`|
     |`show-all-intents=true`|
 
-1. I webbläsarens Adress fält går du till slutet av URL: en och anger `turn off the living room light` för värdet _fråga_ . Tryck sedan på RETUR.
+3. Gå till slutet av URL:en i webbläsarens adressfält och ange `turn off the living room light` _frågevärdet_ och tryck sedan på Retur.
 
     ```json
     {
@@ -194,7 +188,7 @@ Välj **Test** igen för att dölja testfönstret.
     }
     ```
 
-    Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+    Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

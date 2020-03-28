@@ -8,23 +8,23 @@ ms.topic: include
 ms.date: 01/15/2020
 ms.author: ralphe
 ms.openlocfilehash: c6291a714083df8954d5162ad38d31b2e3caee76
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78926066"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Skapa en Azure Speech-resurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Öppna **program.cs**och ersätt all kod i den med följande kod:
+1. Öppna **Program.cs**och ersätt all kod i den med följande kod:
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
@@ -199,26 +199,26 @@ Innan du börjar ska du se till att:
     }
     ```
 
-1. I samma fil ersätter du strängen `YourSubscriptionKey` med prenumerations nyckeln för din kognitiva tal.
+1. I samma fil ersätter `YourSubscriptionKey` du strängen med prenumerationsnyckeln Cognitive Speech.
 
 1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Välj **arkiv** > **Spara alla**på Meny raden.
+1. Välj Spara**alla** **på** > menyraden .
 
 ## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Skapa och kör programmet för att skapa en ny konversation
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
+1. Välj **Felsökning** > **Starta felsökning** (eller tryck på **F5)** för att starta **helloworld-programmet.**
 
-1. När du ser `Started transcribing` meddelandet visas kan du börja prata. Du ser att avskrifterna visas när du talar.
-    - Om du delar konversations koden med de andra och de ansluter till konversationen visas även deras avskrifter.
+1. När meddelandet `Started transcribing` visas kan du börja tala. Du kommer att se transkriptionerna visas när du talar.
+    - Om du delar konversationskoden med de andra och de går med i konversationen ser du även deras transkriptioner.
 
-1. När du har talat klart trycker du på <kbd>CTRL + C</kbd> för att stoppa ljud fångsten och avsluta konversationen.
+1. När du har talat klart trycker du på <kbd>Ctrl+C</kbd> för att stoppa ljudinspelningen och avslutar konversationen.
 
-## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Skapa och kör programmet för att ansluta till en befintlig konversation
+## <a name="build-and-run-the-application-to-join-an-existing-conversation"></a>Skapa och kör programmet för att delta i en befintlig konversation
 
-1. Kopiera och klistra in följande funktion i din **program.cs**:
+1. Kopiera och klistra in följande funktion i **Program.cs:**
 
     ```csharp
     static async Task JoinConversationAsync(string conversationId)
@@ -294,7 +294,7 @@ Innan du börjar ska du se till att:
     }
     ```
 
-2. Ersätt `CreateConversationAsync();` i `public static async Task Main(string[] args)`-funktionen med:
+2. Ersätt `CreateConversationAsync();` i `public static async Task Main(string[] args)` din funktion med:
 
     ```csharp
     // Set this to the conversation you want to join
@@ -303,19 +303,19 @@ Innan du börjar ska du se till att:
 
 [!INCLUDE [create-from-web](../create-from-web.md)]
 
-4. Gå tillbaka till Visual Studio och ersätt strängen `YourConversationId` med det Konversations-ID som du skapade i föregående steg.
+4. Gå tillbaka till Visual Studio `YourConversationId` och ersätt strängen med konversations-ID:et som du skapade i föregående steg.
 
-5. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+5. Välj **Bygg** > **bygglösning på** menyraden för att skapa programmet. Koden bör nu kompileras utan fel.
 
-6. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
+6. Välj **Felsökning** > **Starta felsökning** (eller tryck på **F5)** för att starta **helloworld-programmet.**
 
-7. När du ser `Started transcribing` meddelandet visas kan du börja prata. Du ser att avskrifterna visas när du talar.
-    - Om du går tillbaka till din webbläsare bör du se att dina avskrifter visas där du talar också.
+7. När meddelandet `Started transcribing` visas kan du börja tala. Du kommer att se transkriptionerna visas när du talar.
+    - Om du går tillbaka till din webbläsare, bör du se dina transkriptioner visas där när du talar också.
 
-8. När du har talat klart trycker du på <kbd>CTRL + C</kbd> för att stoppa ljud fångsten och avsluta konversationen.
+8. När du har talat klart trycker du på <kbd>Ctrl+C</kbd> för att stoppa ljudinspelningen och avslutar konversationen.
 
-9. Gå tillbaka till webbläsaren och avsluta konversationen med hjälp av avslutnings knappen i det övre högra hörnet.
+9. Gå tillbaka till webbläsaren och avsluta konversationen med hjälp av stängningsknappen i det övre högra hörnet.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [!INCLUDE [footer](./footer.md)]

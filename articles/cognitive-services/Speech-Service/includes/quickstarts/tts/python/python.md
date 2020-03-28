@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: syntetisera tal, python-tal-tjänst'
+title: 'Snabbstart: Syntetisera tal, Python - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: Lär dig mer om att syntetisera tal i python med hjälp av tal-SDK
+description: Lär dig hur du syntetiserar tal i Python med hjälp av Speech SDK
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 19/14/2020
 ms.author: dapine
 ms.openlocfilehash: 58f2b3693b924197dda1e396ae71192776ca276e
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924789"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md)
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md)
 
 ## <a name="support-and-updates"></a>Support och uppdateringar
 
@@ -51,9 +51,9 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installera och använda Speech SDK med Visual Studio Code
 
-1. Hämta och installera en 64-bitars version av [python](https://www.python.org/downloads/), 3,5 till 3,8, på din dator.
+1. Hämta och installera en 64-bitarsversion av [Python](https://www.python.org/downloads/), 3,5 till 3,8, på datorn.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Öppna Visual Studio Code och installera Python-tillägget. Välj **Arkiv** > **Inställningar** > **Tillägg** på menyn. Sök efter **Python**.
+1. Öppna Visual Studio Code och installera Python-tillägget. Välj **File** > **Filinställningar** > **Tillägg** på menyn. Sök efter **Python**.
 
    ![Installera Python-tillägget](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
 
@@ -69,12 +69,12 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
 1. Kopiera, klistra in och spara [Python-koden](#sample-code) till den nyskapade filen.
 1. Infoga prenumerationsinformationen för taltjänsten.
 1. Om en Python-tolk har valts visas den på statusfältets vänstra sida, längst ner i fönstret.
-   Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommando paletten (Ctrl + Shift + P) och ange **python: Välj tolk**. Välj en som passar.
+   Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommandopaletten (Ctrl+Skift+P) och ange **Python: Välj tolk**. Välj en som passar.
 1. Du kan installera Speech SDK Python-paketet i Visual Studio Code. Gör det om det inte är installerat än för Python-tolken som du valt.
-   Öppna en terminal för att installera Speech SDK-paketet. Öppna kommando rads verktyget igen (Ctrl + Shift + P) och ange **Terminal: skapa ny integrerad Terminal**.
+   Öppna en terminal för att installera Speech SDK-paketet. Ta fram kommandopaletten igen (Ctrl+Skift+P) och ange **Terminal: Skapa ny integrerad terminal**.
    I terminalen som öppnas anger du kommandot `python -m pip install azure-cognitiveservices-speech`, eller lämpligt kommando för ditt system.
 1. Kör exempelkoden genom att högerklicka någonstans i redigeraren. Välj **Kör Python-fil i Terminal**.
-   Skriv lite text när du uppmanas till det. Det syntetiserade ljudet spelas upp strax efteråt.
+   Skriv text när du uppmanas att göra det. Det syntetiserade ljudet spelas upp kort därefter.
 
    ![Köra ett exempel](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-run-tts.png)
 
@@ -87,4 +87,4 @@ Om det finns problem med att följa dessa anvisningar finns den mer omfattande [
 ## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Spela in anpassade röstexempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

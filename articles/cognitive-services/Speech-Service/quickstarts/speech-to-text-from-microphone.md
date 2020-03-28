@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: identifiera tal från en mikrofon-tal-tjänst'
+title: 'Snabbstart: Känna igen tal från en mikrofon - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: 'I den här snabb starten ska du använda tal-SDK: n för att identifiera tal från ljuddata som fångats från en mikrofon.'
+description: I den här snabbstarten ska du använda Speech SDK för att interaktivt känna igen tal från ljuddata som hämtats från en mikrofon.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 02/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: eb02f273e66266b1e445df73aea61610640e9868
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77119535"
 ---
-# <a name="quickstart-recognize-speech-from-a-microphone"></a>Snabb start: identifiera tal från en mikrofon
+# <a name="quickstart-recognize-speech-from-a-microphone"></a>Snabbstart: Känna igen tal från en mikrofon
 
 ::: zone pivot="programming-language-csharp"
 

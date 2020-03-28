@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: publicerings inställningar – LUIS'
+title: 'Självstudiekurs: Publiceringsinställningar - LUIS'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien ändrar du publicerings inställningarna för att få bättre förutsägelser.
+description: I den här självstudien ändrar du publiceringsinställningarna för att få bättre förutsägelser.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,22 +12,22 @@ ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: diberry
 ms.openlocfilehash: 2df32c20bebf4243f383a0cccd8f037721533602
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75890394"
 ---
-# <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Självstudie: Lägg till sentiment-analys som en publicerings inställning
+# <a name="tutorial--add-sentiment-analysis-as-a-publishing-setting"></a>Självstudiekurs: Lägga till sentimentanalys som publiceringsinställning
 
-I den här självstudien ändrar du publicerings inställningarna för att extrahera sentiment-analys och frågar sedan LUIS-slutpunkten för att se returnerad sentiment för en användare uttryck.
+I den här självstudien ändrar du publiceringsinställningarna för att extrahera sentimentanalys och fråga sedan LUIS-slutpunkten för att se den returnerade känslan för ett användarutseende.
 
 **I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Lägg till sentiment-analys som en publicerings inställning
-> * Hämta sentiment för en uttryck från den publicerade slut punkten
+> * Lägga till sentimentanalys som en publiceringsinställning
+> * Få sentimentet för ett uttryck från den publicerade slutpunkten
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
@@ -37,16 +37,16 @@ Följande yttranden visar exempel på sentiment:
 
 |Sentiment|Poäng|Yttrande|
 |:--|:--|:--|
-|negativt|0,01 |Pizza var Awful.|
-|positivt|0,97 |Ost-pizza var fantastiskt.|
+|negativt|0,01 |Pizzan var hemsk.|
+|positivt|0.97 |Ostpizzan var underbar.|
 
-Sentimentanalys är en publiceringsinställning som tillämpas på alla yttranden. När appen har angetts returnerar appen sentiment av en uttryck utan att du behöver ha etiketter på data.
+Sentimentanalys är en publiceringsinställning som tillämpas på alla yttranden. När du har angett det returnerar appen känslan av ett uttryck utan att du behöver märka data.
 
-Eftersom det är en publicerings inställning ser du inte att den är märkt på sidorna för avsikter eller entiteter. Du kan se den i fönstret med [interaktiva test](luis-interactive-test.md#view-sentiment-results) och när du testar vid slutpunktens webbadress.
+Eftersom det är en publiceringsinställning visas den inte på avsikter eller entitetssidor. Du kan se den i fönstret med [interaktiva test](luis-interactive-test.md#view-sentiment-results) och när du testar vid slutpunktens webbadress.
 
-## <a name="import-example-json-to-begin-app"></a>Importera exempel. JSON för att starta appen
+## <a name="import-example-json-to-begin-app"></a>Importera exempel .json för att starta appen
 
-1.  Ladda ned och spara [app-JSON-filen](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Ladda ner och spara [appen JSON-fil](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -56,10 +56,10 @@ Eftersom det är en publicerings inställning ser du inte att den är märkt på
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Konfigurera appen för att inkludera sentimentanalys
 
-1. Välj **publicera** på den översta menyn. Sentiment-analys är en publicerings inställning.
+1. Välj **Publicera** på den övre menyn. Sentimentanalys är en publiceringsinställning.
 
-1. Välj **produktions plats** och välj sedan **ändra inställningar**.
-1. Ställ in Attitydanalys **på på**.
+1. Välj **Produktionsplats** och välj sedan **Ändra inställningar**.
+1. Ange inställningen Sentimentanalys **på På**.
 
     ![Aktivera Attitydanalys som en publiceringsinställning](./media/luis-quickstart-intent-and-sentiment-analysis/select-sentiment-publishing-setting.png)
 
@@ -67,11 +67,11 @@ Eftersom det är en publicerings inställning ser du inte att den är märkt på
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av URL: en i adressen och ange följande uttryck:
+1. Gå till slutet av webbadressen i adressen och ange följande uttryck:
 
     `Deliver 2 of the best cheese pizzas ever!!!`
 
-    Den sista frågesträngsparametern är `query`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `OrderPizza` med sentimentanalysen extraherad.
+    Den senaste frågesträngparametern är `query`, uttrycksfrågan . **query** Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `OrderPizza` med sentimentanalysen extraherad.
 
     ```json
     {
@@ -120,7 +120,7 @@ Eftersom det är en publicerings inställning ser du inte att den är märkt på
     }
     ```
 
-    Sentiment-analysen är positiv med en poäng på 86%.
+    Sentimentanalysen är positiv med poängen 86 procent.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

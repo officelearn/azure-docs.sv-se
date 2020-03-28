@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: syntetisera tal i Audio-fil C# , (.net) – tal-service'
+title: 'Snabbstart: Syntetisera tal i ljudfil, C# (.NET) - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,30 +11,30 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: 4ccc68b38d98c332435e252877d258c8591aab8a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925835"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>Öppna projektet i Visual Studio
 
 Det första steget är att se till att projektet är öppet i Visual Studio.
 
 1. Starta Visual Studio 2019.
-2. Läs in projektet och öppna `Program.cs`.
+2. Ladda projektet och `Program.cs`öppna .
 
-## <a name="start-with-some-boilerplate-code"></a>Börja med viss exempel kod
+## <a name="start-with-some-boilerplate-code"></a>Börja med en standardkod
 
-Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Observera att du har skapat en asynkron metod som heter `SynthesisToAudioFileAsync()`.
+Låt oss lägga till lite kod som fungerar som ett skelett för vårt projekt. Observera att du har skapat en `SynthesisToAudioFileAsync()`asynkron metod som kallas .
 
 ````C#
 
@@ -59,9 +59,9 @@ namespace helloworld
 
 ````
 
-## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
+## <a name="create-a-speech-configuration"></a>Skapa en talkonfiguration
 
-Innan du kan initiera ett `SpeechSynthesizer`-objekt måste du skapa en konfiguration som använder din prenumerations nyckel och din prenumerations region. Infoga den här koden i metoden `SynthesisToAudioFileAsync()`.
+Innan du kan `SpeechSynthesizer` initiera ett objekt måste du skapa en konfiguration som använder din prenumerationsnyckel och prenumerationsregion. Infoga den här `SynthesisToAudioFileAsync()` koden i metoden.
 
 ````C#
 // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
@@ -69,9 +69,9 @@ Innan du kan initiera ett `SpeechSynthesizer`-objekt måste du skapa en konfigur
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````
 
-## <a name="create-an-audio-configuration"></a>Skapa en ljud konfiguration
+## <a name="create-an-audio-configuration"></a>Skapa en ljudkonfiguration
 
-Nu måste du skapa ett ````AudioConfig````-objekt som pekar på ljud filen. Det här objektet skapas i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i metoden `SynthesisToAudioFileAsync()`, direkt under din tal konfiguration.
+Nu måste du skapa ````AudioConfig```` ett objekt som pekar på ljudfilen. Det här objektet skapas inuti en medsats för att säkerställa korrekt frisläppande av ohanterat resurser. Infoga den `SynthesisToAudioFileAsync()` här koden i metoden, precis under talkonfigurationen.
 
 ````C#
 var fileName = "helloworld.wav";
@@ -80,9 +80,9 @@ using (var fileOutput = AudioConfig.FromWavFileOutput(fileName))
 }
 ````
 
-## <a name="initialize-a-speechsynthesizer"></a>Initiera en SpeechSynthesizer
+## <a name="initialize-a-speechsynthesizer"></a>Initiera en talsyntare
 
-Nu ska vi skapa `SpeechSynthesizer`-objektet med hjälp av `SpeechConfig` och `AudioConfig` objekt som skapades tidigare. Det här objektet skapas också i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i metoden `SynthesisToAudioFileAsync()` i instruktionen using som radbryter ````AudioConfig````-objektet.
+Nu ska vi skapa `SpeechSynthesizer` objektet `SpeechConfig` med `AudioConfig` hjälp av och objekt som skapats tidigare. Det här objektet skapas också inuti en medsats för att säkerställa korrekt frisläppande av ohanterat resurser. Infoga den `SynthesisToAudioFileAsync()` här koden i metoden i den ````AudioConfig```` medsats som radbryts i objektet.
 
 ````C#
 using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
@@ -92,9 +92,9 @@ using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
 
 ## <a name="synthesize-text-using-speaktextasync"></a>Syntetisera text med SpeakTextAsync
 
-Från `SpeechSynthesizer`-objektet kommer du att anropa metoden `SpeakTextAsync()`. Den här metoden skickar texten till tal tjänsten som konverterar den till ljud. Den `SpeechSynthesizer` kommer att använda standard rösten om `config.VoiceName` inte uttryckligen anges.
+Från `SpeechSynthesizer` objektet ska du anropa `SpeakTextAsync()` metoden. Den här metoden skickar texten till taltjänsten som konverterar den till ljud. Den `SpeechSynthesizer` kommer att använda `config.VoiceName` standardrösten om inte uttryckligen anges.
 
-I using-instruktionen lägger du till följande kod:
+Lägg till den här koden i satsen med användningssatsen:
 ````C#
 var text = "Hello world!";
 var result = await synthesizer.SpeakTextAsync(text);
@@ -102,9 +102,9 @@ var result = await synthesizer.SpeakTextAsync(text);
 
 ## <a name="check-for-errors"></a>Sök efter fel
 
-När sammanfattnings resultatet returneras av tal tjänsten bör du kontrol lera att texten har syntetiserats.
+När syntesresultatet returneras av taltjänsten bör du kontrollera att texten har syntetiserats.
 
-Lägg till den här koden i using-instruktionen nedan `SpeakTextAsync()`:
+Lägg till den `SpeakTextAsync()`här koden i satsen nedan:
 ````C#
 if (result.Reason == ResultReason.SynthesizingAudioCompleted)
 {
@@ -124,9 +124,9 @@ else if (result.Reason == ResultReason.Canceled)
 }
 ````
 
-## <a name="check-your-code"></a>Kontrol lera koden
+## <a name="check-your-code"></a>Kontrollera din kod
 
-Nu bör din kod se ut så här:
+Nu ska koden se ut så här:
 
 ````C#
 //
@@ -184,11 +184,11 @@ namespace helloworld
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-Nu är du redo att bygga din app och testa vår tal syntes med röst tjänsten.
+Nu är du redo att bygga din app och testa vår talsyntes med hjälp av taltjänsten.
 
-1. **Kompilera koden** – från meny raden i Visual Studio väljer du **Bygg** > build- **lösning**.
-2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på **F5**.
-3. **Starta syntes** – texten konverteras till tal och sparas i de ljuddata som anges.
+1. **Kompilera koden** - Välj **Bygg** > **bygglösning**på menyraden i Visual Studio .
+2. **Starta appen** - Välj Felsökning **Debug** > **Avsöka Startfelsökning** på menyraden eller tryck på **F5**.
+3. **Starta syntes** - Texten konverteras till tal och sparas i de angivna ljuddata.
 
    ```text
    Speech synthesized to [helloworld.wav] for text [Hello world!]
@@ -201,4 +201,4 @@ Nu är du redo att bygga din app och testa vår tal syntes med röst tjänsten.
 ## <a name="see-also"></a>Se även
 
 - [Skapa en anpassad röst](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Spela in anpassade röst exempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Spela in anpassade röstexempel](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

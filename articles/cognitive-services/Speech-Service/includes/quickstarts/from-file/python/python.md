@@ -2,23 +2,23 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/10/2020
+ms.date: 03/20/2020
 ms.author: dapine
-ms.openlocfilehash: b3d7ea44acac99cc8077993f679bdcea2e5018fa
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: e01e6f0e38abe9bdd3afa83306b90725daf287ce
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79082658"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80117202"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Skapa ett LUIS-program och hämta en slut punkts nyckel](../../../../quickstarts/create-luis.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
+> * [Skapa en Azure Speech-resurs](../../../../get-started.md)
+> * [Skapa ett LUIS-program och hämta en slutpunktsnyckel](../../../../quickstarts/create-luis.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -36,7 +36,7 @@ Om du har problem eller saknar en funktion kan du ta en titt på [alternativen f
 
 Du kan kopiera [exempelkoden](#sample-code) till en källfil från den här snabbstarten `quickstart.py` och köra den i din IDE eller i konsolen:
 
-```sh
+```Bash
 python quickstart.py
 ```
 
@@ -45,7 +45,7 @@ Eller så kan du ladda ned den här snabbstartssjälvstudien som en [Jupyter](ht
 ### <a name="sample-code"></a>Exempelkod
 
 > [!NOTE]
-> Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk för tal till text](../../../../how-to-specify-source-language.md) om du vill ha information om hur du väljer käll språk.
+> Tal-SDK kommer som standard att känna igen med hjälp av en-us för språket, se [Ange källspråk för tal till text](../../../../how-to-specify-source-language.md) för information om hur du väljer källspråk.
 
 ```python
 import azure.cognitiveservices.speech as speechsdk
@@ -58,7 +58,7 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 # Creates an audio configuration that points to an audio file.
 # Replace with your own audio filename.
 audio_filename = "whatstheweatherlike.wav"
-audio_input = speechsdk.AudioConfig(filename=audio_filename)
+audio_input = speechsdk.audio.AudioConfig(filename=audio_filename)
 
 # Creates a recognizer with the given settings
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
@@ -87,9 +87,9 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installera och använda Speech SDK med Visual Studio Code
 
-1. Hämta och installera en 64-bitars version av [python](https://www.python.org/downloads/), 3,5 till 3,8, på din dator.
+1. Hämta och installera en 64-bitarsversion av [Python](https://www.python.org/downloads/), 3,5 till 3,8, på datorn.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Öppna Visual Studio Code och installera Python-tillägget. Välj **Arkiv** > **Inställningar** > **Tillägg** på menyn. Sök efter **Python**.
+1. Öppna Visual Studio Code och installera Python-tillägget. Välj **File** > **Filinställningar** > **Tillägg** på menyn. Sök efter **Python**.
 
    ![Installera Python-tillägget](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
 
@@ -105,12 +105,12 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 1. Kopiera, klistra in och spara [Python-koden](#sample-code) till den nyskapade filen.
 1. Infoga prenumerationsinformationen för taltjänsten.
 1. Om en Python-tolk har valts visas den på statusfältets vänstra sida, längst ner i fönstret.
-   Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommando tolken <kbd>Ctrl + Shift + P</kbd> och ange **python: Välj tolk**. Välj en som passar.
+   Annars kan du ta fram en lista över tillgängliga Python-tolkar. Öppna kommandopaletten <kbd>Ctrl+Skift+P</kbd> och ange **Python: Välj tolk**. Välj en som passar.
 1. Du kan installera Speech SDK Python-paketet i Visual Studio Code. Gör det om det inte är installerat än för Python-tolken som du valt.
-   Öppna en terminal för att installera Speech SDK-paketet. Öppna kommando-paletten igen <kbd>Ctrl + Shift + P</kbd> och ange **Terminal: skapa ny integrerad Terminal**.
+   Öppna en terminal för att installera Speech SDK-paketet. Ta upp kommandopaletten igen <kbd>Ctrl+Skift+P</kbd> och ange **Terminal: Skapa ny integrerad terminal**.
    I terminalen som öppnas anger du kommandot `python -m pip install azure-cognitiveservices-speech`, eller lämpligt kommando för ditt system.
 1. Kör exempelkoden genom att högerklicka någonstans i redigeraren. Välj **Kör Python-fil i Terminal**.
-   De första 15 sekundernas tal indata från ljud filen kommer att identifieras och loggas i konsol fönstret.
+   De första 15 sekunderna av talinmatning från ljudfilen känns igen och loggas i konsolfönstret.
 
    ```console
    Recognizing first result...

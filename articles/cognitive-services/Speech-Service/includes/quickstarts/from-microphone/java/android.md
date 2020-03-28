@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: identifiera tal från en mikrofon, Java (Android)-tal-service'
+title: 'Snabbstart: Känna igen tal från en mikrofon, Java (Android) - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: Lär dig att känna igen tal i Java på Android med hjälp av Speech SDK
 services: cognitive-services
@@ -11,28 +11,28 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
 ms.openlocfilehash: 6348d09351cf627624340083e2c419def38dfc01
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77446152"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=android)
-> * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera din utvecklingsmiljö](../../../../quickstarts/setup-platform.md?tabs=android)
+> * Se till att du har tillgång till en mikrofon för ljudinspelning
 
-## <a name="create-a-user-interface"></a>Skapa ett användar gränssnitt
+## <a name="create-a-user-interface"></a>Skapa ett användargränssnitt
 
-Nu ska vi skapa ett grundläggande användar gränssnitt för programmet. Redigera layouten för din huvudsakliga aktivitet, `activity_main.xml`. Inlednings vis innehåller layouten en namn List med programmets namn och en TextView som innehåller texten "Hello World!".
+Nu ska vi skapa ett grundläggande användargränssnitt för programmet. Redigera layouten för din huvudsakliga aktivitet, `activity_main.xml`. Inledningsvis innehåller layouten en namnlist med programmets namn och en TextView som innehåller texten "Hello World!".
 
-* Välj TextView-elementet. Ändra dess ID-attribut i det övre högra hörnet till `hello`.
+* Markera Elementet TextView. Ändra dess ID-attribut i det övre högra hörnet till `hello`.
 
-* Från paletten längst upp till vänster i `activity_main.xml` fönstret, drar du en knapp till det tomma utrymmet ovanför texten.
+* Dra en knapp till det `activity_main.xml` tomma utrymmet ovanför texten från paletten längst upp till vänster i fönstret.
 
 * I knappens attribut till höger, i värdet för attributet `onClick` anger du `onSpeechButtonClicked`. Vi skriver en metod med det här namnet att hantera knapphändelsen. Ändra dess ID-attribut i det övre högra hörnet till `button`.
 
@@ -46,7 +46,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/from-microphone/app/src/main/res/layout/activity_main.xml)]
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Öppna till källfilen `MainActivity.java`. Ersätt all kod i den här filen med följande:
 
@@ -54,25 +54,25 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
    * Metoden `onCreate` inkluderar den kod som begär mikrofon- och internet-behörigheter och initierar inbyggd plattformsbindning. Du behöver bara konfigurera inbyggda plattformsbindningar en gång. Det bör göras tidigt under initieringen av programmet.
 
-   * Metoden `onSpeechButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapp tryckning utlöser tal-till-text-avskrift.
+   * Metoden `onSpeechButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapptryckning utlöser transkription mellan tal och text.
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt också strängen `YourServiceRegion` med **regions-ID: n** från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria prov prenumerationen.
+1. Ersätt också `YourServiceRegion` strängen med **regionidentifieraren** från [den region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. Använd till `westus` exempel för den kostnadsfria utvärderingsprenumerationen.
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
-1. Anslut din Android-enhet till utvecklingsdatorn. Se till att du har aktiverat [utvecklings läge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten.
+1. Anslut din Android-enhet till utvecklingsdatorn. Se till att du har aktiverat [utvecklingsläge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten.
 
-1. Om du vill bygga programmet väljer du Ctrl + F9 eller väljer **build** > **skapa projekt** från meny raden.
+1. Om du vill skapa programmet väljer du Ctrl+F9 eller väljer **Skapa** > **projekt** på menyraden.
 
-1. För att starta programmet väljer du Shift + F10 eller väljer **kör** > **Kör "app"** .
+1. Om du vill starta programmet väljer du Skift+F10 eller väljer **Kör** > **kör "app".**
 
-1. I fönstret distributions mål som visas väljer du din Android-enhet.
+1. Välj din Android-enhet i fönstret för distributionsmål som visas.
 
    ![Skärmbild av fönstret för att välja distributionsmål](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-Välj knappen i programmet för att starta ett tal igenkännings avsnitt. De nästa 15 sekunderna med engelskt tal skickas till Speech-tjänsten och transkriberas. Resultatet visas i Android-programmet och i fönstret logcat i Android Studio.
+Välj knappen i programmet för att starta ett taligenkänningsavsnitt. De nästa 15 sekunderna med engelskt tal skickas till Speech-tjänsten och transkriberas. Resultatet visas i Android-programmet och i fönstret logcat i Android Studio.
 
 ![Skärmbild av Android-programmet](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 

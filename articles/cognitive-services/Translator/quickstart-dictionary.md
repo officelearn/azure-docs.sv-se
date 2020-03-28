@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: slå upp ord med tvåspråkig ordbok – Translator Text API'
+title: 'Snabbstart: Slå upp ord med tvåspråkig ordlista - Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du får alternativa översättningar för en term, och även exempel på användning av dessa alternativa översättningar med hjälp av Translator Text API.
+description: I den här snabbstarten får du lära dig hur du får alternativa översättningar för en term, och även användningsexempel på dessa alternativa översättningar med hjälp av Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 07fd984f72628ac4f6d6736bf0ab903619e96c72
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525166"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Snabb start: slå upp ord med tvåspråkig ord lista
+# <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Snabbstart: Slå upp ord med tvåspråkig ordlista
 
-I den här snabb starten får du lära dig hur du får alternativa översättningar för en term, och även exempel på användning av dessa alternativa översättningar med hjälp av Translator Text API.
+I den här snabbstarten får du lära dig hur du får alternativa översättningar för en term, och även användningsexempel på dessa alternativa översättningar med hjälp av Translator Text API.
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 

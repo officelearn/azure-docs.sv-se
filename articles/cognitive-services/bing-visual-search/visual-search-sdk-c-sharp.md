@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Hämta image Insights med SDK för C# -visuell sökning i Bing'
+title: 'Snabbstart: Få bildinsikter med SDK för C# - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du laddar upp en avbildning med hjälp av Visuell sökning i Bing SDK och få insikter om den med den här snabb starten.
+description: Lär dig hur du laddar upp en bild med hjälp av Bing Visual Search SDK och får insikter om den med den här snabbstarten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 ms.openlocfilehash: b1f5274bcae1f6e59f6dea94beee810a4613d739
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75446614"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Snabb start: Hämta image Insights med hjälp av Visuell sökning i Bing SDK förC#
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Snabbstart: Få bildinsikter med Bing Visual Search SDK för C #
 
 Använd den här snabbstarten om du vill få information om bilder från den visuella söktjänsten i Bing med hjälp av C# SDK. Även om den visuella sökningen i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch).
 

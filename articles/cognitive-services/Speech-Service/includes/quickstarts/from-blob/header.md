@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: identifiera tal som lagras i Blob Storage-tal service'
+title: 'Snabbstart: Känna igen tal som lagras i blob-lagring - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -12,12 +12,12 @@ ms.date: 03/13/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: a7fa1813eec8e73f4cc937062ad4374aef93e6e0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "79381699"
 ---
-I den här snabb starten ska du använda en REST API för att känna igen tal från filer i en batch-process. En batch-process kör tal avskriften utan några användar interaktioner. Det ger dig en enkel programmerings modell, utan att behöva hantera samtidighet, anpassade tal modeller eller annan information. Den ger avancerade kontroll alternativ, samtidigt som Azures tjänst resurser är effektiva att använda.
+I den här snabbstarten använder du ett REST API för att känna igen tal från filer i en batchprocess. En batchprocess kör talavskrifteringen utan några användarinteraktioner. Det ger dig en enkel programmeringsmodell, utan att behöva hantera samtidighet, anpassade talmodeller eller andra detaljer. Det innebär avancerade kontrollalternativ, samtidigt som du använder Azure-taltjänstresurser på ett effektivt sätt.
 
-Följande snabb start vägleder dig genom ett användnings exempel.
+Följande snabbstart kommer att gå igenom ett användningsprov.

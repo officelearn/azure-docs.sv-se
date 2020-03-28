@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: träna en modell och extrahera formulär data med hjälp av REST API med python-formulär tolken'
+title: 'Snabbstart: Träna en modell och extrahera formulärdata med REST API med Python - Form Recognizer'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten använder du formulär tolken REST API med python för att träna en modell och extrahera data från formulär.
+description: I den här snabbstarten använder du REST-API:et för formulärmed Python för att träna en modell och extrahera data från formulär.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -10,41 +10,41 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77118077"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en formulärmedkänningsmodell och extrahera formulärdata med hjälp av REST API med Python
 
-I den här snabb starten använder du Azures formulär tolken REST API med python för att träna och Poäng Forms för att extrahera nyckel/värde-par och tabeller.
+I den här snabbstarten använder du AZURE Form Recognizer REST API med Python för att träna och göra poäng för att extrahera nyckelvärdespar och tabeller.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabb starten måste du ha:
+För att slutföra den här snabbstarten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En uppsättning minst fem formulär av samma typ. Du kommer att använda dessa data för att träna modellen. Dina formulär kan vara av olika filtyper men måste vara av samma typ av dokument. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
+- En uppsättning av minst fem former av samma typ. Du kommer att använda dessa data för att träna modellen. Formulären kan vara av olika filtyper men måste vara av samma typ av dokument. Du kan använda en [exempeldatauppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabbstarten. Ladda upp utbildningsfilerna till roten för en blob-lagringsbehållare i ett Azure Storage-konto.
 
-## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
+## <a name="create-a-form-recognizer-resource"></a>Skapa en formulärkonformeringsresurs
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-## <a name="train-a-form-recognizer-model"></a>Träna en formulär igenkännings modell
+## <a name="train-a-form-recognizer-model"></a>Träna en formulärakänningsmodell
 
-Först behöver du en uppsättning utbildnings data i en Azure Storage BLOB-behållare. Du bör ha minst fem ifyllda formulär (PDF-dokument och/eller bilder) av samma typ/struktur som dina viktigaste indata. Eller så kan du använda ett enda tomt formulär med två ifyllda formulär. Det tomma formulärets fil namn måste innehålla ordet "Empty". Se [skapa en tränings data uppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta samman dina tränings data.
+Först behöver du en uppsättning utbildningsdata i en Azure Storage-blob-behållare. Du bör ha minst fem ifyllda formulär (PDF-dokument och/eller bilder) av samma typ/struktur som dina huvudsakliga indata. Du kan också använda ett enda tomt formulär med två ifyllda formulär. Det tomma formulärets filnamn måste innehålla ordet "tom". Se [Skapa en utbildningsdatauppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta ihop dina träningsdata.
 
 > [!NOTE]
-> Du kan använda funktionen märkta data för att manuellt märka vissa eller alla dina utbildnings data i förväg. Detta är en mer komplex process men resulterar i en bättre tränad modell. Mer information finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
+> Du kan använda den märkta datafunktionen för att manuellt märka vissa eller alla träningsdata i förväg. Detta är en mer komplex process men resulterar i en bättre utbildad modell. Läs avsnittet [Träna med etiketter](../overview.md#train-with-labels) i översikten om du vill veta mer.
 
-För att träna en formulär igenkännings modell med dokumenten i din Azure Blob-behållare, anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
+Om du vill träna en formulärmedkänningsmodell med dokumenten i azure-blob-behållaren anropar du **[API:et för anpassad tågmodell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
 
-1. Ersätt `<SAS URL>` med Azure Blob Storages behållares URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Ersätt `<subscription key>` med prenumerations nyckeln som du kopierade från föregående steg.
-1. Ersätt `<endpoint>` med slut punkts-URL: en för formulär igenkännings resursen.
-1. Ersätt `<Blob folder name>` med sökvägen till mappen i Blob Storage där dina formulär finns. Lämna strängen tom om dina formulär finns i roten för din behållare.
+1. Ersätt `<SAS URL>` med Azure Blob-lagringsbehållarens SAS-URL (Shared Access Signature). Om du vill hämta SAS-URL:en öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrollera att behörigheterna **Läs** och **Lista** är markerade och klicka på **Skapa**. Kopiera sedan värdet i **avsnittet URL.** Det bör ha `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`formen: .
+1. Ersätt `<subscription key>` med prenumerationsnyckeln som du kopierade från föregående steg.
+1. Ersätt `<endpoint>` med slutpunkts-URL:en för formulärmedkänningsresursen.
+1. Ersätt `<Blob folder name>` med sökvägen till mappen i blob-lagring där formulären finns. Om formulären finns i behållarens rot lämnar du strängen tom.
 
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
@@ -86,13 +86,13 @@ För att träna en formulär igenkännings modell med dokumenten i din Azure Blo
         print("POST model failed:\n%s" % str(e))
         quit() 
     ```
-1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Train.py*.
+1. Spara koden i en fil med ett py-tillägg. Till exempel *form-recognizer-train.py*.
 1. Öppna ett kommandotolksfönster.
-1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python form-recognizer-train.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-train.py`.
 
-## <a name="get-training-results"></a>Hämta utbildnings resultat
+## <a name="get-training-results"></a>Få träningsresultat
 
-När du har startat träna-åtgärden använder du det returnerade ID: t för att hämta status för åtgärden. Lägg till följande kod längst ned i python-skriptet. Detta använder ID-värdet från inlärnings anropet i ett nytt API-anrop. Inlärnings åtgärden är asynkron, så det här skriptet anropar API: n med jämna mellanrum tills inlärnings statusen har slutförts. Vi rekommenderar ett intervall på en sekund.
+När du har startat tågåtgärden använder du det returnerade ID:t för att få status för åtgärden. Lägg till följande kod längst ned i Python-skriptet. Detta använder ID-värdet från träningsanropet i ett nytt API-anrop. Utbildningsåtgärden är asynkron, så det här skriptet anropar API:et med jämna mellanrum tills träningsstatusen har slutförts. Vi rekommenderar ett intervall på en sekund eller mer.
 
 ```python 
 n_tries = 15
@@ -124,7 +124,7 @@ while n_try < n_tries:
 print("Train operation did not complete within the allocated time.")
 ```
 
-När övnings processen har slutförts får du ett `201 (Success)`-svar med JSON-innehåll som följande:
+När utbildningsprocessen är klar får du `201 (Success)` ett svar med JSON-innehåll som följande:
 
 ```json
 { 
@@ -192,11 +192,11 @@ När övnings processen har slutförts får du ett `201 (Success)`-svar med JSON
 }
 ```
 
-Kopiera `"modelId"`-värdet för användning i följande steg.
+Kopiera `"modelId"` värdet för användning i följande steg.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-När processen har slutförts får du ett `200 (Success)`-svar med JSON-innehåll i följande format. Svaret har förkort ATS för enkelhetens skull. Huvud nyckel/värdepar-associationer och tabeller finns i noden `"pageResults"`. Om du även har angett oformaterad text extrahering genom *includeTextDetails* URL-parameter, kommer noden `"readResults"` att visa innehållet och positionerna för all text i dokumentet.
+När processen är klar får du `200 (Success)` ett svar med JSON-innehåll i följande format. Svaret har förkortats för enkelhetens skull. Huvud-/värdeparföreningarna och tabellerna `"pageResults"` finns i noden. Om du också har angett att oformaterad text har `"readResults"` utvinning av oformaterad text via parametern *includeTextDetails* URL visas innehållet och positionerna för all text i dokumentet.
 
 ```bash
 {
@@ -453,7 +453,7 @@ När processen har slutförts får du ett `200 (Success)`-svar med JSON-innehål
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten använde du formulär tolken REST API med python för att träna en modell och köra den i ett exempel scenario. Sedan läser du referens dokumentationen för att utforska formulärets tolknings-API i större djup.
+I den här snabbstarten använde du REST-API:et för formulärre recognizeer med Python för att träna en modell och köra den i ett exempelscenario. Se sedan referensdokumentationen för att utforska API:et för formulärre recognizeer mer ingående.
 
 > [!div class="nextstepaction"]
-> [REST API referens dokumentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [DOKUMENTATION FÖR REST API-referens](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)

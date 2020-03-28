@@ -1,7 +1,7 @@
 ---
-title: 'Exempel: real tids video analys – ansikte'
+title: 'Exempel: Videoanalys i realtid - Face'
 titleSuffix: Azure Cognitive Services
-description: Använd ansikts tjänsten för att utföra analys i nära real tid på ramar som tas från en video ström i real tid.
+description: Använd Face-tjänsten för att utföra analyser i nära realtid på bildrutor som tagits från en livevideoström.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169889"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exempel: Så analyserar du videor i realtid
@@ -26,7 +26,7 @@ Den här guiden visar hur du utför analyser nästan i realtid på bildrutor som
 - Skicka dessa bildrutor till API:et
 - Använda varje analysresultat som returneras från API-anropet
 
-De här exemplen är skrivna i C# och koden finns på GitHub här: [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
+Dessa prover är skrivna i C# och koden finns [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)på GitHub här: .
 
 ## <a name="the-approach"></a>Metoden
 
@@ -138,11 +138,11 @@ while (true)
 
 ### <a name="getting-started"></a>Komma igång
 
-För att få igång din app så snabbt som möjligt använder du en flexibel implementering av det system som beskrivs ovan. Om du vill ha åtkomst till koden går du till [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis).
+För att få igång din app så snabbt som möjligt använder du en flexibel implementering av det system som beskrivs ovan. För att komma åt [https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis)koden går du till .
 
 Biblioteket innehåller klassen FrameGrabber som implementerar det ovan beskrivna producent-konsument-systemet för att bearbeta bildrutor från en webbkamera. Användaren kan ange den exakta formen av API-anropet, och klassen använder händelser för att informera koden om när en ny bildruta tas eller ett nytt analysresultat är tillgängligt.
 
-För att beskriva några av möjligheterna finns det två exempelappar som använder biblioteket. Den första är en enkel konsolapp, och en förenklad version av den återges nedan. Den hämtar ramar från standard webb kameran och skickar dem till ansikts tjänsten för ansikts igenkänning.
+För att beskriva några av möjligheterna finns det två exempelappar som använder biblioteket. Den första är en enkel konsolapp, och en förenklad version av den återges nedan. Den griper ramar från standard webbkameran, och skickar dem till Face tjänsten för ansiktsigenkänning.
 
 ```csharp
 using System;
@@ -208,7 +208,7 @@ Kom igång med det här exemplet genom att följa dessa steg:
 2. Klona GitHub-lagringsplatsen [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Öppna exemplet i Visual Studio 2015 och skapa och kör exempelprogrammen:
-    - För BasicConsoleSample är ansikts nyckeln hårdkodad direkt i [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - För BasicConsoleSample är face-tangenten hårdkodad direkt i [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - För LiveCameraSample bör du ange nycklarna i appens fönster Inställningar. De bevaras mellan sessioner som användardata.
         
 
@@ -221,5 +221,5 @@ I den här guiden har du lärt dig hur du utför analys av livevideoströmmar i 
 Ge oss gärna feedback och förslag på [GitHub-lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) eller, om det gäller mer allmängiltig API-feedback, på vår  [UserVoice-webbplats](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Relaterade ämnen
-- [Så här identifierar du ansikten i en bild](HowtoIdentifyFacesinImage.md)
+- [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)
 - [Känna igen ansikten i en bild](HowtoDetectFacesinImage.md)

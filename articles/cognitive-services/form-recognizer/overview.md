@@ -1,7 +1,7 @@
 ---
 title: Vad är formigenkänning?
 titleSuffix: Azure Cognitive Services
-description: Med formulär tolken för Azure Cognitive Services kan du identifiera och extrahera nyckel/värde-par och tabell data från formulär dokument.
+description: Med Azure Cognitive Services Form Recognizer kan du identifiera och extrahera nyckel-/värdepar och tabelldata från formulärdokument.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,97 +9,99 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 6b19dc11438274ecf6218d5c0bd8c9ef3dafbf01
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241740"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80052439"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
-Azure formulär igenkänning är en kognitiv tjänst som använder maskin inlärnings teknik för att identifiera och extrahera text, nyckel/värde-par och tabell data från formulär dokument. Den matar in text från formulär och matar ut strukturerade data som innehåller relationerna i original filen. Du får snabbt korrekta resultat som skräddarsys efter ditt eget innehåll utan att du behöver göra en kraftig eller omfattande data vetenskaps expert. Formulär tolken består av anpassade modeller, en fördefinierad kvitto modell och layout-API: et. Du kan anropa formulär igenkännings modeller genom att använda ett REST API för att minska komplexiteten och integrera dem i arbets flödet eller programmet.
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Formulär tolken består av följande tjänster:
-* **Anpassade modeller** – extrahera nyckel/värde-par och tabell data från formulär. De här modellerna tränas med dina egna data, så de skräddarsys efter dina formulär.
-* **Fördefinierad inleverans modell** – extrahera data från amerikanska försäljnings kvitton med hjälp av en fördefinierad modell.
-* **Layout-API** – Extrahera text och tabell strukturer, tillsammans med deras gränser för avgränsnings rutor, från dokument.
+Azure Form Recognizer är en kognitiv tjänst som använder maskininlärningsteknik för att identifiera och extrahera text, nyckel-/värdepar och tabelldata från formulärdokument. Den matar in text från formulär och utdata strukturerade data som innehåller relationerna i den ursprungliga filen. Du får snabbt korrekta resultat som är skräddarsydda för ditt specifika innehåll utan tunga manuella ingrepp eller omfattande datavetenskap expertis. Formulärreformare består av anpassade modeller, den fördefinierade kvittomodellen och layout-API:et. Du kan anropa Formulär recognizer-modeller genom att använda ett REST API för att minska komplexiteten och integrera dem i ditt arbetsflöde eller program.
+
+Formulärre recognizer består av följande tjänster:
+* **Anpassade modeller** - Extrahera nyckel-/värdepar och tabelldata från formulär. Dessa modeller är tränade med dina egna data, så de är skräddarsydda för dina formulär.
+* **Fördefinierad kvittomodell** - Extrahera data från USA-inleveranser med hjälp av en fördefinierad modell.
+* **Layout API** - Extrahera text och tabellstrukturer, tillsammans med deras bindningsramkoordinater, från dokument.
 
 <!-- add diagram -->
 
 ## <a name="custom-models"></a>Anpassade modeller
 
-Formulär igenkännings anpassade modeller tränar dina egna data och du behöver bara fem exempel inmatnings formulär att starta. En utbildad modell kan spara strukturerade data som innehåller relationerna i det ursprungliga formulär dokumentet. När du har tränat modellen kan du testa och träna den och sedan använda den för att på ett tillförlitligt sätt extrahera data från fler formulär utifrån dina behov.
+Formulär recognizer anpassade modeller träna till dina egna data, och du behöver bara fem exempel indataformulär för att starta. En tränad modell kan mata ut strukturerade data som innehåller relationerna i det ursprungliga formulärdokumentet. När du tränar modellen kan du testa och träna om den och så småningom använda den för att på ett tillförlitligt sätt extrahera data från fler formulär efter dina behov.
 
 Du har följande alternativ när du tränar anpassade modeller: utbildning med märkta data och utan etiketterade data.
 
 ### <a name="train-without-labels"></a>Träna utan etiketter
 
-Som standard använder formulär tolken oövervakad inlärning för att förstå layouten och relationerna mellan fält och poster i formulären. När du skickar in dina indata-formulär, identifierar algoritmen formulären efter typ, identifierar vilka nycklar och tabeller som finns och associerar värden till nycklar och poster i tabeller. Detta kräver inte manuella data etiketter eller intensiv kodning och underhåll, och vi rekommenderar att du provar den här metoden först.
+Som standard använder Formulär recognizer oövervakad inlärning för att förstå layouten och relationerna mellan fält och poster i formulären. När du skickar indataformulären grupperar algoritmen formulären efter typ, identifierar vilka nycklar och tabeller som finns och associerar värden till nycklar och poster till tabeller. Detta kräver inte manuell datamärkning eller intensiv kodning och underhåll, och vi rekommenderar att du provar den här metoden först.
 
 ### <a name="train-with-labels"></a>Träna med etiketter
 
-När du tränar med märkta data övervakas modellen för att extrahera värden av intresse med hjälp av de märkta formulär som du anger. Detta resulterar i bättre modeller och kan skapa modeller som fungerar med komplexa formulär eller formulär som innehåller värden utan nycklar.
+När du tränar med märkta data övervakar modellen inlärning för att extrahera värden av intresse med hjälp av de märkta formulär som du tillhandahåller. Detta resulterar i bättre presterande modeller och kan producera modeller som fungerar med komplexa formulär eller formulär som innehåller värden utan nycklar.
 
-Formulär tolken använder [layout-API](#layout-api) för att lära dig de förväntade storlekarna och positionerna för de utskrivna och handskrivna text element Sedan använder den användardefinierade etiketter för att lära sig nyckel/värde-associationerna i dokumenten. Vi rekommenderar att du använder fem manuellt märkta formulär av samma typ för att komma igång när du tränar en ny modell och lägger till mer märkta data som behövs för att förbättra modellens noggrannhet.
+Formulärreformare använder [layout-API:et](#layout-api) för att lära dig förväntade storlekar och positioner för utskrivna och handskrivna textelement. Sedan används användarspecificerade etiketter för att lära sig nyckel-/värdeassociationerna i dokumenten. Vi rekommenderar att du använder fem manuellt märkta formulär av samma typ för att komma igång när du tränar en ny modell och lägger till mer märkta data efter behov för att förbättra modellens noggrannhet.
 
-## <a name="prebuilt-receipt-model"></a>Fördefinierad kvitto modell
+## <a name="prebuilt-receipt-model"></a>Fördefinierad kvittomodell
 
-Formulär tolken innehåller också en modell för läsning av engelska försäljnings kvitton från USA&mdash;typ som används av restauranger, gas stationer, åter försäljare och så vidare ([exempel kvitto](./media/contoso-receipt-small.png)). Den här modellen hämtar viktig information, till exempel tid och datum för transaktionen, handels information, belopp för skatter och total summor. Dessutom tränas den förskapade kvitto modellen att identifiera och returnera all text i ett kvitto.
+Formulär recognizer innehåller också en modell för att&mdash;läsa engelska försäljningsintäkter från USA den typ som används av restauranger, bensinstationer, detaljhandel, och så vidare ([provkvitto](./media/contoso-receipt-small.png)). Den här modellen extraherar viktig information som tid och datum för transaktionen, handelsinformation, mängder av skatter och summor med mera. Dessutom är den fördefinierade kvittomodellen tränad att känna igen och returnera all text på ett kvitto.
 
-## <a name="layout-api"></a>Layout-API
+## <a name="layout-api"></a>Layout API
 
-Formulär tolken kan också Extrahera text-och tabell strukturer (rad-och kolumn nummer som är associerade med texten) med hjälp av optisk tecken läsning (OCR) med hög definition. 
+Formulärmedkänare kan också extrahera text och tabellstruktur (rad- och kolumnnummer som är associerade med texten) med hjälp av HD-optisk teckenigenkänning (OCR).
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
-Kom igång genom att följa en snabb start för att extrahera data från dina formulär. Vi rekommenderar att du använder den kostnads fria tjänsten när du lär dig tekniken. Kom ihåg att antalet fria sidor är begränsat till 500 per månad.
+Följ en snabbstart för att komma igång med att extrahera data från formulären. Vi rekommenderar att du använder den kostnadsfria tjänsten när du lär dig tekniken. Kom ihåg att antalet lediga sidor är begränsat till 500 per månad.
 
-* Anpassa – träna en modell till dina formulär
+* Custom - träna en modell till dina formulär
   * Träna utan etiketter
-    * [Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med vändning](quickstarts/curl-train-extract.md)
-    * [Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python](quickstarts/python-train-extract.md)
-  * Träna med etiketter 
-    * [Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter](quickstarts/label-tool.md)
-    * [Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python](quickstarts/python-labeled-data.md) 
-* Färdiga inleveranser – extrahera data från amerikanska försäljnings kvitton
-  * [Snabb start: extrahera kvitto data med hjälp av sväng](quickstarts/curl-receipts.md)
-  * [Snabb start: extrahera kvitto data med hjälp av python](quickstarts/python-receipts.md)
-* Layout – Extrahera text-och tabell struktur från formulär
-  * [Snabb start: extrahera layout data med python](quickstarts/python-layout.md)
+    * [Snabbstart: Träna en formulärmedkänningsmodell och extrahera formulärdata med hjälp av REST API med cURL](quickstarts/curl-train-extract.md)
+    * [Snabbstart: Träna en formulärmedkänningsmodell och extrahera formulärdata med hjälp av REST API med Python](quickstarts/python-train-extract.md)
+  * Träna med etiketter
+    * [Träna en formulärmedkänningsmodell med etiketter med hjälp av exempeletikettverktyget](quickstarts/label-tool.md)
+    * [Träna en formulärmedkänningsmodell med etiketter med REST API och Python](quickstarts/python-labeled-data.md)
+* Fördefinierade kvitton - extrahera data från usa försäljningsintäkter
+  * [Snabbstart: Extrahera inleveransdata med cURL](quickstarts/curl-receipts.md)
+  * [Snabbstart: Extrahera inleveransdata med Python](quickstarts/python-receipts.md)
+* Layout - extrahera text och tabellstruktur från formulär
+  * [Snabbstart: Extrahera layoutdata med Python](quickstarts/python-layout.md)
 
-### <a name="review-the-rest-apis"></a>Granska REST-API: erna
+### <a name="review-the-rest-apis"></a>Granska REST-API:erna
 
-Du använder följande API: er för att träna modeller och extrahera strukturerade data från formulär.
+Du använder följande API:er för att träna modeller och extrahera strukturerade data från formulär.
 
 |Namn |Beskrivning |
 |---|---|
-| **Träna anpassad modell**| Träna en ny modell för att analysera dina formulär genom att använda fem formulär av samma typ. Ange parametern _useLabelFile_ till `true` för att träna med manuellt märkta data. |
+| **Anpassad modell för tåg**| Träna en ny modell för att analysera formulären med hjälp av fem former av samma typ. Ställ in parametern _useLabelFile_ på `true` att träna med manuellt märkta data. |
 | **Analysera formulär** |Analysera ett enda dokument som skickas in som en ström för att extrahera text, nyckel/värde-par och tabeller från formuläret med din anpassade modell.  |
-| **Analysera inleverans** |Analysera ett enda kvitto dokument för att extrahera viktig information och annan kvitto text.|
-| **Analysera layout** |Analysera layouten för ett formulär för att extrahera text-och tabell strukturen.|
+| **Analysera kvitto** |Analysera ett enda inleveransdokument för att extrahera nyckelinformation och annan inleveranstext.|
+| **Analysera layout** |Analysera layouten för ett formulär för att extrahera text och tabellstruktur.|
 
-Mer information får du genom att utforska [REST API referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) . Om du är bekant med en tidigare version av API: n läser du artikeln [Nyheter](./whats-new.md) och lär dig mer om de senaste ändringarna.
+Utforska [rest API-referensdokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) om du vill veta mer. Om du är bekant med en tidigare version av API:et läser du den nya artikeln [Vad är nytt](./whats-new.md) för att lära dig mer om de senaste ändringarna.
 
-## <a name="input-requirements"></a>Krav för indatamängd
+## <a name="input-requirements"></a>Indatakrav
 ### <a name="custom-model"></a>Anpassad modell
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### <a name="prebuilt-receipt-model"></a>Fördefinierad kvitto modell
+### <a name="prebuilt-receipt-model"></a>Fördefinierad kvittomodell
 
-Ingångs kraven för kvitto modellen skiljer sig något åt.
+Inmatningskraven för inleveransmodellen är något annorlunda.
 
-* Formatet måste vara JPEG, PNG, BMP, PDF (text eller scannat) eller TIFF.
-* Fil storleken måste vara mindre än 20 MB.
-* Bild dimensioner måste vara mellan 50 x 50 pixlar och 10000 x 10000 bild punkter. 
-* PDF-dimensionerna måste bestå av högst 17 × 17 tum, som motsvarar legal eller a3 pappers storlekar och mindre.
-* För PDF och TIFF bearbetas bara de första 200 sidorna (med en prenumeration på kostnads fri nivå, bara de första två sidorna bearbetas).
+* Formatet måste vara JPEG, PNG, BMP, PDF (text eller skannad) eller TIFF.
+* Filstorleken måste vara mindre än 20 MB.
+* Bilddimensionerna måste vara mellan 50 x 50 pixlar och 1 0000 x 1 0000 pixlar.
+* PDF-måtten måste vara högst 17 x 17 tum, vilket motsvarar pappersstorlekar för juridiska eller A3 och mindre.
+* För PDF och TIFF bearbetas endast de första 200 sidorna (med en prenumeration på den kostnadsfria nivån bearbetas endast de två första sidorna).
 
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
 
-Den här tjänsten erbjuds som en för [hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) av en Azure-tjänst under [tjänst villkoren online](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Precis som med alla kognitiva tjänster bör utvecklare som använder formulär tolknings tjänsten vara medvetna om Microsofts principer för kund information. Se [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center om du vill veta mer.
+Den här tjänsten erbjuds som en [förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) av en Azure-tjänst enligt [villkoren för onlinetjänster](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Precis som med alla kognitiva tjänster bör utvecklare som använder tjänsten Formulärrecenser vara medvetna om Microsofts principer för kunddata. Läs mer på [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .
+Slutför en [snabbstart](quickstarts/curl-train-extract.md) för att komma igång med [API:erna för formulärmedkänningsreformat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).

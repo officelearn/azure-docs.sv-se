@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: identifiera text språk – Translator Text API'
+title: 'Snabbstart: Identifiera textspråk - Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten lär du dig att identifiera språket för angiven text med hjälp av Translator Text REST API.
+description: I den här snabbstarten får du lära dig hur du identifierar språket för den text som tillhandahålls med hjälp av REST-API:et för översättaretext.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ms.openlocfilehash: 3a7e8ef70f1dc1524de5d5b5908b7baee230df4a
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77525315"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language"></a>Snabb start: Använd Translator Text API för att identifiera text språk
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language"></a>Snabbstart: Använd translator text-API för att identifiera textspråk
 
-I den här snabb starten lär du dig att identifiera språket för angiven text med Translator Text REST API.
+I den här snabbstarten får du lära dig hur du identifierar språket för den text som medföljer rest-API:et för översättare.
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 

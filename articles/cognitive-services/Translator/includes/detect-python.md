@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 6591fd6eb232bf5fb242c9e08830324f864dac2f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71837496"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -29,9 +29,9 @@ import os, requests, uuid, json
 
 Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sedan importeras de moduler som krävs för att läsa prenumerationsnyckeln från en miljövariabel, skapa HTTP-begäran, skapa en unik identifierare samt hantera det JSON-svar som returneras av Translator Text API.
 
-## <a name="set-the-subscription-key-endpoint-and-path"></a>Ange prenumerations nyckel, slut punkt och sökväg
+## <a name="set-the-subscription-key-endpoint-and-path"></a>Ange prenumerationsnyckel, slutpunkt och sökväg
 
-Det här exemplet försöker läsa Translator Text prenumerations nyckel och slut punkt från miljövariablerna: `TRANSLATOR_TEXT_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som en sträng och kommentera ut villkors satserna.
+Det här exemplet försöker läsa din prenumerationsnyckel för translatortext `TRANSLATOR_TEXT_KEY` `TRANSLATOR_TEXT_ENDPOINT`och slutpunkt från miljövariablerna: och . Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som strängar och kommentera villkorliga satser.
 
 Kopiera den här koden till projektet:
 
@@ -50,7 +50,7 @@ endpoint = os.environ[endpoint_var_name]
 Den globala slutpunkten för Translator Text anges som `endpoint`. `path` anger `detect`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och att begära parametrar finns i [Translator Text API 3.0: Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ```python
 path = '/detect?api-version=3.0'
@@ -71,7 +71,7 @@ headers = {
 }
 ```
 
-Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
+Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-request-to-detect-text-language"></a>Skapa en begäran om att identifiera textspråk
 
@@ -84,7 +84,7 @@ body = [{
 }]
 ```
 
-Nu skapar vi en POST-begäran med hjälp av modulen `requests`. Den tar tre argument: den sammanfogade URL:en, begärandesidhuvudena samt begärandetexten:
+Nu ska vi skapar en POST-begäran med hjälp av `requests`-modulen. Den tar tre argument: den sammanfogade URL:en, begärandesidhuvudena samt begärandetexten:
 
 ```python
 request = requests.post(constructed_url, headers=headers, json=body)
@@ -112,10 +112,10 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
-När du har kört exemplet bör du se följande utskrivna till Terminal:
+När du har kört exemplet bör du se följande tryckta till terminalen:
 
 > [!NOTE]
-> Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+> Hitta lands-/regionförkortningen i den här [listan med språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

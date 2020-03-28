@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Översätt tal till tal, python-tal-tjänsten'
+title: 'Snabbstart: Översätt tal-till-tal, Python - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,23 +11,23 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
 ms.openlocfilehash: 03042cef3e5b5fb4360223e3c804f1ed2e24c97f
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78925290"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=python)
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Öppna `quickstart.py` och ersätt all kod i den med följande.
+1. Öppna `quickstart.py` och ersätt all kod i den med nedanstående.
 
     ````python
     import azure.cognitiveservices.speech as speechsdk
@@ -90,17 +90,17 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourServiceRegion` med den [region](../../../../regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Spara ändringarna som du har gjort i `quickstart.py`.
+1. Spara ändringarna som du `quickstart.py`har gjort i .
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-1. Kör exemplet från-konsolen eller i IDE:
+1. Kör exemplet från konsolen eller i din IDE:
 
    ```
    python quickstart.py
    ```
 
-1. Säg en engelsk fras eller en mening. Programmet skickar ditt tal till tal tjänsten som översätter och omvandlar till text (i det här fallet till tyska). Tal tjänsten skickar sedan det syntetiserade ljudet och texten tillbaka till programmet för visning.
+1. Säg en engelsk fras eller en mening. Programmet överför ditt tal till taltjänsten, som översätter och transkriberar till text (i det här fallet till tyska). Taltjänsten skickar sedan det syntetiserade ljudet och texten tillbaka till programmet för visning.
 
    ```
    Say something...

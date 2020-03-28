@@ -1,7 +1,7 @@
 ---
-title: 'Självstudie: extrahera avbildnings information med REST API och C# -bildsökning i Bing'
+title: 'Självstudiekurs: Extrahera bildinformation med REST API och C# - Bing Image Search'
 titleSuffix: Azure Cognitive Services
-description: Använd den här självstudien C# för att skapa ett program som extraherar avbildnings information med hjälp av API för bildsökning i Bing.
+description: Använd den här självstudien för att skapa ett C#-program som extraherar bildinformation med hjälp av API:et för bing-bildsökning.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
 ms.openlocfilehash: 69c5fc9805bed8fdfde3dd208e7fb66254e82c3c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75383883"
 ---
 # <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Självstudier: Extrahera avbildningsinformation med hjälp av API för bildsökning i Bing och C#
@@ -32,17 +32,17 @@ I den här självstudien beskrivs hur du:
 > * Ladda upp avbildningsdata och skicka `POST`-begäran
 > * Skriv ut JSON-resultat till konsolen
 
-Källkoden till det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
+Källkoden för det här exemplet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
 ## <a name="prerequisites"></a>Krav
 
-* En version av [Visual studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
+* Alla utgåvor av [Visual studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="construct-an-image-details-search-request"></a>Skapa en sökbegäran för avbildningsinformation
 
-Följande är `/details`-slutpunkten, vilken godkänner POST-förfrågningar med avbildningsdata i brödtexten. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+Följande är `/details`-slutpunkten, vilken godkänner POST-förfrågningar med avbildningsdata i brödtexten. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
@@ -111,6 +111,6 @@ Om det finns identifierbara personer eller platser på bilden returnerar begära
 > [!div class="nextstepaction"]
 > [Visa bilder och sökalternativ i en enda enskild webbapp ](tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 * [API-referens för bildsökning i Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

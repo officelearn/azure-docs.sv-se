@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: f692367ad431dc8f1623e1b3d5109c313e351934
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943879"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Självstudier: Skapa en ensidesapp med hjälp av API för webbsökning i Bing
@@ -32,12 +32,12 @@ Den här exempelappen kan:
 
 För att använda den här appen krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Här följer några saker som du kan behöva för att köra appen:
 
 * Node.js 8 eller senare
-* En prenumerations nyckel för Bing-sökning-API: et. Om du inte har en sådan [skapar du en Bing-sökning v7-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Du kan också använda en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+* En prenumerationsnyckel för API:et för Bing-sökning. Om du inte har någon, [Skapa en Bing Search v7-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Du kan också använda en [utvärderingsnyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 ## <a name="get-the-source-code-and-install-dependencies"></a>Hämta källkoden och installera beroenden
 
 Det första steget är att klona lagringsplatsen med exempelappens källkod.
@@ -127,7 +127,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` kan anges till `strict`, `moderate` eller `off`, med `moderate` som standardinställningen för webbsökning i Bing. Det här formuläret använder en kryss ruta som har två tillstånd: `strict` eller `moderate`.
+`SafeSearch` kan anges till `strict`, `moderate` eller `off`, med `moderate` som standardinställningen för webbsökning i Bing. I det här formuläret används en `strict` kryssruta med två lägen: eller `moderate`.
 
 Om något av kryssrutorna **befordra** är markerade har parametern `answerCount` lagts till i frågan. `answerCount` krävs när du använder parametern `promote`. I det här kodfragmentet anges värdet till `9` för att returnera alla tillgängliga resultattyper.
 > [!NOTE]
@@ -390,7 +390,7 @@ Kontextargumenten är:
 | `section` | Resultatavsnittet (`pole`, `mainline`, eller `sidebar`) i vilket objektet visas. |
 | `index`<br>`count` | Tillgängligt när `RankingResponse`-objektet anger att alla resultat i en viss samling ska visas; `undefined` annars. Index för objektet i en samling och det totala antalet objekt i samlingen. Du kan använda den här informationen för att numrera resultaten för att generera olika HTML för det första eller sista resultatet och så vidare. |
 
-I exempelappen, använder både renderare `images` och `relatedSearches` kontextargumenten för att anpassa genererad HTML. Låt oss ta en närmare titt på `images`-renderaren:
+I exempelappen, använder både renderare `images` och `relatedSearches` kontextargumenten för att anpassa genererad HTML. Låt oss ta en närmare titt på renderare `images`:
 
 ```javascript
 searchItemRenderers = {
@@ -419,8 +419,8 @@ Bildåtergivare:
 
 * Beräknar storleken på miniatyrbilderna (bredd varierar, medan höjd är högst 60 bildpunkter).
 * Infogar den HTML som föregår bildresultatet baserat på kontext.
-* Skapar den `<a>`-HTML-tagg som länkar till den sida som innehåller bilden.
-* Skapar en HTML `<img>`-tagg för att visa miniatyrbilden.
+* Skapar en HTML `<a>`-tagg som länkar till den sida som innehåller bilden.
+* Skapar HTML `<img>`-taggen för att visa miniatyrbilden.
 
 Bildåtergivning använder variablerna `section` och `index` för att visa resultat på olika sätt beroende på var de förekommer. En radbrytning (`<br>`-tagg) infogas mellan bildresultat i sidopanelen, så att sidopanelen visar en kolumn med bilder. I andra avsnitt, föregås det första bildresultatet `(index === 0)` av en `<p>`-tagg.
 

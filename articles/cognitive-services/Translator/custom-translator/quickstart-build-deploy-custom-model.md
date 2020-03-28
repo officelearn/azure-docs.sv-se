@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a22ae3b4b11a4eac7da147cf3ad896bbad435448
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446753"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370205"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Snabbstart: Skapa, distribuera och använda en anpassad modell för översättning
 
@@ -26,7 +26,21 @@ Den här artikeln innehåller stegvisa instruktioner för att skapa ett översä
 
 2. En prenumeration på Translator Text API via Azure-portalen. Du behöver prenumerationsnyckeln för Translator Text API för att associera med din arbetsyta i Custom Translator. Se [hur du registrerar dig för Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
-3. När du har båda av ovanstående kan du logga in på [Custom Translator](https://portal.customtranslator.azure.ai)-portalen. När du är i Custom Translator-portalen går du till sidan Inställningar där du kan koppla din Microsoft Translator Text API-prenumerationsnyckel till din arbetsyta.
+3. När du har båda ovanstående loggar du in på [portalen Custom Translator](https://portal.customtranslator.azure.ai) för att skapa arbetsytor, projekt, ladda upp filer och skapa/distribuera modeller.
+
+## <a name="create-a-workspace"></a>Skapa en arbetsyta
+
+Om du är första gången användare, kommer du att bli ombedd att godkänna användarvillkoren, att skapa en arbetsyta och att associera din arbetsyta med Microsoft Translator Text API-prenumeration.
+
+![Skapa arbetsyta](media/quickstart/terms-of-service.png)
+![Skapa](media/quickstart/create-workspace-1.png)
+![arbetsyta Skapa](media/quickstart/create-workspace-2.png)
+![arbetsyta](media/quickstart/create-workspace-3.png)
+![Skapa arbetsyta](media/quickstart/create-workspace-4.png)
+![Skapa](media/quickstart/create-workspace-5.png)
+![arbetsyta Skapa arbetsyta Skapa arbetsyta Skapa arbetsyta](media/quickstart/create-workspace-6.png)
+
+Vid efterföljande besök på custom translator-portalen navigerar du till sidan Inställningar där du kan hantera arbetsytan, skapa fler arbetsytor, associera din Microsoft Translator Text API-prenumerationsnyckel med dina arbetsytor, lägga till delägare och ändra en abonnemangsnyckeln.
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 

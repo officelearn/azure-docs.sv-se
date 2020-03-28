@@ -1,29 +1,25 @@
 ---
-title: Skapa pizza app-steg
-description: Steg för att skapa en LUIS pizza-app.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.date: 02/14/2020
-ms.subservice: language-understanding
+title: Skapa steg i pizzaappar
+description: Steg för att skapa en LUIS pizza app.
+ms.date: 03/25/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: 77d809a8bf4d49ead169c1a4b6798d98f7fcddfe
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 05a7b15aeae8cd2939cf594c272e847c7411b735
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77279445"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80286735"
 ---
-1. Logga in på LUIS-portalen för förhands granskning med URL: en för [https://preview.luis.ai](https://preview.luis.ai).
+1. Logga in på LUIS-portalen [https://preview.luis.ai](https://preview.luis.ai)med URL:en till .
 
 1. Välj **Create new app** (Skapa ny app).
 
-    [![Skärm bild av sidan Language Understanding (LUIS) Mina appar](../media/create-app-in-portal.png "Skärm bild av sidan Language Understanding (LUIS) Mina appar")](../media/create-app-in-portal.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![Skärmbild av LUIS-sidan Mina appar](../media/create-app-in-portal.png "Skärmbild av LUIS-sidan Mina appar")](../media/create-app-in-portal.png#lightbox)
 
-1. I dialogrutan anger du namnet `Pizza tutorial` och behåller standardkulturen **Engelska**. De andra fälten är valfria, Ställ inte in dem. Välj **Done** (Klar).
+1. I dialogrutan anger du namnet `Pizza tutorial` och behåller standardkulturen **Engelska**. De andra fälten är valfria, ange dem inte. Välj **Done** (Klar).
 
     ![Ange namnet på den nya LUIS-appen](../media/create-pizza-tutorial-app-in-portal.png)
 

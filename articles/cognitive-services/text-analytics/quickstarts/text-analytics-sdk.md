@@ -1,30 +1,30 @@
 ---
-title: 'Snabb start: Textanalys klient bibliotek v3 | Microsoft Docs'
+title: 'Snabbstart: Text Analytics klientbibliotek v3 | Microsoft-dokument'
 titleSuffix: Azure Cognitive Services
-description: Använd den här snabb starten för att ansluta dina program till API för textanalys från Azure Cognitive Services.
+description: Använd den här snabbstarten för att ansluta dina program till TEXT Analytics API från Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/12/2020
+ms.date: 03/24/2020
 ms.author: aahi
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 1f5658c6fa52caa67de1f60c50048014dd77af13
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: cc3f48ec1113f954336cfae0bda2cba2499d9a1d
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371345"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80240129"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library"></a>Snabb start: Använd Textanalys klient bibliotek
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Snabbstart: Använda klientbiblioteket i Text Analytics
 
-Kom igång med Textanalys klient biblioteket. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
+Kom igång med textanalysklientbiblioteket. Följ dessa steg för att installera paketet och prova exempelkoden för grundläggande uppgifter.
 
-Använd Textanalys klient bibliotek för att utföra:
+Använd textanalysklientbiblioteket för att utföra:
 
-* Attitydanalys
+* Sentimentanalys
 * Språkidentifiering
 * Enhetsidentifiering
 * Extrahering av nyckelfraser
@@ -32,9 +32,9 @@ Använd Textanalys klient bibliotek för att utföra:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * Den senaste för hands versionen av API för textanalys är `3.0-preview`, som innehåller en offentlig för hands version för förbättrade [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Den senaste stabila versionen är `2.1`.
->    * Se till att du bara följer anvisningarna för den version som du använder.
-> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
+> * Den senaste förhandsversionen av `3.0-preview`API:et för textanalys är , som innehåller en offentlig förhandsgranskning för förbättrad [sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven entitetsigenkänning (NER).](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) Den senaste `2.1`stabila versionen är .
+>    * Var noga med att bara följa instruktionerna för den version du använder.
+> * Koden i den här artikeln använder synkrona metoder och lagring av o-säkrade autentiseringsuppgifter av enkelhetsskäl. För produktionsscenarier rekommenderar vi att du använder batchade asynkrona metoder för prestanda och skalbarhet. Se referensdokumentationen nedan.
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
@@ -43,8 +43,8 @@ Använd Textanalys klient bibliotek för att utföra:
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * Den här snabb starten är endast till för version `3.0-preview` av Textanalys-klient biblioteket, som innehåller en offentlig för hands version för bättre [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
-> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
+> * Den här snabbstarten `3.0-preview` är endast för en version av textanalysklientbiblioteket, som innehåller en offentlig förhandsgranskning för förbättrad [sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven entitetsigenkänning (NER).](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)
+> * Koden i den här artikeln använder synkrona metoder och lagring av o-säkrade autentiseringsuppgifter av enkelhetsskäl. För produktionsscenarier rekommenderar vi att du använder batchade asynkrona metoder för prestanda och skalbarhet. Se referensdokumentationen nedan.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
@@ -53,10 +53,10 @@ Använd Textanalys klient bibliotek för att utföra:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * Den senaste för hands versionen av API för textanalys är `3.0-preview`, som innehåller en offentlig för hands version för förbättrade [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Den senaste stabila versionen är `2.1`.
->    * Se till att du bara följer anvisningarna för den version som du använder.
-> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan.
-> * Du kan också köra den här versionen av klient biblioteket för Textanalys [i webbläsaren](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
+> * Den senaste förhandsversionen av `3.0-preview`API:et för textanalys är , som innehåller en offentlig förhandsgranskning för förbättrad [sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven entitetsigenkänning (NER).](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) Den senaste `2.1`stabila versionen är .
+>    * Var noga med att bara följa instruktionerna för den version du använder.
+> * Koden i den här artikeln använder synkrona metoder och lagring av o-säkrade autentiseringsuppgifter av enkelhetsskäl. För produktionsscenarier rekommenderar vi att du använder batchade asynkrona metoder för prestanda och skalbarhet. Se referensdokumentationen nedan.
+> * Du kan också köra den här versionen av Text Analytics-klientbiblioteket [i webbläsaren](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
 
@@ -65,9 +65,9 @@ Använd Textanalys klient bibliotek för att utföra:
 ::: zone pivot="programming-language-python"
 
 > [!IMPORTANT]
-> * Den senaste för hands versionen av API för textanalys är `3.0-preview`, som innehåller en offentlig för hands version för förbättrade [Attitydanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven enhets igenkänning (ner)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). Den senaste stabila versionen är `2.1`.
->    * Se till att du bara följer anvisningarna för den version som du använder.
-> * Koden i den här artikeln använder synkrona metoder och icke-säkrade inloggnings uppgifter för att förenkla orsaker. För produktions scenarier rekommenderar vi att du använder de grupperade asynkrona metoderna för prestanda och skalbarhet. Se referens dokumentationen nedan. 
+> * Den senaste förhandsversionen av `3.0-preview`API:et för textanalys är , som innehåller en offentlig förhandsgranskning för förbättrad [sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [namngiven entitetsigenkänning (NER).](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) Den senaste `2.1`stabila versionen är .
+>    * Var noga med att bara följa instruktionerna för den version du använder.
+> * Koden i den här artikeln använder synkrona metoder och lagring av o-säkrade autentiseringsuppgifter av enkelhetsskäl. För produktionsscenarier rekommenderar vi att du använder batchade asynkrona metoder för prestanda och skalbarhet. Se referensdokumentationen nedan. 
 
 [!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
@@ -75,20 +75,20 @@ Använd Textanalys klient bibliotek för att utföra:
 
 ::: zone pivot="programming-language-other"
 
-## <a name="additional-language-support"></a>Ytterligare språk stöd
+## <a name="additional-language-support"></a>Ytterligare språkstöd
 
-Om du har klickat på den här fliken ser du förmodligen ingen snabb start på ditt favorit språk. Oroa dig inte, vi har ytterligare snabb starter tillgängliga. Använd tabellen för att hitta rätt exempel för ditt programmeringsspråk.
+Om du har klickat på den här fliken har du förmodligen inte sett en snabbstart i ditt favoritprogrammeringsspråk. Oroa dig inte, vi har ytterligare snabbstarter tillgängliga. Använd tabellen för att hitta rätt exempel för programmeringsspråket.
 
 | Språk | Tillgänglig version | 
 |----------|------------------------|
-| Ruby     | [Version 2,1](ruby-sdk.md) | 
-| Go       | [Version 2,1](go-sdk.md) | 
+| Ruby     | [Version 2.1](ruby-sdk.md) | 
+| Go       | [Version 2.1](go-sdk.md) | 
 
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
+Om du vill rensa och ta bort en Cognitive Services-prenumeration kan du ta bort resursen eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som är associerade bort.
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
@@ -99,7 +99,7 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 > [Utforska en lösning](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 * [Översikt över Textanalys](../overview.md)
-* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Erkännande av entitet](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)
+* [Språkigenkänning](../how-tos/text-analytics-how-to-language-detection.md)

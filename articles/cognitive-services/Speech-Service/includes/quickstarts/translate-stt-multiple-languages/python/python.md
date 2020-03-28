@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: identifiera tal, python-tal-tjänst'
+title: 'Snabbstart: Känna igen tal, Python - Taltjänst'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,23 +11,23 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
 ms.openlocfilehash: e204308ecbf17338e97b76362fd8828ba4d2d78c
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78924975"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar ska du se till att:
+Innan du börjar måste du:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Skapa en Azure-talresurs](../../../../get-started.md)
+> * [Konfigurera utvecklingsmiljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=python)
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Öppna `quickstart.py` och ersätt all kod i den med följande.
+1. Öppna `quickstart.py` och ersätt all kod i den med nedanstående.
 
     ````python
     import azure.cognitiveservices.speech as speechsdk
@@ -80,17 +80,17 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourServiceRegion` med den [region](../../../../regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
-1. Spara ändringarna som du har gjort i `quickstart.py`.
+1. Spara ändringarna som du `quickstart.py`har gjort i .
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-1. Kör exemplet från-konsolen eller i IDE:
+1. Kör exemplet från konsolen eller i din IDE:
 
    ```
    python quickstart.py
    ```
 
-1. Säg en engelsk fras eller en mening. Programmet skickar din röst till tal tjänsten som översätter och omvandlar till text (i det här fallet till franska och tyska). Tal tjänsten skickar sedan tillbaka texten till programmet för visning.
+1. Säg en engelsk fras eller en mening. Ansökan överför ditt tal till taltjänsten, som översätter och transkriberar till text (i detta fall till franska och tyska). Taltjänsten skickar sedan tillbaka texten till programmet för visning.
 
    ```
    Say something...

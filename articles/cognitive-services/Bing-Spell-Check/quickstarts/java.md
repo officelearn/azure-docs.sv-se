@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: kontrol lera stavningen med REST API och Java-Stavningskontroll i Bing'
+title: 'Snabbstart: Kontrollera stavning med REST API och Java - Bing Stavningskontroll'
 titleSuffix: Azure Cognitive Services
 description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
@@ -11,27 +11,27 @@ ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
 ms.openlocfilehash: 43c528a1e9e46a67e895679b1a0fd04fef8900a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382967"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Java
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Snabbstart: Kontrollera stavning med Bing Spell Check REST API och Java
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Java-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Java-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden för det här programmet är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
 ## <a name="prerequisites"></a>Krav
 
 * Java Development Kit (JDK) 7 eller senare.
 
-* Importera [Gson--2.8.5. jar](https://libraries.io/maven/com.google.code.gson%3Agson) -eller den mest aktuella [Gson](https://github.com/google/gson) -versionen. För kommando rads körning lägger du till `.jar` i din Java-mapp med huvud klassen.
+* Importera [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) eller den mest aktuella [Gson-versionen.](https://github.com/google/gson) För körning av kommandoraden `.jar` lägger du till javamappen med huvudklassen.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-an-application"></a>Skapa och initiera ett program
 
-1. Skapa ett nytt Java-projekt i din favorit-IDE eller-redigerare med ett klass namn som du väljer och importera sedan följande paket.
+1. Skapa ett nytt Java-projekt i din favorit-IDE eller redigerare med ett klassnamn som du väljer och importera sedan följande paket.
 
     ```java
     import java.io.*;
@@ -40,7 +40,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Skapa variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel. Skapa sedan variabler för marknad, den text som du vill stavningskontrollera och en sträng för stavningskontrolläge. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel. Skapa sedan variabler för marknad, den text som du vill stavningskontrollera och en sträng för stavningskontrolläge. Du kan använda den globala slutpunkten nedan eller den [anpassade underdomänslutpunkten](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure-portalen för din resurs.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
@@ -64,7 +64,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
    }
    ```
 
-2. Skapa en URL genom att kombinera slutpunktens värd, sökväg och parametersträng. Skapa ett nytt `HttpsURLConnection`-objekt.
+2. Skapa en URL genom att kombinera slutpunktens värd, sökväg och parametersträng. Skapa ett `HttpsURLConnection` nytt objekt.
 
     ```java
     URL url = new URL(host + path + params);
@@ -89,9 +89,9 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
         wr.close();
     ```
 
-## <a name="format-and-read-the-api-response"></a>Formatera och Läs API-svar
+## <a name="format-and-read-the-api-response"></a>Formatera och läsa API-svaret
 
-1. Lägg till den här metoden i klassen. Den formaterar JSON för en mer läsbar utdata.
+1. Lägg till den här metoden i klassen. Det formaterar JSON för en mer läsbar utgång.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +117,7 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 
 ## <a name="call-the-api"></a>Anropa API
 
-I programmets huvud funktion anropar du metoden check () som skapats ovan.
+I programmets huvudfunktion anropar du metoden check() som skapats ovan.
 ```java
         public static void main(String[] args) {
             try {
@@ -129,18 +129,18 @@ I programmets huvud funktion anropar du metoden check () som skapats ovan.
         }
 ```
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
-Skapa och kör ditt projekt.
+Bygg och kör ditt projekt.
 
-Om du använder kommando raden använder du följande kommandon för att skapa och köra programmet.
+Om du använder kommandoraden använder du följande kommandon för att skapa och köra programmet.
 
-**Konstruktion**
+**Bygga:**
 ```bash
 javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
 ```
 
-**Fungerar**
+**Kör:**
 ```bash
 java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
 ```
@@ -190,7 +190,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en enkelsidig webbapp](../tutorials/spellcheck.md)
+> [Skapa en ensidig webbapp](../tutorials/spellcheck.md)
 
 - [Vad är API:et för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

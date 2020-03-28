@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Översätt tal till tal-tal-tjänsten'
+title: 'Snabbstart: Översätt tal-till-tal - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: yulili
 ms.openlocfilehash: c5f0a0fe032d18cd4f01aebe9a5c736d6d511a74
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74981380"
 ---
-I den här snabb starten ska du använda [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till tal på ett annat språk. Efter att ha uppfyllt några krav, tar det bara att översätta tal till tal sex steg:
+I den här snabbstarten använder du [Tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för att interaktivt översätta tal från ett språk till tal på ett annat språk. Efter att ha uppfyllt några förutsättningar tar översättningen av tal till tal bara sex steg:
 > [!div class="checklist"]
-> * Skapa ett ````SpeechTranslationConfig````-objekt från din prenumerations nyckel och region.
-> * Uppdatera ````SpeechTranslationConfig````-objektet och ange käll-och mål språk.
-> * Uppdatera ````SpeechTranslationConfig````-objektet och ange röst namnet för tal utdatafilen.
-> * Skapa ett ````TranslationRecognizer````-objekt med hjälp av ````SpeechTranslationConfig````-objektet ovan.
-> * Starta igenkännings processen för en enda uttryck med hjälp av ````TranslationRecognizer````-objektet.
-> * Granska ````TranslationRecognitionResult```` som returneras.
+> * Skapa ````SpeechTranslationConfig```` ett objekt från din prenumerationsnyckel och region.
+> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange käll- och målspråk.
+> * Uppdatera ````SpeechTranslationConfig```` objektet för att ange röstnamnet för talutdata.
+> * Skapa ````TranslationRecognizer```` ett objekt ````SpeechTranslationConfig```` med objektet ovanifrån.
+> * Starta ````TranslationRecognizer```` igenkänningsprocessen för ett enda uttryck med hjälp av objektet.
+> * Inspektera ````TranslationRecognitionResult```` de returnerade.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 5a362d2610e6feb85de730c086070636f3afa2b9
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906689"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
@@ -87,7 +87,7 @@ public class Translate {
 }
 ```
 
-Lägg till följande rader i klassen `Translate`. Först läses prenumerations nyckeln och slut punkten in från miljövariabler. Sedan kommer du att märka att tillsammans med de `api-version`två ytterligare parametrarna har lagts `url`till i. Dessa parametrar används för att ange översättningsutdata. I det här exemplet är det inställt på tyska (`de`) och italienska (`it`). 
+Lägg till följande rader i klassen `Translate`. Först läs-tangenten och slutpunkten från miljövariabler. Sedan kommer du att märka `api-version`att tillsammans med , två ytterligare `url`parametrar har lagts till . Dessa parametrar används för att ange översättningsutdata. I det här exemplet är det inställt på tyska (`de`) och italienska (`it`). 
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
@@ -95,7 +95,7 @@ private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/translate?api-version=3.0&to=de,it";
 ```
 
-Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
+Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-client-and-build-a-request"></a>Skapa en klient och en begäran
 

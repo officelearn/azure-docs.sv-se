@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: identifiera tal som lagras i Blob Storage, Java-tal-tjänst'
+title: 'Snabbstart: Känna igen tal som lagras i blob storage, Java - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: Inte klart
+description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 ms.openlocfilehash: 39ddc5b3c3fecb4504dcfb67e0bbe683ccbb2037
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75468574"
 ---
-Om du föredrar att gå direkt till, Visa eller hämta alla <a href="https://aka.ms/speech/github-java">tal SDK Java-exempel</a> på GitHub. Annars sätter vi igång.
+Om du föredrar att hoppa rätt in, visa eller ladda ner alla <a href="https://aka.ms/speech/github-java">Tal SDK Java-exempel</a> på GitHub. Annars sätter vi igång.

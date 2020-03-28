@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 64a934196bb964561f36b9d95a2467b149847225
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906758"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -32,11 +32,11 @@ Därefter behöver du installera Json.Net. Från projektkatalogen kör du:
 dotnet add package Newtonsoft.Json --version 11.0.2
 ```
 
-## <a name="select-the-c-language-version"></a>Välj den C# språkversion
+## <a name="select-the-c-language-version"></a>Välj C#-språkversionen
 
-Den här snabbstarten kräver C# 7.1 eller senare. Det finns ett antal sätt att ändra den C# version för ditt projekt. I den här guiden får du lära dig hur du ändrar den `translate-sample.csproj` filen. Alla tillgängliga alternativ, till exempel ändra språk i Visual Studio finns i [väljer den C# språkversion](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+Denna snabbstart kräver C# 7.1 eller senare. Det finns några sätt att ändra C#-versionen för ditt projekt. I den `translate-sample.csproj` här guiden visar vi hur du justerar filen. Alla tillgängliga alternativ, till exempel ändra språket i Visual Studio, finns i [Välj C#-språkversion](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Öppna projektet och öppna sedan `translate-sample.csproj`. Se till att `LangVersion` är inställt på 7.1 eller senare. Om det inte finns en egenskapsgrupp med språkversion, lägger du till följande rader:
+Öppna projektet och `translate-sample.csproj`öppna sedan . Se till `LangVersion` att den är inställd på 7.1 eller senare. Om det inte finns någon egenskapsgrupp för språkversionen lägger du till följande rader:
 
 ```xml
 <PropertyGroup>
@@ -59,7 +59,7 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Skapa klasser för JSON-svaret
 
-Nu ska vi skapa en uppsättning klasser som används för att avserialisera JSON-svaret som returneras av Translator Text API.
+Därefter ska vi skapa en uppsättning klasser som används vid deserialisering av JSON-svaret som returneras av Translator Text API.
 
 ```csharp
 /// <summary>
@@ -105,9 +105,9 @@ public class SentenceLength
 }
 ```
 
-## <a name="get-subscription-information-from-environment-variables"></a>Hämta prenumerations information från miljövariabler
+## <a name="get-subscription-information-from-environment-variables"></a>Hämta prenumerationsinformation från miljövariabler
 
-Lägg till följande rader i `Program` -klassen. Dessa rader läser din prenumerations nyckel och slut punkt från miljövariabler och genererar ett fel om du stöter på problem.
+Lägg till följande `Program` rader i klassen. Dessa rader läser din prenumerationsnyckel och slutpunkt från miljövariabler och genererar ett fel om du stöter på några problem.
 
 ```csharp
 private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
@@ -132,7 +132,7 @@ static Program()
 
 ## <a name="create-a-function-to-translate-text"></a>Skapa en funktion för att översätta text
 
-I- `TranslateTextRequest()`klassen skapar du en asynkron funktion som kallas. `Program` Den här funktionen tar fyra argument `subscriptionKey`: `host`, `route`, och `inputText`.
+`Program` Skapa en asynkron funktion som `TranslateTextRequest()`kallas . Den här funktionen `subscriptionKey`tar `host` `route`fyra `inputText`argument: , , och .
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
@@ -146,9 +146,9 @@ static public async Task TranslateTextRequest(string subscriptionKey, string end
 }
 ```
 
-## <a name="serialize-the-translation-request"></a>Serialisera översättnings förfrågan
+## <a name="serialize-the-translation-request"></a>Serialisera översättningsbegäran
 
-Sedan behöver vi skapa och serialisera det JSON-objekt som innehåller den text du vill översätta. Kom ihåg att du kan skicka fler än ett objekt i `body`.
+Sedan behöver vi skapa och serialisera det JSON-objekt som innehåller den text du vill översätta. Tänk på att du kan skicka mer `body`än ett objekt i .
 
 ```csharp
 object[] body = new object[] { new { Text = inputText } };
@@ -176,7 +176,7 @@ I `HttpRequestMessage` gör du följande:
 * Infoga begärandetexten (serialiserat JSON-objekt)
 * Lägga huvuden som krävs
 * Göra en asynkron begäran
-* Skriv ut svaret med de klasser som du skapade tidigare
+* Skriva ut svaret med hjälp av de klasser som du skapade tidigare
 
 Lägg till den här koden i `HttpRequestMessage`:
 
@@ -208,11 +208,11 @@ foreach (TranslationResult o in deserializedOutput)
 }
 ```
 
-Om du använder en Cognitive Services-prenumeration med flera tjänster måste du också ta `Ocp-Apim-Subscription-Region` med i parametrarna för begäran. [Lär dig mer om att autentisera med multi-service](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication)-prenumerationen.
+Om du använder en prenumeration med flera tjänster för `Ocp-Apim-Subscription-Region` Cognitive Services måste du också inkludera parametrarna i din begäran. [Läs mer om att autentisera med prenumerationen med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att anropa `TranslateTextRequest()` i funktionen `Main`. I det här exemplet ska vi översätta till tyska`de`(), italienska (`it`), japanska (`ja`) och Thai (`th`). Leta `static void Main(string[] args)` upp och ersätt den med den här koden:
+Det sista steget är att anropa `TranslateTextRequest()` i funktionen `Main`. I det här exemplet översätter vi`de`till tyska`it`(`ja`), italienska`th`( ), japanska ( ) och thailändska ( ). Leta `static void Main(string[] args)` upp och ersätt den med den här koden:
 
 ```csharp
 static async Task Main(string[] args)
@@ -232,7 +232,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Lägg `Main`märke till att du är `subscriptionKey`deklarerad, `endpoint`och `route`. Dessutom uppmanas du att ange användaren för indata med `Console.Readline()` och tilldela värdet till. `textToTranslate`
+Du kommer att `Main`märka att i `subscriptionKey`, `endpoint`du `route`deklarerar , och . Dessutom uppmanar du användaren att ange `Console.Readline()` och tilldela värdet `textToTranslate`till .
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
@@ -244,7 +244,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Exempelsvar
 
-När du har kört exemplet bör du se följande utskrivna till Terminal:
+När du har kört exemplet bör du se följande tryckta till terminalen:
 
 ```bash
 Detected input language: en
@@ -256,7 +256,7 @@ Translated to ja: ハローワールド！
 Translated to th: หวัดดีชาวโลก!
 ```
 
-Det här meddelandet skapas från RAW JSON, som ser ut så här:
+Detta meddelande är byggt från den råa JSON, som kommer att se ut så här:
 
 ```json
 [

@@ -1,6 +1,6 @@
 ---
-title: Händelseschema för Azure Event Grid-prenumeration
-description: Beskriver de egenskaper som har angetts för prenumerationshändelser med Azure Event Grid
+title: Azure Event Grid-prenumerationshändelseschema
+description: Beskriver de egenskaper som tillhandahålls för prenumerationshändelser med Azure Event Grid
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,47 +8,47 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561684"
 ---
-# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-Händelseschema för prenumerationer
+# <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-händelseschema för prenumerationer
 
-Den här artikeln innehåller egenskaperna och schema för Azure-prenumerationshändelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för Azure-prenumerationshändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-Generera samma händelsetyper Azure-prenumerationer och resursgrupper. Händelsetyperna som är relaterade till resursändringar eller åtgärder. Den viktigaste skillnaden är att resursgrupper skickar händelser för resurserna i resursgruppen och Azure-prenumerationer Generera händelser för resurser i prenumerationen.
+Azure-prenumerationer och resursgrupper avger samma händelsetyper. Händelsetyperna är relaterade till resursändringar eller åtgärder. Den primära skillnaden är att resursgrupper avger händelser för resurser inom resursgruppen och Azure-prenumerationer avger händelser för resurser i hela prenumerationen.
 
-Resurs-händelser skapas för PUT, PATCH, POST och ta bort som skickas till `management.azure.com`. Hämta operations skapa inte händelser. Åtgärder som skickas till dataplanet (t.ex. `myaccount.blob.core.windows.net`) skapa inte händelser. Åtgärd-händelser ger händelsedata för åtgärder som att visa en lista över nycklar för en resurs.
+Resurshändelser skapas för åtgärder för PUT, PATCH, `management.azure.com`POST och DELETE som skickas till . GET-åtgärder skapar inte händelser. Åtgärder som skickas till `myaccount.blob.core.windows.net`dataplanet (som) skapar inte händelser. Åtgärdshändelserna tillhandahåller händelsedata för åtgärder som att lista nycklarna för en resurs.
 
-När du prenumererar på händelser för en Azure-prenumeration får din slutpunkt alla händelser för den prenumerationen. Händelser kan omfatta händelse som du vill se, till exempel att uppdatera en virtuell dator, men även händelser som kanske inte är viktiga för dig, till exempel skriver en ny post i distributionshistoriken. Du kan ta emot alla händelser på din slutpunkt och skriva kod som bearbetar händelserna som du vill hantera. Eller så kan du definiera ett filter när du skapar händelseprenumerationen.
+När du prenumererar på händelser för en Azure-prenumeration får slutpunkten alla händelser för den prenumerationen. Händelserna kan innehålla händelser som du vill se, till exempel uppdatera en virtuell dator, men även händelser som kanske inte är viktiga för dig, till exempel att skriva en ny post i distributionshistoriken. Du kan ta emot alla händelser vid slutpunkten och skrivkoden som bearbetar de händelser som du vill hantera. Du kan också ange ett filter när du skapar händelseprenumerationen.
 
-För att programmässigt hantera händelser, kan du sortera händelser genom att titta på den `operationName` värde. Till exempel händelse slutpunkten endast bearbeta händelser för åtgärder som är lika med `Microsoft.Compute/virtualMachines/write` eller `Microsoft.Storage/storageAccounts/write`.
+Om du vill hantera händelser programmässigt kan `operationName` du sortera händelser genom att titta på värdet. Händelseslutpunkten kan till exempel bara bearbeta händelser för `Microsoft.Compute/virtualMachines/write` `Microsoft.Storage/storageAccounts/write`åtgärder som är lika med eller .
 
-Ämne för händelsen är resurs-ID för den resurs som är mål för åtgärden. Om du vill filtrera händelser för en resurs, anger du den resursen-ID: T när du skapar händelseprenumerationen. Om du vill filtrera efter en resurstyp, använder du ett värde i följande format: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+Händelseämnet är resurs-ID för den resurs som är målet för operationen. Om du vill filtrera händelser för en resurs anger du det resurs-ID:et när du skapar händelseprenumerationen. Om du vill filtrera efter en resurstyp använder du ett värde i följande format:`/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
-En lista över exempel på skript och självstudier finns i [Azure-prenumeration händelsekälla](event-sources.md#azure-subscriptions).
+En lista över exempelskript och självstudier finns i [Azure-prenumerationshändelsekälla](event-sources.md#azure-subscriptions).
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Azure-prenumerationer generera management händelser från Azure Resource Manager, t.ex. när en virtuell dator skapas eller en lagringskontot har tagits bort.
+Azure-prenumerationer avger hanteringshändelser från Azure Resource Manager, till exempel när en virtuell dator skapas eller ett lagringskonto tas bort.
 
-| eventType | Beskrivning |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceActionCancel | Utlöses när åtgärden på resursen har avbrutits. |
-| Microsoft.Resources.ResourceActionFailure | Utlöses när åtgärden på resursen misslyckas. |
-| Microsoft.Resources.ResourceActionSuccess | Utlöses när åtgärden på resursen fungerar. |
-| Microsoft.Resources.ResourceDeleteCancel | Utlöses när ta bort åtgärden har avbrutits. Den här händelsen inträffar när en för malldistribution har avbrutits. |
-| Microsoft.Resources.ResourceDeleteFailure | Utlöses när ta bort åtgärden misslyckas. |
-| Microsoft.Resources.ResourceDeleteSuccess | Utlöses när för att ta bort lyckas. |
-| Microsoft.Resources.ResourceWriteCancel | Utlöses när Skapa eller uppdateringsåtgärden har avbrutits. |
-| Microsoft.Resources.ResourceWriteFailure | Utlöses när Skapa eller uppdatera åtgärden misslyckas. |
-| Microsoft.Resources.ResourceWriteSuccess | Utlöses när Skapa eller uppdateringsåtgärden lyckas. |
+| Microsoft.Resources.ResourceActionCancel | Utlöses när åtgärden för resursen avbryts. |
+| Microsoft.Resources.ResourceActionFailure | Utlöses när åtgärden för resursen misslyckas. |
+| Microsoft.Resources.ResourceActionSuccess | Utlöses när åtgärden för resurs lyckas. |
+| Microsoft.Resources.ResourceDeleteCancel | Utlöses när borttagningen avbryts. Den här händelsen inträffar när en malldistribution avbryts. |
+| Microsoft.Resources.ResourceDeleteFailure | Utlöses när borttagningen misslyckas. |
+| Microsoft.Resources.ResourceDeleteSuccess | Utlöses när borttagningsåtgärden lyckas. |
+| Microsoft.Resources.ResourceWriteCancel | Utlöses när åtgärden skapa eller uppdatera avbryts. |
+| Microsoft.Resources.ResourceWriteFailure | Utlöses när åtgärden skapa eller uppdatera misslyckas. |
+| Microsoft.Resources.ResourceWriteSuccess | Utlöses när åtgärden skapa eller uppdatera lyckas. |
 
-## <a name="example-event"></a>Exempel-händelse
+## <a name="example-event"></a>Exempel händelse
 
-I följande exempel visas schemat för en **ResourceWriteSuccess** händelse. Samma schema används för **ResourceWriteFailure** och **ResourceWriteCancel** händelser med olika värden för `eventType`.
+I följande exempel visas schemat för en **ResourceWriteSuccess-händelse.** Samma schema används för **ResourceWriteFailure-** och **ResourceWriteCancel-händelser** med olika värden för `eventType`.
 
 ```json
 [{
@@ -108,7 +108,7 @@ I följande exempel visas schemat för en **ResourceWriteSuccess** händelse. Sa
 }]
 ```
 
-I följande exempel visas schemat för en **ResourceDeleteSuccess** händelse. Samma schema används för **ResourceDeleteFailure** och **ResourceDeleteCancel** händelser med olika värden för `eventType`.
+I följande exempel visas schemat för en **ResourceDeleteSuccess-händelse.** Samma schema används för **ResourceDeleteFailure-** och **ResourceDeleteCancel-händelser** med olika värden för `eventType`.
 
 ```json
 [{
@@ -174,7 +174,7 @@ I följande exempel visas schemat för en **ResourceDeleteSuccess** händelse. S
 }]
 ```
 
-I följande exempel visas schemat för en **ResourceActionSuccess** händelse. Samma schema används för **ResourceActionFailure** och **ResourceActionCancel** händelser med olika värden för `eventType`.
+I följande exempel visas schemat för en **ResourceActionSuccess-händelse.** Samma schema används för **ResourceActionFailure-** och **ResourceActionCancel-händelser** med olika värden för `eventType`.
 
 ```json
 [{   
@@ -230,37 +230,37 @@ I följande exempel visas schemat för en **ResourceActionSuccess** händelse. S
 }]
 ```
 
-## <a name="event-properties"></a>Egenskaper för händelse
+## <a name="event-properties"></a>Händelseegenskaper
 
-En händelse har följande översta data:
+En händelse har följande data på den högsta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | string | Unik identifierare för händelsen. |
-| data | object | Händelsedata för prenumerationen. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
+| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | Uppgifter om prenumerationshändelse. |
+| Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| authorization | object | Den begärda auktoriseringen för åtgärden. |
-| claims | object | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | string | En Operations-ID för felsökning. |
-| httpRequest | object | Information om åtgärden. Det här objektet är endast ingår när du uppdaterar en befintlig resurs eller ta bort en resurs. |
-| resourceProvider | string | Resource provider för åtgärden. |
-| resourceUri | string | URI för resursen i åtgärden. |
-| operationName | string | Åtgärden som utfördes. |
-| status | string | Status för åtgärden. |
-| subscriptionId | string | Prenumerations-ID för resursen. |
-| tenantId | string | Klient-ID för resursen. |
+| auktorisering | objekt | Den begärda behörigheten för operationen. |
+| Hävdar | objekt | Egenskaperna för fordringarna. Mer information finns i [JWT-specifikationen](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| correlationId | sträng | Ett åtgärds-ID för felsökning. |
+| httpRequest (på) | objekt | Detaljerna i operationen. Det här objektet inkluderas bara när du uppdaterar en befintlig resurs eller tar bort en resurs. |
+| resurserProvider | sträng | Resursprovidern för åtgärden. |
+| resourceUri (på ett år) | sträng | URI för resursen i åtgärden. |
+| operationName | sträng | Operationen som togs. |
+| status | sträng | Status för åtgärden. |
+| subscriptionId | sträng | Resursens prenumerations-ID. |
+| tenantId (hyresgäst) | sträng | Resursens klient-ID. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md).
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
+* En introduktion till Azure Event Grid finns i [Vad är händelserutnät?](overview.md).
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).

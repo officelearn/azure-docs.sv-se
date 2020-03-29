@@ -1,6 +1,6 @@
 ---
-title: 'Registrera en webbapp som anropar webb-API: er – Microsoft Identity Platform | Azure'
-description: 'Lär dig hur du registrerar en webbapp som anropar webb-API: er'
+title: Registrera en webbapp som anropar webb-API:er – Microsoft identity platform | Azure
+description: Läs om hur du registrerar en webbapp som anropar webb-API:er
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,25 +15,25 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5a57fcef3569734964bf6e8a41faa49800798f9b
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759065"
 ---
-# <a name="a-web-app-that-calls-web-apis-app-registration"></a>En webbapp som anropar webb-API: app-registrering
+# <a name="a-web-app-that-calls-web-apis-app-registration"></a>En webbapp som anropar webb-API:er: Appregistrering
 
-En webbapp som anropar webb-API: er har samma registrering som en webbapp som loggar användare i. Följ sedan anvisningarna i [en webbapp som loggar in användare: app-registrering](scenario-web-app-sign-user-app-registration.md).
+En webbapp som anropar webb-API:er har samma registrering som en webbapp som loggar in användare. Så, följ instruktionerna i [en webbapp som loggar in användare: Appregistrering](scenario-web-app-sign-user-app-registration.md).
 
-Men även om webbappen nu anropar webb-API: er blir det ett konfidentiellt klient program. Därför krävs en extra registrering. Appen måste dela klientautentiseringsuppgifterna, eller *hemligheter*, med Microsoft Identity Platform.
+Men eftersom webbappen nu också anropar webb-API:er blir det ett konfidentiellt klientprogram. Det är därför en del extra registrering krävs. Appen måste dela klientuppgifter eller *hemligheter*med Microsofts identitetsplattform.
 
 [!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Web Apps anropar API: er för den inloggade användaren. För att göra det måste de begära *delegerade behörigheter*. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Webbappar anropar API:er för den inloggade användarens räkning. För att göra det måste de begära *delegerade behörigheter*. Mer information finns i [Lägga till behörigheter för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [En webbapp som anropar webb-API: er kod konfiguration](scenario-web-app-call-api-app-configuration.md)
+> [En webbapp som anropar webb-API:er: Kodkonfiguration](scenario-web-app-call-api-app-configuration.md)

@@ -1,6 +1,6 @@
 ---
-title: Java Script-ett program scenario med en sida – Microsoft Identity Platform | Azure
-description: Lär dig hur du skapar ett program med en enda sida (scenario översikt) med hjälp av Microsoft Identity Platform.
+title: Scenario med ensidig app i JavaScript – Microsoft identity platform | Azure
+description: Lär dig hur du skapar ett ensidigt program (scenarioöversikt) med hjälp av Microsofts identitetsplattform.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,15 +15,15 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: b430778bed811656b5c8aadc75ba3cf35917f737
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701883"
 ---
-# <a name="scenario-single-page-application"></a>Scenario: ett program med en sida
+# <a name="scenario-single-page-application"></a>Scenario: Ensidig applikation
 
-Lär dig allt du behöver för att bygga ett enda webb program (SPA).
+Lär dig allt du behöver för att bygga ett ensidigt program (SPA).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -31,28 +31,28 @@ Lär dig allt du behöver för att bygga ett enda webb program (SPA).
 
 ## <a name="getting-started"></a>Komma igång
 
-Du kan skapa ditt första program genom att följa Java Script SPA-snabb starten:
+Du kan skapa ditt första program genom att följa snabbstarten för JavaScript SPA:
 
 > [!div class="nextstepaction"]
-> [Snabb start: ett program på en sida](./quickstart-v2-javascript.md)
+> [Snabbstart: Ensidig applikation](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Översikt
 
-Många moderna webb program skapas som program på en enda sida med klient sidan. Utvecklare skriver dem med hjälp av Java Script eller ett SPA-ramverk, till exempel vinkel, Vue. js och reagerar. js. Dessa program körs i en webbläsare och har olika egenskaper för autentisering än traditionella webb program på Server sidan. 
+Många moderna webbapplikationer är byggda som ensidiga program på klientsidan. Utvecklare skriver dem med javascript eller ett SPA-ramverk som Angular, Vue.js och React.js. Dessa program körs i en webbläsare och har andra autentiseringsegenskaper än traditionella webbprogram på serversidan. 
 
-Microsoft Identity Platform gör det möjligt för program på en sida att logga in användare och hämta token för att få åtkomst till backend-tjänster eller webb-API: er genom att använda det [implicita flödet i OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). Med det implicita flödet kan programmet Hämta ID-token som representerar den autentiserade användaren och även få åtkomst till tokens som krävs för att anropa skyddade API: er.
+Microsofts identitetsplattform gör det möjligt för ensidiga program att logga in användare och få token för att komma åt backend-tjänster eller webb-API:er med hjälp av [det implicita flödet OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). Det implicita flödet gör att programmet kan hämta ID-token för att representera den autentiserade användaren och även komma åt token som behövs för att anropa skyddade API:er.
 
-![Program med en enda sida](./media/scenarios/spa-app.svg)
+![Ensidiga program](./media/scenarios/spa-app.svg)
 
-Det här autentiseringsschemat omfattar inte program scenarier som använder plattforms oberoende JavaScript-ramverk som Electron och reagerar-Native. De kräver ytterligare funktioner för interaktion med de ursprungliga plattformarna.
+Det här autentiseringsflödet innehåller inte programscenarier som använder JavaScript-ramverk över flera plattformar, till exempel Elektron och React-Native. De kräver ytterligare funktioner för interaktion med de inbyggda plattformarna.
 
-## <a name="specifics"></a>Information
+## <a name="specifics"></a>Detaljerna
 
 Om du vill aktivera det här scenariot för ditt program behöver du:
 
-* Program registrering med Azure Active Directory (Azure AD). Den här registreringen innebär att aktivera det implicita flödet och ange en omdirigerings-URI som tokens returneras till.
-* Program konfiguration med de registrerade program egenskaperna, t. ex. program-ID.
-* Använd Microsoft Authentication Library (MSAL) för att utföra autentiserings flödet för att logga in och hämta token.
+* Programregistrering med Azure Active Directory (Azure AD). Den här registreringen innebär att det implicita flödet aktiveras och en omdirigerings-URI som token returneras till.
+* Programkonfiguration med registrerade programegenskaper, till exempel program-ID.
+* Använda Microsoft Authentication Library (MSAL) för att göra autentiseringsflödet för att logga in och hämta token.
 
 ## <a name="next-steps"></a>Nästa steg
 

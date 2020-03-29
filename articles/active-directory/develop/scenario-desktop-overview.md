@@ -1,6 +1,6 @@
 ---
-title: 'Bygg en stationär app som anropar webb-API: er – Microsoft Identity Platform | Azure'
-description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (översikt)'
+title: Skapa en skrivbordsapp som anropar webb-API:er – Microsoft identity platform | Azure
+description: Lär dig hur du skapar en skrivbordsapp som anropar webb-API:er (översikt)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,59 +15,59 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 196102769c1f5f68df316918a63079b09baad32d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702155"
 ---
-# <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Skriv bords program som anropar webb-API: er
+# <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Skrivbordsapp som anropar webb-API:er
 
-Lär dig allt du behöver för att bygga en Skriv bords app som anropar webb-API: er.
+Lär dig allt du behöver för att skapa en skrivbordsapp som anropar webb-API:er.
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="get-started"></a>Kom i gång
+## <a name="get-started"></a>Komma igång
 
-Om du inte redan har gjort det kan du skapa ditt första program genom att följa snabb starten för .NET Desktop, Universell Windows-plattform (UWP) snabb start eller den inbyggda macOS-appen snabb start:
-
-> [!div class="nextstepaction"]
-> [Snabb start: Hämta en token och anropa Microsoft Graph API från en Windows Desktop-app](./quickstart-v2-windows-desktop.md)
-
+Om du inte redan har gjort det skapar du ditt första program genom att följa snabbstarten för .NET-skrivbordet, snabbstarten för Universell Windows-plattformen (UWP) eller snabbstarten för macOS-appen:
 
 > [!div class="nextstepaction"]
-> [Snabb start: Hämta en token och anropa Microsoft Graph API från en UWP-app](./quickstart-v2-uwp.md)
+> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp](./quickstart-v2-windows-desktop.md)
+
 
 > [!div class="nextstepaction"]
-> [Snabb start: Hämta en token och anropa Microsoft Graph API från en macOS-inbyggd app](./quickstart-v2-ios.md)
+> [Snabbstart: Skaffa en token och anropa Microsoft Graph API från en UWP-app](./quickstart-v2-uwp.md)
+
+> [!div class="nextstepaction"]
+> [Snabbstart: Skaffa en token och anropa Microsoft Graph API från en inbyggd macOS-app](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Översikt
 
-Du skriver ett Skriv bords program och vill logga in användare i ditt program och anropa webb-API: er, till exempel Microsoft Graph, andra Microsoft API: er eller ditt eget webb-API. Det finns flera möjligheter:
+Du skriver ett skrivbordsprogram och vill logga in användare på dina program- och anropa webb-API:er som Microsoft Graph, andra Microsoft-API:er eller ditt eget webb-API. Du har flera möjligheter:
 
-- Du kan använda den interaktiva hämtningen av token:
+- Du kan använda den interaktiva tokeninsamlingen:
 
-  - Om ditt Skriv bords program stöder grafiska kontroller, till exempel, om det är ett Windows. Forms-program, ett WPF-program eller ett internt macOS-program.
-  - Eller, om det är ett .NET Core-program och du samtycker till att ha autentiseringen med Azure Active Directory (Azure AD) i system läsaren.
+  - Om ditt skrivbordsprogram stöder grafiska kontroller, till exempel om det är ett Windows.Form-program, ett WPF-program eller ett macOS-inbyggt program.
+  - Eller, om det är ett .NET Core-program och du samtycker till att autentiseringsinteraktionen med Azure Active Directory (Azure AD) ska ske i systembläddraren.
 
-- För Windows-värdbaserade program är det också möjligt för program som körs på datorer som är anslutna till en Windows-domän eller Azure AD-ansluten för att hämta en token i tysthet med hjälp av integrerad Windows-autentisering.
-- Slutligen, och även om det inte rekommenderas, kan du använda ett användar namn och ett lösen ord i offentliga klient program. Det behövs fortfarande i vissa scenarier som DevOps. Användning av IT-begränsningar i ditt program. Det går till exempel inte att logga in en användare som behöver utföra multifaktorautentisering (villkorlig åtkomst). Programmet kommer också inte att dra nytta av enkel inloggning (SSO).
+- För Windows-värdprogram är det också möjligt för program som körs på datorer som är anslutna till en Windows-domän eller Azure AD gick med att hämta en token tyst med integrerad Windows-autentisering.
+- Slutligen, och även om det inte rekommenderas, kan du använda ett användarnamn och ett lösenord i offentliga klientprogram. Det behövs fortfarande i vissa scenarier som DevOps. Om du använder det medför du begränsningar för ditt program. Den kan till exempel inte logga in en användare som behöver utföra multifaktorautentisering (villkorlig åtkomst). Dessutom kommer ditt program inte dra nytta av enkel inloggning (SSO).
 
-  Det är också mot principerna för modern autentisering och tillhandahålls endast av tidigare skäl.
+  Det är också emot principerna för modern autentisering och tillhandahålls endast av äldre skäl.
 
-  ![Skriv bords program](media/scenarios/desktop-app.svg)
+  ![Skrivbordsprogram](media/scenarios/desktop-app.svg)
 
-- Om du skriver ett bärbart kommando rads verktyg, förmodligen ett .NET Core-program som körs på Linux eller Mac, och om du accepterar att autentiseringen kommer att delegeras till system läsaren, kan du använda interaktiv autentisering. .NET Core tillhandahåller inte någon [webbläsare](https://aka.ms/msal-net-uses-web-browser), så autentiseringen sker i systemets webbläsare. I annat fall är det bästa alternativet att använda enhets kod flödet. Det här flödet används också för program utan webbläsare, till exempel IoT-program.
+- Om du skriver ett bärbart kommandoradsverktyg, förmodligen ett .NET Core-program som körs på Linux eller Mac, och om du accepterar att autentisering kommer att delegeras till systembläddraren, kan du använda interaktiv autentisering. .NET Core tillhandahåller ingen [webbläsare,](https://aka.ms/msal-net-uses-web-browser)så autentisering sker i systembläddraren. Annars är det bästa alternativet i så fall att använda enhetskodflödet. Det här flödet används också för program utan webbläsare, till exempel IoT-program.
 
-  ![Webbläsarbaserat program](media/scenarios/device-code-flow-app.svg)
+  ![Program utan webbläsare](media/scenarios/device-code-flow-app.svg)
 
-## <a name="specifics"></a>Information
+## <a name="specifics"></a>Detaljerna
 
-Skriv bords program har ett antal enskilda. De är huvudsakligen beroende av om programmet använder interaktiv autentisering eller inte.
+Skrivbordsprogram har ett antal specifika detaljer. De beror främst på om ditt program använder interaktiv autentisering eller inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Desktop-app: registrera appar](scenario-desktop-app-registration.md)
+> [Skrivbordsapp: Appregistrering](scenario-desktop-app-registration.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Notification Hubs-exempel
-description: En lista med tillgängliga Azure Notification Hubs-exempel.
+title: Exempel på Azure-meddelandehubbar
+description: En lista över tillgängliga Azure Notification Hubs-exempel.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -14,13 +14,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/28/2019
 ms.openlocfilehash: eb382a66ac901853d28b4d63d31a30ed2f65b96c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263939"
 ---
-# <a name="azure-notification-hubs-samples"></a>Azure Notification Hubs-exempel
+# <a name="azure-notification-hubs-samples"></a>Exempel på Azure-meddelandehubbar
 
 Den här artikeln innehåller länkar till exempel som demonstrerar viktiga funktioner i Azure Notification Hubs.
 
@@ -34,4 +34,4 @@ Den här artikeln innehåller länkar till exempel som demonstrerar viktiga funk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i självstudier i avsnittet **självstudier** i innehålls förteckningen.
+Se självstudier i avsnittet **Självstudier** i innehållsförteckningen.

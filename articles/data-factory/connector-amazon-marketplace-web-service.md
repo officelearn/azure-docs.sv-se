@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från AWS Marketplace
-description: Lär dig hur du kopierar data från Amazon Marketplace webbtjänst till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från Amazon Marketplace Web Service till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -12,49 +12,49 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: db4173cdaf18d827c6a3c047777f7d5e67d79b84
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931125"
 ---
-# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Kopiera data från Amazon Marketplace-webbtjänsten med Azure Data Factory
+# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Kopiera data från Amazon Marketplace Web Service med Azure Data Factory
 
-Den här artikeln beskriver hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Amazon Marketplace-webbtjänsten. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Amazon Marketplace Web Service. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här webb tjänst anslutningen för Amazon Marketplace stöds för följande aktiviteter:
+Den här Amazon Marketplace Web Service-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Amazon Marketplace Web Service till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Amazon Marketplace Web Service till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Marketplace Amazon Web Service-anslutning.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Amazon Marketplace Web Service-anslutningsappen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för Amazon Marketplace Web Service-länkade tjänsten:
+Följande egenskaper stöds för den länkade tjänsten Amazon Marketplace Web Service:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **AmazonMWS** | Ja |
-| slutpunkt | Slutpunkten för Amazon MWS-servern (det vill säga mws.amazonservices.com)  | Ja |
-| marketplaceID | Amazon Marketplace ID du vill hämta data från. Om du vill hämta data från flera Marketplace-ID: N, avgränsar du dem med kommatecken (`,`). (det vill säga A2EUQ1WTGCTBG2)  | Ja |
-| sellerID | Amazon försäljning-ID.  | Ja |
-| mwsAuthToken | Amazon MWS autentiseringstoken. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| accessKeyId | Åtkomst nyckel-ID som användes för att komma åt data.  | Ja |
-| secretKey | Den hemliga nyckeln som används för att få åtkomst till data. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
-| useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
-| usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
+| typ | Egenskapen Type måste ställas in på: **AmazonMWS** | Ja |
+| slutpunkt | Slutpunkten för Amazon MWS-servern, (det vill mws.amazonservices.com)  | Ja |
+| marketplaceID (marketplaceID) | Amazon Marketplace-ID som du vill hämta data från. Om du vill hämta data från flera Marketplace-ID:er avgränsar du dem med ett kommatecken (`,`). (det vill än A2EUQ1WTGCTBG2)  | Ja |
+| säljareID | Amazon säljaren ID.  | Ja |
+| mwsAuthToken | Amazon MWS-autentiseringstoken. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| accessKeyId | Åtkomstnyckel-ID:et som används för att komma åt data.  | Ja |
+| secretKey (secretKey) | Den hemliga nyckeln som används för att komma åt data. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när den ansluter via SSL. Standardvärdet är True.  | Inga |
+| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via SSL. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 
@@ -83,14 +83,14 @@ Följande egenskaper har stöd för Amazon Marketplace Web Service-länkade tjä
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Marketplace Amazon Web Service-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon Marketplace Web Service-datauppsättningen.
 
-Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen på datauppsättningen till **AmazonMWSObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Amazon Marketplace Web Service anger du egenskapen typ för datauppsättningen till **AmazonMWSObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **AmazonMWSObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Typegenskapen för datauppsättningen måste ställas in på: **AmazonMWSObject** | Ja |
+| tableName | Tabellens namn. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel**
 
@@ -112,16 +112,16 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Marketplace Amazon Web Service-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Amazon Marketplace Web Service-källan.
 
 ### <a name="amazon-mws-as-source"></a>Amazon MWS som källa
 
-Om du vill kopiera data från Amazon Marketplace Web Service, ange källtypen i kopieringsaktiviteten till **AmazonMWSSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Om du vill kopiera data från Amazon Marketplace Web Service anger du källtypen i kopieringsaktiviteten till **AmazonMWSSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonMWSSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Typegenskapen för kopieringsaktivitetskällan måste ställas in på: **AmazonMWSSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nej (om "tableName" i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -155,9 +155,9 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange källtypen i 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

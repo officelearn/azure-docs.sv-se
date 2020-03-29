@@ -1,6 +1,6 @@
 ---
-title: Säkerhets kontroller för Azure Event Hubs
-description: Den här artikeln innehåller en check lista över säkerhets kontroller för utvärdering av Azure-Event Hubs (nätverk, identitet, data skydd osv.).
+title: Säkerhetskontroller för Azure Event Hubs
+description: Den här artikeln innehåller en checklista med säkerhetskontroller för utvärdering av Azure Event Hubs (nätverk, identitet, dataskydd osv.).
 services: event-hubs
 ms.service: event-hubs
 author: spelluru
@@ -8,58 +8,58 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 0769e88eb72b5b347dd9ebf4b1634501ca54098e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76309514"
 ---
-# <a name="security-controls-for-azure-event-hubs"></a>Säkerhets kontroller för Azure Event Hubs
+# <a name="security-controls-for-azure-event-hubs"></a>Säkerhetskontroller för Azure Event Hubs
 
-I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azure Event Hubs.
+Den här artikeln dokumenterar säkerhetskontrollerna som är inbyggda i Azure Event Hubs.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
+| Säkerhetskontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
-| Stöd för tjänst slut punkt| Ja |  |  |
-| Stöd för VNet-injektering| Inga | |  |
-| Stöd för nätverks isolering och brand vägg| Ja |  |  |
-| Stöd för Tvingad tunnel trafik| Inga |  |  |
+| Support för tjänstens slutpunkt| Ja |  |  |
+| Stöd för VNet-injektion| Inga | |  |
+| Stöd för nätverksisolering och brandväggar| Ja |  |  |
+| Stöd för påtvingad tunnelning| Inga |  |  |
 
-## <a name="monitoring--logging"></a>Övervaka & loggning
+## <a name="monitoring--logging"></a>Övervakning & loggning
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
 |---|---|--|--|
-| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | |  |
-| Loggning och granskning av kontroll-och hanterings plan| Ja |  |  |
-| Loggning och granskning av data planet| Ja |   |  |
+| Azure övervakningsstöd (Logganalys, App insikter, etc.)| Ja | |  |
+| Kontroll- och hanteringsplan loggning och revision| Ja |  |  |
+| Loggning och granskning av dataplan| Ja |   |  |
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
 |---|---|--|--|
-| Autentisering| Ja | | [Ge åtkomst till Azure Event Hubs](authorize-access-event-hubs.md), [bevilja åtkomst till Event Hubs resurser med hjälp av Azure Active Directory](authorize-access-azure-active-directory.md), auktorisera [åtkomst till Event Hubs resurser med hjälp av signaturer för delad åtkomst](authorize-access-shared-access-signature.md) |
-| Autentisering|  Ja | | [Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Event Hubs resurser](authenticate-managed-identity.md), [autentisera ett program med Azure Active Directory för att få åtkomst till Event Hubs resurser](authenticate-application.md), [autentisera åtkomst till Event Hubs resurser med hjälp av signaturer för delad åtkomst (SAS)](authenticate-shared-access-signature.md) |
+| Autentisering| Ja | | [Auktorisera åtkomst till Azure Event Hubs](authorize-access-event-hubs.md), [auktorisera åtkomst till eventhubbar-resurser med Azure Active Directory](authorize-access-azure-active-directory.md), [auktorisera åtkomst till eventhubbar-resurser med signaturer för delad åtkomst](authorize-access-shared-access-signature.md) |
+| Auktorisering|  Ja | | [Autentisera en hanterad identitet med Azure Active Directory för åtkomst till eventhubbarresurser,](authenticate-managed-identity.md) [autentisera ett program med Azure Active Directory för åtkomst till eventhubbar-resurser,](authenticate-application.md) [autentisera åtkomst till eventhubbar-resurser med hjälp av SAS (Shared Access Signatures)](authenticate-shared-access-signature.md) |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
+| Säkerhetskontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
-| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  Ja | |  |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja. Tillgängligt för dedikerade kluster. | En kundhanterad nyckel i Azure-valv kan användas för att kryptera data i en händelse hubb i vila. | [Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal](configure-customer-managed-key.md) |
-| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |  |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | |  |
-| Krypterade API-anrop| Ja |  |  |
+| Kryptering på serversidan i vila: Microsoft-hanterade nycklar |  Ja | |  |
+| Kryptering på serversidan i vila: kundhanterade nycklar (BYOK) | Ja. Tillgänglig för dedikerade kluster. | En kundhanterad nyckel i Azure KeyVault kan användas för att kryptera data på en eventhubb i vila. | [Konfigurera kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure-portalen](configure-customer-managed-key.md) |
+| Kryptering på kolumnnivå (Azure Data Services)| Ej tillämpligt | |  |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, vnet-kryptering och VNet-VNet-kryptering)| Ja | |  |
+| API-anrop krypterade| Ja |  |  |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
+| Säkerhetskontroll | Ja/nej | Anteckningar| Dokumentation |
 |---|---|--|--|
-| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | |  |
+| Stöd för konfigurationshantering (versionshantering av konfiguration osv.)| Ja | |  |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om de [inbyggda säkerhets kontrollerna i Azure-tjänster](../security/fundamentals/security-controls.md).
+- Läs mer om de [inbyggda säkerhetskontrollerna för Azure-tjänster](../security/fundamentals/security-controls.md).

@@ -1,5 +1,5 @@
 ---
-title: Rikt linjer för anpassning av appar | Azure
+title: Riktlinjer för appprofilering | Azure
 titleSuffix: Microsoft identity platform
 description: En heltäckande handbok om utvecklarorienterade resurser för Azure Active Directory
 services: active-directory
@@ -15,10 +15,10 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.openlocfilehash: 37d6cd03c07c10bfac5b25e3850c7d3af97bcec7
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76697497"
 ---
 # <a name="branding-guidelines-for-applications"></a>Varumärkesriktlinjer för program
@@ -56,7 +56,7 @@ I en tidigare version av de här riktlinjerna rekommenderar vi ett blått piktog
 
 Det kan finnas flera olika sätt att registrera sig och logga in i ditt program. Följande avsnitt visar hur båda scenarierna går till.
 
-**Om slutanvändare kan registrera sig för ditt program (till exempel för en kostnadsfri utvärderingsversion)** : Du kan visa en **logga in**-knapp där användare kan komma åt din app med sitt arbetskonto eller personliga konto. Azure AD visar en samtyckestext första gången de öppnar din app.
+**Om slutanvändare kan registrera sig för ditt program (till exempel för en kostnadsfri utvärderingsversion)**: Du kan visa en **logga in**-knapp där användare kan komma åt din app med sitt arbetskonto eller personliga konto. Azure AD visar en samtyckestext första gången de öppnar din app.
 
 **Om appen kräver behörigheter som endast administratörer kan godkänna, eller om programmet kräver organisationslicensiering**: Separera administratörshämtning från användarinloggning. Knappen för att **hämta den här appen** omdirigerar administratörer för att logga in och ber dem sedan att ge samtycke åt användare i organisationen. Det här har den ytterligare fördelen att prompter om slutanvändargodkännande undertrycks.
 
@@ -64,19 +64,19 @@ Det kan finnas flera olika sätt att registrera sig och logga in i ditt program.
 
 Den länk du lägger in för apphämtning måste omdirigera användaren till Azure AD-godkännandesidan (auktorisering). Administratören måste kunna godkänna så att appen får åtkomst till organisationens data, som tillhandahålls av Microsoft. Information om hur du begär åtkomst beskrivs i artikeln om att [integrera app med Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md).
 
-När administratörerna har godkänt din app kan de välja att lägga till den i användarnas Office 365-programstartsupplevelse (tillgänglig via våfflan och [https://portal.office.com/myapps](https://portal.office.com/myapps)). Om du vill annonsera den här funktionen kan du till exempel skriva ”Lägg till den här appen i organisationen” och visa en knapp enligt följande exempel:
+När administratörer har medgivandet till din app kan de välja att lägga till den i användarnas [https://portal.office.com/myapps](https://portal.office.com/myapps)startupplevelse för Office 365-appen (tillgänglig från våfflan och från ). Om du vill annonsera den här funktionen kan du till exempel skriva ”Lägg till den här appen i organisationen” och visa en knapp enligt följande exempel:
 
-![Knapp som visar text för Microsoft-logotypen och "Lägg till i min organisation"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Knapp som visar Microsoft-logotypen och texten "Lägg till i min organisation"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 Vi rekommenderar dock att du skriver förklarande text istället för att förlita dig på knappar. Ett exempel:
 
-> *Om du redan använder Office 365 eller andra företags tjänster från Microsoft kan du bevilja < your_app_name > åtkomst till din organisations data. Detta gör att användarna kan komma åt < your_app_name > med sina befintliga arbets konton.*
+> *Om du redan använder Office 365 eller annan företagstjänst från Microsoft kan du ge <your_app_name> åtkomst till organisationens data. Detta gör det möjligt för användarna att komma åt <your_app_name> med sina befintliga arbetskonton.*
 
 Du kan ladda ned den officiella Microsoft-logotypen och använda den i din app. Högerklicka på den du vill använda och spara den på datorn.
 
 | Tillgång                                | PNG-format | SVG-format |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft-logotyp  | ![Nedladdnings bar Microsoft-logotyp i PNG-format](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Nedladdnings bar Microsoft-logotyp i SVG-format](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Microsoft-logotyp  | ![Nedladdningsbar Microsoft-logotyp i PNG-format](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Nedladdningsbar Microsoft-logotyp i SVG-format](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Visuell vägledning för inloggning
 
@@ -88,16 +88,16 @@ Det är associationerna som Microsoft-logotypen och uttrycket Logga in med Micro
 
 I det här diagrammet visar vi Microsofts riktlinjer när du använder tillgångarna med din app. Riktlinjerna gäller för Logga in med Microsoft och det kortare Logga in.
 
-![Visar redlines för "Logga in med Microsoft"](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+![Visar rödlinjerna "Logga in med Microsoft"](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Du kan ladda ned de officiella bilderna och använda dem i din app. Högerklicka på den du vill använda och spara den på datorn.
 
 | Tillgång                                | PNG-format | SVG-format |
 | ------------------------------------ | ---------- | ---------- |
-| Logga in med Microsoft (mörkt tema)  | ![Nedladdnings bar "Logga in med Microsoft"-knapp, mörkt tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Nedladdnings bar "Logga in med Microsoft"-knapp, mörkt tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Logga in med Microsoft (ljust tema) | ![Nedladdnings bar "Logga in med Microsoft"-knapp ljus tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Nedladdnings bar "Logga in med Microsoft"-knapp (ljust tema SVG)](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| Logga in (mörkt tema)                 | ![Nedladdnings bar "logga in"-mörkt tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Nedladdnings bar "logga in"-mörkt tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| Logga in (ljust tema)                | ![Nedladdnings bar "Sign in"-tema PNG för kort knapp](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Nedladdnings bar "Sign in"-tema för lätt tema](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Logga in med Microsoft (mörkt tema)  | ![Nedladdningsbara "Logga in med Microsoft"-knappen mörkt tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Nedladdningsbara "Logga in med Microsoft"-knappen mörkt tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Logga in med Microsoft (ljust tema) | ![Nedladdningsbart "Logga in med Microsoft"-knappljustema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Nedladdningsbart "Logga in med Microsoft"-knappljustema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Logga in (mörkt tema)                 | ![Nedladdningsbara "Logga in" kort knapp mörkt tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Nedladdningsbara "Logga in" kort knapp mörkt tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Logga in (ljust tema)                | ![Nedladdningsbara "Logga in" kort knapp ljus tema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Nedladdningsbara "Logga in" kort knapp ljus tema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## <a name="branding-dos-and-donts"></a>Rekommendationer för varumärke
 

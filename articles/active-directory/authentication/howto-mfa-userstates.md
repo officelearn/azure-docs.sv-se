@@ -1,6 +1,6 @@
 ---
-title: Multi-Factor Authentication per användare – Azure Active Directory
-description: Aktivera MFA genom att ändra användar tillstånd i Azure Multi-Factor Authentication.
+title: Multifaktorautentisering per användare – Azure Active Directory
+description: Aktivera MFA genom att ändra användartillstånd i Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,101 +12,101 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61d7227c57422cfe2228002750ec29bffa385d44
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756782"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Så här kräver du tvåstegsverifiering för en användare
 
-Du kan utföra en av två metoder för att kräva tvåstegsverifiering, som båda kräver att du använder ett globalt administratörs konto. Det första alternativet är att aktivera varje användare för Azure Multi-Factor Authentication (MFA). När användare Aktiver ATS individuellt utför de tvåstegsverifiering varje gång de loggar in (med vissa undantag, till exempel när de loggar in från betrodda IP-adresser eller när funktionen _sparade enheter_ aktive RAS). Det andra alternativet är att konfigurera en princip för villkorlig åtkomst som kräver tvåstegsverifiering under vissa förhållanden.
+Du kan använda en av två metoder för att kräva tvåstegsverifiering, som båda kräver att du använder ett globalt administratörskonto. Det första alternativet är att aktivera varje användare för Azure Multi-Factor Authentication (MFA). När användare aktiveras individuellt utför de tvåstegsverifiering varje gång de loggar in (med vissa undantag, till exempel när de loggar in från betrodda IP-adresser eller när funktionen _för ihågkomna enheter_ är aktiverad). Det andra alternativet är att ställa in en princip för villkorlig åtkomst som kräver tvåstegsverifiering under vissa villkor.
 
 > [!TIP]
-> Den rekommenderade metoden är att aktivera Azure Multi-Factor Authentication att använda principer för villkorlig åtkomst. Att ändra användar tillstånd rekommenderas inte längre om licenserna inte innehåller villkorlig åtkomst eftersom det krävs att användarna utför MFA varje gång de loggar in.
+> Aktivera Azure Multi-Factor Autentisering med principer för villkorlig åtkomst är den rekommenderade metoden. Det rekommenderas inte längre att ändra användartillstånd om inte dina licenser innehåller villkorlig åtkomst eftersom det kräver att användarna utför MFA varje gång de loggar in.
 
 ## <a name="choose-how-to-enable"></a>Välj hur du vill aktivera
 
-**Aktive rad genom att ändra användar tillstånd** – det här är den traditionella metoden för att kräva tvåstegsverifiering och beskrivs i den här artikeln. Det fungerar med både Azure MFA i molnet och Azure MFA-servern. Om du använder den här metoden måste användarna utföra tvåstegsverifiering **varje gång** de loggar in och åsidosätter principer för villkorlig åtkomst.
+**Aktiveras genom att ändra användartillstånd** - Detta är den traditionella metoden för att kräva tvåstegsverifiering och diskuteras i den här artikeln. Det fungerar med både Azure MFA i molnet och Azure MFA Server. Med den här metoden krävs att användare utför tvåstegsverifiering **varje gång** de loggar in och åsidosätter principer för villkorlig åtkomst.
 
-**Aktive rad med princip för villkorlig åtkomst** – det här är det mest flexibla sättet att aktivera tvåstegsverifiering för dina användare. Aktivering med principen för villkorlig åtkomst fungerar bara för Azure MFA i molnet och är en Premium funktion i Azure AD. Mer information om den här metoden finns i [distribuera molnbaserad Azure-Multi-Factor Authentication](howto-mfa-getstarted.md).
+**Aktiverad av principen villkorlig åtkomst** – Det här är det mest flexibla sättet att aktivera tvåstegsverifiering för användarna. Aktivera med principen villkorlig åtkomst fungerar bara för Azure MFA i molnet och är en premiumfunktion i Azure AD. Mer information om den här metoden finns i [Distribuera molnbaserad Azure Multi-Factor Authentication](howto-mfa-getstarted.md).
 
-**Aktive rad av Azure AD Identity Protection** – med den här metoden används principen Azure AD Identity Protection risk för att kräva tvåstegsverifiering endast baserat på inloggnings risk för alla moln program. Den här metoden kräver Azure Active Directory P2-licensiering. Du hittar mer information om den här metoden i [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
+**Aktiverad av Azure AD Identity Protection** - Den här metoden använder riskprincipen för Azure AD Identity Protection för att kräva tvåstegsverifiering endast baserat på inloggningsrisk för alla molnprogram. Den här metoden kräver Azure Active Directory P2-licensiering. Mer information om den här metoden finns i [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
 > [!Note]
-> Mer information om licenser och priser finns på sidan med pris information för [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/
-) och [Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) .
+> Mer information om licenser och priser finns på prissidorna [för Azure AD-](https://azure.microsoft.com/pricing/details/active-directory/
+) och [MultiFaktorautentisering.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-## <a name="enable-azure-mfa-by-changing-user-state"></a>Aktivera Azure MFA genom att ändra användar tillstånd
+## <a name="enable-azure-mfa-by-changing-user-state"></a>Aktivera Azure MFA genom att ändra användartillstånd
 
-Användar konton i Azure Multi-Factor Authentication har följande tre distinkta tillstånd:
+Användarkonton i Azure Multi-Factor Authentication har följande tre olika tillstånd:
 
 > [!IMPORTANT]
-> Att aktivera Azure MFA via en princip för villkorlig åtkomst ändrar inte användarens tillstånd. Inga alarmed-användare visas inaktiverade. Villkorlig åtkomst ändrar inte tillstånd. **Organisationer bör inte aktivera eller framtvinga användare om de använder principer för villkorlig åtkomst.**
+> Om du aktiverar Azure MFA via en princip för villkorlig åtkomst ändras inte användarens tillstånd. Oroa dig inte användare verkar inaktiverade. Villkorlig åtkomst ändrar inte tillståndet. **Organisationer bör inte aktivera eller tvinga användare om de använder principer för villkorlig åtkomst.**
 
-| Status | Beskrivning | Icke-webbläsarbaserade appar som påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
+| Status | Beskrivning | Appar som inte är webbläsare påverkas | Webbläsarappar påverkas | Modern autentisering påverkas |
 |:---:| --- |:---:|:--:|:--:|
-| Disabled | Standard läget för en ny användare som inte har registrerats i Azure MFA. | Inga | Inga | Inga |
-| Enabled | Användaren har registrerats i Azure MFA, men har inte registrerats. De får ett meddelande om att registrera sig nästa gången de loggar in. | Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure MFA-registrering.| Ja. När åtkomsttoken upphör att gälla krävs Azure MFA-registrering. |
-| Enforced | Användaren har registrerats och slutfört registrerings processen för Azure MFA. | Ja. Appar kräver applösenord. | Ja. Azure MFA krävs vid inloggning. | Ja. Azure MFA krävs vid inloggning. |
+| Disabled | Standardtillståndet för en ny användare som inte är registrerad i Azure MFA. | Inga | Inga | Inga |
+| Enabled | Användaren har registrerats i Azure MFA, men har inte registrerats. De får en uppmaning om att registrera sig nästa gång de loggar in. | Nej.  De fortsätter att fungera tills registreringsprocessen är klar. | Ja. När sessionen har gått ut krävs Azure MFA-registrering.| Ja. När åtkomsttoken har gått ut krävs Azure MFA-registrering. |
+| Enforced | Användaren har registrerats och har slutfört registreringsprocessen för Azure MFA. | Ja. Appar kräver applösenord. | Ja. Azure MFA krävs vid inloggning. | Ja. Azure MFA krävs vid inloggning. |
 
-En användares tillstånd visar om en administratör har registrerat dem i Azure MFA och om de har slutfört registrerings processen.
+En användares tillstånd återspeglar om en administratör har registrerat dem i Azure MFA och om de slutförde registreringsprocessen.
 
-Alla användare börjar vara *inaktiverade*. När du registrerar användare i Azure MFA ändras deras status till *aktive rad*. När aktiverade användare loggar in och slutför registrerings processen ändras deras status till *tvingande*.
+Alla användare börjar *inaktiveras*. När du registrerar användare i Azure MFA ändras deras tillstånd till *Aktiverad*. När aktiverade användare loggar in och slutför registreringsprocessen ändras deras tillstånd till *Tvingande*.
 
 > [!NOTE]
-> Om MFA återaktiveras på ett användar objekt som redan har registrerings information, till exempel telefon eller e-post, måste administratörerna ha den användaren omregistrera MFA via Azure Portal eller PowerShell. Om användaren inte omregistreras, övergår inte MFA-statusen över från *aktive rad* till *tvingande* i MFA management UI.
+> Om MFA återaktiverats på ett användarobjekt som redan har registreringsinformation, till exempel telefon eller e-post, måste administratörer ha den användaren registrera MFA via Azure-portalen eller PowerShell. Om användaren inte registrerar om, övergår inte deras MFA-tillstånd från *Aktiverat* till *Verkställt* i MFA-hanteringsgränssnittet.
 
 ### <a name="view-the-status-for-a-user"></a>Visa status för en användare
 
-Använd följande steg för att komma åt sidan där du kan visa och hantera användar tillstånd:
+Följ följande steg för att komma åt sidan där du kan visa och hantera användartillstånd:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Sök efter och välj *Azure Active Directory*. Välj **användare** > **alla användare**.
-3. Välj **Multi-Factor Authentication**. Du kan behöva bläddra till höger för att se det här meny alternativet. Välj skärm bilden nedan om du vill se hela Azure Portals fönster och meny plats:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Välj Multi-Factor Authentication från fönstret användare i Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
-4. En ny sida som visar användar tillstånden öppnas.
-   ![användar status för Multi-Factor Authentication-skärm bild](./media/howto-mfa-userstates/userstate1.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
+2. Sök efter och välj *Azure Active Directory*. Välj **Användare** > **Alla användare**.
+3. Välj **Multifaktorautentisering**. Du kan behöva bläddra till höger för att se det här menyalternativet. Välj exempel skärmdump nedan för att se hela Azure portal fönster och menyplats:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Välj Multifaktorautentisering i fönstret Användare i Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+4. En ny sida som visar användartillståndet öppnas.
+   ![användarstatus för multifaktorautentisering - skärmdump](./media/howto-mfa-userstates/userstate1.png)
 
 ### <a name="change-the-status-for-a-user"></a>Ändra status för en användare
 
-1. Använd föregående steg för att komma till sidan Azure Multi-Factor Authentication- **användare** .
-2. Hitta den användare som du vill aktivera för Azure MFA. Du kan behöva ändra vyn längst upp.
-   ![Välj användaren att ändra status för från fliken användare](./media/howto-mfa-userstates/enable1.png)
-3. Markera kryss rutan bredvid namnet.
-4. Välj **Aktivera** eller **inaktivera**under **snabb steg**till höger.
-   ![aktivera markerad användare genom att klicka på Aktivera på snabb menyn](./media/howto-mfa-userstates/user1.png)
+1. Använd föregående steg för att komma till sidan Azure Multi-Factor Authentication **users.**
+2. Hitta den användare som du vill aktivera för Azure MFA. Du kan behöva ändra vyn högst upp.
+   ![Välj den användare som ska ändra status för på fliken Användare](./media/howto-mfa-userstates/enable1.png)
+3. Markera rutan bredvid namnet.
+4. Till höger väljer du **Aktivera** eller **Inaktivera**under **snabba steg**.
+   ![Aktivera markerad användare genom att klicka på Aktivera på snabbstegsmenyn](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
-   > *Aktiverade* användare växlas automatiskt till att *tillämpas* när de registrerar sig för Azure MFA. Ändra inte användar tillstånd manuellt till *tvingande*.
+   > *Aktiverade* användare växlas automatiskt till *Tvingande när* de registrerar sig för Azure MFA. Ändra inte användartillståndet manuellt till *Verkställt*.
 
 5. Bekräfta ditt val i popup-fönstret som öppnas.
 
-När du har aktiverat användarna ska du meddela dem via e-post. Berätta att de uppmanas att registrera sig nästa gången de loggar in. Om din organisation använder icke-webbläsarbaserade appar som inte stöder modern autentisering måste de också skapa applösenord. Du kan också ta med en länk till [användar handboken för Azure MFA](../user-help/multi-factor-authentication-end-user.md) för att hjälpa dem att komma igång.
+När du har aktiverat användare meddelar du dem via e-post. Säg att de blir ombedda att registrera sig nästa gång de loggar in. Om din organisation använder appar som inte är webbläsare och som inte stöder modern autentisering måste de också skapa applösenord. Du kan också inkludera en länk till [slutanvändarhandboken](../user-help/multi-factor-authentication-end-user.md) för Azure MFA för att hjälpa dem att komma igång.
 
 ### <a name="use-powershell"></a>Använd PowerShell
 
-Ändra `$st.State`om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powershell/azure/overview). Det finns tre möjliga tillstånd:
+Om du vill ändra användartillståndet med `$st.State`Hjälp av Azure AD [PowerShell](/powershell/azure/overview)ändrar du . Det finns tre möjliga tillstånd:
 
 * Enabled
 * Enforced
 * Disabled  
 
-Flytta inte användare direkt till *framtvingat* tillstånd. Om du gör det upphör icke-webbläsarbaserade appar att fungera eftersom användaren inte har genomgått Azure MFA-registrering och fått ett [applösenord](howto-mfa-mfasettings.md#app-passwords).
+Flytta inte användare direkt till tillståndet *Tvingande.* Om du gör det slutar appar som inte är webbläsarbaserade att fungera eftersom användaren inte har gått igenom Azure MFA-registrering och fått ett [applösenord](howto-mfa-mfasettings.md#app-passwords).
 
-Installera först modulen med:
+Installera modulen först med hjälp av:
 
    ```PowerShell
    Install-Module MSOnline
    ```
 
 > [!TIP]
-> Glöm inte att ansluta först med **Connect-MSOLService**
+> Glöm inte att ansluta först med **Connect-MsolService**
 
    ```PowerShell
    Connect-MsolService
    ```
 
-Det här exemplet på PowerShell-skript aktiverar MFA för en enskild användare:
+Det här exemplet powershell-skriptet aktiverar MFA för en enskild användare:
 
    ```PowerShell
    Import-Module MSOnline
@@ -118,7 +118,7 @@ Det här exemplet på PowerShell-skript aktiverar MFA för en enskild användare
    Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
    ```
 
-Att använda PowerShell är ett användbart alternativ när du behöver massredigera användare. Till exempel upprepas följande skript genom en lista över användare och aktiverar MFA på sina konton:
+Att använda PowerShell är ett bra alternativ när du behöver massaktivera användare. Som ett exempel loopar följande skript igenom en lista över användare och aktiverar MFA på sina konton:
 
    ```PowerShell
    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
@@ -132,23 +132,23 @@ Att använda PowerShell är ett användbart alternativ när du behöver massredi
    }
    ```
 
-Om du vill inaktivera MFA använder du följande skript:
+Om du vill inaktivera MFA använder du det här skriptet:
 
    ```PowerShell
    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
    ```
 
-som också kan kortas av:
+som också kan förkortas till:
 
    ```PowerShell
    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
    ```
 
-### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Konvertera användare från per användare MFA till villkorlig åtkomst baserat MFA
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Konvertera användare från MFA per användare till villkorsstyrd åtkomstbaserad MFA
 
-Följande PowerShell kan hjälpa dig att göra konverteringen till baserade Azure-Multi-Factor Authentication med villkorlig åtkomst.
+Följande PowerShell kan hjälpa dig att göra konverteringen till villkorlig åtkomstbaserad Azure Multi-Factor-autentisering.
 
-Kör PowerShell i ett ISE-fönster eller Spara som. PS1-fil som ska köras lokalt.
+Kör det här PowerShell i ett ISE-fönster eller spara som ett . PS1-filen ska köras lokalt.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -185,12 +185,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Vi ändrade nyligen beteendet och PowerShell-skriptet ovan enligt detta. Tidigare har skriptet sparat av MFA-metoderna, inaktiverat MFA och återställt metoderna. Detta behövs inte längre nu när standard beteendet för inaktivera inte tar bort metoderna.
+> Vi har nyligen ändrat beteende och PowerShell skript ovan i enlighet därmed. Tidigare sparade skriptet mfa-metoderna, inaktiverade MFA och återställde metoderna. Detta är inte längre nödvändigt nu när standardbeteendet för inaktivera inte rensar metoderna.
 >
-> Om MFA återaktiveras på ett användar objekt som redan har registrerings information, till exempel telefon eller e-post, måste administratörerna ha den användaren omregistrera MFA via Azure Portal eller PowerShell. Om användaren inte omregistreras, övergår inte MFA-statusen över från *aktive rad* till *tvingande* i MFA management UI.
+> Om MFA återaktiverats på ett användarobjekt som redan har registreringsinformation, till exempel telefon eller e-post, måste administratörer ha den användaren registrera MFA via Azure-portalen eller PowerShell. Om användaren inte registrerar om, övergår inte deras MFA-tillstånd från *Aktiverat* till *Verkställt* i MFA-hanteringsgränssnittet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Varför uppmanas användaren eller inte att göra MFA? Se avsnittet [Azure AD-inloggningar i rapporterna i azure Multi-Factor Authentication-dokumentet](howto-mfa-reporting.md#azure-ad-sign-ins-report).
-* Information om hur du konfigurerar ytterligare inställningar som tillförlitliga IP-adresser, anpassade röst meddelanden och bedrägeri aviseringar finns i artikeln [Konfigurera Azure Multi-Factor Authentication inställningar](howto-mfa-mfasettings.md)
-* Information om hur du hanterar användar inställningar för Azure Multi-Factor Authentication finns i artikeln [hantera användar inställningar med azure Multi-Factor Authentication i molnet](howto-mfa-userdevicesettings.md)
+* Varför blev en användare ombedd att utföra MFA? Se avsnittet [Azure AD-inloggningsrapport i dokumentet Rapporter i Azure Multi-Factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+* Information om hur du konfigurerar ytterligare inställningar som betrodda IPs, anpassade röstmeddelanden och bedrägerivarningar finns i artikeln [Konfigurera Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
+* Information om hur du hanterar användarinställningar för Azure Multi-Factor Authentication finns i artikeln [Hantera användarinställningar med Azure Multi-Factor Authentication i molnet](howto-mfa-userdevicesettings.md)

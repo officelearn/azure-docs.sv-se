@@ -1,6 +1,6 @@
 ---
-title: Dv3 och Dsv3-serien – Azure Virtual Machines
-description: Specifikationer för virtuella datorer med Dv3 och Dsv3-serien.
+title: Dv3- och Dsv3-serien – virtuella Azure-datorer
+description: Specifikationer för virtuella datorer i Dv3 och Dsv3-serien.
 services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
@@ -8,37 +8,37 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 9ea5811fa20ea4866655de74d79ff3905ba03f16
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164414"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3- och Dsv3-serien
 
-Dv3-serien körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) i en Hyper-threaded-konfiguration, vilket ger ett bättre värde för de flesta allmänna syfte med arbets belastningar. Minnet har utökats (från ~ 3,5 GiB/vCPU till 4 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras efter flytta till hyperthreading. Dv3-serien har inte längre hög minnes storlek för virtuella datorer i D/Dv2-serien, de har flyttats till den minnesoptimerade [Ev3 och Esv3-serien](ev3-esv3-series.md).
+Dv3-serien körs på Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) processorer i en flertrådad konfiguration, ger ett bättre värdeerbjudande för de flesta allmänna arbetsbelastningar. Minnet har utökats (från ~3.5 GiB/vCPU till 4 GiB/vCPU) medan disk- och nätverksgränser har justerats per kärna för att anpassa sig till övergången till hyperthreading. Dv3-serien har inte längre den höga minnes-VM-storleken på D/Dv2-serien, de har flyttats till minnet optimerade [Ev3 och Esv3-serien](ev3-esv3-series.md).
 
-Exempel på användnings områden i D-serien är program i företags klass, Relations databaser, minnes intern cachelagring och analys.
+Exempel på användningsfall i D-serien omfattar program i företagsklass, relationsdatabaser, cachelagring i minnet och analyser.
 
 ## <a name="dv3-series"></a>Dv3-serien
 
-Dv3-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Storlekarna i Dv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
+Dv3-seriens storlekar körs på Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 000 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) processorer med Intel Turbo Boost Technology 2.0. Storlekarna i Dv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
 
 Datadisklagring faktureras separat från virtuella datorer. Om du vill använda premiumlagringsdiskar använder du Dsv3-storlekarna. Pris- och debiteringsmätarna för Dsv3-storlekar är samma som för Dv3-serien.
 
-Virtuella datorer i dv3-serien Intel® Hyper-Threading-teknik.
+Virtuella datorer i Dv3-serien har Intel® Teknik för flertrådsteknik.
 
 ACU: 160–190
 
-Premium Storage: stöds inte
+Premium-lagring: Stöds inte
 
-Premium Storage caching: stöds inte
+Cachelagring av premiumlagring: Stöds inte
 
-Direktmigrering: stöds
+Live Migration: Stöds
 
-Minnes bebetjänings uppdateringar: stöds
+Minneskonering av uppdateringar: Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Högsta antal nätverkskort/nätverks bandbredd |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max temp lagringsdataflöde: IOPS/Läs MBps/Write MBps | Max nätverkskort/nätverksbandbredd |
 |---|---|---|---|---|---|---|
 | Standard_D2_v3  | 2  | 8   | 50   | 4  | 3 000/46/23     | 2/1000  |
 | Standard_D4_v3  | 4  | 16  | 100  | 8  | 6 000/93/46     | 2/2000  |
@@ -50,21 +50,21 @@ Minnes bebetjänings uppdateringar: stöds
 
 ## <a name="dsv3-series"></a>Dsv3-serien
 
-Dsv3-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0 och Använd Premium Storage. Storlekarna i Dsv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
+Storlekar i Dsv3-serien körs på Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2 .3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) processorer med Intel Turbo Boost Technology 2.0 och använda premiumlagring. Storlekarna i Dsv3-serien erbjuder en kombination av virtuella processorer, minne och temporär lagring som passar de flesta produktionsarbetsbelastningar.
 
-Virtuella datorer i Dsv3-serien Intel® Hyper-Threading-teknik.
+Virtuella datorer i Dsv3-serien har Intel® Flertrådsteknik.
 
 ACU: 160–190
 
-Premium Storage: stöds
+Premium-lagring: Stöds
 
-Premium Storage caching: stöds
+Cachelagring av premiumlagring: Stöds
 
-Direktmigrering: stöds
+Live Migration: Stöds
 
-Minnes bebetjänings uppdateringar: stöds
+Minneskonering av uppdateringar: Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temp-lagringsdataflöde: IOPS/MBps (cachestorlek i GiB) | Max oankopplat diskdataflöde: IOPS/MBps | Max nätverkskort/förväntad nätverksbandbredd (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2s_v3  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 3200/48    | 2/1000  |
 | Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8000/64 (100)      | 6400/96    | 2/2000  |
@@ -87,4 +87,4 @@ Minnes bebetjänings uppdateringar: stöds
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.

@@ -1,5 +1,5 @@
 ---
-title: Azure diagnostikloggar | Microsoft Docs
+title: Diagnostikloggar i Azure | Microsoft-dokument
 description: Kunden kan aktivera logganalys för Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -15,151 +15,151 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: 86696ed6715b4e43a9d02232c013eb64feb61f67
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594213"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
-Du kan använda Azure diagnostikloggar för att visa grundläggande analys och spara dem i en eller flera mål, inklusive:
+Med Diagnostikloggar i Azure kan du visa kärnanalyser och spara dem på en eller flera destinationer, inklusive:
 
- - Azure-lagringskonto
+ - Azure Storage-konto
  - Azure Event Hubs
  - [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Den här funktionen är tillgänglig på CDN-slutpunkter för alla prisnivåer. 
 
-Azure-diagnostikloggar kan du exportera grundläggande användningsstatistik från CDN-slutpunkten till en mängd olika källor, så att du kan använda dem på ett anpassat sätt. Du kan exempelvis göra följande typer av export av data:
+Med Azure-diagnostikloggar kan du exportera grundläggande användningsmått från CDN-slutpunkten till en mängd olika källor så att du kan använda dem på ett anpassat sätt. Du kan till exempel göra följande typer av dataexport:
 
-- Exportera data till blob-lagring, exportera till CSV och skapa diagram i Excel.
-- Exportera data till Event Hubs och jämföra med data från andra Azure-tjänster.
-- Exportera data till Azure Monitor-loggar och visa data i din egen Log Analytics-arbetsyta
+- Exportera data till blob-lagring, exportera till CSV och generera diagram i Excel.
+- Exportera data till eventhubbar och korrelera med data från andra Azure-tjänster.
+- Exportera data till Azure Monitor-loggar och visa data på din egen Log Analytics-arbetsyta
 
-I följande diagram visas en typisk CDN core analytics-vy över data.
+Följande diagram visar en typisk CDN-kärnanalysvy över data.
 
-![Portal - diagnostikloggar](./media/cdn-diagnostics-log/01_OMS-workspace.png)
+![portal - Diagnostikloggar](./media/cdn-diagnostics-log/01_OMS-workspace.png)
 
-*Bild 1 – CDN core analytics-vy*
+*Bild 1 - CDN-kärnanalysvy*
 
-Läs mer om diagnostikloggar [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+Mer information om diagnostikloggar finns i [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="enable-logging-with-the-azure-portal"></a>Aktivera loggning med Azure portal
+## <a name="enable-logging-with-the-azure-portal"></a>Aktivera loggning i Azure-portalen
 
-Följ dessa steg aktivera loggning med CDN core analytics:
+Gör så här kan du logga med CDN-kärnanalys:
 
-Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har aktiverat CDN för ditt arbetsflöde [skapa en Azure CDN-profil och slutpunkt](cdn-create-new-endpoint.md) innan du fortsätter.
+Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har aktiverat CDN för arbetsflödet [skapar du en Azure CDN-profil och slutpunkt](cdn-create-new-endpoint.md) innan du fortsätter.
 
-1. I Azure-portalen går du till **CDN-profil**.
+1. Navigera till **CDN-profilen i Azure-portalen**.
 
-2. Sök efter en CDN-profil i Azure-portalen, eller välj en från instrumentpanelen. Välj CDN-slutpunkten som du vill aktivera diagnostikloggar.
+2. Sök efter en CDN-profil i Azure-portalen eller välj en från instrumentpanelen. Välj sedan den CDN-slutpunkt som du vill aktivera diagnostikloggar för.
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
 
-3. Välj **diagnostikloggar** i avsnittet övervakning.
+3. Välj **Diagnostikloggar** i avsnittet ÖVERVAKNING.
 
-   Den **diagnostikloggar** visas.
+   Sidan **Diagnostikloggar** visas.
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
 
 ### <a name="enable-logging-with-azure-storage"></a>Aktivera loggning med Azure Storage
 
-Följ dessa steg om du vill använda ett lagringskonto för att spara loggarna:
+Så här använder du ett lagringskonto för att lagra loggarna:
     
-1. För **namn**, ange ett namn för din diagnostiklogginställningar.
+1. För **Namn**anger du ett namn för diagnostiklogginställningarna.
  
-2. Välj **arkivet till ett lagringskonto**och välj sedan **CoreAnalytics**. 
+2. Välj **Arkiv till ett lagringskonto**och välj sedan **CoreAnalytics**. 
 
-2. För **Kvarhållning (dagar)** , Välj antalet kvarhållningsdagar. En kvarhållning av noll dagar lagras loggarna på obestämd tid. 
+2. För **kvarhållning (dagar)** väljer du antalet kvarhållningsdagar. En kvarhållning av noll dagar lagrar loggarna på obestämd tid. 
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
 
 3. Välj **lagringskonto**.
 
-    Den **Välj ett lagringskonto** visas.
+    Sidan **Välj ett lagringskonto** visas.
 
-4. Välj ett lagringskonto från den nedrullningsbara listan och välj sedan **OK**.
+4. Välj ett lagringskonto i listrutan och välj sedan **OK**.
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/cdn-select-storage-account.png)
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/cdn-select-storage-account.png)
 
-5. När du är nöjd med din diagnostiklogginställningar väljer **spara**.
+5. När du har gjort dina diagnostiklogginställningar väljer du **Spara**.
 
-### <a name="logging-with-azure-monitor"></a>Loggning med Azure Monitor
+### <a name="logging-with-azure-monitor"></a>Logga med Azure Monitor
 
-Följ dessa steg för att använda Azure Monitor för att lagra loggarna måste:
+Så här använder du Azure Monitor för att lagra loggarna:
 
-1. Från den **diagnostikloggar** väljer **skicka till Log Analytics**. 
+1. På sidan **Diagnostikloggar** väljer du **Skicka till Log Analytics**. 
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Välj **konfigurera** konfigurera Azure Monitor-loggning. 
+2. Välj **Konfigurera** för att konfigurera Azure Monitor-loggning. 
 
-   Den **Log Analytics-arbetsytor** visas.
+   Sidan **Logganalysarbetsytor** visas.
 
     >[!NOTE] 
     >OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/06_Choose-workspace.png)
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Välj **Skapa ny arbetsyta**.
 
-    Den **Log Analytics-arbetsyta** visas.
+    Arbetsytan **Log Analytics** visas.
 
     >[!NOTE] 
     >OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/07_Create-new.png)
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. För **Log Analytics-arbetsyta**, ange ett namn för Log Analytics-arbetsytan. Namnet på Log Analytics-arbetsytan måste vara unika och innehålla endast bokstäver, siffror och bindestreck; blanksteg och understreck tillåts inte. 
+4. För **Log Analytics-arbetsyta**anger du ett logganalysarbetsytenamn. Arbetsytenamnet Log Analytics måste vara unikt och innehåller endast bokstäver, siffror och bindestreck. utrymmen och understreck är inte tillåtna. 
 
-5. För **prenumeration**, Välj en befintlig prenumeration från den nedrullningsbara listan. 
+5. För **Prenumeration**väljer du en befintlig prenumeration i listrutan. 
 
-6. För **resursgrupp**, skapa en ny resursgrupp eller välj en befintlig.
+6. Skapa en ny resursgrupp för **resursgruppen**eller välj en befintlig resursgrupp.
 
-7. För **plats**, Välj en plats i listan.
+7. För **Plats**väljer du en plats i listan.
 
-8. Välj **fäst på instrumentpanelen** om du vill spara loggningskonfigurationen på instrumentpanelen. 
+8. Välj **Fäst på instrumentpanelen** om du vill spara loggkonfigurationen på instrumentpanelen. 
 
-9. Välj **OK** att slutföra konfigurationen.
+9. Välj **OK** för att slutföra konfigurationen.
 
-10. När arbetsytan har skapats kan du kommer tillbaka till den **diagnostikloggar** sidan. Bekräfta namnet på den nya Log Analytics-arbetsytan.
+10. När arbetsytan har skapats returneras du till sidan **Diagnostikloggar.** Bekräfta namnet på den nya Log Analytics-arbetsytan.
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/09_Return-to-logging.png)
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/09_Return-to-logging.png)
 
-11. Välj **CoreAnalytics**och välj sedan **spara**.
+11. Välj **CoreAnalytics**och välj sedan **Spara**.
 
-12. Om du vill visa den nya Log Analytics-arbetsytan, Välj **grundläggande analysfunktioner** från din sida för CDN-slutpunkten.
+12. Om du vill visa den nya log analytics-arbetsytan väljer du **Kärnanalys** från cdn-slutpunktssidan.
 
-    ![Portal - diagnostikloggar](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
+    ![portal - Diagnostikloggar](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    Log Analytics-arbetsytan är nu redo att logga data. För att kunna använda data, måste du använda en [Azure Monitor loggar lösningen](#consuming-diagnostics-logs-from-a-log-analytics-workspace), tas upp senare i den här artikeln.
+    Din Log Analytics-arbetsyta är nu klar att logga data. För att kunna använda dessa data måste du använda en [Azure Monitor-logglösning](#consuming-diagnostics-logs-from-a-log-analytics-workspace)som beskrivs senare i den här artikeln.
 
-Läs mer om log data fördröjningar [logga data fördröjningar](#log-data-delays).
+Mer information om fördröjningar av loggdata finns i [Logga dataförseningar](#log-data-delays).
 
 ## <a name="enable-logging-with-powershell"></a>aktivera loggning med PowerShell
 
-I följande exempel visas hur du aktiverar diagnostikloggar via Azure PowerShell-Cmdlets.
+I följande exempel visas hur du aktiverar diagnostikloggar via Azure PowerShell-cmdlets.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Aktivera diagnostiska loggar i ett lagringskonto
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Aktivera diagnostikloggar i ett lagringskonto
 
 1. Logga in och välj en prenumeration:
 
-    Connect-AzAccount 
+    Anslut-AzAccount 
 
-    Select-AzureSubscription -SubscriptionId 
+    Välj AzureSubscription -SubscriptionId 
 
-2. Om du vill aktivera diagnostikloggar i ett lagringskonto, anger du det här kommandot:
+2. Om du vill aktivera diagnostikloggar i ett lagringskonto anger du det här kommandot:
 
     ```powershell
     Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
-3. Om du vill aktivera diagnostikloggar i en Log Analytics-arbetsyta, anger du det här kommandot:
+3. Om du vill aktivera diagnostikloggar på en Log Analytics-arbetsyta anger du det här kommandot:
 
     ```powershell
     Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -167,130 +167,130 @@ I följande exempel visas hur du aktiverar diagnostikloggar via Azure PowerShell
     ```
 
 ## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Använda diagnostikloggar från Azure Storage
-Det här avsnittet beskriver schemat för CDN core analytics, hur de organiseras i ett Azure storage-konto och visar exempelkod för att hämta loggarna i en CSV-fil.
+I det här avsnittet beskrivs schemat för CDN-kärnanalys, hur det är organiserat i ett Azure-lagringskonto och exempelkod för att hämta loggarna i en CSV-fil.
 
-### <a name="using-microsoft-azure-storage-explorer"></a>Med Microsoft Azure Storage Explorer
-Innan du kan komma åt core analytics-data från ett Azure storage-konto, måste du först ett verktyg för att få åtkomst till innehållet i ett lagringskonto. Det finns flera verktyg på marknaden, är det som vi rekommenderar Microsoft Azure Storage Explorer. Om du vill hämta verktyget, se [Azure Storage Explorer](https://storageexplorer.com/). När du laddar ned och installera programvaran kan konfigureras för att använda samma Azure storage-kontot som har konfigurerats som ett mål för CDN-diagnostikloggar.
+### <a name="using-microsoft-azure-storage-explorer"></a>Använda Microsoft Azure Storage Explorer
+Innan du kan komma åt kärnanalysdata från ett Azure-lagringskonto behöver du först ett verktyg för att komma åt innehållet i ett lagringskonto. Det finns flera verktyg på marknaden, men det som vi rekommenderar är Microsoft Azure Storage Explorer. Information om hur du hämtar verktyget finns i [Azure Storage Explorer](https://storageexplorer.com/). När du har hämtat och installerat programvaran konfigurerar du den så att den använder samma Azure-lagringskonto som konfigurerades som en destination till CDN Diagnostics Logs.
 
-1.  Öppna **Microsoft Azure Lagringsutforskaren**
-2.  Leta upp lagringskontot
-3.  Expandera den **Blobbehållare** nod under det här lagringskontot.
+1.  Öppna **Microsoft Azure Storage Explorer**
+2.  Leta reda på lagringskontot
+3.  Expandera noden **Blob Containers** under det här lagringskontot.
 4.  Välj behållaren med namnet *insights-logs-coreanalytics*.
-5.  Resultat visar upp i den högra rutan, från och med den första nivån som *resourceId =* . Fortsätta att välja varje nivå tills du hittar filen *PT1H.json*. En förklaring av sökvägen finns i [Blob Sökvägsformatet](cdn-azure-diagnostic-logs.md#blob-path-format).
-6.  Varje blob *PT1H.json* filen representerar analysloggarna under en timme för en specifik CDN-slutpunkt eller den anpassa domänen.
-7.  Schemat för innehållet i det här JSON-fil beskrivs i avsnittet schemat för core analytics-loggarna.
+5.  Resultaten visas i den högra rutan, som börjar med den första nivån, som *resourceId=*. Fortsätt att välja varje nivå tills du hittar filen *PT1H.json*. En förklaring av sökvägen finns i [Blob-sökvägsformat](cdn-azure-diagnostic-logs.md#blob-path-format).
+6.  Varje blob *PT1H.json-fil* representerar analysloggarna i en timme för en viss CDN-slutpunkt eller dess anpassade domän.
+7.  Schemat för innehållet i den här JSON-filen beskrivs i avsnittsschemat för kärnanalysloggarna.
 
 
-#### <a name="blob-path-format"></a>Formatet för BLOB-sökväg
+#### <a name="blob-path-format"></a>Blob-sökvägsformat
 
-Core analytics loggarna genereras varje timme och data som samlas in och lagras inom en enda Azure-blob som en JSON-nyttolast. Eftersom verktyget Storage explorer tolkar '/' som en katalogavgränsare och visar hierarkin, sökvägen till Azure-blobben visas som om det är en hierarkisk struktur och representerar blobnamnet. Namnet på blobben följer följande namngivningskonvention:   
+Kärnanalysloggar genereras varje timme och data samlas in och lagras inuti en enda Azure-blob som en JSON-nyttolast. Eftersom verktyget Lagringsutforskare tolkar /' som en katalogavgränsare och visar hierarkin, visas sökvägen till Azure-bloben som om det finns en hierarkisk struktur och representerar blobnamnet. Namnet på blobben följer följande namngivningskonvention:   
 
 ```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
 **Beskrivning av fält:**
 
-|Value|Beskrivning|
+|Värde|Beskrivning|
 |-------|---------|
 |Prenumerations-ID:t    |ID för Azure-prenumerationen i Guid-format.|
-|Namn på resursgrupp |Namnet på resursgruppen som tillhör CDN-resurser.|
-|Profilnamn |Namnet på den CDN-profilen|
-|Namnet på slutpunkten |Namnet på CDN-slutpunkten|
-|År|  Fyrsiffrigt representation av året, till exempel 2017|
-|Månad| Tvåsiffrig representation av månadsnummer. 01 = januari... 12=December|
-|Dag|   Tvåsiffrig representation av dagen i månaden|
-|PT1H.json| Faktiska JSON-fil som analytics-data ska lagras|
+|Namn på resursgrupp |Namn på den resursgrupp som CDN-resurserna tillhör.|
+|Profilnamn |Namn på CDN-profilen|
+|Namn på slutpunkt |Namn på CDN-slutpunkten|
+|Year|  Årets fyrsiffriga representation, till exempel 2017|
+|Month| Tvåsiffrig representation av månadsnumret. 01=Januari ... 12=December|
+|Day|   Tvåsiffrig representation av dagen i månaden|
+|PT1H.json| Faktisk JSON-fil där analysdata lagras|
 
-### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportera core analytics-data till en CSV-fil
+### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportera kärnanalysdata till en CSV-fil
 
-Om du vill göra det enkelt att komma åt kärnanalys, tillhandahålls exempelkod för ett verktyg som. Det här verktyget kan ladda ned JSON-filerna till en fast CSV-format, vilket kan användas för att skapa diagram eller andra aggregeringar.
+För att göra det enkelt att komma åt kärnanalys, finns exempelkod för ett verktyg. Det här verktyget gör det möjligt att hämta JSON-filerna till ett platt kommaavgränsat filformat, som kan användas för att skapa diagram eller andra aggregeringar.
 
-Här är hur du kan använda verktyget:
+Så här kan du använda verktyget:
 
-1.  Gå till GitHub-länken: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
-2.  Ladda ned koden.
-3.  Följ anvisningarna för att kompilera och konfigurera.
+1.  Besök GitHub-länken:[https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+2.  Ladda ner koden.
+3.  Följ instruktionerna för att kompilera och konfigurera.
 4.  Kör verktyget.
-5.  Den resulterande CSV-filen visar analytics-data i en enkel fast hierarki.
+5.  Den resulterande CSV-filen visar analysdata i en enkel platt hierarki.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Använda diagnostikloggar från en Log Analytics-arbetsyta
-Azure Monitor är en Azure-tjänst som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. 
+Azure Monitor är en Azure-tjänst som övervakar dina molnmiljöer och lokala miljöer för att behålla deras tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. 
 
-Om du vill använda Azure Monitor, måste du [aktivera loggning](#enable-logging-with-azure-storage) till Azure Log Analytics-arbetsyta som beskrivs tidigare i den här artikeln.
+Om du vill använda Azure Monitor måste du [aktivera loggning](#enable-logging-with-azure-storage) till Azure Log Analytics-arbetsytan, som beskrivs tidigare i den här artikeln.
 
-### <a name="using-the-log-analytics-workspace"></a>Använda Log Analytics-arbetsyta
+### <a name="using-the-log-analytics-workspace"></a>Använda arbetsytan Logganalys
 
- Följande diagram visar arkitekturen för indata och utdata för databasen:
+ I följande diagram visas arkitekturen för in- och utdata i databasen:
 
 ![Log Analytics-arbetsyta](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
-*Bild 3 – Log Analytics-lagringsplatsen*
+*Bild 3 - Databas för logganalys*
 
-Du kan visa data i en mängd olika sätt med hjälp av lösningar för hantering. Du kan hämta hanteringslösningar från den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+Du kan visa data på flera olika sätt med hjälp av Hanteringslösningar. Du kan hämta hanteringslösningar från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-Du kan installera övervakningslösningar från Azure marketplace genom att välja den **Hämta nu** länken längst ned i varje lösning.
+Du kan installera övervakningslösningar från Azure Marketplace genom att välja länken **Hämta den nu** längst ned i varje lösning.
 
-### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Lägg till en Azure CDN för övervakaren övervakningslösning
+### <a name="add-an-azure-monitor-cdn-monitoring-solution"></a>Lägga till en Azure Monitor CDN-övervakningslösning
 
-Följ dessa steg för att lägga till en Azure Monitor övervakningslösning:
+Så här lägger du till en övervakningslösning för Azure Monitor:
 
-1.   Logga in på Azure portal med din Azure-prenumeration och gå till instrumentpanelen.
-    ![Azure-instrumentpanelen](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
+1.   Logga in på Azure-portalen med din Azure-prenumeration och gå till instrumentpanelen.
+    ![Azure-instrumentpanel](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
 
-2. I den **New** sidan under **Marketplace**väljer **övervakning + hantering**.
+2. Välj **Övervakning + hantering**under **Marketplace**på den **nya** sidan.
 
     ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
 
-3. I den **övervakning + hantering** väljer **se alla**.
+3. På sidan **Övervakning + hantering** väljer du Visa **alla**.
 
-    ![Se alla](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Visa alla](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. Sök efter CDN i sökrutan.
 
-    ![Se alla](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Visa alla](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. Välj **Azure CDN Core Analytics**. 
 
-    ![Se alla](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Visa alla](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6. När du har valt **skapa**, uppmanas du att skapa en ny Log Analytics-arbetsyta eller välj en befintlig. 
+6. När du har valt **Skapa**uppmanas du att skapa en ny Log Analytics-arbetsyta eller använda en befintlig. 
 
-    ![Se alla](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Visa alla](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
-7. Välj den arbetsyta som du skapade innan. Du måste sedan lägga till ett automation-konto.
+7. Markera arbetsytan som du skapade tidigare. Du måste sedan lägga till ett automatiseringskonto.
 
-    ![Se alla](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Visa alla](./media/cdn-diagnostics-log/19_Add-automation.png)
 
-8. Följande skärmbild visar formuläret automation-konto måste du fylla ut. 
+8. På följande skärm visas det formulär för automatiseringskonto som du måste fylla i. 
 
-    ![Se alla](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Visa alla](./media/cdn-diagnostics-log/20_Automation.png)
 
-9. När du har skapat ett automation-kontot, är du redo att lägga till din lösning. Välj knappen **Skapa**.
+9. När du har skapat automatiseringskontot är du redo att lägga till din lösning. Välj knappen **Skapa**.
 
-    ![Se alla](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Visa alla](./media/cdn-diagnostics-log/21_Ready.png)
 
-10. Lösningen har nu lagts till din arbetsyta. Gå tillbaka till instrumentpanelen i Azure portal.
+10. Din lösning har nu lagts till på din arbetsyta. Gå tillbaka till instrumentpanelen för Azure-portalen.
 
-    ![Se alla](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Visa alla](./media/cdn-diagnostics-log/22_Dashboard.png)
 
-    Välj Log Analytics-arbetsytan som du skapade för att gå till din arbetsyta. 
+    Välj arbetsytan Log Analytics som du skapade för att gå till arbetsytan. 
 
-11. Välj den **OMS-portalen** ikonen för att visa den nya lösningen.
+11. Välj **panelen OMS Portal** för att se din nya lösning.
 
-    ![Se alla](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Visa alla](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. Din portal bör nu se ut som följande skärmbild:
+12. Portalen ska nu se ut så här:
 
-    ![Se alla](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Visa alla](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
-    Välj en av panelerna för att se flera vyer i dina data.
+    Välj en av panelerna om du vill visa flera vyer i dina data.
 
-    ![Se alla](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Visa alla](./media/cdn-diagnostics-log/25_Interior-view.png)
 
-    Du kan rulla åt vänster eller höger för att se ytterligare paneler som representerar enskilda vyer i data. 
+    Du kan rulla åt vänster eller höger om du vill visa ytterligare paneler som representerar enskilda vyer i data. 
 
-    Välj någon av panelerna för att se mer information om dina data.
+    Välj en av panelerna om du vill se mer information om dina data.
 
-     ![Se alla](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Visa alla](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Erbjudanden och prisnivåer
 
@@ -298,67 +298,67 @@ Du kan se erbjudanden och prisnivåer för hanteringslösningar [här](https://d
 
 ### <a name="customizing-views"></a>Anpassa vyer
 
-Du kan anpassa vyn till dina data med hjälp av den **Vydesigner**. Om du vill börja designa, gå till Log Analytics-arbetsytan och välj den **Vydesigner** panelen.
+Du kan anpassa vyn till dina data med hjälp av **Visa designer**. Om du vill börja designa går du till arbetsytan Log Analytics och väljer panelen **Visa designer.**
 
 ![Vydesigner](./media/cdn-diagnostics-log/27_Designer.png)
 
-Dra och släpp typerna av diagram och Fyll i data information om du vill analysera.
+Dra och släpp typerna av diagram och fyll i den datainformation som du vill analysera.
 
 ![Vydesigner](./media/cdn-diagnostics-log/28_Designer.png)
 
     
-## <a name="log-data-delays"></a>Logga data fördröjningar
+## <a name="log-data-delays"></a>Logga dataförseningar
 
-I följande tabell visas log data förseningar för **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, och **Azure CDN Standard/Premium från Verizon**.
+I följande tabell visas loggdatafördröjningar för **Azure CDN Standard från Microsoft,** **Azure CDN Standard från Akamai**och **Azure CDN Standard/Premium från Verizon**.
 
-Microsoft log data fördröjningar | Verizon log data fördröjningar | Akamai log data fördröjningar
+Microsoft-loggdata försenas | Verizon loggdata förseningar | Akamai loggar data förseningar
 --- | --- | ---
-Försenade på grund av 1 timme. | Försenade på grund av 1 timme och kan ta upp till 2 timmar att börja visas efter endpoint spridning slutförande. | Minska frekvensen genom 24 timmar. Om den har skapats sedan mer än 24 timmar, tar det upp till 2 timmar att börja visas. Om den har skapats nyligen kan ta det upp till 25 timmar innan loggarna för att starta visas.
+Försenad med 1 timme. | Fördröjd med 1 timme och kan ta upp till 2 timmar att börja visas efter slutpunktsspridningen. | Försenad med 24 timmar; Om det skapades för mer än 24 timmar sedan tar det upp till 2 timmar att börja visas. Om det nyligen har skapats kan det ta upp till 25 timmar innan loggarna börjar visas.
 
-## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Diagnostiklogg typer för CDN core analytics
+## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Diagnostikloggtyper för CDN-kärnanalys
 
-Microsoft erbjuder för närvarande core analytics loggar, som innehåller mått som visar statistik för HTTP-svar och utgående trafik som visas från CDN POP/kanter.
+Microsoft erbjuder för närvarande endast grundläggande analysloggar, som innehåller mått som visar HTTP-svarsstatistik och utgående statistik som kan ses från CDN-pop/kanter.
 
-### <a name="core-analytics-metrics-details"></a>Information om Core analytics-mått
-I följande tabell visas en lista över mått som är tillgängliga i grundläggande analysloggar för **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, och **Azure CDN Standard/Premium från Verizon**. Inte alla mått är tillgängliga från alla providers, även om skillnaderna är minimal. Tabellen visar även om ett visst mått är tillgängliga från en leverantör. Mått är tillgängliga för endast de CDN-slutpunkter som har trafik på dem.
+### <a name="core-analytics-metrics-details"></a>Information om kärnanalysmått
+I följande tabell visas en lista över mått som är tillgängliga i kärnanalysloggarna för **Azure CDN Standard från Microsoft,** **Azure CDN Standard från Akamai**och **Azure CDN Standard/Premium från Verizon**. Alla mått är inte tillgängliga från alla leverantörer, även om sådana skillnader är minimala. Tabellen visar också om ett givet mått är tillgängligt från en provider. Måtten är endast tillgängliga för cdn-slutpunkter som har trafik på dem.
 
 
 |Mått                     | Beskrivning | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | Totalt antal träffar för begäran under denna period. | Ja | Ja |Ja |
-| RequestCountHttpStatus2xx | Uppräkning av alla begäranden som resulterade i ett 2xx HTTP-kod (till exempel 200, 202). | Ja | Ja |Ja |
-| RequestCountHttpStatus3xx | Uppräkning av alla begäranden som resulterade i en 3xx HTTP-kod (till exempel 300, 302). | Ja | Ja |Ja |
-| RequestCountHttpStatus4xx | Uppräkning av alla begäranden som resulterade i en 4xx HTTP-kod (till exempel 400, 404). | Ja | Ja |Ja |
-| RequestCountHttpStatus5xx | Uppräkning av alla begäranden som resulterade i 5xx HTTP-koden (exempelvis 500, 504). | Ja | Ja |Ja |
-| RequestCountHttpStatusOthers | Uppräkning av alla andra HTTP-koder (utanför 2xx 5xx). | Ja | Ja |Ja |
-| RequestCountHttpStatus200 | Uppräkning av alla begäranden som resulterade i en 200 HTTP-kod-svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus206 | Uppräkning av alla begäranden som resulterade i ett 206 HTTP-kod-svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus302 | Uppräkning av alla begäranden som resulterade i en 302 kod HTTP-svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus304 | Uppräkning av alla begäranden som resulterade i en 304 kod HTTP-svar. | Ja | Nej  |Ja |
-| RequestCountHttpStatus404 | Uppräkning av alla begäranden som resulterade i ett 404 kod HTTP-svar. | Ja | Nej  |Ja |
-| RequestCountCacheHit | Uppräkning av alla begäranden som resulterade i en Cache träffar. Tillgången har behandlats direkt från POP till klienten. | Ja | Ja | Nej  |
-| RequestCountCacheMiss | Uppräkning av alla begäranden som resulterade i en cachemiss. En cachemiss innebär tillgången hittades inte på den POP-plats som är närmast klienten, och därför har hämtats från ursprunget. | Ja | Ja | Nej |
-| RequestCountCacheNoCache | Uppräkning av alla begäranden till en tillgång som hindras från att cachelagras på grund av en Användarkonfiguration på gränsen. | Ja | Ja | Nej |
-| RequestCountCacheUncacheable | Antal för alla förfrågningar till tillgångar som hindras från att cachelagras av tillgångens Cache-Control och Expires-huvuden som indikerar att det inte ska cachelagras på en POP eller av HTTP-klienten. | Ja | Ja | Nej |
-| RequestCountCacheOthers | Uppräkning av alla begäranden med Cachestatus som inte omfattas av ovan. | Nej | Ja | Nej  |
-| EgressTotal | Utgående dataöverföring i GB | Ja |Ja |Ja |
-| EgressHttpStatus2xx | Utgående dataöverföring * för responser 2xx HTTP-statuskoder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus3xx | Utgående dataöverföring för responser 3xx HTTP-statuskoder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus4xx | Utgående dataöverföring för responser 4xx HTTP-statuskoder i GB. | Ja | Ja | Nej  |
-| EgressHttpStatus5xx | Utgående dataöverföring för responser 5xx HTTP-statuskoder i GB. | Ja | Ja | Nej |
-| EgressHttpStatusOthers | Utgående dataöverföring för svar med andra HTTP-statuskoder i GB. | Ja | Ja | Nej  |
-| EgressCacheHit | Utgående dataöverföring för svar som har levererats direkt från CDN-cachen på CDN POP/kanter. | Ja | Ja | Nej |
-| EgressCacheMiss. | Utgående dataöverföring för svar som inte hittades på den närmaste POP-servern, och hämtas från den ursprungliga servern. | Ja | Ja | Nej |
-| EgressCacheNoCache | Utgående dataöverföring för tillgångar som hindras från att cachelagras på grund av en Användarkonfiguration på gränsen. | Ja | Ja | Nej |
-| EgressCacheUncacheable | Utgående dataöverföring för tillgångar som hindras från att cachelagras av tillgångens Cache-Control eller Expires-huvuden. Anger att det inte ska cachelagras på en POP eller av HTTP-klienten. | Ja | Ja | Nej |
-| EgressCacheOthers | Utgående dataöverföringar som för andra cache-scenarier. | Nej | Ja | Nej |
+| RequestCountTotal         | Totalt antal träffar för begäran under den här perioden. | Ja | Ja |Ja |
+| RequestCounthttpStatus2xx | Antal alla begäranden som resulterade i en 2xx HTTP-kod (till exempel 200, 202). | Ja | Ja |Ja |
+| RequestCounthttpStatus3xx | Antal alla begäranden som resulterade i en 3xx HTTP-kod (till exempel 300, 302). | Ja | Ja |Ja |
+| RequestCounthttpStatus4xx | Antal alla begäranden som resulterade i en 4xx HTTP-kod (till exempel 400, 404). | Ja | Ja |Ja |
+| RequestCounthttpStatus5xx | Antal alla begäranden som resulterade i en 5xx HTTP-kod (till exempel 500, 504). | Ja | Ja |Ja |
+| RequestCountHttpStatusOthers | Antal av alla andra HTTP-koder (utanför 2xx-5xx). | Ja | Ja |Ja |
+| RequestCounthttpStatus200 | Antal alla begäranden som resulterade i ett 200 HTTP-kodsvar. | Ja | Inga  |Ja |
+| RequestCounthttpStatus206 | Antal alla begäranden som resulterade i ett 206 HTTP-kodsvar. | Ja | Inga  |Ja |
+| RequestCounthttpStatus302 | Antal alla begäranden som resulterade i ett 302 HTTP-kodsvar. | Ja | Inga  |Ja |
+| RequestCounthttpStatus304 | Antal alla begäranden som resulterade i ett 304 HTTP-kodsvar. | Ja | Inga  |Ja |
+| RequestCounthttpStatus404 | Antal alla begäranden som resulterade i ett 404 HTTP-kodsvar. | Ja | Inga  |Ja |
+| RequestCountCacheHit | Räkna alla begäranden som resulterade i en cacheträff. Tillgången delgavs direkt från POP till kunden. | Ja | Ja | Inga  |
+| BegäranCountCacheMiss | Räkna alla begäranden som resulterade i en cachemiss. En cachemiss innebär att tillgången inte hittades på POP närmast klienten och hämtades därför från Origin. | Ja | Ja | Inga |
+| BegäranCountCacheNoCache | Antal alla begäranden till en tillgång som förhindras från att cachelagras på grund av en användarkonfiguration på kanten. | Ja | Ja | Inga |
+| RequestCountCacheUncacheable | Antal alla begäranden till tillgångar som förhindras från att cachelagras av tillgångens cachekontroll- och utgångshuvuden, vilket indikerar att den inte bör cachelagras på en POP eller av HTTP-klienten. | Ja | Ja | Inga |
+| RequestCountCacheOthers | Antal alla begäranden med cachestatus som inte omfattas av ovan. | Inga | Ja | Inga  |
+| EgressTotal (på annat sätt) | Överföring av utgående data i GB | Ja |Ja |Ja |
+| EgressHttpStatus2xx | Överföring av utgående data* för svar med 2xx HTTP-statuskoder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus3xx | Utgående dataöverföring för svar med 3xx HTTP-statuskoder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus4xx | Utgående dataöverföring för svar med 4xx HTTP-statuskoder i GB. | Ja | Ja | Inga  |
+| EgressHttpStatus5xx | Utgående dataöverföring för svar med 5xx HTTP-statuskoder i GB. | Ja | Ja | Inga |
+| EgressHttpStatusOthers | Utgående dataöverföring för svar med andra HTTP-statuskoder i GB. | Ja | Ja | Inga  |
+| EgressCacheHit (EgressCache) | Utgående dataöverföring för svar som levererades direkt från CDN-cachen på CDN-POP/Kanter. | Ja | Ja | Inga |
+| EgressCacheMiss. | Utgående dataöverföring för svar som inte hittades på närmaste POP-server och hämtas från ursprungsservern. | Ja | Ja | Inga |
+| EgressCacheNoCache | Utgående dataöverföring för tillgångar som förhindras från att cachelagras på grund av en användarkonfiguration på kanten. | Ja | Ja | Inga |
+| EgressCacheOacheable | Utgående dataöverföring för tillgångar som förhindras från att cachelagras av tillgångens cachekontroll- och/eller utgångshuvuden. Anger att den inte ska cachelagras på en POP eller av HTTP-klienten. | Ja | Ja | Inga |
+| EgressCacheOthers | Utgående dataöverföringar för andra cachescenarier. | Inga | Ja | Inga |
 
-\* Utgående dataöverföring avser trafik som levereras från CDN POP-servrar till klienten.
+*Utgående dataöverföring avser trafik som levereras från CDN POP-servrar till klienten.
 
 
-### <a name="schema-of-the-core-analytics-logs"></a>Schemat för core analytics-loggar 
+### <a name="schema-of-the-core-analytics-logs"></a>Schema för kärnanalysloggarna 
 
-Alla loggar lagras i JSON-format och varje post innehåller strängfält enligt följande schema:
+Alla loggar lagras i JSON-format och varje post har strängfält enligt följande schema:
 
 ```json
     "records": [
@@ -403,9 +403,9 @@ Alla loggar lagras i JSON-format och varje post innehåller strängfält enligt 
 }
 ```
 
-Där *tid* representerar starttiden för timme gränsen som statistik rapporteras. När ett mått inte stöds av en CDN-leverantör i stället för ett double-värde eller integer-värde är det ett null-värde. Den här nullvärde anger om ett mått och skiljer sig från värdet 0. Det finns en uppsättning med de här måtten per domän konfigurerad på slutpunkten.
+Där *tiden* representerar starttiden för den timgräns för vilken statistiken rapporteras. När ett mått inte stöds av en CDN-provider, i stället för ett dubbel- eller heltalsvärde, finns det ett null-värde. Det här null-värdet anger frånvaron av ett mått och skiljer sig från värdet 0. Det finns en uppsättning av dessa mått per domän som konfigurerats på slutpunkten.
 
-Exempel-egenskaper:
+Exempelegenskaper:
 
 ```json
 {
@@ -443,10 +443,10 @@ Exempel-egenskaper:
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Grundläggande analys via Azure CDN kompletterande portalen](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
+* [Azure-diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Kärnanalys via Azure CDN-tilläggsportal](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 * [Azure Monitor-loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics)
+* [REST-API för Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Priser för Azure Security Center-nivåer
-description: Azure Security Center erbjuds på två nivåer – kostnads fri och standard. Den här sidan visar hur du uppgraderar från kostnads fritt till standard.
+title: Prissättning av Azure Security Center-nivåer
+description: Azure Security Center erbjuds i två nivåer - Gratis och Standard. Den här sidan visar hur du uppgraderar från gratis till standard.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,56 +14,56 @@ ms.workload: na
 ms.date: 12/13/2019
 ms.author: memildin
 ms.openlocfilehash: 60a88e667918533f2c507846fa75b0e036ba5262
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921291"
 ---
-# <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Uppgradera till standard nivån för förbättrad säkerhet
-Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger insyn och kontroll över hybrid moln arbets belastningar, aktiva försvar som minskar exponeringen för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt växande cyberhot-attacker.
+# <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Uppgradera till standardnivå för ökad säkerhet
+Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Det ger synlighet och kontroll över hybridmolnarbetsbelastningar, aktivt försvar som minskar din exponering för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt föränderliga cyberattacker.
 
 ## <a name="pricing-tiers"></a>Prisnivåer
 Security Center finns på två nivåer:
 
-- Den **kostnads fria** nivån är aktive rad på alla dina Azure-prenumerationer när du besöker Azure Security Center instrument panelen i Azure Portal för första gången, eller om den har Aktiver ATS via programmering via API. Den kostnads fria nivån tillhandahåller säkerhets principer, kontinuerlig säkerhets utvärdering och åtgärds bara säkerhets rekommendationer som hjälper dig att skydda dina Azure-resurser.
-- **Standard** nivån utökar funktionerna i den kostnads fria nivån till arbets belastningar som körs i privata och andra offentliga moln, vilket ger enhetlig säkerhets hantering och skydd mot hot i dina hybrid moln arbets belastningar. Standard nivån lägger också till hot skydds funktioner, som använder inbyggd beteende analys och maskin inlärning för att identifiera attacker och användning av noll dagar, åtkomst och program kontroller för att minska exponeringen för nätverks attacker och skadlig kod. Dessutom lägger standard nivån till sårbarhets genomsökning för dina virtuella datorer. Du kan prova standard nivån kostnads fritt. Security Center standard stöder Azure-resurser, inklusive virtuella datorer, skalnings uppsättningar för virtuella datorer, App Service, SQL-servrar och lagrings konton. Om du har Azure Security Center standard kan du välja att få slut på support baserat på resurs typ. 
+- Den **kostnadsfria** nivån är aktiverad på alla dina Azure-prenumerationer när du besöker Azure Security Center-instrumentpanelen i Azure-portalen för första gången, eller om den är aktiverad programmässigt via API. Den kostnadsfria nivån ger säkerhetsprincip, kontinuerlig säkerhetsbedömning och användbara säkerhetsrekommendationer som hjälper dig att skydda dina Azure-resurser.
+- **Standardnivån** utökar funktionerna på den kostnadsfria nivån till arbetsbelastningar som körs i privata och andra offentliga moln, vilket ger enhetlig säkerhetshantering och hotskydd över dina hybridmolnarbetsbelastningar. Standardnivån lägger också till hotskyddsfunktioner, som använder inbyggda beteendeanalyser och maskininlärning för att identifiera attacker och zero-day-kryphål, åtkomst- och programkontroller för att minska exponeringen för nätverksattacker och skadlig kod med mera. Dessutom lägger standardnivå till sårbarhetssökning för dina virtuella datorer. Du kan prova standardnivån gratis. Security Center-standarden stöder Azure-resurser, inklusive virtuella datorer, skalningsuppsättningar för virtuella datorer, App Service, SQL-servrar och lagringskonton. Om du har Standard för Azure Security Center kan du välja bort support baserat på resurstyp. 
 
-De flesta av de kostnads fria säkerhets utvärderingarna för virtuella datorer för virtuella datorer, liksom många av säkerhets aviseringar på standard nivå, kräver installation av MMA-funktionen (Microsoft Monitoring Agent). Du kan aktivera automatisk etablering på Security Center för att automatiskt distribuera agenten för dina virtuella Azure-datorer.
+De flesta av de kostnadsfria säkerhetsbedömningarna för virtuella datorer, liksom många av säkerhetsaviseringarna på standardnivå, kräver installation av MMA-funktionen (Microsoft Monitoring Agent). Du kan aktivera automatisk etablering på Security Center för att automatiskt distribuera agenten för dina virtuella Azure-datorer.
 
-## <a name="try-standard-tier-free-for-30-days"></a>Prova standard nivån kostnads fritt i 30 dagar
-Standard nivån är kostnads fri under de första 30 dagarna. Om du väljer att fortsätta använda tjänsten i slutet av 30 dagar börjar vi automatiskt att debitera för användning.
+## <a name="try-standard-tier-free-for-30-days"></a>Prova standardnivån gratis i 30 dagar
+Standardnivån är gratis under de första 30 dagarna. I slutet av 30 dagar, om du väljer att fortsätta använda tjänsten, kommer vi automatiskt att börja ta betalt för användning.
 
-Du kan uppgradera en hel Azure-prenumeration till standard nivån, som ärvs av alla resurser i prenumerationen.
+Du kan uppgradera en hel Azure-prenumeration till standardnivån, som ärvs av alla resurser i prenumerationen.
 
-Så här hämtar du standard nivån:
+Så här hämtar du standardnivån:
 
-1. Välj **pris & inställningar** på **Security Center** huvud menyn.
+1. Välj **Pris & inställningar** på huvudmenyn för **Säkerhetscenter.**
 2. Välj den prenumeration som du vill uppgradera till standard.
-3. Välj **Prisnivå**.
-4. Välj **standard** som ska uppgraderas.
-5. Klicka på **Save** (Spara).
+3. Välj **prisnivå**.
+4. Välj **Standard** att uppgradera.
+5. Klicka på **Spara**.
 
-[Priser för ![Security Center](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
+[![Prissättning av säkerhetscenter](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> Om du vill aktivera alla Security Center funktioner måste du använda standard pris nivån för prenumerationen som innehåller de aktuella virtuella datorerna. Om du konfigurerar priser för en arbets yta aktive ras inte just-in-Time VM-åtkomst, anpassningsbara program kontroller och nätverks identifieringar för Azure-resurser.
+> Om du vill aktivera alla Security Center-funktioner måste du använda standardprisnivån på prenumerationen som innehåller tillämpliga virtuella datorer. Konfigurera priser för en arbetsyta gör det inte möjligt för enkel åtkomst till virtuella datorer, anpassningsbara programkontroller och nätverksidentifieringar för Azure-resurser.
 >
 
 ## <a name="why-upgrade-to-standard"></a>Varför uppgradera till standard?
-Security Center erbjuder förbättrat skydd mot säkerhet och hot för dina hybrid moln arbets belastningar, inklusive:
+Security Center erbjuder förbättrat säkerhets- och hotskydd för dina hybridmolnarbetsbelastningar, inklusive:
 
-- **Hybrid säkerhet** – få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbets belastningar. Tillämpa säkerhets principer och utvärdera kontinuerligt säkerheten för dina hybrid moln arbets belastningar för att säkerställa efterlevnaden av säkerhets standarder. Samla in, Sök och analysera säkerhets data från flera källor, inklusive brand väggar och andra partner lösningar.
-- **Säkerhets aviseringar** – Använd avancerad analys och Microsoft Intelligent Security Graph för att få en gräns för de växande cyberhot-angrepp. Använd inbyggd beteende analys och maskin inlärning för att identifiera attacker och den långsiktiga ingreppen. Övervaka nätverk, datorer och moln tjänster för inkommande attacker och aktiviteter efter intrång. Effektivisera undersökningen med interaktiva verktyg och sammanhangsbaserad Hot information.
-- **Sårbarhets sökning för virtuella datorer** – du kan enkelt distribuera en skanner till alla virtuella datorer som tillhandahåller branschens mest avancerade lösning för sårbarhets hantering. Visa, Undersök och åtgärda resultaten direkt i Security Center. 
-- **Åtkomst-och program kontroller** – blockera skadlig kod och andra oönskade program genom att använda Machine Learning-vit listning rekommendationer som är anpassade till dina specifika arbets belastningar. Minska nätverks attack ytan med just-in-Time-kontrollerad åtkomst till hanterings portar på virtuella Azure-datorer. Detta minskar drastiskt exponeringen för brute force och andra nätverks attacker.
-- **Behållar säkerhetsfunktioner** – dra nytta av sårbarhets hantering och skydd mot Real tids skydd i dina behållares miljöer. När du aktiverar resursen behållar register kan det ta upp till 12hrs tills alla funktioner har Aktiver ATS.
+- **Hybridsäkerhet** – Få en enhetlig säkerhetsvy över alla dina lokala och molnarbetsbelastningar. Tillämpa säkerhetsprinciper och utvärdera kontinuerligt säkerheten för dina hybridmolnarbetsbelastningar för att säkerställa efterlevnad av säkerhetsstandarder. Samla in, söka efter och analysera säkerhetsdata från flera källor, inklusive brandväggar och andra partnerlösningar.
+- **Säkerhetsvarningar** – Använd avancerad analys och Microsoft Intelligent Security Graph för att få ett försprång jämfört med nya cyberattacker. Utnyttja inbyggda beteendeanalyser och maskininlärning för att identifiera attacker och zero-day-kryphål. Övervaka nätverk, datorer och molntjänster för inkommande attacker och aktivitet efter överträdelsen. Effektivisera undersökningen med interaktiva verktyg och kontextuell hotinformation.
+- **Sårbarhetsskanning för virtuella datorer** – Distribuera enkelt en skanner till alla dina virtuella datorer som tillhandahåller branschens mest avancerade lösning för sårbarhetshantering. Visa, undersöka och åtgärda resultaten direkt i Security Center. 
+- **Åtkomst- och programkontroller** – Blockera skadlig kod och andra oönskade program genom att tillämpa maskininlärningsdrivna vitlistningsrekommendationer som är anpassade till dina specifika arbetsbelastningar. Minska nätverksattackytan med just-in-time, kontrollerad åtkomst till hanteringsportar på virtuella Azure-datorer. Detta minskar drastiskt exponeringen för brute force och andra nätverksattacker.
+- **Säkerhetsfunktioner för behållare** – Dra nytta av sårbarhetshantering och hotskydd i realtid i dina containermiljöer. När du aktiverar behållarregisterresursen kan det ta upp till 12 timmar tills alla funktioner är aktiverade.
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln introducerades priser för Security Center. Om du vill veta mer om standard nivån för förbättrad säkerhet och Avancerat skydd, se:
+I den här artikeln introducerades du till prissättning för Security Center. Mer information om standardnivåns förbättrade säkerhet och avancerade hotskydd finns i:
 
 - [Skydd mot hot i Azure Security Center](threat-protection.md)
-- [Just-in-Time VM Access Control](security-center-just-in-time.md)
-- [Översikt över container säkerhet](container-security.md)
-- [Pris information i valfri valuta och enligt din region](https://azure.microsoft.com/pricing/details/security-center/)
+- [Åtkomstkontroll för just-in-time-vm](security-center-just-in-time.md)
+- [Översikt över containersäkerhet](container-security.md)
+- [Prisuppgifter i din valuta val, och enligt din region](https://azure.microsoft.com/pricing/details/security-center/)

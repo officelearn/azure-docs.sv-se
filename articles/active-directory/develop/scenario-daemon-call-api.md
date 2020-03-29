@@ -1,6 +1,6 @@
 ---
-title: Anropa ett webb-API från en daemon-app – Microsoft Identity Platform | Azure
-description: 'Lär dig hur du skapar en daemon-app som anropar webb-API: er'
+title: Anropa ett webb-API från en demonapp - Microsoft identity platform | Azure
+description: 'Lär dig hur du skapar en daemon app som anropar webb-API: er'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,25 +16,25 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 338b638d6b33bcbbb5cf377643a96c71b0d314bd
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76775201"
 ---
-# <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Daemon-app som anropar webb-API: er – anropa ett webb-API från appen
+# <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Daemon app som anropar webb-API : er - anropa ett webb-API från appen
 
-.NET daemon-appar kan anropa ett webb-API. .NET daemon-appar kan också anropa flera förauktoriserade webb-API: er.
+.NET daemon apps kan anropa ett webb-API. .NET daemon apps kan också anropa flera förgodkända webb-API: er.
 
-## <a name="calling-a-web-api-from-a-daemon-application"></a>Anropa ett webb-API från ett daemon-program
+## <a name="calling-a-web-api-from-a-daemon-application"></a>Anropa ett webb-API från ett daemonprogram
 
 Så här använder du token för att anropa ett API:
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 endpoint = "url to the API"
@@ -44,7 +44,7 @@ http_headers = {'Authorization': 'Bearer ' + result['access_token'],
 data = requests.get(endpoint, headers=http_headers, stream=False).json()
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```Java
 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -65,25 +65,25 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ---
 
-## <a name="calling-several-apis"></a>Anropa flera API: er
+## <a name="calling-several-apis"></a>Anropa flera API:er
 
-Webb-API: er som du anropar måste vara för hands godkända för daemon-appar. Det finns inget stegvist godkännande med daemon-appar. (Det finns inga användar åtgärder.) Klient organisationens administratör måste ge sitt medgivande i förväg för programmet och alla API-behörigheter. Om du vill anropa flera API: er måste du hämta en token för varje resurs, varje tid som anropar `AcquireTokenForClient`. MSAL kommer att använda Application token-cache för att undvika onödiga tjänst anrop.
+För daemon-appar måste de webb-API:er som du anropar godkännas i förväg. Det finns inget inkrementellt samtycke med daemon-appar. (Det finns ingen användarinteraktion.) Klientadministratören måste ge medgivande i förväg för programmet och alla API-behörigheter. Om du vill anropa flera API:er måste du skaffa en `AcquireTokenForClient`token för varje resurs, varje gång du ringer . MSAL använder programtokens cacheminnet för att undvika onödiga serviceanrop.
 
 ## <a name="next-steps"></a>Nästa steg
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [Daemon-app – flytta till produktion](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
+> [Daemon app - flytta till produktion](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=dotnet)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
-
-> [!div class="nextstepaction"]
-> [Daemon-app – flytta till produktion](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
-
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Daemon-app – flytta till produktion](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
+> [Daemon app - flytta till produktion](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=python)
+
+# <a name="java"></a>[Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Daemon app - flytta till produktion](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-production?tabs=java)
 
 ---

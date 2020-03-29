@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386195"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Skapa och distribuera en Node.js-app till en Azure-molntjänst
@@ -35,7 +35,7 @@ Programmet är ett enkelt ”hello world”-program:
 > [!NOTE]
 > I den här kursen används Azure PowerShell, vilket kräver Windows.
 
-* Installera och konfigurera [Azure PowerShell].
+* Installera och konfigurera [Azure Powershell].
 * Ladda ned och installera [Azure SDK för .NET 2.7]. Välj följande vid installationen:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
@@ -82,7 +82,7 @@ Den här koden är i stort sett densamma som i exemplet ”Hello World” på we
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
 
 > [!NOTE]
-> För den här kursen behöver du ett Azure-konto. Du kan [aktivera dina MSDN-prenumerationsfördelar](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+> Du behöver ett Azure-konto för att genomföra kursen. Du kan [aktivera dina MSDN-prenumerationsfördelar](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller [registrera dig för ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Hämta Azure-publiceringsinställningarna
 Om du vill distribuera programmet till Azure måste du först hämta publiceringsinställningarna för din Azure-prenumeration.
@@ -161,7 +161,7 @@ Mer information finns i [Node.js Developer Center].
 
 [Jämförelse mellan Azure Websites, Cloud Services och Virtual Machines]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [använda en förenklad webbapp]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Azure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK för .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Anslut PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/

@@ -1,5 +1,5 @@
 ---
-title: Fsv2-serien – Azure Virtual Machines
+title: Fsv2-serien – virtuella Azure-datorer
 description: Specifikationer för virtuella datorer i Fsv2-serien.
 services: virtual-machines
 author: brbell
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: f28c6b61aee3c8cbc078db1c2cfb48ed1fba4554
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164856"
 ---
 # <a name="fsv2-series"></a>Fsv2-serien
 
-Fsv2-serien baseras på Intel® Xeon® Platinum 8168-processorn. Den har en hållbar alla kärnor för Turbo Turbo klock hastighet på 3,4 GHz och en maximal Turbo frekvens på 3,7 GHz. Intel® AVX-512-instruktioner är nya på Intel Scalable processors. Dessa instruktioner ger till gång till en dubbel prestanda ökning till vektor bearbetning av arbets belastningar i både enkla och dubbla precisions åtgärder. Med andra ord är de verkligen snabba för alla beräknings arbets belastningar.
+Fsv2-serien är baserad på Intel® Xeon® Platinum 8168-processorn. Den har en ihållande all core Turbo klockfrekvens på 3,4 GHz och en maximal single-core turbo frekvens på 3,7 GHz. Intel® AVX-512-instruktioner är nya på Intel Scalable-processorer. Dessa instruktioner ger upp till en 2X prestandaökning till arbetsbelastningar för vektorbearbetning på flyttalsoperationer med både enkel och dubbel precision. Med andra ord, de är riktigt snabba för alla beräkningsarbetsbelastning.
 
-Virtuella datorer i Fsv2-serien Intel® Hyper-Threading-teknik.
+Virtuella datorer i Fsv2-serien har Intel® Teknik för flertrådsteknik.
 
-ACU: 195-210
+ACU: 195 - 210
 
-Premium Storage: stöds
+Premium-lagring: Stöds
 
-Premium Storage caching: stöds
+Cachelagring av premiumlagring: Stöds
 
-Direktmigrering: stöds
+Live Migration: Stöds
 
-Minnes bebetjänings uppdateringar: stöds
+Minneskonering av uppdateringar: Stöds
 
-| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | vCPU:s | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temp-lagringsdataflöde: IOPS/MBps (cachestorlek i GiB) | Max oankopplat diskdataflöde: IOPS/MBps | Max nätverkskort/förväntad nätverksbandbredd (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_F2s_v2  | 2  | 4   | 16  | 4  | 4000/31 (32)       | 3200/47    | 2/875   |
 | Standard_F4s_v2  | 4  | 8   | 32  | 8  | 8000/63 (64)       | 6400/95    | 2/1750  |
@@ -41,19 +41,19 @@ Minnes bebetjänings uppdateringar: stöds
 | Standard_F64s_v2 | 64 | 128 | 512 | 32 | 128000/1024 (1024) | 80000/1100 | 8/28000 |
 | Standard_F72s_v2<sup>1, 2</sup> | 72 | 144 | 576 | 32 | 144000/1152 (1520) | 80000/1100 | 8/30000 |
 
-<sup>1</sup> användningen av mer än 64 vCPU kräver ett av dessa gäst operativ system som stöds:
+<sup>1</sup> Användningen av mer än 64 vCPU kräver ett av dessa gästoperativsystem som stöds:
 
 - Windows Server 2016 eller senare
-- Ubuntu 16,04 LTS eller senare med Azures justerade kernel (4,15 kernel eller senare)
+- Ubuntu 16.04 LTS eller senare, med Azure-trimmad kärna (4.15-kernel eller senare)
 - SLES 12 SP2 eller senare
-- RHEL eller CentOS version 6,7 till 6,10, med Microsoft-medföljande LIS-paket 4.3.1 (eller senare) installerat
-- RHEL eller CentOS version 7,3, med Microsoft-tillhandahållen LIS-paket 4.2.1 (eller senare) installerat
-- RHEL eller CentOS version 7,6 eller senare
+- RHEL- eller CentOS version 6.7 till 6.10, med LIS-paket 4.3.1 (eller senare) installerat
+- RHEL- eller CentOS version 7.3, med LIS-paket 4.2.1 (eller senare) installerat
+- RHEL eller CentOS version 7.6 eller senare
 - Oracle Linux med UEK4 eller senare
-- Debian 9 med backports-kärnan, Debian 10 eller senare
-- Core-attribut med en 4,14-kernel eller senare
+- Debian 9 med backportskärnan, Debian 10 eller senare
+- CoreOS med en 4.14-kärna eller senare
 
-<sup>2</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
+<sup>2</sup> Instansen är isolerad till maskinvara som är avsedd för en enskild kund.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -68,4 +68,4 @@ Minnes bebetjänings uppdateringar: stöds
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.

@@ -1,6 +1,6 @@
 ---
-title: Skydd mot hot för Azure Key Vault
-description: I den här artikeln förklaras hur du konfigurerar Avancerat skydd för Azure Key Vault i Azure Security Center
+title: Hotskydd för Azure Key Vault
+description: I den här artikeln beskrivs hur du konfigurerar avancerat hotskydd för Azure Key Vault i Azure Security Center
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,42 +9,42 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914814"
 ---
-# <a name="threat-protection-for-azure-key-vault-preview"></a>Skydd mot Azure Key Vault (för hands version)
+# <a name="threat-protection-for-azure-key-vault-preview"></a>Hotskydd för Azure Key Vault (förhandsversion)
 
-Avancerat skydd för Azure Key Vault ger ytterligare ett lager med säkerhets information. Det här verktyget identifierar potentiellt skadliga försök att komma åt eller utnyttja Key Vault-konton. Med det inbyggda avancerade skydds skyddet i Azure Security Center kan du åtgärda hot utan att vara säkerhets expert, och utan att lära dig fler säkerhets övervaknings system.
+Avancerat hotskydd för Azure Key Vault ger ytterligare ett lager av säkerhetsinformation. Det här verktyget identifierar potentiellt skadliga försök att komma åt eller utnyttja Key Vault-konton. Med hjälp av det inbyggda avancerade hotskyddet i Azure Security Center kan du hantera hot utan att vara säkerhetsexpert och utan att lära dig ytterligare säkerhetsövervakningssystem.
 
-När Security Center identifierar avvikande aktivitet visas aviseringar. Den skickar också prenumerations administratören med information om den misstänkta aktiviteten och rekommendationerna för att undersöka och åtgärda de identifierade hoten.
+När Security Center upptäcker avvikande aktivitet visas aviseringar. Det skickar också e-post till prenumerationsadministratören med information om den misstänkta aktiviteten och rekommendationer för hur du undersöker och åtgärdar de identifierade hoten.
 
 ## <a name="configuring-threat-protection-from-security-center"></a>Konfigurera skydd mot hot från Security Center
 
-Som standard är Avancerat skydd aktiverat för alla dina Key Vault-konton när du prenumererar på Security Center standard pris nivån. Mer information finns i [prissättning](security-center-pricing.md).
+Som standard är avancerat hotskydd aktiverat för alla Key Vault-konton när du prenumererar på Security Centers standardprisnivå. Mer information finns i [Prissättning](security-center-pricing.md).
 
-Så här aktiverar eller inaktiverar du skyddet för en speciell prenumeration:
+Så här aktiverar eller inaktiverar du skyddet för en viss prenumeration:
 
-1. I det vänstra fönstret i Security Center väljer du **pris & inställningar**.
+1. Välj **Priser & inställningar**i den vänstra rutan i Security Center .
 
-1. Välj prenumerationen med de lagrings konton som du vill aktivera eller inaktivera hot skydd för.
+1. Välj den prenumeration med de lagringskonton som du vill aktivera eller inaktivera skydd mot hot.
 
-1. Välj **Prisnivå**.
+1. Välj **prisnivå**.
 
-1. Från gruppen **Välj pris nivå efter resurs typ** letar du upp raden med **nyckel valv** och väljer **aktive** rad eller **inaktive**rad.
+1. Leta reda på raden **Nyckelvalv** på gruppen **Välj prisnivå efter resurstyp** och välj **Aktiverad** eller **Inaktiverad**.
 
-    [![aktivera eller inaktivera Avancerat skydd för Key Vault i Azure Security Center](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png)](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png#lightbox)
+    [![Aktivera eller inaktivera avancerat hotskydd för Key Vault i Azure Security Center](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png)](media/advanced-threat-protection-key-vault/atp-for-akv-enable-atp-for-akv.png#lightbox)
 
 1. Välj **Spara**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du aktiverar och inaktiverar Avancerat skydd mot Azure Key Vault. 
+I den här artikeln har du lärt dig hur du aktiverar och inaktiverar avancerat hotskydd för Azure Key Vault. 
 
-Information om relaterade material finns i följande artiklar:
+För relaterat material, se följande artiklar:
 
-- [Skydd mot hot i Azure Security Center](threat-protection.md)– i den här artikeln beskrivs säkerhets aviserings källorna i Azure Security Center.
-- [Key Vault säkerhets aviseringar](alerts-reference.md#alerts-azurekv)– avsnittet Key Vault i referens tabellen för alla Azure Security Center aviseringar
+- [Hotskydd i Azure Security Center](threat-protection.md)– I den här artikeln beskrivs källorna till säkerhetsaviseringar i Azure Security Center.
+- [Säkerhetsaviseringar för Key Vault](alerts-reference.md#alerts-azurekv)– avsnittet Nyckelvalv i referenstabellen för alla Azure Security Center-aviseringar

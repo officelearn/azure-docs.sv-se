@@ -1,5 +1,5 @@
 ---
-title: HBv2-serien – Azure Virtual Machines
+title: HBv2-serien – virtuella Azure-datorer
 description: Specifikationer för virtuella datorer i HBv2-serien.
 services: virtual-machines
 author: vermagit
@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: amverma
 ms.openlocfilehash: eea649610ca53ccbb98b5ca361555280dcd3dafe
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164805"
 ---
 # <a name="hbv2-series"></a>HBv2-serien
 
-Virtuella datorer i HBv2-serien är optimerade för program som drivs av minnes bandbredd, till exempel flytande dynamik, analys av ändliga element och behållar simulering. HBv2 VM Feature 120 AMD EPYC 7742 processor kärnor, 4 GB RAM per CPU-kärna och ingen samtidig multitrådning. Varje HBv2 VM ger upp till 340 GB/s minnes bandbredd och upp till 4 teraFLOPS FP64-beräkning.
+HBv2-serien virtuella datorer är optimerade för program som drivs av minnesbandbredd, såsom vätskedynamik, finit elementanalys och reservoarsimulering. HBv2 virtuella datorer har 120 AMD EPYC 7742 processorkärnor, 4 GB RAM per CPU-kärna och ingen samtidig flertrådsteknik. Varje virtuell HBv2-dator ger upp till 340 GB/sek minnesbandbredd och upp till 4 teraFLOPS för FP64-beräkning.
 
-Premium Storage: stöds
+Premium-lagring: Stöds
 
-Direktmigrering: stöds inte
+Live Migration: Stöds inte
 
-Minnes bebetjänings uppdateringar: stöds inte
+Minneskonering av uppdateringar: Stöds inte
 
-| Storlek | Virtuell processor | Processor | Minne (GB) | Minnes bandbredd GB/s | Bas processor frekvens (GHz) | Frekvens för alla kärnor (GHz, högsta) | Frekvens för enkla kärnor (GHz, hög) | RDMA-prestanda (GB/s) | MPI-stöd | Temp-lagring (GB) | Maximalt antal datadiskar | Högsta Ethernet-nätverkskort |
+| Storlek | Virtuell processor | Processor | Minne (GB) | Minnesbandbredd GB/s | Bas-CPU-frekvens (GHz) | All-cores frekvens (GHz, topp) | Enkärnfrekvens (GHz, topp) | RDMA-prestanda (Gb/s) | MPI-stöd | Temp-lagring (GB) | Maximalt antal datadiskar | Max Ethernet-nätverkskort |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB120rs_v2 | 120 | AMD EPYC-7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | Alla | 480 + 960 | 8 | 1 |
+| Standard_HB120rs_v2 | 120 | AMD EPYC 7V12 | 480 | 350 | 2.45 | 3.1 | 3.3 | 200 | Alla | 480 + 960 | 8 | 1 |
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
@@ -42,4 +42,4 @@ Minnes bebetjänings uppdateringar: stöds inte
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.

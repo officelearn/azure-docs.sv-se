@@ -1,6 +1,6 @@
 ---
 title: Mata in data från Kafka i Azure Data Explorer
-description: I den här artikeln får lära du att mata in (load) data i Azure Data Explorer från Kafka.
+description: I den här artikeln får du lära dig hur du intänder (läser in) data i Azure Data Explorer från Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,25 +8,25 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66497271"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Mata in data från Kafka i Azure Data Explorer
  
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Kafka. Kafka är en distribuerad strömningsplattform som gör det möjligt att skapa realtidsbaserade datapipelines som på ett tillförlitligt sätt flyttar data mellan system och program.
  
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
  
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar. 
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar. 
  
-* [Ett testkluster och databasen](create-cluster-database-portal.md).
+* [Ett testkluster och en databas](create-cluster-database-portal.md).
  
-* [En exempelapp](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) som genererar data och skickar det till Kafka.
+* [En exempelapp](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) som genererar data och skickar den till Kafka.
 
-* [Visual Studio-2019](https://visualstudio.microsoft.com/vs/) att köra exempelappen.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) för att köra exempelappen.
  
 ## <a name="kafka-connector-setup"></a>Konfiguration av Kafka-anslutningsappen
 
@@ -162,4 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Nästa steg
  
-* [Fråga efter data i Datautforskaren i Azure](web-query-data.md)
+* [Fråga efter data i Azure Data Explorer](web-query-data.md)

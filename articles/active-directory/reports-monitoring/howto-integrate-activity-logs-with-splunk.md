@@ -1,6 +1,6 @@
 ---
-title: Integrera Splunk med Azure Monitor | Microsoft Docs
-description: Lär dig hur du integrerar Azure Active Directory loggar med SumoLogic med Azure Monitor
+title: Integrera Splunk med Azure Monitor | Microsoft-dokument
+description: Lär dig hur du integrerar Azure Active Directory-loggar med SumoLogic med Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,44 +18,44 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2eda3643a7b1a341c7ed664dbfea933145f1f927
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78968711"
 ---
-# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Gör så här: integrera Azure Active Directorys loggar med Splunk med Azure Monitor
+# <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Så här integrerar du Azure Active Directory-loggar med Splunk med Azure Monitor
 
-I den här artikeln får du lära dig hur du integrerar Azure Active Directory (Azure AD)-loggar med Splunk med hjälp av Azure Monitor. Först dirigerar du loggarna till en Azure Event Hub och integrerar sedan Event Hub med Splunk.
+I den här artikeln får du lära dig hur du integrerar Azure Active Directory (Azure AD) loggar med Splunk med hjälp av Azure Monitor. Du dirigerar först loggarna till en Azure-händelsehubb och sedan integrerar du händelsehubben med Splunk.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här funktionen behöver du:
 
-- En Azure Event Hub som innehåller Azure AD-aktivitets loggar. Lär dig hur du [strömmar dina aktivitets loggar till en Event Hub](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+- En Azure-händelsenav som innehåller Azure AD-aktivitetsloggar. Läs om hur du [streamar dina aktivitetsloggar till en händelsehubb](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 
--  [Microsoft Azure lägga till på för Splunk](https://splunkbase.splunk.com/app/3757/). 
+-  [Microsoft Azure-tillägget för Splunk](https://splunkbase.splunk.com/app/3757/). 
 
-## <a name="integrate-azure-active-directory-logs"></a>Integrera Azure Active Directory loggar 
+## <a name="integrate-azure-active-directory-logs"></a>Integrera Azure Active Directory-loggar 
 
-1. Öppna din Splunk-instans och välj **data Sammanfattning**.
+1. Öppna splunk-förekomsten och välj **Datasammanfattning**.
 
-    ![Knappen data Sammanfattning](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
+    ![Knappen "Datasammanfattning"](./media/howto-integrate-activity-logs-with-splunk/DataSummary.png)
 
-2. Välj fliken **Sourcetypes** och välj sedan **Amal: Aadal: Audit**
+2. Välj fliken **Sourcetypes** och välj sedan **amal: aadal:audit**
 
-    ![Fliken Data Sammanfattning Sourcetypes](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
+    ![Fliken Datasammanfattningskällatyper](./media/howto-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
 
-    Aktivitets loggarna för Azure AD visas i följande figur:
+    Azure AD-aktivitetsloggarna visas i följande bild:
 
     ![Aktivitetsloggar](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
 
 > [!NOTE]
-> Om du inte kan installera ett tillägg i din Splunk-instans (om du t. ex. använder en proxy eller som körs på Splunk-molnet) kan du vidarebefordra händelserna till händelse insamlaren för HTTP-Splunk. Det gör du genom att använda den här [Azure-funktionen](https://github.com/Microsoft/AzureFunctionforSplunkVS)som utlöses av nya meddelanden i händelsehubben. 
+> Om du inte kan installera ett tillägg i din Splunk-förekomst (till exempel om du använder en proxy eller körs på Splunk Cloud) kan du vidarebefordra dessa händelser till Splunk HTTP Event Collector. Det gör du genom att använda den här [Azure-funktionen](https://github.com/Microsoft/AzureFunctionforSplunkVS), som utlöses av nya meddelanden i händelsehubben. 
 >
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tolka schema för spårningsloggar i Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Tolka granskningsloggschema i Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Tolka schema för inloggningsloggar i Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Vanliga frågor och kända problem](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

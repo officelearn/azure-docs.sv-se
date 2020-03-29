@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918945"
 ---
-# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: vanliga frågor och svar
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Vanliga frågor och svar
 
 Med Microsoft Azure Data Box Disk-lösningen kan du skicka terabyte med lokala data till Azure på ett snabbt, kostnadseffektivt och tillförlitligt sätt. Här hittar du vanliga frågor och svar om att använda Data Box-diskar i Azure-portalen. 
 
@@ -51,13 +51,13 @@ A.  Du skaffar Azure Data Box-diskar genom att logga in på Azure-portalen och s
 A. Om du får fem diskar om vardera 8 TB (7 TB användbar kapacitet) är den maximala användbara kapaciteten 35 TB. Du kan då överföra 35 TB data. Om du vill överföra en större datamängd måste du beställa fler diskar.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>F. Hur ser jag om Data Box-diskar finns tillgängliga i min region? 
-A.  Om du vill se var Data Box-enhet diskarna är tillgängliga går du till [regionens tillgänglighet](data-box-disk-overview.md#region-availability).  
+A.  Om du vill se var datarutediskarna är tillgängliga går du till [regionens tillgänglighet](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F. I vilka regioner kan jag lagra data med Data Box-diskar?
-A. Data Box Disk stöds för alla regioner i USA, Kanada, Australien, Västeuropa och Nord Europa, Korea och Japan. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
+A. Data Box Disk stöds för alla regioner inom USA, Kanada, Australien, Västeuropa och Nordeuropa, Korea och Japan. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
 
-### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>F. Kommer mitt Data Box Disk mellan landets gränser under leveransen?
-A. Data Box Disk levereras från samma land som destinationen och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU) där diskar kan levereras till och från valfritt EU-land.
+### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>F. Kommer min Data Box Disk cross country gränser under leverans?
+A. Data Box Disk levereras inifrån samma land som destinationen och kommer inte att passera några internationella gränser. Det enda undantaget är beställningar i Europeiska unionen (EU), där diskar kan skickas till och från vilket EU-land som helst.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>F. Vem kontaktar jag om jag får problem med Data Box-diskarna?
 A. Om du får problem med Data Box Disk-enheter [kontaktar du Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -89,22 +89,22 @@ A.  Du kan spåra statusen för Data Box Disk-beställningen i Azure-portalen. N
 ### <a name="q-how-do-i-return-the-disks"></a>F. Hur gör jag för att skicka tillbaka diskarna? 
 A.  Microsoft skickar med en adressetikett i paketet med Data Box-diskarna. Fäst etiketten på leveranskartongen och lämna in det förseglade paketet hos transportföretaget. Om etiketten är skadad eller har försvunnit kan du hämta en ny via **Översikt > Ladda ned adressetikett**.
 
-### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>Kan jag hämta min Data Box Disk beställningen själv? Kan jag returnera diskarna via en operatör som jag väljer?
-A. Ja. Microsoft erbjuder även självhanterad leverans i US Gov region. När du placerar Data Box Disks ordningen kan du välja alternativ för själv hantering av leverans. Gör så här för att hämta din Data Box Disks ordning:
+### <a name="can-i-pick-up-my-data-box-disk-order-myself-can-i-return-the-disks-via-a-carrier-that-i-choose"></a>Kan jag hämta min databoxdiskbeställning själv? Kan jag returnera diskarna via en operatör som jag väljer?
+A. Ja. Microsoft erbjuder också självhanterad frakt endast i USA Gov-regionen. När du gör beställningen för datarederidisk kan du välja självhanterad leveransalternativ. Så här hämtar du din diskorder för databox:
     
-1. När du har placerat ordern bearbetas ordern och diskarna förbereds. Du kommer att meddelas via ett e-postmeddelande om att din beställning är klar för hämtning. 
-2. När ordern är klar för hämtning går du till din beställning i Azure Portal och navigerar till **översikts** bladet. 
-3. Ett meddelande visas med en kod i Azure Portal. E-posta [Azure Data boxs drifts teamet](mailto:adbops@microsoft.com) och ange koden. Teamet tillhandahåller platsen och schemalägger hämtnings datum och-tid. Du måste ringa teamet inom fem arbets dagar efter att du fått e-postaviseringen.
+1. När du har gjort beställningen bearbetas ordern och diskarna förbereds. Du kommer att meddelas via ett e-postmeddelande att din beställning är klar för upphämtning. 
+2. När beställningen är klar för upphämtning går du till din beställning i Azure-portalen och navigerar till **bladet Översikt.** 
+3. Du kommer att se ett meddelande med en kod i Azure-portalen. Skicka [azure data box operations-teamet](mailto:adbops@microsoft.com) via e-post och ge dem koden. Teamet kommer att tillhandahålla platsen och schemalägga ett upphämtningsdatum och en upphämtningstid. Du måste ringa teamet inom 5 arbetsdagar efter att du fått e-postmeddelandet.
 
-När data kopieringen och verifieringen har slutförts utför du följande steg för att returnera disken:
+När datakopiering och validering är klar gör du följande för att returnera disken:
 
 1. När dataverifieringen har genomförts kan du koppla från diskarna. Ta bort anslutningskablarna.
 2. Slå in alla diskar och anslutningskablarna i bubbelplast och lägg dem i fraktlådan. Avgifter kan tillkomma om tillbehören saknas.
 
     - Återanvänd förpackningen från den första leveransen. Vi rekommenderar att du förpackar diskarna i ordentligt fäst cellplast.
     - Packa tätt så att den förpackade enheten inte rör sig i kartongen.
-3. Gå till **bladet översikt** för din beställning i Azure Portal. Du bör se ett meddelande med en kod.
-4. Använd koden och skicka e-postmeddelandet till den [Azure Data Box drifts gruppen](mailto:adbops@microsoft.com) och ange koden. De ger dig information om var och när du ska ta bort diskarna.
+3. Gå till **bladet Översikt** för din beställning i Azure-portalen. Du bör se en avisering med en kod.
+4. Använd den koden och skicka e-post till [Azure Data Box Operations-teamet](mailto:adbops@microsoft.com) och ge dem koden. De skulle ge dig information om var och när du ska släppa av diskarna.
 
 
 ## <a name="migrate-data"></a>Migrera data
@@ -113,7 +113,7 @@ När data kopieringen och verifieringen har slutförts utför du följande steg 
 A.  Du kan få upp till 5 diskar med en användningsbar kapacitet på totalt 35 TB. Diskarna är 8 TB (användbart utrymme 7 TB).
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box-disks"></a>F. Vilken är den största blockblob- och sidblobstorleken som stöds av Data Box Disks? 
-A.  De maximala storlekarna regleras av begränsningarna för Azure Storage. Den maximala blockbloben är ungefär 4,768 TiB och den maximala sidblobstorleken är 8 TiB. Mer information finns i [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md).
+A.  De maximala storlekarna regleras av begränsningarna för Azure Storage. Den maximala blockbloben är ungefär 4,768 TiB och den maximala sidblobstorleken är 8 TiB. Mer information finns i [Skalbarhets- och prestandamål för Blob-lagring](../storage/blobs/scalability-targets.md).
 
 ### <a name="q-what-is-the-data-transfer-speed-for-data-box-disks"></a>F. Vilken är dataöverföringshastigheten för Data Box-diskar?
 A. Vid tester med diskar ansluta via USB 3.0 var diskprestandan upp till 430 MB/s. De faktiska hastigheterna varierar beroende på filstorleken. För mindre filer kan du se lägre prestanda.
@@ -131,7 +131,7 @@ A.  Påskynda kopieringsprocessen:
 - Använda flera sessioner.
 - Kontrollera att dina data finns lokalt på datorn som diskarna är ansluta till, i stället för att kopiera via nätverk (där du kan begränsas av nätverkshastigheterna).
 - Se till att du använder USB 3.0 eller senare under kopieringen. Ladda ned och använda [USBView-verktyget](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) för att identifiera USB-kontrollanterna och USB-enheterna som är anslutna till datorn.
-- Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://ci.appveyor.com/project/axboe/fio) för att analysera servermaskinvarans prestanda. Välj den senaste x86-eller x64-versionen, Välj fliken **artefakter** och ladda ned MSI.
+- Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://ci.appveyor.com/project/axboe/fio) för att analysera servermaskinvarans prestanda. Välj den senaste x86- eller x64-versionen, välj fliken **Artefakter** och hämta MSI.
 
 ### <a name="q-how-to-speed-up-the-data-if-the-source-data-has-small-files-kbs-or-few-mbs"></a>F. Hur skyndar jag på dataöverföringen om källdata består av små filer (KB eller få MB)?
 A.  Påskynda kopieringsprocessen:
@@ -145,16 +145,16 @@ A.  Nej. För närvarande går det endast att använda ett lagringskonto, allmä
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>F. Vilken uppsättning verktyg är tillgängliga för mina data med Data Box-diskar?
 A. Verktygsuppsättningen som är tillgänglig med Data Box-diskar består av tre verktyg:
- - **Data Box disk Lås upp verktyg**: Använd det här verktyget för att låsa upp krypterade diskar som levereras från Microsoft. När du låser upp diskarna med verktyget måste du ange en nyckel som du hittar i Data Box Disk-beställningen på Azure-portalen. 
- - **Data Box disk validerings verktyg**: Använd det här verktyget för att verifiera storlek, format och blob-namn enligt namngivnings konventionerna i Azure. Verktyget genererar även kontrollsummor för kopierade data som sedan används för att verifiera de data som överförs till Azure.
- - **Data Box disk verktyget för delad kopiering**: Använd det här verktyget när du använder flera diskar och har en stor data uppsättning som måste delas upp och kopieras på alla diskar. Det här verktyget är för närvarande tillgängligt för Windows. Det här verktyget stöds inte med hanterade diskar. Det här verktyget verifieras också när data kopieras, och därför kan du hoppa över validerings steget när du använder det här verktyget.
+ - **Data Box Disk Unlock verktyg:** Använd det här verktyget för att låsa upp krypterade diskar som levereras från Microsoft. När du låser upp diskarna med verktyget måste du ange en nyckel som du hittar i Data Box Disk-beställningen på Azure-portalen. 
+ - **Data Box Disk Valideringsverktyg:** Använd det här verktyget för att validera storlek, format och blob namn enligt Azure namngivning konventioner. Verktyget genererar även kontrollsummor för kopierade data som sedan används för att verifiera de data som överförs till Azure.
+ - **Data Box Disk Split Copy tool**: Använd det här verktyget när du använder flera diskar och har en stor datauppsättning som måste delas och kopieras över alla diskar. Det här verktyget är för närvarande tillgängligt för Windows. Det här verktyget stöds inte med hanterade diskar. Det här verktyget validerar också när data kopieras, varför kan du hoppa över valideringssteget när du använder det här verktyget.
 
 Verktygsuppsättningen är tillgänglig både för Windows och Linux. Du kan hämta verktygen här:
 - [Ladda ned Data Box Disk-verktyg för Windows](https://aka.ms/databoxdisktoolswin) 
 - [Ladda ned Data Box Disk-verktyg för Linux](https://aka.ms/databoxdisktoolslinux)
  
 ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>F. Kan jag använda Data Box Disk för att överföra data till Azure Files och sedan använda data med Azure File Sync? 
-A. Azure Files stöds med Data Box Disk men fungerar inte bra med Azure File Sync. Metadata bevaras inte om fil data används med Azure File Sync.
+A. Azure-filer stöds med Data Box Disk men fungerar inte bra med Azure File Sync. Metadata behålls inte om fildata används med Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Verifiera och ladda upp
@@ -163,7 +163,7 @@ A. Azure Files stöds med Data Box Disk men fungerar inte bra med Azure File Syn
 A.  När orderstatusen för datakopieringen visas som slutförd bör du komma åt dina data direkt.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>F. Var i Azure finns mina data efter uppladdningen?
-A.  När du kopierar data under mapparna *BlockBlob* och *PageBlob* på disken skapas en container i Azure-lagringskontot för varje undermapp under mappen *BlockBlob* och *PageBlob*. Om du kopierade filerna under mapparna *BlockBlob* och *PageBlob* direkt kopieras de till en standardcontainer *$root* under Azure Storage-kontot. När du kopierar data till en mapp under mappen *AzureFile* skapas en fileshare.
+A.  När du kopierar data under mapparna *BlockBlob* och *PageBlob* på disken skapas en container i Azure-lagringskontot för varje undermapp under mappen *BlockBlob* och *PageBlob*. Om du kopierade filerna under mapparna *BlockBlob* och *PageBlob* direkt kopieras de till en standardcontainer *$root* under Azure Storage-kontot. När du kopierar data till en mapp under *AzureFile-mappen* skapas en fildelning.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>F. Jag har precis märkt att jag inte följde namngivningskraven för min container. Misslyckas dataöverföringen till Azure?
 A. Versaler omvandlas automatiskt till gemener. Om namn inte efterlever kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen. Mer information finns i [Azure-namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
@@ -183,14 +183,14 @@ A. Ja. Om du vill verifiera dina data (vi rekommenderar att du gör det!), måst
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>F. Jag har använt samtliga diskar och behöver beställa fler diskar. Går det att beställa dem snabbt?
 A. Du kan klona din tidigare beställning. En kloning skapar samma ordning som tidigare och du kan redigera beställningsinformationen utan att behöva ange adress, kontaktuppgifter och aviseringsadress.
 
-### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>F. Jag har kopierat data till ManagedDisk-mappen. Jag ser inte några hanterade diskar med resurs gruppen som angetts för hanterade diskar. Har mina data laddats upp till Azure och hur kan jag hitta den?
-A. Ja. Dina data laddades upp till Azure, men om du inte ser några hanterade diskar med de angivna resurs grupperna beror det förmodligen på att data inte var giltiga. Om Page blobbar, block-blobar, Azure Files och Managed disks inte var giltiga, kommer dessa att gå till följande mappar:
- - Page blobbar går till en Block Blob-behållare som börjar med *databoxdisk-ogiltig-PB-* .
- - Azure Files skulle gå till en Block Blob-behållare som börjar med *databoxdisk-ogiltig-AF-* .
- - Hanterade diskar går till en Block Blob-behållare som börjar med *databoxdisk-ogiltig-MD-* .
+### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>F. Jag kopierade data till mappen ManagedDisk. Jag ser inga hanterade diskar med resursgruppen som angetts för hanterade diskar. Har mina data överförts till Azure och hur kan jag hitta dem?
+A. Ja. Dina data har överförts till Azure, men om du inte ser några hanterade diskar med de angivna resursgrupperna beror det sannolikt på att data inte var giltiga. Om sidblobar, blockblobar, Azure-filer och hanterade diskar inte var giltiga, skulle dessa gå till följande mappar:
+ - Sidblobar skulle gå till en blockblolobbehållare som börjar med *databoxdisk-invalid-pb-*.
+ - Azure Files skulle gå till en block blob-behållare som börjar med *databoxdisk-invalid-af-*.
+ - Hanterade diskar skulle gå till en blockblolobbehållare som börjar med *databoxdisk-invalid-md-*.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [data Box disk system krav](data-box-disk-system-requirements.md).
+- Granska [systemkraven för databoxdiskar](data-box-disk-system-requirements.md).
 - Förstå [Data Box Disk-begränsningarna](data-box-disk-limits.md).
 - Distribuera snabbt [Azure Data Box Disk](data-box-disk-quickstart-portal.md) på Azure-portalen.

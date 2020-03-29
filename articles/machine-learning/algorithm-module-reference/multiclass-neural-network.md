@@ -1,7 +1,7 @@
 ---
-title: 'Neurala nätverk i multiklass: modulreferens'
+title: 'Multiclass Neural Network: Modul Referens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder neurala-modulen för flera klasser i Azure Machine Learning för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som har flera värden.
+description: Lär dig hur du använder modulen Multiclass Neural Network i Azure Machine Learning för att skapa en neural nätverksmodell som kan användas för att förutsäga ett mål som har flera värden.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,84 +10,84 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ms.openlocfilehash: 653b12ddd54c5ec9e4e7dd23a323f34460daa962
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920424"
 ---
-# <a name="multiclass-neural-network-module"></a>Neurala för multiklass
+# <a name="multiclass-neural-network-module"></a>Multiklass neurala nätverk modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
 
-Använd den här modulen för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som har flera värden. 
+Använd den här modulen för att skapa en neural nätverksmodell som kan användas för att förutsäga ett mål som har flera värden. 
 
-Till exempel kan neurala-nätverk av den här typen användas i komplexa uppgifter för visuellt innehåll, t. ex. siffer-och bokstavs igenkänning, dokument klassificering och mönster igenkänning.
+Neurala nätverk av det här slaget kan till exempel användas i komplexa datorseendeuppgifter, till exempel siffra- eller bokstavsigenkänning, dokumentklassificering och mönsterigenkänning.
 
-Klassificering med neurala-nätverk är en övervakad inlärnings metod och kräver därför en *Taggad data uppsättning* som innehåller en etikett kolumn.
+Klassificering med hjälp av neurala nätverk är en övervakad inlärningsmetod och kräver därför en *taggad datauppsättning* som innehåller en etikettkolumn.
 
-Du kan träna modellen genom att tillhandahålla modellen och den taggade data uppsättningen som indata för att [träna modellen](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen.  
+Du kan träna modellen genom att tillhandahålla modellen och den taggade datauppsättningen som en indata till [Train Model](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya indataexemplen.  
 
-## <a name="about-neural-networks"></a>Om neurala-nätverk
+## <a name="about-neural-networks"></a>Om neurala nätverk
 
-Ett neurala-nätverk är en uppsättning sammankopplade lager. Indata är det första lagret och är anslutna till ett utmatnings lager med ett acykliska diagram som består av viktade kanter och noder.
+Ett neuralt nätverk är en uppsättning sammankopplade lager. Ingångarna är det första lagret och är kopplade till ett utdatalager med ett acykliskt diagram som består av viktade kanter och noder.
 
-Mellan indata-och utdata-lagren kan du infoga flera dolda lager. De flesta förutsägande uppgifter kan enkelt utföras med bara ett eller flera dolda lager. Den senaste forskningen har dock visat att djup neurala-nätverk (DNN) med många lager kan vara effektiva i komplexa uppgifter som bild-eller tal igenkänning. Efterföljande lager används för att modellera ökande nivåer av semantiskt djup.
+Mellan indata- och utdatalagren kan du infoga flera dolda lager. De flesta prediktiva uppgifter kan enkelt utföras med bara ett eller några dolda lager. Emellertid, ny forskning har visat att djupa neurala nätverk (DNN) med många lager kan vara effektiva i komplexa uppgifter såsom bild eller taligenkänning. De successiva lagren används för att modellera ökande nivåer av semantiskt djup.
 
-Relationen mellan indata och utdata har lärts från att träna neurala-nätverket på indatan. Riktningen på diagrammet fortsätter från indatan via det dolda lagret och till output-lagret. Alla noder i ett lager ansluts med de viktade kanterna till noderna i nästa lager.
+Förhållandet mellan indata och utgångar lärs genom att träna neurala nätverket på indata. Diagrammets riktning fortsätter från ingångarna genom det dolda lagret och till utdatalagret. Alla noder i ett lager kopplas samman med de viktade kanterna till noder i nästa lager.
 
-För att beräkna nätverkets utdata för ett visst indata beräknas ett värde vid varje nod i de dolda lagren och i utmatnings lagret. Värdet anges genom att beräkna den viktade summan av värdena för noderna från föregående skikt. En aktiverings funktion används sedan för den viktade summan.
+Om du vill beräkna nätverkets utdata för en viss indata beräknas ett värde vid varje nod i de dolda lagren och i utdatalagret. Värdet anges genom att beräkna den viktade summan av nodernas värden från föregående lager. En aktiveringsfunktion tillämpas sedan på den viktade summan.
 
-## <a name="configure-multiclass-neural-network"></a>Konfigurera neurala nätverk i multiklass
+## <a name="configure-multiclass-neural-network"></a>Konfigurera neurala nätverk för fleraklasser
 
-1. Lägg till neurala-modulen för **multiklass** i din pipeline i designern. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **klassificerings** kategorin.
+1. Lägg till **multiclass neurala nätverk** modulen till din pipeline i designern. Du hittar den här modulen under **Maskininlärning**, **Initiera**, i kategorin **Klassificering.**
 
-2. **Skapa utbildare läge**: Använd det här alternativet för att ange hur du vill att modellen ska tränas:
+2. **Skapa träningsläge:** Använd det här alternativet för att ange hur du vill att modellen ska tränas:
 
-    - **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
+    - **Enkel parameter:** Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
 
-    - **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
+    - **Parameterintervall:** Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra ett parametervep. Välj ett intervall med värden som du vill iterera över, och [Tune Model Hyperparameters itererar](tune-model-hyperparameters.md) över alla möjliga kombinationer av de inställningar du angav för att bestämma de hyperparametrar som ger optimalt resultat.  
 
-3. **Specifikation för dolda lager**: Välj den typ av nätverks arkitektur som ska skapas.
+3. **Dold lagerspecifikation:** Välj vilken typ av nätverksarkitektur som ska skapas.
 
-    - **Fullständigt anslutet**: Välj det här alternativet om du vill skapa en modell med standard nätverks arkitekturen för neurala. För neurala nätverks modeller i multiklass är standardvärdena följande:
+    - **Fullständigt anslutet fall:** Välj det här alternativet om du vill skapa en modell med standardarkitekturen för neurala nätverk. För neurala nätverksmodeller med flera klass är standarderna följande:
 
         - Ett dolt lager
-        - Utmatnings lagret är fullständigt anslutet till det dolda lagret.
-        - Det dolda lagret är fullständigt anslutet till indataströmmen.
-        - Antalet noder i Indatakällan bestäms av antalet funktioner i tränings data.
-        - Antalet noder i det dolda lagret kan ställas in av användaren. Standardvärdet är 100.
-        - Antalet noder i utmatnings lagret beror på antalet klasser.
+        - Utdatalagret är helt anslutet till det dolda lagret.
+        - Det dolda lagret är helt anslutet till inmatningslagret.
+        - Antalet noder i indatalagret bestäms av antalet funktioner i träningsdata.
+        - Antalet noder i det dolda lagret kan anges av användaren. Standardvärdet är 100.
+        - Antalet noder i utdatalagret beror på antalet klasser.
   
    
 
-5. **Antal dolda noder**: med det här alternativet kan du anpassa antalet dolda noder i standard arkitekturen. Ange antalet dolda noder. Standardvärdet är ett dolt lager med 100 noder.
+5. **Antal dolda noder**: Med det här alternativet kan du anpassa antalet dolda noder i standardarkitekturen. Skriv antalet dolda noder. Standardär ett dolt lager med 100 noder.
 
-6. **Inlärnings takten**: definiera storleken på steget som tas vid varje iteration, före korrigeringen. Ett större värde för inlärnings frekvensen kan göra att modellen konvergerar snabbare, men den kan överskotta lokala minimi.
+6. **Inlärningshastigheten**: Definiera storleken på det steg som tas vid varje iteration, före korrigering. Ett större värde för inlärningshastighet kan orsaka att modellen konvergerar snabbare, men den kan överskrida lokala minima.
 
-7. **Antal inlärnings iterationer**: Ange det maximala antalet gånger som algoritmen ska bearbeta inlärnings fallen.
+7. **Antal inlärningsiterationer:** Ange det maximala antalet gånger som algoritmen ska bearbeta utbildningsfallen.
 
-8. **Diametern för inledande inlärnings vikt**: Ange nodens vikt i början av inlärnings processen.
+8. **Diametern för de första inlärningsvikterna**: Ange nodvikterna i början av inlärningsprocessen.
 
-9. **Momentet**: Ange en vikt att tillämpa vid inlärning till noder från föregående iterationer.
+9. **Drivkraften**: Ange en vikt som ska tillämpas under inlärning av noder från tidigare iterationer.
   
-11. **Blanda exempel**: Välj det här alternativet om du vill blanda fall mellan iterationer.
+11. **Blanda exempel:** Välj det här alternativet om du vill blanda ärenden mellan iterationer.
 
     Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör pipelinen.
 
-12. Värde för **slumpmässig siffra**: Ange ett värde som ska användas som dirigering, om du vill säkerställa repeterbarhet i flera körningar av samma pipeline.
+12. **Slumptalsutsäde:** Skriv ett värde som ska användas som utssäde, om du vill säkerställa repeterbarhet över körningar av samma pipeline.
 
-14. Anslut en data uppsättning för utbildning och en av [inlärnings modulerna](module-reference.md): 
+14. Anslut en träningsdatauppsättning och en av [utbildningsmodulerna:](module-reference.md) 
 
-    - Om du ställer in **skapa utbildare** till **en parameter**använder du [träna modell](train-model.md).  
+    - Om du ställer in **Skapa trainer-läge** till **En parameter**använder du Train [Model](train-model.md).  
   
 
 ## <a name="results"></a>Resultat
 
-När utbildningen är klar:
+Efter träningen är klar:
 
-- Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
+- Om du vill spara en ögonblicksbild av den tränade modellen väljer du fliken **Utdata** på den högra panelen i **tågmodellmodulen.** Välj ikonen **Registrera datauppsättning** om du vill spara modellen som en återanvändbar modul.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -1,6 +1,6 @@
 ---
-title: Flytta data till en SQL Server-dator – Team Data Science Process
-description: Flytta data från flata filer eller från en lokal SQL Server till SQL Server på Azure VM.
+title: Flytta data till en virtuell SQL Server-dator - Team Data Science Process
+description: Flytta data från platta filer eller från en lokal SQL Server till SQL Server på Azure VM.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,57 +12,57 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b8a01b5f2f5ec64fea014468356408220f9c4f1a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721378"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 
-Den här artikeln beskriver alternativ för att flytta data från flata filer (CSV- eller TSV format) eller från en lokal SQL Server till SQL Server på virtuella Azure-datorer. Dessa uppgifter för att flytta data till molnet är en del av Team Data Science Process.
+I den här artikeln beskrivs alternativen för att flytta data antingen från platta filer (CSV- eller TSV-format) eller från en lokal SQL Server till SQL Server på en virtuell Azure-dator. Dessa uppgifter för att flytta data till molnet är en del av teamdatavetenskapsprocessen.
 
-Ett avsnitt som beskriver alternativ för att flytta data till en Azure SQL Database för Machine Learning finns i [Flytta data till en Azure SQL Database för Azure Machine Learning](move-sql-azure.md).
+Ett ämne som beskriver alternativen för att flytta data till en Azure SQL-databas för maskininlärning finns i [Flytta data till en Azure SQL-databas för Azure Machine Learning](move-sql-azure.md).
 
-I följande tabell sammanfattas alternativen för att flytta data till SQL Server på virtuella Azure-datorer.
+I följande tabell sammanfattas alternativen för att flytta data till SQL Server på en virtuell Azure-dator.
 
-| <b>KÄLLICENSSERVERN</b> | <b>MÅL: SQL Server på virtuell Azure-dator</b> |
+| <b>Källkod</b> | <b>DESTINATION: SQL Server på Azure VM</b> |
 | --- | --- |
-| <b>Flat fil</b> |1. <a href="#insert-tables-bcp">kommando rads verktyget Mass kopiering (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Mass infogning av SQL-fråga</a><br> 3. <a href="#sql-builtin-utilities">grafiska inbyggda verktyg i SQL Server</a> |
-| <b>Lokala SQL Server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">distribuera en SQL Server-databas till en Microsoft Azure-guide för virtuella datorer</a><br> 2. <a href="#export-flat-file">Exportera till en platt fil</a><br> 3. <a href="#sql-migration">guiden SQL Database migrering</a> <br> 4. <a href="#sql-backup">säkerhetskopiera och återställa databasen</a><br> |
+| <b>Platt fil</b> |1. <a href="#insert-tables-bcp">Kommandoradsverktyget för masskopiering (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">SQL-fråga för massinfogning</a><br> 3. <a href="#sql-builtin-utilities">Grafiska inbyggda verktyg i SQL Server</a> |
+| <b>Lokal SQL-server</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Distribuera en SQL Server-databas till en Microsoft Azure VM-guide</a><br> 2. <a href="#export-flat-file">Exportera till en platt fil</a><br> 3. <a href="#sql-migration">Guiden Migrering av SQL-databas</a> <br> 4. <a href="#sql-backup">Databas säkerhetskopiera och återställa</a><br> |
 
-Det här dokumentet förutsätter att SQL-kommandon körs från SQL Server Management Studio eller Visual Studio Databasutforskare.
+Det här dokumentet förutsätter att SQL-kommandon körs från SQL Server Management Studio eller Visual Studio Database Explorer.
 
 > [!TIP]
-> Alternativt kan du använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) för att skapa och schemalägga en pipeline som kommer att flytta data till en SQL Server VM på Azure. Mer information finns i [Kopiera data med Azure Data Factory (kopierings aktivitet)](../../data-factory/copy-activity-overview.md).
+> Som ett alternativ kan du använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) för att skapa och schemalägga en pipeline som flyttar data till en VIRTUELL SQL Server på Azure. Mer information finns i [Kopiera data med Azure Data Factory (Kopiera aktivitet)](../../data-factory/copy-activity-overview.md).
 >
 >
 
-## <a name="prereqs"></a>Förhandskrav
+## <a name="prerequisites"></a><a name="prereqs"></a>Krav
 Den här självstudien förutsätter att du har:
 
-* En **Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
-* Ett **Azure Storage-konto**. För att lagra data i den här självstudien använder du ett Azure storage-konto. Om du inte har ett Azure Storage-konto går du till artikeln [skapa ett lagrings konto](../../storage/common/storage-account-create.md) . När du har skapat lagringskontot kan behöver du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [Hantera åtkomst nycklar för lagrings konton](../../storage/common/storage-account-keys-manage.md).
-* Etablerade **SQL Server på en virtuell Azure-dator**. Instruktioner finns i [Konfigurera en virtuell Azure SQL Server-dator som en IPython Notebook-Server för avancerad analys](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
-* Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
+* En **Azure-prenumeration**. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/pricing/free-trial/).
+* Ett **Azure-lagringskonto**. Du kommer att använda ett Azure-lagringskonto för att lagra data i den här självstudien. Om du inte har ett Azure-lagringskonto läser du artikeln [Skapa ett lagringskonto.](../../storage/common/storage-account-create.md) När du har skapat lagringskontot måste du hämta kontonyckeln som används för att komma åt lagringen. Se [Hantera åtkomstnycklar för lagringskonto.](../../storage/common/storage-account-keys-manage.md)
+* Etablerad **SQL Server på en Virtuell Azure.** Instruktioner finns i [Konfigurera en virtuell Azure SQL Server-dator som en IPython Notebook-server för avancerad analys](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
+* Installerat och konfigurerat **Azure PowerShell** lokalt. Instruktioner finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
-## <a name="filesource_to_sqlonazurevm"></a>Flytta data från en platt fil källa till SQL Server på en virtuell Azure-dator
-Om dina data är i en platt fil (ordnade i rader/kolumner), kan de flyttas till SQL Server-VM på Azure via följande metoder:
+## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a>Flytta data från en platt filkälla till SQL Server på en Virtuell Azure
+Om dina data finns i en platt fil (ordnade i ett rad-/kolumnformat) kan de flyttas till VIRTUELL SQL Server på Azure via följande metoder:
 
-1. [Kommando rads verktyget för Mass kopiering (BCP)](#insert-tables-bcp)
-2. [Mass infogning av SQL-fråga](#insert-tables-bulkquery)
-3. [Grafiska inbyggda verktyg i SQL Server (import/export, SSIS)](#sql-builtin-utilities)
+1. [Kommandoradskopieringsverktyg (BCP)](#insert-tables-bcp)
+2. [SQL-fråga för massinfogning](#insert-tables-bulkquery)
+3. [Grafiska inbyggda verktyg i SQL Server (Import/Export, SSIS)](#sql-builtin-utilities)
 
-### <a name="insert-tables-bcp"></a>Kommando rads verktyget för Mass kopiering (BCP)
-BCP är ett kommandoradsverktyg som installerats med SQL Server och ett av de snabbaste sätten att flytta data. Den fungerar på alla tre SQL Server varianter (lokala SQL Server, SQL Azure och SQL Server VM på Azure).
+### <a name="command-line-bulk-copy-utility-bcp"></a><a name="insert-tables-bcp"></a>Kommandoradskopieringsverktyg (BCP)
+BCP är ett kommandoradsverktyg som installeras med SQL Server och är ett av de snabbaste sätten att flytta data. Det fungerar i alla tre SQL Server-varianter (Lokal SQL Server, SQL Azure och SQL Server VM på Azure).
 
 > [!NOTE]
 > **Var ska mina data vara för BCP?**  
-> Det är inte obligatoriskt, kan med filer som innehåller källdata finns på samma dator som SQL Server-målservern snabbare överföring (network hastighet jämfört med lokala disk i/o-hastighet). Du kan flytta de flata filerna som innehåller data till den dator där SQL Server installeras med olika fil kopierings verktyg som [AzCopy](../../storage/common/storage-use-azcopy.md), [Azure Storage Explorer](https://storageexplorer.com/) eller Windows Copy/klistra in via Remote Desktop Protocol (RDP).
+> Även om det inte krävs, med filer som innehåller källdata som finns på samma dator som målet SQL Server möjliggör snabbare överföringar (nätverkshastighet vs lokal disk IO hastighet). Du kan flytta de platta filer som innehåller data till den dator där SQL Server är installerat med hjälp av olika filkopieringsverktyg som [AZCopy,](../../storage/common/storage-use-azcopy.md) [Azure Storage Explorer](https://storageexplorer.com/) eller Windows Kopiera/klistra in via RDP (Remote Desktop Protocol).
 >
 >
 
-1. Se till att databasen och tabellerna har skapats i måldatabasen i SQL Server. Här är ett exempel på hur du gör med `Create Database`-och `Create Table`-kommandon:
+1. Kontrollera att databasen och tabellerna skapas i målet SQL Server-databasen. Här är ett exempel på hur `Create Database` `Create Table` du gör det med kommandona och:
 
     ```sql
     CREATE DATABASE <database_name>
@@ -75,26 +75,26 @@ BCP är ett kommandoradsverktyg som installerats med SQL Server och ett av de sn
     )
     ```
 
-1. Generera format filen som beskriver schemat för tabellen genom att utfärda följande kommando från kommando raden på den dator där BCP är installerat.
+1. Generera formatfilen som beskriver schemat för tabellen genom att utfärda följande kommando från kommandoraden på den dator där bcp är installerat.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-1. Infoga data i databasen med kommandot BCP, som ska fungera från kommando raden när SQL Server installeras på samma dator:
+1. Infoga data i databasen med kommandot bcp, som ska fungera från kommandoraden när SQL Server är installerat på samma dator:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
-> **Optimera BCP-infogningar** Mer information om hur du optimerar sådana infogningar finns i följande artikel [rikt linjer för att optimera Mass import](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) .
+> **Optimera BCP-infogningar** Se följande artikel ["Riktlinjer för optimering av massimport" för](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) att optimera sådana skär.
 >
 >
 
-### <a name="insert-tables-bulkquery-parallel"></a>Parallella infogningar för snabbare data förflyttning
-Om de data som du flyttar är stora kan du påskynda det genom att samtidigt köra flera BCP-kommandon parallellt i ett PowerShell-skript.
+### <a name="parallelizing-inserts-for-faster-data-movement"></a><a name="insert-tables-bulkquery-parallel"></a>Parallellisera skär för snabbare dataförflyttning
+Om de data du flyttar är stora kan du snabba upp saker och ting genom att samtidigt köra flera BCP-kommandon parallellt i ett PowerShell-skript.
 
 > [!NOTE]
-> **Big data inmatning** För att optimera data inläsningen för stora och väldigt stora data uppsättningar, partitionerar du dina logiska och fysiska databas tabeller med flera fil grupper och partitionstabeller. Mer information om hur du skapar och läser in data för att partitionera tabeller finns i [SQL partition tables Parallel load](parallel-load-sql-partitioned-tables.md).
+> **Intag av stordata** Om du vill optimera datainläsning för stora och mycket stora datauppsättningar partitionerar du dina logiska och fysiska databastabeller med hjälp av flera filgrupper och partitionstabeller. Mer information om hur du skapar och läser in data till partitionstabeller finns i [SQL Partition-tabeller för parallell belastning](parallel-load-sql-partitioned-tables.md).
 >
 >
 
-Följande exempel på PowerShell-skript visar parallella infogningar med BCP:
+Följande exempel på PowerShell-skript visar parallella infogningar med bcp:
 
 ```powershell
 $NO_OF_PARALLEL_JOBS=2
@@ -132,17 +132,17 @@ Get-Job | Receive-Job
 Set-ExecutionPolicy Restricted #reset the execution policy
 ```
 
-### <a name="insert-tables-bulkquery"></a>Mass infogning av SQL-fråga
-[Mass infogning av SQL-fråga](https://msdn.microsoft.com/library/ms188365) kan användas för att importera data till databasen från rad/kolumnbaserade filer (de typer som stöds finns i avsnittet[förbereda data för Mass export eller import (SQL Server)](https://msdn.microsoft.com/library/ms188609)).
+### <a name="bulk-insert-sql-query"></a><a name="insert-tables-bulkquery"></a>SQL-fråga för massinfogning
+[Massinfogning SQL Query](https://msdn.microsoft.com/library/ms188365) kan användas för att importera data till databasen från rad-/kolumnbaserade filer (de typer som stöds beskrivs i avsnittet[Förbered data för massexport eller import (SQL Server)](https://msdn.microsoft.com/library/ms188609)).
 
-Här följer några exempelkommandon för Bulk Insert är enligt nedan:  
+Här är några exempelkommandon för Massinfogning är följande:  
 
-1. Analysera dina data och ange några anpassade alternativ innan du importerar för att se till att SQL Server-databasen förutsätter samma format för eventuella särskilda fält, till exempel datum. Här är ett exempel på hur du konfigurerar datumformatet som år-månad-dag (om dina data innehåller datumet i formatet år-månad-dag):
+1. Analysera dina data och ange eventuella anpassade alternativ innan du importerar för att se till att SQL Server-databasen antar samma format för alla specialfält, till exempel datum. Här är ett exempel på hur du ställer in datumformatet som årsmånadsdag (om dina data innehåller datumet i årsmånadsformat):
 
     ```sql
     SET DATEFORMAT ymd;
     ```
-2. Importera data med hjälp av bulk importuttryck:
+2. Importera data med hjälp av massimportsatser:
 
     ```sql
     BULK INSERT <tablename>
@@ -156,58 +156,58 @@ Här följer några exempelkommandon för Bulk Insert är enligt nedan:
     )
     ```
 
-### <a name="sql-builtin-utilities"></a>Inbyggda verktyg i SQL Server
+### <a name="built-in-utilities-in-sql-server"></a><a name="sql-builtin-utilities"></a>Inbyggda verktyg i SQL Server
 Du kan använda SQL Server Integration Services (SSIS) för att importera data till SQL Server VM på Azure från en platt fil.
-SSIS är tillgängligt i två studio-miljöer. Mer information finns i avsnittet om [integrerings tjänster (SSIS) och Studio miljöer](https://technet.microsoft.com/library/ms140028.aspx):
+SSIS finns i två studiomiljöer. Mer information finns i [Integrationstjänster (SSIS) och Studio-miljöer:](https://technet.microsoft.com/library/ms140028.aspx)
 
-* Mer information om SQL Server Data Tools finns i [Microsoft SQL Server data verktyg](https://msdn.microsoft.com/data/tools.aspx)  
-* Mer information om guiden Importera/exportera finns i [SQL Server import-och export guiden](https://msdn.microsoft.com/library/ms141209.aspx)
+* Mer information om SQL Server-dataverktyg finns i [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
+* Mer information om guiden Importera/exportera finns i [guiden Import och export av SQL Server](https://msdn.microsoft.com/library/ms141209.aspx)
 
-## <a name="sqlonprem_to_sqlonazurevm"></a>Flytta data från lokala SQL Server till SQL Server på en virtuell Azure-dator
+## <a name="moving-data-from-on-premises-sql-server-to-sql-server-on-an-azure-vm"></a><a name="sqlonprem_to_sqlonazurevm"></a>Flytta data från lokal SQL Server till SQL Server på en virtuell Azure-dator
 Du kan också använda följande migreringsstrategier:
 
 1. [Distribuera en SQL Server-databas till en Microsoft Azure VM-guide](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
-2. [Exportera till flat fil](#export-flat-file)
-3. [Guiden SQL Database migrering](#sql-migration)
-4. [Säkerhetskopiera och återställa databas](#sql-backup)
+2. [Exportera till platt fil](#export-flat-file)
+3. [Guiden Migrering av SQL-databas](#sql-migration)
+4. [Databasen säkerhetskopierar och återställer](#sql-backup)
 
-Vi beskriver vart och ett av följande alternativ:
+Vi beskriver vart och ett av dessa alternativ nedan:
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Distribuera en SQL Server-databas till en Microsoft Azure VM-guide
-Att **distribuera en SQL Server databas till en Microsoft Azure VM-guide** är ett enkelt och rekommenderat sätt att flytta data från en lokal SQL Server-instans till SQL Server på en virtuell Azure-dator. Detaljerade anvisningar och en beskrivning av andra alternativ finns i [Migrera en databas till SQL Server på en virtuell Azure-dator](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md).
+**Guiden Distribuera en SQL Server-databas till en Microsoft Azure VM-guide** är ett enkelt och rekommenderat sätt att flytta data från en lokal SQL Server-instans till SQL Server på en Virtuell Azure-dator. Detaljerade steg och en diskussion om andra alternativ finns i [Migrera en databas till SQL Server på en Virtuell Azure.](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)
 
-### <a name="export-flat-file"></a>Exportera till flat fil
-Du kan använda olika metoder för att massredigera data från en lokal SQL Server som dokumenteras i avsnittet [Mass import och export av data (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) . Det här dokumentet beskriver Bulk Copy Program (BCP) som ett exempel. När data har exporterats till en platt fil kan kan det importeras till en annan SQLServer med massimport.
+### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>Exportera till platt fil
+Olika metoder kan användas för att massexport exportera data från en lokal SQL Server som dokumenteras i avsnittet [Massimport och export av data (SQL Server).](https://msdn.microsoft.com/library/ms175937.aspx) Det här dokumentet täcker bcp (Bulk Copy Program) som ett exempel. När data har exporterats till en platt fil kan de importeras till en annan SQL-server med massimport.
 
-1. Exportera data från en lokal SQL Server till en fil med BCP för följande
+1. Exportera data från lokal SQL Server till en fil med bcp-verktyget enligt följande
 
     `bcp dbname..tablename out datafile.tsv -S    servername\sqlinstancename -T -t \t -t \n -c`
-2. Skapa databasen och tabellen på SQL Server VM på Azure med hjälp av `create database` och `create table` för det tabell schema som exporterades i steg 1.
-3. Skapa en formatfil för att beskriva tabellschemat av data som exporteras/importerade. Information om format filen beskrivs i [skapa en format fil (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
+2. Skapa databasen och tabellen på SQL Server `create database` VM `create table` på Azure med hjälp av och för tabellschemat som exporteras i steg 1.
+3. Skapa en formatfil för att beskriva tabellschemat för de data som exporteras/importeras. Information om formatfilen beskrivs i [Skapa en formatfil (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
 
-    Formatera filen när du kör BCP från SQL Server-datorn
+    Formatera filgenerering när BCP körs från SQL Server-datorn
 
         bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n
 
-    Formatera filen när du kör BCP via en fjärranslutning mot en SQL-Server
+    Formatera filgenerering när BCP körs på distans mot en SQL Server
 
         bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
-4. Använd någon av de metoder som beskrivs i avsnittet [Flytta data från fil källan](#filesource_to_sqlonazurevm) för att flytta data i flata filer till en SQL Server.
+4. Använd någon av de metoder som beskrivs i avsnittet [Flytta data från filkälla för](#filesource_to_sqlonazurevm) att flytta data i platta filer till en SQL Server.
 
-### <a name="sql-migration"></a>Guiden SQL Database migrering
-Med guiden för att [migrera SQL Server Database](https://sqlazuremw.codeplex.com/) kan du använda ett användarvänligt sätt för att flytta data mellan två SQL Server-instanser. Det gör att användaren vill mappa dataschemat mellan källor och måltabellerna kolumntyper och olika funktioner. Masskopiering (BCP) under försättsbladen används. En skärmbild på välkomstskärmen för migrering av SQL Database-guiden visas nedan.  
+### <a name="sql-database-migration-wizard"></a><a name="sql-migration"></a>Guiden Migrering av SQL-databas
+[Guiden Migrering av SQL Server-databas](https://sqlazuremw.codeplex.com/) är ett användarvänligt sätt att flytta data mellan två SQL-serverinstanser. Det gör det möjligt för användaren att mappa dataschemat mellan källor och måltabeller, välja kolumntyper och olika andra funktioner. Den använder bulk kopia (BCP) under täcket. En skärmbild av välkomstskärmen för guiden Sql Database Migration visas nedan.  
 
-![Guiden för SQL Server-migrering][2]
+![Guiden Migrering av SQL Server][2]
 
-### <a name="sql-backup"></a>Säkerhetskopiera och återställa databas
-Har stöd för SQL Server:
+### <a name="database-back-up-and-restore"></a><a name="sql-backup"></a>Databasen säkerhetskopierar och återställer
+SQL Server stöder:
 
-1. [Databas säkerhets kopierings-och återställnings funktioner](https://msdn.microsoft.com/library/ms187048.aspx) (både till en lokal fil eller BACPAC exporteras till BLOB) och [data skikts program](https://msdn.microsoft.com/library/ee210546.aspx) (med BACPAC).
-2. Möjlighet att skapa SQL Server-datorer direkt i Azure med en kopierade databasen eller kopiera till en befintlig SQL Azure-databas. Mer information finns i [använda guiden Kopiera databas](https://msdn.microsoft.com/library/ms188664.aspx).
+1. [Databas säkerhetskopiering och återställning (både](https://msdn.microsoft.com/library/ms187048.aspx) till en lokal fil eller bacpac export till blob) och [Data Tier Applications](https://msdn.microsoft.com/library/ee210546.aspx) (med bacpac).
+2. Möjlighet att direkt skapa virtuella SQL Server-datorer på Azure med en kopierad databas eller kopiera till en befintlig SQL Azure-databas. Mer information finns [i Använda guiden Kopiera databas](https://msdn.microsoft.com/library/ms188664.aspx).
 
-En skärmbild av databasen tillbaka upp/återställning alternativ från SQL Server Management Studio visas nedan.
+En skärmbild av alternativen för säkerhetskopiering/återställning av databasen från SQL Server Management Studio visas nedan.
 
-![Verktyget för SQL Server-Import][1]
+![Importverktyg för SQL Server][1]
 
 ## <a name="resources"></a>Resurser
 [Migrera en databas till SQL Server på en virtuell Azure-dator](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md)

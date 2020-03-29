@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure Access Panel-tillägg för Internet Explorer | Microsoft Docs
-description: Hur du använder grupprinciper för att distribuera Internet Explorer-tillägget för Mina appar-portalen.
+title: Felsöka Azure Access Panel-tillägget för IE | Microsoft-dokument
+description: Så här använder du grupprincipen för att distribuera Internet Explorer-tillägget för portalen Mina appar.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,71 +17,71 @@ ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0269c87572e2a9242a54491103ae0fcc3637518
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67723918"
 ---
-# <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Felsöka Access Panel-tillägg för Internet Explorer
+# <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Felsöka tillägg till åtkomstpanelen för Internet Explorer
 
 Den här artikeln hjälper dig att felsöka följande problem:
 
-* Du kan inte komma åt dina appar via portalen Mina appar när du använder Internet Explorer.
-* Du ser meddelandet ”installera programvara” även om du redan har installerat programvaran.
+* Du kan inte komma åt dina appar via Portalen Mina appar när du använder Internet Explorer.
+* Meddelandet "Installera programvara" visas även om du redan har installerat programvaran.
 
-Om du är administratör, se [hur du distribuerar Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip](deploy-access-panel-browser-extension.md).
+Om du är administratör läser du [Så här distribuerar du tillägget till åtkomstpanelen för Internet Explorer med grupprincip](deploy-access-panel-browser-extension.md).
 
 ## <a name="run-the-diagnostic-tool"></a>Kör diagnostikverktyget
 
-Du kan diagnostisera problem med installationen med tillägget Access Panel genom att hämta och köra diagnostikverktyg för åtkomstpanelen. 
+Du kan diagnostisera installationsproblem med tillägg till åtkomstpanelen genom att hämta och köra diagnostikverktyget för åtkomstpanelen. 
 
-Ladda ned och installera diagnostikverktyget:
+Så här hämtar och installerar du diagnostikverktyget:
 
-1. [Välj den här länken för att hämta diagnostikverktyget.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+1. [Välj den här länken om du vill hämta diagnostikverktyget.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 1. Öppna filen och extrahera innehållet till datorn.
-1. Kör verktyget genom att högerklicka på filen med namnet *AccessPanelExtensionDiagnosticTool.js* och välj **öppna med** > **Microsoft Windows-baserad skriptmodul** .
+1. Om du vill köra verktyget högerklickar du på filen *AccessPanelExtensionDiagnosticTool.js* och väljer **Öppna med** > **Microsoft Windows-baserad skriptvärd**.
 
-    ![Öppna med > Microsoft Windows-baserade skriptvärden](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
+    ![Öppna med > Microsoft Windows-baserad skriptvärd](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 
-1. Granska diagnostiska resultaten som visas och välj **Ja** att åtgärda problem. Den **kontrollera resultaten** dialogruta med information om vad du gör om filnamnstillägget inte fungerar.  
+1. Granska de diagnostiska resultat som visas och välj **Ja** för att åtgärda problemen. Dialogrutan **Kontrollera resultat** visas med information om vad du ska göra om tillägget inte fungerar.  
 1. Läs meddelandet och välj **OK**.
 
-## <a name="check-that-the-access-panel-extension-is-enabled"></a>Kontrollera att tillägget för panelen åtkomst är aktiverat
+## <a name="check-that-the-access-panel-extension-is-enabled"></a>Kontrollera att tillägg till åtkomstpanelen är aktiverat
 
-För att verifiera att du har aktiverat Access Panel-tillägg i Internet Explorer:
+Så här kontrollerar du att du har aktiverat tillägg till åtkomstpanelen i Internet Explorer:
 
-1. I Internet Explorer, Välj den **kugghjulsikonen** i det övre högra hörnet i fönstret och välj **Internetalternativ**.
-1. Gå till den **program** fliken och markera **Hantera tillägg**.
-1. Välj **Access Panel-tillägg** i den **Microsoft Corporation** och väljer **aktivera**.
-1. Om du vill spara ändringarna, kan du stänga alla webbläsarfönster Internet Explorer har öppen. Ändringen börjar gälla nästa gång du öppnar Internet Explorer.
+1. I Internet Explorer väljer du **ikonen Redskap** längst upp till höger i fönstret och väljer **Internet-alternativ**.
+1. Gå till fliken **Program** och välj **Hantera tillägg**.
+1. Välj **Tillägg för åtkomstpanelen** i avsnittet **Microsoft Corporation** och välj **Aktivera**.
+1. Om du vill spara ändringarna stänger du alla webbläsarfönster i Internet Explorer som du har öppna. Ändringen träder i kraft nästa gång du öppnar Internet Explorer.
 
 ## <a name="enable-extensions-for-inprivate-browsing"></a>Aktivera tillägg för InPrivate-surfning
 
-Så här aktiverar tillägg för InPrivate-surfning:
+Så här aktiverar du tillägg för InPrivate-surfning:
 
-1. I Internet Explorer, Välj den **kugghjulsikonen** i det övre högra hörnet i fönstret och välj **Internetalternativ**.
-1. Gå till den **sekretess** fliken och kontrollera att den **inaktivera verktygsfält och tillägg när InPrivate-surfning startar** kryssrutan är avmarkerad.
-1. Om du vill spara ändringarna, kan du stänga alla webbläsarfönster Internet Explorer har öppen. Ändringen börjar gälla nästa gång du öppnar Internet Explorer.
+1. I Internet Explorer väljer du **ikonen Redskap** längst upp till höger i fönstret och väljer **Internet-alternativ**.
+1. Gå till fliken **Sekretess** och kontrollera att kryssrutan **Inaktivera verktygsfält och tillägg när InPrivate-surfning startar** är avmarkerat.
+1. Om du vill spara ändringarna stänger du alla webbläsarfönster i Internet Explorer som du har öppna. Ändringen träder i kraft nästa gång du öppnar Internet Explorer.
 
-## <a name="uninstall-the-access-panel-extension"></a>Avinstallera Access Panel-tillägg
+## <a name="uninstall-the-access-panel-extension"></a>Avinstallera tillägg till åtkomstpanelen
 
-Så här avinstallerar Access Panel-tillägg från datorn:
+Så här avinstallerar du tillägg till åtkomstpanelen från datorn:
 
-1. Sök efter i Kontrollpanelen, *avinstallera*.
-1. I sökresultaten väljer **avinstallera ett program**.
+1. Sök efter *avinstallation*på Kontrollpanelen .
+1. I sökresultaten väljer du **Avinstallera ett program**.
 
-    ![Välj avinstallera ett program-alternativ från Kontrollpanelen](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
+    ![Välj alternativet Avinstallera ett program på Kontrollpanelen](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
 
-1. I listan, väljer **Access Panel-tillägg** och välj **avinstallera**.
+1. Välj Tillägg för **Åtkomstpanelen** i listan och välj **Avinstallera**.
 
-    ![Avinstallera Access Panel-tillägg](./media/manage-access-panel-browser-extension/uninstall-access-panel-extension.png)
+    ![Avinstallera tillägg till åtkomstpanelen](./media/manage-access-panel-browser-extension/uninstall-access-panel-extension.png)
 
-1. Du kan sedan försöka att installera tillägget igen för att se om problemet är löst.
+1. Du kan sedan försöka installera tillägget igen för att se om problemet har lösts.
 
-Om du stöter på problem med avinstallera tillägget, du kan också ta bort den med hjälp av den [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) verktyget.
+Om du stöter på problem med att avinstallera tillägget kan du också ta bort det med verktyget [Microsoft Fix It.](https://go.microsoft.com/?linkid=9779673)
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
 * [Programåtkomst och enkel inloggning med Azure Active Directory](what-is-single-sign-on.md)
-* [Så här distribuerar du Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip](deploy-access-panel-browser-extension.md)
+* [Distribuera tillägg till åtkomstpanelen för Internet Explorer med grupprincip](deploy-access-panel-browser-extension.md)

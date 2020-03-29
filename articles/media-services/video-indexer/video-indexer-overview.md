@@ -1,7 +1,7 @@
 ---
 title: Vad är Video Indexer?
 titleSuffix: Azure Media Services
-description: Den här artikeln ger en översikt över tjänsten Azure Media Services Video Indexer.
+description: Den här artikeln innehåller en översikt över Azure Media Services Video Indexer-tjänsten.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,111 +11,111 @@ ms.topic: article
 ms.date: 02/02/2020
 ms.author: juliako
 ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163598"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
-Video Indexer (VI) är Azure Media Services AI-lösningen och en del av Azure Cognitive Services varumärket. Video Indexer ger möjlighet att extrahera djupgående insikter (utan behov av data analys eller kodnings kunskaper) med hjälp av maskin inlärnings modeller baserade på flera kanaler (röst, Vocals, visualisering). Du kan anpassa och träna modeller ytterligare. Tjänsten möjliggör djupgående sökning, minskar drifts kostnaderna, ger nya Sälj möjligheter och skapar nya användar upplevelser för stora Arkiv av videor (med låga ingångs hinder).
+Video Indexer (VI) är Azure Media Services AI-lösning och en del av Azure Cognitive Services varumärke. Video Indexer ger möjlighet att extrahera djupa insikter (utan behov av dataanalys eller kodning färdigheter) med hjälp av maskininlärning modeller baserade på flera kanaler (röst, sång, visuell). Du kan ytterligare anpassa och träna modellerna. Tjänsten möjliggör djupsökning, minskar driftskostnaderna, möjliggör nya möjligheter till intäktsgenerering och skapar nya användarupplevelser på stora arkiv med videor (med låga inträdeshinder).
 
-Om du vill börja extrahera insikter med Video Indexer måste du skapa ett konto och ladda upp videor. När du laddar upp videor till Video Indexer, analyserar den både visuella objekt och ljud genom att köra olika AI-modeller. När Video Indexer analyserar videon extraheras de insikter som extraheras av AI-modellerna.
+Om du vill börja extrahera insikter med Video Indexer måste du skapa ett konto och ladda upp videor. När du laddar upp dina videor till Video Indexer analyseras både grafik och ljud genom att köra olika AI-modeller. När Video Indexer analyserar din video, de insikter som extraheras av AI-modellerna.
 
-Följande diagram är en illustration och inte en teknisk förklaring av hur Video Indexer fungerar i Server delen.
+Följande diagram är en illustration och inte en teknisk förklaring av hur Video Indexer fungerar i backend.
 
-![Flödes diagram för Azure Media Services Video Indexer](./media/video-indexer-overview/model-chart.png)
+![Flödesdiagram för Azure Media Services Video Indexer](./media/video-indexer-overview/model-chart.png)
 
 
 ## <a name="compliance-privacy-and-security"></a>Efterlevnad, sekretess och säkerhet
 
-Som en viktig påminnelse måste du följa alla tillämpliga lagar i din användning av Video Indexer och du får inte använda Video Indexer eller någon Azure-tjänst på ett sätt som strider mot andras rättigheter eller som kan vara skadliga för andra.
+Som en viktig påminnelse måste du följa alla tillämpliga lagar i din användning av Video Indexer, och du får inte använda Video Indexer eller någon Azure-tjänst på ett sätt som bryter mot andras rättigheter, eller som kan vara skadliga för andra.
 
-Innan du laddar upp en video/bild till Video Indexer måste du ha alla de rättigheter som krävs för att använda videon/bilden, inklusive, vid behov enligt lag, alla nödvändiga samspelade individer (om de finns) i videon/bilden, för användning, bearbetning och lagring av data i Video Indexer och Azure. Vissa jurisdiktioner kan införa särskilda juridiska krav för insamling, online-bearbetning och lagring av vissa kategorier av data, t. ex. Bio metriska data. Innan du använder Video Indexer och Azure för bearbetning och lagring av data som omfattas av särskilda juridiska krav, måste du säkerställa efterlevnaden av sådana juridiska krav som kan gälla för dig.
+Innan du laddar upp någon video/bild till Video Indexer måste du ha alla rätt rättigheter att använda videon/bilden, inklusive, där så krävs enligt lag, alla nödvändiga medgivanden från individer (om sådana finns) i videon/bilden, för användning, bearbetning och lagring av deras data i Video Indexer och Azure. Vissa jurisdiktioner kan införa särskilda rättsliga krav för insamling, onlinebehandling och lagring av vissa kategorier av uppgifter, såsom biometriska uppgifter. Innan du använder Video Indexer och Azure för bearbetning och lagring av data som omfattas av särskilda juridiska krav, måste du se till att alla sådana juridiska krav som kan gälla för dig.
 
-Om du vill veta mer om efterlevnad, sekretess och säkerhet i Video Indexer går du till Microsoft [Trust Center](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx). För Microsofts sekretess krav, data hantering och bevarande praxis, inklusive hur du tar bort dina data, kan du läsa Microsofts [sekretess policy](https://privacy.microsoft.com/PrivacyStatement), [Online Services-villkoren](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("ost") och [data bearbetnings tillägget](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Genom att använda Video Indexer samtycker du till att vara kopplad till OST-, DPA-och sekretess policyn.
+Om du vill veta mer om efterlevnad, sekretess och säkerhet i Video Indexer kan du besöka Microsoft [Trust Center](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx). Om du har Microsofts sekretessskyldigheter, datahantering och lagringspraxis, inklusive hur du tar bort dina data, läser du Microsofts [sekretesspolicy,](https://privacy.microsoft.com/PrivacyStatement) [villkoren för onlinetjänster](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") och [tillägget för databehandling](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Genom att använda Video Indexer samtycker du till att vara bunden av OST, DPA och sekretesspolicyn.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>Vad kan jag göra med Video Indexer?
 
-Video Indexer insikter kan tillämpas på många olika scenarier:
+Video Indexerers insikter kan tillämpas på många scenarier, bland dem är:
 
-* *Djupgående sökning*: Använd de insikter som extraheras från videon för att förbättra Sök upplevelsen i ett video bibliotek. Att indexera talade ord och ansikten kan till exempel göra det möjligt att söka efter moment i en video där en person har ekrar på vissa ord eller när två personer setts tillsammans. Sök baserat på sådana insikter från videor är tillämpligt på nyhets myndigheter, utbildnings institut,-sändningar, nöjes innehålls ägare, företags-LOB-appar och i allmänhet till alla branscher som har ett video bibliotek som användare behöver söka mot.
-* *Skapa innehåll*: skapa trailrar, markera rullar, innehåll i sociala medier eller nyhets klipp baserat på insikter video Indexer extraherar från ditt innehåll. Nyckel bild rutor, scener och tidsstämplar för visning av personer och etiketter gör processen mycket smidigare och enklare, och gör att du kan komma åt de delar av videon du behöver för det innehåll som du skapar.
-* *Hjälpmedel*: om du vill göra ditt innehåll tillgängligt för personer med funktions nedsättning eller om du vill att innehållet ska distribueras till olika regioner med olika språk kan du använda avskriften och översättningen från video Indexer på flera språk.
-* *Monetarisering*: video Indexer kan hjälpa till att öka värdet för videor. Till exempel kan branscher som förlitar sig på AD-intäkter (nyhets medier, sociala medier osv.) leverera relevanta annonser genom att använda de extraherade insikterna som ytterligare signaler till AD-servern.
-* *Innehålls moderator*: Använd text-och visuella innehålls redigerings modeller för att hålla dina användare skyddade från olämpligt innehåll och kontrol lera att innehållet som du publicerar matchar din organisations värden. Du kan automatiskt blockera vissa videor eller Varna dina användare om innehållet.
-* *Rekommendationer*: video insikter kan användas för att förbättra användarnas engagemang genom att markera relevant video moment till användare. Genom att tagga varje video med ytterligare metadata kan du rekommendera användare de mest relevanta videor och markera de delar av videon som ska matcha deras behov.
+* *Djup sökning:* Använd de insikter som extraheras från videon för att förbättra sökupplevelsen i ett videobibliotek. Indexering av talade ord och ansikten kan till exempel göra det möjligt för sökupplevelsen att hitta ögonblick i en video där en person talade vissa ord eller när två personer sågs tillsammans. Sökning baserat på sådana insikter från videor är tillämplig på nyhetsbyråer, utbildningsinstitut, programföretag, ägare av underhållningsinnehåll, LOB-appar för företag och i allmänhet till alla branscher som har ett videobibliotek som användarna behöver söka mot.
+* *Skapande av innehåll*: Skapa trailers, markera rullar, innehåll i sociala medier eller nyhetsklipp baserat på de insikter videoindexer extraherar från ditt innehåll. Nyckelrutor, scenmarkörer och tidsstämplar för personer och etikettutseenden gör skapandeprocessen mycket smidigare och enklare, och gör att du kan komma till de delar av videon du behöver för det innehåll du skapar.
+* *Tillgänglighet*: Oavsett om du vill göra ditt innehåll tillgängligt för personer med funktionshinder eller om du vill att ditt innehåll ska distribueras till olika regioner med olika språk kan du använda transkriptionen och översättningen som tillhandahålls av videoindexerare på flera språk.
+* *Intäktsgenerering:* Video Indexer kan bidra till att öka värdet på videor. Till exempel kan branscher som är beroende av annonsintäkter (nyhetsmedier, sociala medier och så vidare) leverera relevanta annonser genom att använda de extraherade insikterna som ytterligare signaler till annonsservern.
+* *Innehållsmodererering*: Använd text- och visuella modeller för innehållsmoderering för att skydda användarna från olämpligt innehåll och verifiera att innehållet du publicerar matchar organisationens värden. Du kan automatiskt blockera vissa videor eller varna användarna om innehållet.
+* *Rekommendationer*: Videoinsikter kan användas för att förbättra användarnas engagemang genom att lyfta fram relevanta videoögonblick för användarna. Genom att tagga varje video med ytterligare metadata kan du rekommendera användarna de mest relevanta videorna och markera de delar av videon som matchar deras behov.
 
 ## <a name="features"></a>Funktioner
 
-I följande lista visas de insikter som du kan hämta från dina videor med Video Indexer video-och ljud modeller:
+Följande lista visar de insikter du kan hämta från dina videor med videoindexeringsvideo- och ljudmodeller:
 
-### <a name="video-insights"></a>Video insikter
+### <a name="video-insights"></a>Videoinsikter
 
 * **Ansiktsigenkänning**: Identifierar och grupperar ansikten som visas i videon.
-* **Kändis-identifiering**: video Indexer identifierar automatiskt över 1 000 000 kändisar, till exempel världs ledare, aktörer, actresses, tävlande, forskare, företag och teknik ledare över hela världen. Data om dessa kändisar kan också hittas på olika webbplatser (IMDB, Wikipedia och så vidare).
-* **Kontobaserad ansiktsidentifiering**: Video Indexer tränar en modell för ett visst konto. Den identifierar sedan ansikten i videon baserat på den tränade modellen. Mer information finns i [Anpassa en person modell från video Indexer webbplats](customize-person-model-with-website.md) och [Anpassa en person modell med video Indexer API](customize-person-model-with-api.md).
-* Rendering **av miniatyrer för ansikten** ("bästa ansikte"): identifierar automatiskt den bästa infångade ytan i varje grupp av ansikten (baserat på kvalitet, storlek och front position) och extraherar den som en bild till gång.
-* **Visuell text igenkänning** (OCR): extraherar text som visas visuellt i videon.
+* **Celebrity identifiering:** Video Indexer identifierar automatiskt över 1 miljon kändisar, som världsledare, skådespelare, skådespelerskor, idrottare, forskare, företag och tech ledare över hela världen. Uppgifterna om dessa kändisar kan också hittas på olika webbplatser (IMDB, Wikipedia och så vidare).
+* **Kontobaserad ansiktsidentifiering**: Video Indexer tränar en modell för ett visst konto. Den känner sedan igen ansikten i videon baserat på den tränade modellen. Mer information finns i [Anpassa en personmodell från videoindexerarens webbplats](customize-person-model-with-website.md) och anpassa en [personmodell med API:et för videoindexerare](customize-person-model-with-api.md).
+* **Miniatyrextraktion för ansikten** ("bästa ansikte"): Identifierar automatiskt det bästa tagna ansiktet i varje grupp av ansikten (baserat på kvalitet, storlek och frontposition) och extraherar det som en bildtillgång.
+* **OCR (Visual Text Recognition):** Extraherar text som visas visuellt i videon.
 * **Moderering av visuellt innehåll**: Identifierar vuxna och/eller vågade visuella objekt.
 * **Identifiering av etiketter**: Identifierar visuella objekt och åtgärder som visas.
-* **Scen segmentering**: anger när en scens ändringar i videon baseras på visuella tips. En scen visar en enskild händelse och den består av en serie med efterföljande bilder, som är semantiskt relaterade.
-* **Bild identifiering**: anger när en bild ändras i video utifrån visuella tips. En bild är en serie med ramar som tas från samma rörelse-och bildkamera. Mer information finns i [scener, bilder och nyckel bild rutor](scenes-shots-keyframes.md).
+* **Scensegmentering**: Avgör när en scen ändras i video baserat på visuella tips. En scen visar en enda händelse och den består av en serie på varandra följande bilder, som är semantiskt relaterade.
+* **Bildigetering:** Avgör när ett skott ändras i video baserat på visuella ledtrådar. Ett skott är en serie bilder tagna från samma filmkamera. Mer information finns i [Scener, bilder och nyckelrutor](scenes-shots-keyframes.md).
 * **Identifiering av svarta bildrutor**: Identifierar svarta bildrutor som visas i videon.
 * **Extrahering av bildrutor**: Identifierar stabila nyckelbilder i en video.
-* **Rullande krediter**: identifierar början och slutet av de rullande eftertexterna i slutet av TV-program och filmer.
-* Igenkänning av **animerade tecken** (för hands version): identifiering, gruppering och igenkänning av tecken i animerat innehåll via integration med [Cognitive Services anpassad vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Mer information finns i [animerat teckensnitts identifiering](animated-characters-recognition.md).
-* **Identifiering av redaktionell text typ**: tagga dum par baserat på deras typ (t. ex. wide Store, medie tagning, närbild, Extreme closes, två bilder, flera personer, utomhus och inomhus). Mer information finns i [identifiering av redaktionella typer av tagningar](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* **Rullande krediter**: Identifierar början och slutet av rullande krediter i slutet av TV-program och filmer.
+* **Identifiering av animerade figurer** (förhandsgranskning): Identifiering, gruppering och igenkänning av tecken i animerat innehåll via integrering med anpassad vision för [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Mer information finns i [Identifiering av animerade tecken](animated-characters-recognition.md).
+* **Redaktionell skott typ upptäckt:** Märkning skott baserat på deras typ (som bred skott, medium skott, närbild, extrem närbild, två skott, flera personer, utomhus och inomhus, och så vidare). Mer information finns i [Identifiering av redaktionell skotttyp](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
-### <a name="audio-insights"></a>Ljud insikter
+### <a name="audio-insights"></a>Ljudinsikter
 
-* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och brasiliansk portugisiska. Om språket inte kan identifieras med förtroende förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [språk identifierings modell](language-identification-model.md).
-* **Tal identifiering och avskrifter för flera språk** (för hands version): identifierar automatiskt det talade språket i olika segment från ljud. Den skickar varje segment i medie filen som ska skrivas av och kombinerar sedan avskriften till en enhetlig avskrift. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
-* **Ljud avskrift**: konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska, portugisiska (Brasilien), hindi och koreanska.
+* **Automatisk språkidentifiering**: Identifierar automatiskt dominant talat språk. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, ryska och brasiliansk portugisiska. Om språket inte kan identifieras med tillförsikt förutsätter Video Indexer att det talade språket är engelska. Mer information finns i [Språkidentifieringsmodell](language-identification-model.md).
+* **Talidentifiering och transkription** på flera språk (förhandsgranskning): Identifierar automatiskt det talade språket i olika segment från ljud. Det skickar varje segment av mediefilen som ska transkriberas och sedan kombinerar transkriptionen tillbaka till en enhetlig transkription. Mer information finns i [Identifiera och transkribera innehåll med flera språk](multi-language-identification-transcription.md)automatiskt .
+* **Ljudtranskription**: Konverterar tal till text på 12 språk och tillåter tillägg. Språk som stöds inkluderar engelska, spanska, franska, tyska, italienska, kinesiska (förenklad), japanska, arabiska, ryska, brasiliansk portugisiska, hindi och koreanska.
 * **Textning**: Skapar textning i tre format: VTT, TTML och SRT.
-* **Två kanal bearbetning**: identifierar automatiskt separata avskrifter och sammanfogningar på en enda tids linje.
-* **Brus minskning**: tar bort ljud-eller brus inspelnings telefoner (baserat på Skype-filter).
-* **Avskrifts anpassning** (CRI: er): anpassad tal från tågen till text modeller för att skapa branschspecifika avskrifter. Mer information finns i [Anpassa en språk modell från video Indexer webbplats](customize-language-model-with-website.md) och [Anpassa en språk modell med video Indexer-API: er](customize-language-model-with-api.md).
-* **Uppräkning av högtalare**: Maps och förstår vilken talare som är eker för ord och när.
-* **Högtalar statistik**: tillhandahåller statistik för talares tal förhållande.
+* **Två kanalbearbetning:** Automatisk identifierar separat avskrift och sammanfogas till en enda tidslinje.
+* **Brusreducering**: Rensar upp telefoniljud eller bullriga inspelningar (baserat på Skype-filter).
+* **Avskrift anpassning** (CRIS): Tåg anpassade tal till textmodeller för att skapa branschspecifika utskrifter. Mer information finns i [Anpassa en språkmodell från videoindexerarens webbplats](customize-language-model-with-website.md) och anpassa en [språkmodell med API:erna för videoindexerare](customize-language-model-with-api.md).
+* **Speaker uppräkning**: Kartor och förstår vilken talare talade vilka ord och när.
+* **Högtalarstatistik**: Ger statistik för talarnas talförhållanden.
 * **Moderering av textinnehåll**: Identifierar stötande text i ljudavskriften.
-* **Ljud effekter**: identifierar ljud effekter som hand claps, tal och tystnad.
-* **Känslo-identifiering**: identifierar känslor baserat på tal (vad som sägs) och röst ton (hur det är det). Känslo kan vara glädje, ledsenhet, ilska eller frukt.
+* **Ljudeffekter**: Identifierar ljudeffekter som hand klappar, tal och tystnad.
+* **Emotion detection**: Identifierar känslor baserat på tal (vad som sägs) och röst tonalitet (hur det sägs). Känslan kan vara glädje, sorg, ilska eller rädsla.
 * **Översättning**: Skapar översättningar av ljudavskriften till 54 olika språk.
 
-### <a name="audio-and-video-insights-multi-channels"></a>Ljud-och video insikter (flera kanaler)
+### <a name="audio-and-video-insights-multi-channels"></a>Ljud- och videoinsikter (flera kanaler)
 
-Vid indexering av en kanal blir del resultat för dessa modeller tillgängliga.
+Vid indexering med en kanal kommer partiellt resultat för dessa modeller att vara tillgängligt.
 
-* **Extrahering av nyckelord**: extraherar nyckelord från tal och visuell text.
-* **Extrahering av namngivna enheter**: extraherar varumärken, platser och personer från tal och visuell text via naturlig språk bearbetning (NLP).
-* **Ämnesinferens**: Skapar inferens av huvudämnen från avskrifter. IPTC-taxonomin på andra nivån ingår.
+* **Extrahera sökord**: Extraherar nyckelord från tal och visuell text.
+* **Namngivna enheter extrahering:** Extraherar varumärken, platser och personer från tal och visuell text via bearbetning av naturligt språk (NLP).
+* **Ämnesinferens**: Skapar inferens av huvudämnen från avskrifter. IPTC-taxonomi på andra nivån ingår.
 * **Artefakter**: Extraherar en omfattande uppsättning ”nästa detaljnivå”-artefakter för de olika modellerna.
 * **Attitydanalys**: Identifierar positiva, negativa och neutrala attityder i tal och visuell text.
 
-## <a name="how-can-i-get-started-with-video-indexer"></a>Hur kan jag komma igång med Video Indexer?
+## <a name="how-can-i-get-started-with-video-indexer"></a>Hur kommer jag igång med Video Indexer?
 
-Du kan komma åt Video Indexer-funktioner på tre sätt:
+Du kan komma åt videoindexeringsfunktionerna på tre sätt:
 
-* Video Indexer Portal: en lättanvänd lösning som gör att du kan utvärdera produkten, hantera kontot och anpassa modeller.
+* Video Indexer portal: En lättanvänd lösning som låter dig utvärdera produkten, hantera kontot och anpassa modeller.
 
-    Mer information om portalen finns i [Kom igång med video Indexer webbplats](video-indexer-get-started.md).  
+    Mer information om portalen finns [på Komma igång med webbplatsen Video Indexer](video-indexer-get-started.md).  
 
-* API-integrering: alla Video Indexers funktioner är tillgängliga via en REST API, vilket gör att du kan integrera lösningen i dina appar och din infrastruktur.
+* API-integrering: Alla Video Indexers funktioner är tillgängliga via ett REST API, som gör att du kan integrera lösningen i dina appar och din infrastruktur.
 
-    Information om hur du kommer igång som utvecklare finns i [använda Video Indexer REST API](video-indexer-use-apis.md).
+    Information om hur du kommer igång som utvecklare finns i [Använda REST API för videoindexerare](video-indexer-use-apis.md).
 
-* Inbäddnings bara widget: gör att du kan bädda in Video Indexer insikter, spelare och redigerings upplevelser i din app.
+* Inbäddningsbar widget: Gör att du kan bädda in videoindexeringsstatistiken, spelar- och redigeringsupplevelserna i appen.
 
-    Mer information finns i [bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md).
+    Mer information finns [i Bädda in visuella widgetar i programmet](video-indexer-embed-widgets.md).
 
-Om du använder webbplatsen läggs insikterna till som metadata och visas i portalen. Om du använder API: er är insikterna tillgängliga som en JSON-fil.
+Om du använder webbplatsen läggs insikterna till som metadata och visas i portalen. Om du använder API:er är insikterna tillgängliga som en JSON-fil.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu är du redo att börja använda Video Indexer. Mer information finns i följande artiklar:
 
-- [Kom igång med video Indexer webbplats](video-indexer-get-started.md).
-- [Bearbeta innehåll med Video Indexer REST API](video-indexer-use-apis.md).
-- [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md).
+- [Kom igång med webbplatsen Video Indexer](video-indexer-get-started.md).
+- [Bearbeta innehåll med REST API för videoindexerare](video-indexer-use-apis.md).
+- [Bädda in visuella widgetar i programmet](video-indexer-embed-widgets.md).

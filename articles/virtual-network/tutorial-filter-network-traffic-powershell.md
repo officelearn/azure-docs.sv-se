@@ -1,6 +1,6 @@
 ---
-title: Filtrera nätverkstrafik – Azure PowerShell | Microsoft Docs
-description: I den här artikeln får du lära dig hur du filtrerar nätverkstrafik till ett undernät med en nätverkssäkerhetsgrupp med hjälp av PowerShell.
+title: Filtrera nätverkstrafik – Azure PowerShell | Microsoft-dokument
+description: I den här artikeln får du lära dig hur du filtrerar nätverkstrafik till ett undernät, med en nätverkssäkerhetsgrupp, med PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -18,13 +18,13 @@ ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 08031bc2ac29ea77374e21c4ce6f7bcf6151bcad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66730038"
 ---
-# <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med hjälp av PowerShell
+# <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>Filtrera nätverkstrafik med en nätverkssäkerhetsgrupp med PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,11 +35,11 @@ Du kan filtrera inkommande och utgående nätverkstrafik till och från ett unde
 * Distribuera virtuella datorer (VM) i ett undernät
 * Testa trafikfilter
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt, i den här artikeln kräver Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
@@ -47,13 +47,13 @@ En nätverkssäkerhetsgrupp innehåller säkerhetsregler. Säkerhetsregler anger
 
 ### <a name="create-application-security-groups"></a>Skapa programsäkerhetsgrupper
 
-Skapa först en resursgrupp för alla resurser som skapats i den här artikeln med [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp på platsen *eastus*:
+Skapa först en resursgrupp för alla resurser som skapas i den här artikeln med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp på platsen *eastus*:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Skapa en programsäkerhetsgrupp med [New AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup). En programsäkerhetsgrupp gör att du kan gruppera servrar med liknande portfiltreringskrav. I följande exempel skapas två programsäkerhetsgrupper.
+Skapa en programsäkerhetsgrupp med [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup). En programsäkerhetsgrupp gör att du kan gruppera servrar med liknande portfiltreringskrav. I följande exempel skapas två programsäkerhetsgrupper.
 
 ```azurepowershell-interactive
 $webAsg = New-AzApplicationSecurityGroup `
@@ -69,7 +69,7 @@ $mgmtAsg = New-AzApplicationSecurityGroup `
 
 ### <a name="create-security-rules"></a>Skapa säkerhetsregler
 
-Skapa en säkerhetsregel med [New AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). I följande exempel skapas en regel som tillåter inkommande trafik från Internet till programsäkerhetsgruppen *myWebServers* via port 80 och 443:
+Skapa en säkerhetsregel med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). I följande exempel skapas en regel som tillåter inkommande trafik från Internet till programsäkerhetsgruppen *myWebServers* via port 80 och 443:
 
 ```azurepowershell-interactive
 $webRule = New-AzNetworkSecurityRuleConfig `
@@ -97,7 +97,7 @@ $mgmtRule = New-AzNetworkSecurityRuleConfig `
   -DestinationPortRange 3389
 ```
 
-I den här artikeln exponeras RDP (port 3389) mot internet för den *myAsgMgmtServers* VM. För produktionsmiljöer rekommenderas, i stället för att exponera port 3389 mot Internet, att du ansluter till Azure-resurser som du vill hantera med hjälp av en [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)-anslutning eller [privat](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nätverksanslutning.
+I den här artikeln är RDP (port 3389) exponerad för Internet för *myAsgMgmtServers* VM. I stället för att exponera port 3389 för internet för produktionsmiljöer rekommenderar vi att du ansluter till Azure-resurser som du vill hantera med hjälp av en [VPN-](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [privat](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) nätverksanslutning.
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
@@ -123,7 +123,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Skapa en undernätskonfiguration med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig), och skriv sedan Undernätskonfigurationen till det virtuella nätverket med [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). I följande exempel läggs ett undernät med namnet *mySubnet* till i det virtuella nätverket och nätverkssäkerhetsgruppen *myNsg* associeras med det:
+Skapa en undernätskonfiguration med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)och skriv sedan undernätskonfigurationen till det virtuella nätverket med [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). I följande exempel läggs ett undernät med namnet *mySubnet* till i det virtuella nätverket och nätverkssäkerhetsgruppen *myNsg* associeras med det:
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig `
@@ -136,7 +136,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Innan du skapar de virtuella datorerna måste du hämta det virtuella nätverksobjektet med undernätet med [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork):
+Innan du skapar de virtuella datorerna hämtar du det virtuella nätverksobjektet med undernätet med [Get-AzVirtualNetwork:](/powershell/module/az.network/get-azvirtualnetwork)
 
 ```powershell-interactive
 $virtualNetwork = Get-AzVirtualNetwork `
@@ -144,7 +144,7 @@ $virtualNetwork = Get-AzVirtualNetwork `
  -Resourcegroupname myResourceGroup
 ```
 
-Skapa en offentlig IP-adress för varje virtuell dator med [New AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress):
+Skapa en offentlig IP-adress för varje virtuell dator med [New-AzPublicIpAddress:](/powershell/module/az.network/new-azpublicipaddress)
 
 ```powershell-interactive
 $publicIpWeb = New-AzPublicIpAddress `
@@ -160,7 +160,7 @@ $publicIpMgmt = New-AzPublicIpAddress `
   -Name myVmMgmt
 ```
 
-Skapa två nätverksgränssnitt med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface), och tilldela en offentlig IP-adress till nätverksgränssnittet. I följande exempel skapas ett nätverksgränssnitt, den offentliga IP-adressen för *myVmWeb* associeras med det och det görs till medlem i programsäkerhetsgruppen *myAsgWebServers*:
+Skapa två nätverksgränssnitt med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)och tilldela en offentlig IP-adress till nätverksgränssnittet. I följande exempel skapas ett nätverksgränssnitt, den offentliga IP-adressen för *myVmWeb* associeras med det och det görs till medlem i programsäkerhetsgruppen *myAsgWebServers*:
 
 ```powershell-interactive
 $webNic = New-AzNetworkInterface `
@@ -186,7 +186,7 @@ $mgmtNic = New-AzNetworkInterface `
 
 Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera trafikfiltrering i ett senare steg.
 
-Skapa en VM-konfiguration med [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), skapa den virtuella datorn med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator som fungerar som en webbserver. Alternativet `-AsJob` skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg:
+Skapa en [VM-konfiguration med New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)och skapa sedan den virtuella datorn med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator som fungerar som en webbserver. Alternativet `-AsJob` skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg:
 
 ```azurepowershell-interactive
 # Create user object
@@ -277,7 +277,7 @@ Använd följande kommando för att installera Microsoft IIS på den virtuella d
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-När IIS-installationen är klar kopplar du från den virtuella datorn *myVmWeb*, vilket lämnar dig i fjärrskrivbordsanslutningen med den virtuella datorn *myVmMgmt*. Visa IIS-välkomstskärmen genom att öppna en webbläsare och gå till http:\//myVmWeb.
+När IIS-installationen är klar kopplar du från den virtuella datorn *myVmWeb*, vilket lämnar dig i fjärrskrivbordsanslutningen med den virtuella datorn *myVmMgmt*. Om du vill visa välkomstskärmen för IIS\/öppnar du en webbläsare och bläddrar till http: /myVmWeb.
 
 Koppla från den virtuella datorn *myVmMgmt*.
 
@@ -294,7 +294,7 @@ Bekräfta att du har åtkomst till webbservern *myVmWeb* utanför Azure genom at
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen och alla resurser den innehåller:
+När det inte längre behövs kan du använda [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen och alla resurser som den innehåller:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -302,6 +302,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln får du skapade en nätverkssäkerhetsgrupp och associerat den till ett virtuellt nätverksundernät. Mer information om nätverkssäkerhetsgrupper finns i [Översikt över nätverkssäkerhetsgrupper](security-overview.md) och [Hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md).
+I den här artikeln skapade du en nätverkssäkerhetsgrupp och associerade den till ett virtuellt nätverksundernät. Mer information om nätverkssäkerhetsgrupper finns i [Översikt över nätverkssäkerhetsgrupper](security-overview.md) och [Hantera en nätverkssäkerhetsgrupp](manage-network-security-group.md).
 
-Azure dirigerar som standard trafik mellan undernät. Du kan i stället välja att exempelvis dirigera trafik mellan undernät via en virtuell dator, som fungerar som en brandvägg. Läs hur genom att läsa [skapar en routningstabell](tutorial-create-route-table-powershell.md).
+Azure dirigerar som standard trafik mellan undernät. Du kan i stället välja att exempelvis dirigera trafik mellan undernät via en virtuell dator, som fungerar som en brandvägg. Mer information finns i [Skapa en rutttabell](tutorial-create-route-table-powershell.md).

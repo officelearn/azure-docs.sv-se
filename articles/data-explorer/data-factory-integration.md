@@ -1,6 +1,6 @@
 ---
-title: Azure Datautforskaren-integrering med Azure Data Factory
-description: I det här avsnittet integrerar du Azure Datautforskaren med Azure Data Factory för att använda åtgärderna Copy, lookup och Command
+title: Azure Data Explorer-integrering med Azure Data Factory
+description: I det här avsnittet kan du integrera Azure Data Explorer med Azure Data Factory för att använda kopierings-, uppslags- och kommandoaktiviteter
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -9,176 +9,176 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/20/2020
 ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76293631"
 ---
-# <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrera Azure-Datautforskaren med Azure Data Factory
+# <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrera Azure Data Explorer med Azure Data Factory
 
-[Azure Data Factory](/azure/data-factory/) (ADF) är en molnbaserad data integrerings tjänst som gör att du kan integrera olika data lager och utföra aktiviteter på data. Med ADF kan du skapa data drivna arbets flöden för att dirigera och automatisera data förflyttning och data omvandling. Azure Datautforskaren är ett av de [data lager som stöds](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) i Azure Data Factory. 
+[Azure Data Factory](/azure/data-factory/) (ADF) är en molnbaserad dataintegrationstjänst som gör att du kan integrera olika datalager och utföra aktiviteter på data. Med ADF kan du skapa datadrivna arbetsflöden för att dirigera och automatisera dataförflyttningar och dataomvandling. Azure Data Explorer är ett av de [datalager som stöds](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) i Azure Data Factory. 
 
-## <a name="azure-data-factory-activities-for-azure-data-explorer"></a>Azure Data Factory aktiviteter för Azure Datautforskaren
+## <a name="azure-data-factory-activities-for-azure-data-explorer"></a>Azure Data Factory-aktiviteter för Azure Data Explorer
 
-Olika integreringar med Azure Data Factory är tillgängliga för Azure Datautforskaren-användare:
+Olika integreringar med Azure Data Factory är tillgängliga för Azure Data Explorer-användare:
 
 ### <a name="copy-activity"></a>Kopieringsaktivitet
  
-Azure Data Factory kopierings aktivitet används för att överföra data mellan data lager. Azure Datautforskaren stöds som en källa, där data kopieras från Azure Datautforskaren till alla data lager som stöds och en mottagare, där data kopieras från ett data lager som stöds till Azure Datautforskaren. Mer information finns i [Kopiera data till eller från Azure datautforskaren med Azure Data Factory](/azure/data-factory/connector-azure-data-explorer). en detaljerad genom gång finns i [läsa in data från Azure Data Factory till Azure datautforskaren](data-factory-load-data.md).
-Azure Datautforskaren stöds av Azure IR (Integration Runtime) som används när data kopieras i Azure och lokal IR-anslutning som används vid kopiering av data från/till data lager som finns lokalt eller i ett nätverk med åtkomst kontroll, till exempel en Azure-Virtual Network. Mer information finns i [vilken IR som ska användas](/azure/data-factory/concepts-integration-runtime#determining-which-ir-to-use)
+Azure Data Factory Copy-aktivitet används för att överföra data mellan datalager. Azure Data Explorer stöds som en källa, där data kopieras från Azure Data Explorer till alla datalager som stöds och en diskho, där data kopieras från alla datalager som stöds till Azure Data Explorer. Mer information finns i [kopiera data till eller från Azure Data Explorer med Azure Data Factory](/azure/data-factory/connector-azure-data-explorer). och för en detaljerad genomgång se [läsa in data från Azure Data Factory till Azure Data Explorer](data-factory-load-data.md).
+Azure Data Explorer stöds av Azure IR (Integration Runtime), som används när data kopieras i Azure och självvärd iR, som används vid kopiering av data från/till datalager som finns lokalt eller i ett nätverk med åtkomstkontroll, till exempel ett Virtuellt Azure-nätverk. Mer information finns i [vilken IR som ska användas](/azure/data-factory/concepts-integration-runtime#determining-which-ir-to-use)
  
 > [!TIP]
-> När du använder kopierings aktiviteten och skapar en **länkad tjänst** eller en **data uppsättning**väljer du data lagret **Azure datautforskaren (Kusto)** och inte det gamla **Kusto**för data lager.  
+> När du använder kopieringsaktiviteten och skapar en **länkad tjänst** eller en **datauppsättning**väljer du datalagret **Azure Data Explorer (Kusto)** och inte det gamla datalagret **Kusto**.  
 
-### <a name="lookup-activity"></a>Söknings aktivitet
+### <a name="lookup-activity"></a>Uppslagsaktivitet
  
-Söknings aktiviteten används för att köra frågor på Azure Datautforskaren. Resultatet av frågan returneras som resultatet av uppslags aktiviteten och kan användas i nästa aktivitet i pipelinen enligt beskrivningen i [dokumentationen för ADF-sökning](/azure/data-factory/control-flow-lookup-activity#use-the-lookup-activity-result-in-a-subsequent-activity).  
-Förutom svars storleks gränsen på 5 000 rader och 2 MB har aktiviteten också en tids gräns på 1 timme.
+Uppslagsaktiviteten används för att köra frågor på Azure Data Explorer. Resultatet av frågan returneras som utdata för uppslagsaktiviteten och kan användas i nästa aktivitet i pipelinen enligt beskrivningen i [ADF-uppslagsdokumentationen](/azure/data-factory/control-flow-lookup-activity#use-the-lookup-activity-result-in-a-subsequent-activity).  
+Förutom svarsstorleksgränsen på 5 000 rader och 2 MB har aktiviteten också en tidsgräns för fråga på 1 timme.
 
-### <a name="command-activity"></a>Kommando aktivitet
+### <a name="command-activity"></a>Kommandoaktivitet
 
-Med kommando aktiviteten kan du köra Azure Datautforskaren [Control-kommandon](/azure/kusto/concepts/#control-commands). Till skillnad från frågor kan kontroll kommandon eventuellt ändra data eller metadata. Några av kontroll kommandona är riktade till att mata in data i Azure Datautforskaren, med kommandon som `.ingest`eller `.set-or-append`) eller kopiera data från Azure Datautforskaren till externa data lager med hjälp av kommandon som `.export`.
-En detaljerad genom gång av kommando aktiviteten finns i [använda Azure Data Factory kommando aktivitet för att köra Azure datautforskaren Control-kommandon](data-factory-command-activity.md).  Om du använder ett kontroll kommando för att kopiera data kan du, när som helst, vara ett snabbare och billigare alternativ än kopierings aktiviteten. För att avgöra när du ska använda kommando aktiviteten jämfört med kopierings aktiviteten, se [Välj mellan kopierings-och kommando aktiviteter när du kopierar data](#select-between-copy-and-azure-data-explorer-command-activities-when-copy-data).
+Kommandoaktiviteten gör det möjligt att utföra Azure Data [Explorer-kontrollkommandon](/azure/kusto/concepts/#control-commands). Till skillnad från frågor kan kontrollkommandona potentiellt ändra data eller metadata. Vissa kontrollkommandon är inriktade på att använda data i Azure Data `.ingest` `.set-or-append`Explorer, med kommandon som eller ) eller kopiera `.export`data från Azure Data Explorer till externa datalager med kommandon som .
+En detaljerad genomgång av kommandoaktiviteten finns i [använda kommandoaktiviteten Azure Data Factory för att köra Azure Data Explorer-kontrollkommandon](data-factory-command-activity.md).  Att använda ett kontrollkommando för att kopiera data kan ibland vara ett snabbare och billigare alternativ än kopieringsaktiviteten. Information om hur du ska använda kommandoaktiviteten jämfört med kopieringsaktiviteten finns [i välj mellan Kopiera och kommandoaktiviteter när du kopierar data](#select-between-copy-and-azure-data-explorer-command-activities-when-copy-data).
 
-### <a name="copy-in-bulk-from-a-database-template"></a>Kopiera i bulk från en databas mall
+### <a name="copy-in-bulk-from-a-database-template"></a>Kopiera i grupp från en databasmall
 
-[Kopian i bulk från en databas till Azure datautforskaren med hjälp av Azure Data Factory mal len](data-factory-template.md) är en fördefinierad Azure Data Factory pipeline. Mallen används för att skapa många pipeliner per databas eller per tabell för snabbare data kopiering. 
+[Kopian i massinlösen från en databas till Azure Data Explorer med hjälp av Azure Data Factory-mallen](data-factory-template.md) är en fördefinierad Azure Data Factory-pipeline. Mallen används för att skapa många pipelines per databas eller per tabell för snabbare datakopiering. 
 
 ### <a name="mapping-data-flows"></a>Mappa dataflöden 
 
-[Azure Data Factory mappa data flöden](/azure/data-factory/concepts-data-flow-overview) visuellt utformade data transformationer som gör det möjligt för data tekniker att utveckla logik för grafisk data omvandling utan att skriva kod. Om du vill skapa ett data flöde och mata in data till Azure Datautforskaren använder du följande metod:
+[Azure Data Factory-mappningsdataflöden](/azure/data-factory/concepts-data-flow-overview) är visuellt utformade dataomvandlingar som gör det möjligt för datatekniker att utveckla grafisk dataomvandlingslogik utan att skriva kod. Om du vill skapa ett dataflöde och inta data till Azure Data Explorer använder du följande metod:
 
-1. Skapa [data flödet för mappning](/azure/data-factory/data-flow-create).
+1. Skapa [mappningsdataflödet](/azure/data-factory/data-flow-create).
 1. [Exportera data till Azure Blob](/azure/data-factory/data-flow-sink). 
-1. Definiera [Event Grid](/azure/data-explorer/ingest-data-event-grid) eller [ADF kopierings aktivitet](/azure/data-explorer/data-factory-load-data) för att mata in data till Azure datautforskaren.
+1. Definiera [händelserutnät](/azure/data-explorer/ingest-data-event-grid) eller [ADF-kopieringsaktivitet](/azure/data-explorer/data-factory-load-data) för att förtära data till Azure Data Explorer.
 
-## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Välj mellan kopierings-och Azure Datautforskaren kommando aktiviteter vid kopiering av data 
+## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Välj mellan kommandoaktiviteter för Kopiera och Azure Data Explorer när data kopieras 
 
-Det här avsnittet hjälper dig att välja rätt aktivitet för dina data kopierings behov.
+Det här avsnittet hjälper dig att välja rätt aktivitet för dina datakopieringsbehov.
 
-När du kopierar data från eller till Azure Datautforskaren finns det två tillgängliga alternativ i Azure Data Factory:
-* Kopierings aktivitet.
-* Azure Datautforskaren kommando aktivitet, som kör ett av kontroll kommandona som överför data i Azure Datautforskaren. 
+När du kopierar data från eller till Azure Data Explorer finns det två tillgängliga alternativ i Azure Data Factory:
+* Kopiera aktivitet.
+* Kommandoaktiviteten för Azure Data Explorer, som kör ett av de kontrollkommandon som överför data i Azure Data Explorer. 
 
-### <a name="copy-data-from-azure-data-explorer"></a>Kopiera data från Azure Datautforskaren
+### <a name="copy-data-from-azure-data-explorer"></a>Kopiera data från Azure Data Explorer
   
-Du kan kopiera data från Azure Datautforskaren med hjälp av kopierings aktiviteten eller [`.export`](/azure/kusto/management/data-export/) kommandot. Kommandot `.export` kör en fråga och exporterar sedan resultatet från frågan. 
+Du kan kopiera data från Azure Data [`.export`](/azure/kusto/management/data-export/) Explorer med hjälp av kopieringsaktiviteten eller kommandot. Kommandot `.export` kör en fråga och exporterar sedan resultatet av frågan. 
 
-I följande tabell visas en jämförelse av kommandot Kopiera aktivitet och `.export` för att kopiera data från Azure Datautforskaren.
+Se följande tabell för en jämförelse `.export` av kopieringsaktiviteten och kommandot för kopiering av data från Azure Data Explorer.
 
-| | Kopieringsaktivitet | . export-kommandot |
+| | Kopieringsaktivitet | .export, kommando |
 |---|---|---|
-| **Flödes Beskrivning** | ADF kör en fråga på Kusto, bearbetar resultatet och skickar det till mål data lagret. <br>(**ADX > ADF > mottagare av data lager**) | ADF skickar ett `.export` kontroll kommando till Azure Datautforskaren, som kör kommandot och skickar data direkt till mål data lagret. <br>(**ADX > Sink data Store**) |
-| **Mål data lager som stöds** | En mängd olika [data lager som stöds](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLSv2, Azure-Blob, SQL Database |
-| **Prestanda** | Centraliserad | <ul><li>Distribuerat (standard), exportera data från flera noder samtidigt</li><li>Snabbare och KSV-effektivt.</li></ul> |
-| **Server begränsningar** | [Frågans gränser](/azure/kusto/concepts/querylimits) kan utökas/inaktive ras. Som standard innehåller ADF-frågor: <ul><li>Storleks gräns på 500 000 poster eller 64 MB.</li><li>Tids gräns på 10 minuter.</li><li>`noTruncation` angetts till false.</li></ul> | Som standard utökar eller inaktiverar du begränsningarna för frågan: <ul><li>Storleks gränserna har inaktiverats.</li><li>Serverns tids gräns är utökad till 1 timme.</li><li>`MaxMemoryConsumptionPerIterator` och `MaxMemoryConsumptionPerQueryPerNode` utökas till max (5 GB, TotalPhysicalMemory/2).</li></ul>
+| **Beskrivning av flöde** | ADF kör en fråga på Kusto, bearbetar resultatet och skickar den till måldatalagret. <br>**(ADX > ADF > sink datalager**) | ADF skickar `.export` ett kontrollkommando till Azure Data Explorer, som kör kommandot, och skickar data direkt till måldatalagret. <br>**(ADX > sink datalager**) |
+| **Måldatalager som stöds** | En mängd olika [datalager som stöds](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLSv2, Azure Blob, SQL-databas |
+| **Prestanda** | Centraliserad | <ul><li>Distribuerad (standard), exportera data från flera noder samtidigt</li><li>Snabbare och COGS effektiv.</li></ul> |
+| **Servergränser** | [Frågegränser kan](/azure/kusto/concepts/querylimits) utökas/inaktiveras. Som standard innehåller ADF-frågor: <ul><li>Storleksgräns på 500 000 poster eller 64 MB.</li><li>Tidsgränsen på 10 minuter.</li><li>`noTruncation`inställd på false.</li></ul> | Som standard utökar eller inaktiverar frågegränserna: <ul><li>Storleksgränserna är inaktiverade.</li><li>Tidsgränsen för servern utökas till 1 timme.</li><li>`MaxMemoryConsumptionPerIterator`och `MaxMemoryConsumptionPerQueryPerNode` utökas till max (5 GB, TotalPhysicalMemory/2).</li></ul>
 
 > [!TIP]
-> Om ditt kopierings mål är ett av de data lager som stöds av `.export` kommandot och om ingen av funktionerna kopiera aktivitet är avgörande för dina behov, väljer du kommandot `.export`.
+> Om ditt kopieringsmål är ett av `.export` de datalager som stöds av kommandot, och om `.export` ingen av funktionerna för kopieringsaktivitet är avgörande för dina behov väljer du kommandot.
 
-### <a name="copying-data-to-azure-data-explorer"></a>Kopiera data till Azure Datautforskaren
+### <a name="copying-data-to-azure-data-explorer"></a>Kopiera data till Azure Data Explorer
 
-Du kan kopiera data till Azure Datautforskaren med hjälp av kommandona Kopiera aktivitet eller inmatning, t. ex. inmatning [från fråga](/azure/kusto/management/data-ingestion/ingest-from-query) (`.set-or-append`, `.set-or-replace`, `.set`, `.replace)`och mata in [från Storage](/azure/kusto/management/data-ingestion/ingest-from-storage) (`.ingest`). 
+Du kan kopiera data till Azure Data Explorer med hjälp av kopieringsaktiviteten`.set-or-append` `.set-or-replace`eller `.set` `.replace)`inmatningskommandona, till exempel [inmatning från fråga](/azure/kusto/management/data-ingestion/ingest-from-query) ( , , , och [inta från lagring](/azure/kusto/management/data-ingestion/ingest-from-storage) (`.ingest`). 
 
-I följande tabell finns en jämförelse av kopierings aktiviteten och inmatnings kommandon för att kopiera data till Azure Datautforskaren.
+Se följande tabell för en jämförelse av kopieringsaktiviteten och inmatningskommandon för kopiering av data till Azure Data Explorer.
 
-| | Kopieringsaktivitet | Mata in från fråga<br> `.set-or-append` / `.set-or-replace` / `.set` / `.replace` | Mata in från lagring <br> `.ingest` |
+| | Kopieringsaktivitet | Inta från fråga<br> `.set-or-append` / `.set-or-replace` / `.set` / `.replace` | Inta från lagring <br> `.ingest` |
 |---|---|---|---|
-| **Flödes Beskrivning** | ADF hämtar data från käll data lagret, konverterar det till ett tabell format och gör nödvändiga ändringar i schema mappningen. ADF överför sedan data till Azure-blobbar, delar upp dem i segment och laddar sedan ned Blobbarna för att mata in dem i ADX-tabellen. <br> (**Käll data lager > ADF > Azure blobs > ADX**) | Dessa kommandon kan köra en fråga eller ett `.show` kommando och mata in resultatet av frågan i en tabell (**ADX > ADX**). | Det här kommandot matar in data i en tabell genom att "Hämta" data från en eller flera moln lagrings artefakter. |
-| **Käll data lager som stöds** |  [olika alternativ](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLS gen 2, Azure Blob, SQL (med sql_request-plugin-programmet), Cosmos (med hjälp av cosmosdb_sql_request-plugin-programmet) och andra data lager som tillhandahåller HTTP-eller python-API: er. | Fil system, Azure Blob Storage, ADLS gen 1, ADLS gen 2 |
-| **Prestanda** | Inmatningarna köas och hanteras, vilket säkerställer att det går att använda små mängder och säkerställer hög tillgänglighet genom att tillhandahålla belastnings utjämning, nya försök och fel hantering. | <ul><li>Dessa kommandon har inte utformats för att importera data med hög volym.</li><li>Fungerar som förväntat och billigare. Men för produktions scenarier och när trafik hastigheter och data storlekar är stora, använder du kopierings aktiviteten.</li></ul> |
-| **Server begränsningar** | <ul><li>Ingen storleks gräns.</li><li>Max. gräns för tids gräns: 1 timme per inmatad blob. |<ul><li>Det finns bara en storleks gräns på fråge delen, som kan hoppas över genom att ange `noTruncation=true`.</li><li>Max. tids gräns: 1 timme.</li></ul> | <ul><li>Ingen storleks gräns.</li><li>Max. tids gräns: 1 timme.</li></ul>|
+| **Beskrivning av flöde** | ADF hämtar data från källdatalagret, konverterar dem till ett tabellformat och gör de schemamappningsändringar som krävs. ADF överför sedan data till Azure-blobbar, delar upp dem i segment och hämtar sedan blobbar för att förtära dem i ADX-tabellen. <br> (**Källdatalager > ADF > Azure blobbar > ADX**) | Dessa kommandon kan köra en `.show` fråga eller ett kommando och inta resultatet av frågan i en tabell (**ADX > ADX**). | Det här kommandot intar data i en tabell genom att "dra" data från en eller flera molnlagringsartefakter. |
+| **Källdatalager som stöds** |  [olika alternativ](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLS Gen 2, Azure Blob, SQL (med hjälp av sql_request plugin), Cosmos (med hjälp av cosmosdb_sql_request plugin) och alla andra datalager som tillhandahåller HTTP- eller Python-API:er. | Filsystem, Azure Blob Storage, ADLS Gen 1, ADLS Gen 2 |
+| **Prestanda** | Intag ställs i kö och hanteras, vilket säkerställer små storleksutmatningar och säkerställer hög tillgänglighet genom att tillhandahålla belastningsutjämning, återförsök och felhantering. | <ul><li>Dessa kommandon har inte utformats för import av data med stora volymer.</li><li>Fungerar som förväntat och billigare. Men för produktionsscenarier och när trafikhastigheter och datastorlekar är stora använder du aktiviteten Kopiera.</li></ul> |
+| **Servergränser** | <ul><li>Ingen storleksgräns.</li><li>Max tidsgräns: 1 timme per intas blob. |<ul><li>Det finns bara en storleksgräns för frågedelen, som `noTruncation=true`kan hoppas över genom att ange .</li><li>Max tidsgräns: 1 timme.</li></ul> | <ul><li>Ingen storleksgräns.</li><li>Max tidsgräns: 1 timme.</li></ul>|
 
 > [!TIP]
-> * När du kopierar data från ADF till Azure Datautforskaren använda `ingest from query`-kommandon.  
-> * För stora data mängder (> 1 GB) använder du kopierings aktiviteten.  
+> * När du kopierar data från ADF `ingest from query` till Azure Data Explorer använder du kommandona.  
+> * För stora datauppsättningar (>1 GB) använder du kopieringsaktiviteten.  
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-I följande tabell visas de behörigheter som krävs för olika steg i integrationen med Azure Data Factory.
+I följande tabell visas de behörigheter som krävs för olika steg i integreringen med Azure Data Factory.
 
-| Steg | Åtgärd | Lägsta behörighets nivå | Anteckningar |
+| Steg | Åtgärd | Lägsta behörighetsnivå | Anteckningar |
 |---|---|---|---|
-| **Skapa en länkad tjänst** | Databas navigering | *databas visare* <br>Den inloggade användaren som använder ADF bör ha behörighet att läsa metadata för databasen. | Användaren kan ange databas namnet manuellt. |
-| | Testa anslutning | *databas övervakare* eller *tabell* inmatning <br>Tjänstens huvud namn bör ha behörighet att köra `.show`-kommandon eller tabell nivå inmatning på databas nivå. | <ul><li>TestConnection verifierar anslutningen till klustret och inte till-databasen. Det kan lyckas även om databasen inte finns.</li><li>Tabell administratörens behörigheter räcker inte.</li></ul>|
-| **Skapa en data uppsättning** | Tabell navigering | *databas övervakare* <br>Den inloggade användaren med ADF måste ha behörighet att köra kommandon på databas nivå `.show`. | Användaren kan ange tabell namn manuellt.|
-| **Skapa en data uppsättning** eller **kopierings aktivitet** | Förhandsgranska data | *databas visare* <br>Tjänstens huvud namn måste ha behörighet att läsa metadata för databasen. | | 
-|   | Importera schema | *databas visare* <br>Tjänstens huvud namn måste ha behörighet att läsa metadata för databasen. | När ADX är källan till en tabell kopia, kommer ADF att importera schemat automatiskt, även om användaren inte har importerat schemat explicit. |
-| **ADX som mottagare** | Skapa en kolumn mappning per namn | *databas övervakare* <br>Tjänstens huvud namn måste ha behörighet att köra `.show`-kommandon på databas nivå. | <ul><li>Alla obligatoriska åtgärder fungerar med *Table*-inmatnings plats.</li><li> Vissa valfria åtgärder kan inte utföras.</li></ul> |
-|   | <ul><li>Skapa en CSV-mappning i tabellen</li><li>Ta bort mappningen</li></ul>| *tabell* inmatnings-eller *databas administratör* <br>Tjänstens huvud namn måste ha behörighet att göra ändringar i en tabell. | |
-|   | För in data | *tabell* inmatnings-eller *databas administratör* <br>Tjänstens huvud namn måste ha behörighet att göra ändringar i en tabell. | | 
-| **ADX som källa** | Kör fråga | *databas visare* <br>Tjänstens huvud namn måste ha behörighet att läsa metadata för databasen. | |
-| **Kusto-kommando** | | Enligt behörighets nivån för varje kommando. |
+| **Skapa en länkad tjänst** | Navigering i databasen | *databasvisare* <br>Den inloggade användaren som använder ADF bör ha behörighet att läsa databasmetadata. | Användaren kan ange databasnamnet manuellt. |
+| | Testa anslutning | *databasövervakare* eller *tabell ingestor* <br>Tjänstens huvudnamn bör ha `.show` behörighet att köra kommandon på databasnivå eller inmatning på tabellnivå. | <ul><li>TestConnection verifierar anslutningen till klustret och inte till databasen. Det kan lyckas även om databasen inte finns.</li><li>Behörigheter för tabelladministratör räcker inte.</li></ul>|
+| **Skapa en datauppsättning** | Navigering i tabell | *databasövervakare* <br>Den inloggade användaren med ADF måste ha behörighet `.show` att köra kommandon på databasnivå. | Användaren kan ange tabellnamn manuellt.|
+| **Skapa en datauppsättning** eller **kopieringsaktivitet** | Förhandsgranska data | *databasvisare* <br>Tjänstens huvudnamn måste ha behörighet att läsa databasens metadata. | | 
+|   | Importera schema | *databasvisare* <br>Tjänstens huvudnamn måste ha behörighet att läsa databasens metadata. | När ADX är källan till en tabell-till-tabellkopia importerar ADF schemat automatiskt, även om användaren inte har importerat schemat explicit. |
+| **ADX som diskbänk** | Skapa en mappning av en kolumn med namn | *databasövervakare* <br>Tjänstens huvudnamn måste ha `.show` behörighet att köra kommandon på databasnivå. | <ul><li>Alla obligatoriska åtgärder kommer att arbeta med *tabell ingestor*.</li><li> Vissa valfria åtgärder kan misslyckas.</li></ul> |
+|   | <ul><li>Skapa en CSV-mappning i tabellen</li><li>Släpp mappningen</li></ul>| *tabell ingestor* eller *databasadministratör* <br>Tjänstens huvudnamn måste ha behörighet att göra ändringar i en tabell. | |
+|   | Mata in data | *tabell ingestor* eller *databasadministratör* <br>Tjänstens huvudnamn måste ha behörighet att göra ändringar i en tabell. | | 
+| **ADX som källa** | Kör fråga | *databasvisare* <br>Tjänstens huvudnamn måste ha behörighet att läsa databasens metadata. | |
+| **Kusto, kommando** | | Enligt behörighetsnivån för varje kommando. |
 
 ## <a name="performance"></a>Prestanda 
 
-Om Azure Datautforskaren är källan och du använder en söknings-, kopierings-eller kommando aktivitet som innehåller en fråga där, se [metod tips](/azure/kusto/query/best-practices) för att få information om prestanda information och [ADF-dokumentation för kopierings aktiviteten](/azure/data-factory/copy-activity-performance).
+Om Azure Data Explorer är källan och du använder aktiviteten Uppslag, kopiera eller kommando som innehåller en fråga där, se [metodtips](/azure/kusto/query/best-practices) för prestandainformation och [ADF-dokumentation för kopieringsaktivitet](/azure/data-factory/copy-activity-performance).
   
-Det här avsnittet behandlar användningen av kopierings aktivitet där Azure Datautforskaren är mottagaren. Det beräknade data flödet för Azure Datautforskaren Sink är 11-13 Mbit/s. I följande tabell beskrivs de parametrar som påverkar prestandan för Azure Datautforskaren-mottagare.
+Det här avsnittet behandlar användningen av kopieringsaktivitet där Azure Data Explorer är diskhon. Det uppskattade dataflödet för Azure Data Explorer-diskbänken är 11-13 MBps. I följande tabell beskrivs parametrarna som påverkar prestanda för Azure Data Explorer-diskhon.
 
 | Parameter | Anteckningar |
 |---|---|
-| **Komponenter geografisk närhet** | Placera alla komponenter i samma region:<ul><li>käll-och mottagar data lager.</li><li>ADF integration Runtime.</li><li>Ditt ADX-kluster.</li></ul>Se till att minst din integration runtime finns i samma region som ditt ADX-kluster. |
-| **Antal DIUs** | 1 virtuell dator för varje 4-DIUs som används av ADF. <br>Om du ökar DIUs får du bara hjälp om din källa är en filbaserad lagring med flera filer. Varje virtuell dator kommer sedan att bearbeta en annan fil parallellt. Därför har kopiering av en enda stor fil en högre latens än att kopiera flera mindre filer.|
-|**Mängden och SKU: n för ditt ADX-kluster** | Ett stort antal ADX-noder ökar bearbetnings tiden för inläsning.|
-| **Parallellitet** | Om du vill kopiera en mycket stor mängd data från en databas, partitionerar du dina data och använder sedan en Visningsmall som kopierar varje partition parallellt eller använder [Mass kopiering från databas till Azure datautforskaren-mall](data-factory-template.md). Obs! **inställningar** > **graden av parallellitet** i kopierings aktiviteten är inte relevant för ADX. |
-| **Data bearbetnings komplexitet** | Svars tiden varierar beroende på käll fils format, kolumn mappning och komprimering.|
-| **Den virtuella datorn som kör integrerings körningen** | <ul><li>För Azure Copy går det inte att ändra ADF VM och Machine SKU: er.</li><li> För lokal till Azure Copy kontrollerar du att den virtuella datorn som är värd för din egen IR-överföring är tillräckligt stark.</li></ul>|
+| **Komponenter geografisk närhet** | Placera alla komponenter i samma region:<ul><li>och diskbänksdatalager.</li><li>ADF-integrationskörning.</li><li>Ditt ADX-kluster.</li></ul>Kontrollera att åtminstone din integrationskörning är i samma region som ADX-klustret. |
+| **Antal dikuser** | 1 virtuell dator för varje 4 DIUs som används av ADF. <br>Om du ökar diu:erna kan det bara vara om källan är ett filbaserat arkiv med flera filer. Varje virtuell dator bearbetar sedan en annan fil parallellt. Därför kommer kopiering av en enda stor fil att ha en högre svarstid än att kopiera flera mindre filer.|
+|**Belopp och SKU för ADX-klustret** | Ett stort antal ADX-noder ökar bearbetningstiden för intag.|
+| **Parallellitet** | Om du vill kopiera en mycket stor mängd data från en databas partitionerar du dina data och använder sedan en ForEach-loop som kopierar varje partition parallellt eller använder [masskopian från databasen till Azure Data Explorer-mallen](data-factory-template.md). Inställningar**Graden av parallellitet** i kopieringsaktiviteten är inte relevant för ADX. **Settings** >  |
+| **Komplexitet för databehandling** | Svarstiden varierar beroende på källfilformat, kolumnmappning och komprimering.|
+| **Den virtuella datorn som kör din integrationskörning** | <ul><li>För Azure-kopia kan inte virtuella ADF-datorer och datorsku:er ändras.</li><li> För on-prem till Azure-kopia, fastställa att den virtuella datorn som är värd för din egenvärderade IR är tillräckligt stark.</li></ul>|
 
-## <a name="tips-and-common-pitfalls"></a>Tips och vanliga fall GRO par
+## <a name="tips-and-common-pitfalls"></a>Tips och vanliga fallgropar
 
-### <a name="monitor-activity-progress"></a>Övervaka aktivitets förlopp
+### <a name="monitor-activity-progress"></a>Övervaka aktivitetens förlopp
 
-* När du övervakar aktivitets förloppet kan den *data skrivna* egenskapen vara mycket större än egenskapen *läsa data* eftersom *data som läses* beräknas enligt den binära fil storleken, medan data som *skrivs* beräknas enligt minnes storleken i minnet efter att data har deserialiserats och expanderats.
+* När aktivitetens förlopp övervakas kan egenskapen *Data skriven* vara mycket större än egenskapen *Data read* eftersom *dataläsning* beräknas enligt den binära filstorleken, medan *data som skrivs* beräknas enligt minnesstorleken, efter att data har de-serialiserats och expanderats.
 
-* När du övervakar aktivitets förloppet kan du se att data skrivs till Azure Datautforskaren-mottagaren. När du frågar Azure Datautforskaren-tabellen ser du att data inte har anlänt. Det beror på att det finns två steg när du kopierar till Azure Datautforskaren. 
-    * Första steget läser källdata, delar upp dem till 900 MB-segment och överför varje segment till en Azure-blob. Det första steget visas i vyn ADF-aktivitets förlopp. 
-    * Det andra steget börjar när alla data har laddats upp till Azure-blobar. Azure Datautforskaren Engine-noderna laddar ned blobarna och matar in data i tabellen mottagare. Data visas sedan i Azure Datautforskaren-tabellen.
+* När du övervakar aktivitetsstatusen kan du se att data skrivs till Azure Data Explorer-diskbänken. När du frågar tabellen Azure Data Explorer ser du att data inte har kommit. Detta beror på att det finns två steg vid kopiering till Azure Data Explorer. 
+    * Första steget läser källdata, delar upp den till 900 MB-segment och överför varje segment till en Azure Blob. Det första steget ses av ADF-aktivitetens framstegsvy. 
+    * Den andra fasen börjar när alla data överförs till Azure Blobbar. Azure Data Explorer-motornoderna hämtar blobbar och intar data i sink-tabellen. Data visas sedan i tabellen Azure Data Explorer.
 
-### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>Det gick inte att mata in CSV-filer på grund av felaktiga undantag
+### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>Underlåtenhet att inta CSV-filer på grund av felaktig utrymning
 
-Azure-Datautforskaren förväntar CSV-filer som överensstämmer med [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
+Azure Data Explorer förväntar sig att CSV-filer ska justeras med [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt).
 Den förväntar sig:
-* Fält som innehåller tecken som kräver undantag (till exempel "och nya rader) måste börja och sluta med ett **"** -tecken, utan blank steg. Alla **"** tecken *inuti* fältet är undantagna genom att använda ett dubbelt **"** tecken ( **""** ). Till exempel _"Hello," "World" "_ är en giltig CSV-fil med en enda post med en kolumn eller ett fält med innehållet _Hej," världen "_ .
+* Fält som innehåller tecken som kräver utrymning (till exempel " och nya rader) ska börja och sluta med ett **"** tecken, utan blanktecken. Alla **"** tecken *inuti* fältet förser med hjälp av ett dubbelt **"** tecken (**""**). Till exempel _"Hello, ""World"""_ är en giltig CSV-fil med en enda post med en enda kolumn eller ett fält med innehållet _Hello, "World"._
 * Alla poster i filen måste ha samma antal kolumner och fält.
 
-Azure Data Factory tillåter ett omvänt snedstreck (Escape). Om du genererar en CSV-fil med ett omvänt snedstreck med hjälp av Azure Data Factory, kommer det inte att gå att mata in filen till Azure Datautforskaren.
+Med Azure Data Factory tillåts omvänt snedstreck (escape). Om du genererar en CSV-fil med ett omvänt snedstreck med Azure Data Factory misslyckas inmatningen av filen till Azure Data Explorer.
 
 #### <a name="example"></a>Exempel
 
-Följande text värden: Hej, "världen"<br/>
-ABC-DEF<br/>
-"ABC\D" EF<br/>
+Följande textvärden: Hello, "World"<br/>
+ABC DEF<br/>
+"ABC\D"EF<br/>
 "ABC DEF<br/>
 
-Ska visas i en korrekt CSV-fil på följande sätt: "Hello," "World" "<br/>
+Bör visas i en riktig CSV-fil enligt följande: "Hej, ""World"""<br/>
 "ABC DEF"<br/>
-"" "ABC DEF"<br/>
-"" "ABC\D" "EF"<br/>
+""ABC DEF"<br/>
+"""ABC\D""EF"<br/>
 
-Genom att använda standard escape-tecken (omvänt snedstreck) fungerar inte följande CSV med Azure Datautforskaren: "Hello, \"World\""<br/>
+Genom att använda standard escape-tecknet (omvänt snedstreck) fungerar inte följande \"CSV med Azure Data Explorer: "Hello, World"\"<br/>
 "ABC DEF"<br/>
 "\"ABC DEF"<br/>
 "\"ABC\D\"EF"<br/>
 
 ### <a name="nested-json-objects"></a>Kapslade JSON-objekt
 
-Tänk på följande när du kopierar en JSON-fil till Azure Datautforskaren:
+När du kopierar en JSON-fil till Azure Data Explorer bör du tänka på följande:
 * Matriser stöds inte.
-* Om JSON-strukturen innehåller objekt data typer, kommer Azure Data Factory att förenkla objektets underordnade objekt och försöka mappa varje underordnat objekt till en annan kolumn i Azure Datautforskaren-tabellen. Om du vill att hela objekt objekt ska mappas till en enda kolumn i Azure Datautforskaren:
-    * Mata in hela JSON-raden i en enda dynamisk kolumn i Azure Datautforskaren.
-    * Redigera pipeline-definitionen manuellt genom att använda Azure Data Factorys JSON-redigerare. I **mappningar**
-       * Ta bort de flera mappningarna som har skapats för varje underordnat objekt och Lägg till en enda mappning som mappar din objekt typ till din tabell kolumn.
+* Om JSON-strukturen innehåller objektdatatyper förenklar Azure Data Factory objektets underordnade objekt och försöker mappa varje underordnat objekt till en annan kolumn i tabellen Azure Data Explorer. Om du vill att hela objektobjektet ska mappas till en enda kolumn i Azure Data Explorer:
+    * Inta hela JSON-raden i en enda dynamisk kolumn i Azure Data Explorer.
+    * Redigera pipelinedefinitionen manuellt med hjälp av Azure Data Factorys JSON-redigerare. I **mappningar**
+       * Ta bort de flera mappningar som har skapats för varje underordnat objekt och lägg till en enda mappning som mappar objekttypen till tabellkolumnen.
        * Efter den avslutande hakparentesen lägger du till ett kommatecken följt av:<br/>
        `"mapComplexValuesToString": true`.
 
-### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Ange AdditionalProperties när du kopierar till Azure Datautforskaren
+### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Ange ytterligare egenskaper vid kopiering till Azure Data Explorer
 
 > [!NOTE]
-> Den här funktionen är för närvarande tillgänglig genom att redigera JSON-nyttolasten manuellt. 
+> Den här funktionen är för närvarande tillgänglig genom att manuellt redigera JSON-nyttolasten. 
 
-Lägg till en enskild rad under avsnittet "Sink" i kopierings aktiviteten enligt följande:
+Lägg till en rad under avsnittet "sink" i kopieringsaktiviteten enligt följande:
 
 ```json
 "sink": {
@@ -187,7 +187,7 @@ Lägg till en enskild rad under avsnittet "Sink" i kopierings aktiviteten enligt
 },
 ```
 
-Det kan vara knepigt att begränsa antalet undantag i värdet. Använd följande kodfragment som referens:
+Att fly av värdet kan vara svårt. Använd följande kodavsnitt som referens:
 
 ```csharp
 static void Main(string[] args)
@@ -213,10 +213,10 @@ Det utskrivna värdet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [kopierar data till Azure datautforskaren med hjälp av Azure Data Factory](data-factory-load-data.md).
-* Lär dig mer om [att använda Azure Data Factory mall för Mass kopiering från databas till Azure datautforskaren](data-factory-template.md).
-* Lär dig mer om [att använda Azure Data Factory kommando aktivitet för att köra Azure datautforskaren Control-kommandon](data-factory-command-activity.md).
-* Lär dig mer om [Azure datautforskaren frågor](/azure/data-explorer/web-query-data) för data frågor.
+* Lär dig hur du [kopierar data till Azure Data Explorer med hjälp av Azure Data Factory](data-factory-load-data.md).
+* Lär dig mer om hur du använder [Azure Data Factory-mall för masskopia från databas till Azure Data Explorer](data-factory-template.md).
+* Lär dig mer om hur du använder [kommandoaktiviteten i Azure Data Factory för att köra Azure Data Explorer-kontrollkommandon](data-factory-command-activity.md).
+* Lär dig mer om [Azure Data Explorer-frågor](/azure/data-explorer/web-query-data) för datafrågor.
 
 
 

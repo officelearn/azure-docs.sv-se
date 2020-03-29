@@ -1,6 +1,6 @@
 ---
-title: Skala skalnings uppsättningar för virtuella Azure-datorer vertikalt
-description: Hur du lodrätt skalar en virtuell dator som svar på övervaknings aviseringar med Azure Automation
+title: Skala azure-skalningsuppsättningar för vertikalt skala
+description: Så här skalar du en virtuell dator vertikalt som svar på övervakningsaviseringar med Azure Automation
 author: mayanknayar
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
@@ -11,36 +11,36 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: manayar
 ms.openlocfilehash: fa1dda2907e8400491c8d18897bb41fb9cff49fd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76274439"
 ---
-# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Lodrät autoskalning med skalnings uppsättningar för virtuella datorer
+# <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Vertikal automatisk skalning med skalningsuppsättningar för virtuella datorer
 
-Den här artikeln beskriver hur du skalar Azure- [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) i lodrät skala med eller utan att etablera. 
+I den här artikeln beskrivs hur du lodrätt skalar Azure [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) med eller utan att ometablera. 
 
-Vertikal skalning, som även kallas *skala upp* och *ned*, innebär att öka eller minska storleken på virtuella datorer som svar på en arbets belastning. Jämför det här beteendet med [horisontell skalning](virtual-machine-scale-sets-autoscale-overview.md), vilket även kallas *skala ut* och *skala i*, där antalet virtuella datorer ändras beroende på arbets belastningen.
+Vertikal skalning, även känd som *skala upp* och *skala ner*, innebär att öka eller minska virtuella datorstorlekar (VM) som svar på en arbetsbelastning. Jämför det här beteendet med [vågrät skalning](virtual-machine-scale-sets-autoscale-overview.md), även kallad *skala ut* och *skala i*, där antalet virtuella datorer ändras beroende på arbetsbelastningen.
 
-Reetablering innebär att en befintlig virtuell dator tas bort och ersätts med en ny. När du ökar eller minskar storleken på virtuella datorer i en skalnings uppsättning för virtuella datorer kan du i vissa fall ändra storlek på befintliga virtuella datorer och behålla dina data, men i andra fall måste du distribuera nya virtuella datorer med den nya storleken. Det här dokumentet omfattar båda fallen.
+Ometablering innebär att du tar bort en befintlig virtuell dator och ersätter den med en ny. När du ökar eller minskar storleken på virtuella datorer i en skaluppsättning för virtuella datorer vill du i vissa fall ändra storlek på befintliga virtuella datorer och behålla dina data, medan du i andra fall måste distribuera nya virtuella datorer av den nya storleken. Detta dokument täcker båda fallen.
 
-Lodrät skalning kan vara användbart när:
+Vertikal skalning kan vara användbart när:
 
-* En tjänst som bygger på virtuella datorer används under användning (till exempel på helger). Att minska storleken på den virtuella datorn kan minska månads kostnaderna.
-* Öka storleken på virtuella datorer för att hantera större efter frågan utan att skapa ytterligare virtuella datorer.
+* En tjänst som bygger på virtuella datorer är underutnyttjad (till exempel på helger). Om du minskar storleken på den virtuella datorn kan du minska månadskostnaderna.
+* Öka vm-storleken för att hantera större efterfrågan utan att skapa ytterligare virtuella datorer.
 
-Du kan ställa in vertikal skalning så att den utlöses baserat på måttbaserade aviseringar från skalnings uppsättningen för den virtuella datorn. När aviseringen aktive ras utlöses en webhook som utlöser en Runbook som kan skala upp eller ned din skalnings uppsättning. Lodrät skalning kan konfigureras genom att följa dessa steg:
+Du kan ställa in lodrät skalning som ska utlösas baserat på måttbaserade aviseringar från din skalauppsättning för virtuella datorer. När aviseringen är aktiverad utlöses en webhook som utlöser en runbook som kan skala upp eller ned. Vertikal skalning kan konfigureras genom att följa dessa steg:
 
-1. Skapa ett Azure Automation-konto med kör som-funktion.
-2. Importera Azure Automation de lodräta skalnings runbooksna för virtuella datorers skalnings uppsättningar till din prenumeration.
-3. Lägg till en webhook i din Runbook.
-4. Lägg till en avisering i skalnings uppsättningen för den virtuella datorn med en webhook-avisering.
+1. Skapa ett Azure Automation-konto med körningsfunktioner.
+2. Importera Azure Automation Vertical Scale runbooks för virtuella datorskalauppsättningar till din prenumeration.
+3. Lägg till en webhook i din runbook.
+4. Lägg till en avisering i din skalauppsättning för virtuella datorer med hjälp av ett webhook-meddelande.
 
 > [!NOTE]
-> På grund av storleken på den första virtuella datorn kan storlekarna som kan skalas till, begränsas på grund av tillgängligheten för de andra storlekarna i klustret som den aktuella virtuella datorn har distribuerats i. I de publicerade Automation-runbooks som används i den här artikeln tar vi hand om det här fallet och skalar bara inom de följande virtuella datorernas storleks par. Det innebär att en Standard_D1v2 virtuell dator plötsligt inte skalas upp till Standard_G5 eller skalas ned till Basic_A0. Även begränsade storlekar för virtuella datorer skalar upp/ned stöds inte. Du kan välja att skala mellan följande par storlekar:
+> På grund av storleken på den första virtuella datorn kan de storlekar som den kan skalas till begränsas på grund av tillgängligheten för de andra storlekarna i den virtuella datorn distribueras i klustret. I de publicerade automatiseringskörningsböckerna som används i den här artikeln tar vi hand om det här fallet och skalar endast under de under virtuella paren. Detta innebär att en Standard_D1v2 virtuell dator inte plötsligt skalas upp till Standard_G5 eller skalas ned till Basic_A0. Det går inte heller att skapa begränsade storlekar för virtuella datorer som skalas upp/ned. Du kan välja att skala mellan följande färgpar:
 > 
-> | Skalnings par för VM-storlekar |  |
+> | Skalningspar för VM-storlekar |  |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standard_A0 |Standard_A4 |
@@ -87,39 +87,39 @@ Du kan ställa in vertikal skalning så att den utlöses baserat på måttbasera
 > | Standard_NV12s_v3 |Standard_NV48s_v3 |
 > 
 
-## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Skapa ett Azure Automation-konto med kör som-funktion
-Det första du behöver göra är att skapa ett Azure Automation-konto som är värd för de Runbooks som används för att skala de virtuella datorernas skalnings uppsättnings instanser. Nyligen [Azure Automation](https://azure.microsoft.com/services/automation/) introducerade funktionen "kör som-konto" som gör det enkelt att konfigurera tjänstens huvud namn för att köra Runbooks automatiskt för användarens räkning. Mer information finns här:
+## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Skapa ett Azure Automation-konto med körningsfunktioner
+Det första du behöver göra är att skapa ett Azure Automation-konto som är värd för runbooks som används för att skala den virtuella datorn skalningsuppsättning instanser. Nyligen [Azure Automation](https://azure.microsoft.com/services/automation/) introducerade "Kör som konto" funktionen som gör att ställa in Tjänsten Huvudansvarig för att automatiskt köra runbooks för en användares räkning. Mer information finns i:
 
 * [Autentisera runbooks med ett ”Kör som”-konto i Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importera Azure Automation vertikala skalnings-Runbooks till din prenumeration
+## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importera Azure Automation Vertical Scale-runbooks till din prenumeration
 
-Runbooks som behövs för att skala dina virtuella dator skalnings uppsättningar i höjdled är redan publicerade i Azure Automation Runbook-galleriet. Följ stegen i den här artikeln om du vill importera dem till din prenumeration:
+Runbooks som behövs för att lodrätt skala dina skaluppsättningar för virtuella datorer publiceras redan i Azure Automation Runbook Gallery. Så här importerar du dem till prenumerationen:
 
 * [Runbook- och modulgallerier för Azure Automation](../automation/automation-runbook-gallery.md)
 
-Välj alternativet Bläddra i galleriet från menyn Runbooks:
+Välj alternativet Bläddra i galleri på Runbooks-menyn:
 
 ![Runbooks som ska importeras][runbooks]
 
-Runbooks som behöver importeras visas. Välj en Runbook baserat på om du vill ha vertikal skalning med eller utan att etablera:
+De runbooks som måste importeras visas. Välj runbook baserat på om du vill ha vertikal skalning med eller utan att ometablera:
 
-![Runbooks-galleri][gallery]
+![Galleri för Runbooks][gallery]
 
-## <a name="add-a-webhook-to-your-runbook"></a>Lägg till en webhook i din Runbook
+## <a name="add-a-webhook-to-your-runbook"></a>Lägga till en webhook i din runbook
 
-När du har importerat Runbooks lägger du till en webhook i runbooken så att den kan utlösas av en avisering från en skalnings uppsättning för virtuella datorer. Information om hur du skapar en webhook för din Runbook beskrivs i den här artikeln:
+När du har importerat runbooks, lägga till en webhook till runbook så att den kan utlösas av en avisering från en virtuell dator skala uppsättning. Information om hur du skapar en webhook för runbook beskrivs i den här artikeln:
 
-* [Azure Automation Webhooks](../automation/automation-webhooks.md)
+* [Azure Automation-webbkrokar](../automation/automation-webhooks.md)
 
 > [!NOTE]
-> Se till att du kopierar webhook-URI: n innan du stänger dialog rutan webhook eftersom du kommer att behöva den här adressen i nästa avsnitt.
+> Se till att du kopierar webhook URI innan du stänger webhook dialogrutan som du behöver den här adressen i nästa avsnitt.
 > 
 > 
 
-## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Lägg till en avisering i skalnings uppsättningen för den virtuella datorn
+## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Lägga till en avisering i skalningsuppsättningen för den virtuella datorn
 
-Nedan visas ett PowerShell-skript som visar hur du lägger till en avisering till en skalnings uppsättning för virtuella datorer. Läs följande artikel för att hämta namnet på måttet för att utlösa aviseringen på: [Azure Monitor autoskalning av vanliga mått](../azure-monitor/platform/autoscale-common-metrics.md).
+Nedan visas ett PowerShell-skript som visar hur du lägger till en avisering i en skalningsuppsättning för virtuella datorer. Se följande artikel för att få namnet på måttet att avfyra aviseringen på: [Azure Monitor automatisk skalning av vanliga mått](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -148,18 +148,18 @@ Add-AzMetricAlertRule  -Name  $alertName `
 ```
 
 > [!NOTE]
-> Vi rekommenderar att du konfigurerar ett rimligt tids fönster för aviseringen för att undvika att den vertikala skalningen utlöses, och eventuella associerade avbrott i tjänsten för ofta. Överväg ett fönster på minst 20-30 minuter eller mer. Överväg horisontell skalning om du behöver undvika avbrott.
+> Vi rekommenderar att du konfigurerar ett rimligt tidsfönster för aviseringen för att undvika att utlösa vertikal skalning och eventuella tillhörande avbrott i tjänsten, alltför ofta. Tänk dig ett fönster på minst 20-30 minuter eller mer. Överväg vågrät skalning om du behöver undvika avbrott.
 > 
 > 
 
 Mer information om hur du skapar aviseringar finns i följande artiklar:
 
-* [Azure Monitor PowerShell snabb starts exempel](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Azure Monitor cross-platform CLI snabb starts exempel](../azure-monitor/platform/cli-samples.md)
+* [Snabbstartsexempel för Azure Monitor PowerShell](../azure-monitor/platform/powershell-quickstart-samples.md)
+* [Snabbstartsexempel för Azure Monitor cross-platform CLI](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Sammanfattning
 
-Den här artikeln visade exempel på enkla lodräta skalnings exempel. Med dessa Bygg stenar – Automation-konto, Runbooks, Webhooks, Alerts – du kan ansluta flera olika händelser till en anpassad uppsättning åtgärder.
+Den här artikeln visade enkla exempel på vertikal skalning. Med dessa byggstenar - Automation-konto, runbooks, webhooks, varningar - kan du ansluta ett rikt utbud av händelser med en anpassad uppsättning åtgärder.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png

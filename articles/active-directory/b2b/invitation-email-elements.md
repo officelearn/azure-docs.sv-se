@@ -1,6 +1,6 @@
 ---
-title: Element i B2B e-postinbjudan - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B-samarbete inbjudan e-postmall
+title: Delar av e-postmeddelandet med B2B-inbjudan – Azure Active Directory | Microsoft-dokument
+description: E-postmall för e-postmall för azure Active Directory B2B-samarbetsanbjudan
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -13,80 +13,80 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65768372"
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Element i B2B-samarbete e-postinbjudan - Azure Active Directory
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i e-postmeddelandet med inbjudan till B2B-samarbete - Azure Active Directory
 
-Postinbjudningar är en kritisk komponent för att ge partner ombord som användare i B2B-samarbetet i Azure AD. Du kan använda dem för att öka mottagarens förtroende. Du kan lägga till giltighet och sociala bevis till e-post att kontrollera att mottagaren känns bekväm med att välja den **börjar** knappen för att tacka ja till inbjudan. Det här förtroendet är en nyckel som innebär att minska friktionen för delning. Och du vill se e-postmeddelandet se bra ut!
+E-postmeddelanden med inbjudningar är en viktig komponent för att få med partner som B2B-samarbetsanvändare i Azure AD. Du kan använda dem för att öka mottagarens förtroende. Du kan lägga till legitimitet och sociala bevis i e-postmeddelandet för att se till att mottagaren känner sig bekväm med att välja knappen **Kom igång** för att acceptera inbjudan. Detta förtroende är ett viktigt sätt att minska delningsfriktionen. Och du vill också göra e-post ser bra ut!
 
-![Skärmbild som visar e-postinbjudan B2B](media/invitation-email-elements/invitation-email.png)
+![Skärmbild som visar e-postmeddelandet med B2B-inbjudan](media/invitation-email-elements/invitation-email.png)
 
-## <a name="explaining-the-email"></a>Förklarar e-postmeddelandet
-Nu ska vi titta på några få av e-postmeddelandet så att du vet hur du bäst för att använda deras funktioner.
+## <a name="explaining-the-email"></a>Förklara e-postmeddelandet
+Låt oss titta på några delar av e-postmeddelandet så att du vet hur du bäst använder deras funktioner.
 
-### <a name="subject"></a>Subject
-Ämnet för e-postmeddelandet följer följande mönster: Du är inbjuden till den &lt;tenantname&gt; organisation
+### <a name="subject"></a>Subjekt
+Ämnet för e-postmeddelandet följer följande mönster: Du &lt;är&gt; inbjuden till klientnamnsorganisationen
 
-### <a name="from-address"></a>Från-adress
-Vi använder ett LinkedIn-liknande mönster för från-adressen.  Du bör vara tydlig som avsändaren är och från företagets vilket också förtydliga att e-postmeddelandet kommer från en Microsoft e-postadress. Formatet är: Microsoft Invitations <invites@microsoft.com> eller &lt;visningsnamnet för inbjudaren&gt; från &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
+### <a name="from-address"></a>Avsändaradress
+Vi använder ett LinkedIn-liknande mönster för Från-adressen.  Du bör vara tydlig med vem inbjudna är och från vilket företag, och även klargöra att e-postmeddelandet kommer från en Microsoft-e-postadress. Formatet <invites@microsoft.com> är: Microsoft-inbjudningar eller&gt; &lt;&gt; <invites@microsoft.com> &lt;Visningsnamn för inbjudna från klientnamn (via Microsoft) .
 
-### <a name="reply-to"></a>Svara till
-Svara till e-postmeddelandet är inställd på inbjudaren e-postmeddelande när det är tillgängligt, så att svara på e-postmeddelandet skickar ett e-postmeddelande till avsändaren.
+### <a name="reply-to"></a>Svara på
+Svarsmeddelandet är inställt på inbjudnas e-post när den är tillgänglig, så att svaret på e-postmeddelandet skickar ett e-postmeddelande tillbaka till inbjudna.
 
 ### <a name="branding"></a>Anpassning
-E-postmeddelanden för inbjudan från din klient användning företagsanpassning som du kanske har konfigurerat för din klient. Om du vill dra nytta av den här funktionen [här](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) finns information om hur du konfigurerar den. Banderollslogotypen visas i e-postmeddelandet. Följ bildstorleken och kvalitet instruktioner [här](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) för bästa resultat. Dessutom visas företagsnamnet också i anropet till åtgärden.
+Inbjudningsmeddelandena från din klient använder företagets varumärke som du kan ha ställt in för din klient. Om du vill dra nytta av den här funktionen, [här](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) är information om hur du konfigurerar den. Bannerlogotypen visas i e-postmeddelandet. Följ bildstorleken och kvalitetsinstruktionerna [här](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) för bästa resultat. Dessutom dyker företagsnamnet också upp i uppmaningen.
 
-### <a name="call-to-action"></a>Anrop till åtgärd
-Din uppmaning till består av två delar: förklarar varför mottagaren har tagit emot e-postmeddelandet och vad mottagaren har ombetts att göra om den.
-- Avsnittet ”Varför” kan lösas med hjälp av följande mönster: Du har blivit inbjuden att använda program i den &lt;tenantname&gt; organisation
+### <a name="call-to-action"></a>Uppmaning till handling
+Uppmaningen består av två delar: att förklara varför mottagaren har fått posten och vad mottagaren ombeds att göra åt det.
+- Avsnittet "varför" kan åtgärdas med följande mönster: Du har blivit &lt;inbjuden&gt; att komma åt program i klientnamnsorganisationen
 
-- Och den ”vad du ska ange att göra” avsnittet indikeras av förekomst av den **börjar** knappen. När mottagaren har lagts till utan att behöva inbjudningar, visas den här knappen inte.
+- Och avsnittet "vad du blir ombedd att göra" visas med knappen **Kom igång.** När mottagaren har lagts till utan att behöva inbjudningar visas inte den här knappen.
 
-### <a name="inviters-information"></a>Bjuder INS information
-Visningsnamn för den inbjudaren ingår i e-postmeddelandet. Och dessutom om du har konfigurerat en profilbild för din Azure AD-konto, bjuder in e-postmeddelandet tas bilden även. Båda är avsedda att öka förtroende för mottagarens e-postmeddelandet.
+### <a name="inviters-information"></a>Inbjudnas information
+Inbjudnas visningsnamn ingår i e-postmeddelandet. Och om du har konfigurerat en profilbild för ditt Azure AD-konto innehåller det inbjudande e-postmeddelandet även den bilden. Båda är avsedda att öka mottagarens förtroende för e-postmeddelandet.
 
-Om du ännu inte har konfigurerat din profilbild visas en ikon med den inbjudaren initialer i stället för bilden:
+Om du ännu inte har konfigurerat din profilbild visas en ikon med inbjudnas initialer i stället för bilden:
 
-  ![Skärmbild som visar inbjudan med avsändaren initialer visas](media/invitation-email-elements/inviters-initials.png)
+  ![Skärmbild som visar inbjudan med inbjudna initialer som visas](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Innehåll
-Texten innehåller meddelandet att avsändaren composes när [bjuda in en gästanvändare till den katalog, en grupp eller en app](add-users-administrator.md) eller [med hjälp av inbjudan API](customize-invitation-api.md). Det är ett textområde så att den inte bearbetar HTML-taggar av säkerhetsskäl.
+Brödtexten innehåller meddelandet som inbjudna skriver när [en gästanvändare bjuder in till katalogen, gruppen eller appen](add-users-administrator.md) eller med hjälp av [inbjudnings-API:et](customize-invitation-api.md). Det är ett textområde, så det bearbetar inte HTML-taggar av säkerhetsskäl.
 
-  ![Skärmbild som visar innehållet i e-postinbjudan](media/invitation-email-elements/invitation-email-body.png)
+  ![Skärmbild som visar brödtexten i e-postmeddelandet för inbjudan](media/invitation-email-elements/invitation-email-body.png)
 
-### <a name="footer-section"></a>Sidfotsavsnittet
-Sidfoten innehåller Microsoft företagets varumärke och gör att mottagaren kan veta om e-postmeddelandet har skickats från ett oövervakat alias. 
+### <a name="footer-section"></a>Sidfot avsnitt
+Sidfoten innehåller Microsofts företagsvarumärke och meddelar mottagaren om e-postmeddelandet skickades från ett oövervakat alias. 
 
-Specialfall:
+Särskilda fall:
 
-- Avsändaren har inte en e-postadress i bjuder in innehavare
+- Inbjudna har ingen e-postadress i den inbjudande hyresrätt
 
-  ![Skärmbild när en inbjudaren inte har e-post i bjuder in innehavare](media/invitation-email-elements/inviter-no-email.png)
+  ![Skärmbild när en inbjudna spelare inte har e-post i den inbjudande hyressättningen](media/invitation-email-elements/inviter-no-email.png)
 
 
 - Mottagaren behöver inte lösa in inbjudan
 
   ![Skärmbild när mottagaren inte behöver lösa in inbjudan](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
-## <a name="how-the-language-is-determined"></a>Hur bestäms språket
-Det språk som presenteras för gästanvändaren i e-postinbjudan bestäms av följande inställningar. De här inställningarna visas i prioritetsordning. Om en inställning inte är konfigurerat anger Nästa inställning i listan över språk. 
-- Den **messageLanguage** egenskapen för den [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) objekt om skapa inbjudan API används
--   Den **preferredLanguage** egenskapen som angetts i gästens [användarobjekt](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
--   Den **aviseringsspråk** ange i egenskaperna för gästanvändarens startklientorganisation (för Azure AD-klienter)
--   Den **aviseringsspråk** ange i egenskaperna för resurs-klient
+## <a name="how-the-language-is-determined"></a>Hur språket bestäms
+Språket som presenteras för gästanvändaren i e-postmeddelandet med inbjudan bestäms av följande inställningar. Dessa inställningar visas i prioritetsordning. Om en inställning inte är konfigurerad avgör nästa inställning i listan språket. 
+- **Egenskapen messageLanguage** för det [inbjudnaUserMessageInfo-objektet](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) om API:et Skapa inbjudan används
+-   Den **önskade Språkegenskapen** som anges i gästens [användarobjekt](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
+-   **Meddelandespråket** som anges i egenskaperna för gästanvändarens hemklient (endast för Azure AD-klienter)
+-   **Meddelandespråket** som anges i resursklientens egenskaper
 
-Om ingen av de här inställningarna är konfigurerade som standard språket till engelska (US).
+Om ingen av dessa inställningar är konfigurerade är språket som standard engelska (USA).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar på Azure AD B2B-samarbete:
+Se följande artiklar om Azure AD B2B-samarbete:
 
 - [Vad är Azure AD B2B-samarbete](what-is-b2b.md)
-- [Hur lägger Azure Active Directory-administratörer till B2B-samarbetare?](add-users-administrator.md)
-- [Hur lägger informationsarbetare till användare i B2B-samarbetet?](add-users-information-worker.md)
-- [B2B-samarbete inlösning av inbjudan](redemption-experience.md)
-- [Lägga till B2B-samarbete användare utan inbjudan](add-user-without-invite.md)
+- [Hur lägger Azure Active Directory-administratörer till B2B-samarbetsanvändare?](add-users-administrator.md)
+- [Hur lägger informationsarbetare till B2B-samarbetsanvändare?](add-users-information-worker.md)
+- [B2B samarbete inbjudan inlösen](redemption-experience.md)
+- [Lägga till B2B-samarbetsanvändare utan inbjudan](add-user-without-invite.md)

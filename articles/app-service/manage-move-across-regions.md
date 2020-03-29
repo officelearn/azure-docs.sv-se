@@ -1,54 +1,54 @@
 ---
 title: Flytta en app till en annan region
-description: Lär dig hur du flyttar App Service resurser från en region till en annan.
+description: Läs om hur du flyttar App Service-resurser från en region till en annan.
 ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 7e68f12ce062831ad361c88345188aca61922c4c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925714"
 ---
-# <a name="move-an-app-service-app-to-another-region"></a>Flytta en App Service app till en annan region
+# <a name="move-an-app-service-app-to-another-region"></a>Flytta en App Service-app till en annan region
 
-Den här artikeln beskriver hur du flyttar App Service resurser till en annan Azure-region. Du kan flytta dina resurser till en annan region av olika anledningar. Till exempel, för att dra nytta av en ny Azure-region, för att bara distribuera funktioner eller tjänster som är tillgängliga i vissa regioner, för att uppfylla interna principer och styrnings krav, eller som svar på kapacitets planerings kraven.
+I den här artikeln beskrivs hur du flyttar App Service-resurser till en annan Azure-region. Du kan flytta dina resurser till en annan region av flera skäl. Om du till exempel vill dra nytta av en ny Azure-region, distribuera funktioner eller tjänster som endast är tillgängliga i specifika regioner, för att uppfylla interna princip- och styrningskrav eller som svar på kapacitetsplaneringskrav.
 
-App Service-resurser är landsspecifika och kan inte flyttas mellan regioner. Du måste skapa en kopia av dina befintliga App Service-resurser i mål regionen, flytta innehållet till den nya appen. Om din käll-app använder en anpassad domän kan du [migrera den till den nya appen i mål regionen](manage-custom-dns-migrate-domain.md) när du är klar.
+App Service-resurser är regionspecifika och kan inte flyttas mellan regioner. Du måste skapa en kopia av dina befintliga App Service-resurser i målregionen och flytta över innehållet till den nya appen. Om källappen använder en anpassad domän kan du [migrera den till den nya appen i målområdet](manage-custom-dns-migrate-domain.md) när du är klar.
 
-För att göra det enklare att kopiera appen kan du [klona en enskild app service app](app-service-web-app-cloning.md) i en app service plan i en annan region, men den har [begränsningar](app-service-web-app-cloning.md#current-restrictions), särskilt att den inte stöder Linux-appar.
+Om du vill göra det enklare att kopiera appen kan du [klona en enskild App Service-app](app-service-web-app-cloning.md) till en App Service-plan i en annan region, men den har [begränsningar,](app-service-web-app-cloning.md#current-restrictions)särskilt att den inte stöder Linux-appar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Se till att App Service-appen finns i den Azure-region som du vill flytta från.
-- Kontrol lera att mål regionen stöder App Service och relaterade tjänster, vars resurser du vill flytta.
+- Kontrollera att App Service-appen finns i Azure-regionen som du vill flytta från.
+- Kontrollera att målregionen stöder App Service och alla relaterade tjänster, vars resurser du vill flytta.
 <!-- - Domain bindings, certificates, and managed identities can't replicated using the **Export template** method. You must create them manually. -->
 
 ## <a name="prepare"></a>Förbereda
 
-Identifiera alla App Service resurser som du använder just nu. Några exempel:
+Identifiera alla App Service-resurser som du använder för tillfället. Ett exempel:
 
 - App Service-appar
 - [App Service-planer](overview-hosting-plans.md)
-- [Distributions platser](deploy-staging-slots.md)
+- [Distributionsplatser](deploy-staging-slots.md)
 - [Anpassade domäner som köpts i Azure](manage-custom-dns-buy-domain.md)
 - [SSL-certifikat](configure-ssl-certificate.md)
-- [Azure Virtual Network-integrering](web-sites-integrate-with-vnet.md)
-- [Hybrid anslutningar](app-service-hybrid-connections.md).
+- [Integrering av virtuella Azure-nätverk](web-sites-integrate-with-vnet.md)
+- [Hybridanslutningar](app-service-hybrid-connections.md).
 - [Hanterade identiteter](overview-managed-identity.md)
-- [Inställningar för säkerhets kopiering](manage-backup.md)
+- [Inställningar för säkerhetskopiering](manage-backup.md)
 
-Vissa resurser, t. ex. importerade certifikat eller hybrid anslutningar, innehåller integrering med andra Azure-tjänster. Information om hur du flyttar dessa resurser över flera regioner finns i dokumentationen för respektive tjänst.
+Vissa resurser, till exempel importerade certifikat eller hybridanslutningar, innehåller integrering med andra Azure-tjänster. Information om hur du flyttar dessa resurser mellan regioner finns i dokumentationen för respektive tjänster.
 
 ## <a name="move"></a>Flytta
 
-1. [Skapa en säkerhets kopia av käll appen](manage-backup.md).
-1. [Skapa en app i en ny app service plan i mål regionen](app-service-plan-manage.md#create-an-app-service-plan).
-2. [Återställa säkerhets kopieringen i mål programmet](web-sites-restore.md)
-2. Om du använder en anpassad domän [binder du den förebyggande syfte till mål programmet](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) med `awverify.` och [aktiverar domänen i mål programmet](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
-3. Konfigurera allt annat i din mål-app så att det är samma som käll-appen och verifiera konfigurationen.
-4. När du är redo för den anpassade domänen att peka på mål programmet, [mappa om domän namnet](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
+1. [Skapa en säkerhetskopiering av källappen](manage-backup.md).
+1. [Skapa en app i en ny App Service-plan i målregionen](app-service-plan-manage.md#create-an-app-service-plan).
+2. [Återställa säkerhetskopieringen i målappen](web-sites-restore.md)
+2. Om du använder en anpassad domän [binder du den i förebyggande syfte till målappen](manage-custom-dns-migrate-domain.md#bind-the-domain-name-preemptively) med `awverify.` och aktiverar [domänen i målappen](manage-custom-dns-migrate-domain.md#enable-the-domain-for-your-app).
+3. Konfigurera allt annat i målappen så att det blir som källappen och verifiera konfigurationen.
+4. När du är redo för den anpassade domänen att peka på [målappen mappas om domännamnet](manage-custom-dns-migrate-domain.md#remap-the-active-dns-name).
 
 <!-- 1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source App Service resources and click on it.
@@ -102,10 +102,10 @@ Vissa resurser, t. ex. importerade certifikat eller hybrid anslutningar, innehå
 8. Click **BASICS** > **Create new** to create a new resource group. Type the group name and click **OK**.
 9. In **BASICS** > **Location**, select the region you want.   -->
 
-## <a name="clean-up-source-resources"></a>Rensa käll resurser
+## <a name="clean-up-source-resources"></a>Rensa källresurser
 
-Ta bort käll-app och App Service plan. [En App Service plan på den icke-kostnads fria nivån medför en avgift, även om ingen App körs i den.](app-service-plan-manage.md#delete-an-app-service-plan)
+Ta bort källappen och apptjänstplanen. [En App Service-plan på den icke-fria nivån medför en avgift, även om ingen app körs i den.](app-service-plan-manage.md#delete-an-app-service-plan)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Azure App Service kloning av appar med hjälp av PowerShell](app-service-web-app-cloning.md)
+[Kloning av Azure App-tjänst-appar med PowerShell](app-service-web-app-cloning.md)

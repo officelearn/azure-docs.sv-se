@@ -1,6 +1,6 @@
 ---
-title: Power BI integration – Azure Time Series Insights | Microsoft Docs
-description: Lär dig mer om Power BI-integrering i Azure Time Series Insight.
+title: Power BI-integrering – Insikter i Azure Time Series | Microsoft-dokument
+description: Läs mer om Power BI-integrering i Azure Time Series Insight.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -9,60 +9,60 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: ce566080c6ddbc4784365ceda6011c3f6612732a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76276872"
 ---
-# <a name="connect-time-series-insights-to-power-bi"></a>Anslut Time Series Insights till Power BI  
+# <a name="connect-time-series-insights-to-power-bi"></a>Anslut time series-insikter till Power BI  
 
-Letar du efter en lösning som hjälper dig att korrelera dina Time Series-data, skapa tydliga visualiseringar och dela insikter i hela organisationen?
+Letar du efter en lösning som hjälper dig att korrelera dina tidsseriedata, skapa levande visualiseringar och dela insikter i hela organisationen?
 
-Azure Time Series Insights kan nu sömlöst integreras med [Power BI](https://powerbi.microsoft.com/), vilket ger dig mer kraftfulla funktioner för visualisering och instrument paneler över dina strömmande data och gör att du kan dela insikter och resultat i hela organisationen.
+Azure Time Series Insights integreras nu sömlöst med [Power BI,](https://powerbi.microsoft.com/)vilket ger dig mer kraftfulla funktioner för visualisering och instrumentpaneler över dina strömmande data och låter dig dela insikter och resultat i hela organisationen.
 
 ## <a name="video"></a>Video
 
-### <a name="learn-more-about-integrating-azure-time-series-insights-with-power-bibr"></a>Lär dig mer om att integrera Azure Time Series Insights med Power BI.</br>
+### <a name="learn-more-about-integrating-azure-time-series-insights-with-power-bibr"></a>Läs mer om hur du integrerar Azure Time Series Insights med Power BI.</br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Power-BI-integration-with-TSI/player]
 
 ## <a name="summary"></a>Sammanfattning
 
-   [![export alternativ i Time Series Insights](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png)](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png#lightbox)
+   [![Exportera alternativ i Insikter i tidsserier](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png)](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png#lightbox)
 
 Genom att ansluta dina data till Power BI kan du nu:
 
-* Utför korrelationer med andra data källor som stöds av Power BI och få åtkomst till en värd med olika alternativ för data visualisering. 
-* Skapa Power BI instrument paneler och rapporter med hjälp av dina Time Series Insight-data och dela dem med din organisation. 
-* Lås upp data interop-scenarier på ett enkelt, användarvänligt sätt och få insikter snabbare än någonsin.
-* Ändra Time Series Insights data inom Power BI med hjälp av den kraftfulla Avancerad redigerare.
+* Utför korrelationer med andra datakällor som stöds av Power BI och få åtkomst till en mängd olika datavisualiseringsalternativ. 
+* Skapa Power BI-instrumentpaneler och rapporter med hjälp av dina Time Series Insight-data och dela dem med din organisation. 
+* Lås upp dataintenser scenarier på ett enkelt och lättanvänt sätt och få insikter snabbare än någonsin.
+* Ändra Time Series Insights-data i Power BI med hjälp av den kraftfulla avancerade redigeraren.
 
-## <a name="native-connector"></a>Ursprunglig anslutning
+## <a name="native-connector"></a>Inbyggd koppling
 
-Att ansluta dina data tar mindre än en minut. Genom att snabbt exportera din vy från Time Series Insight Explorer till Power BI kan alla i organisationen intuitivt komma åt och visuellt transformera data.
+Det tar mindre än en minut att ansluta dina data. Genom att snabbt exportera vyn från Time Series Insight Explorer till Power BI kan vem som helst i organisationen intuitivt komma åt och visuellt omvandla data.
 
-Konfigurations alternativen omfattar att välja mellan **rå** data och **aggregerade nivå** data och välja ett önskat tidsintervall. 
+Konfigurationsalternativen inkluderar att välja mellan **rå-** och **mängdnivådata** och välja ett önskat tidsintervall. 
 
-När data har anslutits är alla Power BIs omfattande visualisering och diagram verktyg tillgängliga för att ytterligare förbättra dina informations delnings funktioner. 
+När data har anslutits är alla Power BI:s omfattande visualiserings- och diagramverktyg tillgängliga för att ytterligare förbättra dina funktioner för informationsdelning. 
 
-   [![diagram exempel i Power BI](./media/concepts-connect-power-bi/power-bi-tsi-example.png)](./media/concepts-connect-power-bi/power-bi-tsi-example.png#lightbox)
+   [![Kartlägga exempel i Power BI](./media/concepts-connect-power-bi/power-bi-tsi-example.png)](./media/concepts-connect-power-bi/power-bi-tsi-example.png#lightbox)
 
-Läs mer om [hur du ansluter Time Series Insights till Power BI](./how-to-connect-power-bi.md) för steg-för-steg-information.
+Läs [så här ansluter du Time Series Insights till Power BI](./how-to-connect-power-bi.md) för steg-för-steg-detaljer.
 
-## <a name="flexible-workflow"></a>Flexibelt arbets flöde
+## <a name="flexible-workflow"></a>Flexibelt arbetsflöde
  
-Använd kopplingen från var som helst i arbets flödet:
+Använd kopplingen var som helst i arbetsflödet:
 
 * Om du är i Time Series Insights Explorer kan du snabbt exportera vyn till Power BI. 
-* Om du redan är i Power BI kan du utöka dina befintliga visualiserings scenarier med Time Series Insights fråga data.
+* Om du redan befinner dig i Power BI utökar du dina befintliga visualiseringsscenarier med hjälp av Time Series Insights-frågedata.
 
-För avancerade frågor och redigerings funktioner i Power BI använder du Power BI Avancerad redigerare.
+För avancerade frågor och redigeringsfunktioner i Power BI använder du Power BI:s avancerade redigerare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [hur du ansluter Time Series Insights till Power BI](./how-to-connect-power-bi.md).
+* Läs [så här ansluter du Time Series Insights till Power BI](./how-to-connect-power-bi.md).
 
 * Läs mer om [Power BI](https://docs.microsoft.com/power-bi/).
 
-* Ladda ned [Power BI Desktop](https://powerbi.microsoft.com/desktop/) och börja ansluta dina data.
+* Ladda ned [Power BI-skrivbordet](https://powerbi.microsoft.com/desktop/) och börja ansluta dina data.

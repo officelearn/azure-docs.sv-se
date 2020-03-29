@@ -1,5 +1,5 @@
 ---
-title: Azure Automation vanliga frågor och svar | Microsoft Docs
+title: Vanliga frågor och svar om Azure Automation | Microsoft-dokument
 description: Svar på vanliga frågor om Azure Automation.
 services: automation
 ms.subservice: ''
@@ -8,38 +8,38 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
 ms.openlocfilehash: 129a5316c2e7be329b479c79706791e993d20b74
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77925818"
 ---
-# <a name="azure-automation-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Automation
+# <a name="azure-automation-frequently-asked-questions"></a>Vanliga frågor och svar i Azure Automation
 
-Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Automation. Om du har ytterligare frågor om dess funktioner går du till diskussions forumet och publicerar dina frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
+Den här Vanliga frågor och svar från Microsoft är en lista över vanliga frågor om Azure Automation. Om du har några ytterligare frågor om dess kapacitet, gå till diskussionsforumet och skicka dina frågor. När en fråga ofta ställs lägger vi till den i den här artikeln så att den kan hittas snabbt och enkelt.
 
-## <a name="update-management-solution"></a>Uppdateringshantering lösning
+## <a name="update-management-solution"></a>Uppdateringshanteringslösning
 
-### <a name="can-i-prevent-unexpected-os-level-upgrades"></a>Kan jag förhindra oväntade uppgraderingar på äldre operativ system.
+### <a name="can-i-prevent-unexpected-os-level-upgrades"></a>Kan jag förhindra oväntade uppgraderingar på OS-nivå?
 
-På vissa Linux-varianter, till exempel Red Hat Enterprise Linux, kan uppgraderingar av operativ Systems nivå ske via paket. Detta kan leda till att Uppdateringshantering körs där versions numret för operativ systemet ändras. Eftersom Uppdateringshantering använder samma metoder för att uppdatera paket som en administratör skulle använda lokalt på Linux-datorn är detta avsiktligt.
+På vissa Linux-varianter, till exempel Red Hat Enterprise Linux, kan uppgraderingar på OS-nivå ske via paket. Detta kan leda till att Uppdateringshantering körs där os-versionsnumret ändras. Eftersom Uppdateringshantering använder samma metoder för att uppdatera paket som en administratör skulle använda lokalt på Linux-datorn, är detta beteende avsiktligt.
 
-Använd **undantags** funktionen för att undvika att uppdatera operativ system versionen genom uppdateringshantering distributioner.
+Om du vill undvika att uppdatera OS-versionen via distributioner av uppdateringshantering använder du **uteslutningsfunktionen.**
 
-I Red Hat Enterprise Linux är paket namnet som ska undantas RedHat-release-Server. x86_64.
+I Red Hat Enterprise Linux är paketnamnet som ska uteslutas redhat-release-server.x86_64.
 
-### <a name="why-arent-criticalsecurity-updates-applied"></a>Varför tillämpas inte kritiska/säkerhets uppdateringar?
+### <a name="why-arent-criticalsecurity-updates-applied"></a>Varför tillämpas inte viktiga/säkerhetsuppdateringar?
 
-När du distribuerar uppdateringar till en Linux-dator kan du välja uppdaterings klassificeringar. Med det här alternativet filtreras de uppdateringar som tillämpas på den dator som uppfyller de angivna villkoren. Det här filtret används lokalt på datorn när uppdateringen distribueras.
+När du distribuerar uppdateringar till en Linux-dator kan du välja uppdateringsklassificeringar. Det här alternativet filtrerar de uppdateringar som tillämpas på datorn som uppfyller de angivna villkoren. Det här filtret används lokalt på datorn när uppdateringen distribueras.
 
-Eftersom Uppdateringshantering utför uppdaterings berikning i molnet, kan vissa uppdateringar flaggas i Uppdateringshantering som en säkerhets påverkan, även om den lokala datorn inte har den informationen. Det innebär att om du använder kritiska uppdateringar på en Linux-dator kan det finnas uppdateringar som inte har marker ATS som en säkerhets påverkan på den datorn och därför tillämpas inte uppdateringarna. Uppdateringshantering kan dock fortfarande rapportera datorn som icke-kompatibel, eftersom den innehåller ytterligare information om den relevanta uppdateringen.
+Eftersom Uppdateringshantering utför uppdateringsanrikning i molnet kan vissa uppdateringar flaggas i Uppdateringshantering som säkerhetseffekter, även om den lokala datorn inte har den informationen. Om du installerar viktiga uppdateringar på en Linux-dator kan det därför finnas uppdateringar som inte är markerade med en säkerhetspåverkan på den datorn och därför tillämpas inte uppdateringarna. Uppdateringshantering kan dock fortfarande rapportera att datorn inte är kompatibel eftersom den har ytterligare information om den relevanta uppdateringen.
 
-Distribution av uppdateringar efter uppdaterings klassificering fungerar inte på RTM-versioner av CentOS. Om du vill distribuera uppdateringar för CentOS korrekt väljer du alla klassificeringar för att se till att uppdateringarna tillämpas. För SUSE väljer du *bara* **andra uppdateringar** som klassificering kan orsaka att vissa säkerhets uppdateringar också installeras om säkerhets uppdateringar som rör zypper (paket hanteraren) eller dess beroenden krävs först. Det här beteendet är en begränsning i zypper. I vissa fall kan du behöva köra uppdaterings distributionen igen. Verifiera uppdaterings loggen genom att kontrol lera uppdaterings loggen.
+Distribuera uppdateringar efter uppdateringsklassificering fungerar inte på RTM-versioner av CentOS. Om du vill distribuera uppdateringar för CentOS korrekt väljer du alla klassificeringar för att se till att uppdateringar tillämpas. För SUSE kan du välja *endast* **Andra uppdateringar** eftersom klassificeringen kan göra att vissa säkerhetsuppdateringar också installeras om säkerhetsuppdateringar relaterade till zypper (pakethanteraren) eller dess beroenden krävs först. Detta är en begränsning av zypper. I vissa fall kan du behöva köra uppdateringsdistributionen igen. Kontrollera uppdateringsloggen om du vill verifiera.
 
-### <a name="can-i-deploy-updates-across-azure-tenants"></a>Kan jag distribuera uppdateringar i Azure-klienter?
+### <a name="can-i-deploy-updates-across-azure-tenants"></a>Kan jag distribuera uppdateringar över Azure-klienter?
 
-Om du har datorer i en annan Azure-klient rapporterar för att Uppdateringshantering att du behöver korrigera, måste du använda följande lösning för att få dem schemalagda. Du kan använda cmdleten [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) med växeln `-ForUpdate` för att skapa ett schema och använda cmdleten [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) och skicka datorerna i den andra klienten till `-NonAzureComputer`-parametern. I följande exempel visas hur du gör detta:
+Om du har datorer i en annan Azure-klient som rapporterar till Uppdateringshantering som du behöver korrigera måste du använda följande lösning för att få dem schemalagda. Du kan använda cmdleten [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) med växeln `-ForUpdate` för att skapa ett schema och använda cmdleten [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+) och skicka datorerna i den andra klienten `-NonAzureComputer` till parametern. I följande exempel visas hur du gör detta:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -53,8 +53,8 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om din fråga inte besvaras här kan du referera till följande forum för ytterligare frågor och svar.
+Om din fråga inte besvaras här kan du läsa följande forum för ytterligare frågor och svar.
 
 - [Azure Automation](https://social.msdn.microsoft.com/Forums/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)
 
-Om du vill ha allmän feedback om Uppdateringshantering lösning kan du besöka [feedback-forumet](https://feedback.azure.com/forums/905242-update-management).
+För allmän feedback om Update Management-lösningen, besök [feedbackforumet](https://feedback.azure.com/forums/905242-update-management).

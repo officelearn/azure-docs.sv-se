@@ -1,22 +1,22 @@
 ---
 title: Skapa parameterfil
-description: Skapa parameter fil för att överföra värden under distributionen av en Azure Resource Manager-mall
+description: Skapa parameterfil för att skicka in värden under distributionen av en Azure Resource Manager-mall
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: bb52d9c5ebcb0820362e5de3d6b24b0b18d742e9
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155629"
 ---
-# <a name="create-resource-manager-parameter-file"></a>Skapa parameter fil för Resource Manager
+# <a name="create-resource-manager-parameter-file"></a>Parameterfilen Skapa Resource Manager
 
-I stället för att skicka parametrar som infogade värden i skriptet, kan det vara lättare att använda en JSON-fil som innehåller parameter värden. Den här artikeln visar hur du skapar parameter filen.
+I stället för att skicka parametrar som infogade värden i skriptet kan det vara enklare att använda en JSON-fil som innehåller parametervärdena. Den här artikeln visar hur du skapar parameterfilen.
 
-## <a name="parameter-file"></a>Parameterfilen
+## <a name="parameter-file"></a>Parameterfil
 
-Parameter filen har följande format:
+Parameterfilen har följande format:
 
 ```json
 {
@@ -33,9 +33,9 @@ Parameter filen har följande format:
 }
 ```
 
-Observera att parametervärdena lagras som oformaterad text i parameter filen. Den här metoden fungerar för värden som inte är känsliga, till exempel att ange SKU för en resurs. Det fungerar inte för känsliga värden, t. ex. lösen ord. Om du behöver skicka ett känsligt värde som en parameter lagrar du värdet i ett nyckel valv och refererar till nyckel valvet i parameter filen. Det känsliga värdet hämtas på ett säkert sätt under distributionen.
+Observera att parametervärdena lagras som oformaterad text i parameterfilen. Den här metoden fungerar för värden som inte är känsliga, till exempel att ange SKU för en resurs. Det fungerar inte för känsliga värden, till exempel lösenord. Om du behöver skicka ett känsligt värde som en parameter lagrar du värdet i ett nyckelvalv och refererar till nyckelvalvet i parameterfilen. Det känsliga värdet hämtas säkert under distributionen.
 
-Följande parameter fil innehåller ett oformaterat text värde och ett värde som lagras i ett nyckel valv.
+Följande parameterfil innehåller ett oformaterat textvärde och ett värde som lagras i ett nyckelvalv.
 
 ```json
 {
@@ -57,11 +57,11 @@ Följande parameter fil innehåller ett oformaterat text värde och ett värde s
 }
 ```
 
-Mer information om hur du använder värden från ett nyckel valv finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](key-vault-parameter.md).
+Mer information om hur du använder värden från ett nyckelvalv finns i [Använda Azure Key Vault för att skicka säkert parametervärde under distributionen](key-vault-parameter.md).
 
-## <a name="define-parameter-values"></a>Definiera parameter värden
+## <a name="define-parameter-values"></a>Definiera parametervärden
 
-Om du vill ta reda på hur du definierar parameter värden öppnar du mallen som du distribuerar. Titta på avsnittet parametrar i mallen. I följande exempel visas parametrarna från en mall.
+Om du vill ta reda på hur du definierar parametervärdena öppnar du mallen som du distribuerar. Titta på parameteravsnittet i mallen. I följande exempel visas parametrarna från en mall.
 
 ```json
 "parameters": {
@@ -82,7 +82,7 @@ Om du vill ta reda på hur du definierar parameter värden öppnar du mallen som
 }
 ```
 
-Den första informationen att notera är namnet på varje parameter. Värdena i parameter filen måste matcha namnen.
+Den första detaljen som ska märkas är namnet på varje parameter. Värdena i parameterfilen måste matcha namnen.
 
 ```json
 {
@@ -97,7 +97,7 @@ Den första informationen att notera är namnet på varje parameter. Värdena i 
 }
 ```
 
-Lägg märke till parameterns typ. Värdena i parameter filen måste vara av samma typ. För den här mallen kan du ange båda parametrarna som strängar.
+Lägg märke till typen av parameter. Värdena i parameterfilen måste ha samma typer. För den här mallen kan du ange båda parametrarna som strängar.
 
 ```json
 {
@@ -131,7 +131,7 @@ Leta sedan efter ett standardvärde. Om en parameter har ett standardvärde kan 
 }
 ```
 
-Titta slutligen på de tillåtna värdena och eventuella begränsningar som maximal längd. De anger det värde intervall som du kan ange för parametern.
+Slutligen, titta på tillåtna värden och eventuella begränsningar som max längd. De anger det värdeintervall som du kan ange för parametern.
 
 ```json
 {
@@ -148,9 +148,9 @@ Titta slutligen på de tillåtna värdena och eventuella begränsningar som maxi
 }
 ```
 
-## <a name="parameter-type-formats"></a>Parameter typ format
+## <a name="parameter-type-formats"></a>Format för parametertyp
 
-I följande exempel visas formaten för olika parameter typer.
+I följande exempel visas formaten för olika parametertyper.
 
 ```json
 {
@@ -184,23 +184,23 @@ I följande exempel visas formaten för olika parameter typer.
 
 ## <a name="file-name"></a>Filnamn
 
-Den allmänna konventionen för att namnge parameter filen är att lägga till **. parametrar** till mallnamnet. Om din mall till exempel heter **azuredeploy. JSON**heter parameter filen **azuredeploy. Parameters. JSON**. Den här namngivnings konventionen hjälper dig att se anslutningen mellan mallen och parametrarna.
+Den allmänna konventionen för namngivning av parameterfilen är att lägga till **.parameters** i mallnamnet. Om mallen till exempel heter **azuredeploy.json**kallas parameterfilen **azuredeploy.parameters.json**. Den här namngivningskonventionen hjälper dig att se sambandet mellan mallen och parametrarna.
 
-Om du vill distribuera till olika miljöer skapar du mer än en parameter fil. När du namnger parameter filen lägger du till ett sätt att identifiera användningen. Använd till exempel **azuredeploy. Parameters-dev. JSON** och **azuredeploy. Parameters-Prod. JSON**
+Om du vill distribuera till olika miljöer skapar du mer än en parameterfil. När du namnger parameterfilen lägger du till ett sätt att identifiera dess användning. Använd till exempel **azuredeploy.parameters-dev.json** och **azuredeploy.parameters-prod.json**
 
 
-## <a name="parameter-precedence"></a>Parameter prioritet
+## <a name="parameter-precedence"></a>Parameterprioritet
 
-Du kan använda infogade parametrar och en lokal parameter fil i samma distributions åtgärd. Du kan till exempel ange vissa värden i den lokala parameter filen och lägga till andra värden i den under distributionen. Om du anger värden för en parameter i både den lokala parameter filen och den infogade värdet, prioriteras det infogade värdet.
+Du kan använda infogade parametrar och en lokal parameterfil i samma distributionsåtgärd. Du kan till exempel ange vissa värden i den lokala parameterfilen och lägga till andra värden infogade under distributionen. Om du anger värden för en parameter i både den lokala parameterfilen och infogade, har det infogade värdet företräde.
 
-Men när du använder en extern parameter fil kan du inte skicka andra värden antingen infogade eller från en lokal fil. Alla infogade parametrar ignoreras. Ange alla parameter värden i den externa filen.
+När du använder en extern parameterfil kan du dock inte skicka andra värden antingen infogade eller från en lokal fil. Alla infogade parametrar ignoreras. Ange alla parametervärden i den externa filen.
 
-## <a name="parameter-name-conflicts"></a>Parameter namns konflikter
+## <a name="parameter-name-conflicts"></a>Konflikter i parameternamn
 
-Om din mall innehåller en parameter med samma namn som en av parametrarna i PowerShell-kommandot, visar PowerShell parametern från mallen med postfix- **FromTemplate**. En parameter med namnet **ResourceGroupName** i din mall är till exempel i konflikt med **ResourceGroupName** -parametern i cmdleten [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) . Du uppmanas att ange ett värde för **ResourceGroupNameFromTemplate**. Du kan undvika denna förvirring genom att använda parameter namn som inte används för distributions kommandon.
+Om mallen innehåller en parameter med samma namn som en av parametrarna i PowerShell-kommandot, visar PowerShell parametern från mallen med postfixet **FromTemplate**. En parameter med namnet **ResourceGroupName** i mallen står till exempel i konflikt med parametern **ResourceGroupName** i cmdleten [New-AzResourceGroupDeployment.](/powershell/module/az.resources/new-azresourcegroupdeployment) Du uppmanas att ange ett värde för **ResourceGroupNameFromTemplate**. Du kan undvika den här förvirringen genom att använda parameternamn som inte används för distributionskommandon.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du definierar parametrar i din mall finns i [parametrar i Azure Resource Manager mallar](template-parameters.md).
-- Mer information om hur du använder värden från ett nyckel valv finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](key-vault-parameter.md).
-- Mer information om parametrar finns [i parametrar i Azure Resource Manager mallar](template-parameters.md).
+- Information om hur du definierar parametrar i mallen finns [i Parametrar i Azure Resource Manager-mallar](template-parameters.md).
+- Mer information om hur du använder värden från ett nyckelvalv finns i [Använda Azure Key Vault för att skicka säkert parametervärde under distributionen](key-vault-parameter.md).
+- Mer information om parametrar finns [i Parametrar i Azure Resource Manager-mallar](template-parameters.md).

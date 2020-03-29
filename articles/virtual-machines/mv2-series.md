@@ -1,5 +1,5 @@
 ---
-title: Mv2-serien – Azure Virtual Machines
+title: Mv2-serien – virtuella Azure-datorer
 description: Specifikationer för virtuella datorer i Mv2-serien.
 services: virtual-machines
 author: ayshakeen
@@ -8,38 +8,38 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 6fb0f93d3ac124b21bbc52ddc57bc720de6406e6
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163904"
 ---
 # <a name="mv2-series"></a>Mv2-serien
 
-Mv2-serien har högt data flöde, låg latens-plattform som körs på en Hyper-threadd Intel® Xeon® platina Intel Xeon-processor med en alla grund frekvens på 2,5 GHz och en maximal Turbo frekvens på 3,8 GHz. Alla storlekar för virtuella datorer i Mv2-serien kan använda både standard-och Premium-diskar. Mv2-seriens instanser är minnesoptimerade VM-storlekar som ger oöverträffade beräknings prestanda för att stödja stora minnes databaser och arbets belastningar, med ett högt förhållande mellan minne och CPU som är idealiskt för Relations databas servrar, stora cacheminnen och minnes intern tjänstprogrammet.
+Mv2-serien har hög genomströmning, låg latens plattform som körs på en hyper-threaded Intel® Xeon® Platinum 8180M 2.5GHz (Skylake) processor med en all core basfrekvens på 2,5 GHz och en max turbo frekvens på 3,8 GHz. Alla storlekar i Mv2-seriens virtuella dator kan använda både vanliga och premiumbeständiga diskar. Mv2-serien instanser är minne optimerade VM storlekar ger oöverträffad beräkningsprestanda för att stödja stora i minnet databaser och arbetsbelastningar, med ett högt minne-till-CPU-förhållande som är idealisk för relationella databasservrar, stora cachar och i minnet Analytics.
 
-Mv2-seriens funktion Intel® Hyper-Threading-teknik
+Mv2-serien VM funktion Intel® Hyper-Threading Technology
 
-Premium Storage: stöds
+Premium-lagring: Stöds
 
-Premium Storage caching: stöds
+Cachelagring av premiumlagring: Stöds
 
-Direktmigrering: stöds inte
+Live Migration: Stöds inte
 
-Minnes bebetjänings uppdateringar: stöds inte
+Minneskonering av uppdateringar: Stöds inte
 
-Skrivningsaccelerator: [stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Skrivaccelerator: [Stöds](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-|Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+|Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Max nätverkskort / Förväntad nätverksbandbredd (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8/16 000 |
-| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8/16 000 |
-| Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 / 32000 |
-| Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8192 | 64 | 250000/1600 (14080) | 80000/2000 | 8 / 32000 |
+| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8/16 000 |
+| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8/16 000 |
+| Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
-<sup>1</sup> virtuella datorer i Mv2-serien är endast generation 2. Om du använder Linux, se [stöd för virtuella datorer i generation 2 på Azure](./linux/generation-2.md) för instruktioner om hur du hittar och väljer en avbildning.
+<sup>1</sup> Mv2-serien virtuella datorer är generation 2 bara. Om du använder Linux läser du [Support för virtuella generationer 2 på Azure](./linux/generation-2.md) för instruktioner om hur du hittar och väljer en avbildning.
 
-<sup>2</sup> för M416ms_v2-och M416s_v2 storlekarna noterar du att det inte finns något första stöd för följande avbildning: "GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 för SAP-program."
+<sup>2</sup> För M416ms_v2 och M416s_v2 storlek, observera att det finns initialt stöd för följande avbildning: "GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 för SAP-program."
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -54,4 +54,4 @@ Skrivningsaccelerator: [stöds](https://docs.microsoft.com/azure/virtual-machine
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.

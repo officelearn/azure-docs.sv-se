@@ -1,6 +1,6 @@
 ---
-title: Bibliotek för Azure Service Bus hantering | Microsoft Docs
-description: Den här artikeln förklarar hur du använder Azure Service Bus hanterings bibliotek för att dynamiskt etablera Service Bus namn områden och entiteter.
+title: Azure Service Bus management bibliotek| Microsoft-dokument
+description: I den här artikeln beskrivs hur du använder Azure Service Bus-hanteringsbibliotek för att dynamiskt etablera servicebussnamnområden och entiteter.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,44 +15,44 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756274"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus-hanteringsbibliotek
 
-Azure Service Bus hanterings bibliotek kan etablera Service Bus namn områden och entiteter dynamiskt. Detta möjliggör komplexa distributioner och meddelande scenarier och gör det möjligt att program mässigt avgöra vilka entiteter som ska etableras. Dessa bibliotek är tillgängliga för .NET.
+Azure Service Bus-hanteringsbiblioteken kan dynamiskt etablera Service Bus-namnområden och entiteter. Detta möjliggör komplexa distributioner och meddelandescenarier och gör det möjligt att programmässigt avgöra vilka entiteter som ska etableras. Dessa bibliotek är för närvarande tillgängliga för .NET.
 
 ## <a name="supported-functionality"></a>Funktioner som stöds
 
-* Skapa en Namespace-, update-, borttagning
-* Skapa kö, uppdatera, ta bort
-* Att skapa, uppdatera och ta bort ämnen
-* Skapa prenumeration, uppdatera, ta bort
+* Skapa, uppdatera, ta bort namnområdet
+* Skapa, uppdatera, ta bort kö
+* Skapa, uppdatera, ta bort ämne
+* Skapande, uppdatering, borttagning av prenumerationer
 
 ## <a name="prerequisites"></a>Krav
 
-För att komma igång med Service Bus hanterings bibliotek måste du autentisera med tjänsten Azure Active Directory (Azure AD). Azure AD kräver att du autentiseras som tjänstens huvud namn, vilket ger åtkomst till dina Azure-resurser. Information om hur du skapar ett tjänstens huvudnamn finns i någon av följande artiklar:  
+Om du vill komma igång med servicebusshanteringsbiblioteken måste du autentisera med Azure Active Directory (Azure AD) -tjänsten. Azure AD kräver att du autentiserar som ett tjänsthuvudnamn, vilket ger åtkomst till dina Azure-resurser. Information om hur du skapar ett huvudnamn för tjänsten finns i någon av följande artiklar:  
 
-* [Använd Azure-portalen för att skapa Active Directory-program och tjänstens huvudnamn som kan komma åt resurser](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Använd Azure-portalen för att skapa Active Directory-program och tjänsthuvudnamn som kan komma åt resurser](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
 * [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Använd Azure CLI för att skapa ett huvudnamn för tjänsten för resursåtkomst](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Använd Azure CLI för att skapa tjänstens huvudnamn för att få åtkomst till resurser](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-De här självstudierna får du en `AppId` (klient-ID), `TenantId`, och `ClientSecret` (autentiseringsnyckeln) som används för autentisering av hanteringsbiblioteken. Du måste ha **ägar** behörigheter för den resurs grupp som du vill köra.
+Dessa självstudier ger `AppId` dig ett (klient-ID), `TenantId`och `ClientSecret` (autentiseringsnyckel), som alla används för autentisering av hanteringsbiblioteken. Du måste ha **ägarbehörigheter** för den resursgrupp som du vill köra.
 
-## <a name="programming-pattern"></a>Mönster för programmering
+## <a name="programming-pattern"></a>Programmeringsmönster
 
-Mönstret för att manipulera eventuella Service Bus resurser följer ett gemensamt protokoll:
+Mönstret för att manipulera en Service Bus-resurs följer ett gemensamt protokoll:
 
-1. Hämta en token från Azure AD med hjälp av **Microsoft. IdentityModel. clients. ActiveDirectory** -biblioteket:
+1. Hämta en token från Azure AD med **microsoft.identitymodel.clients.ActiveDirectory-biblioteket:**
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.azure.com/", new ClientCredential(clientId, clientSecret));
    ```
-2. Skapa `ServiceBusManagementClient`-objektet:
+2. Skapa `ServiceBusManagementClient` objektet:
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -61,7 +61,7 @@ Mönstret för att manipulera eventuella Service Bus resurser följer ett gemens
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Ange de angivna värdena för `CreateOrUpdate` parametrar:
+3. Ställ `CreateOrUpdate` in parametrarna på de angivna värdena:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -70,13 +70,13 @@ Mönstret för att manipulera eventuella Service Bus resurser följer ett gemens
        EnablePartitioning = true
    };
    ```
-4. Kör anropet:
+4. Utför samtalet:
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="complete-code-to-create-a-queue"></a>Slutför kod för att skapa en kö
+## <a name="complete-code-to-create-a-queue"></a>Fullständig kod för att skapa en kö
 Här är den fullständiga koden för att skapa en Service Bus kö: 
 
 ```csharp
@@ -164,7 +164,7 @@ namespace SBusADApp
 ```
 
 > [!IMPORTANT]
-> Ett fullständigt exempel finns i [.net Management-exemplet på GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
+> Ett fullständigt exempel finns i [exempelt på .NET-hantering på GitHub](https://github.com/Azure-Samples/service-bus-dotnet-management/). 
 
 ## <a name="next-steps"></a>Nästa steg
-[API-referens för Microsoft. Azure. Management. Service Bus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)
+[Microsoft.Azure.Management.ServiceBus API-referens](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

@@ -1,6 +1,6 @@
 ---
-title: Dv2 och Dsv2-serien – Azure Virtual Machines
-description: Specifikationer för virtuella datorer med Dv2 och Dsv2-serien.
+title: Dv2- och Dsv2-serien – virtuella Azure-datorer
+description: Specifikationer för virtuella datorer i Dv2 och Dsv2-serien.
 services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 808b14f118e842cb9e52d110075f92ba25a343c9
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164431"
 ---
 # <a name="dv2-and-dsv2-series"></a>Dv2- och DSv2-serien
 
-Dv2 och Dsv2-serien, som är en uppföljning av den ursprungliga D-serien, har en mer kraftfull processor och optimal processor-till-minnes-konfiguration som gör dem lämpliga för de flesta produktions arbets belastningar. Dv2-serien är cirka 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
+Dv2- och Dsv2-serien, en uppföljning av den ursprungliga D-serien, har en mer kraftfull CPU och optimal CPU-till-minne-konfiguration som gör dem lämpliga för de flesta produktionsarbetsbelastningar. Dv2-serien är ca 35% snabbare än D-serien. Dv2-serien körs på Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) processorer med Intel Turbo Boost Technology 2.0. Dv2-serien har samma minnes- och diskkonfigurationer som D-serien.
 
 ## <a name="dv2-series"></a>Dv2-serien
 
-Dv2-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0.
+Dv2-seriens storlekar körs på Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) processorer med Intel Turbo Boost Technology 2.0.
 
 ACU: 210–250
 
-Premium Storage: stöds inte
+Premium-lagring: Stöds inte
 
-Premium Storage caching: stöds inte
+Cachelagring av premiumlagring: Stöds inte
 
-Direktmigrering: stöds
+Live Migration: Stöds
 
-Minnes bebetjänings uppdateringar: stöds
+Minneskonering av uppdateringar: Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporär lagring: IOPS/Read Mbit/s/Write Mbit/s | Maximalt antal datadiskar | Data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Max temp lagringsdataflöde: IOPS/Läs MBps/Write MBps | Maximalt antal datadiskar | Dataflöde: IOPS | Max nätverkskort/förväntad nätverksbandbredd (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D1_v2 | 1  | 3.5 | 50  | 3 000/46/23    | 4  | 4 × 500  | 2/750   |
 | Standard_D2_v2 | 2  | 7   | 100 | 6 000/93/46    | 8  | 8 × 500  | 2/1500  |
@@ -42,19 +42,19 @@ Minnes bebetjänings uppdateringar: stöds
 
 ## <a name="dsv2-series"></a>DSv2-serien
 
-DSv2-seriens storlekar körs på Intel® Xeon® 8171M 2.1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz-processorer (Haswell) med Intel Turbo Boost Technology 2,0 och Använd Premium Storage.
+Storlekar i DSv2-serien körs på Intel® Xeon® 8171M 2,1 GHz (Skylake) eller Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) eller Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell) processorer med Intel Turbo Boost Technology 2.0 och använda premiumlagring.
 
 ACU: 210–250
 
-Premium Storage: stöds
+Premium-lagring: Stöds
 
-Premium Storage caching: stöds
+Cachelagring av premiumlagring: Stöds
 
-Direktmigrering: stöds
+Live Migration: Stöds
 
-Minnes bebetjänings uppdateringar: stöds
+Minneskonering av uppdateringar: Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Högsta cachelagrade data flöde för cache och temporär lagring: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt antal cachelagrade diskar: IOPS/MBps | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temp-lagringsdataflöde: IOPS/MBps (cachestorlek i GiB) | Max oankopplat diskdataflöde: IOPS/MBps | Max nätverkskort/förväntad nätverksbandbredd (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_DS1_v2 | 1  | 3.5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2/750   |
 | Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2/1500  |
@@ -75,4 +75,4 @@ Minnes bebetjänings uppdateringar: stöds
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.

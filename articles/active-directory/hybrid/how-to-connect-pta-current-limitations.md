@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect: Direktautentisering - aktuella begränsningar | Microsoft Docs'
-description: Den här artikeln beskriver de aktuella begränsningarna för Azure Active Directory (Azure AD)-direktautentisering
+title: 'Azure AD Connect: Direktautentisering – Aktuella begränsningar | Microsoft-dokument'
+description: I den här artikeln beskrivs de aktuella begränsningarna i Azure Active Directory (Azure AD) direktautentisering
 services: active-directory
-keywords: Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
+keywords: Azure AD Connect Pass-through-autentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, Enkel inloggning
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -17,49 +17,49 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60347760"
 ---
-# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory-direktautentisering: Aktuella begränsningar
+# <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory Direktautentisering: Aktuella begränsningar
 
 >[!IMPORTANT]
->Azure Active Directory (Azure AD)-direktautentisering är en kostnadsfri funktion och du behöver inte några betald utgåvor av Azure AD för att använda den. Direktautentisering är endast tillgänglig i hela världen instans av Azure AD och inte på den [Microsoft Azure Tyskland](https://www.microsoft.de/cloud-deutschland) eller [Microsoft Azure Government-molnet](https://azure.microsoft.com/features/gov/).
+>Azure Active Directory (Azure AD) Direktautentisering är en kostnadsfri funktion och du behöver inga betalda versioner av Azure AD för att använda den. Direktautentisering är endast tillgängligt i den världsomspännande instansen av Azure AD och inte i [Microsoft Azure Germany-molnet](https://www.microsoft.de/cloud-deutschland) eller [Microsoft Azure Government-molnet](https://azure.microsoft.com/features/gov/).
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
 Följande scenarier stöds:
 
-- Användarinloggningar till webbläsarbaserade webbprogram.
-- Användarinloggningar till Outlook-klienter med äldre protokoll, till exempel Exchange ActiveSync-, EAS-, SMTP-, POP- och IMAP.
-- Användarinloggningar till äldre Office-program och Office-program som stöder [modern autentisering](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview): Office 2013 och 2016-versioner.
-- Användarinloggningar till äldre protokoll program, till exempel PowerShell version 1.0 och andra.
-- Azure AD kopplar för Windows 10-enheter.
-- Applösenord för Multifaktorautentisering.
+- Användarloggningar till webbläsarbaserade program.
+- Användarloggningar till Outlook-klienter med äldre protokoll som Exchange ActiveSync, EAS, SMTP, POP och IMAP.
+- Användarinloggningar till äldre Office-klientprogram och Office-program som stöder [modern autentisering:](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview)Office 2013- och 2016-versioner.
+- Användarloggningar till äldre protokollprogram som PowerShell version 1.0 och andra.
+- Azure AD-kopplingar till Windows 10-enheter.
+- Applösenord för multifaktorautentisering.
 
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
-Följande scenarier är _inte_ stöds:
+Följande scenarier stöds _inte:_
 
-- Identifiering av användare med [läcka ut autentiseringsuppgifter](../reports-monitoring/concept-risk-events.md#leaked-credentials).
-- Azure AD Domain Services måste synkronisering av Lösenordshash ska vara aktiverat på klienten. Därför klienter som använder direktautentisering _endast_ fungerar inte för scenarier som behöver Azure AD Domain Services.
+- Identifiering av användare med [läckta autentiseringsuppgifter](../reports-monitoring/concept-risk-events.md#leaked-credentials).
+- Azure AD Domain Services behöver lösenord hash-synkronisering aktiveras på klienten. Därför fungerar klienter som _använder_ direktautentisering bara för scenarier som behöver Azure AD Domain Services.
 - Direktautentisering är inte integrerat med [Azure AD Connect Health](whatis-hybrid-identity-health.md).
 
 > [!IMPORTANT]
-> Som en lösning för scenarier som inte stöds _endast_ (med undantag för Azure AD Connect Health-integration), aktivera synkronisering av Lösenordshash på den [valfria funktioner](how-to-connect-install-custom.md#optional-features) sida i Azure AD Connect-guiden.
+> Som en lösning för scenarier som _inte_ stöds (förutom Azure AD Connect Health-integrering) aktiverar du synkronisering av lösenord hash-funktioner på sidan [Valfria funktioner](how-to-connect-install-custom.md#optional-features) i Azure AD Connect-guiden.
 > 
 > [!NOTE]
-> Aktiverar synkronisering av Lösenordshash ger dig möjlighet att redundans-autentisering om din lokala infrastruktur avbryts. Den här redundansen från direktautentisering till synkronisering av Lösenordshash sker inte automatiskt. Du måste växla inloggningsmetod manuellt med hjälp av Azure AD Connect. Om den server som kör Azure AD Connect stängs av, kommer du behöver hjälp från Microsoft Support att stänga av direktautentisering.
+> Om du aktiverar synkronisering av lösenord hash-funktioner kan du välja att redundansautentisering om din lokala infrastruktur har avbrutits. Den här redundansen från direktautentisering till synkronisering av lösenord hash är inte automatisk. Du måste byta inloggningsmetod manuellt med Azure AD Connect. Om servern som kör Azure AD Connect går ned behöver du hjälp från Microsoft Support för att inaktivera direktautentisering.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Snabbstart](how-to-connect-pta-quick-start.md): Kom igång med Azure AD-direktautentisering.
-- [Migrera från AD FS till direktautentisering](https://aka.ms/ADFSTOPTADPDownload) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
-- [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
-- [Teknisk djupdykning](how-to-connect-pta-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.
-- [Vanliga frågor och svar](how-to-connect-pta-faq.md): Hitta svar på vanliga frågor om direktautentisering-funktionen.
-- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
-- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): Få djupgående teknisk information om funktionen direktautentisering.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet till filen nya funktionbegäran.
+- [Snabbstart:](how-to-connect-pta-quick-start.md)Kom igång med Azure AD Pass-through-autentisering.
+- [Migrera från AD FS till Direktautentisering](https://aka.ms/ADFSTOPTADPDownload) – En detaljerad guide för att migrera från AD FS (eller annan federationsteknik) till direktautentisering.
+- [Smart Utelåsning:](../authentication/howto-password-smart-lockout.md)Lär dig hur du konfigurerar smart utelåsningsfunktionen på din klient för att skydda användarkonton.
+- [Teknisk djupdykning](how-to-connect-pta-how-it-works.md): Förstå hur funktionen Direktautentisering fungerar.
+- [Vanliga frågor och svar](how-to-connect-pta-faq.md): Hitta svar på vanliga frågor om funktionen Direktautentisering.
+- [Felsöka:](tshoot-connect-pass-through-authentication.md)Lär dig hur du löser vanliga problem med direktautentiseringsfunktionen.
+- [Djupdykning i säkerhet:](how-to-connect-pta-security-deep-dive.md)Få djup teknisk information om funktionen Direktautentisering.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): Läs mer om den här kompletterande funktionen.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory Forum för att fila nya funktionsbegäranden.

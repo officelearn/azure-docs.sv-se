@@ -1,5 +1,5 @@
 ---
-title: Felsökning av Azure Data Box-Disk disk att låsa upp problem | Microsoft Docs
+title: Felsökning av diskupplåsning av diskupplåsning av Azure Data Box Disk | Microsoft-dokument
 description: Beskriver hur du felsöker problem i Azure Data Box-disk.
 services: databox
 author: alkohli
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 02cbf64261bbfbf50561e1b7466b46b27b688e0a
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67148288"
 ---
-# <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Felsöka disk att låsa upp problem i Azure Data Box-Disk
+# <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Felsöka problem med diskupplåsning i Azure Data Box Disk
 
-Den här artikeln gäller för Microsoft Azure Data Box-Disk och beskriver de arbetsflöden som används för att felsöka eventuella problem när du använder verktyget Lås upp. 
+Den här artikeln gäller Microsoft Azure Data Box Disk och beskriver de arbetsflöden som används för att felsöka eventuella problem när du använder upplåsningsverktyget. 
 
 
 <!--## Query activity logs
@@ -36,41 +36,41 @@ To figure out who accessed the **Device credentials** blade, you can query the A
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
 | Aktuellt .NET Framework stöds inte. De versioner som stöds är 4.5 och senare.<br><br>Verktyget avslutas med ett meddelande.  | .NET 4.5 är inte installerat. Installera .NET 4.5 eller senare på den värddator som kör upplåsningsverktyget för Data Box-disk.                                                                            |
 | Det gick inte att låsa upp eller verifiera några volymer. Kontakta Microsoft-supporten.  <br><br>Verktyget misslyckas med att låsa upp eller verifiera låsta enheter. | Verktyget kunde inte låsa upp någon av de låsta enheterna med den angivna nyckeln. Kontakta Microsoft-supporten om du vill ha hjälp.                                                |
-| Följande volymer är olåsta och verifierade. <br>Enhetsbeteckningar för volymen: E:<br>Det gick inte att låsa upp alla volymer med följande nycklar: werwerqomnf, qwerwerqwdfda <br><br>Verktyget låser upp vissa enheter och visar lyckade och misslyckade enhetsbeteckningar.| Slutfördes delvis. Det gick inte att låsa upp några av enheterna med den angivna nyckeln. Kontakta Microsoft-supporten om du vill ha hjälp. |
+| Följande volymer är olåsta och verifierade. <br>Volymenhetsbeteckningar: E:<br>Det gick inte att låsa upp alla volymer med följande nycklar: werwerqomnf, qwerwerqwdfda <br><br>Verktyget låser upp vissa enheter och visar lyckade och misslyckade enhetsbeteckningar.| Slutfördes delvis. Det gick inte att låsa upp några av enheterna med den angivna nyckeln. Kontakta Microsoft-supporten om du vill ha hjälp. |
 | Det gick inte att hitta låsta volymer. Kontrollera att den disk som mottogs från Microsoft är korrekt ansluten och är låst.          | Verktyget kan inte hitta några låsta enheter. Antingen är enheterna redan upplåsta eller så identifieras de inte. Kontrollera att enheterna är anslutna och att de är låsta.                                                           |
-| Allvarligt fel: Ogiltig parameter<br>Parameternamn: invalid_arg<br>ANVÄNDNING:<br>DataBoxDiskUnlock /PassKeys:<lista_över_nycklar_separerade_med_semikolon><br><br>Exempel: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exempel: DataBoxDiskUnlock /SystemCheck<br>Exempel: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Hämta den här nyckeln från Azure DataBox diskbeställning. Nyckeln låser upp dina diskar.<br>/ Hjälp:           Det här alternativet innehåller hjälp om cmdlet-syntax och exempel.<br>/SystemCheck:    Det här alternativet kontrollerar om datorn uppfyller kraven för att köra verktyget.<br><br>Tryck på valfri tangent för att avsluta. | En ogiltig parameter har angetts. De enda tillåtna parametrarna är /SystemCheck och /PassKey/Help.|
+| Oåterkalleligt fel: Ogiltig parameter<br>Parameternamn: invalid_arg<br>ANVÄNDNING:<br>DataBoxDiskUnlock /PassKeys:<lista_över_nycklar_separerade_med_semikolon><br><br>Exempel: DataBoxDiskUnlock /PassKeys:nyckel1;nyckel2;nyckel3<br>Exempel: DataBoxDiskUnlock /SystemCheck<br>Exempel: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Hämta den här nyckeln från Azure DataBox-diskbeställning. Nyckeln låser upp dina diskar.<br>/Help:           Det här alternativet ger hjälp om cmdlet-användning och exempel.<br>/SystemCheck:    Det här alternativet kontrollerar om datorn uppfyller kraven för att köra verktyget.<br><br>Tryck på valfri tangent för att avsluta. | En ogiltig parameter har angetts. De enda tillåtna parametrarna är /SystemCheck, /PassKey och /Help.|
 
 
 ## <a name="unlock-issues-for-disks-when-using-a-windows-client"></a>Låsa upp problem för diskar när du använder en Windows-klient
 
-Det här avsnittet beskriver några av de viktigaste problemen inför under distributionen av Data Box-Disk när du använder en Windows-klient för kopiering av data.
+I det här avsnittet beskrivs några av de vanligaste problemen som visas under distributionen av Data Box Disk när du använder en Windows-klient för datakopiering.
 
-### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Ärende: Det gick inte att låsa upp enheten från BitLocker
+### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problem: Det gick inte att låsa upp enheten från BitLocker
  
 **Orsak** 
 
-Du har använt lösenord i BitLocker-dialogrutan och försök att låsa upp disken via BitLocker låsa upp enheter dialogrutan. Detta kan inte fungera.
+Du har använt lösenordet i BitLocker-dialogrutan och försöker låsa upp disken via dialogrutan BitLocker unlock drives. Detta skulle inte fungera.
 
-**Lösning**
+**Upplösning**
 
-För att låsa upp Data Box-diskar, måste du använda verktyget Data Box Disk låsa upp och ange lösenord från Azure-portalen. Mer information finns i [Självstudie: Packa upp, Anslut och lås Azure Data Box-Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
+Om du vill låsa upp databoxdiskarna måste du använda verktyget Diskupplåsning av databoxar och ange lösenordet från Azure-portalen. Mer information finns i [Självstudiekurs: Packa upp, anslut och lås upp Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
-### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Ärende: Det gick inte att låsa upp eller verifiera några volymer. Kontakta Microsoft-supporten.
+### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problem: Det gick inte att låsa upp eller verifiera vissa volymer. Kontakta Microsoft-supporten.
  
 **Orsak**
 
-Du kan se följande fel i felloggen och går inte att låsa upp eller verifiera några volymer.
+Följande fel kan visas i felloggen och kan inte låsa upp eller verifiera vissa volymer.
 
 `Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
  
-Detta anger att du förmodligen saknar rätt version av Windows PowerShell på Windows-klient.
+Detta indikerar att du troligen saknar rätt version av Windows PowerShell på din Windows-klient.
 
-**Lösning**
+**Upplösning**
 
-Du kan installera [Windows PowerShell-v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) och försök igen.
+Du kan installera [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) och försöka igen.
  
-Om du fortfarande inte kan låsa upp volymerna, kopiera loggar från mappen med verktyget Data Box Disk låsa upp och [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md).
+Om du fortfarande inte kan låsa upp volymerna kopierar du loggarna från mappen som har verktyget Diskupplåsning av databoxar och [kontaktar Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [felsöka problem med schemavalidering](data-box-disk-troubleshoot.md).
+- Läs om hur du [felsöker valideringsproblem](data-box-disk-troubleshoot.md).

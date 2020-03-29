@@ -1,6 +1,6 @@
 ---
-title: Konfigurera verktyget Azure import/export | Microsoft Docs
-description: Lär dig hur du konfigurerar enhets förberedelse-och reparations verktyget för Azure import/export-tjänsten.
+title: Konfigurera verktyget för import/export av Azure | Microsoft-dokument
+description: Lär dig hur du konfigurerar verktyget för förberedelse och reparation av enheten för Azure Import/Export-tjänsten.
 author: twooley
 services: storage
 ms.service: storage
@@ -9,68 +9,68 @@ ms.date: 06/29/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 01432ab68fc399f3e97eac2de5a7c356bef7078a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74979044"
 ---
-# <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera verktyget Azure import/export
+# <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera verktyget för import/export av Azure
 
-Verktyget Microsoft Azure Import/Export är verktyget för förberedelse och reparation av enheter som du kan använda med tjänsten Microsoft Azure Import/Export. Du kan använda verktyget för följande funktioner:
+Microsoft Azure Import/Export Tool är verktyget för förberedelse och reparation av enheter som du kan använda med tjänsten Microsoft Azure Import/Export. Du kan använda verktyget för följande funktioner:
 
-* Innan du skapar ett import jobb kan du använda det här verktyget för att kopiera data till de hård diskar som du kommer att leverera till ett Azure-datacenter.
-* När ett import jobb har slutförts kan du använda det här verktyget för att reparera eventuella blobbar som var skadade, saknades eller står i konflikt med andra blobbar.
-* När du har tagit emot enheterna från ett slutfört export jobb kan du använda det här verktyget för att reparera filer som är skadade eller saknade på enheterna.
+* Innan du skapar ett importjobb kan du använda det här verktyget för att kopiera data till de hårddiskar som du ska leverera till ett Azure-datacenter.
+* När ett importjobb har slutförts kan du använda det här verktyget för att reparera alla blobbar som har skadats, saknades eller stod i konflikt med andra blobbar.
+* När du har fått enheterna från ett slutfört exportjobb kan du använda det här verktyget för att reparera filer som har skadats eller saknats på enheterna.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du **förbereder enheter** för ett import jobb måste följande krav vara uppfyllda:
+Om du **förbereder enheter** för ett importjobb måste följande förutsättningar uppfyllas:
 
 * Du måste ha en aktiv Azure-prenumeration.
-* Din prenumeration måste innehålla ett lagrings konto med tillräckligt mycket ledigt utrymme för att lagra de filer som du ska importera.
-* Du behöver minst en av åtkomst nycklarna för lagrings kontot.
-* Du behöver en dator ("Kopiera datorn") med Windows 7, Windows Server 2008 R2 eller ett nyare Windows-operativsystem installerat.
-* .NET Framework 4 måste vara installerat på kopierings datorn.
-* BitLocker måste vara aktiverat på kopierings datorn.
-* Du behöver en eller flera tomma 2,5-eller 3,5-SATAII-eller 3-tums eller SSD-hårddiskar som är anslutna till kopierings datorn.
-* Filerna som du planerar att importera måste vara tillgängliga från kopierings datorn, oavsett om de finns på en nätverks resurs eller på en lokal hård disk.
+* Din prenumeration måste innehålla ett lagringskonto med tillräckligt med ledigt utrymme för att lagra de filer du ska importera.
+* Du behöver minst en av åtkomstnycklarna för lagringskontot.
+* Du behöver en dator ("kopieringsmaskinen") med Windows 7, Windows Server 2008 R2 eller ett nyare Windows-operativsystem installerat.
+* .NET Framework 4 måste installeras på kopieringsmaskinen.
+* BitLocker måste vara aktiverat på kopieringsmaskinen.
+* Du behöver en eller flera tomma 2,5-tums eller 3,5-tums SATAII- eller III- eller SSD-hårddiskar som är anslutna till kopieringsmaskinen.
+* De filer som du planerar att importera måste vara tillgängliga från kopieringsmaskinen, oavsett om de finns på en nätverksresurs eller en lokal hårddisk.
 
-Om du försöker **Reparera en import** som delvis har misslyckats, behöver du:
+Om du försöker **reparera en import** som delvis har misslyckats måste du:
 
-* Loggfilerna för kopiering
-* Lagrings konto nyckel
+* Kopieringsloggfilerna
+* Nyckeln för lagringskontot
 
-Om du försöker **Reparera en export** som delvis har misslyckats, behöver du:
+Om du försöker **reparera en export** som delvis har misslyckats måste du:
 
-* Loggfilerna för kopiering
-* Manifest fil (valfritt)
-* Lagrings konto nyckel
+* Kopieringsloggfilerna
+* Manifestfilerna (valfritt)
+* Nyckeln för lagringskontot
 
-## <a name="installing-the-azure-importexport-tool"></a>Installera Azure import/export-verktyget
+## <a name="installing-the-azure-importexport-tool"></a>Installera verktyget för import/export av Azure
 
-Först [hämtar du verktyget Azure import/export](https://www.microsoft.com/download/details.aspx?id=55280) och extraherar det till en katalog på din dator, till exempel `c:\WAImportExport`.
+Hämta först [Azure Import/Export Tool](https://www.microsoft.com/download/details.aspx?id=55280) och extrahera det till en `c:\WAImportExport`katalog på datorn, till exempel .
 
-Verktyget Azure import/export består av följande filer:
+Azure Import/Export Tool består av följande filer:
 
 * dataset.csv
 * driveset.csv
-* hddid.dll
+* hddid.dll (påt)
 * Microsoft.Data.Services.Client.dll
 * Microsoft.WindowsAzure.Storage.dll
 * Microsoft.WindowsAzure.Storage.pdb
 * Microsoft.WindowsAzure.Storage.xml
 * WAImportExport.exe
 * WAImportExport.exe.config
-* WAImportExport. pdb
-* WAImportExportCore. dll
-* WAImportExportCore. pdb
-* WAImportExportRepair. dll
-* WAImportExportRepair. pdb
+* WAImportExport.pdb
+* WAImportExportCore.dll
+* WAImportExportCore.pdb
+* WAImportExportRepair.dll
+* WAImportExportRepair.pdb
 
-Öppna sedan ett kommando tolks fönster i **Administratörs läge**och ändra till den katalog som innehåller de extraherade filerna.
+Öppna sedan ett kommandotolksfönster i **administratörsläge**och ändra till katalogen som innehåller de extraherade filerna.
 
-Om du vill skriva ut hjälp för kommandot kör du verktyget (`WAImportExport.exe`) utan parametrar:
+Om du vill mata ut hjälpen för kommandot kör du verktyget (`WAImportExport.exe`) utan parametrar:
 
 ```
 WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013

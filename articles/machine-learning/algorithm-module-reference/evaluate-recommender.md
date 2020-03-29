@@ -1,7 +1,7 @@
 ---
-title: 'Utvärdera rekommendation: modulreferens'
+title: 'Utvärdera Recommender: Modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen utvärdera Rekommenderadere i Azure Machine Learning för att utvärdera noggrannheten hos rekommendationer för rekommenderade modeller.
+description: Lär dig hur du använder modulen Utvärdera rekommenderare i Azure Machine Learning för att utvärdera noggrannheten i rekommenderarmodellprognoser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,85 +9,85 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 0890e13acbba8dae31de28d7c78a81bd9b516853
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76312268"
 ---
 # <a name="evaluate-recommender"></a>Utvärdera rekommenderare
 
-I den här artikeln beskrivs hur du använder modulen utvärdera rekommenderar i Azure Machine Learning designer. Målet är att mäta noggrannheten hos förutsägelser som en rekommendations modell har gjort. Genom att använda den här modulen kan du utvärdera olika typer av rekommendationer:  
+I den här artikeln beskrivs hur du använder modulen Utvärdera rekommenderare i Azure Machine Learning designer (förhandsversion). Målet är att mäta riktigheten av förutsägelser som en rekommendationsmodell har gjort. Med den här modulen kan du utvärdera olika typer av rekommendationer:  
   
--   Omdömen som förutsägs för en användare och ett objekt    
+-   Betyg som förutses för en användare och ett objekt    
 -   Objekt som rekommenderas för en användare  
   
-När du skapar förutsägelser med hjälp av en rekommendations modell returneras något annorlunda resultat för var och en av de förutsägelse typer som stöds. Utvärderingen av bedömnings rekommendationer härleder typen av förutsägelse från kolumn formatet för den returnerade data uppsättningen. Till exempel kan den resulterande data uppsättningen innehålla:
+När du skapar förutsägelser med hjälp av en rekommendationsmodell returneras något olika resultat för var och en av dessa förutsägelsetyper som stöds. Modulen Utvärdera recommender härleder den typ av förutsägelse från kolumnformatet för den poängsatta datauppsättningen. Den poängsatta datauppsättningen kan till exempel innehålla:
 
-- Användar objekt – betygs ätter tredubbla
+- Tredubblad klassificering för användare och objekt
 - Användare och deras rekommenderade objekt
 
-Modulen tillämpar också lämpliga prestanda mått baserat på vilken typ av förutsägelse som görs. 
+Modulen tillämpar också lämpliga prestandamått, baserat på vilken typ av förutsägelse som görs. 
 
   
-## <a name="how-to-configure-evaluate-recommender"></a>Så här konfigurerar du utvärderings rekommendationen
+## <a name="how-to-configure-evaluate-recommender"></a>Konfigurera Utvärdera recommender
 
-I modulen utvärdera rekommenderar vi att du jämför utdata med en rekommendations modell med motsvarande "sanningen"-data. Till exempel ger den [SVD-rekommenderade](score-svd-recommender.md) -modulen Poäng som du kan analysera genom att använda utvärderings rekommendation.
+Modulen Utvärdera recommender jämför förutsägelseutdata med hjälp av en rekommendationsmodell med motsvarande "ground truth"-data. Modulen [Poäng SVD Recommender](score-svd-recommender.md) producerar till exempel poängdatauppsättningar som du kan analysera med hjälp av Utvärdera Rekommenderare.
 
 ### <a name="requirements"></a>Krav
 
-Utvärderings rekommendation kräver följande data uppsättningar som indata. 
+Utvärdera Recommender kräver följande datauppsättningar som indata. 
   
-#### <a name="test-dataset"></a>Test data uppsättning
+#### <a name="test-dataset"></a>Testa datauppsättning
 
-Test data uppsättningen innehåller data för "mark sanningen" i form av tredubbla användar objekt – omdöme.  
+Testdatauppsättningen innehåller "ground truth"-data i form av tredubblats med användarpostklassificering.  
 
-#### <a name="scored-dataset"></a>Resultat data mängd
+#### <a name="scored-dataset"></a>Poängsatt datauppsättning
 
-Den Poäng data uppsättningen innehåller de förutsägelser som rekommendations modellen genererade.  
+Den poängsatta datauppsättningen innehåller förutsägelser som rekommendationsmodellen genererade.  
   
-Kolumnerna i den här andra data uppsättningen beror på vilken typ av förutsägelse som du utförde under bedömnings processen. Till exempel kan den resulterande data uppsättningen innehålla något av följande:
+Kolumnerna i den här andra datauppsättningen beror på vilken typ av förutsägelse som du utförde under bedömningsprocessen. Den poängsatta datauppsättningen kan till exempel innehålla något av följande:
 
-- Användare, objekt och klassificeringar som användaren sannolikt skulle ge objektet
+- Användare, objekt och de betyg som användaren sannolikt skulle ge för objektet
 - En lista över användare och objekt som rekommenderas för dem 
 
 ### <a name="metrics"></a>Mått
 
-Prestanda måtten för modellen genereras baserat på typen av Indatatyp. I följande avsnitt får du information.
+Prestandamått för modellen genereras baserat på typen av indata. Följande avsnitt innehåller information.
 
-## <a name="evaluate-predicted-ratings"></a>Utvärdera förväntade värderingar  
+## <a name="evaluate-predicted-ratings"></a>Utvärdera förväntade betyg  
 
-När du utvärderar förväntade betyg måste den returnerade data uppsättningen (den andra indatan för att utvärdera rekommendationen) innehålla tredubbla objekt för användar objekts klassificering som uppfyller följande krav:
+När du utvärderar förväntade klassificeringar måste den poängsatta datauppsättningen (den andra ingången till Utvärdera Recommender) innehålla tre tripplar för användar-artikelklassificering som uppfyller dessa krav:
   
--   Den första kolumnen i data uppsättningen innehåller användar-ID: n.    
--   Den andra kolumnen innehåller objekt identifierare.  
--   Den tredje kolumnen innehåller motsvarande användar objekts klassificeringar.  
+-   Den första kolumnen i datauppsättningen innehåller användaridentifierarna.    
+-   Den andra kolumnen innehåller objektidentifierarna.  
+-   Den tredje kolumnen innehåller motsvarande användarobjektklassificeringar.  
   
 > [!IMPORTANT] 
-> För att utvärderingen ska lyckas måste kolumn namnen vara `User`, `Item`respektive `Rating`.  
+> För att utvärderingen ska lyckas `User` `Item`måste `Rating`kolumnnamnen vara , och .  
   
-Utvärdera rekommendationer jämför klassificeringarna i data uppsättningen "mark sanningen" med de förväntade klassificeringarna för den returnerade data uppsättningen. Sedan beräknar den medelvärdet av absolut fel (MAE) och RMSE (root mean error).
+Utvärdera Recommender jämför betygen i datauppsättningen "ground truth" med de förväntade klassificeringarna för den poängsatta datauppsättningen. Det beräknar sedan det genomsnittliga absoluta felet (MAE) och rotmedelvärdet kvadratfel (RMSE).
 
 
 
-## <a name="evaluate-item-recommendations"></a>Utvärdera objekt rekommendationer
+## <a name="evaluate-item-recommendations"></a>Utvärdera artikelrekommendationer
 
-När du utvärderar objekt rekommendationer använder du en resultat uppsättning som innehåller de rekommenderade objekten för varje användare:
+När du utvärderar artikelrekommendationer använder du en poängsatt datauppsättning som innehåller de rekommenderade objekten för varje användare:
   
--   Den första kolumnen i data mängden måste innehålla användar-ID.    
--   Alla efterföljande kolumner ska innehålla motsvarande rekommenderade objekt identifierare, sorterade efter hur relevant ett objekt är för användaren. 
+-   Den första kolumnen i datauppsättningen måste innehålla användaridentifieraren.    
+-   Alla efterföljande kolumner ska innehålla motsvarande rekommenderade artikelidentifierare, sorterade efter hur relevant ett objekt är för användaren. 
 
-Innan du ansluter den här data uppsättningen rekommenderar vi att du sorterar data uppsättningen så att de mest relevanta objekten kommer först.  
+Innan du ansluter den här datauppsättningen rekommenderar vi att du sorterar datauppsättningen så att de mest relevanta objekten kommer först.  
 
 > [!IMPORTANT] 
-> För att utvärderings rekommendationen ska fungera måste kolumn namnen vara `User`, `Item 1`, `Item 2`, `Item 3` och så vidare.  
+> För att Utvärdera rekommenderare ska fungera `User` `Item 1`måste `Item 2` `Item 3` kolumnnamnen vara , , och så vidare.  
   
-Utvärdera rekommendationer beräknar den genomsnittliga normaliserade rabatten för den ackumulerade vinsten (NDCG) och returnerar den i data uppsättningen för utdata.  
+Utvärdera Recommender beräknar den genomsnittliga normaliserade diskonterade kumulativa förstärkningen (NDCG) och returnerar den i utdatauppsättningen.  
   
-Eftersom det är omöjligt att känna till det faktiska "mark sanningen" för rekommenderade objekt, använder utvärderings funktionen användar objekt klassificeringarna i test data uppsättningen som vinster vid beräkningen av NDCG. För att utvärdera måste du bara skapa rekommendationer för objekt med klassificeringen "sanningen" (i test data uppsättningen).  
+Eftersom det är omöjligt att veta den faktiska "ground truth" för de rekommenderade objekten, utvärdera Recommender använder användaren-objekt betyg i testet datauppsättningen som vinster i beräkningen av NDCG. För att utvärdera får den rekommenderade poängsättningsmodulen endast ta fram rekommendationer för objekt med betyg för "grundsanning" (i testdatauppsättningen).  
   
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

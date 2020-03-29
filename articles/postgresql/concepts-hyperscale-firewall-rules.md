@@ -1,56 +1,56 @@
 ---
-title: Brand Väggs regler – storskalig (citus)-Azure Database for PostgreSQL
-description: I den här artikeln beskrivs brand Väggs regler för Azure Database for PostgreSQL-storskalig (citus).
+title: Brandväggsregler - Hyperskala (Citus) - Azure-databas för PostgreSQL
+description: I den här artikeln beskrivs brandväggsregler för Azure Database for PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
 ms.openlocfilehash: b843cd1528630a21255053f623356a0379daacf6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975575"
 ---
-# <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)
-Azure Database for PostgreSQL-serverns brand vägg förhindrar all åtkomst till din citus-Coordinator-nod tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
-Du konfigurerar brandväggen genom att skapa brandväggsregler som anger intervall med godkända IP-adresser. Du kan skapa brand Väggs regler på server nivå.
+# <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Brandväggsregler i Azure Database för PostgreSQL - Hyperskala (Citus)
+Azure Database for PostgreSQL-serverbrandväggen förhindrar all åtkomst till cus-koordinatornoden Hyperscale (Citus) tills du anger vilka datorer som har behörighet. Brandväggen ger åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
+Du konfigurerar brandväggen genom att skapa brandväggsregler som anger intervall med godkända IP-adresser. Du kan skapa brandväggsregler på servernivå.
 
-**Brand Väggs regler:** Dessa regler gör att klienter kan komma åt din citus-koordinator-nod, det vill säga alla databaser på samma logiska Server. Brand Väggs regler på server nivå kan konfigureras med hjälp av Azure Portal. Du måste vara prenumerations ägare eller en prenumerations deltagare för att skapa brand Väggs regler på server nivå.
+**Brandväggsregler:** Dessa regler gör det möjligt för klienter att komma åt din citus-koordinatornod (Hyperscale), det vill än alla databaser på samma logiska server. Brandväggsregler på servernivå kan konfigureras med hjälp av Azure-portalen. Om du vill skapa brandväggsregler på servernivå måste du vara prenumerationsägare eller prenumerationsdeltagare.
 
 ## <a name="firewall-overview"></a>Översikt över brandväggar
-All databas åtkomst till koordinator-noden blockeras som standard av brand väggen. Om du vill börja använda servern från en annan dator måste du ange en eller flera brand Väggs regler på server nivå för att aktivera åtkomst till servern. Använd brand Väggs reglerna för att ange vilka IP-adressintervall från Internet som ska tillåtas. Åtkomst till den Azure Portal webbplatsen påverkas inte av brand Väggs reglerna.
-Anslutnings försök från Internet och Azure måste först passera brand väggen innan de kan komma åt din PostgreSQL-databas, som du ser i följande diagram:
+All databasåtkomst till koordinatornoden blockeras av brandväggen som standard. Om du vill börja använda servern från en annan dator måste du ange en eller flera brandväggsregler på servernivå för att aktivera åtkomst till servern. Använd brandväggsreglerna för att ange vilken IP-adress som ska tillåtas från Internet. Åtkomst till själva Azure-portalwebbplatsen påverkas inte av brandväggsreglerna.
+Anslutningsförsök från Internet och Azure måste först passera genom brandväggen innan de når din PostgreSQL-databas, vilket visas i följande diagram:
 
-![Exempel flöde för hur brand väggen fungerar](media/concepts-hyperscale-firewall-rules/1-firewall-concept.png)
+![Exempel på hur brandväggen fungerar](media/concepts-hyperscale-firewall-rules/1-firewall-concept.png)
 
 ## <a name="connecting-from-the-internet-and-from-azure"></a>Ansluta från Internet och från Azure
 
-En citus-kontroll för Server grupps brand väggar som kan ansluta till gruppens koordinator nod. Brand väggen bestämmer åtkomsten genom att konsultera en konfigurerbar lista med regler. Varje regel är en IP-adress eller ett adress intervall som tillåts i.
+En citus-brandvägg för hyperskala (Citus) som kan ansluta till gruppens koordinatornod. Brandväggen bestämmer åtkomst genom att konsultera en konfigurerbar lista med regler. Varje regel är en IP-adress, eller adressintervall, som är tillåtna i.
 
-När brand väggen blockerar anslutningar kan det orsaka program fel. Genom att använda PostgreSQL JDBC-drivrutinen, till exempel, genererar vi ett fel som detta:
+När brandväggen blockerar anslutningar kan det orsaka programfel. Om du använder PostgreSQL JDBC-drivrutinen, till exempel, uppstår ett fel som detta:
 
-> Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: allvarligt: ingen PG\_HBA. conf-posten för värden "123.45.67.890", användare "citus", databas "citus", SSL
+> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "citus", database "citus", SSL
 
-Se [skapa och hantera brand Väggs regler](howto-hyperscale-manage-firewall-using-portal.md) för att lära dig hur reglerna definieras.
+Se [Skapa och hantera brandväggsregler](howto-hyperscale-manage-firewall-using-portal.md) för att lära dig hur reglerna definieras.
 
-## <a name="troubleshooting-the-database-server-firewall"></a>Felsöka databas serverns brand vägg
-När åtkomst till Microsoft Azure-databasen för PostgreSQL-tjänsten (citus) inte fungerar som förväntat, bör du tänka på följande punkter:
+## <a name="troubleshooting-the-database-server-firewall"></a>Felsöka brandväggen för databasservern
+När åtkomst till Tjänsten Microsoft Azure Database for PostgreSQL - Hyperscale (Citus) inte fungerar som förväntat bör du tänka på följande:
 
-* **Ändringar i listan över tillåtna har inte börjat att fungera än:** Det kan ta upp till fem minuter innan ändringar i citus-brandväggens brand Väggs konfiguration börjar gälla.
+* **Ändringar i listan över tillåtna har ännu inte trätt i kraft:** Det kan finnas så mycket som en fem minuters fördröjning för ändringar i hyperskala (Citus) brandväggen konfiguration att träda i kraft.
 
-* **Användaren är inte auktoriserad eller ett felaktigt lösen ord användes:** Om en användare inte har behörighet på servern eller om lösen ordet som används är felaktigt nekas anslutningen till servern. Att skapa en brand Väggs inställning ger bara klienter möjlighet att försöka ansluta till servern. varje klient måste ändå ange nödvändiga säkerhets uppgifter.
+* **Användaren är inte auktoriserad eller ett felaktigt lösenord har använts:** Om en användare inte har behörighet på servern eller om lösenordet som används är felaktigt nekas anslutningen till servern. Om du skapar en brandväggsinställning kan klienterna bara försöka ansluta till servern. Varje klient måste fortfarande tillhandahålla nödvändiga säkerhetsreferenser.
 
-Om du till exempel använder en JDBC-klient kan följande fel uppstå.
-> Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: OÅTERKALLELIG: lösenordsautentisering misslyckades för användaren "YOURUSERNAME"
+Med hjälp av en JDBC-klient kan följande fel visas.
+> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: lösenordsautentisering misslyckades för användaren "yourusername"
 
 * **Dynamisk IP-adress:** Om du har en Internetanslutning med dynamisk IP-adressering och du har problem med att passera brandväggen kan du prova någon av följande lösningar:
 
-* Be Internet leverantören (ISP) om IP-adressintervallet som har tilldelats till de klient datorer som har åtkomst till noden för citus-koordinatorn () och Lägg sedan till IP-adressintervallet som en brand Väggs regel.
+* Fråga Internet-leverantören (ISP) om det IP-adressintervall som tilldelats klientdatorerna som har åtkomst till cituskoordinatornoden (Hyperscale) och lägg sedan till IP-adressintervallet som en brandväggsregel.
 
-* Hämta statiska IP-adresser i stället för dina klient datorer och Lägg sedan till den statiska IP-adressen som en brand Väggs regel.
+* Hämta statisk IP-adressering i stället för klientdatorerna och lägg sedan till den statiska IP-adressen som en brandväggsregel.
 
 ## <a name="next-steps"></a>Nästa steg
-Artiklar om hur du skapar brand Väggs regler på server nivå och databas nivå finns i:
-* [Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure portal](howto-hyperscale-manage-firewall-using-portal.md)
+Artiklar om hur du skapar brandväggsregler på servernivå och brandvägg på databasnivå finns i:
+* [Skapa och hantera Azure Database för PostgreSQL-brandväggsregler med hjälp av Azure-portalen](howto-hyperscale-manage-firewall-using-portal.md)

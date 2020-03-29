@@ -1,6 +1,6 @@
 ---
-title: Kommunikation för roller i Cloud Services | Microsoft Docs
-description: Roll instanser i Cloud Services kan ha slut punkter (http, https, TCP, UDP) definierade för dem som kommunicerar med utanför eller mellan andra roll instanser.
+title: Kommunikation för roller i molntjänster | Microsoft-dokument
+description: Rollinstanser i Molntjänster kan ha slutpunkter (http, https, tcp, udp) definierade för dem som kommunicerar med utsidan eller mellan andra rollinstanser.
 services: cloud-services
 documentationcenter: ''
 author: tgore03
@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 12/14/2016
 ms.author: tagore
 ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386348"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Aktivera kommunikation för roll instanser i Azure
-Moln tjänst roller kommunicerar via interna och externa anslutningar. Externa anslutningar kallas för **ingångs slut punkter** medan interna anslutningar kallas **interna slut punkter**. I det här avsnittet beskrivs hur du ändrar [tjänst definitionen](cloud-services-model-and-package.md#csdef) för att skapa slut punkter.
+# <a name="enable-communication-for-role-instances-in-azure"></a>Aktivera kommunikation för rollinstanser i azure
+Molntjänstroller kommunicerar via interna och externa anslutningar. Externa anslutningar kallas **indataslutpunkter** medan interna anslutningar kallas **interna slutpunkter**. I det här avsnittet beskrivs hur du ändrar [tjänstdefinitionen](cloud-services-model-and-package.md#csdef) för att skapa slutpunkter.
 
-## <a name="input-endpoint"></a>Slut punkt för indatakälla
-Slut punkten för indatakälla används när du vill exponera en port för utsidan. Du anger protokoll typ och port för slut punkten som sedan gäller för båda de externa och interna portarna för slut punkten. Om du vill kan du ange en annan intern port för slut punkten med attributet [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint) .
+## <a name="input-endpoint"></a>Slutpunkt för indata
+Ingångsslutpunkten används när du vill exponera en port på utsidan. Du anger protokolltypen och porten för slutpunkten som sedan gäller för både externa och interna portar för slutpunkten. Om du vill kan du ange en annan intern port för slutpunkten med [attributet localPort.](/previous-versions/azure/reference/gg557552(v=azure.100)#inputendpoint)
 
-Slut punkten för indatamängden kan använda följande protokoll: **http, https, TCP, UDP**.
+Ingångsslutpunkten kan använda följande protokoll: **http, https, tcp, udp**.
 
-Om du vill skapa en ingångs slut punkt lägger du till det underordnade elementet **InputEndpoint** i **slut punkts** elementet för en webb-eller arbets roll.
+Om du vill skapa en indataslutpunkt lägger du till det underordnade elementet **InputEndpoint** i **slutpunkterselementet** i en webb- eller arbetarroll.
 
 ```xml
 <Endpoints>
@@ -32,12 +32,12 @@ Om du vill skapa en ingångs slut punkt lägger du till det underordnade element
 </Endpoints> 
 ```
 
-## <a name="instance-input-endpoint"></a>Slut punkt för instans ingång
-Instans ingångs slut punkter liknar ingångs slut punkter, men gör att du kan mappa specifika offentliga portar för varje enskild roll instans genom att använda vidarebefordrad port på belastningsutjämnaren. Du kan ange en enskild offentlig port eller ett port intervall.
+## <a name="instance-input-endpoint"></a>Slutpunkt för indata för instans
+Instansindataslutpunkter liknar ingångsslutpunkter, men du kan mappa specifika offentliga portar för varje enskild rollinstans med hjälp av portbefordring på belastningsutjämnaren. Du kan ange en enskild port som ska ställas mot allmänheten eller en rad portar.
 
-Slut punkten för instans indatamängden kan endast använda **TCP** eller **UDP** som protokoll.
+Instansindataslutpunkten kan bara använda **tcp** eller **udp** som protokoll.
 
-Om du vill skapa en slut punkt för instans ineffekt lägger du till det underordnade elementet **InstanceInputEndpoint** i **slut punkts** elementet för en webb-eller arbets roll.
+Om du vill skapa en instansinmatningsslutpunkt lägger du till det underordnade elementet **InstanceInputEndpoint** i **slutpunkterselementet** i en webb- eller arbetarroll.
 
 ```xml
 <Endpoints>
@@ -49,12 +49,12 @@ Om du vill skapa en slut punkt för instans ineffekt lägger du till det underor
 </Endpoints>
 ```
 
-## <a name="internal-endpoint"></a>Intern slut punkt
-Interna slut punkter är tillgängliga för kommunikation mellan instans och instans. Porten är valfri och om den utelämnas tilldelas den en dynamisk port till slut punkten. Ett port intervall kan användas. Det finns en gräns på fem interna slut punkter per roll.
+## <a name="internal-endpoint"></a>Intern slutpunkt
+Interna slutpunkter är tillgängliga för instans-till-instans-kommunikation. Porten är valfri och om den utelämnas tilldelas en dynamisk port till slutpunkten. Ett portområde kan användas. Det finns en gräns på fem interna slutpunkter per roll.
 
-Den interna slut punkten kan använda följande protokoll: **http, TCP, UDP, any**.
+Den interna slutpunkten kan använda följande protokoll: **http, tcp, udp, any**.
 
-Om du vill skapa en intern ingångs slut punkt lägger du till det underordnade elementet **InternalEndpoint** i **slut punkts** elementet för en webb-eller arbets roll.
+Om du vill skapa en intern indataslutpunkt lägger du till det underordnade elementet **InternalEndpoint** i **slutpunkterselementet** i en webb- eller arbetarroll.
 
 ```xml
 <Endpoints>
@@ -62,7 +62,7 @@ Om du vill skapa en intern ingångs slut punkt lägger du till det underordnade 
 </Endpoints> 
 ```
 
-Du kan också använda ett port intervall.
+Du kan också använda ett portintervall.
 
 ```xml
 <Endpoints>
@@ -73,8 +73,8 @@ Du kan också använda ett port intervall.
 ```
 
 
-## <a name="worker-roles-vs-web-roles"></a>Arbets roller eller webb roller
-Det finns en mindre skillnad med slut punkter när du arbetar med både Worker och webb roller. Webb rollen måste ha minst en slut punkt för en ingång med **http-** protokollet.
+## <a name="worker-roles-vs-web-roles"></a>Arbetarroller jämfört med webbroller
+Det finns en mindre skillnad med slutpunkter när du arbetar med både arbets- och webbroller. Webbrollen måste ha minst en enda ingångsslutpunkt med **HTTP-protokollet.**
 
 ```xml
 <Endpoints>
@@ -83,32 +83,32 @@ Det finns en mindre skillnad med slut punkter när du arbetar med både Worker o
 </Endpoints>
 ```
 
-## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Använda .NET SDK för att få åtkomst till en slut punkt
-Det hanterade Azure-biblioteket innehåller metoder för roll instanser som ska kommunicera vid körning. Från kod som körs i en roll instans kan du hämta information om förekomsten av andra roll instanser och deras slut punkter, samt information om den aktuella roll instansen.
+## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Använda .NET SDK för att komma åt en slutpunkt
+Azure Managed Library innehåller metoder för rollinstanser att kommunicera vid körning. Från kod som körs i en rollinstans kan du hämta information om förekomsten av andra rollinstanser och deras slutpunkter samt information om den aktuella rollinstansen.
 
 > [!NOTE]
-> Du kan bara hämta information om roll instanser som körs i din moln tjänst och som definierar minst en intern slut punkt. Du kan inte hämta data om roll instanser som körs i en annan tjänst.
+> Du kan bara hämta information om rollinstanser som körs i molntjänsten och som definierar minst en intern slutpunkt. Du kan inte hämta data om rollinstanser som körs i en annan tjänst.
 > 
 > 
 
-Du kan använda egenskapen [instances](/previous-versions/azure/reference/ee741904(v=azure.100)) för att hämta instanser av en roll. Använd först [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) för att returnera en referens till den aktuella roll instansen och Använd sedan egenskapen [Role](/previous-versions/azure/reference/ee741918(v=azure.100)) för att returnera en referens till själva rollen.
+Du kan använda egenskapen [Instanser](/previous-versions/azure/reference/ee741904(v=azure.100)) för att hämta instanser av en roll. Använd först [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) för att returnera en referens till den aktuella rollinstansen och sedan använda egenskapen [Roll](/previous-versions/azure/reference/ee741918(v=azure.100)) för att returnera en referens till själva rollen.
 
-När du ansluter till en roll instans via programmering via .NET SDK är det relativt enkelt att komma åt slut punkts informationen. När du till exempel redan har anslutit till en speciell roll miljö kan du hämta porten för en speciell slut punkt med den här koden:
+När du ansluter till en rollinstans programmässigt via .NET SDK är det relativt enkelt att komma åt slutpunktsinformationen. När du till exempel redan har anslutit till en viss rollmiljö kan du hämta porten för en viss slutpunkt med den här koden:
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-Egenskapen **instances** returnerar en samling **RoleInstance** -objekt. Den här samlingen innehåller alltid den aktuella instansen. Om rollen inte definierar en intern slut punkt innehåller samlingen den aktuella instansen men inga andra instanser. Antalet roll instanser i samlingen är alltid 1 i det fall där ingen intern slut punkt har definierats för rollen. Om rollen definierar en intern slut punkt går dess instanser att identifiera vid körning och antalet instanser i samlingen motsvarar antalet instanser som anges för rollen i tjänst konfigurations filen.
+Egenskapen **Instances returnerar** en samling **RoleInstance-objekt.** Den här samlingen innehåller alltid den aktuella instansen. Om rollen inte definierar en intern slutpunkt innehåller samlingen den aktuella instansen men inga andra instanser. Antalet rollinstanser i samlingen kommer alltid att vara 1 i det fall där ingen intern slutpunkt har definierats för rollen. Om rollen definierar en intern slutpunkt kan dess instanser identifieras vid körning och antalet instanser i samlingen motsvarar antalet instanser som angetts för rollen i tjänstkonfigurationsfilen.
 
 > [!NOTE]
-> Det hanterade Azure-biblioteket ger inte möjlighet att fastställa hälso tillståndet för andra roll instanser, men du kan implementera sådana hälso bedömningar själv om tjänsten behöver den här funktionen. Du kan använda [Azure-diagnostik](cloud-services-dotnet-diagnostics.md) för att få information om att köra roll instanser.
+> Azure Managed Library tillhandahåller inte ett sätt att bestämma hälsotillståndet för andra rollinstanser, men du kan själv implementera sådana hälsobedömningar om din tjänst behöver den här funktionen. Du kan använda [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) för att hämta information om att köra rollinstanser.
 > 
 > 
 
-Om du vill fastställa port numret för en intern slut punkt på en roll instans kan du använda egenskapen [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) för att returnera ett Dictionary-objekt som innehåller slut punkts namn och deras motsvarande IP-adresser och portar. Egenskapen [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) returnerar IP-adressen och porten för en angiven slut punkt. Egenskapen **PublicIPEndpoint** returnerar porten för en belastningsutjämnad slut punkt. IP-adress delen av egenskapen **PublicIPEndpoint** används inte.
+Om du vill bestämma portnumret för en intern slutpunkt på en rollinstans kan du använda egenskapen [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) för att returnera ett dictionary-objekt som innehåller slutpunktsnamn och motsvarande IP-adresser och portar. [Egenskapen IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) returnerar IP-adressen och porten för en angiven slutpunkt. Egenskapen **PublicIPEndpoint** returnerar porten för en belastningsbalanserad slutpunkt. IP-adressdelen av **egenskapen PublicIPEndpoint** används inte.
 
-Här är ett exempel som itererar roll instanser.
+Här är ett exempel som itererar rollinstanser.
 
 ```csharp
 foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Instances)
@@ -121,10 +121,10 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-Här är ett exempel på en arbets roll som hämtar den slut punkt som exponeras genom tjänst definitionen och börjar lyssna efter anslutningar.
+Här är ett exempel på en arbetarroll som får slutpunkten exponerad via tjänstdefinitionen och börjar lyssna efter anslutningar.
 
 > [!WARNING]
-> Den här koden fungerar bara för en distribuerad tjänst. När du kör i Azure Compute-emulatorn ignoreras tjänst konfigurations element som skapar direkt port slut punkter (**InstanceInputEndpoint** -element).
+> Den här koden fungerar bara för en distribuerad tjänst. När du kör i Azure Compute Emulator ignoreras tjänstkonfigurationselement som skapar direkta portslutpunkter (**InstanceInputEndpoint-element).**
 > 
 > 
 
@@ -212,12 +212,12 @@ namespace WorkerRole1
 }
 ```
 
-## <a name="network-traffic-rules-to-control-role-communication"></a>Regler för nätverks trafik för att kontrol lera roll kommunikation
-När du har definierat interna slut punkter kan du lägga till regler för nätverks trafik (baserat på de slut punkter som du har skapat) för att styra hur roll instanser kan kommunicera med varandra. Följande diagram visar några vanliga scenarier för att kontrol lera roll kommunikation:
+## <a name="network-traffic-rules-to-control-role-communication"></a>Regler för nätverkstrafik för att styra rollkommunikation
+När du har definierat interna slutpunkter kan du lägga till nätverkstrafikregler (baserat på de slutpunkter som du har skapat) för att styra hur rollinstanser kan kommunicera med varandra. Följande diagram visar några vanliga scenarier för att kontrollera rollkommunikation:
 
-![Scenarier för nätverks trafik regler](./media/cloud-services-enable-communication-role-instances/scenarios.png "Scenarier för nätverks trafik regler")
+![Scenarier för nätverkstrafikregler](./media/cloud-services-enable-communication-role-instances/scenarios.png "Scenarier för nätverkstrafikregler")
 
-I följande kod exempel visas roll definitioner för de roller som visas i föregående diagram. Varje roll definition innehåller minst en definierad intern slut punkt:
+I följande kodexempel visas rolldefinitioner för de roller som visas i föregående diagram. Varje rolldefinition innehåller minst en definierad intern slutpunkt:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -249,14 +249,14 @@ I följande kod exempel visas roll definitioner för de roller som visas i före
 ```
 
 > [!NOTE]
-> Begränsning av kommunikation mellan roller kan ske med interna slut punkter för båda fasta och automatiskt tilldelade portar.
+> Begränsning av kommunikation mellan roller kan uppstå med interna slutpunkter för både fasta och automatiskt tilldelade portar.
 > 
 > 
 
-Som standard när en intern slut punkt har definierats kan kommunikationen flöda från vilken roll som helst till den interna slut punkten för en roll utan några begränsningar. Om du vill begränsa kommunikationen måste du lägga till ett **NetworkTrafficRules** -element i **service definition** -elementet i tjänst definitions filen.
+Som standard, när en intern slutpunkt har definierats, kan kommunikation flöda från valfri roll till den interna slutpunkten för en roll utan några begränsningar. Om du vill begränsa kommunikationen måste du lägga till ett **NetworkTrafficRules-element** i **Elementet ServiceDefinition** i tjänstdefinitionsfilen.
 
 ### <a name="scenario-1"></a>Scenario 1
-Tillåt endast nätverks trafik från **WebRole1** till **WorkerRole1**.
+Tillåt endast nätverkstrafik från **WebRole1** till **WorkerRole1**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -275,7 +275,7 @@ Tillåt endast nätverks trafik från **WebRole1** till **WorkerRole1**.
 ```
 
 ### <a name="scenario-2"></a>Scenario 2
-Tillåter endast nätverks trafik från **WebRole1** till **WorkerRole1** och **WorkerRole2**.
+Tillåter endast nätverkstrafik från **WebRole1** till **WorkerRole1** och **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -294,7 +294,7 @@ Tillåter endast nätverks trafik från **WebRole1** till **WorkerRole1** och **
 ```
 
 ### <a name="scenario-3"></a>Scenario 3
-Tillåter endast nätverks trafik från **WebRole1** till **WorkerRole1**, och **WorkerRole1** till **WorkerRole2**.
+Tillåter endast nätverkstrafik från **WebRole1** till **WorkerRole1**och **WorkerRole1** till **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -323,7 +323,7 @@ Tillåter endast nätverks trafik från **WebRole1** till **WorkerRole1**, och *
 ```
 
 ### <a name="scenario-4"></a>Scenario 4
-Tillåter endast nätverks trafik från **WebRole1** till **WorkerRole1**, **WebRole1** till **WorkerRole2**och **WorkerRole1** till **WorkerRole2**.
+Tillåter endast nätverkstrafik från **WebRole1** till **WorkerRole1**, **WebRole1** till **WorkerRole2**och **WorkerRole1** till **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -363,10 +363,10 @@ Tillåter endast nätverks trafik från **WebRole1** till **WorkerRole1**, **Web
 </ServiceDefinition>
 ```
 
-Du hittar en referens till XML-schemat för elementen som används [ovan.](/previous-versions/azure/reference/gg557551(v=azure.100))
+En XML-schemareferens för de element som används ovan finns [här](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om moln tjänst [modellen](cloud-services-model-and-package.md).
+Läs mer om Cloud [Service-modellen](cloud-services-model-and-package.md).
 
 
 

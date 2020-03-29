@@ -1,6 +1,6 @@
 ---
-title: Registrera appar på en sida – Microsoft Identity Platform | Azure
-description: Lär dig hur du skapar ett program med en enda sida (app Registration)
+title: Registrera ensidiga appar – Microsofts identitetsplattform | Azure
+description: Lär dig hur du skapar ett ensidigt program (appregistrering)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,37 +15,37 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 5b18b10748e0587920c6965f1d235376da928469
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701900"
 ---
-# <a name="single-page-application-app-registration"></a>Program med en sida: app-registrering
+# <a name="single-page-application-app-registration"></a>Enkelsidig applikation: Appregistrering
 
-På den här sidan förklaras registrerings information för appar för ett enda sid program (SPA).
+På den här sidan beskrivs appregistreringsdetyderna för ett spa.This page explains the app registration specifics for a single-page application (SPA).
 
-Följ stegen för att [Registrera ett nytt program med Microsoft Identity Platform](quickstart-register-app.md)och välj de konton som stöds för programmet. SPA-scenariot har stöd för autentisering med konton i din organisation eller i alla organisationer och personliga Microsoft-konton.
+Följ stegen för att [registrera ett nytt program med Microsofts identitetsplattform](quickstart-register-app.md)och välj de konton som stöds för ditt program. SPA-scenariot kan stödja autentisering med konton i din organisation eller alla organisationer och personliga Microsoft-konton.
 
-Läs sedan de specifika aspekter av program registrering som gäller för program på en enda sida.
+Läs sedan om de specifika aspekterna av programregistrering som gäller för ensidiga program.
 
-## <a name="register-a-redirect-uri"></a>Registrera en omdirigerings-URI
+## <a name="register-a-redirect-uri"></a>Registrera en uri för omdirigering
 
-Det implicita flödet skickar token i en omdirigering till ett program med en enda sida som körs i en webbläsare. Det är därför viktigt att registrera en omdirigerings-URI där ditt program kan ta emot tokens. Se till att omdirigerings-URI: n matchar exakt URI för ditt program.
+Det implicita flödet skickar token i en omdirigering till det ensidiga programmet som körs i en webbläsare. Så det är viktigt att registrera en omdirigera URI där ditt program kan ta emot tokens. Kontrollera att omdirigerings-URI:n exakt matchar URI:n för ditt program.
 
-I [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2083908)går du till ditt registrerade program. På sidan **autentisering** i programmet väljer du **webb** plattformen. Ange värdet för omdirigerings-URI för programmet i fältet **omdirigerings-URI** .
+Gå till ditt registrerade program i [Azure-portalen.](https://go.microsoft.com/fwlink/?linkid=2083908) Välj **webbplattformen** på sidan **Autentisering** i programmet. Ange värdet för omdirigerings-URI:n för ditt program i fältet **Omdirigera URI.**
 
 ## <a name="enable-the-implicit-flow"></a>Aktivera det implicita flödet
 
-På sidan samma **autentisering** , under **Avancerade inställningar**, måste du även aktivera **implicit beviljande**. Om ditt program bara loggar in användare och hämtar ID-token, räcker det att markera kryss rutan **ID-token** .
+På samma **autentiseringssida,** under **Avancerade inställningar,** måste du också aktivera **implicit beviljande**. Om ditt program bara loggar in användare och hämtar ID-token räcker det med att markera kryssrutan **ID-token.**
 
-Om ditt program också behöver hämta åtkomsttoken för att anropa API: er, måste du även markera kryss rutan **åtkomsttoken** . Mer information finns i [ID-tokens](./id-tokens.md) och [åtkomsttoken](./access-tokens.md).
+Om ditt program också behöver få åtkomsttoken för att anropa API:er, se till att markera kryssrutan **Access-token** också. Mer information finns i [ID-token](./id-tokens.md) och [access-token](./access-tokens.md).
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Program med en enda sida kan anropa API: er åt den inloggade användaren. De måste begära delegerade behörigheter. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Ensidiga program kan anropa API:er för den inloggade användarens räkning. De måste begära delegerade behörigheter. Mer information finns i [Lägga till behörigheter för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Appens kod konfiguration](scenario-spa-app-configuration.md)
+> [Appens kodkonfiguration](scenario-spa-app-configuration.md)

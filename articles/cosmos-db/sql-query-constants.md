@@ -1,35 +1,35 @@
 ---
 title: SQL-konstanter i Azure Cosmos DB
-description: Läs om hur SQL Query-konstanterna i Azure Cosmos DB används för att representera ett särskilt data värde
+description: Lär dig mer om hur SQL-frågekonstanterna i Azure Cosmos DB används för att representera ett visst datavärde
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873428"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL Query-konstanter  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL-frågekonstanter  
 
- En konstant, även kallat en literal eller ett skalärt värde är en symbol som representerar ett värde för specifika data. Formatet för en konstant beror på datatypen för det värde som representerar.  
+ En konstant, även känd som ett litteralt eller ett skalärvärde, är en symbol som representerar ett visst datavärde. Formatet på en konstant beror på datatypen för det värde som den representerar.  
   
- **Skalära datatyper som stöds:**  
+ **Skaldatatyper som stöds:**  
   
 |**Typ**|**Värden ordning**|  
 |-|-|  
-|**Odefinierad**|Enstaka värde: **Odefinierad**|  
-|**Null**|Enstaka värde: **null**|  
-|**Boolesk**|Värden: **FALSKT**, **SANT**.|  
-|**Nummer**|Ett dubbel precision Flyttalsnummer, IEEE-754 som standard.|  
-|**Sträng**|En sekvens med noll eller flera Unicode-tecken. Strängar måste stå inom enkla eller dubbla citattecken.|  
-|**Matris**|En sekvens med noll eller flera element. Varje-element kan vara ett värde av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
-|**Objekt**|En osorterad uppsättning noll eller flera namn/värde-par. Namnet är en Unicode-sträng, värdet kan vara av olika skalära datatyper, utom **Undefined**.|  
+|**Odefinierad**|Ett värde: **odefinierat**|  
+|**Null**|Ett värde: **null**|  
+|**Boolean**|Värden: **false**, **true**.|  
+|**Nummer**|Ett flyttalsnummer med dubbel precision, IEEE 754-standard.|  
+|**Sträng**|En sekvens med noll eller fler Unicode-tecken. Strängar måste omges av enkla eller dubbla citattecken.|  
+|**Matris**|En sekvens med noll eller fler element. Varje element kan vara ett värde av valfri skalärdatatyp, förutom **Odefinierad**.|  
+|**Objekt**|En oordnad uppsättning med noll eller fler namn-/värdepar. Namn är en Unicode-sträng, värdet kan vara av vilken skalär datatyp som helst, förutom **Odefinierad**.|  
   
-## <a name="bk_syntax"></a>Syntax
+## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
   
 ```sql  
 <constant> ::=  
@@ -59,15 +59,15 @@ ms.locfileid: "74873428"
   
 ```  
   
-##  <a name="bk_arguments"></a>Ogiltiga
+##  <a name="arguments"></a><a name="bk_arguments"></a>Argument
   
 * `<undefined_constant>; Undefined`  
   
-  Representerar en odefinierad värde av typen odefinierad.  
+  Representerar odefinierat värde av typen Odefinierad.  
   
 * `<null_constant>; null`  
   
-  Representerar **null** värde av typen **Null**.  
+  Representerar **null-värdet** av typen **Null**.  
   
 * `<boolean_constant>`  
   
@@ -75,11 +75,11 @@ ms.locfileid: "74873428"
   
 * `false`  
   
-  Representerar **FALSKT** värde av typen Boolean.  
+  Representerar **falskt** värde av typen Boolean.  
   
 * `true`  
   
-  Representerar **SANT** värde av typen Boolean.  
+  Representerar **sant** värde av typen Boolean.  
   
 * `<number_constant>`  
   
@@ -87,11 +87,11 @@ ms.locfileid: "74873428"
   
 * `decimal_literal`  
   
-  Decimal litteraler är värden som representeras med hjälp av decimalform eller matematisk notation.  
+  Decimallitteraler är tal som representeras med antingen decimalnotation eller vetenskaplig notation.  
   
 * `hexadecimal_literal`  
   
-  Hexadecimala strängar är värden som representeras med prefixet ”0 x” följt av en eller flera hexadecimala siffror.  
+  Hexadecimala litteraler är tal som representeras med prefixet "0x" följt av en eller flera hexadecimala siffror.  
   
 * `<string_constant>`  
   
@@ -99,24 +99,24 @@ ms.locfileid: "74873428"
   
 * `string _literal`  
   
-  Stränglitteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Stränglitteraler är inom enkla citattecken (apostrof ”:) eller dubbla citattecken (citattecken”:).  
+  Stränglitteraler är Unicode-strängar som representeras av en sekvens av noll eller fler Unicode-tecken eller escape-sekvenser. Stränglitteraler omges av enstaka citattecken (apostrof: ' ) eller dubbla citattecken (citattecken: ").  
   
-  Följande escape-sekvenser tillåts:  
+  Följande utrymningssekvenser är tillåtna:  
   
-|**Escape-sekvensen**|**Beskrivning**|**Unicode-tecken**|  
+|**Escape-sekvens**|**Beskrivning**|**Unicode-tecken**|  
 |-|-|-|  
 |\\'|apostrof (')|U+0027|  
-|\\"|citattecken (”)|U+0022|  
-|\\\ |omvänt snedstreck (\\)|U + 005C|  
-|\\/|solidus (/)|U + 002F|  
-|\b|BACKSTEG|U + 0008|  
-|\f|formuläret feed|U + 000C|  
-|\n|radmatning|U + 000A|  
-|\r|vagnretur|U + 000D|  
-|\t|tabb|U + 0009|  
-|\uXXXX|En Unicode-tecken som definieras av 4 hexadecimala siffror.|U + XXXX|  
+|\\"|citattecken (")|U+0022|  
+|\\\ |omvänd solidus\\( )|U+005C|  
+|\\/|solidus (/)|U+002F|  
+|\b|Backsteg|U+0008|  
+|\f|formulärmatning|U+000C|  
+|\n|linjematning|U+000A|  
+|\r (på)|Vagnretur|U+000D|  
+|\t|Tab|U+0009|  
+|\uXXXX|Ett Unicode-tecken definierat med 4 hexadecimala siffror.|U+XXXX|  
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Modell dokument data](modeling-data.md)
+- [Modelldokumentdata](modeling-data.md)

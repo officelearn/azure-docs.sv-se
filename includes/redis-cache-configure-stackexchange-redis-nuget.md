@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: yegu
 ms.openlocfilehash: 61e93e3700b9a396d2ac4fdcbb51fc5c874cf9cb
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68286227"
 ---
 .NET-program kan använda cacheklienten **StackExchange.Redis**. Den kan konfigureras i Visual Studio med ett NuGet-paket som förenklar konfigurationen av cacheklientprogram. 
 
 > [!NOTE]
-> Mer information finns på sidan [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) GitHub och [stackexchange. Azure cache för Redis-klient dokumentation](https://github.com/StackExchange/StackExchange.Redis#documentation).
+> Mer information finns på sidan [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) GitHub och [dokumentationen till StackExchange.Azure Cache for Redis](https://github.com/StackExchange/StackExchange.Redis#documentation).
 >
 >
 
@@ -31,10 +31,10 @@ Skriv **StackExchange.Redis** eller **StackExchange.Redis.StrongName** i sökrut
 
 ![NuGet-paket för StackExchange.Redis](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
-NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna för klientprogrammet att få åtkomst till Azure Cache för Redis med StackExchange.Azure Cache för Redis-klient.
+NuGet-paketet hämtar och lägger till de nödvändiga sammansättningsreferenserna för klientprogrammet för att få åtkomst till Azure Cache for Redis med cacheklienten StackExchange.Azure Cache for Redis.
 
 > [!NOTE]
-> Om du tidigare har konfigurerat ditt projekt till att använda StackExchange.Redis kan du söka efter uppdateringar till paketet från **NuGet Package Manager**. Om du vill söka efter och installera uppdaterade versioner av paketet StackExchange.Redis NuGet, klickar du på **uppdateringar** i den **NuGet-Pakethanteraren** fönster. Om det finns en uppdatering av paketet StackExchange.Redis NuGet kan du uppdatera ditt projekt för att använda den uppdaterade versionen.
+> Om du tidigare har konfigurerat ditt projekt till att använda StackExchange.Redis kan du söka efter uppdateringar till paketet från **NuGet Package Manager**. Om du vill söka efter och installera uppdaterade versioner av Paketet StackExchange.Redis NuGet klickar du på **Uppdateringar** i **nuget package manager-fönstret.** Om det finns en uppdatering av paketet StackExchange.Redis NuGet kan du uppdatera ditt projekt för att använda den uppdaterade versionen.
 >
 >
 

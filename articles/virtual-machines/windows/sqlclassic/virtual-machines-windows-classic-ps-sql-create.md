@@ -1,6 +1,6 @@
 ---
-title: Skapa en klassisk SQL Server VM (PowerShell)
-description: Innehåller steg och PowerShell-skript för att skapa en virtuell Azure-dator med SQL Server Galleri avbildningar för virtuella datorer. I det här avsnittet används det klassiska distributions läget.
+title: Skapa en klassisk VIRTUELL SQL Server (PowerShell)
+description: Innehåller steg och PowerShell-skript för att skapa en virtuell Azure-dator med virtuella SQL Server-galleriavbildningar. I det här avsnittet används det klassiska distributionsläget.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,88 +16,88 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 5bfdcfab37091a5f581ce147c0a6af5ccd8147a0
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914797"
 ---
-# <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Etablera en SQL Server virtuell dator med Azure PowerShell (klassisk)
+# <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Etablera en virtuell SQL Server-dator med Azure PowerShell (Klassisk)
 
 [!INCLUDE [classic-vm-deprecation](../../../../includes/classic-vm-deprecation.md)]
 
-Den här artikeln innehåller anvisningar för hur du skapar en SQL Server virtuell dator i Azure med hjälp av PowerShell-cmdlets.
+Den här artikeln innehåller steg för hur du skapar en virtuell SQL Server-dator i Azure med hjälp av PowerShell-cmdletar.
 
 > [!NOTE] 
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och Classic](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
-Information om Resource Manager-versionen av det här avsnittet finns i [etablera en SQL Server virtuell dator med hjälp av Azure PowerShell Resource Manager](../sql/virtual-machines-windows-ps-sql-create.md).
+Resurshanterarens version av det här avsnittet finns [i Etablera en virtuell SQL Server-dator med Azure PowerShell Resource Manager](../sql/virtual-machines-windows-ps-sql-create.md).
 
 ### <a name="install-and-configure-powershell"></a>Installera och konfigurera PowerShell:
 1. Om du inte har något Azure-konto besöker du sidan för [kostnadsfria utvärderingsversioner av Azure](https://azure.microsoft.com/pricing/free-trial/).
-2. [Hämta och installera de senaste Azure PowerShell-kommandona](/powershell/azure/overview).
-3. Starta Windows PowerShell och Anslut den till din Azure-prenumeration med kommandot **Add-AzureAccount** .
+2. [Ladda ned och installera de senaste Azure PowerShell-kommandona](/powershell/azure/overview).
+3. Starta Windows PowerShell och anslut den till din Azure-prenumeration med kommandot **Add-AzureAccount.**
 
    ```powershell
    Add-AzureAccount
    ```
 
-## <a name="determine-your-target-azure-region"></a>Fastställ din Azure-region
+## <a name="determine-your-target-azure-region"></a>Bestäm din Azure-målregion
 
-Din SQL Server virtuella dator kommer att finnas i en moln tjänst som finns i en angiven Azure-region. Följande steg hjälper dig att fastställa din region, ditt lagrings konto och din moln tjänst som ska användas för resten av självstudien.
+Din virtuella SQL Server-dator kommer att finnas i en molntjänst som finns i en viss Azure-region. Följande steg hjälper dig att bestämma din region, lagringskonto och molntjänst som ska användas för resten av självstudien.
 
-1. Bestäm vilket data Center du vill använda som värd för din SQL Server VM. Följande PowerShell-kommando visar en lista över tillgängliga regions namn.
+1. Bestäm vilket datacenter du vill använda för att vara värd för din virtuella SQL Server-dator. Följande PowerShell-kommando visar en lista över tillgängliga regionnamn.
 
    ```powershell
    (Get-AzureLocation).Name
    ```
 
-2. När du har identifierat den önskade platsen ställer du in en variabel med namnet **$dcLocation** i regionen. Följande kommando anger till exempel regionen "USA, östra":
+2. När du har identifierat önskad plats anger du en variabel med namnet **$dcLocation** till den regionen. Följande kommando anger till exempel regionen till "Östra USA":
 
    ```powershell
    $dcLocation = "East US"
    ```
 
-## <a name="set-your-subscription-and-storage-account"></a>Ange din prenumeration och ditt lagrings konto
+## <a name="set-your-subscription-and-storage-account"></a>Ange prenumeration och lagringskonto
 
-1. Ta reda på vilken Azure-prenumeration du ska använda för den nya virtuella datorn.
+1. Bestäm den Azure-prenumeration som du ska använda för den nya virtuella datorn.
 
    ```powershell
    (Get-AzureSubscription).SubscriptionName
    ```
 
-2. Tilldela din Azure Azure-prenumeration till variabeln **$subscr** . Ange sedan den som din aktuella Azure-prenumeration.
+2. Tilldela din Azure-prenumeration för mål till **variabeln $subscr.** Ange sedan detta som din nuvarande Azure-prenumeration.
 
    ```powershell
    $subscr="<subscription name>"
    Select-AzureSubscription -SubscriptionName $subscr –Current
    ```
 
-3. Sök sedan efter befintliga lagrings konton. Följande skript visar alla lagrings konton som finns i den valda regionen:
+3. Kontrollera sedan om det finns befintliga lagringskonton. Följande skript visar alla lagringskonton som finns i den valda regionen:
 
    ```powershell
    (Get-AzureStorageAccount | where { $_.GeoPrimaryLocation -eq $dcLocation }).StorageAccountName
    ```
 
    > [!NOTE]
-   > Om du behöver ett nytt lagrings konto måste du först skapa ett lagrings konto med en versal med kommandot New-AzureStorageAccount som i följande exempel: `New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
+   > Om du behöver ett nytt lagringskonto skapar du först ett all-lower-case-lagringskontonamn med kommandot New-AzureStorageAccount som i följande exempel:`New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation`
 
-4. Tilldela mål lagrings kontots namn till **$staccount**. Använd sedan **set-AzureSubscription** för att ange prenumerationen och det aktuella lagrings kontot.
+4. Tilldela namnet på mållagringskontot till **$staccount**. Använd sedan **Set-AzureSubscription** för att ange prenumerations- och aktuellt lagringskonto.
 
    ```powershell
    $staccount="<storage account name>"
    Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
    ```
 
-## <a name="select-a-sql-server-virtual-machine-image"></a>Välj en SQL Server avbildning av virtuell dator
+## <a name="select-a-sql-server-virtual-machine-image"></a>Välj en virtuell SQL Server-avbildning
 
-1. Ta reda på listan med tillgängliga SQL Server virtuella dator avbildningar från galleriet. Dessa bilder har alla en **ImageFamily** -egenskap som börjar med "SQL". Följande fråga visar avbildnings familjen som är tillgänglig för dig som har SQL Server förinstallerat.
+1. Ta reda på listan över tillgängliga sql server-avbildningar från galleriet. Dessa bilder har alla en **ImageFamily** egenskap som börjar med "SQL". I följande fråga visas den avbildningsfamilj som är tillgänglig för dig som har SQL Server förinstallerad.
 
    ```powershell
    Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
    ```
 
-2. När du hittar avbildnings familjen för den virtuella datorn kan det finnas flera publicerade avbildningar i den här serien. Använd följande skript för att hitta det senaste publicerade avbildnings namnet för den virtuella datorn för din valda avbildnings familj (till exempel **SQL Server 2016 RTM Enterprise på Windows Server 2012 R2**):
+2. När du hittar bildfamiljen för den virtuella datorn kan det finnas flera publicerade bilder i den här familjen. Använd följande skript för att hitta det senast publicerade avbildningsnamnet för den virtuella datorn för den valda avbildningsfamiljen (till exempel **SQL Server 2016 RTM Enterprise på Windows Server 2012 R2):**
 
    ```powershell
    $family="<ImageFamily value>"
@@ -111,14 +111,14 @@ Din SQL Server virtuella dator kommer att finnas i en moln tjänst som finns i e
 
 Skapa slutligen den virtuella datorn med PowerShell:
 
-1. Skapa en moln tjänst som värd för den nya virtuella datorn. Observera att det också är möjligt att använda en befintlig moln tjänst i stället. Skapa en ny variabel **$svcname** med det korta namnet på moln tjänsten.
+1. Skapa en molntjänst som är värd för den nya virtuella datorn. Observera att det också är möjligt att använda en befintlig molntjänst i stället. Skapa en ny variabel **$svcname** med molntjänstens korta namn.
 
    ```powershell
    $svcname = "<cloud service name>"
    New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
    ```
 
-2. Ange namnet på den virtuella datorn och en storlek. Mer information om storlekar för virtuella datorer finns i [storlekar för virtuella datorer för Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Ange namnet på den virtuella datorn och en storlek. Mer information om storlekar på virtuella datorer finns i [Storlekar för virtuella datorer för Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
    ```powershell
    $vmname="<machine name>"
@@ -126,7 +126,7 @@ Skapa slutligen den virtuella datorn med PowerShell:
    $vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
    ```
 
-3. Ange det lokala administratörs kontot och lösen ordet.
+3. Ange det lokala administratörskontot och lösenordet.
 
    ```powershell
    $cred=Get-Credential -Message "Type the name and password of the local administrator account."
@@ -140,11 +140,11 @@ Skapa slutligen den virtuella datorn med PowerShell:
    ```
 
 > [!NOTE]
-> Ytterligare förklaringar och konfigurations alternativ finns i avsnittet **skapa en kommando uppsättning** i [använda Azure PowerShell för att skapa och förkonfigurera Windows-baserade Virtual Machines](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+> Mer information och konfigurationsalternativ finns i avsnittet **Skapa kommandouppsättningen** i [Använd Azure PowerShell för att skapa och förkonfigurera Windows-baserade virtuella datorer](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="example-powershell-script"></a>Exempel på PowerShell-skript
 
-Följande skript innehåller ett exempel på ett fullständigt skript som skapar en **SQL Server 2016 RTM Enterprise på Windows Server 2012 R2** virtuell dator. Om du använder det här skriptet måste du anpassa de inledande variablerna baserat på föregående steg i det här avsnittet.
+Följande skript är ett exempel på ett fullständigt skript som skapar ett **VIRTUELLT SQL Server 2016 RTM Enterprise på Windows Server 2012 R2** virtuell dator. Om du använder det här skriptet måste du anpassa de första variablerna baserat på föregående steg i det här avsnittet.
 
 ```powershell
 # Customize these variables based on your settings and requirements:
@@ -179,32 +179,32 @@ $vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCrede
 New-AzureVM –ServiceName $svcname -VMs $vm1
 ```
 
-## <a name="connect-with-remote-desktop"></a>Anslut med fjärr skrivbord
+## <a name="connect-with-remote-desktop"></a>Anslut med fjärrskrivbord
 
-1. Skapa RDP-filerna i den aktuella användarens dokumentmall för att starta de virtuella datorerna för att slutföra installationen:
+1. Skapa RDP-filerna i den aktuella användarens dokumentmapp för att starta dessa virtuella datorer för att slutföra installationen:
 
    ```powershell
    $documentspath = [environment]::getfolderpath("mydocuments")
    Get-AzureRemoteDesktopFile -ServiceName $svcname -Name $vmname -LocalPath "$documentspath\vm1.rdp"
    ```
 
-2. I katalogen dokument startar du RDP-filen. Anslut med administratörs användar namnet och lösen ordet som angavs tidigare (till exempel om ditt användar namn var VMAdmin anger du "\VMAdmin" som användare och anger lösen ordet).
+2. Starta RDP-filen i dokumentkatalogen. Anslut med administratörens användarnamn och lösenord som angavs tidigare (om ditt användarnamn till exempel var VMAdmin anger du \VMAdmin" som användare och anger lösenordet).
 
    ```powershell
    cd $documentspath
    .\vm1.rdp
    ```
 
-## <a name="complete-the-configuration-of-the-sql-server-machine-for-remote-access"></a>Slutför konfigurationen av SQL Server datorn för fjärråtkomst
+## <a name="complete-the-configuration-of-the-sql-server-machine-for-remote-access"></a>Slutför konfigurationen av SQL Server-datorn för fjärråtkomst
 
-När du har loggat in på datorn med fjärr skrivbord konfigurerar du SQL Server baserat på anvisningarna i [steg för att konfigurera SQL Server anslutning i en virtuell Azure-dator](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+När du har loggat in på datorn med fjärrskrivbord konfigurerar du SQL Server baserat på instruktionerna i [Steg för att konfigurera SQL Server-anslutning i en Virtuell Azure.](virtual-machines-windows-classic-sql-connect.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du hittar ytterligare instruktioner för hur du konfigurerar virtuella datorer med PowerShell i dokumentationen för [Virtual Machines](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Du kan hitta ytterligare instruktioner för etablering av virtuella datorer med PowerShell i [dokumentationen för virtuella datorer](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-I många fall är nästa steg att migrera dina databaser till den nya SQL Server VM. Vägledning för databas migrering finns i [Migrera en databas till SQL Server på en virtuell Azure-dator](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+I många fall är nästa steg att migrera dina databaser till den nya virtuella datorn för SQL Server. Vägledning för databasmigrering finns i [Migrera en databas till SQL Server på en Azure VM](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
-Om du också är intresse rad av att använda Azure Portal för att skapa SQL Virtual Machines, se hur du [konfigurerar en SQL Server virtuell dator på Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md). Observera att den självstudie som vägleder dig genom portalen skapar virtuella datorer med den rekommenderade Resource Manager-modellen, i stället för den klassiska modellen som används i det här PowerShell-avsnittet.
+Om du också är intresserad av att använda Azure-portalen för att skapa virtuella SQL-datorer läser [du Etablera en virtuell SQL Server-dator på Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md). Observera att självstudien som går igenom portalen skapar virtuella datorer med den rekommenderade Resource Manager-modellen i stället för den klassiska modellen som används i det här PowerShell-avsnittet.
 
-Förutom de här resurserna rekommenderar vi att du granskar [andra avsnitt som handlar om att köra SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Utöver dessa resurser rekommenderar vi att du granskar [andra avsnitt som rör att köra SQL Server i Virtuella Azure-datorer](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

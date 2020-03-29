@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell-skript: ange tillåtna VM-storlekar i Azure Lab Services | Microsoft Docs'
-description: I den här artikeln finns ett exempel på ett PowerShell-skript som anger tillåtna storlekar för virtuella datorer i Azure Lab Services.
+title: 'PowerShell-skript: Ange tillåtna VM-storlekar i Azure Lab Services | Microsoft-dokument'
+description: Den här artikeln innehåller ett exempel på PowerShell-skript som anger tillåtna storlekar för virtuella datorer (VM) i Azure Lab Services.
 services: lab-services
 author: spelluru
 manager: ''
@@ -13,22 +13,22 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: a1b0e9a4aed475f04ec8dcffa9bc95b7c7c713e1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760477"
 ---
-# <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Använd PowerShell för att ställa in tillåtna VM-storlekar i Azure Lab Services
+# <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Använda PowerShell för att ange tillåtna VM-storlekar i Azure Lab Services
 
-Det här exemplet på PowerShell-skript anger tillåtna virtuella dator storlekar (VM) i Azure Lab Services.
+Det här exemplet powershell-skriptuppsättningar tillåts virtuella datorstorlekar (VM) i Azure Lab Services.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Krav
-* **Ett labb**. Skriptet kräver att du har ett befintligt labb. 
+* **Ett labb.** Skriptet kräver att du har ett befintligt labb. 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -40,13 +40,13 @@ I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
-| Find-AzResource | Söker efter resurser baserat på angivna parametrar. |
+| Sök-AzResource | Söker efter resurser baserat på angivna parametrar. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Ändrar en resurs. |
-| [New-AzResource](/powershell/module/az.resources/new-azresource) | Skapa en resurs. |
+| [Ny-AzResource](/powershell/module/az.resources/new-azresource) | skapa en resurs |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare Azure Lab Services PowerShell-skript exempel finns i [Azure Lab Services PowerShell-exempel](../samples-powershell.md).
+Ytterligare Azure Lab Services PowerShell-skriptexempel finns i [Azure Lab Services PowerShell-exempel](../samples-powershell.md).

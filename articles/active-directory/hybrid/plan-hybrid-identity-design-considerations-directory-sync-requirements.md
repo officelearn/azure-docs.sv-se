@@ -1,6 +1,6 @@
 ---
-title: Hybrid identity design - krav för katalogsynkronisering Azure | Microsoft Docs
-description: Identifiera vilka krav behövs för att synkronisera alla användare mellan = på plats och molnet för företag.
+title: Hybrididentitetsdesign – krav på katalogsynkronisering Azure | Microsoft-dokument
+description: Identifiera vilka krav som behövs för att synkronisera alla användare mellan on=premises och cloud för företaget.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,63 +18,63 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381169"
 ---
-# <a name="determine-directory-synchronization-requirements"></a>Fastställa katalogsynkroniseringskrav
-Synkronisering handlar om och ger användarna en identitet i molnet baserat på deras lokala identitet. Oavsett om de använda synkroniserade kontot för autentisering eller federerad autentisering, måste användarna fortfarande att ha en identitet i molnet.  Den här identiteten måste bibehållas och uppdateras regelbundet.  Uppdateringarna kan olika former, från titel ändras till lösenordsändringar.  
+# <a name="determine-directory-synchronization-requirements"></a>Fastställ krav på katalogsynkronisering
+Synkronisering handlar om att ge användarna en identitet i molnet baserat på deras lokala identitet. Oavsett om de kommer att använda synkroniserat konto för autentisering eller federerad autentisering, måste användarna fortfarande ha en identitet i molnet.  Denna identitet måste underhållas och uppdateras regelbundet.  Uppdateringarna kan ta många former, från titeländringar till lösenordsändringar.  
 
-Starta genom att utvärdera organisationer lokala identitetskrav för lösningen och användare. Den här utvärderingsversionen är viktigt att definiera de tekniska kraven för hur användaridentiteter skapas och underhålls i molnet.  Active Directory är på plats för en majoritet av organisationer och den lokala katalogen som användare får som synkroniseras från, men i vissa fall det här inte är fallet.  
+Börja med att utvärdera organisationernas lokala identitetslösning och användarkrav. Den här utvärderingen är viktig för att definiera de tekniska kraven för hur användaridentiteter ska skapas och underhållas i molnet.  För en majoritet av organisationerna är Active Directory lokalt och kommer att vara den lokala katalog som användarna kommer att synkroniseras från, men i vissa fall kommer detta inte att vara fallet.  
 
-Se till att besvara följande frågor:
+Se till att svara på följande frågor:
 
 * Har du en AD-skog, flera eller ingen?
   
-  * Hur många Azure AD-kataloger kommer du att synkroniseras till?
+  * Hur många Azure AD-kataloger synkroniseras du med?
     
     1. Använder du filtrering?
-    2. Har du flera Azure AD Connect-servrar som planerat?
-* Har du en synkronisering verktyget lokalt?
+    2. Har du planerat flera Azure AD Connect-servrar?
+* Har du för närvarande ett synkroniseringsverktyg lokalt?
   
-  * Om Ja, gör du användarna om användarna har en virtuell/katalogintegrering identiteter?
-* Har du några andra directory lokalt som du vill synkronisera (t.ex. LDAP-katalogen, HR-databasen, osv)?
-  * Ska du göra alla GALSync?
-  * Vad är det aktuella tillståndet för UPN-namn i din organisation? 
-  * Har du en annan katalog som användare autentiseras mot?
-  * Använder företaget Microsoft Exchange?
-    * De planerar för en exchange-hybridinstallation?
+  * Om ja, gör användarna om användarna har en virtuell katalog /integration av identiteter?
+* Har du någon annan katalog lokalt som du vill synkronisera (t.ex.
+  * Kommer du att göra någon GALSync?
+  * Vad är det aktuella läget för UPN i din organisation? 
+  * Har du en annan katalog som användare autentiserar mot?
+  * Använder ditt företag Microsoft Exchange?
+    * Planerar de att ha en hybridutbytesdistribution?
 
-Nu när du har en idé om din synkroniseringskrav måste fastställa vilket verktyg är korrekt som uppnådde dessa krav.  Microsoft tillhandahåller flera verktyg för att åstadkomma katalogintegrering och synkronisering.  Se den [jämförelsetabell för Hybrididentitet directory integration verktyg](plan-hybrid-identity-design-considerations-tools-comparison.md) för mer information. 
+Nu när du har en uppfattning om dina synkroniseringskrav måste du bestämma vilket verktyg som är rätt för att uppfylla dessa krav.  Microsoft tillhandahåller flera verktyg för att utföra katalogintegration och synkronisering.  Mer information finns i [jämförelsetabellen för hybrididentitetskatalogintegrationsverktyg.](plan-hybrid-identity-design-considerations-tools-comparison.md) 
 
-Nu när du har din synkroniseringskrav och verktyg som gör det för ditt företag kan behöver du utvärdera de program som använder dessa katalogtjänster. Den här utvärderingsversionen är viktigt att definiera de tekniska kraven för att integrera dessa program till molnet. Se till att besvara följande frågor:
+Nu när du har dina synkroniseringskrav och det verktyg som ska åstadkomma detta för ditt företag, måste du utvärdera de program som använder dessa katalogtjänster. Den här utvärderingen är viktig för att definiera de tekniska kraven för att integrera dessa program i molnet. Se till att svara på följande frågor:
 
-* Dessa program flyttas till molnet och använda katalogen?
-* Finns det särskilda attribut som måste synkroniseras till molnet så att programmen kan använda dem har?
-* Dessa program måste skrivas igen för att dra nytta av molnet auth?
-* Fortsätter programmen att live lokalt medan användarna komma åt dem med hjälp av cloud-identitet?
+* Kommer dessa program att flyttas till molnet och använda katalogen?
+* Finns det speciella attribut som måste synkroniseras med molnet så att dessa program kan använda dem?
+* Kommer dessa program måste skrivas om för att dra nytta av molnautentisering?
+* Kommer dessa program att fortsätta att vara lokalt medan användare kommer åt dem med hjälp av molnidentiteten?
 
-Du måste också bestämma katalogsynkronisering security krav och begränsningar. Den här utvärderingsversionen är viktigt att hämta en lista över de krav som krävs för att skapa och underhålla användaridentiteter i molnet. Se till att besvara följande frågor:
+Du måste också fastställa säkerhetskrav och begränsningar katalog synkronisering. Den här utvärderingen är viktig för att få en lista över de krav som behövs för att skapa och underhålla användarens identiteter i molnet. Se till att svara på följande frågor:
 
-* Där kommer synkronisering att hitta servern?
-* Kommer det att finnas domänansluten?
-* Servern finns på ett begränsat nätverk bakom en brandvägg, till exempel en DMZ?
-  * Kommer du att kunna öppna brandväggsportar som krävs för att stödja synkronisering?
-* Har du en återställningsplan för synkronisering av servern?
-* Har du ett konto med rätt behörigheter för alla skogar som du vill synkronisera med?
-  * Om ditt företag inte känner till svaret för den här frågan, kan du läsa avsnittet ”behörigheter för Lösenordssynkronisering” i artikeln [installera Azure Active Directory Sync Service](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) och avgör om du redan har ett konto med de här behörigheterna eller om du vill skapa en.
-* Om du har flera skogar använda synkroniseringen har synkroniseringsservern kunna gå till varje skog?
+* Var finns synkroniseringsservern?
+* Kommer det att domänen gå?
+* Kommer servern att finnas på ett begränsat nätverk bakom en brandvägg, till exempel en DMZ?
+  * Kommer du att kunna öppna de brandväggsportar som krävs för synkronisering?
+* Har du en plan för haveriberedskap för synkroniseringsservern?
+* Har du ett konto med rätt behörighet för alla skogar som du vill synkronisera med?
+  * Om ditt företag inte vet svaret på den här frågan läser du avsnittet Behörigheter för lösenordssynkronisering i artikeln [Installera Synkroniseringstjänsten](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) för Azure Active Directory och ta reda på om du redan har ett konto med dessa behörigheter eller om du behöver skapa ett.
+* Om du har mutli-forest sync kan synkroniseringsservern komma till varje skog?
 
 > [!NOTE]
-> Se till att ner varje svar och försök förstå anledningen till svaret. [Fastställa kraven på incidentsvar](plan-hybrid-identity-design-considerations-incident-response-requirements.md) kommer att överskrida de tillgängliga alternativen. Har besvarat frågor väljer du vilket alternativ som bäst passar din verksamhet behöver du.
+> Skriv ner varje svar och försök förstå anledningen till svaret. [Bestäm att kraven](plan-hybrid-identity-design-considerations-incident-response-requirements.md) för incidenthantering överskrider de tillgängliga alternativen. Genom att ha svarat på dessa frågor väljer du vilket alternativ som bäst passar dina affärsbehov.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-[Fastställa krav för multifaktorautentisering](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+[Fastställa autentiseringskrav för flera faktorer](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
-## <a name="see-also"></a>Se också
-[Översikt över design-överväganden](plan-hybrid-identity-design-considerations-overview.md)
+## <a name="see-also"></a>Se även
+[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
 

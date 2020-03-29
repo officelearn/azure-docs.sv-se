@@ -1,30 +1,30 @@
 ---
-title: Status för anpassad dirigering i Durable Functions – Azure
-description: Lär dig hur du konfigurerar och använder anpassad Dirigerings status för Durable Functions.
+title: Anpassad orkestreringsstatus i varaktiga funktioner - Azure
+description: Lär dig hur du konfigurerar och använder anpassad orchestration-status för varaktiga funktioner.
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 31b7d51293878c9d0e8567b6b4bd58c48d75ec63
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76766272"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status för anpassad dirigering i Durable Functions (Azure Functions)
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Anpassad orkestreringsstatus i varaktiga funktioner (Azure-funktioner)
 
-Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här statusen tillhandahålls via [http GetStatus-API: et](durable-functions-http-api.md#get-instance-status) eller [`GetStatusAsync`-API: et](durable-functions-instance-management.md#query-instances) på Orchestration-klienten.
+Med anpassad orchestration-status kan du ange ett anpassat statusvärde för din orchestrator-funktion. Den här statusen tillhandahålls via [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) eller [ `GetStatusAsync` API:et](durable-functions-instance-management.md#query-instances) på orchestration-klienten.
 
-## <a name="sample-use-cases"></a>Exempel på användnings fall
+## <a name="sample-use-cases"></a>Exempel på användningsfall
 
 > [!NOTE]
-> Följande exempel visar hur du använder funktionen anpassad status i C# och Java Script. C# Exemplen är skrivna för Durable Functions 2. x och är inte kompatibla med Durable Functions 1. x. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Följande exempel visar hur du använder funktionen anpassad status i C# och JavaScript. C#-exemplen är skrivna för varaktiga funktioner 2.x och är inte kompatibla med varaktiga funktioner 1.x. Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
 
-### <a name="visualize-progress"></a>Visualisera förlopp
+### <a name="visualize-progress"></a>Visualisera förloppet
 
-Klienter kan avsöka status slut punkten och visa ett förlopps gränssnitt som visualiserar det aktuella körnings steget. Följande exempel visar status delning:
+Klienter kan avsöka statusslutpunkten och visa ett förloppsgränssnitt som visualiserar den aktuella körningsfasen. Följande exempel visar förloppsdelning:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -51,9 +51,9 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-`E1_HelloSequence` Orchestrator-funktion:
+`E1_HelloSequence`orchestrator funktion:
 
 ```javascript
 const df = require("durable-functions");
@@ -73,7 +73,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-`E1_SayHello` aktivitets funktion:
+`E1_SayHello`aktivitetsfunktion:
 
 ```javascript
 module.exports = async function(context, name) {
@@ -83,9 +83,9 @@ module.exports = async function(context, name) {
 
 ---
 
-Klienten får sedan endast utdata från dirigeringen när `CustomStatus` fältet är inställt på "London":
+Och då klienten kommer att få produktionen `CustomStatus` av orkestrering endast när fältet är inställt på "London":
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -118,7 +118,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -148,15 +148,15 @@ module.exports = async function(context, req) {
 ```
 
 > [!NOTE]
-> I Java Script anges fältet `customStatus` när nästa `yield` eller `return` åtgärd schemaläggs.
+> I JavaScript `customStatus` ställs fältet in när `yield` `return` nästa åtgärd eller åtgärd schemaläggs.
 
 ---
 
-### <a name="output-customization"></a>Utdata-anpassning
+### <a name="output-customization"></a>Anpassning av utdata
 
-Ett annat intressant scenario är att segmentera användare genom att returnera anpassade utdata baserat på unika egenskaper eller interaktioner. Med hjälp av anpassad Dirigerings status förblir kod på klient sidan generisk. Alla huvudsakliga ändringar sker på Server sidan som visas i följande exempel:
+Ett annat intressant scenario är att segmentera användare genom att returnera anpassad utdata baserat på unika egenskaper eller interaktioner. Med hjälp av anpassad orkestreringsstatus förblir klientkoden allmän. Alla huvudändringar kommer att ske på serversidan enligt följande exempel:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -194,7 +194,7 @@ public static void Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -229,11 +229,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-### <a name="instruction-specification"></a>Instruktions specifikation
+### <a name="instruction-specification"></a>Specifikation av instruktioner
 
-Orchestrator kan tillhandahålla unika instruktioner till klienterna via det anpassade läget. De anpassade status anvisningarna kommer att mappas till stegen i Orchestration-koden:
+Orchestrator kan ge unika instruktioner till klienterna via det anpassade tillståndet. De anpassade statusinstruktionerna mappas till stegen i orchestration-koden:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -261,7 +261,7 @@ public static async Task<bool> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -292,9 +292,9 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="sample"></a>Exempel
 
-I följande exempel anges anpassad status först.
+I följande exempel anges den anpassade statusen först.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -309,7 +309,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -327,13 +327,13 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Medan dirigeringen körs kan externa klienter hämta den anpassade statusen:
+Medan orkestrering körs kan externa klienter hämta den här anpassade statusen:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
-Klienterna får följande svar:
+Klienter får följande svar:
 
 ```json
 {
@@ -347,9 +347,9 @@ Klienterna får följande svar:
 ```
 
 > [!WARNING]
-> Den anpassade statusen för nytto lasten är begränsad till 16 KB UTF-16 JSON-text eftersom den måste kunna få plats i en Azure Table Storage-kolumn. Vi rekommenderar att du använder extern lagring om du behöver en större nytto Last.
+> Den anpassade statusnyttolasten är begränsad till 16 KB AV UTF-16 JSON-text eftersom den måste kunna få plats i en Azure Table Storage-kolumn. Vi rekommenderar att du använder extern lagring om du behöver en större nyttolast.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om varaktiga timers](durable-functions-timers.md)
+> [Läs mer om varaktiga timers](durable-functions-timers.md)

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från QuickBooks Online med Azure Data Factory (förhandsversion)
-description: Lär dig hur du kopierar data från QuickBooks Online till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från QuickBooks Online till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,52 +13,52 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: ca57f4611b9eb483104d8d0b8fc5636726203195
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927770"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Kopiera data från QuickBooks Online med Azure Data Factory (förhandsversion)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från QuickBooks Online. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från QuickBooks Online. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 > [!IMPORTANT]
-> Den här anslutningsappen är för närvarande i förhandsversion. Du kan testa och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
+> Den här kopplingen är för närvarande i förhandsgranskning. Du kan prova det och ge oss feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Den här QuickBooks-kopplingen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från QuickBooks Online till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från QuickBooks Online till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
 
-Den här anslutningsappen stöder för närvarande endast 1.0a, vilket innebär att du måste ha ett utvecklarkonto med appar som skapats före den 17 juli 2017.
+För närvarande stöder den här anslutningen endast 1.0a, vilket innebär att du måste ha ett utvecklarkonto med appar som skapats före den 17 juli 2017.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för QuickBooks connector.
+I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för QuickBooks-kopplingen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för QuickBooks länkade tjänsten:
+Följande egenskaper stöds för länkad tjänst med Snabbböcker:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **QuickBooks** | Ja |
-| slutpunkt | Slutpunkt för QuickBooks Online-servern. (det vill säga quickbooks.api.intuit.com)  | Ja |
-| companyId | ID för företag på QuickBooks företaget att godkänna. Information om hur du hittar ID för företag finns i [hur hittar jag mitt företags-ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Ja |
-| consumerKey | Konsumentnyckel för autentisering för OAuth 1.0. | Ja |
-| consumerSecret | Konsumenthemligheten för OAuth 1.0-autentisering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| accessToken | Åtkomsttoken för autentisering för OAuth 1.0. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| accessTokenSecret | Åtkomsttokenhemligheten för OAuth 1.0-autentisering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
+| typ | Egenskapen type måste vara inställd på: **QuickBooks** | Ja |
+| slutpunkt | Slutpunkten för QuickBooks Online-servern. (det vill quickbooks.api.intuit.com)  | Ja |
+| företagId | Företaget-ID för QuickBooks företaget att auktorisera. Mer information om hur du hittar företags-ID finns i [Hur hittar jag mitt företags-ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Ja |
+| consumerKey (consumerKey) | Konsumentnyckeln för OAuth 1.0-autentisering. | Ja |
+| konsumentSecret | Konsumenthemligheten för OAuth 1.0-autentisering. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tillgångToken | Åtkomsttoken för OAuth 1.0-autentisering. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tillgångTillkenSecret | Åtkomsttoken hemligheten för OAuth 1.0-autentisering. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 
@@ -91,14 +91,14 @@ Följande egenskaper har stöd för QuickBooks länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av QuickBooks datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av QuickBooks-datauppsättningen.
 
-Kopiera data från QuickBooks Online genom att ange typegenskapen på datauppsättningen till **QuickBooksObject**. Följande egenskaper stöds:
+Om du vill kopiera data från QuickBooks Online anger du egenskapen typ för datauppsättningen till **QuickBooksObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **QuickBooksObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Datauppsättningens typegenskap måste ställas in på: **QuickBooksObject** | Ja |
+| tableName | Tabellens namn. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel**
 
@@ -119,16 +119,16 @@ Kopiera data från QuickBooks Online genom att ange typegenskapen på datauppsä
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av QuickBooks källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av QuickBooks-källan.
 
 ### <a name="quickbooks-as-source"></a>QuickBooks som källa
 
-För att kopiera data från QuickBooks Online, ange typ av datakälla i kopieringsaktiviteten till **QuickBooksSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Om du vill kopiera data från QuickBooks Online anger du källtypen i kopieringsaktiviteten till **QuickBooksSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **QuickBooksSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Egenskapen type property för kopians aktivitet måste ställas in på: **QuickBooksSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Nej (om "tableName" i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -163,12 +163,12 @@ För att kopiera data från QuickBooks Online, ange typ av datakälla i kopierin
 ```
 ## <a name="copy-data-from-quickbooks-desktop"></a>Kopiera data från Quickbooks Desktop
 
-Kopieringsaktivitet i Azure Data Factory kan inte kopiera data direkt från Quickbooks Desktop. Exportera dina Quickbooks-data till en fil med kommaavgränsade värden (CSV)-fil för att kopiera data från Quickbooks Desktop och sedan överföra filen till Azure Blob Storage. Därifrån kan använda du Data Factory för att kopiera data till mottagare valfri.
+Kopieringsaktiviteten i Azure Data Factory kan inte kopiera data direkt från Quickbooks Desktop. Om du vill kopiera data från Quickbooks Desktop exporterar du Snabbböcker-data till en CSV-fil (comma-separated-values) och överför sedan filen till Azure Blob Storage. Därifrån kan du använda Data Factory för att kopiera data till valfri diskbänk.
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Image Builder med ett bild galleri för virtuella Linux-datorer (för hands version)
-description: Skapa virtuella Linux-avbildningar med Azure Image Builder och delade avbildnings galleriet.
+title: Använda Azure Image Builder med ett avbildningsgalleri för virtuella Linux-datorer (förhandsgranskning)
+description: Skapa Linux VM-avbildningar med Azure Image Builder och Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
@@ -8,39 +8,39 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.openlocfilehash: bf1dca61ec6b39e52d4f76c1c77cd3def6973ab8
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945028"
 ---
-# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>För hands version: skapa en Linux-avbildning och distribuera den till ett delat avbildnings Galleri 
+# <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Preview: Skapa en Linux-avbildning och distribuera den till ett delat bildgalleri 
 
-Den här artikeln visar hur du kan använda Azure Image Builder och Azure CLI för att skapa en avbildnings version i ett [delat avbildnings Galleri](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)och sedan distribuera avbildningen globalt. Du kan också göra detta med hjälp av [Azure PowerShell](../windows/image-builder-gallery.md).
+Den här artikeln visar hur du kan använda Azure Image Builder och Azure CLI för att skapa en avbildningsversion i ett [delat avbildningsgalleri](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)och sedan distribuera avbildningen globalt. Du kan också göra detta med [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
-Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateforSIG. JSON](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
+Vi kommer att använda ett exempel .json mall för att konfigurera avbildningen. Den .json filen vi använder är här: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
 
-För att distribuera avbildningen till ett delat avbildnings Galleri använder mallen [sharedImage](image-builder-json.md#distribute-sharedimage) som värde för avsnittet `distribute` i mallen.
+Om du vill distribuera bilden till ett delat bildgalleri använder `distribute` mallen [sharedImage](image-builder-json.md#distribute-sharedimage) som värde för avsnittet i mallen.
 
 > [!IMPORTANT]
-> Azure Image Builder är för närvarande en offentlig för hands version.
+> Azure Image Builder är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registrera funktionerna
-Om du vill använda Azure Image Builder i för hands versionen måste du registrera den nya funktionen.
+Om du vill använda Azure Image Builder under förhandsversionen måste du registrera den nya funktionen.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Kontrol lera status för funktions registreringen.
+Kontrollera status för funktionsregistreringen.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Kontrol lera registreringen.
+Kontrollera din registrering.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -48,7 +48,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Om de inte säger att de är registrerade kör du följande:
+Om de inte säger registrerade, kör följande:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -58,9 +58,9 @@ az provider register -n Microsoft.Storage
 
 ## <a name="set-variables-and-permissions"></a>Ange variabler och behörigheter 
 
-Vi kommer att använda vissa delar av informationen flera gånger, så vi skapar några variabler för att lagra informationen.
+Vi kommer att använda vissa bitar av information upprepade gånger, så vi kommer att skapa några variabler för att lagra denna information.
 
-För för hands versionen stöder Image Builder bara att skapa anpassade avbildningar i samma resurs grupp som den hanterade avbildningen. Uppdatera resurs grupp namnet i det här exemplet så att det blir samma resurs grupp som din käll hanterade avbildning.
+För förhandsgranskning stöder bildverktyget bara att skapa anpassade bilder i samma resursgrupp som källhanterad avbildning. Uppdatera resursgruppsnamnet i det här exemplet så att det är samma resursgrupp som källhanterad avbildning.
 
 ```azurecli-interactive
 # Resource group name - we are using ibLinuxGalleryRG in this example
@@ -77,7 +77,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`.
+Skapa en variabel för ditt prenumerations-ID. Du kan få `az account show | grep id`detta med .
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -90,7 +90,7 @@ az group create -n $sigResourceGroup -l $location
 ```
 
 
-Ge Azure Image Builder behörighet att skapa resurser i den resurs gruppen. `--assignee`-värdet är appens registrerings-ID för tjänsten Image Builder. 
+Ge Azure Image Builder behörighet att skapa resurser i den resursgruppen. `--assignee` Värdet är appregistrerings-ID för Image Builder-tjänsten. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -103,11 +103,11 @@ az role assignment create \
 
 
 
-## <a name="create-an-image-definition-and-gallery"></a>Skapa en bild definition och ett galleri
+## <a name="create-an-image-definition-and-gallery"></a>Skapa en bilddefinition och ett bildgalleri
 
-Om du vill använda Image Builder med ett delat bild galleri måste du ha ett befintligt bild galleri och en bild definition. Image Builder skapar inte bild galleriet och bild definitionen åt dig.
+Om du vill använda Image Builder med ett delat bildgalleri måste du ha ett befintligt bildgalleri och en bilddefinition. Image Builder skapar inte bildgalleriet och bilddefinitionen åt dig.
 
-Om du inte redan har ett galleri och en bild definition som ska användas börjar du med att skapa dem. Börja med att skapa ett bild galleri.
+Om du inte redan har ett galleri och en bilddefinition att använda börjar du med att skapa dem. Skapa först ett bildgalleri.
 
 ```azurecli-interactive
 az sig create \
@@ -115,7 +115,7 @@ az sig create \
     --gallery-name $sigName
 ```
 
-Skapa sedan en avbildnings definition.
+Skapa sedan en bilddefinition.
 
 ```azurecli-interactive
 az sig image-definition create \
@@ -129,9 +129,9 @@ az sig image-definition create \
 ```
 
 
-## <a name="download-and-configure-the-json"></a>Hämta och konfigurera. JSON
+## <a name="download-and-configure-the-json"></a>Hämta och konfigurera .json
 
-Hämta. JSON-mallen och konfigurera den med dina variabler.
+Hämta .json-mallen och konfigurera den med dina variabler.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json -o helloImageTemplateforSIG.json
@@ -144,11 +144,11 @@ sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIG.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIG.json
 ```
 
-## <a name="create-the-image-version"></a>Skapa avbildnings versionen
+## <a name="create-the-image-version"></a>Skapa bildversionen
 
-Nästa del kommer att skapa avbildnings versionen i galleriet. 
+Nästa del skapar bildversionen i galleriet. 
 
-Skicka avbildnings konfigurationen till Azure Image Builder-tjänsten.
+Skicka avbildningskonfigurationen till Azure Image Builder-tjänsten.
 
 ```azurecli-interactive
 az resource create \
@@ -159,7 +159,7 @@ az resource create \
     -n helloImageTemplateforSIG01
 ```
 
-Starta avbildnings versionen.
+Starta bildversionen.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -169,12 +169,12 @@ az resource invoke-action \
      --action Run 
 ```
 
-Det kan ta en stund att skapa avbildningen och replikera den till båda regionerna. Vänta tills den här delen är klar innan du fortsätter med att skapa en virtuell dator.
+Det kan ta en stund att skapa avbildningen och replikera den till båda regionerna. Vänta tills den här delen är klar innan du går vidare till att skapa en virtuell dator.
 
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Skapa en virtuell dator från avbildnings versionen som skapades av Azure Image Builder.
+Skapa en virtuell dator från avbildningsversionen som skapades av Azure Image Builder.
 
 ```azurecli-interactive
 az vm create \
@@ -192,7 +192,7 @@ SSH till den virtuella datorn.
 ssh aibuser@<publicIpAddress>
 ```
 
-Du bör se att avbildningen har anpassats till ett *meddelande om dygnet* så snart din SSH-anslutning har upprättats!
+Du bör se bilden anpassades med ett *meddelande för dagen* så fort din SSH-anslutning är etablerad!
 
 ```console
 *******************************************************
@@ -204,14 +204,14 @@ Du bör se att avbildningen har anpassats till ett *meddelande om dygnet* så sn
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du nu vill försöka anpassa avbildnings versionen för att skapa en ny version av samma avbildning, hoppar du över nästa steg och fortsätter med att [använda Azure Image Builder för att skapa en annan avbildnings version](image-builder-gallery-update-image-version.md).
+Om du nu vill försöka anpassa avbildningsversionen igen för att skapa en ny version av samma avbildning hoppar du över nästa steg och fortsätter med att [använda Azure Image Builder för att skapa en annan avbildningsversion](image-builder-gallery-update-image-version.md).
 
 
-Detta tar bort den avbildning som har skapats, tillsammans med alla andra resursfiler. Kontrol lera att du är färdig med distributionen innan du tar bort resurserna.
+Då tas bilden bort, tillsammans med alla andra resursfiler. Kontrollera att du är klar med den här distributionen innan du tar bort resurserna.
 
-När du tar bort avbildnings Galleri resurser måste du ta bort alla avbildnings versioner innan du kan ta bort avbildnings definitionen som används för att skapa dem. Om du vill ta bort ett galleri måste du först ta bort alla bild definitionerna i galleriet.
+När du tar bort resurser för bildgalleriet måste du ta bort alla bildversioner innan du kan ta bort den bilddefinition som används för att skapa dem. Om du vill ta bort ett galleri måste du först ha tagit bort alla bilddefinitioner i galleriet.
 
-Ta bort Image Builder-mallen.
+Ta bort bildverktygets mall.
 
 ```azurecli-interactive
 az resource delete \
@@ -220,7 +220,7 @@ az resource delete \
     -n helloImageTemplateforSIG01
 ```
 
-Hämta avbildnings versionen som skapats av Image Builder, detta börjar alltid med `0.`och ta sedan bort avbildnings versionen
+Få bilden version skapad av bildbyggare, detta börjar alltid med `0.`, och sedan ta bort bilden version
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \
@@ -237,7 +237,7 @@ az sig image-version delete \
 ```   
 
 
-Ta bort avbildnings definitionen.
+Ta bort bilddefinitionen.
 
 ```azurecli-interactive
 az sig image-definition delete \
@@ -253,7 +253,7 @@ Ta bort galleriet.
 az sig delete -r $sigName -g $sigResourceGroup
 ```
 
-Ta bort resurs gruppen.
+Ta bort resursgruppen.
 
 ```azurecli-interactive
 az group delete -n $sigResourceGroup -y
@@ -261,4 +261,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [Azures delade bild gallerier](shared-image-galleries.md).
+Läs mer om [Azure Shared Image Galleries](shared-image-galleries.md).

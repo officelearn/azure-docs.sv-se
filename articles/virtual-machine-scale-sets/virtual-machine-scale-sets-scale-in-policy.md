@@ -1,6 +1,6 @@
 ---
-title: Använd anpassade skalnings principer med skalnings uppsättningar för virtuella Azure-datorer
-description: Lär dig hur du använder anpassade skalnings principer med skalnings uppsättningar för virtuella Azure-datorer som använder automatisk skalnings konfiguration för att hantera instans antal
+title: Använda anpassade skalningsprinciper med Azure-skalningsuppsättningar för virtuella datorer
+description: Lär dig hur du använder anpassade skalningsprinciper med Azure-skalningsuppsättningar för virtuella datorer som använder konfiguration för automatisk skalning för att hantera instansantal
 services: virtual-machine-scale-sets
 author: avirishuv
 manager: vashan
@@ -12,62 +12,62 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: avverma
 ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919846"
 ---
-# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Använd anpassade skalnings principer med skalnings uppsättningar för virtuella Azure-datorer
+# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Använda anpassade skalningsprinciper med Azure-skalningsuppsättningar för virtuella datorer
 
-En distribution av skalnings uppsättningar för virtuella datorer kan skalas upp eller skalas – i baserat på en matris med mått, inklusive plattforms-och användardefinierade anpassade mått. En skalbarhet som skapar nya virtuella datorer baserat på skalnings uppsättnings modellen, påverkar en skalbarhet som kör virtuella datorer som kan ha olika konfigurationer och/eller funktioner när den skalnings uppsättningens arbets belastning utvecklas. 
+En distribution av skalningsuppsättning för virtuella datorer kan skalas ut eller skalas in baserat på en matris med mått, inklusive anpassade mått för plattform och användardefinierade. Medan en utskalning skapar nya virtuella datorer baserat på skalningsuppsättningsmodellen, påverkar en skalning som körs virtuella datorer som kan ha olika konfigurationer och/eller funktioner när arbetsbelastningen för skalningsuppsättningen utvecklas. 
 
-Funktionen för skalnings-i-princip ger användarna möjlighet att konfigurera i vilken ordning de virtuella datorerna ska skalas – i, med tre skalnings-konfigurationer: 
+Funktionen för inskalningsprincip ger användarna ett sätt att konfigurera i vilken ordning virtuella datorer skalas in, genom tre inskalningskonfigurationer: 
 
-1. Standard
-2. NewestVM
+1. Default
+2. NyasteVM
 3. OldestVM
 
-### <a name="default-scale-in-policy"></a>Standard princip för skalning
+### <a name="default-scale-in-policy"></a>Standardskalningsprincip
 
-Som standard tillämpar skalnings uppsättningen för virtuella datorer den här principen för att avgöra vilken eller vilka instanser som ska skalas i. Med *standard* principen väljs virtuella datorer för skalning – i följande ordning:
+Som standard tillämpar skalningsuppsättningen för virtuella datorer den här principen för att avgöra vilka instanser som ska skalas in. Med *standardprincipen* väljs virtuella datorer för inskalning i följande ordning:
 
-1. Balansera virtuella datorer över tillgänglighets zoner (om skalnings uppsättningen har distribuerats i zonindelade-konfigurationen)
-2. Balansera virtuella datorer över fel domäner (bästa ansträngning)
-3. Ta bort virtuell dator med högst instans-ID
+1. Balansera virtuella datorer över tillgänglighetszoner (om skalningsuppsättningen distribueras i zonkonfiguration)
+2. Balansera virtuella datorer över feldomäner (bästa möjliga insats)
+3. Ta bort virtuell dator med högsta instans-ID
 
-Användarna behöver inte ange någon skalnings princip om de bara vill att standard ordningen ska följas.
+Användare behöver inte ange en skalningsprincip om de bara vill att standardordningen ska följas.
 
-Observera att balans mellan tillgänglighets zoner eller fel domäner inte flyttar instanser mellan tillgänglighets zoner eller fel domäner. Balanseringen uppnås genom att virtuella datorer tas bort från obalanserade tillgänglighets zoner eller fel domäner tills distributionen av virtuella datorer blir balanserade.
+Observera att balansering mellan tillgänglighetszoner eller feldomäner inte flyttar instanser över tillgänglighetszoner eller feldomäner. Avvägningen uppnås genom borttagning av virtuella datorer från obalanserade tillgänglighetszoner eller feldomäner tills fördelningen av virtuella datorer blir balanserad.
 
-### <a name="newestvm-scale-in-policy"></a>NewestVM-skalning – princip
+### <a name="newestvm-scale-in-policy"></a>NysteVM-inskalningspolicy
 
-Den här principen tar bort den senaste skapade virtuella datorn i skalnings uppsättningen, efter att de virtuella datorerna har balanserats över tillgänglighets zoner (för zonindelade-distributioner). Om den här principen aktive ras krävs en konfigurations ändring i den virtuella datorns skalnings uppsättnings modell.
+Den här principen tar bort den senaste skapade virtuella datorn i skalningsuppsättningen, efter att ha balanserat virtuella datorer över tillgänglighetszoner (för zondistributioner). För att aktivera den här principen krävs en konfigurationsändring på skaluppsättningsmodellen för den virtuella datorn.
 
-### <a name="oldestvm-scale-in-policy"></a>OldestVM-skalning – princip
+### <a name="oldestvm-scale-in-policy"></a>Inskalningsprincip för äldstaVM
 
-Den här principen tar bort den äldsta skapade virtuella datorn i skalnings uppsättningen, efter att de virtuella datorerna har balanserats över tillgänglighets zoner (för zonindelade-distributioner). Om den här principen aktive ras krävs en konfigurations ändring i den virtuella datorns skalnings uppsättnings modell.
+Den här principen tar bort den äldsta skapade virtuella datorn i skalningsuppsättningen, efter att ha balanserat virtuella datorer över tillgänglighetszoner (för zondistributioner). För att aktivera den här principen krävs en konfigurationsändring på skaluppsättningsmodellen för den virtuella datorn.
 
-## <a name="enabling-scale-in-policy"></a>Aktivera skalnings princip
+## <a name="enabling-scale-in-policy"></a>Aktivera inskalningsprincip
 
-En skalnings princip definieras i den virtuella datorns skal uppsättnings modell. Som anges i avsnitten ovan behövs en definition för skalnings i princip när du använder principerna "NewestVM" och "OldestVM". Skalnings uppsättningen för den virtuella datorn använder automatiskt "default"-skalnings principen om det inte finns någon definition av skalnings i modellen i skalnings uppsättningen. 
+En skalningsprincip definieras i skaluppsättningsmodellen för den virtuella datorn. Som nämnts i avsnitten ovan behövs en principdefinition för skalning när principerna "NewestVM" och "OldestVM" använders. Skalan för virtuella datorer använder automatiskt skalorningsprincipen Standard om det inte finns någon principdefinition för skalning som finns på skalningsuppsättningsmodellen. 
 
-En skalnings princip kan definieras i modellen för skalnings uppsättningar för virtuella datorer på följande sätt:
+En skalningsprincip kan definieras på skaluppsättningsmodellen för virtuella datorer på följande sätt:
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
  
-I följande steg definieras en skalnings princip när du skapar en ny skalnings uppsättning. 
+Följande steg definierar skalningsprincipen när du skapar en ny skalningsuppsättning. 
  
-1. Gå till **skalnings uppsättningar för virtuella datorer**.
-1. Välj **+ Lägg** till för att skapa en ny skalnings uppsättning.
-1. Gå till fliken **skalning** . 
-1. Leta upp avsnittet **Scale-in-princip** .
-1. Välj en skalnings princip i list rutan.
-1. När du är klar med att skapa den nya skalnings uppsättningen väljer du **Granska + skapa** .
+1. Gå till **skalningsuppsättningar för virtuella datorer**.
+1. Välj **+ Lägg till** om du vill skapa en ny skaluppsättning.
+1. Gå till fliken **Skalning.** 
+1. Leta reda på avsnittet **Skala in princip.**
+1. Välj en skalningsprincip i listrutan.
+1. När du är klar med att skapa den nya skalningsuppsättningen väljer du **knappen Granska + skapa.**
 
 ### <a name="using-api"></a>Med API:et
 
-Kör en placering på den virtuella datorns skalnings uppsättning med API 2019-03-01:
+Kör en PUT på den virtuella datorns skaluppsättning med API 2019-03-01:
 
 ```
 PUT
@@ -84,7 +84,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Skapa en resurs grupp och skapa sedan en ny skalnings uppsättning med skalnings princip uppsättning som *OldestVM*.
+Skapa en resursgrupp och skapa sedan en ny skalningsuppsättning med skalningsprincipuppsättning som *OldestVM*.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
@@ -97,7 +97,7 @@ New-AzVmss `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-I följande exempel läggs en skalnings princip till när du skapar en ny skalnings uppsättning. Skapa först en resurs grupp och skapa sedan en ny skalnings uppsättning med Scale-in-princip som *OldestVM*. 
+I följande exempel läggs en skalningsprincip till när du skapar en ny skalningsuppsättning. Skapa först en resursgrupp och skapa sedan en ny skalningsuppsättning med skalningsprincipen som *OldestVM*. 
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -112,7 +112,7 @@ az vmss create \
 
 ### <a name="using-template"></a>Använda mall
 
-Lägg till följande i mallen under "egenskaper":
+Lägg till följande under "egenskaper" i mallen:
 
 ```json
 "scaleInPolicy": {  
@@ -120,30 +120,30 @@ Lägg till följande i mallen under "egenskaper":
 }
 ```
 
-Ovanstående block anger att den virtuella datorns skalnings uppsättning tar bort den äldsta virtuella datorn i en zon bal anse rad skalnings uppsättning, när en skalning aktive ras (genom autoskalning eller manuell borttagning).
+Ovanstående block anger att den virtuella datorns skaluppsättning ska ta bort den äldsta virtuella datorn i en zonbalanserad skalningsuppsättning, när en inskalning utlöses (genom Automatisk skalning eller manuell borttagning).
 
-När en skalnings uppsättning för en virtuell dator inte är en avgränsad zon, tar skalnings uppsättningen först bort virtuella datorer över de Utjämnings zoner som är balanserade. I de obalanserade zonerna använder skalnings uppsättningen den skalnings princip som anges ovan för att avgöra vilken virtuell dator som ska skalas i. I det här fallet väljer skalnings uppsättningen den äldsta virtuella datorn i den zonen som ska tas bort inom en balanserad zon.
+När en skaluppsättning för virtuella datorer inte är zonbalanserad tas först skalningsuppsättningen bort virtuella datorer över de obalanserade zonerna. Inom de obalanserade zonerna använder skalningsuppsättningen den inskalningsprincipen som anges ovan för att avgöra vilken virtuell dator som ska skalas in. I det här fallet väljer skalningsuppsättningen den äldsta virtuella datorn i den zonen som ska tas bort inom en zon som är obalanserad.
 
-För icke-zonindelade skalnings uppsättning för virtuella datorer väljer principen den äldsta virtuella datorn över den skalnings uppsättning som ska tas bort.
+För skalningsuppsättningen för den virtuella datorn som inte är zonbaserad väljer principen den äldsta virtuella datorn över skalningsuppsättningen för borttagning.
 
-Samma process gäller när "NewestVM" används i ovanstående skalnings princip.
+Samma process gäller när du använder "NewestVM" i ovanstående skaväg-in-policy.
 
-## <a name="modifying-scale-in-policies"></a>Ändra skalnings principer
+## <a name="modifying-scale-in-policies"></a>Ändra skalningsprinciper
 
-Att ändra skalnings principen följer samma process som när du tillämpar skalnings principen. Om du till exempel vill ändra principen från "OldestVM" till "NewestVM" i exemplet ovan kan du göra det genom att:
+Ändra skalade principen följer samma process som att tillämpa inskalningsprincipen. Om du till exempel i exemplet ovan vill ändra principen från 'OldestVM' till 'NewestVM', kan du göra det genom att:
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
-Du kan ändra en skalnings princip för en befintlig skalnings uppsättning via Azure Portal. 
+Du kan ändra skalningsprincipen för en befintlig skalningsuppsättning via Azure-portalen. 
  
-1. I en befintlig skalnings uppsättning för virtuell dator väljer du **skalning** från menyn till vänster.
-1. Välj fliken **Scale-in-princip** .
-1. Välj en skalnings princip i list rutan.
-1. När du är färdig väljer du **Spara**. 
+1. I en befintlig skalningsuppsättning för virtuella datorer väljer du **Skala** på menyn till vänster.
+1. Välj fliken **Skala i princip.**
+1. Välj en skalningsprincip i listrutan.
+1. När du är klar väljer du **Spara**. 
 
 ### <a name="using-api"></a>Med API:et
 
-Kör en placering på den virtuella datorns skalnings uppsättning med API 2019-03-01:
+Kör en PUT på den virtuella datorns skaluppsättning med API 2019-03-01:
 
 ```
 PUT
@@ -160,7 +160,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Uppdatera skalnings principen för en befintlig skalnings uppsättning:
+Uppdatera skalningsprincipen för en befintlig skalningsuppsättning:
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -171,7 +171,7 @@ Update-AzVmss `
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Följande är ett exempel på hur du uppdaterar en skalnings princip för en befintlig skalnings uppsättning: 
+Följande är ett exempel på hur du uppdaterar skalningsprincipen för en befintlig skalningsuppsättning: 
 
 ```azurecli-interactive
 az vmss update \  
@@ -190,57 +190,57 @@ I mallen, under "egenskaper", ändrar du mallen enligt nedan och distribuerar om
 } 
 ```
 
-Samma process gäller om du väljer att ändra "NewestVM" till "default" eller "OldestVM"
+Samma process gäller om du bestämmer dig för att ändra "NewestVM" till "Default" eller "OldestVM"
 
-## <a name="instance-protection-and-scale-in-policy"></a>Instans skydd och skalnings princip
+## <a name="instance-protection-and-scale-in-policy"></a>Instansskydd och inskalningspolitik
 
-Skalnings uppsättningar för virtuella datorer ger två typer av [instans skydd](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection):
+Skaluppsättningar för virtuella datorer ger två typer av [instansskydd:](./virtual-machine-scale-sets-instance-protection.md#types-of-instance-protection)
 
-1. Skydda från skalbarhet
-2. Skydda från skalnings uppsättnings åtgärder
+1. Skydda mot inskalning
+2. Skydda mot skalningsuppsättningsåtgärder
 
-En skyddad virtuell dator tas inte bort via en skalnings åtgärd, oavsett vilken skalnings princip som tillämpas. Till exempel, om VM_0 (äldsta virtuella datorn i skalnings uppsättningen) är skyddad från Scale-in och skalnings uppsättningen har "OldestVM" skalnings princip aktive rad, kommer VM_0 inte att beaktas för skalning i, även om det är den äldsta virtuella datorn i skalnings uppsättningen. 
+En skyddad virtuell dator tas inte bort genom en skalningsåtgärd, oavsett vilken skalningsprincip som tillämpas. Om till exempel VM_0 (äldsta virtuella datorn i skalningsuppsättningen) är skyddad från skalning och skalningsuppsättningen har inskalningsprincipen "OldestVM", kommer VM_0 inte att beaktas för att skalas in, även om det är den äldsta virtuella datorn i skalningsuppsättningen. 
 
-En skyddad virtuell dator kan när som helst tas bort manuellt av användaren, oavsett vilken skalnings princip som är aktive rad i skalnings uppsättningen. 
+En skyddad virtuell dator kan tas bort manuellt av användaren när som helst, oavsett vilken skalningsprincip som är aktiverad i skalningsuppsättningen. 
 
-## <a name="usage-examples"></a>Användnings exempel 
+## <a name="usage-examples"></a>Exempel på användning 
 
-I exemplen nedan visas hur en skalnings uppsättning för virtuella datorer väljer vilka virtuella datorer som ska tas bort när en skalnings händelse utlöses. Virtuella datorer med högst instans-ID förutsätts vara de nyaste virtuella datorerna i skalnings uppsättningen och de virtuella datorerna med de minsta instans-ID: na antas vara de äldsta virtuella datorerna i skalnings uppsättningen. 
+Nedanstående exempel visar hur en skaluppsättning för virtuella datorer väljer virtuella datorer som ska tas bort när en inskalningshändelse utlöses. Virtuella datorer med de högsta instans-ID:na antas vara de nyaste virtuella datorerna i skalningsuppsättningen och de virtuella datorerna med de minsta instans-ID:na antas vara de äldsta virtuella datorerna i skalningsuppsättningen. 
 
-### <a name="oldestvm-scale-in-policy"></a>OldestVM-skalning – princip
+### <a name="oldestvm-scale-in-policy"></a>Inskalningsprincip för äldstaVM
 
-| Händelse                 | Instans-ID: n i zon 1  | Instans-ID: n i 1  | Instans-ID: n i zon 3  | Skalning – i markering                                                                                                               |
+| Händelse                 | Instans-ID:er i zon1  | Instans-ID:er i zon2  | Instans-ID:er i zon3  | Skala in markering                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Grund               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Skala in              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Välj mellan Zon 1 och 2, även om Zon 3 har den äldsta virtuella datorn. Ta bort VM2 från Zon 2 eftersom det är den äldsta virtuella datorn i zonen.   |
-| Skala in              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Välj Zon 1 även om Zon 3 har den äldsta virtuella datorn. Ta bort VM3 från Zon 1 eftersom det är den äldsta virtuella datorn i zonen.                  |
-| Skala in              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Zoner är balanserade. Ta bort VM1 i Zon 3 eftersom det är den äldsta virtuella datorn i skalnings uppsättningen.                                               |
-| Skala in              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Välj mellan Zon 1 och Zon 2. Ta bort VM4 i Zon 1 eftersom det är den äldsta virtuella datorn i de två zonerna.                              |
-| Skala in              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Välj Zon 2 även om Zon 1 har den äldsta virtuella datorn. Ta bort VM6 i Zon 1 eftersom det är den äldsta virtuella datorn i zonen.                    |
-| Skala in              | ***5***, 10            | 9, 11                  | 7, 8                   | Zoner är balanserade. Ta bort VM5 i Zon 1 eftersom det är den äldsta virtuella datorn i skalnings uppsättningen.                                                |
+| Inledande               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| Skala in              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Välj mellan zon 1 och 2, även om zon 3 har den äldsta virtuella datorn. Ta bort VM2 från zon 2 eftersom det är den äldsta virtuella datorn i den zonen.   |
+| Skala in              | ***3,*** 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Välj zon 1 även om zon 3 har den äldsta virtuella datorn. Ta bort VM3 från zon 1 eftersom det är den äldsta virtuella datorn i den zonen.                  |
+| Skala in              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Zonerna är balanserade. Ta bort VM1 i zon 3 eftersom det är den äldsta virtuella datorn i skalningsuppsättningen.                                               |
+| Skala in              | ***4,*** 5, 10         | 6, 9, 11               | 7, 8                   | Välj mellan zon 1 och zon 2. Ta bort VM4 i zon 1 eftersom det är den äldsta virtuella datorn över de två zonerna.                              |
+| Skala in              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Välj zon 2 även om zon 1 har den äldsta virtuella datorn. Ta bort VM6 i zon 1 eftersom det är den äldsta virtuella datorn i den zonen.                    |
+| Skala in              | ***5,*** 10            | 9, 11                  | 7, 8                   | Zonerna är balanserade. Ta bort VM5 i zon 1 eftersom det är den äldsta virtuella datorn i skalningsuppsättningen.                                                |
 
-För icke-zonindelade virtuella datorers skalnings uppsättningar väljer principen den äldsta virtuella datorn över den skalnings uppsättning som ska tas bort. En "skyddad" virtuell dator kommer att hoppas över för borttagning.
+För skalningsuppsättningar som inte är zonbaserade för den virtuella datorn väljer principen den äldsta virtuella datorn över skalningsuppsättningen för borttagning. Alla "skyddade" virtuella datorer hoppas över för borttagning.
 
-### <a name="newestvm-scale-in-policy"></a>NewestVM-skalning – princip
+### <a name="newestvm-scale-in-policy"></a>NysteVM-inskalningspolicy
 
-| Händelse                 | Instans-ID: n i zon 1  | Instans-ID: n i 1  | Instans-ID: n i zon 3  | Skalning – i markering                                                                                                               |
+| Händelse                 | Instans-ID:er i zon1  | Instans-ID:er i zon2  | Instans-ID:er i zon3  | Skala in markering                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Grund               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Skala in              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Välj mellan Zon 1 och 2. Ta bort VM11 – från Zon 2 eftersom det är den senaste virtuella datorn i de två zonerna.                                |
-| Skala in              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Välj Zon 1 som har fler virtuella datorer än de andra två zonerna. Ta bort VM10 från Zon 1 som den senaste virtuella datorn i zonen.          |
-| Skala in              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Zoner är balanserade. Ta bort VM9 i Zon 2 eftersom det är den nyaste virtuella datorn i skalnings uppsättningen.                                                |
-| Skala in              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Välj mellan Zon 1 och Zon 3. Ta bort VM8 i Zon 3 eftersom det är den senaste virtuella datorn i zonen.                                      |
-| Skala in              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Välj Zon 1 även om Zon 3 har den senaste virtuella datorn. Ta bort VM5 i Zon 1 eftersom det är den senaste virtuella datorn i zonen.                    |
-| Skala in              | 3, 4                   | 2, 6                   | 1, ***7***             | Zoner är balanserade. Ta bort VM7 i Zon 3 eftersom det är den nyaste virtuella datorn i skalnings uppsättningen.                                                |
+| Inledande               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| Skala in              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Välj mellan zon 1 och 2. Ta bort VM11 från zon 2 eftersom det är den nyaste virtuella datorn över de två zonerna.                                |
+| Skala in              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Välj zon 1 eftersom den har fler virtuella datorer än de andra två zonerna. Ta bort VM10 från zon 1 eftersom det är den nyaste virtuella datorn i zonen.          |
+| Skala in              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Zonerna är balanserade. Ta bort VM9 i zon 2 eftersom det är den senaste virtuella datorn i skalningsuppsättningen.                                                |
+| Skala in              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Välj mellan zon 1 och zon 3. Ta bort VM8 i zon 3 eftersom det är den senaste virtuella datorn i den zonen.                                      |
+| Skala in              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Välj zon 1 även om zon 3 har den senaste virtuella datorn. Ta bort VM5 i zon 1 eftersom det är den senaste virtuella datorn i zonen.                    |
+| Skala in              | 3, 4                   | 2, 6                   | 1, ***7***             | Zonerna är balanserade. Ta bort VM7 i zon 3 eftersom det är den senaste virtuella datorn i skalningsuppsättningen.                                                |
 
-För icke-zonindelade virtuella datorers skalnings uppsättningar väljer principen den senaste virtuella datorn över den skalnings uppsättning som ska tas bort. En "skyddad" virtuell dator kommer att hoppas över för borttagning. 
+För skalningsuppsättningar som inte är zonbaserade för den virtuella datorn väljer principen den senaste virtuella datorn över skalningsuppsättningen för borttagning. Alla "skyddade" virtuella datorer hoppas över för borttagning. 
 
 ## <a name="troubleshoot"></a>Felsöka
 
-1. Det gick inte att aktivera scaleInPolicy om du får ett "BadRequest"-fel med fel meddelandet "Det gick inte att hitta medlemmen" scaleInPolicy "på objekt av typen" Properties "", kontrol lera den API-version som används för skalnings uppsättningen för den virtuella datorn. API version 2019-03-01 eller senare krävs för den här funktionen.
+1. Det gick inte att aktivera scaleInPolicy Om du får felmeddelandet BadRequest med felmeddelandet "Det gick inte att hitta medlemmen 'scaleInPolicy' på objekt av typen egenskaper'" kontrollerar du API-versionen som används för skalningsuppsättning för virtuella datorer. API-version 2019-03-01 eller senare krävs för den här funktionen.
 
-2. Fel urval av virtuella datorer för skalning – se exemplen ovan. Om den virtuella datorns skalnings uppsättning är en zonindelade-distribution tillämpas skalnings principen först i de obalanserade zonerna och sedan över skalnings uppsättningen när den är en zon bal anse rad. Om ordningen för skalning i inte är konsekvent med exemplen ovan kan du generera en fråga med den virtuella datorns skal uppsättnings team för fel sökning.
+2. Fel val av virtuella datorer för skalade in Se exemplen ovan. Om skaluppsättningen för den virtuella datorn är en zondistribution tillämpas skalningsprincipen först på de obalanserade zonerna och sedan över skalningsuppsättningen när den är zonbalanserad. Om ordningen för inskalning inte överensstämmer med exemplen ovan höjer du en fråga med det virtuella datorskaleuppsättningsteamet för felsökning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [distribuerar ditt program](virtual-machine-scale-sets-deploy-app.md) på virtuella datorers skalnings uppsättningar.
+Lär dig hur du [distribuerar ditt program](virtual-machine-scale-sets-deploy-app.md) på skalningsuppsättningar för virtuella datorer.

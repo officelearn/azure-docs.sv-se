@@ -1,6 +1,6 @@
 ---
 title: Flytta data från DB2 med hjälp av Azure Data Factory
-description: Lär dig hur du flyttar data från en lokal DB2-databas med hjälp av Azure Data Factory kopierings aktivitet
+description: Lär dig hur du flyttar data från en lokal DB2-databas med hjälp av Azure Data Factory Copy Activity
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,119 +13,119 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931789"
 ---
-# <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med Azure Data Factory kopierings aktivitet
+# <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Flytta data från DB2 med hjälp av Azure Data Factory Copy Activity
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-onprem-db2-connector.md)
 > * [Version 2 (aktuell version)](../connector-db2.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [DB2 Connector i v2](../connector-db2.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av datafabrikstjänsten läser du [DB2-anslutning i V2](../connector-db2.md).
 
 
-Den här artikeln beskriver hur du kan använda kopierings aktivitet i Azure Data Factory för att kopiera data från en lokal DB2-databas till ett data lager. Du kan kopiera data till alla butiker som visas som en mottagare som stöds i artikeln [Data Factory data förflyttnings aktiviteter](data-factory-data-movement-activities.md#supported-data-stores-and-formats) . Det här avsnittet bygger på Data Factory artikeln, som visar en översikt över data flyttningen med hjälp av kopierings aktiviteten och listar de kombinationer av data lager som stöds. 
+I den här artikeln beskrivs hur du kan använda Kopiera aktivitet i Azure Data Factory för att kopiera data från en lokal DB2-databas till ett datalager. Du kan kopiera data till alla butiker som visas som en diskho som stöds i artikeln [Data Factory dataförflyttningsaktiviteter.](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Det här avsnittet bygger på datafabriken, som innehåller en översikt över dataförflyttningar med hjälp av Kopiera aktivitet och en lista över kombinationer av datalager som stöds. 
 
-Data Factory stöder för närvarande endast flytt av data från en DB2-databas till ett [mottagar data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Det finns inte stöd för att flytta data från andra data lager till en DB2-databas.
+Data Factory stöder för närvarande endast flytta data från en DB2-databas till ett [diskbänksdatalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Det går inte att flytta data från andra datalager till en DB2-databas.
 
 ## <a name="prerequisites"></a>Krav
-Data Factory stöder anslutning till en lokal DB2-databas med hjälp av [Data Management Gateway](data-factory-data-management-gateway.md). Stegvisa instruktioner för hur du konfigurerar Gateway-datapipeline för att flytta dina data finns i artikeln [Flytta data från en lokal plats till molnet](data-factory-move-data-between-onprem-and-cloud.md) .
+Data Factory stöder anslutning till en lokal DB2-databas med hjälp av [datahanteringsgatewayen](data-factory-data-management-gateway.md). Stegvisa instruktioner för att konfigurera gatewaydatapipelinen för att flytta data finns i artikeln [Flytta data från lokalt till moln.](data-factory-move-data-between-onprem-and-cloud.md)
 
-En gateway krävs även om DB2 finns på den virtuella Azure IaaS-datorn. Du kan installera gatewayen på samma virtuella IaaS-dator som data lagret. Om gatewayen kan ansluta till databasen kan du installera gatewayen på en annan virtuell dator.
+En gateway krävs även om DB2 finns på Azure IaaS VM. Du kan installera gatewayen på samma IaaS VM som datalagret. Om gatewayen kan ansluta till databasen kan du installera gatewayen på en annan virtuell dator.
 
-Data Management Gateway tillhandahåller en inbyggd DB2-drivrutin, så du behöver inte installera en driv rutin manuellt för att kopiera data från DB2.
+Datahanteringsgatewayen tillhandahåller en inbyggd DB2-drivrutin, så du behöver inte installera en drivrutin manuellt för att kopiera data från DB2.
 
 > [!NOTE]
-> Tips om fel sökning av anslutnings-och gateway-problem finns i artikeln [Felsöka Gateway-problem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
+> Tips om felsökning av anslutnings- och gatewayproblem finns i artikeln [Felsöka gatewayproblem.](data-factory-data-management-gateway.md#troubleshooting-gateway-issues)
 
 
 ## <a name="supported-versions"></a>Versioner som stöds
-Data Factory DB2-anslutaren stöder följande IBM DB2-plattformar och versioner med Distributed Relations databas arkitektur (DRDA) SQL Access Manager version 9, 10 och 11:
+Data Factory DB2-anslutningen stöder följande IBM DB2-plattformar och versioner med DRDA-versioner (Distributed Relational Database Architecture) (Distributed Relational Database Architecture) 9, 10 och 11:
 
-* IBM DB2 för z/OS, version 11,1
-* IBM DB2 för z/OS, version 10,1
-* IBM DB2 för i (AS400) version 7,2
-* IBM DB2 för i (AS400) version 7,1
+* IBM DB2 för z/OS version 11.1
+* IBM DB2 för z/OS version 10.1
+* IBM DB2 för i (AS400) version 7.2
+* IBM DB2 för i (AS400) version 7.1
 * IBM DB2 för Linux, UNIX och Windows (LUW) version 11
-* IBM DB2 för LUW version 10,5
-* IBM DB2 för LUW version 10,1
+* IBM DB2 för LUW version 10.5
+* IBM DB2 för LUW version 10.1
 
 > [!TIP]
-> Om du får fel meddelandet "Det gick inte att hitta paketet som motsvarar en körnings förfrågan för SQL-instruktionen. SQLSTATE = 51002 SQLCODE =-805, "orsaken är att ett nödvändigt paket inte skapas för den normala användaren på operativ systemet. Lös problemet genom att följa de här instruktionerna för din DB2-Server Typ:
-> - DB2 för i (AS400): Låt en privilegie rad användare skapa samlingen för den normala användaren innan kopierings aktiviteten körs. Använd kommandot för att skapa samlingen: `create collection <username>`
-> - DB2 för z/OS eller LUW: Använd ett konto med hög behörighet – en privilegie rad användare eller administratör som har paket utfärdare och BIND, BINDADD, bevilja körning till offentliga behörigheter – för att köra kopian en gång. Det nödvändiga paketet skapas automatiskt under kopieringen. Efteråt kan du växla tillbaka till den normala användaren för din efterföljande kopierings körning.
+> Om felmeddelandet "Paketet som motsvarar en SQL-programbegäran hittades inte. SQLSTATE=51002 SQLCODE=-805," anledningen är ett nödvändigt paket skapas inte för den normala användaren på operativsystemet. LÃ¶s problemet genom att fÃ¶ã¶ga instruktionerna fÃ¶r DB2-servertypen:
+> - DB2 för i (AS400): Låt en strömanvändare skapa samlingen för den vanliga användaren innan du kör Kopiera aktivitet. Om du vill skapa samlingen använder du kommandot:`create collection <username>`
+> - DB2 för z/OS eller LUW: Använd en hög behörighet konto - en privilegierad energianvändare eller administratör som har paketmyndigheter och BIND, BINDADD, GRANT EXECUTE TO PUBLIC behörigheter - för att köra kopian en gång. Det nödvändiga paketet skapas automatiskt under kopian. Efteråt kan du växla tillbaka till den vanliga användaren för dina efterföljande kopieringskörningar.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en kopierings aktivitet för att flytta data från ett lokalt DB2-data lager med hjälp av olika verktyg och API: er: 
+Du kan skapa en pipeline med en kopieringsaktivitet för att flytta data från ett lokalt DB2-datalager med hjälp av olika verktyg och API:er: 
 
-- Det enklaste sättet att skapa en pipeline är att använda guiden Azure Data Factory kopiering. En snabb genom gång av hur du skapar en pipeline med hjälp av kopierings guiden finns i [självstudien: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md). 
-- Du kan också använda verktyg för att skapa en pipeline, inklusive Visual Studio, Azure PowerShell, en Azure Resource Manager mall, .NET-API: et och REST API. Stegvisa instruktioner för att skapa en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Det enklaste sättet att skapa en pipeline är att använda Azure Data Factory Copy Wizard. En snabb genomgång av hur du skapar en pipeline med hjälp av kopieringsguiden finns i [självstudiekursen: Skapa en pipeline med hjälp av kopieringsguiden](data-factory-copy-data-wizard-tutorial.md). 
+- Du kan också använda verktyg för att skapa en pipeline, inklusive Visual Studio, Azure PowerShell, en Azure Resource Manager-mall, .NET API och REST API. Steg-för-steg-instruktioner för att skapa en pipeline med en kopieringsaktivitet finns i [självstudien Kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
-Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
+Oavsett om du använder verktygen eller API:erna utför du följande steg för att skapa en pipeline som flyttar data från ett källdatalager till ett sink-datalager:
 
-1. Skapa länkade tjänster för att länka indata och utdata från data lager till din data fabrik.
-2. Skapa data uppsättningar som representerar indata och utdata för kopierings åtgärden. 
-3. Skapa en pipeline med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata. 
+1. Skapa länkade tjänster för att länka in- och utdatalager till datafabriken.
+2. Skapa datauppsättningar för att representera in- och utdata för kopieringen. 
+3. Skapa en pipeline med en kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
 
-När du använder guiden Kopiera skapas JSON-definitioner för Data Factory länkade tjänster, data uppsättningar och pipeline-entiteter automatiskt åt dig. När du använder verktyg eller API: er (förutom .NET-API: et) definierar du Data Factory entiteter med hjälp av JSON-formatet. JSON-exemplet: kopiera data från DB2 till Azure Blob Storage visar JSON-definitionerna för de Data Factory entiteter som används för att kopiera data från ett lokalt DB2-datalager.
+När du använder kopieringsguiden skapas JSON-definitioner för datafabrikens länkade tjänster, datauppsättningar och pipeline-entiteter automatiskt åt dig. När du använder verktyg eller API:er (förutom .NET API) definierar du datafabrikentiteterna med hjälp av JSON-formatet. JSON-exemplet: Kopiera data från DB2 till Azure Blob-lagring visar JSON-definitionerna för datafabrikentiteterna som används för att kopiera data från ett lokalt DB2-datalager.
 
-Följande avsnitt innehåller information om de JSON-egenskaper som används för att definiera de Data Factory entiteter som är speciella för ett DB2-datalager.
+I följande avsnitt finns information om JSON-egenskaperna som används för att definiera de datafabrikentiteter som är specifika för ett DB2-datalager.
 
-## <a name="db2-linked-service-properties"></a>Egenskaper för länkad DB2-tjänst
-I följande tabell visas de JSON-egenskaper som är speciella för en DB2-länkad tjänst.
+## <a name="db2-linked-service-properties"></a>DB2-länkade tjänstegenskaper
+I följande tabell visas de JSON-egenskaper som är specifika för en DB2-länkad tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
-| **server** |Namnet på DB2-servern. |Ja |
-| **database** |Namnet på DB2-databasen. |Ja |
-| **schema** |Namnet på schemat i DB2-databasen. Den här egenskapen är Skift läges känslig. |Nej |
-| **authenticationType** |Den typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| **användarnamn** |Namnet på användar kontot om du använder Basic-eller Windows-autentisering. |Nej |
-| **Lösenord** |Lösen ordet för användar kontot. |Nej |
-| **gatewayName** |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
+| **Typ** |Den här egenskapen måste anges till **OnPremisesDb2**. |Ja |
+| **Server** |Namnet på DB2-servern. |Ja |
+| **Databas** |Namnet på DB2-databasen. |Ja |
+| **Schemat** |Namnet på schemat i DB2-databasen. Den här egenskapen är skiftlägeskänslig. |Inga |
+| **authenticationType** |Den typ av autentisering som används för att ansluta till DB2-databasen. De möjliga värdena är: Anonym, Basic och Windows. |Ja |
+| **Användarnamn** |Namnet på användarkontot om du använder Basic- eller Windows-autentisering. |Inga |
+| **lösenord** |Lösenordet för användarkontot. |Inga |
+| **gatewayName (gatewayName)** |Namnet på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-En lista över de avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt, till exempel **struktur**, **tillgänglighet**och **principen** för en data uppsättnings-JSON, liknar alla typer av data uppsättningar (Azure SQL, Azure Blob Storage, Azure Table Storage och så vidare).
+En lista över de avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Skapa datauppsättningar.](data-factory-create-datasets.md) Avsnitt, till exempel **struktur,** **tillgänglighet**och **principen** för en datauppsättning JSON, liknar varandra för alla datauppsättningstyper (Azure SQL, Azure Blob storage, Azure Table Storage och så vidare).
 
-Avsnittet **typeProperties** är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för en data uppsättning av typen **RelationalTable**, som innehåller DB2-datauppsättningen, har följande egenskap:
+Avsnittet **typeProperties** är olika för varje typ av datauppsättning och ger information om platsen för data i datalagret. Avsnittet **typeProperties** för en datauppsättning av typen **RelationalTable**, som innehåller DB2-datauppsättningen, har följande egenskap:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| **tableName** |Namnet på tabellen i DB2-databas instansen som den länkade tjänsten refererar till. Den här egenskapen är Skift läges känslig. |Nej (om egenskapen **fråga** för en kopierings aktivitet av typen **RelationalSource** har angetts) |
+| **Tablename** |Namnet på tabellen i DB2-databasinstansen som den länkade tjänsten refererar till. Den här egenskapen är skiftlägeskänslig. |Nej (om **query** frågeegenskapen för en kopieringsaktivitet av typen **RelationalSource** har angetts) |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En lista över de avsnitt och egenskaper som är tillgängliga för att definiera kopierings aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Kopierings aktivitets egenskaperna, till exempel **namn**, **Beskrivning**, **indata** -tabell, **utdata** -tabell och **policy**, är tillgängliga för alla typer av aktiviteter. De egenskaper som är tillgängliga i **typeProperties** -avsnittet av aktiviteten varierar för varje aktivitets typ. För kopierings aktiviteten varierar egenskaperna beroende på typerna av data källor och mottagare.
+En lista över de avsnitt och egenskaper som är tillgängliga för att definiera kopieringsaktiviteter finns i artikeln [Skapa pipelines.](data-factory-create-pipelines.md) Kopiera egenskaper för aktivitet, till exempel **namn,** **beskrivning,** **indatatabell,** **utdatatabell** och **princip**, är tillgängliga för alla typer av aktiviteter. Vilka egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar för varje aktivitetstyp. För Kopieringsaktivitet varierar egenskaperna beroende på vilka typer av datakällor och diskhoar.
 
-För kopierings aktiviteten, när källan är av typen **RelationalSource** (som innehåller DB2), är följande egenskaper tillgängliga i avsnittet **typeProperties** :
+När källan är av typen **RelationalSource** (som innehåller DB2) för kopieringsaktivitet är följande egenskaper tillgängliga i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **query** |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om egenskapen **TableName** för en data uppsättning anges) |
+| **Fråga** |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `"query": "select * from "MySchema"."MyTable""` |Nej (om egenskapen **tableName** för en datauppsättning har angetts) |
 
 > [!NOTE]
-> Schema-och tabell namn är Skift läges känsliga. I frågeuttrycket omger du egenskaps namnen med hjälp av "" (dubbla citat tecken).
+> Schema- och tabellnamn är skiftlägeskänsliga. I frågesatsen omsluter du egenskapsnamn med hjälp av "" (dubbla citattecken).
 
-## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON-exempel: kopiera data från DB2 till Azure Blob Storage
-Det här exemplet innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplet visar hur du kopierar data från en DB2-databas till Blob Storage. Data kan dock kopieras till [en typ av data lager mottagare som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Azure Data Factory kopierings aktivitet.
+## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON exempel: Kopiera data från DB2 till Azure Blob storage
+Det här exemplet innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplet visar hur du kopierar data från en DB2-databas till Blob-lagring. Data kan dock kopieras till [alla datalagermottagare som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Azure Data Factory Copy Activity.
 
-Exemplet har följande Data Factory entiteter:
+Exemplet har följande datafabrikentiteter:
 
-- En länkad DB2-tjänst av typen [OnPremisesDb2](data-factory-onprem-db2-connector.md)
-- En länkad Azure Blob Storage-tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
-- En indata- [datauppsättning](data-factory-create-datasets.md) av typen [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
-- En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-- En [pipeline](data-factory-create-pipelines.md) med en kopierings aktivitet som använder egenskaperna [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
+- En DB2 länkad tjänst av typen [OnPremisesDb2](data-factory-onprem-db2-connector.md)
+- En Azure Blob storage-länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
+- En [indatauppsättning](data-factory-create-datasets.md) av typen [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
+- En [utdatauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
+- En [pipeline](data-factory-create-pipelines.md) med en kopieringsaktivitet som använder egenskaperna [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
-Exemplet kopierar data från ett frågeresultat i en DB2-databas till en Azure-Blob per timme. De JSON-egenskaper som används i exemplet beskrivs i avsnitten som följer enhets definitionerna.
+Exemplet kopierar data från en fråga resulterar i en DB2-databas till en Azure-blob varje timme. De JSON-egenskaper som används i exemplet beskrivs i de avsnitt som följer entitetsdefinitionerna.
 
-Det första steget är att installera och konfigurera en datagateway. Anvisningar finns i [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar.
+Som ett första steg installerar och konfigurerar du en datagateway. Instruktioner finns i artikeln [Flytta data mellan lokala platser och moln.](data-factory-move-data-between-onprem-and-cloud.md)
 
-**DB2-länkad tjänst**
+**DB2 länkad tjänst**
 
 ```json
 {
@@ -145,7 +145,7 @@ Det första steget är att installera och konfigurera en datagateway. Anvisninga
 }
 ```
 
-**Länkad Azure Blob Storage-tjänst**
+**Azure Blob lagringslänkade tjänst**
 
 ```json
 {
@@ -159,11 +159,11 @@ Det första steget är att installera och konfigurera en datagateway. Anvisninga
 }
 ```
 
-**Data uppsättning för DB2-indata**
+**DB2 indatauppsättning**
 
-Exemplet förutsätter att du har skapat en tabell i DB2 med namnet "Tabell" som innehåller en kolumn med etiketten "timestamp" för tids serie data.
+Exemplet förutsätter att du har skapat en tabell i DB2 med namnet "MyTable" som har en kolumn med namnet "tidsstämpel" för tidsseriedata.
 
-Egenskapen **external** har angetts till "true". Den här inställningen informerar Data Factory tjänsten om att den här data uppsättningen är extern i data fabriken och inte produceras av en aktivitet i data fabriken. Observera att egenskapen **Type** har angetts till **RelationalTable**.
+Den **externa** egenskapen är inställd på "true". Den här inställningen informerar datafabrikstjänsten om att den här datauppsättningen är extern till datafabriken och inte produceras av en aktivitet i datafabriken. Observera att **egenskapen type** är inställd på **RelationalTable**.
 
 
 ```json
@@ -191,7 +191,7 @@ Egenskapen **external** har angetts till "true". Den här inställningen informe
 
 **Utdatauppsättning för Azure-blob**
 
-Data skrivs till en ny BLOB varje timme genom att ange **frekvens** egenskapen till "timme" och egenskapen **Interval** till 1. **FolderPath** -egenskapen för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappens sökväg använder året, månaden, dagen och timvärdet i Start tiden.
+Data skrivs till en ny blob **frequency** varje timme genom att ange frekvensegenskapen till "Timme" och **intervallegenskapen** till 1. Egenskapen **folderPath** för blobben utvärderas dynamiskt baserat på starttiden för det segment som bearbetas. Mappsökvägen använder delarna av år, månad, dag och timme i starttiden.
 
 ```json
 {
@@ -249,9 +249,9 @@ Data skrivs till en ny BLOB varje timme genom att ange **frekvens** egenskapen t
 }
 ```
 
-**Pipeline för kopierings aktiviteten**
+**Pipeline för kopieringsaktiviteten**
 
-Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda angivna data uppsättningar och utdata och som är schemalagda att köras varje timme. I JSON-definitionen för pipelinen anges **käll** typen till **RelationalSource** och **mottagar** typen är inställd på **BlobSink**. SQL-frågan som angetts för egenskapen **fråga** väljer data från tabellen "Orders".
+Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda angivna in- och utdatauppsättningar och som är schemalagd att köras varje timme. I JSON-definitionen för pipelinen anges **källtypen** till **RelationalSource** och **sink-typen** är inställd på **BlobSink**. Den SQL-fråga som **query** angetts för frågeegenskapen väljer data från tabellen "Order".
 
 ```json
 {
@@ -297,62 +297,62 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
 }
 ```
 
-## <a name="type-mapping-for-db2"></a>Typ mappning för DB2
-Som anges i artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) utför kopierings aktiviteten automatiska typ konverteringar från källtyp till mottagar typ med hjälp av följande två stegs metod:
+## <a name="type-mapping-for-db2"></a>Typmappning för DB2
+Som nämns i artikeln [om dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) utför Copy Activity automatiska typkonverteringar från källtyp till sink-typ med hjälp av följande tvåstegsmetod:
 
-1. Konvertera från en ursprunglig källtyp till en .NET-typ
-2. Konvertera från en .NET-typ till en typ av intern mottagare
+1. Konvertera från en inbyggd källtyp till en .NET-typ
+2. Konvertera från en .NET-typ till en inbyggd sink-typ
 
-Följande mappningar används när kopierings aktiviteten konverterar data från en DB2-typ till en .NET-typ:
+Följande mappningar används när Kopiera aktivitet konverterar data från en DB2-typ till en .NET-typ:
 
-| Typ av DB2-databas | .NET Framework typ |
+| Databastyp för DB2 | .NET-ramtyp |
 | --- | --- |
-| SmallInt |Int16 |
+| Smallint |Int16 (int16) |
 | Integer |Int32 |
-| BigInt |Int64 |
-| Real |Enkel |
+| Bigint |Int64 |
+| Verkliga |Enkel |
 | Double |Double |
-| Flyttal |Double |
+| Float (Flyttal) |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| numeriskt |Decimal |
+| Numerisk |Decimal |
 | Datum |DateTime |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
 | Xml |Byte[] |
-| char |Sträng |
-| VarChar |Sträng |
-| LongVarChar |Sträng |
-| DB2DynArray |Sträng |
-| Binary |Byte[] |
-| VarBinary |Byte[] |
-| LongVarBinary |Byte[] |
-| Graphic |Sträng |
-| VarGraphic |Sträng |
-| LongVarGraphic |Sträng |
-| CLOB |Sträng |
+| Char |String |
+| Varchar |String |
+| LongVarChar (Olikart) |String |
+| DB2DynArray |String |
+| Binär |Byte[] |
+| Varbinary |Byte[] |
+| LongVarBinary (LångVarBinary) |Byte[] |
+| Grafisk |String |
+| Vargrafiska |String |
+| LongVarGraphic (olikartade) |String |
+| Clob |String |
 | Blob |Byte[] |
-| DbClob |Sträng |
-| SmallInt |Int16 |
+| DbClob (D.) |String |
+| Smallint |Int16 (int16) |
 | Integer |Int32 |
-| BigInt |Int64 |
-| Real |Enkel |
+| Bigint |Int64 |
+| Verkliga |Enkel |
 | Double |Double |
-| Flyttal |Double |
+| Float (Flyttal) |Double |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| numeriskt |Decimal |
+| Numerisk |Decimal |
 | Datum |DateTime |
 | Tid |TimeSpan |
 | Tidsstämpel |DateTime |
 | Xml |Byte[] |
-| char |Sträng |
+| Char |String |
 
-## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
-Information om hur du mappar kolumner i käll data uppsättningen till kolumner i mottagar data uppsättningen finns i avsnittet [mappa data uppsättnings kolumner i Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Kartkälla för att sänka kolumner
+Mer information om hur du mappar kolumner i källdatauppsättningen till kolumner i sink-datauppsättningen finns [i Mappa datauppsättningskolumner i Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="repeatable-reads-from-relational-sources"></a>Upprepnings bara läsningar från Relations källor
-När du kopierar data från ett Relations data lager bör du ha repeterbarhet i åtanke för att undvika oönskade resultat. I Azure Data Factory kan du köra om ett segment manuellt. Du kan också konfigurera **princip** egenskapen för återförsök för en data uppsättning för att köra en sektor igen när ett fel uppstår. Se till att samma data är Läs oavsett hur många gånger som sektorn körs igen och oavsett hur du kör om sektorn. Mer information finns i [repeterbara läsningar från Relations källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+## <a name="repeatable-reads-from-relational-sources"></a>Repeterbara läsningar från relationskällor
+När du kopierar data från ett relationsdatalager bör du tänka på repeterbarhet för att undvika oavsiktliga resultat. I Azure Data Factory kan du köra ett segment manuellt igen. Du kan också konfigurera **egenskapen** för återförsök för en datauppsättning för att köra ett segment igen när ett fel inträffar. Kontrollera att samma data läss oavsett hur många gånger segmentet körs igen och oavsett hur du kör segmentet igen. Mer information finns i [Repeterbara läsningar från relationskällor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Prestanda- och justering
-Lär dig mer om viktiga faktorer som påverkar prestandan för kopierings aktiviteten och hur du optimerar prestanda i [guiden Kopiera aktivitet prestanda och justering](data-factory-copy-activity-performance.md).
+Lär dig mer om viktiga faktorer som påverkar prestanda för kopieringsaktivitet och sätt att optimera prestanda i [guiden Kopiera aktivitetsprestanda och justering](data-factory-copy-activity-performance.md).

@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Service Bus meddelande exempel
-description: Service Bus meddelande exempel demonstrerar viktiga funktioner i Azure Service Bus meddelande hantering. Innehåller länkar till exempel på GitHub.
+title: Översikt över exempel på Azure Service Bus-meddelanden
+description: Meddelandeexemplen för Service Bus visar viktiga funktioner i Azure Service Bus-meddelanden. Innehåller länkar till exempel på GitHub.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,29 +14,29 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: ccaca451ac4fb7b4301aca429a42baea91e5ed10
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773453"
 ---
-# <a name="service-bus-messaging-samples"></a>Service Bus meddelande exempel
-Service Bus meddelande exempel demonstrerar viktiga funktioner i [Service Bus meddelande hantering](https://azure.microsoft.com/services/service-bus/). För närvarande kan du hitta exemplen på följande platser:
+# <a name="service-bus-messaging-samples"></a>Exempel på servicebussmeddelanden
+Meddelandeexemplen servicebuss visar viktiga funktioner i [Service Bus-meddelanden](https://azure.microsoft.com/services/service-bus/). För närvarande kan du hitta exemplen på följande platser:
 
-| Programmeringsspråk | SDK eller exempel plats |
+| Programmeringsspråk | SDK eller exempelplats |
 | -------------------- | ----------------------- |
-| .NET, Java och hantering | https://github.com/Azure/azure-service-bus/ |
+| .NET, Java och management | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>Service Bus Explorer
 
-Dessutom är [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) ett exempel som finns på en GitHub som gör att du kan ansluta till ett Service Bus tjänst namn område och enkelt hantera meddelande enheter. Verktyget innehåller avancerade funktioner som import/export-funktioner och möjlighet att testa meddelande enheter och relä tjänster. Du hittar den fullständiga Service Bus Explorer-källan och dokumentationen på [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
+Dessutom är [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) ett exempel på GitHub som gör att du kan ansluta till ett servicebussnamnområde och enkelt hantera meddelandeentiteter. Verktyget innehåller avancerade funktioner som import/export-funktioner och möjligheten att testa meddelandeenheter och relätjänster. Du hittar den fullständiga servicebussutforskaren-källan och dokumentationen på [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande avsnitt hittar du konceptuella översikter över Service Bus.
+Se följande avsnitt för konceptuella översikter över Service Bus.
 
-* [Översikt över Service Bus-meddelandetjänster](service-bus-messaging-overview.md)
+* [Översikt över servicebussmeddelanden](service-bus-messaging-overview.md)
 * [Service Bus-arkitektur](service-bus-architecture.md)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: klient biblioteket för Azure Blob Storage-V8 för Java'
-description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage klient bibliotek V8 för Java för att ladda upp en blob till Azure Storage, hämta en blob och lista blobarna i en behållare.
+title: 'Snabbstart: Azure Blob storage client library v8 för Java'
+description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage-klientbiblioteket v8 för Java för att ladda upp en blob till Azure Storage, hämta en blob och lista blobbar i en behållare.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 01/24/2020
@@ -8,25 +8,25 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.openlocfilehash: 373875aee836485bb994d81e0945cec3a9b088eb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906482"
 ---
-# <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Snabb start: hantera blobbar med Java V8 SDK
+# <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Snabbstart: Hantera blobbar med Java v8 SDK
 
-I den här snabb starten lär du dig att hantera blobbar med hjälp av Java. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar. Du ska också skapa, ange behörigheter för och ta bort behållare.
+I den här snabbstarten lär du dig hantera blobbar med hjälp av Java. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och arkivdata. Du laddar upp, laddar ned och listblobbar. Du ska också skapa, ange behörigheter på och ta bort behållare.
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
-- En IDE som har maven-integrering. Den här guiden använder [Sol förmörkelse](https://www.eclipse.org/downloads/) med konfigurationen "Sol förmörkelse IDE för Java-utvecklare".
+- En IDE som har Maven integration. Den här guiden använder [Eclipse](https://www.eclipse.org/downloads/) med konfigurationen "Eclipse IDE for Java Developers".
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
-[Exempel programmet](https://github.com/Azure-Samples/storage-blobs-java-quickstart) är ett grundläggande konsol program.
+[Exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-java-quickstart) är ett grundläggande konsolprogram.
 
 Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön.
 
@@ -34,9 +34,9 @@ Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet ti
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-Det här kommandot klonar lagret till den lokala git-mappen. Öppna projektet genom att starta Eclipse och stänga välkomstskärmen. Välj **Arkiv** och sedan **Öppna projekt, under Filsystem**. Se till att **identifiera och konfigurera projekt egenskaper** är markerade. Välj **Katalog** och navigera till den plats där sparade den klonade lagringsplatsen. På den klonade lagringsplatsen väljer du mappen **blobAzureApp**. Kontrollera att projektet **blobAzureApp** visas som ett Eclipse-projekt och välj sedan **Slutför**.
+Det här kommandot klonar lagret till den lokala git-mappen. Öppna projektet genom att starta Eclipse och stänga välkomstskärmen. Välj **Arkiv** och sedan **Öppna projekt, under Filsystem**. Kontrollera att alternativet för att **identifiera och konfigurera projektegenskaper** har markerats. Välj **Katalog** och navigera till den plats där sparade den klonade lagringsplatsen. På den klonade lagringsplatsen väljer du mappen **blobAzureApp**. Kontrollera att projektet **blobAzureApp** visas som ett Eclipse-projekt och välj sedan **Slutför**.
 
-När projektet har importer ATS öppnar du **AzureApp. java** (finns i **blobQuickstart. blobAzureApp** i **src/main/Java**) och ersätter `accountname` och `accountkey` inuti `storageConnectionString` strängen. Kör sedan programmet. Specifika anvisningar för att slutföra dessa uppgifter beskrivs i följande avsnitt.
+När projektet har importerats öppnar du **AzureApp.java** (som finns i **blobQuickstart.blobAzureApp** inuti `accountname` `accountkey` **src/main/java**) och ersätter strängens `storageConnectionString` och insidan. Kör sedan programmet. Specifika anvisningar för att slutföra dessa uppgifter beskrivs i följande avsnitt.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -77,7 +77,7 @@ Kontrollera att exempelfilen finns i standardkatalogen (*C:\Användare\<använda
   >[!NOTE]
   >Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i blobblagringen. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
 
-När du har verifierat filerna trycker du på **RETUR** -tangenten för att slutföra demon och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen **AzureApp.java** och titta på koden.
+När du har verifierat filerna trycker du på **Retur** för att slutföra demon och ta bort testfilerna. Nu när du vet vad exemplet gör kan du öppna filen **AzureApp.java** och titta på koden.
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
 
@@ -91,7 +91,7 @@ Det första du ska göra är att skapa referenser till objekten som används fö
 
     Objektet **CloudStorageAccount** är en representation av lagringskontot och gör det möjligt att konfigurera och komma åt egenskaper för lagringskontot programmässigt. Med hjälp av objektet **CloudStorageAccount** kan du skapa en instans av klienten **CloudBlobClient**, som krävs för att komma åt blobbtjänsten.
 
-* Skapa en instans av objektet **CloudBlobClient**, som pekar mot [Blob Service](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) i lagringskontot.
+* Skapa en instans av **CloudBlobClient-objektet,** som pekar på [Blob-tjänsten](/java/api/com.microsoft.azure.storage.blob._cloud_blob_client) i ditt lagringskonto.
 
     **CloudBlobClient** ger dig en åtkomstpunkt till blobtjänsten så att du kan konfigurera och komma åt egenskaper för bloblagring programmatiskt. Med hjälp av **CloudBlobClient** kan du skapa en instans av objektet **CloudBlobContainer**, som krävs för att skapa behållare.
 
@@ -121,7 +121,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
 
-Hämta en referens till bloben i mål behållaren om du vill överföra en fil till en Block-Blob. När du har blobbreferensen kan du ladda upp data till den med hjälp av [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över bloben om den redan finns.
+Om du vill överföra en fil till en blockblob hämtar du en referens till blobben i målbehållaren. När du har blobbreferensen kan du ladda upp data till den med hjälp av [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över bloben om den redan finns.
 
 Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar den fil som ska laddas upp som **source** (källa) och namnet på bloben i **blob**. I följande exempel laddas filen upp till containern med namnet **quickstartcontainer**.
 
@@ -173,7 +173,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver de blobbar som du har överfört kan du ta bort hela behållaren med hjälp av [CloudBlobContainer. DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Denna metod tar även bort filerna i containern.
+Om du inte längre behöver blobbar som du har laddat upp kan du ta bort hela behållaren med [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Denna metod tar även bort filerna i containern.
 
 ```java
 try {
@@ -194,8 +194,8 @@ sourceFile.deleteOnExit();
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Java. För att få mer information om hur du arbetar med Java fortsätter du till vår lagringsplats för GitHub-källkod.
+I den här artikeln lärde du dig hur du överför filer mellan en lokal disk och Azure Blob-lagring med Java. För att få mer information om hur du arbetar med Java fortsätter du till vår lagringsplats för GitHub-källkod.
 
 > [!div class="nextstepaction"]
-> [Java API-referens](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
-> [kod exempel för Java](../common/storage-samples-java.md)
+> [Java API-referenskodexempel](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
+> [för Java](../common/storage-samples-java.md)

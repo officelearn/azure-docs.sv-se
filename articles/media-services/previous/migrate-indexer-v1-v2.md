@@ -1,6 +1,6 @@
 ---
-title: Migrera från indexerare v1 och v2 till Azure Media Services Video Indexer | Microsoft Docs
-description: I det här avsnittet beskrivs hur du migrerar från Azure Media Indexer v1 och v2 för att Azure Media Services Video Indexer.
+title: Migrera från Indexerare v1 och v2 till Azure Media Services Video Indexer | Microsoft-dokument
+description: I det här avsnittet beskrivs hur du migrerar från Azure Media Indexer v1 och v2 till Azure Media Services Video Indexer.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,74 +14,74 @@ ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
 ms.openlocfilehash: 2268c074480f99ca23117ca2ffd2c87c1dbb10a2
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513243"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrera från Media Indexer och Media Indexer 2 till Video Indexer
 
-[Azure Media Indexer](media-services-index-content.md) medie processor och Azure Media Indexer 2-processorer för för [hands versions](media-services-process-content-with-indexer2.md) mediet dras tillbaka. Se det här avsnittet om [äldre komponenter](legacy-components.md) för datum för indragningen. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter dessa äldre medie processorer.
+Azure Media Indexer-medieprocessorn och [Azure Media Indexer 2 Preview-medieprocessorer](media-services-process-content-with-indexer2.md) dras tillbaka. [Azure Media Indexer](media-services-index-content.md) För pensioneringsdatumen finns i det här [äldre komponentavsnittet.](legacy-components.md) [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter dessa äldre medieprocessorer.
 
-Azure Media Services Video Indexer bygger på Azure-medieanalys, Azure Kognitiv sökning, Cognitive Services (till exempel Ansikts-API, Microsoft Translator, API för visuellt innehåll och Custom Speech Service). Programmet gör det möjligt att extrahera insikter från dina videor med video- och ljudmodeller för Video Indexer. Om du vill se vilka scenarier Video Indexer kan användas i, vilka funktioner det erbjuder och hur du kommer igång, se [video Indexer video-och ljud modeller](../video-indexer/video-indexer-overview.md). 
+Azure Media Services Video Indexer bygger på Azure Media Analytics, Azure Cognitive Search, Cognitive Services (till exempel Ansikts-API, Microsoft Translator, API FÖR datorseende och anpassad taltjänst). Programmet gör det möjligt att extrahera insikter från dina videor med video- och ljudmodeller för Video Indexer. För att se vilka scenarier Video Indexer kan användas i, vilka funktioner den erbjuder och hur du kommer igång, se [Video Indexer video- och ljudmodeller](../video-indexer/video-indexer-overview.md). 
 
-Du kan extrahera insikter från dina video-och ljudfiler med hjälp av [Azure Media Services v3 Analyzer-för inställningar](../latest/analyzing-video-audio-files-concept.md) eller direkt med hjälp av [video Indexer API: er](https://api-portal.videoindexer.ai/). För närvarande finns det en överlappning mellan funktioner som erbjuds av Video Indexer-API: er och Media Services v3-API: er.
+Du kan extrahera insikter från dina video- och ljudfiler med hjälp av [Azure Media Services v3-analysatorförinställningar](../latest/analyzing-video-audio-files-concept.md) eller direkt med hjälp av [API:erna för videoindexerare](https://api-portal.videoindexer.ai/). För närvarande finns det en överlappning mellan funktioner som erbjuds av videoindexer API:er och Api:erna för Media Services v3.
 
 > [!NOTE]
-> Om du vill veta när du vill använda Video Indexer jämfört med Media Services Analyzer-för inställningar, kan du läsa [jämförelse dokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
+> Om du vill förstå när du vill använda videoindexerare jämfört med mediatjänstanalysatorförinställningar kan du läsa [jämförelsedokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
 
 I den här artikeln beskrivs stegen för att migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services Video Indexer.  
 
 ## <a name="migration-options"></a>Migreringsalternativ 
 
-|Om du behöver  |välj sedan |
+|Om du behöver  |sedan |
 |---|---|
-|en lösning som ger en tal-till-text-avskrift för alla media fil format i fil format med fil namns tillägg: VTT, SRT eller TTML<br/>samt ytterligare ljud insikter som: nyckelord, ämne inferencing, akustiska händelser, talare diarization, extrahering och översättning av enheter| uppdatera dina program så att de använder Azure Video Indexer-funktionerna via Video Indexer v2-REST API eller Azure Media Services v3-inställningarna för ljud analys.|
-|tal till text-funktioner| Använd Cognitive Services Speech API direkt.|  
+|en lösning som ger en utskrift mellan tal och text för alla mediefilformat i ett filformat med dold textning: VTT, SRT eller TTML<br/>samt ytterligare ljudinsikter som: nyckelord, ämnesinferens, akustiska händelser, högtalare diarization, enheter extraktion och översättning| uppdatera dina program för att använda Azure Video Indexer-funktionerna via VIDEO Indexer v2 REST API eller Azure Media Services v3 Audio Analyzer-förinställningen.|
+|tal-till-text-funktioner| använda Cognitive Services Speech API direkt.|  
 
 ## <a name="getting-started-with-video-indexer"></a>Komma igång med Video Indexer
 
-Följande avsnitt pekar på relevanta länkar: [Hur kan jag komma igång med video Indexer?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
+I följande avsnitt visas relevanta länkar: [Hur kommer jag igång med Video Indexer?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
 
-## <a name="getting-started-with-media-services-v3-apis"></a>Komma igång med Media Services v3-API: er
+## <a name="getting-started-with-media-services-v3-apis"></a>Komma igång med Api:er för Media Services v3
 
-Med Azure Media Services v3 API kan du extrahera insikter från dina video-och ljudfiler via [Azure Media Services v3 Analyzer-för hands inställningarna](../latest/analyzing-video-audio-files-concept.md). 
+Med Azure Media Services v3 API kan du extrahera insikter från dina video- och ljudfiler via [Azure Media Services v3-analysatorförinställningarna](../latest/analyzing-video-audio-files-concept.md). 
 
-Med **AudioAnalyzerPreset** kan du extrahera flera ljud insikter från en ljud-eller video fil. Utdata innehåller en VTT-eller TTML-fil för ljud avskriften och en JSON-fil (med alla ytterligare ljud insikter). Ljud insikter innehåller nyckelord, talare indexering och analys av tal sentiment. AudioAnalyzerPreset har även stöd för språk identifiering för specifika språk. Detaljerad information finns i [transformeringar](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
+**AudioAnalyzerPreset** gör att du kan extrahera flera ljudinsikter från en ljud- eller videofil. Utdata innehåller en VTT eller TTML-fil för ljudavskriften och en JSON-fil (med alla ytterligare ljudinsikter). Ljudinsikterna inkluderar nyckelord, högtalarindexering och talsentimentanalys. AudioAnalyzerPreset stöder också språkidentifiering för specifika språk. Detaljerad information finns i [Transformeringar](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
-### <a name="get-started"></a>Kom i gång
+### <a name="get-started"></a>Komma igång
 
-För att komma igång, se:
+Så här kommer du igång:
 
-* [Självstudie](../latest/analyze-videos-tutorial-with-api.md)
+* [Självstudier](../latest/analyze-videos-tutorial-with-api.md)
 * AudioAnalyzerPreset-exempel: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer) eller [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
 * VideoAnalyzerPreset-exempel: [Java SDK](https://github.com/Azure-Samples/media-services-v3-java/tree/master/VideoAnalytics/VideoAnalyzer) eller [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/VideoAnalytics/VideoAnalyzer)
 
 ## <a name="getting-started-with-cognitive-services-speech-services"></a>Komma igång med Cognitive Services Speech Services
 
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) tillhandahåller en tal-till-text-tjänst som beskrivar ljud strömmar till text i real tid som dina program, verktyg eller enheter kan använda eller Visa. Du kan använda tal-till-text för att [Anpassa din egen akustiska modell, språk modell eller uttals modell](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md). Mer information finns i [Cognitive Services tal-till-text](../../cognitive-services/speech-service/speech-to-text.md). 
+[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) tillhandahåller en tal-till-text-tjänst som transkriberar ljudströmmar till text i realtid som dina program, verktyg eller enheter kan använda eller visa. Du kan använda tal-till-text för att [anpassa din egen akustiska modell, språkmodell eller uttalsmodell](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md). Mer information finns i [Cognitive Services tal-till-text](../../cognitive-services/speech-service/speech-to-text.md). 
 
 > [!NOTE] 
-> Tal-till-text-tjänsten tar inte med video fil format och tar bara med [vissa ljud format](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#audio-formats). 
+> Tal-till-text-tjänsten tar inte videofilformat och tar bara [vissa ljudformat](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#audio-formats). 
 
-Mer information om tjänsten för text till tal och hur du kommer igång finns i [Vad är tal-till-text?](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text)
+Mer information om text-till-tal-tjänsten och hur du kommer igång finns i [Vad är tal-till-text?](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text)
 
-## <a name="known-differences-from-deprecated-services"></a>Kända skillnader jämfört med inaktuella tjänster 
+## <a name="known-differences-from-deprecated-services"></a>Kända skillnader från inaktuella tjänster 
 
-Du kommer att se att Video Indexer, Azure Media Services v3-AudioAnalyzerPreset och Cognitive Services Speech Services-tjänster är mer pålitliga och ger bättre kvalitet på utdata än de pensionerade Azure Media Indexer 1-och Azure Media Indexer 2-processorerna.  
+Du kommer att upptäcka att Video Indexer, Azure Media Services v3 AudioAnalyzerPreset och Cognitive Services Speech Services-tjänster är mer tillförlitliga och ger bättre utskrift än de pensionerade Azure Media Indexer 1- och Azure Media Indexer 2-processorerna.  
 
-Några kända skillnader är: 
+Några kända skillnader inkluderar: 
 
-* Cognitive Services Speech Services stöder inte nyckelords extrahering. Men Video Indexer och Media Services v3-AudioAnalyzerPreset erbjuder båda en robust uppsättning nyckelord i JSON-filformat. 
+* Cognitive Services Speech Services stöder inte utvinning av nyckelord. Video Indexer och Media Services v3 AudioAnalyzerPreset erbjuder dock båda en mer robust uppsättning sökord i JSON-filformat. 
 
 ## <a name="need-help"></a>Behöver du hjälp?
 
-Du kan öppna ett support ärende genom att gå till [nytt support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Du kan öppna en supportbiljett genom att navigera till [Ny supportförfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Äldre komponenter](legacy-components.md)
-* [Sidan prissättning](https://azure.microsoft.com/pricing/details/media-services/#encoding)
+* [Prissättningssidan](https://azure.microsoft.com/pricing/details/media-services/#encoding)
 
 

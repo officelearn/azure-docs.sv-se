@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Oracle Eloqua (för hands version)
-description: Lär dig hur du kopierar data från Oracle Eloqua till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från Oracle Eloqua (förhandsversion)
+description: Lär dig hur du kopierar data från Oracle Eloqua till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,49 +12,49 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
 ms.openlocfilehash: deb5c87073a8963fc052d90f0f7c494cc0644f51
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927562"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Kopiera data från Oracle Eloqua med Azure Data Factory (förhandsversion)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från Oracle Eloqua. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från Oracle Eloqua. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 > [!IMPORTANT]
-> Den här anslutningsappen är för närvarande i förhandsversion. Du kan testa och ge feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
+> Den här kopplingen är för närvarande i förhandsgranskning. Du kan prova det och ge feedback. Om du vill skapa ett beroende på anslutningsappar som är i förhandsversion i din lösning kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Den här Oracle Eloqua-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Oracle Eloqua till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Oracle Eloqua till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, därför behöver du inte installera någon drivrutin manuellt med den här anslutningen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Oracle Eloqua connector.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Oracle Eloqua-anslutningsappen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för Oracle Eloqua länkade tjänsten:
+Följande egenskaper stöds för Oracle Eloqua-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen måste anges till: **Eloqua** | Ja |
-| slutpunkt | Slutpunkten för Eloqua-server. Eloqua har stöd för flera Datacenter för att fastställa din slutpunkt, logga in på https://login.eloqua.com med dina autentiseringsuppgifter, kopiera den **bas-URL** delen från den omdirigerade platsen med mönstret för `xxx.xxx.eloqua.com`. | Ja |
-| användarnamn | Platsnamn och användarnamn för kontot Eloqua i formatet: `SiteName\Username` t.ex. `Eloqua\Alice`.  | Ja |
-| lösenord | Lösenordet för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
-| useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
-| usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
+| typ | Egenskapen Type måste ställas in på: **Eloqua** | Ja |
+| slutpunkt | Slutpunkten för Eloqua-servern. Eloqua stöder flera datacenter, för att bestämma https://login.eloqua.com din slutpunkt, logga in på med din autentiseringsuppgifter och `xxx.xxx.eloqua.com`kopiera sedan **bas-URL-delen** från den omdirigerade webbadressen med mönstret . | Ja |
+| användarnamn | Webbplatsnamnet och användarnamnet på ditt Eloqua-konto i `SiteName\Username` `Eloqua\Alice`form: t.ex.  | Ja |
+| password | Lösenordet som motsvarar användarnamnet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| användaKrypteradeEndpoints | Anger om slutpunkterna för datakällan är krypterade med HTTPS. Standardvärdet är True.  | Inga |
+| useHostVerification | Anger om värdnamnet i serverns certifikat ska behövas för att matcha serverns värdnamn när den ansluter via SSL. Standardvärdet är True.  | Inga |
+| användaUppvering | Anger om serverns identitet ska verifieras när den ansluter via SSL. Standardvärdet är True.  | Inga |
 
 **Exempel:**
 
@@ -77,14 +77,14 @@ Följande egenskaper har stöd för Oracle Eloqua länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle Eloqua datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle Eloqua-datauppsättningen.
 
-Om du vill kopiera data från Oracle Eloqua, ange typegenskapen på datauppsättningen till **EloquaObject**. Följande egenskaper stöds:
+Om du vill kopiera data från Oracle Eloqua anger du egenskapen type för datauppsättningen till **EloquaObject**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **EloquaObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Datauppsättningens typegenskap måste ställas in på: **EloquaObject** | Ja |
+| tableName | Tabellens namn. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel**
 
@@ -105,16 +105,16 @@ Om du vill kopiera data från Oracle Eloqua, ange typegenskapen på datauppsätt
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle Eloqua källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle Eloqua-källan.
 
 ### <a name="eloqua-as-source"></a>Eloqua som källa
 
-Om du vill kopiera data från Oracle Eloqua, ange typ av datakälla i kopieringsaktiviteten till **EloquaSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Om du vill kopiera data från Oracle Eloqua anger du källtypen i kopieringsaktiviteten till **EloquaSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **EloquaSource** | Ja |
-| DocumentDB | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Egenskapen type property för kopians aktivitet måste anges till: **EloquaSource** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om "tableName" i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -148,10 +148,10 @@ Om du vill kopiera data från Oracle Eloqua, ange typ av datakälla i kopierings
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data som stöds och som lagras av Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över data som stöds av Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

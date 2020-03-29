@@ -1,27 +1,27 @@
 ---
-title: Generera och exportera certifikat för Azure Virtual WAN-användare VPN-anslutningar | Microsoft Docs
-description: Skapa ett självsignerat rot certifikat, exportera den offentliga nyckeln och generera klient certifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016.
+title: Generera och exportera certifikat för VPN-anslutningar för användare | Virtuellt WAN i Azure
+description: Skapa ett självsignerat rotcertifikat, exportera den offentliga nyckeln och generera klientcertifikat med PowerShell i Windows 10 eller Windows Server 2016.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 03/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57d730a92c687a297a35b8cd6cccd955025694af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0303bac88f34c895a4a680cd5bff0e9d1513d2e5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514919"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059935"
 ---
-# <a name="generate-and-export-certificates-for-virtual-wan-user-vpn-connections"></a>Skapa och exportera certifikat för virtuella WAN-användares VPN-anslutningar
+# <a name="generate-and-export-certificates-for-user-vpn-connections"></a>Generera och exportera certifikat för VPN-anslutningar för användare
 
-Användares VPN-anslutningar använder certifikat för att autentisera. Den här artikeln visar hur du skapar ett självsignerat rot certifikat och genererar klient certifikat med hjälp av PowerShell på Windows 10 eller Windows Server 2016.
+Användares VPN-anslutningar (point-to-site) använder certifikat för att autentisera. Den här artikeln visar hur du skapar ett självsignerat rotcertifikat och genererar klientcertifikat med PowerShell på Windows 10 eller Windows Server 2016.
 
-Du måste utföra stegen i den här artikeln på en dator som kör Windows 10 eller Windows Server 2016. PowerShell-cmdletar som du använder för att generera certifikat är en del av operativ systemet och fungerar inte i andra versioner av Windows. Datorn med Windows 10 eller Windows Server 2016 krävs bara för att skapa certifikaten. När certifikaten har skapats kan du ladda upp dem eller installera dem på alla klient operativ system som stöds.
+Du måste utföra stegen i den här artikeln på en dator med Windows 10 eller Windows Server 2016. De PowerShell-cmdletar som du använder för att generera certifikat är en del av operativsystemet och fungerar inte på andra versioner av Windows. Windows 10- eller Windows Server 2016-datorn behövs bara för att generera certifikaten. När certifikaten har genererats kan du ladda upp dem eller installera dem på alla klientoperativsystem som stöds.
 
 [!INCLUDE [Export public key](../../includes/vpn-gateway-generate-export-certificates-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätt med de [virtuella WAN-stegen för användares VPN-anslutning](virtual-wan-about.md)
+Fortsätt med [virtual WAN-stegen för användarens VPN-anslutning](virtual-wan-about.md)

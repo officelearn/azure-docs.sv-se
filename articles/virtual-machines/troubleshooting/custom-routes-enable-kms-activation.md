@@ -1,6 +1,6 @@
 ---
-title: Använd Azure-anpassade vägar för att aktivera KMS-aktivering med Tvingad tunnel trafik | Microsoft Docs
-description: Visar hur du använder Azure-anpassade vägar för att aktivera KMS-aktivering när du använder Tvingad tunnel trafik i Azure.
+title: Använd anpassade Azure-vägar för att aktivera KMS-aktivering med påtvingad tunnelning | Microsoft-dokument
+description: Visar hur du använder anpassade Azure-vägar för att aktivera KMS-aktivering när du använder tvångstunneler i Azure.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -14,31 +14,31 @@ ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
 ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920169"
 ---
-# <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Det går inte att aktivera Windows i ett scenario med Tvingad tunnel trafik
+# <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Windows-aktivering misslyckas i forcerat tunnelscenario
 
-Den här artikeln beskriver hur du löser problemet med KMS-aktivering som du kan uppleva när du aktiverar Tvingad tunnel trafik i plats-till-plats-VPN-anslutning eller ExpressRoute-scenarier.
+I den hÃ¤r artikeln beskrivs hur du lÃ¶ser problemet med KMS-aktiveringsproblemet som kan uppstÃ¥ nÃ¤r du aktiverar tvingande tunnelning i VPN-anslutning från plats till plats eller ExpressRoute.
 
 ## <a name="symptom"></a>Symptom
 
-Du aktiverar [Tvingad tunnel](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) trafik i Azure Virtual Network-undernät för att dirigera all Internet-baserad trafik tillbaka till ditt lokala nätverk. I det här scenariot går det inte att aktivera Windows med Azure Virtual Machines (virtuella datorer) som kör Windows.
+Du aktiverar [tvångstunnelering](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) i Azures virtuella nätverksundernät för att dirigera all Internet-bunden trafik tillbaka till ditt lokala nätverk. I det här fallet Azure virtuella datorer (VIRTUELLA datorer) som kör Windows misslyckas med att aktivera Windows.
 
 ## <a name="cause"></a>Orsak
 
-De virtuella Azure Windows-datorerna måste ansluta till Azure KMS-servern för Windows-aktivering. Aktiveringen kräver att aktiverings förfrågan kommer från en offentlig Azure-IP-adress. I det tvingade tunnel scenariot Miss lyckas aktiveringen eftersom aktiverings förfrågan kommer från ditt lokala nätverk i stället för från en offentlig Azure-IP-adress.
+Virtuella Azure Windows-datorer måste ansluta till Azure KMS-servern för Windows-aktivering. Aktiveringen kräver att aktiveringsbegäran kommer från en offentlig Azure-IP-adress. I scenariot med påtvingad tunnel misslyckas aktiveringen eftersom aktiveringsbegäran kommer från ditt lokala nätverk i stället för från en offentlig Azure-IP-adress.
 
 ## <a name="solution"></a>Lösning
 
-Lös problemet genom att använda den anpassade Azure-vägen för att dirigera aktiverings trafik till Azure KMS-servern.
+LÃ¶s problemet genom att anse den anpassade azure-vägen för att dirigera aktiverings traffic till Azure KMS-servern.
 
-IP-adressen för KMS-servern för det globala Azure-molnet är 23.102.135.246. Dess DNS-namn är kms.core.windows.net. Om du använder andra Azure-plattformar som Azure Germany måste du använda IP-adressen för motsvarande KMS-server. Mer information finns i följande tabell:
+IP-adressen för KMS-servern för Azure Global-molnet är 23.102.135.246. Dess DNS-namn är kms.core.windows.net. Om du använder andra Azure-plattformar som Azure Germany måste du använda IP-adressen för motsvarande KMS-server. Mer information finns i följande tabell:
 
-|Plattform| KMS DNS|KMS-IP|
+|Plattform| KMS DNS|KMS IP|
 |------|-------|-------|
 |Azure Global|kms.core.windows.net|23.102.135.246|
 |Azure Tyskland|kms.core.cloudapi.de|51.4.143.248|
@@ -46,16 +46,16 @@ IP-adressen för KMS-servern för det globala Azure-molnet är 23.102.135.246. D
 |Azure Kina 21Vianet|kms.core.chinacloudapi.cn|42.159.7.249|
 
 
-Följ dessa steg om du vill lägga till en anpassad väg:
+Så här lägger du till den anpassade vägen:
 
-### <a name="for-resource-manager-vms"></a>För virtuella Resource Manager-datorer
+### <a name="for-resource-manager-vms"></a>För virtuella resurshanteraren-datorer
 
  
 
 > [!NOTE] 
-> Aktivering använder offentliga IP-adresser och kommer att påverkas av en standard-SKU Load Balancer-konfiguration. Läs noggrant igenom [utgående anslutningar i Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för att lära dig mer om kraven.
+> Aktivering använder offentliga IP-adresser och påverkas av en standard SKU Load Balancer-konfiguration. Granska noggrant [utgående anslutningar i Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för att lära dig mer om kraven.
 
-1. Öppna Azure PowerShell och logga in [på din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Öppna Azure PowerShell och logga sedan [in på din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Kör följande kommandon:
 
     ```powershell
@@ -77,7 +77,7 @@ Följ dessa steg om du vill lägga till en anpassad väg:
 
     Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
-3. Gå till den virtuella datorn som har aktiverings problem. Använd [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) för att testa om den kan komma åt KMS-servern:
+3. Gå till den virtuella datorn som har aktiveringsproblem. Använd [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) för att testa om den kan nå KMS-servern:
 
         psping kms.core.windows.net:1688
 
@@ -87,7 +87,7 @@ Följ dessa steg om du vill lägga till en anpassad väg:
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-1. Öppna Azure PowerShell och logga in [på din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Öppna Azure PowerShell och logga sedan [in på din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Kör följande kommandon:
 
     ```powershell
@@ -105,7 +105,7 @@ Följ dessa steg om du vill lägga till en anpassad väg:
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Gå till den virtuella datorn som har aktiverings problem. Använd [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) för att testa om den kan komma åt KMS-servern:
+3. Gå till den virtuella datorn som har aktiveringsproblem. Använd [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) för att testa om den kan nå KMS-servern:
 
         psping kms.core.windows.net:1688
 
@@ -113,7 +113,7 @@ Följ dessa steg om du vill lägga till en anpassad väg:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Installations nycklar för KMS-klient](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
+- [Nycklar för KMS-klientinstallation](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys
 )
-- [Granska och välj aktiverings metoder](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)
+- [Granska och välj aktiveringsmetoder](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11)
 )

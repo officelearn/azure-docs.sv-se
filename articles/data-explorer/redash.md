@@ -1,6 +1,6 @@
 ---
-title: Visualisera Azure-Datautforskaren med streckat
-description: I den här artikeln får du lära dig hur du visualiserar data i Azure Datautforskaren med den omstreckade inbyggda kopplingen.
+title: Visualisera Azure Data Explorer med Redash
+description: I den här artikeln får du lära dig hur du visualiserar data i Azure Data Explorer med Redash native connector.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,90 +8,90 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 0380689ae6ca81e3f31a07f1e205c7773fdea8c6
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773946"
 ---
-# <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Visualisera data från Azure Datautforskaren i streckat
+# <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Visualisera data från Azure Data Explorer i Redash
 
-[Omstreck](https://redash.io/) ansluter och frågar dina data källor och skapar instrument paneler för att visualisera data och dela dem med peer-datorer. I den här artikeln får du lära dig hur du konfigurerar Azure Datautforskaren som en data källa för att göra om streck och sedan visualisera data.
+[Redash](https://redash.io/) ansluter och frågar dina datakällor, skapar instrumentpaneler för att visualisera data och dela dem med peer-datorer. I den här artikeln får du lära dig hur du konfigurerar Azure Data Explorer som en datakälla för Redash och sedan visualiserar data.
 
 ## <a name="prerequisites"></a>Krav
 
 1. [Skapa kluster och databas](create-cluster-database-portal.md).
-1. Mata in data enligt beskrivningen i mata [in exempel data i Azure datautforskaren](ingest-sample-data.md). Mer information om inmatnings alternativ finns i [Översikt över](ingest-data-overview.md)inmatning.
+1. Inta data enligt beskrivningen i [intag av exempeldata i Azure Data Explorer](ingest-sample-data.md). Fler intagsalternativ finns [i översikt över inmatning](ingest-data-overview.md).
 
 [!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
-## <a name="create-azure-data-explorer-connector-in-redash"></a>Skapa Azure Datautforskaren Connector i streckat 
+## <a name="create-azure-data-explorer-connector-in-redash"></a>Skapa Azure Data Explorer Connector i Redash 
 
-1. Logga in för att [omstreck](https://www.redash.io/). Välj **Kom igång** för att skapa ett konto.
-1. Under **Låt oss komma igång**väljer du **Anslut en data källa**.
+1. Logga in på [Redash](https://www.redash.io/). Välj **Kom igång** om du vill skapa ett konto.
+1. Under **Kom igång**väljer du Anslut en **datakälla**.
 
-    ![Anslut en data Källa](media/redash/connect-data-source.png)
+    ![Anslut en datakälla](media/redash/connect-data-source.png)
 
-1. I fönstret **skapa en ny data källa** väljer du **Azure datautforskaren (Kusto)** och väljer sedan **skapa**. 
+1. I Fönstret **Skapa en ny datakälla** väljer du **Azure Data Explorer (Kusto)** och väljer sedan **Skapa**. 
 
-    ![Välj data källa för Azure Datautforskaren](media/redash/select-adx-data-source.png)
+    ![Välj Azure Data Explorer-datakälla](media/redash/select-adx-data-source.png)
 
-1. I fönstret **Azure datautforskaren (Kusto)** fyller du i följande formulär och väljer **skapa**.
+1. I **Fönstret Azure Data Explorer (Kusto)** fyller du i följande formulär och väljer **Skapa**.
 
-    ![Fönstret inställningar för Azure Datautforskaren (Kusto)](media/redash/adx-settings-window.png)
+    ![Fönstret Inställningar för Azure Data Explorer (Kusto)](media/redash/adx-settings-window.png)
 
-1. I fönstret **Inställningar** väljer du **Spara** och **Testa anslutning** för att testa din **Azure datautforskaren-anslutning (Kusto)** data källa.
+1. I fönstret **Inställningar** väljer du **Spara** och **testa anslutning** för att testa din **Kusto-datakällaanslutning (Azure Data Explorer).**
 
-## <a name="create-queries-in-redash"></a>Skapa frågor i omstreck
+## <a name="create-queries-in-redash"></a>Skapa frågor i Redash
 
-1. I övre vänstra delen av strecken väljer du **skapa** > **fråga**. Klicka på **ny fråga** och Byt namn på frågan.
+1. Längst upp till vänster i Redash väljer du **Skapa** > **fråga**. Klicka på **Ny fråga** och byt namn på frågan.
 
     ![Skapa fråga](media/redash/create-query.png)
 
-1. Skriv din fråga i det översta redigerings fönstret och välj **Spara** och **Kör**. Välj **publicera** för att publicera frågan för framtida användning.
+1. Skriv frågan i det övre redigeringsfönstret och välj **Spara** och **kör**. Välj **Publicera** för att publicera frågan för framtida bruk.
 
     ![Spara och kör fråga](media/redash/save-and-execute-query.png)
 
-    I det vänstra fönstret kan du se anslutnings namnet för data källan (**GitHub Connector** i vårt flöde) i den nedrullningsbara menyn och tabellerna i den valda databasen. 
+    I den vänstra rutan kan du se anslutningsnamnet för datakällan **(Github-anslutning** i vårt flöde) i den nedrullningsbara menyn och tabellerna i den valda databasen. 
 
-1. Visa frågeresultaten i det nedre fönstret i mitten. Skapa en visualisering för att gå med frågan genom att välja knappen **ny visualisering** .
+1. Visa frågeresultaten i det nedre mittfönstret. Skapa en visualisering som du vill gå med frågan genom att välja knappen **Ny visualisering.**
 
     ![Ny visualisering](media/redash/new-visualization.png)
 
-1. På sidan visualisering väljer du **visualiserings typ** och relevanta fält som **X kolumn** och **Y-kolumn**. **Spara** visualiseringen.
+1. På visualiseringsskärmen väljer du **visualiseringstypen** och relevanta fält som **X-kolumn** och **Y-kolumn**. **Spara** visualiseringen.
 
     ![Konfigurera och spara visualisering](media/redash/configure-visualization.png)
 
-### <a name="create-a-query-using-a-parameter"></a>Skapa en fråga med en parameter
+### <a name="create-a-query-using-a-parameter"></a>Skapa en fråga med hjälp av en parameter
 
-1. Skapa en ny fråga genom att **skapa** en > **fråga** . Lägg till en parameter till den med hjälp av {{}} klammerparenteser. Välj **{{}}** för att öppna **Lägg till parameter** fönster. Du kan också välja *inställnings ikonen* för att ändra attributen för en befintlig parameter och öppna fönstret **< parameter_name >** . 
+1. **Skapa** > **fråga** för att skapa en ny fråga. Lägg till en parameter{}i den med { } kladdiga parenteser. Välj **{}{ }** om du vill öppna fönstret **Lägg till parameter.** Du kan också välja *inställningsikonen* för att ändra attributen för en befintlig parameter och öppna **fönstret<parameter_name>.** 
 
-    ![Infoga parameter](media/redash/insert-parameter.png)
+    ![parameter infoga](media/redash/insert-parameter.png)
 
-1. Namnge din parameter. Välj **typ**: **fråga baserad List Rute lista** från List Rute meny. Välj **OK**
+1. Ge din parameter ett namn. Välj **Typ:** **Lista med frågebaserad list** från den rullgardinsmenyn. Välj **OK**
 
-    ![fråga baserad nedrullningsbar listruta](media/redash/query-based-dropdown-list.png)
+    ![lista över frågebaserade](media/redash/query-based-dropdown-list.png)
 
     > [!NOTE]
-    > Frågan använder flera värden, och därför måste du inkludera följande syntax `| where Type in ((split('{{Type}}', ',')))`. Mer information finns [i i-Operator](/azure/kusto/query/inoperator). Detta resulterar i [flera frågeparametrar i en retanke-app](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
+    > Frågan använder flera värden, därför måste `| where Type in ((split('{{Type}}', ',')))`du inkludera följande syntax . Mer information finns [i operatorn](/azure/kusto/query/inoperator). Detta resulterar i [flera frågeparameteralternativ i redash-appen](https://redash.io/help/user-guide/querying/query-parameters#Serialized-Multi-Select-Query-Parametersredash.io)
 
-## <a name="create-a-dashboard-in-redash"></a>Skapa en instrument panel i omstreck
+## <a name="create-a-dashboard-in-redash"></a>Skapa en instrumentpanel i Redash
 
-1. **Skapa** > **instrument**panel om du vill skapa din instrument panel. Alternativt väljer du befintlig instrument panel, **instrument paneler** > väljer en instrument panel i listan.
+1. Skapa instrumentpanel **Create** > för att skapa**instrumentpanelen**. Du kan också välja befintlig instrumentpanel, **instrumentpaneler** > välja en instrumentpanel i listan.
 
-    ![Skapa instrument panel](media/redash/create-dashboard.png)
+    ![Skapa instrumentpanel](media/redash/create-dashboard.png)
 
-1. I fönstret **ny instrument panel** , namnge din instrument panel och välj **Spara**. I **< Dashboard_name >** fönstret väljer du **Lägg till widget** för att skapa en ny widget. 
+1. I fönstret **Ny instrumentpanel** namnger du instrumentpanelen och väljer **Spara**. I **<Dashboard_name>** fönster väljer du **Lägg till widget** för att skapa en ny widget. 
 
-1. I fönstret **Lägg till widget** väljer du frågenamn, **sedan visualisering**och **parametrar**. Välj **Lägg till på instrument panelen**
+1. Välj frågenamn i fönstret **Lägg till widget,** **Välj visualisering**och **Parametrar**. Välj **Lägg till i instrumentpanelen**
 
-   ![Välj visualiseringar och Lägg till på instrument panelen](media/redash/add-widget-window.png)
+   ![Välj visualiseringar och lägg till på instrumentpanelen](media/redash/add-widget-window.png)
 
-1. Slutför skapandet av instrument panelen genom att välja **klar redigering** .
+1. Välj **Klar redigering** för att skapa instrumentpanelen.
 
-1.  I redigerings läget för instrument panelen väljer du **Använd filter på instrument panels nivå** för att använda **typ** parametern som definierats tidigare.
+1.  I instrumentpanelsredigeringsläget väljer du **Använd filtrfilter på instrumentpanelsnivå** om du vill använda den **textparameter** som tidigare definierats.
 
-    ![Slutför skapande av instrument panel](media/redash/complete-dashboard.png)
+    ![Fullständig skapande av instrumentpaneler](media/redash/complete-dashboard.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

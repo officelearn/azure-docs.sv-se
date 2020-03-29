@@ -1,6 +1,6 @@
 ---
 title: Aktivera enterprise tillståndsväxling i Azure Active Directory
-description: Vanliga frågor och svar om Enterprise State Roaming inställningar i Windows-enheter.
+description: Vanliga frågor och svar om roaminginställningar för företagtillstånd i Windows-enheter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,87 +12,87 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8c44d6266f5ea8cdd4f75d0449cb49852e71c905
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672402"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 
-Enterprise State Roaming är tillgänglig för alla organisationer med en Azure AD Premium-eller Enterprise Mobility + Security-licens (EMS). Mer information om hur du skaffar en Azure AD-prenumeration finns på [produkt sidan för Azure AD](https://azure.microsoft.com/services/active-directory).
+Företagsstat Roaming är tillgängligt för alla organisationer med en Azure AD Premium- eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du skaffar en Azure AD-prenumeration finns på [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
 
-När du aktiverar Enterprise State Roaming beviljas din organisation automatiskt en kostnads fri, begränsad användnings licens för Azure Rights Management-skydd från Azure Information Protection. Den här kostnads fria prenumerationen är begränsad till kryptering och dekryptering av företags inställningar och programdata som synkroniseras med Enterprise State Roaming. Du måste ha [en betald prenumeration](https://azure.microsoft.com/pricing/details/information-protection/) för att kunna använda alla funktioner i Azure Rights Management-tjänsten.
+När du aktiverar Roaming i Företagstat beviljas din organisation automatiskt en kostnadsfri licens för Azure Rights Management-skydd från Azure Rights Management-skydd från Azure Information Protection. Den här kostnadsfria prenumerationen är begränsad till att kryptera och dekryptera företagsinställningar och programdata som synkroniseras av Företagsstat Roaming. Du måste ha [en betald prenumeration](https://azure.microsoft.com/pricing/details/information-protection/) för att kunna använda alla funktioner i Azure Rights Management-tjänsten.
 
 > [!NOTE]
-> Den här artikeln gäller Microsoft Edge äldre HTML-baserad webbläsare lanserad med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge krom-baserade webbläsaren som lanserades den 15 januari 2020. Mer information om hur synkronisering fungerar för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Den här artikeln gäller den HTML-baserade webbläsaren Microsoft Edge Legacy som lanserades med Windows 10 i juli 2015. Artikeln gäller inte den nya Microsoft Edge Chromium-baserade webbläsaren som släpptes den 15 januari 2020. Mer information om synkroniseringsbeteendet för den nya Microsoft Edge finns i artikeln [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-## <a name="to-enable-enterprise-state-roaming"></a>Aktivera Enterprise State Roaming
+## <a name="to-enable-enterprise-state-roaming"></a>Så här aktiverar du Roaming i företagstillstånd
 
-1. Logga in på [Azure AD administrations Center](https://aad.portal.azure.com/).
-1. Välj **Azure Active Directory** &gt; **enheter** &gt; **Enterprise State roaming**.
-1. Välj **användare kan synkronisera inställningar och AppData mellan enheter**. Mer information finns i [så här konfigurerar du enhets inställningar](/azure/active-directory/device-management-azure-portal).
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com/).
+1. Välj **Azure Active Directory** &gt; **Devices** &gt; **Företagstillstånd Roaming**.
+1. Välj **Användare kan synkronisera inställningar och appdata mellan enheter**. Mer information finns i [hur du konfigurerar enhetsinställningar](/azure/active-directory/device-management-azure-portal).
   
-   ![bild av enhets inställningen märkta användare kan synkronisera inställningar och AppData mellan enheter](./media/enterprise-state-roaming-enable/device-settings.png)
+   ![bild av enhetsinställningen med etiketten Användare kan synkronisera inställningar och appdata mellan enheter](./media/enterprise-state-roaming-enable/device-settings.png)
   
-För att en Windows 10-enhet ska kunna använda tjänsten Enterprise State Roaming måste enheten autentisera med en Azure AD-identitet. För enheter som är anslutna till Azure AD är användarens primära inloggnings identitet sin Azure AD-identitet, så ingen ytterligare konfiguration krävs. För enheter som använder lokala Active Directory måste IT-administratören [Konfigurera hybrid Azure Active Directory anslutna enheter](hybrid-azuread-join-manual-steps.md). 
+För att en Windows 10-enhet ska kunna använda tjänsten Företagstillståndsroamering måste enheten autentisera med hjälp av en Azure AD-identitet. För enheter som är anslutna till Azure AD är användarens primära inloggningsidentitet deras Azure AD-identitet, så ingen ytterligare konfiguration krävs. För enheter som använder lokal Active Directory måste IT-administratören [konfigurera hybrid-Azure Active Directory-anslutna enheter](hybrid-azuread-join-manual-steps.md). 
 
 ## <a name="data-storage"></a>Datalagring
 
-Enterprise State Roaming data finns i en eller flera [Azure-regioner](https://azure.microsoft.com/regions/) som bäst överensstämmer med värdet för land/region i Azure Active Directory-instansen. Enterprise State Roaming data partitioneras baserat på tre viktiga geografiska områden: Nordamerika, EMEA och APAC. Enterprise State Roaming data för klienten är lokalt placerade i den geografiska regionen och replikeras inte över flera regioner.  Exempel:
+Roamingdata för företagtillstånd finns i en eller flera [Azure-regioner](https://azure.microsoft.com/regions/) som bäst stämmer överens med värdet för land/region i Azure Active Directory-instansen. Centrala företagsdata är uppdelade baserat på tre större geografiska regioner: Nordamerika, EMEA och APAC. Roamingdata för företag för klienten är lokalt lokaliserade med den geografiska regionen och replikeras inte mellan regioner.  Ett exempel:
 
-| Lands-/region värde | har data som finns i |
+| Värde för land/region | har sina uppgifter värd i |
 | -------------------- | ------------------------ |
-| Ett EMEA-land/-region som Frankrike eller Zambia | En eller flera Azure-regioner i Europa |
-| Ett Nord amerikanskt land/region som USA eller Kanada | En eller flera av Azure-regionerna i USA |
-| Ett APAC land/region, till exempel Australien eller nya Zeeland | En eller flera av Azure-regionerna i Asien |
-| Södra amerikanska och Antarktis regioner | En eller flera Azure-regioner i USA |
+| Ett EMEA-land/-region som Frankrike eller Zambia | En eller flera av Azure-regionerna i Europa |
+| Ett nordamerikanskt land/en region som USA eller Kanada | En eller flera av Azure-regionerna i USA |
+| Ett APAC-land/-region som Australien eller Nya Zeeland | En eller flera av Azure-regionerna i Asien |
+| Sydamerikanska och Antarktis regioner | En eller flera Azure-regioner i USA |
 
-Värdet land/region anges som en del av processen för att skapa Azure AD-katalogen och kan sedan ändras. Om du behöver mer information om din data lagrings plats kan du [använda Azure-supporten](https://azure.microsoft.com/support/options/)som en biljett.
+Värdet för land/region anges som en del av Azure AD-katalogens skapandeprocess och kan inte ändras senare. Om du behöver mer information om din lagringsplats för datafiler kan du lämna in en biljett med [Azure-support](https://azure.microsoft.com/support/options/).
 
-## <a name="view-per-user-device-sync-status"></a>Visa synkroniseringsstatus för enhet per användare
+## <a name="view-per-user-device-sync-status"></a>Visa synkroniseringsstatus per användare
 
-Följ de här stegen om du vill visa en status rapport för synkronisering av enheter per användare.
+Följ dessa steg för att visa en synkroniseringsstatusrapport per användare.
 
-1. Logga in på [Azure AD administrations Center](https://aad.portal.azure.com/).
-1. Välj **Azure Active Directory** &gt; **användare** &gt; **alla användare**.
-1. Välj användaren och välj sedan **enheter**.
-1. Under **Visa**väljer du **enheter synkroniserar inställningar och AppData** för att Visa synkroniseringsstatus.
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com/).
+1. Välj **Azure Active Directory** &gt; **-användare** &gt; **alla användare**.
+1. Markera användaren och välj sedan **Enheter**.
+1. Under **Visa**väljer du **Enheter som synkroniserar inställningar och appdata** för att visa synkroniseringsstatus.
   
-   ![bild av inställningen synkronisering av enhets data](./media/enterprise-state-roaming-enable/sync-status.png)
+   ![bild av enhetssynkroniseringsdatainställning](./media/enterprise-state-roaming-enable/sync-status.png)
   
-1. Om det finns enheter som synkroniseras för den här användaren ser du de enheter som visas här.
+1. Om det finns enheter som synkroniseras för den här användaren visas enheterna som visas här.
   
-   ![bild av kolumn data för enhets synkronisering](./media/enterprise-state-roaming-enable/device-status-row.png)
+   ![bild av kolumndata för enhetssynkronisering](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Datakvarhållning
 
-Data som synkroniseras med Microsoft-molnet med hjälp av Enterprise State Roaming bevaras tills de tas bort manuellt eller tills data i fråga är inaktuella. 
+Data som synkroniseras med Microsoft-molnet med Hjälp av Företagsstatsroaming behålls tills den tas bort manuellt eller tills data i fråga bedöms vara inaktuella. 
 
-### <a name="explicit-deletion"></a>Explicit borttagning
+### <a name="explicit-deletion"></a>Explicit radering
 
-Explicit borttagning är när en Azure-administratör tar bort en användare eller en katalog eller på annat sätt begär att data ska tas bort.
+Explicit borttagning är när en Azure-administratör tar bort en användare eller en katalog eller på annat sätt uttryckligen begär att data ska tas bort.
 
-* **Borttagning av användare**: när en användare tas bort i Azure AD raderas centrala data för användar kontot efter 90 till 180 dagar. 
-* **Katalog borttagning**: det är en omedelbar åtgärd att ta bort en hel katalog i Azure AD. Alla inställnings data som är associerade med den katalogen tas bort efter 90 till 180 dagar. 
-* **Vid borttagning av begäran**: om Azure AD-administratören vill ta bort en särskild användares data eller inställnings data manuellt, kan administratören skicka en biljett till [Azure-supporten](https://azure.microsoft.com/support/). 
+* **Borttagning av användare**: När en användare tas bort i Azure AD tas roamingdata för användarkontot bort efter 90 till 180 dagar. 
+* **Katalogborttagning:** Ta bort en hel katalog i Azure AD är en omedelbar åtgärd. Alla inställningsdata som är associerade med katalogen tas bort efter 90 till 180 dagar. 
+* **Vid borttagning av begäran**: Om Azure AD-administratören vill ta bort en viss användares data eller inställningsdata manuellt kan administratören lämna in en biljett med [Azure-stöd](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Borttagning av inaktuella data
 
-Data som inte har öppnats i ett år ("kvarhållningsperiod") kommer att behandlas som inaktuella och kan tas bort från Microsoft-molnet. Kvarhållningsperioden kan ändras men kommer inte att vara mindre än 90 dagar. Inaktuella data kan vara en specifik uppsättning Windows/program-inställningar eller alla inställningar för en användare. Exempel:
+Data som inte har använts på ett år ("kvarhållningsperioden") behandlas som inaktuella och kan tas bort från Microsoft-molnet. Kvarhållningsperioden kan komma att ändras men kommer inte att vara kortare än 90 dagar. De inaktuella data kan vara en specifik uppsättning Windows/programinställningar eller alla inställningar för en användare. Ett exempel:
 
-* Om inga enheter har åtkomst till en viss inställnings samling (till exempel ett program tas bort från enheten, eller en inställnings grupp som "tema" är inaktive rad för alla användares enheter), blir samlingen inaktuell efter kvarhållningsperioden och kan tas bort . 
-* Om en användare har inaktiverat synkronisering av inställningar på alla sina enheter, kommer ingen av inställnings data att nås, och alla inställnings data för den användaren blir inaktuella och kan tas bort efter kvarhållningsperioden. 
-* Om Azure AD Directory-administratören stänger av Enterprise State Roaming för hela katalogen kommer alla användare i den katalogen att sluta synkronisera inställningar och alla inställningar för alla användare blir inaktuella och kan tas bort efter kvarhållningsperioden. 
+* Om inga enheter har åtkomst till en viss inställningssamling (till exempel tas ett program bort från enheten eller en inställningsgrupp som "Tema" är inaktiverad för alla en användares enheter), blir samlingen inaktuell efter kvarhållningsperioden och kan tas bort . 
+* Om en användare har inaktiverat synkronisering av inställningar på alla sina enheter kommer ingen av inställningsdata att nås och alla inställningsdata för den användaren blir inaktuella och kan tas bort efter lagringsperioden. 
+* Om Azure AD-katalogadministratören inaktiverar Roaming i företagstillstånd för hela katalogen kommer alla användare i den katalogen att sluta synkronisera inställningar och alla inställningsdata för alla användare blir inaktuella och kan tas bort efter kvarhållningsperioden. 
 
-### <a name="deleted-data-recovery"></a>Återställning av borttagna data
+### <a name="deleted-data-recovery"></a>Borttagen dataåterställning
 
-Det går inte att konfigurera data bevarande principen. När data tas bort permanent går det inte att återställa. Inställnings data tas dock bara bort från Microsoft-molnet, inte från slutanvändarens enhet. Om en enhet senare återansluter till den Enterprise State Roaming tjänsten, synkroniseras inställningarna igen och lagras i Microsoft-molnet.
+Datalagringsprincipen kan inte konfigureras. När data har tagits bort permanent kan de inte återställas. Inställningsdata tas dock bara bort från Microsoft-molnet, inte från slutanvändarens enhet. Om någon enhet senare återansluter till tjänsten Företagstillstånd synkroniseras och lagras inställningarna igen i Microsoft-molnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över Enterprise State Roaming](enterprise-state-roaming-overview.md)
-* [Vanliga frågor och svar om inställningar och data nätverks växling](enterprise-state-roaming-faqs.md)
-* [grupprincip-och MDM-inställningar för synkronisering av inställningar](enterprise-state-roaming-group-policy-settings.md)
-* [Referens för nätverks växlings inställningar i Windows 10](enterprise-state-roaming-windows-settings-reference.md)
-* [Felsökning](enterprise-state-roaming-troubleshooting.md)
+* [Översikt över enterprise tillståndsväxling](enterprise-state-roaming-overview.md)
+* [Vanliga frågor och svar om inställningar och dataväxling](enterprise-state-roaming-faqs.md)
+* [Grupprincip- och MDM-inställningar för inställningar synkroniseras](enterprise-state-roaming-group-policy-settings.md)
+* [Referens för Windows 10-växlingsinställningar](enterprise-state-roaming-windows-settings-reference.md)
+* [Troubleshooting](enterprise-state-roaming-troubleshooting.md) (Felsökning)

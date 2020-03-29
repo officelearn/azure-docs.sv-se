@@ -1,6 +1,6 @@
 ---
-title: Digitalisera text med Azure-medieanalys OCR | Microsoft Docs
-description: Azure-medieanalys OCR (optisk tecken läsning) gör att du kan konvertera text innehåll i videofiler till redigerbar, sökbar digital text.  På så sätt kan du automatisera extraheringen av meningsfulla metadata från video signalen på mediet.
+title: Digitalisera text med Azure Media Analytics OCR | Microsoft-dokument
+description: Med Azure Media Analytics OCR (optisk teckenigenkänning) kan du konvertera textinnehåll i videofiler till redigerbar, sökbar digital text.  På så sätt kan du automatisera utvinningen av meningsfulla metadata från mediets videosignal.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,46 +15,46 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918350"
 ---
-# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Använd Azure-medieanalys för att konvertera text innehåll i video filer till digital text  
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Använda Azure Media Analytics för att konvertera textinnehåll i videofiler till digital text  
 
 > [!NOTE]
-> **Azure Media** -processorn för OCR-media kommer att dras tillbaka. Information om återställnings datumet finns i avsnittet [äldre komponenter](legacy-components.md) .
+> Azure Media OCR-medieprocessorn dras tillbaka. **Azure Media OCR** För återgivningsdatumet finns i avsnittet [äldre komponenter.](legacy-components.md)
 
 ## <a name="overview"></a>Översikt
-Om du behöver Extrahera text innehåll från dina videofiler och generera en redigerbar, sökbar digital text, bör du använda Azure-medieanalys OCR (optisk tecken läsning). Azure Media-processorn identifierar text innehåll i dina videofiler och genererar textfiler för din användning. Med OCR kan du automatisera extraheringen av meningsfulla metadata från video signalen på mediet.
+Om du behöver extrahera textinnehåll från dina videofiler och generera en redigerbar, sökbar digital text, bör du använda Azure Media Analytics OCR (optisk teckenigenkänning). Den här Azure Media-processorn identifierar textinnehåll i dina videofiler och genererar textfiler för din användning. OCR kan du automatisera utvinning av meningsfulla metadata från videosignalen för dina media.
 
-När det används tillsammans med en sökmotor kan du enkelt indexera dina media efter text och förbättra det innehåll som kan upptäckas. Detta är mycket användbart i mycket text video, t. ex. en video inspelning eller skärm bild av en bild spels presentation. Azure OCR-medie processorn är optimerad för digital text.
+När du används tillsammans med en sökmotor kan du enkelt indexera dina media efter text och förbättra upptäckbarheten av ditt innehåll. Detta är mycket användbart i mycket textvideo, som en videoinspelning eller skärmdump av ett bildspel presentation. Azure OCR-medieprocessorn är optimerad för digital text.
 
-**Azure Media** -processorn för OCR-media är för närvarande en för hands version.
+Azure Media OCR-medieprocessorn är för närvarande i förhandsversion. **Azure Media OCR**
 
-Den här artikeln innehåller information om **Azure Media OCR** och visar hur du använder den med Media Services SDK för .net. Mer information och exempel finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Den här artikeln innehåller information om **Azure Media OCR** och visar hur du använder den med Media Services SDK för .NET. Mer information och exempel finns i [den här bloggen](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
-## <a name="ocr-input-files"></a>Filer med OCR-indatafiler
+## <a name="ocr-input-files"></a>OCR-indatafiler
 Videofiler. För närvarande stöds följande format: MP4, MOV och WMV.
 
 ## <a name="task-configuration"></a>Uppgiftskonfiguration
-Uppgifts konfiguration (förval). När du skapar en aktivitet med **Azure Media OCR**måste du ange en konfigurations för inställning med JSON eller XML. 
+Aktivitetskonfiguration (förinställd). När du skapar en uppgift med **Azure Media OCR**måste du ange en konfigurationsförinställning med JSON eller XML. 
 
 >[!NOTE]
->OCR-motorn tar bara ett bild område med minst 40 bild punkter till maximalt 32000 pixlar som en giltig indata i både höjd/bredd.
+>OCR-motorn tar bara ett bildområde med minst 40 pixlar till maximalt 3 2000 pixlar som en giltig ingång i både höjd/bredd.
 >
 
-### <a name="attribute-descriptions"></a>Beskrivningar av attribut
+### <a name="attribute-descriptions"></a>Attributbeskrivningar
 | Attributnamn | Beskrivning |
 | --- | --- |
-|AdvancedOutput| Om du anger AdvancedOutput till True innehåller JSON-utdata positions data för varje enskilt ord (förutom fraser och regioner). Om du inte vill se de här uppgifterna ställer du in flaggan på falskt. Standardvärdet är false. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| Språk |(valfritt) beskriver språket för den text som du vill titta på. Något av följande: identifiera (standard), arabiska, ChineseSimplified, ChineseTraditional, Tjeckiska Danska, nederländska, engelska, finska, franska, tyska, grekiska, ungerska, italienska, japanska, koreanska, norska, polska, portugisiska, rumänska, ryska, SerbianCyrillic, SerbianLatin, slovakiska, spanska, svenska och turkiska. |
-| TextOrientation |(valfritt) beskriver orienteringen för den text som du vill titta på.  "Left" innebär att övre delen av alla bokstäver riktas mot vänster.  Standard texten (som du hittar i en bok) kan kallas "upp".  Något av följande: identifiera automatiskt (standard), upp, höger, nedåt och till vänster. |
-| TimeInterval |(valfritt) beskriver samplings frekvensen.  Standardvärdet är var 1/2 sekund.<br/>JSON-format – HH: mm: SS. SSS (standard 00:00:00.500)<br/>XML-format – W3C XSD duration primitiv (standard PT 0,5) |
-| DetectRegions |valfritt En matris med DetectRegion-objekt som anger regioner i video ramen där text ska identifieras.<br/>Ett DetectRegion-objekt består av följande fyra heltals värden:<br/>Vänster – pixlar från vänster marginal<br/>Överkant – pixlar från topp marginalen<br/>Bredd – bredden på regionen i bild punkter<br/>Höjd – höjden på regionen i bild punkter |
+|Avanceratutflöde| Om du anger AdvancedOutput till true innehåller JSON-utdata positionsdata för varje ord (förutom fraser och regioner). Om du inte vill se dessa uppgifter anger du flaggan till false. Standardvärdet är false. Mer information finns i [den här bloggen](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| Språk |(valfritt) beskriver språket i texten som du vill titta på. Ett av följande: AutoDetect (standard), arabiska, kinesisksmmplad, kinesisktraditionell, tjeckisk danska, nederländsk, engelsk, finsk, fransk, tysk, grekisk, ungersk, italiensk, japansk, koreansk, norsk, polsk, portugisisk, rumänsk, rysk, SerbiskaCyrilliska, SerbiskaLatin, Slovakiska, Spanska, Svenska, Turkiska. |
+| Textorientering |(valfritt) beskriver orienteringen av text som du vill titta på.  "Vänster" betyder att toppen av alla bokstäver är riktade åt vänster.  Standardtext (som den som finns i en bok) kan kallas "Up"-orienterad.  Ett av följande: AutoDetect (standard), Upp, Höger, Ned, Vänster. |
+| TidInval |(frivillig uppgift) beskriver provtagningshastigheten.  Standard är varje 1 / 2 sekund.<br/>JSON-format – HH:mm:ss. SSS (standard 00:00:00.500)<br/>XML-format – W3C XSD-varaktighet primitiv (standard PT0.5) |
+| Identifiera regioner |(valfritt) En matris med Identifiera regionobjekt som anger områden i videoramen där text ska identifieras.<br/>Ett DetectRegion-objekt består av följande fyra heltalsvärden:<br/>Vänster – pixlar från vänstermarginalen<br/>Överkant – pixlar från den övre marginalen<br/>Bredd – bredden på regionen i pixlar<br/>Höjd – regionens höjd i pixlar |
 
-#### <a name="json-preset-example"></a>Exempel på JSON-förval
+#### <a name="json-preset-example"></a>JSON förinställt exempel
 
 ```json
     {
@@ -99,34 +99,34 @@ Uppgifts konfiguration (förval). När du skapar en aktivitet med **Azure Media 
     </VideoOcrPreset>
 ```
 
-## <a name="ocr-output-files"></a>Filer för OCR-utdata
-Utdata från OCR Media processor är en JSON-fil.
+## <a name="ocr-output-files"></a>OCR-utdatafiler
+Utdata från OCR-medieprocessorn är en JSON-fil.
 
-### <a name="elements-of-the-output-json-file"></a>Element i JSON-filen för utdata
-Videons OCR-utdata innehåller tidssegmenterade data på de tecken som finns i videon.  Du kan använda attribut som språk eller orientering för att finslipa på exakt de ord som du är intresse rad av att analysera. 
+### <a name="elements-of-the-output-json-file"></a>Delar av utdata-JSON-filen
+Video OCR-utdata ger tidssegmenterade data om de tecken som finns i videon.  Du kan använda attribut som språk eller orientering för att finslipa på exakt de ord som du är intresserad av att analysera. 
 
 Utdata innehåller följande attribut:
 
 | Element | Beskrivning |
 | --- | --- |
-| Tidsskala |"Tick" per sekund för videon |
-| Offset |tids förskjutning för tidsstämplar. I version 1,0 av video-API: er, är det alltid 0. |
-| Bildfrekvens |Bild rutor per sekund för videon |
-| LED |videoklippets bredd i bild punkter |
-| våghöjd |videoklippets höjd i bild punkter |
-| Fragment |matris med tidsbaserade segment med video som metadata segmenteras i |
-| start |Start tid för ett fragment i "ticks" |
-| duration |längden på ett fragment i "tickas" |
-| interval |intervall för varje händelse inom det aktuella fragmentet |
-| evenemang |matris som innehåller regioner |
-| regionen |objekt som representerar identifierade ord eller fraser |
-| language |språk för texten som identifieras inom en region |
-| orientering |orientering för text som identifieras inom en region |
-| Operationsföljdsrader |matris med rader med text som har identifierats inom en region |
+| Tidsskala |"fästingar" per sekund av videon |
+| Offset |tidsförskjutning för tidsstämplar. I version 1.0 av Video API:er är detta alltid 0. |
+| Bildfrekvens |Bildrutor per sekund av videon |
+| bredd |videons bredd i bildpunkter |
+| höjd |videons höjd i pixlar |
+| Fragment |matris med tidsbaserade videosegment där metadata är segmenterade |
+| start |starttiden för ett fragment i "fästingar" |
+| varaktighet |längden på ett fragment i "fästingar" |
+| interval |intervall för varje händelse inom det givna fragmentet |
+| händelser |matris som innehåller regioner |
+| regionen |objekt som representerar upptäckta ord eller fraser |
+| language |språket i texten som har identifierats inom en region |
+| Orientering |orientering av texten som har identifierats inom en region |
+| Linjer |matris med textrader som har identifierats inom en region |
 | text |den faktiska texten |
 
-### <a name="json-output-example"></a>Exempel på JSON-utdata
-Följande utdata-exempel innehåller allmän video information och flera videofragment. I varje video fragment innehåller den alla regioner som identifieras av OCR MP med språket och dess text orientering. Regionen innehåller också varje ord rad i den här regionen med radens text, radens position och alla ord information (Word-innehåll, position och förtroende) på den här raden. Följande är ett exempel och jag infogar kommentarer infogade.
+### <a name="json-output-example"></a>JSON-utdataexempel
+Följande utdataexempel innehåller allmän videoinformation och flera videofragment. I varje videofragment innehåller den varje region, som identifieras av OCR MP med språket och dess textorientering. Regionen innehåller också varje ordrad i det här området med radens text, radens position och varje ordinformation (ordinnehåll, position och förtroende) på den här raden. Följande är ett exempel, och jag satte några kommentarer inline.
 
 ```json
     {
@@ -183,17 +183,17 @@ Följande utdata-exempel innehåller allmän video information och flera videofr
     }
 ```
 
-## <a name="net-sample-code"></a>.NET-exempel kod
+## <a name="net-sample-code"></a>EXEMPELkod för .NET
 
 Följande program visar hur du:
 
-1. Skapa en till gång och överför en mediefil till till gången.
-2. Skapa ett jobb med en OCR-konfiguration/för inställnings fil.
-3. Hämta JSON-filerna för utdata. 
+1. Skapa en tillgång och ladda upp en mediefil till tillgången.
+2. Skapa ett jobb med en OCR-konfiguration/förinställd fil.
+3. Ladda ner utdata JSON filer. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exempel
 
@@ -366,7 +366,7 @@ namespace OCR
 }
 ```
 
-## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
+## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

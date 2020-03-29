@@ -1,6 +1,6 @@
 ---
-title: Aktivera hög kontrast i Azure Portal | Microsoft Docs
-description: Ändra Azure Portal tema för att välja bakgrunds-och teckensnitts färger som visas. Aktivera hög kontrast för att göra Azure Portal snabbare och enklare att läsa.
+title: Aktivera hög kontrast i Azure portal | Microsoft-dokument
+description: Ändra Azure-portaltemat för att välja bakgrunds- och teckensnittsfärger som visas. Aktivera hög kontrast för att göra Azure-portalen snabbare och enklare att läsa.
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -11,46 +11,46 @@ ms.service: azure-portal
 ms.custom: accessibility
 manager: mtillman
 ms.openlocfilehash: ae135e0d7ac613d78b1c1f76e233503a60570f0f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310772"
 ---
-# <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Aktivera hög kontrast eller ändra temat i Azure Portal
+# <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Aktivera hög kontrast eller ändra temat i Azure-portalen
 
-Med inställningar för hög kontrast blir Azure Portal lättare att läsa. Du kan också välja ett tema som ändrar bakgrunds färgerna i portalen.
+Inställningar med hög kontrast gör Azure-portalen lättare att läsa. Du kan också välja ett tema som ändrar portalens bakgrundsfärger.
 
-Om du behöver mer kontrast eller om du vill ändra färg schema i Azure Portal går du till Portal inställningarna för att göra ändringen.
+Om du behöver mer kontrast eller om du vill ändra färgschemat i Azure-portalen går du till portalinställningarna för att göra ändringen.
 
 ## <a name="turn-on-high-contrast"></a>Aktivera högkontrast
 
-1. I rubriken för [Azure Portal](https://portal.azure.com)väljer du **Inställningar**.
+1. Välj **Inställningar**i huvudet på [Azure-portalen](https://portal.azure.com).
 
-    ![Skärm bild som visar kugg hjuls ikonen för Portal inställningar i Azure Portal](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
-1. Välj **vitt** eller **svart**.
+    ![Skärmbild som visar ikonen för växel i portalinställningarna i Azure-portalen](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
+1. Välj **Vit** eller **Svart**.
 
-    ![Skärm bild som visar alternativ för hög kontrast i Azure Portal inställningar](./media/azure-portal-change-theme-high-contrast/azure-portal-highcontrast-options.png)
+    ![Skärmbild som visar alternativ för hög kontrast i Azure-portalinställningarna](./media/azure-portal-change-theme-high-contrast/azure-portal-highcontrast-options.png)
 1. Välj **Använd**.
 
 > [!NOTE]
-> Om du väljer ett högt kontrast schema åsidosätter det alla andra tema val.
+> Om du väljer ett tema med hög kontrast åsidosätts alla andra temaval.
 >
 >
 
 ## <a name="change-theme"></a>Ändra tema
 
-1. I rubriken för [Azure Portal](https://portal.azure.com)väljer du **Inställningar**.
+1. Välj **Inställningar**i huvudet på [Azure-portalen](https://portal.azure.com).
 
-    ![Skärm bild som visar kugg hjuls ikonen för Portal inställningar i Azure Portal](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
+    ![Skärmbild som visar ikonen för växel i portalinställningarna i Azure-portalen](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 
 1. Välj ett tema.
 
-    ![Skärm bild som visar tema alternativen i Azure Portal inställningar](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
+    ![Skärmbild som visar temaalternativen i Azure-portalinställningarna](./media/azure-portal-change-theme-high-contrast/azure-portal-theme-options.png)
 
 1. Välj **Använd**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kortkommandon i Azure Portal](azure-portal-keyboard-shortcuts.md)
+- [Kortkommandon i Azure-portalen](azure-portal-keyboard-shortcuts.md)
 - [Webbläsare och enheter som stöds](../azure-preview-portal-supported-browsers-devices.md)

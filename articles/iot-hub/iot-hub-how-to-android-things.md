@@ -1,6 +1,6 @@
 ---
-title: 'Utveckla för Android-saker plattform med Azure IoT SDK: er | Microsoft Docs'
-description: 'Guide för utvecklare – lär dig mer om att utveckla Android-saker med Azure IoT Hub SDK: er.'
+title: Utveckla för Android Things-plattformen med Azure IoT SDK:er | Microsoft-dokument
+description: Utvecklarguide – Lär dig mer om hur du utvecklar på Android Things med Azure IoT Hub SDK:er.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,29 +8,29 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
 ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673387"
 ---
-# <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Utveckla för Android-saker-plattform med Azure IoT-SDK: er
+# <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Utveckla för Android Things-plattformen med Azure IoT SDK:er
 
-[Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) : er tillhandahåller första nivå stöd för populära plattformar som Windows, Linux, OSX, MBED och mobila plattformar som Android och iOS.  Som en del av vårt åtagande att möjliggöra större valmöjligheter och flexibilitet i IoT-distributioner, stöder Java SDK även [Android-objekts](https://developer.android.com/things/) plattform.  Utvecklare kan utnyttja fördelarna med Android-sakernas operativ system på enhets sidan, medan [Azure IoT Hub](about-iot-hub.md) som den centrala meddelande hubben som skalas till miljon tals anslutna enheter samtidigt.
+[Azure IoT Hub SDK:er](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) ger stöd på den första nivån för populära plattformar som Windows, Linux, OSX, MBED och mobila plattformar som Android och iOS.  Som en del av vårt åtagande att möjliggöra större valfrihet och flexibilitet i IoT-distributioner stöder Java SDK också [Android Things-plattformen.](https://developer.android.com/things/)  Utvecklare kan utnyttja fördelarna med Android Things operativsystem på enhetssidan, samtidigt som de använder [Azure IoT Hub](about-iot-hub.md) som den centrala meddelandehubben som skalas till miljontals enheter som är anslutna samtidigt.
 
-I den här självstudien beskrivs stegen för att bygga ett program på enhets sidan på Android-saker med Azure IoT Java SDK.
+Den här självstudien beskriver stegen för att skapa ett program på enhetssidan på Android Things med Azure IoT Java SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Android-enhet som stöder maskin vara med Android-objekt som körs.  Du kan följa [dokumentationen för Android-saker](https://developer.android.com/things/get-started/kits#flash-at) om hur du kan Flash Android saker OS.  Se till att din Android-enhet är ansluten till Internet med viktig kring utrustning, till exempel tangent bord, bildskärm och mus.  I den här självstudien används Raspberry Pi 3.
+* En Android Things stöds hårdvara med Android Things OS körs.  Du kan följa [Android Things dokumentation](https://developer.android.com/things/get-started/kits#flash-at) om hur man blinkar Android Things OS.  Kontrollera att din Android Things-enhet är ansluten till internet med viktig kringutrustning som tangentbord, bildskärm och mus.  Den här självstudien använder Raspberry Pi 3.
 
 * Senaste versionen av [Android Studio](https://developer.android.com/studio/)
 
-* Senaste versionen av [git](https://git-scm.com/)
+* Senaste versionen av [Git](https://git-scm.com/)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -42,14 +42,14 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
-   **MyAndroidThingsDevice** : det här är det namn som angetts för den registrerade enheten. Använd MyAndroidThingsDevice som det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyAndroidThingsDevice** : Detta är namnet på den registrerade enheten. Använd MyAndroidThingsDevice som visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln samt uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Kör följande kommandon i Azure Cloud Shell för att hämta *enhets anslutnings strängen* för den enhet som du just har registrerat. Ersätt `YourIoTHubName` nedan med det namn du väljer för din IoT Hub.
+2. Kör följande kommandon i Azure Cloud Shell för att hämta *enhetsanslutningssträngen* för den enhet du just registrerade. Ersätt `YourIoTHubName` nedan med det namn du väljer för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -61,33 +61,33 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
     Du kommer att använda det här värdet senare i snabbstarten.
 
-## <a name="building-an-android-things-application"></a>Skapa ett Android saker-program
+## <a name="building-an-android-things-application"></a>Skapa ett Android Things-program
 
-1. Det första steget för att skapa ett Android saker-program ansluter till dina Android-enheter. Anslut Android-enheten till en bildskärm och Anslut den till Internet. Android-saker tillhandahåller [dokumentation](https://developer.android.com/things/get-started/kits) om hur du ansluter till WiFi. När du har anslutit till Internet bör du anteckna IP-adressen som visas under nätverk.
+1. Det första steget för att skapa ett Android Things-program är att ansluta till dina Android Things-enheter. Anslut din Android Things-enhet till en bildskärm och anslut den till internet. Android Saker ger [dokumentation](https://developer.android.com/things/get-started/kits) om hur du ansluter till WiFi. När du har anslutit till Internet, ta en anteckning om IP-adressen som anges under Nätverk.
 
-2. Använd [ADB](https://developer.android.com/studio/command-line/adb) -verktyget för att ansluta till din Android-enhet med den IP-adress som anges ovan. Dubbelklicka på anslutningen genom att använda det här kommandot från terminalen. Du bör se enheterna som listas som "anslutna".
+2. Använd [adb-verktyget](https://developer.android.com/studio/command-line/adb) för att ansluta till din Android Things-enhet med IP-adressen som anges ovan. Dubbelkolla anslutningen med det här kommandot från terminalen. Du bör se dina enheter listade som "anslutna".
 
    ```
    adb devices
    ```
 
-3. Hämta vårt exempel för Android/Android-saker från den här [lagrings platsen](https://github.com/Azure-Samples/azure-iot-samples-java) eller Använd git.
+3. Ladda ner vårt exempel för Android / Android Saker från denna [databas](https://github.com/Azure-Samples/azure-iot-samples-java) eller använda Git.
 
    ```
    git clone https://github.com/Azure-Samples/azure-iot-samples-java.git
    ```
 
-4. I Android Studio öppnar du Android-projektet i "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample".
+4. Öppna Android-projektet i Android Studio i "\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample".
 
-5. Öppna gradle. Properties-filen och Ersätt "Device_connection_string" med enhets anslutnings strängen som du antecknade tidigare.
+5. Öppna filen gradle.properties och ersätt "Device_connection_string" med enhetsanslutningssträngen som noterats tidigare.
  
-6. Klicka på Kör-debug och välj din enhet för att distribuera den här koden till dina Android-enheter.
+6. Klicka på Kör - Felsökning och välj din enhet för att distribuera den här koden till dina Android Things-enheter.
 
-7. När programmet har startats kan du se att det finns ett program som körs på Android saker-enheten. Det här exempel programmet skickar slumpmässigt genererade temperatur avläsningar.
+7. När programmet startas kan du se ett program som körs på din Android Things-enhet. Det här exempelprogrammet skickar slumpmässigt genererade temperaturavläsningar.
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 
-Du kan visa data via din IoT Hub när den tas emot. CLI-tillägget för IoT-hubben kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT-hubb. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
+Du kan visa data via din IoT-hubb när den tas emot. CLI-tillägget för IoT Hub kan ansluta till **Events**-slutpunkten för tjänstsidan på din IoT Hub. Tillägget tar emot enhet-till-moln-meddelanden som skickats från din simulerade enhet. Ett IoT Hub-serverprogram körs normalt i molnet för att ta emot och bearbeta enhet-till-molnet-meddelanden.
 
 Kör följande kommandon i Azure Cloud Shell, där du ersätter `YourIoTHubName` med namnet på din IoT-hubb:
 
@@ -101,6 +101,6 @@ az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHu
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [hur du hanterar anslutningar och Reliable Messaging](iot-hub-reliability-features-in-sdks.md) med hjälp av IoT Hub SDK: er.
-* Lär dig mer om hur du [utvecklar för mobila plattformar](iot-hub-how-to-develop-for-mobile-devices.md) som iOS och Android.
-* [Stöd för Azure IoT SDK-plattformen](iot-hub-device-sdk-platform-support.md)
+* Lär dig mer om [hur du hanterar anslutning och tillförlitliga meddelanden](iot-hub-reliability-features-in-sdks.md) med hjälp av IoT Hub SDK:er.
+* Läs mer om hur du [utvecklar för mobila plattformar](iot-hub-how-to-develop-for-mobile-devices.md) som iOS och Android.
+* [Support för Azure IoT SDK-plattformen](iot-hub-device-sdk-platform-support.md)

@@ -1,6 +1,6 @@
 ---
-title: Använd Azure-portalen för att felsöka Azure Data Box Edge | Microsoft Docs
-description: Beskriver hur du felsöker problem med Azure Data Box Edge.
+title: Använd Azure-portalen för att felsöka Azure Data Box Edge | Microsoft-dokument
+description: Beskriver felsöka Azure Data Box Edge-problem.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 3a8d1f93930d2b298eeb7d10a73624b9a19bcc0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60756263"
 ---
-# <a name="troubleshoot-your-azure-data-box-edge-issues"></a>Felsök Azure Data Box Edge-problem 
+# <a name="troubleshoot-your-azure-data-box-edge-issues"></a>Felsöka problem med Azure Data Box Edge 
 
-Den här artikeln beskriver hur du felsöker problem i din Azure Data Box Edge. 
+I den här artikeln beskrivs felsÃ¶kning av problem i Azure Data Box Edge. 
 
 I den här artikeln kan du se hur du:
 
@@ -37,7 +37,7 @@ Du kan köra de diagnostiska testerna för att diagnostisera och felsöka eventu
  
 2. När testerna har slutförts visas resultatet. 
 
-    ![Granskningsresultat](media/data-box-edge-troubleshoot/run-diag-2.png)
+    ![Granska testresultat](media/data-box-edge-troubleshoot/run-diag-2.png)
 
     Om testet inte kan genomföras visas en URL för rekommenderad åtgärd. Du kan klicka på URL:en om du vill visa den rekommenderade åtgärden.
  
@@ -52,11 +52,11 @@ Utför följande steg för att hämta ett supportpaket.
 
 1. I det lokala webbgränssnittet går du till **Felsökning > Support**. Klicka på **Skapa supportpaket**. Systemet börjar samla in supportpaket. Paketinsamlingen kan ta flera minuter.
 
-    ![Klicka på Lägg till användare](media/data-box-edge-troubleshoot/collect-logs-1.png)
+    ![Klicka på lägg till användare](media/data-box-edge-troubleshoot/collect-logs-1.png)
  
 2. När du har skapat supportpaketet klickar du på **Ladda ned supportpaket**. Ett komprimerat paket har laddats ned till den sökväg som du har valt. Du kan extrahera paketet och visa systemloggfilerna.
 
-    ![Klicka på Lägg till användare](media/data-box-edge-troubleshoot/collect-logs-2.png)
+    ![Klicka på lägg till användare](media/data-box-edge-troubleshoot/collect-logs-2.png)
 
 ## <a name="use-logs-to-troubleshoot"></a>Använd loggar för att felsöka
 
@@ -64,9 +64,9 @@ Eventuella fel som uppstod under uppladdnings- och uppdateringsprocesserna ingå
 
 1. Om du vill visa felfilerna öppnar du resursen och klickar på den för att visa innehållet. 
 
-      ![Ansluta till och visa innehållet i filresursen](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)
+      ![Ansluta till och visa delningsinnehåll](media/data-box-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Klicka på den _Microsoft Edge för Data Box-mapp_. Den här mappen innehåller två undermappar:
+2. Klicka på _mappen Microsoft Data Box Edge_. Den här mappen innehåller två undermappar:
 
     - Ladda upp mappen som innehåller loggfiler för uppladdningsfelen.
     - Uppdatera mappen för fel som uppstått under uppdateringen.

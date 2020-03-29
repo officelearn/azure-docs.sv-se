@@ -1,6 +1,6 @@
 ---
-title: UNH 2,5-segment i EDIFACT-meddelanden
-description: Lösa EDIFACT-meddelanden med UNH 2.5-segment i Azure Logic Apps med Enterprise-integrationspaket
+title: UNH 2.5 segment i EDIFACT-meddelanden
+description: Lösa EDIFACT-meddelanden med UNH2.5-segment i Azure Logic Apps med Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,60 +9,60 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
 ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792536"
 ---
-# <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Hantera EDIFACT-dokument med UNH 2.5-segment i Azure Logic Apps
+# <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Hantera EDIFACT-dokument med UNH2.5-segment i Azure Logic Apps
 
-Om det finns ett UNH 2.5-segment i ett EDIFACT-dokument används segmentet för schema ökning. I det här exemplet för EDIFACT är fältet UNH `EAN008`:
+Om det finns ett UNH2.5-segment i ett EDIFACT-dokument används segmentet för schemasökning. I det här EDIFACT-meddelandet är `EAN008`till exempel UNH-fältet:
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 
-Följ de här stegen som beskrivs nedan för att hantera det här meddelandet:
+Så här hanterar du det här meddelandet nedan:
 
 1. Uppdatera schemat.
 
-1. Kontrol lera avtals inställningarna.
+1. Kontrollera avtalsinställningarna.
 
 ## <a name="update-the-schema"></a>Uppdatera schemat
 
-För att kunna bearbeta meddelandet måste du distribuera ett schema som har rotnoden UNH 2,5. Till exempel är schema rot namnet för fältet Sample UNH `EFACT_D03B_ORDERS_EAN008`. För varje `D03B_ORDERS` som har ett annat UNH 2.5-segment måste du distribuera ett individuellt schema.
+Om du vill bearbeta meddelandet måste du distribuera ett schema som har rotnodnamnet UNH2.5. Schemarotnamnet för exempelfältet UNH är `EFACT_D03B_ORDERS_EAN008`till exempel . För `D03B_ORDERS` varje som har ett annat UNH2.5-segment måste du distribuera ett enskilt schema.
 
-## <a name="add-schema-to-edifact-agreement"></a>Lägg till schema i EDIFACT-avtalet
+## <a name="add-schema-to-edifact-agreement"></a>Lägga till schema i EDIFACT-avtalet
 
-### <a name="edifact-decode"></a>EDIFACT-avkodning
+### <a name="edifact-decode"></a>EDIFACT Avkoda
 
-Om du vill avkoda det inkommande meddelandet ställer du in schemat i EDIFACT-avtalets mottagnings inställningar:
+Om du vill avkoda det inkommande meddelandet ställer du in schemat i EDIFACT-avtalets mottagningsinställningar:
 
-1. Öppna integrations kontot i [Azure Portal](https://portal.azure.com).
+1. Öppna ditt integrationskonto i [Azure-portalen.](https://portal.azure.com)
 
-1. Lägg till schemat i integrations kontot.
+1. Lägg till schemat i ditt integrationskonto.
 
-1. Konfigurera schemat i EDIFACT-avtalets mottagnings inställningar.
+1. Konfigurera schemat i EDIFACT-avtalets mottagningsinställningar.
 
-1. Välj EDIFACT-avtalet och välj **Redigera som JSON**. Lägg till UNH 2.5-värdet i `schemaReferences`s avsnittet för mottagande avtal:
+1. Välj EDIFACT-avtalet och välj **Redigera som JSON**. Lägg till UNH2.5-värdet i `schemaReferences` avsnittet Ta emot avtal:
 
-   ![Lägg till UNH 2.5 för att ta emot avtal](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
+   ![Lägg till UNH2.5 för att få avtal](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image1.png)
 
-### <a name="edifact-encode"></a>EDIFACT-kodning
+### <a name="edifact-encode"></a>EDIFACT-koda
 
-Om du vill koda det inkommande meddelandet konfigurerar du schemat i EDIFACT-avtalet skicka inställningar
+Om du vill koda det inkommande meddelandet konfigurerar du schemat i EDIFACT-avtalets sändningsinställningar
 
-1. Öppna integrations kontot i [Azure Portal](https://portal.azure.com).
+1. Öppna ditt integrationskonto i [Azure-portalen.](https://portal.azure.com)
 
-1. Lägg till schemat i integrations kontot.
+1. Lägg till schemat i ditt integrationskonto.
 
-1. Konfigurera schemat i EDIFACT-avtalets sändnings inställningar.
+1. Konfigurera schemat i EDIFACT-avtalets sändningsinställningar.
 
-1. Välj EDIFACT-avtal och klicka på **Redigera som JSON**.  Lägg till UNH 2.5-värdet i **schemaReferences** för att skicka avtal
+1. Välj EDIFACT-avtal och klicka på **Redigera som JSON**.  Lägg till UNH2.5-värde i **schemareningar** för skicka avtal
 
-1. Välj EDIFACT-avtalet och välj **Redigera som JSON**. Lägg till UNH 2,5-värdet i avsnittet för att skicka avtal `schemaReferences`:
+1. Välj EDIFACT-avtalet och välj **Redigera som JSON**. Lägg till UNH2.5-värdet i `schemaReferences` avsnittet Skicka avtalet:
 
-   ![Lägg till UNH 2.5 för att skicka avtal](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
+   ![Lägg till UNH2.5 för att skicka avtal](./media/logic-apps-enterprise-integration-edifact_inputfile_unh2.5/image2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [integrerings konto avtal](../logic-apps/logic-apps-enterprise-integration-agreements.md)
+* Läs mer om avtal om [integrationskonto](../logic-apps/logic-apps-enterprise-integration-agreements.md)

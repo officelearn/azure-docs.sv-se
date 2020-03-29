@@ -1,36 +1,36 @@
 ---
-title: Hantera Läs repliker – Azure CLI, REST API – Azure Database for MySQL
-description: Lär dig hur du konfigurerar och hanterar Läs repliker i Azure Database for MySQL med hjälp av Azure CLI eller REST API.
+title: Hantera läsande repliker - Azure CLI, REST API - Azure Database for MySQL
+description: Lär dig hur du konfigurerar och hanterar läsande repliker i Azure Database för MySQL med hjälp av Azure CLI- eller REST API.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 56ba530c4f684bf89db9c5b87306592fbfeee7fa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: ed57003c7a9a5a1a9d87aa2e8934af8c48b1d819
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774102"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063335"
 ---
-# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med hjälp av Azure CLI och REST API
+# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Så här skapar och hanterar du läsande repliker i Azure Database for MySQL med Azure CLI- och REST API
 
-I den här artikeln får du lära dig hur du skapar och hanterar Läs repliker i Azure Database for MySQL-tjänsten med hjälp av Azure CLI och REST API. Mer information om Läs repliker finns i [översikten](concepts-read-replicas.md).
+In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL service using the Azure CLI and REST API. Mer information om läsrepliker finns i [översikten](concepts-read-replicas.md).
 
 ## <a name="azure-cli"></a>Azure CLI
-Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
+Du kan skapa och hantera läsande repliker med Hjälp av Azure CLI.
 
 ### <a name="prerequisites"></a>Krav
 
 - [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-- En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md) som ska användas som huvud server. 
+- En [Azure-databas för MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md) som ska användas som huvudserver. 
 
 > [!IMPORTANT]
-> Funktionen Läs replik är bara tillgänglig för Azure Database for MySQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att huvud servern är i någon av dessa pris nivåer.
+> Funktionen läsreplik är endast tillgänglig för Azure Database for MySQL-servrar på prisnivåerna Allmänt syfte eller Minnesoptimerade. Kontrollera att huvudservern finns på en av dessa prisnivåer.
 
-### <a name="create-a-read-replica"></a>Skapa en Läs replik
+### <a name="create-a-read-replica"></a>Skapa en läsreplik
 
-Du kan skapa en Läs replik server med följande kommando:
+En läsreplikserver kan skapas med följande kommando:
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
@@ -40,26 +40,26 @@ Kommandot `az mysql server replica create` kräver följande parametrar:
 
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
-| namn | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
-| source-server | mydemoserver | Namnet eller ID: t för den befintliga huvud server som ska replikeras från. |
+| resource-group |  myresourcegroup |  Resursgruppen där replikservern ska skapas till.  |
+| namn | mydemoreplicaserver (på väg till) | Namnet på den nya replikservern som skapas. |
+| source-server | mydemoserver | Namnet eller ID:t för den befintliga huvudservern som ska replikeras från. |
 
-Om du vill skapa en skrivskyddad replik av en kors region använder du parametern `--location`. CLI-exemplet nedan skapar repliken i USA, västra.
+Om du vill skapa en `--location` läsreplik för korsområde använder du parametern. CLI-exemplet nedan skapar repliken i västra USA.
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 > [!NOTE]
-> Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
+> Mer information om vilka regioner du kan skapa en replik i finns i [artikeln läsreplikbegrepp](concepts-read-replicas.md). 
 
 > [!NOTE]
-> Läs repliker skapas med samma server konfiguration som huvud servern. Replik Server konfigurationen kan ändras efter att den har skapats. Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större än huvud värden, för att repliken ska kunna fortsätta med huvud servern.
+> Läsrepliker skapas med samma serverkonfiguration som huvudprogrammet. Replikserverkonfigurationen kan ändras när den har skapats. Vi rekommenderar att replikserverns konfiguration ska hållas på lika med eller större värden än huvudprogrammet för att säkerställa att repliken kan hålla jämna steg med huvudprogrammet.
 
 
-### <a name="list-replicas-for-a-master-server"></a>Lista repliker för en huvud server
+### <a name="list-replicas-for-a-master-server"></a>Lista repliker för en huvudserver
 
-Om du vill visa alla repliker för en specifik huvud server kör du följande kommando: 
+Om du vill visa alla repliker för en viss huvudserver kör du följande kommando: 
 
 ```azurecli-interactive
 az mysql server replica list --server-name mydemoserver --resource-group myresourcegroup
@@ -69,15 +69,15 @@ Kommandot `az mysql server replica list` kräver följande parametrar:
 
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
-| server-name | mydemoserver | Namn eller ID för huvud servern. |
+| resource-group |  myresourcegroup |  Resursgruppen där replikservern ska skapas till.  |
+| server-name | mydemoserver | Namnet eller ID:t för huvudservern. |
 
-### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
+### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replikserver
 
 > [!IMPORTANT]
-> Att stoppa replikeringen till en server går inte att ångra. När replikeringen har stoppats mellan en huvud server och en replik kan den inte återställas. Replik servern blir sedan en fristående server och stöder nu både läsning och skrivning. Den här servern kan inte göras till en replik igen.
+> Att stoppa replikering till en server är oåterkalleligt. När replikeringen har stoppats mellan en huvudsida och replik kan den inte ångras. Replikservern blir sedan en fristående server och stöder nu både läsning och skrivning. Den här servern kan inte göras till en replik igen.
 
-Replikering till en Läs replik Server kan stoppas med hjälp av följande kommando:
+Replikeringen till en läsreplikserver kan stoppas med följande kommando:
 
 ```azurecli-interactive
 az mysql server replica stop --name mydemoreplicaserver --resource-group myresourcegroup
@@ -87,34 +87,34 @@ Kommandot `az mysql server replica stop` kräver följande parametrar:
 
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resurs gruppen där replik servern finns.  |
-| namn | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |
+| resource-group |  myresourcegroup |  Resursgruppen där replikservern finns.  |
+| namn | mydemoreplicaserver (på väg till) | Namnet på replikservern som replikservern ska stoppa replikeringen på. |
 
-### <a name="delete-a-replica-server"></a>Ta bort en replik Server
+### <a name="delete-a-replica-server"></a>Ta bort en replikserver
 
-Du kan ta bort en Läs replik Server genom att köra kommandot **[AZ MySQL server Delete](/cli/azure/mysql/server)** .
+Ta bort en läsreplik server kan göras genom att köra **[az mysql server delete](/cli/azure/mysql/server)** command.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
 ```
 
-### <a name="delete-a-master-server"></a>Ta bort en huvud server
+### <a name="delete-a-master-server"></a>Ta bort en huvudserver
 
 > [!IMPORTANT]
 > Om du tar bort en huvudserver stoppas replikeringen till alla replikservrar och själva huvudservern tas bort. Replikservrar blir fristående servrar som nu stöder både läsningar och skrivningar.
 
-Om du vill ta bort en huvud server kan du köra kommandot **[AZ MySQL server Delete](/cli/azure/mysql/server)** .
+Om du vill ta bort en huvudserver kan du köra kommandot **[az mysql server delete.](/cli/azure/mysql/server)**
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
 
-## <a name="rest-api"></a>REST-API
-Du kan skapa och hantera Läs repliker med hjälp av [Azure REST API](/rest/api/azure/).
+## <a name="rest-api"></a>REST API
+Du kan skapa och hantera läsande repliker med Hjälp av [Azure REST API](/rest/api/azure/).
 
-### <a name="create-a-read-replica"></a>Skapa en Läs replik
-Du kan skapa en Läs replik med hjälp av [create API](/rest/api/mysql/servers/create):
+### <a name="create-a-read-replica"></a>Skapa en läsreplik
+Du kan skapa en läsreplik med hjälp av [api:et:](/rest/api/mysql/servers/create)
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
@@ -131,27 +131,27 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 > [!NOTE]
-> Om du vill veta mer om vilka regioner du kan skapa en replik i går du till [artikeln Läs replik begrepp](concepts-read-replicas.md). 
+> Mer information om vilka regioner du kan skapa en replik i finns i [artikeln läsreplikbegrepp](concepts-read-replicas.md). 
 
-Om du inte har angett parametern `azure.replication_support` till **replik** på en generell användning eller en minnesoptimerade huvud server och startat om servern visas ett fel meddelande. Utför dessa två steg innan du skapar en replik.
+Om du inte har `azure.replication_support` angett parametern till **REPLIK** på en general purpose- eller minnesoptimerad huvudserver och startat om servern visas ett felmeddelande. Slutför dessa två steg innan du skapar en replik.
 
-En replik skapas med samma beräknings-och lagrings inställningar som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generation, virtuella kärnor, lagring och säkerhets kopierings perioden. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
+En replik skapas med samma beräknings- och lagringsinställningar som huvudsã¤nde. När en replik har skapats kan flera inställningar ändras oberoende av huvudservern: beräkningsgenerering, virtuella kärnor, lagring och säkerhetskopieringsperiod. Prisnivån kan också ändras oberoende av dem, förutom till eller från basic-nivån.
 
 
 > [!IMPORTANT]
-> Innan en huvud server inställning uppdateras till ett nytt värde uppdaterar du replik inställningen till ett lika eller högre värde. Den här åtgärden hjälper repliken att hålla sig uppdaterad med alla ändringar som görs i huvud repliken.
+> Innan en huvudserverinställning uppdateras till ett nytt värde uppdaterar du replikinställningen till ett lika stort eller större värde. Den här åtgärden hjälper repliken att hålla jämna steg med alla ändringar som gjorts i bakgrunden.
 
 ### <a name="list-replicas"></a>Lista repliker
-Du kan visa listan över repliker av en huvud server med hjälp av [replik listans API](/rest/api/mysql/replicas/listbyserver):
+Du kan visa listan över repliker av en huvudserver med hjälp av [repliklistan API:](/rest/api/mysql/replicas/listbyserver)
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
-### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
-Du kan stoppa replikeringen mellan en huvud server och en Läs replik med hjälp av [uppdaterings-API: et](/rest/api/mysql/servers/update).
+### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replikserver
+Du kan stoppa replikeringen mellan en huvudserver och en läsreplik med hjälp av [uppdaterings-API:et](/rest/api/mysql/servers/update).
 
-När du har stoppat replikering till en huvud server och en Läs replik kan du inte göra det. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
+När du har stoppat replikeringen till en huvudserver och en läsreplik kan den inte ångras. Läsrepliken blir en fristående server som stöder både läsningar och skrivningar. Den fristående servern kan inte göras till en replik igen.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}?api-version=2017-12-01
@@ -165,10 +165,10 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Ta bort en huvud-eller replik Server
-Om du vill ta bort en huvud server eller replik Server använder du [borttagnings-API: et](/rest/api/mysql/servers/delete):
+### <a name="delete-a-master-or-replica-server"></a>Ta bort en huvud- eller replikserver
+Om du vill ta bort en huvud- eller replikserver använder du [borttagnings-API:et:](/rest/api/mysql/servers/delete)
 
-När du tar bort en huvud server stoppas replikeringen till alla Läs repliker. De skrivskyddade replikerna blir fristående servrar som nu stöder både läsning och skrivning.
+När du tar bort en huvudserver stoppas replikeringen till alla lästa repliker. Läsrepliker blir fristående servrar som nu stöder både läsningar och skrivningar.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}?api-version=2017-12-01
@@ -177,4 +177,4 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Läs repliker](concepts-read-replicas.md)
+- Läs mer om [läsrepliker](concepts-read-replicas.md)

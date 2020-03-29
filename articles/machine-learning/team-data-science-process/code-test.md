@@ -1,6 +1,6 @@
 ---
-title: Testa data science kod med Azure-tjänster för DevOps - Team Data Science Process
-description: Data science kod testning på Azure med UCI vuxet inkomst förutsägelse datauppsättningen med Team Data Science Process och Azure DevOps-tjänsterna
+title: Testa datavetenskapskod med Azure DevOps Services – Team Data Science Process
+description: Data science-kodtestning på Azure med UCI-datauppsättningen för förutsägelse av vuxeninkomster med Team Data Science Process och Azure DevOps Services
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,150 +12,150 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
 ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722067"
 ---
-# <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data science kod testning på Azure med Team Data Science Process och Azure DevOps-tjänsterna
-Den här artikeln ger preliminär riktlinjer för att testa koden i ett arbetsflöde för datavetenskap. Sådant test ger datatekniker ett systematiskt och effektivt sätt att kontrollera kvaliteten och förväntade resultatet av sin kod. Vi använder ett TDSP-projekt (Team data science process) [som använder den data uppsättning för den sexuella](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) värde som vi publicerade tidigare för att visa hur kod testning kan göras. 
+# <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testning av datavetenskapskod på Azure med Team Data Science Process och Azure DevOps Services
+Den här artikeln innehåller preliminära riktlinjer för testning av kod i ett arbetsflöde för datavetenskap. Sådana tester ger dataforskare ett systematiskt och effektivt sätt att kontrollera kvaliteten och det förväntade resultatet av deras kod. Vi använder ett Team Data Science Process (TDSP) [projekt som använder UCI Vuxen inkomst datauppsättning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) som vi publicerade tidigare för att visa hur kodtestning kan göras. 
 
-## <a name="introduction-on-code-testing"></a>Introduktion till code testning
-”Enhetstestning” är värnar om praxis för programutveckling. Men för data vetenskap är det ofta inte uppenbart vad "enhets testning" innebär och hur du bör testa kod för olika faser i en data vetenskaps livs cykel, till exempel:
+## <a name="introduction-on-code-testing"></a>Introduktion till kodtestning
+"Enhetstestning" är en mångårig metod för mjukvaruutveckling. Men för datavetenskap är det ofta inte klart vad "enhetstestning" betyder och hur du ska testa kod för olika stadier av en livscykel för datavetenskap, till exempel:
 
 * Förberedelse av data
-* Data quality undersökning
+* Granskning av datakvalitet
 * Modellering
 * Modelldistribution 
 
-Den här artikeln ersätter termen ”enhet testning” med ”testning av kod”. Den refererar till testning som de funktioner som hjälper dig för att utvärdera om koden för ett visst steg i en livscykeln för datavetenskap ger resultat ”som förväntat”. Den person som skriver testet definierar vad är ”som förväntat”, beroende på resultatet av funktionen – till exempel data kvalitetskontroll eller modellering.
+Den här artikeln ersätter termen "enhetstestning" med "kodtestning". Det refererar till testning som de funktioner som hjälper till att bedöma om koden för ett visst steg i en datavetenskap livscykel producerar resultat "som förväntat." Den person som skriver testet definierar vad som är "som förväntat", beroende på resultatet av funktionen - till exempel datakvalitetskontroll eller modellering.
 
 Den här artikeln innehåller referenser som användbara resurser.
 
-## <a name="azure-devops-for-the-testing-framework"></a>Azure DevOps för testning framework
-Den här artikeln beskriver hur du utför och automatisera testning med Azure DevOps. Du kan välja att använda andra verktyg. Vi visar också hur man ställer in en automatisk build med hjälp av Azure DevOps och agenter. Build-agenter, kan vi använda Azure virtuella datorer för datavetenskap (Dsvm).
+## <a name="azure-devops-for-the-testing-framework"></a>Azure DevOps för testramverket
+I den här artikeln beskrivs hur du utför och automatiserar testning med hjälp av Azure DevOps. Du kan välja att använda alternativa verktyg. Vi visar också hur du konfigurerar en automatisk version med hjälp av Azure DevOps och build-agenter. För byggagenter använder vi virtuella Azure Data Science-datorer (DSVM).
 
-## <a name="flow-of-code-testing"></a>Flödet av kod testning
-Det totala arbetsflödet för testning koden i ett datavetenskapsprojekt ser ut så här: 
+## <a name="flow-of-code-testing"></a>Flöde av kodtestning
+Det övergripande arbetsflödet för testkod i ett data science-projekt ser ut så här: 
 
-![Flödesschema för testning av kod](./media/code-test/test-flow-chart.PNG)
+![Flödesschema för kodtestning](./media/code-test/test-flow-chart.PNG)
 
     
 ## <a name="detailed-steps"></a>Detaljerade steg
 
-Använd följande steg för att konfigurera och köra kod testning och en automatisk build med hjälp av en skapandeagent och Azure DevOps:
+Använd följande steg för att konfigurera och köra kodtestning och en automatiserad version med hjälp av en byggagent och Azure DevOps:
 
-1. Skapa ett projekt i Visual Studio-skrivbordsprogram:
+1. Skapa ett projekt i Visual Studio-skrivbordsprogrammet:
 
-    ![”Skapa nytt projekt” skärm i Visual Studio](./media/code-test/create_project.PNG)
+    ![Skärmen "Skapa nytt projekt" i Visual Studio](./media/code-test/create_project.PNG)
 
-   När du har skapat ditt projekt, hittar du det i Solution Explorer i den högra rutan:
+   När du har skapat projektet hittar du det i Solution Explorer i den högra rutan:
     
-    ![Anvisningar för att skapa ett projekt](./media/code-test/create_python_project_in_vs.PNG)
+    ![Steg för att skapa ett projekt](./media/code-test/create_python_project_in_vs.PNG)
 
     ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. Skicka projektkoden till kodlagringsplatsen för Azure DevOps-projekt: 
+1. Mata in projektkoden i Azure DevOps-projektkoddatabasen: 
 
-    ![Lagringsplatsen för projektet](./media/code-test/create_repo.PNG)
+    ![Databas för projektkod](./media/code-test/create_repo.PNG)
 
-1. Anta att du har gjort vissa förberedelse av data, som datainmatning, funktionsframställning och skapa etikettkolumner. Du vill kontrollera att din kod genererar resultat som du förväntar dig. Här följer ett kodexempel som du kan använda för att testa om databearbetning koden fungerar korrekt:
+1. Anta att du har gjort vissa dataförberedelsearbete, till exempel datainmatning, funktionsteknik och att skapa etikettkolumner. Du vill vara säker på att koden genererar de resultat du förväntar dig. Här är en kod som du kan använda för att testa om databehandlingskoden fungerar som den ska:
 
     * Kontrollera att kolumnnamnen är rätt:
     
-      ![Kod för att matcha kolumnnamn](./media/code-test/check_column_names.PNG)
+      ![Kod för matchande kolumnnamn](./media/code-test/check_column_names.PNG)
 
-    * Kontrollera att svarsnivåer är rätt:
+    * Kontrollera att svarsnivåerna är rätt:
 
-      ![Kod för att matcha nivåer](./media/code-test/check_response_levels.PNG)
+      ![Kod för matchande nivåer](./media/code-test/check_response_levels.PNG)
 
-    * Kontrollera att i svarsprocent är rimliga:
+    * Kontrollera att svarsprocenten är rimlig:
 
-      ![Koden för svarsprocent](./media/code-test/check_response_percentage.PNG)
+      ![Kod för svarsprocent](./media/code-test/check_response_percentage.PNG)
 
-    * Kontrollera saknas frekvensen för varje kolumn i data:
+    * Kontrollera den saknade hastigheten för varje kolumn i data:
     
-      ![Kod för saknas](./media/code-test/check_missing_rate.PNG)
+      ![Kod för saknad hastighet](./media/code-test/check_missing_rate.PNG)
 
 
-1. När du har gjort databehandlingen och funktionen engineering arbete, och du har tränat en bra modell, se till att poängsätta du tränade modellen nya datauppsättningar på rätt sätt. Du kan använda följande två tester för att kontrollera förutsägelse nivåer och distribution av etikettvärden:
+1. När du har gjort databehandlingen och funktionen engineering arbete, och du har tränat en bra modell, se till att modellen du tränat kan få nya datauppsättningar korrekt. Du kan använda följande två tester för att kontrollera förutsägelsenivåer och fördelning av etikettvärden:
 
-    * Kontrollera förutsägelse nivåer:
+    * Kontrollera förutsägelsenivåer:
     
-      ![Kod för att kontrollera förutsägelse nivåer](./media/code-test/check_prediction_levels.PNG)
+      ![Kod för kontroll av förutsägelsenivåer](./media/code-test/check_prediction_levels.PNG)
 
-    * Kontrollera distributionen av förutsägelse värden:
+    * Kontrollera fördelningen av förutsägelsevärden:
 
-      ![Kod för att kontrollera värdena för förutsägelse](./media/code-test/check_prediction_values.PNG)
+      ![Kod för kontroll av förutsägelsevärden](./media/code-test/check_prediction_values.PNG)
 
-1. Sätt ihop alla test funktioner i ett Python-skript med namnet **test_funcs. py**:
+1. Sätt alla testfunktioner tillsammans i ett Python-skript som heter **test_funcs.py:**
 
-    ![Python-skript för att testa functions](./media/code-test/create_file_test_func.PNG)
+    ![Python-skript för testfunktioner](./media/code-test/create_file_test_func.PNG)
 
 
-1. När test-koder bereds, kan du ställa in testmiljön i Visual Studio.
+1. När testkoderna har förberetts kan du ställa in testmiljön i Visual Studio.
 
-   Skapa en python-fil med namnet **test1.py**. Skapa en klass som innehåller alla tester som du vill göra i den här filen. I följande exempel visas sex tester förberett:
+   Skapa en Python-fil som heter **test1.py**. Skapa en klass som innehåller alla tester du vill göra i den här filen. Följande exempel visar sex tester som förberetts:
     
     ![Python-fil med en lista över tester i en klass](./media/code-test/create_file_test1_class.PNG)
 
-1. Dessa tester kan identifieras automatiskt om du anger **codetest. testCase** efter ditt klass namn. Öppna test Utforskaren i den högra rutan och välj **Kör alla**. Alla tester körs sekventiellt och talar om testet lyckas eller inte.
+1. Dessa tester kan identifieras automatiskt om du sätter **codetest.testCase** efter ditt klassnamn. Öppna Test Explorer i den högra rutan och välj **Kör alla**. Alla tester kommer att köras sekventiellt och kommer att berätta om testet lyckas eller inte.
 
-    ![Kör testerna](./media/code-test/run_tests.PNG)
+    ![Köra testerna](./media/code-test/run_tests.PNG)
 
-1. Kontrollera i din kod till lagringsplatsen för projektet genom att använda Git-kommandon. Senaste arbetet visas snart i Azure DevOps.
+1. Checka in koden till projektdatabasen med hjälp av Git-kommandon. Ditt senaste arbete kommer att återspeglas inom kort i Azure DevOps.
 
-    ![Git-kommandon för att kontrollera i kod](./media/code-test/git_check_in.PNG)
+    ![Git-kommandon för incheckning av kod](./media/code-test/git_check_in.PNG)
 
-    ![Senaste arbete i Azure DevOps](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Senaste arbetet i Azure DevOps](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Konfigurera automatisk build och testa i Azure DevOps:
+1. Konfigurera automatisk byggande och test i Azure DevOps:
 
-    a. I projekt databasen väljer du **build och release**och väljer sedan **+ ny** för att skapa en ny versions process.
+    a. I projektdatabasen väljer du **Bygg och släpp**och väljer sedan **+Nytt** för att skapa en ny byggprocess.
 
-    ![Val för att starta en ny versions process](./media/code-test/create_new_build.PNG)
+    ![Val för att starta en ny byggprocess](./media/code-test/create_new_build.PNG)
 
-    b. Följ anvisningarna för att välja din kod för källplats, projektnamn, lagringsplatsen och grenen information.
+    b. Följ anvisningarna för att välja plats för källkod, projektnamn, databas och greninformation.
     
-    ![Käll-, namn-, lagrings-och förgrenings information](./media/code-test/fill_in_build_info.PNG)
+    ![Information om källa, namn, databas och gren](./media/code-test/fill_in_build_info.PNG)
 
-    c. Välj en mall. Eftersom det inte finns någon python-projektmall börjar du med att välja **tom process**. 
+    c. Välj en mall. Eftersom det inte finns någon Python-projektmall börjar du med att välja **Tom process**. 
 
-    ![Lista över mallar och knappen "tom process"](./media/code-test/start_empty_process_template.PNG)
+    ![Lista över mallar och knappen "Tom process"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Namnge versionen och välj agenten. Du kan välja standardvärdet här om du vill använda en DSVM för att slutföra Bygg processen. Mer information om hur du ställer in agenter finns i [skapa och släppa agenter](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Namnge bygget och välj agenten. Du kan välja standard här om du vill använda en DSVM för att slutföra byggprocessen. Mer information om hur du ställer in agenter finns i [Skapa och frisläppa agenter](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
-    ![Build-och agent-val](./media/code-test/select_agent.PNG)
+    ![Bygg- och agentval](./media/code-test/select_agent.PNG)
 
-    e. Välj **+** i det vänstra fönstret för att lägga till en uppgift för den här build-fasen. Eftersom vi ska köra python-skriptet **test1.py** för att slutföra alla kontroller, använder den här uppgiften ett PowerShell-kommando för att köra python-kod.
+    e. Markera **+** i den vänstra rutan om du vill lägga till en aktivitet för den här byggfasen. Eftersom vi ska köra Python-skriptet **test1.py** för att slutföra alla kontroller, använder den här uppgiften ett PowerShell-kommando för att köra Python-kod.
     
-    ![Fönstret Lägg till aktiviteter med PowerShell valt](./media/code-test/add_task_powershell.PNG)
+    ![Fönstret "Lägg till uppgifter" med PowerShell markerat](./media/code-test/add_task_powershell.PNG)
 
-    f. Fyll i nödvändig information, till exempel namn och version av PowerShell i PowerShell-information. Välj **infogat skript** som typ. 
+    f. Fyll i den information som krävs i PowerShell-informationen, till exempel namn och version av PowerShell. Välj **Infogat skript** som typ. 
     
-    I rutan under **infogat skript**kan du skriva python- **test1.py**. Kontrol lera att miljövariabeln är korrekt konfigurerad för python. Om du behöver en annan version eller kernel av python kan du uttryckligen ange sökvägen så som visas i bilden: 
+    I rutan under **Infogat skript**kan du skriva **python test1.py**. Kontrollera att miljövariabeln är korrekt konfigurerad för Python. Om du behöver en annan version eller kärna av Python kan du uttryckligen ange sökvägen som visas i bilden: 
     
-    ![PowerShell-information](./media/code-test/powershell_scripts.PNG)
+    ![PowerShell-detaljer](./media/code-test/powershell_scripts.PNG)
 
-    g. Klicka på **spara & kö** för att slutföra processen för att bygga pipelinen.
+    g. Välj **Spara & kö** för att slutföra byggpipelineprocessen.
 
-    ![Knappen Spara & kö](./media/code-test/save_and_queue_build_definition.PNG)
+    ![Knappen "Spara & kö"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Varje gång en ny allokering skickas till kodlagringsplatsen, startas nu skapandeprocessen automatiskt. (Här använder vi Master som lagrings plats, men du kan definiera vilken gren som helst.) Processen kör **test1.py** -filen på agent datorn för att kontrol lera att allting som definieras i koden körs på rätt sätt. 
+Nu startar varje gång ett nytt åtagande flyttas till koddatabasen, byggprocessen automatiskt. (Här använder vi master som databas, men du kan definiera vilken gren som helst.) Processen kör **test1.py** filen i agentdatorn för att se till att allt som definieras i koden körs korrekt. 
 
-Om aviseringar har ställts in korrekt, kommer du att meddelas via e-post när bygget har slutförts. Du kan också kontrollera status för build i Azure DevOps. Om det misslyckas kan du kontrollera informationen för versionen och ta reda på vilka delar är bruten.
+Om aviseringarna är korrekt konfigurerade får du ett meddelande i e-postmeddelandet när versionen är klar. Du kan också kontrollera byggstatusen i Azure DevOps. Om det misslyckas, kan du kontrollera detaljerna i bygga och ta reda på vilken bit är bruten.
 
-![E-postmeddelande för en lyckad build](./media/code-test/email_build_succeed.PNG)
+![E-postmeddelande om byggframgång](./media/code-test/email_build_succeed.PNG)
 
-![Meddelande om Azure DevOps för en lyckad build](./media/code-test/vs_online_build_succeed.PNG)
+![Azure DevOps meddelande om att skapa lyckad](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [lagrings platsen](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) för den enmängds inkomst förutsägelse för konkreta exempel på enhets test för data vetenskaps scenarier.
-* Följ föregående disposition och exempel från UCI inkomst förutsägelse scenariot i din egen dataforskningsprojekt.
+* Se [UCI:s databas](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) för inkomstprognos för konkreta exempel på enhetstester för datavetenskapliga scenarier.
+* Följ föregående disposition och exempel från UCI inkomst förutsägelse scenario i din egen data science projekt.
 
 ## <a name="references"></a>Referenser
 * [TDSP](https://aka.ms/tdsp)
-* [Test verktyg för Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
-* [Test resurser för Azure DevOps](https://www.visualstudio.com/team-services/)
-* [Data vetenskaps Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+* [Testverktyg för Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
+* [Testningsresurser för Azure DevOps](https://www.visualstudio.com/team-services/)
+* [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

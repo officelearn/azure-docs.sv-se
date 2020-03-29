@@ -1,6 +1,6 @@
 ---
-title: Lösen ords lös säkerhets nyckel inloggning till lokala resurser (för hands version) – Azure Active Directory
-description: Lär dig hur du aktiverar lösen ords lös säkerhets nyckel inloggning till lokala resurser med hjälp av Azure Active Directory (för hands version)
+title: Inloggning av lösenordslös säkerhetsnyckel till lokala resurser (förhandsversion) – Azure Active Directory
+description: Lär dig hur du aktiverar inloggning med lösenordslös säkerhetsnyckel till lokala resurser med Azure Active Directory (förhandsversion)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,76 +12,76 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b29f84931c169ffe1c2c81d5e32201cbc63fc88
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942879"
 ---
-# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Aktivera lösen ords lös säkerhets nyckel inloggning till lokala resurser med Azure Active Directory (för hands version)
+# <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Aktivera inloggning av lösenordslös säkerhetsnyckel till lokala resurser med Azure Active Directory (förhandsversion)
 
-Det här dokumentet fokuserar på att aktivera autentisering utan lösen ord till lokala resurser för miljöer med både **Azure AD-anslutna** och **hybrid Azure AD-anslutna** Windows 10-enheter. Den här funktionen ger sömlös enkel inloggning (SSO) till lokala resurser med hjälp av Microsoft-kompatibla säkerhets nycklar.
+Det här dokumentet fokuserar på att aktivera lösenordslös autentisering till lokala resurser för miljöer med både **Azure AD-anslutna** och **hybrid Azure AD-anslutna** Windows 10-enheter. Den här funktionen ger sömlös enkel inloggning (SSO) till lokala resurser med Hjälp av Microsoft-kompatibla säkerhetsnycklar.
 
 |     |
 | --- |
-| FIDO2 säkerhets nycklar är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
+| FIDO2-säkerhetsnycklar är en offentlig förhandsversion av Azure Active Directory. Mer information om förhandsgranskningar finns i [Tilläggsvillkor för användning för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>SSO till lokala resurser med hjälp av FIDO2-nycklar
+## <a name="sso-to-on-premises-resources-using-fido2-keys"></a>SSO till lokala resurser med FIDO2-nycklar
 
-Azure Active Directory (AD) kan utfärda Kerberos Ticket Granting Tick (TGT) för en eller flera av dina Active Directory-domäner. Med den här funktionen kan användarna logga in i Windows med moderna autentiseringsuppgifter som FIDO2-säkerhetsnycklar och komma åt traditionella Active Directory baserade resurser. Biljetter och auktorisering i Kerberos-tjänsten fortsätter att kontrol leras av dina lokala Active Directory domänkontrollanter.
+Azure Active Directory (AD) kan utfärda Kerberos Ticket Granting Tickets (TGTs) för en eller flera av dina Active Directory-domäner. Med den här funktionen kan användare logga in på Windows med moderna autentiseringsuppgifter som FIDO2-säkerhetsnycklar och komma åt traditionella Active Directory-baserade resurser. Kerberos-servicebiljetter och auktorisering fortsätter att styras av dina lokala Active Directory-domänkontrollanter.
 
-Ett Azure AD Kerberos-serverobjektet skapas i din lokala Active Directory och publiceras sedan på ett säkert sätt till Azure Active Directory. Objektet är inte associerat med några fysiska servrar. Det är bara en resurs som kan användas av Azure Active Directory för att generera Kerberos-TGT för din Active Directory-domän.
+Ett Azure AD Kerberos Server-objekt skapas i din lokala Active Directory och publiceras sedan på ett säkert sätt i Azure Active Directory. Objektet är inte associerat med några fysiska servrar. Det är helt enkelt en resurs som kan användas av Azure Active Directory för att generera Kerberos TGTs för din Active Directory-domän.
 
-![Hämtar biljett beviljande biljetter (TGT) från Azure AD och AD DS](./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png)
+![Få en biljettbeviljande biljett (TGT) från Azure AD och AD DS](./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png)
 
-1. Användaren loggar in på Windows 10-enheten med en säkerhets nyckel för FIDO2 och autentiserar till Azure AD.
-1. Azure AD kontrollerar katalogen för en Kerberos-server nyckel som matchar användarens lokala AD-domän.
-   1. Azure AD genererar en Kerberos-TGT för användarens lokala AD-domän. TGT innehåller bara användarens SID. Inga auktoriseringsdata ingår i TGT.
-1. TGT returneras till klienten tillsammans med sin Azure AD Primary Refresh-token (PRT).
-1. Klient datorn kontaktar en lokal AD-domänkontrollant och handlar om en del TGT för en fullständigt utformad TGT.
-1. Klient datorn har nu en Azure AD-PRT och en fullständig Active Directory TGT och har åtkomst till både moln resurser och lokala resurser.
+1. Användaren loggar in på sin Windows 10-enhet med en FIDO2-säkerhetsnyckel och autentiserar till Azure AD.
+1. Azure AD kontrollerar katalogen för en Kerberos-servernyckel som matchar användarens lokala AD-domän.
+   1. Azure AD genererar en Kerberos TGT för användarens lokala AD-domän. TGT innehåller endast användarens SID. Inga auktoriseringsdata ingår i TGT.
+1. TGT returneras till klienten tillsammans med deras Azure AD Primary Refresh Token (PRT).
+1. Klientdatorn kontaktar en lokal AD-domänkontrollant och byter den partiella TGT för en fullt utvecklad TGT.
+1. Klientdatorn har nu en Azure AD PRT och en fullständig Active Directory TGT och kan komma åt både molnresurser och lokala resurser.
 
 ## <a name="requirements"></a>Krav
 
-Organisationer måste utföra stegen för att [Aktivera lösen ords lös säkerhets nyckel tecken till Windows 10-enheter (för hands version)](howto-authentication-passwordless-security-key.md) innan du slutför stegen i den här artikeln.
+Organisationer måste slutföra stegen för att [aktivera lösenordslös säkerhetsnyckelskyltning på Windows 10-enheter (förhandsversion)](howto-authentication-passwordless-security-key.md) innan du slutför stegen i den här artikeln.
 
-Organisationer måste också uppfylla följande program varu krav.
+Organisationer måste också uppfylla följande programvarukrav.
 
-- Enheter måste köra Windows 10 Insider build 18945 eller senare.
+- Enheter måste köra Windows 10 Insider Build 18945 eller nyare.
 - Du måste ha version 1.4.32.0 eller senare av [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-  - Mer information om tillgängliga alternativ för Azure AD hybrid-autentisering finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../../security/fundamentals/choose-ad-authn.md) och [Välj vilken Installations typ som ska användas för Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
-- Windows Server-domän kontrol Lanterna måste ha följande korrigeringsfiler installerade:
-    - För Windows Server 2016 – https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - För Windows Server 2019 – https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+  - Mer information om tillgängliga Azure AD-hybridautentiseringsalternativ finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrididentitetslösning](../../security/fundamentals/choose-ad-authn.md) och [Välj vilken installationstyp som ska användas för Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
+- Windows Server-domänkontrollanterna måste ha följande korrigeringsfiler installerade:
+    - För Windows Server 2016 -https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
+    - För Windows Server 2019 -https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
 
 ### <a name="supported-scenarios"></a>Scenarier som stöds
 
 Scenariot stöder enkel inloggning (SSO) i båda följande scenarier:
 
-- För moln resurser som Office 365 och andra SAML-aktiverade program.
-- För lokala resurser och Windows-integrerad autentisering till webbplatser. Resurserna kan omfatta webbplatser och SharePoint-webbplatser som kräver IIS-autentisering och/eller resurser som använder NTLM-autentisering.
+- För molnresurser som Office 365 och andra SAML-aktiverade program.
+- För lokala resurser och Windows-integrerad autentisering till webbplatser. Resurserna kan innehålla webbplatser och SharePoint-webbplatser som kräver IIS-autentisering och /eller resurser som använder NTLM-autentisering.
 
 ### <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
 Följande scenarier stöds inte:
 
-- Windows Server Active Directory Domain Services (AD DS)-domänanslutna (endast lokala enheter) distribution.
-- RDP-, VDI-och Citrix-scenarier med hjälp av en säkerhets nyckel.
-- S/MIME med hjälp av en säkerhets nyckel.
-- "Kör som" med hjälp av en säkerhets nyckel.
-- Logga in på en server med hjälp av säkerhets nyckel.
+- Windows Server Active Directory Domain Services (AD DS) domän anslöt sig (endast lokala enheter) distribution.
+- RDP-, VDI- och Citrix-scenarier med hjälp av en säkerhetsnyckel.
+- S/MIME med hjälp av en säkerhetsnyckel.
+- "Kör som" med hjälp av en säkerhetsnyckel.
+- Logga in på en server med hjälp av säkerhetsnyckeln.
 
-## <a name="create-kerberos-server-object"></a>Skapa Kerberos-serverobjektet
+## <a name="create-kerberos-server-object"></a>Skapa Kerberos-serverobjekt
 
-Administratörer använder PowerShell-verktyg från sin Azure AD Connect-Server för att skapa ett Azure AD Kerberos-serverobjektet i sina lokala kataloger. Kör följande steg i varje domän och skog i din organisation som innehåller Azure AD-användare:
+Administratörer använder PowerShell-verktyg från sin Azure AD Connect-server för att skapa ett Azure AD Kerberos Server-objekt i sin lokala katalog. Kör följande steg i varje domän och skog i organisationen som innehåller Azure AD-användare:
 
-1. Uppgradera till den senaste versionen av Azure AD Connect. Anvisningarna förutsätter att du redan har konfigurerat Azure AD Connect som stöd för din hybrid miljö.
-1. På Azure AD Connect-servern öppnar du en upphöjd PowerShell-prompt och navigerar till `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
-1. Kör följande PowerShell-kommandon för att skapa ett nytt Azure AD Kerberos-serverobjektet i både din lokala Active Directory domän och Azure Active Directory klient organisation.
+1. Uppgradera till den senaste versionen av Azure AD Connect. Instruktionerna förutsätter att du redan har konfigurerat Azure AD Connect för att stödja din hybridmiljö.
+1. Öppna en upphöjd PowerShell-fråga på Azure AD Connect Server och navigera till`C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
+1. Kör följande PowerShell-kommandon för att skapa ett nytt Azure AD Kerberos-serverobjekt i både din lokala Active Directory-domän och Azure Active Directory-klient.
 
 > [!NOTE]
-> Ersätt `contoso.corp.com` i följande exempel med ditt lokala Active Directory domän namn.
+> Ersätt `contoso.corp.com` i följande exempel med ditt lokala Active Directory-domännamn.
 
 ```powerShell
 Import-Module ".\AzureAdKerberos.psd1"
@@ -101,36 +101,36 @@ $domainCred = Get-Credential
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
 ```
 
-### <a name="viewing-and-verifying-the-azure-ad-kerberos-server"></a>Visa och verifiera Azure AD Kerberos-servern
+### <a name="viewing-and-verifying-the-azure-ad-kerberos-server"></a>Visa och verifiera Azure AD Kerberos Server
 
-Du kan visa och verifiera den nyligen skapade Azure AD Kerberos-servern med följande kommando:
+Du kan visa och verifiera den nyligen skapade Azure AD Kerberos Server med följande kommando:
 
 ```powerShell
 Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
 ```
 
-Det här kommandot matar ut egenskaperna för Azure AD Kerberos-servern. Du kan granska egenskaperna för att kontrol lera att allt är i rätt ordning.
+Det här kommandot matar ut egenskaperna för Azure AD Kerberos Server. Du kan granska egenskaperna för att kontrollera att allt är i gott skick.
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| ID | Unikt ID för AD DS DC-objektet. Detta ID kallas ibland "fack" eller "gren-ID". |
-| DomainDnsName | Active Directory-domänens DNS-domännamn. |
-| ComputerAccount | Objektet dator konto för objektet Azure AD Kerberos-Server (DOMÄNKONTROLLANT). |
-| UserAccount | Det inaktiverade objektet User Account som innehåller Azure AD Kerberos-serverns TGT-krypterings nyckel. Kontots DN är `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
-| Version | Nyckel versionen av Azure AD Kerberos-serverns TGT-krypterings nyckel. Versionen tilldelas när nyckeln skapas. Versionen ökas sedan varje gång nyckeln roteras. Ökningarna baseras på metadata för replikering och troligen större än ett. Den ursprungliga *versionen av versionen* kan till exempel vara *192272*. Första gången som nyckeln roterades kan versionen gå vidare till *212621*. Det är viktigt att kontrol lera att *versionen* för det lokala objektet och *CloudKeyVersion* för moln objekt är desamma. |
-| KeyUpdatedOn | Det datum och den tid som Azure AD Kerberos-servern TGT-krypteringsnyckeln uppdaterades eller skapades. |
-| KeyUpdatedFrom | Den DOMÄNKONTROLLANT där Azure AD Kerberos-servern TGT-krypteringsnyckeln senast uppdaterades. |
-| CloudId | ID från Azure AD-objektet. Måste matcha ovanstående ID. |
+| ID | Det unika ID:t för AD DS DC-objektet. Detta ID kallas ibland för "plats" eller "gren-ID". |
+| DomainDnsName | DNS-domännamnet för Active Directory-domänen. |
+| Datorkonto | Datorkontoobjektet för Azure AD Kerberos Server-objektet (DOMÄNKONTROLLANTEN). |
+| UserAccount | Det inaktiverade användarkontoobjektet som innehåller krypteringsnyckeln för Azure AD Kerberos Server TGT. DN för detta konto är`CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
+| KeyVersion (KeyVersion) | Nyckelversionen av Krypteringsnyckeln för Azure AD Kerberos Server TGT. Versionen tilldelas när nyckeln skapas. Versionen ökas sedan varje gång nyckeln roteras. Ökningarna baseras på replikeringsmetadata och sannolikt större än en. Den ursprungliga *KeyVersion* kan till exempel vara *192272*. Första gången nyckeln roteras kan versionen gå vidare till *212621*. Det viktiga att kontrollera är att *KeyVersion* för det lokala objektet och *CloudKeyVersion* för molnobjektet är desamma. |
+| KeyUpdatedOn | Datum och tid då Azure AD Kerberos Server TGT-krypteringsnyckeln uppdaterades eller skapades. |
+| KeyUpdatedFrån | Domänkontrollanten där Azure AD Kerberos Server TGT-krypteringsnyckeln senast uppdaterades. |
+| CloudId (på) | ID:et från Azure AD-objektet. Måste matcha ID ovan. |
 | CloudDomainDnsName | *DomainDnsName* från Azure AD-objektet. Måste matcha *DomainDnsName* ovan. |
-| CloudKeyVersion | *Versionen* från Azure AD-objektet. Måste stämma överens med ovanstående *version* . |
+| CloudKeyVersion (CloudKeyVersion) | *KeyVersion* från Azure AD-objektet. Måste matcha *KeyVersion* ovan. |
 | CloudKeyUpdatedOn | *KeyUpdatedOn* från Azure AD-objektet. Måste matcha *KeyUpdatedOn* ovan. |
 
-### <a name="rotating-the-azure-ad-kerberos-server-key"></a>Rotera Azure AD Kerberos-Server nyckeln
+### <a name="rotating-the-azure-ad-kerberos-server-key"></a>Rotera Azure AD Kerberos Server-nyckeln
 
-Dina KRBTGT-nycklar för Azure AD Kerberos-Server måste roteras regelbundet. Vi rekommenderar att du följer samma schema som du använder för att rotera alla andra Active Directory-domän-snabbkommandons KRBTGT-nycklar.
+Azure AD Kerberos Server-krypteringskrbtgt-nycklarna bör roteras regelbundet. Vi rekommenderar att du följer samma schema som du använder för att rotera alla andra Krbtgt-nycklar för Active Directory-domänkontrollant.
 
 > [!WARNING]
-> Det finns andra verktyg som kan rotera KRBTGT-nycklarna, men du måste använda de verktyg som beskrivs i det här dokumentet för att rotera KRBTGT-nycklarna för Azure AD Kerberos-servern. Detta säkerställer att nycklarna uppdateras i både lokala AD och Azure AD.
+> Det finns andra verktyg som kan rotera krbtgt-nycklarna, men du måste använda de verktyg som nämns i det här dokumentet för att rotera krbtgt-nycklarna till din Azure AD Kerberos Server. Detta säkerställer att nycklarna uppdateras i både lokala AD och Azure AD.
 
 ```powerShell
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred -RotateServerKey
@@ -138,7 +138,7 @@ Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 ### <a name="removing-the-azure-ad-kerberos-server"></a>Ta bort Azure AD Kerberos-servern
 
-Om du vill återställa scenariot och ta bort Azure AD Kerberos-servern från både lokala Active Directory och Azure Active Directory kör du följande kommando:
+Om du vill återställa scenariot och ta bort Azure AD Kerberos Server från både lokala Active Directory och Azure Active Directory kör du följande kommando:
 
 ```powerShell
 Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
@@ -146,59 +146,59 @@ Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -Domain
 
 ### <a name="multi-forest-and-multi-domain-scenarios"></a>Scenarier med flera skogar och flera domäner
 
-Azure AD Kerberos-serverobjektet representeras i Azure AD som ett *KerberosDomain* -objekt. Varje lokal Active Directory domän representeras som ett enda *KerberosDomain* -objekt i Azure AD.
+Azure AD Kerberos-serverobjektet representeras i Azure AD som ett *KerberosDomain-objekt.* Varje lokal Active Directory-domän representeras som ett enda *KerberosDomain-objekt* i Azure AD.
 
-Din organisation har till exempel en Active Directory skog med två domäner `contoso.com` och `fabrikam.com`. Om du väljer att tillåta Azure AD att utfärda Kerberos-TGT för hela skogen finns det två *KerberosDomain* -objekt i Azure AD. Ett *KerberosDomain* -objekt för `contoso.com`och ett för `fabrikam.com`. Om du har flera Active Directory-skogar finns det ett *KerberosDomain* -objekt för varje domän i varje skog.
+Din organisation har till exempel en Active Directory-skog med två domäner `contoso.com` och `fabrikam.com`. Om du väljer att tillåta Att Azure AD utfärdar Kerberos TGTs för hela skogen finns det två *KerberosDomain-objekt* i Azure AD. Ett *KerberosDomain-objekt* för `contoso.com` `fabrikam.com`och ett för . Om du har flera Active Directory-skogar finns det ett *KerberosDomain-objekt* för varje domän i varje skog.
 
-Du måste köra stegen för att [skapa ett Kerberos-serverobjektet](#create-kerberos-server-object) i varje domän och skog i din organisation som innehåller Azure AD-användare.
+Du måste köra stegen för att [skapa Kerberos-serverobjekt](#create-kerberos-server-object) i varje domän och skog i organisationen som innehåller Azure AD-användare.
 
 ## <a name="known-behavior"></a>Känt beteende
 
-Logga in med FIDO är blockerad om ditt lösen ord har upphört att gälla. Förväntat att användaren återställer sitt lösen ord innan de kan logga in med FIDO.
+Logga in med FIDO blockeras om ditt lösenord har upphört att gälla. Förhoppningen är att användaren ska återställa sitt lösenord innan de kan logga in med FIDO.
 
-## <a name="troubleshooting-and-feedback"></a>Fel sökning och feedback
+## <a name="troubleshooting-and-feedback"></a>Felsökning och feedback
 
-Om du vill dela feedback eller om du har problem med att för hands Visa den här funktionen kan du dela via Windows Feedback Hub-appen med hjälp av följande steg:
+Om du vill dela feedback eller stöta på problem när du förhandsgranskar den här funktionen delar du via Appen Windows Feedback Hub med följande steg:
 
-1. Starta **feedback Hub** och se till att du är inloggad.
+1. Starta **Feedback Hub** och se till att du är inloggad.
 1. Skicka feedback under följande kategorisering:
-   - Kategori: säkerhet och sekretess
-   - Under kategori: FIDO
-1. För att avbilda loggar använder du alternativet för att **återskapa mitt problem**
+   - Kategori: Säkerhet och sekretess
+   - Underkategori: FIDO
+1. Om du vill fånga in loggar använder du alternativet återskapa **mitt problem**
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="does-this-work-in-my-on-premises-environment"></a>Fungerar det här i min lokala miljö?
 
-Den här funktionen fungerar inte för en ren lokal Active Directory Domain Services (AD DS)-miljö.
+Den här funktionen fungerar inte för en ren lokal AD DS-miljö (Active Directory Domain Services).
 
-### <a name="my-organization-requires-two-factor-authentication-to-access-resources-what-can-i-do-to-support-this-requirement"></a>Min organisation kräver två Factor Authentication för att få åtkomst till resurser. Vad kan jag göra för att stödja det här kravet?
+### <a name="my-organization-requires-two-factor-authentication-to-access-resources-what-can-i-do-to-support-this-requirement"></a>Min organisation kräver tvåfaktorsautentisering för att komma åt resurser. Vad kan jag göra för att stödja detta krav?
 
-Säkerhets nycklar kommer i en mängd olika form faktorer. Kontakta enhets tillverkaren för att diskutera hur deras enheter kan aktive ras med en PIN-kod eller bio metrisk som en andra faktor.
+Säkerhetsnycklar finns i en mängd olika formfaktorer. Kontakta enhetstillverkaren av intresse för att diskutera hur deras enheter kan aktiveras med en PIN-kod eller biometrisk som en andra faktor.
 
-### <a name="can-admins-set-up-security-keys"></a>Administratörer kan konfigurera säkerhets nycklar?
+### <a name="can-admins-set-up-security-keys"></a>Kan administratörer ställa in säkerhetsnycklar?
 
-Vi arbetar på den här funktionen för allmän tillgänglighet (GA) för den här funktionen.
+Vi arbetar med den här funktionen för allmän tillgänglighet (GA).
 
-### <a name="where-can-i-go-to-find-compliant-security-keys"></a>Var kan jag hitta kompatibla säkerhets nycklar?
+### <a name="where-can-i-go-to-find-compliant-security-keys"></a>Var kan jag hitta kompatibla säkerhetsnycklar?
 
-[FIDO2 säkerhets nycklar](concept-authentication-passwordless.md#fido2-security-keys)
+[FIDO2-säkerhetsnycklar](concept-authentication-passwordless.md#fido2-security-keys)
 
-### <a name="what-do-i-do-if-i-lose-my-security-key"></a>Vad gör jag om jag tappar bort min säkerhets nyckel?
+### <a name="what-do-i-do-if-i-lose-my-security-key"></a>Vad gör jag om jag förlorar min säkerhetsnyckel?
 
-Du kan ta bort nycklar från Azure Portal genom att gå till sidan **säkerhets information** och ta bort säkerhets nyckeln.
+Du kan ta bort nycklar från Azure-portalen genom att navigera till sidan **Säkerhetsinformation** och ta bort säkerhetsnyckeln.
 
-### <a name="im-not-able-to-use-fido-immediately-after-i-create-a-hybrid-azure-ad-joined-machine"></a>Jag kan inte använda FIDO direkt efter att jag har skapat en hybrid Azure AD-ansluten dator
+### <a name="im-not-able-to-use-fido-immediately-after-i-create-a-hybrid-azure-ad-joined-machine"></a>Jag kan inte använda FIDO direkt efter att jag har skapat en azure AD-ansluten hybridmaskin
 
-Om du installerar en hybrid Azure AD-ansluten dator efter domän anslutning och omstart måste du logga in med ett lösen ord och vänta tills principen har synkroniserats innan du kan använda FIDO för att logga in.
+Om du har installerat en hybrid-Azure AD-ansluten dator måste du efter domänanslutningen och omstarten logga in med ett lösenord och vänta på att principen ska synkroniseras innan du kan använda FIDO för att logga in.
 
-- Kontrol lera din aktuella status genom att skriva `dsregcmd /status` i ett kommando fönster och kontrol lera att både *AzureAdJoined* och *DomainJoined* visar *Ja*.
-- Den här fördröjningen är en känd begränsning för domänanslutna enheter och är inte FIDO.
+- Kontrollera din aktuella `dsregcmd /status` status genom att skriva in i ett kommandofönster och kontrollera att både *AzureAdJoined* och *DomainJoined* visar *JA*.
+- Den här fördröjningen är en känd begränsning för domänanslutna enheter och är inte FIDO-specifik.
 
-### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Jag kan inte hämta SSO till min NTLM-nätverks resurs efter att ha loggat in med FIDO och få en varning om autentiseringsuppgifter
+### <a name="im-unable-to-get-sso-to-my-ntlm-network-resource-after-signing-in-with-fido-and-get-a-credential-prompt"></a>Jag kan inte få SSO till min NTLM-nätverksresurs efter att ha loggat in med FIDO och få en autentiseringsuppgifter prompt
 
-Kontrol lera att det finns tillräckligt många domänkontrollanter som ska svara i tid för att betjäna din resurs förfrågan. Om du vill kontrol lera om du kan se en domänkontrollant som kör funktionen granskar du utdata från `nltest /dsgetdc:contoso /keylist /kdc`.
+Kontrollera att tillräckligt många domänkontrollanter har korrigerats för att svara i tid för att serva din resursbegäran. Om du vill kontrollera om du kan se en domänkontrollant som kör funktionen läser du utdata från `nltest /dsgetdc:contoso /keylist /kdc`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om lösen ords avläsande](concept-authentication-passwordless.md)
+[Läs mer om lösenordslös](concept-authentication-passwordless.md)

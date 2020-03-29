@@ -1,6 +1,6 @@
 ---
-title: Mata in JSON-formaterade data i Azure Datautforskaren
-description: Lär dig mer om hur du matar in JSON-formaterade data i Azure Datautforskaren.
+title: Ingest JSON-formaterade data i Azure Data Explorer
+description: Lär dig mer om hur du intag av JSON-formaterade data i Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: kerend
@@ -8,33 +8,33 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76772338"
 ---
-# <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Hämta JSON-formaterade exempel data till Azure Datautforskaren
+# <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Ingest JSON-formaterade exempeldata i Azure Data Explorer
 
-Den här artikeln visar hur du matar in JSON-formaterade data i en Azure Datautforskaren Database. Du börjar med enkla exempel på RAW och mappad JSON, fortsätter till multi-reported JSON och sedan kan du ta itu med mer komplexa JSON-scheman som innehåller matriser och ord listor.  I exemplen beskrivs hur du matar in JSON-formaterade data med hjälp av KQL (Kusto C#Query Language), eller python. Kusto-frågespråket `ingest` kontroll kommandon körs direkt till motor slut punkten. I produktions scenarier körs inmatningen till den Datahantering tjänsten med hjälp av klient bibliotek eller data anslutningar. Läs [in inmatnings data med hjälp av azure datautforskaren python-biblioteket](/azure/data-explorer/python-ingest-data) och mata [in data med hjälp av Azure DATAUTFORSKAREN .net standard SDK](/azure/data-explorer/net-standard-ingest-data) för att få en genom gång om att mata in data med dessa klient bibliotek.
+Den här artikeln visar hur du inbjuder JSON-formaterade data i en Azure Data Explorer-databas. Du börjar med enkla exempel på råa och mappade JSON, fortsätter till flera fodrade JSON och tar sedan itu med mer komplexa JSON-scheman som innehåller matriser och ordlistor.  Exemplen beskriver processen med att inta JSON-formaterade data med Kusto-frågespråk (KQL), C#eller Python. Kommandona för `ingest` Kusto-frågespråkkontroll körs direkt till motorns slutpunkt. I produktionsscenarier körs inmatning till datahanteringstjänsten med hjälp av klientbibliotek eller dataanslutningar. Läs [Ingest-data med Azure Data Explorer Python-biblioteket](/azure/data-explorer/python-ingest-data) och [Ingest-data med hjälp av Azure Data Explorer .NET Standard SDK](/azure/data-explorer/net-standard-ingest-data) för en genomgång om intag av data med dessa klientbibliotek.
 
 ## <a name="prerequisites"></a>Krav
 
 [Ett testkluster och en databas](create-cluster-database-portal.md)
 
-## <a name="the-json-format"></a>JSON-format
+## <a name="the-json-format"></a>JSON-formatet
 
-Azure Datautforskaren stöder två JSON-fil format:
-* `json`: separerad JSON-fil. Varje rad i indata innehåller exakt en JSON-post.
-* `multijson`: multi-linjerat JSON. Parsern ignorerar rad avgränsare och läser en post från föregående position till slutet av en giltig JSON.
+Azure Data Explorer stöder två JSON-filformat:
+* `json`: Linje separerade JSON. Varje rad i indata har exakt en JSON-post.
+* `multijson`: Multi-fodrad JSON. Tolken ignorerar radavgränsare och läser en post från föregående position till slutet av en giltig JSON.
 
-### <a name="ingest-and-map-json-formatted-data"></a>Mata in och mappa JSON-formaterade data
+### <a name="ingest-and-map-json-formatted-data"></a>Inta och mappa JSON-formaterade data
 
-Inmatning av JSON-formaterade data kräver att du anger *formatet* med inmatnings [egenskapen](/azure/kusto/management/data-ingestion/index#ingestion-properties). Inmatning av JSON-data kräver [mappning](/azure/kusto/management/mappings), som mappar en JSON-datakälla till mål kolumnen. När du matar in data använder du den fördefinierade `jsonMappingReference`-inmatnings egenskapen eller anger egenskapen `jsonMapping`inmatning. Den här artikeln använder egenskapen `jsonMappingReference` inmatning, som är fördefinierad i tabellen som används för inmatning. I exemplen nedan börjar vi genom att mata in JSON-poster som rå data i en enda kolumn tabell. Sedan använder vi mappningen för att mata in varje egenskap till dess mappade kolumn. 
+Inmatning av JSON-formaterade data kräver att du anger *formatet* med [inmatningsegenskapen](/azure/kusto/management/data-ingestion/index#ingestion-properties). Intag av JSON-data kräver [mappning](/azure/kusto/management/mappings), som mappar en JSON-källpost till målkolumnen. När du intag av data använder `jsonMappingReference` du egenskapen för `jsonMapping`fördefinierat inmatning eller anger egenskapen intag. Den här artikeln `jsonMappingReference` använder egenskapen intag, som är fördefinierad i tabellen som används för intag. I exemplen nedan börjar vi med att inta JSON-poster som rådata i en enda kolumntabell. Sedan använder vi mappningen för att inta varje egenskap i den mappade kolumnen. 
 
 ### <a name="simple-json-example"></a>Enkelt JSON-exempel
 
-Följande exempel är en enkel JSON, med en platt struktur. Informationen innehåller temperatur-och fuktighets information som samlas in av flera enheter. Varje post markeras med ett ID och tidsstämpel.
+Följande exempel är en enkel JSON, med en platt struktur. Data har temperatur- och fuktighetsinformation, som samlas in av flera enheter. Varje post är markerad med ett ID och en tidsstämpel.
 
 ```json
 {
@@ -46,19 +46,19 @@ Följande exempel är en enkel JSON, med en platt struktur. Informationen inneh�
 }
 ```
 
-## <a name="ingest-raw-json-records"></a>Mata in rå JSON-poster 
+## <a name="ingest-raw-json-records"></a>Inta råa JSON-poster 
 
-I det här exemplet matar du in JSON-poster som rå data i en enda kolumn tabell. Data manipulationen, med hjälp av frågor och uppdaterings principen utförs efter att data har matats in.
+I det här exemplet invänrer du JSON-poster som rådata i en enda kolumntabell. Datamanipulering, med hjälp av frågor och uppdateringsprincip görs när data har förtärs.
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL (KQL)](#tab/kusto-query-language)
 
-Använd Kusto frågespråk för att mata in data i RAW JSON-format.
+Använd Kusto-frågespråk för att få in data i ett rått JSON-format.
 
-1. Logga in på [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
+1. Logga in [https://dataexplorer.azure.com](https://dataexplorer.azure.com)på .
 
 1. Välj **Lägg till kluster**.
 
-1. I dialog rutan **Lägg till kluster** anger du din kluster-URL i formuläret `https://<ClusterName>.<Region>.kusto.windows.net/`och väljer sedan **Lägg till**.
+1. I dialogrutan **Lägg till kluster** anger du `https://<ClusterName>.<Region>.kusto.windows.net/`kluster-URL:en i formuläret och väljer sedan **Lägg till**.
 
 1. Klistra in följande kommando och välj **Kör** för att skapa tabellen.
 
@@ -66,7 +66,7 @@ Använd Kusto frågespråk för att mata in data i RAW JSON-format.
     .create table RawEvents (Event: dynamic)
     ```
 
-    Den här frågan skapar en tabell med en enda `Event` kolumn av en [dynamisk](/azure/kusto/query/scalar-data-types/dynamic) datatyp.
+    Den här frågan skapar en `Event` tabell med en enda kolumn av en [dynamisk](/azure/kusto/query/scalar-data-types/dynamic) datatyp.
 
 1. Skapa JSON-mappningen.
 
@@ -74,19 +74,19 @@ Använd Kusto frågespråk för att mata in data i RAW JSON-format.
     .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'
     ```
 
-    Detta kommando skapar en mappning och mappar JSON-rotens sökväg `$` till kolumnen `Event`.
+    Det här kommandot skapar en mappning och `$` mappar `Event` JSON-rotsökvägen till kolumnen.
 
-1. Mata in data i `RawEvents`s tabellen.
+1. Inta data i `RawEvents` tabellen.
 
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
-Används C# för att mata in data i RAW JSON-format.
+Använd C# för att förtära data i råt JSON-format.
 
-1. Skapa tabellen `RawEvents`.
+1. Skapa `RawEvents` tabellen.
 
     ```C#
     var kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -128,9 +128,9 @@ Används C# för att mata in data i RAW JSON-format.
 
     kustoClient.ExecuteControlCommand(command);
     ```
-    Detta kommando skapar en mappning och mappar JSON-rotens sökväg `$` till kolumnen `Event`.
+    Det här kommandot skapar en mappning och `$` mappar `Event` JSON-rotsökvägen till kolumnen.
 
-1. Mata in data i `RawEvents`s tabellen.
+1. Inta data i `RawEvents` tabellen.
 
     ```C#
     var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -157,13 +157,13 @@ Används C# för att mata in data i RAW JSON-format.
     ```
 
 > [!NOTE]
-> Data sammanställs enligt [batch-principen](/azure/kusto/concepts/batchingpolicy), vilket resulterar i en fördröjning på några minuter.
+> Data aggregeras enligt [batchprincip](/azure/kusto/concepts/batchingpolicy), vilket resulterar i en svarstid på några minuter.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Använd python för att mata in data i RAW JSON-format.
+Använd Python för att få in data i råt JSON-format.
 
-1. Skapa tabellen `RawEvents`.
+1. Skapa `RawEvents` tabellen.
 
     ```Python
     KUSTO_URI = "https://<ClusterName>.<Region>.kusto.windows.net:443/"
@@ -185,7 +185,7 @@ Använd python för att mata in data i RAW JSON-format.
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Mata in data i `RawEvents`s tabellen.
+1. Inta data i `RawEvents` tabellen.
 
     ```Python
     INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/"
@@ -200,17 +200,17 @@ Använd python för att mata in data i RAW JSON-format.
     ```
 
     > [!NOTE]
-    > Data sammanställs enligt [batch-principen](/azure/kusto/concepts/batchingpolicy), vilket resulterar i en fördröjning på några minuter.
+    > Data aggregeras enligt [batchprincip](/azure/kusto/concepts/batchingpolicy), vilket resulterar i en svarstid på några minuter.
 
 ---
 
-## <a name="ingest-mapped-json-records"></a>Intag av mappade JSON-poster
+## <a name="ingest-mapped-json-records"></a>Inta mappade JSON-poster
 
-I det här exemplet tar du in data för JSON-poster. Varje JSON-egenskap mappas till en enda kolumn i tabellen. 
+I det här exemplet inväntar du JSON-poster data. Varje JSON-egenskap mappas till en enskild kolumn i tabellen. 
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL (KQL)](#tab/kusto-query-language)
 
-1. Skapa en ny tabell med ett liknande schema för JSON-indata. Vi använder den här tabellen för alla följande exempel och inmatnings kommandon. 
+1. Skapa en ny tabell med ett liknande schema som JSON-indata. Vi använder den här tabellen för alla följande exempel och intag av kommandon. 
 
     ```Kusto
     .create table Events (Time: datetime, Device: string, MessageId: string, Temperature: double, Humidity: double)
@@ -222,19 +222,19 @@ I det här exemplet tar du in data för JSON-poster. Varje JSON-egenskap mappas 
     .create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.deviceId"},{"column":"MessageId","path":"$.messageId"},{"column":"Temperature","path":"$.temperature"},{"column":"Humidity","path":"$.humidity"}]'
     ```
 
-    I den här mappningen, som definieras av tabell schemat, kommer `timestamp` poster att matas in i kolumnen `Time` som `datetime` data typer.
+    I den här mappningen, som `timestamp` definieras av tabellschemat, intas `Time` `datetime` posterna till kolumnen som datatyper.
 
-1. Mata in data i `Events`s tabellen.
+1. Inta data i `Events` tabellen.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=FlatEventMapping)
     ```
 
-    Filen "enkel. JSON" har några tabbavgränsade JSON-poster. Formatet är `json`och mappningen som används i kommandot intag är den `FlatEventMapping` du skapade.
+    Filen "simple.json" har några radavgränsade JSON-poster. Formatet är `json`och den mappning som används i `FlatEventMapping` kommandot ingest är den du skapade.
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
-1. Skapa en ny tabell med ett liknande schema för JSON-indata. Vi använder den här tabellen för alla följande exempel och inmatnings kommandon. 
+1. Skapa en ny tabell med ett liknande schema som JSON-indata. Vi använder den här tabellen för alla följande exempel och intag av kommandon. 
 
     ```C#
     var table = "Events";
@@ -273,9 +273,9 @@ I det här exemplet tar du in data för JSON-poster. Varje JSON-egenskap mappas 
     kustoClient.ExecuteControlCommand(command);
     ```
 
-    I den här mappningen, som definieras av tabell schemat, kommer `timestamp` poster att matas in i kolumnen `Time` som `datetime` data typer.    
+    I den här mappningen, som `timestamp` definieras av tabellschemat, intas `Time` `datetime` posterna till kolumnen som datatyper.    
 
-1. Mata in data i `Events`s tabellen.
+1. Inta data i `Events` tabellen.
 
     ```C#
     var blobPath = "https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -289,11 +289,11 @@ I det här exemplet tar du in data för JSON-poster. Varje JSON-egenskap mappas 
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-    Filen "enkel. JSON" har några tabbavgränsade JSON-poster. Formatet är `json`och mappningen som används i kommandot intag är den `FlatEventMapping` du skapade.
+    Filen "simple.json" har några radavgränsade JSON-poster. Formatet är `json`och den mappning som används i `FlatEventMapping` kommandot ingest är den du skapade.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-1. Skapa en ny tabell med ett liknande schema för JSON-indata. Vi använder den här tabellen för alla följande exempel och inmatnings kommandon. 
+1. Skapa en ny tabell med ett liknande schema som JSON-indata. Vi använder den här tabellen för alla följande exempel och intag av kommandon. 
 
     ```Python
     TABLE = "RawEvents"
@@ -311,7 +311,7 @@ I det här exemplet tar du in data för JSON-poster. Varje JSON-egenskap mappas 
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Mata in data i `Events`s tabellen.
+1. Inta data i `Events` tabellen.
 
     ```Python
     BLOB_PATH = 'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
@@ -322,24 +322,24 @@ I det här exemplet tar du in data för JSON-poster. Varje JSON-egenskap mappas 
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-    Filen "enkel. JSON" har några rader åtskilda JSON-poster. Formatet är `json`och mappningen som används i kommandot intag är den `FlatEventMapping` du skapade.    
+    Filen "simple.json" har några rad separerade JSON poster. Formatet är `json`och den mappning som används i `FlatEventMapping` kommandot ingest är den du skapade.    
 ---
 
-## <a name="ingest-multi-lined-json-records"></a>Mata in multi-linjerade JSON-poster
+## <a name="ingest-multi-lined-json-records"></a>Inta flerkantade JSON-skivor
 
-I det här exemplet matar du in multi-linjerade JSON-poster. Varje JSON-egenskap mappas till en enda kolumn i tabellen. Filen ' multilineed. JSON ' har några indragna JSON-poster. Formatet `multijson` talar om för motorn att läsa poster med JSON-strukturen.
+I det här exemplet inväntar du flerkantade JSON-poster. Varje JSON-egenskap mappas till en enskild kolumn i tabellen. Filen "multilined.json" har några indragna JSON-poster. Formatet `multijson` talar om för motorn att läsa poster av JSON-strukturen.
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL (KQL)](#tab/kusto-query-language)
 
-Mata in data i `Events`s tabellen.
+Inta data i `Events` tabellen.
 
 ```Kusto
 .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
 ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
-Mata in data i `Events`s tabellen.
+Inta data i `Events` tabellen.
 
 ```C#
 var tableMapping = "FlatEventMapping";
@@ -354,9 +354,9 @@ var properties =
 ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Mata in data i `Events`s tabellen.
+Inta data i `Events` tabellen.
 
 ```Python
 MAPPING = "FlatEventMapping"
@@ -369,9 +369,9 @@ INGESTION_CLIENT.ingest_from_blob(
 
 ---
 
-## <a name="ingest-json-records-containing-arrays"></a>Mata in JSON-poster som innehåller matriser
+## <a name="ingest-json-records-containing-arrays"></a>Ingest JSON-poster som innehåller matriser
 
-Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matris görs av en [uppdaterings princip](/azure/kusto/management/update-policy). JSON matas in som-är i en mellanliggande tabell. En uppdaterings princip kör en fördefinierad funktion i `RawEvents` tabellen och matar in resultaten till mål tabellen. Vi kommer att mata in data med följande struktur:
+Matrisdatatyper är en ordnad samling värden. Inmatning av en JSON-matris görs av en [uppdateringsprincip](/azure/kusto/management/update-policy). JSON:en förtärs som-är till en mellanliggande tabell. En uppdateringsprincip kör en fördefinierad funktion i `RawEvents` tabellen och definierar om resultaten till måltabellen. Vi kommer att inta data med följande struktur:
 
 ```json
 {
@@ -395,9 +395,9 @@ Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matr
 }
 ```
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL (KQL)](#tab/kusto-query-language)
 
-1. Skapa en `update policy`-funktion som utökar samlingen av `records` så att varje värde i samlingen får en separat rad med hjälp av `mv-expand`-operatorn. Vi använder tabell `RawEvents` som käll tabell och `Events` som mål tabell.
+1. Skapa `update policy` en funktion som utökar samlingen av `records` så att varje värde `mv-expand` i samlingen får en separat rad med hjälp av operatorn. Vi använder tabellen `RawEvents` som källtabell `Events` och måltabell.
 
     ```Kusto
     .create function EventRecordsExpand() {
@@ -412,33 +412,33 @@ Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matr
     }
     ```
 
-1. Schemat som tas emot av funktionen måste matcha mål tabellens schema. Använd `getschema`-operatorn för att granska schemat.
+1. Schemat som tas emot av funktionen måste matcha schemat för måltabellen. Använd `getschema` operatorn för att granska schemat.
 
     ```Kusto
     EventRecordsExpand() | getschema
     ```
 
-1. Lägg till uppdaterings principen i mål tabellen. Den här principen kör frågan automatiskt på alla nyligen inmatade data i tabellen `RawEvents` mellanliggande och matar in resultaten i `Events`s tabellen. Definiera en tom bevarande princip för att undvika att behålla den mellanliggande tabellen.
+1. Lägg till uppdateringsprincipen i måltabellen. Den här principen kör automatiskt frågan på nya intvalda data i den `RawEvents` mellanliggande tabellen och intänder resultaten i `Events` tabellen. Definiera en princip för nolllagring för att undvika att mellanliggande tabell kvarstår.
 
     ```Kusto
     .alter table Events policy update @'[{"Source": "RawEvents", "Query": "EventRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-1. Mata in data i `RawEvents`s tabellen.
+1. Inta data i `RawEvents` tabellen.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
     ```
 
-1. Granska data i `Events`s tabellen.
+1. Granska data `Events` i tabellen.
 
     ```Kusto
     Events
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
-1. Skapa en Update-funktion som utökar samlingen av `records` så att varje värde i samlingen får en separat rad med hjälp av `mv-expand`-operatorn. Vi använder tabell `RawEvents` som käll tabell och `Events` som mål tabell.   
+1. Skapa en uppdateringsfunktion som `records` utökar samlingen av så att varje värde `mv-expand` i samlingen får en separat rad med hjälp av operatorn. Vi använder tabellen `RawEvents` som källtabell `Events` och måltabell.   
 
     ```C#
     var command =
@@ -461,9 +461,9 @@ Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matr
     ```
 
     > [!NOTE]
-    > Schemat som tas emot av funktionen måste matcha mål tabellens schema.
+    > Schemat som tas emot av funktionen måste matcha schemat för måltabellen.
 
-1. Lägg till uppdaterings principen i mål tabellen. Den här principen kör frågan automatiskt på alla nyligen inmatade data i `RawEvents` mellanliggande tabell och matar in resultatet i `Events`s tabellen. Definiera en tom bevarande princip för att undvika att behålla den mellanliggande tabellen.
+1. Lägg till uppdateringsprincipen i måltabellen. Den här principen kör automatiskt frågan på nya intvalda data i den `RawEvents` mellanliggande tabellen och intänder resultaten i `Events` tabellen. Definiera en princip för nolllagring för att undvika att mellanliggande tabell kvarstår.
 
     ```C#
     var command =
@@ -472,7 +472,7 @@ Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matr
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Mata in data i `RawEvents`s tabellen.
+1. Inta data i `RawEvents` tabellen.
 
     ```C#
     var table = "RawEvents";
@@ -488,11 +488,11 @@ Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matr
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
     
-1. Granska data i `Events`s tabellen.
+1. Granska data `Events` i tabellen.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-1. Skapa en Update-funktion som utökar samlingen av `records` så att varje värde i samlingen får en separat rad med hjälp av `mv-expand`-operatorn. Vi använder tabell `RawEvents` som käll tabell och `Events` som mål tabell.   
+1. Skapa en uppdateringsfunktion som `records` utökar samlingen av så att varje värde `mv-expand` i samlingen får en separat rad med hjälp av operatorn. Vi använder tabellen `RawEvents` som källtabell `Events` och måltabell.   
 
     ```Python
     CREATE_FUNCTION_COMMAND = 
@@ -511,9 +511,9 @@ Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matr
     ```
 
     > [!NOTE]
-    > Schemat som tas emot av funktionen måste matcha schemat för mål tabellen.
+    > Schemat som tas emot av funktionen måste matcha schemat för måltabellen.
 
-1. Lägg till uppdaterings principen i mål tabellen. Den här principen kör frågan automatiskt på alla nyligen inmatade data i `RawEvents` mellanliggande tabell och matar in resultatet i `Events`s tabellen. Definiera en tom bevarande princip för att undvika att behålla den mellanliggande tabellen.
+1. Lägg till uppdateringsprincipen i måltabellen. Den här principen kör automatiskt frågan på nya intvalda data i den `RawEvents` mellanliggande tabellen och intänder resultaten i `Events` tabellen. Definiera en princip för nolllagring för att undvika att mellanliggande tabell kvarstår.
 
     ```Python
     CREATE_UPDATE_POLICY_COMMAND = 
@@ -522,7 +522,7 @@ Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matr
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Mata in data i `RawEvents`s tabellen.
+1. Inta data i `RawEvents` tabellen.
 
     ```Python
     TABLE = "RawEvents"
@@ -534,13 +534,13 @@ Mat ris data typer är en ordnad samling av värden. Inmatningen av en JSON-matr
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-1. Granska data i `Events`s tabellen.
+1. Granska data `Events` i tabellen.
 
 ---    
 
-## <a name="ingest-json-records-containing-dictionaries"></a>Mata in JSON-poster som innehåller ord listor
+## <a name="ingest-json-records-containing-dictionaries"></a>Ingest JSON-poster som innehåller ordlistor
 
-Dictionary Structured JSON innehåller nyckel/värde-par. JSON-poster genomgår inmatnings mappning med ett logiskt uttryck i `JsonPath`. Du kan mata in data med följande struktur:
+Ordlistestrukturerad JSON innehåller nyckelvärdespar. Json-poster genomgår inmatningsmappning `JsonPath`med logiskt uttryck i . Du kan få in data med följande struktur:
 
 ```json
 {
@@ -570,7 +570,7 @@ Dictionary Structured JSON innehåller nyckel/värde-par. JSON-poster genomgår 
 }
 ```
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL (KQL)](#tab/kusto-query-language)
 
 1. Skapa en JSON-mappning.
 
@@ -578,13 +578,13 @@ Dictionary Structured JSON innehåller nyckel/värde-par. JSON-poster genomgår 
     .create table Events ingestion json mapping 'KeyValueEventMapping' '[{"column":"Time","path":"$.event[?(@.Key == 'timestamp')]"},{"column":"Device","path":"$.event[?(@.Key == 'deviceId')]"},{"column":"MessageId","path":"$.event[?(@.Key == 'messageId')]"},{"column":"Temperature","path":"$.event[?(@.Key == 'temperature')]"},{"column":"Humidity","path":"$.event[?(@.Key == 'humidity')]"}]'
     ```
 
-1. Mata in data i `Events`s tabellen.
+1. Inta data i `Events` tabellen.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C#](#tab/c-sharp)
 
 1. Skapa en JSON-mappning.
 
@@ -607,7 +607,7 @@ Dictionary Structured JSON innehåller nyckel/värde-par. JSON-poster genomgår 
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Mata in data i `Events`s tabellen.
+1. Inta data i `Events` tabellen.
 
     ```C#
     var blobPath = "https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -621,7 +621,7 @@ Dictionary Structured JSON innehåller nyckel/värde-par. JSON-poster genomgår 
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Skapa en JSON-mappning.
 
@@ -632,7 +632,7 @@ Dictionary Structured JSON innehåller nyckel/värde-par. JSON-poster genomgår 
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Mata in data i `Events`s tabellen.
+1. Inta data i `Events` tabellen.
 
      ```Python
     MAPPING = "KeyValueEventMapping"
@@ -647,5 +647,5 @@ Dictionary Structured JSON innehåller nyckel/värde-par. JSON-poster genomgår 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över data inmatning](ingest-data-overview.md)
+* [Översikt över datainmatning](ingest-data-overview.md)
 * [Skriva frågor](write-queries.md)

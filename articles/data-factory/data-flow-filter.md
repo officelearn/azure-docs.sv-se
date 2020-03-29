@@ -1,6 +1,6 @@
 ---
-title: Filter omvandling i data flöde för mappning
-description: Filtrera bort rader med hjälp av filter omvandlingen i Azure Data Factory mappa data flöde
+title: Filtrera omvandling vid mappning av dataflöde
+description: Filtrera bort rader med hjälp av filteromvandlingen i Azure Data Factory-mappningsdataflödet
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
 ms.openlocfilehash: 84b935d1646ea4f13d5926fc68797fd8efd03dea
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930356"
 ---
-# <a name="filter-transformation-in-mapping-data-flow"></a>Filter omvandling i data flöde för mappning
+# <a name="filter-transformation-in-mapping-data-flow"></a>Filtrera omvandling vid mappning av dataflöde
 
-Filtret Transforms tillåter rad filtrering baserat på ett villkor. Utdataströmmen innehåller alla rader som matchar filtrerings villkoret. Filter omvandlingen liknar en WHERE-sats i SQL.
+Filtertransformeringar tillåter radfiltrering baserat på ett villkor. Utdataströmmen innehåller alla rader som matchar filtreringsvillkoret. Filteromvandlingen liknar en WHERE-sats i SQL.
 
 ## <a name="configuration"></a>Konfiguration
 
-Använd data flödets uttrycks verktyg för att ange ett uttryck för filter villkoret. Öppna uttrycks verktyget genom att klicka på den blå rutan. Filter villkoret måste vara av typen Boolean. Mer information om hur du skapar ett uttryck finns i [uttrycks verktygets](concepts-data-flow-expression-builder.md) dokumentation.
+Använd dataflödesuttrycksverktyget för att ange ett uttryck för filtervillkoret. Om du vill öppna uttrycksverktyget klickar du på den blå rutan. Filtervillkoret måste vara av typen boolesk. Mer information om hur du skapar ett uttryck finns i dokumentationen till [uttrycksverktyget.](concepts-data-flow-expression-builder.md)
 
-![Filtrera omvandling](media/data-flow/filter1.png "Filtrera omvandling")
+![Filtrera omformning](media/data-flow/filter1.png "Filtrera omformning")
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 
@@ -38,13 +38,13 @@ Använd data flödets uttrycks verktyg för att ange ett uttryck för filter vil
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en filter omvandling med namnet `FilterBefore1960` som tar i inkommande data ström `CleanData`. Filter villkoret är uttrycket `year <= 1960`.
+Exemplet nedan är en `FilterBefore1960` filteromvandling `CleanData`som visas som tar i inkommande ström . Filtervillkoret är `year <= 1960`uttrycket .
 
-I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
+I Data Factory UX ser den här omvandlingen ut som bilden nedan:
 
-![Filtrera omvandling](media/data-flow/filter1.png "Filtrera omvandling")
+![Filtrera omformning](media/data-flow/filter1.png "Filtrera omformning")
 
-Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
+Dataflödesskriptet för den här omvandlingen finns i kodavsnittet nedan:
 
 ```
 CleanData
@@ -56,4 +56,4 @@ CleanData
 
 ## <a name="next-steps"></a>Nästa steg
 
-Filtrera ut kolumner med [Select-omvandlingen](data-flow-select.md)
+Filtrera bort kolumner med [markeringsomvandlingen](data-flow-select.md)

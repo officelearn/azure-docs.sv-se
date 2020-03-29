@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Connect: Felsök sömlös enkel inloggning | Microsoft Docs'
-description: I det här avsnittet beskrivs hur du felsöker Azure Active Directory sömlös enkel inloggning
+title: 'Azure Active Directory Connect: Felsöka sömlös enkel inloggning | Microsoft-dokument'
+description: I det här avsnittet beskrivs felsÃ¶kning av Azure Active Directory Seamless Single Sign-On
 services: active-directory
 author: billmath
 ms.reviewer: swkrish
@@ -13,84 +13,84 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1293bbf6d2966caf7e6e095c1721e29890a57b76
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 759748124893a8f906a4bc336f835546202b0b62
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025796"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049496"
 ---
-# <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Azure Active Directory sömlös enkel inloggning
+# <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Felsöka Sömlös enkel inloggning i Azure Active Directory
 
-Den här artikeln hjälper dig att hitta felsöknings information om vanliga problem som rör Azure Active Directory (sömlös enkel inloggning i Azure AD).
+Den här artikeln hjälper dig att hitta felsökningsinformation om vanliga problem med Azure Active Directory (Azure AD) Seamless Single Sign-On (Seamless SSO).
 
 ## <a name="known-issues"></a>Kända problem
 
-- I några fall kan det ta upp till 30 minuter att aktivera sömlös SSO.
-- Om du inaktiverar och återaktiverar sömlös SSO på din klient, kommer användarna inte att få enkel inloggning till sina cachelagrade Kerberos-biljetter, vanligt vis giltiga i 10 timmar, ha upphört att gälla.
-- Om sömlös SSO lyckas har användaren inte möjlighet att välja **Behåll mig inloggad**. På grund av det här problemet fungerar inte [SharePoint-och OneDrive-mappnings scenarier](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) .
-- Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730. xxxx och senare stöds med ett icke-interaktivt flöde. Andra versioner stöds inte. i dessa versioner anger användarna sina användar namn, men inte lösen ord, för inloggning. För OneDrive måste du aktivera [funktionen OneDrive-tyst konfiguration](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för att få en tyst inloggning.
-- Sömlös SSO fungerar inte i privat bläddringsläge på Firefox.
+- I några fall kan det ta upp till 30 minuter att aktivera Sömlös SSO.
+- Om du inaktiverar och återaktiverar Sömlös SSO på din klientorganisation får användarna inte den enda inloggningsupplevelsen förrän deras cachelagrade Kerberos-biljetter, som vanligtvis är giltiga i 10 timmar, har gått ut.
+- Om Seamless SSO lyckas har användaren inte möjlighet att välja **Håll mig inloggad**. På grund av det här beteendet fungerar inte [SharePoint- och OneDrive-mappningsscenarier.](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec)
+- Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versionerna 16.0.8730.xxxx och högre stöds med hjälp av ett icke-interaktivt flöde. Andra versioner stöds inte. på dessa versioner kommer användarna att ange sina användarnamn, men inte lösenord, för att logga in. För OneDrive måste du aktivera [OneDrives tysta konfigurationsfunktion](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för en tyst inloggningsupplevelse.
+- Sömlös SSO fungerar inte i privat surfningsläge på Firefox.
 - Sömlös SSO fungerar inte i Internet Explorer när utökat skyddat läge är aktiverat.
-- Sömlös enkel inloggning fungerar inte i mobila webbläsare på iOS och Android.
-- Om en användare är en del av för många grupper i Active Directory kommer användarens Kerberos-biljett troligen att vara för stor för att kunna bearbetas, och detta leder till att sömlös SSO Miss fungerar. Azure AD HTTPS-begäranden kan ha huvuden med en maximal storlek på 50 KB; Kerberos-biljetter måste vara mindre än den gräns som krävs för att hantera andra Azure AD-artefakter (vanligt vis 2-5 KB) som cookies. Vi rekommenderar att du minskar användarens grupp medlemskap och försöker igen.
-- Om du synkroniserar 30 eller fler Active Directory skogar kan du inte aktivera sömlös SSO via Azure AD Connect. Som en lösning kan du [aktivera funktionen manuellt](#manual-reset-of-the-feature) på klienten.
-- Om du lägger till Azure AD-tjänstens URL (https://autologon.microsoftazuread-sso.com) till zonen betrodda platser i stället för zonen Lokalt intranät *blockeras användare från att logga in*.
-- Sömlös SSO stöder krypterings typerna AES256_HMAC_SHA1, AES128_HMAC_SHA1 och RC4_HMAC_MD5 för Kerberos. Det rekommenderas att krypterings typen för AzureADSSOAcc $-kontot är inställd på AES256_HMAC_SHA1, eller en av AES-typerna vs. RC4 för ytterligare säkerhet. Krypterings typen lagras i attributet msDS-SupportedEncryptionTypes för kontot i din Active Directory.  Om krypterings typen för AzureADSSOAcc $-kontot har angetts till RC4_HMAC_MD5 och du vill ändra den till en av AES-krypterings typerna, se till att du först rullar över Kerberos-dekrypterings nyckeln för AzureADSSOAcc $-kontot enligt beskrivningen i [dokumentet vanliga frågor och svar ](how-to-connect-sso-faq.md)under den aktuella frågan sker annars sömlös enkel inloggning.
+- Sömlös SSO fungerar inte på mobila webbläsare på iOS och Android.
+- Om en användare ingår i för många grupper i Active Directory är användarens Kerberos-biljett troligen för stor för att bearbetas, vilket gör att Sömlös SSO misslyckas. Azure AD HTTPS-begäranden kan ha rubriker med en maximal storlek på 50 KB. Kerberos-biljetter måste vara mindre än den gränsen för att rymma andra Azure AD-artefakter (vanligtvis 2 – 5 KB) till exempel cookies. Vår rekommendation är att minska användarens gruppmedlemskap och försöka igen.
+- Om du synkroniserar 30 eller fler Active Directory-skogar kan du inte aktivera Sömlös SSO via Azure AD Connect. Som en lösning kan du [manuellt aktivera](#manual-reset-of-the-feature) funktionen på din klient.
+- Om du lägger`https://autologon.microsoftazuread-sso.com`till Azure AD-tjänst-URLn ( ) i zonen Betrodda platser i stället för zonen Lokalt intranät *blockeras användare från att logga in*.
+- Sömlös SSO stöder AES256_HMAC_SHA1, AES128_HMAC_SHA1 och RC4_HMAC_MD5 krypteringstyper för Kerberos. Vi rekommenderar att krypteringstypen för AzureADSSOAcc$-kontot är inställd på AES256_HMAC_SHA1, eller någon av AES-typerna jämfört med RC4 för ökad säkerhet. Krypteringstypen lagras på attributet msDS-SupportedEncryptionTypes för kontot i Active Directory.  Om krypteringstypen För AzureADSSOAcc$-kontot är inställd på RC4_HMAC_MD5 och du vill ändra den till en av AES-krypteringstyperna, se till att du först rullar över Kerberos dekrypteringsnyckeln för AzureADSSOAcc$-kontot som förklaras i [FAQ-dokumentet](how-to-connect-sso-faq.md) under relevant fråga, annars kommer Sömlös SSO inte att hända.
 
-## <a name="check-status-of-feature"></a>Kontrol lera status för funktionen
+## <a name="check-status-of-feature"></a>Kontrollera funktionens status
 
-Se till att den sömlösa SSO-funktionen fortfarande är **aktive rad** på din klient. Du kan kontrol lera statusen genom att gå till **Azure AD Connects** fönstret i [Azure Active Directory administrations Center](https://aad.portal.azure.com/).
+Kontrollera att seamless SSO-funktionen fortfarande är **aktiverad** på din klientorganisation. Du kan kontrollera statusen genom att gå till azure **AD Connect-fönstret** i [Administrationscentret](https://aad.portal.azure.com/)för Azure Active Directory .
 
-![Azure Active Directory administrations Center: Azure AD Connects fönster](./media/tshoot-connect-sso/sso10.png)
+![Administrationscenter för Azure Active Directory: Azure AD Connect-fönstret](./media/tshoot-connect-sso/sso10.png)
 
-Klicka här för att se alla AD-skogar som har Aktiver ATS för sömlös SSO.
+Klicka vidare för att se alla AD-skogar som har aktiverats för Sömlös SSO.
 
-![Azure Active Directory administrations Center: Sömlöst SSO-fönster](./media/tshoot-connect-sso/sso13.png)
+![Administrationscenter för Azure Active Directory: Sömlös SSO-fönster](./media/tshoot-connect-sso/sso13.png)
 
-## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Orsaker till inloggnings försök i Azure Active Directory administrations Center (behöver en Premium-licens)
+## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Orsaker till inloggningsfel i Administrationscentret för Azure Active Directory (behöver en Premium-licens)
 
-Om din klient har en Azure AD Premium licens som är kopplad till den, kan du också titta på [inloggnings aktivitets rapporten](../reports-monitoring/concept-sign-ins.md) i [Azure Active Directory administrations centret](https://aad.portal.azure.com/).
+Om din klient har en Azure AD Premium-licens kopplad till sig kan du också titta på [inloggningsaktivitetsrapporten i](../reports-monitoring/concept-sign-ins.md) [Administrationscentret](https://aad.portal.azure.com/)för Azure Active Directory .
 
-![Azure Active Directory administrations Center: Rapport över inloggningar](./media/tshoot-connect-sso/sso9.png)
+![Administrationscenter för Azure Active Directory: Rapporten Inloggningar](./media/tshoot-connect-sso/sso9.png)
 
-Bläddra till **Azure Active Directory** > -**inloggningar** i [Azure Active Directory administrations centret](https://aad.portal.azure.com/)och välj en speciell användares inloggnings aktivitet. Leta efter fältet **fel kod för inloggning** . Mappa värdet i fältet till en felorsak och lösning med hjälp av följande tabell:
+Bläddra till Azure Active > **Directory-inloggningar** i [Administrationscentret](https://aad.portal.azure.com/)för Azure Active Directory och välj sedan en viss användares inloggningsaktivitet. **Azure Active Directory** Leta efter fältet **INLOGGNINGSFELKOD.** Mappa värdet för det fältet till en felorsak och lösning med hjälp av följande tabell:
 
-|Felkod för inloggning|Orsak till inloggnings försök|Lösning
+|Felkod för inloggning|Orsaken till inloggningsfel|Lösning
 | --- | --- | ---
 | 81001 | Användarens Kerberos-biljett är för stor. | Minska användarens gruppmedlemskap och försök igen.
-| 81002 | Det gick inte att verifiera användarens Kerberos-biljett. | Se [Check lista för fel sökning](#troubleshooting-checklist).
-| 81003 | Det gick inte att verifiera användarens Kerberos-biljett. | Se [Check lista för fel sökning](#troubleshooting-checklist).
-| 81004 | Kerberos-autentiseringsförsök misslyckades. | Se [Check lista för fel sökning](#troubleshooting-checklist).
-| 81008 | Det gick inte att verifiera användarens Kerberos-biljett. | Se [Check lista för fel sökning](#troubleshooting-checklist).
-| 81009 | Det gick inte att verifiera användarens Kerberos-biljett. | Se [Check lista för fel sökning](#troubleshooting-checklist).
-| 81010 | Sömlös SSO misslyckades eftersom användarens Kerberos-biljett har upphört att gälla eller är ogiltig. | Användaren måste logga in från en domänansluten enhet i företags nätverket.
-| 81011 | Det gick inte att hitta användarobjektet baserat på informationen i användarens Kerberos-biljett. | Använd Azure AD Connect för att synkronisera användarens information i Azure AD.
-| 81012 | Användaren som försöker logga in på Azure AD skiljer sig från den användare som är inloggad på enheten. | Användaren måste logga in från en annan enhet.
-| 81013 | Det gick inte att hitta användarobjektet baserat på informationen i användarens Kerberos-biljett. |Använd Azure AD Connect för att synkronisera användarens information i Azure AD. 
+| 81002 | Det gick inte att validera användarens Kerberos-biljett. | Se [felsökningschecklistan](#troubleshooting-checklist).
+| 81003 | Det gick inte att validera användarens Kerberos-biljett. | Se [felsökningschecklistan](#troubleshooting-checklist).
+| 81004 | Kerberos-autentiseringsförsök misslyckades. | Se [felsökningschecklistan](#troubleshooting-checklist).
+| 81008 | Det gick inte att validera användarens Kerberos-biljett. | Se [felsökningschecklistan](#troubleshooting-checklist).
+| 81009 | Det gick inte att validera användarens Kerberos-biljett. | Se [felsökningschecklistan](#troubleshooting-checklist).
+| 81010 | Sömlös SSO misslyckades eftersom användarens Kerberos-biljett har upphört att gälla eller är ogiltig. | Användaren måste logga in från en domänansluten enhet i företagets nätverk.
+| 81011 | Det gick inte att hitta användarobjektet baserat på informationen i användarens Kerberos-biljett. | Använd Azure AD Connect för att synkronisera användarens information till Azure AD.
+| 81012 | Användaren som försöker logga in på Azure AD skiljer sig från användaren som är inloggad på enheten. | Användaren måste logga in från en annan enhet.
+| 81013 | Det gick inte att hitta användarobjektet baserat på informationen i användarens Kerberos-biljett. |Använd Azure AD Connect för att synkronisera användarens information till Azure AD. 
 
-## <a name="troubleshooting-checklist"></a>Fel söknings check lista
+## <a name="troubleshooting-checklist"></a>Checklista för felsökning
 
-Använd följande check lista för att felsöka sömlösa SSO-problem:
+Använd följande checklista för att felsöka sömlösa SSO-problem:
 
-- Se till att funktionen sömlös SSO är aktive rad i Azure AD Connect. Om du inte kan aktivera funktionen (till exempel på grund av en blockerad port) bör du kontrol lera att du har alla [krav](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) på plats.
-- Om du har aktiverat både [Azure AD Join](../active-directory-azureadjoin-overview.md) och sömlös SSO på din klient organisation kontrollerar du att problemet inte är med Azure AD Join. SSO från Azure AD Join prioriteras över sömlös SSO om enheten både är registrerad med Azure AD och domänanslutna. Med SSO från Azure AD Join ser användaren en inloggnings panel som säger "ansluten till Windows".
-- Se till att Azure AD-URL: en (https://autologon.microsoftazuread-sso.com) är en del av användarens intranät zon inställningar.
-- Se till att företags enheten är ansluten till Active Directorys domänen. Enheten behöver _inte_ vara [Azure AD-ansluten](../active-directory-azureadjoin-overview.md) för att sömlös inloggning ska fungera.
-- Se till att användaren är inloggad på enheten via ett Active Directory domän konto.
-- Se till att användarens konto är från en Active Directory skog där sömlös SSO har kon figurer ATS.
-- Kontrol lera att enheten är ansluten till företags nätverket.
-- Kontrol lera att enhetens tid är synkroniserad med tiden i både Active Directory och domän kontrol Lanterna och att de är inom fem minuter från varandra.
-- Se till att dator kontot `AZUREADSSOACC` finns och är aktiverat i varje AD-skog som du vill ha sömlös SSO aktiverat. Om dator kontot har tagits bort eller saknas kan du skapa dem på nytt med [PowerShell-cmdletar](#manual-reset-of-the-feature) .
-- Lista de befintliga Kerberos-biljetterna på enheten med kommandot `klist` från en kommando tolk. Se till att det finns biljetter som utfärdats för dator kontot `AZUREADSSOACC`. Användarens Kerberos-biljetter är vanligt vis giltiga i 10 timmar. Du kan ha olika inställningar i Active Directory.
-- Om du har inaktiverat och återaktiverat sömlös SSO på klienten, kommer användarna inte att få enkel inloggning till sina cachelagrade Kerberos-biljetter.
-- Rensa befintliga Kerberos-biljetter från enheten med kommandot `klist purge` och försök igen.
-- Om du vill ta reda på om det finns JavaScript-relaterade problem granskar du konsolens loggar i webbläsaren (under **utvecklarverktyg**).
-- Granska domänkontrollantens [loggar](#domain-controller-logs).
+- Kontrollera att seamless SSO-funktionen är aktiverad i Azure AD Connect. Om du inte kan aktivera funktionen (till exempel på grund av en blockerad port) kontrollerar du att du har alla [förutsättningar](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) på plats.
+- Om du har aktiverat både [Azure AD Join](../active-directory-azureadjoin-overview.md) och Seamless SSO på din klientorganisation, se till att problemet inte är med Azure AD Join. SSO från Azure AD Join har företräde framför Sömlös SSO om enheten är både registrerad med Azure AD och domänansluten. Med SSO från Azure AD Join ser användaren en inloggningspanel med namnet "Ansluten till Windows".
+- Kontrollera att Azure AD-URL:en (`https://autologon.microsoftazuread-sso.com`) är en del av användarens intranätzonsinställningar.
+- Kontrollera att företagsenheten är ansluten till Active Directory-domänen. Enheten behöver _inte_ vara [Azure AD-ansluten](../active-directory-azureadjoin-overview.md) för sömlös SSO för att fungera.
+- Kontrollera att användaren är inloggad på enheten via ett Active Directory-domänkonto.
+- Kontrollera att användarens konto kommer från en Active Directory-skog där Sömlös SSO har konfigurerats.
+- Kontrollera att enheten är ansluten till företagsnätverket.
+- Kontrollera att enhetens tid synkroniseras med tiden i både Active Directory och domänkontrollanterna och att de är inom fem minuter från varandra.
+- Kontrollera att `AZUREADSSOACC` datorkontot finns och är aktiverat i varje AD-skog som du vill ha Sömlös SSO aktiverat. Om datorkontot har tagits bort eller saknas kan du använda [PowerShell-cmdletar](#manual-reset-of-the-feature) för att återskapa dem.
+- Lista befintliga Kerberos-biljetter på enheten `klist` med kommandot från en kommandotolk. Se till att de `AZUREADSSOACC` biljetter som utfärdats för datorkontot finns. Användarnas Kerberos-biljetter är vanligtvis giltiga i 10 timmar. Du kan ha olika inställningar i Active Directory.
+- Om du har inaktiverat och återaktiverat Seamless SSO på din klientorganisation får användarna inte den enda inloggningsupplevelsen förrän deras cachelagrade Kerberos-biljetter har gått ut.
+- Rensa befintliga Kerberos-biljetter från `klist purge` enheten med kommandot och försök igen.
+- Ta reda på om det finns JavaScript-relaterade problem genom att läsa webbläsarens konsolloggar (under **Utvecklarverktyg).**
+- Granska [domänkontrollantloggarna](#domain-controller-logs).
 
 ### <a name="domain-controller-logs"></a>Loggar för domänkontrollant
 
-Om du aktiverar lyckad granskning på domänkontrollanten registreras en säkerhets post i händelse loggen varje gång en användare loggar in via sömlös SSO. Du kan hitta dessa säkerhets händelser med hjälp av följande fråga. (Leta efter händelse **4769** som är associerad med dator kontot **AzureADSSOAcc $** .)
+Om du aktiverar granskning av lyckade försök på domänkontrollanten registreras en säkerhetspost i händelseloggen varje gång en användare loggar in via Sömlös SSO. Du hittar dessa säkerhetshändelser med hjälp av följande fråga. (Leta efter händelse **4769** som är associerad med datorkontot **AzureADSSOAcc$**.)
 
 ```
     <QueryList>
@@ -102,44 +102,44 @@ Om du aktiverar lyckad granskning på domänkontrollanten registreras en säkerh
 
 ## <a name="manual-reset-of-the-feature"></a>Manuell återställning av funktionen
 
-Om fel sökningen inte hjälper kan du manuellt återställa funktionen på klienten. Följ de här stegen på den lokala server där du kör Azure AD Connect.
+Om felsökningen inte hjälpte kan du återställa funktionen manuellt på din klient. Följ dessa steg på den lokala servern där du kör Azure AD Connect.
 
-### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Steg 1: Importera sömlös SSO PowerShell-modul
+### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Steg 1: Importera seamless SSO PowerShell-modulen
 
-1. Börja med att ladda ned och installera [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Hämta och installera [först Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
 2. Bläddra till mappen `%programfiles%\Microsoft Azure Active Directory Connect`.
-3. Importera den sömlös SSO PowerShell-modulen med hjälp av följande kommando: `Import-Module .\AzureADSSO.psd1`.
+3. Importera seamless SSO PowerShell-modulen `Import-Module .\AzureADSSO.psd1`med det här kommandot: .
 
-### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Steg 2: Hämta listan över Active Directory skogar där sömlös enkel inloggning har Aktiver ATS
+### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Steg 2: Få en lista över Active Directory-skogar där Sömlös SSO har aktiverats
 
-1. Kör PowerShell som administratör. I PowerShell anropar du `New-AzureADSSOAuthenticationContext`. När du uppmanas till det anger du klient organisationens autentiseringsuppgifter för global administratör.
-2. Anropa `Get-AzureADSSOStatus`. Med det här kommandot får du en lista över Active Directory skogar (se listan "domäner") där funktionen har Aktiver ATS.
+1. Kör PowerShell som administratör. Ring `New-AzureADSSOAuthenticationContext`i PowerShell. Ange klientens globala administratörsautentiseringsuppgifter när du uppmanas att göra det.
+2. Ring. `Get-AzureADSSOStatus` Det här kommandot ger dig en lista över Active Directory-skogar (titta på listan "Domäner" som den här funktionen har aktiverats på.
 
-### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Steg 3: Inaktivera sömlös SSO för varje Active Directory skog där du har konfigurerat funktionen
+### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Steg 3: Inaktivera sömlös SSO för varje Active Directory-skog där du har konfigurerat funktionen
 
-1. Anropa `$creds = Get-Credential`. När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda Active Directory skogen.
-
-   > [!NOTE]
-   >Användar namnet för domän administratörs behörighet måste anges i formatet SAM-kontonamn (contoso\johndoe eller contoso. com\johndoe). Vi använder domän delen av användar namnet för att hitta domänkontrollanten i domän administratören med hjälp av DNS.
-
-   >[!NOTE]
-   >Det domän administratörs konto som används får inte vara medlem i gruppen för skyddade användare. I så fall kommer åtgärden att Miss Miss läge.
-
-2. Anropa `Disable-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot tar bort det `AZUREADSSOACC` dator kontot från den lokala domänkontrollanten för den här speciella Active Directory skogen.
-3. Upprepa föregående steg för varje Active Directory skog där du har konfigurerat funktionen.
-
-### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Steg 4: Aktivera sömlös SSO för varje Active Directory skog
-
-1. Anropa `Enable-AzureADSSOForest`. När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda Active Directory skogen.
+1. Ring. `$creds = Get-Credential` Ange domänadministratörsuppgifter för den avsedda Active Directory-skogen när du uppmanas att göra det.
 
    > [!NOTE]
-   >Användar namnet för domän administratörs behörighet måste anges i formatet SAM-kontonamn (contoso\johndoe eller contoso. com\johndoe). Vi använder domän delen av användar namnet för att hitta domänkontrollanten i domän administratören med hjälp av DNS.
+   >Användarnamnet för domänadministratörsuppgifter måste anges i namnformatet för SIM-konton (contoso\johndoe eller contoso.com\johndoe). Vi använder domändelen av användarnamnet för att hitta domänkontrollanten för domänadministratören med HJÄLP AV DNS.
 
    >[!NOTE]
-   >Det domän administratörs konto som används får inte vara medlem i gruppen för skyddade användare. I så fall kommer åtgärden att Miss Miss läge.
+   >Det domänadministratörskonto som används får inte vara medlem i gruppen Skyddade användare. Om så är fallet misslyckas åtgärden.
 
-2. Upprepa föregående steg för varje Active Directory skog där du vill ställa in funktionen.
+2. Ring. `Disable-AzureADSSOForest -OnPremCredentials $creds` Det här kommandot `AZUREADSSOACC` tar bort datorkontot från den lokala domänkontrollanten för den här specifika Active Directory-skogen.
+3. Upprepa föregående steg för varje Active Directory-skog där du har konfigurerat funktionen.
 
-### <a name="step-5-enable-the-feature-on-your-tenant"></a>Steg 5. Aktivera funktionen på din klient
+### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Steg 4: Aktivera sömlös SSO för varje Active Directory-skog
 
-Ring `Enable-AzureADSSO -Enable $true` om du vill aktivera funktionen på klienten.
+1. Ring. `Enable-AzureADSSOForest` Ange domänadministratörsuppgifter för den avsedda Active Directory-skogen när du uppmanas att göra det.
+
+   > [!NOTE]
+   >Användarnamnet för domänadministratörsuppgifter måste anges i namnformatet för SIM-konton (contoso\johndoe eller contoso.com\johndoe). Vi använder domändelen av användarnamnet för att hitta domänkontrollanten för domänadministratören med HJÄLP AV DNS.
+
+   >[!NOTE]
+   >Det domänadministratörskonto som används får inte vara medlem i gruppen Skyddade användare. Om så är fallet misslyckas åtgärden.
+
+2. Upprepa föregående steg för varje Active Directory-skog där du vill konfigurera funktionen.
+
+### <a name="step-5-enable-the-feature-on-your-tenant"></a>Steg 5. Aktivera funktionen på din klientorganisation
+
+Om du vill aktivera funktionen `Enable-AzureADSSO -Enable $true`på din klient ringer du .

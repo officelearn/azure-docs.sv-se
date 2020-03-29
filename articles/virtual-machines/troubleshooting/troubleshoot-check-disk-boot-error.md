@@ -1,6 +1,6 @@
 ---
-title: Kontrollerar fil systemet vid start av en virtuell Azure-dator | Microsoft Docs
-description: Lär dig hur du löser problemet som den virtuella datorn visar kontrollerar fil systemet vid start av | Microsoft Docs
+title: Kontrollera filsystemet vid start av en virtuell Azure-dator| Microsoft-dokument
+description: Lär dig hur du löser problemet som vm visar Kontrollera filsystemet vid uppstart| Microsoft-dokument
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,34 +13,34 @@ ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
 ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921495"
 ---
-# <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows visar "kontrollerar fil system" när en virtuell Azure-dator startas
+# <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows visar "kontrollera filsystem" vid start av en Virtuell Azure-dator
 
-I den här artikeln beskrivs fel meddelandet "kontrollerar fil systemet" som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure.
+I den här artikeln beskrivs felet "Kontrollera filsystem" som kan uppstå när du startar en virtuell dator (Virtuell Dator) i Microsoft Azure.
 
 
 ## <a name="symptom"></a>Symptom 
 
-En virtuell Windows-dator startar inte. När du kontrollerar start skärmarna i [startdiagnostik](boot-diagnostics.md), ser du att processen för att kontrol lera disken (chkdsk. exe) körs med något av följande meddelanden:
+En Virtuell Windows-dator startar inte. När du kontrollerar startskärmbilderna i [Startdiagnostiken](boot-diagnostics.md)ser du att checkdiskprocessen (chkdsk.exe) körs med något av följande meddelanden:
 
-- Genomsöker och reparerar enhet (C:)
-- Kontrollerar fil system på C:
+- Scanning och reparationsenhet (C:)
+- Kontrollera filsystemet på C:
 
 ## <a name="cause"></a>Orsak
 
-Om ett NTFS-fel påträffas i fil systemet kontrollerar Windows och reparerar konsekvensen för disken vid nästa omstart. Detta inträffar vanligt vis om den virtuella datorn hade oväntad omstart eller om den virtuella dator stängnings processen avbröts plötsligt.
+Om ett NTFS-fel hittas i filsystemet kontrollerar och repareras diskens konsekvens vid nästa omstart. Vanligtvis händer detta om den virtuella datorn hade någon oväntad omstart, eller om vm-avstängningen avbröts plötsligt.
 
 ## <a name="solution"></a>Lösning 
 
-Windows startar normalt när processen för att kontrol lera disken har slutförts. Om den virtuella datorn har fastnat i kontrol lera disk-processen försöker du köra check disken på den virtuella datorn offline:
-1.  Ta en ögonblicks bild av OS-disken för den berörda virtuella datorn som en säkerhets kopia. Mer information finns i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
-2.  [Koppla OS-disken till en virtuell dator för återställning](troubleshoot-recovery-disks-portal-windows.md).  
-3.  Kör check disk på den anslutna OS-disken på den virtuella återställnings datorn. I följande exempel är driv rutins beteckningen för den anslutna OS-disken E: 
+Windows startar normalt när checkdisken har slutförts. Om den virtuella datorn har fastnat i processen Kontrollera disken kan du försöka köra checkdisken på den virtuella datorn offline:
+1.  Ta en ögonblicksbild av OS-disken för den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [Ögonblicksbild en disk](../windows/snapshot-copy-managed-disk.md).
+2.  [Koppla OS-disken till en återställnings-VM](troubleshoot-recovery-disks-portal-windows.md).  
+3.  På återställningsdatorn kör du Check Disk på den anslutna OS-disken. I följande exempel är drivrutinsbrevet för den bifogade OS-disken E: 
         
         chkdsk E: /f
-4.  När kontrollen är klar kopplar du bort disken från den virtuella återställnings datorn och kopplar sedan disken till den berörda virtuella datorn som en operativ system disk. Mer information finns i [Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator för återställning](troubleshoot-recovery-disks-portal-windows.md).
+4.  När checkdisken är klar kopplar du bort disken från återställningsdatorn och ansluter sedan disken igen till den berörda virtuella datorn som en OS-disk. Mer information finns i [Felsöka en Virtuell Windows-dator genom att koppla OS-disken till en återställnings-VM](troubleshoot-recovery-disks-portal-windows.md).

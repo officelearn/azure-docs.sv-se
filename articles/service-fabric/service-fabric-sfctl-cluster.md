@@ -1,457 +1,457 @@
 ---
-title: Azure Service Fabric CLI – sfctl-kluster
-description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera kluster.
+title: AZURE Service Fabric CLI- sfctl-kluster
+description: Lär dig mer om sfctl, kommandoradsgränssnittet i Azure Service Fabric. Innehåller en lista med kommandon för hantering av kluster.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 007ad6f59f0ce304db579f4faa1bb95611a93a37
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906150"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
-Välj, hantera och använda Service Fabric kluster.
+Välj, hantera och använd Service Fabric-kluster.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| kod versioner | Hämtar en lista över infrastruktur kod versioner som är etablerade i ett Service Fabric kluster. |
-| config-versions | Hämtar en lista över infrastruktur konfigurations versioner som är etablerade i ett Service Fabric kluster. |
-| hälsa | Hämtar hälsan för ett Service Fabric-kluster. |
-| manifest | Hämta Service Fabric kluster manifestet. |
-| åtgärd-Avbryt | Avbryter en användardefinierad fel åtgärd. |
-| åtgärds lista | Hämtar en lista över användardefinierade fel åtgärder filtrerade genom angivna indata. |
-| provision | Etablera kod eller konfigurations paket för ett Service Fabric-kluster. |
-| recover-system | Anger Service Fabric kluster som det ska försöka återställa system tjänster som för närvarande fastnar i kvorum. |
-| report-health | Skickar en hälso rapport i Service Fabric klustret. |
-| välj | Ansluter till en Service Fabric kluster slut punkt. |
-| Visa anslutning | Visa vilka Service Fabric-kluster som den här sfctl-instansen är ansluten till. |
-| unprovision | Avetablera kod eller konfigurations paket för ett Service Fabric-kluster. |
-| upgrade | Börja uppgradera koden eller konfigurations versionen av ett Service Fabric-kluster. |
-| upgrade-resume | Gör så att kluster uppgraderingen går vidare till nästa uppgraderings domän. |
-| upgrade-rollback | Återställa uppgraderingen av ett Service Fabric-kluster. |
-| upgrade-status | Hämtar förloppet för den aktuella kluster uppgraderingen. |
-| uppgradera – uppdatera | Uppdatera uppgraderings parametrarna för en Service Fabric kluster uppgradering. |
+| kod-versioner | Hämtar en lista över fabric-kodversioner som är etablerade i ett Service Fabric-kluster. |
+| config-versioner | Hämtar en lista över infrastrukturkonfigurationsversioner som är etablerade i ett Service Fabric-kluster. |
+| Hälsa | Hämtar hälsotillståndet för ett service fabric-kluster. |
+| manifest | Hämta klustermanifestet För servicetyg. |
+| operation-avbryt | Avbryter en felåtgärd som orsakas av användaren. |
+| operation-lista | Hämtar en lista över användarinducerade felåtgärder filtrerade efter medföljande indata. |
+| Bestämmelse | Etablera kod- eller konfigurationspaket för ett Service Fabric-kluster. |
+| återställningssystem | Anger för servicetygsklustret att det ska försöka återställa de systemtjänster som för närvarande har fastnat i kvorumförlust. |
+| rapport-hälsa | Skickar en hälsorapport i service fabric-klustret. |
+| välj | Ansluter till en service fabric-klusterslutpunkt. |
+| visa-anslutning | Visa vilket Service Fabric-kluster som den här sfctl-instansen är ansluten till. |
+| oetablera | Avetablera kod- eller konfigurationspaket för ett Service Fabric-kluster. |
+| uppgradera | Börja uppgradera koden eller konfigurationsversionen av ett Service Fabric-kluster. |
+| uppgradering-återuppta | Gör klusteruppgraderingen gå vidare till nästa uppgraderingsdomän. |
+| återställning av uppgradering | Återställ uppgraderingen av ett Service Fabric-kluster. |
+| uppgraderingsstatus | Hämtar förloppet för den aktuella klusteruppgraderingen. |
+| uppgradering-uppdatering | Uppdatera uppgraderingsparametrarna för en uppgradering av Service Fabric-kluster. |
 
-## <a name="sfctl-cluster-code-versions"></a>sfctl-kluster kod-versioner
-Hämtar en lista över infrastruktur kod versioner som är etablerade i ett Service Fabric kluster.
+## <a name="sfctl-cluster-code-versions"></a>sfctl kluster kod-versioner
+Hämtar en lista över fabric-kodversioner som är etablerade i ett Service Fabric-kluster.
 
-Hämtar en lista med information om infrastruktur resurs kod versioner som är etablerade i klustret. Parametern CodeVersion kan användas för att alternativt filtrera utdata till endast den aktuella versionen.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --code-version | Produkt versionen av Service Fabric. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
-
-### <a name="global-arguments"></a>Globala argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
-
-## <a name="sfctl-cluster-config-versions"></a>sfctl-kluster konfiguration – versioner
-Hämtar en lista över infrastruktur konfigurations versioner som är etablerade i ett Service Fabric kluster.
-
-Hämtar en lista med information om Fabric config-versioner som är etablerade i klustret. Parametern ConfigVersion kan användas för att alternativt filtrera utdata till endast den aktuella versionen.
+Hämtar en lista med information om fabric-kodversioner som är etablerade i klustret. Parametern CodeVersion kan användas för att eventuellt filtrera utdata till endast den aktuella versionen.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --config-version | Konfigurations versionen av Service Fabric. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --kod-version | Produktversionen av Service Fabric. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+
+## <a name="sfctl-cluster-config-versions"></a>sfctl kluster config-versioner
+Hämtar en lista över infrastrukturkonfigurationsversioner som är etablerade i ett Service Fabric-kluster.
+
+Hämtar en lista med information om infrastrukturkonfigurationsversioner som är etablerade i klustret. Parametern ConfigVersion kan användas för att eventuellt filtrera utdata till endast den aktuella versionen.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --config-version | Config-versionen av Service Fabric. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
 ## <a name="sfctl-cluster-health"></a>sfctl kluster hälsa
-Hämtar hälsan för ett Service Fabric-kluster.
+Hämtar hälsotillståndet för ett service fabric-kluster.
 
-Använd EventsHealthStateFilter för att filtrera samlingen hälso tillstånds händelser som rapporteras i klustret utifrån hälso tillståndet. På samma sätt använder du NodesHealthStateFilter och ApplicationsHealthStateFilter för att filtrera samlingen av noder och program som returneras utifrån deras sammanlagda hälso tillstånd.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --applications-health-state-filter | Tillåter filtrering av de program hälso tillstånds objekt som returneras i resultatet av en kluster hälso fråga baserat på deras hälso tillstånd. Möjliga värden för den här parametern är ett heltals värde som hämtats från medlemmar eller bitvisa åtgärder för medlemmar i HealthStateFilter-uppräkning. Endast program som matchar filtret returneras. Alla program används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av de här värdena som erhålls med hjälp av bitvis or-operator. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för program med hälso tillstånds värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --events-health-state-filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --Exkludera-hälso statistik | Anger om hälso statistik ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälso tillståndet OK, varning och fel. |
-| --include-system-application-health-statistics | Anger om hälso statistik ska innehålla infrastruktur\:/system för program hälsa. Falskt som standard. Om IncludeSystemApplicationHealthStatistics är inställt på Sant inkluderar hälso statistiken de entiteter som hör till Fabric-\:/system-programmet. Annars innehåller frågeresultatet endast hälso statistik för användar program. Hälso statistiken måste inkluderas i frågeresultatet för att den här parametern ska tillämpas. |
-| --nodes-health-state-filter | Tillåter filtrering av de nodens hälso tillstånds objekt som returneras i resultatet av en kluster hälso fråga baserat på deras hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast noder som matchar filtret returneras. Alla noder används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av de här värdena som erhålls med hjälp av bitvis or-operator. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för noder med hälso tillstånds värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
-
-### <a name="global-arguments"></a>Globala argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
-
-## <a name="sfctl-cluster-manifest"></a>sfctl-kluster manifest
-Hämta Service Fabric kluster manifestet.
-
-Hämta Service Fabric kluster manifestet. Kluster manifestet innehåller egenskaper för klustret som innehåller olika nodtyper i klustret, säkerhetskonfigurationer, fel-och uppgraderings domänens topologier osv. Dessa egenskaper anges som en del av ClusterConfig. JSON-filen samtidigt som du distribuerar ett fristående kluster. Men merparten av informationen i kluster manifestet genereras internt av Service Fabric under kluster distribution i andra distributions scenarier (t. ex. När du använder Azure Portal). Innehållet i kluster manifestet används endast i informations syfte och användare förväntas inte ta ett beroende på formatet på fil innehållet eller dess tolkning.
+Använd EventsHealthStateFilter för att filtrera insamlingen av hälsohändelser som rapporterats i klustret baserat på hälsotillståndet. På samma sätt använder du NodesHealthStateFilter och ApplicationsHealthStateFilter för att filtrera insamlingen av noder och program som returneras baserat på deras aggregerade hälsotillstånd.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --applications-health-state-filter | Gör det möjligt att filtrera programhälsotillståndsobjekt som returneras i resultatet av klusterhälsofråga baserat på deras hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärde som erhållits från medlemmar eller bitvisåtgärder på medlemmar i HealthStateFilter-uppräkning. Endast program som matchar filtret returneras. Alla program används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden som erhålls med hjälp av bitvis "ELLER"-operator. Om värdet till exempel är 6 returneras hälsotillståndet för program med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --events-health-state-filter | Gör det möjligt att filtrera samlingen av HealthEvent-objekt som returneras baserat på hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av operatorn "ELLER". Om det angivna värdet till exempel är 6 returneras alla händelser med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --exklude-hälso-statistik | Anger om hälsostatistiken ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälsotillståndet Ok, Varning och Fel. |
+| --include-system-application-health-statistics --include-system-application-health-statistics --include-system-application-health-statistics -- | Anger om hälsostatistiken ska innehålla\:hälsostatistiken för programmet /System application. Falskt som standard. Om IncludeSystemApplicationHealthStatistics är inställt på true, omfattar hälsostatistiken de\:enheter som tillhör fabric /System-programmet. Annars innehåller frågeresultatet endast hälsostatistik för användarprogram. Hälsostatistiken måste inkluderas i frågeresultatet för den här parametern som ska tillämpas. |
+| --noder-hälsotillstånd-filter | Gör det möjligt att filtrera de nodhälsotillståndsobjekt som returneras i resultatet av klusterhälsofrågan baserat på deras hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast noder som matchar filtret returneras. Alla noder används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden som erhålls med hjälp av bitvis "ELLER"-operator. Om värdet till exempel är 6 returneras hälsotillståndet för noder med HealthState-värde på OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-operation-cancel"></a>sfctl kluster åtgärd-Avbryt
-Avbryter en användardefinierad fel åtgärd.
+## <a name="sfctl-cluster-manifest"></a>sfctl kluster manifest
+Hämta klustermanifestet För servicetyg.
 
-Följande API: er startar fel åtgärder som kan avbrytas med hjälp av CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Om tvinga är falskt stoppas och rensas den angivna användardefinierade åtgärden på ett smidigt sätt.  Om tvinga är sant avbryts kommandot och ett internt tillstånd kan vara kvar bakom.  Att ange Force som sant bör användas med försiktighet. Anrop till det här API: t med värdet True är inte tillåtet förrän denna API redan har anropats för samma test kommando med tvinga set till false först, eller om test kommandot redan har en OperationState av OperationState. RollingBack. Klargörande\: OperationState. RollingBack innebär att systemet kommer att rensas genom att rensa det interna system tillståndet, vilket orsakas av att kommandot körs.  Det kommer inte att återställa data om test kommandot var för att leda till data förlust.  Om du t. ex. anropar StartDataLoss anropar det här API: t så rensar systemet bara internt tillstånd från att köra kommandot. Den kommer inte att återställa mål partitionens data, om kommandot är tillräckligt långt för att orsaka data förlust. Viktigt\: om detta API anropas med Force = = true kan det interna läget vara kvar bakom.
+Hämta klustermanifestet För servicetyg. Klustermanifestet innehåller egenskaper för klustret som innehåller olika nodtyper i klustret, säkerhetskonfigurationer, fel och uppgradera domäntopologier osv. Dessa egenskaper anges som en del av Filen ClusterConfig.JSON när du distribuerar ett fristående kluster. Men det mesta av informationen i klustermanifestet genereras internt av tjänstinfrastruktur under klusterdistribution i andra distributionsscenarier (t.ex. när du använder Azure-portalen). Innehållet i klustermanifestet är endast i informationssyfte och användarna förväntas inte vara beroende av formatet på filinnehållet eller dess tolkning.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --åtgärds-ID [obligatoriskt] | Ett GUID som identifierar ett anrop till detta API.  Detta skickas till motsvarande GetProgress-API. |
-| --Force | Indikerar om du vill återställa och rensa internt system tillstånd på ett korrekt sätt genom att köra den användardefinierade åtgärden. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-operation-list"></a>sfctl kluster åtgärd – lista
-Hämtar en lista över användardefinierade fel åtgärder filtrerade genom angivna indata.
+## <a name="sfctl-cluster-operation-cancel"></a>sfctl-klusteråtgärdsstopp
+Avbryter en felåtgärd som orsakas av användaren.
 
-Hämtar listan över användardefinierade fel åtgärder filtrerade genom angivna indata.
+Följande API:er startar felåtgärder som kan\: avbrytas med hjälp av CancelOperation StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Om kraften är falsk stoppas och rensas den angivna användarinducerade åtgärden.  Om våld är sant avbryts kommandot och vissa interna tillstånd kan lämnas kvar.  Ange kraft som sant bör användas med försiktighet. Att anropa det här API:et med kraft inställt på true är inte tillåtet förrän det här API:et redan har anropats på samma testkommando med kraft inställd på false först, eller om inte testkommandot redan har en OperationState of OperationState.RollingBack. Förtydligande\: OperationState.RollingBack innebär att systemet kommer att /är att rensa upp interna systemtillstånd som orsakas av att köra kommandot.  Data återställs inte om testkommandot skulle orsaka dataförlust.  Om du till exempel anropar StartDataLoss och sedan anropar det här API:et rensar systemet bara upp internt tillstånd från att köra kommandot. Det återställer inte målpartitionens data om kommandot gick tillräckligt långt för att orsaka dataförlust. Viktigt\: att notera om detta API anropas med force==true, kan internt tillstånd lämnas kvar.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --state-filter | Används för att filtrera på OperationState för användardefinierade åtgärder. -65535-Välj alla-1-Välj körs-2-Välj RollingBack-8-Välj slutförd-16-Välj felad-32-Välj avbruten-64-Välj ForceCancelled.  Standard\: 65535. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
-| --type-filter | Används för att filtrera på OperationType för användardefinierade åtgärder. -65535-Välj alla-1-Välj PartitionDataLoss. -2-Välj PartitionQuorumLoss. -4-Välj PartitionRestart. -8-Välj NodeTransition.  Standard\: 65535. |
+| --operation-id [Obligatoriskt] | Ett GUID som identifierar ett anrop av det här API:et.  Detta skickas till motsvarande GetProgress API. |
+| --kraft | Anger om du ska återställa och rensa internt systemtillstånd som ändrats genom att utföra den användarinducerade åtgärden. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-provision"></a>etablera sfctl-kluster
-Etablera kod eller konfigurations paket för ett Service Fabric-kluster.
+## <a name="sfctl-cluster-operation-list"></a>sfctl kluster funktion-lista
+Hämtar en lista över användarinducerade felåtgärder filtrerade efter medföljande indata.
 
-Verifiera och etablera kod eller konfigurations paket för ett Service Fabric-kluster.
+Hämtar listan över användarinducerade felåtgärder filtrerade efter medföljande indata.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --kluster-manifest-File-Path | Sökvägen till klustrets manifest fil. |
-| --kod-fil-sökväg | Sökväg till kluster filens paket fil. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --state-filter | Används för att filtrera på OperationState's för användarinducerade åtgärder. - 65535 - välj Alla - 1 - välj Running - 2 - välj RollingBack - 8 - välj Slutförd - 16 - välj Fel - 32 - välj Avbruten - 64 - välj ForceCancelled.  Standard\: 65535. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --typ-filter | Används för att filtrera på OperationType för användarinducerade åtgärder. - 65535 - välj alla - 1 - välj PartitionDataLoss. - 2 - välj PartitionQuorumLoss. - 4 - välj PartitionRestart. - 8 - välj NodeTransition.  Standard\: 65535. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-recover-system"></a>sfctl-kluster återställning-system
-Anger Service Fabric kluster som det ska försöka återställa system tjänster som för närvarande fastnar i kvorum.
+## <a name="sfctl-cluster-provision"></a>sfctl klusteretablering
+Etablera kod- eller konfigurationspaket för ett Service Fabric-kluster.
 
-Anger Service Fabric kluster som det ska försöka återställa system tjänster som för närvarande fastnar i kvorum. Den här åtgärden bör endast utföras om det är känt att de repliker som är nere inte kan återställas. Felaktig användning av detta API kan orsaka potentiell data förlust.
+Validera och etablera kod- eller konfigurationspaketen för ett Service Fabric-kluster.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --cluster-manifest-file-path --cluster-manifest-file-path --cluster-manifest-file-path -- | Sökvägen till klustermanifestfilen. |
+| --kod-fil-sökväg | Sökvägen till filsökvägen för klusterkodpaketet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-report-health"></a>sfctl-kluster rapport – hälsa
-Skickar en hälso rapport i Service Fabric klustret.
+## <a name="sfctl-cluster-recover-system"></a>sfctl kluster recover-system
+Anger för servicetygsklustret att det ska försöka återställa de systemtjänster som för närvarande har fastnat i kvorumförlust.
 
-Skickar en hälso rapport i ett Service Fabric-kluster. Rapporten måste innehålla information om källan till hälso rapporten och egenskapen som den rapporteras om. Rapporten skickas till en Service Fabric Gateway-nod som vidarebefordrar till hälso lagret. Rapporten kan godkännas av gatewayen, men avvisas av hälso lagret efter extra verifiering. Hälso lagret kan till exempel avvisa rapporten på grund av en ogiltig parameter, t. ex. ett inaktuellt ordnings nummer. Om du vill se om rapporten användes i hälso lagret kör du GetClusterHealth och kontrollerar att rapporten visas i avsnittet HealthEvents.
+Anger för servicetygsklustret att det ska försöka återställa de systemtjänster som för närvarande har fastnat i kvorumförlust. Den här åtgärden bör endast utföras om det är känt att replikerna som är nere inte kan återställas. Felaktig användning av detta API kan orsaka potentiell dataförlust.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Health-Property [required] | Hälso informationens egenskaper. <br><br> En entitet kan ha hälso rapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning som tillåter rapportörens flexibilitet att kategorisera det tillstånds villkor som utlöser rapporten. Till exempel kan en rapportör med SourceId "LocalWatchdog" övervaka statusen för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på noden. Samma rapportör kan övervaka nodens anslutning, så att den kan rapportera en egenskap "anslutning" på samma nod. I hälso lagret behandlas dessa rapporter som separata hälso händelser för den angivna noden. Tillsammans med värdet för SourceId kan egenskapen unikt identifiera hälso informationen. |
-| --hälso tillstånd [krävs] | Möjliga värden är\: "ogiltig", "OK", "varning", "Error", "okänd". |
-| --Käll-ID [obligatoriskt] | Det käll namn som identifierar klient/övervaknings-/system komponenten som genererade hälso informationen. |
-| --Beskrivning | Beskrivning av hälso informationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala sträng längden för beskrivningen är 4096 tecken. Om den angivna strängen blir längre trunkeras den automatiskt. Vid trunkering innehåller de sista tecknen i beskrivningen en markör, "[trunkerad]" och den totala sträng storleken är 4096 tecken. Förekomsten av markören anger för användare som har trunkerats. Observera att beskrivningen innehåller färre än 4096 tecken från den ursprungliga strängen när den trunkeras. |
-| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälso rapport skickas till ett Service Fabric Gateway-program, som vidarebefordrar till hälso lagret. Om omedelbar är inställt på Sant skickas rapporten omedelbart från HTTP-gatewayen till hälso lagret, oavsett vilka klient inställningar för klient program varan som HTTP-gatewayen använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tids inställningar och andra villkor kan det hända att det fortfarande inte går att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om omedelbar är inställt på false skickas rapporten baserat på hälso klient inställningarna från HTTP-gatewayen. Därför kommer den att grupperas enligt HealthReportSendInterval-konfigurationen. Detta är den rekommenderade inställningen eftersom den gör det möjligt för hälso klienten att optimera hälso rapporterings meddelanden till hälso Arkiv och bearbetning av hälso rapporter. Som standard skickas inte rapporter direkt. |
-| --remove-when-expired | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
-| --sekvens-nummer | Serie numret för den här hälso rapporten som en numerisk sträng. <br><br> Rapportens sekvensnummer används av hälso lagret för att identifiera inaktuella rapporter. Om inget värde anges genereras ett sekvensnummer automatiskt av hälso klienten när en rapport läggs till. |
-| --timeout-t | Standard\: 60. |
-| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ställa in tiden till oändligt. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-select"></a>Välj sfctl-kluster
-Ansluter till en Service Fabric kluster slut punkt.
+## <a name="sfctl-cluster-report-health"></a>sfctl kluster rapport-hälsa
+Skickar en hälsorapport i service fabric-klustret.
 
-Om du ansluter till ett säkert kluster anger du en absolut sökväg till ett certifikat (. CRT) och en nyckel fil (. Key) eller en enskild fil med båda (. pem). Ange inte båda. Om du vill ansluta till ett säkert kluster kan du även ange en absolut sökväg till en CA-Bundle eller en katalog över betrodda CA-certifikat.  Det finns ingen anslutning till ett kluster utan att köra det här kommandot först, inklusive en anslutning till localhost. Men ingen explicit slut punkt krävs för att ansluta till ett lokalt kluster.  Om du använder ett självsignerat certifikat eller annat certifikat som inte har signerats av en välkänd certifikat utfärdare, kan du skicka in parametern--ca för att säkerställa att verifieringen lyckas. Om du inte använder ett produktions kluster för att kringgå verifiering på klient sidan (användbart för självsignerade eller inte välkända certifikat utfärdare), Använd alternativet--No-verify. När det är möjligt rekommenderas det inte för produktions kluster. Ett certifikat verifierings fel kan resultera i fel.
+Skickar en hälsorapport om ett Service Fabric-kluster. Rapporten måste innehålla information om källan till hälsorapporten och egenskapen som den rapporteras till. Rapporten skickas till en Gateway-nod för Service Fabric som vidarebefordras till hälsoarkivet. Rapporten kan accepteras av gatewayen, men avvisas av hälsoarkivet efter extra validering. Hälsoarkivet kan till exempel avvisa rapporten på grund av en ogiltig parameter, till exempel ett inaktuellt sekvensnummer. Om du vill se om rapporten har tillämpats i hälsoarkivet kör du GetClusterHealth och kontrollerar att rapporten visas i avsnittet HealthEvents.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --AAD | Använd Azure Active Directory för autentisering. |
-| --ca | Absolut sökväg till katalogen CA-certifikat för att behandla som giltig eller CA-paketfil. Om du använder en katalog med CA-certifikat måste `c_rehash <directory>` som tillhandahålls av OpenSSL först köras för att beräkna certifikat-hashar och skapa lämpliga symboliska länkar. Detta används för att kontrol lera att certifikatet som returneras av klustret är giltigt. |
-| --cert | Absolut sökväg till en klient certifikat fil. |
-| --slut punkt | URL för kluster slut punkt, inklusive port-och HTTP-eller HTTPS-prefix. Normalt ser slut punkten ut ungefär som https\://< URL-adressen >\:19080. Om ingen slut punkt anges kommer standardvärdet för http\://localhost\:19080.  Standard\: http\://localhost\:19080. |
-| --nyckel | Absolut sökväg till nyckel filen för klient certifikatet. |
-| --ingen-verifiera | Inaktivera verifiering av certifikat när du använder HTTPS, Observera\: detta är ett osäkert alternativ och bör inte användas för produktions miljöer. |
-| --pem | Absolut sökväg till klient certifikat som en. PEM-fil. |
+| --health-property [Obligatoriskt] | Egenskapen av hälsoinformationen. <br><br> En entitet kan ha hälsorapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning för att tillåta reporterflexibilitet att kategorisera tillståndsvillkoret som utlöser rapporten. En reporter med SourceId "LocalWatchdog" kan till exempel övervaka tillståndet för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på den noden. Samma reporter kan övervaka nodanslutningen, så att den kan rapportera en egenskap "Anslutning" på samma nod. I hälsoarkivet behandlas dessa rapporter som separata hälsohändelser för den angivna noden. Tillsammans med SourceId identifierar egenskapen hälsoinformationen unikt. |
+| --hälsotillstånd [Krävs] | Möjliga värden\: är "Ogiltig", "Ok", "Varning", "Fel", "Okänd". |
+| --source-id [Obligatoriskt] | Källnamnet som identifierar komponenten klient/watchdog/system som genererade hälsoinformationen. |
+| --beskrivning | Beskrivningen av hälsoinformationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala stränglängden för beskrivningen är 4096 tecken. Om den angivna strängen är längre trunkeras den automatiskt. När de sista tecknen i beskrivningen trunkeras innehåller de sista tecknen i beskrivningen en markör "[Trunkerad]" och den totala strängstorleken 4096 tecken. Förekomsten av markören anger för användarna att trunkering inträffade. Observera att när beskrivningen trunkeras har den mindre än 4096 tecken från den ursprungliga strängen. |
+| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälsorapport skickas till ett service fabric-gatewayprogram som vidarebefordras till hälsoarkivet. Om Omedelbar är inställd på true skickas rapporten omedelbart från HTTP Gateway till hälsoarkivet, oavsett de inställningar för fabric-klient som HTTP Gateway-programmet använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tidpunkten och andra villkor kan det fortfarande misslyckas att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om Omedelbar är inställd på false skickas rapporten baserat på hälsoklientinställningarna från HTTP Gateway. Därför kommer den att batchas enligt HealthReportSendInterval-konfigurationen. Det här är den rekommenderade inställningen eftersom hälsoklienten kan optimera hälsorapporteringsmeddelanden till hälsoarkivet samt bearbetning av hälsorapporter. Som standard skickas inte rapporter omedelbart. |
+| --remove-when-expired --remove-when-expired --remove-when-expired -- | Värde som anger om rapporten tas bort från hälsoarkivet när den upphör att gälla. <br><br> Om värdet är true tas rapporten bort från hälsoarkivet när den har upphört att gälla. Om den är inställd på false behandlas rapporten som ett fel när den har upphört att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet bör de ange RemoveWhenExpired false (standard). På så sätt har reportern problem (t.ex. dödläge) och kan inte rapportera, entiteten utvärderas vid fel när hälsorapporten upphör att gälla. Detta flaggar entiteten som i felhälsotillstånd. |
+| --sekvens-nummer | Sekvensnumret för den här hälsorapporten som en numerisk sträng. <br><br> Rapportsekvensnumret används av hälsoarkivet för att identifiera inaktuella rapporter. Om inget anges genereras ett sekvensnummer automatiskt av hälsoklienten när en rapport läggs till. |
+| --timeout -t | Standard\: 60. |
+| --ttl | Den varaktighet för vilken hälsorapporten är giltig. I det här fältet används ISO8601-format för att ange varaktigheten. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid att leva. Om klienter rapporterar om övergången kan de ange att tiden ska vara oändlig. När tiden för att leva går ut tas hälsohändelsen som innehåller hälsoinformationen antingen bort från hälsoarkivet, om RemoveWhenExpired är sant eller utvärderas vid fel, om RemoveWhenExpired false. Om inget anges kan tid att leva som standard oändligt värde. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-show-connection"></a>sfctl-kluster Visa-anslutning
-Visa vilka Service Fabric-kluster som den här sfctl-instansen är ansluten till.
+## <a name="sfctl-cluster-select"></a>sfctl kluster välj
+Ansluter till en service fabric-klusterslutpunkt.
 
-### <a name="global-arguments"></a>Globala argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
-
-## <a name="sfctl-cluster-unprovision"></a>sfctl-kluster avetablera
-Avetablera kod eller konfigurations paket för ett Service Fabric-kluster.
-
-Det finns stöd för att avetablera kod och konfiguration separat.
+Om du ansluter till säkert kluster anger du en absolut sökväg till en cert (.crt) och nyckelfil (.key) eller en enda fil med båda (.pem). Ange inte båda. Om du ansluter till ett säkert kluster anger du också en absolut sökväg till en ca-paketfil eller katalog med betrodda CERTIFIKAT.  Det finns ingen anslutning till ett kluster utan att köra det här kommandot först, inklusive en anslutning till localhost. Ingen explicit slutpunkt krävs dock för att ansluta till ett lokalt kluster.  Om du använder ett självsignerat certifikat eller annat certifikat som inte är signerat av en välkänd certifikatutfärdar, skickar du in parametern --ca för att säkerställa att valideringen passerar. Om inte på ett produktionskluster, för att kringgå validering på klientsidan (användbart för självsignerad eller inte välkänd ca-signerad), använd alternativet --no-verify. Även om det är möjligt rekommenderas det inte för produktionskluster. Ett certifikatverifieringsfel kan uppstå på annat sätt.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --code-version | Paket version för kluster kod. |
-| --config-version | Kluster Manifestets version. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --aad | Använd Azure Active Directory för autentisering. |
+| - Ca | Absolut sökväg till CA-certs-katalogen som ska behandlas som giltig eller CA-paketfil. Om du använder en katalog `c_rehash <directory>` med CA-certifikat måste den som tillhandahålls av OpenSSL köras först för att beräkna certifikatets hashar och skapa lämpliga symboliska länkar. Detta används för att kontrollera att certifikatet som returneras av klustret är giltigt. |
+| --cert | Absolut sökväg till en klientcertifikatfil. |
+| --slutpunkt | Url till klusterslutpunkt, inklusive port- och HTTP- eller HTTPS-prefix. Slutpunkten ser vanligtvis ut ungefär\:som https //<din webbadress \:>19080. Om ingen slutpunkt anges, kommer\:det att\:standard http //localhost 19080.  Standard\: \:http //localhost\:19080. |
+| --nyckel | Absolut sökväg till klientcertifikatnyckelfil. |
+| --ingen-verifiera | Inaktivera verifiering för certifikat när\: du använder HTTPS, observera att detta är ett osäkert alternativ och bör inte användas för produktionsmiljöer. |
+| --pem | Absolut sökväg till klientcertifikat, som en PEM-fil. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+
+## <a name="sfctl-cluster-show-connection"></a>sfctl kluster show-anslutning
+Visa vilket Service Fabric-kluster som den här sfctl-instansen är ansluten till.
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+
+## <a name="sfctl-cluster-unprovision"></a>sfctl kluster avetablerande
+Avetablera kod- eller konfigurationspaket för ett Service Fabric-kluster.
+
+Det stöds för att avetablera kod och konfiguration separat.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --kod-version | Klusterkodpaketversionen. |
+| --config-version | Klustermanifestversionen. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
 ## <a name="sfctl-cluster-upgrade"></a>uppgradering av sfctl-kluster
-Börja uppgradera koden eller konfigurations versionen av ett Service Fabric-kluster.
+Börja uppgradera koden eller konfigurationsversionen av ett Service Fabric-kluster.
 
-Verifiera de angivna uppgraderings parametrarna och börja uppgradera koden eller konfigurations versionen av ett Service Fabric kluster om parametrarna är giltiga.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --app-Health-Map | JSON-kodad ord lista med par av program namn och maximal procent andel är inte felfri innan fel uppstår. |
-| --app-Type-Health-Map | JSON-kodad ord lista med par av program typ namn och maximal procent andel är inte felfri innan fel uppstår. |
-| --code-version | Kluster kod version. |
-| --config-version | Kluster konfigurations versionen. |
-| --delta – hälso utvärdering | Möjliggör delta hälso utvärdering i stället för absolut hälso utvärdering när varje uppgraderings domän har slutförts. |
-| --delta-ej felfri-noder | Den högsta tillåtna procent andelen av noders hälso försämring som tillåts under kluster uppgraderingar.  Standard\: 10. <br><br> Delta mätas mellan tillståndet för noderna i början av uppgraderingen och nodernas status vid tidpunkten för hälso utvärderingen. Kontrollen utförs när uppgraderingen av uppgraderings domänen har slutförts för att kontrol lera att klustrets globala tillstånd ligger inom de begränsningar som tolereras. |
-| --Failure-åtgärd | Möjliga värden är\: "ogiltig", "rollback", "Manual". |
-| --force-restart | Processerna startas om under uppgraderingen även när kod versionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
-| --health-check-retry | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt. |
-| --hälso kontroll – stabil | Hur lång tid programmet eller klustret måste vara felfritt innan uppgraderingen fortsätter till nästa uppgraderings domän. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --hälso kontroll-vänta | Vänte tiden när en uppgraderings domän har slutförts innan hälso kontrollerna påbörjas. |
-| --replica-set-check-timeout | Maximal tid det tar att blockera bearbetningen av en uppgraderings domän och förhindra tillgänglighet när det uppstår oväntade problem. <br><br> När tids gränsen går ut fortsätter bearbetningen av uppgraderings domänen oavsett problem med tillgänglighets förlust. Tids gränsen återställs i början av varje uppgraderings domän. Giltiga värden är mellan 0 och 42949672925. |
-| --rolling-upgrade-mode | Möjliga värden är\: "ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "övervakad".  Standard\: UnmonitoredAuto. |
-| --timeout-t | Standard\: 60. |
-| --ej felfri-program | Högsta tillåtna procent andel felaktiga program innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av programmen ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst ett ohälsosamt program, utvärderas hälsan som varning. Detta beräknas genom att antalet felaktiga program divideras över det totala antalet program instanser i klustret, exklusive program av program typer som ingår i ApplicationTypeHealthPolicyMap. Beräkningen avrundar upp till att tolerera ett problem med ett litet antal program. |
-| --ej felfri-noder | Högsta tillåtna procent andel felaktiga noder innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av noderna ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen av noder som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst en ohälsosam nod, utvärderas hälsan som varning. Procent andelen beräknas genom att antalet felaktiga noder divideras med det totala antalet noder i klustret. Beräkningen avrundar upp till att tolerera ett problem på ett litet antal noder. I stora kluster är vissa noder alltid otillgängliga för reparationer, så den här procent andelen bör konfigureras för att tolerera. |
-| --upgrade-domain-delta-unhealthy-nodes | Den högsta tillåtna procent andelen uppgraderingar av hälso tillstånd för noder som tillåts under kluster uppgraderingar.  Standard\: 15. <br><br> Delta mäts mellan tillståndet för noderna i uppgraderings domänen i början av uppgraderingen och tillståndet för uppgraderings domänens noder vid hälso utvärderingen. Kontrollen utförs när varje uppgraderings domän har slutförts för alla slutförda uppgraderings domäner för att kontrol lera att status för uppgraderings domänerna är inom begränsnings gränser. |
-| --uppgradering-Domain-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --uppgraderings-timeout | Den tid som den övergripande uppgraderingen måste slutföras innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --warning-as-error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
-
-### <a name="global-arguments"></a>Globala argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
-
-## <a name="sfctl-cluster-upgrade-resume"></a>sfctl-kluster uppgradering – återuppta
-Gör så att kluster uppgraderingen går vidare till nästa uppgraderings domän.
-
-Gör så att kluster koden eller konfigurations uppgraderingen går vidare till nästa uppgraderings domän om det behövs.
+Validera de medföljande uppgraderingsparametrarna och börja uppgradera koden eller konfigurationsversionen av ett Service Fabric-kluster om parametrarna är giltiga.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --uppgradering – domän [obligatoriskt] | Nästa uppgraderings domän för den här kluster uppgraderingen. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --app-hälsa-karta | JSON kodade ordlista med par av programnamn och maximal procentandel fel innan du höjer fel. |
+| --app-typ-hälsa-karta | JSON kodade ordlista med par av programtypsnamn och maximal procentandel som var felaktig innan felupptäckt. |
+| --kod-version | Klusterkodsversionen. |
+| --config-version | Klusterkonfigurationsversionen. |
+| --delta-hälsa-utvärdering | Aktiverar delta hälsoutvärdering snarare än absolut hälsoutvärdering efter slutförandet av varje uppgraderingsdomän. |
+| --delta-ohälsosam-noder | Den högsta tillåtna procentandelen av noder hälsoförsämring tillåts under klusteruppgraderingar.  Standard\: 10. <br><br> Deltat mäts mellan nodernas tillstånd i början av uppgraderingen och nodernas tillstånd vid tidpunkten för hälsoutvärderingen. Kontrollen utförs efter varje uppgradering domän uppgradering slutföras för att se till att det globala tillståndet för klustret är inom tolererade gränser. |
+| --fel-åtgärd | Möjliga värden\: är "Ogiltig", "Återställning", "Manuell". |
+| --force-restart | Processer startas om kraftfullt under uppgraderingen även när kodversionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
+| --hälsokontroll-nyttförsök | Hur lång tid det går mellan försök att utföra hälsokontroller om programmet eller klustret inte är felfritt. |
+| --hälsokontroll-stabil | Den tid som programmet eller klustret måste förbli felfritt innan uppgraderingen fortsätter till nästa uppgraderingsdomän. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --hälsa-check-vänta | Hur lång tid du ska vänta efter att ha slutfört en uppgraderingsdomän innan hälsokontrollprocessen startas. |
+| --replica-set-check-timeout | Den maximala tiden för att blockera bearbetning av en uppgraderingsdomän och förhindra förlust av tillgänglighet när det finns oväntade problem. <br><br> När den här timeouten går ut fortsätter bearbetningen av uppgraderingsdomänen oavsett problem med tillgänglighetsförlust. Tidsgränsen återställs i början av varje uppgraderingsdomän. Giltiga värden är mellan 0 och 42949672925. |
+| --rolling-upgrade-mode | Möjliga värden\: är "Ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "Övervakad".  Standard\: unmonitoredauto. |
+| --timeout -t | Standard\: 60. |
+| --ohälsosamma-applikationer | Den högsta tillåtna procentandelen felaktiga program innan du rapporterar ett fel. <br><br> Om du till exempel vill att 10 % av programmen ska vara felaktiga, skulle det här värdet vara 10. Procentsatsen representerar den maximala tolererade procentandelen av program som kan vara felaktiga innan klustret betraktas som ett fel. Om procentsatsen respekteras men det finns minst ett felaktigt program utvärderas hälsotillståndet som Varning. Detta beräknas genom att dividera antalet felaktiga program över det totala antalet programinstanser i klustret, exklusive program av programtyper som ingår i ApplicationTypeHealthPolicyMap. Uträkningen avrundar upp till tolerera ett fel på litet nummer av applikationer. |
+| --ohälsosam-noder | Den högsta tillåtna procentandelen felaktiga noder innan du rapporterar ett fel. <br><br> Om du till exempel vill att 10 % av noderna ska vara felaktiga, skulle det här värdet vara 10. Procentsatsen representerar den maximala tolererade procentandelen noder som kan vara felaktiga innan klustret betraktas som ett fel. Om procentsatsen respekteras men det finns minst en felaktig nod utvärderas hälsotillståndet som Varning. Procentsatsen beräknas genom att dividera antalet felaktiga noder över det totala antalet noder i klustret. Beräkningen avrundar upp för att tolerera ett fel på ett litet antal noder. I stora kluster kommer vissa noder alltid att vara nere eller ute för reparationer, så den här procentsatsen bör konfigureras för att tolerera det. |
+| --upgrade-domain-delta-unhealthy-noder | Den högsta tillåtna procentandelen uppgraderingsdomännoder hälsoförsämring som tillåts vid klusteruppgraderingar.  Standard\: 15. <br><br> Deltat mäts mellan tillståndet för uppgraderingsdomännoderna i början av uppgraderingen och tillståndet för uppgraderingsdomännoderna vid tidpunkten för hälsoutvärderingen. Kontrollen utförs efter varje uppgradering domän uppgradering slutförande för alla slutförda uppgradera domäner för att se till att tillståndet för uppgraderingsdomäner är inom tolererade gränser. |
+| --upgrade-domain-timeout --upgrade-domain-timeout --upgrade-domain-timeout -- | Den tid som varje uppgraderingsdomän måste slutföra innan FailureAction körs. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --upgrade-timeout --upgrade-timeout --upgrade-timeout -- | Hur lång tid den totala uppgraderingen måste slutföras innan FailureAction körs. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --varning-som-fel | Anger om varningar behandlas med samma allvarlighetsgrad som fel. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-upgrade-rollback"></a>sfctl-kluster uppgradering-återställning
-Återställa uppgraderingen av ett Service Fabric-kluster.
+## <a name="sfctl-cluster-upgrade-resume"></a>sfctl kluster uppgradering-återuppta
+Gör klusteruppgraderingen gå vidare till nästa uppgraderingsdomän.
 
-Återställa koden eller konfigurations uppgraderingen av ett Service Fabric kluster.
+Gör klusterkoden eller konfigurationsuppgraderingen vidare till nästa uppgraderingsdomän om det behövs.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --upgrade-domain [Obligatoriskt] | Nästa uppgraderingsdomän för den här klusteruppgraderingen. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-upgrade-status"></a>sfctl-kluster uppgradering-status
-Hämtar förloppet för den aktuella kluster uppgraderingen.
+## <a name="sfctl-cluster-upgrade-rollback"></a>sfctl kluster uppgradering-återställning
+Återställ uppgraderingen av ett Service Fabric-kluster.
 
-Hämtar det aktuella förloppet för den pågående kluster uppgraderingen. Om ingen uppgradering pågår för närvarande, hämtar du det sista steget i föregående kluster uppgradering.
+Återställ koden eller konfigurationsuppgraderingen för ett Service Fabric-kluster.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-cluster-upgrade-update"></a>sfctl-kluster uppgradering – uppdatera
-Uppdatera uppgraderings parametrarna för en Service Fabric kluster uppgradering.
+## <a name="sfctl-cluster-upgrade-status"></a>sfctl kluster uppgradering-status
+Hämtar förloppet för den aktuella klusteruppgraderingen.
+
+Hämtar den aktuella förloppet för den pågående klusteruppgraderingen. Om ingen uppgradering pågår får du det sista tillståndet för den tidigare klusteruppgraderingen.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --app-Health-Map | JSON-kodad ord lista med par av program namn och maximal procent andel är inte felfri innan fel uppstår. |
-| --app-Type-Health-Map | JSON-kodad ord lista med par av program typ namn och maximal procent andel är inte felfri innan fel uppstår. |
-| --delta – hälso utvärdering | Möjliggör delta hälso utvärdering i stället för absolut hälso utvärdering när varje uppgraderings domän har slutförts. |
-| --delta-ej felfri-noder | Den högsta tillåtna procent andelen av noders hälso försämring som tillåts under kluster uppgraderingar.  Standard\: 10. <br><br> Delta mätas mellan tillståndet för noderna i början av uppgraderingen och nodernas status vid tidpunkten för hälso utvärderingen. Kontrollen utförs när uppgraderingen av uppgraderings domänen har slutförts för att kontrol lera att klustrets globala tillstånd ligger inom de begränsningar som tolereras. |
-| --Failure-åtgärd | Möjliga värden är\: "ogiltig", "rollback", "Manual". |
-| --force-restart | Processerna startas om under uppgraderingen även när kod versionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
-| --health-check-retry | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt. |
-| --hälso kontroll – stabil | Hur lång tid programmet eller klustret måste vara felfritt innan uppgraderingen fortsätter till nästa uppgraderings domän. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --hälso kontroll-vänta | Vänte tiden när en uppgraderings domän har slutförts innan hälso kontrollerna påbörjas. |
-| --replica-set-check-timeout | Maximal tid det tar att blockera bearbetningen av en uppgraderings domän och förhindra tillgänglighet när det uppstår oväntade problem. <br><br> När tids gränsen går ut fortsätter bearbetningen av uppgraderings domänen oavsett problem med tillgänglighets förlust. Tids gränsen återställs i början av varje uppgraderings domän. Giltiga värden är mellan 0 och 42949672925. |
-| --rolling-upgrade-mode | Möjliga värden är\: "ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "övervakad".  Standard\: UnmonitoredAuto. |
-| --timeout-t | Standard\: 60. |
-| --ej felfri-program | Högsta tillåtna procent andel felaktiga program innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av programmen ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst ett ohälsosamt program, utvärderas hälsan som varning. Detta beräknas genom att antalet felaktiga program divideras över det totala antalet program instanser i klustret, exklusive program av program typer som ingår i ApplicationTypeHealthPolicyMap. Beräkningen avrundar upp till att tolerera ett problem med ett litet antal program. |
-| --ej felfri-noder | Högsta tillåtna procent andel felaktiga noder innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av noderna ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen av noder som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst en ohälsosam nod, utvärderas hälsan som varning. Procent andelen beräknas genom att antalet felaktiga noder divideras med det totala antalet noder i klustret. Beräkningen avrundar upp till att tolerera ett problem på ett litet antal noder. I stora kluster är vissa noder alltid otillgängliga för reparationer, så den här procent andelen bör konfigureras för att tolerera. |
-| --upgrade-domain-delta-unhealthy-nodes | Den högsta tillåtna procent andelen uppgraderingar av hälso tillstånd för noder som tillåts under kluster uppgraderingar.  Standard\: 15. <br><br> Delta mäts mellan tillståndet för noderna i uppgraderings domänen i början av uppgraderingen och tillståndet för uppgraderings domänens noder vid hälso utvärderingen. Kontrollen utförs när varje uppgraderings domän har slutförts för alla slutförda uppgraderings domäner för att kontrol lera att status för uppgraderings domänerna är inom begränsnings gränser. |
-| --uppgradering-Domain-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --uppgraderings typ | Möjliga värden är\: "ogiltig", "rullande", "Rolling_ForceRestart".  Standard\: löpande. |
-| --uppgraderings-timeout | Den tid som den övergripande uppgraderingen måste slutföras innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --warning-as-error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+
+## <a name="sfctl-cluster-upgrade-update"></a>uppgraderingsuppdatering för sfctl-kluster
+Uppdatera uppgraderingsparametrarna för en uppgradering av Service Fabric-kluster.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --app-hälsa-karta | JSON kodade ordlista med par av programnamn och maximal procentandel fel innan du höjer fel. |
+| --app-typ-hälsa-karta | JSON kodade ordlista med par av programtypsnamn och maximal procentandel som var felaktig innan felupptäckt. |
+| --delta-hälsa-utvärdering | Aktiverar delta hälsoutvärdering snarare än absolut hälsoutvärdering efter slutförandet av varje uppgraderingsdomän. |
+| --delta-ohälsosam-noder | Den högsta tillåtna procentandelen av noder hälsoförsämring tillåts under klusteruppgraderingar.  Standard\: 10. <br><br> Deltat mäts mellan nodernas tillstånd i början av uppgraderingen och nodernas tillstånd vid tidpunkten för hälsoutvärderingen. Kontrollen utförs efter varje uppgradering domän uppgradering slutföras för att se till att det globala tillståndet för klustret är inom tolererade gränser. |
+| --fel-åtgärd | Möjliga värden\: är "Ogiltig", "Återställning", "Manuell". |
+| --force-restart | Processer startas om kraftfullt under uppgraderingen även när kodversionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
+| --hälsokontroll-nyttförsök | Hur lång tid det går mellan försök att utföra hälsokontroller om programmet eller klustret inte är felfritt. |
+| --hälsokontroll-stabil | Den tid som programmet eller klustret måste förbli felfritt innan uppgraderingen fortsätter till nästa uppgraderingsdomän. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --hälsa-check-vänta | Hur lång tid du ska vänta efter att ha slutfört en uppgraderingsdomän innan hälsokontrollprocessen startas. |
+| --replica-set-check-timeout | Den maximala tiden för att blockera bearbetning av en uppgraderingsdomän och förhindra förlust av tillgänglighet när det finns oväntade problem. <br><br> När den här timeouten går ut fortsätter bearbetningen av uppgraderingsdomänen oavsett problem med tillgänglighetsförlust. Tidsgränsen återställs i början av varje uppgraderingsdomän. Giltiga värden är mellan 0 och 42949672925. |
+| --rolling-upgrade-mode | Möjliga värden\: är "Ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "Övervakad".  Standard\: unmonitoredauto. |
+| --timeout -t | Standard\: 60. |
+| --ohälsosamma-applikationer | Den högsta tillåtna procentandelen felaktiga program innan du rapporterar ett fel. <br><br> Om du till exempel vill att 10 % av programmen ska vara felaktiga, skulle det här värdet vara 10. Procentsatsen representerar den maximala tolererade procentandelen av program som kan vara felaktiga innan klustret betraktas som ett fel. Om procentsatsen respekteras men det finns minst ett felaktigt program utvärderas hälsotillståndet som Varning. Detta beräknas genom att dividera antalet felaktiga program över det totala antalet programinstanser i klustret, exklusive program av programtyper som ingår i ApplicationTypeHealthPolicyMap. Uträkningen avrundar upp till tolerera ett fel på litet nummer av applikationer. |
+| --ohälsosam-noder | Den högsta tillåtna procentandelen felaktiga noder innan du rapporterar ett fel. <br><br> Om du till exempel vill att 10 % av noderna ska vara felaktiga, skulle det här värdet vara 10. Procentsatsen representerar den maximala tolererade procentandelen noder som kan vara felaktiga innan klustret betraktas som ett fel. Om procentsatsen respekteras men det finns minst en felaktig nod utvärderas hälsotillståndet som Varning. Procentsatsen beräknas genom att dividera antalet felaktiga noder över det totala antalet noder i klustret. Beräkningen avrundar upp för att tolerera ett fel på ett litet antal noder. I stora kluster kommer vissa noder alltid att vara nere eller ute för reparationer, så den här procentsatsen bör konfigureras för att tolerera det. |
+| --upgrade-domain-delta-unhealthy-noder | Den högsta tillåtna procentandelen uppgraderingsdomännoder hälsoförsämring som tillåts vid klusteruppgraderingar.  Standard\: 15. <br><br> Deltat mäts mellan tillståndet för uppgraderingsdomännoderna i början av uppgraderingen och tillståndet för uppgraderingsdomännoderna vid tidpunkten för hälsoutvärderingen. Kontrollen utförs efter varje uppgradering domän uppgradering slutförande för alla slutförda uppgradera domäner för att se till att tillståndet för uppgraderingsdomäner är inom tolererade gränser. |
+| --upgrade-domain-timeout --upgrade-domain-timeout --upgrade-domain-timeout -- | Den tid som varje uppgraderingsdomän måste slutföra innan FailureAction körs. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --upgrade-kind | Möjliga värden\: är "Ogiltig", "Rullande", "Rolling_ForceRestart".  Standardrullning.\: |
+| --upgrade-timeout --upgrade-timeout --upgrade-timeout -- | Hur lång tid den totala uppgraderingen måste slutföras innan FailureAction körs. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --varning-som-fel | Anger om varningar behandlas med samma allvarlighetsgrad som fel. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempelskripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

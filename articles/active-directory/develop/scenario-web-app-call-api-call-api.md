@@ -1,6 +1,6 @@
 ---
-title: Anropa ett webb-API från en webbapp – Microsoft Identity Platform | Azure
-description: 'Lär dig hur du skapar en webbapp som anropar webb-API: er (som anropar ett skyddat webb-API)'
+title: Anropa ett webb-API från en webbapp - Microsoft identity platform | Azure
+description: Lär dig hur du skapar en webbapp som anropar webb-API:er (anropar ett skyddat webb-API)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,19 +15,19 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76758979"
 ---
-# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>En webbapp som anropar webb-API: er: anropa ett webb-API
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>En webbapp som anropar webb-API:er: Anropa ett webb-API
 
 Nu när du har en token kan du anropa ett skyddat webb-API.
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Här är den förenklade koden för `HomeController`s åtgärd. Den här koden hämtar en token för att anropa Microsoft Graph. Koden har lagts till för att visa hur du anropar Microsoft Graph som ett REST API. URL: en för Microsoft Graph-API: n finns i filen appSettings. JSON och läses i en variabel med namnet `webOptions`:
+Här är förenklad kod för `HomeController`åtgärden av . Den här koden får en token för att anropa Microsoft Graph. Kod har lagts till för att visa hur du anropar Microsoft Graph som REST API. URL:en för Microsoft Graph API finns i filen appsettings.json `webOptions`och läses i en variabel med namnet :
 
 ```JSon
 {
@@ -82,11 +82,11 @@ public async Task<IActionResult> Profile()
 ```
 
 > [!NOTE]
-> Du kan använda samma princip för att anropa alla webb-API: er.
+> Du kan använda samma princip för att anropa alla webb-API.
 >
-> De flesta Azure Web API: er tillhandahåller en SDK som fören klar anropet till API: et. Detta gäller även för Microsoft Graph. I nästa artikel lär du dig var du hittar en själv studie kurs som illustrerar API-användning.
+> De flesta Azure-webb-API:er tillhandahåller en SDK som förenklar anropande av API:et. Detta gäller även för Microsoft Graph. I nästa artikel får du lära dig var du hittar en självstudiekurs som illustrerar API-användning.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```Java
 private String getUserInfoFromGraph(String accessToken) throws Exception {
@@ -112,7 +112,7 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
 
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 @app.route("/graphcall")

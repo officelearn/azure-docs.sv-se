@@ -1,5 +1,5 @@
 ---
-title: Azure Relay Hybridanslutningar HTTP-begäranden i .NET
+title: Azure Relay Hybrid-anslutningar - HTTP-begäranden i .NET
 description: Skriva ett C#-konsolprogram för HTTP-begäranden för Azure Relay-hybridanslutningar i .NET.
 services: service-bus-relay
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75355168"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Komma igång med HTTP-begäranden för Relay-hybridanslutningar i .NET
@@ -67,7 +67,7 @@ För att skicka meddelanden till Relay skriver du ett C#-konsolprogram i Visual 
 1. Kör klientprogrammet. `hello!` visas i klientfönstret. Klienten har skickat en HTTP-begäran till servern och servern svarade med en `hello!`. 
 3. Om du vill stänga konsolfönstret nu trycker du på **RETUR** i båda konsolfönsterna. 
 
-Grattis, du har skapat ett komplett Hybridanslutningar-program!
+Grattis, du har skapat ett komplett Hybrid Connections-program!
 
 ## <a name="next-steps"></a>Nästa steg
 

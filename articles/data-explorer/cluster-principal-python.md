@@ -1,6 +1,6 @@
 ---
-title: Lägga till kluster huvud konton för Azure Datautforskaren med hjälp av python
-description: I den här artikeln får du lära dig hur du lägger till kluster huvud konton för Azure Datautforskaren med hjälp av python.
+title: Lägga till klusterobjektnamn för Azure Data Explorer med hjälp av Python
+description: I den här artikeln får du lära dig hur du lägger till klusterobjektnamn för Azure Data Explorer med hjälp av Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,29 +8,29 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 637efdfe31d1f2eb0eaa5dd532dd9e9e67de5ce2
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965143"
 ---
-# <a name="add-cluster-principals-for-azure-data-explorer-by-using-python"></a>Lägga till kluster huvud konton för Azure Datautforskaren med hjälp av python
+# <a name="add-cluster-principals-for-azure-data-explorer-by-using-python"></a>Lägga till klusterobjektnamn för Azure Data Explorer med hjälp av Python
 
 > [!div class="op_single_selector"]
 > * [C#](cluster-principal-csharp.md)
 > * [Python](cluster-principal-python.md)
 > * [Azure Resource Manager-mall](cluster-principal-resource-manager.md)
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln lägger du till kluster huvud konton för Azure Datautforskaren med hjälp av python.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln lägger du till klusterobjektnamn för Azure Data Explorer med hjälp av Python.
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Skapa ett kluster](create-cluster-database-python.md).
 
 ## <a name="install-python-package"></a>Installera Python-paketet
 
-Om du vill installera python-paketet för Azure Datautforskaren (Kusto) öppnar du en kommando tolk med python i sökvägen. Kör följande kommando:
+Om du vill installera Python-paketet för Azure Data Explorer (Kusto) öppnar du en kommandotolk som har Python i sökvägen. Kör följande kommando:
 
 ```
 pip install azure-common
@@ -39,9 +39,9 @@ pip install azure-mgmt-kusto
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## <a name="add-a-cluster-principal"></a>Lägg till ett kluster huvud konto
+## <a name="add-a-cluster-principal"></a>Lägga till ett klusterhuvudnamn
 
-I följande exempel visas hur du lägger till ett kluster säkerhets objekt program mässigt.
+I följande exempel visas hur du lägger till ett klusterhuvudnamn programmässigt.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -80,18 +80,18 @@ poller = kusto_management_client.cluster_principal_assignments.create_or_update(
 
 |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Även känt som katalog-ID.|
-| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Det prenumerations-ID som du använder för att skapa resurser.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
-| client_secret | *xxxxxxxxxxxxxx* | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation. |
-| resource_group_name | *testrg* | Namnet på resurs gruppen som innehåller klustret.|
-| cluster_name | *mykustocluster* | Namnet på klustret.|
-| principal_assignment_name | *clusterPrincipalAssignment1* | Namnet på klustrets huvud resurs.|
-| principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ägar-ID: t, som kan vara användarens e-post, program-ID eller namn på säkerhets grupp.|
-| roll | *AllDatabasesAdmin* | Rollen för ditt klusters huvud konto, som kan vara "AllDatabasesAdmin' eller" AllDatabasesViewer ".|
-| tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Innehavarens ID för huvud kontot.|
-| principal_type | *App* | Typ av huvud konto, som kan vara User, app eller Group|
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Kallas även katalog-ID.|
+| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Prenumerations-ID som du använder för att skapa resurser.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som kan komma åt resurser i din klient.|
+| client_secret | *xxxxxxxxxxxxxx* | Klienthemligheten för programmet som kan komma åt resurser i din klientorganisation. |
+| resource_group_name | *testrg* | Namnet på resursgruppen som innehåller klustret.|
+| cluster_name | *mykustocluster (en)* | Namnet på klustret.|
+| principal_assignment_name | *klusterPrincipAtilldelning1* | Namnet på klustrets huvudresurs.|
+| principal_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Huvud-ID: t, som kan vara användar-E-post, program-ID eller säkerhetsgruppnamn.|
+| roll | *AllDatabasesAdmin* | Rollen för ditt klusterhuvudnamn, som kan vara "AllDatabasesAdmin" eller "AllDatabasesViewer".|
+| tenant_id_for_principal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för huvudmannen.|
+| principal_type | *App* | Typen av huvudnamn, som kan vara "Användare", "App" eller "Grupp"|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lägg till databasens huvud namn](database-principal-python.md)
+* [Lägga till databashuvudnamn](database-principal-python.md)

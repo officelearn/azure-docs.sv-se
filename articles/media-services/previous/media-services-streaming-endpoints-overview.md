@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Media Services strömnings slut punkt | Microsoft Docs
-description: Den här artikeln ger en översikt över Azure Media Services slut punkter för direkt uppspelning.
+title: Översikt över Direktuppspelning av Azure Media Services - Microsoft-dokument
+description: Den här artikeln innehåller en översikt över Azure Media Services-slutpunkter för direktuppspelning av Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,105 +15,105 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74885644"
 ---
-# <a name="streaming-endpoints-overview"></a>Översikt över slut punkter för direkt uppspelning  
+# <a name="streaming-endpoints-overview"></a>Översikt över slutpunkter för direktuppspelning  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-I Microsoft Azure Media Services (AMS) representerar en **strömmande slut punkt** en strömmande tjänst som kan leverera innehåll direkt till ett klient program eller till ett Content Delivery Network (CDN) för vidare distribution. Media Services ger också sömlös Azure CDN-integrering. Den utgående strömmen från en StreamingEndpoint-tjänst kan vara en Live Stream, en video på begäran eller progressiv nedladdning av din till gång på ditt Media Servicess konto. Varje Azure Media Services konto innehåller en standard StreamingEndpoint. Ytterligare strömnings slut punkter kan skapas under kontot. Det finns två versioner av strömnings slut punkter, 1,0 och 2,0. Från och med 10 januari 2017 kommer eventuella nyligen skapade AMS-konton att inkludera version 2,0 **standard** StreamingEndpoint. Ytterligare slut punkter för direkt uppspelning som du lägger till i det här kontot kommer också att vara version 2,0. Ändringen påverkar inte befintliga konton. befintliga strömnings slut punkter kommer att vara version 1,0 och kan uppgraderas till version 2,0. Med den här ändringen kan du göra ändringar i funktioner, fakturerings-och funktions ändringar (mer information finns i avsnittet **strömnings typer och versioner** som beskrivs nedan).
+I Microsoft Azure Media Services (AMS) representerar en slutpunkt för **direktuppspelning** en strömningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN (Content Delivery Network) för vidare distribution. Media Services tillhandahåller också sömlös Azure CDN-integrering. Utgående ström från en StreamingEndpoint-tjänst kan vara en livestream, en video på begäran eller progressiv nedladdning av din tillgång i ditt Media Services-konto. Varje Azure Media Services-konto innehåller en standardstreamingEndpoint. Ytterligare StreamingEndpoints kan skapas under kontot. Det finns två versioner av StreamingEndpoints, 1.0 och 2.0. Från och med den 10 januari 2017 kommer alla nyskapade **default** AMS-konton att innehålla version 2.0 standardstreamingEndpoint. Ytterligare slutpunkter för direktuppspelning som du lägger till i det här kontot kommer också att vara version 2.0. Den här ändringen kommer inte att påverka de befintliga kontona. befintliga StreamingEndpoints kommer att vara version 1.0 och kan uppgraderas till version 2.0. Med den här ändringen kommer det att finnas beteende, fakturering och funktionsändringar (mer information finns i avsnittet **Strömmande typer och versioner** som dokumenteras nedan).
 
-Azure Media Services lade till följande egenskaper i entiteten för strömnings slut punkt: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Detaljerad översikt över dessa egenskaper finns i [detta](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Azure Media Services har lagt till följande egenskaper i slutpunktsentiteten För direktuppspelning: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Detaljerad översikt över dessa egenskaper finns i [den här](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
-När du skapar ett Azure Media Services konto skapas en standard slut punkt för standard strömning för dig i **stoppat** läge. Det går inte att ta bort standard slut punkten för direkt uppspelning. Beroende på Azure CDN tillgänglighet i mål regionen innehåller som standard den nyskapade standard slut punkten för direkt uppspelning även "StandardVerizon" CDN Provider integration. 
+När du skapar ett Azure Media Services-konto skapas en standardstandardslutpunkt för direktuppspelning för dig i tillståndet **Stoppad.** Du kan inte ta bort standardslutpunkten för direktuppspelning. Beroende på Azure CDN-tillgängligheten i den inriktade regionen innehåller som standard nyligen skapade standardslutpunkt för direktuppspelning även "StandardVerizon" CDN-providerintegration. 
                 
 > [!NOTE]
-> Azure CDN integration kan inaktive ras innan du startar slut punkten för direkt uppspelning. `hostname` och strömnings-URL: en är oförändrade oavsett om du aktiverar CDN eller inte.
+> Azure CDN-integrering kan inaktiveras innan du startar slutpunkten för direktuppspelning. Och `hostname` direktuppspelnings-URL:en förblir densamma oavsett om du aktiverar CDN eller inte.
 
-Det här avsnittet ger en översikt över de viktigaste funktionerna som tillhandahålls av slut punkter för direkt uppspelning.
+Det här avsnittet innehåller en översikt över de viktigaste funktionerna som tillhandahålls av slutpunkter för direktuppspelning.
 
 ## <a name="naming-conventions"></a>Namngivningskonventioner
 
-För standard slut punkten: `{AccountName}.streaming.mediaservices.windows.net`
+För standardslutpunkten:`{AccountName}.streaming.mediaservices.windows.net`
 
-För ytterligare slut punkter: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
+För ytterligare slutpunkter:`{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Strömmande typer och versioner
 
-### <a name="standardpremium-types-version-20"></a>Standard/Premium-typer (version 2,0)
+### <a name="standardpremium-types-version-20"></a>Standard/Premium-typer (version 2.0)
 
-Från och med januari 2017-versionen av Media Services har du två typer av direkt uppspelning: **standard** (för hands version) och **Premium**. Dessa typer är en del av slut punkts versionen "2,0" för strömningen.
+Från och med lanseringen av Media Services i januari 2017 har du två direktuppspelningstyper: **Standard** (förhandsversion) och **Premium**. Dessa typer är en del av slutpunktsversionen "2.0".
 
 
 |Typ|Beskrivning|
 |--------|--------|  
-|**Standard**|Standard slut punkten för direkt uppspelning är en **standard** typ, kan ändras till Premium-typen genom att justera strömnings enheter.|
-|**Premium** |Det här alternativet är lämpligt för professionella scenarier som kräver högre skala eller kontroll. Du flyttar till en **Premium** -typ genom att justera strömnings enheter.<br/>Dedikerade strömnings slut punkter Live i isolerade miljöer och konkurrerar inte om resurser.|
+|**Standard**|Standardslutpunkten för direktuppspelning är en **standardtyp,** kan ändras till Premium-typen genom att justera strömningsenheter.|
+|**Premium** |Det här alternativet är lämpligt för professionella scenarier som kräver högre skala eller kontroll. Du flyttar till en **Premium-typ** genom att justera strömningsenheter.<br/>Dedikerade slutpunkter för direktuppspelning lever i en isolerad miljö och konkurrerar inte om resurser.|
 
-För kunder som vill leverera innehåll till stora Internet-åhörare rekommenderar vi att du aktiverar CDN på slut punkten för direkt uppspelning.
+För kunder som vill leverera innehåll till stora internetpublik rekommenderar vi att du aktiverar CDN på slutpunkten för direktuppspelning.
 
-Mer detaljerad information finns i avsnittet [jämföra strömnings typer](#comparing-streaming-types) nedan.
+Mer detaljerad information finns i avsnittet [Jämför direktuppspelningstyper.](#comparing-streaming-types)
 
-### <a name="classic-type-version-10"></a>Klassisk typ (version 1,0)
+### <a name="classic-type-version-10"></a>Klassisk typ (version 1.0)
 
-För användare som skapade AMS-konton före versionen från januari 10 2017 har du en **klassisk** typ av slut punkt för direkt uppspelning. Den här typen är en del av den strömmande slut punkts versionen "1,0".
+För användare som skapade AMS-konton före utgivningen den 10 januari 2017 har du en **klassisk** typ av en slutpunkt för direktuppspelning. Den här typen är en del av slutpunktsversionen "1.0".
 
-Om din **version "1,0"** för strömnings slut punkten har > = 1 Premium streaming Units (SU) är den förstklassiga strömnings slut punkten och tillhandahåller alla AMS-funktioner (precis som **Standard-/Premium** -typen) utan ytterligare konfigurations steg.
+Om din **version "1.0"** streaming slutpunkt har >= 1 premium streaming enheter (SU), kommer det att vara premium streaming slutpunkt och kommer att ge alla AMS-funktioner (precis som **Standard / Premium** typ) utan några ytterligare konfigurationssteg.
 
 >[!NOTE]
->**Klassiska** slut punkter för direkt uppspelning (version "1,0" och 0 SU) tillhandahåller begränsade funktioner och omfattar inte ett service avtal. Vi rekommenderar att du migrerar till **standard** typ för att få en bättre upplevelse och att använda funktioner som dynamisk paketering eller kryptering och andra funktioner som följer **standard** typen. Om du vill migrera till **standard** typen går du till [Azure Portal](https://portal.azure.com/) och väljer **att välja som standard**. Mer information om migrering finns i avsnittet om [migrering](#migration-between-types) .
+>**Klassiska** slutpunkter för direktuppspelning (version "1.0" och 0 SU), innehåller begränsade funktioner och innehåller inte ett serviceavtal. Vi rekommenderar att du migrerar till **standardtyp** för att få en bättre upplevelse och för att använda funktioner som dynamisk förpackning eller kryptering och andra funktioner som medar **standardtypen.** Om du vill migrera till **standardtypen** går du till [Azure-portalen](https://portal.azure.com/) och väljer **Opt-in till Standard**. Mer information om migrering finns i [migreringsavsnittet.](#migration-between-types)
 >
->Tänk på att den här åtgärden inte kan återställas och att den påverkar prissättningen.
+>Se upp för att den här åtgärden inte kan återställas och har en prispåverkan.
 >
  
-## <a name="comparing-streaming-types"></a>Jämföra strömnings typer
+## <a name="comparing-streaming-types"></a>Jämföra direktuppspelningstyper
 
 ### <a name="versions"></a>Versioner
 
-|Typ|StreamingEndpointVersion|ScaleUnits|CDN|Fakturering|
+|Typ|StreamingEndpointVersion|SkalaEnheter|CDN|Fakturering|
 |--------------|----------|-----------------|-----------------|-----------------|
 |Klassisk|1.0|0|Ej tillämpligt|Kostnadsfri|
-|Standard slut punkt för direkt uppspelning (förhands granskning)|2.0|0|Ja|Avgiftsbelagt|
-|Premium-enheter för direktuppspelning|1.0|> 0|Ja|Avgiftsbelagt|
-|Premium-enheter för direktuppspelning|2.0|> 0|Ja|Avgiftsbelagt|
+|Slutpunkt för standardstreaming (förhandsgranskning)|2.0|0|Ja|Betalas|
+|Premium streamingenheter|1.0|> 0|Ja|Betalas|
+|Premium streamingenheter|2.0|> 0|Ja|Betalas|
 
 ### <a name="features"></a>Funktioner
 
 Funktion|Standard|Premium
 ---|---|---
-Dataflöde |Upp till 600 Mbit/s och kan ge ett mycket mer effektivt data flöde när ett CDN används.|200 Mbit/s per strömnings enhet (SU). Kan ge ett mycket högre effektivt data flöde när ett CDN används.
-CDN|Azure CDN, CDN för tredje part eller ingen CDN.|Azure CDN, CDN för tredje part eller ingen CDN.
-Faktureringen beräknas proportionellt| Dagligen|Dagligen
+Dataflöde |Upp till 600 Mbit/s och kan ge ett mycket högre effektivt dataflöde när ett CDN används.|200 Mbit/s per streamingenhet (SU). Kan ge ett mycket högre effektivt dataflöde när ett CDN används.
+CDN|Azure CDN, CDN från tredje part eller ingen CDN.|Azure CDN, CDN från tredje part eller ingen CDN.
+Faktureringen är proportionell| Varje dag|Varje dag
 Dynamisk kryptering|Ja|Ja
 Dynamisk paketering|Ja|Ja
-Skala|Skalar upp till det riktade data flödet automatiskt.|Ytterligare enheter för strömning.
-IP-filtrering/G20/anpassad värd <sup>1</sup>|Ja|Ja
+Skalning|Auto skalas upp till det riktade dataflödet.|Ytterligare strömningsenheter.
+IP-filtrering/G20/Anpassad värd <sup>1</sup>|Ja|Ja
 Progressiv nedladdning|Ja|Ja
-Rekommenderad användning |Rekommenderas för de flesta strömnings scenarier.|Professional-användning. 
+Rekommenderad användning |Rekommenderas för de allra flesta streamingscenarier.|Professionell användning. 
 
-<sup>1</sup> används endast direkt på slut punkten för direkt uppspelning när CDN inte är aktiverat på slut punkten.<br/>
+<sup>1</sup> Används endast direkt på slutpunkten för direktuppspelning när CDN-programmet inte är aktiverat på slutpunkten.<br/>
 
-Information om SLA finns i [prissättning och service avtal](https://azure.microsoft.com/pricing/details/media-services/).
+SLA-information finns i [Prissättning och SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migrering mellan typer
 
 Från | Till | Åtgärd
 ---|---|---
-Klassisk|Standard|Du måste välja
-Klassisk|Premium| Skala (ytterligare enheter för strömning)
-Standard/Premium|Klassisk|Inte tillgängligt (om version för strömnings slut punkt är 1,0. Det går att ändra till klassiskt med inställningen scaleunits till "0")
-Standard (med/utan CDN)|Premium med samma konfigurationer|Tillåts i **Start** läge. (via Azure Portal)
-Premium (med/utan CDN)|Standard med samma konfigurationer|Tillåts i **Start** tillstånd (via Azure Portal)
-Standard (med/utan CDN)|Premium med olika konfigurationer|Tillåts i **stoppat** tillstånd (via Azure Portal). Tillåts inte i körnings tillstånd.
-Premium (med/utan CDN)|Standard med olika konfigurationer|Tillåts i **stoppat** tillstånd (via Azure Portal). Tillåts inte i körnings tillstånd.
-Version 1,0 med SU > = 1 med CDN|Standard/Premium utan CDN|Tillåts i **stoppat** tillstånd. Tillåts inte i läget **Started** .
-Version 1,0 med SU > = 1 med CDN|Standard med/utan CDN|Tillåts i **stoppat** tillstånd. Tillåts inte i läget **Started** . Version 1,0 CDN tas bort och en ny skapas och startas.
-Version 1,0 med SU > = 1 med CDN|Premium med/utan CDN|Tillåts i **stoppat** tillstånd. Tillåts inte i läget **Started** . Den klassiska CDN tas bort och nya skapas och startas.
+Klassisk|Standard|Behovet av att anmäla dig
+Klassisk|Premium| Skala(ytterligare strömningsenheter)
+Standard/Premium|Klassisk|Inte tillgängligt(Om slutpunktsversionen för direktuppspelning är 1.0. Det är tillåtet att byta till klassisk med inställning scaleunits till "0")
+Standard (med/utan CDN)|Premium med samma konfigurationer|Tillåtet i **started** starttillståndet. (via Azure-portalen)
+Premium (med/utan CDN)|Standard med samma konfigurationer|Tillåtet i **starttillståndet** (via Azure-portalen)
+Standard (med/utan CDN)|Premium med olika config|Tillåts i **stoppat** tillstånd (via Azure-portalen). Inte tillåtet i körtillstånd.
+Premium (med/utan CDN)|Standard med olika config|Tillåts i **stoppat** tillstånd (via Azure-portalen). Inte tillåtet i körtillstånd.
+Version 1.0 med SU >= 1 med CDN|Standard/Premium utan CDN|Tillåts i **stoppat** tillstånd. Inte tillåtet **started** i starttillståndet.
+Version 1.0 med SU >= 1 med CDN|Standard med/utan CDN|Tillåts i **stoppat** tillstånd. Inte tillåtet **started** i starttillståndet. Version 1.0 CDN kommer att tas bort och ny skapas och startas.
+Version 1.0 med SU >= 1 med CDN|Premium med/utan CDN|Tillåts i **stoppat** tillstånd. Inte tillåtet **started** i starttillståndet. Classic CDN kommer att tas bort och ny skapas och startas.
 
 ## <a name="next-steps"></a>Nästa steg
 Granska sökvägarna för Media Services-utbildning.

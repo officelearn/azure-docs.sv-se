@@ -1,6 +1,6 @@
 ---
 title: Migrera från DTU till virtuell kärna
-description: Migrera från DTU-modellen till vCore-modellen. Migrering till vCore liknar uppgradering eller nedgradering mellan standard-och Premium nivåerna.
+description: Migrera från DTU-modellen till vCore-modellen. Att migrera till vCore liknar uppgradering eller nedgradering mellan standard- och premiumnivåerna.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -10,58 +10,58 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 03/09/2020
 ms.openlocfilehash: 693065046f92e0e9eade14c43e9942772440937d
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945407"
 ---
 # <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrera från den DTU-baserade modellen till den vCore-baserade modellen
 
 ## <a name="migrate-a-database"></a>Migrera en databas
 
-Migrering av en databas från den DTU-baserade inköps modellen till den vCore-baserade inköps modellen liknar uppgradering eller nedgradering mellan standard-och premium tjänst nivåerna i den DTU-baserade inköps modellen.
+Att migrera en databas från den DTU-baserade inköpsmodellen till den vCore-baserade inköpsmodellen liknar uppgradering eller nedgradering mellan standard- och premiumtjänstnivåerna i den DTU-baserade inköpsmodellen.
 
-## <a name="migrate-databases-that-use-geo-replication"></a>Migrera databaser som använder geo-replikering
+## <a name="migrate-databases-that-use-geo-replication"></a>Migrera databaser som använder georeplikering
 
-Migrering från den DTU-baserade modellen till den vCore-baserade inköps modellen liknar att uppgradera eller nedgradera geo-replikeringsrelationen mellan databaser på standard-och premium-tjänst nivåerna. Under migreringen behöver du inte stoppa geo-replikering, men du måste följa dessa ordningsföljds regler:
+Att migrera från den DTU-baserade modellen till den vCore-baserade inköpsmodellen liknar uppgradering eller nedgradering av geo-replikeringsrelationer mellan databaser i standard- och premiumtjänstnivåerna. Under migreringen behöver du inte stoppa geo-replikering, men du måste följa dessa sekvenseringsregler:
 
-- När du uppgraderar måste du uppgradera den sekundära databasen först och sedan uppgradera den primära databasen.
-- Ändra ordning när du nedgraderar ordningen: du måste nedgradera den primära databasen först och sedan nedgradera den sekundära.
+- När du uppgraderar måste du först uppgradera den sekundära databasen och sedan uppgradera den primära.
+- När du nedgraderar, återför ordningen: du måste nedgradera den primära databasen först och sedan nedgradera den sekundära.
 
-När du använder geo-replikering mellan två elastiska pooler rekommenderar vi att du anger en pool som primär och den andra som den sekundära. I så fall bör du använda samma rikt linjer när du migrerar elastiska pooler. Men om du har elastiska pooler som innehåller både primära och sekundära databaser, behandlar poolen med den högre användningen som primär och följer ordningsföljden för ordningsföljd.  
+När du använder georeplikering mellan två elastiska pooler rekommenderar vi att du anger den ena poolen som primär och den andra som sekundär. I så fall bör du använda samma sekvenseringsvägledning när du migrerar elastiska pooler. Om du har elastiska pooler som innehåller både primära och sekundära databaser behandlar du poolen med det högre utnyttjandet som primärt och följer sekvenseringsreglerna därefter.  
 
-Följande tabell innehåller vägledning för olika scenarier för migrering:
+I följande tabell finns vägledning för specifika migreringsscenarier:
 
-|Aktuell tjänst nivå|Mål tjänst nivå|Typ av migrering|Användar åtgärder|
+|Aktuell tjänstnivå|Måltjänstnivå|Typ av migrering|Användaråtgärder|
 |---|---|---|---|
-|Standard|Generellt syfte|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek *|
-|Premium|Verksamhets kritisk|Lateral|Kan migrera i vilken ordning som helst, men måste säkerställa lämplig vCore storlek *|
-|Standard|Verksamhets kritisk|Uppgradera|Måste migrera sekundär första|
-|Verksamhets kritisk|Standard|Nedgradera|Måste migrera primär första|
-|Premium|Generellt syfte|Nedgradera|Måste migrera primär första|
-|Generellt syfte|Premium|Uppgradera|Måste migrera sekundär första|
-|Verksamhets kritisk|Generellt syfte|Nedgradera|Måste migrera primär första|
-|Generellt syfte|Verksamhets kritisk|Uppgradera|Måste migrera sekundär första|
+|Standard|Generellt syfte|Laterala|Kan migrera i valfri ordning, men måste säkerställa lämplig vCore-storlek*|
+|Premium|Affärskritiskt|Laterala|Kan migrera i valfri ordning, men måste säkerställa lämplig vCore-storlek*|
+|Standard|Affärskritiskt|Uppgradera|Måste migrera sekundärt först|
+|Affärskritiskt|Standard|Nedgradera|Måste migrera primär först|
+|Premium|Generellt syfte|Nedgradera|Måste migrera primär först|
+|Generellt syfte|Premium|Uppgradera|Måste migrera sekundärt först|
+|Affärskritiskt|Generellt syfte|Nedgradera|Måste migrera primär först|
+|Generellt syfte|Affärskritiskt|Uppgradera|Måste migrera sekundärt först|
 ||||
 
-\* som en tumregel, var 100 DTU: er på standard nivån kräver minst 1 vCore, och varje 125-DTU: er på Premium nivån kräver minst 1 vCore. Mer information finns i [vCore-baserad inköps modell](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model).
+\*Som en tumregel kräver varje 100 DU:er på standardnivån minst 1 vCore, och var 125 DU:er i premiumnivån kräver minst 1 vCore. Mer information finns i [vCore-baserad inköpsmodell](https://docs.microsoft.com/azure/sql-database/sql-database-purchase-models#vcore-based-purchasing-model).
 
-## <a name="migrate-failover-groups"></a>Migrera redundansväxla grupper
+## <a name="migrate-failover-groups"></a>Migrera redundansgrupper
 
-Migrering av failover-grupper med flera databaser kräver en individuell migrering av de primära och sekundära databaserna. Under den processen gäller samma överväganden och ordningsföljd regler. När databaserna har konverterats till den vCore-baserade inköps modellen, kommer gruppen för redundans att gälla med samma princip inställningar.
+Migrering av redundansklar med flera databaser kräver individuell migrering av de primära och sekundära databaserna. Under den processen gäller samma överväganden och sekvenseringsregler. När databaserna har konverterats till den vCore-baserade inköpsmodellen fortsätter redundansgruppen att gälla med samma principinställningar.
 
-### <a name="create-a-geo-replication-secondary-database"></a>Skapa en sekundär databas för geo-replikering
+### <a name="create-a-geo-replication-secondary-database"></a>Skapa en sekundär georeplikeringsdatabas
 
-Du kan skapa en sekundär databas för geo-replikering (endast en geo-sekundär) med samma tjänst nivå som du använde för den primära databasen. För databaser med hög logg skapande frekvens rekommenderar vi att du skapar geo-Secondary med samma beräknings storlek som den primära.
+Du kan bara skapa en sekundär georeplikeringsdatabas (en geografisk sekundär) genom att använda samma tjänstnivå som du använde för den primära databasen. För databaser med hög logggenereringshastighet rekommenderar vi att du skapar den geo-sekundära med samma beräkningsstorlek som den primära.
 
-Om du skapar en geo-sekundär i den elastiska poolen för en enda primär databas kontrollerar du att den `maxVCore` inställningen för poolen matchar den primära databasens beräknings storlek. Om du skapar en geo-Secondary för en primär i en annan elastisk pool, rekommenderar vi att poolerna har samma `maxVCore` inställningar.
+Om du skapar en geografisk sekundär i den elastiska poolen för `maxVCore` en enda primär databas kontrollerar du att inställningen för poolen matchar den primära databasens beräkningsstorlek. Om du skapar en geografisk sekundär för en primär i en annan elastisk `maxVCore` pool rekommenderar vi att poolerna har samma inställningar.
 
-## <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använd databas kopiering för att konvertera en DTU-baserad databas till en vCore-baserad databas
+## <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Använda databaskopia för att konvertera en DTU-baserad databas till en vCore-baserad databas
 
-Du kan kopiera alla databaser med en DTU-baserad beräknings storlek till en databas med en vCore beräknings storlek utan begränsningar eller särskilda sekvenser så länge mål beräknings storleken har stöd för den maximala databas storleken för käll databasen. Databas kopian skapar en ögonblicks bild av data från den tidpunkt då kopieringen startar och synkroniserar inte data mellan källan och målet.
+Du kan kopiera en databas med en DTU-baserad beräkningsstorlek till en databas med en vCore-baserad beräkningsstorlek utan begränsningar eller särskild sekvensering så länge målberäkningsstorleken stöder källdatabasens maximala databasstorlek. Databaskopian skapar en ögonblicksbild av data från och med kopieringens starttid och synkroniserar inte data mellan källan och målet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- De angivna beräknings storlekarna och lagrings storleks alternativen för enskilda databaser finns i [SQL Database vCore resurs gränser för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md).
-- De angivna beräknings storlekarna och lagrings storleks alternativen för elastiska pooler finns i [SQL Database vCore resurs gränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
+- De specifika beräkningsstorlekar och lagringsstorleksalternativ som är tillgängliga för enskilda databaser finns i [SQL Database vCore-baserade resursgränser för enskilda databaser](sql-database-vcore-resource-limits-single-databases.md).
+- För de specifika beräkningsstorlekar och lagringsstorleksalternativ som är tillgängliga för elastiska pooler finns i [SQL Database vCore-baserade resursgränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).

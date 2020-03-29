@@ -1,6 +1,6 @@
 ---
-title: Lista roll tilldelningar med hjälp av Azure RBAC och Azure Portal
-description: Lär dig hur du avgör vilka resurser användare, grupper, tjänstens huvud namn eller hanterade identiteter har åtkomst till med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure Portal.
+title: Lista rolltilldelningar med Azure RBAC och Azure-portalen
+description: Lär dig hur du tar reda på vilka resurser användare, grupper, tjänsthuvudnamn eller hanterade identiteter har åtkomst till med hjälp av Azure-rollbaserad åtkomstkontroll (RBAC) och Azure-portalen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,78 +11,78 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/23/2020
+ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245621"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062247"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista roll tilldelningar med hjälp av Azure RBAC och Azure Portal
+# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista rolltilldelningar med Azure RBAC och Azure-portalen
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure Portal.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]I den här artikeln beskrivs hur du listar rolltilldelningar med Hjälp av Azure-portalen.
 
 > [!NOTE]
-> Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
+> Om din organisation har lagt ut hanteringsfunktioner på entreprenad till en tjänsteleverantör som använder [Azure-delegerad resurshantering](../lighthouse/concepts/azure-delegated-resource-management.md)visas inte rolltilldelningar som auktoriserats av den tjänsteleverantören här.
 
-## <a name="list-role-assignments-for-a-user-or-group"></a>Lista roll tilldelningar för en användare eller grupp
+## <a name="list-role-assignments-for-a-user-or-group"></a>Lista rolltilldelningar för en användare eller grupp
 
-Det enklaste sättet att se de roller som har tilldelats en användare eller grupp i en prenumeration är att använda fönstret **Azure-resurser** .
+Det enklaste sättet att se de roller som tilldelats en användare eller grupp i en prenumeration är att använda **Azure-resursfönstret.**
 
-1. I Azure Portal klickar du på **alla tjänster** och väljer sedan **användare** eller **grupper**.
+1. Klicka på Alla **tjänster** i Azure-portalen och välj sedan **Användare** eller **Grupper**.
 
-1. Klicka på den användare eller grupp som du vill visa en lista över roll tilldelningarna för.
+1. Klicka på den användare eller grupp som du vill visa rolltilldelningarna för.
 
 1. Klicka på **Azure-resurser**.
 
-    Du ser en lista över roller som har tilldelats den valda användaren eller gruppen vid olika omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
+    Du ser en lista över roller som tilldelats den valda användaren eller gruppen i olika scope, till exempel hanteringsgrupp, prenumeration, resursgrupp eller resurs. Den här listan innehåller alla rolltilldelningar som du har behörighet att läsa.
 
     ![Rolltilldelningar för en användare](./media/role-assignments-list-portal/azure-resources-user.png)    
 
-1. Klicka på listan **prenumerationer** om du vill ändra prenumerationen.
+1. Om du vill ändra prenumerationen klickar du på listan **Prenumerationer.**
 
-## <a name="list-owners-of-a-subscription"></a>Lista ägare för en prenumeration
+## <a name="list-owners-of-a-subscription"></a>Lista ägare av en prenumeration
 
-Användare som har tilldelats [ägar](built-in-roles.md#owner) rollen för en prenumeration kan hantera allt i prenumerationen. Följ dessa steg om du vill visa en lista över ägare till en prenumeration.
+Användare som har tilldelats [rollen Ägare](built-in-roles.md#owner) för en prenumeration kan hantera allt i prenumerationen. Följ dessa steg för att lista ägarna till en prenumeration.
 
 1. I Azure-portalen klickar du på **Alla tjänster** och sedan **Prenumerationer**.
 
-1. Klicka på den prenumeration som du vill lista ägarna till.
+1. Klicka på den prenumeration som du vill visa ägare till.
 
-1. Klicka på **Åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
 1. Klicka på fliken **Rolltilldelningar** så att du ser alla rolltilldelningar för prenumerationen.
 
-1. Bläddra till avsnittet **ägare** om du vill se alla användare som har tilldelats ägar rollen för den här prenumerationen.
+1. Bläddra till avsnittet **Ägare** om du vill visa alla användare som har tilldelats ägarrollen för den här prenumerationen.
 
-   ![Åtkomst kontroll för prenumeration – fliken roll tilldelningar](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
+   ![Kontroll av prenumerationsåtkomst - fliken Rolltilldelningar](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
-## <a name="list-role-assignments-at-a-scope"></a>Lista roll tilldelningar i ett omfång
+## <a name="list-role-assignments-at-a-scope"></a>Lista rolltilldelningar i ett scope
 
-1. I Azure Portal klickar du på **alla tjänster** och väljer sedan omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
+1. Klicka på Alla **tjänster** i Azure-portalen och välj sedan scopet. Du kan till exempel välja **Hanteringsgrupper,** **Prenumerationer,** **Resursgrupper**eller en resurs.
 
-1. Klicka på den aktuella resursen.
+1. Klicka på den specifika resursen.
 
-1. Klicka på **Åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
-1. Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar i det här omfånget.
+1. Klicka på fliken **Rolltilldelningar** om du vill visa alla rolltilldelningar i det här scopet.
 
-   ![Åtkomst kontroll – fliken roll tilldelningar](./media/role-assignments-list-portal/access-control-role-assignments.png)
+   ![Åtkomstkontroll - fliken Rolltilldelningar](./media/role-assignments-list-portal/access-control-role-assignments.png)
 
-   På fliken roll tilldelningar kan du se vem som har åtkomst till det här omfånget. Observera att vissa roller är begränsade till **den här resursen** medan andra är **(Ärvda)** från ett annat omfång. Åtkomst tilldelas antingen specifikt till den här resursen eller ärvts från en tilldelning till det överordnade omfånget.
+   På fliken Rolltilldelningar kan du se vem som har åtkomst i det här omfånget. Observera att vissa roller är begränsade till **den här resursen** medan andra är **(Ärvda)** från ett annat omfång. Åtkomst tilldelas antingen specifikt till den här resursen eller ärvs från en tilldelning till det överordnade scopet.
 
-## <a name="list-role-assignments-for-a-user-at-a-scope"></a>Lista roll tilldelningar för en användare i ett omfång
+## <a name="list-role-assignments-for-a-user-at-a-scope"></a>Lista rolltilldelningar för en användare i ett scope
 
-Om du vill visa en lista över åtkomsten för en användare, grupp, tjänstens huvud namn eller en hanterad identitet anger du roll tilldelningarna. Följ dessa steg om du vill visa roll tilldelningarna för en enskild användare, grupp, tjänstens huvud namn eller hanterad identitet i ett visst omfång.
+Om du vill visa åtkomst för en användare, grupp, tjänsthuvudnamn eller hanterad identitet listar du deras rolltilldelningar. Följ dessa steg för att lista rolltilldelningarna för en enskild användare, grupp, tjänsthuvudnamn eller hanterad identitet i ett visst scope.
 
-1. I Azure Portal klickar du på **alla tjänster** och väljer sedan omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
+1. Klicka på Alla **tjänster** i Azure-portalen och välj sedan scopet. Du kan till exempel välja **Hanteringsgrupper,** **Prenumerationer,** **Resursgrupper**eller en resurs.
 
-1. Klicka på den aktuella resursen.
+1. Klicka på den specifika resursen.
 
-1. Klicka på **Åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
 1. Klicka på fliken **Kontrollera åtkomst**.
 
@@ -100,43 +100,43 @@ Om du vill visa en lista över åtkomsten för en användare, grupp, tjänstens 
 
     I den här fönsterrutan kan du se de roller som tilldelats till den valda säkerhetsprincipen och omfånget. Om det finns några nekande tilldelningar i det här omfånget eller som ärvts till det här omfånget visas de.
 
-## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Lista roll tilldelningar för en systemtilldelad hanterad identitet
+## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Lista rolltilldelningar för en systemtilldelad hanterad identitet
 
-1. I Azure Portal öppnar du en systemtilldelad hanterad identitet.
+1. Öppna en systemtilldelad hanterad identitet i Azure-portalen.
 
-1. Klicka på **identitet**i den vänstra menyn.
+1. Klicka på **Identitet**på den vänstra menyn.
 
     ![Systemtilldelad hanterad identitet](./media/role-assignments-list-portal/identity-system-assigned.png)
 
-1. Under **roll tilldelningar**klickar du på **Visa de Azure RBAC-roller som tilldelats den här hanterade identiteten**.
+1. Under **Rolltilldelningar**klickar du på **Visa Azure RBAC-roller som tilldelats den här hanterade identiteten**.
 
-    Du ser en lista över roller som har tilldelats den valda systemtilldelade hanterade identiteten vid olika omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
+    Du ser en lista över roller som tilldelats den valda systemtilldelade hanterade identiteten vid olika scope, till exempel hanteringsgrupp, prenumeration, resursgrupp eller resurs. Den här listan innehåller alla rolltilldelningar som du har behörighet att läsa.
 
-    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+    ![Rolltilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
 
-## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Lista roll tilldelningar för en användardefinierad hanterad identitet
+## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Lista rolltilldelningar för en användartilldelad hanterad identitet
 
-1. Öppna en användardefinierad hanterad identitet i Azure Portal.
+1. Öppna en användartilldelad hanterad identitet i Azure-portalen.
 
 1. Klicka på **Azure-resurser**.
 
-    Du ser en lista över roller som har tilldelats den valda användarspecifika hanterade identiteten vid olika omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs. Den här listan innehåller alla roll tilldelningar som du har behörighet att läsa.
+    Du ser en lista över roller som tilldelats den valda användartilldelade hanterade identiteten i olika scope, till exempel hanteringsgrupp, prenumeration, resursgrupp eller resurs. Den här listan innehåller alla rolltilldelningar som du har behörighet att läsa.
 
-    ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+    ![Rolltilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
-1. Klicka på listan **prenumerationer** om du vill ändra prenumerationen.
+1. Om du vill ändra prenumerationen klickar du på listan **Prenumerationer.**
 
-## <a name="list-number-of-role-assignments"></a>Lista antal roll tilldelningar
+## <a name="list-number-of-role-assignments"></a>Lista antal rolltilldelningar
 
-Du kan ha upp till **2000** roll tilldelningar i varje prenumeration. För att hjälpa dig att hålla koll på dessa begränsningar innehåller fliken **roll tilldelningar** ett diagram som visar det aktuella antalet roll tilldelningar.
+Du kan ha upp till **2 000** rolltilldelningar i varje prenumeration. På sidan Rolltilldelningar för att hjälpa dig att hålla reda på den här gränsen innehåller fliken **Rolltilldelningar** ett diagram med antalet rolltilldelningar för den aktuella prenumerationen.
 
-![Åtkomst kontroll-antal roll tilldelnings diagram](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+![Åtkomstkontroll - Antal rolltilldelningar diagram](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
-Om du får nära det högsta antalet och du försöker lägga till fler roll tilldelningar visas en varning i fönstret **Lägg till roll tilldelning** . Du kan minska antalet roll tilldelningar genom att ta bort roll tilldelningar som inte längre behövs eller genom att tilldela roller till grupper i stället för enskilda användare.
+Om du närmar dig det maximala antalet och försöker lägga till fler rolltilldelningar visas en varning i fönstret **Lägg till rolltilldelning.** Hur du kan minska antalet rolltilldelningar finns i [Felsöka Azure RBAC](troubleshooting.md#azure-role-assignments-limit).
 
-![Åtkomst kontroll – Lägg till Roll tilldelnings varning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
+![Åtkomstkontroll - Lägga till varning för rolltilldelning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal](role-assignments-portal.md)
+- [Lägga till eller ta bort rolltilldelningar med Azure RBAC och Azure-portalen](role-assignments-portal.md)
 - [Felsöka RBAC för Azure-resurser](troubleshooting.md)

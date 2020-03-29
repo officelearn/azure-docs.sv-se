@@ -1,6 +1,6 @@
 ---
-title: Visualisera data med en Azure Datautforskaren Kusto-fråga som importer ATS till Microsoft Excel
-description: I den här artikeln får du lära dig hur du importerar en Azure Datautforskaren Kusto-fråga till Microsoft Excel.
+title: Visualisera data med hjälp av en Azure Data Explorer Kusto-fråga som importeras till Microsoft Excel
+description: I den här artikeln får du lära dig hur du importerar en Azure Data Explorer Kusto-fråga till Microsoft Excel.
 author: orspod
 ms.author: orspodek
 ms.reviewer: rkarlin
@@ -8,67 +8,67 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: 4999000e2084922b43b8085034f545d4b5c644a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74849096"
 ---
-# <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Visualisera data med en Azure Datautforskaren Kusto-fråga som importer ATS till Microsoft Excel
+# <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Visualisera data med hjälp av en Azure Data Explorer Kusto-fråga som importeras till Microsoft Excel
 
-Azure Datautforskaren innehåller två alternativ för att ansluta till data i Excel: Använd den interna anslutningen eller importera en fråga från Azure Datautforskaren. Den här artikeln visar hur du importerar en fråga från Azure Datautforskaren till Excel för att visualisera data. Lägg till Kusto-fråga som en Excel-datakälla för att utföra ytterligare beräkningar eller visualiseringar av data.
+Azure Data Explorer innehåller två alternativ för att ansluta till data i Excel: använd den inbyggda kopplingen eller importera en fråga från Azure Data Explorer. Den här artikeln visar hur du importerar en fråga från Azure Data Explorer till Excel för att visualisera data. Lägg till Kusto-fråga som en Excel-datakälla för att göra ytterligare beräkningar eller visualiseringar på data.
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* Ett e-postkonto i organisationen som är medlem i Azure Active Directory, så att du kan ansluta till [azure datautforskaren hjälp kluster](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Ett organisations-e-postkonto som är medlem i Azure Active Directory, så att du kan ansluta till [hjälpklustret för Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/Samples) 
 <br>eller</br>
-* Skapa [ett test kluster och en databas](create-cluster-database-portal.md) och logga in på [Azure datautforskaren Web UI-programmet](https://dataexplorer.azure.com/).
+* Skapa [ett testkluster och en databas](create-cluster-database-portal.md) och logga in på Azure Data Explorer Web [UI-programmet](https://dataexplorer.azure.com/).
 
 ## <a name="define-kusto-query-as-an-excel-data-source"></a>Definiera Kusto-fråga som en Excel-datakälla
 
-1. Kör frågan i [Azure datautforskaren Web UI](https://dataexplorer.azure.com/clusters/help/databases/Samples)och kontrol lera resultaten.
+1. I [Azure Data Explorer Web UI](https://dataexplorer.azure.com/clusters/help/databases/Samples)kör du frågan och kontrollerar resultaten.
 
-1. Välj fliken **dela** och välj **fråga för att Power BI**.
+1. Välj fliken **Dela** och välj **Fråga till Power BI**.
 
-    ![Webb GRÄNSSNITTs fråga att Power BI](media/excel-blank-query/web-ui-query-to-powerbi.png)
+    ![Webbgränssnittsfråga till Power BI](media/excel-blank-query/web-ui-query-to-powerbi.png)
 
-1. Ett fönster med följande meddelande visas:
+1. Ett fönster visas med följande meddelande:
 
-    ![Exportera fråga till Urklipp](media/excel-blank-query/query-exported-to-clipboard.png)
+    ![exportera fråga till Urklipp](media/excel-blank-query/query-exported-to-clipboard.png)
 
 1. Öppna **Microsoft Excel**.
 
-1. På fliken **data** väljer du **Hämta data** > **från andra källor** > en **Tom fråga**.
+1. På fliken **Data** väljer du **Hämta data** > från**tom fråga**för andra**källor** > .
 
     ![Hämta data och välj tom fråga](media/excel-blank-query/get-data-blank-query.png)
 
-1. Fönstret **Power Querys redigerare** öppnas. I fönstret väljer du **avancerad redigerare**.
+1. Fönstret **Power Query Editor** öppnas. Välj **Avancerad redigerare**i fönstret .
 
-    ![Power Query Editor-fönstret](media/excel-blank-query/power-query-editor.png)
+    ![Fönstret Power Query Editor](media/excel-blank-query/power-query-editor.png)
 
-1. I fönstret **avancerad redigerare** klistrar du in frågan som du exporterade till Urklipp och väljer sedan **Slutför**.
+1. I fönstret **Avancerad redigerare** klistrar du in frågan som du exporterade till Urklipp och väljer **Klar**.
 
-    ![Avancerad redigerings fråga](media/excel-blank-query/advanced-editor-query.png)    
+    ![Avancerad redigeringsfråga](media/excel-blank-query/advanced-editor-query.png)    
 
-1. För att autentisera väljer du **Redigera autentiseringsuppgifter**.
+1. Om du vill autentisera väljer du **Redigera autentiseringsuppgifter**.
 
     ![Redigera autentiseringsuppgifter](media/excel-blank-query/edit-credentials.png)
 
-1. Välj **organisations konto** och **Logga**in. Slutför inloggnings processen och välj sedan **Anslut**.
+1. Välj **Organisationskonto** och **Logga in**. Slutför inloggningsprocessen och välj sedan **Anslut**.
 
-    ![Slutför inloggning](media/excel-blank-query/complete-sign-in.png)
+    ![Fullständig inloggning](media/excel-blank-query/complete-sign-in.png)
 
     Upprepa föregående steg för att lägga till fler frågor. Du kan byta namn på frågorna till mer meningsfulla namn.
 
-1. Välj knappen **stäng & Läs in** för att hämta dina data till Excel.
+1. Välj knappen **Stäng & Läs in** för att hämta data till Excel.
 
-    ![Välj Stäng och Läs in](media/excel-blank-query/close-and-load.png)
+    ![Välj stäng och ladda](media/excel-blank-query/close-and-load.png)
 
-1. Nu finns dina data i Excel. Klicka på knappen **Uppdatera** för att uppdatera frågan.
+1. Nu finns dina data i Excel. Välj knappen **Uppdatera** om du vill uppdatera frågan.
 
     ![Visa data i Excel](media/excel-blank-query/data-in-excel.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Visualisera data med Azure Datautforskaren Connector för Excel](excel-connector.md)
+[Visualisera data med Azure Data Explorer-kopplingen för Excel](excel-connector.md)

@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
 ms.openlocfilehash: 69062e42a5d572cf7b73bec3932613d39be9b92f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921512"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Azure Security Center och Azure Virtual Machines
-[Azure Security Center](https://azure.microsoft.com/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
+[Azure Security Center](https://azure.microsoft.com/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azureprenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Den här artikeln visar hur Security Center kan hjälpa dig att skydda dina virtuella Azure-datorer (VM).
 
@@ -33,7 +33,7 @@ Security Center hjälper dig att skydda data i virtuella datorer i Azure genom a
 * Rekommendationer för slutpunktsskydd
 * Verifiering av diskkryptering
 * Sårbarhetsbedömning och åtgärder
-* Säkerhets aviseringar från hot Protection-funktionerna
+* Säkerhetsvarningar från hotskyddsfunktionerna
 
 Utöver att skydda virtuella datorer i Azure tillhandahåller även Security Center säkerhetsövervakning och hantering för Cloud Services, App Services, Virtual Networks med mera. 
 
@@ -42,12 +42,12 @@ Utöver att skydda virtuella datorer i Azure tillhandahåller även Security Cen
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att komma igång med Azure Security Center måste du veta och tänka på följande:
 
 * Du måste ha en prenumeration på Microsoft Azure. Läs [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) (Priser för Security Center) för att få mer information om kostnadsfria nivåer och standardnivåer i Security Center.
 * Planera införandet av Security Center och läs [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md). Här får du lära dig mer om vad du ska tänka på angående planering och åtgärder.
-* Information om vilka operativ system som stöds finns i [Azure Security Center vanliga frågor och svar (FAQ)](faq-vms.md). 
+* Information om operativsystem som stöds finns i [Vanliga frågor och svar på Vanliga frågor och svar i Azure Security Center](faq-vms.md). 
 
 ## <a name="set-security-policy"></a>Ange säkerhetsprincip
 Insamling av data måste aktiveras så att Azure Security Center kan samla in information som behövs för att tillhandahålla rekommendationer och aviseringar som genereras utifrån den säkerhetsprincip du konfigurerar. På bilden nedan ser du att **Datainsamling** har satts **på**.
@@ -82,7 +82,7 @@ När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för r
 > 
 
 ## <a name="monitor-security-health"></a>Övervaka säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser, samt om det finns några problem, i bladet **Resource Security Health (Resurssäkerhetshälsa)** . När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
+När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan visa säkerhetstillståndet för dina resurser, tillsammans med eventuella problem i **hälsobladet För resurssäkerhet.** När du klickar på **Virtuella datorer** på hälsoikonen **Resurssäkerhet** öppnas bladet **Virtuella datorer** med rekommendationer för dina virtuella datorer. 
 
 ![Säkerhetshälsa](./media/security-center-virtual-machine/security-center-virtual-machine-fig2.png)
 
@@ -97,5 +97,5 @@ Om du klickar på en säkerhetsavisering får du se vad det var som utlöste avi
 I följande avsnitt kan du lära dig mer om Security Center:
 
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Här får du lära dig hur du ställer in säkerhetsprinciper för prenumerationer och resursgrupper i Azure.
-* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Vanliga frågor och svar – Virtual Machines](faq-vms.md) – hitta vanliga frågor om att använda tjänsten.
+* [Hantera och svara på säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Läs om hur du hanterar och svarar på säkerhetsaviseringar.
+* [Vanliga frågor - Virtuella datorer](faq-vms.md) – Hitta vanliga frågor om hur du använder tjänsten.

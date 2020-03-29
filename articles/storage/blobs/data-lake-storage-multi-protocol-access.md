@@ -1,6 +1,6 @@
 ---
-title: Åtkomst till flera protokoll på Azure Data Lake Storage | Microsoft Docs
-description: 'Använd BLOB-API: er och program som använder BLOB-API: er med Azure Data Lake Storage Gen2.'
+title: Åtkomst till flera protokoll på Azure Data Lake Storage | Microsoft-dokument
+description: Använd Blob API:er och program som använder Blob API:er med Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,40 +9,40 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e3997fc215637175165402a926bffc6ac8d02771
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914866"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Åtkomst till flera protokoll på Azure Data Lake Storage
 
-BLOB-API: er fungerar nu med konton som har ett hierarkiskt namn område. Detta låser upp eko systemet för verktyg, program och tjänster, samt flera Blob Storage-funktioner till konton som har ett hierarkiskt namn område.
+Blob API:er arbetar nu med konton som har ett hierarkiskt namnområde. Detta låser upp ekosystemet av verktyg, program och tjänster, samt flera Blob-lagringsfunktioner till konton som har ett hierarkiskt namnområde.
 
-Tills nyligen har du kanske haft för att ha haft separata lagrings lösningar för objekt lagring och analys lagring. Det beror på att Azure Data Lake Storage Gen2 har begränsat stöd för eko systemet. Det hade också begränsad åtkomst till Blob Service funktioner som diagnostisk loggning. En fragmenterad lagrings lösning är svår att underhålla eftersom du måste flytta data mellan konton för att utföra olika scenarier. Du behöver inte längre göra det.
+Tills nyligen kan du ha varit tvungen att underhålla separata lagringslösningar för lagring och analys av objekt. Det beror på att Azure Data Lake Storage Gen2 hade begränsat ekosystemstöd. Den hade också begränsad åtkomst till Blob-tjänstfunktioner som diagnostikloggning. En fragmenterad lagringslösning är svår att underhålla eftersom du måste flytta data mellan konton för att utföra olika scenarier. Du behöver inte längre göra det.
 
-Med åtkomst med flera protokoll på Data Lake Storage kan du arbeta med dina data med hjälp av eko systemets verktyg, program och tjänster. Detta inkluderar även verktyg och program från tredje part. Du kan peka dem på konton som har ett hierarkiskt namn område utan att behöva ändra dem. Dessa program fungerar *som de är* även om de anropar BLOB-API: er, eftersom BLOB-API: er nu kan köras på data i konton som har ett hierarkiskt namn område.
+Med åtkomst till flera protokoll på DataSjölagring kan du arbeta med dina data med hjälp av ekosystemet för verktyg, program och tjänster. Detta inkluderar även verktyg och program från tredje part. Du kan peka dem på konton som har ett hierarkiskt namnområde utan att behöva ändra dem. Dessa program fungerar *som de* anropar Blob API:er, eftersom Blob API:er nu kan fungera på data i konton som har ett hierarkiskt namnområde.
 
-Blob Storage-funktioner som [diagnostisk loggning](../common/storage-analytics-logging.md), [åtkomst nivåer](storage-blob-storage-tiers.md)och principer för [hantering av BLOB-lagrings livs cykeln](storage-lifecycle-management-concepts.md) fungerar nu med konton som har ett hierarkiskt namn område. Därför kan du aktivera hierarkiska namn rymder på Blob Storage-kontona utan att förlora åtkomsten till dessa viktiga funktioner. 
+Blob lagringsfunktioner som [diagnostikloggning,](../common/storage-analytics-logging.md) [åtkomstnivåer](storage-blob-storage-tiers.md)och [Blob lagring livscykelhanteringsprinciper](storage-lifecycle-management-concepts.md) fungerar nu med konton som har ett hierarkiskt namnområde. Därför kan du aktivera hierarkiska namnområden på dina blob Storage-konton utan att förlora åtkomsten till dessa viktiga funktioner. 
 
 > [!NOTE]
-> Åtkomst till flera protokoll på Data Lake Storage är allmänt tillgänglig och är tillgänglig i alla regioner. Vissa Azure-tjänster eller Blob Storage-funktioner som aktive ras av åtkomst till flera protokoll är fortfarande i för hands version.  De här artiklarna sammanfattar det aktuella stödet för Blob Storage-funktioner och Azure Service integrationer. 
+> Multi-protokoll åtkomst på Data Lake Storage är allmänt tillgänglig och är tillgänglig i alla regioner. Vissa Azure-tjänster eller Blob-lagringsfunktioner som aktiveras av åtkomst till flera protokoll finns kvar i förhandsversionen.  I de här artiklarna sammanfattas det aktuella stödet för Blob-lagringsfunktioner och Azure-tjänstintegrationer. 
 >
-> [Blob Storage funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+> [Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
 >
 >[Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 
-## <a name="how-multi-protocol-access-on-data-lake-storage-works"></a>Så här fungerar åtkomst till flera protokoll på data Lake Storage
+## <a name="how-multi-protocol-access-on-data-lake-storage-works"></a>Så här fungerar åtkomst med flera protokoll på lagring av datasjöer
 
-BLOB-API: er och Data Lake Storage Gen2-API: er kan köras på samma data i lagrings konton som har ett hierarkiskt namn område. Data Lake Storage Gen2 dirigerar BLOB-API: er via det hierarkiska namn området så att du kan få fördelarna med de första klasserna i klass katalog och POSIX-kompatibla åtkomst kontrol listor (ACL: er). 
+Blob API:er och Data Lake Storage Gen2 API:er kan fungera på samma data i lagringskonton som har ett hierarkiskt namnområde. Data Lake Storage Gen2 vägar Blob API:er via det hierarkiska namnområdet så att du kan få fördelarna med förstklassiga katalogåtgärder och POSIX-kompatibla åtkomstkontrollistor (ACL). 
 
-![Åtkomst till flera protokoll på Data Lake Storage konceptuell](./media/data-lake-storage-interop/interop-concept.png) 
+![Flerprotokollsåtkomst på begreppsmässigt datasjölagring](./media/data-lake-storage-interop/interop-concept.png) 
 
-Befintliga verktyg och program som använder BLOB API får dessa fördelar automatiskt. Utvecklare behöver inte ändra dem. Data Lake Storage Gen2 konsekvent tillämpar katalog-och fil nivå åtkomst kontrol listor oavsett vilket protokoll som verktyg och program använder för att komma åt data. 
+Befintliga verktyg och program som använder Blob API får dessa fördelar automatiskt. Utvecklare behöver inte ändra dem. DataSjölagring Gen2 tillämpar konsekvent ACL:er på katalog- och filnivå oavsett vilket protokoll som verktyg och program använder för att komma åt data. 
 
 ## <a name="see-also"></a>Se även
 
-- [Blob Storage funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
 - [Azure-tjänster som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 - [Plattformar med öppen källkod som stöder Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
 - [Kända problem med Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)

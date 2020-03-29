@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
 ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911722"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Säkerhet och dataskydd i Azure Data Box
@@ -34,7 +34,7 @@ Följande diagram visar hur data flödar genom Azure Data Box-lösningen från d
 
 ![Data Box-säkerhet](media/data-box-security/data-box-security-2.png)
 
-När data flödar genom den här lösningen loggas händelser och loggar skapas. Mer information finns i [spårning och händelse loggning för din Azure Data Box](data-box-logs.md).
+När data flödar genom den här lösningen loggas händelser och loggar genereras. Mer information finns i [Spårning och händelseloggning för din Azure Data Box](data-box-logs.md).
 
 ## <a name="security-features"></a>Säkerhetsfunktioner
 
@@ -50,7 +50,7 @@ Data Box-enheten skyddas med hjälp av följande funktioner:
 - Kör endast Data Box-specifik programvara.
 - Startar i låst tillstånd.
 - Kontrollerar enhetsåtkomst via lösenord som låser upp enheten.
-- Autentiseringsuppgifter för åtkomst till att kopiera data till och från enheten. All åtkomst till sidan **autentiseringsuppgifter för enheten** i Azure Portal loggas i [aktivitets loggarna](data-box-logs.md#query-activity-logs-during-setup).
+- Autentiseringsuppgifter för åtkomst till att kopiera data till och från enheten. All åtkomst till sidan **Enhetsautentiseringsuppgifter** i Azure-portalen loggas i [aktivitetsloggarna](data-box-logs.md#query-activity-logs-during-setup).
 
 ### <a name="data-box-data-protection"></a>Data Box-dataskydd
 
@@ -58,7 +58,7 @@ Data som flödar in och ut från Data Box skyddas med hjälp av följande funkti
 
 - AES 256-bitars kryptera för data i vila.
 - Krypterade protokoll kan användas för data i flykt.
-- Data raderas från enheten när uppladdningen till Azure är klar. Data radering är i enlighet med rikt linjerna i [bilaga A för ATA Hard Disk-enheter i NIST 800-88r1-standarder](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). Händelsen radering av data registreras i [order historiken](data-box-logs.md#download-order-history).
+- Data raderas från enheten när uppladdningen till Azure är klar. Dataradering är i enlighet med riktlinjerna i [tillägg A för ATA-hårddiskar i NIST 800-88r1-standarder](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). Händelsen dataradering registreras i [orderhistoriken](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Skydd av Data Box-tjänsten
 
@@ -66,7 +66,7 @@ Data Box-tjänsten skyddas med hjälp av följande funktioner.
 
 - Åtkomst till Data Box-tjänsten kräver att din organisation har en Azure-prenumeration som omfattar Data Box. Prenumerationen styr vilka funktioner du kan komma åt på Azure Portal.
 - Eftersom Data Box-tjänsten finns i Azure skyddas den med hjälp av säkerhetsfunktionerna i Azure. Läs mer om säkerhetsfunktionerna i Microsoft Azure på [Microsoft Azure Säkerhetscenter](https://www.microsoft.com/TrustCenter/Security/default.aspx).
-- Åtkomst till Data Box-enhets ordningen kan styras via RBAC-roller (Role-based Access Control). Mer information finns i [Konfigurera åtkomst kontroll för data Box-enhet order](data-box-logs.md#set-up-access-control-on-the-order)
+- Åtkomst till databox-ordern kan styras med hjälp av rbac-roller (Role-based Access Control). Mer information finns i [Konfigurera åtkomstkontroll för databoxordning](data-box-logs.md#set-up-access-control-on-the-order)
 - Data Box-tjänsten lagrar upplåsningslösenord som används för att låsa upp enheten i tjänsten.
 - Data Box-tjänsten lagrar orderinformationen och orderstatusen i tjänsten. Den här informationen tas bort när ordern tas bort.
 
@@ -106,10 +106,10 @@ Följande säkerhetsriktlinjer implementeras i Data Box:
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | För tålighet mot felaktiga transportsförhållanden          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | För säker uppdatering av inbyggd programvara         |
 |[FIPS 140-2 nivå 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | För dataskydd         |
-|Bilaga A, för ATA-hårddiskar i [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | För datasanering         |
+|Tillägg A för ATA-hårddiskar i [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | För datasanering         |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs [kraven för Data Box](data-box-system-requirements.md).
 - Förstå [Data Box-begränsningarna](data-box-limits.md).
-- Distribuera snabbt [Azure Data Box Disk](data-box-quickstart-portal.md) på Azure-portalen.
+- Distribuera snabbt [Azure Data Box](data-box-quickstart-portal.md) i Azure-portalen.

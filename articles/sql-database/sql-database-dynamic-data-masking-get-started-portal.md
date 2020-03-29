@@ -1,6 +1,6 @@
 ---
-title: 'Azure Portal: dynamisk data maskning'
-description: Så här kommer du igång med SQL Database dynamisk data maskning i Azure Portal
+title: 'Azure-portal: Dynamisk datamaskering'
+description: Komma igång med dynamisk datamaskering i SQL Database i Azure-portalen
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,50 +12,50 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/04/2018
 ms.openlocfilehash: a8098b31c6b389b640fc03e756da44c70d9f3a70
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722126"
 ---
-# <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Kom igång med SQL Database dynamisk data maskning med Azure Portal
+# <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Komma igång med dynamisk datamaskering i SQL Database med Azure-portalen
 
-Den här artikeln visar hur du implementerar [dynamisk data maskning](sql-database-dynamic-data-masking-get-started.md) med Azure Portal. Du kan också implementera dynamisk data maskning med hjälp av [Azure SQL Database-cmdletar](https://docs.microsoft.com/powershell/module/az.sql/) eller [REST API](https://docs.microsoft.com/rest/api/sql/).
+Den här artikeln visar hur du implementerar [dynamisk datamaskering](sql-database-dynamic-data-masking-get-started.md) med Azure-portalen. Du kan också implementera dynamisk datamaskering med [Azure SQL Database-cmdlets](https://docs.microsoft.com/powershell/module/az.sql/) eller [REST API](https://docs.microsoft.com/rest/api/sql/).
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Konfigurera dynamisk data maskning för databasen med hjälp av Azure Portal
+## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Konfigurera dynamisk datamaskering för databasen med Hjälp av Azure-portalen
 
-1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).
-2. Gå till sidan Inställningar i databasen som innehåller de känsliga data som du vill maskera.
-3. Klicka på panelen **dynamisk data maskning** som startar konfigurations sidan för **dynamisk data maskning** .
+1. Starta Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+2. Navigera till inställningssidan i databasen som innehåller de känsliga data som du vill maskera.
+3. Klicka på panelen **Dynamisk datamaskering** som startar konfigurationssidan för dynamisk **datamaskering.**
 
-   * Alternativt kan du rulla ned till avsnittet **åtgärder** och klicka på **dynamisk data maskning**.
+   * Du kan också bläddra ned till avsnittet **Operationer** och klicka på **Dynamisk datamaskering**.
 
-     ![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)
+     ![Navigeringsfönster](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)
 
-4. På konfigurations sidan för **dynamisk data maskning** kan du se vissa databas kolumner som rekommendationer-motorn har flaggat för maskering. För att godkänna rekommendationerna klickar du bara på **Lägg till mask** för en eller flera kolumner och en mask skapas baserat på standard typen för den här kolumnen. Du kan ändra Maskerings funktionen genom att klicka på masknings regeln och redigera maskens fält format till ett annat format. Se till att klicka på **Spara** för att spara inställningarna.
+4. På konfigurationssidan **för dynamisk datamaskering** kan du se några databaskolumner som rekommendationermotorn har flaggat för maskering. Om du vill acceptera rekommendationerna klickar du bara på **Lägg till mask** för en eller flera kolumner och en mask skapas baserat på standardtypen för den här kolumnen. Du kan ändra maskeringsfunktionen genom att klicka på maskeringsregeln och redigera maskeringsfältformatet till ett annat format som du väljer. Var noga med att klicka på **Spara** för att spara dina inställningar.
 
-    ![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/5_ddm_recommendations.png)
+    ![Navigeringsfönster](./media/sql-database-dynamic-data-masking-get-started/5_ddm_recommendations.png)
 
-5. Om du vill lägga till en mask för en kolumn i databasen går du till början av sidan konfiguration av **dynamisk data maskning** och klickar på **Lägg till mask** för att öppna sidan **Lägg till masknings regel** konfiguration.
+5. Om du vill lägga till en mask för en kolumn i databasen klickar du på **Lägg till mask** högst upp på konfigurationssidan för dynamisk **datamaskning** för att öppna konfigurationssidan **Lägg till maskningsregel.**
 
-    ![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/6_ddm_add_mask.png)
+    ![Navigeringsfönster](./media/sql-database-dynamic-data-masking-get-started/6_ddm_add_mask.png)
 
-6. Välj **schemat**, **tabellen** och **kolumnen** för att definiera det angivna fältet för maskering.
-7. Välj ett **maskande fält format** i listan över känsliga data masknings kategorier.
+6. Markera **fältet Schema,** **Tabell** och **Kolumn** för att definiera det angivna fältet för maskering.
+7. Välj ett **maskeringsfältformat** i listan över känsliga datamaskeringskategorier.
 
-    ![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/7_ddm_mask_field_format.png)
+    ![Navigeringsfönster](./media/sql-database-dynamic-data-masking-get-started/7_ddm_mask_field_format.png)
 
-8. Klicka på **Spara** på sidan data masking-regel för att uppdatera uppsättningen masknings regler i den dynamiska data masking-principen.
-9. Ange de SQL-användare eller AAD-identiteter som ska undantas från maskering och som har åtkomst till de avmaskerade känsliga data. Detta bör vara en semikolonavgränsad lista med användare. Användare med administratörs behörighet har alltid till gång till de ursprungliga avmaskerade data.
+8. Klicka på **Spara** på sidan datamaskeringsregel om du vill uppdatera uppsättningen maskeringsregler i principen för dynamisk datamaskering.
+9. Skriv de SQL-användare eller AAD-identiteter som ska uteslutas från maskering och ha åtkomst till de omaskerade känsliga data. Detta bör vara en semikolonavskiljande lista över användare. Användare med administratörsbehörighet har alltid åtkomst till de ursprungliga omaskerade data.
 
-    ![Navigeringsfönstret](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
+    ![Navigeringsfönster](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
 
     > [!TIP]
-    > För att göra det så att program lagret kan visa känsliga data för program privilegierade användare, lägger du till den SQL-användare eller AAD-identitet som programmet använder för att fråga databasen. Vi rekommenderar starkt att listan innehåller ett minimalt antal privilegierade användare för att minimera exponeringen av känsliga data.
+    > Om du vill göra det så att programlagret kan visa känsliga data för programprivilegierat användare lägger du till SQL-användaren eller AAD-identiteten som programmet använder för att fråga databasen. Vi rekommenderar starkt att den här listan innehåller ett minimalt antal privilegierade användare för att minimera exponeringen av känsliga data.
 
-10. Klicka på **Spara** på konfigurations sidan data maskning för att spara den nya eller uppdaterade masknings principen.
+10. Klicka på **Spara** på konfigurationssidan för datamaskering om du vill spara den nya eller uppdaterade maskeringsprincipen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En översikt över dynamisk data maskning finns i [dynamisk datamaskering](sql-database-dynamic-data-masking-get-started.md).
-* Du kan också implementera dynamisk data maskning med hjälp av [Azure SQL Database-cmdletar](https://docs.microsoft.com/powershell/module/az.sql/) eller [REST API](https://docs.microsoft.com/rest/api/sql/).
+* En översikt över dynamisk datamaskering finns i [dynamisk datamaskering](sql-database-dynamic-data-masking-get-started.md).
+* Du kan också implementera dynamisk datamaskering med [Azure SQL Database-cmdlets](https://docs.microsoft.com/powershell/module/az.sql/) eller [REST API](https://docs.microsoft.com/rest/api/sql/).

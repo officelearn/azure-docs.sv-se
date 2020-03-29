@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Cosmos DB-Gremlin med SDK för
-description: Lär dig hur du skapar resurs-tokens och använder dem för att få åtkomst till graf-databasen.
+title: Använda Azure Cosmos DB-resurstoken med Gremlin SDK
+description: Lär dig hur du skapar resurstoken och använder dem för att komma åt Graph-databasen.
 author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
@@ -8,29 +8,29 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897839"
 ---
-# <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Använd Azure Cosmos DB-Gremlin med SDK för
+# <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Använda Azure Cosmos DB-resurstoken med Gremlin SDK
 
-Den här artikeln förklarar hur du använder [Azure Cosmos DB-resursfiler](secure-access-to-data.md) för att komma åt graf-databasen via Gremlin SDK.
+I den här artikeln beskrivs hur du använder [Azure Cosmos DB-resurstoken](secure-access-to-data.md) för att komma åt Graph-databasen via Gremlin SDK.
 
-## <a name="create-a-resource-token"></a>Skapa en resurs-token
+## <a name="create-a-resource-token"></a>Skapa en resurstoken
 
-Apache TinkerPop Gremlin SDK har inget API som används för att skapa resurs-token. Termens *resurs-token* är ett Azure Cosmos DB koncept. Hämta [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)för att skapa resurs-token. Om ditt program behöver skapa resursfiler och använda dem för att få åtkomst till graf-databasen, krävs två separata SDK: er.
+Apache TinkerPop Gremlin SDK har inget API att använda för att skapa resurstoken. Termen *resurstoken* är ett Azure Cosmos DB-koncept. Om du vill skapa resurstokens laddar du ned [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md). Om ditt program behöver skapa resurstoken och använda dem för att komma åt Graph-databasen krävs två separata SDK:er.
 
-Objekt modellens hierarki över resurs-tokens visas i följande disposition:
+Objektmodellhierarkin ovanför resurstokens illustreras i följande disposition:
 
-- **Azure Cosmos DB konto** – den översta entiteten som har en DNS som är kopplad till den (till exempel `contoso.gremlin.cosmos.azure.com`).
-  - **Azure Cosmos DB databas**
-    - **Användarvänlig**
-      - **Permission**
-        - **Token** – en behörighets objekt egenskap som anger vilka åtgärder som tillåts eller nekas.
+- **Azure Cosmos DB-konto** - Den översta entiteten som har `contoso.gremlin.cosmos.azure.com`en DNS associerad med sig (till exempel ).
+  - **Azure Cosmos DB-databas**
+    - **Användare**
+      - **Behörighet**
+        - **Token** - Egenskapen Permission object som anger vilka åtgärder som tillåts eller nekas.
 
-En resurs-token använder följande format: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Den här strängen är ogenomskinlig för klienterna och bör användas som den är, utan modifiering eller tolkning.
+En resurstoken använder `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`följande format: . Den här strängen är ogenomskinlig för klienterna och bör användas som den är, utan ändringar eller tolkning.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
@@ -54,8 +54,8 @@ DocumentClient client = new DocumentClient(
 }
 ```
 
-## <a name="use-a-resource-token"></a>Använd en Resource-token
-Du kan använda resurs-token direkt som "Password"-egenskap när du skapar klassen GremlinServer.
+## <a name="use-a-resource-token"></a>Använda en resurstoken
+Du kan använda resurstoken direkt som egenskapen "lösenord" när du skapar klassen GremlinServer.
 
 ```csharp
 // The Gremlin application needs to be given a resource token. It can't discover the token on its own.
@@ -78,7 +78,7 @@ GremlinServer server = new GremlinServer(
   }
 ```
 
-Samma metod fungerar i alla TinkerPop Gremlin SDK: er.
+Samma tillvägagångssätt fungerar i alla TinkerPop Gremlin SDKs.
 
 ```java
 Cluster.Builder builder = Cluster.build();
@@ -95,12 +95,12 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>Gräns
 
-Med ett enda Gremlin-konto kan du utfärda ett obegränsat antal tokens. Du kan dock använda upp till 100 token samtidigt inom en timme. Om ett program överskrider kvoten för token per timme nekas en autentiseringsbegäran och du får följande fel meddelande: "gränsen för tillåten resurs-token på 100 som kan användas samtidigt". Det fungerar inte att stänga aktiva anslutningar som använder vissa tokens för att frigöra platser för nya token. Azure Cosmos DB Gremlin-databasmotorn håller reda på unika tokens under timmen omedelbart före autentiseringsbegäran.
+Med ett enda Gremlin-konto kan du utfärda ett obegränsat antal tokens. Du kan dock bara använda upp till 100 token samtidigt inom 1 timme. Om ett program överskrider tokengränsen per timme nekas en autentiseringsbegäran och följande felmeddelande visas: "Överskriden tillåten resurstokengräns på 100 som kan användas samtidigt." Det fungerar inte att stänga aktiva anslutningar som använder specifika token för att frigöra platser för nya tokens. Azure Cosmos DB Gremlin databasmotor håller reda på unika tokens under timmen omedelbart före autentiseringsbegäran.
 
 ## <a name="permission"></a>Behörighet
 
-Ett vanligt fel som uppstår när de använder resurs-token är "otillräcklig behörighet i Authorization-huvudet för motsvarande begäran. Försök igen med ett annat Authorization-huvud. " Det här felet returneras när en Gremlin-överträdelse försöker skriva en gräns eller ett hörn, men resurs-token beviljar endast *Läs* behörighet. Granska din genom gång för att se om den innehåller något av följande steg: *. addV ()* , *. addE ()* , *. drop ()* eller *. Property ()* .
+Ett vanligt fel som program stöter på när de använder resurstoken är"Otillräckliga behörigheter som anges i auktoriseringshuvudet för motsvarande begäran. Försök igen med ett annat auktoriseringshuvud." Det här felet returneras när en Gremlin traversal försöker skriva en kant eller ett hörn men resurstoken ger läsbehörighet endast. *Read* Kontrollera din traversal för att se om den innehåller något av följande steg: *.addV()*, *.addE()*, *.drop()* eller *.property()*.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Rollbaserad åtkomst kontroll](role-based-access-control.md) i Azure Cosmos DB
+* [Rollbaserad åtkomstkontroll](role-based-access-control.md) i Azure Cosmos DB
 * [Lär dig hur du skyddar åtkomsten till data](secure-access-to-data.md) i Azure Cosmos DB

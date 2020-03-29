@@ -1,5 +1,5 @@
 ---
-title: Visa topologi för Azure Virtual Network | Microsoft Docs
+title: Visa Azure-topologi för virtuella nätverk | Microsoft-dokument
 description: Lär dig hur du visar resurserna i ett virtuellt nätverk och relationerna mellan resurserna.
 services: network-watcher
 documentationcenter: na
@@ -12,56 +12,56 @@ ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
 ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840578"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visa topologin för ett virtuellt Azure-nätverk
 
-I den här artikeln får du lära dig hur du visar resurser i ett Microsoft Azure virtuella nätverk och relationerna mellan resurserna. Ett virtuellt nätverk innehåller till exempel undernät. Undernät innehåller resurser, till exempel Azure Virtual Machines (VM). Virtuella datorer har ett eller flera nätverks gränssnitt. Varje undernät kan ha en nätverks säkerhets grupp och en routningstabell som är kopplad till den. Med topologin i Azure Network Watcher kan du Visa alla resurser i ett virtuellt nätverk, resurserna som är kopplade till resurser i ett virtuellt nätverk och relationerna mellan resurserna.
+I den här artikeln får du lära dig hur du visar resurser i ett virtuellt Microsoft Azure-nätverk och relationerna mellan resurserna. Ett virtuellt nätverk innehåller till exempel undernät. Undernät innehåller resurser, till exempel Virtuella Azure-datorer (VM). Virtuella datorer har ett eller flera nätverksgränssnitt. Varje undernät kan ha en nätverkssäkerhetsgrupp och en vägtabell kopplad till sig. Med topologifunktionen i Azure Network Watcher kan du visa alla resurser i ett virtuellt nätverk, de resurser som är associerade till resurser i ett virtuellt nätverk och relationerna mellan resurserna.
 
-Du kan använda [Azure Portal](#azure-portal), [Azure CLI](#azure-cli)eller [PowerShell](#powershell) för att visa en topologi.
+Du kan använda [Azure-portalen,](#azure-portal) [Azure CLI](#azure-cli)eller [PowerShell](#powershell) för att visa en topologi.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name = "azure-portal"></a>Visa topologi – Azure Portal
+## <a name="view-topology---azure-portal"></a><a name = "azure-portal"></a>Visa topologi – Azure-portal
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som har de [behörigheter](required-rbac-permissions.md)som krävs.
-2. I det övre vänstra hörnet i portalen väljer du **alla tjänster**.
-3. I rutan **alla tjänster** filter anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
-4. Välj **topologi**. Att skapa en topologi kräver en nätverks övervakare i samma region som det virtuella nätverk som du vill skapa topologin för finns i. Om du inte har en nätverks övervakare aktive rad i den region där det virtuella nätverket som du vill skapa en topologi för finns i, skapas Network Watcher automatiskt i alla regioner. Nätverks bevakarna skapas i en resurs grupp med namnet **NetworkWatcherRG**.
-5. Välj en prenumeration, resurs gruppen för ett virtuellt nätverk som du vill visa topologin för och välj sedan det virtuella nätverket. I följande bild visas en topologi för ett virtuellt nätverk med namnet *MyVnet*i resurs gruppen med namnet *MyResourceGroup*:
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som har de [behörigheter](required-rbac-permissions.md)som krävs .
+2. Högst upp, till vänster i portalen väljer du **Alla tjänster**.
+3. I rutan Alla **tjänsters** filter anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+4. Välj **Topologi**. Generera en topologi kräver en nätverk watcher i samma region som det virtuella nätverket som du vill generera topologin för finns i. Om du inte har aktiverat en nätverksbevakare i den region som det virtuella nätverk som du vill generera en topologi för finns i, skapas nätverksbevakare automatiskt åt dig i alla regioner. Nätverksbevakare skapas i en resursgrupp med namnet **NetworkWatcherRG**.
+5. Välj en prenumeration, resursgruppen för ett virtuellt nätverk som du vill visa topologin för och välj sedan det virtuella nätverket. I följande bild visas en topologi för ett virtuellt nätverk med namnet *MyVnet*i resursgruppen *MyResourceGroup:*
 
     ![Visa topologi](./media/view-network-topology/view-topology.png)
 
-    Som du kan se i föregående bild innehåller det virtuella nätverket tre undernät. En virtuell dator har distribuerats i ett undernät. Den virtuella datorn har ett nätverks gränssnitt kopplat till det och en offentlig IP-adress som är kopplad till den. De andra två under näten har en kopplad routningstabell. Varje routningstabell innehåller två vägar. Ett undernät har en nätverks säkerhets grupp som är kopplad till den. Information om topologin visas bara för resurser som är:
+    Som du kan se i föregående bild innehåller det virtuella nätverket tre undernät. Ett undernät har en virtuell dator som distribueras i det. Den virtuella datorn har ett nätverksgränssnitt kopplat till sig och en offentlig IP-adress som är kopplad till den. De andra två undernäten har en vägtabell kopplad till dem. Varje flödestabell innehåller två vägar. Ett undernät har en nätverkssäkerhetsgrupp kopplad till sig. Topologiinformation visas endast för resurser som är:
     
-    - I samma resurs grupp och region som det virtuella *myVnet* -nätverket. Till exempel visas inte en nätverks säkerhets grupp som finns i en annan resurs grupp än *MyResourceGroup*, även om nätverks säkerhets gruppen är kopplad till ett undernät i det virtuella *MyVnet* -nätverket.
-    - I, eller är kopplade till resurser inom, *myVnet* virtuella nätverk. En nätverks säkerhets grupp som inte är kopplad till ett undernät eller ett nätverks gränssnitt i det virtuella *myVnet* -nätverket visas till exempel inte, även om nätverks säkerhets gruppen finns i resurs gruppen *MyResourceGroup* .
+    - Inom samma resursgrupp och region som *myVnet* virtuella nätverk. En nätverkssäkerhetsgrupp som finns i en annan resursgrupp än *MyResourceGroup*visas till exempel inte, även om nätverkssäkerhetsgruppen är associerad med ett undernät i det virtuella *nätverket MyVnet.*
+    - Inom, eller kopplat till resurser inom, *myVnet* virtuella nätverk. En nätverkssäkerhetsgrupp som inte är associerad med ett undernät eller ett nätverksgränssnitt i det virtuella *nätverket myVnet* visas till exempel inte, även om nätverkssäkerhetsgruppen finns i resursgruppen *MyResourceGroup.*
 
-   Den topologi som visas i bilden är för det virtuella nätverk som skapas när du har distribuerat **väg trafiken via ett skript exempel för virtuella nätverk**som du kan distribuera med hjälp av [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)eller [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+   Topologin som visas i bilden är för det virtuella nätverk som skapats efter distribution av **dirigera trafik genom ett nätverksskriptskript för virtuella enheter**, som du kan distribuera med Azure [CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)eller [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-6. Välj **Hämta topologi** för att ladda ned bilden som en redigerbar fil i SVG-format.
+6. Välj **Hämta topologi för** att hämta bilden som en redigerbar fil, i svg-format.
 
-Resurserna som visas i diagrammet är en del av nätverks komponenterna i det virtuella nätverket. När en nätverks säkerhets grupp till exempel visas, visas inte säkerhets reglerna i den i diagrammet. Även om de inte skiljer sig åt i diagrammet representerar linjerna en av två relationer: *inne slutning* eller *associerad*. Om du vill se en fullständig lista över resurser i det virtuella nätverket och typen av relation mellan resurserna genererar du topologin med [PowerShell](#powershell) eller [Azure CLI](#azure-cli).
+De resurser som visas i diagrammet är en delmängd av nätverkskomponenterna i det virtuella nätverket. När en nätverkssäkerhetsgrupp till exempel visas visas inte säkerhetsreglerna i den i diagrammet. Även om linjerna inte är differentierade i diagrammet representerar de en av två relationer: *Inneslutning* eller *associerad*. Om du vill se den fullständiga listan över resurser i det virtuella nätverket och typen av relation mellan resurserna genererar du topologin med [PowerShell](#powershell) eller [Azure CLI](#azure-cli).
 
-## <a name = "azure-cli"></a>Visa topologi – Azure CLI
+## <a name="view-topology---azure-cli"></a><a name = "azure-cli"></a>Visa topologi - Azure CLI
 
-Du kan köra kommandona i de steg som följer:
-- I Azure Cloud Shell, genom att välja **prova** överst till höger om ett kommando. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt där vanliga Azure-verktyg förinstalleras och konfigureras för användning med ditt konto.
-- Genom att köra CLI från datorn. Om du kör CLI från datorn kräver stegen i den här artikeln Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
+Du kan köra kommandona i följande steg:
+- I Azure Cloud Shell genom att välja **Prova det** längst upp till höger i alla kommandon. Azure Cloud Shell är ett kostnadsfritt interaktivt skal som har vanliga Azure-verktyg som är förinstallerade och konfigurerade för att användas med ditt konto.
+- Genom att köra CLI från datorn. Om du kör CLI från datorn kräver stegen i den här artikeln Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du `az login` också köra för att skapa en anslutning med Azure.
 
-Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.md)som krävs.
+Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.md)som krävs .
 
-1. Om du redan har en nätverks övervakare i samma region som det virtuella nätverk som du vill skapa en topologi för går du vidare till steg 3. Skapa en resurs grupp som innehåller en nätverks övervakare med [AZ Group Create](/cli/azure/group). I följande exempel skapas resurs gruppen i regionen *östra* :
+1. Om du redan har en nätverksbevakare i samma region som det virtuella nätverk som du vill skapa en topologi för går du vidare till steg 3. Skapa en resursgrupp som innehåller en nätverksbevakare med [az-gruppge](/cli/azure/group). I följande exempel skapas resursgruppen i *regionen Eastus:*
 
     ```azurecli-interactive
     az group create --name NetworkWatcherRG --location eastus
     ```
 
-2. Skapa en nätverks övervakare med [AZ Network Watcher-konfiguration](/cli/azure/network/watcher#az-network-watcher-configure). I följande exempel skapas en nätverks övervakare i regionen *östra* :
+2. Skapa en nätverk watcher med [az nätverk watcher konfigurera](/cli/azure/network/watcher#az-network-watcher-configure). I följande exempel skapas en nätverksbevakare i *regionen Eastus:*
 
     ```azurecli-interactive
     az network watcher configure \
@@ -70,31 +70,31 @@ Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.m
       --enabled true
     ```
 
-3. Visa topologin med [AZ Network Watcher show-Topology](/cli/azure/network/watcher#az-network-watcher-show-topology). Följande exempel visar topologin för en resurs grupp med namnet *MyResourceGroup*:
+3. Visa topologin med [az network watcher show-topologi](/cli/azure/network/watcher#az-network-watcher-show-topology). I följande exempel beskrivs topologin för en resursgrupp med namnet *MyResourceGroup:*
 
     ```azurecli-interactive
     az network watcher show-topology --resource-group MyResourceGroup
     ```
 
-    Information om topologi returneras bara för resurser i samma resurs grupp som *MyResourceGroup* -resurs gruppen och samma region som nätverks bevakaren. Till exempel visas inte en nätverks säkerhets grupp som finns i en annan resurs grupp än *MyResourceGroup*, även om nätverks säkerhets gruppen är kopplad till ett undernät i det virtuella *MyVnet* -nätverket.
+    Topologiinformation returneras endast för resurser som finns inom samma resursgrupp som resursgruppen *MyResourceGroup* och samma region som nätverksbevakaren. En nätverkssäkerhetsgrupp som finns i en annan resursgrupp än *MyResourceGroup*visas till exempel inte, även om nätverkssäkerhetsgruppen är associerad med ett undernät i det virtuella *nätverket MyVnet.*
 
-   Läs mer om relationer och [Egenskaper](#properties) i de utdata som returneras. Om du inte har ett befintligt virtuellt nätverk för att visa en topologi för, kan du skapa ett med hjälp av [väg trafiken via ett](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) skript exempel för virtuella nätverk. Använd [portalen](#azure-portal)för att visa ett diagram över topologin och ladda ned det i en redigerbar fil.
+   Läs mer om relationer och [egenskaper](#properties) i den returnerade utdata. Om du inte har ett befintligt virtuellt nätverk att visa en topologi för kan du skapa en med hjälp av exempel på [dirigeratrafik via ett nätverksskript.](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) Om du vill visa ett diagram över topologin och hämta den i en redigerbar fil använder du [portalen](#azure-portal).
 
-## <a name = "powershell"></a>Visa topologi – PowerShell
+## <a name="view-topology---powershell"></a><a name = "powershell"></a>Visa topologi - PowerShell
 
-Du kan köra kommandona i de steg som följer:
-- I Azure Cloud Shell, genom att välja **prova** överst till höger om ett kommando. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt där vanliga Azure-verktyg förinstalleras och konfigureras för användning med ditt konto.
-- Genom att köra PowerShell från datorn. Om du kör PowerShell från datorn kräver den här artikeln Azure PowerShell `Az`-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Du kan köra kommandona i följande steg:
+- I Azure Cloud Shell genom att välja **Prova det** längst upp till höger i alla kommandon. Azure Cloud Shell är ett kostnadsfritt interaktivt skal som har vanliga Azure-verktyg som är förinstallerade och konfigurerade för att användas med ditt konto.
+- Genom att köra PowerShell från datorn. Om du kör PowerShell från datorn kräver den `Az` här artikeln Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
-Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.md)som krävs.
+Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.md)som krävs .
 
-1. Om du redan har en nätverks övervakare i samma region som det virtuella nätverk som du vill skapa en topologi för går du vidare till steg 3. Skapa en resurs grupp som innehåller en nätverks övervakare med [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas resurs gruppen i regionen *östra* :
+1. Om du redan har en nätverksbevakare i samma region som det virtuella nätverk som du vill skapa en topologi för går du vidare till steg 3. Skapa en resursgrupp som innehåller en nätverksbevakare med [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas resursgruppen i *regionen Eastus:*
 
     ```azurepowershell-interactive
     New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Skapa en nätverks övervakare med [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). I följande exempel skapas en nätverks övervakare i regionen Östra:
+2. Skapa en nätverk watcher med [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). I följande exempel skapas en nätverksbevakare i regionen Eastus:
 
     ```azurepowershell-interactive
     New-AzNetworkWatcher `
@@ -102,7 +102,7 @@ Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.m
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Hämta en Network Watcher-instans med [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). I följande exempel hämtas en nätverks övervakare i regionen USA, östra:
+3. Hämta en Network Watcher-instans med [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). I följande exempel hämtas en nätverksbevakare i regionen östra USA:
 
     ```azurepowershell-interactive
     $nw = Get-AzResource `
@@ -112,7 +112,7 @@ Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.m
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Hämta en topologi med [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). I följande exempel hämtas en topologi för ett virtuellt nätverk i resurs gruppen med namnet *MyResourceGroup*:
+4. Hämta en topologi med [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). I följande exempel hämtas en topologi för ett virtuellt nätverk i resursgruppen *MyResourceGroup:*
 
     ```azurepowershell-interactive
     Get-AzNetworkWatcherTopology `
@@ -120,32 +120,32 @@ Kontot som du använder måste ha de [behörigheter](required-rbac-permissions.m
       -TargetResourceGroupName MyResourceGroup
     ```
 
-   Information om topologi returneras bara för resurser i samma resurs grupp som *MyResourceGroup* -resurs gruppen och samma region som nätverks bevakaren. Till exempel visas inte en nätverks säkerhets grupp som finns i en annan resurs grupp än *MyResourceGroup*, även om nätverks säkerhets gruppen är kopplad till ett undernät i det virtuella *MyVnet* -nätverket.
+   Topologiinformation returneras endast för resurser som finns inom samma resursgrupp som resursgruppen *MyResourceGroup* och samma region som nätverksbevakaren. En nätverkssäkerhetsgrupp som finns i en annan resursgrupp än *MyResourceGroup*visas till exempel inte, även om nätverkssäkerhetsgruppen är associerad med ett undernät i det virtuella *nätverket MyVnet.*
 
-   Läs mer om relationer och [Egenskaper](#properties) i de utdata som returneras. Om du inte har ett befintligt virtuellt nätverk för att visa en topologi för, kan du skapa ett med hjälp av [väg trafiken via ett](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) skript exempel för virtuella nätverk. Använd [portalen](#azure-portal)för att visa ett diagram över topologin och ladda ned det i en redigerbar fil.
+   Läs mer om relationer och [egenskaper](#properties) i den returnerade utdata. Om du inte har ett befintligt virtuellt nätverk att visa en topologi för kan du skapa en med hjälp av exempel på [dirigeratrafik via ett nätverksskript.](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) Om du vill visa ett diagram över topologin och hämta den i en redigerbar fil använder du [portalen](#azure-portal).
 
 ## <a name="relationships"></a>Relationer
 
-Alla resurser som returneras i en topologi har någon av följande typer av relationer till en annan resurs:
+Alla resurser som returneras i en topologi har någon av följande typer av relation till en annan resurs:
 
-| Relationstyp | Exempel                                                                                                |
+| Typ av relation | Exempel                                                                                                |
 | ---               | ---                                                                                                    |
-| Inneslutning       | Ett virtuellt nätverk innehåller ett undernät. Ett undernät innehåller ett nätverks gränssnitt.                            |
-| Motsvarande        | Ett nätverks gränssnitt är associerat med en virtuell dator. En offentlig IP-adress är kopplad till ett nätverks gränssnitt. |
+| Behållare       | Ett virtuellt nätverk innehåller ett undernät. Ett undernät innehåller ett nätverksgränssnitt.                            |
+| Associerade        | Ett nätverksgränssnitt är associerat med en virtuell dator. En offentlig IP-adress är kopplad till ett nätverksgränssnitt. |
 
 ## <a name="properties"></a>Egenskaper
 
 Alla resurser som returneras i en topologi har följande egenskaper:
 
-- **Namn**: namnet på resursen
-- **ID**: resursens URI.
-- **Plats**: den Azure-region som resursen finns i.
-- **Associationer**: en lista över associationer till det refererade objektet. Varje Association har följande egenskaper:
-    - **AssociationType**: refererar till relationen mellan det underordnade objektet och det överordnade objektet. Giltiga värden är *contains* eller *associerade*.
-    - **Namn**: namnet på den refererade resursen.
-    - **ResourceID**:-URI för den resurs som refereras i associationen.
+- **Namn**: Namnet på resursen
+- **Id**: Resursens URI.
+- **Plats**: Azure-regionen som resursen finns i.
+- **Associationer**: En lista över associationer till det refererade objektet. Varje association har följande egenskaper:
+    - **AssociationType**: Refererar till relationen mellan det underordnade objektet och det överordnade objektet. Giltiga värden är *Innehåller* eller *Associerade*.
+    - **Namn**: Namnet på den refererade resursen.
+    - **ResourceId**: - URI för resursen som refereras i associationen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [diagnostiserar ett problem med nätverks trafik filter till eller från en virtuell dator](diagnose-vm-network-traffic-filtering-problem.md) med hjälp av Network Watchers funktion för att verifiera IP-flöde
-- Lär dig hur du [diagnostiserar ett problem med nätverks trafik dirigering från en virtuell dator](diagnose-vm-network-routing-problem.md) med hjälp av Network Watcher nästa hopp funktion
+- Lär dig hur du diagnostiserar ett problem med [nätverkstrafikfilter till eller från en virtuell dator](diagnose-vm-network-traffic-filtering-problem.md) med hjälp av Network Watchers IP-flödeskontroll
+- Lär dig hur du [diagnostiserar ett problem med nätverkstrafikroutning från en virtuell dator](diagnose-vm-network-routing-problem.md) med hjälp av Network Watchers nästa hoppkapacitet

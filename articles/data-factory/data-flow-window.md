@@ -1,6 +1,6 @@
 ---
-title: Transformering av data flödes fönster
-description: Transformering av Azure Data Factory mappning av data flödes fönster
+title: Omformning av dataflödesfönster
+description: Azure Data Factory-mappning av dataflödesfönster
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: fa34def67d91332a00bf0ee92b365957a47f9616
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931485"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Transformering av Azure Data Factory fönster
+# <a name="azure-data-factory-window-transformation"></a>Omvandling av Azure Data Factory-fönster
 
 
 
-Fönster omvandlingen är den plats där du ska definiera Window-baserade agg regeringar för kolumner i dina data strömmar. I uttrycks verktyget kan du definiera olika typer av agg regeringar som baseras på data eller tidsfönster (SQL över-sats) som LEAD, fördröjning, NTILE, CUMEDIST, rang osv.). Ett nytt fält skapas i utdata som innehåller dessa agg regeringar. Du kan även ta med valfria grupp fält.
+Fönsteromvandlingen är där du definierar fönsterbaserade aggregeringar av kolumner i dina dataströmmar. I Uttrycksverktyget kan du definiera olika typer av aggregeringar som baseras på data eller tidsfönster (SQL OVER-satsen), till exempel LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). Ett nytt fält genereras i utdata som innehåller dessa aggregeringar. Du kan också inkludera valfria grupp-för-fält.
 
-![Fönster alternativ](media/data-flow/windows1.png "Windows 1")
+![Fönsteralternativ](media/data-flow/windows1.png "windows 1")
 
 ## <a name="over"></a>Över
-Ange partitionering för kolumn data för fönster omvandlingen. SQL-motsvarigheten är ```Partition By``` i över-satsen i SQL. Om du vill skapa en beräkning eller skapa ett uttryck som ska användas för partitionering kan du göra det genom att hovra över kolumn namnet och välja "beräknad kolumn".
+Ange partitionering av kolumndata för fönsteromvandlingen. SQL-motsvarigheten ```Partition By``` är i Över-satsen i SQL. Om du vill skapa en beräkning eller skapa ett uttryck som ska användas för partitioneringen kan du göra det genom att hovra över kolumnnamnet och välja "beräknad kolumn".
 
-![Fönster alternativ](media/data-flow/windows4.png "Windows 4")
+![Fönsteralternativ](media/data-flow/windows4.png "windows 4")
 
 ## <a name="sort"></a>Sortera
-En annan del av över-satsen anger ```Order By```. Detta anger sorterings ordningen för data. Du kan också skapa ett uttryck för att beräkna värdet i det här kolumn fältet för sortering.
+En annan del av över-satsen är att ange ```Order By```. Detta anger datasorteringsordningen. Du kan också skapa ett uttryck för ett beräknat värde i det här kolumnfältet för sortering.
 
-![Fönster alternativ](media/data-flow/windows5.png "Windows 5")
+![Fönsteralternativ](media/data-flow/windows5.png "windows 5")
 
-## <a name="range-by"></a>Intervall av
-Ange sedan fönster ramen som obunden eller gräns. Om du vill ange en obunden fönster ram anger du skjutreglaget till obundet i båda ändar. Om du väljer en inställning mellan en obunden och aktuell rad måste du ange start-och slut värden för offset. Båda värdena är positiva heltal. Du kan använda antingen relativa tal eller värden från dina data.
+## <a name="range-by"></a>Intervall efter
+Ställ sedan in fönsterramen som Obunden eller Avgränsad. Om du vill ange en obunden fönsterram ställer du in skjutreglaget på Obunden i båda ändar. Om du väljer en inställning mellan Obunden och Aktuell rad måste du ange värdena För förskjutningsstart och. Båda värdena är positiva heltal. Du kan använda antingen relativa tal eller värden från dina data.
 
-Skjutreglaget fönster har två värden att ange: värdena före den aktuella raden och värdena efter den aktuella raden. Start-och slut förskjutningen matchar de två markeringarna i skjutreglaget.
+Fönsterreglaget har två värden att ange: värdena före den aktuella raden och värdena efter den aktuella raden. Förskjutningen Start och matchar de två väljarena på skjutreglaget.
 
-![Fönster alternativ](media/data-flow/windows6.png "Windows 6")
+![Fönsteralternativ](media/data-flow/windows6.png "windows 6")
 
-## <a name="window-columns"></a>Fönster kolumner
-Använd slutligen uttrycks verktyget för att definiera de agg regeringar som du vill använda med data Fönstren som rang, COUNT, MIN, MAX, tätare rang, LEAD, fördröjning osv.
+## <a name="window-columns"></a>Fönsterkolumner
+Slutligen kan du använda Uttrycksverktyget för att definiera de aggregeringar som du vill använda med datafönstren som RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG, etc.
 
-![Fönster alternativ](media/data-flow/windows7.png "windows 7")
+![Fönsteralternativ](media/data-flow/windows7.png "windows 7")
 
-En fullständig lista över agg regerings-och analys funktioner som du kan använda i uttrycks språket för ADF-dataflödet via uttrycks verktyget finns här: https://aka.ms/dataflowexpressions.
+Den fullständiga listan över aggregerings- och analysfunktioner som är tillgängliga för dig att använda https://aka.ms/dataflowexpressionsi ADF-dataflödesuttrycksspråket via Uttrycksverktyget visas här: .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du letar efter en enkel samlings grupp, använder du den [sammanställda omvandlingen](data-flow-aggregate.md)
+Om du letar efter en enkel grupp-för-aggregering använder du [den sammanlagda omvandlingen](data-flow-aggregate.md)

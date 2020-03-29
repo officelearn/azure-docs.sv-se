@@ -1,5 +1,5 @@
 ---
-title: FÖRÅLDRAD Hantera Azure DC/OS-kluster med Marathon UI
+title: (FÖRÅLDRAD) Hantera Azure DC/OS-kluster med Marathon-användargränssnittet
 description: Distribuera behållare till en klustertjänst i Azure Container Service med Marathons webbgränssnitt.
 author: iainfoulds
 ms.service: container-service
@@ -8,19 +8,19 @@ ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: b251096915506c3c7a4eebf45b6a03e24779a3d8
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277807"
 ---
-# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>FÖRÅLDRAD Hantera ett Azure Container Service DC/OS-kluster via Marathon-webbgränssnittet
+# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(FÖRÅLDRAD) Hantera ett DC/OS-kluster för Azure-behållartjänsten via webbgränssnittet Marathon
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar.
+DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Ovanpå DC/OS finns det ett ramverk som hanterar schemaläggning och körning av beräkningsarbetsbelastningar.
 
-Även om ramverk är tillgängliga för många populära arbets belastningar beskriver det här dokumentet hur du kommer igång med att distribuera behållare med Marathon. 
+Ramverk är tillgängliga för många populära arbetsbelastningar, men det här dokumentet beskriver hur du kommer igång med att distribuera behållare med Marathon. 
 
 
 ## <a name="prerequisites"></a>Krav
@@ -30,16 +30,16 @@ Innan du börjar med de här exemplen behöver du ett DC/OS-kluster som har konf
 * [Ansluta till ett Azure Container Service-kluster](../container-service-connect.md)
 
 > [!NOTE]
-> Den här artikeln förutsätter att du tunnlar till DC/OS-klustret via den lokala porten 80.
+> Den här artikeln förutsätter att du tunnel till DC/OS-klustret via din lokala port 80.
 >
 
 ## <a name="explore-the-dcos-ui"></a>Utforska gränssnittet för DC/OS
-När en SSH-tunnel (Secure Shell) har [upprättats](../container-service-connect.md)bläddrar du till http:\//localhost/. Då läses webbgränssnittet för DC/OS in och du kan se information om klustret, till exempel använda resurser, aktiva agenter och tjänster som körs.
+Med en Secure Shell (SSH) tunnel\/ [etablerad](../container-service-connect.md), bläddra till http: /localhost/. Då läses webbgränssnittet för DC/OS in och du kan se information om klustret, till exempel använda resurser, aktiva agenter och tjänster som körs.
 
 ![DC/OS-gränssnitt:](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Utforska Marathon-gränssnittet
-Om du vill se Marathon-ANVÄNDARGRÄNSSNITTET bläddrar du till http:\//localhost/Marathon. Från den här skärmbilden kan du starta en ny behållare eller ett annat program på DC/OS-klustret för Azure Container Service. Du kan även se information om att köra containrar och program.  
+För att se Marathon UI,\/bläddra till http: /localhost/marathon. Från den här skärmbilden kan du starta en ny behållare eller ett annat program på DC/OS-klustret för Azure Container Service. Du kan även se information om att köra containrar och program.  
 
 ![Gränssnittet i Marathon](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -83,7 +83,7 @@ Tillbaka på huvudsidan för Marathon kan du se distributionsstatusen för conta
 
 ![Marathon-huvudsidans gränssnitt 0 containerns distributionsstatus](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-När du växlar tillbaka till DC/OS-webbgränssnittet (http:\//localhost/), ser du att en aktivitet (i det här fallet en Docker-formaterad behållare) körs på DC/OS-klustret.
+När du växlar tillbaka till DC/OS-webbgränssnittet (http:\//localhost/) ser du att en uppgift (i det här fallet en Docker-formaterad behållare) körs i DC/OS-klustret.
 
 ![DC/OS-webbgränssnitt – aktivitet som körs på klustret](./media/container-service-mesos-marathon-ui/dcos8.png)
 
@@ -91,9 +91,9 @@ Du kan visa klusternoden som uppgiften körs på genom att klicka på fliken **N
 
 ![DC/OS-webbgränssnitt – klusternod](./media/container-service-mesos-marathon-ui/dcos9.png)
 
-## <a name="reach-the-container"></a>Når behållaren
+## <a name="reach-the-container"></a>Nå behållaren
 
-I det här exemplet körs programmet på en offentlig agent-nod. Du når programmet från Internet genom att bläddra till agentens FQDN för klustret: `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`, där:
+I det här exemplet körs programmet på en offentlig agentnod. Du når programmet från Internet genom att surfa till agenten `http://[DNSPREFIX]agents.[REGION].cloudapp.azure.com`FQDN i klustret: , där:
 
 * **DNSPREFIX** är det DNS-prefix som du angav när du distribuerade klustret.
 * **REGION** är den region där resursgruppen finns.
@@ -104,7 +104,7 @@ I det här exemplet körs programmet på en offentlig agent-nod. Du når program
 ## <a name="next-steps"></a>Nästa steg
 * [Arbeta med API för DC/OS och Marathon API](container-service-mesos-marathon-rest.md)
 
-* Gå på djupet i Azure Container Service med Mesos
+* Ingående om Azure Container Service med Mesos
 
     > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
     > 

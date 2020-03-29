@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Deklarativ etablering uttryck | Microsoft Docs'
-description: Förklarar uttryck för deklarativ etablering.
+title: 'Azure AD Connect: Deklarativa etableringsuttryck | Microsoft-dokument'
+description: Förklarar deklarativa etableringsuttrycken.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,87 +17,87 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60245509"
 ---
-# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering
-Azure AD Connect-synkronisering bygger på deklarativ etablering introducerades i Forefront Identity Manager 2010. Det kan du implementera enhetlig identitet integration affärslogik utan att behöva skriva kompilerad kod.
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Synkronisering av Azure AD Connect: Förstå deklarativa etableringsuttryck
+Azure AD Connect-synkronisering bygger på deklarativ etablering som först introducerades i Forefront Identity Manager 2010. Det gör att du kan implementera din fullständiga identitetsintegrering affärslogik utan att behöva skriva kompilerad kod.
 
-En väsentlig del av deklarativ etablering är Uttrycksspråk som används i attributflöden. Det språk som används är en delmängd av Microsoft® Visual Basic for Applications (VBA). Det här språket används i Microsoft Office och användarna har erfarenhet av VBScript kommer också identifiera den. Deklarativ etablering Uttrycksspråk endast med hjälp av funktioner och är inte ett strukturerade språk. Det finns inga metoder eller uttryck. Functions kapslas i stället att uttryckliga programflöde.
+En viktig del av deklarativa etablering är uttrycksspråket som används i attributflöden. Språket som används är en delmängd av Microsoft® Visual Basic® for Applications (VBA). Det här språket används i Microsoft Office och användare med erfarenhet av VBScript kommer också att känna igen det. Uttrycksspråket Deklarativ etablering använder bara funktioner och är inte ett strukturerat språk. Det finns inga metoder eller uttalanden. Funktioner kapslas i stället för att uttrycka programflödet.
 
-Mer information finns i [Välkommen till Visual Basic for Applications Språkreferens för Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+Mer information finns i [Välkommen till språkreferensen för Visual Basic for Applications för Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
-Attribut är starkt typbestämd. En funktion accepterar endast attribut av typen korrekt. Det är också skiftlägeskänsligt. Både funktionsnamnen och attributnamn måste ha rätt skiftläge eller ett fel inträffar.
+Attributen skrivs starkt. En funktion accepterar bara attribut av rätt typ. Det är också skiftlägeskänsligt. Både funktionsnamn och attributnamn måste ha rätt hölje eller ett fel genereras.
 
-## <a name="language-definitions-and-identifiers"></a>Definitioner av språk och identifierare
-* Funktioner har ett namn följt av argument inom parentes: FunctionName (argumentet 1, argumentet N).
-* Attribut som identifierats av hakparenteser: [attributeName]
-* Parametrar som identifieras av procenttecken: % ParameterName %
-* Strängkonstanter omges av citattecken: Till exempel ”Contoso” (Obs: måste använda raka citattecken ”” och inte typografiska citattecken ””)
-* Numeriska värden anges utan citattecken och förväntas vara decimal. Hexadecimala värden föregås & H. Till exempel 98052 & HFF
-* Booleska värden uttrycks med konstanter: True, False.
-* Inbyggda konstanter och litteraler uttrycks med endast användarens namn: NULL, CRLF, IgnoreThisFlow
+## <a name="language-definitions-and-identifiers"></a>Språkdefinitioner och identifierare
+* Funktioner har ett namn följt av argument inom parentes: FunctionName(argument 1, argument N).
+* Attribut identifieras med hakparenteser: [attributeName]
+* Parametrar identifieras med procenttecken: %ParameterName%
+* Strängkonstanter omges av citattecken: Till exempel "Contoso" (Obs: måste använda raka citattecken "" och inte smarta citattecken "")
+* Numeriska värden uttrycks utan citattecken och förväntas vara decimaler. Hexadecimala värden föregås av &H. Till exempel 98052, &HFF
+* Booleska värden uttrycks med konstanter: Sant, Falskt.
+* Inbyggda konstanter och litteraler uttrycks med endast namn: NULL, CRLF, IgnoreThisFlow
 
-### <a name="functions"></a>Functions
-Deklarativ etablering använder många funktioner för att aktivera möjlighet att omvandla attributvärden. Dessa funktioner kan kapslas så resultatet från en funktion som skickas till en annan funktion.
+### <a name="functions"></a>Funktioner
+Deklarativ etablering använder många funktioner för att möjliggöra möjligheten att omvandla attributvärden. Dessa funktioner kan kapslas så att resultatet från en funktion skickas in till en annan funktion.
 
 `Function1(Function2(Function3()))`
 
-Fullständig lista över funktioner finns i den [fungera referens](reference-connect-sync-functions-reference.md).
+Den fullständiga listan över funktioner finns i [funktionsreferensen](reference-connect-sync-functions-reference.md).
 
 ### <a name="parameters"></a>Parametrar
-En parameter har definierats av en koppling eller av en administratör med hjälp av PowerShell. Parametrar som vanligtvis innehåller värden som skiljer sig från ett system till, till exempel namnet på domänen som användaren befinner sig i. Dessa parametrar kan användas i attributflöden.
+En parameter definieras antingen av en connector eller av en administratör som använder PowerShell. Parametrar innehåller vanligtvis värden som skiljer sig från system till system, till exempel namnet på den domän som användaren finns i. Dessa parametrar kan användas i attributflöden.
 
-Active Directory-koppling avses inkommande Synkroniseringsregler följande parametrar:
+Active Directory Connector innehöll följande parametrar för inkommande synkroniseringsregler:
 
 | Parameternamn | Kommentar |
 | --- | --- |
-| Domain.Netbios |NetBIOS-formatet för den domän som för närvarande som importeras, till exempel FABRIKAMSALES |
-| Domain.FQDN |FQDN-format på den domän som för närvarande som importeras, till exempel sales.fabrikam.com |
-| Domain.LDAP |LDAP-formatet för den domän som för närvarande som importeras, till exempel DC = försäljning, DC = fabrikam, DC = com |
-| Forest.Netbios |NetBIOS-formatet för det skognamn som för närvarande som importeras, till exempel FABRIKAMCORP |
-| Forest.FQDN |FQDN-format för det skognamn som för närvarande som importeras, till exempel fabrikam.com |
-| Forest.LDAP |LDAP-formatet för det skognamn som för närvarande som importeras, till exempel DC = fabrikam, DC = com |
+| Domän.Netbios |Netbios-format för den domän som för närvarande importeras, till exempel FABRIKAMSALES |
+| Domän.FQDN |FQDN-format för den domän som för närvarande importeras, till exempel sales.fabrikam.com |
+| Domän.LDAP |LDAP-format för den domän som för närvarande importeras, till exempel DC=sales,DC=fabrikam,DC=com |
+| Skog.Netbios |Netbios-format för det skogsnamn som för närvarande importeras, till exempel FABRIKAMCORP |
+| Skog.FQDN |FQDN-format för det skogsnamn som för närvarande importeras, till exempel fabrikam.com |
+| Skog.LDAP |LDAP-format för det skogsnamn som för närvarande importeras, till exempel DC=fabrikam,DC=com |
 
-Systemet innehåller följande parameter som används för att hämta identifieraren för den anslutningen som för närvarande körs:  
+Systemet tillhandahåller följande parameter, som används för att hämta identifieraren för den anslutning som körs:  
 `Connector.ID`
 
-Här är ett exempel som fyller på domänen för metaversum-attribut med netbios-namnet på den domän där användaren finns:  
+Här är ett exempel som fyller metaversumattributdomänen med netbios-namnet på den domän där användaren finns:  
 `domain` <- `%Domain.Netbios%`
 
 ### <a name="operators"></a>Operatorer
-Du kan använda följande operatorer:
+Följande operatorer kan användas:
 
-* **Jämförelse av**: <, < =, <>, =, >, > =
-* **Matematik**: +, -, \*, -
+* **Jämförelse**: <, <=, <>, =, >, >=
+* **Matematik**: +, \*-, , -
 * **Sträng**: & (sammanfoga)
-* **Logiska**: & & (och) || (eller)
-* **Utvärderingsordning**:)
+* **Logisk**: && (och), || (eller)
+* **Utvärderingsorder**: ( )
 
-Operatörer utvärderas till vänster till höger och har samma prioritet för utvärdering. Det vill säga den \* (multiplikatorn) utvärderas inte innan - (subtraktion). 2\*(5 + 3) är inte samma som 2\*5 + 3. Hakparenteser (-) används för att ändra utvärderingsordningen när vänster till höger utvärderingsordning inte är lämpligt.
+Operatorer utvärderas från vänster till höger och har samma utvärderingsprioritet. Det vill \* än ,(multiplikatorn) utvärderas inte före - (subtraktion). 2\*(5+3) är inte samma\*sak som 2 5+3. Parenteserna ( ) används för att ändra utvärderingsordningen när det inte är lämpligt att ändra utvärderingsordningen från vänster till höger.
 
-## <a name="multi-valued-attributes"></a>Flera värden attribut
-Funktionerna kan användas i både enstaka och flera värden. För flera värden attribut funktionen fungerar över varje värde och gäller samma funktion för varje värde.
+## <a name="multi-valued-attributes"></a>Attribut med flera värden
+Funktionerna kan fungera på både attribut med ett värde och flera värden. För attribut med flera värden fungerar funktionen över varje värde och använder samma funktion på varje värde.
 
-Exempel:  
-`Trim([proxyAddresses])` Göra en Trimning av varje värde i proxyAddress-attribut.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"` För varje värde med en @-sign, Ersätt den med @contoso.com.  
-`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Leta efter SIP-adress och ta bort den från värden.
+Ett exempel:  
+`Trim([proxyAddresses])`Gör en trimning av varje värde i attributet proxyAddress.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"`För varje värde @-signmed en @contoso.comersätter du domänen med .  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`Leta efter SIP-adressen och ta bort den från värdena.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om konfigurationsmodellen i [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
-* Se hur deklarativ etablering är att använda out-of-box i [förstå standardkonfigurationen](concept-azure-ad-connect-sync-default-configuration.md).
-* Se hur du ändrar något praktiskt med deklarativ etablering i [hur du gör en ändring i standardkonfigurationen](how-to-connect-sync-change-the-configuration.md).
+* Läs mer om konfigurationsmodellen i [Förstå deklarativa etablering .](concept-azure-ad-connect-sync-declarative-provisioning.md)
+* Se hur deklarativ etablering används direkt i [Förstå standardkonfigurationen](concept-azure-ad-connect-sync-default-configuration.md).
+* Se hur du gör en praktisk ändring med deklarativ etablering i [Så här gör du en ändring av standardkonfigurationen](how-to-connect-sync-change-the-configuration.md).
 
-**Översiktsavsnitt**
+**Avsnitt om översikt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Synkronisering av Azure AD Connect: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
 
 **Referensämnen**
 
-* [Azure AD Connect-synkronisering: Referens för funktioner](reference-connect-sync-functions-reference.md)
+* [Synkronisering av Azure AD Connect: Funktionsreferens](reference-connect-sync-functions-reference.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Åsidosättning av Azure Traffic Manager-undernät med Azure PowerShell | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå hur Traffic Manager-under näts åsidosättande används för att åsidosätta Dirigerings metoden för en Traffic Manager profil för att dirigera trafik till en slut punkt baserat på slutanvändarens IP-adress via fördefinierade IP-intervall till slut punkts mappningar med hjälp av Azure PowerShell.
+title: Azure Traffic Manager-undernät åsidosätta med Azure PowerShell | Microsoft-dokument
+description: Den här artikeln hjälper dig att förstå hur Traffic Manager-undernät åsidosättning används för att åsidosätta routningsmetoden för en Traffic Manager-profil för att dirigera trafik till en slutpunkt baserat på slutanvändarens IP-adress via fördefinierat IP-intervall till slutpunktsmappningar med Azure Powershell.
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
@@ -10,52 +10,52 @@ ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: rohink
 ms.openlocfilehash: 323093ec78a9486d19496b0ee90e37cb42eea341
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938427"
 ---
-# <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Traffic Manager under näts Åsidosätt med Azure PowerShell
+# <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Undernätsförehållning i Traffic Manager med Azure Powershell
 
-Med Traffic Manager under näts åsidosättning kan du ändra routningsmetod för en profil.  Att lägga till en åsidosättning dirigerar trafik baserat på slutanvändarens IP-adress med ett fördefinierat IP-intervall för slut punkts mappning. 
+Med undernätsförståningen i Traffic Manager kan du ändra routningsmetoden för en profil.  Tillägget av en åsidosättning dirigerar trafik baserat på slutanvändarens IP-adress med ett fördefinierat IP-intervall till slutpunktsmappning. 
 
-## <a name="how-subnet-override-works"></a>Hur under näts åsidosättning fungerar
+## <a name="how-subnet-override-works"></a>Så här fungerar åsidosättning av undernät
 
-När under näts åsidosättningar läggs till i en Traffic Manager-profil, kontrollerar Traffic Manager först om det finns en under näts åsidosättande för slutanvändarens IP-adress. Om en hittas dirigeras användarens DNS-fråga till motsvarande slut punkt.  Om det inte går att hitta någon mappning, kommer Traffic Manager att återgå till profilens ursprungliga routningsmetod. 
+När åsidosättningar i undernät läggs till i en traffic manager-profil kontrollerar Traffic Manager först om det finns en åsidosättning av undernätet för slutanvändarens IP-adress. Om en sådan hittas dirigeras användarens DNS-fråga till motsvarande slutpunkt.  Om en mappning inte hittas kommer Traffic Manager att återgå till profilens ursprungliga routningsmetod. 
 
-IP-adressintervall kan anges som antingen CIDR-intervall (till exempel 1.2.3.0/24) eller som adress intervall (till exempel 1.2.3.4-5.6.7.8). De IP-intervall som är associerade med varje slut punkt måste vara unika för den slut punkten. Överlappande IP-intervall mellan olika slut punkter gör att profilen avvisas av Traffic Manager.
+IP-adressintervallen kan anges som antingen CIDR-intervall (till exempel 1.2.3.0/24) eller som adressintervall (till exempel 1.2.3.4-5.6.7.8). IP-intervallen som är associerade med varje slutpunkt måste vara unika för den slutpunkten. Eventuell överlappning av IP-intervall mellan olika slutpunkter gör att profilen avvisas av Traffic Manager.
 
-Det finns två typer av vägvals profiler som stöder under näts åsidosättningar:
+Det finns två typer av routningsprofiler som stöder åsidosättningar i undernät:
 
-* **Geografisk** -om Traffic Manager hittar en under näts ÅSIDOSÄTTNING för DNS-FRÅGAns IP-adress, kommer den att dirigera frågan till slut punkten oavsett hur hälsan är för slut punkten.
-* **Prestanda** – om Traffic Manager hittar en under näts ÅSIDOSÄTTNING för DNS-FRÅGAns IP-adress dirigerar den bara trafiken till slut punkten om den är felfri.  Traffic Manager återgår till heuristiken för prestanda routning om det inte går att åsidosätta slut punkten för under nätet.
+* **Geografisk** - Om Traffic Manager hittar en åsidosättning av undernätet för DNS-frågans IP-adress dirigeras frågan till slutpunkten oavsett slutpunktens hälsotillstånd.
+* **Prestanda** - Om Traffic Manager hittar en åsidosättning av undernätet för DNS-frågans IP-adress dirigeras trafiken bara till slutpunkten om den är felfri.  Traffic Manager kommer att falla tillbaka till prestanda routning heuristiska om undernät åsidosättning slutpunkten inte är felfri.
 
-## <a name="create-a-traffic-manager-subnet-override"></a>Skapa en Traffic Manager under näts åsidosättning
+## <a name="create-a-traffic-manager-subnet-override"></a>Skapa en åsidosättning av Trafikhanteraren
 
-Om du vill skapa en åsidosättning för Traffic Manager under nätet kan du använda Azure PowerShell för att lägga till undernät för åsidosättningen i Traffic Manager slut punkten.
+Om du vill skapa en åsidosättning av Traffic Manager-undernät kan du använda Azure PowerShell för att lägga till undernäten för åsidosättningen i Traffic Manager-slutpunkten.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett kostnads fritt interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn behöver du Azure PowerShell-modulen, 1.0.0 eller senare. Du kan köra `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzAccount` för att logga in på Azure.
+Du kan köra de kommandon som följer i [Azure Cloud Shell](https://shell.azure.com/powershell)eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett kostnadsfritt interaktivt skal. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn behöver du Azure PowerShell-modulen, 1.0.0 eller senare. Du kan `Get-Module -ListAvailable Az` köra för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du `Login-AzAccount` också köra för att logga in på Azure.
 
 
-1. **Hämta Traffic Manager slut punkten:**
+1. **Hämta slutpunkten för Traffic Manager:**
 
-    Om du vill aktivera åsidosättande av undernät hämtar du den slut punkt som du vill lägga till åsidosättningen i och lagrar den i en variabel med hjälp av [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Om du vill aktivera åsidosättningen av undernätet hämtar du den slutpunkt som du vill lägga till åsidosättningen i och lagrar den i en variabel med [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
-    Ersätt namn, PROFILENAME och ResourceGroupName med värdena för den slut punkt som du ändrar.
+    Ersätt namn, profilnamn och ResourceGroupName med värdena för slutpunkten som du ändrar.
 
     ```powershell
 
     $TrafficManagerEndpoint = Get-AzTrafficManagerEndpoint -Name "contoso" -ProfileName "ContosoProfile" -ResourceGroupName "ResourceGroup" -Type AzureEndpoints
 
     ```
-2. **Lägg till IP-adressintervallet till slut punkten:**
+2. **Lägg till IP-adressintervallet till slutpunkten:**
     
-    Om du vill lägga till IP-adressintervallet till slut punkten använder du [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) för att lägga till intervallet.
+    Om du vill lägga till IP-adressintervallet i slutpunkten använder du [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) för att lägga till intervallet.
 
     ```powershell
 
@@ -69,27 +69,27 @@ Du kan köra kommandona som följer i [Azure Cloud Shell](https://shell.azure.co
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    När intervallen har lagts till använder du [set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) för att uppdatera slut punkten.
+    När intervallen har lagts till använder [du Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) för att uppdatera slutpunkten.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-Borttagning av IP-adressintervall kan slutföras med hjälp av [Remove-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+Borttagning av IP-adressintervallet kan slutföras med hjälp av [Remove-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
 
-1.  **Hämta Traffic Manager slut punkten:**
+1.  **Hämta slutpunkten för Traffic Manager:**
 
-    Om du vill aktivera åsidosättande av undernät hämtar du den slut punkt som du vill lägga till åsidosättningen i och lagrar den i en variabel med hjälp av [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Om du vill aktivera åsidosättningen av undernätet hämtar du den slutpunkt som du vill lägga till åsidosättningen i och lagrar den i en variabel med [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
-    Ersätt namn, PROFILENAME och ResourceGroupName med värdena för den slut punkt som du ändrar.
+    Ersätt namn, profilnamn och ResourceGroupName med värdena för slutpunkten som du ändrar.
 
     ```powershell
 
     $TrafficManagerEndpoint = Get-AzTrafficManagerEndpoint -Name "contoso" -ProfileName "ContosoProfile" -ResourceGroupName "ResourceGroup" -Type AzureEndpoints
 
     ```
-2. **Ta bort IP-adressintervallet från slut punkten:**
+2. **Ta bort IP-adressintervallet från slutpunkten:**
 
     ```powershell
     
@@ -103,7 +103,7 @@ Borttagning av IP-adressintervall kan slutföras med hjälp av [Remove-AzTraffic
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     När intervallen har tagits bort använder du [set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) för att uppdatera slut punkten.
+     När intervallen har tagits bort använder du [Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) för att uppdatera slutpunkten.
 
     ```powershell
 
@@ -112,6 +112,6 @@ Borttagning av IP-adressintervall kan slutföras med hjälp av [Remove-AzTraffic
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur du Traffic Manager [metoder för trafik cirkulation](traffic-manager-routing-methods.md).
+Läs mer om [trafikstyrningsmetoder i](traffic-manager-routing-methods.md)Traffic Manager .
 
-Lär dig mer om [routningsmetod för under näts trafik](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Lär dig mer om [trafikroutningsmetoden för undernät](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)

@@ -1,5 +1,5 @@
 ---
-title: Skydda resurser med Azure MFA och ADFS-Azure Active Directory
+title: Säkra resurser med Azure MFA och ADFS - Azure Active Directory
 description: Det här är sidan om Azure Multi-Factor Authentication som beskriver hur du kommer igång med Azure MFA och AD FS i molnet.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155221"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Skydda molnresurser med Azure Multi-Factor Authentication och AD FS
@@ -27,18 +27,18 @@ Om din organisation är federerad med Azure Active Directory använder du Azure 
 Ställ in en anspråksregel så att Active Directory Federation Services genererar multipleauthn-kravet när en användare utför tvåstegsverifiering om du vill skydda din molnresurs. Det här anspråket överförs till Azure AD. Följ dessa steg:
 
 1. Öppna AD FS-hantering.
-2. Välj **Förlitande partsförtroenden** till vänster.
+2. Till vänster väljer du **Förtroende för förlitande part**.
 3. Högerklicka på **Microsoft Office 365 Identity Platform** och välj **Redigera anspråksregler**.
 
-   ![ADFS-konsol-förtroende för förlitande part](./media/howto-mfa-adfs/trustedip1.png)
+   ![ADFS-konsol – Förtroenden för förlitande parter](./media/howto-mfa-adfs/trustedip1.png)
 
 4. För Utfärdande av transformeringsregler klickar du på **Lägg till regel**.
 
-   ![Redigera omvandlings regler för utfärdande](./media/howto-mfa-adfs/trustedip2.png)
+   ![Redigera regler för utfärdandetransformering](./media/howto-mfa-adfs/trustedip2.png)
 
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
 
-   ![Guiden Lägg till anspråks regel för transformering](./media/howto-mfa-adfs/trustedip3.png)
+   ![Guiden Lägg till anspråksregel för transformering](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Namnge din regel. 
 7. Välj **Autentiseringsmetodreferenser** som den inkommande anspråkstypen.
@@ -57,16 +57,16 @@ I det här exemplet används Office 365 för våra förlitande partsförtroenden
 Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två anspråksregler, en för anspråkstypen inom företagsnätverket och ytterligare en som gör att våra användare förblir inloggade.
 
 1. Öppna AD FS-hantering.
-2. Välj **Förlitande partsförtroenden** till vänster.
-3. Högerklicka på **Microsoft Office 365-Identitetsplattform** och välj **redigera Anspråksregler...** 
-   ![ADFS-konsolen – redigera Anspråksregler](./media/howto-mfa-adfs/trustedip1.png)
-4. Klicka på **Lägg till regel** vid omvandling av utfärdande regler.
-   ![lägga till en anspråks regel](./media/howto-mfa-adfs/trustedip2.png)
+2. Till vänster väljer du **Förtroende för förlitande part**.
+3. Högerklicka på **Microsoft Office 365 Identity Platform** och välj **Redigera anspråksregler...** 
+   ADFS-konsol – redigera ![anspråksregler](./media/howto-mfa-adfs/trustedip1.png)
+4. Klicka på **Lägg till regel** i Regler för utfärdandetransformering. 
+   Lägga till en anspråksregel ![](./media/howto-mfa-adfs/trustedip2.png)
 5. I guiden Lägg till anspråksregel för transformering väljer du **Släpp igenom eller Filtrera ett inkommande anspråk** i listrutan och klickar sedan på **Nästa**.
    ![Guiden Lägg till anspråksregel för transformering](./media/howto-mfa-adfs/trustedip3.png)
 6. I rutan bredvid Anspråksregelns namn ger du regeln ett namn. Exempel: InsideCorpNet.
 7. Välj **Inom företagsnätverket** i listrutan bredvid Typ av inkommande anspråk.
-   ![att lägga till i företags nätverks anspråk](./media/howto-mfa-adfs/trustedip4.png)
+   ![Lägga till anspråk på internt nätverk](./media/howto-mfa-adfs/trustedip4.png)
 8. Klicka på **Slutför**.
 9. För Utfärdande av transformeringsregler klickar du på **Lägg till regel**.
 10. I guiden Lägg till anspråksregel för transformering väljer du **Skicka anspråk med hjälp av en anpassad regel** i listrutan och klickar sedan på **Nästa**.
@@ -75,7 +75,7 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Skapa anpassat anspråk för att hålla användare inloggade](./media/howto-mfa-adfs/trustedip5.png)
+    ![Skapa anpassade anspråk för att hålla användare inloggade](./media/howto-mfa-adfs/trustedip5.png)
 13. Klicka på **Slutför**.
 14. Klicka på **Använd**.
 15. Klicka på **OK**.
@@ -85,11 +85,11 @@ Det första vi måste göra är att konfigurera AD FS-anspråken. Skapa två ans
 
 När nu anspråken är på plats kan vi konfigurera tillförlitliga IP-adresser.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst** > **namngivna platser**.
-3. Från bladet **villkorlig åtkomst – namngivna platser** väljer du **Konfigurera MFA-betrodda IP-adresser**
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Välj**Namngivna platser**för Azure Active**Directory-säkerhets** >  **Azure Active Directory** > **villkorlig åtkomst** > .
+3. Välj **Konfigurera betrodda IPs-adresser** på bladet **Villkorlig åtkomst - Namngivna platser**
 
-   ![Namngivna platser för villkorlig åtkomst i Azure AD Konfigurera MFA-betrodda IP-adresser](./media/howto-mfa-adfs/trustedip6.png)
+   ![Azure AD-villkorlig åtkomst namngivna platser Konfigurera MFA-betrodda IPs](./media/howto-mfa-adfs/trustedip6.png)
 
 4. På sidan Tjänstinställningar, under **Tillförlitliga IP-adresser** väljer du **Hoppa över multi-factor authentication för förfrågningar från federerade användare som kommer från mitt intranät**.  
 5. Klicka på **Spara**.

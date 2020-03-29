@@ -1,6 +1,6 @@
 ---
-title: Skapa ett Azure Media Services-kodningsjobb som genererar fMP4-segment | Microsoft Docs
-description: Det här avsnittet visar hur du skapar ett kodningsjobb som genererar fMP4-segment. När denna uppgift används med Media Encoder Standard eller Media Encoder Premium Workflow encoder innehåller utdatatillgången fMP4-segment i stället för ISO MP4-filer.
+title: Skapa en Azure Media Services-kodningsuppgift som genererar fMP4-segment | Microsoft-dokument
+description: Det här avsnittet visar hur du skapar en kodningsaktivitet som genererar fMP4-segment. När den här uppgiften används med Media Encoder Standard eller Media Encoder Premium Workflow-kodaren innehåller utdatatillgången fMP4-segment i stället för ISO MP4-filer.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463875"
 ---
-#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Skapa ett kodningsjobb som genererar fMP4-segment
+#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Skapa en kodningsuppgift som genererar fMP4-segment
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du skapar ett kodningsjobb som genererar fragmenterad MP4 (fMP4)-segment i stället för ISO MP4-filer. Om du vill generera fMP4-segment, använder den **Media Encoder Standard** eller **Media Encoder Premium Workflow** encoder och skapa ett kodningsjobb som du kan också ange **AssetFormatOption.AdaptiveStreaming**  alternativ, som visas i det här kodfragmentet:  
+Den här artikeln visar hur du skapar en kodningsuppgift som genererar fragmenterade MP4-segment (fMP4) i stället för ISO MP4-filer. Om du vill generera fMP4-segment använder du alternativet **Media Encoder Standard** eller **Media Encoder Premium Workflow** för att skapa en kodningsuppgift och även ange alternativet **AssetFormatOption.AdaptiveStreaming,** som visas i kodavsnittet:  
     
 ```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 
@@ -32,20 +32,20 @@ Den här artikeln visar hur du skapar ett kodningsjobb som genererar fragmentera
             formatOption: AssetFormatOption.AdaptiveStreaming);
 ```
 
-## <a id="encoding_with_dotnet"></a>Encoding med Media Services .NET SDK
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Kodning med Media Services .NET SDK
 
-I följande kodexempel använder Media Services .NET SDK för att utföra följande uppgifter:
+I följande kodexempel används Media Services .NET SDK för att utföra följande uppgifter:
 
 - Skapa ett kodningsjobb.
-- Hämta en referens till den **Media Encoder Standard** kodare.
-- Lägg till ett kodningsjobb i jobbet och ange om du vill använda den **Adaptiv direktuppspelning** förinställda. 
-- Skapa en utdata-tillgång som innehåller fMP4-segment och en .ism-fil.
-- Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
+- Hämta en referens till **Media Encoder** Standard-kodaren.
+- Lägg till en kodningsaktivitet i jobbet och ange att förinställningen **Adaptiv direktuppspelning** ska användas. 
+- Skapa en utdatatillgång som innehåller fMP4-segment och en ISM-fil.
+- Lägg till en händelsehanterare för att kontrollera jobbförloppet.
 - Skicka in jobbet.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Exempel
 
@@ -177,5 +177,5 @@ namespace AdaptiveStreaming
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Media Services-kodning – översikt](media-services-encode-asset.md)
+[Översikt över kodning av Media Services](media-services-encode-asset.md)
 

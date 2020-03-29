@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ett nytt program med flera klienter | Microsoft Docs
-description: Lär dig hur du konfigurerar ett program som flera innehavare och hur program för flera innehavare fungerar
+title: Konfigurera ett nytt program för flera innehavare | Microsoft-dokument
+description: Lär dig hur du konfigurerar ett program som flera innehavare och hur program med flera innehavare fungerar
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -16,20 +16,20 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: ae5f0f0cd42c4b734e14a66bc7ba9cf5bbfe61a4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701492"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Så här konfigurerar du ett nytt program för flera innehavare
+# <a name="how-to-configure-a-new-multi-tenant-application"></a>Konfigurera ett nytt program med flera innehavare
 
-Här följer en lista över rekommenderade ämnen för att lära dig mer om program med flera klient organisationer:
+Här är en lista över rekommenderade ämnen för att lära dig mer om program för flera innehavare:
 
-- Få en allmän förståelse för [vad det innebär att det är ett program med flera innehavare](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
-- Få en allmän förståelse för [hur du konfigurerar ett program för flera innehavare](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
-- Få en stegvis översikt över [hur Azure AD medgivande Framework används för att implementera medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), vilket krävs för program med flera klienter
-- Om du vill ha mer djupgående information kan du läsa om [hur ett program för flera innehavare har kon figurer ATS och kodats från slut punkt till slut](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)punkt, inklusive hur du registrerar, använda slut punkten "common", implementera "användare" och "admin", hur du implementerar mer avancerade scenarier med flera nivåer
+- Få en allmän förståelse för [vad det innebär att vara en multi-tenant program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#multi-tenant-application)
+- Få en allmän förståelse för [hur du konfigurerar ett program som ska vara flera innehavare](https://docs.microsoft.com/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant)
+- Få en stegvis översikt över [hur Azure AD-medgivanderamverket används för att implementera samtycke](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications), vilket krävs för program med flera innehavare
+- Mer information finns i [hur ett program med flera innehavare är konfigurerat och kodat från slutpunkt till slutpunkt](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview), inklusive hur du registrerar, använder den "vanliga" slutpunkten, implementerar "användare" och "admin"-medgivande, hur du implementerar mer avancerade scenarier på flera nivåer, hur du implementerar mer avancerade scenarier på flera nivåer
 
 ## <a name="next-steps"></a>Nästa steg
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

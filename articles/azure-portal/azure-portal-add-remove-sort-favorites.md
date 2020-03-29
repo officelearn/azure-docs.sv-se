@@ -1,8 +1,8 @@
 ---
-title: Lägg till, ta bort och ordna favoriter i Azure Portal | Microsoft Docs
-description: Lär dig hur du lägger till eller tar bort objekt från listan Favoriter och ordnar om objekt ordningen
+title: Lägga till, ta bort och ordna favoriter i Azure portal | Microsoft-dokument
+description: Lär dig hur du lägger till eller tar bort objekt från favoritlistan och ordnar om ordningen på objekten
 services: azure-portal
-keywords: favoriter, Portal
+keywords: favoriter,portal
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
@@ -11,59 +11,59 @@ ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: d6b580accb02efb6a44c0c245af583d2e3850409
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310823"
 ---
-# <a name="add-remove-and-rearrange-favorites"></a>Lägg till, ta bort och ordna om favoriter
+# <a name="add-remove-and-rearrange-favorites"></a>Lägga till, ta bort och ordna om favoriter
 
-Lägg till eller ta bort objekt från listan **Favoriter** så att du snabbt kan gå till de tjänster som du använder oftast. Vi har redan lagt till några vanliga tjänster i **favorit** listan, men du vill förmodligen anpassa den. Du är bara en som ser de ändringar du gör i **Favoriter**.
+Lägg till eller ta bort objekt från listan **Favoriter** så att du snabbt kan gå till de tjänster du använder oftast. Vi har redan lagt till några vanliga tjänster i listan **Favoriter,** men du vill förmodligen anpassa den. Du är den enda som ser de ändringar du gör i **Favoriter**.
 
-## <a name="add-a-favorite"></a>Lägg till en favorit
+## <a name="add-a-favorite"></a>Lägga till en favorit
 
-Objekt som listas under **Favoriter** väljs från **alla tjänster**. Hovra över ett tjänst namn för att visa information och resurser som är relaterade till tjänsten. En fylld stjärn ikon ![fylld stjärn ikon](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) bredvid tjänst namnet anger att objektet visas i listan **Favoriter** . Välj stjärn ikonen för att lägga till en tjänst i listan **Favoriter** .
+Objekt som visas under **Favoriter väljs** från **Alla tjänster**. Hovra över ett tjänstnamn för att visa information och resurser som är relaterade till tjänsten. En fylld ![stjärnikon](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) Fylld stjärnikon bredvid tjänstnamnet anger att objektet visas i listan **Favoriter.** Välj stjärnikonen om du vill lägga till en tjänst i listan **Favoriter.**
 
-### <a name="add-cost-management--billing-to-favorites"></a>Lägg till Cost Management + fakturering till favoriter
+### <a name="add-cost-management--billing-to-favorites"></a>Lägg till kostnadshantering + fakturering i favoriter
 
-1. Välj **alla tjänster** på Azure Portal-menyn.
+1. Välj **Alla tjänster** på Azure-portalmenyn.
 
-    ![Skärm bild som visar alla valda tjänster](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
+    ![Skärmbild som visar Alla valda tjänster](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
 
-1. Skriv ordet "kostnad" i Sök fältet. Tjänster som har "kostnad" i rubriken eller som har "kostnad" som ett nyckelord visas.
+1. Ange ordet "kostnad" i sökfältet. Tjänster som har "kostnad" i rubriken eller som har "kostnad" som nyckelord visas.
 
-   ![Skärm bild som visar sökning i alla tjänster](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
+   ![Skärmbild som visar sökning i Alla tjänster](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
 
-1. Hovra över tjänst namnet för att visa **Cost Management + fakturerings** informations kortet. Välj stjärn ikonen.
+1. Hovra över tjänstnamnet för att visa informationskortet **Kostnadshantering + Fakturering.** Välj stjärnikonen.
 
-   ![Skärm bild som visar stjärna bredvid kostnads hantering + fakturering valt](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
+   ![Skärmbild som visar stjärnan bredvid kostnadshantering + vald fakturering](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
 
-1. **Cost Management + fakturering** läggs nu till som det sista objektet i listan **Favoriter** .
+1. **Kostnadshantering + Fakturering** läggs nu till som det sista objektet i listan **Favoriter.**
 
-## <a name="remove-an-item-from-favorites"></a>Ta bort ett objekt från favoriter
+## <a name="remove-an-item-from-favorites"></a>Ta bort ett objekt från Favoriter
 
-Nu kan du ta bort ett objekt direkt från listan **Favoriter** .
+Du kan nu ta bort ett objekt direkt från listan **Favoriter.**
 
-1. I avsnittet **Favoriter** på Portal-menyn, hovrar du över namnet på den tjänst som du vill ta bort.
+1. Hovra över namnet på den tjänst som du vill ta bort i avsnittet **Favoriter** på portalmenyn.
 
-   ![Skärm bild som visar hov rings beteende i favoriter](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
+   ![Skärmbild som visar hovringsbeteende i Favoriter](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
 
-2. På informations kortet väljer du stjärnan så att den ändras från fylld till ofylld. Tjänsten tas bort från listan **Favoriter** .
+2. På informationskortet väljer du stjärnan så att den ändras från fylld till ofylld. Tjänsten tas bort från listan **Favoriter.**
 
 ## <a name="rearrange-favorites"></a>Ordna om favoriter
 
-Du kan ändra i vilken ordning dina favorit tjänster visas. Du behöver bara dra och släppa meny alternativet till en annan plats under **Favoriter**.
+Du kan ändra ordningen på dina favorittjänster. Dra och släpp menyalternativet till en annan plats under **Favoriter.**
 
-### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Flytta Cost Management + fakturering överst i favoriter
+### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Flytta kostnadshantering + fakturering till toppen av Favoriter
 
-1. Välj och håll **Cost Management + fakturerings** post i listan **Favoriter** .
+1. Markera och håll ned **posten Kostnadshantering + Fakturering** i listan **Favoriter.**
 
-   ![Skärm bild som visar kostnads hantering + fakturering valt](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+   ![Skärmbild som visar kostnadshantering + vald fakturering](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
 
-1. Medan du fortsätter att hålla kvar drar du objektet högst upp i **Favoriter** och släpper sedan.
+1. När du fortsätter att hålla, dra objektet till toppen av **Favoriter** och släpp sedan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du skapar en projekt fokuserad arbets yta finns [i skapa och dela instrument paneler i Azure Portal](../azure-portal/azure-portal-dashboards.md)
-* Lär dig mer om hur du kan använda [video serien i Azure Portal instruktion](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)
+* Information om hur du skapar en projektfokuserad arbetsyta finns [i Skapa och dela instrumentpaneler i Azure-portalen](../azure-portal/azure-portal-dashboards.md)
+* Upptäck fler how-to's i [Azure portal how-to video-serien](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)

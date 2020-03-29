@@ -1,6 +1,6 @@
 ---
-title: Skala HPC - program i Azure Virtual Machines | Microsoft Docs
-description: Lär dig hur du skalar HPC-program på Azure Virtual Machines.
+title: Skalning av HPC-program – virtuella Azure-datorer | Microsoft-dokument
+description: Lär dig hur du skalar HPC-program på virtuella Azure-datorer.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,37 +13,37 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: 00d5b86c8cae01d342d55b7ad20ec59c3f7530bd
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707845"
 ---
 # <a name="scaling-hpc-applications"></a>Skala HPC-program
 
-Skala upp och skala ut optimalt av HPC-program på Azure kräver prestandajustering och optimering experimenten för den specifika arbetsbelastningen. Det här avsnittet och VM-serien-specifika sidor erbjuder allmänna riktlinjer för att skala dina program.
+Optimal skalning och utskalningsprestanda för HPC-program på Azure kräver prestandajusterings- och optimeringsexperiment för den specifika arbetsbelastningen. Det här avsnittet och de VM-seriespecifika sidorna ger allmän vägledning för skalning av dina program.
 
 ## <a name="compiling-applications"></a>Kompilera program
 
-Även om det är inte nödvändigt, innehåller kompilera program med lämpliga optimering flaggor bästa möjliga prestanda i skala upp om HB och HC-seriens virtuella datorer.
+Även om det inte är nödvändigt, ger kompilering av program med lämpliga optimeringsflaggor den bästa uppskalningsprestandan på virtuella datorer i HB- och HC-serien.
 
-### <a name="amd-optimizing-cc-compiler"></a>AMD optimera C /C++ kompilatorn
+### <a name="amd-optimizing-cc-compiler"></a>AMD Optimerar C/C++ Kompilator
 
-AMD optimera C /C++ kompilatorn (AOCC) kompilatorn system erbjuder en hög nivå av avancerade optimeringar, flertrådsteknik, och processorstöd som omfattar globala optimering, vectorization, kommunikation mellan procedurmässig analyser, loop omvandlingar, och kodgenerering. AOCC kompilatorn binärfiler är lämpliga för Linux-system med GNU C-bibliotek (glibc) version 2.17 och senare. Kompilatorn suite består av ett C /C++ kompilator (clang), en Fortran kompilator (FLANG) och en klientdel för Fortran till Clang (Dragon ägg).
+Kompilatorsystemet AMD Optimizeimizing C/C++ Kompilator (AOCC) erbjuder en hög nivå av avancerade optimeringar, flertrådsteknik och processorstöd som inkluderar global optimering, vektorisering, interproceduriska analyser, loopomvandlingar och kodgenerering. AOCC kompilator binärer är lämpliga för Linux-system med GNU C Library (glibc) version 2.17 och uppåt. Kompilatorsviten består av en C/C++-kompilator (klang), en Fortran-kompilator (FLANG) och en Fortran-front till Clang (Dragon Egg).
 
-### <a name="clang"></a>Clang
+### <a name="clang"></a>Klang
 
-Clang är en C C++, och hantering av Förbearbeta, parsning, optimering, kodgenerering, sammansättningen och länka Objective-C-kompilatorn. Clang stöder den `-march=znver1` flagga för att aktivera bästa code generation och justering för AMD: s Zen baserat x86 arkitektur.
+Clang är en C-, C++- och Objective-C-kompilator som hanterar förbearbetning, tolkning, optimering, kodgenerering, sammansättning och länkning. Clang stöder `-march=znver1` flaggan för att möjliggöra bästa kodgenerering och justering för AMD:s Zen-baserade x86-arkitektur.
 
-### <a name="flang"></a>FLANG
+### <a name="flang"></a>FLÄNS
 
-FLANG-kompilatorn är ett nytt tillägg till AOCC suite (läggs till April 2018) och är för närvarande i förhandsversionen för utvecklare för att hämta och testa. Utifrån Fortran 2008 AMD utökar GitHub-versionen av FLANG (https://github.com/flangcompiler/flang). Kompilatorn FLANG stöder alla Clang kompilatoralternativ och ytterligare ett antal alternativ för FLANG-specifika-kompilatorn.
+FLANG-kompilatorn är ett nytt tillägg till AOCC-sviten (tillagd april 2018) och är för närvarande i förhandsutgåva för utvecklare att ladda ner och testa. Baserat på Fortran 2008 utökar AMD GitHub-versionen av FLANG (https://github.com/flangcompiler/flang). FLANG-kompilatorn stöder alla Clang-kompilatoralternativ och ytterligare ett antal FLANG-specifika kompilatoralternativ.
 
-### <a name="dragonegg"></a>DragonEgg
+### <a name="dragonegg"></a>Dragonegg (på väg mot en)
 
-DragonEgg är ett plugin-program i gcc som ersätter GCCS optimerare och kodgeneratorer med de från LLVM-projektet. DragonEgg som medföljer AOCC fungerar med gcc-4.8.x har testats för x86-32/x86-64-mål och har har använts på olika Linux-plattformar.
+DragonEgg är en GCC plugin som ersätter GCC: s optimerare och generatorer kod med dem från LLVM projektet. DragonEgg som levereras med AOCC fungerar med gcc-4.8.x, har testats för x86-32/x86-64 mål och har framgångsrikt använts på olika Linux-plattformar.
 
-GFortran är faktiska klientdelen för Fortran program som är ansvarig för parsning, prognosmodellering och semantiska analysen genererar GCC GIMPLE mellanliggande representation (IR). DragonEgg är ett GNU-plugin-program, ansluta till GFortran kompilering flöde. Den implementerar GNU plugin-programmet API. Med plugin-programmet-arkitektur blir DragonEgg kompilatorn-drivrutinen och uppnå de olika faserna för kompilering.  När du har följt anvisningarna hämtningen och installationen kan du anropa Dragon ägg via: 
+GFortran är den faktiska frontend för Fortran program som ansvarar för förbearbetning, tolkning och semantisk analys genererar GCC GIMPLE mellanliggande representation (IR). DragonEgg är en GNU plugin, ansluter till GFortran sammanställning flöde. Den implementerar GNU plugin API. Med plugin arkitektur, Blir DragonEgg kompilatorn föraren, kör de olika faserna av sammanställning.  Efter att ha följt hämtnings- och installationsinstruktionerna kan Dragon Egg anropas med hjälp av: 
 
 ```bash
 $ gfortran [gFortran flags] 
@@ -52,22 +52,22 @@ $ gfortran [gFortran flags]
    -c xyz.f90 $ clang -O3 -lgfortran -o xyz xyz.o $./xyz
 ```
    
-### <a name="pgi-compiler"></a>PGI Compiler
-SGB Community Edition ver. 17 bekräftas för att arbeta med AMD EPYC. En SGB-kompilerad version av STREAM levererar fullständig minnesbandbredd i plattformen. Nyare Community Edition 18.10 (november 2018) bör på samma sätt fungera bra. Nedan visas i exemplet CLI för att kompilatorn optimalt med Intel-kompilatorn:
+### <a name="pgi-compiler"></a>Kompilator för SGB
+SGB Community Edition ver. 17 har bekräftats att arbeta med AMD EPYC. En SGB-kompilerad version av STREAM ger hela minnets bandbredd på plattformen. Den nyare Community Edition 18.10 (nov 2018) bör också fungera bra. Nedan är exempel CLI att kompilator optimalt med Intel Kompilator:
 
 ```bash
 pgcc $(OPTIMIZATIONS_PGI) $(STACK) -DSTREAM_ARRAY_SIZE=800000000 stream.c -o stream.pgi
 ```
 
-### <a name="intel-compiler"></a>Intel Compiler
-Intel-kompilatorn ver. 18 bekräftas för att arbeta med AMD EPYC. Nedan visas i exemplet CLI för att kompilatorn optimalt med Intel-kompilatorn.
+### <a name="intel-compiler"></a>Intel-kompilator
+Intel Kompilator ver. 18 har bekräftats att arbeta med AMD EPYC. Nedan är exempel CLI att kompilator optimalt med Intel Kompilator.
 
 ```bash
 icc -o stream.intel stream.c -DSTATIC -DSTREAM_ARRAY_SIZE=800000000 -mcmodel=large -shared-intel -Ofast –qopenmp
 ```
 
-### <a name="gcc-compiler"></a>GCC Compiler 
-För HPC rekommenderar AMD GCC-kompilatorn 7.3 eller senare. Äldre versioner, till exempel 4.8.5 som ingår i RHEL/CentOS 7.4 rekommenderas inte. GCC 7.3 och nyare, levererar avsevärt högre prestanda på HPL och HPCG DGEMM tester.
+### <a name="gcc-compiler"></a>GCC-kompilator 
+För HPC rekommenderar AMD GCC-kompilator 7.3 eller nyare. Äldre versioner, till exempel 4.8.5 som medföljer RHEL/CentOS 7.4, rekommenderas inte. GCC 7.3, och nyare, kommer att leverera betydligt högre prestanda på HPL, HPCG och DGEMM-tester.
 
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
@@ -75,14 +75,14 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 
 ## <a name="scaling-applications"></a>Skala program 
 
-Följande rekommendationer gäller för optimal skalning effektivitet, prestanda och konsekvens-program:
+Följande förslag gäller för optimal programskalningseffektivitet, prestanda och konsekvens:
 
-* PIN-kod bearbetar till kärnor 0-59 med hjälp av en sekventiell fästa itu med (i motsats till en metod för automatisk saldo). 
-* Bindning av Numa/kärnor/HwThread är bättre än standard-bindning.
-* För hybrid parallella program (OpenMP + MPI) kan du använda 4 trådar och 1 MPI rangordning per CCX.
-* Experimentera med 1 – 4 MPI rangordnar per CCX för optimala prestanda för ren MPI-program.
-* Vissa program med extrem känslighet till minnesbandbredd kan dra nytta av ett lägre antal kärnor per CCX. För dessa program kan med 3 eller 2 kärnor per CCX minska minne bandbredd konkurrensen och ger högre verkliga prestanda och mer konsekvent skalbarhet. I synnerhet MPI Allreduce kan ha nytta av detta.
-* För betydligt större skala körningar rekommenderas att använda UD eller hybrid RC + UD transporter. Många bibliotek för MPI-bibliotek/körning göra det internt (till exempel en UCX eller MVAPICH2). Kontrollera dina transport-konfigurationer för storskaliga körningar.
+* Fäst processer på kärnor 0-59 med hjälp av en sekventiell nålningsmetod (i motsats till en metod för automatisk balans). 
+* Bindning av Numa/Core/HwThread är bättre än standardbindning.
+* För hybridparallella applikationer (OpenMP+MPI) använder du 4 trådar och 1 MPI-rankning per CCX.
+* För rena MPI-program, experimentera med 1-4 MPI-leden per CCX för optimal prestanda.
+* Vissa program med extrem känslighet för minnesbandbredd kan dra nytta av att använda ett minskat antal kärnor per CCX. För dessa program kan 3 eller 2 kärnor per CCX minska konkurrens om minnesbandbredd och ge högre prestanda i verkligheten eller mer konsekvent skalbarhet. I synnerhet kan MPI Allreduce dra nytta av detta.
+* För betydligt större skalningskörningar rekommenderas att UD- eller hybrid-RC+UD-transporter används. Många MPI-bibliotek/körningsbibliotek gör detta internt (till exempel UCX eller MVAPICH2). Kontrollera om det finns stora körningar i transportkonfigurationerna.
 
 ## <a name="next-steps"></a>Nästa steg
 

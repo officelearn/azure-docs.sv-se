@@ -1,39 +1,39 @@
 ---
 title: Metodtips för Azure Service Fabric-säkerhet
-description: Bästa praxis och design överväganden för att hålla Azure Service Fabric-kluster och-program säkra.
+description: Metodtips och designöverväganden för att skydda Azure Service Fabric-kluster och program.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: dcdc338bdcdb2c04f6b8894ccb358bc773b95c07
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258933"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-säkerhet 
 
-Mer information om [metod tips för Azure-säkerhet](https://docs.microsoft.com/azure/security/)finns i [metod tips för Azure Service Fabric Security](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
+Mer information om [metodtips för Azure Security finns](https://docs.microsoft.com/azure/security/)i [metodtips för Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
 ## <a name="key-vault"></a>Key Vault
 
-[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) är den rekommenderade tjänsten för hemligheter-hantering för Azure Service Fabric-program och-kluster.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) är den rekommenderade hemligheterhanteringstjänsten för Azure Service Fabric-program och kluster.
 > [!NOTE]
-> Om certifikat/hemligheter från en Key Vault distribueras till en skalnings uppsättning för virtuella datorer som en virtuell dators skal uppsättnings hemlighet, måste Key Vault och den virtuella datorns skalnings uppsättning vara samordnad.
+> Om certifikat/hemligheter från ett nyckelvalv distribueras till en skalauppsättning för virtuell dator som en hemlighet för skalan för virtuell dator måste skalningsuppsättningen för nyckelvalv och virtuell dator vara samlokalisering.
 
-## <a name="create-certificate-authority-issued-service-fabric-certificate"></a>Skapa certifikat utfärdare som utfärdats Service Fabric certifikat
+## <a name="create-certificate-authority-issued-service-fabric-certificate"></a>Skapa certifikatutfärdaren utfärdat Service Fabric-certifikat
 
-Ett Azure Key Vault certifikat kan antingen skapas eller importeras till en Key Vault. När ett Key Vault certifikat skapas, skapas den privata nyckeln inuti Key Vault och exponeras aldrig för certifikat ägaren. Här är några sätt att skapa ett certifikat i Key Vault:
+Ett Azure Key Vault-certifikat kan antingen skapas eller importeras till ett Nyckelvalv. När ett Key Vault-certifikat skapas skapas den privata nyckeln i Nyckelvalvet och exponeras aldrig för certifikatägaren. Så här skapar du ett certifikat i Key Vault:
 
-- Skapa ett självsignerat certifikat för att skapa ett offentligt privat nyckel par och associera det med ett certifikat. Certifikatet kommer att signeras av en egen nyckel. 
-- Skapa ett nytt certifikat manuellt om du vill skapa ett offentligt privat privat nyckel par och generera en X. 509-certifikat signerings förfrågan. Signerings förfrågan kan signeras av din registrerings utfärdare eller certifikat utfärdare. Det signerade x509-certifikatet kan slås samman med det väntande nyckel paret för att slutföra KV-certifikatet i Key Vault. Även om den här metoden kräver fler steg ger den bättre säkerhet eftersom den privata nyckeln skapas i och är begränsad till Key Vault. Detta beskrivs i diagrammet nedan. 
+- Skapa ett självsignerat certifikat för att skapa ett offentligt-privat nyckelpar och associera det med ett certifikat. Certifikatet signeras med en egen nyckel. 
+- Skapa ett nytt certifikat manuellt för att skapa ett offentligt-privat nyckelpar och generera en X.509-begäran om signering av certifikat. Signeringsbegäran kan undertecknas av din registreringsmyndighet eller certifikatutfärdare. Det signerade x509-certifikatet kan slås samman med det väntande nyckelparet för att slutföra KV-certifikatet i Key Vault. Även om den här metoden kräver fler steg ger den dig större säkerhet eftersom den privata nyckeln skapas i och begränsas till Key Vault. Detta förklaras i diagrammet nedan. 
 
-Läs mer om hur du [skapar metoder för att skapa certifikat för Azure-certifikats valv](https://docs.microsoft.com/azure/key-vault/create-certificate) .
+Läs [Azure Keyvault-metoder](https://docs.microsoft.com/azure/key-vault/create-certificate) för att skapa certifikat för ytterligare information.
 
-## <a name="deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets"></a>Distribuera Key Vault certifikat till Service Fabric skalnings uppsättningar för virtuella kluster datorer
+## <a name="deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets"></a>Distribuera Key Vault-certifikat till skala uppsättningar med virtuell dator för serviceinfrastruktur-kluster
 
-Om du vill distribuera certifikat från ett Samplacerat nyckel valv till en skalnings uppsättning för virtuella datorer använder du [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile)för skalnings uppsättning för virtuella datorer. Här följer egenskaper för Resource Manager-mall:
+Om du vill distribuera certifikat från en samlokaliseringsnyckelvault till en skalauppsättning för virtuell dator använder du Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile). Följande är mallegenskaperna för Resource Manager:
 
 ```json
 "secrets": [
@@ -52,12 +52,12 @@ Om du vill distribuera certifikat från ett Samplacerat nyckel valv till en skal
 ```
 
 > [!NOTE]
-> Valvet måste vara aktiverat för distribution av Resource Manager-mallar.
+> Valvet måste vara aktiverat för Resurshanterarens malldistribution.
 
-## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Använda en Access Control lista (ACL) för ditt certifikat för ditt Service Fabric-kluster
+## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Använda en åtkomstkontrollista (ACL) på ditt certifikat för ditt Service Fabric-kluster
 
-[Tillägg för skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) Publisher Microsoft. Azure. ServiceFabric används för att konfigurera nodernas säkerhet.
-Använd följande egenskaper för Resource Manager-mall för att tillämpa en ACL för dina certifikat för dina Service Fabric kluster processer:
+[Tillägg för skalningsuppsättning för virtuella](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) datorer är utgivaren av Microsoft.Azure.ServiceFabric används för att konfigurera nodsäkerhet.
+Om du vill använda en åtkomstkontrollista på dina certifikat för service fabric-klusterprocesser använder du följande Egenskaper för Resource Manager-mall:
 
 ```json
 "certificate": {
@@ -68,9 +68,9 @@ Använd följande egenskaper för Resource Manager-mall för att tillämpa en AC
 }
 ```
 
-## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Skydda ett Service Fabric kluster certifikat per eget namn
+## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Skydda ett klustercertifikat för service fabric med vanligt namn
 
-Om du vill skydda ditt Service Fabric kluster efter certifikat `Common Name`använder du Resource Manager-mallens [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)enligt följande:
+Om du vill skydda `Common Name`servicetygsklustret efter certifikat använder du egenskapscertifikatet Resource Manager [PropertyCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)enligt följande:
 
 ```json
 "certificateCommonNames": {
@@ -85,55 +85,55 @@ Om du vill skydda ditt Service Fabric kluster efter certifikat `Common Name`anv�
 ```
 
 > [!NOTE]
-> Service Fabric kluster kommer att använda det första giltiga certifikatet som hittas i värdens certifikat arkiv. I Windows kommer det här certifikatet att vara det senaste förfallo datumet som matchar ditt eget namn och utfärdare tumavtryck.
+> Service Fabric-kluster använder det första giltiga certifikat som hittas i värdens certifikatarkiv. I Windows är detta certifikatet med det senaste utgångsdatumet som matchar ditt gemensamma namn och utfärdare av tumavtryck.
 
-Azure-domäner, till exempel *\<under domänen\>. cloudapp.azure.com eller \<din under domän\>. trafficmanager.net ägs av Microsoft. Certifikat utfärdare kommer inte att utfärda certifikat för domäner till obehöriga användare. De flesta användare behöver köpa en domän från en registrator eller vara behörig domän administratör för en certifikat utfärdare för att utfärda ett certifikat med samma namn.
+Azure-domäner, till\<exempel *\>DIN UNDERDOMÄN \<.cloudapp.azure.com eller\>DIN UNDERDOMÄN .trafficmanager.net, ägs av Microsoft. Certifikatutfärdare utfärdar inte certifikat för domäner till obehöriga användare. De flesta användare måste köpa en domän från en registrator, eller vara en auktoriserad domänadministratör, för att en certifikatutfärdare ska kunna utfärda ett certifikat med det gemensamma namnet.
 
-Mer information om hur du konfigurerar DNS-tjänsten för att matcha din domän med en Microsoft-IP-adress finns i så här konfigurerar du [Azure DNS som värd för din domän](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
+Mer information om hur du konfigurerar DNS-tjänsten för att matcha domänen till en Microsoft IP-adress finns i hur du konfigurerar [Azure DNS så att den är värd för din domän](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
 > [!NOTE]
-> När du har delegerat domän namn servrarna till Azure DNS Zone namnservrar, lägger du till följande två poster i din DNS-zon:
-> - En "A"-post för domän APEX som inte är en `Alias record set` till alla IP-adresser som din anpassade domän kommer att lösa.
-> - En C-post för Microsoft-underordnade domäner som du har angett som inte är en `Alias record set`. Du kan till exempel använda din Traffic Manager eller Load Balancer DNS-namn.
+> När du har delegerat dina domännamnsservrar till dina Azure DNS-zonnamnsservrar lägger du till följande två poster i DNS-zonen:
+> - En A-post för domän APEX `Alias record set` som INTE är en till alla IP-adresser din anpassade domän kommer att lösa.
+> - En C-post för Microsoft-underdomäner som `Alias record set`du har etablerat och som INTE är en . Du kan till exempel använda Traffic Manager eller Load Balancer DNS-namn.
 
-Uppdatera portalen för att visa ett anpassat DNS-namn för Service Fabric klustret `"managementEndpoint"`genom att uppdatera följande mall egenskaper för Service Fabric Cluster Resource Manager:
+Om du vill uppdatera portalen för att `"managementEndpoint"`visa ett anpassat DNS-namn för Service Fabric Cluster uppdaterar du mallegenskaperna för Tjänsten Fabric Cluster Resource Manager:
 
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
 ```
 
-## <a name="encrypting-service-fabric-package-secret-values"></a>Kryptera Service Fabric paketets hemliga värden
+## <a name="encrypting-service-fabric-package-secret-values"></a>Hemliga värden för kryptera service fabric-paket
 
-Vanliga värden som är krypterade i Service Fabric-paket är Azure Container Registry (ACR) autentiseringsuppgifter, miljövariabler, inställningar och lagrings konto nycklar för Azure Volume plugin.
+Vanliga värden som krypteras i Service Fabric-paket inkluderar ACR-autentiseringsuppgifter (Azure Container Registry), miljövariabler, inställningar och Azure Volume plugin-lagringskontonycklar.
 
-Så [här konfigurerar du ett krypterings certifikat och krypterar hemligheter på Windows-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
+Så här konfigurerar du [ett krypteringscertifikat och krypterar hemligheter i Windows-kluster:](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows)
 
-Generera ett självsignerat certifikat för kryptering av din hemlighet:
+Generera ett självsignerat certifikat för att kryptera din hemlighet:
 
 ```powershell
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
 ```
 
-Använd anvisningarna i [distribuera Key Vault certifikat för att Service Fabric skalnings uppsättningar för virtuella datorer](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets) för att distribuera Key Vault-certifikat till Service Fabric klustrets Virtual Machine Scale Sets.
+Använd instruktionerna i [Distribuera nyckelvalvscertifikat till service fabric-klusters virtuella datorskalningsuppsättningar](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets) för att distribuera Key Vault-certifikat till servicetygsklustrets skalningsuppsättningar för virtuella datorer.
 
-Kryptera din hemlighet med följande PowerShell-kommando och uppdatera sedan ditt Service Fabric program manifest med det krypterade värdet:
+Kryptera din hemlighet med följande PowerShell-kommando och uppdatera sedan ditt Programmanifest för Service Fabric med det krypterade värdet:
 
 ``` powershell
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-Så [här konfigurerar du ett krypterings certifikat och krypterar hemligheter på Linux-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-linux):
+Så här konfigurerar du [ett krypteringscertifikat och krypterar hemligheter på Linux-kluster:](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-linux)
 
-Generera ett självsignerat certifikat för kryptering av dina hemligheter:
+Generera ett självsignerat certifikat för att kryptera dina hemligheter:
 
 ```bash
 user@linux:~$ openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -days 365 -out TestCert.pem
 user@linux:~$ cat TestCert.prv >> TestCert.pem
 ```
 
-Använd anvisningarna i [distribuera Key Vault certifikat för att Service Fabric skalnings uppsättningar för virtuella datorer i klustret](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets) till Service Fabric klustrets Virtual Machine Scale Sets.
+Använd instruktionerna i [Distribuera nyckelvalvscertifikat till service fabric-klusterskalningsuppsättningar](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets) för virtuella datorer till servicetygsklustrets skalningsuppsättningar för virtuella datorer.
 
-Kryptera din hemlighet med följande kommandon och uppdatera sedan Service Fabric program manifestet med det krypterade värdet:
+Kryptera din hemlighet med följande kommandon och uppdatera sedan programmanifestet för Service Fabric med det krypterade värdet:
 
 ```bash
 user@linux:$ echo "Hello World!" > plaintext.txt
@@ -141,11 +141,11 @@ user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 
-När du har krypterat dina skyddade värden [anger du krypterade hemligheter i Service Fabric program](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application)och dekrypterar [krypterade hemligheter från Service koden](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code).
+När du har krypterat dina skyddade värden [anger du krypterade hemligheter i Service Fabric Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application)och [dekrypterar krypterade hemligheter från servicekod](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code).
 
-## <a name="include-certificate-in-service-fabric-applications"></a>Inkludera certifikat i Service Fabric program
+## <a name="include-certificate-in-service-fabric-applications"></a>Inkludera certifikat i Service Fabric-program
 
-För att ge programmet åtkomst till hemligheter, inkludera certifikatet genom att lägga till ett **SecretsCertificate** -element i applikations manifestet.
+Om du vill ge programmet åtkomst till hemligheter inkluderar du certifikatet genom att lägga till ett **SecretsCertificate-element** i programmanifestet.
 
 ```xml
 <ApplicationManifest … >
@@ -155,23 +155,23 @@ För att ge programmet åtkomst till hemligheter, inkludera certifikatet genom a
   </Certificates>
 </ApplicationManifest>
 ```
-## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autentisera Service Fabric-program till Azure-resurser med hjälp av Hanterad tjänstidentitet (MSI)
+## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autentisera tjänst fabric-program till Azure-resurser med hjälp av managed service identity (MSI)
 
-Information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
-Azure Service Fabric-kluster finns på Virtual Machine Scale Sets, som har stöd för [hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
-Om du vill hämta en lista över tjänster som MSI kan användas för att autentisera till, se [Azure-tjänster som stöder Azure Active Directory autentisering](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
+Mer information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
+Azure Service Fabric-kluster finns på skalningsuppsättningar för virtuella datorer, som stöder [hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
+Information om hur du hämtar en lista över tjänster som MSI kan användas för att autentisera till finns i [Azure Services som stöder Azure Active Directory Authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
 
-Om du vill aktivera systemtilldelad hanterad identitet under skapandet av en skalnings uppsättning för virtuella datorer eller en befintlig skalnings uppsättning för virtuella datorer, måste du deklarera följande `"Microsoft.Compute/virtualMachinesScaleSets"`-egenskap:
+Om du vill aktivera den hanterade systemtilldelade identiteten när en skaluppsättning för `"Microsoft.Compute/virtualMachinesScaleSets"` virtuella datorer skapas eller en befintlig skaluppsättning för virtuella datorer deklarerar du följande egenskap:
 
 ```json
 "identity": { 
     "type": "SystemAssigned"
 }
 ```
-Se [Vad är Managed identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity) för mer information.
+Se [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity)
 
-Om du har skapat en [användardefinierad hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity), måste du deklarera följande resurs i mallen för att tilldela den till den virtuella datorns skalnings uppsättning. Ersätt `\<USERASSIGNEDIDENTITYNAME\>` med namnet på den användare-tilldelade hanterade identitet som du skapade:
+Om du har skapat en [användartilldelad hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity)deklarerar du följande resurs i mallen för att tilldela den till skaluppsättningen för den virtuella datorn. Ersätt `\<USERASSIGNEDIDENTITYNAME\>` med namnet på den användartilldelade hanterade identitet som du skapade:
 
 ```json
 "identity": {
@@ -182,7 +182,7 @@ Om du har skapat en [användardefinierad hanterad identitet](https://docs.micros
 }
 ```
 
-Innan ditt Service Fabric program kan använda en hanterad identitet måste behörigheter beviljas till de Azure-resurser som den måste autentisera med.
+Innan ditt Service Fabric-program kan använda en hanterad identitet måste behörigheter beviljas till de Azure-resurser som det behöver autentisera med.
 Följande kommandon ger åtkomst till en Azure-resurs:
 
 ```bash
@@ -191,7 +191,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-I din Service Fabric program kod [hämtar du en](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) åtkomsttoken för Azure Resource Manager genom att göra en rest som liknar följande:
+I din Tjänst Fabric-programkod [får du en åtkomsttoken](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) för Azure Resource Manager genom att göra en REST som alla liknar följande:
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -199,29 +199,29 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 ```
 
 Din Service Fabric-app kan sedan använda åtkomsttoken för att autentisera till Azure-resurser som stöder Active Directory.
-I följande exempel visas hur du gör detta för Cosmos DB resurs:
+I följande exempel visas hur du gör detta för Cosmos DB-resurs:
 
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
-## <a name="windows-security-baselines"></a>Windows säkerhets bas linjer
-[Vi rekommenderar att du implementerar en bransch standard konfiguration som är allmänt känd och väl testad, till exempel Microsofts säkerhets bas linjer, i stället för att skapa en bas linje själv](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). ett alternativ för att konfigurera dessa på din Virtual Machine Scale Sets är att använda Azures tilläggs hanterare för önskad tillstånds konfiguration (DSC) för att konfigurera de virtuella datorerna när de är online, så att de kör produktions program varan.
+## <a name="windows-security-baselines"></a>Windows-säkerhetsbaslinjer
+[Vi rekommenderar att du implementerar en konfiguration av branschstandard som är allmänt känd och väl beprövad, till exempel Microsofts säkerhetsbaslinjer, i stället för att skapa en baslinje själv.](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) Ett alternativ för att etablera dessa på dina skaluppsättningar för virtuella datorer är att använda DSC-tilläggshanteraren (Azure Desired State Configuration) för att konfigurera de virtuella datorerna när de är online, så att de kör produktionsprogrammet.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure-brandväggen är en hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt tillstånds känslig brand vägg som en tjänst med inbyggd hög tillgänglighet och obegränsad moln skalbarhet.](https://docs.microsoft.com/azure/firewall/overview) Detta gör det möjligt att begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domän namn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Vi rekommenderar att du använder [Azure FIREWALL FQDN-Taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar och aktiverar nätverks trafik till Microsoft Windows Update-slutpunkter kan flöda genom brand väggen. [Genom att distribuera Azure-brandväggen med en mall](https://docs.microsoft.com/azure/firewall/deploy-template) får du ett exempel på definitionen av resurs mal len för Microsoft. Network/azureFirewalls. Brand Väggs regler som är vanliga för att Service Fabric program är att tillåta följande för klustrets virtuella nätverk:
+[Azure Firewall är en hanterad, molnbaserad nätverkssäkerhetstjänst som skyddar dina Azure Virtual Network-resurser. Det är en helt tillståndskänslig brandvägg som en tjänst med inbyggd hög tillgänglighet och obegränsad molnskalbarhet.](https://docs.microsoft.com/azure/firewall/overview) Detta gör det möjligt att begränsa utgående HTTP/S-trafik till en angiven lista över fullständigt kvalificerade domännamn (FQDN) inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Dess rekommenderade att du utnyttja [Azure Firewall FQDN-taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar, och att aktivera nätverkstrafik till Microsoft Windows Update slutpunkter kan flöda genom din brandvägg. [Distribuera Azure-brandväggen med hjälp av en mall](https://docs.microsoft.com/azure/firewall/deploy-template) innehåller ett exempel för Microsoft.Network/azureFirewalls resursmallsdefinition. Brandväggsregler som är gemensamma för Service Fabric-program är att tillåta följande för ditt virtuella klusternätverk:
 
-- \* download.microsoft.com
+- *download.microsoft.com
 - *servicefabric.azure.com
 - *.core.windows.net
 
-Dessa brand Väggs regler kompletterar tillåtna utgående nätverks säkerhets grupper, som innehåller ServiceFabric och lagring, som tillåtna destinationer från det virtuella nätverket.
+Dessa brandväggsregler kompletterar dina tillåtna utgående nätverkssäkerhetsgrupper, som skulle inkludera ServiceFabric och lagring, som tillåtna destinationer från det virtuella nätverket.
 
 ## <a name="tls-12"></a>TLS 1.2
-[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
+[Gts](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 
-Som standard installeras Windows Defender Antivirus på Windows Server 2016. Mer information finns i [Windows Defender Antivirus på Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). Användargränssnittet installeras som standard på vissa SKU:er, men det krävs inte. För att minska prestanda påverkan och resursutnyttjande som kan användas av resurser som skapas av Windows Defender, och om dina säkerhets principer tillåter att du undantar processer och sökvägar för program med öppen källkod, måste du deklarera följande tillägg resurs för skalnings uppsättning för virtuell dator Mall egenskaper för Manager för att undanta ditt Service Fabric-kluster från genomsökningar:
+Som standard installeras Windows Defender antivirus på Windows Server 2016. Mer information finns i [Windows Defender Antivirus på Windows Server 2016](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016). Användargränssnittet installeras som standard på vissa SKU:er, men det krävs inte. Om du vill minska prestandapåverkan och omkostnader för resursförbrukning som windows defender ådrar sig, och om dina säkerhetsprinciper gör att du kan utesluta processer och sökvägar för programvara med öppen källkod, deklarerar du följande tilläggsresurs för skalningsuppsättning för virtuell dator Egenskaper för hanterarens mall för att utesluta ditt Service Fabric-kluster från genomsökningar:
 
 
 ```json
@@ -251,10 +251,10 @@ Som standard installeras Windows Defender Antivirus på Windows Server 2016. Mer
 ```
 
 > [!NOTE]
-> Se dokumentationen för program mot skadlig kod för konfigurations regler om du inte använder Windows Defender. Windows Defender stöds inte i Linux.
+> I dokumentationen till Antimalware finns konfigurationsregler om du inte använder Windows Defender. Windows Defender stöds inte på Linux.
 
-## <a name="platform-isolation"></a>Plattforms isolering
-Som standard beviljas Service Fabric-program åtkomst till själva Service Fabric körnings miljön, som i sin tur är i olika former: [miljövariabler](service-fabric-environment-variables-reference.md) som pekar på fil Sök vägar på värden som motsvarar program-och Fabric-filer, en kommunikation mellan processens slut punkt som godkänner programspecifika begär Anden och klient certifikatet som infrastruktur resursen förväntar sig att programmet ska använda för att autentisera sig. I den här tjänsten är det lämpligt att inaktivera den här åtkomsten till SF-körningen, om det inte uttryckligen krävs. Åtkomst till körnings miljön tas bort med hjälp av följande deklaration i avsnittet principer i applikations manifestet: 
+## <a name="platform-isolation"></a>Isolering av plattform
+Som standard beviljas Service Fabric-program åtkomst till själva service fabric-körningen, som manifesterar sig i olika former: [miljövariabler](service-fabric-environment-variables-reference.md) som pekar på filsökvägar på värden som motsvarar program- och Fabric-filer, en interprocess-kommunikationsslutpunkt som accepterar programspecifika begäranden och klientcertifikatet som Fabric förväntar sig att programmet ska använda för att autentisera sig själv. I den eventualitet som tjänsten är värd sig själv opålitlig kod, är det lämpligt att inaktivera denna åtkomst till SF runtime - om inte uttryckligen behövs. Åtkomsten till körningen tas bort med hjälp av följande deklaration i avsnittet Principer i programmanifestet: 
 
 ```xml
 <ServiceManifestImport>
@@ -267,8 +267,8 @@ Som standard beviljas Service Fabric-program åtkomst till själva Service Fabri
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md).
-* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [skapa ett Linux-kluster](service-fabric-cluster-creation-via-portal.md).
-* Läs mer om [Service Fabric support alternativ](service-fabric-support.md).
+* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric-klusterverktyget för Windows Server](service-fabric-cluster-creation-for-windows-server.md).
+* Skapa ett kluster på virtuella datorer, eller datorer, som kör Linux: [Skapa ett Linux-kluster](service-fabric-cluster-creation-via-portal.md).
+* Läs mer om [supportalternativ för Service Fabric.](service-fabric-support.md)
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

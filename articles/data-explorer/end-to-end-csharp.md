@@ -1,6 +1,6 @@
 ---
-title: BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren viaC#
-description: I den här artikeln får du lära dig hur du matar in blobbar i Azure Datautforskaren med ett slut punkt till slut punkt- C#exempel som använder.
+title: 'Inmatning från på till sluttid i Azure Data Explorer via C #'
+description: I den här artikeln får du lära dig hur du intar blobbar i Azure Data Explorer med ett end-to-end-exempel som använder C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,34 +8,34 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 0711484c4fff24c5dcd3c18effce596a92bc30c3
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964523"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>BLOB-inmatning från slut punkt till slut punkt i Azure Datautforskaren viaC#
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Inmatning från på till sluttid i Azure Data Explorer via C #
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure Datautforskaren är en snabb och skalbar data utforsknings tjänst för logg-och telemetridata. Den här artikeln ger dig ett exempel på hur du matar in data från Azure Blob Storage till Azure Datautforskaren. 
+Azure Data Explorer är en snabb och skalbar datautforskningstjänst för logg- och telemetridata. Den här artikeln ger dig ett heltäckande exempel på hur du inmatar data från Azure Blob-lagring i Azure Data Explorer. 
 
-Du får lära dig att program mässigt skapa en resurs grupp, ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas. Du lär dig också att program mässigt konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot.
+Du får lära dig hur du programmässigt skapar en resursgrupp, ett lagringskonto och en behållare, en händelsenav och ett Azure Data Explorer-kluster och databas. Du får också lära dig hur du programmässigt konfigurerar Azure Data Explorer för att få in data från det nya lagringskontot.
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="install-c-nuget"></a>Installera C# NuGet
 
-* Installera [Microsoft. Azure. Management. kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Installera [Microsoft. Azure. Management. ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-* Installera [Microsoft. Azure. Management. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
-* Installera [Microsoft. Azure. Storage. blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
-* Installera [Microsoft. rest. ClientRuntime. Azure. Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) för autentisering.
+* Installera [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Installera [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+* Installera [Microsoft.Azure.Management.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
+* Installera [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
+* Installera [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) för autentisering.
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
@@ -43,9 +43,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 
 ## <a name="code-example"></a>Kodexempel 
 
-I följande kod exempel får du en stegvis process som resulterar i data inhämtning i Azure Datautforskaren. 
+I följande kodexempel får du en steg-för-steg-process som resulterar i datainmatning i Azure Data Explorer. 
 
-Först skapar du en resurs grupp. Du kan också skapa Azure-resurser som ett lagrings konto och en behållare, en händelsehubben och ett Azure Datautforskaren-kluster och-databas och lägga till huvud konton. Sedan skapar du en Azure Event Grid-prenumeration, tillsammans med en tabell-och kolumn mappning, i Azure Datautforskaren-databasen. Slutligen skapar du data anslutningen för att konfigurera Azure-Datautforskaren för att mata in data från det nya lagrings kontot. 
+Du skapar först en resursgrupp. Du skapar också Azure-resurser som ett lagringskonto och en behållare, en händelsenav och ett Azure Data Explorer-kluster och databas och lägger till huvudnamn. Du skapar sedan en Azure Event Grid-prenumeration, tillsammans med en tabell- och kolumnmappning, i Azure Data Explorer-databasen. Slutligen skapar du dataanslutningen för att konfigurera Azure Data Explorer för att få in data från det nya lagringskontot. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -176,14 +176,14 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 ```
 | **Inställning** | **Fältbeskrivning** |
 |---|---|---|
-| tenantId | Ditt klient-ID. Det kallas även för ett katalog-ID.|
-| subscriptionId | Det prenumerations-ID som du använder för att skapa resurser.|
-| clientId | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
-| clientSecret | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation. |
+| tenantId (hyresgäst) | Ditt klient-ID. Det är också känt som ett katalog-ID.|
+| subscriptionId | Prenumerations-ID som du använder för att skapa resurser.|
+| ClientID | Klient-ID för programmet som kan komma åt resurser i din klient.|
+| clientSecret (klientSecret) | Klienthemligheten för programmet som kan komma åt resurser i din klientorganisation. |
 
-## <a name="test-the-code-example"></a>Testa kod exemplet
+## <a name="test-the-code-example"></a>Testa kodexemplet
 
-1. Ladda upp en fil till lagrings kontot.
+1. Ladda upp en fil till lagringskontot.
 
     ```csharp
     string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxx;EndpointSuffix=core.windows.net";
@@ -197,9 +197,9 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
     ```
     |**Inställning** | **Fältbeskrivning**|
     |---|---|---|
-    | storageConnectionString | Anslutnings strängen för det program mässigt skapade lagrings kontot.|
+    | lagringAnslutningssträngning | Anslutningssträngen för det programmatiskt skapade lagringskontot.|
 
-2. Kör en test fråga i Azure Datautforskaren.
+2. Kör en testfråga i Azure Data Explorer.
 
     ```csharp
     var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
@@ -226,7 +226,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill ta bort resurs gruppen och rensa resurser använder du följande kommando:
+Om du vill ta bort resursgruppen och rensa resurser använder du följande kommando:
 
 ```csharp
 await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
@@ -234,7 +234,7 @@ await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
 
 ## <a name="next-steps"></a>Nästa steg
 
-*  Information om andra sätt att skapa ett kluster och en databas finns i [skapa ett Azure datautforskaren-kluster och-databas](create-cluster-database-csharp.md).
-* Mer information om inmatnings metoder finns i [Azure datautforskaren data inmatning](ingest-data-overview.md).
-* Mer information om webb programmet finns i [snabb start: fråga efter data i Azure datautforskaren Web UI](web-query-data.md).
-* [Skriv frågor](write-queries.md) med Kusto-frågespråk.
+*  Mer information om andra sätt att skapa ett kluster och en databas finns i [Skapa ett Azure Data Explorer-kluster och -databas](create-cluster-database-csharp.md).
+* Mer information om inmatningsmetoder finns [i Azure Data Explorer datainmatning](ingest-data-overview.md).
+* Mer information om webbprogrammet finns [i Snabbstart: Frågedata i webbgränssnittet i Azure Data Explorer](web-query-data.md).
+* [Skriv frågor](write-queries.md) med Kusto Query Language.

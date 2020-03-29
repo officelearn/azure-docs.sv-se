@@ -1,5 +1,5 @@
 ---
-title: Handel med hög frekvens med hjälp av Azure Stream Analytics
+title: Högfrekvent handel med Azure Stream Analytics
 description: Så utför du modellträning och bedömning av linjär regression i ett Azure Stream Analytics-jobb.
 author: mamccrea
 ms.author: mamccrea
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 06a4bdb8a8ee5d458347d30b53f740952151799e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426215"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Handelssimulering med hög frekvens med Stream Analytics
@@ -70,7 +70,7 @@ Volume Order Imbalance (VOI) är en funktion som hanterar diskrepanser mellan ak
 
 Den tränade modellen används sedan för att göra förutsägelser om prisändringar i offerter i realtid under den aktuella handelsdagen. När en tillräckligt stor prisändring förutsägs genomförs en transaktion. Beroende på inställt tröskelvärde kan du sedan förvänta dig tusentals transaktioner med samma aktie under en handelsdag.
 
-![Volume order imbalance definition](./media/stream-analytics-high-frequency-trading/volume-order-imbalance-formula.png)
+![Definition av obalans i volymordning](./media/stream-analytics-high-frequency-trading/volume-order-imbalance-formula.png)
 
 Nu ska vi visa hur träning och förutsägelser fungerar i ett Azure Stream Analytics-jobb.
 
@@ -202,7 +202,7 @@ modelInput AS (
 
 Eftersom Azure Stream Analytics inte har någon inbyggd funktion för linjär regression kan vi använda samlingarna **SUM** och **AVG** för att beräkna koefficienter för den linjära modellen.
 
-![Formel för linjär regression matematiska](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
+![Linjär regressions matematisk formel](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
 
 ```SQL
 modelagg AS (
@@ -450,9 +450,9 @@ SELECT
 FROM simulation /* output trade simulation to PBI */
 ```
 
-![Affärer Power BI-diagrammet visual](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
+![Affärsiseringar Power BI-diagram visuellt](./media/stream-analytics-high-frequency-trading/trades-power-bi-chart.png)
 
-![Visual PNL Power BI-diagram](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
+![Visuellt PNL Power BI-diagram](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
 
 
 ## <a name="summary"></a>Sammanfattning

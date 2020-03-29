@@ -1,6 +1,6 @@
 ---
-title: Schemat för enheten i fjärrövervakningslösningen – Azure | Microsoft Docs
-description: Den här artikeln beskriver JSON-schemat som definierar en simulerad enhet i fjärrövervakningslösningen.
+title: Enhetsschema i fjärrövervakningslösning - Azure | Microsoft-dokument
+description: I den här artikeln beskrivs JSON-schemat som definierar en simulerad enhet i fjärrövervakningslösningen.
 author: dominicbetts
 manager: philmea
 ms.author: dobett
@@ -9,37 +9,37 @@ services: iot-accelerators
 ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 0f9669d491648ecc621aab27d0908dcc3dc84438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65823333"
 ---
 # <a name="understand-the-device-model-schema"></a>Förstå schemat för enhetsmodellen
 
-Du kan använda simulerade enheter i lösningen för fjärrövervakning för att testa sitt beteende. Fjärrövervakning-lösningen innehåller en tjänst för simulering av enheten för att köra simulerade enheter. När du distribuerar lösningen för fjärrövervakning kan etableras automatiskt en uppsättning simulerade enheter. Du kan anpassa befintliga simulerade enheter eller skapa egna.
+Du kan använda simulerade enheter i lösningen för fjärrövervakning för att testa dess beteende. Remote Monitoring-lösningen innehåller en enhetssimuleringstjänst för att köra simulerade enheter. När du distribuerar lösningen för fjärrövervakning etableras en samling simulerade enheter automatiskt. Du kan anpassa befintliga simulerade enheter eller skapa egna.
 
-Den här artikeln beskriver schemat för enhetsmodellen som anger funktioner och beteenden för en simulerad enhet. Enhetsmodell lagras i en JSON-fil.
+I den här artikeln beskrivs enhetsmodellschemat som anger funktionerna och beteendet för en simulerad enhet. Enhetsmodellen lagras i en JSON-fil.
 
 > [!NOTE]
-> Det här schemat för enhetsmodellen är endast för simulerade enheter i device simulering-tjänsten. Om du vill skapa en riktig enhet Se [ansluta enheten till lösningsacceleratorn för fjärrövervakning](iot-accelerators-connecting-devices.md).
+> Det här enhetsmodellschemat är endast för simulerade enheter som finns i enhetssimuleringstjänsten. Om du vill skapa en riktig enhet läser du [Anslut enheten till lösningsacceleratorn för fjärrövervakning](iot-accelerators-connecting-devices.md).
 
-I följande artiklar är relaterade till den aktuella artikeln:
+Följande artiklar är relaterade till den aktuella artikeln:
 
-* [Implementera beteendet för enhetsmodellen](iot-accelerators-remote-monitoring-device-behavior.md) beskriver JavaScript-filer som du använder för att implementera beteendet för en simulerad enhet.
-* [Skapa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md) placerar den allt på samma plats och visar hur du distribuerar en ny typ av simulerad enhet i lösningen.
+* [Implementera enhetsmodellbeteendet](iot-accelerators-remote-monitoring-device-behavior.md) beskriver de JavaScript-filer som du använder för att implementera beteendet hos en simulerad enhet.
+* [Skapa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md) sätter ihop allt och visar hur du distribuerar en ny simulerad enhetstyp till din lösning.
 
 I den här artikeln kan du se hur du:
 
 >[!div class="checklist"]
-> * Använda en JSON-fil för att definiera en simulerad enhet-modell
-> * Ange egenskaperna för den simulerade enheten
-> * Ange den simulerade enheten skickar telemetri
-> * Ange de metoder för moln-till-enhet som enheten svarar på
+> * Använda en JSON-fil för att definiera en simulerad enhetsmodell
+> * Ange vilka egenskaper den simulerade enheten
+> * Ange vilken telemetri som den simulerade enheten skickar
+> * Ange de metoder från molnet till enheten som enheten svarar på
 
-## <a name="the-parts-of-the-device-model-schema"></a>Delar av schemat för enhetsmodellen
+## <a name="the-parts-of-the-device-model-schema"></a>Delar av enhetsmodellschemat
 
-Varje enhetsmodell, till exempel en kylaggregat eller lastbil, definierar en typ av enhet som tjänsten simulering kan simulera. Varje enhetsmodell lagras i en JSON-fil med följande översta schema:
+Varje enhetsmodell, till exempel en kylmaskin eller lastbil, definierar en typ av enhet som simuleringstjänsten kan simulera. Varje enhetsmodell lagras i en JSON-fil med följande schema på den översta nivån:
 
 ```json
 {
@@ -64,33 +64,33 @@ Varje enhetsmodell, till exempel en kylaggregat eller lastbil, definierar en typ
 }
 ```
 
-Du kan visa schemafiler för simulerade standardenheter i den [devicemodels mappen](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels) på GitHub.
+Du kan visa schemafilerna för standardsimulerade enheter i [devicemodels-mappen](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels) på GitHub.
 
-I följande tabell beskrivs de översta schema posterna:
+I följande tabell beskrivs schemaposterna på den översta nivån:
 
-| Schema-post | Beskrivning |
+| Schemapost | Beskrivning |
 | -- | --- |
-| `SchemaVersion` | Schemaversionen är alltid `1.0.0` och är specifik för formatet för den här filen. |
-| `Id` | Ett unikt ID för den här modellen. |
-| `Version` | Identifierar versionen av den nuvarande enhetsmodellen. |
-| `Name` | Ett eget namn för den nuvarande enhetsmodellen. |
-| `Description` | En beskrivning av den nuvarande enhetsmodellen. |
-| `Protocol` | Anslutningsprotokoll enheten använder. Kan vara något av `AMQP`, `MQTT`, och `HTTP`. |
+| `SchemaVersion` | Schemaversionen är `1.0.0` alltid och är specifik för filens format. |
+| `Id` | Ett unikt ID för den här enhetsmodellen. |
+| `Version` | Identifierar versionen av enhetsmodellen. |
+| `Name` | Ett eget namn för enhetsmodellen. |
+| `Description` | En beskrivning av enhetsmodellen. |
+| `Protocol` | Anslutningsprotokollet som enheten använder. Kan vara `AMQP`en `MQTT`av `HTTP`, och . |
 
-I följande avsnitt beskrivs i andra avsnitt i JSON-schema:
+I följande avsnitt beskrivs de andra avsnitten i JSON-schemat:
 
 ## <a name="simulation"></a>Simulering
 
-I den `Simulation` avsnittet definierar du det interna tillståndet för den simulerade enheten. Alla telemetrivärden som skickas av enheten måste vara en del av den här enhetens tillstånd.
+I `Simulation` avsnittet definierar du det interna tillståndet för den simulerade enheten. Alla telemetrivärden som skickas av enheten måste vara en del av det här enhetstillståndet.
 
-Definitionen av enhetens tillstånd har två element:
+Definitionen av enhetstillståndet har två element:
 
-* `InitialState` definierar ursprungliga värden för alla egenskaper för enhetsobjekt för tillstånd.
-* `Script` identifierar en JavaScript-fil som körs på ett schema för att uppdatera enhetens tillstånd. Du kan använda den här skriptfilen för att slumpgenerera telemetrivärden som skickats av enheten.
+* `InitialState`definierar initiala värden för alla egenskaper för enhetstillståndsobjektet.
+* `Script`identifierar en JavaScript-fil som körs enligt ett schema för att uppdatera enhetstillståndet. Du kan använda den här skriptfilen för att randomisera telemetrivärden som skickas av enheten.
 
-Läs mer om JavaScript-fil som uppdaterar tillstånd enhetsobjekt i [förstå beteendet för enhetsmodellen](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
+Mer information om JavaScript-filen som uppdaterar enhetstillståndsobjektet finns [i Förstå enhetsmodellfunktionen](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
-Exemplet nedan visar definitionen av enhetsobjekt för tillstånd för en simulerad kylaggregat enhet:
+I följande exempel visas definitionen av enhetstillståndsobjektet för en simulerad kylmaskinsenhet:
 
 ```json
 "Simulation": {
@@ -112,11 +112,11 @@ Exemplet nedan visar definitionen av enhetsobjekt för tillstånd för en simule
 }
 ```
 
-Simulering säkerhetskopieringstjänst körs den **kylaggregat-01-state.js** fil var femte sekund för att uppdatera enhetens tillstånd. Du kan se JavaScript-filer för simulerade standardenheter i den [skriptmappen](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) på GitHub. Enligt konventionen används dessa JavaScript-filer har suffixet **-tillstånd** att skilja dem från de filer som implementera metoden beteenden.
+Simuleringstjänsten kör **filen chiller-01-state.js** var femte sekund för att uppdatera enhetstillståndet. Du kan se JavaScript-filerna för standardsimulerade enheter i [skriptmappen](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) på GitHub. Enligt konvention har dessa **JavaScript-filer suffixet -tillstånd** för att skilja dem från de filer som implementerar metodbeteenden.
 
 ## <a name="properties"></a>Egenskaper
 
-Den `Properties` delen av schemat definierar egenskapsvärdena enheten rapporterar till lösningen. Exempel:
+Avsnittet `Properties` i schemat definierar egenskapsvärdena som enheten rapporterar till lösningen. Ett exempel:
 
 ```json
 "Properties": {
@@ -127,13 +127,13 @@ Den `Properties` delen av schemat definierar egenskapsvärdena enheten rapporter
 }
 ```
 
-När lösningen har startat frågar de simulerade enheterna för att skapa en lista över `Type` värden som ska användas i Användargränssnittet. Lösningen använder den `Latitude` och `Longitude` egenskaper för att lägga till enhetens plats på kartan på instrumentpanelen.
+När lösningen startar frågar den alla simulerade enheter `Type` för att skapa en lista med värden som ska användas i användargränssnittet. Lösningen använder `Latitude` egenskaperna `Longitude` och för att lägga till enhetens placering på kartan på instrumentpanelen.
 
 ## <a name="telemetry"></a>Telemetri
 
-Den `Telemetry` matris visar en lista över alla telemetrityper den simulerade enheten skickar till lösningen.
+Matrisen `Telemetry` visar alla telemetrityper som den simulerade enheten skickar till lösningen.
 
-I följande exempel skickar ett meddelande för JSON-telemetri var tionde sekund med `floor`, `vibration`, och `temperature` data från den hiss sensorer:
+I följande exempel skickas ett JSON-telemetrimeddelande `floor`var `vibration`10:e sekund med , och `temperature` data från hissens sensorer:
 
 ```json
 "Telemetry": [
@@ -155,21 +155,21 @@ I följande exempel skickar ett meddelande för JSON-telemetri var tionde sekund
 ]
 ```
 
-`MessageTemplate` definierar strukturen för JSON-meddelanden som skickas från den simulerade enheten. Platshållare i `MessageTemplate` Använd syntax `${NAME}` där `NAME` är en nyckel från den [tillstånd enhetsobjekt](#simulation). Bör innehålla citattecken strängar, tal bör inte.
+`MessageTemplate`definierar strukturen för JSON-meddelandet som skickas av den simulerade enheten. De platshållare `MessageTemplate` som använder `${NAME}` `NAME` syntaxen där är en nyckel från [enhetstillståndsobjektet](#simulation). Strängar bör citeras, bör siffror inte.
 
-`MessageSchema` definierar schemat för meddelanden som skickas från den simulerade enheten. Meddelandeschema publiceras även till IoT Hub för att aktivera serverprogram att återanvända informationen för att tolka inkommande telemetri.
+`MessageSchema`definierar schemat för meddelandet som skickas av den simulerade enheten. Meddelandeschemat publiceras också i IoT Hub för att göra det möjligt för serverdprogram att återanvända informationen för att tolka den inkommande telemetrin.
 
-Du kan för närvarande kan endast använda JSON meddelandescheman. Fält som anges i schemat kan vara av följande typer:
+För närvarande kan du bara använda JSON-meddelandescheman. Fälten i schemat kan vara av följande typer:
 
-* Objekt - serialiseras med JSON
-* Binary - serialiseras base64
+* Objekt - serialiserad med JSON
+* Binary - serialiserad med bas64
 * Text
 * Boolean
 * Integer
 * Double
 * DateTime
 
-Skicka telemetrimeddelanden med olika intervall genom att lägga till flera typer av telemetri till den `Telemetry` matris. I följande exempel skickar temperatur och fuktighet data var 10 sekunder och tillståndet för ljuset varje minut:
+Om du vill skicka telemetrimeddelanden med olika intervall lägger `Telemetry` du till flera telemetrityper i matrisen. Följande exempel skickar temperatur- och fuktighetsdata var 10:e sekund och ljusets tillstånd varje minut:
 
 ```json
 "Telemetry": [
@@ -203,16 +203,16 @@ Skicka telemetrimeddelanden med olika intervall genom att lägga till flera type
 
 ## <a name="cloudtodevicemethods"></a>CloudToDeviceMethods
 
-En simulerad enhet kan svara på moln till enhet metoder som anropas från en IoT-hubb. Den `CloudToDeviceMethods` -avsnittet i enheten modellen schema:
+En simulerad enhet kan svara på metoder från molnet till enheten som anropas från en IoT-hubb. Avsnittet `CloudToDeviceMethods` i schemafilen för enhetsmodell:
 
 * Definierar de metoder som den simulerade enheten kan svara på.
-* Identifierar den JavaScript-fil som innehåller logik för att köra.
+* Identifierar JavaScript-filen som innehåller logiken som ska köras.
 
-Den simulerade enheten skickar listan med metoder som den stöder till IoT-hubb som den är ansluten till.
+Den simulerade enheten skickar listan över metoder som den stöder till IoT-hubben som den är ansluten till.
 
-Läs mer om JavaScript-fil som implementerar beteendet för enheten i [förstå beteendet för enhetsmodellen](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
+Mer information om JavaScript-filen som implementerar enhetens beteende finns i [Förstå enhetsmodellbeteendet](../../articles/iot-accelerators/iot-accelerators-device-simulation-advanced-device.md).
 
-I följande exempel anger tre metoder och JavaScript-filer som implementerar dessa metoder:
+I följande exempel anges tre metoder som stöds och de JavaScript-filer som implementerar dessa metoder:
 
 ```json
 "CloudToDeviceMethods": {
@@ -231,22 +231,22 @@ I följande exempel anger tre metoder och JavaScript-filer som implementerar des
 }
 ```
 
-Du kan se JavaScript-filer för simulerade standardenheter i den [skriptmappen](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) på GitHub. Enligt konventionen används dessa JavaScript-filer har suffixet **-metoden** att skilja dem från de filer som implementerar tillstånd beteende.
+Du kan se JavaScript-filerna för standardsimulerade enheter i [skriptmappen](https://github.com/Azure/device-simulation-dotnet/tree/master/Services/data/devicemodels/scripts) på GitHub. Enligt konvention har dessa **JavaScript-filer suffixmetoden** för att skilja dem från de filer som implementerar tillståndsbeteende.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln beskrivs hur du skapar dina egna anpassade simulerade enhetsmodell. Den här artikeln visar dig hur du:
+I den här artikeln beskrivs hur du skapar en egen anpassad simulerad enhetsmodell. Den här artikeln visade hur du:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
-> * Använda en JSON-fil för att definiera en simulerad enhet-modell
-> * Ange egenskaperna för den simulerade enheten
-> * Ange den simulerade enheten skickar telemetri
-> * Ange de metoder för moln-till-enhet som enheten svarar på
+> * Använda en JSON-fil för att definiera en simulerad enhetsmodell
+> * Ange vilka egenskaper den simulerade enheten
+> * Ange vilken telemetri som den simulerade enheten skickar
+> * Ange de metoder från molnet till enheten som enheten svarar på
 
-Nu när du har lärt dig om JSON-schemat, föreslagna nästa steg är att lära dig hur du [implementera beteendet för den simulerade enheten](iot-accelerators-remote-monitoring-device-behavior.md).
+Nu när du har lärt dig om JSON-schemat är det föreslagna nästa steget att lära dig hur du [implementerar beteendet för din simulerade enhet](iot-accelerators-remote-monitoring-device-behavior.md).
 
-Mer information för utvecklare om lösningen för fjärrövervakning, finns:
+Mer information om lösningen för fjärrövervakning finns i:
 
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)

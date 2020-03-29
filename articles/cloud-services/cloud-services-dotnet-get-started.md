@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
 ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386739"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
@@ -47,7 +47,7 @@ Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjän
 
 Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
-Själv studie anvisningarna fungerar med någon av följande produkter:
+Självstudieinstruktionerna fungerar med någon av följande produkter:
 
 * Visual Studio 2013
 * Visual Studio 2015
@@ -229,10 +229,10 @@ Azure-lagringskontots anslutningssträngar för både webbrollsprojektet och arb
 1. I **Solution Explorer** högerklickar du på **ContosoAdsWeb** under **Roles** (Roller) i **ContosoAdsCloudService**-projektet. Klicka sedan på **Properties** (Egenskaper).
 
     ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Klicka på fliken **Inställningar** . I list rutan **tjänst konfiguration** väljer du **moln**.
+2. Klicka på fliken **Inställningar.** I listrutan **Tjänstkonfiguration** väljer du **Cloud**.
 
     ![Molnkonfiguration](./media/cloud-services-dotnet-get-started/sccloud.png)
-3. Markera posten **StorageConnectionString** och sedan ser du en ellipsknapp ( **...** ) till höger om raden. Klicka på ellipsknappen för att öppna dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng).
+3. Markera posten **StorageConnectionString** och sedan ser du en ellipsknapp (**...**) till höger om raden. Klicka på ellipsknappen för att öppna dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng).
 
     ![Öppna dialogrutan för att skapa anslutningssträng](./media/cloud-services-dotnet-get-started/opencscreate.png)
 4. I dialogrutan **Create Storage Connection String** (Skapa lagringsanslutningssträng) markerar du **Your subscription** (Din prenumeration), väljer det lagringskonto som du skapade tidigare och klickar sedan på **OK**. Om du inte redan har loggat in uppmanas du ange dina Azure-autentiseringsuppgifter.
@@ -353,7 +353,7 @@ När lösningen har skapats granskar du koden som är unik för molntjänstproje
 6. Leta upp NuGet-paketet *Microsoft.WindowsAzure.ConfigurationManager* och installera det i arbetsrollsprojektet.
 
 ### <a name="set-project-references"></a>Ange projektreferenser
-1. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWeb-projektet. Högerklicka på ContosoAdsWeb-projektet och klicka sedan på **References** - **Add References** (Referenser – Lägg till referenser. Välj **Solution – Projects** (Lösning – Projekt) i den vänstra rutan i dialogrutan **Reference Manager** (Referenshanterare). Välj sedan **ContosoAdsCommon** och klicka på **OK**.
+1. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWeb-projektet. Högerklicka på ContosoAdsWeb-projektet och klicka sedan på **Referenser** - **Lägg till referenser**. Välj **Solution – Projects** (Lösning – Projekt) i den vänstra rutan i dialogrutan **Reference Manager** (Referenshanterare). Välj sedan **ContosoAdsCommon** och klicka på **OK**.
 2. Ange en referens till ContosoAdsCommon-projektet i ContosoAdsWorker-projektet.
 
     ContosoAdsCommon innehåller Entity Framework-datamodellen och -kontextklassen som kommer att användas både av klientdelen och serverdelen.
@@ -377,7 +377,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 3. Högerklicka på ContosoAdsWeb under **Roles** (Roller) i ContosoAdsCloudService-projektet, och klicka sedan på **Properties** (Egenskaper).
 
     ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Klicka på fliken **Settings** (Inställningar) i egenskapsfönstret för **ContosoAdsWeb [roll]** , och klicka sedan på **Add Setting** (Lägg till inställning).
+4. Klicka på fliken **Settings** (Inställningar) i egenskapsfönstret för **ContosoAdsWeb [roll]**, och klicka sedan på **Add Setting** (Lägg till inställning).
 
     Lämna **Service Configuration** (Tjänstkonfiguration) inställd på **All Configurations** (Alla konfigurationer).
 5. Lägg till en inställning med namnet *StorageConnectionString*. Ange **typen** som *ConnectionString*, och ställ in **värdet** till *UseDevelopmentStorage=true*.
@@ -398,7 +398,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 ### <a name="add-code-files"></a>Lägga till kodfiler
 I det här avsnittet får du kopiera kodfiler från den hämtade lösningen till den nya lösningen. I följande avsnitt visas och förklaras viktiga delar av den här koden.
 
-Om du vill lägga till filer i ett projekt eller i en mapp, högerklickar du på projektet eller mappen och klickar på **Add** - **Existing Item** (Lägg till – Befintligt objekt). Välj de filer du vill ha och klicka sedan på **Add** (Lägg till). Om du blir tillfrågad om du vill ersätta befintliga filer klickar du på **Yes** (Ja).
+Om du vill lägga till filer i ett projekt eller en mapp högerklickar du på projektet eller mappen och klickar på **Lägg till** - **befintligt objekt**. Välj de filer du vill ha och klicka sedan på **Add** (Lägg till). Om du blir tillfrågad om du vill ersätta befintliga filer klickar du på **Yes** (Ja).
 
 1. Ta bort filen *Class1.cs* i ContosoAdsCommon-projektet och lägg i stället till filerna *Ad.cs* och *ContosoAdscontext.cs* från det hämtade projektet.
 2. Lägg till följande filer från det hämtade projektet i ContosoAdsWeb-projektet.
@@ -518,7 +518,7 @@ imagesQueue.CreateIfNotExists();
 Filen *_Layout.cshtml* anger appnamnet i sidhuvudet och sidfoten, och skapar en menypost som heter ”Ads”.
 
 ### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb – Views\Home\Index.cshtml
-Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna överför heltalsvärdet för uppräkningen `Category` i en QueryString-variabel till Ads-indexsidan.
+Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna överför heltalsvärdet för uppräkningen `Category` i en QueryString-variabel till Ads-indexsidan. 
 
 ```razor
 <li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-Om inget kömeddelande hittas efter varje upprepning av loopen, försätts programmet i viloläge i en sekund. Det förhindrar att arbetsrollen använder orimlig processortid och orsakar lagringstransaktionskostnader. Microsoft Customer Advisory Team berättar om en utvecklare som glömde bort att ta med det här, distribuerade till produktion, och åkte på semester. När de blev tillbaka är deras överblicks kostnad mer än semestern.
+Om inget kömeddelande hittas efter varje upprepning av loopen, försätts programmet i viloläge i en sekund. Det förhindrar att arbetsrollen använder orimlig processortid och orsakar lagringstransaktionskostnader. Microsoft Customer Advisory Team berättar om en utvecklare som glömde bort att ta med det här, distribuerade till produktion, och åkte på semester. När de kom tillbaka, deras tillsyn kostar mer än semester.
 
 Ibland orsakar innehållet i ett kömeddelande ett fel i bearbetningen. Det kallas för *meddelande om ej utförd åtgärd*, och om du precis har loggat ett fel och startat loopen igen kan du försöka bearbeta det meddelandet i oändlighet.  Därför innehåller catch-blocket en if-sats som kontrollerar hur många gånger appen har försökt att bearbeta det aktuella meddelandet, och om det har hänt fler än fem gånger, tas meddelandet bort från kön.
 
@@ -738,7 +738,7 @@ Den här koden läser databasen för att hämta bildens URL, konverterar bilden 
 >
 >
 
-## <a name="troubleshooting"></a>Felsöka
+## <a name="troubleshooting"></a>Felsökning
 Om något inte fungerar när du följer anvisningarna i den här kursen visar vi här några exempel på vanliga fel och hur du kan lösa dem.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
@@ -774,7 +774,7 @@ Mer information finns i följande resurser:
 
 * [Azure Cloud Services, del 1: Inledning](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Azure-lagring](https://docs.microsoft.com/azure/storage/)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Registrera ett webb-API som anropar webb-API: er – Microsoft Identity Platform | Azure'
-description: 'Lär dig hur du skapar ett webb-API som anropar underordnade webb-API: er (app Registration).'
+title: 'Registrera ett webb-API som anropar webb-API: er - Microsoft identity platform | Azure'
+description: Lär dig hur du skapar ett webb-API som anropar underordnade webb-API:er (appregistrering).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,25 +15,25 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: bafd71f34602535bb6193a8d8114a1182e4e8f40
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701798"
 ---
-# <a name="a-web-api-that-calls-web-apis-app-registration"></a>Ett webb-API som anropar webb-API: app-registrering
+# <a name="a-web-api-that-calls-web-apis-app-registration"></a>Ett webb-API som anropar webb-API:er: Appregistrering
 
-Ett webb-API som anropar underordnade webb-API: er har samma registrering som en skyddad webb-API. Du måste därför följa instruktionerna i [Protected Web API: app Registration](scenario-protected-web-api-app-registration.md).
+Ett webb-API som anropar underordnade webb-API:er har samma registrering som ett skyddat webb-API. Därför måste du följa instruktionerna i [Skyddad webb-API: Appregistrering](scenario-protected-web-api-app-registration.md).
 
-Eftersom webbappen nu anropar webb-API: er blir det ett konfidentiellt klient program. Det är anledningen till att extra registrerings information krävs: appen måste dela hemligheter (klientautentiseringsuppgifter) med Microsoft Identity Platform.
+Eftersom webbappen nu anropar webb-API:er blir det ett konfidentiellt klientprogram. Därför krävs extra registreringsinformation: appen måste dela hemligheter (klientuppgifter) med Microsofts identitetsplattform.
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Web Apps anropar API: er för användare för vilka Bearer-token togs emot. Webbapparna måste begära delegerade behörigheter. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Webbappar anropar API:er för användare för vilka innehavartoken togs emot. Webbapparna måste begära delegerade behörigheter. Mer information finns i [Lägga till behörigheter för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Ett webb-API som anropar webb-API: er kod konfiguration](scenario-web-api-call-api-app-configuration.md)
+> [Ett webb-API som anropar webb-API:er: Kodkonfiguration](scenario-web-api-call-api-app-configuration.md)

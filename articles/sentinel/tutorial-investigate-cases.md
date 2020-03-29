@@ -1,6 +1,6 @@
 ---
-title: Undersök incidenter med Azure Sentinel | Microsoft Docs
-description: Använd den här självstudien för att lära dig att undersöka incidenter med Azure Sentinel.
+title: Undersöka incidenter med Azure Sentinel| Microsoft-dokument
+description: Använd den här självstudien om du vill lära dig hur du undersöker incidenter med Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,102 +15,102 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: ecd8c508d05bfeb541a6cb5efbcdf2fffd3c78d3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587200"
 ---
-# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudie: undersöka incidenter med Azure Sentinel
+# <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudiekurs: Undersöka incidenter med Azure Sentinel
 
 > [!IMPORTANT]
-> Undersöknings diagrammet är för närvarande en offentlig för hands version.
-> Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
+> Undersökningsdiagrammet är för närvarande i offentlig förhandsversion.
+> Den här funktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Den här självstudien hjälper dig att undersöka incidenter med Azure Sentinel. När du har anslutit dina data källor till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta kan du med Azure Sentinel skapa avancerade aviserings regler som genererar incidenter som du kan tilldela och undersöka.
+Den här självstudien hjälper dig att undersöka incidenter med Azure Sentinel. När du har anslutit dina datakällor till Azure Sentinel vill du få ett meddelande när något misstänkt händer. För att du ska kunna göra detta kan du med Azure Sentinel skapa avancerade aviseringsregler som genererar incidenter som du kan tilldela och undersöka.
 
-Den här artikeln beskriver:
+Denna artikel innehåller:
 > [!div class="checklist"]
 > * Undersöka incidenter
-> * Använd undersöknings diagrammet
+> * Använd undersökningsdiagrammet
 > * Reagera på hot
 
-En incident kan innehålla flera aviseringar. Det är en agg regering av alla relevanta bevis för en speciell undersökning. En incident skapas baserat på analys regler som du skapade på sidan **analys** . Egenskaperna som rör aviseringarna, till exempel allvarlighets grad och status, anges på incident nivå. När du har informerat Azure Sentinel vet vilka typer av hot du letar efter och hur du hittar dem kan du övervaka identifierade hot genom att undersöka incidenter.
+En incident kan innehålla flera aviseringar. Det är en sammanställning av alla relevanta bevis för en specifik undersökning. En incident skapas baserat på analytiska regler **Analytics** som du har skapat på Analytics-sidan. Egenskaperna som är relaterade till aviseringarna, till exempel allvarlighetsgrad och status, anges på incidentnivå. När du har låtit Azure Sentinel veta vilka typer av hot du letar efter och hur du hittar dem kan du övervaka upptäckta hot genom att undersöka incidenter.
 
-## <a name="prerequisites"></a>Förutsättningar
-Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
+## <a name="prerequisites"></a>Krav
+Du kan bara undersöka incidenten om du använde entitetsmappningsfälten när du ställer in den analytiska regeln. Undersökningsdiagrammet kräver att den ursprungliga incidenten innehåller entiteter.
 
 ## <a name="how-to-investigate-incidents"></a>Så här undersöker du incidenter
 
-1. Välj **incidenter**. På sidan **incidenter** kan du se hur många incidenter du har, hur många som är öppna, hur många som är inställda på att **pågå**och hur många som är stängda. För varje incident kan du se tiden det har inträffat och status för incidenten. Titta på allvarlighets graden för att bestämma vilka incidenter som ska hanteras först.
+1. Välj **Incidenter**. På sidan **Incidenter** kan du veta hur många incidenter du har, hur många som är öppna, hur många du har angett på **Pågår**och hur många som är stängda. För varje incident kan du se den tid det inträffade och statusen för incidenten. Titta på svårighetsgraden för att avgöra vilka incidenter som ska hanteras först.
 
-    ![Visa allvarlighets grad för incident](media/tutorial-investigate-cases/incident-severity.png)
+    ![Visa allvarlighetsgrad för incidenter](media/tutorial-investigate-cases/incident-severity.png)
 
-1. Du kan filtrera incidenterna efter behov, till exempel efter status eller allvarlighets grad.
+1. Du kan filtrera incidenter efter behov, till exempel efter status eller allvarlighetsgrad.
 
-1. Välj en speciell incident för att påbörja en undersökning. Till höger kan du se detaljerad information om incidenten, inklusive allvarlighets grad, sammanfattning av antalet berörda enheter, de obehandlade händelser som utlöste den här incidenten och incidentens unika ID.
+1. Om du vill starta en undersökning väljer du en specifik incident. Till höger kan du se detaljerad information för incidenten, inklusive dess allvarlighetsgrad, sammanfattning av antalet inblandade entiteter, de råa händelser som utlöste den här incidenten och incidentens unika ID.
 
-1. Om du vill visa mer information om aviseringar och entiteter i incidenten väljer du **Visa fullständig information** på sidan incident och granskar de relevanta flikarna som sammanfattar incident informationen. På fliken **aviseringar** granskar du själva aviseringen. Du kan se all relevant information om aviseringen – frågan som utlöste aviseringen, antalet resultat som returneras per fråga och möjligheten att köra spel böcker på aviseringarna. Om du vill öka detalj nivån ytterligare i incidenten väljer du antalet **händelser**. Detta öppnar frågan som skapade resultaten och de händelser som utlöste aviseringen i Log Analytics. På fliken **entiteter** kan du se alla entiteter som du har mappat som en del av varnings regel definitionen.
+1. Om du vill visa mer information om aviseringar och entiteter i incidenten väljer du **Visa fullständig information** på incidentsidan och granskar relevanta flikar som sammanfattar incidentinformationen. Granska själva aviseringen på fliken **Aviseringar.** Du kan se all relevant information om aviseringen – frågan som utlöste aviseringen, antalet returnerade resultat per fråga och möjligheten att köra spelböcker på aviseringarna. Om du vill öka detaljnivån ännu längre in i incidenten väljer du antalet **händelser**. Detta öppnar frågan som genererade resultaten och de händelser som utlöste aviseringen i Log Analytics. På fliken **Entiteter** kan du se alla entiteter som du har mappat som en del av aviseringsregeldefinitionen.
 
-    ![Visa uppgifter om varning](media/tutorial-investigate-cases/alert-details.png)
+    ![Visa varningsinformation](media/tutorial-investigate-cases/alert-details.png)
 
-1. Om du aktivt undersöker en incident, är det en bra idé att ställa in incidentens status på **pågående** tills du stänger den.
+1. Om du aktivt undersöker en incident är det en bra idé att ange incidentens status till **Pågår** tills du stänger den.
 
-1. Incidenter kan tilldelas till en speciell användare. För varje incident kan du tilldela en ägare genom att ange fältet **incident ägare** . Alla incidenter börjar som otilldelade. Du kan också lägga till kommentarer så att andra analytiker kan förstå vad du har undersökt och vilka frågor som gäller kring incidenten.
+1. Incidenter kan tilldelas en viss användare. För varje incident kan du tilldela en ägare genom att ange fältet **Incident-ägare.** Alla incidenter börjar som otilldelade. Du kan också lägga till kommentarer så att andra analytiker kommer att kunna förstå vad du undersökt och vad dina farhågor är kring händelsen.
 
-    ![Tilldela incident till användare](media/tutorial-investigate-cases/assign-incident-to-user.png)
+    ![Tilldela incident till användaren](media/tutorial-investigate-cases/assign-incident-to-user.png)
 
-1. Välj **Undersök** för att Visa undersöknings kartan.
+1. Välj **Undersök om** du vill visa undersökningskartan.
 
-## <a name="use-the-investigation-graph-to-deep-dive"></a>Använd undersöknings diagrammet för att fördjupa dig
+## <a name="use-the-investigation-graph-to-deep-dive"></a>Använd undersökningsdiagrammet för att djupdyka
 
-I undersöknings diagrammet kan analytiker ställa rätt frågor för varje undersökning. I undersöknings diagrammet får du hjälp att förstå omfattningen och identifiera rotor saken, av ett potentiellt säkerhetshot genom att korrelera relevanta data med alla berörda entiteter. Du kan gå djupare och undersöka alla entiteter som visas i diagrammet genom att markera den och välja mellan olika expansions alternativ.  
+Undersökningsdiagrammet gör det möjligt för analytiker att ställa rätt frågor för varje undersökning. Undersökningsdiagrammet hjälper dig att förstå omfattningen och identifiera grundorsaken för ett potentiellt säkerhetshot genom att korrelera relevanta data med någon inblandad entitet. Du kan dyka djupare och undersöka alla entiteter som presenteras i diagrammet genom att välja den och välja mellan olika expansionsalternativ.  
   
-I undersöknings diagrammet får du:
+Undersökningsdiagrammet ger dig:
 
-- **Visuell kontext från rå data**: Live, Visual Graph visar entitetsrelationer som extraheras automatiskt från rå data. På så sätt kan du enkelt se anslutningar mellan olika data källor.
+- **Visuell kontext från rådata**: Det aktiva visuella diagrammet visar entitetsrelationer som extraheras automatiskt från rådata. På så sätt kan du enkelt se anslutningar mellan olika datakällor.
 
-- **Fullständig identifiering av undersöknings omfång**: utöka din undersöknings omfattning med hjälp av inbyggda utforsknings frågor till ytan hela omfattningen av en överträdelse.
+- Fullständig identifiering av **undersökningsomfattning:** Utöka undersökningsomfattningen med hjälp av inbyggda utforskningsfrågor för att visa hela omfattningen av ett intrång.
 
-- **Inbyggda undersöknings steg**: Använd fördefinierade utforsknings alternativ för att se till att du ställer rätt frågor i ett hots ansikte.
+- **Inbyggda undersökningssteg:** Använd fördefinierade utforskningsalternativ för att se till att du ställer rätt frågor inför ett hot.
 
-Så här använder du undersöknings diagrammet:
+Så här använder du undersökningsdiagrammet:
 
-1. Välj en incident och välj sedan **Undersök**. Då kommer du till undersöknings diagrammet. Grafen innehåller en illustrations karta över de entiteter som är direkt anslutna till aviseringen och varje resurs som är ansluten ytterligare.
+1. Välj en incident och välj sedan **Undersök**. Detta tar dig till undersökningsdiagrammet. Diagrammet innehåller en belysande karta över de entiteter som är direkt kopplade till aviseringen och varje resurs som är ansluten ytterligare.
 
    > [!IMPORTANT] 
-   > Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
+   > Du kan bara undersöka incidenten om du använde entitetsmappningsfälten när du ställer in den analytiska regeln. Undersökningsdiagrammet kräver att den ursprungliga incidenten innehåller entiteter.
 
    ![Visa karta](media/tutorial-investigate-cases/map1.png)
 
-1. Välj en entitet för att öppna fönstret **entiteter** så att du kan granska information om entiteten.
+1. Välj en entitet för att öppna fönstret **Entiteter** så att du kan granska information om den entiteten.
 
-    ![Visa entiteter i kartan](media/tutorial-investigate-cases/map-entities.png)
+    ![Visa entiteter på kartan](media/tutorial-investigate-cases/map-entities.png)
   
-1. Utöka undersökningen genom att hovra över varje entitet för att visa en lista med frågor som har utformats av våra säkerhets experter och analytiker per entitetstyp för att fördjupa undersökningen. Vi kallar dessa alternativ **utforsknings frågor**.
+1. Utöka din undersökning genom att hovra över varje enhet för att avslöja en lista med frågor som har utformats av våra säkerhetsexperter och analytiker per enhetstyp för att fördjupa din undersökning. Vi kallar dessa alternativ **prospektering frågor**.
 
     ![Utforska mer information](media/tutorial-investigate-cases/exploration-cases.png)
 
-   På en dator kan du till exempel begära relaterade aviseringar. Om du väljer en utforsknings fråga, läggs de resulterande rubrikerna tillbaka till i grafen. I det här exemplet kan du välja **relaterade aviseringar** som returnerade följande aviseringar i grafen:
+   På en dator kan du till exempel begära relaterade aviseringar. Om du väljer en utforskningsfråga läggs de resulterande berättiganden tillbaka till diagrammet. I det här exemplet returnerade valet **av relaterade aviseringar** följande aviseringar till diagrammet:
 
     ![Visa relaterade aviseringar](media/tutorial-investigate-cases/related-alerts.png)
 
-1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics genom att välja **händelser\>** .
+1. För varje utforskningsfråga kan du välja alternativet för att öppna råhändelseresultaten och frågan som används i Log Analytics genom att välja **Händelser\>**.
 
-1. För att förstå incidenten ger grafen en parallell tids linje.
+1. För att förstå händelsen ger diagrammet dig en parallell tidslinje.
 
-    ![Visa tids linje i kartan](media/tutorial-investigate-cases/map-timeline.png)
+    ![Visa tidslinje på karta](media/tutorial-investigate-cases/map-timeline.png)
 
-1. Hovra över tids linjen för att se vilka saker i grafen som inträffade vid vilken tidpunkt som helst.
+1. Håll muspekaren över tidslinjen för att se vilka saker i diagrammet som inträffade vid vilken tidpunkt.
 
-    ![Använd tids linjen i kartan för att undersöka aviseringar](media/tutorial-investigate-cases/use-timeline.png)
+    ![Använd tidslinjen på kartan för att undersöka aviseringar](media/tutorial-investigate-cases/use-timeline.png)
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig hur du kommer igång med att undersöka incidenter med hjälp av Azure Sentinel. Fortsätt till självstudien för att [svara på hot med automatiserade spel böcker](tutorial-respond-threats-playbook.md).
+I den här självstudien lärde du dig hur du kommer igång med att undersöka incidenter med Azure Sentinel. Fortsätt till handledningen för [hur man ska reagera på hot med hjälp av automatiserade spelböcker](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Svara på hot](tutorial-respond-threats-playbook.md) för att automatisera dina svar på hot.
 

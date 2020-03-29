@@ -1,6 +1,6 @@
 ---
-title: H264, Flera bithastigheter, 16 x 9, SD ljud 5.1 | Microsoft Docs
-description: Avsnittet ger en översikt över den **H264, flera bithastigheter, 16 x 9 SD, Audio 5.1** uppgiften förinställd.
+title: H264 Flera Bitrate 16x9 SD Audio 5.1 | Microsoft-dokument
+description: Avsnittet ger en översikt över **H264 Multiple Bitrate 16x9 SD Audio 5.1** aktivitetsförinställning.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 55cca9b2f01902727c540173a88626599029534d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61129564"
 ---
 # <a name="h264-multiple-bitrate-16x9-sd-audio-51"></a>H264, flera bithastigheter, 16x9, SD, Audio 5.1
-`Media Encoder Standard` definierar en uppsättning kodning förinställningar som du kan använda när du skapar kodningsjobb. Du kan använda en `preset name` att ange i vilket format du vill koda din mediefil. Du kan också skapa egna JSON eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Sedan skickar du den anpassade förinställda till kodaren. Lista över alla förvalda namn som stöds av det här `Media Encoder Standard` encoder, se [uppgift förinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definierar en uppsättning kodningsförinställningar som du kan använda när du skapar kodningsjobb. Du kan antingen `preset name` använda en för att ange i vilket format du vill koda mediefilen. Du kan också skapa egna JSON- eller XML-baserade förinställningar (med UTF-8- eller UTF-16-kodning. Du skulle sedan skicka den anpassade förinställningen till kodaren. En lista över alla förinställda `Media Encoder Standard` namn som stöds av den här kodaren finns i [Aktivitetsförinställningar för Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Det här avsnittet beskrivs de `H264 Multiple Bitrate 16x9 SD Audio 5.1` förinställda i XML- och JSON-format.  
+ I det `H264 Multiple Bitrate 16x9 SD Audio 5.1` här avsnittet visas förinställningen i XML- och JSON-format.  
   
- Den här förinställningen skapar en uppsättning 5 GOP-justerad MP4-filer, mellan 1900 kbit/s och 400 kbit/s och AAC 5.1 ljud. Detaljerad information om profilen med flera bithastigheter, sampling hastighet och så vidare på detta förinställda ska undersöka XML eller JSON som definieras nedan. Förklaringar av vad varje element innebär och de giltiga värdena för varje element finns i den [Media Encoder Standard schemat](media-services-mes-schema.md).  
+ Den här förinställningen ger en uppsättning 5 GOP-anpassade MP4-filer, från 1900 kbps till 400 kbps och AAC 5.1-ljud. För detaljerad information om profil, bithastighet, samplingsfrekvens etc. för den här förinställningen, undersök XML eller JSON som definieras nedan. Förklaringar av vad varje element innebär och giltiga värden för varje element finns i [schemat Media Encoder Standard](media-services-mes-schema.md).  
   
 > [!NOTE]
->  När du ändrar den `Width` och `Height` värden över lager, se till att proportionerna förblir konsekvent. Exempel: 1920x1080, 1280x720, 1080x576, 640x360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640x360.  
+>  När du `Width` ändrar värdena och `Height` värdena mellan lager kontrollerar du att proportionerna förblir konsekventa. Till exempel: 1920x1080, 1280x720, 1080x576, 640x360. Du bör inte använda en blandning av proportioner, till exempel: 1280x720, 720x480, 640x360.  
   
  XML  
   

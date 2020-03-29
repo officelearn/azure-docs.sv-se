@@ -1,22 +1,22 @@
 ---
-title: Reliable Actors kommentarer om typ serialisering av aktör
-description: Beskriver grundläggande krav för att definiera serialiserbara klasser som kan användas för att definiera Service Fabric Reliable Actors tillstånd och gränssnitt
+title: Reliable Actors anteckningar om skådespelare typ serialisering
+description: I artikeln beskrivs grundläggande krav för att definiera serialisable-klasser som kan användas för att definiera tillstånd och gränssnitt för service fabric reliable actors
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 876c4f5f45ff6c81a53274cf32e8bebecc1acfce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75349312"
 ---
-# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Information om Service Fabric Reliable Actors typ serialisering
-Argumenten för alla metoder, resultat typer för de uppgifter som returneras av varje metod i ett aktörs gränssnitt och objekt som lagras i en aktörs tillstånds hanterare måste vara [serialiserbar för data kontrakt](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Detta gäller även argumenten för de metoder som definieras i [aktörens händelse gränssnitt](service-fabric-reliable-actors-events.md). (Aktörens händelse gränssnitts metoder returnerar alltid Void.)
+# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Anteckningar om Service Fabric Reliable Actors typ serialisering
+Argumenten för alla metoder, resultattyper för de uppgifter som returneras av varje metod i ett aktörsgränssnitt och objekt som lagras i en aktörs tillståndshanterare måste vara [datakontrakt serialiserbara](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Detta gäller även argumenten för de metoder som definierats i [aktörshändelsegränssnitt](service-fabric-reliable-actors-events.md). (Metoder för händelsegränssnitt för aktör returnerar alltid ogiltiga.)
 
-## <a name="custom-data-types"></a>Anpassade data typer
-I det här exemplet definierar följande aktörs gränssnitt en metod som returnerar en anpassad datatyp som kallas `VoicemailBox`:
+## <a name="custom-data-types"></a>Anpassade datatyper
+I det här exemplet definierar följande aktörsgränssnitt en `VoicemailBox`metod som returnerar en anpassad datatyp som kallas :
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -32,7 +32,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-Gränssnittet implementeras av en aktör som använder tillstånds hanteraren för att lagra ett `VoicemailBox`-objekt:
+Gränssnittet implementeras av en aktör som använder tillståndshanteraren för att lagra ett `VoicemailBox` objekt:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -68,12 +68,12 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 
 ```
 
-I det här exemplet serialiseras `VoicemailBox`-objektet när:
+I det här `VoicemailBox` exemplet serialiseras objektet när:
 
-* Objektet överförs mellan en aktörs instans och en anropare.
-* Objektet sparas i tillstånds hanteraren där det sparas i en disk och replikeras till andra noder.
+* Objektet överförs mellan en aktörsinstans och en anropare.
+* Objektet sparas i tillståndshanteraren där det sparas på disken och replikeras till andra noder.
 
-Det pålitliga aktörs ramverket använder DataContract-serialisering. Det innebär att de anpassade data objekten och deras medlemmar måste vara kommenterade med attributen **DataContract** respektive **datamembers** .
+Reliable Actor-ramverket använder Serialisering av datakontrakt. Därför måste anpassade dataobjekt och deras medlemmar kommenteras med attributen **DataContract** respektive **DataMember.**
 
 ```csharp
 [DataContract]
@@ -137,9 +137,9 @@ public class VoicemailBox implements Serializable
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Aktörs livs cykel och skräp insamling](service-fabric-reliable-actors-lifecycle.md)
-* [Timers för aktör och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
-* [Aktörs händelser](service-fabric-reliable-actors-events.md)
-* [Aktör återinträde](service-fabric-reliable-actors-reentrancy.md)
-* [Fler än skådespelare och objektorienterade design mönster](service-fabric-reliable-actors-polymorphism.md)
-* [Aktörens diagnostik och prestanda övervakning](service-fabric-reliable-actors-diagnostics.md)
+* [Skådespelarens livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
+* [Aktörs timers och påminnelser](service-fabric-reliable-actors-timers-reminders.md)
+* [Skådespelare händelser](service-fabric-reliable-actors-events.md)
+* [Skådespelare reentrancy](service-fabric-reliable-actors-reentrancy.md)
+* [Skådespelare polymorfism och objektorienterade designmönster](service-fabric-reliable-actors-polymorphism.md)
+* [Skådespelare diagnostik och prestandaövervakning](service-fabric-reliable-actors-diagnostics.md)

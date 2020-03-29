@@ -1,6 +1,6 @@
 ---
-title: LiveEvent-tillstånd och fakturering i Azure Media Services | Microsoft Docs
-description: Det här avsnittet ger en översikt över Azure Media Services LiveEvent-tillstånd och fakturering.
+title: LiveEvent-tillstånd och fakturering i Azure Media Services | Microsoft-dokument
+description: Det här avsnittet innehåller en översikt över Azure Media Services LiveEvent-tillstånd och fakturering.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,36 +14,36 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.author: juliako
 ms.openlocfilehash: e4eee3b9f3f97bf7cd7a7b61425ec5c9a3a198ef
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76543083"
 ---
-# <a name="live-event-states-and-billing"></a>Live händelse tillstånd och fakturering
+# <a name="live-event-states-and-billing"></a>Tillstånd och fakturering för liveevenemang
 
-I Azure Media Services börjar en Live-händelse att faktureras så fort dess tillstånds över gångar **körs**. Du debiteras även om det inte finns någon video som går igenom tjänsten. Om du vill stoppa direkt sändningen från fakturering måste du stoppa Live-händelsen. Direkt avskrift debiteras på samma sätt som direkt sändningen.
+I Azure Media Services börjar en livehändelse fakturering så snart tillståndet övergår till **Att köra**. Du kommer att faktureras även om det inte finns någon video som flödar genom tjänsten. Om du vill förhindra att Live Event faktureras måste du stoppa livehändelsen. Live Transkription faktureras på samma sätt som Live Event.
 
-När **LiveEventEncodingType** på din [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) är inställt på Standard eller Premium1080p stänger Media Services automatiskt av alla aktiva händelser som fortfarande är i **körnings** tillstånd 12 timmar efter att inmatnings flödet förloras och det inte finns någon **Live-utdata**som körs. Men du kommer fortfarande att faktureras för den tidpunkt då Live-händelsen var i **körnings** tillstånd.
+När **LiveEventEncodingType** på din [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) är inställt på Standard eller Premium1080p stängs Media Services automatiskt av alla Live Event som fortfarande är i **körtillståndet** 12 timmar efter att inmatningsflödet har gått förlorat och det inte körs några **liveutdata.** Du kommer dock fortfarande att faktureras för den **Running** tid livehändelsen var i körtillståndet.
 
 > [!NOTE]
-> Direkt sändnings händelser stängs inte av automatiskt och måste stoppas explicit genom API: et för att undvika överdriven fakturering. 
+> Direktupppassningshändelser stängs inte av automatiskt och måste uttryckligen stoppas via API:et för att undvika överdriven fakturering. 
 
 ## <a name="states"></a>Tillstånd
 
-Live-händelsen kan vara i något av följande tillstånd.
+Livehändelsen kan vara i något av följande tillstånd.
 
 |Status|Beskrivning|
 |---|---|
-|**Stoppats**| Det här är start läget för Live-händelsen när den har skapats (om inte Autostart har angetts till true.) Ingen fakturering sker i det här läget. I det här tillståndet kan direktsändningens egenskaper uppdateras, men strömning är inte tillåtet.|
-|**Leds**| Direktsänd händelse startas och resurserna allokeras. Ingen fakturering sker i det här läget. Uppdateringar eller strömmande tillåts inte i det här läget. Om ett fel inträffar återgår Live-händelsen till stoppat tillstånd.|
-|**Körs**| Live Event-resurserna har allokerats, inmatnings-och för hands-URL: er har genererats och kan ta emot Live-strömmar. Faktureringen är nu aktiv. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering.|
-|**Stoppas**| Direkt sändningen stoppas och resurserna etableras. Ingen fakturering sker i det här tillfälliga läget. Uppdateringar eller strömmande tillåts inte i det här läget.|
-|**Rader**| Direktsändningen tas bort. Ingen fakturering sker i det här tillfälliga läget. Uppdateringar eller strömmande tillåts inte i det här läget.|
+|**Stoppad**| Detta är det ursprungliga tillståndet för Live Event efter skapandet (om inte automatisk start har ställts in på true.) Ingen fakturering sker i det här tillståndet. I det här läget kan egenskaperna Live Event uppdateras men direktuppspelning är inte tillåtet.|
+|**Start**| Livehändelsen startas och resurser fördelas. Ingen fakturering sker i det här tillståndet. Uppdateringar eller direktuppspelning är inte tillåtna under det här tillståndet. Om ett fel inträffar återgår livehändelsen till tillståndet Stoppad.|
+|**Körs**| Live Event-resurserna har allokerats, intjest och förhandsgranska webbadresser har genererats och kan ta emot livestreams. Nu är faktureringen aktiv. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering.|
+|**Stoppas**| Live-händelsen stoppas och resurser avetablering. Ingen fakturering sker i det här tillfälliga tillståndet. Uppdateringar eller direktuppspelning är inte tillåtna under det här tillståndet.|
+|**Ta bort**| Livehändelsen tas bort. Ingen fakturering sker i det här tillfälliga tillståndet. Uppdateringar eller direktuppspelning är inte tillåtna under det här tillståndet.|
 
-Du kan välja att aktivera Live-avskrifter när du skapar en Live-händelse. Om du gör det debiteras du för direkt avskrifter när Live-händelsen är i **körnings** tillstånd. Observera att du kommer att faktureras även om det inte finns något ljud som passerar direkt evenemanget.
+Du kan välja att aktivera live transkriptioner när du skapar livehändelsen. Om du gör det debiteras du för live transkriptioner när livehändelsen är i **körtillstånd.** Observera att du kommer att faktureras även om det inte finns något ljud som flödar genom Live Event.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över direkt uppspelning](live-streaming-overview.md)
-- [Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)
+- [Översikt över livestreaming](live-streaming-overview.md)
+- [Självstudiekurs för livestreaming](stream-live-tutorial-with-api.md)

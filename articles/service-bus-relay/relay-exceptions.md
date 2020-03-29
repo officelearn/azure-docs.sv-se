@@ -1,5 +1,5 @@
 ---
-title: Azure Relay-undantag och hur du löser dem | Microsoft Docs
+title: Azure Relay-undantag och hur du löser dem | Microsoft-dokument
 description: Lista över Azure Relay-undantag och föreslagna åtgärder som du kan vidta för att lösa dem.
 services: service-bus-relay
 documentationcenter: na
@@ -15,63 +15,63 @@ ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60749044"
 ---
 # <a name="azure-relay-exceptions"></a>Azure Relay-undantag
 
-Den här artikeln innehåller vissa undantag som kan genereras av API: er för Azure Relay. Den här referensen kan komma att ändras, så kom tillbaka för uppdateringar.
+I den här artikeln visas några undantag som kan genereras av Azure Relay API:er. Den här referensen kan komma att ändras, så kom tillbaka för uppdateringar.
 
-## <a name="exception-categories"></a>Undantag kategorier
+## <a name="exception-categories"></a>Undantagskategorier
 
-Relay-API: er skapa undantag som kan delas in i följande kategorier. Listan finns även föreslagna åtgärder som du kan vidta för att lösa undantagen.
+Relay API:er genererar undantag som kan delas in i följande kategorier. Det finns också förslag på åtgärder som du kan vidta för att hjälpa till att lösa undantagen.
 
-*   **Användaren kodningsfel**: System.ArgumentException, [System.InvalidOperationException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
+*   **Fel vid användarkodning**: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
 
     **Allmän åtgärd**: Försök att åtgärda koden innan du fortsätter.
-*   **Installationen/konfigurationsfel**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
+*   **Installations-/konfigurationsfel**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
-    **Allmän åtgärd**: Granska din konfiguration. Om det behövs kan du ändra konfigurationen.
+    **Allmän åtgärd**: Granska konfigurationen. Om det behövs ändrar du konfigurationen.
 *   **Tillfälliga undantag**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
-    **Allmän åtgärd**: Försök igen eller meddela användare.
+    **Allmän åtgärd**: Försök igen eller meddela användarna.
 *   **Andra undantag**: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
-    **Allmän åtgärd**: Specifika för typ av undantag. Se tabellen nedan. 
+    **Allmän åtgärd**: Specifik för undantagstypen. Se tabellen i följande avsnitt. 
 
 ## <a name="exception-types"></a>Undantagstyper
 
-I följande tabell visas meddelanden undantagstyper och deras orsaker. Den också noterar föreslagna åtgärder som du kan vidta för att lösa undantagen.
+I följande tabell visas undantagstyper för meddelanden och deras orsaker. Det noterar också föreslagna åtgärder som du kan vidta för att hjälpa till att lösa undantagen.
 
-| **Undantagstyp** | **Beskrivning** | **Föreslagen åtgärd** | **Observera vid automatisk eller omedelbara återförsök** |
+| **Undantagstyp** | **Beskrivning** | **Föreslagen åtgärd** | **Anmärkning om automatisk eller omedelbar återförsök** |
 | --- | --- | --- | --- |
-| [Timeout](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |Servern svarade inte på den begärda åtgärden inom den angivna tiden som kontrolleras av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). Servern kan slutföra den begärda åtgärden. Detta kan inträffa på grund av nätverks- eller andra fördröjningar i infrastrukturen. |Kontrollera system-tillstånd för att få konsekvens och försök sedan, om det behövs. Se [TimeoutException](#timeoutexception). |Återförsök kan hjälpa dig att i vissa fall. Lägg till logik för omprövning i kod. |
-| [Ogiltig åtgärd](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |Begärd användare-åtgärden tillåts inte i servern eller -tjänsten. Se Undantagsmeddelandet mer information. |Kontrollera koden och i dokumentationen. Kontrollera att den begärda åtgärden är giltig. |Försök inte hjälper att. |
-| [Åtgärden avbröts](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |Det görs ett försök att anropa en åtgärd på ett objekt som har redan stängts, avbröts eller tagits bort. I sällsynta fall kan den omgivande transaktionen har redan tagits bort. |Kontrollera koden och se till att den inte anropar åtgärder på ett borttaget objekt. |Försök inte hjälper att. |
-| [Obehörig åtkomst](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |Den [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) objekt kunde inte hämta en token, token är ogiltig eller token innehåller inte de anspråk som krävs för att utföra åtgärden. |Kontrollera att Tokenleverantören har skapats med korrekta värden. Kontrollera konfigurationen av tjänsten Access Control. |Återförsök kan hjälpa dig att i vissa fall. Lägg till logik för omprövning i kod. |
-| [Undantagsfel för argumentet](https://msdn.microsoft.com/library/system.argumentexception.aspx),<br /> [Argumentet Null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx),<br />[Argumentet utanför intervallet](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |En eller flera av följande har inträffat:<br />Ett eller flera argument som skickades till metoden är ogiltiga.<br /> URI: N som har angetts för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [skapa](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) innehåller en eller flera sökvägssegment.<br />URI-schemat som angetts för [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [skapa](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) är ogiltig. <br />Egenskapens värde är större än 32 KB. |Kontrollera den anropande koden och se till att argumenten är korrekta. |Försök inte hjälper att. |
-| [Servern är upptagen](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |Tjänsten går inte att bearbeta begäran just nu. |Klienten kan vänta på en viss tidsperiod och försök igen. |Klienten kan försök efter en viss tid. Om ett återförsök resultat i en annan undantag, kontrollera återförsöksbeteendet av detta undantag. |
-| [Kvoten har överskridits](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |Meddelandeentitet har nått maximal tillåten storlek. |Skapa utrymme i entiteten genom att ta emot meddelanden från enheten eller dess underköer. Se [QuotaExceededException](#quotaexceededexception). |Återförsök kan hjälpa dig att om meddelanden har tagits bort under tiden. |
-| [Meddelandestorlek har överskridits](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |Nyttolast för ett meddelande är längre än 256 KB. Observera att den totala meddelandestorleken 256 KB-gränsen. Totalt antal meddelandestorleken kan innehålla Systemegenskaper och eventuella kostnader för Microsoft .NET. |Minska storleken på meddelandet nyttolasten och försök sedan igen. |Försök inte hjälper att. |
+| [Timeout](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |Servern svarade inte på den begärda åtgärden inom den angivna tiden, som styrs av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout). Servern kan ha slutfört den begärda åtgärden. Detta kan inträffa på grund av nätverksförseningar eller andra infrastrukturförseningar. |Kontrollera om det finns konsekvens i systemtillståndet och försök sedan igen om det behövs. Se [TimeoutException](#timeoutexception). |Försök igen kan hjälpa i vissa fall. lägga till logik för återförsök i koden. |
+| [Ogiltig åtgärd](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |Den begärda användaråtgärden är inte tillåten i servern eller tjänsten. Mer information finns i undantagsmeddelandet. |Kontrollera koden och dokumentationen. Kontrollera att den begärda åtgärden är giltig. |Försök igen hjälper inte. |
+| [Åtgärden avbröts](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |Ett försök görs att anropa en åtgärd på ett objekt som redan har stängts, avbrutits eller avyttrats. I sällsynta fall är den omgivande transaktionen redan avyttrad. |Kontrollera koden och se till att den inte anropar åtgärder på ett bortskaffat objekt. |Försök igen hjälper inte. |
+| [Obehörig åtkomst](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |[TokenProvider-objektet](/dotnet/api/microsoft.servicebus.tokenprovider) kunde inte hämta en token, token är ogiltig eller token innehåller inte de anspråk som krävs för att utföra åtgärden. |Kontrollera att tokenprovidern skapas med rätt värden. Kontrollera konfigurationen av åtkomstkontrolltjänsten. |Försök igen kan hjälpa i vissa fall. lägga till logik för återförsök i koden. |
+| [Undantag för argument](https://msdn.microsoft.com/library/system.argumentexception.aspx),<br /> [Argument Null](https://msdn.microsoft.com/library/system.argumentnullexception.aspx),<br />[Argument utanför intervallet](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |Ett eller flera av följande har inträffat:<br />Ett eller flera argument som anges till metoden är ogiltiga.<br /> Den URI som anges till [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) innehåller ett eller flera sökvägssegment.<br />URI-schemat som levereras till [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) eller [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory.create) är ogiltigt. <br />Egenskapsvärdet är större än 32 kB. |Kontrollera den anropande koden och kontrollera att argumenten är korrekta. |Försök igen hjälper inte. |
+| [Server upptagen](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) |Tjänsten kan inte behandla begäran just nu. |Klienten kan vänta en viss tid och sedan försöka igen. |Klienten kan försöka igen efter ett visst intervall. Om ett nytt försök resulterar i ett annat undantag kontrollerar du hur undantaget ska försöka igen. |
+| [Kvoten har överskridits](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) |Meddelandeentiteten har nått sin högsta tillåtna storlek. |Skapa utrymme i entiteten genom att ta emot meddelanden från entiteten eller dess underköer. Se [QuotaExceedException](#quotaexceededexception). |Ett nytt försök kan vara till hjälp om meddelanden har tagits bort under tiden. |
+| [Meddelandestorleken har överskridits](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |En meddelandenyttolast överskrider gränsen på 256 KB. Observera att gränsen på 256 KB är den totala meddelandestorleken. Den totala meddelandestorleken kan innehålla systemegenskaper och eventuella Omkostnader för Microsoft .NET. |Minska storleken på meddelandenyttolasten och försök sedan igen. |Försök igen hjälper inte. |
 
-## <a name="quotaexceededexception"></a>QuotaExceededException
+## <a name="quotaexceededexception"></a>KvotExceedException
 
 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception) anger att en kvot för en specifik enhet har överskridits.
 
-För relä, det här undantaget omsluter den [System.ServiceModel.QuotaExceededException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx), vilket betyder att det maximala antalet lyssnare har överskridits för den här slutpunkten. Detta anges i den **MaximumListenersPerEndpoint** värdet för Undantagsmeddelandet.
+För Relay sveper det här undantaget [system.servicemodel.quotaExceedException](https://msdn.microsoft.com/library/system.servicemodel.quotaexceededexception.aspx), vilket anger att det maximala antalet lyssnare har överskridits för den här slutpunkten. Detta anges i värdet **MaximumListenersPerEndpoint** för undantagsmeddelandet.
 
 ## <a name="timeoutexception"></a>TimeoutException
-En [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) anger att en åtgärd som initieras av användaren tar längre tid än tidsgränsen för åtgärden. 
+En [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) anger att en användarinitierad åtgärd tar längre tid än timeouten för åtgärden. 
 
-Kontrollera värdet för den [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) egenskapen. Når den här gränsen kan även orsaka en [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Kontrollera värdet för egenskapen [ServicePointManager.DefaultConnectionLimit.](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) Om du når den här gränsen kan det också orsaka en [timeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
-För Relay, kan du få undantag där tidsgränsen överskridits när du först öppnar en avsändare relay-anslutning. Det finns två vanliga orsaker till det här undantaget:
+För Relay kan du få timeout-undantag när du öppnar en relayeranslutning för första gången. Det finns två vanliga orsaker till det här undantaget:
 
-*   Den [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) värdet kan vara för litet (om du även är som en del av en sekund).
-* En lokal relälyssnaren kanske inte svarar (eller det kan uppstå brandväggsproblem för regler som förhindrar att lyssnare godtar nya klientanslutningar) och [OpenTimeout](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) värdet är mindre än ungefär 20 sekunder.
+*   [OpenTimeout-värdet](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) kan vara för litet (om även med en bråkdel av en sekund).
+* En lokal relay-lyssnare kanske inte svarar (eller så kan det stöta på problem med brandväggsregler som hindrar lyssnare från att acceptera nya klientanslutningar) och [OpenTimeout-värdet](https://msdn.microsoft.com/library/wcf.opentimeout.aspx) är mindre än cirka 20 sekunder.
 
 Exempel:
 
@@ -85,14 +85,14 @@ Det finns två vanliga orsaker till det här felet:
 
 *   **Felaktig konfiguration**
     
-    Tidsgränsen för åtgärden kanske för liten för den operativa villkoren. Standardvärdet för tidsgräns för åtgärd i klient-SDK är 60 sekunder. Kontrollera om värdet i din kod har angetts till något som är för liten. Observera att CPU-användning och villkoret för nätverket kan påverka den tid det tar för en åtgärd ska slutföras. Det är en bra idé inte att ange tidsgränsen för åtgärden till ett värde som är mycket liten.
-*   **Tillfälliga tjänstfel**
+    Timeouten för drift kan vara för liten för drifttillståndet. Standardvärdet för timeout för åtgärden i klientenSDK är 60 sekunder. Kontrollera om värdet i koden är inställt på något för litet. Observera att CPU-användning och nätverkets tillstånd kan påverka den tid det tar för en åtgärd att slutföras. Det är en bra idé att inte ställa in timeout för åtgärden till ett mycket litet värde.
+*   **Fel vid tillfällig service**
 
-    Den vidarebefordrande tjänsten kan ibland uppstå fördröjningar i bearbetning av begäranden. Detta kan inträffa, till exempel under perioder med hög belastning. Om detta inträffar, försök igen efter en stund tills åtgärden har lyckats. Om samma åtgärden fortfarande misslyckas efter flera försök, kontrollerar du den [plats för Azure service-status](https://azure.microsoft.com/status/) att se om det finns kända tjänstavbrott.
+    Ibland kan Relay-tjänsten uppleva förseningar i bearbetningen av begäranden. Detta kan till exempel inträffa under perioder med hög trafik. Om detta inträffar, försök igen åtgärden efter en fördröjning, tills åtgärden lyckas. Om samma åtgärd fortsätter att misslyckas efter flera försök kontrollerar du [azure-tjänststatusplatsen](https://azure.microsoft.com/status/) för att se om det finns kända avbrott i tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure Relay vanliga frågor och svar](relay-faq.md)
-* [Skapa ett relay-namnområde](relay-create-namespace-portal.md)
-* [Kom igång med Azure Relay och .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Kom igång med Azure Relay och nod](relay-hybrid-connections-node-get-started.md)
+* [Vanliga frågor om Azure Relay](relay-faq.md)
+* [Skapa ett relänamnområde](relay-create-namespace-portal.md)
+* [Komma igång med Azure Relay och .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Komma igång med Azure Relay och Node](relay-hybrid-connections-node-get-started.md)
 

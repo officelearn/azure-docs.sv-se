@@ -1,6 +1,6 @@
 ---
 title: Komma igång med Python och Azure Cloud Services | Microsoft Docs
-description: Översikt över hur du använder Python-verktyg för Visual Studio för att skapa Azure-molntjänster, inklusive webb- och arbetsroller.
+description: Översikt över hur du använder Python Tools för Visual Studio för att skapa Azure-molntjänster, inklusive webb- och arbetsroller.
 services: cloud-services
 documentationcenter: python
 author: tgore03
@@ -10,28 +10,28 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360726"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
-Den här artikeln innehåller en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools for Visual Studio]. Lär dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
+I den här artikeln ges en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools for Visual Studio]. Lär dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
 
 ## <a name="prerequisites"></a>Krav
 * [Visual Studio 2013, 2015 eller 2017](https://www.visualstudio.com/)
 * [Python Tools för Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Azure SDK-verktyg för VS 2013][Azure SDK Tools for VS 2013] eller  
-[Azure SDK-verktyg för VS 2015][Azure SDK Tools for VS 2015] eller  
-[Azure SDK-verktyg för VS 2017][Azure SDK Tools for VS 2017]
+* [Azure SDK Tools för VS 2013][Azure SDK Tools for VS 2013] eller  
+[Azure SDK Tools för VS 2015][Azure SDK Tools for VS 2015] eller  
+[Azure SDK Tools för VS 2017][Azure SDK Tools for VS 2017]
 * [Python 2.7 32-bitars][Python 2.7 32-bit] eller [Python 3.5 32-bitars][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Vad är webb- och arbetsroller för Python?
-Azure tillhandahåller tre beräknings modeller för att köra program: [Web Apps funktion i Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms]och [Azure Cloud Services][execution model-cloud services]. Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)* . I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
+Azure har tre beräkningsmodeller för att köra program: [funktionen Web Apps i Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] och [Azure Cloud Services][execution model-cloud services]. Alla tre modeller stöder Python. Cloud Services, där webb- och arbetsroller ingår, tillhandahåller *plattform som en tjänst (PaaS)*. I en molntjänst tillhandahåller en webbroll en dedikerad IIS-webbserver (Internet Information Services) som fungerar som värd för frontend-webbprogram, medan en arbetsroll kan köra asynkrona, tidskrävande eller beständiga uppgifter oberoende av användarinteraktion eller indata.
 
 Mer information finns i [Vad är en molntjänst?].
 
@@ -323,7 +323,7 @@ Förloppet visas i utdatafönstret. Därefter visas fönstret med Microsoft Azur
 Distributionen tar flera minuter. När den är klar körs dina webb- och/eller arbetsroller i Azure!
 
 ### <a name="investigate-logs"></a>Undersöka loggar
-När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
+När den virtuella molntjänstdatorn startar och installerar Python, kan du titta på loggarna för att hitta eventuella felmeddelanden. Dessa loggar finns i mappen **C:\Resources\Directory\\{role}\LogFiles.** **PrepPython.err.txt** har minst ett fel från när skriptet försöker identifiera om Python är installerat och **PipInstaller.err.txt** kan klaga över en inaktuell version av pip.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer detaljerad information om hur du arbetar med webb- och arbetsroller i Python Tools för Visual Studio finns i dokumentationen till PTVS:

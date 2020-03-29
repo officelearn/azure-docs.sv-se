@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synkronisering: Användargränssnittet för hanteraren för synkroniseringstjänsten | Microsoft Docs'
-description: Förstå hanteraren för synkroniseringstjänsten för Azure AD Connect.
+title: 'Synkronisering av Azure AD Connect: Användargränssnittet för Synkroniseringstjänsthanteraren | Microsoft-dokument'
+description: Förstå Synkroniseringstjänsthanteraren för Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,25 +18,25 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c3a03b2320caa7facc04f589993907ab9b3a7703
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60381543"
 ---
-# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introduktion till Azure AD Connect Synchronization Service Manager-Användargränssnittet
+# <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introduktion till azure AD Connect-synkroniseringstjänsthanterarens användargränssnitt
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
+![Synkronisera tjänsthanteraren](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
 
-Den **hanteraren för synkroniseringstjänsten** Användargränssnittet används för att konfigurera mer avancerade aspekter av Synkroniseringsmotorn och se de operativa aspekterna av tjänsten.
+Användargränssnittet **för synkroniseringstjänsthanteraren** används för att konfigurera mer avancerade aspekter av synkroniseringsmotorn och för att se tjänstens driftsaspekter.
 
-Du startar den **hanteraren för synkroniseringstjänsten** Användargränssnittet från start-menyn. Namnet är **synkroniseringstjänsten** och finns i den **Azure AD Connect** grupp.  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
+Du startar användargränssnittet **synkroniseringstjänsthanteraren** från start-menyn. Den heter **Synkroniseringstjänsten** och finns i Azure **AD Connect-gruppen.**  
+![Synkronisera tjänsthanteraren](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Synchronization Service Manager-UI, inklusive [Operations](how-to-connect-sync-service-manager-ui-operations.md), [Anslutningsappar](how-to-connect-sync-service-manager-ui-connectors.md), [Metaversumdesigner](how-to-connect-sync-service-manager-ui-mvdesigner.md), och [Metaversumsökning](how-to-connect-sync-service-manager-ui-mvsearch.md) flikar.
+Läs mer om användargränssnittet för Synkroniseringstjänsthanteraren, inklusive [åtgärder,](how-to-connect-sync-service-manager-ui-operations.md)kopplingar, [metaversitetsdesigner](how-to-connect-sync-service-manager-ui-mvdesigner.md)och [sökflikar i Metaversum.](how-to-connect-sync-service-manager-ui-mvsearch.md) [Connectors](how-to-connect-sync-service-manager-ui-connectors.md)
 
-Läs mer om den [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) konfiguration.
+Läs mer om synkroniseringskonfigurationen för [Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

@@ -1,6 +1,6 @@
 ---
-title: Logik för omprövning i Media Services SDK för .NET | Microsoft Docs
-description: Avsnittet ger en översikt över logik för omprövning i Media Services SDK för .NET.
+title: Återförsökslogik i Media Services SDK för .NET | Microsoft-dokument
+description: Avsnittet innehåller en översikt över logiken för återförsök i Media Services SDK för .NET.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,73 +15,73 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61094667"
 ---
-# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logik för omprövning i Media Services SDK för .NET  
+# <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Återförsökslogik i Media Services SDK för .NET  
 
-När du arbetar med Microsoft Azure-tjänster, kan tillfälliga fel uppstå. Om ett tillfälligt fel inträffar oftast när du har några få återförsök lyckas åtgärden. Media Services SDK för .NET implementerar logik för omprövning för att hantera tillfälliga fel som är associerade med undantag och fel som orsakas av webbegäranden, köra frågor, sparar ändringar och lagringsåtgärder.  Som standard körs Media Services SDK för .NET fyra återförsök innan nytt utlöste undantaget i ditt program. Koden i programmet måste sedan hantera det här undantaget korrekt.  
+När du arbetar med Microsoft Azure-tjänster kan tillfälliga fel uppstå. Om ett tillfälligt fel inträffar, i de flesta fall, efter några försök åtgärden lyckas. Media Services SDK för .NET implementerar logiken för återförsök för att hantera tillfälliga fel som är associerade med undantag och fel som orsakas av webbbegäranden, kör frågor, spara ändringar och lagringsåtgärder.  Som standard kör Media Services SDK för .NET fyra försök innan du återavstämer undantaget från ditt program. Koden i ditt program måste sedan hantera det här undantaget på rätt sätt.  
 
- Här följer en kort riktlinje webbegäran, lagring, fråga och SaveChanges principer:  
+ Följande är en kort riktlinje för principer för webbbegäran, lagring, fråga och SaveChanges:  
 
-* Principen för lagring används för åtgärder för blob storage (överföringar eller hämtning av tillgångsfiler).  
-* Princip för webb-begäran används för allmänna webbegäranden (till exempel för att hämta en token för autentisering och lösa klusterslutpunkten användare).  
-* Fråga principen används för att fråga entiteter från REST (till exempel mediaContext.Assets.Where(...)).  
-* SaveChanges principen används för att göra något som ändrar data i tjänsten (till exempel skapa en entitet som uppdaterar en entitet, anropa en tjänstfunktion för en åtgärd).  
+* Lagringsprincipen används för blob-lagringsåtgärder (uppladdningar eller nedladdning av tillgångsfiler).  
+* Principen för webbbegäran används för allmänna webbbegäranden (till exempel för att hämta en autentiseringstoken och lösa användarklusterslutpunkten).  
+* Frågeprincipen används för att fråga entiteter från REST (till exempel mediaContext.Assets.Where(...)).  
+* SaveChanges-principen används för att göra allt som ändrar data inom tjänsten (till exempel skapa en entitet som uppdaterar en entitet och anropar en tjänstfunktion för en operation).  
   
-  Det här avsnittet listar undantagstyper och logik för omprövning av felkoder som hanteras av Media Services SDK för .NET.  
+  I det här avsnittet visas undantagstyper och felkoder som hanteras av medietjänst-SDK för .NET-återförsökslogik.  
 
 ## <a name="exception-types"></a>Undantagstyper
-I följande tabell beskrivs undantag som Media Services SDK för .NET hanterar eller hanterar inte för vissa åtgärder som kan orsaka tillfälliga fel.  
+I följande tabell beskrivs undantag som Media Services SDK för .NET hanterar eller inte hanterar för vissa åtgärder som kan orsaka tillfälliga fel.  
 
-| Undantag | Webbegäran | Storage | Fråga | SaveChanges |
+| Undantag | Webbbegäran | Lagring | Söka i data | SparaChanges |
 | --- | --- | --- | --- | --- |
-| WebException<br/>Mer information finns i den [WebException statuskoder](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) avsnittet. |Ja |Ja |Ja |Ja |
-| DataServiceClientException<br/> Mer information finns i [statuskoder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nej |Ja |Ja |Ja |
-| DataServiceQueryException<br/> Mer information finns i [statuskoder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nej |Ja |Ja |Ja |
-| DataServiceRequestException<br/> Mer information finns i [statuskoder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Nej |Ja |Ja |Ja |
-| DataServiceTransportException |Nej |Nej |Ja |Ja |
-| TimeoutException |Ja |Ja |Ja |Nej |
+| WebException (WebException)<br/>Mer information finns i avsnittet [WebException-statuskoder.](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus) |Ja |Ja |Ja |Ja |
+| DataServiceClientException<br/> Mer information finns i [HTTP-felstatuskoder](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Inga |Ja |Ja |Ja |
+| DataServiceQueryException<br/> Mer information finns i [HTTP-felstatuskoder](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Inga |Ja |Ja |Ja |
+| DataServiceRequestException<br/> Mer information finns i [HTTP-felstatuskoder](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Inga |Ja |Ja |Ja |
+| DataServiceTransportUtställning |Inga |Inga |Ja |Ja |
+| TimeoutException |Ja |Ja |Ja |Inga |
 | SocketException |Ja |Ja |Ja |Ja |
-| StorageException |Nej |Ja |Nej |Nej |
-| IOException |Nej |Ja |Nej |Nej |
+| StorageException |Inga |Ja |Inga |Inga |
+| IOException |Inga |Ja |Inga |Inga |
 
-### <a name="WebExceptionStatus"></a> WebException statuskoder
-I följande tabell visas vilka WebException felkoder omprövningslogiken tillämpas. Den [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) uppräkning definierar statuskoder.  
+### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a>Statuskoder för WebException
+I följande tabell visas för vilka WebException-felkoder logiken för återförsök implementeras. [WebExceptionStatus-uppräkningen](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) definierar statuskoderna.  
 
-| Status | Webbegäran | Storage | Fråga | SaveChanges |
+| Status | Webbbegäran | Lagring | Söka i data | SparaChanges |
 | --- | --- | --- | --- | --- |
 | ConnectFailure |Ja |Ja |Ja |Ja |
-| NameResolutionFailure |Ja |Ja |Ja |Ja |
+| NamnResolutionFailure |Ja |Ja |Ja |Ja |
 | ProxyNameResolutionFailure |Ja |Ja |Ja |Ja |
 | SendFailure |Ja |Ja |Ja |Ja |
-| PipelineFailure |Ja |Ja |Ja |Nej |
-| ConnectionClosed |Ja |Ja |Ja |Nej |
-| KeepAliveFailure |Ja |Ja |Ja |Nej |
-| UnknownError |Ja |Ja |Ja |Nej |
-| ReceiveFailure |Ja |Ja |Ja |Nej |
-| RequestCanceled |Ja |Ja |Ja |Nej |
-| Timeout |Ja |Ja |Ja |Nej |
-| ProtocolError <br/>Återförsök på protokollfel styrs av HTTP-status kod hantering. Mer information finns i [statuskoder för HTTP-fel](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Ja |Ja |Ja |Ja |
+| PipelineFailure |Ja |Ja |Ja |Inga |
+| Anslutning Stängd |Ja |Ja |Ja |Inga |
+| KeepAliveFailure |Ja |Ja |Ja |Inga |
+| Okändare |Ja |Ja |Ja |Inga |
+| ReceiveFailure |Ja |Ja |Ja |Inga |
+| BegäranCanceled |Ja |Ja |Ja |Inga |
+| Timeout |Ja |Ja |Ja |Inga |
+| Protokollerror <br/>Återförsöket på ProtocolError styrs av http-statuskodhanteringen. Mer information finns i [HTTP-felstatuskoder](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Ja |Ja |Ja |Ja |
 
-### <a name="HTTPStatusCode"></a> Statuskoder för HTTP-fel
-När frågan och SaveChanges kasta DataServiceClientException, DataServiceQueryException eller DataServiceQueryException, returneras HTTP-statuskoden för felet i egenskapen StatusCode.  I följande tabell visas vilka felkoder omprövningslogiken tillämpas.  
+### <a name="http-error-status-codes"></a><a name="HTTPStatusCode"></a>HTTP-felstatuskoder
+När åtgärder för Query och SaveChanges genererar DataServiceClientException, DataServiceQueryException eller DataServiceQueryException returneras HTTP-felstatuskoden i egenskapen Statuskod för StatusCode.  I följande tabell visas för vilka felkoder logiken för återförsök implementeras.  
 
-| Status | Webbegäran | Storage | Fråga | SaveChanges |
+| Status | Webbbegäran | Lagring | Söka i data | SparaChanges |
 | --- | --- | --- | --- | --- |
-| 401 |Nej |Ja |Nej |Nej |
-| 403 |Nej |Ja<br/>Hanterar återförsök med längre väntar. |Nej |Nej |
+| 401 |Inga |Ja |Inga |Inga |
+| 403 |Inga |Ja<br/>Hantera återförsök med längre väntetider. |Inga |Inga |
 | 408 |Ja |Ja |Ja |Ja |
 | 429 |Ja |Ja |Ja |Ja |
-| 500 |Ja |Ja |Ja |Nej |
-| 502 |Ja |Ja |Ja |Nej |
+| 500 |Ja |Ja |Ja |Inga |
+| 502 |Ja |Ja |Ja |Inga |
 | 503 |Ja |Ja |Ja |Ja |
-| 504 |Ja |Ja |Ja |Nej |
+| 504 |Ja |Ja |Ja |Inga |
 
-Om du vill ta en titt på den faktiska implementeringen av Media Services SDK för .NET logik för omprövning, se [azure-sdk-för-– medietjänster](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
+Om du vill ta en titt på den faktiska implementeringen av medietjänst-SDK för .NET-återförsökslogik läser du [azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services/tree/dev/src/net/Client/TransientFaultHandling).
 
 ## <a name="next-steps"></a>Nästa steg
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

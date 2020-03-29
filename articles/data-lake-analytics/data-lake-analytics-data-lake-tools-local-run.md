@@ -1,5 +1,5 @@
 ---
-title: Kör Azure Data Lake U-SQL-skript på den lokala datorn
+title: Köra Azure Data Lake U-SQL-skript på din lokala dator
 description: Lär dig hur du använder Azure Data Lake Tools för Visual Studio för att köra U-SQL-jobb på din lokala dator.
 services: data-lake-analytics
 author: yanancai
@@ -11,102 +11,102 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62113943"
 ---
-# <a name="run-u-sql-scripts-on-your-local-machine"></a>Kör U-SQL-skript på den lokala datorn
+# <a name="run-u-sql-scripts-on-your-local-machine"></a>Köra U-SQL-skript på din lokala dator
 
-När du utvecklar U-SQL-skript kan spara du tid och pengar genom att köra skripten lokalt. Azure Data Lake Tools för Visual Studio har stöd för U-SQL-skript som körs på den lokala datorn. 
+När du utvecklar U-SQL-skript kan du spara tid och kostnader genom att köra skripten lokalt. Azure Data Lake Tools för Visual Studio stöder körning av U-SQL-skript på din lokala dator. 
 
 ## <a name="basic-concepts-for-local-runs"></a>Grundläggande begrepp för lokala körningar
 
-I följande diagram visas komponenterna för lokal körning och hur de här komponenterna mappas till molnet som kör.
+Följande diagram visar komponenterna för lokal körning och hur dessa komponenter mappas till molnkörning.
 
-|Komponent|Lokal körning|Moln som kör|
+|Komponent|Lokal körning|Molnkörning|
 |---------|---------|---------|
-|Storage|Rotmapp för lokala data|Standard Azure Data Lake Store-konto|
-|Compute|Lokala kör U-SQL-motor|Azure Data Lake Analytics-tjänsten|
-|Körningsmiljön|Arbetskatalog på den lokala datorn|Azure Data Lake Analytics-kluster|
+|Lagring|Rotmapp för lokala data|Standardkontot för Azure Data Lake Store|
+|Compute|U-SQL lokal körning motor|Azure Data Lake Analytics-tjänst|
+|Kör miljö|Arbetskatalog på lokal dator|Azure Data Lake Analytics-kluster|
 
-Avsnitten som följer ger mer information om lokala kör komponenter.
+De avsnitt som följer innehåller mer information om lokala körningskomponenter.
 
-### <a name="local-data-root-folders"></a>Lokala data rotmappar
+### <a name="local-data-root-folders"></a>Lokala datarotmappar
 
-En rotmapp för lokala data är en **lokalt Arkiv** för lokalt compute-konto. Valfri mapp i det lokala filsystemet på den lokala datorn kan vara en rotmapp för lokala data. Det är samma som Azure Data Lake Store-standardkontot för ett Data Lake Analytics-konto. Växla till rotmappen för en annan data är precis som att byta till en annan store-standardkontot. 
+En lokal datarotmapp är ett **lokalt arkiv** för det lokala beräkningskontot. Alla mappar i det lokala filsystemet på den lokala datorn kan vara en lokal datarotmapp. Det är samma som standardkontot för Azure Data Lake Store för ett Data Lake Analytics-konto. Att byta till en annan datarotmapp är precis som att byta till ett annat standardlagringskonto. 
 
-Rotmappen data används på följande sätt:
-- Store metadata. Exempel är databaser, tabeller, tabellvärdesfunktioner och sammansättningar.
-- Leta upp de inkommande och utgående sökvägar som har definierats som relativa sökvägar i U-SQL-skript. Genom att använda relativa sökvägar, är det enklare att distribuera dina U-SQL-skript till Azure.
+Datarotmappen används på följande sätt:
+- Lagra metadata. Exempel är databaser, tabeller, tabellvärderade funktioner och sammansättningar.
+- Slå upp in- och utdatabanorna som definieras som relativa sökvägar i U-SQL-skript. Genom att använda relativa sökvägar är det enklare att distribuera dina U-SQL-skript till Azure.
 
-### <a name="u-sql-local-run-engines"></a>Lokal U-SQL kör motorer
+### <a name="u-sql-local-run-engines"></a>U-SQL lokala köra motorer
 
-Ett U-SQL lokalt kör motorn är en **lokala beräkningskonto** för U-SQL-jobb. Användare kan köra U-SQL-jobb lokalt via Azure Data Lake Tools för Visual Studio. Lokala körningar finns också tillgänglig via Azure Data Lake U-SQL SDK-gränssnitt för kommandoradsverktyg och programmeringsspråk. Läs mer om den [Azure Data Lake U-SQL SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/).
+En U-SQL lokal körningsmotor är ett **lokalt beräkningskonto** för U-SQL-jobb. Användare kan köra U-SQL-jobb lokalt via Azure Data Lake Tools för Visual Studio. Lokala körningar stöds också via Azure Data Lake U-SQL SDK-kommandorads- och programmeringsgränssnitt. Läs mer om [Azure Data Lake U-SQL SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/).
 
 ### <a name="working-directories"></a>Fungerande kataloger
 
-När du kör ett U-SQL-skript, krävs en arbetsmapp för katalogen för att cachelagra kompileringsresultaten, kör loggar och utföra andra funktioner. I Azure Data Lake Tools för Visual Studio är arbetskatalogen arbetskatalog för U-SQL-projekt. Det finns under `<U-SQL project root path>/bin/debug>`. Arbetskatalogen är rensad varje gång ett nytt kör utlöses.
+När du kör ett U-SQL-skript behövs en arbetskatalogmapp för att cachelagra kompileringsresultat, köra loggar och utföra andra funktioner. I Azure Data Lake Tools för Visual Studio är arbetskatalogen U-SQL-projektets arbetskatalog. Det ligger under `<U-SQL project root path>/bin/debug>`. Arbetskatalogen rensas varje gång en ny körning utlöses.
 
-## <a name="local-runs-in-microsoft-visual-studio"></a>Lokal körs i Microsoft Visual Studio
+## <a name="local-runs-in-microsoft-visual-studio"></a>Lokala körningar i Microsoft Visual Studio
 
-Azure Data Lake Tools för Visual Studio har en inbyggd lokala kör motor. Verktyg för att visa upp motorn som en lokal beräkningskonto. Om du vill köra ett U-SQL-skript lokalt väljer den **lokal dator** eller **lokal – projekt** konto i listrutan i skriptets redigeraren marginal. Välj sedan **skicka**.
+Azure Data Lake Tools för Visual Studio har en inbyggd lokal körningsmotor. Verktygen yta motorn som en lokal beräkningskonto. Om du vill köra ett U-SQL-skript lokalt väljer du kontot **Lokal eller** **Lokal projekt** i den nedrullningsbara menyn med redigerarmarginal för skriptet. Välj sedan **Skicka**.
 
-![Skicka ett U-SQL-skript för att ett lokalt konto](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-submit-script-to-local-account.png) 
+![Skicka ett U-SQL-skript till ett lokalt konto](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-submit-script-to-local-account.png) 
  
-## <a name="local-runs-with-a-local-machine-account"></a>Lokala körs med ett lokalt datorkonto
+## <a name="local-runs-with-a-local-machine-account"></a>Lokala körningar med ett konto för lokal dator
 
-En **lokal dator** konto är en delad lokal compute-konto med en enda lokal data rotmapp som lokala store-konto. Som standard rotmappen data finns på **C:\Users\<användarnamn > \AppData\Local\USQLDataRoot**. Det är också konfigureras via **verktyg** > **Datasjö** > **alternativ och inställningar**.
+Ett **konto på lokal dator** är ett delat lokalt beräkningskonto med en enda lokal datarotmapp som lokalt arkivkonto. Som standard finns datarotmappen på **C:\Användares\<användarnamn>\AppData\Local\USQLDataRoot**. Det är också konfigurerbart genom **Verktyg** > **Data Lake** > **Alternativ och inställningar**.
 
-![Konfigurera en rotmapp för lokala data](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
+![Konfigurera en lokal datarotmapp](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   
-Det krävs ett U-SQL-projekt för en lokal körning. Arbetskatalog för U-SQL-projekt används för arbetskatalogen U-SQL lokalt kör. Kompilering resultat, köra loggar och andra jobb kör-relaterade filer genereras och lagras under directory arbetsmapp vid lokal körning. Varje gång du kör skriptet rensas alla filer i arbetskatalogen och återskapas.
+Ett U-SQL-projekt krävs för en lokal körning. U-SQL-projektets arbetskatalog används för U-SQL-arbetskatalogen för lokala kör. Kompileringsresultat, körloggar och andra jobbkörningsrelaterade filer genereras och lagras under arbetskatalogmappen under den lokala körningen. Varje gång du kör skriptet igen rensas och återskapas alla filer i arbetskatalogen.
 
-## <a name="local-runs-with-a-local-project-account"></a>Lokala körs med ett konto för lokal-projekt
+## <a name="local-runs-with-a-local-project-account"></a>Lokala körningar med ett lokalt projektkonto
 
-En **lokal – projekt** konto är en isolerad projekt lokal compute-konto för varje projekt med en isolerad lokala data-rotmappen. Alla aktiva U-SQL-projektet som öppnas i Solution Explorer i Visual Studio har ett motsvarande `(Local-project: <project name>)` konto. Kontona finns angivna i både Server Explorer i Visual Studio och U-SQL-skript redigeraren marginal.  
+Ett **lokalt projektkonto** är ett projektinsolerat lokalt beräkningskonto för varje projekt med en isolerad lokal datarotmapp. Varje aktivt U-SQL-projekt som öppnas i Solution `(Local-project: <project name>)` Explorer i Visual Studio har ett motsvarande konto. Kontona visas i både Server Explorer i Visual Studio och U-SQL-skriptredigerarens marginal.  
 
-Den **lokal – projekt** konto tillhandahåller en ren och isolerad utvecklingsmiljö. En **lokal dator** konto har en rotmapp för delade lokala data som lagrar metadata och indata och utdata för alla lokala jobb. Men en **lokal – projekt** konto skapar en rotmappen för en tillfällig lokala data under en arbetskatalog för U-SQL-projekt varje gång ett U-SQL-skript körs. Denna rotmapp för tillfälliga data rensas när en återskapning eller kör händer. 
+Kontot **För lokalt projekt** ger en ren och isolerad utvecklingsmiljö. Ett konto **på lokal dator** har en delad lokal datarotmapp som lagrar metadata och indata och utdata för alla lokala jobb. Men ett **lokalt projektkonto** skapar en tillfällig lokal datarotmapp under en U-SQL-projektarbetskatalog varje gång ett U-SQL-skript körs. Den här tillfälliga datarotmappen rensas när en ombyggnad eller repris inträffar. 
 
-Ett U-SQL-projekt hanterar isolerade lokala körningsmiljön via en projektreferens för och egenskapen. Du kan konfigurera indatakällor för U-SQL-skript i både projektet och de refererade databasmiljöer.
+Ett U-SQL-projekt hanterar den isolerade lokala körmiljön genom en projektreferens och egenskap. Du kan konfigurera indatakällor för U-SQL-skript i både projektet och de refererade databasmiljöerna.
 
-### <a name="manage-the-input-data-source-for-a-local-project-account"></a>Hantera inkommande datakällan för ett konto för lokal-projekt 
+### <a name="manage-the-input-data-source-for-a-local-project-account"></a>Hantera indatakällan för ett lokalt projektkonto 
 
-Ett U-SQL-projekt som skapar en rotmapp för lokala data och ställer in data för en **lokal – projekt** konto. En rotmapp för tillfälliga data rensas och återskapas under arbetskatalogen för U-SQL-projekt varje gång en återskapning och lokal körning sker. Alla datakällor som är konfigurerade med U-SQL-projekt kopieras till rotmappen för den här tillfälliga lokala data innan du kör lokala jobbet. 
+Ett U-SQL-projekt skapar en lokal datarotmapp och ställer in data för ett **lokalt projektkonto.** En tillfällig datarotmapp rensas och återskapas under U-SQL-projektets arbetskatalog varje gång en ombyggnad och lokal körning inträffar. Alla datakällor som konfigureras av U-SQL-projektet kopieras till den här tillfälliga lokala datarotmappen innan det lokala jobbet körs. 
 
-Du kan konfigurera rotmappen för dina datakällor. Högerklicka på **U-SQL-projekt** > **egenskapen** > **testa datakällan**. När du kör ett U-SQL-skript på en **lokal – projekt** konto, alla filer och undermappar i den **testa datakällan** mappen kopieras till rotmappen temporära lokala data. Filer under undermappar ingår. När ett lokalt jobb har körts finns utdataresultat även under rotmappen temporära lokala data i arbetskatalogen för projektet. Dessa utdata tas bort och rensas när projektet hämtar återskapas och tas sedan bort. 
+Du kan konfigurera rotmappen för dina datakällor. Högerklicka på**testdatakälla** **för U-SQL-projektegenskap** > **Property** > . När du kör ett U-SQL-skript på ett **lokalt projektkonto** kopieras alla filer och undermappar i mappen **Testdatakälla** till den tillfälliga lokala datarotmappen. Filer under undermappar ingår. När ett lokalt jobb har körts kan utdata också hittas under den tillfälliga lokala datarotmappen i projektets arbetskatalog. All denna utdata tas bort och rengöras när projektet byggs om och rengörs. 
 
-![Konfigurera datakälla för ett projekt test](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
+![Konfigurera ett projekts testdatakälla](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
-### <a name="manage-a-referenced-database-environment-for-a-local-project-account"></a>Hantera en refererad databas för en **lokal – projekt** konto 
+### <a name="manage-a-referenced-database-environment-for-a-local-project-account"></a>Hantera en refererad databasmiljö för ett **lokalt projektkonto** 
 
-Om en U-SQL fråga använder eller frågor med U-SQL database-objekt, måste du se miljöerna som databasen redo lokalt innan du kör U-SQL-skript lokalt. För en **lokal – projekt** U-SQL-databas som beroenden kan hanteras av projektreferenserna för U-SQL-konto. Du kan lägga till U-SQL-databas projektreferenserna till ditt U-SQL-projekt. Innan du kör U-SQL-skript på en **lokal – projekt** konto, alla refererade databaser har distribuerats till rotmappen temporära lokala data. Och för varje körning rotmappen för tillfälliga data rensas som en ny isolerad miljö.
+Om en U-SQL-fråga använder eller frågar med U-SQL-databasobjekt måste du göra databasmiljöerna redo lokalt innan du kör U-SQL-skriptet lokalt. För ett **lokalt projektkonto** kan U-SQL-databasberoenden hanteras av U-SQL-projektreferenser. Du kan lägga till U-SQL-databasprojektreferenser i ditt U-SQL-projekt. Innan U-SQL-skript körs på ett **lokalt projektkonto** distribueras alla refererade databaser till den tillfälliga lokala datarotmappen. Och för varje körning rensas den tillfälliga datarotmappen som en ny isolerad miljö.
 
 Se den här relaterade artikeln:
-* Lär dig hur du hanterar definitioner för U-SQL-databas och referenser i [U-SQL-databasprojekt](data-lake-analytics-data-lake-tools-develop-usql-database.md).
+* Lär dig hur du hanterar U-SQL-databasdefinitioner och referenser i [U-SQL-databasprojekt](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
-## <a name="the-difference-between-local-machine-and-local-project-accounts"></a>Skillnaden mellan **lokal dator** och **lokal – projekt** konton
+## <a name="the-difference-between-local-machine-and-local-project-accounts"></a>Skillnaden mellan **konton för lokal och** lokal **projekt**
 
-En **lokal dator** konto simulerar ett Azure Data Lake Analytics-konto på användarnas lokala datorer. Den delar samma upplevelse med ett Azure Data Lake Analytics-konto. En **lokal – projekt** konto tillhandahåller ett användarvänligt lokala utvecklingsmiljö. Den här miljön hjälper användare att distribuera referenser och inmatade data innan de kör skript lokalt. En **lokal dator** konto tillhandahåller en delad permanent miljö som kan nås via alla projekt. En **lokal – projekt** konto tillhandahåller en isolerad utvecklingsmiljö för varje projekt. Den uppdateras för varje körning. En **lokal – projekt** konto ger en snabbare utvecklingsupplevelse genom att snabbt tillämpa nya ändringar.
+Ett konto på lokal dator simulerar ett Azure Data Lake **Analytics-konto** på användarnas lokala datorer. Den delar samma upplevelse med ett Azure Data Lake Analytics-konto. Ett **lokalt projektkonto** ger en användarvänlig lokal utvecklingsmiljö. Den här miljön hjälper användare att distribuera databasreferenser och indata innan de kör skript lokalt. Ett konto **på lokal dator** tillhandahåller en delad permanent miljö som kan nås via alla projekt. Ett **lokalt projektkonto** ger en isolerad utvecklingsmiljö för varje projekt. Det är utvilat för varje körning. Ett **lokalt projektkonto** ger en snabbare utvecklingsupplevelse genom att snabbt tillämpa nya ändringar.
 
-Mer skillnaderna mellan **lokal dator** och **lokal – projekt** konton visas i följande tabell:
+Fler skillnader mellan **konton för lokal dator** och Lokalt **projekt** visas i följande tabell:
 
-|Skillnaden vinkel|Lokal dator|Lokal-projekt|
+|Skillnadsvinkel|Lokal-maskin|Lokalt projekt|
 |----------------|---------------|---------------|
-|Lokal åtkomst|Kan användas av alla projekt.|Endast motsvarande projektet kan komma åt det här kontot.|
-|Rotmapp för lokala data|En permanent lokal mapp. Konfigurerade via **verktyg** > **Datasjö** > **alternativ och inställningar**.|En tillfällig mapp som skapas för varje lokal körning under U-SQL-projekt som arbetskatalog. Mappen hämtar rensas när en återskapning eller kör händer.|
-|Indata för ett U-SQL-skript|Den relativa sökvägen under rotmappen permanent lokala data.|Ange via **U-SQL-projektegenskap** > **testa datakällan**. Alla filer och undermappar kopieras till rotmappen för tillfälliga data innan en lokal körning.|
-|Utdata för ett U-SQL-skript|Relativ sökväg under rotmappen permanent lokala data.|Utdata till rotmappen för tillfälliga data. Resultaten rensas när en återskapning eller kör händer.|
-|Distribution av refererade databaser|Refererade databaser inte distribuerats automatiskt när du kör mot ett **lokal dator** konto. Det är samma för att skicka till ett Azure Data Lake Analytics-konto.|Refererade databaser har distribuerats till den **lokal – projekt** konto automatiskt innan en lokal körning. Alla databasmiljöer rensade och omdistribueras när indexet återskapas eller kör händer.|
+|Lokal åtkomst|Kan nås av alla projekt.|Endast motsvarande projekt kan komma åt det här kontot.|
+|Rotmapp för lokala data|En permanent lokal mapp. Konfigurerad via**Alternativ och inställningar för****Verktygsdatasjö** >  **Tools** > .|En tillfällig mapp som skapats för varje lokal körning under U-SQL-projektets arbetskatalog. Mappen rensas när en ombyggnad eller repris inträffar.|
+|Indata för ett U-SQL-skript|Den relativa sökvägen under den permanenta lokala datarotmappen.|Ange genom > **testdatakälla för** **U-SQL-projektegenskap**. Alla filer och undermappar kopieras till den tillfälliga datarotmappen före en lokal körning.|
+|Utdata för ett U-SQL-skript|Relativ sökväg under den permanenta lokala datarotmappen.|Utdata till den tillfälliga datarotmappen. Resultaten rengörs när en ombyggnad eller repris inträffar.|
+|Refererad databasdistribution|Refererade databaser distribueras inte automatiskt när de körs mot ett **konto för lokal dator.** Det är samma sak för att skicka till ett Azure Data Lake Analytics-konto.|Refererade databaser distribueras automatiskt till kontot **Lokalt projekt** innan en lokal körning körs. Alla databasmiljöer rensas och distribueras om när en ombyggnad eller repris inträffar.|
 
-## <a name="a-local-run-with-the-u-sql-sdk"></a>En lokal körning med U-SQL-SDK
+## <a name="a-local-run-with-the-u-sql-sdk"></a>En lokal körning med U-SQL SDK
 
-Du kan köra U-SQL-skript lokalt i Visual Studio och även använda Azure Data Lake U-SQL SDK för att köra U-SQL-skript lokalt med kommandoradsverktyg och programmeringsspråk gränssnitt. Via dessa gränssnitt, kan du automatisera lokal U-SQL-körningar och tester.
+Du kan köra U-SQL-skript lokalt i Visual Studio och även använda Azure Data Lake U-SQL SDK för att köra U-SQL-skript lokalt med kommandorads- och programmeringsgränssnitt. Genom dessa gränssnitt kan du automatisera U-SQL lokala körningar och tester.
 
-Läs mer om den [Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md).
+Läs mer om [Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md).
+- [Konfigurera en CI/CD-pipeline för Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md).
 - [Så här testar du din Azure Data Lake Analytics-kod](data-lake-analytics-cicd-test.md).

@@ -1,6 +1,6 @@
 ---
-title: Felsöka ett attribut som inte synkroniseras i Azure AD Connect | Microsoft Docs
-description: Det här avsnittet innehåller anvisningar att felsöka problem med attributet synkronisering med hjälp av felsökningsaktiviteten.
+title: Felsöka ett attribut som inte synkroniseras i Azure AD Connect | Microsoft Dokument"
+description: Det här avsnittet innehåller steg för felsÃ¶kning av problem med attributsynkronisering med hjälp av felsÃ¶kningsuppgiften.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,79 +16,79 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456000"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Felsöka ett attribut som inte synkroniseras i Azure AD Connect
 
 ## <a name="recommended-steps"></a>**Rekommenderade åtgärder**
 
-Innan man har undersökt attribut som synkroniseras problem, låt oss se på **Azure AD Connect** synkroniserar processen:
+Innan du undersöker problem med attributsynkronisering ska vi förstå synkroniseringsprocessen för **Azure AD Connect:**
 
-  ![Azure AD Connect-synkronisering](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/syncingprocess.png)
+  ![Synkroniseringsprocess för Azure AD Connect](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/syncingprocess.png)
 
 ### <a name="terminology"></a>**Terminologi**
 
-* **CS:** En tabell i databasen i anslutningsplatsen.
-* **MV:** Metaversum, en tabell i databasen.
-* **AD:** Active Directory
+* **CS:** Kopplingsutrymme, en tabell i databasen.
+* **MV:** Metaverse, en tabell i databasen.
+* **AD:** Aktiv katalog
 * **AAD:** Azure Active Directory
 
 ### <a name="synchronization-steps"></a>**Synkroniseringssteg**
 
-* Importera från AD: Active Directory-objekt förs in AD CS.
+* Importera från AD: Active Directory-objekt förs in i AD CS.
 
-* Importera från AAD: Azure Active Directory-objekt överförs till AAD CS.
+* Importera från AAD: Azure Active Directory-objekt förs in i AAD CS.
 
-* Synkronisering: **Inkommande Synkroniseringsregler** och **utgående Synkroniseringsregler** körs i den ordning som siffran från lägre till högre. Om du vill visa de Synkroniseringsregler som du kan gå till **Synchronization Rules Editor** från program. Den **inkommande Synkroniseringsregler** ger i data från CS MV. Den **utgående Synkroniseringsregler** flyttar data från MV till CS.
+* Synkronisering: **Inkommande synkroniseringsregler** och regler för **utgående synkronisering** körs i prioritetsordning från lägre till högre. Om du vill visa synkroniseringsreglerna kan du gå till Redigeraren för **synkroniseringsregler** från skrivbordsprogrammen. Reglerna **för inkommande synkronisering** innehåller data från CS till MV. **Reglerna för utgående synkronisering** flyttar data från MV till CS.
 
-* Exportera till AD: När synkronisering har körts kan exporteras objekt från AD CS att **Active Directory**.
+* Exportera till AD: När synkroniseringen har körts exporteras objekt från AD CS till **Active Directory**.
 
-* Exportera till AAD: När du har kört synkronisering objekt exporteras från AAD CS till **Azure Active Directory**.
+* Exportera till AAD: När synkroniseringen har körts exporteras objekt från AAD CS till **Azure Active Directory**.
 
-### <a name="step-by-step-investigation"></a>**Steg för steg undersökning**
+### <a name="step-by-step-investigation"></a>**Steg för steg-undersökning**
 
-* Vi ska starta våra sökning från den **metaversum** och titta på attributmappning från källan till målet.
+* Vi kommer att starta vår sökning från **Metaverse** och titta på attributet kartläggning från källa till mål.
 
-* Starta **hanteraren för synkroniseringstjänsten** från skrivbordsprogram, som visas nedan:
+* Starta **Synkroniseringstjänsthanteraren** från skrivbordsprogrammen, som visas nedan:
 
-  ![Starta hanteraren för synkroniseringstjänsten](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/startmenu.png)
+  ![Starta tjänsthanteraren för synkronisering](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/startmenu.png)
 
-* På den **hanteraren för synkroniseringstjänsten**väljer den **Metaversumsökning**väljer **omfång efter objekttyp**, markerar du objektet med hjälp av ett attribut och klicka på **Search** knappen.
+* På **Synkroniseringstjänsthanteraren**markerar du **Metaverse Search**, väljer **Omfattning efter objekttyp,** markerar objektet med ett attribut och klickar på **Sök-knappen.**
 
-  ![Metaversumsökning](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvsearch.png)
+  ![Sök efter metaversum](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvsearch.png)
 
-* Dubbelklicka på det objekt som hittats i den **metaversum** -sökning för att visa dess attribut. Du kan klicka på den **kopplingar** flik för att titta på motsvarande objekt i alla de **-kopplingens utrymmen**.
+* Dubbelklicka på objektet som hittades i **metaversen** för att visa alla dess attribut. Du kan klicka på fliken Kopplingar för att titta på motsvarande objekt i alla **kopplingsutrymmen**. **Connectors**
 
-  ![Metaversumobjekt kopplingar](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvattributes.png)
+  ![Metaversumobjektkopplingar](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvattributes.png)
 
-* Dubbelklicka på den **Active Directory-koppling** att visa den **Anslutarplatsen** attribut. Klicka på den **förhandsversion** knappen i den följande dialogrutan klickar du på den **Generera förhandsgranskning** knappen.
+* Dubbelklicka på **Active Directory Connector** för att visa **kopplingarsutrymmesattributen.** Klicka på **knappen Förhandsgranska,** i följande dialogruta, klicka på knappen **Generera förhandsgranskning.**
 
-  ![Connector utrymme attribut](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![Kopplingars utrymmesattribut](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
-* Nu klickar du på den **Import attributflöde**, detta visar flödet av attribut från **Active Directory-Anslutarplatsen** till den **metaversum**. **Synkronisera regeln** kolumnen visar vilka **Synkroniseringsregeln** bidragit till attributet. **Datakällan** kolumnen visar attribut från den **Anslutarplatsen**. **Attribut för metaversum** kolumnen visar attributen i den **metaversum**. Du kan söka efter attribut som synkroniseras inte här. Om du inte hittar attributet här, detta är inte mappad och du behöver skapa nya anpassade **Synkroniseringsregeln** att mappa attributet.
+* Klicka nu på **importattributflödet**, visar detta flödet av attribut från **Active Directory Connector Space** till **Metaverse**. **Kolumnen Synkroniseringsregel** visar vilken **synkroniseringsregel** som bidragit till attributet. **Kolumnen Datakälla** visar attributen från **anslutningsutrymmet**. **Kolumnen Metaversumattribut** visar attributen i **metaversumet**. Du kan leta efter attributet som inte synkroniseras här. Om du inte hittar attributet här mappas inte detta och du måste skapa en ny anpassad **synkroniseringsregel** för att mappa attributet.
 
-  ![Connector utrymme attribut](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/cstomvattributeflow.png)
+  ![Kopplingars utrymmesattribut](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/cstomvattributeflow.png)
 
-* Klicka på den **exportera attributflöde** i den vänstra rutan att visa attributflöde från **metaversum** tillbaka till **Active Directory-Anslutarplatsen** med  **Utgående Synkroniseringsregler**.
+* Klicka på **exportattributflödet** i den vänstra rutan om du vill visa attributflödet från **Metaversit** tillbaka till **Active Directory Connector Space** med hjälp av **utgående synkroniseringsregler**.
 
-  ![Connector utrymme attribut](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![Kopplingars utrymmesattribut](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
-* På samma sätt kan du visa den **Azure Active Directory-Anslutarplatsen** objekt och kan generera den **förhandsversion** att visa attributflöde från **metaversum** till **Anslutningsplatsen** och vice versa sätt du kan undersöka varför ett attribut synkroniseras inte.
+* På samma sätt kan du visa **Azure Active Directory Connector Space-objektet** och kan generera **förhandsgranskningen** för att visa attributflödet från **Metaverse** till **Anslutningsutrymmet** och vice versa, på så sätt kan du undersöka varför ett attribut inte synkroniseras.
 
 ## <a name="recommended-documents"></a>**Rekommenderade dokument**
-* [Azure AD Connect-synkronisering: Tekniska begrepp](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
-* [Azure AD Connect-synkronisering: Förstå arkitekturen](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
-* [Azure AD Connect-synkronisering: Förstå deklarativ etablering](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
+* [Synkronisering av Azure AD Connect: Tekniska koncept](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
+* [Synkronisering av Azure AD Connect: Förstå arkitekturen](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
+* [Synkronisering av Azure AD Connect: Förstå deklarativ etablering](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
+* [Synkronisering av Azure AD Connect: Förstå deklarativa etableringsuttryck](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
 * [Azure AD Connect-synkronisering: Förstå standardkonfigurationen](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
-* [Azure AD Connect-synkronisering: Förstå användare, grupper och kontakter](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Azure AD Connect-synkronisering: Skuggattribut](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Synkronisering av Azure AD Connect: Förstå användare, grupper och kontakter](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
+* [Synkronisering av Azure AD Connect: Skuggattribut](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md).
-- [Vad är hybrididentitet? ](whatis-hybrid-identity.md).
+- [Vad är hybrididentitet?](whatis-hybrid-identity.md).

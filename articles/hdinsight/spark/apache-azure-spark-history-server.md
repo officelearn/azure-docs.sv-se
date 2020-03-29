@@ -1,6 +1,6 @@
 ---
-title: Använd de utökade funktionerna på Apache Spark historik Server för att felsöka appar – Azure HDInsight
-description: Använd de utökade funktionerna på Apache Spark historik Server för att felsöka och diagnostisera Spark-program – Azure HDInsight.
+title: Använda de utökade funktionerna i Apache Spark History Server för att felsöka appar - Azure HDInsight
+description: Använd de utökade funktionerna i Apache Spark History Server för att felsöka och diagnostisera Spark-program - Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,243 +9,243 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
 ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76548942"
 ---
-# <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Använd de utökade funktionerna i Apache Spark historik servern för att felsöka och diagnostisera Spark-program
+# <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Använda de utökade funktionerna i Apache Spark History Server för att felsöka och diagnostisera Spark-program
 
-Den här artikeln visar hur du använder de utökade funktionerna i Apache Spark historik servern för att felsöka och diagnostisera slutförda eller aktiva Spark-program. Tillägget innehåller fliken **data** , fliken **diagram** och fliken **diagnos** . På fliken **data** kan du kontrol lera indata och utdata för Spark-jobbet. På fliken **diagram** kan du kontrol lera data flödet och spela upp jobb diagrammet. På fliken **diagnos** kan du referera till **data skevning**, **tids skevning**och **användnings analys** funktioner för utförar.
+Den här artikeln visar hur du använder de utökade funktionerna i Apache Spark History Server för att felsöka och diagnostisera slutförda eller köra Spark-program. Tillägget innehåller fliken **Data,** fliken **Diagram** och fliken **Diagnos.** På fliken **Data** kan du kontrollera in- och utdata för Spark-jobbet. På fliken **Diagram** kan du kontrollera dataflödet och spela upp jobbdiagrammet igen. På fliken **Diagnos** kan du referera till funktionerna **Data skeva,** **tidssnedställning**och **körverkningsanvändningsanalys.**
 
-## <a name="get-access-to-the-spark-history-server"></a>Få åtkomst till Spark-historik servern
+## <a name="get-access-to-the-spark-history-server"></a>Få tillgång till Spark History Server
 
-Spark-historik servern är webb gränssnittet för slutförd och körning av Spark-program. Du kan öppna den antingen från Azure Portal eller från en URL.
+Spark History Server är webbgränssnittet för färdiga och köra Spark-program. Du kan öppna den antingen från Azure-portalen eller från en URL.
 
-### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Öppna webb gränssnittet för Spark historik Server från Azure Portal
+### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Öppna användargränssnittet för Spark History Server från Azure-portalen
 
-1. Öppna Spark-klustret från [Azure Portal](https://portal.azure.com/). Mer information finns i [lista och Visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. Välj **Spark historik Server**från **kluster instrument paneler**. När du uppmanas till det anger du administratörs behörighet för Spark-klustret.
+1. Öppna Spark-klustret från [Azure-portalen.](https://portal.azure.com/) Mer information finns i [Lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
+2. Välj **Spark-historikserver**från **klusterinstrumentpaneler**. Ange administratörsautentiseringsuppgifterna för Spark-klustret när du uppmanas att göra det.
 
-    ![Starta Spark historik servern från Azure Portal.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Spark-historik Server")
+    ![Starta Spark History Server från Azure-portalen.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Spark-historikserver")
 
-### <a name="open-the-spark-history-server-web-ui-by-url"></a>Öppna webb gränssnittet för Spark historik server med URL
+### <a name="open-the-spark-history-server-web-ui-by-url"></a>Öppna webbgränssnittet Spark History Server efter URL
 
-Öppna Spark historik servern genom att bläddra till `https://CLUSTERNAME.azurehdinsight.net/sparkhistory`, där **kluster** namn är namnet på ditt Spark-kluster.
+Öppna Spark History Server genom `https://CLUSTERNAME.azurehdinsight.net/sparkhistory`att bläddra till , där **CLUSTERNAME** är namnet på Spark-klustret.
 
-Spark historik serverns webb gränssnitt kan se ut ungefär som den här bilden:
+Webbgränssnittet Spark History Server kan se ut ungefär som den här bilden:
 
-![Server sidan Spark-historik.](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
+![Sidan Spark History Server.](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
-## <a name="use-the-data-tab-in-the-spark-history-server"></a>Använd fliken data på servern för Spark-historik
+## <a name="use-the-data-tab-in-the-spark-history-server"></a>Använda fliken Data i Spark History Server
 
-Välj jobb-ID och välj sedan **data** på verktygs menyn för att Visa datavyn.
+Välj jobb-ID och välj sedan **Data** på verktygsmenyn för att se datavyn.
 
-+ Granska **indata**, **utdata**och **tabell åtgärder** genom att välja de enskilda flikarna.
++ Granska **indata,** **utdata**och **tabelloperationer** genom att välja de enskilda flikarna.
 
-    ![Fliken data på sidan data för Spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
+    ![Dataflikar på sidan Data för Spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
-+ Kopiera alla rader genom att välja knappen **Kopiera** .
++ Kopiera alla rader genom att markera knappen **Kopiera.**
 
     ![Kopiera data på sidan Spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
-+ Spara alla data som en. CSV-fil genom att välja **CSV** -knappen.
++ Spara alla data som en . CSV-filen genom att välja **csv-knappen.**
 
-    ![Spara data som en. CSV-fil från sidan data för Spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
+    ![Spara data som en . CSV-fil från sidan Data for Spark Application.](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
-+ Sök i data genom att ange nyckelord i **Sök** fältet. Sök resultatet visas omedelbart.
++ Sök efter data genom att ange nyckelord i fältet **Sök.** Sökresultaten visas omedelbart.
 
-    ![Sök efter data på sidan data för Spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
+    ![Sök data på sidan Data for Spark Application.](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
-+ Välj kolumn rubriken för att sortera tabellen. Välj plus tecknet för att expandera en rad för att visa mer information. Klicka på minus tecknet för att komprimera en rad.
++ Markera kolumnrubriken för att sortera tabellen. Välj plustecknet om du vill expandera en rad för att visa mer information. Markera minustecknet om du vill komprimera en rad.
 
-    ![Data tabellen på sidan data för Spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
+    ![Datatabellen på sidan Data för Spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
-+ Hämta en enda fil genom att välja knappen **del nedladdning** till höger. Den valda filen kommer att hämtas lokalt. Om filen inte finns längre öppnas en ny flik som visar fel meddelandena.
++ Ladda ner en enda fil genom att välja knappen **Partiell nedladdning** till höger. Den valda filen hämtas lokalt. Om filen inte längre finns öppnas en ny flik för att visa felmeddelandena.
 
-    ![Data hämtnings raden på sidan data för Spark-program.](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
+    ![Datanedladdningsraden på sidan Data for Spark Application.](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
-+ Kopiera en fullständig sökväg eller en relativ sökväg genom att välja antingen alternativet **Kopiera fullständig sökväg** eller **Kopiera relativ sökväg** , som expanderar från nedladdnings menyn. För Azure Data Lake Storage filer väljer du **Öppna i Azure Storage Explorer** för att starta Azure Storage Explorer och letar upp mappen efter inloggning.
++ Kopiera en fullständig sökväg eller en relativ sökväg genom att välja alternativet **Kopiera fullständig sökväg** eller **Kopiera relativ sökväg,** som expanderas från hämtningsmenyn. För Azure Data Lake Storage-filer väljer du **Öppna i Azure Storage Explorer** för att starta Azure Storage Explorer och hitta mappen efter inloggning.
 
-    ![Kopiera alternativ för fullständig sökväg och kopiera relativa sökvägar på sidan data för Spark-program.](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
+    ![Kopiera alternativen för fullständig sökväg och kopiera relativ sökväg på sidan Data för Spark-program.](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 
-+ Om det finns för många rader att visa på en enda sida, väljer du sid numren längst ned i tabellen för att navigera.
++ Om det finns för många rader att visa på en enda sida markerar du sidnumren längst ned i tabellen för att navigera.
 
-    ![Sid nummer på sidan data för Spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
+    ![Sidnummer på sidan Data för spark-program.](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
-+ För mer information, Hovra över eller Välj frågetecknet bredvid **data för Spark-programmet** för att Visa knapp beskrivningen.
++ Om du vill ha mer information håller du muspekaren över eller väljer frågetecknet bredvid **Data för Spark-program för** att visa verktygstipset.
 
-    ![Hämta mer information från sidan data för Spark-program.](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
+    ![Få mer information från sidan Data for Spark Application.](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
 
-+  Om du vill skicka feedback om problem väljer du **ge oss feedback**.
++  Om du vill skicka feedback om problem väljer du **Ge oss feedback**.
 
-    ![Lämna feedback från sidan data för Spark-program.](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    ![Ge feedback från sidan Data for Spark Application.](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
-## <a name="use-the-graph-tab-in-the-spark-history-server"></a>Använd fliken diagram på servern för Spark-historik
+## <a name="use-the-graph-tab-in-the-spark-history-server"></a>Använda fliken Diagram i Spark History Server
 
-+ Välj jobb-ID och välj sedan **diagram** på verktygs menyn för att visa jobb diagrammet. Som standard visas alla jobb i diagrammet. Filtrera resultaten med hjälp av list menyn för **jobb-ID** .
++ Välj jobb-ID och välj sedan **Diagram** på verktygsmenyn för att se jobbdiagrammet. Som standard visar diagrammet alla jobb. Filtrera resultatet med hjälp av listrutan **Jobb-ID.**
 
-    ![List rutan jobb-ID på sidan Spark-program & jobb diagram.](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
+    ![Listrutan Jobb-ID på sidan Spark-program & jobbdiagram.](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
-+ **Förloppet** är markerat som standard. Kontrol lera data flödet genom att välja **Läs** eller **Skriv** i den nedrullningsbara menyn **Visa** .
++ **Förloppet** är markerat som standard. Kontrollera dataflödet genom att välja **Läs** eller **skrivet** på listrutan **Visa.**
 
-    ![Kontrol lera data flödet på sidan Spark-program & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
+    ![Kontrollera dataflödet på sidan Spark Application & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
 
-+ Bakgrunds färgen för varje aktivitet motsvarar en värme karta.
++ Bakgrundsfärgen för varje uppgift motsvarar en värmekarta.
 
-   ![Värme kartan på sidan Spark-program & jobb diagram.](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
+   ![Värmekartan på sidan Spark Application & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
 
-    |Färg |Beskrivning |
+    |Color |Beskrivning |
     |---|---|
     |Grön|Jobbet har slutförts.|
-    |Orange|Uppgiften misslyckades, men detta påverkar inte det slutliga resultatet av jobbet. Dessa aktiviteter har dubbletter eller nya försök som kan utföras senare.|
-    |Blå|Uppgiften körs.|
-    |Vit|Uppgiften väntar på att köras eller så har fasen hoppats över.|
-    |Röd|Uppgiften misslyckades.|
+    |Orange|Aktiviteten misslyckades, men det påverkar inte det slutliga resultatet av jobbet. Dessa aktiviteter har dubblett- eller återförsöksinstanser som kan lyckas senare.|
+    |Blå|Aktiviteten körs.|
+    |Vit|Aktiviteten väntar på att köras eller så har scenen hoppat över.|
+    |Röd|Aktiviteten misslyckades.|
 
-     ![Köra en aktivitet på sidan Spark-program & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
+     ![Köra en uppgift på sidan Spark-program & jobbdiagram.](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
-     De överhoppade faserna visas i vitt.
-    ![en aktivitet som hoppas över på sidan för att & jobb i Spark-programmet.](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+     De överhoppade stadierna visas i vitt.
+    ![En överhoppad uppgift på sidan Spark-program & jobbdiagram.](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
 
-    ![En misslyckad aktivitet på sidan för Spark-programmets & jobb.](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
+    ![En misslyckad aktivitet på sidan Spark-program & jobbdiagram.](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
 
      > [!NOTE]  
-     > Uppspelning är tillgängligt för slutförda jobb. Klicka på **uppspelnings** knappen för att spela upp jobbet igen. Stoppa jobbet när du vill genom att klicka på stopp knappen. När ett jobb spelas upp visas statusen efter färg i varje aktivitet. Uppspelning stöds inte för ofullständiga jobb.
+     > Uppspelning är tillgänglig för slutförda jobb. Välj knappen **Uppspelning** för att spela upp jobbet. Stoppa jobbet när som helst genom att välja stoppknappen. När ett jobb spelas upp visar varje aktivitet sin status efter färg. Uppspelning stöds inte för ofullständiga jobb.
 
-+ Rulla för att zooma in eller ut i jobb diagrammet, eller Välj **Zooma för att passa** för att få plats på skärmen.
++ Bläddra för att zooma in eller ut i jobbdiagrammet eller välj **Zoom för att få** plats så att den passar till skärmen.
 
-    ![Välj zooma för att få plats på sidan Spark-program & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
+    ![Välj Zooma för att få plats på sidan Spark-program & jobbdiagram.](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
 
-+ När aktiviteterna inte fungerar, Hovra över graf-noden för att se knapp beskrivningen och välj sedan scenen för att öppna den på en ny sida.
++ När aktiviteter misslyckas hovrar du över diagramnoden för att se verktygstipset och markerar sedan scenen för att öppna den på en ny sida.
 
-    ![Visa knapp beskrivningen på sidan för Spark-programmets & jobb diagram.](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+    ![Visa verktygstipset på sidan Spark Application & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
-+ På sidan Spark-program & jobb diagram visas knapp beskrivningar och små ikoner om aktiviteterna uppfyller följande villkor:
-  + Data skevning: data Läs storlek > genomsnittlig data läsnings storlek för alla aktiviteter i det här steget * 2 *och* dataens läs storlek > 10 MB.
-  + Tids skevning: körnings tid > genomsnittlig körnings tid för alla aktiviteter i det här steget * 2 *och* körnings tiden > 2 minuter.
++ På sidan Spark Application & Job Graph visas verktygstips och små ikoner i faserna om uppgifterna uppfyller följande villkor:
+  + Data skeva: Datalässtorlek > genomsnittlig dataläsa storlek för alla uppgifter i detta skede * 2 *och* datalässtorlek > 10 MB.
+  + Tidsnedskjutning: Körningstid > genomsnittlig körningstid för alla aktiviteter i detta skede * 2 *och* körningstid > 2 minuter.
 
-    ![Ikonen skevad aktivitet på sidan för att & jobb diagram på Spark-programmet.](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
+    ![Den skeva uppgiftsikonen på sidan Spark Application & Job Graph.](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
-+ I noden jobb diagram visas följande information om varje steg:
++ Jobbdiagramnoden visar följande information om varje steg:
   + ID
   + Namn eller beskrivning
-  + Totalt aktivitets nummer
-  + Lästa data: summan av storleken på indata och den blandade Läs storleken
-  + Data skrivning: summan av storleken på utdata och blanda Skriv storleken
-  + Körnings tid: tiden mellan start tiden för det första försöket och slut för ande tiden för det senaste försöket
-  + Radantal: summan av inmatnings poster, utgående poster, blanda Läs poster och blanda Skriv poster
-  + Pågår
+  + Totalt aktivitetsnummer
+  + Data läsa: summan av indatastorlek och blanda lässtorlek
+  + Dataskrivning: summan av utdatastorlek och blandningsskrivningsstorlek
+  + Körningstid: tiden mellan starttiden för det första försöket och slutförandetiden för det senaste försöket
+  + Antal rader: summan av indataposter, utdataposter, blanda läsposter och blanda skrivposter
+  + Förlopp
 
     > [!NOTE]  
-    > Som standard visar noden jobb diagram information från det senaste försöket i varje steg (utom för körnings tid för fas). Men under uppspelningen visas i noden jobb diagram information om varje försök.
+    > Som standard visar jobbdiagramnoden information från det senaste försöket i varje steg (förutom körningstid för fas). Men under uppspelningen visar jobbdiagramnoden information om varje försök.
 
     > [!NOTE]  
-    > För data läsning och data skrivnings storlekar använder vi 1 MB = 1000 KB = 1000 * 1000 byte.
+    > För dataläsa och data skrivstorlekar, använder vi 1MB = 1000 KB = 1000 * 1000 byte.
 
-+ Skicka feedback om problem genom att välja **ge oss feedback**.
++ Skicka feedback om problem genom att välja **Ge oss feedback**.
 
-    ![Feedback-alternativet på sidan Spark-program & jobb diagram.](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    ![Feedbackalternativet på sidan Spark-program & jobbdiagram.](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
-## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Använd fliken diagnos på servern för Spark-historik
+## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Använda fliken Diagnos i Spark History Server
 
-Välj jobb-ID och välj sedan **diagnos** på verktygs menyn för att visa vyn jobb diagnos. Fliken **diagnos** innehåller **data skevning**, **tids skevning**och **användnings analys av utförar**.
+Välj jobb-ID och välj sedan Diagnos på **verktygsmenyn** för att se jobbdiagnosvyn. Fliken **Diagnos** innehåller **datasnedställning,** **tidsskepning**och **analys av körningsanvändning**.
 
-+ Granska **data skevningen**, **tids skevningen**och **utförar användnings analys** genom att välja flikarna.
++ Granska **datasnedställning,** **tidssventering**och analys av **körningsanvändning** genom att välja flikarna respektive.
 
-    ![Fliken Data skevning på fliken diagnostik.](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+    ![Fliken Data skeva på fliken Diagnos.](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
-### <a name="data-skew"></a>Data skevning
+### <a name="data-skew"></a>Data skeva
 
-Välj fliken **data skevning** . Motsvarande skevade uppgifter visas baserat på de angivna parametrarna.
+Välj fliken **Data skeva.** Motsvarande skeva aktiviteter visas baserat på de angivna parametrarna.
 
 #### <a name="specify-parameters"></a>Ange parametrar
 
-I avsnittet **Ange parametrar** visas parametrarna, som används för att identifiera data skevning. Standard regeln är: den lästa aktivitets informationen är större än tre gånger i Genomsnittligt aktivitets data och aktivitets data är större än 10 MB. Om du vill definiera en egen regel för skevade uppgifter kan du välja parametrar. Den **skevade fasen** och **skeva diagram** avsnitten uppdateras enligt detta.
+I avsnittet **Ange parametrar** visas parametrarna som används för att identifiera datasnedställning. Standardregeln är: Läsdata för aktivitetsdata är större än tre gånger av den genomsnittliga aktivitetsdata som läses och aktivitetsdata som läses är mer än 10 MB. Om du vill definiera en egen regel för skeva aktiviteter kan du välja parametrar. Avsnitten **Skev scen** och **skeva diagram** uppdateras i enlighet med detta.
 
-#### <a name="skewed-stage"></a>Skevad fas
+#### <a name="skewed-stage"></a>Skev scen
 
-I avsnittet **skevat Stadium** visas de steg som har skevade uppgifter som uppfyller de angivna kriterierna. Om det finns fler än en skevad aktivitet i ett stadium visar avsnittet **skevad fas** endast den mest sneda aktiviteten (det vill säga de största data för data förvrängning).
+Avsnittet **Skevt steg** visar faser som har skeva aktiviteter som uppfyller de angivna villkoren. Om det finns mer än en skev aktivitet i en fas visas bara den mest skeva aktiviteten i avsnittet **Skeva** steg (det vill än den största informationen för datasnedställning).
 
-![Större visning av fliken Data skevning på fliken diagnostik.](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+![Större vy av fliken Data skeva på fliken Diagnos.](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
 
 ##### <a name="skew-chart"></a>Skeva diagram
 
-När du väljer en rad i tabellen **skeva steg** , visar **skev diagrammet** mer information om aktivitets distribution baserat på data Läs-och körnings tid. De sneda aktiviteterna markeras i rött och normala aktiviteter markeras i blått. För prestanda överväganden visar diagrammet upp till 100 exempel aktiviteter. Uppgifts informationen visas i den nedre högra panelen.
+När du markerar en rad i tabellen **Skeva scen** visas mer information om aktivitetsdistribution baserat på dataläsning och körningstid i tabellen **Skeva** fas. De skeva aktiviteterna markeras med rött och de normala aktiviteterna markeras i blått. För prestandaövervägande visar diagrammet upp till 100 exempeluppgifter. Uppgiftsinformationen visas på den nedre högra panelen.
 
-![Diagrammet skeva för steg 10 i Spark-ANVÄNDARGRÄNSSNITTET.](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+![Skevdiagrammet för steg 10 i spark-användargränssnittet.](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
-### <a name="time-skew"></a>Tids skevning
+### <a name="time-skew"></a>Tidsnedställning
 
-På fliken **tids skevning** visas skevade uppgifter utifrån aktivitetens körnings tid.
+På fliken **Tidsavskjutning** visas skeva aktiviteter baserat på körningstiden för aktiviteten.
 
 #### <a name="specify-parameters"></a>Ange parametrar
 
-I avsnittet **Ange parametrar** visas parametrarna, som används för att identifiera tids skevning. Standard regeln är: aktivitetens körnings tid är större än tre gånger i genomsnittlig körnings tid och körnings tiden för aktiviteten är mer än 30 sekunder. Du kan ändra parametrarna utifrån dina behov. Det **sneda steget** och **skeva diagrammet** visar motsvarande steg och aktivitets information, precis som på fliken **dataskevning** .
+I avsnittet **Ange parametrar** visas parametrarna som används för att identifiera tidssnedställning. Standardregeln är: Körningstiden för aktivitet är större än tre gånger genomsnittlig körningstid och körningstiden för aktiviteten är större än 30 sekunder. Du kan ändra parametrarna baserat på dina behov. I diagrammet **Skevt steg** och **skeva** visas motsvarande steg och uppgifter, precis som på fliken **Data skeva.**
 
-När du väljer **tids skevning**visas det filtrerade resultatet i avsnittet **skevad fas** enligt de parametrar som anges i avsnittet **Ange parametrar** . När du väljer ett objekt i avsnittet **skevat Stadium** , skapas motsvarande diagram i det tredje avsnittet och aktivitets informationen visas i den nedre högra panelen.
+När du väljer **Tidssnedställning**visas det filtrerade resultatet i avsnittet **Skevt steg,** enligt de parametrar som anges i avsnittet **Ange parametrar.** När du markerar ett objekt i avsnittet **Skev scen,** utformas motsvarande diagram i det tredje avsnittet och aktivitetsinformationen visas på den nedre högra panelen.
 
-![Fliken tids skevning på fliken diagnostik.](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+![Fliken Tidssnedställning på fliken Diagnos.](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
-### <a name="executor-usage-analysis-graphs"></a>Diagram över användnings analys av utförar
+### <a name="executor-usage-analysis-graphs"></a>Diagram för analys av köroranvändning
 
-I **användnings diagrammet utförar** visas jobbets faktiska utförar-allokering och körnings status.  
+**Körordningsanvändningsdiagrammet** visar jobbets faktiska körektorallokering och körstatus.  
 
-När du väljer **användnings analys av utförar**, skapas fyra olika kurvor om utförar-användning: **allokerade körningar**, **köra körningar**, **inaktiva körningar**och **högst utförar-instanser**. Varje **utförar tillagd** eller **utförar borttagen** händelse ökar eller minskar de allokerade körningarna. Du kan kontrol lera **händelsens tids linje** på fliken **jobb** för fler jämförelser.
+När du väljer **Analys av köruttrar användning**utarbetas fyra olika kurvor om executoranvändning: **Allokerade köror,** **Körutnratorer,** **inaktiva köror**och **Max executor-instanser**. Varje **executor som läggs till** eller **executor borttagen** händelse kommer att öka eller minska de allokerade utförarna. Du kan kontrollera **händelsetidslinjen** på fliken **Jobb** för fler jämförelser.
 
-![Fliken användnings analys av utförar på fliken diagnos.](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+![Fliken Analys av köroranvändning på fliken Diagnos.](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
-Välj färg ikonen för att markera eller avmarkera motsvarande innehåll i alla utkast.
+Välj färgikonen om du vill markera eller avmarkera motsvarande innehåll i alla utkast.
 
- ![Välj diagrammet på fliken användnings analys av utförar.](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
+ ![Markera diagrammet på fliken Analys av köranvändning.](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-### <a name="how-do-i-revert-to-the-community-version"></a>Hur gör jag för att återgå till community-versionen?
+### <a name="how-do-i-revert-to-the-community-version"></a>Hur återgår jag till communityversionen?
 
-Utför följande steg för att återgå till community-versionen.
+Gör följande om du vill återgå till communityversionen.
 
 1. Öppna klustret i Ambari.
-1. Navigera till **Spark2** - > **config**.
-1. Välj **anpassade spark2 – standardvärden**.
-1. Välj **Lägg till egenskap...** .
-1. Lägg till **Spark. UI. förbättring. enabled = false**och spara den sedan.
-1. Egenskapen anges till **false** nu.
-1. Välj **Spara** för att spara konfigurationen.
+1. Navigera till **Spark2** > **Configs**.
+1. Välj **Anpassade spark2-standardvärden**.
+1. Välj **Lägg till egenskap ...**.
+1. Lägg till **spark.ui.enhancement.enabled=false**och spara den sedan.
+1. Egenskapen är falsk **nu.**
+1. Välj **Spara** om du vill spara konfigurationen.
 
-    ![Inaktivera en funktion i Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
+    ![Stäng av en funktion i Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
-1. Välj **Spark2** i den vänstra panelen. Välj sedan **Spark2 historik Server**på fliken **Sammanfattning** .
+1. Välj **Spark2** på den vänstra panelen. Välj sedan **Spark2 History Server**på fliken **Sammanfattning** .
 
-    ![Vyn Sammanfattning i Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
+    ![Sammanfattningsvyn i Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
 
-1. Starta om Spark History-servern genom att klicka på knappen **Starta** till höger om **Spark2 historik Server**och sedan välja **starta om** på den nedrullningsbara menyn.
+1. Om du vill starta om Spark History Server väljer du knappen **Startad** till höger om **Spark2 History Server**och väljer sedan **Starta om** på den nedrullningsbara menyn.
 
-    ![Starta om Spark historik servern i Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
+    ![Starta om Spark History Server i Apache Ambari.](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
-1. Uppdatera Server webb gränssnittet för Spark-historiken. Den kommer att återgå till community-versionen.
+1. Uppdatera webbgränssnittet för Spark History Server. Det kommer att återgå till community-versionen.
 
-### <a name="how-do-i-upload-a-spark-history-server-event-to-report-it-as-an-issue"></a>Hur gör jag för att du ladda upp en spark historik Server-händelse för att rapportera den som ett problem?
+### <a name="how-do-i-upload-a-spark-history-server-event-to-report-it-as-an-issue"></a>Hur laddar jag upp en Spark History Server-händelse för att rapportera det som ett problem?
 
-Om du stöter på ett fel i Spark historik Server ska du utföra följande steg för att rapportera händelsen.
+Om du stöter på ett fel i Spark History Server gör du följande steg för att rapportera händelsen.
 
-1. Ladda ned händelsen genom att välja **Hämta** i webb gränssnittet för Spark-historiken Server.
+1. Hämta händelsen genom att välja **Hämta** i användargränssnittet för Spark History Server.
 
-    ![Ladda ned händelsen i Server gränssnittet för Spark-historiken.](./media/apache-azure-spark-history-server/sparkui-download-event.png)
+    ![Hämta händelsen i användargränssnittet för Spark History Server.](./media/apache-azure-spark-history-server/sparkui-download-event.png)
 
-2. Välj **ge oss feedback** på sidan **Spark-program & Job Graph** .
+2. Välj **Ge oss feedback** från sidan Spark Application & Job **Graph.**
 
-    ![Ge feedback på sidan Spark-program & jobb diagram](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    ![Ge feedback på sidan Spark-program & jobbdiagram](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
-3. Ange rubriken och en beskrivning av felet. Dra sedan. zip-filen till fältet redigera och välj **Skicka nytt ärende**.
+3. Ange titeln och en beskrivning av felet. Dra sedan ZIP-filen till redigeringsfältet och välj **Skicka nytt ärende**.
 
-    ![Ladda upp och skicka ett nytt ärende.](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
+    ![Ladda upp och skicka in ett nytt nummer.](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
-### <a name="how-do-i-upgrade-a-jar-file-in-a-hotfix-scenario"></a>Hur gör jag för att uppgraderar du en. jar-fil i ett snabb korrigerings scenario?
+### <a name="how-do-i-upgrade-a-jar-file-in-a-hotfix-scenario"></a>Hur uppgraderar jag en JAR-fil i ett snabbkorrigeringsscenario?
 
-Om du vill uppgradera med en snabb korrigering använder du följande skript, som kommer att uppgradera `spark-enhancement.jar*`.
+Om du vill uppgradera med en snabbkorrigering använder du `spark-enhancement.jar*`följande skript som uppgraderar .
 
 **upgrade_spark_enhancement.sh**:
 
@@ -302,32 +302,32 @@ Om du vill uppgradera med en snabb korrigering använder du följande skript, so
 
 `upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`
 
-#### <a name="use-the-bash-file-from-the-azure-portal"></a>Använd bash-filen från Azure Portal
+#### <a name="use-the-bash-file-from-the-azure-portal"></a>Använda bash-filen från Azure-portalen
 
-1. Starta [Azure Portal](https://ms.portal.azure.com)och välj sedan klustret.
-2. Slutför en [skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) med följande parametrar.
+1. Starta [Azure-portalen](https://ms.portal.azure.com)och välj sedan ditt kluster.
+2. Slutför en [skriptåtgärd](../hdinsight-hadoop-customize-cluster-linux.md) med följande parametrar.
 
     |Egenskap |Värde |
     |---|---|
-    |Skript typ|– Anpassad|
-    |Namn|UpgradeJar|
-    |Bash-skript-URI|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
-    |Node-typ (er)|Head, Worker|
+    |Skripttyp|- Anpassad|
+    |Namn|UppgraderaJar|
+    |Bash skript URI|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
+    |Nodtyper|Chef, Arbetare|
     |Parametrar|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
 
-     ![Azure Portal skicka skript åtgärd](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
+     ![Skriptåtgärd för Skicka skript i Azure-portalen](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 ## <a name="known-issues"></a>Kända problem
 
-+ För närvarande fungerar Spark-historik servern bara för Spark 2,3 och 2,4.
++ För närvarande fungerar Spark History Server endast för Spark 2.3 och 2.4.
 
-+ Indata och utdata som använder RDD visas inte på fliken **data** .
++ In- och utdata som använder RDD visas inte på fliken **Data.**
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Hantera resurser för ett Apache Spark kluster i HDInsight](apache-spark-resource-manager.md)
-+ [Konfigurera Apache Spark inställningar](apache-spark-settings.md)
++ [Hantera resurser för ett Apache Spark-kluster på HDInsight](apache-spark-resource-manager.md)
++ [Konfigurera Apache Spark-inställningar](apache-spark-settings.md)
 
 ## <a name="feedback"></a>Feedback
 
-Skicka ett e-postmeddelande till ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)) om du har feedback eller om du kommer över eventuella problem med det här verktyget.
+Om du har någon feedback eller stöter på några problem[hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)när du använder det här verktyget, skicka ett mail till ( ).

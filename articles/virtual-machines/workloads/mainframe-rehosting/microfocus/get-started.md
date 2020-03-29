@@ -1,28 +1,28 @@
 ---
-title: Micro fokus dev/test-miljöer i Azure | Microsoft Docs
-description: Ange ny värd för dina IBM z/OS stordatorprogram arbetsbelastningar med hjälp av Micro fokus lösningar på Azure virtual machines (VM).
+title: Utvecklings-/testmiljöer för micro focus på Azure | Microsoft-dokument
+description: Rehost din IBM z / OS stordator arbetsbelastningar med Micro Focus-lösningar på Azure virtuella datorer (VIRTUELLA datorer).
 author: njray
 ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60498907"
 ---
-# <a name="micro-focus-devtest-environments-on-azure"></a>Micro fokus dev/test-miljöer i Azure
+# <a name="micro-focus-devtest-environments-on-azure"></a>Utvecklings-/testmiljöer för micro focus på Azure
 
-Komma igång med Azure med en miljö för utveckling och testning är ett bra sätt att öka din appmodernisering. Vara kan rehosted stordatorprogram som är beroende av äldre system, till exempel IBM CICS (kontroll Kundinformationssystem) och IMS (Information Management System) på Azure med hjälp av partnerlösningar.
+Att komma igång med Azure med en utvecklings- och testmiljö är ett bra sätt att öka dina moderniseringsinsatser. Stordatorprogram som är beroende av äldre system som IBM CICS (Customer Information Control System) och IMS (Information Management System) kan vara värd för Azure med partnerlösningar.
 
-Micro fokus har inlett ett samarbete med Microsoft för att erbjuda övertygande stordatorprogram verktyg för migrering och rehosting. Du kan köra stordatorprogram för utveckling, testning och produktionsscenarier i Azure och Microsoft Windows-plattformen.
+Micro Focus samarbetar med Microsoft för att erbjuda övertygande stordatormigrering och rehosting verktyg. Du kan köra stordatorprogram över utvecklings-, testnings- och produktionsscenarier på Azure och Microsoft Windows-plattformen.
 
-Micro fokus erbjuder rehosting av utveckling och testning rehosting lösningar som utökar befintliga COBOL och PL / jag program till Azure.
+Micro Focus erbjuder utvecklingsrehosting och test rehosting lösningar som utökar befintliga COBOL och PL / I affärsprogram till Azure.
 
 **Nästa steg**
 
-- [Installera Micro fokus Enterprise Server 4.0 och företagsutvecklare 4.0 på Azure](./set-up-micro-focus-azure.md)
-- [Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 i Azure](./demo.md)
-- [Kör företagsservern i Docker-behållare i Azure](./run-enterprise-server-container.md)
+- [Installera Micro Focus Enterprise Server 4.0 och Enterprise Developer 4.0 på Azure](./set-up-micro-focus-azure.md)
+- [Konfigurera Micro Focus CICS BankDemo för Micro Focus Enterprise Developer 4.0 i Azure](./demo.md)
+- [Köra Enterprise Server i Docker-behållare på Azure](./run-enterprise-server-container.md)

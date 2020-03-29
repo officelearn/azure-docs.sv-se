@@ -1,6 +1,6 @@
 ---
 title: Tillämpa prestandarekommendationer
-description: Använd Azure Portal för att hitta prestanda rekommendationer som kan optimera prestanda för dina Azure SQL Database.
+description: Använd Azure-portalen för att hitta prestandarekommendationer som kan optimera prestanda för din Azure SQL-databas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,163 +12,163 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
 ms.openlocfilehash: b0452d51dc472e100ef52536d8e3814ff395292b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214168"
 ---
-# <a name="find-and-apply-performance-recommendations"></a>Hitta och Använd prestanda rekommendationer
+# <a name="find-and-apply-performance-recommendations"></a>Hitta och tillämpa prestandarekommendationer
 
-Du kan använda Azure Portal för att hitta prestanda rekommendationer som kan optimera prestanda för dina Azure SQL Database eller för att åtgärda problem som identifieras i din arbets belastning. Med sidan **prestanda rekommendation** i Azure Portal kan du hitta de bästa rekommendationerna utifrån deras potentiella påverkan.
+Du kan använda Azure-portalen för att hitta prestandarekommendationer som kan optimera prestanda för din Azure SQL-databas eller för att korrigera vissa problem som identifierats i din arbetsbelastning. Med sidan **Prestandarekommendation** i Azure-portalen kan du hitta de bästa rekommendationerna baserat på deras potentiella inverkan.
 
 ## <a name="viewing-recommendations"></a>Visa rekommendationer
 
-Om du vill visa och tillämpa prestanda rekommendationer behöver du rätt [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) behörighet i Azure. **Reader**Du måste ha behörighet för **SQL DB-deltagare** för att kunna visa rekommendationer och **ägare**, behörigheter för **SQL DB-deltagare** krävs för att utföra åtgärder. Skapa eller släpp index och Avbryt skapandet av index.
+Om du vill visa och tillämpa prestandarekommendationer behöver du rätt [rollbaserade åtkomstkontrollbehörigheter](../role-based-access-control/overview.md) i Azure. **Läsare,** **SQL DB Contributor-behörigheter** krävs för att visa rekommendationer och **ägare,** SQL DB **Contributor-behörigheter** krävs för att utföra alla åtgärder. skapa eller släppa index och avbryta indexskapande.
 
-Använd följande steg för att hitta prestanda rekommendationer för Azure Portal:
+Så här hittar du prestandarekommendationer på Azure Portal:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Gå till **alla tjänster** > **SQL-databaser**och välj din databas.
-3. Gå till **prestanda rekommendation** om du vill visa tillgängliga rekommendationer för den valda databasen.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Gå till **Alla tjänster** > **SQL-databaser**och välj din databas.
+3. Navigera till **prestandarekommendation** om du vill visa tillgängliga rekommendationer för den valda databasen.
 
-Prestanda rekommendationer visas i tabellen som liknar den som visas på följande bild:
+Prestandarekommendationer visas i tabellen som liknar den som visas på följande bild:
 
 ![Rekommendationer](./media/sql-database-advisor-portal/recommendations.png)
 
-Rekommendationerna sorteras efter deras potentiella påverkan på prestanda i följande kategorier:
+Rekommendationerna sorteras efter deras potentiella inverkan på prestanda i följande kategorier:
 
 | Påverkan | Beskrivning |
 |:--- |:--- |
-| Hög |Rekommendationer för hög påverkan bör ge den mest betydande prestanda påverkan. |
-| Medel |Rekommendationer för medelhög påverkan bör förbättra prestanda, men inte i stor utsträckning. |
-| Låg |Rekommendationer för låg påverkan bör ge bättre prestanda än utan, men förbättringar kan vara betydande. |
+| Hög |Rekommendationer med stor effekt bör ge den mest betydande prestandaeffekten. |
+| Medel |Rekommendationer med medelhög påverkan bör förbättra prestanda, men inte väsentligt. |
+| Låg |Rekommendationer med låg påverkan bör ge bättre prestanda än utan, men förbättringar kanske inte är betydande. |
 
 > [!NOTE]
-> Azure SQL Database behöver övervaka aktiviteter minst under en dag för att kunna identifiera några rekommendationer. Azure SQL Database kan enklare optimeras för konsekventa frågeuttryck än den kan för slumpmässiga Spotty-burst-aktiviteter. Om inga rekommendationer för närvarande är tillgängliga, visar sidan **prestanda rekommendation** ett meddelande som förklarar varför.
+> Azure SQL Database måste övervaka aktiviteter åtminstone för en dag för att identifiera några rekommendationer. Azure SQL Database kan lättare optimera för konsekventa frågemönster än det kan för slumpmässiga ojämna utbrott av aktivitet. Om rekommendationer inte är tillgängliga för närvarande innehåller sidan **Prestandarekommendation** ett meddelande som förklarar varför.
 
-Du kan också visa status för de historiska åtgärderna. Välj en rekommendation eller status om du vill se mer information.
+Du kan också visa status för de historiska operationerna. Välj en rekommendation eller status om du vill se mer information.
 
-Här är ett exempel på rekommendationen "skapa index" i Azure Portal.
+Här är ett exempel på rekommendationen "Skapa index" i Azure-portalen.
 
 ![Skapa index](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
-## <a name="applying-recommendations"></a>Använda rekommendationer
+## <a name="applying-recommendations"></a>Tillämpa rekommendationer
 
-Azure SQL Database ger dig fullständig kontroll över hur rekommendationerna aktive ras med något av följande tre alternativ:
+Azure SQL Database ger dig full kontroll över hur rekommendationer är aktiverade med något av följande tre alternativ:
 
-* Tillämpa enskilda rekommendationer en i taget.
-* Aktivera automatisk justering för att automatiskt tillämpa rekommendationer.
+* Tillämpa individuella rekommendationer en i taget.
+* Aktivera den automatiska justeringen för att automatiskt tillämpa rekommendationer.
 * Om du vill implementera en rekommendation manuellt kör du det rekommenderade T-SQL-skriptet mot databasen.
 
-Välj en rekommendation om du vill visa information om den och klicka sedan på **Visa skript** för att granska exakt information om hur rekommendationen skapas.
+Välj en rekommendation om du vill visa dess information och klicka sedan på **Visa skript** för att granska exakt information om hur rekommendationen skapas.
 
-Databasen är online medan rekommendationen tillämpas – användning av prestanda rekommendation eller automatisk justering tar aldrig en databas offline.
+Databasen är online medan rekommendationen tillämpas – med hjälp av prestandarekommendation eller automatisk justering tar aldrig en databas offline.
 
-### <a name="apply-an-individual-recommendation"></a>Tillämpa en individuell rekommendation
+### <a name="apply-an-individual-recommendation"></a>Tillämpa en enskild rekommendation
 
-Du kan granska och godkänna rekommendationer en i taget.
+Du kan granska och acceptera rekommendationer en i taget.
 
-1. På sidan **rekommendationer** väljer du en rekommendation.
-2. Klicka på knappen **Använd** på sidan **information** .
+1. Välj en rekommendation på sidan **Rekommendationer.**
+2. Klicka på Knappen **Använd** på sidan **Information.**
 
-   ![Använd rekommendation](./media/sql-database-advisor-portal/apply.png)
+   ![Tillämpa rekommendation](./media/sql-database-advisor-portal/apply.png)
 
-Den valda rekommendationen har tillämpats på databasen.
+Vald rekommendation tillämpas i databasen.
 
 ### <a name="removing-recommendations-from-the-list"></a>Ta bort rekommendationer från listan
 
-Om listan över rekommendationer innehåller objekt som du vill ta bort från listan kan du ignorera rekommendationen:
+Om listan med rekommendationer innehåller objekt som du vill ta bort från listan kan du ignorera rekommendationen:
 
 1. Välj en rekommendation i listan med **rekommendationer** för att öppna informationen.
-2. Klicka på **Ignorera** på **informations** sidan.
+2. Klicka på **Ignorera** på sidan **Information.**
 
-Om du vill kan du lägga tillbaka borttagna objekt till listan **rekommendationer** :
+Om du vill kan du lägga till ignorerade objekt i listan **Rekommendationer** igen:
 
-1. Klicka på **Visa ignorerade**på sidan **rekommendationer** .
-2. Välj ett borttaget objekt i listan om du vill visa information om det.
-3. Du kan också klicka på **Ångra ignorera** för att lägga till indexet i huvud listan över **rekommendationer**.
+1. Klicka på Visa **ignorerad**på sidan **Rekommendationer.**
+2. Välj ett ignorerat objekt i listan om du vill visa dess information.
+3. Du kan också klicka på **Ångra ignorera** om du vill lägga till indexet i huvudlistan **med rekommendationer**.
 
 > [!NOTE]
-> Observera att om SQL Database [Automatisk justering](sql-database-automatic-tuning.md) är aktive rad och om du har avvisat en rekommendation manuellt från listan, kommer sådan rekommendation aldrig att tillämpas automatiskt. Att ta bort en rekommendation är ett praktiskt sätt för användarna att automatiskt aktivera automatisk justering i fall när det krävs att en speciell rekommendation inte bör tillämpas.
-> Du kan återställa det här beteendet genom att lägga till ignorerade rekommendationer tillbaka till listan rekommendationer genom att välja alternativet ångra borttagning.
+> Observera att om automatisk [inställning av](sql-database-automatic-tuning.md) SQL Database är aktiverad, och om du manuellt har ignorerat en rekommendation från listan, kommer en sådan rekommendation aldrig att tillämpas automatiskt. Att ignorera en rekommendation är ett praktiskt sätt för användare att ha automatisk justering aktiverad i fall när det kräver att en viss rekommendation inte ska tillämpas.
+> Du kan återställa det här beteendet genom att lägga till ignorerade rekommendationer i listan Rekommendationer genom att välja alternativet Ångra ignorera.
 
 ### <a name="enable-automatic-tuning"></a>Aktivera automatisk inställning
 
-Du kan ställa in Azure SQL Database att implementera rekommendationer automatiskt. När rekommendationerna blir tillgängliga tillämpas de automatiskt. Som med alla rekommendationer som hanteras av tjänsten, om prestanda påverkan är negativ, återställs rekommendationen.
+Du kan ange att Azure SQL Database ska implementera rekommendationer automatiskt. När rekommendationer blir tillgängliga tillämpas de automatiskt. Som med alla rekommendationer som hanteras av tjänsten, om prestandapåverkan är negativ, återställs rekommendationen.
 
-1. På sidan **rekommendationer** klickar du på **Automatisera**:
+1. På sidan **Rekommendationer** klickar du på **Automatisera:**
 
-   ![Advisor-inställningar](./media/sql-database-advisor-portal/settings.png)
+   ![Inställningar för rådgivare](./media/sql-database-advisor-portal/settings.png)
 2. Välj åtgärder som ska automatiseras:
 
    ![Rekommenderade index](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Observera att **DROP_INDEX** alternativet inte är kompatibelt med program som använder partition växlings-och index tips.
+> Observera att **DROP_INDEX** alternativet för närvarande inte är kompatibelt med program som använder partitionsväxling och indextips.
 
-När du har valt önskad konfiguration klickar du på Använd.
+När du har valt önskad konfiguration klickar du på Verkställ.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Tillämpa rekommendationer manuellt via T-SQL
 
-Välj en rekommendation och klicka sedan på **Visa skript**. Kör skriptet mot databasen för att manuellt tillämpa rekommendationen.
+Markera en rekommendation och klicka sedan på **Visa skript**. Kör skriptet mot databasen för att manuellt tillämpa rekommendationen.
 
-*Index som körs manuellt övervakas och verifieras inte för prestanda som påverkas av tjänsten* , så vi rekommenderar att du övervakar dessa index när du har skapat dem för att kontrol lera att de ger prestanda vinster och justerar eller tar bort dem vid behov. Mer information om hur du skapar index finns i [create index (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Dessutom förblir manuellt tillämpade rekommendationer aktiva och visas i listan över rekommendationer för 24-48 timmar. innan systemet återkallar dem automatiskt. Om du vill ta bort en rekommendation tidigare kan du ta bort den manuellt.
+*Index som körs manuellt övervakas och valideras inte för prestandapåverkan av tjänsten,* så det föreslås att du övervakar dessa index när de har skapats för att verifiera att de tillhandahåller prestandavinster och justerar eller tar bort dem om det behövs. Mer information om hur du skapar index finns i [SKAPA INDEX (Transact-SQL).](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql) Dessutom kommer manuellt tillämpade rekommendationer att förbli aktiva och visas i listan över rekommendationer för 24-48 timmar. innan systemet automatiskt drar tillbaka dem. Om du vill ta bort en rekommendation tidigare kan du ignorera den manuellt.
 
 ### <a name="canceling-recommendations"></a>Avbryta rekommendationer
 
-Rekommendationer som har statusen **väntar**, **verifiering**eller **lyckad** kan avbrytas. Det går inte att avbryta rekommendationer med statusen **körs** inte.
+Rekommendationer som finns i **statusen Väntande,** **Validera eller** **Lycka till** kan avbrytas. Rekommendationer med **statusen Körning** kan inte avbrytas.
 
-1. Välj en rekommendation i avsnittet **Justera historik** för att öppna sidan **rekommendationer** .
+1. Välj en rekommendation i området **Justeringshistorik** om du vill öppna **informationssidan för rekommendationer.**
 2. Klicka på **Avbryt** om du vill avbryta processen med att tillämpa rekommendationen.
 
-## <a name="monitoring-operations"></a>Övervakningsåtgärder
+## <a name="monitoring-operations"></a>Övervakning av åtgärder
 
-Att tillämpa en rekommendation kanske inte sker omedelbart. Portalen innehåller information om rekommendationens status. Följande är möjliga lägen som ett index kan vara i:
+Att tillämpa en rekommendation kanske inte sker omedelbart. Portalen innehåller information om rekommendationens status. Följande är möjliga tillstånd som ett index kan finnas i:
 
 | Status | Beskrivning |
 |:--- |:--- |
-| Väntande åtgärder |Kommandot Använd rekommendation har mottagits och är schemalagt för körning. |
-| Köra |Rekommendationen har tillämpats. |
-| Verifiera |Rekommendationen har tillämpats och tjänsten mäter fördelarna. |
-| Lyckades |Rekommendationen har tillämpats och fördelarna har mätts. |
-| Fel |Ett fel uppstod när rekommendationen skulle tillämpas. Detta kan vara ett tillfälligt problem eller en schema ändring i tabellen och skriptet är inte längre giltigt. |
-| Återställer |Rekommendationen har tillämpats, men har bedömts vara icke-utfört och återställs automatiskt. |
-| Återställts |Rekommendationen har återställts. |
+| Väntande åtgärder |Kommandot Apply rekommendation har tagits emot och är schemalagt för körning. |
+| Verkställande |Rekommendationen tillämpas. |
+| Validera |Rekommendationen har tillämpats och tjänsten mäter fördelarna. |
+| Lyckades |Rekommendationen tillämpades framgångsrikt och förmåner har mätts. |
+| Fel |Ett fel uppstod under processen för att tillämpa rekommendationen. Detta kan vara ett tillfälligt problem, eller möjligen en schemaändring i tabellen och skriptet är inte längre giltigt. |
+| Återgå |Rekommendationen tillämpades, men har bedömts vara icke-performant och håller på att återställas automatiskt. |
+| Återgick |Rekommendationen återgick. |
 
-Klicka på en rekommendation i processen i listan om du vill se mer information:
+Klicka på en rekommendation i processen från listan om du vill se mer information:
 
 ![Rekommenderade index](./media/sql-database-advisor-portal/operations.png)
 
 ### <a name="reverting-a-recommendation"></a>Återställa en rekommendation
 
-Om du har använt prestanda rekommendationerna för att tillämpa rekommendationen (vilket innebär att du inte manuellt körde T-SQL-skriptet), återställer det automatiskt ändringen om det hittar prestanda påverkan som negativ. Om du av någon anledning vill återställa en rekommendation kan du göra följande:
+Om du använde prestandarekommendationerna för att tillämpa rekommendationen (vilket innebär att du inte körde T-SQL-skriptet manuellt) återställs ändringen automatiskt om prestandapåverkan är negativ. Om du av någon anledning bara vill återställa en rekommendation kan du göra följande:
 
-1. Välj en rekommendation som har tillämpats i område för **justerings historik** .
-2. Klicka på **Återställ** på sidan med **rekommendations information** .
+1. Välj en rekommendation som har tillämpats i området **Justeringshistorik.**
+2. Klicka på **Återställ** på **informationssidan för rekommendationsinformation.**
 
 ![Rekommenderade index](./media/sql-database-advisor-portal/details.png)
 
-## <a name="monitoring-performance-impact-of-index-recommendations"></a>Övervaka prestanda påverkan av index rekommendationer
+## <a name="monitoring-performance-impact-of-index-recommendations"></a>Övervakning av indexrekommendationernas prestandapåverkan
 
-När rekommendationerna har implementerats (för närvarande, index åtgärder och Parameterisera fråge rekommendationer) kan du klicka på **frågor** och svar på rekommendations informations sidan för att öppna [frågor om prestanda insikter](sql-database-query-performance.md) och se prestanda påverkan för dina vanligaste frågor.
+När rekommendationerna har implementerats (för närvarande kan indexåtgärder och parameterisera frågerekommendationer endast) klicka på Frågestatistik på **rekommendationsinformationssidan** för att öppna [Frågeprestandastatistik](sql-database-query-performance.md) och se prestandapåverkan från dina vanligaste frågor.
 
-![Övervaka prestanda påverkan](./media/sql-database-advisor-portal/query-insights.png)
+![Övervaka prestandapåverkan](./media/sql-database-advisor-portal/query-insights.png)
 
 ## <a name="summary"></a>Sammanfattning
 
-Azure SQL Database ger rekommendationer för att förbättra prestanda för SQL Database. Genom att tillhandahålla T-SQL-skript kan du få hjälp med att optimera databasen och slutligen förbättra frågans prestanda.
+Azure SQL Database innehåller rekommendationer för att förbättra SQL-databasprestanda. Genom att tillhandahålla T-SQL-skript får du hjälp med att optimera databasen och i slutändan förbättra frågeprestanda.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Övervaka dina rekommendationer och fortsätt att tillämpa dem för att förbättra prestanda. Databas arbets belastningar är dynamiska och ändras kontinuerligt. Azure SQL Database fortsätter att övervaka och tillhandahålla rekommendationer som kan förbättra databasens prestanda.
+Övervaka dina rekommendationer och fortsätta att tillämpa dem för att förfina prestanda. Databasarbetsbelastningar är dynamiska och ändras kontinuerligt. Azure SQL Database fortsätter att övervaka och ge rekommendationer som potentiellt kan förbättra databasens prestanda.
 
-* Se [Automatisk justering](sql-database-automatic-tuning.md) för att lära dig mer om den automatiska justeringen i Azure SQL Database.
-* Se [prestanda rekommendationer](sql-database-advisor.md) för en översikt över Azure SQL Database prestanda rekommendationer.
-* Mer information om hur du visar prestanda påverkan för dina vanligaste frågor finns i [fråga prestanda insikter](sql-database-query-performance.md) .
+* Se [Automatisk justering](sql-database-automatic-tuning.md) om du vill veta mer om den automatiska justeringen i Azure SQL Database.
+* Se [Prestandarekommendationer](sql-database-advisor.md) för en översikt över prestandarekommendationer för Azure SQL Database.
+* Se [Frågeprestandastatistik](sql-database-query-performance.md) om du vill veta mer om hur du visar prestandapåverkan för dina vanligaste frågor.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
-* [SKAPA INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [Fråga Store](https://msdn.microsoft.com/library/dn817826.aspx)
+* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md)

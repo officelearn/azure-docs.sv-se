@@ -1,6 +1,6 @@
 ---
-title: Kopiera blobar från ett lagringskonto till ett Azure Media Services-tillgång | Microsoft Docs
-description: Det här avsnittet visar hur du kopierar en befintlig blob till ett Media Services tillgång. I exemplet används Azure Media Services .NET SDK-tilläggen.
+title: Kopiera blobbar från ett lagringskonto till en Azure Media Services-tillgång | Microsoft-dokument
+description: Det här avsnittet visar hur du kopierar en befintlig blob till en Media Services Asset. I exemplet används Azure Media Services .NET SDK-tillägg.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,45 +14,45 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a1da207a295b40f8d455635d687083bf69e90fdf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67068899"
 ---
-# <a name="copying-existing-blobs-into-a-media-services-asset"></a>Kopiera befintliga blobar till ett Media Services tillgång
+# <a name="copying-existing-blobs-into-a-media-services-asset"></a>Kopiera befintliga blobbar till en Medietjänsttillgång
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-Den här artikeln visar hur du kopierar blobar från ett lagringskonto till en ny med för Azure Media Services (AMS) tillgången [Azure Media Services .NET SDK-tilläggen](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+Den här artikeln visar hur du kopierar blobbar från ett lagringskonto till en ny Azure Media Services -resurs (AMS) med Hjälp av [Azure Media Services .NET SDK-tillägg](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
 
-Du bör inte försöka ändra innehållet i blob-behållare som har genererats av Media Services utan att använda Media Service API: er.
+Du bör inte försöka ändra innehållet i blob-behållare som genererades av Media Services utan att använda API:er för medietjänsten.
 
-Tillägget metoderna hanterar:
+Förlängningsmetoderna fungerar med:
 
-- Vanliga tillgångar.
-- Live-arkivet tillgångar (FragBlob-format).
-- Käll- och tillgångar som hör till olika Media Services-konton (även över olika datacenter). Det kan dock finnas avgifter som debiteras genom att göra detta. Mer information om priser finns i [dataöverföringar](https://azure.microsoft.com/pricing/#header-11).
+- Stamtillgångar.
+- Levande arkiv tillgångar (FragBlob format).
+- Käll- och måltillgångar som tillhör olika Media Services-konton (även i olika datacenter). Det kan dock finnas avgifter som uppstår genom detta. Mer information om priser finns i [Dataöverföringar](https://azure.microsoft.com/pricing/#header-11).
 
 Artikeln visar två kodexempel:
 
-1. Kopiera blobar från en tillgång i ett AMS-konto till en ny tillgång i en annan AMS-konto.
-2. Kopiera blobar från vissa storage-konto till en ny tillgång i ett AMS-konto.
+1. Kopiera blobbar från en tillgång i ett AMS-konto till en ny tillgång i ett annat AMS-konto.
+2. Kopiera blobbar från ett visst lagringskonto till en ny tillgång i ett AMS-konto.
 
-## <a name="copy-blobs-between-two-ams-accounts"></a>Kopiera blobar mellan två AMS-konton  
+## <a name="copy-blobs-between-two-ams-accounts"></a>Kopiera blobbar mellan två AMS-konton  
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
-Två Media Services-konton. Finns i artikeln [så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+Två Media Services-konton. Se artikeln [Hur du skapar ett Media Services-konto](media-services-portal-create-account.md).
 
-### <a name="download-sample"></a>Ladda ned exempel
-Du kan följa stegen i den här artikeln eller du kan hämta ett exempel som innehåller koden som beskrivs i den här artikeln från [här](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+### <a name="download-sample"></a>Hämta exempel
+Du kan följa stegen i den här artikeln eller hämta ett exempel som innehåller koden som beskrivs i den här artikeln [härifrån](https://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
 
 ### <a name="set-up-your-project"></a>Konfigurera projektet
 
-1. Konfigurera din utvecklingsmiljö enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
-2. Lägg till avsnittet appSettings i .config-filen och uppdatera värden baserat på dina Media Services-konton och mållagringskontot källans plats-ID.  
+1. Ställ in utvecklingsmiljön enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
+2. Lägg till avsnittet appSettings i .config-filen och uppdatera värdena baserat på dina Media Services-konton, mållagringskontot och källtillgångs-ID: n.  
 
 ```xml
 <appSettings>
@@ -76,9 +76,9 @@ Du kan följa stegen i den här artikeln eller du kan hämta ett exempel som inn
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-an-asset-in-one-ams-account-into-an-asset-in-another-ams-account"></a>Kopiera blobar från en tillgång i ett AMS-konto till en tillgång i en annan AMS-konto
+### <a name="copy-blobs-from-an-asset-in-one-ams-account-into-an-asset-in-another-ams-account"></a>Kopiera blobbar från en tillgång i ett AMS-konto till en tillgång på ett annat AMS-konto
 
-Följande kod använder tillägget **IAsset.Copy** metod för att kopiera alla filer i tillgången källan till målet tillgången med en enda tillägg.
+Följande kod använder tillägget **IAsset.Copy-metoden** för att kopiera alla filer i källtillgången till måltillgången med ett enda tillägg.
 
 ```csharp
 using System;
@@ -158,17 +158,17 @@ namespace CopyExistingBlobsIntoAsset
 }
 ```
 
-## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Kopiera blobar från ett lagringskonto till ett AMS-konto 
+## <a name="copy-blobs-from-a-storage-account-into-an-ams-account"></a>Kopiera blobbar från ett lagringskonto till ett AMS-konto 
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
-- Ett lagringskonto som du vill kopiera blobar.
-- Ett AMS-konto som du vill kopiera blobar.
+- Ett lagringskonto som du vill kopiera blobbar från.
+- Ett AMS-konto som du vill kopiera blobbar till.
 
 ### <a name="set-up-your-project"></a>Konfigurera projektet
 
-1. Konfigurera din utvecklingsmiljö enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
-2. Lägg till avsnittet appSettings i .config-filen och uppdatera värden baserat på dina käll lagrings- och mål AMS-konton.
+1. Ställ in utvecklingsmiljön enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
+2. Lägg till avsnittet appSettings i config-filen och uppdatera värdena baserat på dina källlagrings- och mål-AMS-konton.
 
 ```xml
 <appSettings>
@@ -185,12 +185,12 @@ namespace CopyExistingBlobsIntoAsset
 </appSettings>
 ```
 
-### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Kopiera blobar från vissa storage-konto till en ny tillgång i ett AMS-konto
+### <a name="copy-blobs-from-some-storage-account-into-a-new-asset-in-an-ams-account"></a>Kopiera blobbar från ett visst lagringskonto till en ny tillgång i ett AMS-konto
 
-Följande kod kopierar blobar från ett lagringskonto till en tillgång med Media Services. 
+Följande kod kopierar blobbar från ett lagringskonto till en Media Services-tillgång. 
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
 ```csharp
 using System;

@@ -1,7 +1,7 @@
 ---
 title: 'Hämta en token för ett webb-API som anropar webb-API: er | Azure'
 titleSuffix: Microsoft identity platform
-description: 'Lär dig hur du skapar ett webb-API som anropar webb-API: er som behöver förvärva en token för appen.'
+description: Lär dig hur du skapar ett webb-API som anropar webb-API:er som kräver att du hämtar en token för appen.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,21 +16,21 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 2721837459af24f39bb15ee17d394345cbb37eb1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76834118"
 ---
-# <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Ett webb-API som anropar webb-API: er: Hämta en token för appen
+# <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Ett webb-API som anropar webb-API:er: Skaffa en token för appen
 
-När du har skapat ett klient program objekt kan du använda det för att hämta en token som du kan använda för att anropa ett webb-API.
+När du har skapat ett klientprogramobjekt använder du det för att hämta en token som du kan använda för att anropa ett webb-API.
 
-## <a name="code-in-the-controller"></a>Kod i kontrollanten
+## <a name="code-in-the-controller"></a>Kod i styrenheten
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Här är ett exempel på kod som anropas i API-styrenhetens åtgärder. Den anropar ett underordnat API med namnet *ToDoList*.
+Här är ett exempel på kod som anropas i åtgärderna för API-styrenheter. Den anropar ett nedströms-API med namnet *todolist*.
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -51,9 +51,9 @@ private async Task GetTodoList(bool isAppStarting)
 }
 ```
 
-`BuildConfidentialClient()` liknar scenariot i [ett webb-API som anropar webb-API: er: app-konfiguration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()` instansierar `IConfidentialClientApplication` med en cache som bara innehåller information för ett enda konto. Kontot tillhandahålls av metoden `GetAccountIdentifier`.
+`BuildConfidentialClient()`liknar scenariot i [Ett webb-API som anropar webb-API:er: Appkonfiguration](scenario-web-api-call-api-app-configuration.md). `BuildConfidentialClient()`instansierar `IConfidentialClientApplication` med en cache som innehåller information för endast ett konto. Kontot tillhandahålls med `GetAccountIdentifier` metoden.
 
-Metoden `GetAccountIdentifier` använder de anspråk som är associerade med identiteten för den användare som webb-API: et fick JSON Web Token (JWT):
+Metoden `GetAccountIdentifier` använder anspråk som är associerade med identiteten på den användare som webb-API:et tog emot JSON Web Token (JWT):
 
 ```csharp
 public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
@@ -71,8 +71,8 @@ public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
 }
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
-Här är ett exempel på kod som anropas i API-styrenhetens åtgärder. Den anropar underordnad API-Microsoft Graph.
+# <a name="java"></a>[Java](#tab/java)
+Här är ett exempel på kod som anropas i åtgärderna för API-styrenheter. Det anropar nedströms API - Microsoft Graph.
 
 ```java
 @RestController
@@ -92,13 +92,13 @@ public class ApiController {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Ett python-webb-API måste använda vissa mellanprogram för att verifiera Bearer-token som tas emot från klienten. Webb-API: et kan sedan hämta åtkomsttoken för underordnad API med hjälp av MSAL python Library genom att anropa metoden [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) . Ett exempel som demonstrerar det här flödet med MSAL python är ännu inte tillgängligt.
+Ett Python-webb-API måste använda vissa mellanprogram för att validera innehavartoken som tagits emot från klienten. Webb-API:et kan sedan hämta åtkomsttoken för nedströms-API med MSAL Python-biblioteket genom att anropa [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) metoden. Ett exempel som visar det här flödet med MSAL Python är ännu inte tillgängligt.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Ett webb-API som anropar webb-API: er: anropa ett API](scenario-web-api-call-api-call-api.md)
+> [Ett webb-API som anropar webb-API:er: Anropa ett API](scenario-web-api-call-api-call-api.md)

@@ -1,44 +1,44 @@
 ---
-title: Kom igång med TmaxSoft OpenFrame på Azure Virtual Machines
-description: Ange ny värd för dina IBM z/OS stordatorprogram arbetsbelastningar med hjälp av TmaxSoft OpenFrame miljö på Azure Virtual Machines (VM).
+title: Komma igång med TmaxSoft OpenFrame på virtuella Azure-datorer
+description: Rehost din IBM z / OS stordator arbetsbelastningar med TmaxSoft OpenFrame miljö på Azure Virtual Machines (VIRTUELLA datorer).
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.openlocfilehash: 408e0166e52af9efd3d4c64f1b29bddcfc1cca4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61485537"
 ---
-# <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Kom igång med TmaxSoft OpenFrame på Azure
+# <a name="get-started-with-tmaxsoft-openframe-on-azure"></a>Komma igång med TmaxSoft OpenFrame på Azure
 
-Ta dina befintliga tillgångar stordatorprogram och flytta dem till Microsoft Azure med TmaxSoft OpenFrame. Den här populära rehosting lösningen skapar en emulering miljö på Azure, så att du kan snabbt migrera program. Formatera om ingen krävs.
+Ta dina befintliga stordatortillgångar och flytta dem till Microsoft Azure med TmaxSoft OpenFrame. Den här populära rehosting-lösningen skapar en emuleringsmiljö på Azure, så att du snabbt kan migrera program. Ingen omformulering krävs.
 
 ## <a name="openframe-rehosting-environment"></a>OpenFrame rehosting miljö
 
-Konfigurera en OpenFrame miljö på Azure för utveckling, demonstrationer, testning eller produktionsarbetsbelastningar. Enligt följande bild visar innehåller OpenFrame flera komponenter som skapar stordatorprogram emulering miljö på Azure. OpenFrame onlinetjänster Ersätt till exempel stordatorprogram mellanprogram, till exempel IBM kundens Information kontroll System (CICS). OpenFrame Batch ersätter med dess TJES-komponenten IBM-stordatorer jobbet post undersystem (JES). 
+Konfigurera en OpenFrame-miljö på Azure för utveckling, demonstrationer, testning eller produktionsarbetsbelastningar. Som följande bild visar innehåller OpenFrame flera komponenter som skapar stordatoremuleringsmiljön på Azure. Till exempel ersätter OpenFrame-onlinetjänster stordatorns mellanprogram som IBM Customer Information Control System (CICS). OpenFrame Batch, med tjes-komponenten, ersätter IBM-stordatorns undersystem Job Entry (JES). 
 
 ![OpenFrame rehosting process](media/openframe-01.png)
 
 > [!NOTE]
-> Om du vill köra OpenFrame-miljö på Azure måste du ha en giltig produktlicens eller utvärderingslicens från TmaxSoft.
+> Om du vill köra OpenFrame-miljön på Azure måste du ha en giltig produktlicens eller utvärderingslicens från TmaxSoft.
 
-## <a name="openframe-components"></a>OpenFrame komponenter
+## <a name="openframe-components"></a>OpenFrame-komponenter
 
-Följande komponenter ingår i OpenFrame miljön i Azure:
+Följande komponenter är en del av OpenFrame-miljön på Azure:
 
-- **Migreringsverktyg** inklusive OFMiner, en lösning som analyserar stordatorer tillgångar och migrerar dem till Azure.
-- **Kompilatorer**, inklusive OFCOBOL, en kompilator som tolkar det stordatorprogram COBOL program. OFPLI, som tolkar det stordatorprogram PL / jag program; och OFASM, en kompilator som tolkar det stordatorprogram assembler program.
-- **Klientdelen** komponenter, inklusive Java Enterprise användaren lösning (JEUS) och en webbserver för program som är certifierad för Java Enterprise Edition 6.OFGW OpenFrame gateway-komponenten som tillhandahåller en 3270 lyssnare.
-- **Programmet** miljö. OpenFrame Base är mellanprogram som hanterar hela systemet. OpenFrame Server typ C (OSC) ersätter stordatorprogram mellanprogram och IBM CICS.
-- **Relationsdatabas**, till exempel Tibero (visas), Oracle Database, Microsoft SQL Server, IBM Db2 eller MySQL. OpenFrame-programmen använder Open Database Connectivity (ODBC)-protokollet för att kommunicera med databasen.
-- **Security** via TACF, en tjänst-modul som styr användarnas åtkomst till system och resurser. 
-- **OFManager** är en lösning som ger Openframes åtgärden och hanteringsfunktioner i webbmiljö.
+- **Migreringsverktyg** inklusive OFMiner, en lösning som analyserar stordatortillgångarna och sedan migrerar dem till Azure.
+- **Kompilatorer**, inklusive OFCOBOL, en kompilator som tolkar stordatorns COBOL-program; OFPLI, som tolkar stordatorns PL/I-program; och OFASM, en kompilator som tolkar stordatorns monteringsprogram.
+- **Frontend-komponenter,** inklusive Java Enterprise User Solution (JEUS), en webbprogramserver som är certifierad för Java Enterprise Edition 6.OFGW och OpenFrame gateway-komponenten som tillhandahåller en 3270-lyssnare.
+- **Programmiljö.** OpenFrame Base är mellanprogram som hanterar hela systemet. OpenFrame Server Type C (OSC) ersätter stordatorns mellanprogram och IBM CICS.
+- **Relationsdatabas**, till exempel Tibero (visas), Oracle Database, Microsoft SQL Server, IBM Db2 eller MySQL. OpenFrame-programmen använder ODBC-protokollet (Open Database Connectivity) för att kommunicera med databasen.
+- **Säkerhet** via TACF, en tjänstmodul som styr användarnas åtkomst till system och resurser. 
+- **OFManager** är en lösning som tillhandahåller OpenFrames drift- och hanteringsfunktioner i webbmiljön.
 
-![OpenFrame arkitektur](media/openframe-02.png)
+![OpenFrame-arkitektur](media/openframe-02.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,7 +1,7 @@
 ---
-title: Anpassad token cache-serialisering (MSAL4j)
+title: Anpassad serialisering av tokencache (MSAL4j)
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du serialiserar token-cachen för MSAL för Java
+description: Lär dig hur du serialiserar tokencachen för MSAL för Java
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -14,21 +14,21 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: bcb34d83365112b97769186ad74dfd762b05c2e8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696171"
 ---
-# <a name="custom-token-cache-serialization-in-msal-for-java"></a>Anpassad token cache-serialisering i MSAL för Java
+# <a name="custom-token-cache-serialization-in-msal-for-java"></a>Anpassad tokencache serialisering i MSAL för Java
 
-Om du vill bevara token-cachen mellan instanser av ditt program måste du anpassa serialiseringen. Java-klasser och gränssnitt som ingår i cachelagring av token är följande:
+Om du vill spara tokencachen mellan instanserna av ditt program måste du anpassa serialiseringen. Java-klasserna och gränssnitten som ingår i serialisering av tokencache är följande:
 
-- [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html): gränssnitt som representerar cache för säkerhetstoken.
-- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): gränssnitt som representerar körning av kod före och efter åtkomst. Du skulle @Override *beforeCacheAccess* och *afterCacheAccess* med den logik som ansvarar för serialisering och deserialisering av cacheminnet.
-- [ITokenCacheContext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html): gränssnitt som representerar kontexten där token cache används. 
+- [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html): Gränssnitt som representerar säkerhetstokencache.
+- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): Gränssnitt som representerar drift av körningskod före och efter åtkomst. Du @Override skulle *innanCacheAccess* och *afterCacheAccess* med logiken som ansvarar för serialisering och deserialisering av cachen.
+- [ITokenCacheContext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html): Gränssnitt som representerar kontext där tokencachen används. 
 
-Nedan visas en naïve-implementering av anpassad serialisering för serialisering/deserialisering för token. Kopiera och klistra inte in detta i en produktions miljö.
+Nedan finns en naiv implementering av anpassad serialisering av token cache serialisering /deserialization. Kopiera och klistra inte in den i en produktionsmiljö.
 
 ```Java
 static class TokenPersistence implements ITokenCacheAccessAspect {
@@ -62,4 +62,4 @@ PublicClientApplication.builder("my_client_id").setTokenCacheAccessAspect(persis
 
 ## <a name="learn-more"></a>Läs mer
 
-Lär dig mer om [att hämta och ta bort konton från token-cachen med MSAL för Java](msal-java-get-remove-accounts-token-cache.md).
+Lär dig mer om [Hämta och ta bort konton från tokencachen med MSAL för Java](msal-java-get-remove-accounts-token-cache.md).

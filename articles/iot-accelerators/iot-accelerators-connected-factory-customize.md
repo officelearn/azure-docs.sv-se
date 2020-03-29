@@ -1,6 +1,6 @@
 ---
-title: Anpassa lösningen för ansluten fabrik – Azure | Microsoft Docs
-description: En beskrivning av hur du anpassar lösningsaccelerator ansluten fabrik.
+title: Anpassa lösningen connected factory – Azure | Microsoft-dokument
+description: En beskrivning av hur du anpassar beteendet hos lösningsacceleratorn ansluten fabrik.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -10,78 +10,78 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67080490"
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa visningen av data från dina OPC UA-servrar i lösningen för ansluten fabrik
+# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Anpassa hur Connected Factory-lösningen visar data från dina OPC UA-servrar
 
-Lösningen för ansluten fabrik aggregerar och visar data från OPC UA-servrar som är anslutna till lösningen. Du kan bläddra och skicka kommandon till OPC UA-servrar i din lösning. Mer information om OPC UA finns i [Vanliga frågor och svar om Ansluten fabrik](iot-accelerators-faq-cf.md).
+Lösningen Connected Factory sammanställer och visar data från OPC UA-servrar som är anslutna till lösningen. Du kan bläddra bland och skicka kommandon till OPC UA-servrarna i din lösning. Mer information om OPC UA finns i [vanliga frågor om Connected Factory](iot-accelerators-faq-cf.md).
 
-Exempel på sammanställda data i lösningen är de övergripande utrustning effektivitet (OEE) och OEM-tillverkare (Key Performance Indicator) som du kan visa i instrumentpanelen på factory, rad och station nivåer. Följande skärmbild visar OEE och KPI-värden för den **sammansättningen** station på **produktionslinje 1**i den **München** factory:
+Exempel på aggregerade data i lösningen är de kpi:er (Overall Equipment Efficiency) och KPI:er (Key Performance Indicators) som du kan visa i instrumentpanelen på fabriks-, linje- och stationsnivå. Följande skärmbild visar OEE- och KPI-värdena för **monteringsstationen,** på **produktionslinje 1**, i **Münchenfabriken:**
 
-![Exempel på OEE och KPI-värden i lösningen][img-oee-kpi]
+![Exempel på OEE- och KPI-värden i lösningen][img-oee-kpi]
 
-Den här lösningen kan du visa detaljerad information från specifika dataobjekt från OPC UA-servrar kallas *stationer*. Följande skärmbild visar områden av antalet tillverkade artiklar från en specifik station:
+Lösningen gör att du kan visa detaljerad information från specifika dataobjekt från OPC UA-servrar, så kallade *stationer*. Följande skärmbild visar diagram över antalet tillverkade artiklar från en viss station:
 
-![Områden av antalet tillverkade artiklar][img-manufactured-items]
+![Tomter av antal tillverkade artiklar][img-manufactured-items]
 
-Om du klickar på diagrammet kan du utforska data ytterligare med Time Series Insights (TSI):
+Om du klickar på något av diagrammen kan du utforska data ytterligare med Hjälp av TSD (Time Series Insights):
 
 ![Utforska data med hjälp av Time Series Insights][img-tsi]
 
-Den här artikeln beskrivs:
+I den här artikeln beskrivs:
 
-- Hur data görs tillgänglig för de olika vyerna i lösningen.
+- Hur uppgifterna görs tillgängliga för de olika vyerna i lösningen.
 - Hur du kan anpassa hur lösningen visar data.
 
 ## <a name="data-sources"></a>Datakällor
 
-Lösningen för ansluten fabrik visar data från OPC UA-servrar som är anslutna till lösningen. Standardinstallationen omfattar flera OPC UA-servrar som kör en factory simulering. Du kan lägga till dina egna OPC UA-servrar som [ansluta via en gateway] [lnk-connect-cf] i lösningen.
+Lösningen Connected Factory visar data från OPC UA-servrar som är anslutna till lösningen. Standardinstallationen innehåller flera OPC UA-servrar som kör en fabrikssimulering. Du kan lägga till dina egna UA-servrar för OPC som [ansluter via en gateway][lnk-connect-cf] till din lösning.
 
-Du kan bläddra bland de dataobjekt som en ansluten OPC UA-servern kan skicka till din lösning på instrumentpanelen:
+Du kan bläddra bland de dataobjekt som en ansluten OPC UA-server kan skicka till din lösning på instrumentpanelen:
 
-1. Välj **webbläsare** att navigera till den **Välj en OPC UA-server** vy:
+1. Välj **Webbläsare** för att navigera till **välja en OPC UA-servervy:**
 
-    ![Navigera till Markera en vy för OPC UA-server][img-select-server]
+    ![Navigera till välja en OPC UA-servervy][img-select-server]
 
-1. Välj en server och klicka på **Connect**. Klicka på **Fortsätt** när säkerhetsvarningen visas.
+1. Välj en server och klicka på **Anslut**. Klicka på **Fortsätt** när säkerhetsvarningen visas.
 
     > [!NOTE]
-    > Den här varningen bara förekommer en gång för varje server och upprättar en förtroenderelation mellan lösningens instrumentpanel och servern.
+    > Den här varningen visas bara en gång för varje server och upprättar en förtroenderelation mellan lösningsinstrumentpanelen och servern.
 
-1. Du kan nu bläddra dataobjekt som servern kan skicka till lösningen. Objekt som skickas till lösningen är markerade:
+1. Du kan nu bläddra bland de dataobjekt som servern kan skicka till lösningen. Objekt som skickas till lösningen är markerat:
 
     ![Publicerade objekt][img-published]
 
-1. Om du är en *administratör* i lösningen, kan du välja att publicera ett dataobjekt så att den blir tillgänglig i lösningen för ansluten fabrik. Du kan också ändra värdet för dataobjekt och anropa metoder i OPC UA-servern som administratör.
+1. Om du är *administratör* i lösningen kan du välja att publicera ett dataobjekt för att göra det tillgängligt i lösningen Ansluten fabrik. Som administratör kan du också ändra värdet på dataobjekt och anropsmetoder på OPC UA-servern.
 
 ## <a name="map-the-data"></a>Mappa data
 
-Lösningen för ansluten fabrik mappar och läggs till de publicerade dataobjekt från OPC UA-servern till de olika vyerna i lösningen. Lösningen för ansluten fabrik distribuerar till ditt Azure-konto när du etablerar lösningen. Av mappningsinformationen lagras i en JSON-fil i Visual Studio Connected Factory-lösning. Du kan visa och ändra den här JSON-konfigurationsfil i ansluten fabrik Visual Studio-lösning. Du kan distribuera lösningen igen när du har gjort en ändring.
+Lösningen Connected Factory mappar och sammanställer publicerade dataobjekt från OPC UA-servern till de olika vyerna i lösningen. Connected Factory-lösningen distribueras till ditt Azure-konto när du etablerar lösningen. En JSON-fil i Visual Studio Connected Factory-lösningen lagrar den här mappningsinformationen. Du kan visa och ändra den här JSON-konfigurationsfilen i lösningen Connected Factory Visual Studio. Du kan distribuera om lösningen när du har gjort en ändring.
 
 Du kan använda konfigurationsfilen för att:
 
-- Redigera den befintliga simulerade fabriker och produktionsrader stationer.
-- Visualisera data från verkliga OPC UA-servrar som du ansluter till lösningen.
+- Redigera befintliga simulerade fabriker, produktionslinjer och stationer.
+- Kartdata från riktiga OPC UA-servrar som du ansluter till lösningen.
 
-Mer information om mappning och datainsamling för att uppfylla dina specifika krav finns i [så här konfigurerar du lösningsaccelerator ansluten fabrik ](iot-accelerators-connected-factory-configure.md).
+Mer information om hur du mappar och sammanställer data för att uppfylla dina specifika krav finns i Så här konfigurerar du [lösningsacceleratorn för Connected Factory ](iot-accelerators-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Distribuera ändringarna
 
-När du är klar med att göra ändringar i den **ContosoTopologyDescription.json** filen, måste du distribuera om lösningen för ansluten fabrik på Azure-kontot.
+När du är klar med att göra ändringar i **filen ContosoTopologyDescription.json** måste du distribuera om lösningen Ansluten fabrik till ditt Azure-konto.
 
-Den **azure-iot-connected-factory** databasen innehåller en **build.ps1** PowerShell-skript som du kan använda för att återskapa och distribuera lösningen.
+Den **azure-iot-anslutna** fabrikslagringsplatsen innehåller ett **build.ps1** PowerShell-skript som du kan använda för att återskapa och distribuera lösningen.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Läs mer om ansluten fabrik lösningsaccelerator genom att läsa följande artiklar:
+Läs mer om lösningsacceleratorn för Connected Factory genom att läsa följande artiklar:
 
-* [Behörigheter på webbplatsen azureiotsolutions.com][lnk-permissions]
-* [Vanliga frågor och svar om ansluten fabrik](iot-accelerators-faq-cf.md)
-* [VANLIGA FRÅGOR OCH SVAR][lnk-faq]
+* [Behörigheter på azureiotsolutions.com webbplats][lnk-permissions]
+* [Vanliga frågor om ansluten fabrik](iot-accelerators-faq-cf.md)
+* [Faq][lnk-faq]
 
 
 [img-oee-kpi]: ./media/iot-accelerators-connected-factory-customize/oeenadkpi.png

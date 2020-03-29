@@ -1,6 +1,6 @@
 ---
-title: Hantera StorSimple Virtual Array filresurser | Microsoft Docs
-description: Beskriver StorSimple Device Manager och som förklarar hur du använder den för att hantera resurser på din StorSimple Virtual Array.
+title: Hantera StorSimple Virtual Array-resurser | Microsoft-dokument
+description: Beskriver StorSimple Device Manager och förklarar hur du använder den för att hantera resurser på din StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -15,57 +15,57 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62116874"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att hantera resurser på StorSimple Virtual Array
+# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att hantera resurser i StorSimple Virtual Array
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien beskrivs hur du använder StorSimple Device Manager-tjänsten för att skapa och hantera resurser på din StorSimple Virtual Array.
+I den här självstudien beskrivs hur du använder Tjänsten StorSimple Device Manager för att skapa och hantera resurser på den virtuella storsimple-matrisen.
 
-StorSimple Device Manager-tjänsten är ett tillägg i Azure-portalen som låter dig hantera din StorSimple-lösning från ett enda webbgränssnitt. Du kan använda StorSimple Device Manager-tjänsten att visa och hantera enheter, Visa aviseringar, hantera principer för säkerhetskopiering och hantera säkerhetskopieringskatalogen utöver att hantera resurserna och volymerna.
+Tjänsten StorSimple Device Manager är ett tillägg i Azure-portalen som gör att du kan hantera din StorSimple-lösning från ett enda webbgränssnitt. Förutom att hantera resurser och volymer kan du använda Tjänsten StorSimple Device Manager för att visa och hantera enheter, visa aviseringar, hantera principer för säkerhetskopiering och hantera säkerhetskopieringskatalogen.
 
-## <a name="share-types"></a>Dela typer
+## <a name="share-types"></a>Resurstyper
 
-StorSimple-resurser kan vara:
+StorSimple-aktier kan vara:
 
-* **Lokalt fixerade**: Data i dessa resurser stannar i matrisen hela tiden och läcker över inte till molnet.
-* **Nivåindelad**: Data i dessa resurser kan läcker över till molnet. När du skapar en nivåindelad resurs cirka 10% av utrymmet är etablerad på den lokala nivån och 90% av utrymmet som har etablerats i molnet. Till exempel om du har etablerat en resurs som 1 TB, 100 GB skulle finnas i det lokala utrymmet och 900 GB skulle användas i molnet när de data-nivåerna. Detta innebär i sin tur att du kör utanför det lokala utrymmet på enheten, inte kan etablera en nivåindelad resurs (eftersom dessa 10% som krävs på den lokala nivån inte är tillgängligt).
+* **Lokalt fäst**: Data i dessa resurser finns kvar på matrisen hela tiden och spills inte till molnet.
+* **Nivåindelade**: Data i dessa resurser kan spillas till molnet. När du skapar en nivåindelad resurs etableras cirka 10 % av utrymmet på den lokala nivån och 90 % av utrymmet etableras i molnet. Om du till exempel har etablerat en 1 TB-resurs skulle 100 GB finnas i det lokala utrymmet och 900 GB skulle användas i molnet när datanivåerna. Detta innebär i sin tur att om du får på allt lokalt utrymme på enheten, kan du inte etablera en nivåindelad resurs (eftersom de 10 % som krävs på den lokala nivån inte kommer att vara tillgängliga).
 
 ### <a name="provisioned-capacity"></a>Etablerad kapacitet
 
-Se tabellen nedan för högsta etablerade kapaciteten för varje resurstyp av.
+Se följande tabell för maximal etablerad kapacitet för varje resurstyp.
 
-| **Gräns för identifierare** | **Gränsen** |
+| **Gräns för identifierare** | **Gräns** |
 | --- | --- |
-| Minsta storlek på en nivåindelad resurs |500 GB |
-| Maximal storlek för en nivåindelad resurs |20 TB |
-| Minsta storlek på en lokalt Fäst resurs |50 GB |
-| Maximal storlek på en lokalt Fäst resurs |2 TB |
+| Minsta storlek för en nivåindelad resurs |500 GB |
+| Maximal storlek på en nivåindelad resurs |20 TB |
+| Minsta storlek för en lokalt fäst resurs |50 GB |
+| Maximal storlek för en lokalt fäst resurs |2 TB |
 
-## <a name="the-shares-blade"></a>Bladet för filresurser
+## <a name="the-shares-blade"></a>Bladet Aktier
 
-Den **resurser** menyn på din sammanfattningsbladet för StorSimple-tjänsten visar listan över resurser för lagring på en viss StorSimple-matris och gör att du kan hantera dem.
+På sammanfattningsbladet **för resurser** i storsimple-tjänsten visas listan över lagringsresurser på en viss StorSimple-matris och du kan hantera dem.
 
-![Resurser-bladet](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
+![Delar blad](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
 
-En resurs består av en serie med attribut:
+En aktie består av en serie attribut:
 
-* **Resursnamn** – ett beskrivande namn som måste vara unikt och hjälper dig att identifiera resursen.
-* **Status för** – kan vara online eller offline. Om en resurs är offline, kan användare av resursen inte komma åt den.
-* **Typ** – anger om resursen är **Nivåindelad** (standard) eller **lokalt fixerade**.
-* **Kapacitet** – anger hur mycket data som används jämfört med den totala mängden data som kan lagras på resursen.
-* **Beskrivning av** – en valfri inställning som hjälper till att beskriva resursen.
-* **Behörigheter** -NTFS-behörigheter till resursen som kan hanteras via Windows Explorer.
-* **Säkerhetskopiering** – om av StorSimple Virtual Array aktiveras automatiskt alla resurser för säkerhetskopiering.
+* **Resursnamn** – Ett beskrivande namn som måste vara unikt och hjälper till att identifiera resursen.
+* **Status** – Kan vara online eller offline. Om en resurs är offline kan användarna av resursen inte komma åt den.
+* **Typ** – Anger om resursen är **nivåindelning** (standard) eller **Lokalt fäst**.
+* **Kapacitet** – anger mängden data som används jämfört med den totala mängden data som kan lagras på resursen.
+* **Beskrivning** – En valfri inställning som hjälper till att beskriva resursen.
+* **Behörigheter** - NTFS-behörigheterna till resursen som kan hanteras via Utforskaren.
+* **Säkerhetskopiering** – Vid StorSimple Virtual Array aktiveras alla resurser automatiskt för säkerhetskopiering.
 
-![Delar information](./media/storsimple-virtual-array-manage-shares/share-details.png)
+![Dela information](./media/storsimple-virtual-array-manage-shares/share-details.png)
 
-Följ instruktionerna i den här självstudien för att utföra följande uppgifter:
+Använd instruktionerna i den här självstudien för att utföra följande uppgifter:
 
 * Lägga till en resurs
 * Ändra en resurs
@@ -74,74 +74,74 @@ Följ instruktionerna i den här självstudien för att utföra följande uppgif
 
 ## <a name="add-a-share"></a>Lägga till en resurs
 
-1. StorSimple sammanfattningsbladet för tjänsten, klicka på **+ Lägg till resurs** i kommandofältet. Gör det öppnas den **Lägg till resurs** bladet.
+1. Klicka på + Lägg till **resurs** från kommandofältet i sammanfattningsbladet för StorSimple-tjänsten. Detta öppnar **bladet Lägg till delning.**
 
     ![Lägg till resurs](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
-2. I den **Lägg till resurs** bladet gör du följande:
+2. Gör följande i bladet **Lägg till resurs:**
    
-   1. I den **resursnamn** fältet, anger du ett unikt namn för din resurs. Namnet måste vara en sträng som innehåller 3 till 127 tecken.
+   1. Ange ett unikt namn för resursen i fältet **Dela namn.** Namnet måste vara en sträng som innehåller 3 till 127 tecken.
 
-   2. En valfri **beskrivning** för resursen. Beskrivningen kan du identifiera resurs-ägare.
+   2. En valfri **beskrivning** för resursen. Beskrivningen hjälper till att identifiera aktieägarna.
 
-   3. I den **typ** listrutan anger du om du vill skapa en **Nivåindelad** eller **lokalt fixerade** dela. För arbetsbelastningar som kräver lokala garantier, Låg fördröjning och högre prestanda, väljer **lokalt fixerade resursen**. All övrig data, Välj **Nivåindelad** dela.
+   3. I listrutan **Typ** anger du om du vill skapa en **nivåindelad** eller **Lokalt fäst** resurs. För arbetsbelastningar som kräver lokala garantier, låga svarstider och högre prestanda väljer du **Lokalt fäst resurs**. För alla andra data väljer du **Nivåindelning.**
 
-   4. I den **kapacitet** fältet, ange storleken på resursen. En nivåindelad resurs måste vara mellan 500 GB och 20 TB och en lokalt Fäst resurs måste vara mellan 50 GB och 2 TB.
+   4. Ange resursens storlek i fältet **Kapacitet.** En nivåindelad resurs måste vara mellan 500 GB och 20 TB och en lokalt fäst resurs måste vara mellan 50 GB och 2 TB.
 
-   5. I den **Ange standard fullständig behörighet** fältet, tilldela behörigheter till användaren eller gruppen som har åtkomst till den här resursen. Ange namnet på användaren eller användargruppen i _john@contoso.com_ format. Vi rekommenderar att du använder en användargrupp (i stället för en enskild användare) för att tillåta admin-behörighet att komma åt dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
-3. När du har konfigurerat din filresurs klickar du på **skapa**. En resurs ska skapas med de angivna inställningarna och du ser ett meddelande. Som standard aktiveras säkerhetskopiering för resursen.
-4. Kontrollera att resursen har skapats genom att gå till den **resurser** bladet. Du bör se den resurs som visas.
+   5. I fältet **Ange fullständiga standardbehörigheter till,** tilldela behörigheterna till användaren eller den grupp som använder den här resursen. Ange namnet på användaren eller användargruppen i _john@contoso.com_ format. Vi rekommenderar att du använder en användargrupp (i stället för en enskild användare) för att tillåta administratörsbehörighet att komma åt dessa resurser. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
+3. När du har konfigurerat resursen klickar du på **Skapa**. En resurs skapas med de angivna inställningarna och du kommer att se ett meddelande. Som standard aktiveras säkerhetskopiering för resursen.
+4. Om du vill bekräfta att resursen har skapats går du till bladet **Aktier.** Du bör se resursen i listan.
    
-    ![Dela skapa lyckades](./media/storsimple-virtual-array-manage-shares/share-success.png)
+    ![Dela skapa framgång](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
 ## <a name="modify-a-share"></a>Ändra en resurs
 
-Ändra en resurs när du behöver ändra beskrivning av resursen. Inga andra resursegenskaper kan ändras när resursen har skapats.
+Ändra en resurs när du behöver ändra beskrivningen av resursen. Inga andra resursegenskaper kan ändras när resursen har skapats.
 
-#### <a name="to-modify-a-share"></a>Ändra en resurs
+#### <a name="to-modify-a-share"></a>Så här ändrar du en resurs
 
-1. Från den **resurser** inställningen på sammanfattningsbladet för StorSimple-tjänsten, Välj den virtuella matrisen som resursen som du vill du ändra finns.
-2. **Välj** resursen att visa aktuella beskrivningen och ändra den.
-3. Spara ändringarna genom att klicka på den **spara** kommandofältet. De angivna inställningarna kommer att tillämpas och du ser ett meddelande.
+1. Välj den virtuella matris som resursen du vill att du ska ändra finns på inställningen **Resurser** på sammanfattningsbladet för StorSimple-tjänsten.
+2. **Markera** resursen om du vill visa den aktuella beskrivningen och ändra den.
+3. Spara ändringarna genom att klicka på kommandofältet **Spara.** Dina angivna inställningar kommer att tillämpas och du kommer att se ett meddelande.
    
     ![ Redigera resurs](./media/storsimple-virtual-array-manage-shares/share-edit.png)
 
 ## <a name="take-a-share-offline"></a>Koppla från en resurs
 
-Du kan behöva koppla från en resurs när du planerar att ändra eller ta bort den. När en resurs är offline, är det inte tillgänglig för läs-/ skrivåtkomst. Du behöver ta resursen offline på värden och på enheten.
+Du kan behöva koppla från en resurs när du planerar att ändra den eller ta bort den. När en resurs är offline är den inte tillgänglig för läs- och skrivåtkomst. Du måste koppla från resursen på värden och på enheten.
 
-#### <a name="to-take-a-share-offline"></a>Att koppla från en resurs
+#### <a name="to-take-a-share-offline"></a>Så här kopplar du en resurs
 
-1. Kontrollera att resursen i fråga inte är i användning innan du koppla från den.
-2. Ta resursen på matrisen offline genom att utföra följande steg:
+1. Kontrollera att resursen i fråga inte används innan du kopplar från den.
+2. Koppla från resursen på matrisen genom att utföra följande steg:
    
-    1. Från den **resurser** inställningen på sammanfattningsbladet för StorSimple-tjänsten, Välj den virtuella matrisen som resursen som du vill du ta offline finns.
+    1. Välj **den** virtuella matris som resursen du vill att du ska koppla offline på i sammanfattningsbladet StorSimple-tjänsten.
 
-    2. **Välj** till resursen och klicka på **...**  (alternativt Högerklicka i den här raden) och på snabbmenyn väljer **ta offline**.
+    2. **Markera** resursen och klicka **...** (högerklicka alternativt på den här raden) och välj **Koppla offline**på snabbmenyn .
      
         ![Offline-resurs](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
 
-    3. Granska informationen i den **ta offline** bladet och bekräftar ditt godkännande av åtgärden. Klicka på **ta offline** att ta resursen offline. Du ser en avisering om en åtgärd pågår.
+    3. Granska informationen i bladet **Ta offline** och bekräfta att du godkänner åtgärden. Klicka på **Koppla från** om du vill koppla från resursen. Du kommer att se ett meddelande om den pågående åtgärden.
 
-    4. Kontrollera att resursen har har kopplats från genom att gå till den **resurser** bladet. Du bör se status för resursen som offline.
+    4. Om du vill bekräfta att resursen har tagits offline går du till bladet **Aktier.** Du bör se resursens status som offline.
 
 ## <a name="delete-a-share"></a>Ta bort en resurs
 
 > [!IMPORTANT]
-> Du kan ta bort en resurs endast om den är offline.
+> Du kan bara ta bort en resurs om den är offline.
 
 
-Utför följande steg för att ta bort en resurs.
+Slutför följande steg för att ta bort en resurs.
 
-#### <a name="to-delete-a-share"></a>Att ta bort en resurs
+#### <a name="to-delete-a-share"></a>Så här tar du bort en resurs
 
-1. Från den **resurser** inställningen på sammanfattningsbladet för StorSimple-tjänsten, Välj den virtuella matrisen som du vill ta bort resursen finns.
-2. **Välj** till resursen och klicka på **...**  (alternativt Högerklicka i den här raden) och på snabbmenyn väljer **ta bort**.
+1. Välj den virtuella matris som resursen du vill ta bort finns på inställningen **Resurser** på sammanfattningsbladet för StorSimple-tjänsten.
+2. **Markera** resursen och klicka **...** (högerklicka alternativt på den här raden) och välj **Ta bort**på snabbmenyn .
    
-    ![Ta bort resursen](./media/storsimple-virtual-array-manage-shares/share-delete.png)
-3. Kontrollera status för den resurs som du vill ta bort. Om du vill ta bort resursen inte är offline, koppla från den först. Följ stegen i [koppla från en resurs](#take-a-share-offline).
-4. När du uppmanas att bekräfta i den **ta bort** bladet Godkänn bekräftelsen och klicka på **ta bort**. Resursen tas bort och **resurser** bladet visar den uppdaterade listan med resurser i den virtuella matrisen.
+    ![Ta bort resurs](./media/storsimple-virtual-array-manage-shares/share-delete.png)
+3. Kontrollera status för den resurs som du vill ta bort. Om resursen som du vill ta bort inte är offline tar du den offline först. Följ stegen i [Koppla från delning](#take-a-share-offline).
+4. När du uppmanas att bekräfta i bladet **Ta bort** godkänner du bekräftelsen och klickar på **Ta bort**. Resursen tas nu bort och bladet **Aktier** visar den uppdaterade listan över resurser i den virtuella matrisen.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [klona en StorSimple-resurs](storsimple-virtual-array-clone.md).
+Läs om hur du [klonar en StorSimple-resurs](storsimple-virtual-array-clone.md).
 

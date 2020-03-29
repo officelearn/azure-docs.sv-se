@@ -1,72 +1,72 @@
 ---
-title: Resurser utan gräns för 800
-description: Visar en lista över de Azure-resurs typer som kan ha fler än 800 instanser i en resurs grupp.
+title: Resurser utan 800 räknegräns
+description: Visar en lista över azure-resurstyper som kan ha fler än 800 instanser i en resursgrupp.
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937943"
 ---
-# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resurs grupp
+# <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resursgrupp
 
-Som standard kan du distribuera upp till 800 instanser av en resurs typ i varje resurs grupp. Vissa resurs typer är dock undantagna från gränsen på 800-instanser. Den här artikeln innehåller en lista över de Azure-resurs typer som kan ha fler än 800 instanser i en resurs grupp. Alla andra resurs typer är begränsade till 800 instanser.
+Som standard kan du distribuera upp till 800 instanser av en resurstyp i varje resursgrupp. Vissa resurstyper är dock undantagna från 800-instansgränsen. I den här artikeln visas de Azure-resurstyper som kan ha fler än 800 instanser i en resursgrupp. Alla andra resurstyper är begränsade till 800 instanser.
 
-För vissa resurs typer måste du kontakta supporten om du vill ta bort instans gränsen på 800. Dessa resurs typer anges i den här artikeln.
+För vissa resurstyper måste du kontakta supporten för att få 800-instansgränsen borttagen. Dessa resurstyper noteras i den här artikeln.
 
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
-* automationAccounts
+* automationKonton
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
-* registreringar
-* registreringar/customerSubscriptions
+* Registreringar
+* registreringar/kundAbonnemang
 * registreringar/produkter
-* verificationKeys
+* verifieringstangenter
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
+* botServices - Som standard begränsad till 800 instanser. Den gränsen kan höjas genom att kontakta supporten.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* disk
+* Diskar
 * images
 * snapshots
-* virtualMachines
+* virtuellaMaskiner
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 * containerGroups
 
-## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
+## <a name="microsoftcontainerregistry"></a>Microsoft.Container-registret
 
 * register/buildTasks
 * register/buildTasks/listSourceRepositoryProperties
-* register/buildTasks/steg
-* register/buildTasks/steg/listBuildArguments
-* registries/eventGridFilters
+* register/buildTasks/steps
+* register/buildTasks/steps/listBuildArguments
+* register/eventGridFilters
 * register/replikeringar
 * register/uppgifter
-* register/Webhooks
+* register/webhooks
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
-* servrar
+* Servrar
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
-* servrar
+* Servrar
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
-* serverGroups
-* servrar
-* serversv2
+* serverGrupper
+* Servrar
+* servrarv2
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
@@ -74,44 +74,44 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
-* kluster
-* namn områden
+* Kluster
+* Namnområden
 
-## <a name="microsoftexperimentation"></a>Microsoft. experimentering
+## <a name="microsoftexperimentation"></a>Microsoft.Experiment
 
-* experimentWorkspaces
+* experimentArbetsytor
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 * autoManagedVmConfigurationProfiles
-* configurationProfileAssignments
-* guestConfigurationAssignments
-* IntelliPoint
+* konfigurationProfileAstilldelningar
+* gästKonfigurationTilldelningar
+* Programvara
 * softwareUpdateProfile
-* softwareUpdates
+* programvaraUppdater
 
 ## <a name="microsoftinsights"></a>Microsoft.Insights
 
-* metricalerts
+* metricalerter
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
-* integrationAccounts
-* arbetsflöden
+* integrationKonton
+* Arbetsflöden
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
-* netAppAccounts
+* netAppAccounts (netAppAccounts)
 * netAppAccounts/capacityPools
-* netAppAccounts/capacityPools/Volumes
-* netAppAccounts/capacityPools/Volumes/mountTargets
-* netAppAccounts/capacityPools/volym/ögonblicks bilder
+* netAppAccounts/capacityPools/volymer
+* netAppAccounts/capacityPools/volymer/mountTargets
+* netAppAccounts/capacityPools/volymer/ögonblicksbilder
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
-* applicationGatewayWebApplicationFirewallPolicies
+* ansökanGatewayWebApplicationFirewallPolicies
 * applicationSecurityGroups
-* bastionHosts
+* bastionHosts (bastionHosts)
 * ddosProtectionPlans
 * dnszones
 * dnszones/A
@@ -125,10 +125,10 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 * dnszones/SRV
 * dnszones/TXT
 * dnszones/alla
-* dnszones/Recordset
-* networkIntentPolicies
-* networkInterfaces
-* privateDnsZones
+* dnszones/recordset
+* nätverkIntentPolicies
+* nätverkGränssnitt
+* privatDnsZones
 * privateDnsZones/A
 * privateDnsZones/AAAA
 * privateDnsZones/CNAME
@@ -141,7 +141,7 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
+* publicIPAddresses - Som standard begränsad till 800 instanser. Den gränsen kan höjas genom att kontakta supporten.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -152,38 +152,38 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections – som standard är begränsad till 800 instanser. Du kan öka gränsen genom att kontakta supporten.
+* workspaceCollections - Som standard begränsad till 800 instanser. Den gränsen kan höjas genom att kontakta supporten.
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
-* namn områden
+* Namnområden
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
-* förfrågningsåtgärder
+* jobbsamlingar
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
-* namn områden
+* Namnområden
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 * program
 * containerGroups
-* gatewayer
-* nätet
-* hemligheter
+* Gateways
+* Nätverk
+* secrets
 * volumes
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
-* storageAccounts
+* lagringKonton
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
-* apiManagementAccounts/apis
-* stationer
+* apiManagementKonton/api:er
+* webbplatser
 
 ## <a name="next-steps"></a>Nästa steg
 
-En fullständig lista över kvoter och begränsningar finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](azure-subscription-service-limits.md).
+En fullständig lista över kvoter och begränsningar finns i [Azure-prenumerations- och tjänstbegränsningar, kvoter och begränsningar](azure-subscription-service-limits.md).

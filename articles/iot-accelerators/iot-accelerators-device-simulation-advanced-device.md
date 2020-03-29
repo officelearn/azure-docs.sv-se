@@ -1,6 +1,6 @@
 ---
-title: Skapa en avancerad simulerade enhetsmodell – Azure | Microsoft Docs
-description: Lär dig hur du skapar en avancerad enhetsmodell för användning med Enhetssimulering lösningsaccelerator i den här guiden.
+title: Skapa en avancerad simulerad enhetsmodell – Azure| Microsoft-dokument
+description: I den här programguiden får du lära dig hur du skapar en avancerad enhetsmodell som kan användas med device simulation-lösningsaccelerator.
 author: troyhopwood
 manager: timlt
 ms.service: iot-accelerators
@@ -10,21 +10,21 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61449058"
 ---
 # <a name="create-an-advanced-device-model"></a>Skapa en avancerad enhetsmodell
 
-Den här guiden beskriver JSON och JavaScript-filer som definierar en anpassad enhet-modell. Artikeln innehåller vissa enheten model definition exempelfilerna och visar hur du laddar upp dem till din Enhetssimulering-instans. Du kan skapa avancerade modeller för att simulera mer realistisk enhetsbeteenden för testet.
+Den här programguiden beskriver JSON- och JavaScript-filerna som definierar en anpassad enhetsmodell. Artikeln innehåller några exempel på enhetsmodelldefinitionsfiler och visar hur du laddar upp dem till enhetssimuleringsinstansen. Du kan skapa avancerade enhetsmodeller för att simulera mer realistiska enhetsbeteenden för testningen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill följa stegen i den här guiden, måste en distribuerad Enhetssimulering-instans i Azure-prenumerationen.
+Om du vill följa stegen i den här programguiden behöver du en distribuerad instans av Enhetssimulering i din Azure-prenumeration.
 
 Om du inte har distribuerat enhetssimulering ännu bör du slutföra snabbstarten [Distribuera och köra en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md).
 
@@ -34,47 +34,47 @@ För att köra enhetssimulering i webbläsaren navigerar du först till [Microso
 
 Du kan bli ombedd att logga in med dina autentiseringsuppgifter för Azure-prenumeration.
 
-Klicka sedan på **starta** på panelen för Enhetssimulering som du distribuerade i de [distribuera och kör en IoT-enhetssimulering i Azure](quickstart-device-simulation-deploy.md) Snabbstart.
+Klicka sedan på **Starta** på panelen för enhetssimulering som du distribuerade i [distribuera och kör en IoT-enhetssimulering i Azure-snabbstart.](quickstart-device-simulation-deploy.md)
 
 ## <a name="device-models"></a>Enhetsmodeller
 
-Varje simulerad enhet som tillhör en viss enhetsmodell som definierar beteendet simulering. Detta inkluderar hur ofta du vill skicka telemetri, vilken typ av meddelanden att skicka och metoderna som stöds.
+Varje simulerad enhet tillhör en specifik enhetsmodell som definierar simuleringsbeteendet. Det här problemet inkluderar hur ofta du skickar telemetri, vilken typ av meddelanden som ska skickas och metoder som stöds.
 
-Du definierar en enhetsmodell som använder en definitionsfil för JSON-enhet och en uppsättning JavaScript-filer. Dessa JavaScript-filer definierar beteendet simulering, till exempel slumpmässiga telemetri och metoden logiken.
+Du definierar en enhetsmodell med en JSON-enhetsdefinitionsfil och en uppsättning JavaScript-filer. Dessa JavaScript-filer definierar simuleringsbeteendet, till exempel slumpmässig telemetri och metodlogiken.
 
 En typisk enhetsmodell har:
 
 * En JSON-fil för varje enhetsmodell (till exempel elevator.json).
-* En JavaScript beteende skriptfilen för varje enhetsmodell (till exempel hiss-state.js)
-* En JavaScript-metod skriptfilen för varje enhetsmetod (till exempel hiss-go-down.js)
+* En JavaScript-beteendeskriptfil för varje enhetsmodell (till exempel hiss-state.js)
+* En JavaScript-metodskriptfil för varje enhetsmetod (till exempel elevator-go-down.js)
 
 > [!NOTE]
-> Inte alla enhetsmodeller definierar metoder. Därför en enhetsmodell kanske eller kanske inte metoden skript. Alla enhetsmodeller måste dock ha ett beteende-skript.
+> Alla enhetsmodeller definierar inte metoder. Därför kan en enhetsmodell ha metodskript eller inte. Alla enhetsmodeller måste dock ha ett beteendeskript.
 
-## <a name="device-definition-file"></a>Definitionsfilen för enhet
+## <a name="device-definition-file"></a>Enhetsdefinitionsfil
 
-Varje enhet definitionsfilen innehåller information om en simulerad enhet-modell, inklusive följande information:
+Varje enhetsdefinitionsfil innehåller information om en simulerad enhetsmodell, inklusive följande information:
 
-* Enhetens modellnamn: sträng.
+* Enhetsmodellnamn: sträng.
 * Protokoll: AMQP | MQTT | HTTP.
-* Inledande enhetens tillstånd.
-* Hur ofta att uppdatera enhetens tillstånd.
-* Vilken JavaScript-fil som ska användas för att uppdatera enhetens tillstånd.
-* En lista över telemetrimeddelanden att skicka, var och en med en specifik frekvens.
-* Schemat för telemetrimeddelanden som används av serverprogrammet för att parsa den telemetri som tagits emot.
-* En lista över metoder som stöds och JavaScript-fil du använder för att simulera varje metod.
+* Det ursprungliga enhetstillståndet.
+* Hur ofta enhetstillståndet ska uppdateras.
+* Vilken JavaScript-fil som ska användas för att uppdatera enhetstillståndet.
+* En lista över telemetrimeddelanden som ska skickas, var och en med en viss frekvens.
+* Schemat för telemetrimeddelandena som används av backend-programmet för att tolka den mottagna telemetrin.
+* En lista över metoder som stöds och JavaScript-filen som ska användas för att simulera varje metod.
 
-### <a name="file-schema"></a>Filschemat
+### <a name="file-schema"></a>Filschema
 
-Schemaversionen är alltid ”1.0.0” och är specifikt för formatet för den här filen:
+Schemaversionen är alltid "1.0.0" och är specifik för formatet för den här filen:
 
 ```json
 "SchemaVersion": "1.0.0"
 ```
 
-### <a name="device-model-description"></a>Enhetsbeskrivning för modellen
+### <a name="device-model-description"></a>Beskrivning av enhetsmodell
 
-Följande egenskaper beskriver den nuvarande enhetsmodellen. Varje typ har en unik identifierare, en semantiska version, ett namn och en beskrivning:
+Följande egenskaper beskriver enhetsmodellen. Varje typ har en unik identifierare, en semantisk version, ett namn och en beskrivning:
 
 ```json
 "Id": "chiller-01",
@@ -85,15 +85,15 @@ Följande egenskaper beskriver den nuvarande enhetsmodellen. Varje typ har en un
 
 ### <a name="iot-protocol"></a>IoT-protokoll
 
-IoT-enheter kan ansluta med olika protokoll. Simuleringen kan du använda antingen **AMQP**, **MQTT**, eller **HTTP**:
+IoT-enheter kan ansluta med olika protokoll. Med simuleringen kan du använda antingen **AMQP,** **MQTT**eller **HTTP:**
 
 ```json
 "Protocol": "AMQP"
 ```
 
-### <a name="simulated-device-state"></a>Simulerade enhetens tillstånd
+### <a name="simulated-device-state"></a>Simulerat enhetstillstånd
 
-Varje simulerad enhet har ett internt tillstånd, som måste definieras. Tillståndet definierar också de egenskaper som kan rapporteras i telemetri. En kylaggregat kan till exempel ha ett inledande tillstånd som:
+Varje simulerad enhet har ett internt tillstånd som måste definieras. Tillståndet definierar också de egenskaper som kan rapporteras i telemetri. En kylmaskin kan till exempel ha ett ursprungligt tillstånd som:
 
 ```json
 "InitialState": {
@@ -102,7 +102,7 @@ Varje simulerad enhet har ett internt tillstånd, som måste definieras. Tillst�
 },
 ```
 
-En glidande enhet med flera sensorer kan ha fler egenskaper, till exempel:
+En rörlig enhet med flera sensorer kan ha fler egenskaper, till exempel:
 
 ```json
 "InitialState": {
@@ -115,20 +115,20 @@ En glidande enhet med flera sensorer kan ha fler egenskaper, till exempel:
 }
 ```
 
-Enhetens tillstånd lagras i minnet av tjänsten simulering och anges som indata till JavaScript-funktion. JavaScript-funktion kan bestämma:
+Enhetstillståndet hålls i minnet av simuleringstjänsten och tillhandahålls som indata till JavaScript-funktionen. JavaScript-funktionen kan bestämma:
 
-* Ignorera tillståndet och generera lite slumpmässiga data.
-* Att uppdatera enhetens tillstånd designomfattningen realistisk för ett visst scenario.
+* Så här ignorerar du tillståndet och genererar några slumpmässiga data.
+* Så här uppdaterar du enhetstillståndet på något realistiskt sätt för ett visst scenario.
 
-Den funktion som genererar tillståndet tar också emot som indata:
+Funktionen som genererar tillståndet tar också emot som indata:
 
 * Enhets-ID.
 * Enhetsmodellen.
-* Den aktuella tiden. Det här värdet gör det möjligt att generera olika genom enheten och tid.
+* Den aktuella tiden. Det här värdet gör det möjligt att generera olika data per enhet och tid.
 
 ### <a name="generating-telemetry-messages"></a>Generera telemetrimeddelanden
 
-Tjänsten simulering kan skicka flera typer av telemetri för varje enhet. Telemetri innehåller normalt data från enhetens tillstånd. En simulerad lokal kan exempelvis skicka information om temperatur och fuktighet var tionde sekund. Observera platshållare i följande kodfragment som automatiskt ersätts med värden från enhetens tillstånd:
+Simuleringstjänsten kan skicka flera telemetrityper för varje enhet. Telemetri innehåller vanligtvis data från enhetstillståndet. Ett simulerat rum kan till exempel skicka information om temperatur och luftfuktighet var tionde sekund. Observera platshållarna i följande kodavsnitt, som automatiskt ersätts med värden från enhetstillståndet:
 
 ```json
 "Telemetry": [
@@ -149,18 +149,18 @@ Tjänsten simulering kan skicka flera typer av telemetri för varje enhet. Telem
 ],
 ```
 
-Platshållarna använder en särskild syntax **${NAME}** där **namn** är en nyckel från enhetens tillstånd objektet som returnerades av JavaScript **huvudsakliga** funktion. Strängar bör tillämpas, medan siffror får inte.
+Platshållarna använder en särskild syntax **${NAME}** där **NAME** är en nyckel från enhetstillståndsobjektet som returneras av **JavaScript-huvudfunktionen.** Strängar bör citeras, medan siffror inte borde.
 
-#### <a name="message-schema"></a>Meddelandeschema
+#### <a name="message-schema"></a>Schema för meddelanden
 
-Varje meddelandetyp måste ha ett väldefinierade schema. Meddelandeschema publiceras också till IoT-hubb, så att serverprogram kan återanvända informationen för att tolka inkommande telemetri.
+Varje meddelandetyp måste ha ett väldefinierat schema. Meddelandeschemat publiceras också i IoT Hub, så att backend-program kan återanvända informationen för att tolka den inkommande telemetrin.
 
-Schemat har stöd för JSON-format, vilket möjliggör enkelt parsa, omvandling och analys, i flera system och tjänster.
+Schemat stöder JSON-format, vilket möjliggör enkel tolkning, omvandling och analys, över flera system och tjänster.
 
-Fält som anges i schemat kan vara av följande typer:
+Fälten i schemat kan vara av följande typer:
 
-* Objekt - serialiseras med JSON
-* Binary - serialiseras base64
+* Objekt - serialiserad med JSON
+* Binary - serialiserad med bas64
 * Text
 * Boolean
 * Integer
@@ -169,7 +169,7 @@ Fält som anges i schemat kan vara av följande typer:
 
 ### <a name="supported-methods"></a>Metoder som stöds
 
-Simulerade enheter kan också reagera på metodanrop, i så fall de köra logik och ge några svar. På samma sätt som simuleringen metoden logiken lagras i en JavaScript-fil och kan interagera med enhetens tillstånd. Exempel:
+Simulerade enheter kan också reagera på metodanrop, i vilket fall de kör viss logik och ger viss respons. På samma sätt som simuleringen lagras metodlogiken i en JavaScript-fil och kan interagera med enhetstillståndet. Ett exempel:
 
 ```json
 "CloudToDeviceMethods": {
@@ -180,13 +180,13 @@ Simulerade enheter kan också reagera på metodanrop, i så fall de köra logik 
 }
 ```
 
-## <a name="create-a-device-definition-file"></a>Skapa en definitionsfil för enhet
+## <a name="create-a-device-definition-file"></a>Skapa en enhetsdefinitionsfil
 
-I den här How-to-till-guiden lär du dig att skapa en enhetsmodell för en drönare. Drönare att slumpmässigt flyga runt en grunduppsättning med koordinaterna ändra plats och höjd.
+I den här guiden ser du hur du skapar en enhetsmodell för en drönare. Drönaren kommer slumpmässigt att flyga runt en första uppsättning koordinater som ändrar plats och höjd.
 
 Kopiera följande JSON till en textredigerare och spara den som **drone.json**.
 
-### <a name="device-definition-json-example"></a>Device definition JSON-exempel
+### <a name="device-definition-json-example"></a>JSON-exempel för enhetsdefinition
 
 ```json
 {
@@ -247,19 +247,19 @@ Kopiera följande JSON till en textredigerare och spara den som **drone.json**.
 }
 ```
 
-## <a name="behavior-script-files"></a>Beteende-skriptfiler
+## <a name="behavior-script-files"></a>Beteendeskriptfiler
 
-Koden i skriptfilen beteende flyttar drönare. Skriptet ändrar drönare upphöjning och plats genom att ändra enhetens minne tillståndet.
+Koden i beteendeskriptfilen flyttar drönaren. Skriptet ändrar drönarens höjd och plats genom att manipulera enhetens i minnesläge.
 
-JavaScript-filer måste ha en **huvudsakliga** funktion som tar två parametrar:
+JavaScript-filerna måste ha en **huvudfunktion** som accepterar två parametrar:
 
-* En **kontext** objekt som innehåller tre egenskaper:
-    * **currentTime** som en sträng med formatet **åååå-MM-dd'T'HH:mm:sszzz**.
-    * **deviceId**. Till exempel **Simulated.Elevator.123**.
-    * **deviceModel**. Till exempel **Elevator**.
-* En **tillstånd** objekt som är värdet som returneras av funktionen i det föregående anropet. Den här enhetens tillstånd är underhålls av tjänsten simulering och används för att generera telemetrimeddelanden.
+* Ett **kontextobjekt** som innehåller tre egenskaper:
+    * **currentTime** som en sträng med format **yyyy-MM-dd'T'HH:mm:sszzz**.
+    * **deviceId**. **Simulerad.Hiss.123**.
+    * **deviceModel**. Till exempel **Hiss**.
+* Ett **tillståndsobjekt** som är värdet som returneras av funktionen i föregående anrop. Det här enhetstillståndet underhålls av simuleringstjänsten och används för att generera telemetrimeddelanden.
 
-Den **huvudsakliga** funktionen returnerar det nya enhetens tillståndet. Exempel:
+**Huvudfunktionen** returnerar det nya enhetstillståndet. Ett exempel:
 
 ```JavaScript
 function main(context, state) {
@@ -272,11 +272,11 @@ function main(context, state) {
 }
 ```
 
-## <a name="create-a-behavior-script-file"></a>Skapa en skriptfil för beteende
+## <a name="create-a-behavior-script-file"></a>Skapa en beteendeskriptfil
 
-Kopiera följande JavaScript i en textredigerare och spara den som **drönare state.js**.
+Kopiera följande JavaScript till en textredigerare och spara det som **drone-state.js**.
 
-### <a name="device-model-javascript-simulation-example"></a>Enheten modellen JavaScript simulering exempel
+### <a name="device-model-javascript-simulation-example"></a>Exempel på JavaScript-simulering av enhetsmodell
 
 ```JavaScript
 "use strict";
@@ -397,15 +397,15 @@ function varylocation(latitude, longitude, distance) {
 }
 ```
 
-## <a name="create-a-method-script-file"></a>Skapa en skriptfil för metod
+## <a name="create-a-method-script-file"></a>Skapa en metodskriptfil
 
-Metoden skript liknar beteende skript. De definierar beteendet enheten när ett visst moln till enhetsmetoden anropas.
+Metodskript liknar beteendeskript. De definierar enhetens beteende när en specifik metod för moln till enhet anropas.
 
-Drönare återkallande skriptet anger den drönare koordinater till en fast tidpunkt att simulera drönare returnerar start.
+Drönarrekallningsskriptet ställer in drönarens koordinater till en fast punkt för att simulera drönaren som återvänder hem.
 
-Kopiera följande JavaScript i en textredigerare och spara den som **droneRecall method.js**.
+Kopiera följande JavaScript till en textredigerare och spara det som **droneRecall-method.js**.
 
-### <a name="device-model-javascript-simulation-example"></a>Enheten modellen JavaScript simulering exempel
+### <a name="device-model-javascript-simulation-example"></a>Exempel på JavaScript-simulering av enhetsmodell
 
 ```JavaScript
 "use strict";
@@ -467,11 +467,11 @@ function main(context, previousState, previousProperties) {
 }
 ```
 
-## <a name="debugging-script-files"></a>Felsökning skriptfiler
+## <a name="debugging-script-files"></a>Felsöka skriptfiler
 
-Även om du inte bifoga en felsökare till en fil som körs beteende, är det möjligt att skriva information till tjänsten log med den **log** funktion. Syntaxfel, vilken tolk som misslyckas och skriver information om undantaget till loggen.
+Du kan inte koppla en felsökare till en beteendefil som körs, men det är möjligt att skriva information till tjänstloggen med hjälp av **loggfunktionen.** För syntaxfel misslyckas tolken och skriver information om undantaget till loggen.
 
-Loggning exempel:
+Exempel på loggning:
 
 ```JavaScript
 function main(context, state) {
@@ -492,9 +492,9 @@ function main(context, state) {
 
 ## <a name="deploy-an-advanced-device-model"></a>Distribuera en avancerad enhetsmodell
 
-För att distribuera din avancerade enhetsmodell, överför du filerna Enhetssimulering-instans:
+Om du vill distribuera din avancerade enhetsmodell laddar du upp de filer som din enhetssimuleringsinstans:
 
-Välj **Enhetsmodeller** på menyraden. Den **enhetsmodeller** sidan listar enhetsmodeller som är tillgängliga i den här instansen av Enhetssimulering:
+Välj **Enhetsmodeller** på menyraden. På sidan **Enhetsmodeller** visas de enhetsmodeller som är tillgängliga i den här instansen av Enhetssimulering:
 
 ![Enhetsmodeller](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
@@ -502,18 +502,18 @@ Klicka på **+ Lägg till enhetsmodeller** i det övre högra hörnet på sidan:
 
 ![Lägga till enhetsmodell](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
-Klicka på **Avancerat** att öppna fliken avancerade modellen:
+Klicka på **Avancerat** för att öppna fliken avancerad enhetsmodell:
 
 ![Fliken Avancerat](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
-Klicka på **Bläddra** och välj JSON och JavaScript-filer som du skapade. Glöm inte att markera alla tre filer. Valideringen misslyckas om någon en fil saknas:
+Klicka på **Bläddra** och välj de JSON- och JavaScript-filer som du har skapat. Var noga med att markera alla tre filerna. Om någon fil saknas misslyckas valideringen:
 
-![Bläddra efter filer](media/iot-accelerators-device-simulation-advanced-device/browse.png)
+![Bläddra bland filer](media/iot-accelerators-device-simulation-advanced-device/browse.png)
 
-Om dina filer valideras, klickar du på **spara** och din enhetsmodell är redo att användas i en simulering. I annat fall åtgärda eventuella fel och ladda upp filer:
+Om dina filer passerar validering, klicka på **Spara** och din enhetsmodell är klar att användas i en simulering. Annars åtgärdar du eventuella fel och laddar om filerna:
 
 ![Spara](media/iot-accelerators-device-simulation-advanced-device/validated.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden beskrivs om enheten modellfiler som används i Enhetssimulering och hur du skapar en avancerad enhetsmodell. Därefter kan du utforska hur du [Använd Time Series Insights för att visualisera telemetri som skickas från lösningsaccelerator Enhetssimulering](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).
+I den här programguiden fick du lära dig om enhetsmodellfilerna som används i Enhetssimulering och hur du skapar en avancerad enhetsmodell. Därefter kanske du vill utforska hur du [använder Time Series Insights för att visualisera telemetri som skickas från device simulation-lösningsacceleratorn](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

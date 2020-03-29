@@ -1,6 +1,6 @@
 ---
-title: Remote Monitoring solution arkitektoniska val – Azure | Microsoft Docs
-description: Den här artikeln beskriver fram arkitekturrelaterad eller teknisk valen som gjorts i fjärrövervakning
+title: Arkitekturalternativ för fjärrövervakningslösning – Azure | Microsoft-dokument
+description: I den här artikeln beskrivs de arkitektoniska och tekniska val som görs i fjärrövervakning
 author: timlaverty
 manager: camerons
 ms.author: timlav
@@ -9,81 +9,81 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447186"
 ---
-# <a name="remote-monitoring-architectural-choices"></a>Fjärråtkomst övervakning arkitektoniska val
+# <a name="remote-monitoring-architectural-choices"></a>Arkitekturval för fjärrövervakning
 
-Azure IoT Remote Monitoring solution accelerator är en öppen källkod, MIT-licens, lösningsaccelerator. För att du snabbt utvecklingsprocessen IoT, den visar vanliga IoT-scenarier som:
+Azure IoT Remote Monitoring-lösningsacceleratorn är enaccelerator med öppen källkod, MIT-licensierad, lösningsaccelerator. För att hjälpa dig att påskynda din IoT-utvecklingsprocess visas vanliga IoT-scenarier som:
 
 - Enhetsanslutning
 - Enhetshantering
 - Strömbearbetning
 
-Lösningen för fjärrövervakning följer den rekommenderade [Azure IoT-Referensarkitektur](https://aka.ms/iotrefarchitecture).
+Lösningen för fjärrövervakning följer den rekommenderade [Azure IoT-referensarkitekturen](https://aka.ms/iotrefarchitecture).
 
-Den här artikeln beskriver viktiga fram arkitekturrelaterad eller teknisk valen som gjorts i varje delsystem fjärrövervakning. De tekniska alternativen Microsoft som gjorts i lösningen för fjärrövervakning är dock inte det enda sättet att implementera en IoT lösning för fjärrövervakning. Du bör se teknisk implementering som utgångspunkt för att skapa en lyckade tillämpning och du bör ändra den till:
+I den här artikeln beskrivs de viktigaste arkitektoniska och tekniska valen som görs i vart och ett av delsystemen Fjärrövervakning. De tekniska val som Microsoft gjorde i lösningen för fjärrövervakning är dock inte det enda sättet att implementera en IoT-lösning för fjärrövervakning. Du bör betrakta den tekniska implementeringen som en baslinje för att skapa ett lyckat program och du bör ändra den till:
 
-- Anpassa färdigheter som är tillgängliga och i din organisation.
-- Alla dina lodrät programbehov.
+- Anpassa de tillgängliga färdigheterna och erfarenheterna i din organisation.
+- Uppfyller dina vertikala applikationsbehov.
 
 ## <a name="architectural-choices"></a>Val av arkitektur
 
-Arkitektur som Microsoft rekommenderar för en IoT-program är molnet native, mikrotjänster, och utan Server baserad. Du bör skapa olika delsystem av ett IoT-program som diskreta tjänster som du kan distribuera och skala oberoende av varandra. Dessa attribut aktivera större skala, mer flexibilitet vid uppdatering av enskilda undersystem och ger flexibilitet att välja en lämplig teknik för varje undersystem.
+Den arkitektur som Microsoft rekommenderar för ett IoT-program är inbyggt i molnet, mikrotjänst och serverlös. Du bör skapa de olika delsystemen i ett IoT-program som diskreta tjänster som du kan distribuera och skala oberoende av sig. Dessa attribut möjliggör större skala, större flexibilitet vid uppdatering av enskilda delsystem och ger flexibiliteten att välja en lämplig teknik för varje delsystem.
 
-Du kan implementera mikrotjänster som använder mer än en teknik. Exempelvis kan du välja något av följande alternativ för att implementera en mikrotjänst:
+Du kan implementera mikrotjänster med mer än en teknik. Du kan till exempel välja något av följande alternativ för att implementera en mikrotjänst:
 
-- Använd en teknik för behållare, till exempel Docker med serverlös teknik som Azure Functions.
-- Vara värd för dina mikrotjänster på PaaS-tjänster, till exempel Azure App Services.
+- Använd en behållarteknik som Docker med serverlös teknik som Azure Functions.
+- Vara värd för dina mikrotjänster i PaaS-tjänster som Azure App Services.
 
 ## <a name="technology-choices"></a>Teknikval
 
-Det här avsnittet beskriver de tekniska alternativen som görs i lösningen för fjärrövervakning för varje kärna delsystem.
+I det här avsnittet beskrivs de teknikval som görs i lösningen för fjärrövervakning för vart och ett av de grundläggande delsystemen.
 
-![Core-Diagram](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
+![Kärndiagram](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
 
-### <a name="cloud-gateway"></a>Cloud Gateway
+### <a name="cloud-gateway"></a>Moln gateway
 
-Azure IoT Hub används som molgatewayen fjärrövervakning lösning. [IoT Hub](https://azure.microsoft.com/services/iot-hub/) erbjuder säker, dubbelriktad kommunikation med enheter.
+Azure IoT Hub används som molngateway för fjärrövervakningslösning. [IoT Hub](https://azure.microsoft.com/services/iot-hub/) erbjuder säker dubbelriktad kommunikation med enheter.
 
-För IoT-enhetsanslutning, kan du använda:
+För IoT-enhetsanslutning kan du använda:
 
-- Den [IoT Hub device SDK: er](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) att implementera ett internt klientprogram för din enhet. SDK: erna erbjuder omslutningar kring IoT Hub REST API och hanterar scenarier, t.ex nya försök.
-- Integrering med Azure IoT Edge för att distribuera och hantera anpassade moduler som körs i behållare på dina enheter.
-- Integrering med automatisk enhetshantering i IoT Hub för att hantera anslutna enheter i grupp.
+- [IoT Hub-enheten SDK:er](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) för att implementera ett inbyggt klientprogram för din enhet. SDK:erna erbjuder omslag runt IoT Hub REST API och hanterar scenarier som återförsök.
+- Integreringen med Azure IoT Edge för att distribuera och hantera anpassade moduler som körs i behållare på dina enheter.
+- Integreringen med automatisk enhetshantering i IoT Hub för att hantera anslutna enheter i bulk.
 
 ### <a name="stream-processing"></a>Strömbearbetning
 
-För bearbetning av dataströmmen använder av lösningen för fjärrövervakning Azure Stream Analytics för Regelbearbetning av komplexa. Om du vill använda enklare regler finns en anpassad mikrotjänst med stöd för enkel Regelbearbetning, även om den här konfigurationen är inte en del av out-of the box-distributionen. Referensarkitekturen rekommenderar Azure Functions för bearbetning med enkel regel och Azure Stream Analytics för bearbetning av komplexa regeln.
+För dataflödesbearbetning använder fjärrövervakningslösningen Azure Stream Analytics för komplex regelbearbetning. Om du vill använda enklare regler finns det en anpassad mikrotjänst med stöd för enkel regelbearbetning, även om den här uppsättningen inte ingår i den färdiga distributionen. Referensarkitekturen rekommenderar Azure Functions för enkel regelbearbetning och Azure Stream Analytics för komplex regelbearbetning.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
-För lagring använder lösningsacceleratorn för fjärrövervakning både Azure Time Series Insights och Azure Cosmos DB. Azure Time Series Insights lagrar meddelanden som skickas via IoT Hub från dina anslutna enheter. Solution accelerator använder Azure Cosmos DB för alla andra lagringsenheter, till exempel kall lagring, definitioner av regler, aviseringar och konfigurationsinställningar.
+För lagring använder lösningsacceleratorn för fjärrövervakning både Azure Time Series Insights och Azure Cosmos DB. Azure Time Series Insights lagrar meddelanden som kommer via IoT Hub från dina anslutna enheter. Lösningsacceleratorn använder Azure Cosmos DB för all annan lagring, till exempel kyllagring, regeldefinitioner, aviseringar och konfigurationsinställningar.
 
-Azure Cosmos DB är den rekommendera Allmänt varma storage-lösningen för IoT-program. Lösningar som Azure Time Series Insights och Azure Data Lake är lämpliga för många användningsfall. Med Azure Time Series Insights kan du få djupare insikter om dina time series-sensordata genom att identifiera trender och avvikelser. Den här funktionen kan du utföra rotorsaksanalyser och undvika kostsamma avbrott.
+Azure Cosmos DB är den rekommenderade allmänna lösningen för varm lagring för IoT-program. Lösningar som Azure Time Series Insights och Azure Data Lake är dock lämpliga för många användningsfall. Med Azure Time Series Insights kan du få djupare insikter i dina tidsseriesensordata genom att upptäcka trender och avvikelser. Med den här funktionen kan du utföra rotorsaksanalyser och undvika kostsamma driftstopp.
 
 > [!NOTE]
-> Time Series Insights är inte tillgänglig för tillfället i Azure i Kina-molnet. Nya fjärrövervakning solution accelerator distributioner i Azure i Kina-molnet använder Cosmos DB för lagring av alla.
+> Time Series Insights är för närvarande inte tillgängligt i Azure China-molnet. Nya snabbacceleratorer för fjärrövervakning i Azure China-molnet använder Cosmos DB för all lagring.
 
-### <a name="business-integration"></a>Business-integrering
+### <a name="business-integration"></a>Företagsintegrering
 
-Business-integrering i lösningen för fjärrövervakning är begränsad till generering av aviseringar som är placerade i varma lagring. Anslut lösningen med Azure Logic Apps och implementerar djupare integrering företagsscenarier.
+Affärsintegrering i lösningen för fjärrövervakning är begränsad till generering av aviseringar som placeras i varm lagring. Anslut lösningen med Azure Logic Apps för att implementera djupare scenarier för affärsintegrering.
 
 ### <a name="user-interface"></a>Användargränssnitt
 
-Webb Användargränssnittet skapas med JavaScript reagera. React erbjuder ett vanligt bransch web UI-ramverk och liknar andra populära ramverk som Angular.
+Webbgränssnittet är byggt med JavaScript React. React erbjuder en vanlig industri webbgränssnitt ram och liknar andra populära ramar såsom Kantiga.
 
-### <a name="runtime-and-orchestration"></a>Runtime och dirigering
+### <a name="runtime-and-orchestration"></a>Runtime och orkestrering
 
-Lösningen för fjärrövervakning använder Docker-behållare för att köra undersystem med Kubernetes som orchestrator för horisontell skalning. Den här arkitekturen möjliggör enskilda skala definitioner för varje undersystem. Dock medför den här arkitekturen DevOps kostnader för att hålla virtuella datorer och behållare uppdaterade och säkra.
+Remote Monitoring-lösningen använder Docker-behållare för att köra undersystemen med Kubernetes som orchestrator för vågrät skala. Den här arkitekturen möjliggör enskilda skalningsdefinitioner för varje delsystem. Den här arkitekturen medför dock DevOps-kostnader för att hålla de virtuella datorerna och behållarna uppdaterade och säkra.
 
-Alternativen på Docker är värd för mikrotjänster i PaaS-tjänster, till exempel Azure App Service. Alternativ till Kubernetes är initierare som Service Fabric, DC/OS eller Swarm.
+Alternativ till Docker inkluderar värd för mikrotjänster i PaaS-tjänster som Azure App Service. Alternativ till Kubernetes inkluderar orchestrators som Service Fabric, DC/OS eller Swarm.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Distribuera lösningen för fjärrövervakning [här](https://www.azureiotsolutions.com/).
-* Utforska GitHub-koden i [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) och [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
-* Läs mer om IoT-Referensarkitektur [här](https://aka.ms/iotrefarchitecture).
+* Distribuera din lösning för fjärrövervakning [här](https://www.azureiotsolutions.com/).
+* Utforska GitHub-kod i [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) och [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
+* Läs mer om IoT-referensarkitekturen [här](https://aka.ms/iotrefarchitecture).

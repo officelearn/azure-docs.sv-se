@@ -1,6 +1,6 @@
 ---
-title: Etablera enheter till fjärrövervakning i Node.js – Azure | Microsoft Docs
-description: Beskriver hur du ansluter en enhet till den lösningsacceleratorn för fjärrövervakning använder ett program som skrivits i Node.js.
+title: Etablera enheter till fjärrövervakning i Node.js - Azure | Microsoft-dokument
+description: Beskriver hur du ansluter en enhet till lösningsacceleratorn för fjärrövervakning med hjälp av ett program skrivet i Node.js.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.openlocfilehash: fdb2bed76a8e23a6034a57b3a5f1358c26e9e990
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61450286"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Anslut enheten till lösningsacceleratorn för fjärrövervakning (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Den här självstudien visar hur du ansluter en riktig enhet till lösningsacceleratorn för fjärrövervakning. I den här självstudien använder du Node.js, vilket är ett bra alternativ för miljöer med minimal resursbegränsningar.
+Den här självstudien visar hur du ansluter en riktig enhet till lösningsacceleratorn för fjärrövervakning. I den här självstudien använder du Node.js, vilket är ett bra alternativ för miljöer med minimala resursbegränsningar.
 
-Om du föredrar att simulera en enhet, se [skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
+Om du föredrar att simulera en enhet läser du [Skapa och testa en ny simulerad enhet](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="create-a-nodejs-solution"></a>Skapa en Node.js-lösning
+## <a name="create-a-nodejs-solution"></a>Skapa en nod.js-lösning
 
-Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är installerat på utvecklingsdatorn. Du kan köra `node --version` på kommandoraden för att kontrollera versionen.
+Kontrollera att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är installerad på utvecklingsmaskinen. Du kan `node --version` köra på kommandoraden för att kontrollera versionen.
 
-1. Skapa en mapp med namnet `remotemonitoring` på utvecklingsdatorn. Navigera till den här mappen i kommandoradsverktyget-miljön.
+1. Skapa en `remotemonitoring` mapp som kallas på utvecklingsmaskinen. Navigera till den här mappen i kommandoradsmiljön.
 
-1. Om du vill hämta och installera de paket som du behöver för att slutföra exempelappen, kör du följande kommandon:
+1. Om du vill hämta och installera de paket du behöver för att slutföra exempelappen kör du följande kommandon:
 
     ```cmd/sh
     npm init
     npm install async azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. I den `remotemonitoring` mapp, skapa en fil med namnet **remote_monitoring.js**. Öppna den här filen i en textredigerare.
+1. Skapa `remotemonitoring` en fil som heter **remote_monitoring.js**i mappen . Öppna den här filen i en textredigerare.
 
-1. I den **remote_monitoring.js** Lägg till följande `require` instruktioner:
+1. Lägg till följande `require` satser i filen **remote_monitoring.js:**
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
@@ -47,13 +47,13 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
     var async = require('async');
     ```
 
-1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt platshållarvärdet `{device connection string}` med värdet som du antecknade för enheten du har etablerat i lösningen för fjärrövervakning:
+1. Lägg till följande variabeldeklarationer efter `require`-instruktionerna. Ersätt platshållarvärdet `{device connection string}` med värdet som du har noterat för den enhet som du har etablerat i lösningen för fjärrövervakning:
 
     ```javascript
     var connectionString = '{device connection string}';
     ```
 
-1. För att definiera vissa grundläggande telemetridata, lägger du till följande variabler:
+1. Om du vill definiera vissa bastelemetridata lägger du till följande variabler:
 
     ```javascript
     var temperature = 50;
@@ -64,7 +64,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
     var pressureUnit = 'psig';
     ```
 
-1. För att definiera vissa egenskapsvärden, lägger du till följande variabler:
+1. Om du vill definiera vissa egenskapsvärden lägger du till följande variabler:
 
     ```javascript
     var schema = "real-chiller;v1";
@@ -77,7 +77,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
     var deviceOnline = true;
     ```
 
-1. Lägg till följande variabel om du vill definiera rapporterade egenskaper till att skicka till lösningen. Dessa egenskaper innehåller metadata för att visa i Webbgränssnittet:
+1. Lägg till följande variabel för att definiera de rapporterade egenskaperna som ska skickas till lösningen. Dessa egenskaper omfattar metadata som ska visas i webbgränssnittet:
 
     ```javascript
     var reportedProperties = {
@@ -95,7 +95,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
     }
     ```
 
-1. Om du vill skriva ut Åtgärdsresultat, lägger du till följande hjälpfunktion:
+1. Om du vill skriva ut åtgärdsresultat lägger du till följande hjälpfunktion:
 
     ```javascript
     function printErrorFor(op) {
@@ -105,7 +105,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
     }
     ```
 
-1. Lägg till följande hjälpfunktion du använder för att slumpgenerera telemetrivärden:
+1. Lägg till följande hjälpfunktion som ska användas för att randomisera telemetrivärdena:
 
      ```javascript
      function generateRandomIncrement() {
@@ -113,7 +113,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
      }
      ```
 
-1. Lägg till följande allmänna funktion för att hantera direkt metodanrop från lösningen. Funktionen visar information om den direkta metoden som anropades, men i det här exemplet ändrar inte enheten på något sätt. Lösningen använder direkta metoder för att vidta åtgärder för enheter:
+1. Lägg till följande allmänna funktion för att hantera direkta metodanrop från lösningen. Funktionen visar information om den direkta metod som anropades, men i det här exemplet ändras inte enheten på något sätt. Lösningen använder direkta metoder för att agera på enheter:
 
      ```javascript
      function onDirectMethod(request, response) {
@@ -128,7 +128,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
      }
      ```
 
-1. Lägg till följande funktion för att hantera den **FirmwareUpdate** dirigera metodanrop från lösningen. Funktionen kontrollerar parametrarna som skickades i nyttolasten för direktmetoden och kör sedan en uppdatering av inbyggd programvara-simulering asynkront:
+1. Lägg till följande funktion för att hantera **firmwareUpdate** direkt metodanrop från lösningen. Funktionen verifierar de parametrar som skickas i den direkta metoden nyttolast och sedan asynkront kör en firmware uppdatering simulering:
 
      ```javascript
      function onFirmwareUpdate(request, response) {
@@ -157,7 +157,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
      }
      ```
 
-1. Lägg till följande funktion för att simulera en tidskrävande firmware update flöde som rapporterar status tillbaka till lösningen:
+1. Lägg till följande funktion för att simulera ett tidskrävande uppdateringsflöde för inbyggd programvara som rapporterar förloppet tillbaka till lösningen:
 
      ```javascript
      // Simulated firmwareUpdate flow
@@ -235,7 +235,7 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
      }
      ```
 
-1. Lägg till följande kod för att skicka telemetridata till lösningen. Klientappen lägger till egenskaper i meddelandet för att identifiera meddelandet schemat:
+1. Lägg till följande kod för att skicka telemetridata till lösningen. Klientappen lägger till egenskaper i meddelandet för att identifiera meddelandeschemat:
 
      ```javascript
      function sendTelemetry(data, schema) {
@@ -260,12 +260,12 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
      var client = Client.fromConnectionString(connectionString, Protocol);
      ```
 
-1. Lägg till följande kod:
+1. Lägg till följande kod i:
 
     * Öppna anslutningen.
     * Ställ in en hanterare för önskade egenskaper.
     * Skicka rapporterade egenskaper.
-    * Registrera hanterare för direkta metoder. Exemplet använder en separat hanterare för metoden firmware update direkt.
+    * Registrera hanterare för de direkta metoderna. I exemplet används en separat hanterare för den direkta metoden för uppdatering av inbyggd programvara.
     * Börja skicka telemetri.
 
       ```javascript
@@ -328,9 +328,9 @@ Se till att [Node.js](https://nodejs.org/) version 4.0.0 eller senare är instal
       });
       ```
 
-1. Spara ändringarna i den **remote_monitoring.js** fil.
+1. Spara ändringarna i **filen remote_monitoring.js.**
 
-1. Om du vill starta exempelprogrammet, kör du följande kommando i Kommandotolken:
+1. Om du vill starta exempelprogrammet kör du följande kommando vid en kommandotolk:
 
      ```cmd/sh
      node remote_monitoring.js

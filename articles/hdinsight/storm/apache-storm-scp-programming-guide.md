@@ -1,6 +1,6 @@
 ---
-title: Programmerings guide för SCP.NET för storm i Azure HDInsight
-description: Lär dig hur du använder SCP.NET för att skapa. NET-baserade Storm-topologier för användning med storm som körs i Azure HDInsight.
+title: SCP.NET programmeringsguide för Storm i Azure HDInsight
+description: Läs om hur du använder SCP.NET för att skapa . NET-baserade Storm-topologier för användning med Storm som körs i Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,61 +9,61 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ms.openlocfilehash: ddf69a75a39911293277a4a4189cf4e79256e09d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77186864"
 ---
-# <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Programmerings guide för SCP för Apache Storm i Azure HDInsight
+# <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>SCP-programmeringsguide för Apache Storm i Azure HDInsight
 
-SCP är en plattform för att bygga real tids-, pålitliga, konsekventa och högpresterande data bearbetnings program. Den är byggd ovanpå [Apache Storm](https://storm.incubator.apache.org/), som är ett data ström bearbetnings system som har utformats av program varu grupper med öppen källkod. Nathan Marz skapade storm. Den publicerades som öppen källkod av Twitter. Storm använder [Apache ZooKeeper](https://zookeeper.apache.org/), vilket är ett annat Apache-projekt som möjliggör mycket tillförlitlig distribuerad samordning och tillstånds hantering.
+SCP är en plattform för att skapa realtids-, tillförlitliga, konsekventa och högpresterande databehandlingsprogram. Den är byggd ovanpå [Apache Storm](https://storm.incubator.apache.org/), som är ett strömbehandlingssystem utformat av öppen källkod samhällen. Nathan Marz skapade Storm. Det publicerades som öppen källkod av Twitter. Storm använder [Apache ZooKeeper](https://zookeeper.apache.org/), som är ett annat Apache-projekt som möjliggör mycket tillförlitlig distribuerad samordning och statlig hantering.
 
-SCP-projektet har inte bara storm i Windows, utan även projekt tillägg och anpassningar för Windows-miljön. Tilläggen inkluderar .NET-utvecklarens miljö och .NET-bibliotek. Anpassningen omfattar Windows-baserad distribution.
+SCP-projektet har portat inte bara Storm på Windows utan även projekttillägg och anpassning för Windows-miljön. Tilläggen innehåller .NET-utvecklarupplevelsen och .NET-biblioteken. Anpassningen inkluderar Windows-baserad distribution.
 
-Med tilläggen och anpassningen behöver du inte förgrena program vara med öppen källkod. Du kan använda härledda miljöer som byggts ovanpå storm.
+Med tillägg och anpassning behöver du inte punga för programvaruprojekt med öppen källkod. Du kan använda härledda miljöer som är byggda ovanpå Storm.
 
-## <a name="processing-model"></a>Bearbetar modell
+## <a name="processing-model"></a>Bearbetningsmodell
 
-Data i SCP är modellerade som kontinuerliga strömmar av tupler. Normalt är tupler:
+Data i SCP modelleras som kontinuerliga strömmar av tupplar. Typiskt tupplar:
 
-1. Flöda till en kö.
-1. Hämtas och omvandlas av affärs logik som finns i en Storm-topologi.
-1. Antingen har utdata skickas som tupler till ett annat SCP-system, eller så är de allokerade till butiker som distribuerade fil system och databaser som SQL Server.
+1. Flöda in i en kö.
+1. Plockas upp och omvandlas av affärslogik värd inuti en Storm topologi.
+1. Antingen har sina utdata piped som tupplar till ett annat SCP-system eller har åtagit sig att butiker som distribuerade filsystem och databaser som SQL Server.
 
-![Ett diagram över att mata in data i kön för bearbetning, vilket i sin tur matar in ett data lager](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+![Ett diagram över en kö som matar data till bearbetning, som i sin tur matar ett datalager](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
-I storm definierar en Programtopologi ett beräknings diagram. Varje nod i en topologi innehåller bearbetnings logik. Länkar mellan noder indikerar data flödet.
+I Storm definierar en programtopologi ett beräkningsdiagram. Varje nod i en topologi innehåller bearbetningslogik. Länkar mellan noder indikerar dataflöde.
 
-Noder som infogar indata i topologin kallas _kanaler_. Du kan använda dem för att sekvensera data. Indata kan komma från en källa som fil loggar, en transaktions databas eller en system prestanda räknare.
+Noder som injicerar indata i topologin kallas _pip ._ Du kan använda dem för att ordna data. Indata kan komma från en källa som filloggar, en transaktionsdatabas eller en systemprestandaräknare.
 
-Noder som har både indata och utdata i data flöden kallas _bultar_. De använder faktiska data filtrering, val och sammansättning.
+Noder som har både indata- och utdataflöden kallas _bultar_. De gör den faktiska datafiltrering, val och aggregering.
 
-SCP stöder bästa ansträngningar, minst en gång, och exakt en gång för data bearbetning.
+SCP stöder bästa insats, minst en gång, och exakt en gång databehandling.
 
-I ett program med distribuerad ström bearbetning kan fel inträffa under data bearbetning. Sådana fel omfattar ett nätverks avbrott, ett dator fel eller ett fel i koden. Vid minst en bearbetning säkerställer att alla data bearbetas minst en gång genom att automatiskt spela upp samma data igen när ett fel inträffar.
+I ett distribuerat databehandlingsprogram kan fel uppstå under databearbetning. Sådana fel inkluderar ett nätverksavbrott, ett datorfel eller ett fel i koden. Minst en gång bearbetning säkerställer att alla data bearbetas minst en gång genom att automatiskt spela upp samma data när ett fel inträffar.
 
-Minst en bearbetning är enkel och tillförlitlig och passar många program. Men när ett program kräver exakt inventering, är det inte tillräckligt med minst en bearbetning eftersom samma data kan spelas upp i programtopologin. I så fall sker exakt en gång när bearbetningen gör att resultatet är korrekt även när data spelas upp och bearbetas flera gånger.
+Åtminstone en gång bearbetning är enkel och pålitlig, och det passar många applikationer. Men när ett program kräver exakt räkning är minst en gång bearbetning otillräcklig eftersom samma data kan spelas upp i programtopologin. I så fall, exakt när behandlingen ser till att resultatet är korrekt även när data spelas upp och bearbetas flera gånger.
 
-Med SCP kan .NET-utvecklare skapa data bearbetnings program i real tid när de använder en Java Virtual Machine (JVM) med storm. En JVM-och .NET-kommunikation via TCP-lokala Sockets. Varje kanalen/bult är ett .NET/Java-process par där användar logiken körs i en .NET-process som ett plugin-program.
+SCP låter .NET-utvecklare skapa databehandlingsprogram i realtid när du använder en Java Virtual Machine (JVM) med Storm. En JVM och .NET kommunicerar via TCP lokala uttag. Varje pip/bult är ett .NET/Java-processpar, där användarlogiken körs i en .NET-process som ett plugin-program.
 
-Följ dessa steg om du vill bygga ett data bearbetnings program ovanpå SCP:
+Så här skapar du ett databehandlingsprogram ovanpå SCP:
 
-1. Utforma och implementera kanaler för att hämta data från köer.
-1. Utforma och implementera bultar som bearbetar indata och sparar dem till externa butiker som en databas.
-1. Utforma topologin och skicka och kör den.
+1. Designa och implementera pipar för att hämta data från köer.
+1. Designa och implementera bultar som bearbetar indata och spara dem i externa butiker som en databas.
+1. Utforma topologin och skicka sedan och kör den.
 
-Topologin definierar formhörn och de data som flödar mellan dem. SCP tar en topologi och distribuerar den på ett Storm-kluster där varje hörn körs på en logisk nod. Den storm Schemaläggaren tar hand om redundans och skalning.
+Topologin definierar hörn och data som flödar mellan dem. SCP tar en topologispecifikation och distribuerar den på ett Storm-kluster, där varje hörn körs på en logisk nod. Aktiviteten Storm-schemaläggaren tar hand om redundans och skalning.
 
-Den här artikeln använder några enkla exempel för att gå igenom hur du skapar data bearbetnings program med SCP.
+Den här artikeln använder några enkla exempel för att gå igenom hur du skapar databehandlingsprogram med SCP.
 
-## <a name="scp-plug-in-interface"></a>SCP-plugin-gränssnitt
+## <a name="scp-plug-in-interface"></a>Plugin-gränssnitt för SCP
 
-SCP-plugin-program är fristående program. De kan köras i Visual Studio under utvecklingen och vara anslutna till storm-pipelinen efter produktions distributionen.
+SCP-plugin-program är fristående program. De kan köras inuti Visual Studio under utveckling och anslutas till Storm-pipelinen efter produktionsdistribution.
 
-Att skriva ett SCP-plugin-program är detsamma som att skriva andra Windows-konsolprogram. SCP.NET-plattformen deklarerar vissa gränssnitt för kanalen/bult. Din plugin-kod implementerar dessa gränssnitt. Huvud syftet med den här designen är att du ska kunna fokusera på affärs logiken samtidigt som SCP.NET-plattformen kan hantera andra saker.
+Skriva en SCP plug-in är samma sak som att skriva något annat Windows-konsolprogram. Den SCP.NET plattformen deklarerar vissa gränssnitt för pip/bult. Din plugin-kod implementerar dessa gränssnitt. Huvudsyftet med denna design är att låta dig fokusera på din affärslogik samtidigt som SCP.NET plattform hantera andra saker.
 
-Din plugin-kod implementerar något av följande gränssnitt. Vilket gränssnitt som är beroende av om topologin är transaktionell eller inte, och om komponenten är en kanalen eller en bult.
+Din plugin-kod implementerar något av följande gränssnitt. Vilket gränssnitt beror på om topologin är transaktionell eller icke-transaktionell och om komponenten är en pip eller en bult.
 
 * **ISCPSpout**
 * **ISCPBolt**
@@ -72,7 +72,7 @@ Din plugin-kod implementerar något av följande gränssnitt. Vilket gränssnitt
 
 ### <a name="iscpplugin"></a>ISCPPlugin
 
-**ISCPPlugin** är det vanligaste gränssnittet för många plugin-program. för närvarande är det ett dummy-gränssnitt.
+**ISCPPlugin** är det gemensamma gränssnittet för många plug-ins. För närvarande är det en dummy gränssnitt.
 
 ```csharp
 public interface ISCPPlugin
@@ -82,7 +82,7 @@ public interface ISCPPlugin
 
 ### <a name="iscpspout"></a>ISCPSpout
 
-**ISCPSpout** är gränssnittet för en kanalen som inte är Transaction.
+**ISCPSpout** är gränssnittet för en icke-transaktionell pip.
 
 ```csharp
 public interface ISCPSpout : ISCPPlugin
@@ -93,23 +93,23 @@ public interface ISCPSpout : ISCPPlugin
 }
 ```
 
-När **NextTuple** anropas kan din C# kod avge en eller flera tupler. Om det inte finns något att skicka, bör den här metoden returnera utan att skicka något.
+När **NextTuple** anropas kan din C#-kod avge en eller flera tupplar. Om det inte finns något att släppa ut, bör denna metod tillbaka utan att släppa ut något.
 
-Metoderna **NextTuple**, **ack**, och **failover** anropas i en tätt slinga i en enda tråd av en C# process. Om det inte finns några tupleer att generera, har du **NextTuple** vilo läge för en kort tids period, till exempel 10 millisekunder. Detta vilo läge hjälper till att undvika CPU-tillgänglighet.
+**Metoderna NextTuple**, **Ack**och **Fail** kallas alla i en snäv slinga i en enda tråd i en C#-process. När det inte finns några tupplar att avge, har **NextTuple** sova för en kort tid som 10 millisekunder. Denna sömn hjälper till att undvika att slösa CPU-tillgänglighet.
 
-Metoderna **ack** och **failover** anropas bara när en Specifikations fil aktiverar bekräftelse metoden. Parametern *seqId* identifierar den tupel som har bekräftats eller misslyckats. Om bekräftelse är aktiverat i en inaktive rad topologi, ska följande **genereringsområden** användas i en kanalen:
+**Metoderna Ack** och **Fail** anropas endast när en specifikationsfil aktiverar bekräftelsemekanismen. *Parametern seqId* identifierar tuppeln som bekräftas eller har misslyckats. Om bekräftelse är aktiverat i en icke-transaktionell topologi ska följande **Emit-funktion** användas i en pip:
 
 ```csharp
 public abstract void Emit(string streamId, List<object> values, long seqId);
 ```
 
-Om en transaktionell topologi inte stöder bekräftelse, kan **ack** och **misslyckanden** lämnas som tomma funktioner.
+Om en nontransactional topologi inte stöder bekräftelse, **kan Ack** och **Fail** lämnas som tomma funktioner.
 
-Indataparametern *parametrar* i dessa funktioner anger en tom ord lista och är reserverad för framtida användning.
+Indataparametern *parom* i dessa funktioner anger en tom ordlista och är reserverad för framtida användning.
 
 ### <a name="iscpbolt"></a>ISCPBolt
 
-**ISCPBolt** är gränssnittet för en transaktions bult.
+**ISCPBolt** är gränssnittet för en icke-transaktionell bult.
 
 ```csharp
 public interface ISCPBolt : ISCPPlugin
@@ -118,11 +118,11 @@ void Execute(SCPTuple tuple);
 }
 ```
 
-När en ny tupel är tillgänglig anropas funktionen **execute** för att bearbeta den.
+När en ny tuppel är tillgänglig anropas funktionen **Kör** för att bearbeta den.
 
 ### <a name="iscptxspout"></a>ISCPTxSpout
 
-**ISCPTxSpout** är gränssnittet för en transaktions kanalen.
+**ISCPTxSpout** är gränssnittet för en transaktionell pip.
 
 ```csharp
 public interface ISCPTxSpout : ISCPPlugin
@@ -133,17 +133,17 @@ public interface ISCPTxSpout : ISCPPlugin
 }
 ```
 
-Precis som deras icke-transaktionella motsvarigheter, **NextTx**, **ack**och **misslyckanden** , anropas i en tätt slinga i en enda C# process. Om det inte finns några tupleer att generera, har du **NextTx** vilo läge för en kort tids period, till exempel 10 millisekunder. Detta vilo läge hjälper till att undvika CPU-tillgänglighet.
+Precis som deras nontransactional motsvarigheter, **NextTx**, **Ack**och **Misslyckas** kallas alla i en snäv slinga i en enda tråd av en C # process. När det inte finns några tupplar att avge, har **NextTx** sova för en kort tid som 10 millisekunder. Denna sömn hjälper till att undvika att slösa CPU-tillgänglighet.
 
-När **NextTx** anropas för att starta en ny transaktion identifierar *seqId* output-parametern transaktionen. Transaktionen används också i **ack** och **misslyckad**. **NextTx** -metoden kan generera data till Java-sidan. Data lagras i ZooKeeper för att ge stöd för uppspelning. Eftersom ZooKeeper har begränsad kapacitet ska din kod endast generera metadata och inte Mass data i en transaktions kanalen.
+När **NextTx** anropas för att starta en ny transaktion identifierar *parametern seqId-utdata* transaktionen. Transaktionen används också i **Ack** och **Fail**. Din **NextTx-metod** kan avge data till Java-sidan. Data lagras i ZooKeeper för att stödja repris. Eftersom ZooKeeper har begränsad kapacitet bör koden endast avge metadata och inte massdata i en transaktionspip.
 
-Eftersom Storm automatiskt spelar upp en misslyckad transaktion, anropas vanligt **vis inte.** Men om SCP: n kan kontrol lera de metadata som genereras av en transaktions kanalen, kan det hända att anropet **inte fungerar** om metadata är ogiltiga.
+Eftersom Storm automatiskt spelar upp en misslyckad transaktion anropas **inte Misslyckas.** Men om SCP kan kontrollera metadata som avges av en transaktionspips kan den anropa **Misslyckad** när metadata är ogiltiga.
 
-Indataparametern *parametrar* i dessa funktioner anger en tom ord lista och är reserverad för framtida användning.
+Indataparametern *parom* i dessa funktioner anger en tom ordlista och är reserverad för framtida användning.
 
 ### <a name="iscpbatchbolt"></a>ISCPBatchBolt
 
-**ISCPBatchBolt** är gränssnittet för en transaktions bult.
+**ISCPBatchBolt** är gränssnittet för en transaktionsbult.
 
 ```csharp
 public interface ISCPBatchBolt : ISCPPlugin
@@ -153,22 +153,22 @@ public interface ISCPBatchBolt : ISCPPlugin
 }
 ```
 
-Metoden **execute** anropas när en ny tupel tas emot i bulten. Metoden **FinishBatch** anropas när denna transaktion slutar. Indataparametern *parametrar* är reserverad för framtida användning.
+**Kör-metoden** anropas när en ny tuppel anländer till bulten. **Metoden FinishBatch** anropas när transaktionen avslutas. Indataparametern *parom* är reserverad för framtida användning.
 
-**StormTxAttempt** är en viktig klass för en transaktionell topologi. Den har två medlemmar: **TxId** och **AttemptId**. **TxId** -medlemmen identifierar en speciell transaktion. En transaktion kan provas flera gånger om den Miss lyckas och spelas upp.
+För en transaktionell topologi är **StormTxAttempt** en viktig klass. Den har två medlemmar: **TxId** och **AttemptId**. **TxId-medlemmen** identifierar en specifik transaktion. En transaktion kan göras flera gånger om den misslyckas och spelas upp igen.
 
-SCP.NET skapar ett nytt **ISCPBatchBolt** -objekt för att bearbeta varje **StormTxAttempt** -objekt, precis som vad Storm gör i Java. Syftet med den här designen är att stödja parallell transaktions bearbetning. När ett transaktions försök har slutförts förstörs motsvarande **ISCPBatchBolt** -objekt och skräp insamlas.
+SCP.NET skapar ett nytt **ISCPBatchBolt-objekt** för att bearbeta varje **StormTxAttempt-objekt,** precis som vad Storm gör i Java. Denna design syfte är att stödja parallella transaktionsbearbetning. När ett transaktionsförsök har slutförts förstörs motsvarande **ISCPBatchBolt-objekt** och skräp samlas in.
 
-## <a name="object-model"></a>Objekt modell
+## <a name="object-model"></a>Objektmodell
 
-SCP.NET innehåller också en enkel uppsättning viktiga objekt som utvecklare kan använda för att program mera. Objekten är **context**, **StateStore**och **SCPRuntime**. De beskrivs i det här avsnittet.
+SCP.NET ger också en enkel uppsättning viktiga objekt för utvecklare att programmera med. Objekten är **Context**, **StateStore**och **SCPRuntime**. De diskuteras i det här avsnittet.
 
 ### <a name="context"></a>Kontext
 
-**Kontext** objekt är en miljö som körs i ett program. Varje **ISCPPlugin** -instans av **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**eller **ISCPBatchBolt** har en motsvarande **kontext** instans. De funktioner som tillhandahålls av **kontexten** är indelade i följande två delar:
+**Context-objektet** tillhandahåller en miljö som körs till ett program. Varje **ISCPPlugin-instans** av **ISCPSpout**, **ISCPBolt,** **ISCPTxSpout**eller **ISCPBatchBolt** har en motsvarande **context-instans.** Funktionaliteten i **Context** är uppdelad i dessa två delar:
 
-* Den statiska delen, som är tillgänglig i hela C# processen
-* Den dynamiska delen som bara är tillgänglig för den speciella **kontext** instansen
+* Den statiska delen, som finns i hela C# processen
+* Den dynamiska delen, som endast är tillgänglig för den specifika **kontextinstansen**
 
 ### <a name="static-part"></a>Statisk del
 
@@ -179,9 +179,9 @@ public static Config Config { get; set; }
 public static TopologyContext TopologyContext { get; set; }  
 ```
 
-**Loggnings objekt tillhandahålls** för loggnings syfte.
+**Logger-objektet** tillhandahålls för loggning.
 
-**PluginType** -objektet anger C# processens typ av plugin-program. Om processen körs i det lokala testläget utan Java är plugin-typen **SCP_NET_LOCAL**.
+**PluginType-objektet** anger plugin-in-typen av C#-processen. Om processen körs i lokalt testläge utan Java är plugin-programmet **SCP_NET_LOCAL**.
 
 ```csharp
 public enum SCPPluginType 
@@ -194,14 +194,14 @@ public enum SCPPluginType
     }
 ```
 
-Egenskapen **config** hämtar konfigurations parametrar från Java-sidan, som skickar dem när ett C# plugin-program initieras. **Konfigurations** parametrarna är indelade i två delar: **stormConf** och **pluginConf**.
+**Egenskapen Config** får konfigurationsparametrar från Java-sidan, som passerar dem när ett C#-plugin-program initieras. **Config** parametrarna är indelade i två delar: **stormConf** och **pluginConf**.
 
 ```csharp
 public Dictionary<string, Object> stormConf { get; set; }  
 public Dictionary<string, Object> pluginConf { get; set; }  
 ```
 
-**StormConf** -delen är parametrar som definieras av storm och **pluginConf** -delen är parametrar som definierats av SCP. Här är ett exempel:
+Den **stormConf** delen är parametrar som definieras av Storm, och **pluginConf** delen är parametrar som definieras av SCP. Här är ett exempel:
 
 ```csharp
 public class Constants
@@ -217,7 +217,7 @@ public class Constants
 }
 ```
 
-**TopologyContext** -typen hämtar Topology-kontexten. Det är mest användbart för flera parallella komponenter. Här är ett exempel:
+Typen **TopologyContext** hämtar topologikontexten. Det är mest användbart för flera parallella komponenter. Här är ett exempel:
 
 ```csharp
 //demo how to get TopologyContext info
@@ -237,7 +237,7 @@ if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
 
 ### <a name="dynamic-part"></a>Dynamisk del
 
-Följande gränssnitt är relevanta för en viss **kontext** instans, som skapas av SCP.NET-plattformen och skickas till din kod:
+Följande gränssnitt är relevanta för en viss **Context-instans,** som skapas av SCP.NET-plattformen och skickas till din kod:
 
 ```csharp
 // Declare the Output and Input Stream Schemas
@@ -251,14 +251,14 @@ public abstract void Emit(List<object> values);
 public abstract void Emit(string streamId, List<object> values);  
 ```
 
-För en transaktionell kanalen som har stöd för bekräftelse, anges följande metod:
+För en icke-transaktionell pip som stöder bekräftelse, tillhandahålls följande metod:
 
 ```csharp
 // for nontransactional spout that supports ack
 public abstract void Emit(string streamId, List<object> values, long seqId);  
 ```
 
-En transaktions bult som stöder bekräftelse bör uttryckligen anropa **ack** eller **sluta att fungera** med den tupel som tagits emot. Vid sändning av en ny tupel måste bulten också ange tuplens ankare. Följande metoder har angetts:
+En nontransactional bult som stöder bekräftelse bör uttryckligen ringa **Ack** eller **Misslyckas** med tupel den fått. När en ny tuppel avges måste bulten också ange tupels ankare. Följande metoder finns:
 
 ```csharp
 public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values);
@@ -266,13 +266,13 @@ public abstract void Ack(SCPTuple tuple);
 public abstract void Fail(SCPTuple tuple);
 ```
 
-### <a name="statestore"></a>StateStore
+### <a name="statestore"></a>StateStore (statliga)
 
-**StateStore** -objektet tillhandahåller metadata-tjänster, enkel, enkel sekvensers generering och en väntande samordning. Du kan bygga ut samtidiga samtidiga concurrency-abstraktionar på **StateStore**. Dessa abstraktioner omfattar distribuerade lås, distribuerade köer, barriärer och transaktions tjänster.
+**StateStore-objektet** tillhandahåller metadatatjänster, monotonisk sekvensgenerering och väntfri samordning. Du kan skapa distribuerade samtidighetsabstraktioner på högre nivå på **StateStore**. Dessa abstraktioner inkluderar distribuerade lås, distribuerade köer, hinder och transaktionstjänster.
 
-SCP-program kan använda **State** -objektet för att serialisera information i [Apache ZooKeeper](https://zookeeper.apache.org/). Den här funktionen är särskilt värdefull för en transaktionell topologi. Om en transaktions kanalen slutar svara och startar om, kan **tillstånd** hämta nödvändig information från ZooKeeper och starta om pipelinen.
+SCP-program kan använda **tillståndsobjektet** för att serialisera information i [Apache ZooKeeper](https://zookeeper.apache.org/). Denna förmåga är särskilt värdefull för en transaktionell topologi. Om en transaktionspip slutar svara och startas om kan **tillstånd** hämta nödvändig information från ZooKeeper och starta om pipelinen.
 
-**StateStore** -objektet har följande huvud metoder:
+**StateStore-objektet** har följande huvudsakliga metoder:
 
 ```csharp
 /// <summary>
@@ -329,7 +329,7 @@ public IEnumerable<Registry> Aborted();
 public State GetState(long stateId)
 ```
 
-Objektet **State** har följande huvud metoder:
+**Tillståndsobjektet** har följande huvudsakliga metoder:
 
 ```csharp
 /// <summary>
@@ -357,11 +357,11 @@ public void Abort();
     public T GetAttribute<T>(string key);
 ```
 
-När **simpleMode** har angetts till **True**, tar metoden **commit** bort motsvarande ZNode i ZooKeeper. Annars tar metoden bort den aktuella ZNode och lägger till en ny nod i den ALLOKERAde\_sökvägen.
+När **simpleMode** är inställt på **true**tas motsvarande ZNode-metoden bort i ZooKeeper. **Commit** Annars tas den aktuella ZNode-metoden bort och en\_ny nod läggs till i DEN BEKRÄFTADE SÖKVÄGEN.
 
 ### <a name="scpruntime"></a>SCPRuntime
 
-**SCPRuntime** -klassen innehåller följande två metoder:
+Klassen **SCPRuntime** innehåller följande två metoder:
 
 ```csharp
 public static void Initialize();
@@ -369,23 +369,23 @@ public static void Initialize();
 public static void LaunchPlugin(newSCPPlugin createDelegate);  
 ```
 
-Metoden **Initialize** initierar körnings miljön för SCP. I den här metoden ansluter C# processen till Java-sidan för att hämta konfigurations parametrar och topologi-kontext.
+Metoden **Initialize** initierar SCP-körningsmiljön. I den här metoden ansluter C#-processen till Java-sidan för att hämta konfigurationsparametrar och topologikontext.
 
-**LaunchPlugin** -metoden startar meddelande bearbetnings slingan. I den här slingan C# tar plugin-programmet emot meddelanden från Java-sidan. Dessa meddelanden innehåller tupler och kontroll signaler. Plugin-programmet bearbetar sedan meddelandena, t. ex. genom att anropa den gränssnitts metod som anges i din kod.
+**Metoden LaunchPlugin** startar meddelandebehandlingsloopen. I den här loopen tar C#-plugin-programmet emot meddelanden från Java-sidan. Dessa meddelanden inkluderar tupplar och styrsignaler. Plugin-programmet bearbetar sedan meddelandena, kanske genom att anropa gränssnittsmetoden som tillhandahålls av koden.
 
-Indataparametern för **LaunchPlugin** är ett ombud. Metoden kan returnera ett objekt som implementerar **ISCPSpout**-, **ISCPBolt**-, **ISCPTxSpout**-eller **ISCPBatchBolt** -gränssnittet.
+Indataparametern för **LaunchPlugin** är ett ombud. Metoden kan returnera ett objekt som implementerar **GRÄNSSNITTET ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**eller **ISCPBatchBolt.**
 
 ```csharp
 public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary<string, Object> parms);
 ```
 
-För **ISCPBatchBolt**kan du hämta ett **StormTxAttempt** -objekt från parametern *parametrar* och använda det för att bedöma om försöket är ett omspelat försök. Det görs ofta en kontroll av att ett omuppspelnings försök görs i commit-blixten. HelloWorldTx-exemplet längre fram i den här artikeln visar den här kontrollen.
+För **ISCPBatchBolt**kan du hämta ett **StormTxAttempt-objekt** från *parms-parametern* och använda det för att bedöma om försöket är ett replayed-försök. Kontrollen för ett reprisförsök görs ofta vid commit-bulten. Den HelloWorldTx exempel senare i den här artikeln visar denna kontroll.
 
-SCP-plugin-program kan vanligt vis köras i två lägen: lokalt test läge och normalt läge.
+SCP-plugin-program kan vanligtvis köras i två lägen: lokalt testläge och regelbundet läge.
 
 #### <a name="local-test-mode"></a>Lokalt testläge
 
-I det här läget körs SCP-plugin-programmen i C# din kod i Visual Studio under utvecklings fasen. Du kan använda **ILocalContext** -gränssnittet i det här läget. Gränssnittet innehåller metoder för att serialisera de utgivna tupelarna till lokala filer och läsa tillbaka dem till RAM-minnet.
+I det här läget körs SCP-plugin-programmen i C#-koden i Visual Studio under utvecklingsfasen. Du kan använda **ILocalContext-gränssnittet** i det här läget. Gränssnittet innehåller metoder för att serialisera de utsända tupplar till lokala filer och läsa dem tillbaka till RAM.
 
 ```csharp
 public interface ILocalContext
@@ -396,9 +396,9 @@ public interface ILocalContext
 }
 ```
 
-#### <a name="regular-mode"></a>Normalt läge
+#### <a name="regular-mode"></a>Regelbundet läge
 
-I det här läget Kör Storm Java-processen SCP-plugin-programmen. Här är ett exempel:
+I det här läget kör Storm Java-processen SCP-plugin-programmen. Här är ett exempel:
 
 ```csharp
 namespace Scp.App.HelloWorld
@@ -426,44 +426,44 @@ class HelloWorld
 }
 ```
 
-## <a name="topology-specification-language"></a>Språk för topologi specifikation
+## <a name="topology-specification-language"></a>Språk för topologispecifikation
 
-Specifikationen av SCP-topologin är ett domänbaserat språk (DSL) för att beskriva och konfigurera SCP-topologier. Den baseras på [Storms CLOJURE DSL](https://storm.incubator.apache.org/documentation/Clojure-DSL.html) och utökas av SCP.
+SCP Topologi Specification är ett domänspecifikt språk (DSL) för att beskriva och konfigurera SCP-topologier. Den är baserad på [Storm's Clojure DSL](https://storm.incubator.apache.org/documentation/Clojure-DSL.html) och utökas med SCP.
 
-Du kan skicka Topology-specifikationer direkt till ett Storm-kluster för körning via **runSpec** -kommandot.
+Du kan skicka topologispecifikationer direkt till ett Storm-kluster för körning via kommandot **runSpec.**
 
-SCP.NET har lagt till följande funktioner för att definiera transaktionella topologier:
+SCP.NET har lagt till följande funktioner för att definiera transaktionstopologier:
 
 | Ny funktion | Parametrar | Beskrivning |
 | --- | --- | --- |
-| **TX-topolopy** |*topologi-namn*<br />*kanalen – mappa*<br />*bult-karta* |Definierar en transaktionell topologi med topologins namn, kanaler definitions karta och bult. |
-| **SCP-TX-kanalen** |*exec-namn*<br />*argument*<br />*fält* |Definierar en transaktionell kanalen. Funktionen kör programmet som anges av *exec-Name* och använder *argument*.<br /><br />*Fält* parametern anger utmatnings fälten för kanalen. |
-| **SCP-TX-batch-bult** |*exec-namn*<br />*argument*<br />*fält* |Definierar en transaktionell batch-bult. Funktionen kör programmet som anges av *exec-Name* och använder *argument.*<br /><br />Parametern *Fields* anger utmatnings fälten för bulten. |
-| **SCP-TX-commit-bult** |*exec-namn*<br />*argument*<br />*fält* |Definierar en transaktionell commit-bult. Funktionen kör programmet som anges av *exec-Name* och använder *argument*.<br /><br />Parametern *Fields* anger utmatnings fälten för bulten. |
-| **nontx-topologi** |*topologi-namn*<br />*kanalen – mappa*<br />*bult-karta* |Definierar en transaktionell topologi med topologins namn, kanaler definitions karta och bult. |
-| **SCP – kanalen** |*exec-namn*<br />*argument*<br />*fält*<br />*parameters* |Definierar en kanalen som inte är en transaktion. Funktionen kör programmet som anges av *exec-Name* och använder *argument*.<br /><br />*Fält* parametern anger utmatnings fälten för kanalen.<br /><br />Parametern Parameters är valfri. Använd den för att ange parametrar som "inte transaktions-ack. enabled". |
-| **SCP-bult** |*exec-namn*<br />*argument*<br />*fält*<br />*parameters* |Definierar en inte transaktions bult. Funktionen kör programmet som anges av *exec-Name* och använder *argument*.<br /><br />*Fält* parametern anger utmatnings fälten för bulten<br /><br />Parametern Parameters är valfri. Använd den för att ange parametrar som "inte transaktions-ack. enabled". |
+| **tx-topolopy** |*topologi-namn*<br />*pip-karta*<br />*bult-karta* |Definierar en transaktionstopologi med topologins namn, definitionskartan för pipar och bultar. |
+| **scp-tx-pip** |*exec-namn*<br />*args*<br />*Fält* |Definierar en transaktionspip. Funktionen kör det program som anges av *exec-name* och använder *args*.<br /><br />Parametern *fields* anger utdatafälten för pipen. |
+| **scp-tx-batch-bult** |*exec-namn*<br />*args*<br />*Fält* |Definierar en transaktionsbatchbult. Funktionen kör det program som anges av *exec-name* och använder *args.*<br /><br />Parametern *fields* anger utdatafälten för bulten. |
+| **scp-tx-commit-bult** |*exec-namn*<br />*args*<br />*Fält* |Definierar en transaktionell commit-bult. Funktionen kör det program som anges av *exec-name* och använder *args*.<br /><br />Parametern *fields* anger utdatafälten för bulten. |
+| **nontx-topologi** |*topologi-namn*<br />*pip-karta*<br />*bult-karta* |Definierar en icke-transaktionell topologi med topologins namn, definitionskartan för pipar och bultar. |
+| **scp-pip** |*exec-namn*<br />*args*<br />*Fält*<br />*Parametrar* |Definierar en icke-transaktionell pip. Funktionen kör det program som anges av *exec-name* och använder *args*.<br /><br />Parametern *fields* anger utdatafälten för pipen.<br /><br />*Parameterparametern* är valfri. Använd den för att ange parametrar som "nontransactional.ack.enabled". |
+| **scp-bult** |*exec-namn*<br />*args*<br />*Fält*<br />*Parametrar* |Definierar en icke-transaktionell bult. Funktionen kör det program som anges av *exec-name* och använder *args*.<br /><br />Parametern *fields* anger utdatafälten för bulten<br /><br />*Parameterparametern* är valfri. Använd den för att ange parametrar som "nontransactional.ack.enabled". |
 
 SCP.NET definierar följande nyckelord:
 
-| Nyckelord | Beskrivning |
+| Sökord | Beskrivning |
 | --- | --- |
-| **: namn** |Topology-namn |
-| **: topologi** |Topologin med hjälp av funktionerna i föregående tabell och inbyggda funktioner |
-| **:p** |Parallel-tips för varje kanalen eller bult |
-| **: config** |Om du vill konfigurera parametrar eller uppdatera befintliga |
-| **: schema** |Data strömmens schema |
+| **:namn** |Topologins namn |
+| **:topologi** |Topologin med hjälp av funktionerna i föregående tabell och inbyggda funktioner |
+| **:p** |Parallellismtipset för varje pip eller bult |
+| **:config (konfekt)** |Om parametrar ska konfigureras eller uppdateras |
+| **:schema** |Schemat för strömmen |
 
-SCP.NET definierar även följande parametrar som används ofta:
+SCP.NET definierar också dessa ofta använda parametrar:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| "plugin.name" |Exe-filnamn för C# plugin-programmet |
-| "plugin. args" |Plugin-argumenten |
-| "output. schema" |Schemat för utdata |
-| "transaktionell. ack. enabled" |Om bekräftelse har Aktiver ATS för en transaktionell topologi |
+| "plugin.name" |Filnamnet på .exe-plugin-programmet för C# |
+| "plugin.args" |Plugin-argumenten |
+| "output.schema" |Utdataschemat |
+| "nontransactional.ack.enabled" |Om bekräftelse är aktiverat för en icke-transaktionell topologi |
 
-Kommandot **runSpec** distribueras tillsammans med bitarna. Här är kommando användningen:
+Kommandot **runSpec** distribueras tillsammans med bitarna. Här är kommandot användning:
 
 ```csharp
 .\bin\runSpec.cmd
@@ -471,19 +471,19 @@ usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
 ex: runSpec examples\HelloWorld\HelloWorld.spec specs examples\HelloWorld\Target
 ```
 
-Parametern *Resource-dir* är valfri. Ange den när du vill ansluta ett C# program. Den angivna katalogen innehåller programmet, beroendena och konfigurationerna.
+Parametern *resource-dir* är valfri. Ange det när du vill koppla in ett C#-program. Den angivna katalogen innehåller programmet, beroenden och konfigurationer.
 
-*Classpath* -parametern är också valfri. Den anger Java-classpath om Specifikations filen innehåller en Java-kanalen eller en bult.
+Parametern *classpath* är också valfri. Den anger Java classpath om specifikationsfilen innehåller en Java-pip eller bult.
 
 ## <a name="miscellaneous-features"></a>Diverse funktioner
 
-### <a name="input-and-output-schema-declarations"></a>Schema deklarationer för indata och utdata
+### <a name="input-and-output-schema-declarations"></a>Schemadeklarationer för in- och utdata
 
-Dina C# processer kan generera tupler. För att göra det, kan plattformen serialisera tupler till **byte []** -objekt och överföra objekten till Java-sidan. Storm överför sedan dessa tupler till målen.
+Dina C# processer kan avge tupplar. För att göra det serialiserar plattformen tupplar till **byte[]** objekt och överför objekten till Java-sidan. Storm överför sedan dessa tupplar till målen.
 
-I underordnade komponenter, C# bearbetar bearbetar tupler tillbaka från Java-sidan och konverterar dem till plattformens ursprungliga typer. Alla dessa åtgärder döljs av plattformen.
+I nedströmskomponenter får C#-processer tupplar tillbaka från Java-sidan och konverterar dem till plattformens ursprungliga typer. Alla dessa operationer döljs av plattformen.
 
-För att stödja serialisering och deserialisering måste din kod deklarera schemat för indata och utdata. Schemat definieras som en ord lista. Stream-ID: t är ord listans nyckel. Nyckelvärdet är kolumnernas typer. En komponent kan deklarera flera strömmar.
+För att stödja serialisering och avserialisering måste koden deklarera schemat för indata och utdata. Schemat definieras som en ordlista. Stream-ID är ordlistenyckeln. Nyckelvärdet är de typer av kolumner. En komponent kan deklarera flera strömmar.
 
 ```csharp
 public class ComponentStreamSchema
@@ -498,19 +498,19 @@ public class ComponentStreamSchema
 }
 ```
 
-Följande funktion läggs till i ett **kontext** objekt:
+Följande funktion läggs till **Context** i ett context-objekt:
 
 ```csharp
 public void DeclareComponentSchema(ComponentStreamSchema schema)
 ```
 
-Utvecklare måste se till att de utgivna tuppeln följer schemat som definierats för en data ström. Annars kommer systemet att utlösa ett körnings undantag.
+Utvecklare måste se till att de utgivna tupplar lyda schemat som definierats för en ström. Annars kommer systemet att kasta ett körningsundantag.
 
-### <a name="multistream-support"></a>Stöd för multistream
+### <a name="multistream-support"></a>Stöd för Fleraström
 
-SCP låter din kod skicka till eller ta emot från flera distinkta strömmar samtidigt. **Context** -objektet visar det här stödet som en valfri Stream-ID-parameter för **generering** metoden.
+Med SCP kan koden avge till eller ta emot från flera olika strömmar samtidigt. **Kontextobjektet** återspeglar det här stödet som **emit-metodens** valfria dataström-ID-parameter.
 
-Två metoder i SCP.NET- **kontextens** objekt har lagts till. De genererar en eller flera tupler till vissa strömmar. Parametern *streamId* är en sträng. Värdet måste vara detsamma i både C# koden och i specifikationen för topologins definition.
+Två metoder i SCP.NET **context-objektet** har lagts till. De avger en eller flera tupplar till specifika strömmar. Parametern *streamId* är en sträng. Dess värde måste vara detsamma i både C#-koden och topologidefinitionsspecifikationen.
 
 ```csharp
 /* Emit tuple to the specific stream. */
@@ -520,13 +520,13 @@ public abstract void Emit(string streamId, List<object> values);
 public abstract void Emit(string streamId, List<object> values, long seqId);
 ```
 
-Vid sändning till en icke-existerande data ström orsakar körnings undantag.
+Om du släpper ut till en obefintlig ström orsakas körningsund undantag.
 
-### <a name="fields-grouping"></a>Fält grupper
+### <a name="fields-grouping"></a>Gruppering av fält
 
-De inbyggda fälten gruppering i storm fungerar inte korrekt i SCP.NET. På sidan Java-proxy är data typen för alla fält faktiskt **byte []** . Fält grupper använder hash-koden **byte []** för objekt för att gruppera. Hash-koden är adressen till det här objektet i RAM-minnet. Grupperingen kommer därför att vara fel för multibyte-objekt som delar samma innehåll men inte samma adress.
+Den inbyggda fältgrupperingen i Storm fungerar inte korrekt i SCP.NET. På Java-proxysidan är datatypen för alla fält faktiskt **byte[]**. Fältgrupperingen använder **byte[]** objektets hash-kod för att utföra gruppningen. The hash code is the address of this object in RAM. Så gruppningen blir fel för multibyte-objekt som delar samma innehåll men inte samma adress.
 
-SCP.NET lägger till en anpassad grupperingstyp och använder innehållet i objektet **byte []** för gruppering. I en Specifikations fil ser syntaxen ut som i det här exemplet:
+SCP.NET lägger till en anpassad grupperingsmetod och använder innehållet i **byte[]** objektet för att göra gruppningen. I en specifikationsfil ser syntaxen ut så här:
 
 ```csharp
 (bolt-spec
@@ -537,19 +537,19 @@ SCP.NET lägger till en anpassad grupperingstyp och använder innehållet i obje
 )
 ```
 
-I föregående Specifikations fil:
+I föregående specifikationsfil:
 
-* `scp-field-group` anger att gruppering är en anpassad fält grupp som implementeras av SCP.
-* `:tx` eller `:non-tx` anger om topologin är transaktionell. Du behöver den här informationen eftersom start indexet skiljer sig åt mellan transaktionella och inte transaktionella topologier.
-* `[0,1]` anger en hash-uppsättning för fält-ID: n som börjar med noll.
+* `scp-field-group`anger att gruppningen är en anpassad fältgruppering som implementerats av SCP.
+* `:tx`eller `:non-tx` anger om topologin är transaktionell. Du behöver den här informationen eftersom startindexet skiljer sig mellan transaktions- och icke-transaktionella topologier.
+* `[0,1]`anger en hash-uppsättning fält-ID:er som börjar med noll.
 
-### <a name="hybrid-topology"></a>Hybrid topologi
+### <a name="hybrid-topology"></a>Hybridtopologi
 
-Inbyggd Storm-kod är skriven i Java. SCP.NET har förbättrat Storm så att du kan C# skriva kod för att hantera affärs logiken. Men SCP.NET stöder även hybrid topologier som inte bara C# innehåller kanaler/bultar, utan även Java-kanaler/bultar.
+Native Storm-koden är skriven i Java. SCP.NET har förbättrat Storm så att du kan skriva C#-kod för att hantera din affärslogik. Men SCP.NET stöder också hybrid topologier, som innehåller inte bara C # pipar / bultar utan även Java pipar / bultar.
 
-### <a name="specify-java-spoutbolt-in-a-specification-file"></a>Ange Java-kanalen/bult i en Specifikations fil
+### <a name="specify-java-spoutbolt-in-a-specification-file"></a>Ange Java-pip/bult i en specifikationsfil
 
-Du kan använda **SCP-kanalen** och **SCP-bult** i en Specifikations fil för att ange Java-kanaler och bultar. Här är ett exempel:
+Du kan använda **scp-pip** och **scp-bult** i en specifikationsfil för att ange Java-pipar och bultar. Här är ett exempel:
 
 ```csharp
 (spout-spec 
@@ -557,29 +557,29 @@ Du kan använda **SCP-kanalen** och **SCP-bult** i en Specifikations fil för at
   :p 1)
 ```
 
-Här `microsoft.scp.example.HybridTopology.Generator` är namnet på Java kanalen-klassen.
+Här `microsoft.scp.example.HybridTopology.Generator` är namnet på Java-pipklassen.
 
-### <a name="specify-the-java-classpath-in-a-runspec-command"></a>Ange Java-classpath i ett runSpec-kommando
+### <a name="specify-the-java-classpath-in-a-runspec-command"></a>Ange Java-klasssökvägen i ett runSpec-kommando
 
-Om du vill skicka topologi som innehåller Java-kanaler eller bultar ska du först kompilera dem för att skapa JAR-filer. Ange sedan den Java-classpath som innehåller JAR-filerna när du skickar topologi. Här är ett exempel:
+Om du vill skicka topologi som innehåller Java-pipar eller bultar sammanställer du dem först för att producera JAR-filer. Ange sedan den java-klassökväg som innehåller JAR-filerna när du skickar topologi. Här är ett exempel:
 
 ```csharp
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 ```
 
-Här `examples\HybridTopology\java\target\` är den mapp som innehåller JAR-filen för Java-kanalen/bult.
+Här `examples\HybridTopology\java\target\` är mappen som innehåller Java pip / bult JAR-fil.
 
-### <a name="serialization-and-deserialization-between-java-and-c"></a>Serialisering och deserialisering mellan Java ochC#
+### <a name="serialization-and-deserialization-between-java-and-c"></a>Serialisering och deserialisering mellan Java och C #
 
-En SCP-komponent inkluderar Java-sidan och C# sidan. För att interagera med ursprungliga Java-kanaler/-bultar måste serialisering och deserialisering ske mellan Java-sidan och C# sidan, vilket visas i följande diagram:
+En SCP-komponent innehåller Java-sidan och C#-sidan. För att interagera med inhemska Java-pipar/bultar måste serialisering och avserialisering ske mellan Java-sidan och C#-sidan, vilket illustreras i följande diagram:
 
-![Diagram över Java-komponenten som skickar till SCP-komponenten, som sedan skickar till en annan Java-komponent](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+![Diagram över Java-komponent som skickar till SCP-komponent, som sedan skickar till en annan Java-komponent](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
 
-#### <a name="serialization-in-the-java-side-and-deserialization-in-the-c-side"></a>Serialisering i Java-sidan och deserialiseringen på C# Sidan
+#### <a name="serialization-in-the-java-side-and-deserialization-in-the-c-side"></a>Serialisering i Java-sidan och deserialization i C# sidan
 
-Börja med att ange standard implementeringen för serialisering i Java-sidan och deserialiseringen på C# sidan.
+Ange först standardimplementering för serialisering på Java-sidan och deserialisering på C#-sidan.
 
-Ange serialiserings metoden för Java-sidan i en Specifikations fil.
+Ange Java-sidans serialiseringsmetod i en specifikationsfil.
 
 ```csharp
 (scp-bolt
@@ -591,7 +591,7 @@ Ange serialiserings metoden för Java-sidan i en Specifikations fil.
     })
 ```
 
-Ange C# sidans avserialiserings metod i C# koden.
+Ange C#-sidans deserialiseringsmetod i C#-koden.
 
 ```csharp
 Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
@@ -600,12 +600,12 @@ this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
 this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());
 ```  
 
-Om data typen inte är för komplex, bör den här standard implementeringen hantera de flesta fall. Här är de fall där du kan ansluta din egen implementering:
+Om datatypen inte är för komplex bör den här standardimplementeringen hantera de flesta fall. Här är fall där du kan koppla in din egen implementering:
 
-* Data typen är för komplex för standard implementeringen.
-* Prestandan för din standard implementering uppfyller inte dina krav.
+* Datatypen är för komplex för standardimplementeringen.
+* Resultatet för standardimplementeringen uppfyller inte dina krav.
 
-Serialiserings gränssnittet på Java-sidan definieras som:
+Serialiseringsgränssnittet på Java-sidan definieras som:
 
 ```csharp
 public interface ICustomizedInteropJavaSerializer {
@@ -614,7 +614,7 @@ public interface ICustomizedInteropJavaSerializer {
 }
 ```
 
-Avserialiserings gränssnittet på C# sidan definieras som:
+Deserialiseringsgränssnittet på C#-sidan definieras som:
 
 ```csharp
 public interface ICustomizedInteropCSharpDeserializer
@@ -623,15 +623,15 @@ public interface ICustomizedInteropCSharpDeserializer
 }
 ```
 
-#### <a name="serialization-in-the-c-side-and-deserialization-in-the-java-side"></a>Serialisering i C# sidan och deserialiseringen på Java-Sidan
+#### <a name="serialization-in-the-c-side-and-deserialization-in-the-java-side"></a>Serialisering i C# sidan och deserialization i Java sidan
 
-Ange C# sidans serialiserings metod i C# koden.
+Ange C#-sidans serialiseringsmetod i C#-koden.
 
 ```csharp
 this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
 ```
 
-Ange Java-sidans avserialiserings metod i en Specifikations fil.
+Ange Java-sidans deserialiseringsmetod i en specifikationsfil.
 
 ```csharp
 (scp-spout
@@ -644,11 +644,11 @@ Ange Java-sidans avserialiserings metod i en Specifikations fil.
 )
 ```
 
-Här är `"microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer"` namnet på deserialiseraren och `"microsoft.scp.example.HybridTopology.Person"` är mål klassen som data avserialiseras till.
+Här `"microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer"` är namnet på deserializer, `"microsoft.scp.example.HybridTopology.Person"` och är målet klass data avserialiseras till.
 
-Du kan också ansluta din egen implementering av en C# serialiserare och en Java-deserialiserare.
+Du kan också koppla in din egen implementering av en C# serializer och en Java deserializer.
 
-Den här koden är gränssnittet för C# serialiseraren:
+Den här koden är gränssnittet för C#serializer:
 
 ```csharp
 public interface ICustomizedInteropCSharpSerializer
@@ -657,7 +657,7 @@ public interface ICustomizedInteropCSharpSerializer
 }
 ```
 
-Den här koden är gränssnittet för Java-deserialiseraren:
+Denna kod är gränssnittet för Java deserializer:
 
 ```csharp
 public interface ICustomizedInteropJavaDeserializer {
@@ -666,9 +666,9 @@ public interface ICustomizedInteropJavaDeserializer {
 }
 ```
 
-## <a name="scp-host-mode"></a>Värd läge för SCP
+## <a name="scp-host-mode"></a>Värdläge för SCP
 
-I det här läget kan du kompilera din kod som en DLL och använda SCPHost. exe som anges av SCP för att skicka en topologi. En Specifikations fil ser ut som den här koden:
+I det här läget kan du kompilera koden som en DLL och använda SCPHost.exe enligt SCP för att skicka en topologi. En specifikationsfil ser ut som den här koden:
 
 ```csharp
 (scp-spout
@@ -679,21 +679,21 @@ I det här läget kan du kompilera din kod som en DLL och använda SCPHost. exe 
   })
 ```
 
-Här anges `"plugin.name"` som `"SCPHost.exe"`, som tillhandahålls av SCP SDK. SCPHost. exe accepterar tre parametrar i följande ordning:
+Här `"plugin.name"` anges som `"SCPHost.exe"`, som tillhandahålls av SCP SDK. SCPHost.exe accepterar tre parametrar i följande ordning:
 
-1. DLL-namnet, som är `"HelloWorld.dll"` i det här exemplet.
-1. Klass namnet, som är `"Scp.App.HelloWorld.Generator"` i det här exemplet.
-1. Namnet på en offentlig statisk metod som kan anropas för att hämta en instans av **ISCPPlugin**.
+1. DLL-namnet, som `"HelloWorld.dll"` finns i det här exemplet.
+1. Klassnamnet, som `"Scp.App.HelloWorld.Generator"` finns i det här exemplet.
+1. Namnet på en offentlig statisk metod, som kan anropas för att hämta en instans av **ISCPPlugin**.
 
-I värd läge kompilerar du koden som en DLL för anrop av SCP-plattformen. Eftersom plattformen sedan kan få fullständig kontroll över hela bearbetnings logiken rekommenderar vi att du skickar topologi i värd läge för SCP. Detta fören klar utvecklings upplevelsen. Det ger dig också större flexibilitet och bättre bakåtkompatibilitet för senare versioner.
+I värdläge kompilerar du koden som en DLL för anrop av SCP-plattformen. Eftersom plattformen sedan kan få full kontroll över hela bearbetningslogiken rekommenderar vi att du skickar topologi i SCP-värdläge. Detta förenklar utvecklingsupplevelsen. Det ger dig också mer flexibilitet och bättre bakåtkompatibilitet för senare versioner.
 
-## <a name="scp-programming-examples"></a>Programmerings exempel för SCP
+## <a name="scp-programming-examples"></a>Exempel på SCP-programmering
 
-### <a name="helloworld"></a>HelloWorld
+### <a name="helloworld"></a>HelloWorld (en)
 
-I följande enkla HelloWorld-exempel visas en smak på SCP.NET. Den använder en intransaktionskö-topologi med en kanalen som kallas **Generator** och två bultar som kallas **delare** och **räknare**. **Generator** -kanalen skapar slumpmässigt meningar och genererar dessa meningar till **delare**. **Delnings** blixten delar upp meningarna i ord och genererar dessa ord till **räknar** bulten. **Counters** bult använder en ord lista för att registrera förekomst av varje ord.
+Följande enkla HelloWorld exempel visar en smak av SCP.NET. Den använder en nontransactional topologi med en pip som kallas **generator** och två bultar som kallas **splitter** och **räknare**. **Generatorn** pipen genererar slumpmässigt meningar och avger dessa meningar till **splitter**. Splitterbulten delar meningarna i ord och avger dessa ord till **splitter** **räknarbulten.** **Räknarbulten** använder en ordlista för att registrera förekomsten av varje ord.
 
-Det här exemplet har två Specification-filer: HelloWorld. spec och HelloWorld\_EnableAck. spec. C# Koden kan ta reda på om bekräftelsen har Aktiver ATS genom att hämta `pluginConf`-objektet från Java-sidan.
+Detta exempel har två specifikationsfiler: HelloWorld.spec och HelloWorld\_EnableAck.spec. C#-koden kan ta reda på om bekräftelse `pluginConf` är aktiverad genom att hämta objektet från Java-sidan.
 
 ```csharp
 /* demo how to get pluginConf info */
@@ -704,7 +704,7 @@ if (Context.Config.pluginConf.ContainsKey(Constants.NONTRANSACTIONAL_ENABLE_ACK)
 Context.Logger.Info("enableAck: {0}", enableAck);
 ```
 
-Om bekräftelse är aktiverat i kanalen cachelagrar en ord lista de tupler som inte har bekräftats. Om `Fail` anropas spelas den felaktiga tuppeln upp.
+Om bekräftelse är aktiverat i pipen cachelagrar en ordlista de tupplar som inte har bekräftats. Om `Fail` anropas spelas den misslyckade tuppeln upp.
 
 ```csharp
 public void Fail(long seqId, Dictionary<string, Object> parms)
@@ -726,26 +726,26 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 }
 ```
 
-### <a name="helloworldtx"></a>HelloWorldTx
+### <a name="helloworldtx"></a>HelloWorldTx (på andra ort)
 
-Följande HelloWorldTx-exempel visar hur du implementerar en transaktionell topologi. Exemplet har en kanalen som kallas **Generator**, en batch-bult som kallas för **partiellt antal**och en commit bult som heter **Count-sum**. Exemplet innehåller också tre befintliga textfiler: DataSource0. txt, DataSource1. txt och DataSource2. txt.
+Följande HelloWorldTx exempel visar hur man genomför transaktionstopologi. Exemplet har en pip som kallas **generator,** en batchbult som kallas partiellt antal och en **commit-bult**som kallas **antal-summa**. Exemplet innehåller också tre befintliga textfiler: DataSource0.txt, DataSource1.txt och DataSource2.txt.
 
-I varje transaktion väljer **Generator** -kanalen slumpmässigt två filer från de befintliga tre filerna och genererar de två fil namnen till en **avdelare** bult. Den **partiella Count-** bult:
+I varje transaktion väljer **generatorpipen** slumpmässigt två filer från de befintliga tre filerna och avger de två filnamnen till **delräkningsbulten.** Den **partiella räknebulten:**
 
-1. Hämtar ett fil namn från den mottagna tuppeln.
+1. Hämtar ett filnamn från den mottagna tuppeln.
 1. Öppnar motsvarande fil.
 1. Räknar antalet ord i filen.
-1. Genererar ordet Count till **Count-sum-** bult.
+1. Avger ordräkningen till **räknesumman.**
 
-**Count-sum-** blixten sammanfattar det totala antalet.
+**Räkna-summa bult** sammanfattar det totala antalet.
 
-Om du vill uppnå exakt en semantik måste du bedöma om det är en omspelad transaktion genom att köra **Count-sum-** incheckning. I det här exemplet har den följande statiska medlems variabel:
+För att uppnå exakt en gång semantik, **räkna-summa** begå bult måste bedöma om det är en replayed transaktion. I det här exemplet har den följande statiska medlemsvariabel:
 
 ```csharp
 public static long lastCommittedTxId = -1; 
 ```
 
-När en **ISCPBatchBolt** -instans skapas hämtas värdet för `txAttempt`-objektet från indataparametrarna.
+När en **ISCPBatchBolt-instans** skapas hämtas `txAttempt` värdet för objektet från indataparametrar.
 
 ```csharp
 public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
@@ -763,7 +763,7 @@ public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
 }
 ```
 
-När `FinishBatch` anropas uppdateras `lastCommittedTxId` om det inte är en omspelad transaktion.
+När `FinishBatch` anropas, `lastCommittedTxId` uppdateras om det inte är en repriserad transaktion.
 
 ```csharp
 public void FinishBatch(Dictionary<string, Object> parms)
@@ -783,17 +783,17 @@ public void FinishBatch(Dictionary<string, Object> parms)
 
 ### <a name="hybridtopology"></a>HybridTopology
 
-Den här topologin innehåller en Java- C# kanalen och en bult. Den använder den standardinställda serialisering och deserialiserings-implementering som tillhandahålls av SCP-plattformen. Se filen HybridTopology. spec i exemplen\\mappen HybridTopology för information om Specifikations filen. Se även SubmitTopology. bat för att ange Java-classpath.
+Denna topologi innehåller en Java pip och en C # bult. Den använder standard-serialisering och deserialization implementering som tillhandahålls av SCP-plattformen. Se filen HybridTopology.spec i\\exemplen HybridTopology mapp för specifikation filinformation. Se också SubmitTopology.bat för hur du anger Java classpath.
 
 ### <a name="scphostdemo"></a>SCPHostDemo
 
-Det här exemplet är i grunden samma som HelloWorld. Den enda skillnaden är att din kod kompileras som en DLL och att topologin skickas med hjälp av SCPHost. exe. I avsnittet SCP-värd läge finns en mer detaljerad förklaring.
+Detta exempel är i huvudsak samma som HelloWorld. Den enda skillnaden är att koden kompileras som en DLL och topologin skickas med hjälp av SCPHost.exe. Mer detaljerad förklaring finns i avsnittet SCP-värdläge.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Exempel på Apache Storm topologier som skapats med SCP finns i följande artiklar:
+Exempel på Apache Storm-topologier som skapats med hjälp av SCP finns i följande artiklar:
 
-* [Utveckla C# topologier för Apache storm på HDInsight med Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
+* [Utveckla C# topologier för Apache Storm på HDInsight med Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 * [Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
-* [Bearbeta fordons sensor data från Event Hubs med Apache Storm i HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Bearbeta fordonssensordata från eventhubbar med Apache Storm på HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
 * [Extrahera, transformera och läsa in (ETL) från Azure Event Hubs till Apache HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

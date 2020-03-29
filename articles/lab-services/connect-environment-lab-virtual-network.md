@@ -1,6 +1,6 @@
 ---
-title: Ansluta miljöer till ett labb virtuellt nätverk i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du ansluter en miljö (till exempel Service Fabric-kluster) till ditt virtuella nätverk i Azure DevTest Labs
+title: Ansluta miljöer till ett labbs virtuella nätverk i Azure DevTest Labs | Microsoft-dokument
+description: Lär dig hur du ansluter en miljö (som Service Fabric-kluster) till labbets virtuella nätverk i Azure DevTest Labs
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.openlocfilehash: bb8b5f7d6578390fd0f48c3de154cfdb034ac6c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60777176"
 ---
-# <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Ansluta en miljö till ditt labb-nätverk i Azure DevTest Labs
-Azure DevTest Labs gör det enkelt att skapa virtuella datorer i ett testlabb med [inbyggda funktioner för nätverk](devtest-lab-configure-vnet.md). Den har en massa flexibilitet med möjligheten att [skapa Konsekvens miljöer](devtest-lab-test-env.md). Den här artikeln visar hur du ansluter virtuella datorer i en miljö till det virtuella nätverket i labbet. Ett scenario där du använder den här funktionen kan du ställa in en N-nivå-app med en SQL Server-datanivå som är ansluten till lab VNet så att testet virtuella datorer i labbet för att komma åt den.  
+# <a name="connect-an-environment-to-your-labs-virtual-network-in-azure-devtest-labs"></a>Ansluta en miljö till labbets virtuella nätverk i Azure DevTest Labs
+Azure DevTest Labs gör det enkelt att skapa virtuella datorer i ett labb med [inbyggda nätverk](devtest-lab-configure-vnet.md). Den har stor flexibilitet med förmågan att [skapa multi-VM miljöer](devtest-lab-test-env.md). Den här artikeln visar hur du ansluter virtuella datorer i en miljö till labbets virtuella nätverk. Ett scenario där du använder den här funktionen är att konfigurera en N-nivå app med en SQL Server-datanivå som är ansluten till labbet VNet så att testa virtuella datorer i labbet för att komma åt den.  
 
-## <a name="sample-environment-that-uses-lab-vnet"></a>Exempel-miljö som använder lab VNet
-Här är en enkel miljö-mall som ansluter den testmiljön undernät. I det här exemplet på `DTLSubnetId` parametern representerar ID för undernätet där labbet finns. Den är tilldelad till: `$(LabSubnetId)`, som automatiskt kan lösas med DevTest Labs-ID: t för den testmiljön undernät. Den **undernät** egenskapen för den **nätverksgränssnittet** av den virtuella datorn i den här definitionen är inställd på `DTLSubnetId` så att den ansluter till samma undernät. 
+## <a name="sample-environment-that-uses-lab-vnet"></a>Exempelmiljö som använder lab VNet
+Här är en enkel miljömall som ansluter labbets undernät. I det här `DTLSubnetId` exemplet representerar parametern ID för det undernät där labbet finns. Den har tilldelats: `$(LabSubnetId)`, som automatiskt matchas av DevTest Labs till ID för labbets undernät. Egenskapen **undernät** för **nätverksgränssnittet** för den virtuella `DTLSubnetId` datorn i den här definitionen är inställd på så att den ansluter till samma undernät. 
 
 ```json
 {
@@ -161,4 +161,4 @@ Här är en enkel miljö-mall som ansluter den testmiljön undernät. I det här
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artikel för att använda Azure-portalen för att göra dessa åtgärder: [Starta om en virtuell dator](devtest-lab-restart-vm.md).
+Se följande artikel för att använda Azure-portalen för att utföra dessa åtgärder: [Starta om en virtuell dator](devtest-lab-restart-vm.md).

@@ -1,32 +1,32 @@
 ---
 title: Arbeta med matriser och objekt i Azure Cosmos DB
-description: Lär dig SQL-syntaxen för att skapa matriser och objekt i Azure Cosmos DB. Den här artikeln innehåller också några exempel på hur du utför åtgärder på mat ris objekt
+description: Lär dig SQL-syntaxen för att skapa matriser och objekt i Azure Cosmos DB. Den här artikeln innehåller också några exempel för att utföra åtgärder på matrisobjekt
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246557"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Arbeta med matriser och objekt i Azure Cosmos DB
 
-En viktig funktion i Azure Cosmos DB SQL API är matris-och objekt skapande.
+En viktig funktion i Azure Cosmos DB SQL API är matris och objekt skapas.
 
 ## <a name="arrays"></a>Matriser
 
-Du kan skapa matriser, som du ser i följande exempel:
+Du kan konstruera matriser, som visas i följande exempel:
 
 ```sql
     SELECT [f.address.city, f.address.state] AS CityState
     FROM Families f
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -45,23 +45,23 @@ Resultaten är:
     ]
 ```
 
-Du kan också använda [mat ris uttrycket](sql-query-subquery.md#array-expression) för att skapa en matris från under [frågans](sql-query-subquery.md) resultat. Den här frågan hämtar alla distinkta namn på underordnade objekt i en matris.
+Du kan också använda [ARRAY-uttrycket](sql-query-subquery.md#array-expression) för att konstruera en matris från [underkventets](sql-query-subquery.md) resultat. Den här frågan hämtar alla olika förnamn för underordnade i en matris.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
 FROM f
 ```
 
-## <a id="Iteration"></a>Iteration
+## <a name="iteration"></a><a id="Iteration"></a>Iteration
 
-SQL API ger stöd för att iterera över JSON-matriser, med en ny konstruktion som lagts till via [nyckelordet](sql-query-keywords.md#in) i från-källan. I följande exempel:
+SQL API ger stöd för itererering över JSON-matriser, med en ny konstruktion som lagts till via [IN-nyckelordet](sql-query-keywords.md#in) i FROM-källan. Se följande exempel:
 
 ```sql
     SELECT *
     FROM Families.children
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -90,14 +90,14 @@ Resultaten är:
     ]
 ```
 
-Nästa fråga utför iteration över `children` i `Families` container. Den utgående matrisen skiljer sig från föregående fråga. I det här exemplet delas `children`och sammanslags resultaten i en enda matris:  
+Nästa fråga utför iteration `children` över `Families` i behållaren. Utdatamatrisen skiljer sig från föregående fråga. Det här `children`exemplet delar och förenklar resultaten till en enda matris:  
 
 ```sql
     SELECT *
     FROM c IN Families.children
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -122,7 +122,7 @@ Resultaten är:
     ]
 ```
 
-Du kan filtrera efter varje enskild post i matrisen, som du ser i följande exempel:
+Du kan filtrera vidare på varje enskild post i matrisen, vilket visas i följande exempel:
 
 ```sql
     SELECT c.givenName
@@ -130,7 +130,7 @@ Du kan filtrera efter varje enskild post i matrisen, som du ser i följande exem
     WHERE c.grade = 8
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [{
@@ -138,14 +138,14 @@ Resultaten är:
     }]
 ```
 
-Du kan också aggregera över resultatet av en mat ris iteration. Följande fråga räknar till exempel antalet underordnade objekt bland alla familjer:
+Du kan också aggregera över resultatet av en matrisiteration. Följande fråga räknar till exempel antalet barn bland alla familjer:
 
 ```sql
     SELECT COUNT(child)
     FROM child IN Families.children
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -159,4 +159,4 @@ Resultaten är:
 
 - [Komma igång](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Kopplingar](sql-query-join.md)
+- [Går](sql-query-join.md)

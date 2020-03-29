@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 8a4012d204b6dafa1233e4ce3d878590120be47d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60640233"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Skala ASP.NET Core SignalR-program med hjälp av Azure SignalR Service
 
 ## <a name="developing-signalr-apps"></a>Utveckla SignalR-appar
 
-Det finns för närvarande [två versioner](https://docs.microsoft.com/aspnet/core/signalr/version-differences) av SignalR som du kan använda med dina webbprogram: SignalR för ASP.NET och ASP.NET Core SignalR, vilket är den senaste versionen. Azure SignalR Service är en Azure-hanterad tjänst som bygger på ASP.NET Core SignalR.
+För närvarande finns det [två versioner](https://docs.microsoft.com/aspnet/core/signalr/version-differences) av SignalR som du kan använda med dina webbapplikationer: SignalR för ASP.NET och ASP.NET Core SignalR, som är den senaste versionen. Azure SignalR Service är en Azure-hanterad tjänst som bygger på ASP.NET Core SignalR.
 
 ASP.NET Core SignalR är en omarbetning av den föregående versionen. Därför är ASP.NET Core SignalR inte bakåtkompatibel med den tidigare SignalR-versionen. Både API:er och beteenden skiljer sig åt. ASP.NET Core SignalR SDK riktar in sig på NET-standarden, så du kan fortfarande använda den med .NET Framework. Du måste dock använda de nya API:erna i stället för de gamla. Om du använder SignalR och vill flytta till ASP.NET Core SignalR eller Azure SignalR Service måste du ändra din kod för att hantera API-skillnaderna.
 
@@ -31,7 +31,7 @@ Det är fortfarande möjligt att distribuera en Azure-webbapp på egen hand med 
 
 Ett av de viktigaste skälen till att använda Azure SignalR Service är enkelheten. Med Azure SignalR Service behöver du inte hantera problem med prestanda, skalbarhet och tillgänglighet. Sådana problem hanteras åt dig med ett servicenivåavtal på 99,9 %.
 
-WebSockets är också normalt den teknik som föredras för stöd för innehållsuppdateringar i realtid. Belastningsutjämning av ett stort antal beständiga WebSocket-anslutningar blir dock ett komplicerat problemet att lösa vid skalning. Vanliga lösningar använder sig av: DNS-lastbalansering, maskinvarubaserade lastbalanserare och programvarubaserad lastbalansering. Azure SignalR Service hanterar problemen åt dig.
+WebSockets är också normalt den teknik som föredras för stöd för innehållsuppdateringar i realtid. Belastningsutjämning av ett stort antal beständiga WebSocket-anslutningar blir dock ett komplicerat problemet att lösa vid skalning. Vanliga lösningar använder sig av DNS-lastbalansering, maskinvarubaserade lastbalanserare och programvarubaserad lastbalansering. Azure SignalR Service hanterar problemen åt dig.
 
 En annan orsak kan vara att du inte har något behov av att vara värd för webbappen. Logiken för din webbappp kan använda sig av [serverlös databehandling](https://azure.microsoft.com/overview/serverless-computing/). Som exempel kanske din kod bara hanteras och körs på begäran med [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)-utlösare. Det här scenariot kan vara komplicerat eftersom koden endast körs på begäran och inte upprätthåller längre anslutningar med klienter. Azure SignalR Service kan hantera den detta eftersom tjänsten redan hanterar anslutningar för dig. Mer information finns i [översikten över hur du använder SignalR Service med Azure Functions](signalr-concept-azure-functions.md).
 

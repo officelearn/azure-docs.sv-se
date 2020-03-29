@@ -1,6 +1,6 @@
 ---
-title: Lägg till en Event Hubs händelse källa – Azure Time Series Insights | Microsoft Docs
-description: Lär dig hur du lägger till en händelse källa för Azure-Event Hubs i din Time Series Insights-miljö.
+title: Lägga till en händelsehubbarhändelsekälla – Azure Time Series Insights | Microsoft-dokument
+description: Lär dig hur du lägger till en Azure Event Hubs-händelsekälla i din Time Series Insights-miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,109 +12,109 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: c3b06289ba6ce98d4307a8255981ecdba069fdfa
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905410"
 ---
-# <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en event hub-händelsekälla till Time Series Insights-miljön
+# <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägga till en händelsehubbhändelsekälla i time series insights-miljön
 
-Den här artikeln beskriver hur du använder Azure-portalen för att lägga till en händelsekälla som läser data från Azure Event Hubs till Azure Time Series Insights-miljön.
+I den här artikeln beskrivs hur du använder Azure-portalen för att lägga till en händelsekälla som läser data från Azure Event Hubs i din Azure Time Series Insights-miljö.
 
 > [!NOTE]
-> De steg som beskrivs i den här artikeln gäller både Time Series Insights GA och Time Series Insights Preview-miljöer.
+> De steg som beskrivs i den här artikeln gäller både för förhandsversionerna för Time Series Insights GA och Time Series Insights.
 
 ## <a name="prerequisites"></a>Krav
 
-- Skapa en Time Series Insights-miljö enligt beskrivningen i [skapa en Azure Time Series Insights-miljö](./time-series-insights-update-create-environment.md).
-- Skapa en händelsehubb. Läs [skapa ett Event Hubs-namnområde och en Event Hub med hjälp av Azure Portal](../event-hubs/event-hubs-create.md).
-- Event hub måste ha aktiva meddelandehändelser skickas till den. Lär dig hur du [skickar händelser till Azure Event Hubs med hjälp av .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
-- Skapa en dedikerad konsumentgrupp i händelsehubb som Time Series Insights-miljön kan använda från. Varje Time Series Insights-händelsekälla måste ha sin egen dedikerad konsumentgrupp som inte delas med andra konsumenter. Om flera läsare förbrukar händelser från samma konsument grupp, kommer alla läsare att kunna uppvisa problem. Det finns en gräns på 20 konsumentgrupper per händelsehubb. Mer information finns i [programmerings guiden för Event Hubs](../event-hubs/event-hubs-programming-guide.md).
+- Skapa en Time Series Insights-miljö enligt beskrivningen i [Skapa en Azure Time Series Insights-miljö](./time-series-insights-update-create-environment.md).
+- Skapa en händelsehubb. Läs [Skapa ett namnområde för händelsehubbar och en händelsehubb med hjälp av Azure-portalen](../event-hubs/event-hubs-create.md).
+- Händelsehubben måste ha aktiva meddelandehändelser skickade till sig. Lär dig hur du [skickar händelser till Azure Event Hubs med hjälp av .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
+- Skapa en dedikerad konsumentgrupp i händelsehubben som time series insights-miljön kan använda från. Varje Time Series Insights-händelsekälla måste ha en egen dedikerad konsumentgrupp som inte delas med någon annan konsument. Om flera läsare använder händelser från samma konsumentgrupp, är det troligt att alla läsare uppvisar fel. Det finns en gräns på 20 konsumentgrupper per händelsenav. Mer information finns i [programmeringsguiden för Event Hubs](../event-hubs/event-hubs-programming-guide.md).
 
-### <a name="add-a-consumer-group-to-your-event-hub"></a>Lägg till en konsumentgrupp till din event hub
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Lägga till en konsumentgrupp i händelsehubben
 
-Program använda konsumentgrupper att hämta data från Azure Event Hubs. Om du vill läsa data på ett tillförlitligt sätt från händelsehubben kan du ange en dedikerad konsument grupp som endast används av den här Time Series Insightss miljön.
+Program använder konsumentgrupper för att hämta data från Azure Event Hubs. Om du vill läsa data från händelsehubben på ett tillförlitligt sätt kan du tillhandahålla en dedikerad konsumentgrupp som endast används av den här Time Series Insights-miljön.
 
-Så här lägger du till en ny konsumentgrupp i din event hub
+Så här lägger du till en ny konsumentgrupp i händelsehubben:
 
-1. I [Azure Portal](https://portal.azure.com)letar du reda på och öppnar Event Hub-instansen från fönstret **Översikt** i Event Hub-namnområdet. Välj **entiteter > Event Hubs** eller Sök efter din instans under **namn**.
+1. Leta reda på och öppna händelsehubbininstan i **fönstret Översikt** för namnområdet för händelsehubben i Azure-portalen. [Azure portal](https://portal.azure.com) Välj **entiteter > händelsehubbar** eller hitta din förekomst under **Namn**.
 
-    [![öppna ditt Event Hub-namnområde](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
+    [![Öppna namnområdet för händelsehubben](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. I Event Hub-instansen väljer du **entiteter > konsument grupper**. Välj sedan **+ konsument grupp** för att lägga till en ny konsument grupp. 
+1. I händelsehubbinstan väljer du **Entiteter > Konsumentgrupper**. Välj sedan **+ Konsumentgrupp** om du vill lägga till en ny konsumentgrupp. 
 
-   [![Event Hub – Lägg till en konsument grupp](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
+   [![Händelsenav - Lägga till en konsumentgrupp](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
 
-   Annars väljer du en befintlig konsument grupp och går vidare till nästa avsnitt.
+   Annars väljer du en befintlig konsumentgrupp och går vidare till nästa avsnitt.
 
-1. På den **konsumentgrupper** anger du ett nytt unikt värde för **namn**.  Använd det här namnet när du skapar en ny händelsekälla i Time Series Insights-miljö.
+1. Ange ett nytt unikt värde för **Namn**på sidan **Konsumentgrupper** .  Använd samma namn när du skapar en ny händelsekälla i time series insights-miljön.
 
 1. Välj **Skapa**.
 
-## <a name="add-a-new-event-source"></a>Lägg till en ny händelsekälla
+## <a name="add-a-new-event-source"></a>Lägga till en ny händelsekälla
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Leta upp din befintliga Time Series Insights-miljö. I den vänstra menyn väljer du **alla resurser**, och välj sedan din Time Series Insights-miljö.
+1. Hitta din befintliga Time Series Insights-miljö. På den vänstra menyn väljer du **Alla resurser**och väljer sedan miljön Tidsseriestatistik.
 
-1. Välj **händelse källor**och välj sedan **Lägg till**.
+1. Välj **Händelsekällor**och välj sedan **Lägg till**.
 
-   [Välj knappen Lägg till ![under händelse källor](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
+   [![Under Händelsekällor väljer du knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-add-an-event-source.png#lightbox)
 
-1. Ange ett värde för **händelse källans namn** som är unikt för den här Time Series Insightss miljön, till exempel `Contoso-TSI-GA-Event-Hub-ES`.
+1. Ange ett värde för **händelsekällans namn** som är unikt `Contoso-TSI-GA-Event-Hub-ES`för den här Time Series Insights-miljön, till exempel .
 
-1. För **källa**väljer **Event Hub**.
+1. För **Källa**väljer du **Event Hub**.
 
-1. Välj lämpliga värden för **importalternativ**:
+1. Välj lämpliga värden för **importalternativet:**
 
-   * Om du har en befintlig händelsehubb i en av dina prenumerationer, väljer **Använd Event Hub från tillgängliga prenumerationer**. Det här alternativet är den enklaste metoden.
+   * Om du har en befintlig händelsehubb i en av dina prenumerationer väljer du **Använd händelsehubb från tillgängliga prenumerationer**. Det här alternativet är det enklaste tillvägagångssättet.
 
-     [![Välj ett import alternativ för händelse källa](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
+     [![Välj ett importalternativ för händelsekälla](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
-    *  I följande tabell beskrivs de nödvändiga egenskaperna för den **Använd Event Hub från tillgängliga prenumerationer** alternativet:
+    *  I följande tabell beskrivs de egenskaper som krävs för **alternativet Använd händelsehubb från tillgängliga prenumerationer:**
 
-       [![information om prenumeration och händelsehubben](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
+       [![Information om prenumeration och händelsehubb](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
        | Egenskap | Beskrivning |
        | --- | --- |
-       | Prenumeration | Prenumerationen på den önskade Event Hub-instansen och namn området tillhör. |
-       | Namnområde för händelsehubb | Event Hub-namnområdet som den önskade Event Hub-instansen tillhör. |
-       | Namn på händelsehubb | Namnet på den önskade Event Hub-instansen. |
-       | Princip värde för Event Hub | Välj önskad princip för delad åtkomst. Du kan skapa principen för delad åtkomst på fliken **Konfigurera konfiguration** av händelsehubben. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomst nycklar. Princip för delad åtkomst för din händelsekälla *måste* har **läsa** behörigheter. |
-       | Principnyckel för Event Hub | Fylls i automatiskt från det valda värdet för Event Hub-principen. |
+       | Prenumeration | Prenumerationen som den önskade händelsehubbinstansen och namnområdet tillhör. |
+       | Namnområde för händelsehubb | Händelsehubbens namnområde som den önskade händelsenavet-förekomsten tillhör. |
+       | Namn på händelsehubb | Namnet på den önskade händelsehubbinstansen. |
+       | Principvärde för händelsehubben | Välj önskad princip för delad åtkomst. Du kan skapa principen för delad åtkomst på fliken **Konfigurera** händelsehubb. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomstnycklar. Principen för delad åtkomst för händelsekällan *måste* ha läsbehörighet. **read** |
+       | Principnyckel för händelsehubben | Förifylld från det valda principvärdet För händelsehubben. |
 
-    * Om event hub är extern till dina prenumerationer eller om du vill välja avancerade alternativ väljer **ange Event Hub-inställningar manuellt**.
+    * Om händelsehubben är externt för dina prenumerationer eller om du vill välja avancerade alternativ väljer du **Ange inställningar för händelsehubb manuellt**.
 
-       I följande tabell beskrivs de nödvändiga egenskaperna för den **ange Event Hub-inställningar manuellt** alternativet:
+       I följande tabell beskrivs de egenskaper som krävs för alternativet Ange inställningar för **händelsehubbar manuellt:**
  
        | Egenskap | Beskrivning |
        | --- | --- |
-       | Prenumerations-ID | Prenumerationen på den önskade Event Hub-instansen och namn området tillhör. |
-       | Resursgrupp | Resurs gruppen som den önskade Event Hub-instansen och namn området tillhör. |
-       | Namnområde för händelsehubb | Event Hub-namnområdet som den önskade Event Hub-instansen tillhör. |
-       | Namn på händelsehubb | Namnet på den önskade Event Hub-instansen. |
-       | Princip värde för Event Hub | Välj önskad princip för delad åtkomst. Du kan skapa principen för delad åtkomst på fliken **Konfigurera konfiguration** av händelsehubben. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomst nycklar. Princip för delad åtkomst för din händelsekälla *måste* har **läsa** behörigheter. |
-       | Principnyckel för Event Hub | Den delade åtkomstnyckeln som används för att autentisera åtkomsten till Service Bus-namnområdet. Ange den primära eller sekundära nyckeln här. |
+       | Prenumerations-ID:t | Prenumerationen som den önskade händelsehubbinstansen och namnområdet tillhör. |
+       | Resursgrupp | Resursgruppen som den önskade händelsenavetinstansen och namnområdet tillhör. |
+       | Namnområde för händelsehubb | Händelsehubbens namnområde som den önskade händelsenavet-förekomsten tillhör. |
+       | Namn på händelsehubb | Namnet på den önskade händelsehubbinstansen. |
+       | Principvärde för händelsehubben | Välj önskad princip för delad åtkomst. Du kan skapa principen för delad åtkomst på fliken **Konfigurera** händelsehubb. Varje princip för delad åtkomst har ett namn, behörigheter som du anger och åtkomstnycklar. Principen för delad åtkomst för händelsekällan *måste* ha läsbehörighet. **read** |
+       | Principnyckel för händelsehubben | Den delade åtkomstnyckeln som används för att autentisera åtkomsten till servicebussens namnområde. Ange den primära eller sekundära nyckeln här. |
 
-    * Båda alternativen delar följande konfigurations alternativ:
+    * Båda alternativen delar följande konfigurationsalternativ:
 
        | Egenskap | Beskrivning |
        | --- | --- |
-       | Konsumentgrupp för händelsehubb | Konsumentgruppen som läser händelser från event hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla. |
-       | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelse meddelanden måste ha det här formatet eller så går det inte att läsa data. |
-       | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till händelsehubben. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+       | Konsumentgrupp för händelsehubb | Konsumentgruppen som läser händelser från händelsehubben. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla. |
+       | Händelseserialiseringsformat | För närvarande är JSON det enda tillgängliga serialiseringsformatet. Händelsemeddelanden måste vara i det här formatet eller så går det inte att läsa data. |
+       | Egenskapsnamn för tidsstämpel | För att fastställa det här värdet måste du förstå meddelandeformatet för meddelandedata som skickas till händelsehubben. Det här värdet är **namnet** på den specifika händelseegenskapen i de meddelandedata som du vill använda som händelsetidsstämpel. Värdet är skiftlägeskänsligt. Om händelsen lämnas tom används **händelsens kötid** i händelsekällan som tidsstämpel för händelsen. |
 
-1. Lägg till dedikerade Time Series Insights konsument gruppnamnet som du lade till din event hub.
+1. Lägg till det dedikerade tidsseriestatistikkonsumentgruppsnamnet som du har lagt till i händelsehubben.
 
 1. Välj **Skapa**.
 
-   När händelse källan har skapats börjar Time Series Insights automatiskt strömma data till din miljö.
+   När händelsekällan har skapats börjar Time Series Insights automatiskt strömma data till din miljö.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Definiera dataåtkomstprinciper](time-series-insights-data-access.md) att skydda data.
+* Definiera principer för [dataåtkomst](time-series-insights-data-access.md) för att skydda data.
 
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan.
 
-* Få tillgång till den i den [Time Series Insights explorer](https://insights.timeseries.azure.com).
+* Få tillgång till din miljö i [Utforskaren för Time Series Insights](https://insights.timeseries.azure.com).

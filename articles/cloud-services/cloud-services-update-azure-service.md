@@ -1,6 +1,6 @@
 ---
-title: Så här uppdaterar du en moln tjänst | Microsoft Docs
-description: Lär dig hur du uppdaterar moln tjänster i Azure. Lär dig hur en uppdatering av en moln tjänst fortsätter för att säkerställa tillgängligheten.
+title: Så här uppdaterar du en molntjänst | Microsoft-dokument
+description: Lär dig hur du uppdaterar molntjänster i Azure. Lär dig hur en uppdatering av en molntjänst fortsätter för att säkerställa tillgänglighet.
 services: cloud-services
 author: tgore03
 ms.service: cloud-services
@@ -8,181 +8,181 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360352"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en moln tjänst
+# <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en molntjänst
 
-Att uppdatera en moln tjänst, inklusive både dess roller och gäst operativ system, är en process i tre steg. Först måste binärfilerna och konfigurationsfilerna för den nya moln tjänsten eller operativ system versionen överföras. Därefter reserverar Azure beräknings-och nätverks resurser för moln tjänsten baserat på kraven i den nya moln tjänst versionen. Slutligen utför Azure en löpande uppgradering för att stegvis uppdatera klienten till den nya versionen eller gäst operativ systemet, samtidigt som du behåller din tillgänglighet. I den här artikeln beskrivs information om det här sista steget – den löpande uppgraderingen.
+Att uppdatera en molntjänst, inklusive både dess roller och gäst-OS, är en process i tre steg. Först måste binärfilerna och konfigurationsfilerna för den nya molntjänsten eller OS-versionen överföras. Därefter reserverar Azure beräknings- och nätverksresurser för molntjänsten baserat på kraven i den nya molntjänstversionen. Slutligen utför Azure en rullande uppgradering för att stegvis uppdatera klienten till den nya versionen eller gästoperativsystemet, samtidigt som du bevarar din tillgänglighet. I den här artikeln beskrivs detaljerna i det sista steget – den rullande uppgraderingen.
 
 ## <a name="update-an-azure-service"></a>Uppdatera en Azure-tjänst
-Azure ordnar roll instanserna i logiska grupperingar som kallas uppgraderings domäner (UD). Uppgraderings domäner (UD) är logiska uppsättningar av roll instanser som uppdateras som en grupp.  Azure uppdaterar en moln tjänst en UD i taget, vilket gör att instanser i andra UDs kan fortsätta betjäna trafiken.
+Azure organiserar dina rollinstanser i logiska grupperingar som kallas uppgraderingsdomäner (UD). Uppgraderingsdomäner (UD) är logiska uppsättningar med rollinstanser som uppdateras som en grupp.  Azure uppdaterar en molntjänst en UD i taget, vilket gör att instanser i andra UD:er kan fortsätta betjäna trafik.
 
-Standard antalet uppgraderings domäner är 5. Du kan ange ett annat antal uppgraderings domäner genom att inkludera attributet upgradeDomainCount i tjänstens definitions fil (. csdef). Mer information om attributet upgradeDomainCount finns i [definitions schema för Azure-Cloud Services (. csdef-fil)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+Standardantalet uppgraderingsdomäner är 5. Du kan ange ett annat antal uppgraderingsdomäner genom att inkludera attributet upgradeDomainCount i tjänstens definitionsfil (.csdef). Mer information om attributet upgradeDomainCount finns i [Azure Cloud Services Definition Schema (.csdef File)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
-När du utför en uppdatering på plats av en eller flera roller i tjänsten uppdaterar Azure uppsättningar roll instanser enligt den uppgraderings domän som de tillhör. Azure uppdaterar alla instanser i en specifik uppgraderings domän – stoppar dem, uppdaterar dem och aktiverar dem igen. sedan flyttas de vidare till nästa domän. Genom att bara stoppa instanserna som körs i den aktuella uppgraderings domänen, ser Azure till att en uppdatering sker med minsta möjliga påverkan på tjänsten som körs. Mer information finns i [hur uppdateringen fortsätter](#howanupgradeproceeds) senare i den här artikeln.
+När du utför en uppdatering på plats av en eller flera roller i tjänsten uppdaterar Azure uppsättningar med rollinstanser enligt den uppgraderingsdomän som de tillhör. Azure uppdaterar alla instanser i en viss uppgraderingsdomän – stoppar dem, uppdaterar dem, tar dem tillbaka online – och flyttar sedan till nästa domän. Genom att stoppa endast instanser som körs i den aktuella uppgraderingsdomänen ser Azure till att en uppdatering sker med minsta möjliga påverkan på den tjänst som körs. Mer information finns i [Hur uppdateringen fortsätter](#howanupgradeproceeds) senare i den här artikeln.
 
 > [!NOTE]
-> Termerna **Uppdatera** och **Uppgradera** skiljer sig något åt i sammanhanget Azure, men de kan användas utbytbart för processer och beskrivningar av funktionerna i det här dokumentet.
+> Medan termerna **uppdatera** och **uppgradera** har något annorlunda betydelse i sammanhanget Azure, kan de användas omväxlande för processer och beskrivningar av funktionerna i det här dokumentet.
 >
 >
 
-Tjänsten måste definiera minst två instanser av en roll för att rollen ska uppdateras på plats utan drift avbrott. Om tjänsten endast består av en instans av en roll kommer tjänsten att vara otillgänglig tills uppdateringen på plats har avslut ATS.
+Tjänsten måste definiera minst två instanser av en roll för att rollen ska kunna uppdateras på plats utan driftstopp. Om tjänsten bara består av en instans av en roll är tjänsten inte tillgänglig förrän uppdateringen på plats är klar.
 
-I det här avsnittet beskrivs följande information om Azure-uppdateringar:
+Det här avsnittet innehåller följande information om Azure-uppdateringar:
 
-* [Tillåtna tjänst ändringar under en uppdatering](#AllowedChanges)
-* [Så här fortsätter uppgraderingen](#howanupgradeproceeds)
-* [Återställa en uppdatering](#RollbackofanUpdate)
-* [Initiera flera Mutations åtgärder i en pågående distribution](#multiplemutatingoperations)
-* [Distribution av roller över uppgraderings domäner](#distributiondfroles)
+* [Tillåtna tjänständringar under en uppdatering](#AllowedChanges)
+* [Hur en uppgradering fortsätter](#howanupgradeproceeds)
+* [Återställning av en uppdatering](#RollbackofanUpdate)
+* [Initiera flera muterande åtgärder på en pågående distribution](#multiplemutatingoperations)
+* [Fördelning av roller mellan uppgraderingsdomäner](#distributiondfroles)
 
 <a name="AllowedChanges"></a>
 
-## <a name="allowed-service-changes-during-an-update"></a>Tillåtna tjänst ändringar under en uppdatering
-I följande tabell visas de tillåtna ändringarna av en tjänst under en uppdatering:
+## <a name="allowed-service-changes-during-an-update"></a>Tillåtna tjänständringar under en uppdatering
+I följande tabell visas tillåtna ändringar av en tjänst under en uppdatering:
 
-| Ändringar som tillåts vara värd för, tjänster och roller | Uppdatering på plats | Mellanlagrad (VIP-växling) | Ta bort och distribuera om |
+| Ändringar som tillåts till hosting, tjänster och roller | Uppdatering på plats | Iscensatt (VIP-byte) | Ta bort och distribuera om |
 | --- | --- | --- | --- |
 | Operativsystemversion |Ja |Ja |Ja |
-| .NET-förtroende nivå |Ja |Ja |Ja |
-| Storlek<sup>1</sup> för virtuell dator |Ja<sup>2</sup> |Ja |Ja |
-| Inställningar för lokal lagring |Öka bara<sup>2</sup> |Ja |Ja |
+| .NET-förtroendenivå |Ja |Ja |Ja |
+| Storlek för virtuell dator<sup>1</sup> |Ja<sup>2</sup> |Ja |Ja |
+| Inställningar för lokal lagring |Öka endast<sup>2</sup> |Ja |Ja |
 | Lägga till eller ta bort roller i en tjänst |Ja |Ja |Ja |
 | Antal instanser av en viss roll |Ja |Ja |Ja |
-| Antal eller typ av slut punkter för en tjänst |Ja<sup>2</sup> |Inga |Ja |
-| Namn och värden för konfigurations inställningar |Ja |Ja |Ja |
-| Värden (men inte namn) för konfigurations inställningar |Ja |Ja |Ja |
-| Lägg till nya certifikat |Ja |Ja |Ja |
+| Antal eller typ av slutpunkter för en tjänst |Ja<sup>2</sup> |Inga |Ja |
+| Namn och värden för konfigurationsinställningar |Ja |Ja |Ja |
+| Värden (men inte namn) för konfigurationsinställningar |Ja |Ja |Ja |
+| Lägga till nya certifikat |Ja |Ja |Ja |
 | Ändra befintliga certifikat |Ja |Ja |Ja |
 | Distribuera ny kod |Ja |Ja |Ja |
 
-<sup>1</sup> storlek begränsas till den delmängd av storlekarna som är tillgängliga för moln tjänsten.
+<sup>1</sup> Storleksändring begränsad till den delmängd av storlekar som är tillgängliga för molntjänsten.
 
-<sup>2</sup> kräver Azure SDK 1,5 eller senare versioner.
+<sup>2</sup> Kräver Azure SDK 1.5 eller senare versioner.
 
 > [!WARNING]
-> Om du ändrar storleken på den virtuella datorn kommer lokala data att förstöras.
+> Om du ändrar storleken på den virtuella datorn förstörs lokala data.
 >
 >
 
 Följande objekt stöds inte under en uppdatering:
 
-* Ändra namnet på en roll. Ta bort och Lägg sedan till rollen med det nya namnet.
-* Ändring av antal uppgraderings domäner.
+* Ändra namnet på en roll. Ta bort och lägg sedan till rollen med det nya namnet.
+* Ändring av antalet uppgraderingsdomäner.
 * Minska storleken på de lokala resurserna.
 
-Om du gör andra uppdateringar av tjänstens definition, till exempel minska storleken på den lokala resursen, måste du utföra en uppdatering av VIP-växling i stället. Mer information finns i [Växla distribution](/previous-versions/azure/reference/ee460814(v=azure.100)).
+Om du gör andra uppdateringar av tjänstens definition, till exempel minska storleken på den lokala resursen, måste du utföra en VIP-uppdatering i stället. Mer information finns i [Byta distribution](/previous-versions/azure/reference/ee460814(v=azure.100)).
 
 <a name="howanupgradeproceeds"></a>
 
-## <a name="how-an-upgrade-proceeds"></a>Så här fortsätter uppgraderingen
-Du kan välja om du vill uppdatera alla roller i tjänsten eller en enskild roll i tjänsten. I båda fallen stoppas alla instanser av varje roll som uppgraderas och tillhör den första uppgraderings domänen, uppgraderas och tas online igen. När de är online är instanserna i den andra uppgraderings domänen stoppade, uppgraderade och online igen. En moln tjänst kan ha högst en uppgradering aktiv i taget. Uppgraderingen utförs alltid mot den senaste versionen av moln tjänsten.
+## <a name="how-an-upgrade-proceeds"></a>Hur en uppgradering fortsätter
+Du kan bestämma om du vill uppdatera alla roller i tjänsten eller en enskild roll i tjänsten. I båda fallen stoppas, uppgraderas och förs alla instanser av varje roll som uppgraderas och tillhör den första uppgraderingsdomänen. När de är online igen stoppas, uppgraderas och online förs instanserna i den andra uppgraderingsdomänen. En molntjänst kan ha högst en uppgradering aktiv i taget. Uppgraderingen utförs alltid mot den senaste versionen av molntjänsten.
 
-Följande diagram illustrerar hur uppgraderingen fortsätter om du uppgraderar alla roller i tjänsten:
+Följande diagram visar hur uppgraderingen fortsätter om du uppgraderar alla roller i tjänsten:
 
-![Uppgradera tjänst](media/cloud-services-update-azure-service/IC345879.png "Uppgradera tjänst")
+![Uppgradera tjänsten](media/cloud-services-update-azure-service/IC345879.png "Uppgradera tjänsten")
 
-I nästa diagram visas hur uppdateringen fortsätter om du bara uppgraderar en enda roll:
+I nästa diagram visas hur uppdateringen fortsätter om du bara uppgraderar en enskild roll:
 
 ![Uppgradera roll](media/cloud-services-update-azure-service/IC345880.png "Uppgradera roll")  
 
-Under en automatisk uppdatering utvärderar Azure Fabric Controller med jämna mellanrum hälso tillståndet för moln tjänsten för att fastställa när det är säkert att gå vidare till nästa UD. Den här hälso utvärderingen utförs per roll och betraktar bara instanser i den senaste versionen (d.v.s. instanser från UDs som redan har gick). Den verifierar att ett minsta antal roll instanser, för varje roll, har uppnått ett fungerande Terminal-tillstånd.
+Under en automatisk uppdatering utvärderar Azure Fabric Controller regelbundet molntjänstens hälsa för att avgöra när det är säkert att gå till nästa UD.During an automatic update, the Azure Fabric Controller periodicallys the health of the cloud service to determine when it's safe to walk the next UD. Denna hälsoutvärdering utförs per roll och tar endast hänsyn till instanser i den senaste versionen (dvs. instanser från UD:er som redan har gått). Den kontrollerar att ett minsta antal rollinstanser för varje roll har uppnått ett tillfredsställande terminaltillstånd.
 
-### <a name="role-instance-start-timeout"></a>Start-timeout för roll instans
-Infrastruktur styrenheten kommer att vänta 30 minuter för varje roll instans för att komma igång. Om tids gränsen uppnås fortsätter infrastruktur styrenheten att gå vidare till nästa roll instans.
+### <a name="role-instance-start-timeout"></a>Timeout för rollinstansstart
+Fabric Controller väntar 30 minuter för varje rollinstans att nå ett startat tillstånd. Om tidsgränsen för tidsgränsen har gått fortsätter Fabric Controller att gå vidare till nästa rollförekomst.
 
-### <a name="impact-to-drive-data-during-cloud-service-upgrades"></a>Påverkan på enhets data under uppgraderingar av moln tjänsten
+### <a name="impact-to-drive-data-during-cloud-service-upgrades"></a>Effekt för att driva data under uppgraderingar av Molntjänsten
 
-När du uppgraderar en tjänst från en enda instans till flera instanser kommer tjänsten att stängas av medan uppgraderingen utförs på grund av Azure uppgraderingar-tjänster. Service nivå avtalet som garanterar tjänst tillgänglighet gäller bara för tjänster som har distribuerats med fler än en instans. I följande lista beskrivs hur data på varje enhet påverkas av varje uppgraderings scenario för Azure-tjänsten:
+När du uppgraderar en tjänst från en enda instans till flera instanser kommer din tjänst att tas bort medan uppgraderingen utförs på grund av hur Azure uppgraderar tjänster. Servicenivåavtalet som garanterar tjänstens tillgänglighet gäller endast för tjänster som distribueras med mer än en instans. I följande lista beskrivs hur data på varje enhet påverkas av varje Azure-tjänstuppgraderingsscenario:
 
 |Scenario|C-enhet|D-enhet|E-enhet|
 |--------|-------|-------|-------|
-|Omstart av virtuell dator|Bevaras|Bevaras|Bevaras|
-|Starta om portalen|Bevaras|Bevaras|Förstörs|
-|Avbildning av Portal|Bevaras|Förstörs|Förstörs|
-|Uppgradering på plats|Bevaras|Bevaras|Förstörs|
-|Node-migrering|Förstörs|Förstörs|Förstörs|
+|Omstart av virtuella datorer|Bevarade|Bevarade|Bevarade|
+|Omstart av portalen|Bevarade|Bevarade|Förstörde|
+|Portalens ombild|Bevarade|Förstörde|Förstörde|
+|Uppgradering på plats|Bevarade|Bevarade|Förstörde|
+|Nodmigrering|Förstörde|Förstörde|Förstörde|
 
-Observera att i listan ovan representerar enheten E:-enheten rollens rot enhet och bör inte vara hårdkodad. Använd i stället miljövariabeln **% RoleRoot%** för att representera enheten.
+Observera att i listan ovan representerar E:-enheten rollens rotenhet och bör inte vara hårdkodad. Använd i stället miljövariabeln **%RoleRoot%** för att representera enheten.
 
-Om du vill minimera stillestånds tiden när du uppgraderar en instans av en instans distribuerar du en ny tjänst för flera instanser till den fristående servern och utför en VIP-växling.
+Om du vill minimera driftstoppet när du uppgraderar en tjänst med en instans distribuerar du en ny tjänst med flera instanser till mellanlagringsservern och utför en VIP-swap.
 
 <a name="RollbackofanUpdate"></a>
 
-## <a name="rollback-of-an-update"></a>Återställa en uppdatering
-Azure ger flexibilitet vid hantering av tjänster under en uppdatering genom att låta dig initiera ytterligare åtgärder på en tjänst, efter att den inledande uppdateringsbegäran accepteras av Azure Fabric-kontrollanten. En återställning kan bara utföras när en uppdatering (konfigurations ändring) eller en uppgradering har statusen **pågår** i distributionen. En uppdatering eller uppgradering anses vara pågående så länge det finns minst en instans av tjänsten som ännu inte har uppdaterats till den nya versionen. Om du vill testa om en återställning tillåts kontrollerar du värdet för flaggan RollbackAllowed, som returneras av [Hämta distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [hämtar egenskaper för moln tjänst egenskaper](/previous-versions/azure/reference/ee460806(v=azure.100)) , har angetts till sant.
+## <a name="rollback-of-an-update"></a>Återställning av en uppdatering
+Azure ger flexibilitet i hanteringen av tjänster under en uppdatering genom att låta dig initiera ytterligare åtgärder på en tjänst, efter att den första uppdateringsbegäran har accepterats av Azure Fabric Controller. En återställning kan endast utföras när en uppdatering (konfigurationsändring) eller uppgradering är i **pågående** tillstånd för distributionen. En uppdatering eller uppgradering anses vara pågående så länge det finns minst en instans av tjänsten som ännu inte har uppdaterats till den nya versionen. Om du vill testa om en återställning tillåts kontrollerar du värdet för flaggan RollbackAllowed, som returneras av åtgärder [hämta distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [hämta molntjänstegenskaper,](/previous-versions/azure/reference/ee460806(v=azure.100)) är inställt på true.
 
 > [!NOTE]
-> Det är bara klokt att anropa rollback vid en uppdatering eller uppgradering på plats, eftersom det innebär att virtuella växlings uppdateringar **i** VIP innebär att ersätta en hel aktiv instans av tjänsten med en annan.
+> Det är bara meningsfullt att ringa rollback på en **på plats** uppdatering eller uppgradering eftersom VIP swap uppgraderingar innebär att ersätta en hel kör instans av din tjänst med en annan.
 >
 >
 
-Återställningen av en pågående uppdatering har följande effekter i distributionen:
+Återställning av en pågående uppdatering har följande effekter på distributionen:
 
-* Alla roll instanser som inte har uppdaterats eller uppgraderats till den nya versionen uppdateras eller uppgraderas inte, eftersom dessa instanser redan kör mål versionen av tjänsten.
-* Alla roll instanser som redan har uppdaterats eller uppgraderats till den nya versionen av Service Pack-filen (\*. cspkg) eller tjänst konfigurations filen (\*. cscfg) (eller båda filerna) återställs till före uppgraderings versionen av dessa filer.
+* Alla rollinstanser som ännu inte har uppdaterats eller uppgraderats till den nya versionen uppdateras eller uppgraderas inte, eftersom dessa instanser redan kör målversionen av tjänsten.
+* Alla rollinstanser som redan har uppdaterats eller uppgraderats till den nya versionen av tjänstpaketets (.cspkg)\*fil eller tjänstkonfigurationen (CSCFG)\*(eller båda filerna) återställs till förhandsuppgraderingsversionen av dessa filer.
 
-Den här funktionen tillhandahålls av följande funktioner:
+Detta tillhandahålls funktionellt av följande funktioner:
 
-* [Återställnings-eller uppgraderings](/previous-versions/azure/reference/hh403977(v=azure.100)) åtgärden, som kan anropas på en konfigurations uppdatering (utlöses genom att anropa [ändrings distributions konfigurationen](/previous-versions/azure/reference/ee460809(v=azure.100))) eller en uppgradering (utlöses genom att anropa [uppgraderings distribution](/previous-versions/azure/reference/ee460793(v=azure.100))) så länge det finns minst en instans i tjänsten som ännu inte har uppdaterats till den nya versionen.
-* Elementet Locked och RollbackAllowed, som returneras som en del av svars texten för åtgärderna [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) och [Get Cloud Service Properties](/previous-versions/azure/reference/ee460806(v=azure.100)) :
+* [Åtgärden Återställningsuppdatering eller uppgradering,](/previous-versions/azure/reference/hh403977(v=azure.100)) som kan anropas på en konfigurationsuppdatering (utlöses genom att anropa [ändringsdistributionskonfiguration)](/previous-versions/azure/reference/ee460809(v=azure.100))eller en uppgradering (utlöses genom att anropa [uppgraderingsdistribution)](/previous-versions/azure/reference/ee460793(v=azure.100))så länge det finns minst en instans i tjänsten som ännu inte har uppdaterats till den nya versionen.
+* Det låsta elementet och elementet RollbackAllowed, som returneras som en del av svarstexten för åtgärderna [Hämta distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [Hämta molntjänstegenskaper:](/previous-versions/azure/reference/ee460806(v=azure.100))
 
-  1. Med det låsta elementet kan du identifiera när en motsvarande åtgärd kan anropas för en specifik distribution.
-  2. Med RollbackAllowed-elementet kan du identifiera när [återställnings-eller uppgraderings](/previous-versions/azure/reference/hh403977(v=azure.100)) åtgärden kan anropas för en specifik distribution.
+  1. Med det låsta elementet kan du identifiera när en muterande åtgärd kan anropas på en viss distribution.
+  2. Med elementet RollbackAllowed kan du identifiera när [återställningsuppdateringen eller uppgraderingsåtgärden](/previous-versions/azure/reference/hh403977(v=azure.100)) kan anropas för en viss distribution.
 
-  Du behöver inte kontrol lera både låsta och RollbackAllowed-element för att kunna utföra en återställning. Det räcker för att bekräfta att RollbackAllowed har angetts till true. Dessa element returneras bara om dessa metoder anropas med hjälp av begär ande huvudet inställt på "x-MS-version: 2011-10-01" eller en senare version. Mer information om versions rubriker finns i [Service Management-versioner](/previous-versions/azure/gg592580(v=azure.100)).
+  För att kunna utföra en återställning behöver du inte kontrollera både de låsta och de RollbackAllowed-elementen. Det räcker att bekräfta att RollbackAllowed är inställd på sant. Dessa element returneras endast om dessa metoder anropas med hjälp av begäran huvudet inställt på "x-ms-version: 2011-10-01" eller en senare version. Mer information om versionshuvuden finns i Versionshantering för [tjänsthantering](/previous-versions/azure/gg592580(v=azure.100)).
 
-Det finns vissa situationer där en återställning av en uppdatering eller uppgradering inte stöds:
+Det finns vissa situationer där en återställning av en uppdatering eller uppgradering inte stöds, dessa är följande:
 
-* Reducering av lokala resurser – om uppdateringen ökar de lokala resurserna för en roll kan inte Azure-plattformen återställas.
-* Kvot begränsningar – om uppdateringen var en skalnings åtgärd kanske du inte längre har tillräckligt med beräknings kvoter för att slutföra återställnings åtgärden. Varje Azure-prenumeration har en associerad kvot som anger det maximala antalet kärnor som kan utnyttjas av alla värdbaserade tjänster som tillhör den prenumerationen. Om du utför en återställning av en specifik uppdatering skulle din prenumeration prioriteras, vilket innebär att ingen återställning aktive ras.
-* Villkor för tävling – om den första uppdateringen har slutförts går det inte att återställa.
+* Minskning av lokala resurser - Om uppdateringen ökar de lokala resurserna för en roll tillåter azure-plattformen inte att återställa.
+* Kvotbegränsningar - Om uppdateringen var en nedskalningsåtgärd kanske du inte längre har tillräcklig beräkningskvot för att slutföra återställningsåtgärden. Varje Azure-prenumeration har en kvot som är associerad med den som anger det maximala antalet kärnor som kan förbrukas av alla värdbaserade tjänster som tillhör den prenumerationen. Om du utför en återställning av en viss uppdatering skulle placera din prenumeration över kvoten då att en återställning inte kommer att aktiveras.
+* Race villkor - Om den första uppdateringen har slutförts, är en återställning inte möjligt.
 
-Ett exempel på när återställningen av en uppdatering kan vara användbart är om du använder [uppgraderings distributionen](/previous-versions/azure/reference/ee460793(v=azure.100)) i manuellt läge för att styra den hastighet som en större uppgradering på plats till den Azure-värdbaserade tjänsten har distribuerats.
+Ett exempel på när återställningen av en uppdatering kan vara användbar är om du använder [uppgraderingsdistributionen](/previous-versions/azure/reference/ee460793(v=azure.100)) i manuellt läge för att styra hur hög hastighet en större uppgradering på plats till din Azure-värdtjänst distribueras.
 
-Under distributionen av uppgraderingen ska du anropa [uppgraderings distributionen](/previous-versions/azure/reference/ee460793(v=azure.100)) i manuellt läge och börja gå igenom uppgraderings domäner. Om du vid en viss tidpunkt övervakar uppgraderingen, Observera att vissa roll instanser i de första uppgraderings domäner som du undersöker inte svarar, kan du anropa [återställnings uppdaterings-eller uppgraderings](/previous-versions/azure/reference/hh403977(v=azure.100)) åtgärden för distributionen, vilket innebär att det inte finns några instanser som ännu inte har uppgraderats och återställnings instanser som har uppgraderats till det tidigare tjänst paketet och konfigurationen.
+Under distributionen av uppgraderingen anropar du [uppgraderingsdistribution](/previous-versions/azure/reference/ee460793(v=azure.100)) i manuellt läge och börjar gå uppgradera domäner. Om du någon gång, när du övervakar uppgraderingen, noterar vissa rollinstanser i de första uppgraderingsdomänerna som du undersöker har inte svarat, kan du anropa åtgärden [Återställningsuppdatering eller uppgradering](/previous-versions/azure/reference/hh403977(v=azure.100)) på distributionen, vilket lämnar de instanser som ännu inte har uppgraderats och återställningsinstanserna som hade uppgraderats till det tidigare tjänstpaketet och konfigurationen.
 
 <a name="multiplemutatingoperations"></a>
 
-## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Initiera flera Mutations åtgärder i en pågående distribution
-I vissa fall kanske du vill initiera flera samtidiga åtgärder i en pågående distribution. Du kan till exempel utföra en tjänst uppdatering och, medan uppdateringen distribueras över tjänsten, du vill göra vissa ändringar, t. ex. återställa uppdateringen, tillämpa en annan uppdatering eller till och med ta bort distributionen. Ett fall där detta kan vara nödvändigt är om en tjänst uppgradering innehåller fel söknings kod som gör att en uppgraderad roll instans upprepade gånger kraschar. I det här fallet kommer Azure Fabric Controller inte att kunna göra framsteg med att tillämpa den uppgraderingen eftersom det inte finns tillräckligt många instanser i den uppgraderade domänen. Det här läget kallas en *fast distribution*. Du kan ångra distributionen genom att återställa uppdateringen eller tillämpa en uppdaterad uppdatering ovanpå den misslyckade.
+## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Initiera flera muterande åtgärder på en pågående distribution
+I vissa fall kanske du vill initiera flera samtidiga muteringsåtgärder på en pågående distribution. Du kan till exempel utföra en tjänstuppdatering och även om uppdateringen distribueras över tjänsten vill du göra vissa ändringar, till exempel för att återställa uppdateringen, installera en annan uppdatering eller till och med ta bort distributionen. Ett fall där detta kan vara nödvändigt är om en tjänst uppgradering innehåller buggy kod som orsakar en uppgraderad roll instans att upprepade gånger krascha. I det här fallet kan Azure Fabric Controller inte göra framsteg med att tillämpa uppgraderingen eftersom ett otillräckligt antal instanser i den uppgraderade domänen är felfria. Det här tillståndet kallas en *fast distribution*. Du kan ta bort distributionen genom att återställa uppdateringen eller tillämpa en ny uppdatering överst på den felaktiga.
 
-När den första begäran om att uppdatera eller uppgradera tjänsten har tagits emot av Azure Fabric-styrenheten kan du starta efterföljande åtgärder. Det vill säga att du inte behöver vänta på att den första åtgärden ska slutföras innan du kan starta en annan Mutations åtgärd.
+När den första begäran om att uppdatera eller uppgradera tjänsten har tagits emot av Azure Fabric Controller kan du starta efterföljande muterande åtgärder. Det vill säga du behöver inte vänta på att den första åtgärden ska slutföras innan du kan starta en annan muterande åtgärd.
 
-Att initiera en andra uppdaterings åtgärd medan den första uppdateringen pågår kommer att fungera på samma sätt som återställnings åtgärden. Om den andra uppdateringen är i automatiskt läge uppgraderas den första uppgraderings domänen omedelbart, vilket kan leda till att instanser från flera uppgraderings domäner är offline vid samma tidpunkt.
+Initiera en andra uppdateringsåtgärd medan den första uppdateringen pågår kommer att utföra liknande återställningsåtgärden. Om den andra uppdateringen är i automatiskt läge uppgraderas den första uppgraderingsdomänen omedelbart, vilket kan leda till att instanser från flera uppgraderingsdomäner är offline vid samma tidpunkt.
 
-Följande åtgärder är följande: [ändra distributions konfiguration](/previous-versions/azure/reference/ee460809(v=azure.100)), [uppgraderings](/previous-versions/azure/reference/ee460793(v=azure.100))distribution, [status för uppdaterings distribution](/previous-versions/azure/reference/ee460808(v=azure.100)), [ta bort distribution](/previous-versions/azure/reference/ee460815(v=azure.100))och [Återställ uppdatering eller uppgradering](/previous-versions/azure/reference/hh403977(v=azure.100)).
+De muterande åtgärderna är följande: [Ändra distributionskonfiguration,](/previous-versions/azure/reference/ee460809(v=azure.100)) [uppgraderingsdistribution,](/previous-versions/azure/reference/ee460793(v=azure.100)) [uppdatering av distributionsstatus,](/previous-versions/azure/reference/ee460808(v=azure.100)) [ta bort distribution](/previous-versions/azure/reference/ee460815(v=azure.100))och [återställningsuppdatering eller återställning](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
-Två åtgärder, [Hämta distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [Hämta moln tjänst egenskaper](/previous-versions/azure/reference/ee460806(v=azure.100)), returnera den låsta flagga som kan undersökas för att avgöra om en motsvarande åtgärd kan anropas för en specifik distribution.
+Två åtgärder, [Hämta distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [Hämta molntjänstegenskaper](/previous-versions/azure/reference/ee460806(v=azure.100)), returnerar den låsta flaggan som kan undersökas för att avgöra om en muterande åtgärd kan anropas på en viss distribution.
 
-För att kunna anropa versionen av dessa metoder som returnerar den låsta flaggan, måste du ange begärans huvud till "x-MS-version: 2011-10-01" eller en senare. Mer information om versions rubriker finns i [Service Management-versioner](/previous-versions/azure/gg592580(v=azure.100)).
+För att kunna anropa den version av dessa metoder som returnerar den låsta flaggan måste du ange begäranden till "x-ms-version: 2011-10-01" eller en senare. Mer information om versionshuvuden finns i Versionshantering för [tjänsthantering](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 
-## <a name="distribution-of-roles-across-upgrade-domains"></a>Distribution av roller över uppgraderings domäner
-Azure distribuerar instanser av en roll jämnt över ett angivet antal uppgraderings domäner, som kan konfigureras som en del av tjänst definitions filen (. csdef). Det maximala antalet uppgraderings domäner är 20 och standardvärdet är 5. Mer information om hur du ändrar tjänst definitions filen finns i [schema för Azure Service definition (. csdef-fil)](cloud-services-model-and-package.md#csdef).
+## <a name="distribution-of-roles-across-upgrade-domains"></a>Fördelning av roller mellan uppgraderingsdomäner
+Azure distribuerar instanser av en roll jämnt över ett anstämt antal uppgraderingsdomäner, som kan konfigureras som en del av tjänstdefinitionsfilen (.csdef). Det maximala antalet uppgraderingsdomäner är 20 och standardvärdet är 5. Mer information om hur du ändrar tjänstdefinitionsfilen finns i [Azure Service Definition Schema (.csdef File)](cloud-services-model-and-package.md#csdef).
 
-Om din roll exempelvis har tio instanser, innehåller varje uppgraderings domän som standard två instanser. Om din roll har 14 instanser innehåller fyra av uppgraderings domänerna tre instanser och en femte domän innehåller två.
+Om din roll till exempel har tio instanser innehåller varje uppgraderingsdomän som standard två instanser. Om din roll har 14 instanser innehåller fyra av uppgraderingsdomänerna tre instanser och en femte domän innehåller två.
 
-Uppgraderings domäner identifieras med ett nollbaserat index: den första uppgraderings domänen har ID 0 och den andra uppgraderings domänen har ID 1 och så vidare.
+Uppgraderingsdomäner identifieras med ett nollbaserat index: den första uppgraderingsdomänen har ett ID på 0 och den andra uppgraderingsdomänen har ett ID på 1 och så vidare.
 
-Följande diagram illustrerar hur en tjänst som innehåller två roller distribueras när tjänsten definierar två uppgraderings domäner. Tjänsten kör åtta instanser av webb rollen och nio instanser av arbets rollen.
+Följande diagram visar hur en tjänst än innehåller två roller distribueras när tjänsten definierar två uppgraderingsdomäner. Tjänsten kör åtta instanser av webbrollen och nio instanser av arbetarrollen.
 
-![Distribution av uppgraderings domäner](media/cloud-services-update-azure-service/IC345533.png "Distribution av uppgraderings domäner")
+![Distribution av uppgraderingsdomäner](media/cloud-services-update-azure-service/IC345533.png "Distribution av uppgraderingsdomäner")
 
 > [!NOTE]
-> Observera att Azure styr hur instanser allokeras mellan uppgraderings domäner. Det går inte att ange vilka instanser som tilldelas till vilken domän.
+> Observera att Azure styr hur instanser allokeras mellan uppgraderingsdomäner. Det går inte att ange vilka instanser som ska fördelas till vilken domän.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-[Så här hanterar du Cloud Services](cloud-services-how-to-manage-portal.md)  
-[Övervaka Cloud Services](cloud-services-how-to-monitor.md)  
-[Så här konfigurerar du Cloud Services](cloud-services-how-to-configure-portal.md)  
+[Hantera molntjänster](cloud-services-how-to-manage-portal.md)  
+[Så här övervakar du molntjänster](cloud-services-how-to-monitor.md)  
+[Konfigurera molntjänster](cloud-services-how-to-configure-portal.md)  
 
 
 

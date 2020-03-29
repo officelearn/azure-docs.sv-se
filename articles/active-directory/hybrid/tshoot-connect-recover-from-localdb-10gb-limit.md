@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Så här återställer du från LocalDB 10 GB gränsen problemet | Microsoft Docs'
-description: Det här avsnittet beskriver hur du återställer Azure AD Connect-synkroniseringstjänsten när den påträffar en localdb med en 10GB begränsar problemet.
+title: 'Azure AD Connect: Så här återställer du från LocalDB 10GB limit issue | Microsoft-dokument'
+description: I det här avsnittet beskrivs hur du återställer Azure AD Connect-synkroniseringstjänst när den stöter på problem med LocalDB 10GB-gräns.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,91 +17,91 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60386932"
 ---
-# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från LocalDB med en gräns på 10 GB
-Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller steg för återställning.
+# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Så här återställer du från en LocalDB med en gräns på 10 GB
+Azure AD Connect kräver en SQL Server-databas för att lagra identitetsdata. Du kan antingen använda SQL Server 2012 Express LocalDB som är installerat som standard med Azure AD Connect eller använda din egen fullständiga SQL. SQL Server Express har en storleksgräns på 10 GB. När du använder LocalDB och gränsen har uppnåtts kan synkroniseringstjänsten för Azure AD Connect inte längre starta eller synkronisera korrekt. Den här artikeln innehåller återställningsstegen.
 
 ## <a name="symptoms"></a>Symtom
-Det finns två vanliga kännetecken:
+Det finns två vanliga symtom:
 
-* Azure AD Connect-synkroniseringstjänsten **körs** men inte att synkronisera med *”stoppad-database-disken är full”* fel.
+* Azure AD Connect Synchronization Service **körs** men misslyckas med att synkronisera med *felet "stoppad databas-disk-full".*
 
-* Azure AD Connect-synkroniseringstjänsten **inte starta**. När du försöker starta tjänsten misslyckas med händelsen 6323 och felmeddelande *”servern påträffade ett fel eftersom SQLServer är slut på diskutrymme”.*
+* Synkroniseringstjänsten för Azure AD Connect **kan inte starta**. NÃ¤r du fÃ¶rsÃ¶r att starta tjänsten misslyckas den med händelse 6323 och felmeddelandet *Servern påträffades ett fel eftersom SQL Server har på diskutrymme.*
 
-## <a name="short-term-recovery-steps"></a>Åtgärder för kortsiktig återställning
-Det här avsnittet innehåller steg för att frigöra DB-utrymme som krävs för Azure AD Connect-synkroniseringstjänsten börja fungera igen. Stegen omfattar:
-1. [Bestämma tillståndet för synkroniseringstjänsten](#determine-the-synchronization-service-status)
-2. [Minska databasen](#shrink-the-database)
-3. [Ta bort köra historikdata](#delete-run-history-data)
-4. [Förkorta kvarhållningsperioden för körningshistorik för data](#shorten-retention-period-for-run-history-data)
+## <a name="short-term-recovery-steps"></a>Kortsiktiga återhämtningssteg
+Det här avsnittet innehåller stegen för att frigöra DB-utrymme som krävs för Azure AD Connect-synkroniseringstjänst för att återuppta åtgärden. Stegen omfattar:
+1. [Ta reda på synkroniseringstjänstens status](#determine-the-synchronization-service-status)
+2. [Förminska databasen](#shrink-the-database)
+3. [Ta bort körningshistorikdata](#delete-run-history-data)
+4. [Förkorta lagringsperioden för körningshistorikdata](#shorten-retention-period-for-run-history-data)
 
-### <a name="determine-the-synchronization-service-status"></a>Bestämma tillståndet för synkroniseringstjänsten
-Börja med att kontrollera om synkroniseringstjänsten fortfarande körs eller inte:
+### <a name="determine-the-synchronization-service-status"></a>Ta reda på synkroniseringstjänstens status
+Ta först reda på om synkroniseringstjänsten fortfarande körs eller inte:
 
-1. Logga in på din Azure AD Connect-servern som administratör.
+1. Logga in på Din Azure AD Connect-server som administratör.
 
 2. Gå till **Service Control Manager**.
 
 3. Kontrollera status för **Microsoft Azure AD Sync**.
 
 
-4. Om den körs inte stoppa eller starta om tjänsten. Hoppa över [krympa databasen](#shrink-the-database) steg och gå till [Delete köra historikdata](#delete-run-history-data) steg.
+4. Om den körs ska du inte stoppa eller starta om tjänsten. Hoppa [för Att förminska databassteget](#shrink-the-database) och gå till [Ta bort körningsdatasteg.](#delete-run-history-data)
 
-5. Om den inte körs, försök att starta tjänsten. Om tjänsten startar hoppa över [krympa databasen](#shrink-the-database) steg och gå till [Delete köra historikdata](#delete-run-history-data) steg. I annat fall fortsätter med [krympa databasen](#shrink-the-database) steg.
+5. Om den inte körs försöker du starta tjänsten. Om tjänsten startar hoppar du över [Förminska databassteget](#shrink-the-database) och gå till [Ta bort körningsdatasteg.](#delete-run-history-data) Annars fortsätter du med [Krymp databassteget.](#shrink-the-database)
 
-### <a name="shrink-the-database"></a>Minska databasen
-Använd komprimeringsåtgärden igen för att frigöra tillräckligt med diskutrymme för DB att starta synkroniseringstjänsten. Det Frigör DB-utrymme genom att ta bort blanksteg i databasen. Det här steget är mån eftersom det inte är säkert att du alltid återställa utrymme. Om du vill veta mer om komprimeringsåtgärden kan den här artikeln [minska en databas](https://msdn.microsoft.com/library/ms189035.aspx).
+### <a name="shrink-the-database"></a>Förminska databasen
+Använd åtgärden Krymp för att frigöra tillräckligt med DB-utrymme för att starta synkroniseringstjänsten. Det frigör DB utrymme genom att ta bort blanksteg i databasen. Detta steg är bäst insats eftersom det inte är garanterat att du alltid kan återställa utrymme. Om du vill veta mer om Shrink-åtgärden läser du den här artikeln [Förminska en databas](https://msdn.microsoft.com/library/ms189035.aspx).
 
 > [!IMPORTANT]
-> Hoppa över det här steget om du får synkroniseringstjänsten ska köras. Det rekommenderas inte att minska SQL DB, vilket kan leda till dåliga prestanda på grund av ökad fragmentering.
+> Hoppa över det här steget om du kan få synkroniseringstjänsten att köras. Det rekommenderas inte att krympa SQL DB eftersom det kan leda till dåliga prestanda på grund av ökad fragmentering.
 
-Namnet på den databas som har skapats för Azure AD Connect är **ADSync**. Om du vill utföra en komprimeringsåtgärden, måste du logga in antingen som sysadmin eller databasens DBO. Följande konton har beviljats sysadmin-rättigheter under Azure AD Connect-installationen:
+Namnet på databasen som skapats för Azure AD Connect är **ADSync**. Om du vill utföra en Shrink-åtgärd måste du logga in antingen som databasens sysadmin eller DBO. Under Installationen av Azure AD Connect beviljas följande konton sysadmin-rättigheter:
 * Lokala administratörer
-* Det användarkonto som användes för att köra Azure AD Connect-installationen.
-* Synkronisera tjänstkontot som används som kontexten för Azure AD Connect-synkroniseringstjänsten.
+* Användarkontot som användes för att köra Azure AD Connect-installation.
+* Synkroniseringstjänstkontot som används som driftkontext för Azure AD Connect-synkroniseringstjänst.
 * Den lokala gruppen ADSyncAdmins som skapades under installationen.
 
-1. Säkerhetskopiera databasen genom att kopiera **ADSync.mdf** och **ADSync_log.ldf** filer som finns `%ProgramFiles%\Microsoft Azure AD Sync\Data` på en säker plats.
+1. Säkerhetskopiera databasen genom att kopiera **ADSync.mdf-** och **ADSync_log.ldf-filer** som finns under `%ProgramFiles%\Microsoft Azure AD Sync\Data` till en säker plats.
 
 2. Starta en ny PowerShell-session.
 
-3. Navigera till mappen `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
+3. Navigera till `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`mappen .
 
-4. Starta **sqlcmd** utility genom att köra kommandot `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, med hjälp av autentiseringsuppgifterna för en sysadmin eller DBO-databasen.
+4. Starta **sqlcmd-verktyget** genom `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`att köra kommandot med hjälp av autentiseringsuppgifterna för ett sysadmin eller databasen DBO.
 
-5. Att minska databasen på sqlcmd-kommandotolk (1 >), ange `DBCC Shrinkdatabase(ADSync,1);`, följt av `GO` på nästa rad.
+5. Om du vill förminska databasen, vid sqlcmd-prompten (1>), anger du `DBCC Shrinkdatabase(ADSync,1);`, följt av `GO` i nästa rad.
 
-6. Om åtgärden lyckas försök starta synkroniseringstjänsten igen. Om du kan starta synkroniseringstjänsten, gå till [Delete köra historikdata](#delete-run-history-data) steg. Om inte, kontakta supporten.
+6. Om åtgärden lyckas försöker du starta synkroniseringstjänsten igen. Om du kan starta synkroniseringstjänsten går du till [Ta bort körningsdatasteg.](#delete-run-history-data) Om inte, kontakta supporten.
 
-### <a name="delete-run-history-data"></a>Ta bort köra historikdata
-Som standard behåller Azure AD Connect upp till sju dagar som körningshistorik för data. I det här steget ska bort vi körningshistoriken-data och frigöra DB-utrymme så att Azure AD Connect-synkroniseringstjänsten kan börja synkronisera igen.
+### <a name="delete-run-history-data"></a>Ta bort körningshistorikdata
+Som standard behåller Azure AD Connect upp till sju dagars körningshistorikdata. I det här steget tar vi bort körningshistorikdata för att frigöra DB-utrymme så att Azure AD Connect-synkroniseringstjänsten kan börja synkroniseras igen.
 
-1. Starta **hanteraren för synkroniseringstjänsten** genom att gå till START → synkroniseringstjänsten.
+1. Starta **synkroniseringstjänsthanteraren** genom att gå till START → Synkroniseringstjänsten.
 
-2. Gå till den **Operations** fliken.
+2. Gå till fliken **Operationer.**
 
-3. Under **åtgärder**väljer **Rensa körningar**...
+3. Under **Åtgärder**väljer du **Rensa körningar**...
 
-4. Du kan antingen välja **Rensa alla körningar** eller **Clear körs före... \<datum >** alternativet. Vi rekommenderar att du börjar genom att avmarkera köra historikdata som är äldre än två dagar. Om du fortfarande stöter på problem i DB storlek, väljer den **Rensa alla körningar** alternativet.
+4. Du kan antingen välja **Rensa alla körningar** eller Rensa körningar **innan... datum \<>** alternativ. Vi rekommenderar att du börjar med att rensa körningshistorikdata som är äldre än två dagar. Om du fortsätter att stöta på db-storleksproblem väljer du alternativet **Rensa alla körningar.**
 
-### <a name="shorten-retention-period-for-run-history-data"></a>Förkorta kvarhållningsperioden för körningshistorik för data
-Det här steget är att minska sannolikheten för att köra i gräns på 10 GB-problem när du har flera synkroniseringscyklerna.
+### <a name="shorten-retention-period-for-run-history-data"></a>Förkorta lagringsperioden för körningshistorikdata
+Det här steget är att minska sannolikheten för att köra in i 10 GB-gränsproblemet efter flera synkroniseringscykler.
 
 1. Öppna en ny PowerShell-session.
 
-2. Kör `Get-ADSyncScheduler` och anteckna egenskapen PurgeRunHistoryInterval, som anger den aktuella kvarhållningsperioden.
+2. Kör `Get-ADSyncScheduler` och ta del av egenskapen PurgeRunHistoryInterval, som anger den aktuella kvarhållningsperioden.
 
-3. Kör `Set-ADSyncScheduler -PurgeRunHistoryInterval 2.00:00:00` att ställa in kvarhållningsperioden på två dagar. Justera kvarhållningsperioden efter behov.
+3. Kör `Set-ADSyncScheduler -PurgeRunHistoryInterval 2.00:00:00` för att ange kvarhållningsperioden till två dagar. Justera kvarhållningsperioden efter behov.
 
-## <a name="long-term-solution--migrate-to-full-sql"></a>Långsiktiga lösningen – migrera till fullständig SQL
-Problemet är i allmänhet är vägledande 10 GB databasstorleken är inte längre räcker för Azure AD Connect att synkronisera din lokala Active Directory till Azure AD. Vi rekommenderar att du istället använda den fullständiga versionen av SQLServer. Du kan inte direkt ersätta en LocalDB i en befintlig Azure AD Connect-distribution med den fullständiga SQL-versionens databas. Istället måste du distribuera en ny Azure AD Connect-server med den fullständiga versionen av SQL. Vi rekommenderar att du gör en swingmigrering med den nya Azure AD Connect-servern (med SQL DB) distribuerad som en mellanlagringsserver bredvid den befintliga Azure AD Connect-servern (med LocalDB). 
+## <a name="long-term-solution--migrate-to-full-sql"></a>Långsiktig lösning – Migrera till full SQL
+I allmänhet är problemet ett tecken på att 10 GB databasstorlek inte längre är tillräcklig för Azure AD Connect för att synkronisera din lokala Active Directory till Azure AD. Vi rekommenderar att du växlar till att använda den fullständiga versionen av SQL-servern. Du kan inte direkt ersätta en LocalDB i en befintlig Azure AD Connect-distribution med den fullständiga SQL-versionens databas. Istället måste du distribuera en ny Azure AD Connect-server med den fullständiga versionen av SQL. Vi rekommenderar att du gör en swingmigrering med den nya Azure AD Connect-servern (med SQL DB) distribuerad som en mellanlagringsserver bredvid den befintliga Azure AD Connect-servern (med LocalDB). 
 * Instruktioner för hur du konfigurerar fjärr-SQL med Azure AD Connect finns i artikeln [Anpassad installation av Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
-* Information om swingmigrering för Azure AD Connect-uppgradering finns i artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration).
+* I artikeln [Azure AD Connect: Uppgradera från en tidigare version till den senaste](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version#swing-migration) finns det information om swingmigrering för Azure AD Connect-uppgradering.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

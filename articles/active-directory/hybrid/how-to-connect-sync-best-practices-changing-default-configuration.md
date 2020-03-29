@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synkronisering: Ändra standardkonfigurationen | Microsoft Docs'
-description: Beskriver Metodtips för att ändra standardkonfigurationen för Azure AD Connect-synkronisering.
+title: 'Synkronisering av Azure AD Connect: Ändra standardkonfigurationen | Microsoft-dokument'
+description: Innehåller metodtips för att ändra standardkonfigurationen för Azure AD Connect-synkronisering.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,62 +17,62 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60242128"
 ---
-# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect-synkronisering: Metodtips för att ändra standardkonfigurationen
-Syftet med det här avsnittet är att beskriva som stöds respektive ändringar i Azure AD Connect-synkronisering.
+# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Synkronisering av Azure AD Connect: Metodtips för att ändra standardkonfigurationen
+Syftet med det här avsnittet är att beskriva ändringar som stöds och inte stöds i Azure AD Connect-synkronisering.
 
-Den konfiguration som skapats av Azure AD Connect fungerar ”i befintligt skick” för de flesta miljöer används för att synkroniserar lokala Active Directory med Azure AD. I vissa fall kan är det dock nödvändigt att tillämpa vissa ändringar till en konfiguration för att uppfylla ett särskilt behov eller krav.
+Konfigurationen som skapas av Azure AD Connect fungerar "i det andra fallet" för de flesta miljöer som synkroniserar lokal Active Directory med Azure AD. I vissa fall är det dock nödvändigt att tillämpa vissa ändringar i en konfiguration för att uppfylla ett visst behov eller krav.
 
-## <a name="changes-to-the-service-account"></a>Ändringar till kontot
-Azure AD Connect-synkronisering körs under ett tjänstkonto som skapats av installationsguiden. Det här tjänstkontot innehåller krypteringsnycklarna i databasen som används av synkronisering. Den har skapats med högst 127 tecken långa och lösenordet upphör att gälla inte.
+## <a name="changes-to-the-service-account"></a>Ändringar i tjänstkontot
+Azure AD Connect-synkronisering körs under ett tjänstkonto som skapats av installationsguiden. Det här tjänstkontot innehåller krypteringsnycklarna till databasen som används av synkroniseringen. Det skapas med ett 127 tecken långt lösenord och lösenordet är inställt på att inte löpa ut.
 
-* Det är **stöds inte** ändra eller återställa lösenordet för tjänstkontot. Då förstör krypteringsnycklarna och tjänsten kan inte få åtkomst till databasen och går inte att starta.
+* Det stöds inte att ändra eller återställa lösenordet för **tjänstkontot.** Om du gör det förstörs krypteringsnycklarna och tjänsten kan inte komma åt databasen och kan inte starta.
 
-## <a name="changes-to-the-scheduler"></a>Ändringar i scheduler
-Från och med versioner från version 1.1 (februari 2016) som du kan konfigurera den [scheduler](how-to-connect-sync-feature-scheduler.md) och ha en annan synkroniseringscykel än standardvärdet 30 minuter.
+## <a name="changes-to-the-scheduler"></a>Ändringar i schemaläggaren
+Från och med versionerna från version 1.1 (februari 2016) kan du konfigurera [schemaläggaren](how-to-connect-sync-feature-scheduler.md) så att den har en annan synkroniseringscykel än standard30 minuter.
 
-## <a name="changes-to-synchronization-rules"></a>Ändringar av Synkroniseringsregler
-Installationsguiden innehåller en konfiguration som ska fungera för de vanligaste scenarierna. Om du behöver göra ändringar i konfigurationen måste du följa de här reglerna så att den fortfarande har en konfiguration som stöds.
-
-> [!WARNING]
-> Om du gör ändringar i standardregler för synkronisering sedan dessa ändringar kommer att skrivas över vid nästa Azure AD Connect har uppdaterats, vilket resulterar i oväntade och sannolikt oönskad Synkroniseringsresultat.
-
-* Du kan [ändra attributflöden](how-to-connect-sync-change-the-configuration.md#other-common-attribute-flow-changes) om flödena som standard direkt attributet inte är lämplig för din organisation.
-* Om du vill [inte flödar attributet](how-to-connect-sync-change-the-configuration.md#do-not-flow-an-attribute) och ta bort alla befintliga attributvärden i Azure AD måste du skapa en regel för det här scenariot.
-* [Inaktivera en oönskad Synkroniseringsregel](#disable-an-unwanted-sync-rule) i stället för att ta bort den. En borttagen regel återskapas under en uppgradering.
-* Att [ändra en regel för out-of-box](#change-an-out-of-box-rule), bör du göra en kopia av den ursprungliga regeln och inaktivera out-of-box-regel. Synkronisera Rule Editor frågar och hjälper dig att.
-* Exportera dina anpassade Synkroniseringsregler som använder Synchronization Rules Editor. Redigeraren får du ett PowerShell-skript som du kan använda för att enkelt återskapa dem i ett katastrofåterställningsscenario.
+## <a name="changes-to-synchronization-rules"></a>Ändringar i synkroniseringsregler
+Installationsguiden innehåller en konfiguration som ska fungera för de vanligaste scenarierna. Om du behöver göra ändringar i konfigurationen måste du följa dessa regler för att fortfarande ha en konfiguration som stöds.
 
 > [!WARNING]
-> Out-of-box Synkroniseringsregler har ett tumavtryck. Om du gör en ändring i de här reglerna matchar tumavtrycket inte längre. Du kan få problem i framtiden när du försöker installera en ny version av Azure AD Connect. Endast göra ändringar på sätt som det beskrivs i den här artikeln.
+> Om du gör ändringar i standardsynkroniseringsreglerna skrivs dessa ändringar över nästa gång Azure AD Connect uppdateras, vilket resulterar i oväntade och sannolika oönskade synkroniseringsresultat.
 
-### <a name="disable-an-unwanted-sync-rule"></a>Inaktivera en oönskad Synkroniseringsregel
-Ta inte bort en synkroniseringsregel för av out-of-box. Den återskapas under nästa uppgraderingen.
+* Du kan [ändra attributflöden](how-to-connect-sync-change-the-configuration.md#other-common-attribute-flow-changes) om standardflödena för direkt attribut inte är lämpliga för din organisation.
+* Om du [inte](how-to-connect-sync-change-the-configuration.md#do-not-flow-an-attribute) vill flöda ett attribut och ta bort befintliga attributvärden i Azure AD måste du skapa en regel för det här scenariot.
+* [Inaktivera en oönskad synkroniseringsregel](#disable-an-unwanted-sync-rule) i stället för att ta bort den. En borttagen regel återskapas under en uppgradering.
+* Om du vill [ändra en out-of-box-regel](#change-an-out-of-box-rule)bör du göra en kopia av den ursprungliga regeln och inaktivera regeln om direkt. Redigeraren för synkroniseringsregeln frågar och hjälper dig.
+* Exportera dina anpassade synkroniseringsregler med hjälp av Redigeraren för synkroniseringsregler. Redigeraren ger dig ett PowerShell-skript som du kan använda för att enkelt återskapa dem i ett katastrofåterställningsscenario.
 
-I vissa fall kan har guiden Installera producerat en konfiguration som inte fungerar för topologin. Till exempel om du har en topologi för resursen för lagringskonton skog, men du har utökat schemat i skogen med Exchange-schemat, har sedan regler för Exchange skapats för kontoskogen och resursskogen. I så fall måste du inaktivera den Synkroniseringsregel för Exchange.
+> [!WARNING]
+> De färdiga synkroniseringsreglerna har ett tumavtryck. Om du gör en ändring av dessa regler matchar tumavtrycket inte längre. Du kan ha problem i framtiden när du försöker tillämpa en ny version av Azure AD Connect. Gör bara ändringar på det sätt som beskrivs i den här artikeln.
+
+### <a name="disable-an-unwanted-sync-rule"></a>Inaktivera en oönskad synkroniseringsregel
+Ta inte bort en out-of-box synkroniseringsregel. Det återskapas under nästa uppgradering.
+
+I vissa fall har installationsguiden skapat en konfiguration som inte fungerar för din topologi. Om du till exempel har en kontoresursskogstopologi men har utökat schemat i kontoskogen med Exchange-schemat skapas regler för Exchange för kontoskogen och resursskogen. I det här fallet måste du inaktivera synkroniseringsregeln för Exchange.
 
 ![Inaktiverad synkroniseringsregel](./media/how-to-connect-sync-best-practices-changing-default-configuration/exchangedisabledrule.png)
 
-Installationsguiden har hittat ett schema för gamla Exchange 2003 i skogen i bilden ovan. Det här schematillägget har lagts till innan resursskogen introducerades i Fabrikams miljö. För att säkerställa att inga attribut från den gamla Exchange-implementeringen synkroniseras, bör synkroniseringsregel inaktiveras enligt.
+I bilden ovan har installationsguiden hittat ett gammalt Exchange 2003-schema i kontoskogen. Det här schematillägget lades till innan resursskogen introducerades i Fabrikams miljö. Om du vill vara säkra på att inga attribut från den gamla Exchange-implementeringen synkroniseras bör synkroniseringsregeln inaktiveras enligt bilden.
 
 ### <a name="change-an-out-of-box-rule"></a>Ändra en out-of-box-regel
-Den enda gången som du bör ändra en out-of-box-regel är när du behöver ändra join-regeln. Om du vill ändra ett attributflöde bör du skapa en synkroniseringsregel för med högre prioritet än out-of-box-regler. Den enda regeln praktiskt taget måste du klona är regeln **i från AD - användare ansluta**. Du kan åsidosätta alla andra regler med en regel på högre prioritet.
+Den enda gången du bör ändra en out-of-box-regel är när du behöver ändra kopplingsregeln. Om du behöver ändra ett attributflöde bör du skapa en synkroniseringsregel med högre prioritet än de färdiga reglerna. Den enda regel du praktiskt taget behöver klona är regeln **i från AD - Användarkoppling**. Du kan åsidosätta alla andra regler med en regel med högre prioritet.
 
-Om du behöver göra ändringar i en regel för out-of-box, bör du göra en kopia av out-of-box-regeln och inaktiverar den ursprungliga regeln. Göra ändringarna för den klonade regeln. Synkronisera Rule Editor hjälper dig med de här stegen. När du öppnar en regel för out-of-box, visas den här dialogrutan:  
-![Varning från box-regel](./media/how-to-connect-sync-best-practices-changing-default-configuration/warningoutofboxrule.png)
+Om du behöver göra ändringar i en out-of-box-regel bör du göra en kopia av regeln om out-of-box och inaktivera den ursprungliga regeln. Gör sedan ändringarna i den klonade regeln. Redigeraren för synkroniseringsregel hjälper dig med dessa steg. När du öppnar en out-of-box-regel visas den här dialogrutan:  
+![Varning utanför rut-regeln](./media/how-to-connect-sync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
-Välj **Ja** att skapa en kopia av regeln. Den klonade regeln sedan öppnas.  
-![Klonade regel](./media/how-to-connect-sync-best-practices-changing-default-configuration/clonedrule.png)
+Välj **Ja** om du vill skapa en kopia av regeln. Den klonade regeln öppnas sedan.  
+![Klonad regel](./media/how-to-connect-sync-best-practices-changing-default-configuration/clonedrule.png)
 
-Gör nödvändiga ändringar på regeln klonade omfång, koppling och transformationer.
+I den här klonade regeln gör du nödvändiga ändringar i omfattning, koppling och omvandlingar.
 
 ## <a name="next-steps"></a>Nästa steg
-**Översiktsavsnitt**
+**Avsnitt om översikt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Synkronisering av Azure AD Connect: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

@@ -1,5 +1,5 @@
 ---
-title: Så här roterar åtkomstnyckel för Azure SignalR Service
+title: Rotera åtkomstnyckel för Azure SignalR Service
 description: En översikt över varför kunden regelbundet behöver rotera åtkomstnycklarna samt hur det går till via Azure-portalens grafiska användargränssnitt och Azure CLI.
 author: sffamily
 ms.service: signalr
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67565732"
 ---
-# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Så här roterar åtkomstnyckel för Azure SignalR Service
+# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Rotera åtkomstnyckel för Azure SignalR Service
 
 Varje Azure SignalR Service-instans har ett par åtkomstnycklar som kallas primärnyckel och sekundärnyckel. De används för att autentisera SignalR-klienter när begäranden görs till tjänsten. Nycklarna associeras med instansens slutpunkts-URL. Skydda dina nycklar och rotera dem regelbundet. Du får två åtkomstnycklar så att du kan upprätthålla anslutningar med en nyckel medan den andra återskapas.
 
@@ -23,7 +23,7 @@ Av säkerhets- och efterlevnadsskäl ska åtkomstnycklarna regelbundet roteras.
 
 ## <a name="regenerate-access-keys"></a>Återskapa åtkomstnycklar
 
-1. Gå till [Azure-portalen](https://portal.azure.com/) och logga in med dina autentiseringsuppgifter.
+1. Gå till [Azure-portalen](https://portal.azure.com/)och logga in med dina autentiseringsuppgifter.
 
 1. Leta upp avsnittet **Nycklar** i Azure SignalR Service-instansen med de nycklar som du vill återskapa.
 
@@ -59,4 +59,4 @@ I den här guiden har du lärt att återskapa åtkomstnycklar. Gå vidare till n
 > [Integrera med ASP.NET Core-identitet](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Skapa en serverlös realtidsapp med autentisering](./signalr-tutorial-authenticate-azure-functions.md)
+> [Skapa en serverlös app i realtid med autentisering](./signalr-tutorial-authenticate-azure-functions.md)

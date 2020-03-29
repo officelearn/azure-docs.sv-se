@@ -1,7 +1,7 @@
 ---
-title: Felsöka anslutningar – Azure CLI
+title: Felsöka anslutningar - Azure CLI
 titleSuffix: Azure Network Watcher
-description: Lär dig hur du använder anslutningen fel söknings funktion i Azure Network Watcher med hjälp av Azure CLI.
+description: Lär dig hur du använder funktionen för anslutningsfelsökning i Azure Network Watcher med Hjälp av Azure CLI.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -14,34 +14,34 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: 842e58de8dbc06d3f045b0e9d0dc6b99e6b1e2fe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842894"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Felsöka anslutningar med Azure Network Watcher med hjälp av Azure CLI
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Felsöka anslutningar med Azure Network Watcher med Azure CLI
 
 > [!div class="op_single_selector"]
-> - [PowerShell](network-watcher-connectivity-powershell.md)
+> - [Powershell](network-watcher-connectivity-powershell.md)
 > - [Azure CLI](network-watcher-connectivity-cli.md)
-> - [Azure-REST API](network-watcher-connectivity-rest.md)
+> - [REST-API för Azure](network-watcher-connectivity-rest.md)
 
-Lär dig hur du använder anslutnings fel sökning för att kontrol lera om en direkt TCP-anslutning från en virtuell dator till en specifik slut punkt kan upprättas.
+Lär dig hur du använder felsöka anslutningar för att kontrollera om en direkt TCP-anslutning från en virtuell dator till en viss slutpunkt kan upprättas.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har följande resurser:
 
-* En instans av Network Watcher i den region där du vill felsöka en anslutning.
-* Virtuella datorer för att felsöka anslutningar med.
+* En instans av Network Watcher i den region som du vill felsöka en anslutning.
+* Virtuella datorer att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
+> Felsöka anslutningar kräver att den virtuella `AzureNetworkWatcherExtension` datorn som du felsöker från har vm-tillägget installerat. För att installera tillägget på en Windows VM besök [Azure Network Watcher Agent virtuell dator tillägg för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för Linux VM besök Azure Network [Watcher Agent virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på målslutpunkten.
 
-## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrol lera anslutningen till en virtuell dator
+## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrollera anslutningen till en virtuell dator
 
-Det här exemplet kontrollerar anslutningen till en virtuell mål dator via port 80.
+I det här exemplet kontrolleras anslutningen till en virtuell måldator över port 80.
 
 ### <a name="example"></a>Exempel
 
@@ -51,7 +51,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Svar
 
-Följande svar är från föregående exempel.  I detta svar går det inte att **komma åt**`ConnectionStatus`. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen misslyckades på den virtuella enheten på grund av en användardefinierad `NetworkSecurityRule` med namnet **UserRule_Port80**, konfigurerad för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
+Följande svar kommer från föregående exempel.  I det här `ConnectionStatus` svaret är det **inte kan nås**. Du kan se att alla skickade avsökningar misslyckades. Anslutningen misslyckades vid den virtuella installationen på grund `NetworkSecurityRule` av en användarkonfigurerad med namnet **UserRule_Port80**, konfigurerad för att blockera inkommande trafik på port 80. Denna information kan användas för att undersöka anslutningsproblem.
 
 ```json
 {
@@ -120,9 +120,9 @@ Nic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## <a name="validate-routing-issues"></a>Verifiera problem med Routning
+## <a name="validate-routing-issues"></a>Verifiera routningsproblem
 
-Det här exemplet kontrollerar anslutningen mellan en virtuell dator och en fjärrslutpunkt.
+I det här exemplet kontrolleras anslutningen mellan en virtuell dator och en fjärrslutpunkt.
 
 ### <a name="example"></a>Exempel
 
@@ -132,7 +132,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Svar
 
-I följande exempel visas `connectionStatus` som **oåtkomlig**. I `hops` information kan du se under `issues` att trafiken blockerades på grund av ett `UserDefinedRoute`.
+I följande exempel `connectionStatus` visas den som **kan inte nås**. I `hops` informationen kan du `issues` se under att trafiken `UserDefinedRoute`blockerades på grund av en .
 
 ```json
 {
@@ -178,9 +178,9 @@ pNic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## <a name="check-website-latency"></a>Kontrol lera svars tid för webbplats
+## <a name="check-website-latency"></a>Kontrollera svarstid för webbplatsen
 
-I följande exempel kontrol leras anslutningen till en webbplats.
+I följande exempel kontrolleras anslutningen till en webbplats.
 
 ### <a name="example"></a>Exempel
 
@@ -190,7 +190,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Svar
 
-I följande svar kan du se `connectionStatus` visas som **tillgängliga**. När en anslutning lyckas, anges latens värden.
+I följande svar kan du `connectionStatus` se program som **Nåbara**. När en anslutning lyckas anges svarstidsvärden.
 
 ```json
 {
@@ -224,9 +224,9 @@ pNic0/ipConfigurations/ipconfig1",
 }
 ```
 
-## <a name="check-connectivity-to-a-storage-endpoint"></a>Kontrol lera anslutningen till en lagrings slut punkt
+## <a name="check-connectivity-to-a-storage-endpoint"></a>Kontrollera anslutningen till en lagringsslutpunkt
 
-I följande exempel kontrol leras anslutningen från en virtuell dator till ett blogg lagrings konto.
+I följande exempel kontrolleras anslutningen från en virtuell dator till ett blogglagringskonto.
 
 ### <a name="example"></a>Exempel
 
@@ -236,7 +236,7 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 ### <a name="response"></a>Svar
 
-Följande JSON är exempel svaret från att köra föregående cmdlet. När kontrollen är klar visas `connectionStatus`-egenskapen som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
+Följande json är exempel svaret från att köra föregående cmdlet. När kontrollen lyckas visas `connectionStatus` egenskapen som **nåbar**.  Du får information om hur många hopp som krävs för att nå lagringsblobben och svarstiden.
 
 ```json
 {
@@ -271,6 +271,6 @@ Följande JSON är exempel svaret från att köra föregående cmdlet. När kont
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du automatiserar paket fångster med aviseringar för virtuella datorer genom att visa [skapa en varning utlöst paket fångst](network-watcher-alert-triggered-packet-capture.md)
+Lär dig hur du automatiserar paketinsamlingar med aviseringar för virtuella datorer genom att visa [Skapa en aviseringsutlöst paketfångst](network-watcher-alert-triggered-packet-capture.md)
 
-Ta reda på om en viss trafik tillåts i eller från den virtuella datorn genom [att gå igenom kontrol lera IP-flöde verifiera](diagnose-vm-network-traffic-filtering-problem.md)
+Ta reda på om viss trafik tillåts i eller ut ur den virtuella datorn genom att besöka [Kontrollera IP-flödeskontroll](diagnose-vm-network-traffic-filtering-problem.md)

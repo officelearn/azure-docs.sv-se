@@ -1,6 +1,6 @@
 ---
 title: Översikt över integration av Azure Service Bus till Event Grid | Microsoft Docs
-description: Den här artikeln innehåller en beskrivning av hur Azure Service Bus Messaging integreras med Azure Event Grid.
+description: Den här artikeln innehåller en beskrivning av hur Azure Service Bus-meddelanden integreras med Azure Event Grid.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773484"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Event Grid
@@ -38,7 +38,7 @@ Om du vill aktivera funktionen behöver du följande:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Kontrollera att du har deltagarbehörighet
-Gå till din Service Bus namnrum och välj sedan **åtkomst kontroll (IAM)** och fliken **roll tilldelningar** . kontrol lera att du har deltagar åtkomst till namn området. 
+Gå till tjänstbussens namnområde och välj sedan **Åtkomstkontroll (IAM)** och välj fliken **Rolltilldelningar.** Kontrollera att du har deltagarens åtkomst till namnområdet. 
 
 ### <a name="events-and-event-schemas"></a>Händelser och händelsescheman
 
@@ -126,7 +126,7 @@ Du kan skapa Event Grid-prenumerationer för Service Bus-namnområden på tre s�
 Så här skapar du en ny Event Grid-prenumeration:
 1. Gå till ditt namnområde i Azure Portal.
 2. Välj **Event Grid** i rutan till vänster. 
-3. Välj **Händelseprenumeration**.  
+3. Välj **händelseprenumeration**.  
 
    Följande bild visar ett namnområde som har en Event Grid-prenumeration:
 
@@ -138,7 +138,7 @@ Så här skapar du en ny Event Grid-prenumeration:
 
 ## <a name="azure-cli-instructions"></a>Azure CLI-instruktioner
 
-Kontrollera först att du har Azure CLI version 2.0 eller senare installerad. [Ladda ned installationsprogrammet](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
+Kontrollera först att du har Azure CLI version 2.0 eller senare installerad. [Ladda ner installationsprogrammet](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Välj **Windows + X**och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
 
 Kör följande kod:
 
@@ -156,7 +156,7 @@ Om du använder BASH
 
 ## <a name="powershell-instructions"></a>PowerShell-instruktioner
 
-Kontrollera att du har Azure PowerShell installerat. [Ladda ned installationsprogrammet](https://docs.microsoft.com/powershell/azure/install-Az-ps). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
+Kontrollera att du har Azure PowerShell installerat. [Ladda ner installationsprogrammet](https://docs.microsoft.com/powershell/azure/install-Az-ps). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
 
 ```powershell-interactive
 Connect-AzAccount

@@ -1,6 +1,6 @@
 ---
-title: Översikt över Microsoft Azure StorSimple virtuell matris
-description: Beskriver den virtuella StorSimple-matrisen, en integrerad lagrings lösning som hanterar lagrings aktiviteter mellan en lokal virtuell matris och Microsoft Azure moln lagring.
+title: Översikt över Microsoft Azure StorSimple Virtual Array
+description: Beskriver StorSimple Virtual Array, en integrerad lagringslösning som hanterar lagringsuppgifter mellan en lokal virtuell matris och Microsoft Azure-molnlagring.
 author: alkohli
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
@@ -8,208 +8,208 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76273873"
 ---
-# <a name="introduction-to-the-storsimple-virtual-array"></a>Introduktion till den virtuella StorSimple-matrisen
+# <a name="introduction-to-the-storsimple-virtual-array"></a>Introduktion till StorSimples virtuella matris
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 ## <a name="overview"></a>Översikt
 
-Den Microsoft Azure StorSimple virtuella matrisen är en integrerad lagrings lösning som hanterar lagrings aktiviteter mellan en lokal virtuell matris som körs i en hypervisor och Microsoft Azure moln lagring. Den virtuella matrisen är en effektiv, kostnads effektiv och enkel hanterad fil server eller iSCSI server-lösning som eliminerar många av de problem och kostnader som är kopplade till företags lagring och data skydd. Den virtuella matrisen passar särskilt bra för lagring av data som inte används ofta.
+Microsoft Azure StorSimple Virtual Array är en integrerad lagringslösning som hanterar lagringsuppgifter mellan en lokal virtuell matris som körs i en hypervisor- och Microsoft Azure-molnlagring. Den virtuella matrisen är en effektiv, kostnadseffektiv och enkelt hanterad filserver eller iSCSI-serverlösning som eliminerar många av de problem och utgifter som är förknippade med företagslagring och dataskydd. Den virtuella matrisen är särskilt väl lämpad för lagring av sällan använda arkivdata.
 
 Den här artikeln innehåller en översikt över den virtuella matrisen – här är några andra resurser:
 
-* Bästa praxis finns i [metod tips för virtuella StorSimple-matriser](storsimple-ova-best-practices.md).
-* En översikt över enheter med StorSimple 8000-serien finns i [StorSimple 8000-serien: en hybrid moln lösning](storsimple-overview.md).
-* Information om enheter med StorSimple 5000/7000-serien finns i [onlinehjälpen för StorSimple](http://onlinehelp.storsimple.com/).
+* Metodtips för bästa praxis finns i [metodtips för StorSimple Virtual Array](storsimple-ova-best-practices.md).
+* En översikt över StorSimple 8000-seriens enheter finns i [StorSimple 8000-serien: en hybridmolnlösning](storsimple-overview.md).
+* Information om StorSimple 5000/7000-seriens enheter finns i [StorSimple Online Help](http://onlinehelp.storsimple.com/).
 
-Den virtuella matrisen stöder iSCSI-eller SMB-protokollet (Server Message Block). Den körs på din befintliga hypervisor-infrastruktur och ger lagrings nivåer för molnet, säkerhets kopiering av molnet, snabb återställning, återställning på objekt nivå och funktioner för haveri beredskap.
+Den virtuella matrisen stöder SMB-protokollet (iSCSI eller Server Message Block). Den körs på din befintliga hypervisor-infrastruktur och ger nivåindelning till molnet, säkerhetskopiering av molnet, snabb återställning, återställning på objektnivå och funktioner för haveriberedskap.
 
-I följande tabell sammanfattas viktiga funktioner i den virtuella StorSimple-matrisen.
+I följande tabell sammanfattas de viktiga funktionerna i StorSimple Virtual Array.
 
-| Funktion | StorSimple Virtual Array |
+| Funktion | StorSimple virtuell matris |
 | --- | --- |
-| Installationskrav |Använder Virtualization Infrastructure (Hyper-V eller VMware) |
+| Installationskrav |Använder virtualiseringsinfrastruktur (Hyper-V eller VMware) |
 | Tillgänglighet |Enkel nod |
 | Total kapacitet (inklusive moln) |Upp till 64 TB användbar kapacitet per virtuell matris |
-| Lokal kapacitet |390 GB till 6,4 TB användbar kapacitet per virtuell matris (du måste etablera 500 GB till 8 TB disk utrymme) |
-| Ursprungliga protokoll |iSCSI eller SMB |
+| Lokal kapacitet |390 GB till 6,4 TB användbar kapacitet per virtuell matris (måste etablera 500 GB till 8 TB diskutrymme) |
+| Inbyggda protokoll |iSCSI eller SMB |
 | Mål för återställningstid (RTO) |iSCSI: mindre än 2 minuter oavsett storlek |
-| Mål för återställningspunkt (RPO) |Dagliga säkerhets kopieringar och säkerhets kopieringar på begäran |
-| Lagrings nivåer |Använder värme mappning för att avgöra vilka data som ska ske i nivå av eller ut |
-| Support |Virtualiseringsbaserad infrastruktur som stöds av leverantören |
+| Mål för återställningspunkt (RPO) |Dagliga säkerhetskopieringar och säkerhetskopieringar på begäran |
+| Lagringsnivåer |Använder värmemappning för att avgöra vilka data som ska nivåindelad in eller ut |
+| Support |Infrastruktur för virtualisering som stöds av leverantören |
 | Prestanda |Varierar beroende på underliggande infrastruktur |
-| Data mobilitet |Kan återställa till samma enhet eller göra en återställning på objekt nivå (fil Server) |
-| Lagringsnivåer |Lokal hypervisor-lagring och moln |
-| Resurs storlek |Skiktat: upp till 20 TB; lokalt fäst: upp till 2 TB |
-| Volym storlek |Skiktad: 500 GB till 5 TB; lokalt fäst: 50 GB till 200 GB <br> Maximal lokal reservation för skiktade volymer är 200 GB. |
-| Ögonblicksbilder |Krasch konsekvens |
-| Återställning på objektnivå |Ja användare kan återställa från resurser |
+| Datamobilitet |Kan återställa till samma enhet eller göra återställning på objektnivå (filserver) |
+| Lagringsnivåer |Lokal hypervisorlagring och moln |
+| Dela storlek |Nivåindelade: upp till 20 TB; lokalt fäst: upp till 2 TB |
+| Volymstorlek |Nivåindelade: 500 GB till 5 TB; lokalt fäst: 50 GB till 200 GB <br> Maximal lokal reservation för nivåindelade volymer är 200 GB. |
+| Ögonblicksbilder |Kraschkonsekvent |
+| Återställning på objektnivå |Ja, det är jag. användare kan återställa från aktier |
 
-## <a name="why-use-storsimple"></a>Varför ska jag använda StorSimple?
+## <a name="why-use-storsimple"></a>Varför använda StorSimple?
 
-StorSimple ansluter användare och servrar till Azure Storage på bara några minuter, utan program ändringar.
+StorSimple ansluter användare och servrar till Azure-lagring på några minuter, utan programändringar.
 
-I följande tabell beskrivs några av de viktiga fördelarna med StorSimple Virtual Array-lösningen.
+I följande tabell beskrivs några av de viktigaste fördelarna som StorSimple Virtual Array-lösningen tillhandahåller.
 
-| Funktion | Fördel |
+| Funktion | Fördelar |
 | --- | --- |
-| Transparent integrering |Den virtuella matrisen stöder iSCSI-eller SMB-protokollet. Data förflyttningen mellan den lokala nivån och moln nivån är sömlös och transparent för användaren. |
-| Minskade lagrings kostnader |Med StorSimple kan du etablera tillräckligt med lokal lagring för att uppfylla de aktuella kraven för de mest använda frekventa data. Allteftersom lagrings behoven växer kan StorSimple-nivåer kalla data till kostnads effektiv moln lagring. Data dedupliceras och komprimeras innan de skickas till molnet för att ytterligare minska lagrings kraven och kostnaderna. |
-| Förenklad lagrings hantering |StorSimple tillhandahåller centraliserad hantering i molnet med hjälp av StorSimple Enhetshanteraren för att hantera flera enheter. |
-| Förbättrad katastrof återställning och efterlevnad |StorSimple underlättar snabbare haveri beredskap genom att återställa metadata omedelbart och återställa data efter behov. Det innebär att normal drift kan fortsätta med minimalt avbrott. |
-| Data mobilitet |Data som är på nivå av molnet kan nås från andra platser för återställnings-och migrerings syfte. Observera att du bara kan återställa data till den ursprungliga virtuella matrisen. Du kan dock använda funktioner för haveri beredskap för att återställa hela den virtuella matrisen till en annan virtuell matris. |
+| Transparent integration |Den virtuella matrisen stöder iSCSI eller SMB-protokollet. Datarörelsen mellan den lokala nivån och molnnivån är sömlös och transparent för användaren. |
+| Minskade lagringskostnader |Med StorSimple etablerar du tillräckligt med lokal lagring för att uppfylla aktuella krav på de mest använda frekventa data. I takt med att lagringsbehoven ökar, nivåer StorSimple kalldata till kostnadseffektiv molnlagring. Data dedupliceras och komprimeras innan de skickas till molnet för att ytterligare minska lagringskrav och kostnader. |
+| Förenklad lagringshantering |StorSimple tillhandahåller centraliserad hantering i molnet med StorSimple Device Manager för att hantera flera enheter. |
+| Förbättrad haveriberedskap och efterlevnad |StorSimple underlättar snabbare haveriberedskap genom att återställa metadata omedelbart och återställa data efter behov. Detta innebär att normal drift kan fortsätta med minimala störningar. |
+| Datamobilitet |Data som nivåindelas till molnet kan nås från andra platser för återställnings- och migreringsändamål. Observera att du bara kan återställa data till den ursprungliga virtuella matrisen. Du kan dock använda funktioner för haveriberedskap för att återställa hela den virtuella matrisen till en annan virtuell matris. |
 
-## <a name="storsimple-workload-summary"></a>StorSimple arbets belastnings Sammanfattning
+## <a name="storsimple-workload-summary"></a>Sammanfattning av StorSimple-arbetsbelastning
 
-En sammanfattning av StorSimple arbets belastningar som stöds är tabellen nedan.
+En sammanfattning av storsimplearbetsbelastningar som stöds tas i tabell nedan.
 
-|Scenario     |Arbetsbelastning     |Stöds      |Begränsningar               | Versioner som gäller|
+|Scenario     |Arbetsbelastning     |Stöds      |Begränsningar               | Versioner gäller|
 |-------------|-------------|---------------|---------------------------|--------------------|
-|ROBO (Remote Office/avdelnings kontor)  |Fildelning     |Ja      |Se [Max gränsen för fil Server](storsimple-ova-limits.md).<br></br>Se [system krav för SMB-versioner som stöds](storsimple-ova-system-requirements.md).| Alla versioner     |
-|Moln arkivering  |Fildelning i Arkiv     |Ja      |Se [Max gränsen för fil Server](storsimple-ova-limits.md).<br></br>Se [system krav för SMB-versioner som stöds](storsimple-ova-system-requirements.md).| Alla versioner     |
+|Fjärrkontor/filialkontor (ROBO)  |Fildelning     |Ja      |Se [maxgränser för filserver .](storsimple-ova-limits.md)<br></br>Se [systemkrav för SMB-versioner som stöds](storsimple-ova-system-requirements.md).| Alla versioner     |
+|Molnarkivering  |Fildelning av arkiv     |Ja      |Se [maxgränser för filserver .](storsimple-ova-limits.md)<br></br>Se [systemkrav för SMB-versioner som stöds](storsimple-ova-system-requirements.md).| Alla versioner     |
 
-Den virtuella StorSimple-matrisen passar bäst för data som används sällan. Även om den virtuella matrisen har en lokal cache för att öka prestandan, bör användarna anta att enhets tjänsterna på den lägsta lagrings nivån (molnet). Varje virtuell matris kan skriva och läsa i Azure Storage med cirka 100 Mbit/s. Länken delas över alla begär Anden som kommer till enheten och kan bli en Flask hals som visas i diagrammet nedan.
+StorSimple Virtual Array passar bäst för sällan använda data. Medan den virtuella matrisen har en lokal cache för att öka prestanda, bör användarna anta att enheten tjänster filer på den lägsta lagringsnivån (molnet). Varje virtuell matris kan skriva och läsa till Azure-lagring med cirka 100 Mbps. Den länken delas över alla begäranden som kommer in i enheten och kan bli en flaskhals som visas i diagrammet nedan.
 
-![Moln arkivering](./media/storsimple-ova-overview/cloud-archiving.png)
+![Molnarkivering](./media/storsimple-ova-overview/cloud-archiving.png)
 
-När flera samtidiga användare har åtkomst till den virtuella matrisen, delar alla anslutningen till Azure, vilket leder till lägre prestanda. Det finns inga garanterade prestanda per användare och enheten bearbetar enskilda förfrågningar när de tas emot.
+När flera samtidiga användare får åtkomst till den virtuella matrisen delar de alla anslutningen till Azure som leder till lägre prestanda. Det finns ingen garanterad prestanda per användare och enheten bearbetar enskilda begäranden när de anländer.
 
-StorSimple virtuella matris passar inte för arbets belastningar som kräver hög tillgänglighet. Den virtuella matrisen är en enskild nod enhet som upplever nedtid när program uppdateringar installeras. Administratörer bör planera för en underhålls period på 30 minuter 3-4 gånger per år.
+StorSimple Virtual Array är inte lämplig för arbetsbelastningar som kräver hög tillgänglighet. Den virtuella matrisen är en enda nodenhet som har driftstopp när programuppdateringar installeras. Administratörer bör planera för ett underhållsfönster på 30 minuter 3-4 gånger per år.
 
 ## <a name="workflows"></a>Arbetsflöden
 
-Den virtuella StorSimple-matrisen är särskilt lämplig för följande arbets flöden:
+StorSimple Virtual Array är särskilt lämplig för följande arbetsflöden:
 
-* [Molnbaserad lagrings hantering](#cloud-based-storage-management)
-* [Plats oberoende säkerhets kopiering](#location-independent-backup)
-* [Data skydd och haveri beredskap](#data-protection-and-disaster-recovery)
+* [Molnbaserad lagringshantering](#cloud-based-storage-management)
+* [Platsoberoende säkerhetskopiering](#location-independent-backup)
+* [Dataskydd och katastrofåterställning](#data-protection-and-disaster-recovery)
 
-### <a name="cloud-based-storage-management"></a>Molnbaserad lagrings hantering
-Du kan använda tjänsten StorSimple Enhetshanteraren som körs i Azure Portal för att hantera data som lagras på flera enheter och på flera platser. Detta är särskilt användbart i scenarier med distribuerade grenar. Observera att du måste skapa separata instanser av tjänsten StorSimple Enhetshanteraren för att hantera virtuella matriser och fysiska StorSimple-enheter. Observera också att den virtuella matrisen nu använder den nya Azure Portal i stället för den klassiska Azure-portalen.
+### <a name="cloud-based-storage-management"></a>Molnbaserad lagringshantering
+Du kan använda Tjänsten StorSimple Device Manager som körs i Azure-portalen för att hantera data som lagras på flera enheter och på flera platser. Detta är särskilt användbart i distribuerade grenscenarier. Observera att du måste skapa separata instanser av Tjänsten StorSimple Device Manager för att hantera virtuella matriser och fysiska StorSimple-enheter. Observera också att den virtuella matrisen nu använder den nya Azure-portalen i stället för den klassiska Azure-portalen.
 
-![molnbaserad lagrings hantering](./media/storsimple-ova-overview/cloud-based-storage-management.png)
+![molnbaserad lagringshantering](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
-### <a name="location-independent-backup"></a>Plats oberoende säkerhets kopiering
-Med den virtuella matrisen tillhandahåller moln ögonblicks bilder en plats oberoende, tidpunkts kopia av en volym eller resurs. Moln ögonblicks bilder är aktiverade som standard och kan inte inaktive ras. Alla volymer och resurser säkerhets kopie ras samtidigt via en enda daglig säkerhets kopierings princip, och du kan ta ytterligare ad hoc-säkerhetskopieringar när det behövs.
+### <a name="location-independent-backup"></a>Platsoberoende säkerhetskopiering
+Med den virtuella matrisen ger ögonblicksbilder i molnet en platsoberoende, punkt-i-tid-kopia av en volym eller resurs. Ögonblicksbilder av molnet är aktiverade som standard och kan inte inaktiveras. Alla volymer och resurser säkerhetskopieras samtidigt genom en enda daglig säkerhetskopieringsprincip, och du kan ta ytterligare ad hoc-säkerhetskopior när det behövs.
 
-### <a name="data-protection-and-disaster-recovery"></a>Data skydd och haveri beredskap
-Den virtuella matrisen stöder följande scenarier för data skydd och haveri beredskap:
+### <a name="data-protection-and-disaster-recovery"></a>Dataskydd och katastrofåterställning
+Den virtuella matrisen stöder följande scenarier för dataskydd och katastrofåterställning:
 
-* **Återställning av volym eller resurs** – Använd återställningen som nytt arbets flöde för att återställa en volym eller resurs. Använd den här metoden för att återställa hela volymen eller resursen.
-* **Återställning på objekt nivå** – resurser ger förenklad åtkomst till de senaste säkerhets kopieringarna. Du kan enkelt återställa en enskild fil från en särskild mapp *. säkerhets kopia* som är tillgänglig i molnet. Den här återställnings funktionen är användar driven och ingen administrativ åtgärd krävs.
-* **Haveri beredskap** – Använd funktionen redundans för att återställa alla volymer eller resurser till en ny virtuell matris. Du skapar den nya virtuella matrisen och registrerar den med StorSimple-Enhetshanteraren tjänsten och växlar sedan över den ursprungliga virtuella matrisen. Den nya virtuella matrisen kommer sedan att anta de etablerade resurserna.
+* **Volym- eller delningsåterställning** – Använd återställningen som nytt arbetsflöde för att återställa en volym eller resurs. Använd den här metoden för att återställa hela volymen eller resursen.
+* **Återställning på objektnivå** – Resurser ger förenklad åtkomst till de senaste säkerhetskopieringarna. Du kan enkelt återställa en enskild fil från en särskild *.backup-mapp* som är tillgänglig i molnet. Den här återställningsfunktionen är användardriven och ingen administrativ åtgärd krävs.
+* **Haveriberedskap** – Använd redundansfunktionen för att återställa alla volymer eller resurser till en ny virtuell matris. Du skapar den nya virtuella matrisen och registrerar den med StorSimple Enhetshanteraren och växlar sedan över den ursprungliga virtuella matrisen. Den nya virtuella matrisen antar sedan de etablerade resurserna.
 
-## <a name="storsimple-virtual-array-components"></a>StorSimple virtuella array-komponenter
+## <a name="storsimple-virtual-array-components"></a>StorSimple Virtual Array-komponenter
 
 Den virtuella matrisen innehåller följande komponenter:
 
-* [Virtuell matris](#virtual-array) – en hybrid moln lagrings enhet som baseras på en virtuell dator som tillhandahålls i din virtualiserade miljö eller hypervisor.
-* [StorSimple Enhetshanteraren service](#storsimple-device-manager-service) – en utökning av Azure Portal som låter dig hantera en eller flera StorSimple-enheter från ett enda webb gränssnitt som du kan komma åt från olika geografiska platser. Du kan använda tjänsten StorSimple Enhetshanteraren för att skapa och hantera tjänster, Visa och hantera enheter och aviseringar och hantera volymer, resurser och befintliga ögonblicks bilder.
-* [Lokalt webb användar gränssnitt](#local-web-user-interface) – ett WEBbaserat användar gränssnitt som används för att konfigurera enheten så att den kan ansluta till det lokala nätverket och sedan registrera enheten med StorSimple Enhetshanteraren-tjänsten. 
-* [Kommando rads gränssnitt](#command-line-interface) – ett Windows PowerShell-gränssnitt som du kan använda för att starta en support-session på den virtuella matrisen.
-  I följande avsnitt beskrivs var och en av dessa komponenter i större detalj och förklarar hur lösningen ordnar data, allokerar lagring och underlättar lagrings hantering och data skydd.
+* [Virtuell matris](#virtual-array) – En hybridmolnlagringsenhet baserad på en virtuell dator som etablerats i din virtualiserade miljö eller hypervisor.
+* [StorSimple Device Manager-tjänsten](#storsimple-device-manager-service) – Ett tillägg till Azure-portalen som gör att du kan hantera en eller flera StorSimple-enheter från ett enda webbgränssnitt som du kan komma åt från olika geografiska platser. Du kan använda Tjänsten StorSimple Device Manager för att skapa och hantera tjänster, visa och hantera enheter och aviseringar samt hantera volymer, resurser och befintliga ögonblicksbilder.
+* [Lokalt webbanvändargränssnitt](#local-web-user-interface) – Ett webbaserat användargränssnitt som används för att konfigurera enheten så att den kan ansluta till det lokala nätverket och sedan registrera enheten med Tjänsten StorSimple Device Manager. 
+* [Kommandoradsgränssnitt](#command-line-interface) – Ett Windows PowerShell-gränssnitt som du kan använda för att starta en supportsession på den virtuella matrisen.
+  I följande avsnitt beskrivs var och en av dessa komponenter mer i detalj och hur lösningen ordnar data, allokerar lagring och underlättar lagringshantering och dataskydd.
 
 ### <a name="virtual-array"></a>Virtuell matris
 
-Den virtuella matrisen är en lagrings lösning med en nod som tillhandahåller primär lagring, hanterar kommunikation med moln lagring och hjälper till att säkerställa säkerheten och konfidentialiteten för alla data som lagras på enheten.
+Den virtuella matrisen är en lagringslösning för en nod som tillhandahåller primär lagring, hanterar kommunikation med molnlagring och bidrar till att säkerställa säkerhet och konfidentialitet för alla data som lagras på enheten.
 
-Den virtuella matrisen är tillgänglig i en modell som är tillgänglig för nedladdning. Den virtuella matrisen har en maximal kapacitet på 6,4 TB på enheten (med ett underliggande lagrings krav på 8 TB) och 64 TB inklusive moln lagring.
+Den virtuella matrisen är tillgänglig i en modell som är tillgänglig för hämtning. Den virtuella matrisen har en maximal kapacitet på 6,4 TB på enheten (med ett underliggande lagringskrav på 8 TB) och 64 TB inklusive molnlagring.
 
 Den virtuella matrisen har följande funktioner:
 
-* Det är kostnads effektivt. Den använder din befintliga Virtualization-infrastruktur och kan distribueras på din befintliga Hyper-V-eller VMware-hypervisor.
-* Den finns i data centret och kan konfigureras som en iSCSI-server eller en fil server.
-* Den är integrerad med molnet.
-* Säkerhets kopior lagras i molnet, vilket kan under lätta haveri beredskap och förenkla återställningen på objekt nivå (ILR).
-* Du kan tillämpa uppdateringar på den virtuella matrisen, precis som du skulle tillämpa dem på en fysisk enhet.
+* Det är kostnadseffektivt. Den använder din befintliga virtualiseringsinfrastruktur och kan distribueras på din befintliga Hyper-V eller VMware hypervisor.
+* Den finns i datacentret och kan konfigureras som en iSCSI-server eller en filserver.
+* Det är integrerat med molnet.
+* Säkerhetskopior lagras i molnet, vilket kan underlätta haveriberedskap och förenkla återställning på objektnivå (ILR).
+* Du kan installera uppdateringar på den virtuella matrisen, på samma sätt som du använder dem på en fysisk enhet.
 
 > [!NOTE]
-> Det går inte att expandera en virtuell matris. Därför är det viktigt att tillhandahålla tillräckligt med lagrings utrymme när du skapar den virtuella matrisen.
+> Det går inte att expandera en virtuell matris. Därför är det viktigt att etablera lämplig lagring när du skapar den virtuella matrisen.
 
 ### <a name="storsimple-device-manager-service"></a>StorSimple Device Manager-tjänsten
 
-Microsoft Azure StorSimple tillhandahåller ett webbaserat användar gränssnitt, tjänsten StorSimple Enhetshanteraren som gör det möjligt att centralt hantera StorSimple-lagring. Du kan använda tjänsten StorSimple Enhetshanteraren för att utföra följande uppgifter:
+Microsoft Azure StorSimple tillhandahåller ett webbaserat användargränssnitt, Tjänsten StorSimple Device Manager, som gör att du kan hantera StorSimple-lagring centralt. Du kan använda Tjänsten StorSimple Device Manager för att utföra följande uppgifter:
 
-* Hantera flera virtuella StorSimple-matriser från en enda tjänst.
-* Konfigurera och hantera säkerhets inställningar för virtuella StorSimple-matriser. (Kryptering i molnet är beroende av Microsoft Azure API: er.)
-* Konfigurera autentiseringsuppgifter och egenskaper för lagrings konto.
+* Hantera flera StorSimple-virtuella matriser från en enda tjänst.
+* Konfigurera och hantera säkerhetsinställningar för StorSimple Virtual Arrays. (Kryptering i molnet är beroende av Microsoft Azure API:er.)
+* Konfigurera autentiseringsuppgifter och egenskaper för lagringskonto.
 * Konfigurera och hantera volymer eller resurser.
 * Säkerhetskopiera och återställa data på volymer eller resurser.
 * Övervaka prestanda.
-* Granska Systeminställningar och identifiera möjliga problem.
+* Granska systeminställningarna och identifiera eventuella problem.
 
-Du kan använda tjänsten StorSimple Enhetshanteraren för att utföra daglig administration av den virtuella matrisen.
+Du använder Tjänsten StorSimple Device Manager för att utföra daglig administration av den virtuella matrisen.
 
-Mer information finns i [använda tjänsten StorSimple Enhetshanteraren för att administrera StorSimple-enheten](storsimple-virtual-array-manager-service-administration.md).
+Mer information finns i [Använda Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet](storsimple-virtual-array-manager-service-administration.md).
 
-### <a name="local-web-user-interface"></a>Lokalt webb användar gränssnitt
+### <a name="local-web-user-interface"></a>Lokalt webbanvändargränssnitt
 
-Den virtuella matrisen innehåller ett webbaserat användar gränssnitt som används för konfiguration av en gång och registrering av enheten med StorSimple Enhetshanteraren-tjänsten. Du kan använda den för att stänga av och starta om den virtuella matrisen, köra diagnostiska tester, uppdatera program vara, ändra enhetens administratörs lösen ord, Visa system loggar och kontakta Microsoft Support för att skicka en tjänst förfrågan.
+Den virtuella matrisen innehåller ett webbaserat användargränssnitt som används för engångskonfiguration och registrering av enheten med Tjänsten StorSimple Device Manager. Du kan använda den för att stänga av och starta om den virtuella matrisen, köra diagnostiska tester, uppdatera programvara, ändra lösenord för enhetsadministratören, visa systemloggar och kontakta Microsoft Support för att lämna in en tjänstbegäran.
 
-Information om hur du använder det webbaserade användar gränssnittet finns i [använda det webbaserade gränssnittet för att administrera din virtuella StorSimple-matris](storsimple-ova-web-ui-admin.md).
+Information om hur du använder det webbaserade användargränssnittet finns i [Använda det webbaserade användargränssnittet för att administrera den virtuella storsimple-matrisen](storsimple-ova-web-ui-admin.md).
 
-### <a name="command-line-interface"></a>Kommando rads gränssnitt
+### <a name="command-line-interface"></a>Kommandoradsgränssnitt
 
-Med Windows PowerShell-gränssnittet som ingår kan du starta en supportbegäran med Microsoft Support så att de kan hjälpa dig att felsöka och lösa problem som du kan stöta på den virtuella matrisen.
+Med det medföljande Windows PowerShell-gränssnittet kan du initiera en supportsession med Microsoft Support så att de kan hjälpa dig att felsöka och lösa problem som kan uppstå på den virtuella matrisen.
 
-## <a name="storage-management-technologies"></a>Lagrings hanterings tekniker
+## <a name="storage-management-technologies"></a>Teknik för lagringshantering
 
-Förutom den virtuella matrisen och andra komponenter använder StorSimple-lösningen följande program varu tekniker för att ge snabb åtkomst till viktiga data, minska lagrings förbrukningen och skydda data som lagras i den virtuella matrisen:
+Förutom den virtuella matrisen och andra komponenter använder StorSimple-lösningen följande programvaruteknik för att ge snabb åtkomst till viktiga data, minska lagringsförbrukningen och skydda data som lagras på din virtuella matris:
 
-* [Automatisk lagrings nivå](#automatic-storage-tiering) 
+* [Automatisk lagringsnivå](#automatic-storage-tiering) 
 * [Lokalt fästa resurser och volymer](#locally-pinned-shares-and-volumes)
-* Deduplicering och komprimering för data skiktad eller säkerhets kopie ras till molnet 
-* [Schemalagda säkerhets kopieringar och säkerhets kopieringar på begäran](#scheduled-and-on-demand-backups)
+* Deduplicering och komprimering för datanivåerade eller säkerhetskopierade till molnet 
+* [Schemalagda och on-demand-säkerhetskopior](#scheduled-and-on-demand-backups)
 
-### <a name="automatic-storage-tiering"></a>Automatisk lagrings nivå
-Den virtuella matrisen använder en ny mekanism för skiktning för att hantera lagrade data över den virtuella matrisen och molnet. Det finns bara två nivåer: den lokala virtuella matrisen och Azures moln lagring. StorSimple virtuella matris ordnar automatiskt data till nivåerna baserat på en värme karta som spårar aktuell användning, ålder och relationer till andra data. Data som är mest aktiva (hetaste) lagras lokalt, medan mindre aktiva och inaktiva data automatiskt migreras till molnet. (Alla säkerhets kopior lagras i molnet.) StorSimple justerar och ordnar om data och lagrings tilldelningar när användnings mönster ändras. Till exempel kan viss information bli mindre aktiv över tid. När den blir progressivt mindre aktiv ligger den i ett steg i molnet. Om samma data aktive ras på nytt, bevaras den i lagringsmatrisen.
+### <a name="automatic-storage-tiering"></a>Automatisk lagringsnivå
+Den virtuella matrisen använder en ny nivåindelningsmekanism för att hantera lagrade data över den virtuella matrisen och molnet. Det finns bara två nivåer: den lokala virtuella matrisen och Azure-molnlagring. StorSimple Virtual Array ordnar automatiskt data i nivåerna baserat på en värmekarta, som spårar aktuell användning, ålder och relationer till andra data. Data som är mest aktiva (hetaste) lagras lokalt, medan mindre aktiva och inaktiva data automatiskt migreras till molnet. (Alla säkerhetskopior lagras i molnet.) StorSimple justerar och ordnar om data- och lagringstilldelningar när användningsmönstren ändras. Viss information kan till exempel bli mindre aktiv med tiden. När den blir progressivt mindre aktiv, är det nivåindelade ut till molnet. Om samma data blir aktiva igen, är det nivåinerat i lagringsmatrisen.
 
-Data för en viss resurs eller volym på nivån garanterar sitt eget lokala lagrings utrymme (cirka 10% av det totala etablerade utrymmet för resursen eller volymen). Detta minskar mängden tillgängligt lagrings utrymme på den virtuella matrisen för resursen eller volymen, men det garanterar att nivåer för en resurs eller volym inte påverkas av nivåernas behov av andra resurser eller volymer. En mycket upptagen arbets belastning på en resurs eller volym kan därför inte tvinga alla andra arbets belastningar till molnet.
+Data för en viss nivåindelad resurs eller volym garanteras dess eget lokala nivåutrymme (cirka 10 % av det totala avvägda utrymmet för den resursen eller volymen). Även om detta minskar det tillgängliga lagringsutrymmet på den virtuella matrisen för den resursen eller volymen, säkerställer det att nivåindelning för en resurs eller volym inte påverkas av nivådelningsbehoven för andra resurser eller volymer. En mycket upptagen arbetsbelastning på en resurs eller volym kan därför inte tvinga alla andra arbetsbelastningar till molnet.
 
-Nivåbaserade volymer som skapas för iSCSI har en maximal lokal reservation på 200 GB oavsett storleken på volymen.
+Nivåindelad volymer som skapats för iSCSI har en maximal lokal reservation på 200 GB oavsett volymens storlek.
 
-![automatisk lagrings nivå](./media/storsimple-ova-overview/automatic-storage-tiering.png)
+![automatisk lagringsnivå](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
 > [!NOTE]
-> Du kan ange en volym som fixerad lokalt, vilket innebär att data förblir kvar på den virtuella matrisen och inte på nivå av molnet. Mer information finns på [lokalt fästa resurser och volymer](#locally-pinned-shares-and-volumes).
+> Du kan ange en volym som lokalt fäst, i vilket fall data finns kvar på den virtuella matrisen och aldrig nivåindelas till molnet. Mer information finns i [Lokalt fästa resurser och volymer](#locally-pinned-shares-and-volumes).
 
 
 ### <a name="locally-pinned-shares-and-volumes"></a>Lokalt fästa resurser och volymer
 
-Du kan skapa lämpliga resurser och volymer som fästa lokalt. Den här funktionen säkerställer att data som krävs av kritiska program finns kvar i den virtuella matrisen och att de inte skiktas i molnet. Lokalt fästa resurser och volymer har följande funktioner:
+Du kan skapa lämpliga resurser och volymer som lokalt fästa. Den här funktionen säkerställer att data som krävs av kritiska program finns kvar i den virtuella matrisen och aldrig är nivåindelade till molnet. Lokalt fästa resurser och volymer har följande funktioner:
 
-* De omfattas inte av moln fördröjningar eller anslutnings problem.
-* De har fortfarande nytta av StorSimple-funktioner för moln säkerhets kopiering och haveri beredskap.
+* De är inte föremål för moln svarstider eller anslutningsproblem.
+* De drar fortfarande nytta av StorSimple-funktioner för säkerhetskopiering och haveriberedskap vid molnet.
 
-Du kan återställa en lokalt fästad resurs eller volym som en nivå eller en delad resurs eller volym som fästs lokalt. 
+Du kan återställa en lokalt fäst resurs eller volym som nivåindelad eller en nivåindelad resurs eller volym som lokalt fäst. 
 
-Mer information om lokalt fästa volymer finns i [använda tjänsten StorSimple Enhetshanteraren för att hantera volymer](storsimple-virtual-array-manage-volumes.md).
+Mer information om lokalt fästa volymer finns i [Använda Tjänsten StorSimple Device Manager för att hantera volymer](storsimple-virtual-array-manage-volumes.md).
 
-### <a name="deduplication-and-compression-for-data-tiered-or-backed-up-to-the-cloud"></a>Deduplicering och komprimering för data skiktad eller säkerhets kopie ras till molnet
+### <a name="deduplication-and-compression-for-data-tiered-or-backed-up-to-the-cloud"></a>Deduplicering och komprimering för datanivåerade eller säkerhetskopierade till molnet
 
-StorSimple använder deduplicering och data komprimering för att ytterligare minska lagrings kraven i molnet. Deduplicering minskar den totala mängden data som lagras genom att eliminera redundans i den lagrade data uppsättningen. När information ändras ignorerar StorSimple de data som inte har ändrats och endast ändringarna samlas in. Dessutom minskar StorSimple mängden lagrade data genom att identifiera och ta bort Duplicerad information.
+StorSimple använder deduplicering och datakomprimering för att ytterligare minska lagringskraven i molnet. Deduplicering minskar den totala mängden data som lagras genom att eliminera redundans i den lagrade datauppsättningen. När informationen ändras ignorerar StorSimple oförändrade data och samlar bara in ändringarna. Dessutom minskar StorSimple mängden lagrade data genom att identifiera och ta bort dubblettinformation.
 
 > [!NOTE]
-> Data som lagras på den virtuella matrisen dedupliceras eller komprimeras inte. All deduplicering och komprimering sker precis innan data skickas till molnet.
+> Data som lagras på den virtuella matrisen är inte deduplicated eller komprimeras. All deduplicering och komprimering sker strax innan data skickas till molnet.
 
-### <a name="scheduled-and-on-demand-backups"></a>Schemalagda säkerhets kopieringar och säkerhets kopieringar på begäran
+### <a name="scheduled-and-on-demand-backups"></a>Schemalagda och on-demand-säkerhetskopior
 
-Med StorSimple Data Protection-funktioner kan du skapa säkerhets kopior på begäran. Ett standard schema för säkerhets kopiering säkerställer dessutom att data säkerhets kopie ras dagligen. Säkerhets kopieringar görs i form av stegvisa ögonblicks bilder som lagras i molnet. Ögonblicks bilder, som endast registrerar ändringarna sedan den senaste säkerhets kopieringen, kan skapas och återställas snabbt. Dessa ögonblicks bilder kan vara viktiga för haveri beredskap eftersom de ersätter sekundära lagrings system (till exempel säkerhets kopiering på band) och gör att du kan återställa data till ditt data Center eller till alternativa platser om det behövs.
+Med StorSimples dataskyddsfunktioner kan du skapa säkerhetskopieringar på begäran. Dessutom säkerställer ett standardschema för säkerhetskopiering att data säkerhetskopieras dagligen. Säkerhetskopior tas i form av inkrementella ögonblicksbilder, som lagras i molnet. Ögonblicksbilder, som bara registrerar ändringarna sedan den senaste säkerhetskopieringen, kan skapas och återställas snabbt. Dessa ögonblicksbilder kan vara mycket viktiga i katastrofåterställningsscenarier eftersom de ersätter sekundära lagringssystem (till exempel säkerhetskopiering av band) och gör att du kan återställa data till ditt datacenter eller till alternativa platser om det behövs.
 
 ## <a name="managing-personal-information"></a>Hantera personlig information
 
-StorSimple-Enhetshanteraren för virtuell serie samlar in personlig information i två nyckel instanser:
- - Varna användar inställningar där e-postadresser till användare har kon figurer ATS. Den här informationen kan rensas av administratören. 
- - Användare som har åtkomst till data som finns på resurserna. En lista över användare som kan komma åt resurs data visas och kan exporteras. Den här listan tas också bort när resurserna tas bort.
+StorSimple Device Manager för virtuella serier samlar in personlig information i två viktiga instanser:
+ - Avisera användarinställningar där e-postadresser till användare är konfigurerade. Den här informationen kan rensas av administratören. 
+ - Användare som kan komma åt data som finns på resurserna. En lista över användare som kan komma åt delningsdata visas och kan exporteras. Den här listan tas också bort när resurserna tas bort.
 
-Mer information hittar du i [Sekretess policyn för Microsoft i säkerhets Center](https://www.microsoft.com/trustcenter).
+Mer information finns i [Microsofts sekretesspolicy på Trust Center](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [förbereder den virtuella mat ris portalen](storsimple-virtual-array-deploy1-portal-prep.md).
+Lär dig hur du [förbereder den virtuella matrisportalen](storsimple-virtual-array-deploy1-portal-prep.md).

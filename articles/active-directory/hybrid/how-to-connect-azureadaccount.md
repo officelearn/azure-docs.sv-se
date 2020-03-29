@@ -1,6 +1,6 @@
 ---
-title: Ändra lösenordet för Azure AD Connector | Microsoft Docs
-description: Det här avsnittet beskrivs hur du återställer Azure AD-anslutningskontot.
+title: Ändra lösenordet för Azure AD Connector-kontot | Microsoft-dokument
+description: Det här avsnittet dokumenterar hur du återställer Azure AD Connector-kontot.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -17,41 +17,41 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67204535"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>Ändra lösenord för Azure AD Connector-kontot
-Azure AD-anslutningskontot ska vara service kostnadsfritt. Om du behöver återställa autentiseringsuppgifterna är det här avsnittet för dig. Till exempel om en Global administratör har av misstag återställer lösenordet för kontot med hjälp av PowerShell.
+Azure AD Connector-kontot ska vara tjänstfritt. Om du behöver återställa dess autentiseringsuppgifter, då det här avsnittet är för dig. Om en global administratör till exempel av misstag har återställt lösenordet på kontot med PowerShell.
 
 ## <a name="reset-the-credentials"></a>Återställa autentiseringsuppgifterna
-Om Azure AD-anslutningskontot inte kan kontakta Azure AD på grund av autentiseringsproblem, kan du återställa lösenordet.
+Om Azure AD Connector-kontot inte kan kontakta Azure AD på grund av autentiseringsproblem kan lösenordet återställas.
 
 1. Logga in på Azure AD Connect-synkroniseringsservern och starta PowerShell.
 2. Kör `Add-ADSyncAADServiceAccount`.  
-   ![PowerShell-cmdlet addadsyncaadserviceaccount](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
-3. Ange autentiseringsuppgifter för Azure AD-Global administratör.
+   ![PowerShell cmdlet addadsyncaadserviceaccount](./media/how-to-connect-azureadaccount/addadsyncaadserviceaccount.png)
+3. Ange Azure AD Global-administratörsautentiseringsuppgifter.
 
-Denna cmdlet återställer lösenordet för tjänstkontot och uppdatera den både i Azure AD och i Synkroniseringsmotorn.
+Den här cmdleten återställer lösenordet för tjänstkontot och uppdaterar det både i Azure AD och i synkroniseringsmotorn.
 
-## <a name="known-issues-these-steps-can-solve"></a>Kända problem som kan lösa de här stegen
-Det här avsnittet är en lista över fel som rapporterats av kunder som korrigerades med en återställning på Azure AD-anslutningskontot autentiseringsuppgifter.
-
----
-Händelsen 6900  
-Ett oväntat fel uppstod vid bearbetning av ett meddelande om lösenordsändring:  
-AADSTS70002: Fel vid verifiering av autentiseringsuppgifter. AADSTS50054: Det gamla lösenordet krävs för autentiseringen.
+## <a name="known-issues-these-steps-can-solve"></a>Kända problem dessa steg kan lösa
+Det här avsnittet är en lista över fel som rapporterats av kunder som har åtgärdats av en återställning av autentiseringsuppgifter på Azure AD Connector-kontot.
 
 ---
-Händelsen 659  
-Fel vid hämtning av lösenord principkonfigurationen synkronisering. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
-AADSTS70002: Fel vid verifiering av autentiseringsuppgifter. AADSTS50054: Det gamla lösenordet krävs för autentiseringen.
+Händelse 6900  
+Servern påträffade ett oväntat fel när ett meddelande om lösenordsändring behandlades:  
+AADSTS70002: Fel uppstod när autentiseringsuppgifter valideras. AADSTS50054: Gammalt lösenord används för autentisering.
+
+---
+Händelse 659  
+Fel vid hämtning av synkronisering av lösenordsprincipsynkronisering. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
+AADSTS70002: Fel uppstod när autentiseringsuppgifter valideras. AADSTS50054: Gammalt lösenord används för autentisering.
 
 ## <a name="next-steps"></a>Nästa steg
-**Översiktsavsnitt**
+**Avsnitt om översikt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Synkronisering av Azure AD Connect: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
 

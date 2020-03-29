@@ -15,10 +15,10 @@ ms.date: 07/24/2018
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020190"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
@@ -62,7 +62,7 @@ När du ska använda Azure CLI med Batch måste du logga in och autentisera. Det
 Det finns några olika sätt att logga in på Azure, läs mer i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli):
 
 1. [Logga in interaktivt](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Logga in interaktivt när du själv kör Azure CLI-kommandon från kommandoraden.
-2. [Logga in med ett huvudnamn för tjänsten](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Logga in med ett huvudnamn för tjänsten när du använder Azure CLI-kommandon från ett skript eller ett program.
+2. [Logga in med ett huvudnamn](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)för tjänsten . Logga in med ett huvudnamn för tjänsten när du använder Azure CLI-kommandon från ett skript eller ett program.
 
 I den här artikeln beskrivs hur du loggar in på Azure interaktivt. Skriv [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) på kommandoraden:
 
@@ -83,7 +83,7 @@ Om du vill använda Azure CLI till att hantera Batch-resurser, som pooler, jobb 
 
 Det finns två alternativ för att autentisera mot Batch-kontot:
 
-- **Med autentisering via Azure Active Directory (Azure AD)** 
+- **Genom att använda Azure Active Directory (Azure AD) autentisering** 
 
     Autentisering med Azure AD är standard när du använder Azure CLI med Batch, och rekommenderas i de flesta situationer. 
     
@@ -97,7 +97,7 @@ Det finns två alternativ för att autentisera mot Batch-kontot:
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **Autentisering med delad nyckel**
+- **Genom att använda autentisering med delad nyckel**
 
     Vid [autentisering med delad nyckel](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) används dina åtkomstnycklar för kontot till att autentisera Azure CLI-kommandon för Batch-tjänsten.
 
@@ -129,7 +129,7 @@ az batch pool create my_batch_pool.json
 
 Du kan skapa de flesta Batch-resurser enbart med kommandoradsalternativ, men vissa funktioner kräver att du anger en JSON-formaterad fil som innehåller information om resursen. Du måste till exempel använda en JSON-fil om du vill ange resursfiler för en startuppgift.
 
-Om du vill se den JSON-syntax som krävs för att skapa en resurs, se [Batch REST API referens][rest_api] dokumentation. Varje ämne om att *lägga till resurstyper* i REST API-referensen innehåller exempel på JSON-skript för att skapa den aktuella resursen. Du kan använda dessa JSON-exempelskript som en mall för JSON-filer att använda med Azure CLI. Om du till exempel vill se JSON-syntaxen för att skapa en pool, se [lägga till en pool till ett konto][rest_add_pool].
+Du kan läsa vilken JSON-syntax som krävs för att skapa en resurs i dokumentationen [Batch REST API reference][rest_api] (REST API-referens för Batch). Varje ämne om att *lägga till resurstyper* i REST API-referensen innehåller exempel på JSON-skript för att skapa den aktuella resursen. Du kan använda dessa JSON-exempelskript som en mall för JSON-filer att använda med Azure CLI. Om du till exempel vill se JSON-syntaxen för att skapa en pool läser du [Add a pool to an account][rest_add_pool] (Lägga till en pool för ett konto).
 
 Ett exempelskript som anger en JSON-fil finns i [Köra ett jobb och aktiviteter med Batch](./scripts/batch-cli-sample-run-job.md).
 

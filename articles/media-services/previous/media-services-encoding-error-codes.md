@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services encoding felkoder | Microsoft Docs
-description: Det här avsnittet visar en lista över felkoder som kan returneras om ett fel uppstod under körning av kodning uppgift...
+title: Felkoder för Azure Media Services -kodning | Microsoft-dokument
+description: I det här avsnittet visas felkoder som kan returneras om ett fel påträffades under körningen av kodning av uppgifter..
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 5c038f0be31acea52c2ef07d43f0dbaf3434a371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64709526"
 ---
-# <a name="encoding-error-codes"></a>Kodning felkoder
+# <a name="encoding-error-codes"></a>Felkoder vid kodning
 
-I följande tabell visas felkoder som kan returneras om ett fel uppstod under aktivitetskörningen kodning.  För att få information om fel i din .NET-kod kan använda den [ErrorDetails](https://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) klass. För att få information om fel i koden REST kan använda den [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API.
+I följande tabell visas felkoder som kunde returneras om ett fel påträffades under körningen av kodningsaktiviteten.  Om du vill hämta felinformation i .NET-koden använder du klassen [ErrorDetails.](https://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) Om du vill hämta felinformation i REST-koden använder du [REST-API:et för ErrorDetail.](https://msdn.microsoft.com/library/jj853026.aspx)
 
-| ErrorDetail.Code | Möjliga orsaker till felet |
+| ErrorDetail.Code | Möjliga orsaker till fel |
 | --- | --- |
-| Okänt |Ett okänt fel när aktiviteten körs |
-| ErrorDownloadingInputAssetMalformedContent |Kategori för fel som avser fel nedladdningen av indatatillgången, till exempel felaktigt filnamn, noll längd-filer, som felaktigt format och så vidare. |
-| ErrorDownloadingInputAssetServiceFailure |Kategori för fel som beskriver problem på serversidan - exempel nätverks- eller fel vid nedladdning. |
-| ErrorParsingConfiguration |Kategori för fel där uppgiften \<Se cref="MediaTask.PrivateData"/ > (konfiguration) är inte giltigt, till exempel konfigurationen är inte ett giltigt system förinställda eller innehåller ogiltig XML. |
-| ErrorExecutingTaskMalformedContent |Kategori för fel vid körning av aktiviteten där problemen i de inkommande mediefilerna leda till fel. |
-| ErrorExecutingTaskUnsupportedFormat |Kategori för fel där mediebearbetare kan inte bearbeta de filer som tillhandahålls – medieformat inte stöds eller matchar inte konfigurationen. Exempel: försöker producera utdata enbart ljud från en tillgång som har endast video |
-| ErrorProcessingTask |Kategori för andra fel som mediebearbetare som uppstår under bearbetningen av uppgiften som inte är relaterade till innehåll. |
+| Okänt |Okänt fel när aktiviteten kördes |
+| FelLadda nerInputAssetMalformedContent |Kategori av fel som täcker fel i nedladdning av indata, till exempel felaktiga filnamn, nolllängdsfiler, felaktiga format och så vidare. |
+| FelLadda nerInputAssetServiceFailure |Kategori av fel som täcker problem på tjänstsidan - till exempel nätverks- eller lagringsfel vid nedladdning. |
+| ErrorParsingConfiguration |Kategori av fel \<där aktiviteten se cref="MediaTask.PrivateData"/> (konfiguration) är ogiltig, till exempel är konfigurationen inte en giltig systemförinställning eller den innehåller ogiltig XML. |
+| FelUtföraTadMalformadinnehåll |Kategori av fel under körningen av uppgiften där problem i indatamediefilerna orsakar fel. |
+| FelExecutingTaskUnsupportedFormat |Kategori av fel där medieprocessorn inte kan bearbeta filerna - medieformat stöds inte eller matchar inte konfigurationen. Om du till exempel försöker producera en ljudutdata från en tillgång som bara har |
+| FelProcessingTask |Kategori av andra fel som medieprocessorn stöter på under bearbetningen av uppgiften som inte är relaterade till innehåll. |
 | ErrorUploadingOutputAsset |Kategori av fel vid uppladdning av utdatatillgången |
-| ErrorCancelingTask |Kategori för att täcka fel vid försök att avbryta aktiviteten |
-| TransientError |Kategori för att täcka tillfälliga problem (t.ex.) tillfällig nätverksproblem har uppstått med Azure Storage) |
+| ErrorCancelingTask |Kategori av fel för att täcka fel vid försök att avbryta aktiviteten |
+| Transienterror |Kategori av fel för att täcka tillfälliga frågor (t.ex. tillfälliga nätverksproblem med Azure Storage) |
 
-Att få hjälp från den **Media Services** -teamet öppen en [supportärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Öppna en [supportbiljett](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)om du vill ha hjälp av **Media Services-teamet.**
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -47,7 +47,7 @@ Att få hjälp från den **Media Services** -teamet öppen en [supportärende](h
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [Utför avancerad kodningsuppgifter genom att anpassa förinställningar för Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
+* [Utföra avancerade kodningsuppgifter genom att anpassa standardförinställningar för mediekodare](media-services-custom-mes-presets-with-dotnet.md)
 * [Kvoter och begränsningar](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->

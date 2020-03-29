@@ -1,5 +1,5 @@
 ---
-title: Förstå rolldelegering admin - Azure Active Directory | Microsoft Docs
+title: Förstå delegering av administratörsroller - Azure Active Directory | Microsoft-dokument
 description: Delegeringsmodeller, exempel och rollsäkerhet i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,91 +16,91 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6fa3c6bf39dbef601fe64e125999f519f725f2e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67083775"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegera administration i Azure Active Directory
 
-Kommer komplexiteten med organisationens tillväxt. Ett vanligt svar är att minska arbetsbelastningen för åtkomsthantering med administratörsroller i Azure Active Directory (AD). Du kan tilldela minsta möjliga behörighet för användare att komma åt sina appar och utföra sina uppgifter. Även om du inte tilldelar rollen som Global administratör till varje programmets ägare, placerar du application management ansvarsområden på befintliga globala administratörer. Det finns flera anledningar till att en organisation steg mot ett mer decentraliserad administration. Den här artikeln kan hjälpa dig att planera för delegering i din organisation.
+Med organisatorisk tillväxt kommer komplexitet. Ett vanligt svar är att minska en del av arbetsbelastningen för åtkomsthantering med Azure Active Directory (AD) administratörsroller. Du kan tilldela användarna minsta möjliga behörighet att komma åt sina appar och utföra sina uppgifter. Även om du inte tilldelar rollen Global administratör till alla programägare placerar du programhanteringsansvar på befintliga globala administratörer. Det finns många orsaker till att en organisation rör sig mot en mer decentraliserad administration. Den här artikeln kan hjälpa dig att planera för delegering i organisationen.
 
 <!--What about reporting? Who has which role and how do I audit?-->
 
-## <a name="centralized-versus-delegated-permissions"></a>Centraliserad jämfört med delegerade behörigheter
+## <a name="centralized-versus-delegated-permissions"></a>Centraliserade kontra delegerade behörigheter
 
-När organisationen växer, kan det vara svårt att hålla reda på vilka användare som har specifika administrativa roller. Om en medarbetare har administratörsbehörighet som de får inte kan kan din organisation vara svårare att säkerhetsintrång. I allmänhet hur många administratörer du stöder och hur detaljerade har beror på storleken och komplexiteten för din distribution.
+När en organisation växer kan det vara svårt att hålla reda på vilka användare som har specifika administratörsroller. Om en anställd har administratörsrättigheter som de inte borde kan din organisation vara mer mottaglig för säkerhetsöverträdelser. I allmänhet beror hur många administratörer du stöder och hur detaljerade deras behörigheter är på distributionens storlek och komplexitet.
 
-* I små eller proof of concept-distributioner göra en eller några få administratörer allt; Det finns ingen delegering. I det här fallet skapa varje administratör med rollen Global administratör.
-* I större distributioner med flera datorer, program och skrivbord krävs mer delegering. Flera administratörer kan ha mer specifika funktionella ansvarsområden (roller). Till exempel vissa kanske är privilegierad Identitetsadministratörer och medan andra kan vara administratörer. Dessutom kan en administratör hantera endast vissa grupper med objekt, till exempel enheter.
-* Ännu större distributioner kan kräva ännu mer detaljerade behörigheter plus eventuellt administratörer med ovanliga eller hybrid roller.
+* I små eller proof-of-concept-distributioner gör en eller några administratörer allt. Det finns ingen delegation. Skapa i så fall varje administratör med rollen Global administratör.
+* I större distributioner med fler datorer, program och skrivbord behövs mer delegering. Flera administratörer kan ha mer specifika funktionella ansvarsområden (roller). Vissa kan till exempel vara privilegierade identitetsadministratörer och andra kan vara programadministratörer. Dessutom kan en administratör endast hantera vissa grupper av objekt, till exempel enheter.
+* Ännu större distributioner kan kräva ännu mer detaljerade behörigheter, plus eventuellt administratörer med okonventionella eller hybridroller.
 
-I Azure AD-portalen kan du [visa alla medlemmar i någon roll](directory-manage-roles-portal.md), som hjälper dig att snabbt kontrollera dina distributions- och delegera behörigheter.
+I Azure AD-portalen kan du [visa alla medlemmar i valfri roll](directory-manage-roles-portal.md), vilket kan hjälpa dig att snabbt kontrollera distributionen och delegera behörigheter.
 
-Om du är intresserad av att delegera åtkomst till Azure-resurser i stället för administrativ åtkomst i Azure AD, se [tilldela en roll för rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/role-assignments-portal.md).
+Om du är intresserad av att delegera åtkomst till Azure-resurser i stället för administrativ åtkomst i Azure AD läser [du Tilldela en rbac-roll (Role-based Access Control).](../../role-based-access-control/role-assignments-portal.md)
 
-## <a name="delegation-planning"></a>Planera för delegering
+## <a name="delegation-planning"></a>Planering av delegering
 
-Det är att utveckla en delegeringsmodell som passar dina behov. Utveckla en delegeringsmodell är en process för upprepad konstruktion och vi rekommenderar att du följer dessa steg:
+Det är ett arbete med att utveckla en delegeringsmodell som passar dina behov. Att utveckla en delegeringsmodell är en iterativ designprocess och vi föreslår att du följer dessa steg:
 
-* Definiera de roller som du behöver
-* Delegera administration av app
-* Ger möjlighet att registrera program
-* Delegera app ägarskap
-* Utveckla en säkerhetsplan för
-* Upprätta vid akutfall konton
-* Skydda din administratörsroller
-* Kontrollera Privilegierade höjning tillfälliga
+* Definiera de roller du behöver
+* Delegera appadministration
+* Ge möjlighet att registrera ansökningar
+* Delegera appägarskap
+* Ta fram en säkerhetsplan
+* Upprätta nödkonton
+* Skydda dina administratörsroller
+* Gör privilegierad höjning tillfällig
 
 ## <a name="define-roles"></a>Definiera roller
 
-Fastställa Active Directory-aktiviteter som utförs av administratörer och hur de mappas till roller. Du kan [visa detaljerad rollbeskrivningar](directory-manage-roles-portal.md) i Azure-portalen.
+Bestäm de Active Directory-uppgifter som utförs av administratörer och hur de mappas till roller. Du kan [visa detaljerade rollbeskrivningar](directory-manage-roles-portal.md) i Azure-portalen.
 
-Varje aktivitet bör utvärderas för frekvens, prioritet och problem. Dessa kriterier är viktiga aspekter av aktivitetsdefinition eftersom de styr om en behörighet som ska delegeras:
+Varje uppgift bör utvärderas med anledning av frekvens, betydelse och svårighet. Dessa kriterier är viktiga aspekter av uppgiftsdefinitionen eftersom de styr om ett tillstånd ska delegeras:
 
-* Uppgifter att göra regelbundet, har begränsad risk och är helt enkelt att fullständiga är perfekta kandidater för delegering.
-* Uppgifter som att du gör sällan men har kraftigt påverka hela organisationen och kräver hög erfarenhetsnivåer bör övervägas mycket noggrant innan du delegera. I stället kan du [tillfälligt höja ett konto till de nödvändiga rolltjänsterna](../active-directory-privileged-identity-management-configure.md) eller omtilldela uppgiften.
+* Uppgifter som du gör rutinmässigt, har begränsad risk, och är triviala att slutföra är utmärkta kandidater för delegering.
+* Uppgifter som du sällan gör men har stor inverkan i hela organisationen och kräver höga kompetensnivåer bör övervägas mycket noggrant innan delegering. I stället kan du [tillfälligt höja ett konto till den nödvändiga rollen](../active-directory-privileged-identity-management-configure.md) eller tilldela om uppgiften.
 
-## <a name="delegate-app-administration"></a>Delegera administration av app
+## <a name="delegate-app-administration"></a>Delegera appadministration
 
-Ökningen av appar i din organisation kan överbelasta dina delegeringsmodell. Om belastningen för hantering av programåtkomst placeras på den globala administratören, är det troligt att modellen ökar overhead med tiden. Om du har beviljat personer rollen Global administratör för till exempel konfigurera företagsprogram, kan du nu omfördela dem till följande mindre privilegierade roller. Detta hjälper oss för att förbättra din säkerhetsposition och minskar risken för olycklig misstag. Administratörsroller högprivilegierade de flesta program är:
+Spridningen av appar inom organisationen kan anstränga din delegeringsmodell. Om det lägger bördan för hantering av programåtkomst på den globala administratören är det troligt att modellen ökar dess omkostnader med tiden. Om du har gett personer rollen Global administratör för saker som att konfigurera företagsprogram kan du nu avlasta dem till följande mindre privilegierade roller. Detta bidrar till att förbättra din säkerhetsposition och minskar risken för olyckliga misstag. De mest privilegierade programadministratörsrollerna är:
 
-* Den **programadministratör** vilket ger möjlighet att hantera alla program i katalogen, inklusive registreringar, inställningar för enkel inloggning, användaren och grupptilldelningar och licensiering, Application Proxy-inställningar och medgivande. Det ger inte möjlighet att hantera villkorlig åtkomst.
-* Den **Molnprogramadministratör** vilket ger alla funktioner av programadministratör förutom det inte ger åtkomst till Application Proxy-inställningar (eftersom det har inte behörighet för lokalt).
+* Rollen **Programadministratör,** som ger möjlighet att hantera alla program i katalogen, inklusive registreringar, inställningar för enkel inloggning, användar- och grupptilldelningar och licensiering, inställningar för programproxy och medgivande. Det ger inte möjlighet att hantera villkorlig åtkomst.
+* Rollen **Cloud Application Administrator,** som ger alla funktioner för programadministratören, förutom att den inte ger åtkomst till inställningar för programproxy (eftersom den inte har någon lokal behörighet).
 
 ## <a name="delegate-app-registration"></a>Delegera appregistrering
 
-Alla användare kan skapa programregistreringar som standard. Så här selektivt ger möjlighet att skapa programregistreringar:
+Som standard kan alla användare skapa programregistreringar. Så här ger du selektivt möjlighet att skapa programregistreringar:
 
-* Ange **användare kan registrera program** på Nej i **användarinställningar**
-* Tilldela användaren till rollen programutvecklare
+* Ange **användare kan registrera program** till Nej i **användarinställningar**
+* Tilldela användaren till rollen Programutvecklare
 
-Så här selektivt ger möjlighet att godkänna att programmet kan komma åt data:
+Att selektivt ge möjlighet att samtycka till att tillåta en ansökan att få tillgång till data:
 
-* Ange **användare kan samtycka till program som får åtkomst till företagsdata å deras vägnar** till Nej i **användarinställningar**
-* Tilldela användaren till rollen programutvecklare
+* Ange **att användare kan godkänna program som använder företagsdata för deras räkning** Till nej i **användarinställningar**
+* Tilldela användaren till rollen Programutvecklare
 
-När en programutvecklare skapar en ny programregistrering, läggs de automatiskt som första ägare.
+När en programutvecklare skapar en ny programregistrering läggs de automatiskt till som den första ägaren.
 
-## <a name="delegate-app-ownership"></a>Delegera app ägarskap
+## <a name="delegate-app-ownership"></a>Delegera appägarskap
 
-För ännu mer detaljerad appen åtkomst delegering kan du tilldela ägarskap till enskilda företagsprogram. Detta kompletterar befintliga stöd för att tilldela programägare för registrering. Ägarskap tilldelas regelbundet per enterprise program i bladet företagsprogram. Fördelen är ägare kan hantera endast för företagsprogram som de äger. Exempelvis kan du tilldela en ägare till Salesforce-programmet och den aktuella ägaren kan hantera åtkomst till och konfiguration för Salesforce och inga andra program. Ett enterprise-program kan ha många ägare och en användare kan vara ägare för många företagsprogram. Det finns två ägare roller:
+För ännu finare åtkomstdelegering av app kan du tilldela ägarskap till enskilda företagsprogram. Detta kompletterar det befintliga stödet för tilldelning av ägare av programregistrering. Ägarskapet tilldelas per företagsapplikation i bladet Enterprise Applications. Fördelen är att ägarna endast kan hantera de företagsprogram de äger. Du kan till exempel tilldela en ägare för Salesforce-programmet och den ägaren kan hantera åtkomst till och konfiguration för Salesforce och inga andra program. Ett företagsprogram kan ha många ägare och en användare kan vara ägare till många företagsprogram. Det finns två rollerna för appens ägare:
 
-* Den **Enterprise programmets ägare** rollen ger dig möjlighet att hantera den ' företagsprogram som användaren äger, inklusive inställningar för enkel inloggning, användaren och grupptilldelningar och lägga till ytterligare ägare. Det ger inte möjlighet att hantera inställningar för Application Proxy eller villkorlig åtkomst.
-* Den **registrering Programägaren** rollen ger dig möjlighet att hantera programregistreringar för appen som användaren äger, inklusive applikationsmanifestet och lägga till ytterligare ägare.
+* Rollen **Ägare av företagsprogram** ger möjlighet att hantera de företagsprogram som användaren äger, inklusive inställningar för enkel inloggning, användar- och grupptilldelningar och lägga till ytterligare ägare. Det ger inte möjlighet att hantera inställningar för programproxy eller villkorlig åtkomst.
+* Rollen Ägare för **programregistrering** ger möjlighet att hantera programregistreringar för app som användaren äger, inklusive programmanifestet och lägga till ytterligare ägare.
 
-## <a name="develop-a-security-plan"></a>Utveckla en säkerhetsplan för
+## <a name="develop-a-security-plan"></a>Ta fram en säkerhetsplan
 
-Azure AD tillhandahåller en omfattande guide till planering och köra en skyddsplan på din Azure AD-administratörsroller [referensmaterialet för att skydda privilegierad åtkomst för hybrid- och distributioner](directory-admin-roles-secure.md).
+Azure AD innehåller en omfattande guide för planering och körning av en säkerhetsplan för dina Azure AD-administratörsroller, [skydda privilegierad åtkomst för hybrid- och molndistributioner](directory-admin-roles-secure.md).
 
-## <a name="establish-emergency-accounts"></a>Upprätta vid akutfall konton
+## <a name="establish-emergency-accounts"></a>Upprätta nödkonton
 
-Om du vill ha tillgång till hanteringsarkivet för din identitet när problem uppstår, förbereda konton för åtkomst vid akutfall enligt [skapa nödfall-åtkomst till administratörskonton](directory-emergency-access.md).
+Förbered konton för nödåtkomst enligt Skapa administrativa konton för [nödåtkomst](directory-emergency-access.md)om du vill behålla åtkomsten till ditt identitetshanteringsarkiv när problemet uppstår.
 
-## <a name="secure-your-administrator-roles"></a>Skydda din administratörsroller
+## <a name="secure-your-administrator-roles"></a>Skydda dina administratörsroller
 
-Angripare som får kontroll över Privilegierade konton kan göra enorma skada, så skydda dessa konton först med hjälp av den [baslinje åtkomstprincip](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) som är tillgängligt som standard för alla Azure AD-klienter (i allmänt tillgänglig förhandsversion). Principen framtvingar multifaktorautentisering på Privilegierade konton för Azure AD. Följande roller i Azure AD omfattas av Azure AD-baslinjeprincip:
+Angripare som får kontroll över privilegierade konton kan göra enorma skador, så skydda dessa konton först, med hjälp av [baslinjeåtkomstprincipen](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/22/baseline-security-policy-for-azure-ad-admin-accounts-in-public-preview/) som är tillgänglig som standard för alla Azure AD-klienter (i offentlig förhandsversion). Principen tillämpar multifaktorautentisering på privilegierade Azure AD-konton. Följande Azure AD-roller omfattas av Azure AD-originalprincipen:
 
 * Global administratör
 * SharePoint-administratör
@@ -108,10 +108,10 @@ Angripare som får kontroll över Privilegierade konton kan göra enorma skada, 
 * Administratör för villkorlig åtkomst
 * Säkerhetsadministratör
 
-## <a name="elevate-privilege-temporarily"></a>Utöka privilegier tillfälligt
+## <a name="elevate-privilege-temporarily"></a>Höj privilegiet tillfälligt
 
-Alla användare behöver behörighet som global administratör för de flesta dagliga aktiviteter, och inte alla permanent ska tilldelas till rollen som Global administratör. När användare behöver behörigheterna för en Global administratör, bör de aktivera rolltilldelning i Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) på sitt eget konto eller ett alternativt administrativt konto.
+För de flesta dagliga aktiviteter behöver inte alla användare globala administratörsrättigheter, och alla av dem bör inte tilldelas permanent till rollen Global administratör. När användare behöver behörigheter för en global administratör bör de aktivera rolltilldelningen i Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) på antingen sitt eget konto eller ett alternativt administrativt konto.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En referens till Azure AD-rollbeskrivningar finns [Tilldela administratörsroller i Azure AD](directory-assign-admin-roles.md)
+En referens till Azure AD-rollbeskrivningarna finns [i Tilldela administratörsroller i Azure AD](directory-assign-admin-roles.md)

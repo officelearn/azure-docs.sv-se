@@ -1,86 +1,86 @@
 ---
-title: Azure Service Fabric CLI – sfctl nät volym
-description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hämta och ta bort volym resurser.
+title: Azure Service Fabric CLI- sfctl mesh volym
+description: Lär dig mer om sfctl, kommandoradsgränssnittet i Azure Service Fabric. Innehåller en lista med kommandon för att hämta och ta bort volymresurser.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 0e5ba1a311bd0480c56ee40edf01fc13ec01664a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905907"
 ---
 # <a name="sfctl-mesh-volume"></a>sfctl mesh volume
-Hämta och ta bort volym resurser.
+Hämta och ta bort volymresurser.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort volym resursen. |
-| lista | Visar en lista över alla volym resurser. |
-| visa | Hämtar volym resursen med det aktuella namnet. |
+| delete | Tar bort volymresursen. |
+| lista | Visar alla volymresurser. |
+| visa | Hämtar volymresursen med förnamnet. |
 
-## <a name="sfctl-mesh-volume-delete"></a>sfctl nät volym borttagning
-Tar bort volym resursen.
+## <a name="sfctl-mesh-volume-delete"></a>sfctl mesh volym ta bort
+Tar bort volymresursen.
 
-Tar bort volym resursen som identifieras av namnet.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Name-n [required] | Namnet på volymen. |
-
-### <a name="global-arguments"></a>Globala argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
-
-## <a name="sfctl-mesh-volume-list"></a>sfctl nät volym lista
-Visar en lista över alla volym resurser.
-
-Hämtar information om alla volym resurser i en specifik resurs grupp. Informationen inkluderar beskrivning och andra egenskaper för volymen.
-
-### <a name="global-arguments"></a>Globala argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
-
-## <a name="sfctl-mesh-volume-show"></a>sfctl nät volym Visa
-Hämtar volym resursen med det aktuella namnet.
-
-Hämtar information om volym resursen med det aktuella namnet. Informationen inkluderar beskrivning och andra egenskaper för volymen.
+Tar bort volymresursen som identifieras med namnet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Name-n [required] | Namnet på volymen. |
+| --namn -n [Obligatoriskt] | Namnet på volymen. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+
+## <a name="sfctl-mesh-volume-list"></a>volymlista för sfctl-nät
+Visar alla volymresurser.
+
+Hämtar information om alla volymresurser i en viss resursgrupp. Informationen innehåller volymens beskrivning och andra egenskaper.
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+
+## <a name="sfctl-mesh-volume-show"></a>sfctl mesh volym visa
+Hämtar volymresursen med förnamnet.
+
+Hämtar information om volymresursen med förnamnet. Informationen innehåller volymens beskrivning och andra egenskaper.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --namn -n [Obligatoriskt] | Namnet på volymen. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Ställ in](service-fabric-cli.md) Service Fabric CLI.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempelskripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

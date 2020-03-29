@@ -1,5 +1,5 @@
 ---
-title: Bädda in Azure Cloudshell | Microsoft Docs
+title: Bädda in Azure Cloud Shell | Microsoft-dokument
 description: Lär dig att bädda in Azure Cloud Shell.
 services: cloud-shell
 documentationcenter: ''
@@ -15,47 +15,47 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: damaerte
 ms.openlocfilehash: bbf6c1f3049265961559ea34c8b748b2b4d263b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60614314"
 ---
-# <a name="embed-azure-cloud-shell"></a>Embed Azure Cloud Shell
+# <a name="embed-azure-cloud-shell"></a>Bädda in Azure Cloud Shell
 
-Bädda in Cloud Shell kan utvecklare och innehåll skrivare direkt öppna Cloud Shell från en dedikerad URL [shell.azure.com](https://shell.azure.com). Detta öppnar omedelbart alla fördelar med Cloud Shell-autentisering, verktyg, och uppdaterade Azure CLI/Azure PowerShell-verktygen till dina användare.
+Inbäddning Cloud Shell gör det möjligt för utvecklare och innehållsförfattare att direkt öppna Cloud Shell från en dedikerad URL, [shell.azure.com](https://shell.azure.com). Detta ger omedelbart den fulla kraften i Cloud Shells autentisering, verktyg och uppdaterade Azure CLI/Azure PowerShell-verktyg till användarna.
 
-Vanliga storlekar knappen
+Knappen Normal storlek
 
-[![Vanliga starta](https://shell.azure.com/images/launchcloudshell.png "starta Azure Cloud Shell")](https://shell.azure.com)
+[![Regelbunden lansering](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 
-Stor storlek knapp
+Knappen Stor storlek
 
-[![Stora starta](https://shell.azure.com/images/launchcloudshell@2x.png "starta Azure Cloud Shell")](https://shell.azure.com)
+[![Stor lansering](https://shell.azure.com/images/launchcloudshell@2x.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 
 ## <a name="how-to"></a>Så här gör du
 
-Integrera Cloud Shell Start-knappen i markdown-filer genom att kopiera följande:
+Integrera Cloud Shells startknapp i markdown-filer genom att kopiera följande:
 
 ```markdown
 [![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 ```
 
-HTML att bädda in ett popup-fönster Cloud Shell är nedan:
+HTML för att bädda in ett popup-molnskal finns nedan:
 ```html
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><img alt="Launch Azure Cloud Shell" src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
 
 ## <a name="customize-experience"></a>Anpassa upplevelsen
 
-Ange en specifik skalupplevelse genom att utöka din URL.
+Ange en specifik skalupplevelse genom att utöka webbadressen.
 
-|Upplevelse   |URL   |
+|Erfarenhet   |URL   |
 |---|---|
-|Senast använda shell   |[shell.azure.com](https://shell.azure.com)           |
+|Senast använda skal   |[shell.azure.com](https://shell.azure.com)           |
 |Bash                       |[shell.azure.com/bash](https://shell.azure.com/bash)       |
 |PowerShell                 |[shell.azure.com/powershell](https://shell.azure.com/powershell) |
 
 ## <a name="next-steps"></a>Nästa steg
-[Bash i Cloud Shell-Snabbstart](quickstart.md)<br>
-[PowerShell i Cloud Shell-Snabbstart](quickstart-powershell.md)
+[Bash i Cloud Shell snabbstart](quickstart.md)<br>
+[PowerShell i Cloud Shell snabbstart](quickstart-powershell.md)

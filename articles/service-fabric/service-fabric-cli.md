@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258946"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
@@ -18,11 +18,11 @@ Azure Service Fabric-kommandoradsgränssnittet (CLI) är ett kommandoradsverktyg
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrollera att din miljö har både Python och pip installerade före installationen. Mer information finns i [snabbstartdokumentationen för pip](https://pip.pypa.io/en/latest/quickstart/) och den officiella [dokumentationen för installation av Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
-CLI stöder python-versionerna 2,7, 3,5, 3,6 och 3,7. Python 3. x är den rekommenderade versionen eftersom python 2,7 når snart slut på supporten.
+CLI stöder Python version 2.7, 3.5, 3.6 och 3.7. Python 3.x är den rekommenderade versionen, eftersom Python 2.7 kommer att nå slutet av supporten snart.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric-mål-runtime
 
@@ -30,7 +30,7 @@ Service Fabric CLI är tänkt att stödja den senaste runtime-versionen av Servi
 
 | CLI-version   | runtime-version som stöds |
 |---------------|---------------------------|
-| Senaste (~ = 9)  | Senaste (~ = 7)              |
+| Senaste (~=9)  | Senaste (~=7)              |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
@@ -39,7 +39,7 @@ Service Fabric CLI är tänkt att stödja den senaste runtime-versionen av Servi
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
-Alternativt kan du ange en målversion av CLI för installation genom att ange suffixet `pip install` för kommandot `==<version>`. Till exempel skulle syntaxen för version 1.1.0 vara:
+Alternativt kan du ange en målversion av CLI för installation genom att ange suffixet `==<version>` för kommandot `pip install`. Till exempel skulle syntaxen för version 1.1.0 vara:
 
 ```shell
 pip install -I sfctl==1.1.0
@@ -57,11 +57,11 @@ Du kan installera pip och Python på din plattform på många olika sätt. Följ
 
 I Windows 10, Windows Server 2016 och Windows Server 2012 R2 använder du de officiella anvisningarna för standardinstallation. Python-installationsprogrammet installerar även pip som standard.
 
-1. Gå till den officiella [sidan för python-nedladdningar](https://www.python.org/downloads/)och ladda ned den senaste versionen av python 3,7.
+1. Gå till den officiella [sidan för nedladdningar](https://www.python.org/downloads/)av Python och ladda ned den senaste versionen av Python 3.7.
 
 2. Starta installationsprogrammet.
 
-3. Klicka på **Lägg till Python 3,7 i sökvägen**längst ned i prompten.
+3. Längst ned i prompten väljer du **Lägg till Python 3.7 i PATH**.
 
 4. Välj **Installera nu** och slutför installationen.
 
@@ -72,7 +72,7 @@ python --version
 pip --version
 ```
 
-Kör sedan följande kommando för att installera Azure Service Fabric CLI (sfctl) och Visa hjälp sidan för CLI:
+Kör sedan följande kommando för att installera Azure Service Fabric CLI (sfctl) och visa CLI-hjälpsidan:
 
 ```shell
 pip install sfctl
@@ -112,9 +112,9 @@ Om installationen på Windows-undersystemet för Linux misslyckas med felaktiga 
 sudo pip3 install sfctl
 ```
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (support för förhandsversion av Service Fabric)
+### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (stöd för förhandsversion av Service Fabric)
 
-Kör följande kommandon för att installera Service Fabric CLI i Red Hat:
+Så här installerar du Service Fabric CLI på Red Hat:
 
 ```bash
 sudo yum install -y python34
@@ -123,7 +123,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-För att testa installationen kan du läsa de steg som beskrivs i avsnittet **Ubuntu och Windows-undersystem för Linux**
+För att testa installationen kan du läsa stegen som nämns i **Ubuntu och Windows delsystem för** Linux-sektionen
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS
@@ -134,7 +134,7 @@ För MacOS rekommenderar vi att du använder [HomeBrew-pakethanteraren](https://
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Installera sedan python 3,7, pip och Service Fabric CLI från terminalen genom att köra följande kommandon:
+Installera sedan Python 3.7, pip och Service Fabric CLI från terminalen genom att köra följande kommandon:
 
 ```bash
 brew install python3
@@ -240,7 +240,7 @@ Kontrollera att den angivna kluster-slutpunkten är tillgänglig och lyssnar. Ko
 
 ### <a name="detailed-logs"></a>Detaljerade loggar
 
-Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. `--debug`-flaggan ökar utförligheten för utdata.
+Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. Flaggan `--debug` ökar utdatas verbositet.
 
 ### <a name="command-help-and-syntax"></a>Hjälp och syntax för kommandon
 

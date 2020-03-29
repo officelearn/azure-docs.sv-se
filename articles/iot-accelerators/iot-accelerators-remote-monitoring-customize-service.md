@@ -1,6 +1,6 @@
 ---
-title: Lägga till en tjänst av lösningen för fjärrövervakning gränssnitt – Azure | Microsoft Docs
-description: Den här artikeln visar hur du lägger till en ny tjänst i Remote Monitoring solution accelerator webbgränssnittet.
+title: Lägga till en tjänst i lösningsgränssnittet för fjärrövervakning – Azure | Microsoft-dokument
+description: I den här artikeln visas hur du lägger till en ny tjänst i webbgränssnittet för fjärrövervakningslösningsaccelerator.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,81 +9,81 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447054"
 ---
-# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägga till en anpassad tjänst fjärrövervakning solution accelerator webbgränssnittet
+# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Lägga till en anpassad tjänst i webbgränssnittet för lösningsaccelerator för fjärrövervakning
 
-Den här artikeln visar hur du lägger till en ny tjänst i Remote Monitoring solution accelerator webbgränssnittet. Artikeln beskriver:
+I den här artikeln visas hur du lägger till en ny tjänst i webbgränssnittet för fjärrövervakningslösningsaccelerator. Artikeln beskriver:
 
-- Så här förbereder du en lokal utvecklingsmiljö.
-- Hur du lägger till en ny tjänst till webbgränssnittet.
+- Hur man förbereder en lokal utvecklingsmiljö.
+- Så här lägger du till en ny tjänst i webbgränssnittet.
 
-Tjänsten exemplet i den här artikeln visar data för ett rutnät som den [lägga till ett anpassat rutnät till fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-grid.md) artikel visar hur du lägger till.
+Exempeltjänsten i den här artikeln innehåller data för ett rutnät som i artikeln [Lägg till ett anpassat rutnät i webbgränssnittet för fjärrövervakningslösningsportal](iot-accelerators-remote-monitoring-customize-grid.md) visar hur du lägger till.
 
-I en React-program interagerar en tjänst normalt med en backend tjänst. Exempel på lösningsacceleratorn för fjärrövervakning är tjänster som interagerar med IoT hub-hanterare och konfiguration av mikrotjänster.
+I ett React-program interagerar en tjänst vanligtvis med en backend-tjänst. Exempel i lösningsacceleratorn för fjärrövervakning är tjänster som interagerar med IoT-hubbhanteraren och konfigurationsmikrotjänsterna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Följande programvara installerad på din lokala utvecklingsdator måste slutföra stegen i den här guiden:
+För att kunna slutföra stegen i den här programguiden behöver du följande programvara installerad på din lokala utvecklingsdator:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Du måste slutföra stegen i den [Lägg till en anpassad sida fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-page.md) artikel innan du fortsätter.
+Du bör slutföra stegen i sidan Lägg till en anpassad sida i [webbgränssnittet för webbgränssnitt för fjärrövervakningslösningsaccelerator](iot-accelerators-remote-monitoring-customize-page.md) innan du fortsätter.
 
 ## <a name="add-a-service"></a>Lägg till en tjänst
 
-Om du vill lägga till en tjänst till webbgränssnittet för måste du lägga till källfilerna som definierar tjänsten och ändra befintliga filer om du vill göra webbgränssnittet medveten om den nya tjänsten.
+Om du vill lägga till en tjänst i webbgränssnittet måste du lägga till källfilerna som definierar tjänsten och ändra vissa befintliga filer så att webbgränssnittet får kännedom om den nya tjänsten.
 
-### <a name="add-the-new-files-that-define-the-service"></a>Lägg till de nya filerna som definierar tjänsten
+### <a name="add-the-new-files-that-define-the-service"></a>Lägga till de nya filer som definierar tjänsten
 
-Att komma igång, den **src/genomgången/tjänster** mappen innehåller de filer som definierar en enkel tjänst:
+För att komma igång innehåller **mappen src/walkthrough/services** de filer som definierar en enkel tjänst:
 
-**exampleService.js**
+**exempelService.js**
 
 [!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
 
-Läs mer om hur tjänster är implementerade i [introduktion till reaktiv programmering du har saknat](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).
+Mer information om hur tjänster implementeras finns i [Introduktionen till Reaktiv programmering som du har saknat.](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754)
 
-**model/exampleModels.js**
+**modell/exempelModels.js**
 
 [!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
 
-Kopiera **exampleService.js** till den **src/tjänster** mapp och kopierar **exampleModels.js** till den **src-services-modeller** mapp.
+Kopiera **exempelService.js** till **mappen src/services** och kopiera **exampleModels.js** till **mappen src/services/models.**
 
-Uppdatera den **index.js** fil i den **src/tjänster** mapp du vill exportera den nya tjänsten:
+Uppdatera **filen index.js** i **mappen src/services** för att exportera den nya tjänsten:
 
 ```js
 export * from './exampleService';
 ```
 
-Uppdatera den **index.js** fil i den **src-services-modeller** mapp du vill exportera den nya modellen:
+Uppdatera **filen index.js** i mappen **src/services/models** för att exportera den nya modellen:
 
 ```js
 export * from './exampleModels';
 ```
 
-### <a name="set-up-the-calls-to-the-service-from-the-store"></a>Konfigurera anrop till tjänsten från store
+### <a name="set-up-the-calls-to-the-service-from-the-store"></a>Ställ in anrop till tjänsten från butiken
 
-Att komma igång, den **src/genomgången/store/reducerare** mappen innehåller en exempel-reducer:
+För att komma igång innehåller **mappen src/walkthrough/store/reducers** en exempelreducerare:
 
-**exampleReducer.js**
+**exempelReducer.js**
 
 [!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
 
-Kopiera **exampleReducer.js** till den **src/store/reducerare** mapp.
+Kopiera **exempelReducer.js** till **mappen src/store/reducers.**
 
-Mer information om reducer och **Epics**, se [redux övervakas](https://redux-observable.js.org/).
+Mer information om reduceraren och **Epics**finns i [redux-observerable](https://redux-observable.js.org/).
 
-### <a name="configure-the-middleware"></a>Konfigurera mellanprogrammet
+### <a name="configure-the-middleware"></a>Konfigurera mellanmaterialet
 
-Om du vill konfigurera mellanprogrammet, lägger du till reducer till den **rootReducer.js** fil i den **src/store** mapp:
+Om du vill konfigurera mellanprogram lägger du till reduceraren i **filen rootReducer.js** i **src/store-mappen:**
 
 ```js
 import { reducer as exampleReducer } from './reducers/exampleReducer';
@@ -97,7 +97,7 @@ const rootReducer = combineReducers({
 });
 ```
 
-Lägg till epics till den **rootEpics.js** fil i den **src/store** mapp:
+Lägg till eposen i **filen rootEpics.js** i **mappen src/store:**
 
 ```js
 import { epics as exampleEpics } from './reducers/exampleReducer';
@@ -114,8 +114,8 @@ const epics = [
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om resurserna som är tillgängliga för att hjälpa dig lägga till eller anpassa tjänster i webbgränssnittet lösningsacceleratorn för fjärrövervakning.
+I den här artikeln har du lärt dig om de resurser som finns tillgängliga för att hjälpa dig att lägga till eller anpassa tjänster i webbgränssnittet i lösningsacceleratorn för fjärrövervakning.
 
-Nu du har definierat en tjänst, nästa steg är att [lägga till ett anpassat rutnät till fjärrövervakning solution accelerator webbgränssnittet](iot-accelerators-remote-monitoring-customize-grid.md) som visar data som returnerats av tjänsten.
+Nu när du har definierat en tjänst är nästa steg att [lägga till ett anpassat rutnät i webbgränssnittet för fjärrövervakningslösningsaccelerator](iot-accelerators-remote-monitoring-customize-grid.md) som visar data som returneras av tjänsten.
 
-Mer information om lösningsacceleratorn för fjärrövervakning finns [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Mer begreppsmässig information om lösningsacceleratorn för fjärrövervakning finns i [Fjärrövervakningsarkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md).

@@ -1,75 +1,75 @@
 ---
-title: Tåliga Orchestrator Code-begränsningar – Azure Functions
-description: Orchestration-funktionen repetitions-och kod begränsningar för Azure Durable Functions.
+title: Varaktiga orchestrator-kodbegränsningar - Azure-funktioner
+description: Uppspelning av orchestration-funktion och kodbegränsningar för Azure Durable Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562147"
 ---
-# <a name="orchestrator-function-code-constraints"></a>Begränsningar för Orchestrator-funktions kod
+# <a name="orchestrator-function-code-constraints"></a>Funktionskodvillkor för Orchestrator
 
-Durable Functions är en utökning av [Azure Functions](../functions-overview.md) som gör att du kan bygga tillstånds känsliga appar. Du kan använda en [Orchestrator-funktion](durable-functions-orchestrations.md) för att dirigera körningen av andra varaktiga funktioner i en Function-app. Orchestrator-funktioner är tillstånds känsliga, pålitliga och potentiellt långvariga.
+Varaktiga funktioner är ett tillägg av [Azure Functions](../functions-overview.md) som gör att du kan skapa tillståndskänsliga appar. Du kan använda en [orchestrator-funktion](durable-functions-orchestrations.md) för att dirigera körningen av andra varaktiga funktioner i en funktionsapp. Orchestrator-funktioner är tillståndskänsliga, tillförlitliga och potentiellt långvariga.
 
 ## <a name="orchestrator-code-constraints"></a>Begränsningar för orkestrerarkod
 
-Orchestrator-funktioner använder [händelse källor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) för att säkerställa tillförlitlig körning och upprätthålla lokal variabel status. [Repetitions beteendet](durable-functions-orchestrations.md#reliability) i Orchestrator Code skapar begränsningar för den typ av kod som du kan skriva i en Orchestrator-funktion. Till exempel måste Orchestrator-funktioner vara *deterministiska*: en Orchestrator-funktion kommer att spelas upp flera gånger och det måste ge samma resultat varje gång.
+Orchestrator-funktioner använder [händelsekällor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) för att säkerställa tillförlitlig körning och för att upprätthålla lokalt variabeltillstånd. [Orkesterkods uppspelningsbeteende](durable-functions-orchestrations.md#reliability) skapar begränsningar för vilken typ av kod som du kan skriva i en orchestrator-funktion. Orchestrator-funktioner måste till exempel vara *deterministiska*: en orchestrator-funktion spelas upp flera gånger och måste ge samma resultat varje gång.
 
-### <a name="using-deterministic-apis"></a>Använda deterministiska API: er
+### <a name="using-deterministic-apis"></a>Använda deterministiska API:er
 
-Det här avsnittet innehåller några enkla rikt linjer som hjälper dig att se till att koden är deterministisk.
+Det här avsnittet innehåller några enkla riktlinjer som säkerställer att koden är deterministisk.
 
-Orchestrator-funktioner kan anropa alla API: er på deras mål språk. Det är dock viktigt att Orchestrator-funktioner bara anropar deterministiska API: er. Ett *deterministiskt API* är ett API som alltid returnerar samma värde med samma ineffekt, oavsett när eller hur ofta det anropas.
+Orchestrator-funktioner kan anropa vilket API som helst på sina målspråk. Det är dock viktigt att orchestrator funktioner kräver endast deterministiska API: er. Ett *deterministiskt API* är ett API som alltid returnerar samma värde som ges samma indata, oavsett när eller hur ofta det anropas.
 
-I följande tabell visas exempel på API: er som du bör undvika eftersom de *inte* är deterministiska. Dessa begränsningar gäller endast för Orchestrator-funktioner. Andra funktions typer har inte sådana begränsningar.
+I följande tabell visas exempel på API:er som du bör undvika eftersom de *inte* är deterministiska. Dessa begränsningar gäller endast orchestrator-funktioner. Andra funktionstyper har inte sådana begränsningar.
 
 | API-kategori | Orsak | Lösning |
 | ------------ | ------ | ---------- |
-| Datum och tider  | API: er som returnerar aktuellt datum eller tid är icke-deterministiska eftersom det returnerade värdet är olika för varje omuppspelning. | Använd`CurrentUtcDateTime`-API i .NET eller `currentUtcDateTime` API i Java Script, som är säkert för uppspelning. |
-| GUID och UUID: er  | API: er som returnerar ett slumpmässigt GUID eller UUID är icke deterministiska eftersom det genererade värdet är olika för varje omuppspelning. | Använd `NewGuid` i .NET eller `newGuid` i Java Script för att på ett säkert sätt generera slumpmässiga GUID. |
-| Slumpmässiga siffror | API: er som returnerar slumpmässiga tal är icke-deterministiska eftersom det genererade värdet är olika för varje omuppspelning. | Använd en aktivitets funktion för att returnera slumptal till ett Orchestration-tal. De returnerade värdena för aktivitets funktioner är alltid säkra för uppspelning. |
-| Bindningar | Både indata och utdata-bindningar är I/O och är icke-deterministiska. En Orchestrator-funktion får inte använda direkt ens [Dirigerings klienten](durable-functions-bindings.md#orchestration-client) och [enhets klient](durable-functions-bindings.md#entity-client) bindningarna. | Använda indata och utgående bindningar i klient-eller aktivitets funktioner. |
-| Nätverk | Nätverks anrop omfattar externa system och är icke-deterministiska. | Använd aktivitets funktioner för att göra nätverks anrop. Om du behöver göra ett HTTP-anrop från din Orchestrator-funktion kan du också använda de [bestående HTTP-API: erna](durable-functions-http-features.md#consuming-http-apis). |
-| Blockera API: er | Blockering av API: er som `Thread.Sleep` i .NET och liknande API: er kan orsaka prestanda-och skalnings problem för Orchestrator-funktioner och bör undvikas. I Azure Functions förbruknings planen kan de även leda till onödiga körnings avgifter. | Använd alternativ för att blockera API: er när de är tillgängliga. Använd till exempel `CreateTimer` för att införa fördröjningar i Orchestration-körningen. Fördröjda [timer](durable-functions-timers.md) -fördröjningar räknas inte mot körnings tiden för en Orchestrator-funktion. |
-| Asynkrona API: er | Orchestrator-kod får aldrig starta en asynkron åtgärd förutom att använda `IDurableOrchestrationContext` API eller `context.df` objektets API. Du kan till exempel inte använda `Task.Run`, `Task.Delay`och `HttpClient.SendAsync` i .NET eller `setTimeout` och `setInterval` i Java Script. Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enda tråd. Den kan inte samverka med andra trådar som kan anropas av andra asynkrona API: er. | En Orchestrator-funktion bör endast göra varaktiga asynkrona anrop. Aktivitets funktioner bör göra andra asynkrona API-anrop. |
-| Asynkrona JavaScript-funktioner | Du kan inte deklarera JavaScript Orchestrator-funktioner som `async` eftersom Node. js-körningen inte garanterar att asynkrona funktioner är deterministiska. | Deklarera JavaScript Orchestrator-funktioner som synkrona Generator funktioner. |
-| Tråd kopplings-API: er | Det tåliga aktivitets ramverket Kör Orchestrator-kod på en enskild tråd och kan inte samverka med andra trådar. Att introducera nya trådar i en Dirigerings körning kan resultera i icke deterministisk körning eller död lägen. | Orchestrator-funktioner bör nästan aldrig använda tråd-API: er. Undvik till exempel att använda `ConfigureAwait(continueOnCapturedContext: false)`i .NET. Detta säkerställer att uppgifts fortsättningen körs på den ursprungliga `SynchronizationContext`i Orchestrator-funktionen. Om dessa API: er är nödvändiga begränsar du deras användning till endast aktivitets funktioner. |
-| Statiska variabler | Undvik att använda icke-konstant statiska variabler i Orchestrator-funktioner eftersom deras värden kan ändras över tid, vilket leder till icke-deterministisk körnings beteende. | Använd konstanter eller begränsa användningen av statiska variabler till aktivitets funktioner. |
-| Miljövariabler | Använd inte miljövariabler i Orchestrator-funktioner. Deras värden kan ändras över tid, vilket leder till icke-deterministisk körnings beteende. | Miljövariabler får endast refereras från i klient funktioner eller aktivitets funktioner. |
-| Oändliga slingor | Undvik oändlig loop i Orchestrator-funktioner. Eftersom den varaktiga aktivitets ramverket sparar körnings historiken när Orchestration-funktionen fortskrider, kan en oändlig loop orsaka att en Orchestrator-instans tar slut på minne. | För oändliga upprepnings scenarier använder du API: er som `ContinueAsNew` i .NET eller `continueAsNew` i Java Script för att starta om funktions körningen och ta bort tidigare körnings historik. |
+| Datum och tider  | API:er som returnerar aktuellt datum eller aktuell tid är inte deterministiska eftersom det returnerade värdet är olika för varje repris. | Använd`CurrentUtcDateTime` API:et i `currentUtcDateTime` .NET eller API:et i JavaScript, som är säkra för uppspelning. |
+| GUID och UUIDs  | API:er som returnerar ett slumpmässigt GUID eller UUID är inte deterministiska eftersom det genererade värdet är olika för varje repris. | Använd `NewGuid` i .NET eller `newGuid` JavaScript för att på ett säkert sätt generera slumpmässiga GUID:er. |
+| Slumpmässiga tal | API:er som returnerar slumptal är inte deterministiska eftersom det genererade värdet är olika för varje repris. | Använd en aktivitetsfunktion för att returnera slumptal till en orkestrering. Returvärdena för aktivitetsfunktioner är alltid säkra för repris. |
+| Bindningar | Indata- och utdatabindningar gör vanligtvis I/O och är inte deterministiska. En orchestrator-funktion får inte direkt använda ens [orchestration-klienten](durable-functions-bindings.md#orchestration-client) och klientbindningarna för [entitet.](durable-functions-bindings.md#entity-client) | Använd in- och utdatabindningar i klient- eller aktivitetsfunktioner. |
+| Nätverk | Nätverkssamtal involverar externa system och är icke-deterministiska. | Använd aktivitetsfunktioner för att ringa nätverkssamtal. Om du behöver ringa ett HTTP-anrop från orchestrator-funktionen kan du också använda de [varaktiga HTTP-API:erna](durable-functions-http-features.md#consuming-http-apis). |
+| Blockera API:er | Blockera API:er som `Thread.Sleep` i .NET och liknande API:er kan orsaka prestanda- och skalningsproblem för orchestrator-funktioner och bör undvikas. I Azure Functions Consumption-planen kan de till och med resultera i onödiga körningsavgifter. | Använd alternativ för att blockera API:er när de är tillgängliga. Använd `CreateTimer` till exempel för att införa fördröjningar i orkestreringskörning. [Varaktiga](durable-functions-timers.md) timerfördröjningar räknas inte in i körningstiden för en orchestrator-funktion. |
+| Async API:er | Orchestrator-kod får aldrig starta någon async-åtgärd förutom genom att använda `IDurableOrchestrationContext` API:et `context.df` eller objektets API. Du kan till exempel `Task.Run`inte `Task.Delay`använda `HttpClient.SendAsync` , och `setTimeout` `setInterval` i .NET eller i JavaScript. Durable Task Framework kör orchestrator-kod på en enda tråd. Det kan inte interagera med andra trådar som kan anropas av andra async API:er. | En orchestrator-funktion bör endast göra varaktiga asynkronanrop. Aktivitetsfunktioner bör göra andra async API-anrop. |
+| Async JavaScript-funktioner | Du kan inte deklarera JavaScript `async` orchestrator-funktioner som eftersom nod.js-körningen inte garanterar att asynkrona funktioner är deterministiska. | Deklarera JavaScript orchestrator-funktioner som synkrona generatorfunktioner. |
+| Api:er för trådtråd | Durable Task Framework kör orchestrator-kod på en enda tråd och kan inte interagera med andra trådar. Om du introducerar nya trådar i en orkestrerings körning kan det leda till icke-deterministisk körning eller dödlägen. | Orchestrator-funktioner bör nästan aldrig använda tråd-API:er. Undvik till exempel i .NET att använda `ConfigureAwait(continueOnCapturedContext: false)`; Detta säkerställer att aktivitetsfortsättningar körs på `SynchronizationContext`orchestrator-funktionens ursprungliga . Om sådana API:er är nödvändiga begränsar du deras användning till endast aktivitetsfunktioner. |
+| Statiska variabler | Undvik att använda icke-innehållsstyrda statiska variabler i orchestrator-funktioner eftersom deras värden kan ändras med tiden, vilket resulterar i icke-deterministiskt körningsbeteende. | Använd konstanter eller begränsa användningen av statiska variabler till aktivitetsfunktioner. |
+| Miljövariabler | Använd inte miljövariabler i orchestrator-funktioner. Deras värden kan ändras med tiden, vilket resulterar i icke-deterministiskt körningsbeteende. | Miljövariabler får endast refereras inifrån klientfunktioner eller aktivitetsfunktioner. |
+| Oändliga slingor | Undvik oändliga loopar i orchestrator funktioner. Eftersom varaktigt aktivitetsramverk sparar körningshistorik allteftersom orkestreringsfunktionen fortskrider, kan en oändlig loop orsaka att en orchestrator-instans får på minne. | För oändliga loopscenarier `ContinueAsNew` använder du `continueAsNew` API:er som i .NET eller i JavaScript för att starta om funktionskörningen och ignorera tidigare körningshistorik. |
 
-Även om det kan verka svårt att tillämpa dessa begränsningar i praktiken är de enkla att följa.
+Även om tillämpningen av dessa begränsningar kan tyckas svårt i början, i praktiken de är lätta att följa.
 
-Det beständiga aktivitets ramverket försöker identifiera överträdelser av föregående regler. Om en överträdelse hittas genererar ramverket ett **NonDeterministicOrchestrationException** -undantag. Detta identifierings beteende fångar dock inte upp alla överträdelser och du bör inte vara beroende av den.
+Durable Task Framework försöker identifiera överträdelser av föregående regler. Om den hittar en överträdelse, kastar ramen en **NonDeterministicOrchestrationException** undantag. Det här identifieringsbeteendet fångar dock inte alla överträdelser och du bör inte vara beroende av det.
 
 ## <a name="versioning"></a>Versionshantering
 
-En varaktig dirigering kan köras kontinuerligt i dagar, månader, år eller till och med [Eternally](durable-functions-eternal-orchestrations.md). Alla kod uppdateringar som görs i Durable Functions appar som påverkar oavslutade dirigeringar kan leda till att omuppspelnings beteendet för dirigeringen bryts. Det är därför det är viktigt att planera noggrant när du gör uppdateringar av kod. En mer detaljerad beskrivning av hur du använder version av koden finns i [artikeln versions hantering](durable-functions-versioning.md).
+En hållbar orkestrering kan köras kontinuerligt i dagar, månader, år, eller [ens evigt](durable-functions-eternal-orchestrations.md). Alla koduppdateringar som görs till varaktiga funktioner-appar som påverkar oavslutade orkestreringar kan bryta orkestreringarnas uppspelningsbeteende. Det är därför det är viktigt att planera noggrant när du gör uppdateringar av koden. En mer detaljerad beskrivning av hur du version av koden finns i [versionsartikeln](durable-functions-versioning.md).
 
 ## <a name="durable-tasks"></a>Varaktiga uppgifter
 
 > [!NOTE]
-> I det här avsnittet beskrivs interna implementerings Detaljer för det varaktiga aktivitets ramverket. Du kan använda varaktiga funktioner utan att känna till den här informationen. Den är endast avsedd för att hjälpa dig att förstå repetitions beteendet.
+> I det här avsnittet beskrivs information om intern implementering av ramverket för varaktiga uppgifter. Du kan använda varaktiga funktioner utan att känna till den här informationen. Den är endast avsedd att hjälpa dig att förstå reprisbeteendet.
 
-Aktiviteter som på ett säkert sätt kan vänta i Orchestrator-funktioner kallas ibland för *varaktiga aktiviteter*. Det varaktiga aktivitets ramverket skapar och hanterar dessa uppgifter. Exempel är de uppgifter som returneras av **CallActivityAsync**, **WaitForExternalEvent**och **CreateTimer** i .net Orchestrator-funktioner.
+Uppgifter som säkert kan vänta i orchestrator-funktioner kallas ibland *varaktiga uppgifter*. Det varaktiga aktivitetsramverket skapar och hanterar dessa uppgifter. Exempel är de uppgifter som returneras av **callactivityAsync,** **WaitForExternalEvent**och **CreateTimer** i .NET orchestrator-funktioner.
 
-Dessa varaktiga uppgifter hanteras internt av en lista med `TaskCompletionSource` objekt i .NET. Under uppspelningen skapas dessa uppgifter som en del av Orchestrator-kod körningen. De är klara eftersom Dispatchern räknar upp motsvarande historik händelser.
+Dessa varaktiga uppgifter hanteras internt `TaskCompletionSource` av en lista över objekt i .NET. Under uppspelning skapas dessa uppgifter som en del av orchestrator-kodkörning. De är färdiga när avsändaren räknar upp motsvarande historikhändelser.
 
-Aktiviteterna körs synkront med en enda tråd tills alla historiken har spelats upp. Fördelade uppgifter som inte slutförs i slutet av historik uppspelningen har lämpliga åtgärder utförda. Ett meddelande kan till exempel vara placerat i kö för att anropa en aktivitets funktion.
+Aktiviteterna utförs synkront med hjälp av en enda tråd tills all historik har spelats upp igen. Varaktiga uppgifter som inte är klara i slutet av historikreprisning har lämpliga åtgärder utförda. Ett meddelande kan till exempel vara enqueued att anropa en aktivitetsfunktion.
 
-Det här avsnittet beskriver körnings beteendet för att hjälpa dig att förstå varför en Orchestrator-funktion inte kan använda `await` eller `yield` i en inhållbar uppgift. Det finns två orsaker: dispatcher-tråden kan inte vänta på att uppgiften slutförs och alla återanrop från den aktiviteten kan eventuellt skada spårnings läget för Orchestrator-funktionen. Vissa körnings kontroller är på plats för att hjälpa till att identifiera dessa överträdelser.
+Det här avsnittets beskrivning av körningsbeteende bör hjälpa dig att `await` `yield` förstå varför en orchestrator-funktion inte kan använda eller i en icke-varaktig aktivitet. Det finns två orsaker: avsändaren tråden kan inte vänta på att aktiviteten ska slutföras, och alla motringning av den uppgiften kan potentiellt skada spårningstillståndet för orchestrator-funktionen. Vissa körningskontroller finns på plats för att identifiera dessa överträdelser.
 
-Om du vill veta mer om hur det varaktiga aktivitets ramverket Kör Orchestrator-funktioner kan du läsa den [varaktiga aktivitets käll koden på GitHub](https://github.com/Azure/durabletask). I synnerhet, se [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) och [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
+Mer information om hur det varaktiga aktivitetsramverket kör orchestrator-funktioner läser du [källkoden för varaktig aktivitet på GitHub](https://github.com/Azure/durabletask). Se särskilt [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) och [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs om hur du anropar under-Orchestration](durable-functions-sub-orchestrations.md)
+> [Lär dig hur du anropar underorkestreringar](durable-functions-sub-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du hanterar versions hantering](durable-functions-versioning.md)
+> [Läs om hur du hanterar versionshantering](durable-functions-versioning.md)

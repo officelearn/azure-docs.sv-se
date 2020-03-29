@@ -1,6 +1,6 @@
 ---
-title: Övervakning fjärrdata åtkomstkontroll – Azure | Microsoft Docs
-description: Den här artikeln innehåller information om hur du kan konfigurera åtkomstkontroller för Time Series Insights-Utforskaren för telemetri i lösningsacceleratorn för fjärrövervakning
+title: Dataåtkomstkontroll för fjärrövervakning – Azure | Microsoft-dokument
+description: Den här artikeln innehåller information om hur du kan konfigurera åtkomstkontroller för Time Series Insights telemetriutforskare i lösningsacceleratorn för fjärrövervakning
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,56 +9,56 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65827241"
 ---
-# <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Konfigurera åtkomstkontroller för Time Series Insights telemetri explorer
+# <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Konfigurera åtkomstkontroller för telemetriutforskaren Time Series Insights
 
-Den här artikeln innehåller information om hur du konfigurerar åtkomstkontroller för Time Series Insights explorer i lösningsacceleratorn för fjärrövervakning. Om du vill ge användare för solution accelerator åtkomst till Time Series Insights explorer, måste du bevilja åtkomst till data varje användare.
+Den här artikeln innehåller information om hur du konfigurerar åtkomstkontroller för Tidsseriestatistikutforskaren i lösningsacceleratorn för fjärrövervakning. Om du vill att användare av lösningsacceleratorn ska kunna komma åt Utforskaren för Time Series Insights måste du ge varje användardata åtkomst.
 
 Principerna för dataåtkomst beviljar behörigheter för att utfärda datafrågor, manipulera referensdata i miljön och sparade delade frågor och perspektiv som är associerade till miljön.
 
 ## <a name="grant-data-access"></a>Bevilja åtkomst till data
 
-Följ dessa steg om du vill bevilja åtkomst till data för en användares huvudnamn:
+Följ dessa steg för att bevilja dataåtkomst för ett användarobjekt:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Leta upp din Time Series Insights-miljö. Typ **tidsserier** i den **search** box. Välj **Time Series Environment** i sökresultatet. 
+2. Hitta din time series insights-miljö. Skriv **tidsserier** i **sökrutan.** Välj **Tidsseriemiljö** i sökresultaten. 
 
 3. Välj Time Series Insights-miljön från listan.
 
-4. Välj **Dataåtkomstprinciper**och välj sedan **+ Lägg till**.
+4. Välj **Data Access-principer**och välj sedan **+ Lägg till**.
     ![Hantera Time Series Insights-källan – miljö](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access1.png)
 
-5. Välj **Välj användare**.  Sök efter användarnamn eller e-postadress att hitta användaren som du vill lägga till. Klicka på **Välj** att bekräfta valet. 
+5. Välj **Välj användare**.  Sök efter användarnamnet eller e-postadressen för att hitta den användare du vill lägga till. Klicka på **Markera** för att bekräfta markeringen. 
 
     ![Hantera Time Series Insights-källan – lägg till](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access2.png)
 
-6. Välj **Välj roll**. Välj rätt roll för användaren:
-   - Välj **deltagare** om du vill tillåta användare att ändra referensdata och dela sparade frågor och perspektiv med andra användare av miljön. 
-   - Annars väljer **läsare** att tillåta användare söker data i miljön och sparar personliga (inte delade) frågor i miljön.
+6. Välj **Välj roll**. Välj lämplig åtkomstroll för användaren:
+   - Välj **Deltagare** om du vill tillåta användaren att ändra referensdata och dela sparade frågor och perspektiv med andra användare av miljön. 
+   - Annars väljer du **Läsare** om du vill tillåta användarfrågedata i miljön och spara personliga (inte delade) frågor i miljön.
 
-     Välj **Ok** att bekräfta valet rollen.
+     Välj **Ok** för att bekräfta rollvalet.
 
      ![Hantera Time Series Insights-källan – välj användare](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access3.png)
 
-7. Välj **Ok** i den **Välj användarroll** sidan.
+7. Välj **Ok** på sidan **Välj användarroll.**
 
     ![Hantera Time Series Insights-källan – välj roll](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access4.png)
 
-8. Den **Dataåtkomstprinciper** sidan visas användarna och roller för varje användare.
+8. På sidan **Dataåtkomstprinciper** visas användarna och rollerna för varje användare.
 
     ![Hantera Time Series Insights-källan – resultat](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur åtkomstkontroller beviljas för Time Series Insights explorer i lösningsacceleratorn för fjärrövervakning.
+I den här artikeln fick du veta hur åtkomstkontroller beviljas för Tidsseriestatistikutforskaren i lösningsacceleratorn för fjärrövervakning.
 
-Mer information om lösningsacceleratorn för fjärrövervakning finns [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Mer begreppsmässig information om lösningsacceleratorn för fjärrövervakning finns i [Fjärrövervakningsarkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Mer information om hur du anpassar lösningen för fjärrövervakning finns [anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md)
+Mer information om hur du anpassar lösningen för fjärrövervakning finns i [Anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

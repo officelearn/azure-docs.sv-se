@@ -1,6 +1,6 @@
 ---
-title: Skapa en miljö – Azure Time Series Insights | Microsoft Docs
-description: Lär dig hur du använder Azure Portal för att skapa en ny Time Series Insights-miljö.
+title: Skapa en miljö – Insikter i Azure Time Series | Microsoft-dokument
+description: Lär dig hur du använder Azure-portalen för att skapa en ny Time Series Insights-miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,63 +12,63 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2c946c49884ef0de6843028976d4ec00ccfbcdfe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934855"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Skapa en ny Time Series Insights-miljö i Azure Portal
 
-I den här artikeln beskrivs hur du skapar en ny Time Series Insights miljö med hjälp av Azure Portal.
+I den här artikeln beskrivs hur du skapar en ny Time Series Insights-miljö med hjälp av Azure-portalen.
 
-Med Time Series Insights kan du komma igång med att visualisera och fråga data som flödar till Azure IoT-hubbar och Event Hubs på några minuter, så att du kan fråga stora volymer av tids serie data på några sekunder.  Den har utformats för att skala Internet-of-in-information (IoT) och kan hantera terabyte data.
+Med Time Series Insights kan du komma igång med att visualisera och fråga data som flödar in i Azure IoT Hubs och Event Hubs på några minuter, så att du kan fråga stora volymer tidsseriedata på några sekunder.  Den har utformats för Internet-of-things (IoT) skala och kan hantera terabyte data.
 
 ## <a name="steps-to-create-the-environment"></a>Anvisningar för att skapa miljön
 
-Följ de här stegen för att skapa en miljö:
+Så här skapar du en miljö:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Välj knappen **+ skapa en resurs** .
+1. Välj knappen **+ Skapa en resurs.**
 
 1. Välj kategorin **Sakernas Internet** och välj **Time Series Insights**.
 
-   [![skapa Time Series Insightss miljön](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
+   [![Skapa Time Series Insights-miljön](media/time-series-insights-get-started/tsi-create-new-environment.png)](media/time-series-insights-get-started/tsi-create-new-environment.png#lightbox)
 
-1. På sidan **Time Series Insights** väljer du **skapa**.
+1. På sidan **Time Series Insights** väljer du **Skapa**.
 
-1. Fyll i de obligatoriska parametrarna. I följande tabell beskrivs varje parameter:
+1. Fyll i de parametrar som krävs. I följande tabell förklaras varje parameter:
    
-   [![skapa Time Series Insights resurs gruppen](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
+   [![Skapa Time Series Insights-resursgruppen](media/time-series-insights-get-started/tsi-configure-and-create.png)](media/time-series-insights-get-started/tsi-configure-and-create.png#lightbox)
    
    Inställning|Föreslaget värde|Beskrivning
    ---|---|---
-   Miljönamn | Ett unikt namn | Det här namnet representerar miljön i [Time Series Explorer](https://insights.timeseries.azure.com)
-   Prenumeration | Din prenumeration | Om du har flera prenumerationer väljer du den prenumeration som innehåller din händelse källa helst. Time Series Insights kan automatiskt identifiera Azure IoT Hub-och Event Hub-resurser som är befintliga i samma prenumeration.
-   Resursgrupp | Skapa en ny eller Använd befintlig | En resursgrupp är en samling med Azure-resurser som används tillsammans. Du kan välja en befintlig resurs grupp, till exempel en som innehåller händelsehubben eller IoT Hub. Eller så kan du skapa en ny om den här resursen inte är relaterad till andra resurser.
-   Location | Närmaste händelse källa | Helst kan du välja samma data Center plats som innehåller dina händelse källdata, i arbetet för att undvika att extra bandbredds kostnader mellan regioner och flera zoner och extra fördröjning används när du flyttar data från regionen.
-   Prisnivå | S1 | Välj det genomflöde som behövs. För lägsta kostnad och start kapacitet väljer du S1.
-   Kapacitet | 1 | Kapaciteten är multiplikatorn som gäller för ingångs pris, lagrings kapacitet och kostnad som är associerad med den valda SKU: n.  Du kan ändra kapacitet för en miljö när den har skapats. För lägsta kostnad väljer du en kapacitet på 1. 
+   Miljönamn | Ett unikt namn | Det här namnet representerar miljön i [tidsserieutforskaren](https://insights.timeseries.azure.com)
+   Prenumeration | Din prenumeration | Om du har flera prenumerationer väljer du den prenumeration som innehåller din händelsekälla helst. Time Series Insights kan automatiskt identifiera Azure IoT Hub- och Event Hub-resurser som finns i samma prenumeration.
+   Resursgrupp | Skapa en ny eller använd befintlig | En resursgrupp är en samling med Azure-resurser som används tillsammans. Du kan välja en befintlig resursgrupp, till exempel den som innehåller din eventhubb eller IoT Hub. Du kan också skapa en ny om resursen inte är relaterad till de andra resurserna.
+   Location | Närmast din händelsekälla | Välj helst samma datacenterplats som innehåller händelsekällans data, i ett försök att undvika extra bandbreddskostnader mellan regioner och korszoner och ökad svarstid när data flyttas från regionen.
+   Prisnivå | S1 | Välj det genomflöde som behövs. För lägsta kostnader och startkapacitet väljer du S1.
+   Kapacitet | 1 | Kapacitet är multiplikatorn gäller för ingående hastighet, lagringskapacitet och kostnad som är associerad med den valda SKU.  Du kan ändra kapacitet för en miljö när den har skapats. För lägsta kostnader väljer du en kapacitet på 1. 
   
-1. Välj **skapa** för att påbörja etablerings processen. Det kan ta några minuter.
+1. Välj **Skapa** om du vill påbörja etableringsprocessen. Det kan ta några minuter.
 
-1. Välj **aviserings** symbolen (klock ikonen) för att övervaka distributions processen.
+1. Om du vill övervaka distributionsprocessen väljer du symbolen **Meddelanden** (klockikonen).
 
-   [![se meddelanden](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
+   [![Titta på meddelandena](media/time-series-insights-get-started/tsi-deploy-notifications.png)](media/time-series-insights-get-started/tsi-deploy-notifications.png#lightbox)
 
-1. Kontrol lera distributions konfigurations inställningarna i resurs **översikten**.
+1. Kontrollera konfigurationsinställningarna för distributionen i **resursöversikten.**
 
-   [![skapa Time Series Insights fäst vid instrument panelen](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
+   [![Fäst Time Series Insights vid instrumentpanelen](media/time-series-insights-get-started/tsi-verify-deployment.png)](media/time-series-insights-get-started/tsi-verify-deployment.png#lightbox)
 
-1. **(Valfritt)** Välj **PIN-ikonen** i det övre högra hörnet för att enkelt få åtkomst till din Time Series Insightss miljö i framtiden.
+1. **(Valfritt)** Välj **pin-ikonen** i det övre högra hörnet för att enkelt komma åt din Time Series Insights-miljö i framtiden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Definiera principer för data åtkomst](time-series-insights-data-access.md) för att skydda din miljö.
+* Definiera principer för [dataåtkomst](time-series-insights-data-access.md) för att skydda din miljö.
 
-* [Lägg till händelse källan för Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) i Azure Time Series Insightss miljön.
+* [Lägg till en event hub-händelsekälla](time-series-insights-how-to-add-an-event-source-eventhub.md) i din Azure Time Series Insights-miljö.
 
 * [Skicka händelser](time-series-insights-send-events.md) till händelsekällan.
 
-* Visa din miljö i [Time Series Insights Explorer](https://insights.timeseries.azure.com).
+* Visa din miljö i [Time Series Insights explorer](https://insights.timeseries.azure.com).

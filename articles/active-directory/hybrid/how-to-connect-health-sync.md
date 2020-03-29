@@ -17,10 +17,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897202"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Övervaka Azure AD Connect-synkronisering med Azure AD Connect Health
@@ -70,7 +70,7 @@ Denna funktion tillhandahåller en rapport om synkroniseringsfel som kan uppstå
 * Rapporten avser fel registrerade av synkroniseringsklienten (Azure AD Connect version 1.1.281.0 eller senare)
 * Den innehåller de fel som uppstod under den senaste synkroniseringen på synkroniseringsmotorn. (”Export” i Azure AD Connector.)
 * Azure AD Connect Health-agenten för synkronisering måste ha en utgående anslutning till de nödvändiga slutpunkterna för rapporten för att inkludera den senaste informationen.
-* Rapporten **uppdateras efter var 30: e minut** med hjälp av data som laddats upp av Azure AD Connect Health Agent för synkronisering. Det ger följande viktiga funktioner
+* Rapporten **uppdateras efter var 30:e minut** med hjälp av data som överförs av Azure AD Connect Health-agenten för synkronisering. Det ger följande viktiga funktioner
 
   * Kategorisering av fel
   * Lista över objekt med fel per kategori
@@ -88,7 +88,7 @@ Rapporten kategoriserar befintliga synkroniseringsfel i följande kategorier:
 | Verifieringsfel för data |Fel på grund av ogiltiga data, till exempel tecken som inte stöds i viktiga attribut såsom UserPrincipalName, formatfel som inte kan valideras innan de skrivs i Azure AD. |
 | Ändring av federerad domän | Fel när konton använder en annan federerad domän. |
 | Stora attribut |Fel när ett eller flera attribut är större än den tillåtna storleken, längden eller antalet. |
-| Övrigt |Alla andra fel som inte passar in i ovanstående kategorier. Baserat på feedback, kommer den här kategorin att delas upp i underkategorier. |
+| Annat |Alla andra fel som inte passar in i ovanstående kategorier. Baserat på feedback, kommer den här kategorin att delas upp i underkategorier. |
 
 ![ Rapportsammanfattning för synkroniseringsfel](./media/how-to-connect-health-sync/errorreport01.png)
 ![Rapportkategorier för synkroniseringsfel](./media/how-to-connect-health-sync/SyncErrorByTypes.PNG)
@@ -113,13 +113,13 @@ Du kan hämta en CSV-fil med all information om felen genom att klicka på Expor
 ### <a name="diagnose-and-remediate-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel 
 Synkroniseringsfel med duplicerade attribut som omfattar källfästpunktsuppdatering för användare kan åtgärdas direkt från portalen. Läs mer om att [diagnostisera och åtgärda synkroniseringsfel med duplicerade attribut](how-to-connect-health-diagnose-sync-errors.md)
 
-## <a name="related-links"></a>Tillhörande länkar
-* [Felsöka fel under synkronisering](tshoot-connect-sync-errors.md)
+## <a name="related-links"></a>Relaterade länkar
+* [Felsöka fel under synkroniseringen](tshoot-connect-sync-errors.md)
 * [Återhämtning av duplicerat attribut](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installation av Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)
-* [Azure AD Connect Health-åtgärder](how-to-connect-health-operations.md)
+* [Hälsoåtgärder för Azure AD Connect](how-to-connect-health-operations.md)
 * [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md)
 * [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](reference-connect-health-faq.md)
-* [Versionshistorik för Azure AD Connect Health](reference-connect-health-version-history.md)
+* [Azure AD Connect-historik för hälsoversion](reference-connect-health-version-history.md)

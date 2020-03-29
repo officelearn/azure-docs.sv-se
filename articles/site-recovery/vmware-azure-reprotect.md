@@ -1,6 +1,6 @@
 ---
-title: Skydda virtuella VMware-datorer till en lokal plats med Azure Site Recovery
-description: Lär dig hur du skyddar virtuella VMware-datorer efter en redundansväxling till Azure med Azure Site Recovery.
+title: Reprotera virtuella virtuella datorer med VMware till en lokal plats med Azure Site Recovery
+description: Lär dig hur du roterar om virtuella virtuella datorer med VMware efter redundans till Azure med Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,72 +8,72 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257178"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Skydda datorer igen från Azure till lokalt
 
-Efter [redundansväxlingen](site-recovery-failover.md) av lokala virtuella VMware-datorer eller fysiska servrar till Azure, är det första steget i att växla tillbaka till din lokala plats att skydda de virtuella Azure-datorer som skapades under redundansväxlingen. Den här artikeln beskriver hur du gör detta. 
+Efter [redundans](site-recovery-failover.md) av lokala virtuella datorer med vmware eller fysiska servrar till Azure, är det första steget i att misslyckas tillbaka till din lokala webbplats att återrotera de virtuella Azure-datorer som skapades under redundans. I den här artikeln beskrivs hur du gör detta. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-1. Följ stegen i [den här artikeln](vmware-azure-prepare-failback.md) för att förbereda för omskydd och återställning efter fel, inklusive att konfigurera en Processerver i Azure och en lokal huvud mål server, och konfigurera en plats-till-plats-VPN-anslutning, eller ExpressRoute privat peering, för återställning efter fel.
-2. Kontrol lera att den lokala konfigurations servern körs och är ansluten till Azure. Vid redundansväxling till Azure kanske den lokala platsen inte är tillgänglig och konfigurations servern kanske inte är tillgänglig eller avstängd. Under återställning efter fel måste den virtuella datorn finnas i konfigurations serverns databas. Annars Miss lyckas failback.
-3. Ta bort alla ögonblicks bilder på den lokala huvud mål servern. Skyddet fungerar inte om det finns ögonblicks bilder.  Ögonblicks bilderna på den virtuella datorn slås samman automatiskt under ett återskydds jobb.
-4. Om du skyddar virtuella datorer som samlats in i en replikeringsgrupp för konsekvens för flera virtuella datorer måste du se till att alla har samma operativ system (Windows eller Linux) och att huvud mål servern som du distribuerar har samma typ av operativ system. Alla virtuella datorer i en replikeringsgrupp måste använda samma huvud mål server.
+1. Följ stegen i den [här artikeln](vmware-azure-prepare-failback.md) för att förbereda för omskydd och återställning, inklusive att konfigurera en processserver i Azure och en lokal huvudmålserver, och konfigurera en plats-till-plats-VPN eller ExpressRoute privat peering, för återställning av återställning av återställning av återställning.
+2. Kontrollera att den lokala konfigurationsservern körs och ansluts till Azure. Under redundans till Azure kanske den lokala platsen inte är tillgänglig och konfigurationsservern kanske inte är tillgänglig eller stängs av. Under återställning efter fel måste den virtuella datorn finnas i konfigurationsserverdatabasen. Annars misslyckas återställningen av återställningen.
+3. Ta bort alla ögonblicksbilder på den lokala huvudmålservern. Återskydd fungerar inte om det finns ögonblicksbilder.  Ögonblicksbilderna på den virtuella datorn slås automatiskt samman under ett reprotect-jobb.
+4. Om du återbeskyddar virtuella datorer som samlats in i en replikeringsgrupp för konsekvens med flera virtuella datorer kontrollerar du att alla har samma operativsystem (Windows eller Linux) och ser till att huvudmålservern som du distribuerar har samma typ av operativsystem. Alla virtuella datorer i en replikeringsgrupp måste använda samma huvudmålserver.
 5. Öppna [de portar som krävs](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback) för återställning efter fel.
-6. Se till att vCenter Server är ansluten före återställning efter fel. Annars Miss lyckas det att koppla bort diskar och koppla tillbaka dem till den virtuella datorn.
-7. Om en vCenter-Server hanterar de virtuella datorer som du kommer att återställa till, ser du till att du har de behörigheter som krävs. Om du utför en skrivskyddad vCenter-identifiering och skyddar virtuella datorer, slutförs skyddet och redundansväxlingen fungerar. Men under återställningen Miss lyckas redundansväxlingen eftersom data lagret inte kan identifieras och inte visas under återskydd. För att lösa det här problemet kan du uppdatera vCenter-autentiseringsuppgifterna med ett [lämpligt konto/behörigheter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)och sedan försöka utföra jobbet igen. 
-8. Om du använde en mall för att skapa dina virtuella datorer måste du kontrol lera att varje virtuell dator har ett eget UUID för diskarna. Om den lokala virtuella datorns UUID är i konflikt med UUID: n för huvud mål servern, eftersom båda har skapats från samma mall, Miss lyckas återaktivering. Distribuera från en annan mall.
-9. Om du växlar tillbaka till en alternativ vCenter Server måste du kontrol lera att den nya vCenter Server och huvud mål servern har identifierats. Vanligt vis om de inte är data lager som inte är tillgängliga eller inte visas i **återaktivera skydd**.
-10. Kontrol lera följande scenarier där du inte kan återställa:
-    - Om du använder antingen ESXi 5,5 kostnads fri utgåva eller vSphere 6 hypervisor Free Edition. Uppgradera till en annan version.
+6. Kontrollera att vCenter-servern är ansluten före återställningen. Annars misslyckas det att koppla diskar och koppla tillbaka dem till den virtuella datorn.
+7. Om en vCenter-server hanterar de virtuella datorer som du ska återställa ska kontrollera att du har de behörigheter som krävs. Om du utför en skrivskyddad användare vCenter-identifiering och skyddar virtuella datorer, lyckas skyddet och redundansfungering fungerar. Under återbeskydd misslyckas dock redundans eftersom datalagren inte kan identifieras och inte visas under återbeskyddning. LÃ¶s problemet genom att uppdatera vCenter-autentiseringsuppgifterna med [ett lämpligt konto/behörigheter](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery)och sedan försöka med jobbet igen. 
+8. Om du har använt en mall för att skapa virtuella datorer kontrollerar du att varje virtuell dator har ett eget UUID för diskarna. Om den lokala VM UUID krockar med UUID för huvudmålservern eftersom båda skapades från samma mall, misslyckas återbeskydd. Distribuera från en annan mall.
+9. Om du inte går tillbaka till en alternativ vCenter Server kontrollerar du att den nya vCenter-servern och huvudmålservern upptäcks. Vanligtvis om de inte är datalager inte är tillgängliga, eller inte visas i **Reprotect**.
+10. Kontrollera följande scenarier där du inte kan växla tillbaka:
+    - Om du använder antingen ESXi 5.5 gratis utgåva eller vSphere 6 Hypervisor gratis utgåva. Uppgradera till en annan version.
     - Om du har en fysisk server för Windows Server 2008 R2 SP1.
-    - Virtuella VMware-datorer kan inte återställas till Hyper-V.
-    - Virtuella datorer som har [migrerats](migrate-overview.md#what-do-we-mean-by-migration).
-    - En virtuell dator som har flyttats till en annan resurs grupp.
-    - En virtuell replik av Azure-dator som har tagits bort.
-    - En replikerad virtuell Azure-dator som inte är skyddad (replikera till den lokala platsen).
-10. [Granska typerna av återställning efter fel](concepts-types-of-failback.md) du kan använda – ursprunglig plats återställning och alternativ plats återställning.
+    - Virtuella datorer kan inte växla tillbaka till Hyper-V.
+    - Virtuella datorer som [har migrerats](migrate-overview.md#what-do-we-mean-by-migration).
+    - En virtuell dator som har flyttats till en annan resursgrupp.
+    - En virtuell replik för Azure som har tagits bort.
+    - En replik Azure VM som inte är skyddad (replikera till den lokala platsen).
+10. [Granska de typer av återställning av fel som](concepts-types-of-failback.md) du kan använda – original återställning av plats och alternativ platsåterställning.
 
 
-## <a name="enable-reprotection"></a>Aktivera skydd
+## <a name="enable-reprotection"></a>Aktivera återbeskydd
 
-Aktivera replikering. Du kan återaktivera skyddet för vissa virtuella datorer eller en återställnings plan:
+Aktivera replikering. Du kan reprotera specifika virtuella datorer eller en återställningsplan:
 
-- Om du skyddar en återställnings plan måste du ange värden för varje skyddad dator.
-- Om de virtuella datorerna tillhör en replikeringsgrupp för konsekvens för flera virtuella datorer kan de bara skyddas med en återställnings plan. Virtuella datorer i en replikeringsgrupp måste använda samma huvud mål Server
+- Om du reprotect en återställningsplan, måste du ange värden för varje skyddad maskin.
+- Om virtuella datorer tillhör en replikeringsgrupp för konsekvens för flera virtuella datorer kan de bara roteras igen med hjälp av en återställningsplan. Virtuella datorer i en replikeringsgrupp måste använda samma huvudmålserver
 
 ### <a name="before-you-start"></a>Innan du börjar
 
-- När en virtuell dator startar i Azure efter redundansväxlingen tar det lite tid för agenten att registrera sig på konfigurations servern (upp till 15 minuter). Under den här tiden kan du inte återaktivera skyddet och ett fel meddelande anger att agenten inte är installerad. Om detta händer väntar du några minuter och skyddar sedan igen.
-- Om du vill återställa den virtuella Azure-datorn till en befintlig lokal virtuell dator, monterar du lokala VM-datalager med Läs-/Skriv behörighet på huvud mål serverns ESXi-värd.
-- Om du vill växla tillbaka till en annan plats, till exempel om den lokala virtuella datorn inte finns, väljer du den lagrings enhet och det data lager som har kon figurer ATS för huvud mål servern. När du växlar tillbaka till den lokala platsen använder de virtuella VMware-datorerna i skydds planen för återställning efter fel samma data lager som huvud mål servern. En ny virtuell dator skapas sedan i vCenter.
+- När en virtuell dator startar i Azure efter redundans tar det lite tid för agenten att registrera sig tillbaka till konfigurationsservern (upp till 15 minuter). Under den här tiden kan du inte reprotera och ett felmeddelande indikerar att agenten inte är installerad. Om detta händer, vänta i några minuter och sedan reprotect.
+- Om du vill återställa Azure-datorn till en befintlig lokal virtuell dator monterar du de lokala VM-datalager med läs-/skrivåtkomst på huvudmålserverns ESXi-värd.
+- Om du vill växla tillbaka till en alternativ plats, till exempel om den lokala virtuella datorn inte finns, väljer du den kvarhållningsenhet och datalager som är konfigurerade för huvudmålservern. När du växlar tillbaka till den lokala platsen använder virtuella VMware-datorer i återställningsskyddet samma datalager som huvudmålservern. En ny virtuell dator skapas sedan i vCenter.
 
-Aktivera skydd på följande sätt:
+Aktivera återskydd enligt följande:
 
-1. Välj **valv** > **replikerade objekt**. Högerklicka på den virtuella datorn som har redundansväxlats och välj sedan **skydda igen**. Eller välj datorn från kommando knapparna och välj sedan **skydda igen**.
-2. Kontrol lera att skydds riktningen för **Azure till lokal** riktning är vald.
-3. I **huvud mål server** och **processerver**väljer du den lokala huvud mål servern och processervern.  
-4. För **data lager**väljer du det data lager som du vill återställa diskarna till lokalt. Det här alternativet används när den lokala virtuella datorn tas bort och du måste skapa nya diskar. Det här alternativet ignoreras om diskarna redan finns. Du måste fortfarande ange ett värde.
-5. Välj lagrings enhet.
+1. Välj **Replikerade arkivobjekt** > **Replicated items**. Högerklicka på den virtuella datorn som gick över och välj sedan **Skydda igen**. Du kan också välja maskinen på kommandoknapparna och välj sedan **Skydda igen**.
+2. Kontrollera att **Azure till lokal** skyddsriktning har valts.
+3. I **Huvudmålserver** och **processserver**väljer du den lokala målservern och processservern.  
+4. För **Datastore**väljer du det datalager som du vill återställa diskarna lokalt till. Det här alternativet används när den lokala virtuella datorn tas bort och du måste skapa nya diskar. Det här alternativet ignoreras om diskarna redan finns. Du måste fortfarande ange ett värde.
+5. Välj kvarhållningsenheten.
 6. Failback-principen väljs automatiskt.
-7. Välj **OK** för att starta skyddet.
+7. Välj **OK** för att börja skydda igen.
 
-    ![Dialog rutan för att skydda igen](./media/vmware-azure-reprotect/reprotectinputs.png)
+    ![Dialogrutan Reprotect](./media/vmware-azure-reprotect/reprotectinputs.png)
     
-8. Ett jobb börjar replikera den virtuella Azure-datorn till den lokala platsen. Du kan följa förloppet på fliken **Jobb**.
-    - När återskydden lyckas övergår den virtuella datorn till ett skyddat tillstånd.
+8. Ett jobb börjar replikera Den virtuella Azure-datorn till den lokala platsen. Du kan följa förloppet på fliken **Jobb**.
+    - När återskyddet lyckas går den virtuella datorn in i ett skyddat tillstånd.
     - Den lokala virtuella datorn stängs av under återaktiveringen av skyddet. Detta hjälper att säkerställa datakonsekvens vid replikeringen.
-    - Aktivera inte den lokala virtuella datorn efter att skyddet har slutförts.
+    - Slå inte på den lokala virtuella datorn när återbeskyddningen är klar.
    
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [fel söknings artikeln](vmware-azure-troubleshoot-failback-reprotect.md)om du stöter på problem.
-- När de virtuella Azure-datorerna är skyddade kan du [köra en återställning efter fel](vmware-azure-failback.md). Failback stänger av den virtuella Azure-datorn och startar den lokala virtuella datorn. Vänta lite stillestånds tid för programmet och välj en tid för återställning efter fel.
+- Om du stöter på några problem läser du [felsökningsartikeln](vmware-azure-troubleshoot-failback-reprotect.md).
+- När virtuella Azure-datorer har skyddats kan du [köra en återställning efter fel.](vmware-azure-failback.md) Återställning efter fel stänger av den virtuella azure-datorn och startar den lokala virtuella datorn. Räkna med några driftstopp för programmet, och välj en återställningstid i enlighet därmed.
 
 

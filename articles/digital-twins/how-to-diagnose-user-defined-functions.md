@@ -1,6 +1,6 @@
 ---
-title: 'Felsöka UDF: er-Azure Digital-dubbla Microsoft Docs'
-description: Lär dig mer om rekommenderade metoder för att felsöka användardefinierade funktioner i Azure Digitals dubbla.
+title: Felsöka UDF - Azure Digital Twins | Microsoft-dokument
+description: Lär dig mer om rekommenderade metoder för att felsöka användardefinierade funktioner i Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,79 +10,79 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 518383488aa878dab75aec7ad5da664332b62ad0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76511645"
 ---
-# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du användardefinierade funktioner i Azure Digitals dubbla
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Felsöka användardefinierade funktioner i Azure Digital Twins
 
-I den här artikeln sammanfattas hur du diagnostiserar och felsöker användardefinierade funktioner i Azure Digitals dubbla. Sedan identifierar den några av de vanligaste scenarierna som påträffades vid fel sökning.
+Den här artikeln sammanfattar hur du diagnostiserar och felsöker användardefinierade funktioner i Azure Digital Twins. Sedan identifierar den några av de vanligaste scenarierna som hittades när du felsöker dem.
 
 >[!TIP]
-> Läs [hur du konfigurerar övervakning och loggning](./how-to-configure-monitoring.md) för att lära dig mer om hur du konfigurerar fel söknings verktyg i Azure Digitals med aktivitets loggar, diagnostikloggar och Azure Monitor.
+> Läs [så här konfigurerar du övervakning och loggning](./how-to-configure-monitoring.md) om du vill veta mer om hur du konfigurerar felsökningsverktyg i Azure Digital Twins med hjälp av aktivitetsloggar, diagnostikloggar och Azure Monitor.
 
-## <a name="debug-issues"></a>Felsöka problem
+## <a name="debug-issues"></a>Problem med felsökning
 
-Genom att känna till hur du diagnostiserar problem i Azure Digitals dubbla, kan du effektivt analysera problem, identifiera orsakerna till problemen och tillhandahålla lämpliga lösningar för dem.
+Genom att veta hur du diagnostiserar problem i Azure Digital Twins kan du effektivt analysera problem, identifiera orsakerna till problem och tillhandahålla lämpliga lösningar för dem.
 
-En rad olika loggnings-, analys-och diagnostikverktygs verktyg tillhandahålls för detta ändamål.
+En mängd olika verktyg för loggning, analys och diagnostik tillhandahålls för detta ändamål.
 
 ### <a name="enable-logging-for-your-instance"></a>Aktivera loggning för din instans
 
-Azure Digitals dubbla har stöd för robust loggning, övervakning och analys. Lösningar utvecklare kan använda Azure Monitor loggar, diagnostikloggar, aktivitets loggar och andra tjänster för att stödja de komplexa övervaknings behoven i en IoT-app. Loggnings alternativ kan kombineras för att fråga eller Visa poster över flera tjänster och för att tillhandahålla detaljerad loggning för många tjänster.
+Azure Digital Twins stöder robust loggning, övervakning och analys. Lösningar utvecklare kan använda Azure Monitor loggar, diagnostiska loggar, aktivitetsloggar och andra tjänster för att stödja komplexa övervakningsbehov av en IoT-app. Loggningsalternativ kan kombineras för att fråga eller visa poster över flera tjänster och för att tillhandahålla detaljerad loggningstäckning för många tjänster.
 
-* Information om hur du loggar konfiguration som är unik för Azure Digitals dubbla finns [i Konfigurera övervakning och loggning](./how-to-configure-monitoring.md).
-* Läs [Azure Monitor](../azure-monitor/overview.md) översikt och lär dig om kraftfulla logg inställningar som Aktiver ats via Azure Monitor.
-* Läs igenom artikeln [samla in och Använd loggdata från dina Azure-resurser](../azure-monitor/platform/platform-logs-overview.md) för att konfigurera diagnostikloggar i Azure Digitals dubbla steg via Azure Portal, Azure CLI eller PowerShell.
+* För loggningskonfiguration som är specifik för Azure Digital Twins läser [du Så här konfigurerar du övervakning och loggning](./how-to-configure-monitoring.md).
+* Läs översikten [över Azure Monitor](../azure-monitor/overview.md) om du vill veta mer om kraftfulla logginställningar som aktiveras via Azure Monitor.
+* Granska artikeln [Samla in och använda loggdata från dina Azure-resurser](../azure-monitor/platform/platform-logs-overview.md) för att konfigurera diagnostiklogginställningar i Azure Digital Twins via Azure-portalen, Azure CLI eller PowerShell.
 
-När du har konfigurerat kan du välja alla logg kategorier, mått och använda kraftfulla Azure Monitor Log Analytics-arbetsytor som stöd för dina fel söknings åtgärder.
+När du har konfigurerat kan du välja alla loggkategorier, mått och använda kraftfulla Azure Monitor-logganalysarbetsytor för att stödja felsökningsinsatserna.
 
-### <a name="trace-sensor-telemetry"></a>Spåra telemetri för spårning
+### <a name="trace-sensor-telemetry"></a>Spåra sensortelemetri
 
-Om du vill spåra sensor telemetri kontrollerar du att diagnostikinställningar har Aktiver ATS för din Azure Digital-instansen. Kontrol lera sedan att alla önskade logg kategorier är markerade. Till sist bekräftar du att önskade loggar skickas till Azure Monitor loggar.
+Kontrollera att diagnostikinställningar är aktiverade för din Azure Digital Twins-instans för att spåra sensortelemetri. Se sedan till att alla önskade loggkategorier väljs. Bekräfta slutligen att önskade loggar skickas till Azure Monitor-loggar.
 
-Om du vill matcha ett sensor telemetri till respektive loggar kan du ange ett korrelations-ID för de händelse data som skickas. Det gör du genom att ställa in egenskapen `x-ms-client-request-id` till ett GUID.
+Om du vill matcha ett sensortelemetrimeddelande med respektive loggar kan du ange ett korrelations-ID för händelsedata som skickas. Det gör du `x-ms-client-request-id` genom att ange egenskapen till ett GUID.
 
-När du har skickat telemetri öppnar du Azure Monitor Log Analytics för att fråga efter loggar med hjälp av ange korrelations-ID:
+När du har skickat telemetri öppnar du Azure Monitor-logganalys för att fråga efter loggar med hjälp av uppsättningen korrelations-ID:
 
 ```Kusto
 AzureDiagnostics
 | where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Värde för fråga | Ersätt med |
+| Frågevärde | Ersätt med |
 | --- | --- |
-| YOUR_CORRELATION_IDENTIFIER | Korrelations-ID som angavs för händelse data |
+| YOUR_CORRELATION_IDENTIFIER | Korrelations-ID som angavs på händelsedata |
 
-För att läsa alla senaste telemetri loggar fråga:
+Så här läser du alla senaste frågan om telemetriloggar:
 
 ```Kusto
 AzureDiagnostics
 | order by CorrelationId desc
 ```
 
-Om du aktiverar loggning för den användardefinierade funktionen visas dessa loggar i Log Analytics-instansen med kategorin `UserDefinedFunction`. Hämta dem genom att ange följande frågevillkor i Log Analytics:
+Om du aktiverar loggning för din användardefinierade funktion visas dessa loggar `UserDefinedFunction`i logganalysinstansen med kategorin . Om du vill hämta dem anger du följande frågevillkor i logganalys:
 
 ```Kusto
 AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-Läs [komma igång med frågor](../azure-monitor/log-query/get-started-queries.md)om du vill ha mer information om kraftfulla fråge åtgärder.
+Mer information om kraftfulla frågeåtgärder finns i [Komma igång med frågor](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="identify-common-issues"></a>Identifiera vanliga problem
 
-Det är viktigt att både diagnostisera och identifiera vanliga problem vid fel sökning av din lösning. Flera problem som ofta uppstår när du utvecklar användardefinierade funktioner sammanfattas i följande underavsnitt.
+Både att diagnostisera och identifiera vanliga problem är viktiga vid felsökning av din lösning. Flera problem som ofta uppstår när du utvecklar användardefinierade funktioner sammanfattas i följande underavsnitt.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-### <a name="check-if-a-role-assignment-was-created"></a>Kontrol lera om en roll tilldelning har skapats
+### <a name="check-if-a-role-assignment-was-created"></a>Kontrollera om en rolltilldelning har skapats
 
-Utan en roll tilldelning som skapats inom hanterings-API: t har den användardefinierade funktionen inte åtkomst att utföra åtgärder som att skicka meddelanden, hämta metadata och ange beräknade värden i topologin.
+Utan en rolltilldelning som skapats inom hanterings-API:et har den användardefinierade funktionen inte åtkomst till att utföra åtgärder som att skicka meddelanden, hämta metadata och ange beräknade värden i topologin.
 
-Kontrol lera om det finns en roll tilldelning för din användardefinierade funktion via ditt hanterings-API:
+Kontrollera om det finns en rolltilldelning för din användardefinierade funktion via ditt hanterings-API:
 
 ```URL
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
@@ -90,13 +90,13 @@ GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_U
 
 | Parametervärde | Ersätt med |
 | --- | --- |
-| YOUR_USER_DEFINED_FUNCTION_ID | ID: t för den användardefinierade funktionen för att hämta roll tilldelningar för|
+| YOUR_USER_DEFINED_FUNCTION_ID | ID:et för den användardefinierade funktionen för att hämta rolltilldelningar för|
 
-Lär dig [hur du skapar en roll tilldelning för din användardefinierade funktion](./how-to-user-defined-functions.md), om det inte finns några roll tilldelningar.
+Lär dig hur du [skapar en rolltilldelning för din användardefinierade funktion](./how-to-user-defined-functions.md)om det inte finns några rolltilldelningar.
 
-### <a name="check-if-the-matcher-works-for-a-sensors-telemetry"></a>Kontrol lera om matchnings funktionen fungerar för en sensors telemetri
+### <a name="check-if-the-matcher-works-for-a-sensors-telemetry"></a>Kontrollera om matchstickan fungerar för en sensors telemetri
 
-Med följande anrop mot Azure Digitals dubbla instansers hanterings-API kan du fastställa om en specifik matchning gäller för den aktuella sensorn.
+Med följande anrop mot azure Digital Twins-instansernas hanterings-API kan du avgöra om en viss matchning gäller för den angivna sensorn.
 
 ```URL
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
@@ -104,8 +104,8 @@ GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSO
 
 | Parameter | Ersätt med |
 | --- | --- |
-| *YOUR_MATCHER_IDENTIFIER* | ID för den matchning som du vill utvärdera |
-| *YOUR_SENSOR_IDENTIFIER* | ID för den sensor som du vill utvärdera |
+| *YOUR_MATCHER_IDENTIFIER* | ID:et för de matcher som du vill utvärdera |
+| *YOUR_SENSOR_IDENTIFIER* | Sensorns ID som du vill utvärdera |
 
 Svar:
 
@@ -118,9 +118,9 @@ Svar:
 }
 ```
 
-### <a name="check-what-a-sensor-triggers"></a>Kontrol lera vad en sensor utlöser
+### <a name="check-what-a-sensor-triggers"></a>Kontrollera vad en sensor utlöser
 
-Med följande anrop till API: erna för digital multiadministration i Azure kan du fastställa identifierarna för dina användardefinierade funktioner som utlöses av den angivna sensorns inkommande telemetri:
+Med följande anrop mot Azure Digital Twins Management API:er kan du fastställa identifierarna för dina användardefinierade funktioner som utlöses av den angivna sensorns inkommande telemetri:
 
 ```URL
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
@@ -128,7 +128,7 @@ GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=Use
 
 | Parameter | Ersätt med |
 | --- | --- |
-| *YOUR_SENSOR_IDENTIFIER* | ID för sensorn för att skicka telemetri |
+| *YOUR_SENSOR_IDENTIFIER* | Sensorns ID för att skicka telemetri |
 
 Svar:
 
@@ -161,9 +161,9 @@ Svar:
 
 ### <a name="issue-with-receiving-notifications"></a>Problem med att ta emot meddelanden
 
-När du inte får meddelanden från den utlöst användardefinierade funktionen, kontrollerar du att parametern topologi objekt typ matchar den typ av identifierare som används.
+När du inte får meddelanden från den utlösta användardefinierade funktionen bekräftar du att parametern för topologyobjekttyp matchar den typ av identifierare som används.
 
-**Felaktig** Exempel
+**Felaktigt** Exempel:
 
 ```JavaScript
 var customNotification = {
@@ -173,9 +173,9 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Det här scenariot beror på att den använda identifieraren refererar till en sensor medan den angivna topologins objekt typ är `Space`.
+Det här scenariot uppstår eftersom den använda identifieraren refererar till `Space`en sensor medan den angivna toologiobjekttypen är .
 
-**Korrigera** Exempel
+**Korrekt** Exempel:
 
 ```JavaScript
 var customNotification = {
@@ -185,7 +185,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(customNotification));
 ```
 
-Det enklaste sättet att inte köra i det här problemet är att använda metoden `Notify` i objektet metadata.
+Det enklaste sättet att inte stöta `Notify` på det här problemet är att använda metoden på metadataobjektet.
 
 Exempel:
 
@@ -206,14 +206,14 @@ function process(telemetry, executionContext) {
 
 Om du aktiverar diagnostikinställningar kan du stöta på följande vanliga undantag:
 
-1. **Begränsning**: om din användardefinierade funktion överskrider gränserna för körnings frekvensen som beskrivs i artikeln om [tjänst begränsningar](./concepts-service-limits.md) kommer den att begränsas. Inga ytterligare åtgärder utfördes förrän begränsnings gränserna har löpt ut.
+1. **Begränsning**: Om din användardefinierade funktion överskrider de körningshastighetsgränser som beskrivs i artikeln [Servicegränser](./concepts-service-limits.md) begränsas den. Inga ytterligare åtgärder har utförts förrän begränsningsgränserna upphör att gälla.
 
-1. Det gick **inte att hitta data**: om den användardefinierade funktionen försöker komma åt metadata som inte finns, Miss lyckas åtgärden.
+1. **Data hittades inte**: om din användardefinierade funktion försöker komma åt metadata som inte finns, misslyckas åtgärden.
 
-1. **Inte auktoriserad**: om den användardefinierade funktionen inte har någon roll tilldelning inställd eller saknar tillräcklig behörighet för att komma åt vissa metadata från topologin, Miss lyckas åtgärden.
+1. **Inte auktoriserad**: om din användardefinierade funktion inte har en rolltilldelningsuppsättning eller saknar tillräckligt med behörighet för att komma åt vissa metadata från topologin misslyckas åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du aktiverar [övervakning och loggar](./how-to-configure-monitoring.md) i Azure Digitals dubbla.
+- Lär dig hur du aktiverar [övervakning och loggar](./how-to-configure-monitoring.md) i Azure Digital Twins.
 
-- Läs [översikten över Azures aktivitets logg](../azure-monitor/platform/platform-logs-overview.md) artikel om du vill ha fler alternativ för Azure-loggning.
+- Läs artikeln [Översikt över Azure Activity-loggen](../azure-monitor/platform/platform-logs-overview.md) för fler Azure-loggningsalternativ.

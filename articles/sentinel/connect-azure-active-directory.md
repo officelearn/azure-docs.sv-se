@@ -1,6 +1,6 @@
 ---
-title: Anslut Azure AD-data till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter Azure Active Directory data till Azure Sentinel.
+title: Ansluta Azure AD-data till Azure Sentinel | Microsoft-dokument
+description: Lär dig hur du ansluter Azure Active Directory-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,34 +16,34 @@ ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
 ms.openlocfilehash: be9241a6156621d3f90dbab2da5bebeb463b4232
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588628"
 ---
-# <a name="connect-data-from-azure-active-directory"></a>Anslut data från Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Ansluta data från Azure Active Directory
 
 
 
-Med Azure Sentinel kan du samla in data från [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) och strömma dem till Azure Sentinel. Du kan välja att strömma [inloggnings loggar](../active-directory/reports-monitoring/concept-sign-ins.md) och [gransknings loggar](../active-directory/reports-monitoring/concept-audit-logs.md) .
+Med Azure Sentinel kan du samla in data från [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) och strömma dem till Azure Sentinel. Du kan välja att strömma [inloggningsloggar](../active-directory/reports-monitoring/concept-sign-ins.md) och [granskningsloggar](../active-directory/reports-monitoring/concept-audit-logs.md) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Om du vill exportera inloggnings data från Active Directory måste du ha en Azure AD P1-eller P2-licens.
+- Om du vill exportera inloggningsdata från Active Directory måste du ha en Azure AD P1- eller P2-licens.
 
-- Användare med behörighet som global administratör eller säkerhets administratör på den klient som du vill strömma loggarna från.
+- Användare med globala administratörs- eller säkerhetsadministratörsbehörigheter för klienten som du vill strömma loggarna från.
 
-- Du måste ha behörighet att komma åt Azure AD-diagnostikloggar för att kunna se anslutnings status. 
+- För att kunna se anslutningsstatusen måste du ha behörighet att komma åt Azure AD-diagnostikloggar. 
 
 
 ## <a name="connect-to-azure-ad"></a>Anslut till Azure AD
 
-1. I Azure Sentinel väljer du **data kopplingar** och klickar sedan på panelen **Azure Active Directory** .
+1. I Azure Sentinel väljer du **Data-kopplingar** och klickar sedan på **Azure Active Directory-panelen.**
 
-1. Klicka på **Anslut**bredvid de loggar som du vill strömma till Azure Sentinel.
+1. Klicka på **Anslut**bredvid loggarna som du vill strömma till Azure Sentinel .
 
-1. Du kan välja om du vill att aviseringarna från Azure AD automatiskt ska generera incidenter i Azure Sentinel. Under **skapa incidenter** väljer du **Aktivera** för att aktivera den standard analys regel som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhets tjänsten. Du kan sedan redigera den här regeln under **analys** och sedan **aktiva regler**.
+1. Du kan välja om du vill att aviseringarna från Azure AD automatiskt ska generera incidenter i Azure Sentinel. Under **Skapa incidenter** väljer du **Aktivera** för att aktivera standardanalytiska regeln som skapar incidenter automatiskt från aviseringar som genereras i den anslutna säkerhetstjänsten. Du kan sedan redigera den här regeln under **Analytics** och sedan **aktiva regler**.
 
 1. Om du vill använda det relevanta schemat i Log Analytics för Azure AD-aviseringar söker du efter **SigninLogs** och **AuditLogs**.
 
@@ -51,6 +51,6 @@ Med Azure Sentinel kan du samla in data från [Azure Active Directory](../active
 
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter Azure AD till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+I det här dokumentet lärde du dig hur du ansluter Azure AD till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).

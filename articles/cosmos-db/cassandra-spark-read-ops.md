@@ -1,7 +1,7 @@
 ---
-title: Läs Cassandra API-tabelldata med Spark
+title: Läsa Cassandra API-tabelldata med Spark
 titleSufix: Azure Cosmos DB
-description: Den här artikeln beskriver hur du läser data från API för Cassandra-tabeller i Azure Cosmos DB.
+description: I den här artikeln beskrivs hur du läser data från Cassandra API-tabeller i Azure Cosmos DB.
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60893417"
 ---
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Läsa data från Azure Cosmos DB Cassandra API-tabeller med Spark
 
- Den här artikeln beskriver hur du läser data som lagras i Azure Cosmos DB Cassandra-API från Spark.
+ I den här artikeln beskrivs hur du läser data som lagras i Azure Cosmos DB Cassandra API från Spark.
 
-## <a name="cassandra-api-configuration"></a>Cassandra-API-konfiguration
+## <a name="cassandra-api-configuration"></a>Cassandra API-konfiguration
 ```scala
 import org.apache.spark.sql.cassandra._
 //Spark connector
@@ -46,9 +46,9 @@ spark.conf.set("spark.cassandra.concurrent.reads", "512")
 spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
-## <a name="dataframe-api"></a>Nu när dataramen API
+## <a name="dataframe-api"></a>Api för dataram
 
-### <a name="read-table-using-sessionreadformat-command"></a>Läs tabellen session.read.format kommandot
+### <a name="read-table-using-sessionreadformat-command"></a>Läs tabell med kommandot session.read.format
 
 ```scala
 val readBooksDF = sqlContext
@@ -60,7 +60,7 @@ val readBooksDF = sqlContext
 readBooksDF.explain
 readBooksDF.show
 ```
-### <a name="read-table-using-sparkreadcassandraformat"></a>Läs tabellen med hjälp av spark.read.cassandraFormat 
+### <a name="read-table-using-sparkreadcassandraformat"></a>Läsa tabell med spark.read.cassandraFormat 
 
 ```scala
 val readBooksDF = spark.read.cassandraFormat("books", "books_ks", "").load()
@@ -83,7 +83,7 @@ readBooksDF.show
 
 ### <a name="apply-filters"></a>Använda filter
 
-Predikatet pushdown stöds inte för närvarande, i exemplen nedan återspeglar filtrering på klientsidan. 
+För närvarande predicate pushdown stöds inte, exemplen nedan återspeglar filtrering på klientsidan. 
 
 ```scala
 val readBooksDF = spark
@@ -130,7 +130,7 @@ spark
   .load.createOrReplaceTempView("books_vw")
 ```
 
-### <a name="run-queries-against-the-view"></a>Kör frågor mot vyn
+### <a name="run-queries-against-the-view"></a>Köra frågor mot vyn
 
 ```sql
 select * from books_vw where book_pub_year > 1891
@@ -138,10 +138,10 @@ select * from books_vw where book_pub_year > 1891
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här följer ytterligare artiklar om hur du arbetar med Azure Cosmos DB Cassandra-API från Spark:
+Följande är ytterligare artiklar om hur du arbetar med Azure Cosmos DB Cassandra API från Spark:
  
- * [Upsert åtgärder](cassandra-spark-upsert-ops.md)
- * [Borttagningsåtgärder](cassandra-spark-delete-ops.md)
- * [Aggregeringsåtgärder](cassandra-spark-aggregation-ops.md)
- * [Tabellen kopieringsåtgärder](cassandra-spark-table-copy-ops.md)
+ * [Upsert-operationer](cassandra-spark-upsert-ops.md)
+ * [Ta bort åtgärder](cassandra-spark-delete-ops.md)
+ * [Sammansättningsåtgärder](cassandra-spark-aggregation-ops.md)
+ * [Tabellkopieringsåtgärder](cassandra-spark-table-copy-ops.md)
 

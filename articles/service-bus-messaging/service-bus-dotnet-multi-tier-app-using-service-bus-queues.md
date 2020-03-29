@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60403371"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
@@ -33,7 +33,7 @@ Du kommer att få lära dig följande:
 
 I den här självstudiekursen kommer du att skapa och köra flernivåappen i en molntjänst för Azure. Klientdelen är en ASP.NET MVC-webbroll och serverdelen en arbetsroll som använder en Service Bus-kö. Du kan skapa samma flernivåapp med klientdelen som ett webbprojekt som distribueras till en Azure-webbplats i stället för till en molntjänst. Du kan också prova att gå igenom självstudiekursen [.NET-hybridapp lokalt/i molnet](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-Följande skärmbild visar det färdiga programmet.
+Följande skärmbild visar det slutförda programmet.
 
 ![][0]
 
@@ -50,7 +50,7 @@ Denna kommunikationsmekanism har flera fördelar jämfört med funktioner för d
 
 * **Tidsbestämd frikoppling.** Med mönstret för asynkrona meddelanden behöver producenter och konsumenter inte vara online samtidigt. Service Bus lagrar meddelanden på ett säkert sätt tills den konsumerande parten är redo att ta emot dem. Detta gör att komponenterna i den distribuerade appen kan frikopplas, antingen frivilligt, till exempel för underhåll, eller på grund av en komponentkrasch, utan att detta påverkar hela systemet. Dessutom behöver den konsumerande appen endast kopplas upp och vara online under vissa tider på dagen.
 * **Belastningsutjämning.** I många program varierar systembelastningen beroende på tidpunkten, medan den bearbetningstid som krävs för varje arbetsenhet vanligtvis är konstant. Medlingen mellan meddelandeproducenter och -konsumenter med hjälp av en kö innebär att den konsumerande appen (arbetaren) endast måste konfigureras för att kunna hantera en genomsnittlig belastning i stället för mycket hög belastning vid vissa tider. Köns djup växer och dras samman allt eftersom den inkommande belastningen varierar. Detta sparar direkt pengar eftersom den mängd infrastruktur som krävs för att underhålla programbelastningen blir mindre.
-* **Belastningsutjämning.** Allt eftersom belastningen ökar kan fler arbetsprocesser läggas till för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom gör den här pull-baserade belastningsbalanseringen att du får en optimal användning av arbetsdatorerna. Detta gäller även om arbetsdatorerna har olika processorkraft: de kommer att hämta meddelanden med den hastighet som var och en av dem klarar av. Det här mönstret kallas ofta för ett *konkurrerande konsument*-mönster.
+* **Nätverksbelastning.** Allt eftersom belastningen ökar kan fler arbetsprocesser läggas till för att läsa från kön. Varje meddelande bearbetas bara av en av arbetsprocesserna. Dessutom gör den här pull-baserade belastningsbalanseringen att du får en optimal användning av arbetsdatorerna. Detta gäller även om arbetsdatorerna har olika processorkraft: de kommer att hämta meddelanden med den hastighet som var och en av dem klarar av. Det här mönstret kallas ofta för ett *konkurrerande konsument*-mönster.
   
   ![][2]
 
@@ -58,7 +58,7 @@ I följande avsnitt pratar vi om den kod som implementerar denna arkitektur.
 
 ## <a name="create-a-namespace"></a>Skapa ett namnområde
 
-Det första steget är att skapa en *namnområde*, och få en [signatur för delad åtkomst (SAS)](service-bus-sas.md) nyckel för det namnområdet. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
+Det första steget är att skapa ett *namnområde*och hämta en [SAS-nyckel (Shared Access Signature)](service-bus-sas.md) för det namnområdet. Ett namnområde ger en appgräns för varje app som exponeras via Service Bus. SAS-nyckeln genereras av systemet när ett namnområde har skapats. Kombinationen av namnet på namnområdet och SAS-nyckeln tillhandahåller autentiseringsuppgifterna för Service Bus som används för att tillåta åtkomst till ett program.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -72,7 +72,7 @@ Efter det lägger du till kod som skickar objekt till en Service Bus-kö och vis
 1. Du startar Visual Studio med administratörsbehörighet genom att högerklicka på programikonen för **Visual Studio** och sedan klicka på **Kör som administratör**. Azure Compute Emulator, som diskuteras senare i den här artikel, kräver att Visual Studio startas med administratörsbehörighet.
    
    I Visual Studio klickar du på **Nytt** i menyn **Arkiv** och sedan på **Projekt**.
-2. Från **Installerade mallar**, under **Visual C#** , klickar du på **Moln** och sedan på **Azure Cloud Service**. Ge projektet följande namn: **MultiTierApp**. Klicka sedan på **OK**.
+2. Från **Installerade mallar**, under **Visual C#**, klickar du på **Moln** och sedan på **Azure Cloud Service**. Ge projektet följande namn: **MultiTierApp**. Klicka sedan på **OK**.
    
    ![][9]
 3. Dubbelklicka på **ASP.NET Web Role** från fönstret **Roller**.

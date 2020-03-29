@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell för Windows-användare | Microsoft Docs
-description: Guide för användare som inte är bekant med Linux-system
+title: Azure Cloud Shell för Windows-användare | Microsoft-dokument
+description: Guide för användare som inte är bekanta med Linux-system
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,31 +15,31 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
 ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67204147"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell i Azure Cloud Shell för Windows-användare
 
-I maj 2018 har [meddelade](https://azure.microsoft.com/blog/pscloudshellrefresh/) till PowerShell i Azure Cloud Shell.
-PowerShell-miljö i Azure Cloud Shell nu körs [PowerShell Core 6](https://github.com/powershell/powershell) i en Linux-miljö.
-Med den här ändringen, det kan finnas vissa skillnader i PowerShell-miljö i Cloud Shell jämfört med vad som förväntas i ett Windows PowerShell-upplevelse.
+I maj 2018 [tillkännagavs](https://azure.microsoft.com/blog/pscloudshellrefresh/) ändringar i PowerShell i Azure Cloud Shell.
+PowerShell-upplevelsen i Azure Cloud Shell kör nu [PowerShell Core 6](https://github.com/powershell/powershell) i en Linux-miljö.
+Med den här ändringen kan det finnas vissa skillnader i PowerShell-upplevelsen i Cloud Shell jämfört med vad som förväntas i en Windows PowerShell-upplevelse.
 
-## <a name="file-system-case-sensitivity"></a>Filen system skiftlägeskänslighet
+## <a name="file-system-case-sensitivity"></a>Känslighet för filsystemärende
 
-Filsystemet är skiftlägeskänslig i Windows, medan på Linux, filsystemet är skiftlägeskänsligt.
-Tidigare `file.txt` och `FILE.txt` ansågs vara samma fil, men nu de anses vara olika filer.
-Rätt skiftläge måste användas när `tab-completing` i filsystemet.
-PowerShell-specifika upplevelser som `tab-completing` cmdlet-namnen, parametrar och värden, är inte skiftlägeskänsliga.
+Filsystemet är skiftlägesokänsligt i Windows, medan filsystemet på Linux är skiftlägeskänsligt.
+Tidigare `file.txt` `FILE.txt` och ansågs vara samma fil, men nu anses de vara olika filer.
+Korrekt hölje måste `tab-completing` användas i filsystemet.
+PowerShell-specifika upplevelser, `tab-completing` till exempel cmdletnamn, parametrar och värden, är inte skiftlägeskänsliga.
 
-## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Windows PowerShell-alias eller Linux-verktyg
+## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Windows PowerShell alias vs Linux verktyg
 
-Vissa befintliga PowerShell-alias har samma namn som inbyggda Linux-kommandon, till exempel `cat`,`ls`, `sort`, `sleep`osv. Alias som står i konflikt med inbyggda Linux-kommandon i PowerShell Core 6, har tagits bort.
-Nedan visas vanliga alias som har tagits bort, samt deras motsvarande kommandon:  
+Vissa befintliga PowerShell-alias har samma namn som inbyggda `cat`Linux-kommandon, till exempel ,`ls`, `sort`, `sleep`, etc. I PowerShell Core 6 har alias som kolliderar med inbyggda Linux-kommandon tagits bort.
+Nedan finns de vanliga alias som har tagits bort samt deras motsvarande kommandon:  
 
-|Ta bort Alias   |Motsvarande kommando   |
+|Borttaget alias   |Motsvarande kommando   |
 |---|---|
 |`cat`    | `Get-Content` |
 |`curl`   | `Invoke-WebRequest` |
@@ -51,22 +51,22 @@ Nedan visas vanliga alias som har tagits bort, samt deras motsvarande kommandon:
 |`sort`   | `Sort-Object` |
 |`wget`   | `Invoke-WebRequest` |
 
-## <a name="persisting-home"></a>Bevara $HOME
+## <a name="persisting-home"></a>Ihållande $HOME
 
-Tidigare användare kan bara spara skript och andra filer i sin enhet i molnet.
-Användarens $HOME katalog är nu också beständiga mellan sessioner.
+Tidigare användare kunde bara spara skript och andra filer i sin Cloud Drive.
+Nu är användarens $HOME katalog envisas också över sessioner.
 
 ## <a name="powershell-profile"></a>PowerShell-profil
 
-Som standard skapas inte en användarprofil PowerShell.
-Skapa din profil genom att skapa en `PowerShell` katalogen under `$HOME/.config`.
+Som standard skapas inte en användares PowerShell-profil.
+Skapa en `PowerShell` katalog under `$HOME/.config`.
 
 ```azurepowershell-interactive
 mkdir (Split-Path $profile.CurrentUserAllHosts)
 ```
 
-Under `$HOME/.config/PowerShell`, du kan skapa din profilfiler – `profile.ps1` och/eller `Microsoft.PowerShell_profile.ps1`.
+Under `$HOME/.config/PowerShell`kan du skapa dina `profile.ps1` profilfiler `Microsoft.PowerShell_profile.ps1`- och/eller .
 
 ## <a name="whats-new-in-powershell-core-6"></a>Nyheter i PowerShell Core 6
 
-Mer information om nyheter i PowerShell Core 6 refererar till den [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) och [komma igång med PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blogginlägg.
+Mer information om vad som är nytt i PowerShell Core 6 finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) och blogginlägget [Komma igång med PowerShell Core.](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/)

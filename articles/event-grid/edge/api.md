@@ -1,5 +1,5 @@
 ---
-title: REST API-Azure Event Grid IoT Edge | Microsoft Docs
+title: REST API - Azure Event Grid IoT Edge | Microsoft-dokument
 description: REST API på Event Grid på IoT Edge.
 author: VidyaKukke
 manager: rajarv
@@ -10,38 +10,38 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841837"
 ---
 # <a name="rest-api"></a>REST API
-I den här artikeln beskrivs REST-API: er för Azure Event Grid på IoT Edge
+I den här artikeln beskrivs REST-API:erna för Azure Event Grid på IoT Edge
 
 ## <a name="common-api-behavior"></a>Gemensamt API-beteende
 
-### <a name="base-url"></a>Bas-URL
-Event Grid på IoT Edge har följande API: er exponerade över HTTP (port 5888) och HTTPS (port 4438).
+### <a name="base-url"></a>Grundläggande URL
+Event Grid på IoT Edge har följande API:er exponeras över HTTP (port 5888) och HTTPS (port 4438).
 
-* Bas-URL för HTTP: http://eventgridmodule:5888
-* Bas-URL för HTTPS: https://eventgridmodule:4438
+* Bas-URL för HTTP:http://eventgridmodule:5888
+* Grundläggande URL för HTTPS:https://eventgridmodule:4438
 
-### <a name="request-query-string"></a>Frågesträng för begäran
-Alla API-begäranden kräver följande frågesträngparametern:
+### <a name="request-query-string"></a>Begär frågesträng
+Alla API-begäranden kräver följande frågesträngparameter:
 
 ```?api-version=2019-01-01-preview```
 
-### <a name="request-content-type"></a>Begär innehålls typ
-Alla API-begäranden måste ha en **innehålls typ**.
+### <a name="request-content-type"></a>Ange innehållstyp för begäran
+Alla API-begäranden måste ha en **content-type**.
 
-I händelse av **EventGridSchema** eller **CustomSchema**kan värdet för Content-Type vara något av följande värden:
+Vid **EventGridSchema** eller **CustomSchema**kan värdet för Content-Type vara ett av följande värden:
 
 ```Content-Type: application/json```
 
 ```Content-Type: application/json; charset=utf-8```
 
-Om **CloudEventSchemaV1_0** i strukturerat läge kan värdet för Content-Type vara något av följande värden:
+Vid **CloudEventSchemaV1_0** i strukturerat läge kan värdet för content-type vara ett av följande värden:
 
 ```Content-Type: application/cloudevents+json```
     
@@ -51,10 +51,10 @@ Om **CloudEventSchemaV1_0** i strukturerat läge kan värdet för Content-Type v
     
 ```Content-Type: application/cloudevents-batch+json; charset=utf-8```
 
-I händelse av **CloudEventSchemaV1_0** i binärt läge, se [dokumentationen](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) för mer information.
+Om **CloudEventSchemaV1_0** i binärt läge finns i [dokumentationen](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) för mer information.
 
-### <a name="error-response"></a>Fel svar
-Alla API: er returnerar ett fel med följande nytto last:
+### <a name="error-response"></a>Felsvar
+Alla API:er returnerar ett fel med följande nyttolast:
 
 ```json
 {
@@ -72,11 +72,11 @@ Alla API: er returnerar ett fel med följande nytto last:
 
 ## <a name="manage-topics"></a>Hantera ämnen
 
-### <a name="put-topic-create--update"></a>Lägg till ämne (Skapa/uppdatera)
+### <a name="put-topic-create--update"></a>Sätt ämne (skapa / uppdatera)
 
-**Begäran**: ``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Begäran**:``` PUT /topics/<topic_name>?api-version=2019-01-01-preview ```
 
-**Nytto Last**:
+**Nyttolast:**
 
 ```json
     {
@@ -88,9 +88,9 @@ Alla API: er returnerar ett fel med följande nytto last:
     }
 ```
 
-**Svar**: http 200
+**Svar**: HTTP 200
 
-**Nytto Last**:
+**Nyttolast:**
 
 ```json
 {
@@ -105,13 +105,13 @@ Alla API: er returnerar ett fel med följande nytto last:
 }
 ```
 
-### <a name="get-topic"></a>Hämta ämne
+### <a name="get-topic"></a>Få ämne
 
-**Begäran**: ``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Begäran**:``` GET /topics/<topic_name>?api-version=2019-01-01-preview ```
 
-**Svar**: http 200
+**Svar**: HTTP 200
 
-**Nytto Last**:
+**Nyttolast:**
 ```json
 {
     "id": "/iotHubs/<iot_hub_name>/devices/<iot_edge_device_id>/modules/<eventgrid_module_name>/topics/<topic_name>",
@@ -127,11 +127,11 @@ Alla API: er returnerar ett fel med följande nytto last:
 
 ### <a name="get-all-topics"></a>Hämta alla ämnen
 
-**Begäran**: ``` GET /topics?api-version=2019-01-01-preview ```
+**Begäran**:``` GET /topics?api-version=2019-01-01-preview ```
 
-**Svar**: http 200
+**Svar**: HTTP 200
 
-**Nytto Last**:
+**Nyttolast:**
 ```json
 [
     {
@@ -159,18 +159,18 @@ Alla API: er returnerar ett fel med följande nytto last:
 
 ### <a name="delete-topic"></a>Ta bort ämne
 
-**Begäran**: ``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
+**Begäran**:``` DELETE /topics/<topic_name>?api-version=2019-01-01-preview ```
 
-**Svar**: http 200, Tom nytto Last
+**Svar:** HTTP 200, tom nyttolast
 
-## <a name="manage-event-subscriptions"></a>Hantera händelse prenumerationer
-I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen för `EndpointType=EdgeHub / EndpointType=EventGrid` finns i nästa avsnitt. 
+## <a name="manage-event-subscriptions"></a>Hantera händelseprenumerationer
+Exempel i det `EndpointType=Webhook;`här avsnittet använder . Json-proverna `EndpointType=EdgeHub / EndpointType=EventGrid` för finns i nästa avsnitt. 
 
-### <a name="put-event-subscription-create--update"></a>Lägg till händelse prenumeration (Skapa/uppdatera)
+### <a name="put-event-subscription-create--update"></a>Placera händelseprenumeration (skapa/uppdatera)
 
-**Begäran**: ``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Begäran**:``` PUT /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
-**Nytto Last**:
+**Nyttolast:**
 ```json
 {
     "name": "<subscription_name>", // optional, inferred from URL. If specified must match URL subscription_name
@@ -268,9 +268,9 @@ I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen 
 }
 ```
 
-**Svar**: http 200
+**Svar**: HTTP 200
 
-**Nytto Last**:
+**Nyttolast:**
 
 ```json
 {
@@ -371,13 +371,13 @@ I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen 
 ```
 
 
-### <a name="get-event-subscription"></a>Hämta händelse prenumeration
+### <a name="get-event-subscription"></a>Hämta evenemangsprenumeration
 
-**Begäran**: ``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Begäran**:``` GET /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
-**Svar**: http 200
+**Svar**: HTTP 200
 
-**Nytto Last**:
+**Nyttolast:**
 ```json
 {
     "id": "/iotHubs/<iot_hub_name>/devices/<iot_edge_device_id>/modules/<eventgrid_module_name>/topics/<topic_name>/eventSubscriptions/<subscription_name>",
@@ -476,13 +476,13 @@ I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen 
 }
 ```
 
-### <a name="get-event-subscriptions"></a>Hämta händelse prenumerationer
+### <a name="get-event-subscriptions"></a>Hämta evenemangsprenumerationer
 
-**Begäran**: ``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
+**Begäran**:``` GET /topics/<topic_name>/eventSubscriptions?api-version=2019-01-01-preview ```
 
-**Svar**: http 200
+**Svar**: HTTP 200
 
-**Nytto Last**:
+**Nyttolast:**
 ```json
 [
     {
@@ -494,18 +494,18 @@ I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen 
 ]
 ```
 
-### <a name="delete-event-subscription"></a>Ta bort händelse prenumeration
+### <a name="delete-event-subscription"></a>Ta bort händelseprenumeration
 
-**Begäran**: ``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
+**Begäran**:``` DELETE /topics/<topic_name>/eventSubscriptions/<subscription_name>?api-version=2019-01-01-preview ```
 
-**Svar**: http 200, ingen nytto Last
+**Svar:** HTTP 200, ingen nyttolast
 
 
-## <a name="publish-events-api"></a>API för publicerings händelser
+## <a name="publish-events-api"></a>API för publicering av händelser
 
-### <a name="send-batch-of-events-in-event-grid-schema"></a>Skicka batch med händelser (i Event Grid schema)
+### <a name="send-batch-of-events-in-event-grid-schema"></a>Skicka grupp av händelser (i schema för händelserutnät)
 
-**Begäran**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Begäran**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -523,22 +523,22 @@ I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen 
 ]
 ```
 
-**Svar**: http 200, Tom nytto Last
+**Svar:** HTTP 200, tom nyttolast
 
 
-**Fält beskrivningar för nytto Last**
-- ```Id``` är obligatoriskt. Det kan vara valfritt sträng värde som anroparen har fyllt i. Event Grid utför ingen dubblettidentifiering eller använder inga semantik i det här fältet.
-- ```Topic``` är valfritt, men om det anges måste det matcha topic_name från URL: en för begäran
-- ```Subject``` är obligatorisk, kan vara valfritt sträng värde
-- ```EventType``` är obligatorisk, kan vara valfritt sträng värde
-- ```EventTime``` är obligatoriskt, verifieras det inte, utan bör vara en korrekt DateTime.
-- ```DataVersion``` är obligatoriskt
-- ```MetadataVersion``` är valfritt, om det anges måste det vara en sträng med värdet ```"1"```
-- ```Data``` är valfritt och kan vara valfri JSON-token (Number, String, Boolean, array, Object)
+**Beskrivningar av nyttolastfält**
+- ```Id```är obligatoriskt. Det kan vara vilket strängvärde som helst som befolkas av anroparen. Händelserutnät gör INTE någon dubblettidentifiering eller framtvingande av semantik i det här fältet.
+- ```Topic```är valfritt, men om det anges måste matcha topic_name från begäran URL
+- ```Subject```är obligatoriskt, kan vara vilket strängvärde som helst
+- ```EventType```är obligatoriskt, kan vara vilket strängvärde som helst
+- ```EventTime```är obligatoriskt, det är inte validerat men bör vara en riktig DateTime.
+- ```DataVersion```är obligatoriskt
+- ```MetadataVersion```är valfritt, om det anges måste det vara en sträng med värdet```"1"```
+- ```Data```är valfritt och kan vara vilken JSON-token som helst (tal, sträng, boolesk, matris, objekt)
 
-### <a name="send-batch-of-events-in-custom-schema"></a>Skicka batch med händelser (i anpassat schema)
+### <a name="send-batch-of-events-in-custom-schema"></a>Skicka grupp av händelser (i anpassat schema)
 
-**Begäran**: ``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
+**Begäran**:``` POST /topics/<topic_name>/events?api-version=2019-01-01-preview ```
 
 ```json
 [
@@ -548,18 +548,18 @@ I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen 
 ]
 ```
 
-**Svar**: http 200, Tom nytto Last
+**Svar:** HTTP 200, tom nyttolast
 
 
-**Nytto Last begränsningar**
-- MÅSTE vara en matris med händelser.
-- Varje mat ris post måste vara ett JSON-objekt.
-- Inga andra begränsningar (andra än nytto Last storleken).
+**Begränsningar för nyttolast**
+- MÅSTE vara en rad händelser.
+- Varje matrispost MÅSTE vara ett JSON-objekt.
+- Inga andra begränsningar (förutom nyttolaststorlek).
 
 ## <a name="examples"></a>Exempel
 
 ### <a name="set-up-topic-with-eventgrid-schema"></a>Konfigurera ämne med EventGrid-schema
-Ställer in ett ämne för att kräva att händelser publiceras i **eventgridschema**.
+Ställer in ett ämne som kräver att händelser publiceras i **eventgridschema**.
 
 ```json
     {
@@ -572,7 +572,7 @@ Ställer in ett ämne för att kräva att händelser publiceras i **eventgridsch
 ```
 
 ### <a name="set-up-topic-with-custom-schema"></a>Konfigurera ämne med anpassat schema
-Ställer in ett ämne för att kräva att händelser publiceras i `customschema`.
+Skapar ett ämne som kräver att `customschema`händelser publiceras i .
 
 ```json
     {
@@ -584,8 +584,8 @@ Ställer in ett ämne för att kräva att händelser publiceras i `customschema`
     }
 ```
 
-### <a name="set-up-topic-with-cloud-event-schema"></a>Konfigurera ämne med moln händelse schema
-Ställer in ett ämne för att kräva att händelser publiceras i `cloudeventschema`.
+### <a name="set-up-topic-with-cloud-event-schema"></a>Konfigurera ämne med molnhändelseschema
+Skapar ett ämne som kräver att `cloudeventschema`händelser publiceras i .
 
 ```json
     {
@@ -597,8 +597,8 @@ Ställer in ett ämne för att kräva att händelser publiceras i `cloudeventsch
     }
 ```
 
-### <a name="set-up-webhook-as-destination-events-to-be-delivered-in-eventgridschema"></a>Konfigurera webhook som mål, händelser som ska levereras i eventgridschema
-Använd den här måltypen för att skicka händelser till andra moduler (som är värdar för en HTTP-slutpunkt) eller till valfri HTTP-adresserad slut punkt i nätverket/Internet.
+### <a name="set-up-webhook-as-destination-events-to-be-delivered-in-eventgridschema"></a>Konfigurera WebHook som mål, händelser som ska levereras i eventgridschema
+Använd den här måltypen om du vill skicka händelser till en annan modul (som är värd för en HTTP-slutpunkt) eller till en http-adresserbar slutpunkt i nätverket/internet.
 
 ```json
 {
@@ -617,19 +617,19 @@ Använd den här måltypen för att skicka händelser till andra moduler (som ä
 }
 ```
 
-Begränsningar för attributet `endpointUrl`:
-- Det får inte vara null.
-- Det måste vara en absolut URL.
-- Om outbound__webhook__httpsOnly har angetts till sant i EventGridModule-inställningarna måste det endast vara HTTPS.
-- Om outbound__webhook__httpsOnly har angetts till false, kan det vara HTTP eller HTTPS.
+Begränsningar för `endpointUrl` attributet:
+- Det måste vara icke-null.
+- Det måste vara en absolut webbadress.
+- Om outbound__webhook__httpsOnly är inställt på true i EventGridModule-inställningarna måste den bara vara HTTPS.
+- Om outbound__webhook__httpsOnly är inställd på false kan det vara HTTP eller HTTPS.
 
-Begränsningar för egenskapen `eventDeliverySchema`:
-- Den måste överensstämma med det underbeskrivande ämnets schema.
-- Det kan vara null. Det används som standard för det här avsnittets schema.
+Begränsningar för `eventDeliverySchema` fastigheten:
+- Det måste matcha indataschemat för prenumereran.
+- Det kan vara null. Ämnets indataschema är som standard.
 
 ### <a name="set-up-iot-edge-as-destination"></a>Konfigurera IoT Edge som mål
 
-Använd det här målet för att skicka händelser till IoT Edge hubb och omfattas av del systemet routning/filtrering/vidarebefordran för Edge Hub.
+Använd det här målet om du vill skicka händelser till IoT Edge Hub och utsättas för edge-hubbens undersystem för routning/filtrering/vidarebefordran.
 
 ```json
 {
@@ -647,9 +647,9 @@ Använd det här målet för att skicka händelser till IoT Edge hubb och omfatt
 }
 ```
 
-### <a name="set-up-event-grid-cloud-as-destination"></a>Konfigurera Event Grid molnet som mål
+### <a name="set-up-event-grid-cloud-as-destination"></a>Konfigurera Event Grid Cloud som mål
 
-Använd det här målet för att skicka händelser till Event Grid i molnet (Azure). Du måste först konfigurera ett användar ämne i molnet som händelser ska skickas till innan du skapar en händelse prenumeration på gränsen.
+Använd den här målet för att skicka händelser till Event Grid i molnet (Azure). Du måste först konfigurera ett användarämne i molnet som händelser ska skickas till innan du skapar en händelseprenumeration på gränsen.
 
 ```json
 {
@@ -669,33 +669,33 @@ Använd det här målet för att skicka händelser till Event Grid i molnet (Azu
 }
 ```
 
-EndpointUrl
-- Det får inte vara null.
-- Det måste vara en absolut URL.
-- Sökvägen `/api/events` måste definieras i URL-sökvägen för begäran.
-- Den måste ha `api-version=2018-01-01` i frågesträngen.
-- Om outbound__eventgrid__httpsOnly är inställt på sant i EventGridModule-inställningarna (sant som standard), måste det endast vara HTTPS.
-- Om outbound__eventgrid__httpsOnly är inställt på falskt, kan det vara HTTP eller HTTPS.
-- Om outbound__eventgrid__allowInvalidHostnames är inställt på falskt (falskt som standard) måste den ha en av följande slut punkter:
+SlutpunktUrl:
+- Det måste vara icke-null.
+- Det måste vara en absolut webbadress.
+- Sökvägen `/api/events` måste definieras i url-sökvägen för begäran.
+- Det måste `api-version=2018-01-01` finnas i frågesträngen.
+- Om outbound__eventgrid__httpsOnly är inställt på true i EventGridModule-inställningarna (sant som standard) måste den bara vara HTTPS.
+- Om outbound__eventgrid__httpsOnly är inställt på false kan det vara HTTP eller HTTPS.
+- Om outbound__eventgrid__allowInvalidHostnames är inställt på false (falskt som standard) måste den inriktas på en av följande slutpunkter:
    - `eventgrid.azure.net`
    - `eventgrid.azure.us`
    - `eventgrid.azure.cn`
 
 SasKey:
-- Får inte vara null.
+- Måste vara icke-null.
 
 TopicName:
-- Om Subscription. EventDeliverySchema är inställt på EventGridSchema placeras värdet från det här fältet i varje händelses ämnes fält innan det vidarebefordras till Event Grid i molnet.
-- Om Subscription. EventDeliverySchema har angetts till CustomEventSchema ignoreras den här egenskapen och den anpassade händelse nytto lasten vidarebefordras exakt som den togs emot.
+- Om Subscription.EventDeliverySchema är inställt på EventGridSchema anges värdet från det här fältet i varje händelse ämnesfält innan det vidarebefordras till Event Grid i molnet.
+- Om Subscription.EventDeliverySchema är inställt på CustomEventSchema ignoreras den här egenskapen och den anpassade händelsenyttolasten vidarebefordras precis som den togs emot.
 
-## <a name="set-up-event-hubs-as-a-destination"></a>Konfigurera Event Hubs som ett mål
+## <a name="set-up-event-hubs-as-a-destination"></a>Konfigurera händelsehubbar som mål
 
-Om du vill publicera till en Event Hub ställer du in `endpointType` till `eventHub` och anger:
+Om du vill publicera till `endpointType` `eventHub` en eventhubb ställer du in och tillhandahåller:
 
-* connectionString: anslutnings sträng för den specifika Händelsehubben som du har genererat via en princip för delad åtkomst.
+* connectionString: Anslutningssträng för den specifika händelsehubben som du riktar in dig på genereras via en princip för delad åtkomst.
 
     >[!NOTE]
-    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Du kan skapa en entitets-Specific-anslutningssträng genom att navigera till den speciella händelsehubben som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets connecection sträng.
+    > Anslutningssträngen måste vara entitetsspecifik. Det fungerar inte att använda en namnområdesanslutningssträng. Du kan generera en entitetsspecifik anslutningssträng genom att navigera till den specifika händelsehubb som du vill publicera till i Azure Portal och klicka på principer för **delad åtkomst** för att generera en ny entitetsspecifik connecection-sträng.
 
     ```json
         {
@@ -710,14 +710,14 @@ Om du vill publicera till en Event Hub ställer du in `endpointType` till `event
         }
     ```
 
-## <a name="set-up-service-bus-queues-as-a-destination"></a>Konfigurera Service Bus köer som ett mål
+## <a name="set-up-service-bus-queues-as-a-destination"></a>Ställa in servicebussköer som mål
 
-Om du vill publicera till en Service Bus kö ställer du in `endpointType` till `serviceBusQueue` och ger:
+Om du vill publicera till `endpointType` en `serviceBusQueue` servicebusskö ställer du in och tillhandahåller:
 
-* connectionString: anslutnings sträng för den specifika Service Bus kön som du har genererat via en princip för delad åtkomst.
+* connectionString: Anslutningssträng för den specifika servicebusskö som du riktar in dig på genereras via en princip för delad åtkomst.
 
     >[!NOTE]
-    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Generera en entitets-Specific-anslutningssträng genom att gå till den angivna Service Buss kön som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets Specific connecection-sträng.
+    > Anslutningssträngen måste vara entitetsspecifik. Det fungerar inte att använda en namnområdesanslutningssträng. Generera en entitetsspecifik anslutningssträng genom att navigera till den specifika servicebusskö som du vill publicera till i Azure Portal och klicka på Principer för **delad åtkomst** för att generera en ny entitetsspecifik connecection-sträng.
 
     ```json
         {
@@ -732,14 +732,14 @@ Om du vill publicera till en Service Bus kö ställer du in `endpointType` till 
         }
     ```
 
-## <a name="set-up-service-bus-topics-as-a-destination"></a>Konfigurera Service Bus ämnen som mål
+## <a name="set-up-service-bus-topics-as-a-destination"></a>Ställa in servicebussavsnitt som mål
 
-Om du vill publicera till ett Service Bus-ämne ställer du in `endpointType` till `serviceBusTopic` och anger:
+Om du vill publicera till `endpointType` ett `serviceBusTopic` servicebussavsnitt ställer du in och tillhandahåller:
 
-* connectionString: anslutnings sträng för det specifika Service Bus ämne som du har genererat via en princip för delad åtkomst.
+* connectionString: Anslutningssträng för det specifika servicebussämne som du riktar in dig på genereras via en princip för delad åtkomst.
 
     >[!NOTE]
-    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Generera en entitets-speciell anslutnings sträng genom att gå till den aktuella Service Bus avsnittet som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets Specific connecection-sträng.
+    > Anslutningssträngen måste vara entitetsspecifik. Det fungerar inte att använda en namnområdesanslutningssträng. Generera en entitetsspecifik anslutningssträng genom att navigera till det specifika servicebussämne som du vill publicera till i Azure Portal och klicka på principer för **delad åtkomst** för att generera en ny entitetsspecifik connecection-sträng.
 
     ```json
         {
@@ -754,15 +754,15 @@ Om du vill publicera till ett Service Bus-ämne ställer du in `endpointType` ti
         }
     ```
 
-## <a name="set-up-storage-queues-as-a-destination"></a>Konfigurera lagrings köer som mål
+## <a name="set-up-storage-queues-as-a-destination"></a>Ställa in lagringsköer som mål
 
-Om du vill publicera till en lagrings kö ställer du in `endpointType` till `storageQueue` och anger:
+Om du vill publicera i `endpointType` `storageQueue` en lagringskö ställer du in och tillhandahåller:
 
-* queueName: namnet på lagrings kön som du publicerar till.
-* connectionString: anslutnings sträng för lagrings kontot som lagrings kön finns i.
+* queueName: Namnet på den lagringskö som du publicerar till.
+* connectionString: Anslutningssträng för lagringskontot som lagringskön finns i.
 
     >[!NOTE]
-    > Unline Event Hubs, Service Bus köer och Service Bus ämnen, den anslutnings sträng som används för lagrings köer är inte entitets-specifika. I stället måste den, men anslutnings strängen för lagrings kontot.
+    > Avgränsade händelsehubbar, servicebussköer och servicebussavsnitt, anslutningssträngen som används för lagringsköer är inte entitetsspecifik. I stället måste den bara anslutningssträngen för lagringskontot.
 
     ```json
         {

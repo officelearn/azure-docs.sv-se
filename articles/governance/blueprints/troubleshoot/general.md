@@ -1,86 +1,86 @@
 ---
 title: Felsöka vanliga fel
-description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar, till exempel princip överträdelser och skiss parameter funktioner.
+description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar som principöverträdelser och funktioner för skissparameter.
 ms.date: 01/15/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76157091"
 ---
-# <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
+# <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure Blueprints
 
 Du kan stöta på fel när du skapar, tilldelar eller tar bort ritningar. I den här artikeln beskrivs olika fel som kan uppstå och hur du löser dem.
 
-## <a name="finding-error-details"></a>Hitta fel information
+## <a name="finding-error-details"></a>Hitta felinformation
 
-Många fel är resultatet av att tilldela en skiss till ett omfång. När en tilldelning Miss lyckas innehåller skissen information om den misslyckade distributionen. Den här informationen anger problemet så att det kan åtgärdas och nästa distribution lyckas.
+Många fel kommer att vara resultatet av att tilldela en skiss till ett scope. När en tilldelning misslyckas innehåller skissen information om den misslyckade distributionen. Den här informationen anger problemet så att det kan åtgärdas och nästa distribution lyckas.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
-1. Välj **tilldelade skisser** från sidan till vänster och Använd sökrutan för att filtrera skiss tilldelningarna för att hitta den misslyckade tilldelningen. Du kan också sortera tilldelnings tabellen i kolumnen **etablerings tillstånd** för att se alla misslyckade tilldelningar grupperade tillsammans.
+1. Välj **Tilldelade ritningar** från sidan till vänster och använd sökrutan för att filtrera skisstilldelningarna för att hitta den misslyckade tilldelningen. Du kan också sortera tilldelningstabellen efter kolumnen **Etableringstillstånd** om du vill visa alla misslyckade tilldelningar grupperade tillsammans.
 
-1. Vänsterklicka på skissen med statusen _misslyckad_ eller högerklicka och välj **Visa tilldelnings information**.
+1. Vänsterklicka på skissen med statusen _Misslyckad_ status eller högerklicka och välj **Visa tilldelningsinformation**.
 
-1. En röd banderoll-varning om att tilldelningen misslyckades visas överst på sidan skiss tilldelning. Klicka var som helst på banderollen för att få mer information.
+1. En röd banderoll som varnar för att tilldelningen har misslyckats finns högst upp på skisstilldelningssidan. Klicka var som helst på bannern för att få mer information.
 
-Det är vanligt att felet orsakas av en artefakt och inte skissen som helhet. Om en artefakt skapar ett Key Vault och Azure Policy förhindrar att Key Vault skapas, kommer hela tilldelningen att Miss förfalla.
+Det är vanligt att felet orsakas av en artefakt och inte ritningen som helhet. Om en artefakt skapar ett nyckelvalv och Azure-princip förhindrar att nyckelvalv skapas, misslyckas hela tilldelningen.
 
 ## <a name="general-errors"></a>Allmänna fel
 
-### <a name="policy-violation"></a>Scenario: princip överträdelse
+### <a name="scenario-policy-violation"></a><a name="policy-violation"></a>Scenario: Policyöverträdelse
 
 #### <a name="issue"></a>Problem
 
-Mallen kunde inte distribueras på grund av en princip överträdelse.
+Malldistributionen misslyckades på grund av principöverträdelse.
 
 #### <a name="cause"></a>Orsak
 
-En princip kan vara i konflikt med distributionen av ett antal orsaker:
+En princip kan stå i konflikt med distributionen av flera skäl:
 
-- Den resurs som skapas begränsas av en princip (ofta SKU eller plats begränsningar)
-- Distributionen anger fält som har kon figurer ATS av en princip (common med taggar)
+- Resursen som skapas begränsas av principen (vanligtvis SKU eller platsbegränsningar)
+- Distributionen anger fält som är konfigurerade av principen (vanliga med taggar)
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
-Ändra skissen så att den inte hamnar i konflikt med principerna i fel informationen. Om den här ändringen inte är möjlig, är ett alternativt alternativ att omfånget för princip tilldelningen har ändrats, så att skissen inte längre strider mot principen.
+Ändra skissen så att den inte står i konflikt med principerna i felinformationen. Om den här ändringen inte är möjlig är ett alternativt alternativ att ändra principtilldelningens omfattning så att skissen inte längre står i konflikt med principen.
 
-### <a name="escape-function-parameter"></a>Scenario: skiss parametern är en funktion
+### <a name="scenario-blueprint-parameter-is-a-function"></a><a name="escape-function-parameter"></a>Scenario: Skissparameter är en funktion
 
 #### <a name="issue"></a>Problem
 
-Skiss parametrar som är funktioner bearbetas innan de skickas till artefakter.
+Skissparametrar som är funktioner bearbetas innan de skickas till artefakter.
 
 #### <a name="cause"></a>Orsak
 
-Att skicka en skiss parameter som använder en funktion, till exempel `[resourceGroup().tags.myTag]`, till en artefakt resulterar i att det behandlade resultatet av den funktion som anges i artefakten i stället för den dynamiska funktionen.
+Skickar en skissparameter som använder `[resourceGroup().tags.myTag]`en funktion, till exempel , till en artefakt resulterar i det bearbetade resultatet av funktionen som ställs in på artefakten i stället för den dynamiska funktionen.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
-Om du vill skicka en funktion via som en parameter, Escape hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/templates/template-expressions.md).
+Om du vill skicka en funktion genom `[` som en parameter, `[[resourceGroup().tags.myTag]`escape hela strängen med så att skissparametern ser ut som . Escape-tecknet gör att ritningar behandlar värdet som en sträng när skissen bearbetas. Skisser placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i Syntax och uttryck i Azure Resource Manager-mallar](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="delete-errors"></a>Ta bort fel
 
-### <a name="assign-delete-timeout"></a>Scenario: tids gräns för borttagning av tilldelning
+### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>Scenario: Timeout för borttagning av tilldelning
 
 #### <a name="issue"></a>Problem
 
-Borttagning av skiss tilldelning slutförs inte.
+Borttagning av en skisstilldelning slutförs inte.
 
 #### <a name="cause"></a>Orsak
 
-En skiss tilldelning kan bli fastnat i ett icke-terminal-tillstånd när den tas bort. Det här tillståndet orsakas när resurser som skapats av skiss tilldelningen fortfarande väntar på borttagning eller inte returnerar en status kod till Azure-ritningar.
+En skisstilldelning kan fastna i ett icke-terminaltillstånd när den tas bort. Det här tillståndet orsakas när resurser som skapats av skisstilldelningen fortfarande väntar på borttagning eller inte returnerar en statuskod till Azure Blueprints.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
-Skiss tilldelningar i ett icke-terminal-tillstånd markeras automatiskt som **misslyckade** efter en tids gräns på _6 timmar_ . När tids gränsen har justerats för skiss tilldelningens tillstånd kan borttagningen göras om.
+Skisstilldelningar i ett icke-terminaltillstånd **markeras** automatiskt Misslyckades efter en _6 timmars_ timeout. När tidsgränsen har justerat ritningstilldelningens tillstånd kan borttagningen göras på nytt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
 
-- Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-- Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure-kontot för att förbättra kundtjänstupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-- Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+- Få svar från Azure-experter via [Azure Forum](https://azure.microsoft.com/support/forums/).
+- Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+- Om du behöver mer hjälp kan du lämna in en Azure-supportincident. Gå till [Azure-supportwebbplatsen](https://azure.microsoft.com/support/options/) och välj **Hämta support**.

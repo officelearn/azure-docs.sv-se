@@ -1,7 +1,7 @@
 ---
-title: Visa kontroll referens
+title: Referens för visningskontroll
 titleSuffix: Azure AD B2C
-description: Referens för Azure AD B2C Visa kontroller. Använd visnings kontroller för att anpassa användar resan som definierats i dina anpassade principer.
+description: Referens för Azure AD B2C-visningskontroller. Använd visningskontroller för att anpassa användarresor som definierats i dina anpassade principer.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,27 +12,27 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188740"
 ---
 # <a name="display-controls"></a>Visa kontroller
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En **visnings kontroll** är ett användar gränssnitts element som har särskilda funktioner och som samverkar med backend-tjänsten Azure Active Directory B2C (Azure AD B2C). Det gör att användaren kan utföra åtgärder på sidan som anropar en [teknisk profil för verifiering](validation-technical-profile.md) på Server sidan. Visa kontroller visas på sidan och refereras till av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md).
+En **bildskärmskontroll** är ett användargränssnittselement som har särskilda funktioner och interagerar med Azure Active Directory B2C(Azure AD B2C) backend-tjänst. Det gör det möjligt för användaren att utföra åtgärder på sidan som anropar en [teknisk profil](validation-technical-profile.md) för validering i serverdelen. Visningskontroller visas på sidan och refereras av en [självpåförd teknisk profil](self-asserted-technical-profile.md).
 
-Följande bild illustrerar en självkontrollerad registrerings sida med två visnings kontroller som verifierar en primär och sekundär e-postadress.
+Följande bild illustrerar en självpåförd registreringssida med två visningskontroller som validerar en primär och sekundär e-postadress.
 
-![Exempel på renderad visnings kontroll](media/display-controls/display-control-email.png)
+![Exempelåtergivningad visningskontroll](media/display-controls/display-control-email.png)
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
- I avsnittet [metadata](self-asserted-technical-profile.md#metadata) i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` inställd på sid kontrakt version 2.0.0 eller högre. Några exempel:
+ I avsnittet [Metadata i](self-asserted-technical-profile.md#metadata) en [självförsäkrad teknisk profil](self-asserted-technical-profile.md)måste den refererade [ContentDefinition](contentdefinitions.md) ha `DataUri` angett att sidkontrakt version 2.0.0 eller senare. Ett exempel:
 
 ```XML
 <ContentDefinition Id="api.selfasserted">
@@ -42,29 +42,29 @@ Följande bild illustrerar en självkontrollerad registrerings sida med två vis
   ...
 ```
 
-## <a name="defining-display-controls"></a>Definiera visnings kontroller
+## <a name="defining-display-controls"></a>Definiera visningskontroller
 
-Elementet **Visa** poster innehåller följande attribut:
+**DisplayControl-elementet** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för visnings kontrollen. Den kan [refereras till](#referencing-display-controls). |
-| UserInterfaceControlType | Ja | Typen av visnings kontroll. Stöds för närvarande [VerificationControl](display-control-verification.md) |
+| Id | Ja | En identifierare som används för visningskontrollen. Det kan [refereras](#referencing-display-controls). |
+| AnvändareInterfaceControlType | Ja | Typ av displaykontroll. För närvarande stöds är [VerificationControl](display-control-verification.md) |
 
-Elementet Visa poster innehåller **följande element:**
+**DisplayControl-elementet** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** används för att förkonfigurera värdet för de anspråk som ska samlas in från användaren. |
+| InputClaims | 0:1 | **InputClaims** används för att fylla i värdet på de anspråk som ska samlas in från användaren. |
 | DisplayClaims | 0:1 | **DisplayClaims** används för att representera anspråk som ska samlas in från användaren. |
-| OutputClaims | 0:1 | **OutputClaims** används för att representera anspråk som ska sparas temporärt för **den här**visaren. |
-| Åtgärder | 0:1 | **Åtgärder** används för att visa en lista med de tekniska profilerna som ska anropas för användar åtgärder på klient sidan. |
+| OutputClaims | 0:1 | **OutputClaims** används för att representera anspråk som ska sparas tillfälligt för den här **DisplayControl**. |
+| Åtgärder | 0:1 | **Åtgärder** används för att lista de tekniska verifieringsprofilerna som ska anropas för användaråtgärder som inträffar i frontend. |
 
-### <a name="input-claims"></a>Inmatade anspråk
+### <a name="input-claims"></a>Ingående anspråk
 
-I en visnings kontroll kan du använda **InputClaims** -element för att förkonfigurera värdet för anspråk som ska samlas in från användaren på sidan. Alla **InputClaimsTransformations** kan definieras i den självkontrollerade tekniska profilen som refererar till den här visnings kontrollen.
+I en visningskontroll kan du använda **InputClaims-element** för att fylla i värdet av anspråk som ska samlas in från användaren på sidan. Alla **InputClaimsTransformationer** kan definieras i den självsäkra tekniska profilen som refererar till den här visningskontrollen.
 
-I följande exempel förfylls e-postadressen som ska verifieras med adressen som redan finns.
+I följande exempel fylls den e-postadress som ska verifieras med den adress som redan finns.
 
 ```XML
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
@@ -76,29 +76,29 @@ I följande exempel förfylls e-postadressen som ska verifieras med adressen som
 
 ### <a name="display-claims"></a>Visa anspråk
 
-Varje typ av visnings kontroll kräver en annan uppsättning visnings anspråk, [utgående anspråk](#output-claims)och [åtgärder](#display-control-actions) som ska utföras.
+Varje typ av visningskontroll kräver en annan uppsättning visningsanspråk, [utdataanspråk](#output-claims)och [åtgärder](#display-control-actions) som ska utföras.
 
-På liknande sätt som de **visnings anspråk** som definierats i en [självkontrollerad teknisk profil](self-asserted-technical-profile.md#display-claims)representerar visnings anspråken de anspråk som ska samlas in från användaren i visnings kontrollen. **ClaimType** -elementet som refereras måste ange **UserInputType** -elementet för en indatatyp som stöds av Azure AD B2C, till exempel `TextBox` eller `DropdownSingleSelect`. Om ett visnings anspråks värde krävs av en **åtgärd**anger du det **obligatoriska** attributet till `true` för att tvinga användaren att ange ett värde för det angivna visnings kravet.
+I likhet med de **visningsanspråk** som definieras i en [självpåförd teknisk profil](self-asserted-technical-profile.md#display-claims)representerar visningsanspråken de anspråk som ska samlas in från användaren i visningskontrollen. Det **refererade ClaimType-elementet** måste ange **Elementet UserInputType** för en användarindatatyp som stöds av Azure AD B2C, till exempel `TextBox` eller `DropdownSingleSelect`. Om ett visningsanspråksvärde krävs av en `true` **åtgärd**anger du **attributet Obligatoriskt** för att tvinga användaren att ange ett värde för det specifika visningsanspråket.
 
-Vissa visnings anspråk krävs för vissa typer av visnings kontroll. Till exempel krävs **VerificationCode** för visnings kontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Några exempel:
+Vissa visningsanspråk krävs för vissa typer av bildskärmskontroll. **Verifieringskod** krävs till exempel för visningskontrollen av typen **VerificationControl**. Använd attributet **ControlClaimType** för att ange vilken DisplayClaim som är avsedd för det begärda anspråket. Ett exempel:
 
 ```XML
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
-### <a name="output-claims"></a>Utgående anspråk
+### <a name="output-claims"></a>Utgående fordringar
 
-De **utgående anspråken** för en visnings kontroll skickas inte till nästa Orchestration-steg. De sparas tillfälligt för den aktuella sessionen för bildskärms kontroll. Dessa tillfälliga anspråk kan delas mellan olika åtgärder för samma visnings kontroll.
+**Utdataanspråken för** en visningskontroll skickas inte till nästa orchestration-steg. De sparas tillfälligt endast för den aktuella visningskontrollsessionen. Dessa tillfälliga anspråk kan delas mellan de olika åtgärderna i samma bildskärmskontroll.
 
-Om du vill bubbla ut anspråk till nästa Orchestration-steg använder du **OutputClaims** för den faktiska självkontrollerade tekniska profilen som refererar till den här visnings kontrollen.
+Om du vill bubbla upp utdataanspråken till nästa orchestration-steg använder du **OutputClaims** för den faktiska självpåförda tekniska profilen som refererar till den här visningskontrollen.
 
-### <a name="display-control-actions"></a>Visa kontroll åtgärder
+### <a name="display-control-actions"></a>Visa kontrollåtgärder
 
-**Åtgärder** för en visnings kontroll är procedurer som inträffar i Azure AD B2C Server del när en användare utför en viss åtgärd på klient sidan (webbläsaren). Det kan till exempel vara verifieringar som ska utföras när användaren väljer en knapp på sidan.
+**Åtgärderna för** en bildskärmskontroll är procedurer som inträffar i Azure AD B2C-backend när en användare utför en viss åtgärd på klientsidan (webbläsaren). Till exempel de valideringar som ska utföras när användaren väljer en knapp på sidan.
 
-En åtgärd definierar en lista över **tekniska verifierings profiler**. De används för att verifiera vissa eller alla visnings anspråk för visnings kontrollen. Den tekniska verifierings profilen verifierar indata från användaren och kan returnera ett fel till användaren. Du kan använda **ContinueOnError**, **ContinueOnSuccess**och **villkor** i visnings kontroll åtgärden som liknar det sätt som de används för att [validera tekniska profiler](validation-technical-profile.md) i en egen kontrollerad teknisk profil.
+En åtgärd definierar en lista över **tekniska profiler**för validering . De används för att validera vissa eller alla visningsanspråk för bildskärmskontrollen. Den tekniska profilen för validering validerar användarens indata och kan returnera ett fel till användaren. Du kan använda **ContinueOnError,** **ContinueOnSuccess**och **Förutsättningar** i displaykontrollen Åtgärd som liknar det sätt på vilket de används i [valideringstekniska profiler](validation-technical-profile.md) i en självpåförd teknisk profil.
 
-I följande exempel skickas en kod i e-post eller SMS baserat på användarens val av **mfaType** -anspråket.
+Följande exempel skickar en kod antingen i e-post eller SMS baserat på användarens val av **mfaType-anspråket.**
 
 ```XML
 <Action Id="SendCode">
@@ -125,11 +125,11 @@ I följande exempel skickas en kod i e-post eller SMS baserat på användarens v
 </Action>
 ```
 
-## <a name="referencing-display-controls"></a>Referera till visnings kontroller
+## <a name="referencing-display-controls"></a>Referera till visningskontroller
 
-Visa kontroller refereras till i [Visa anspråk](self-asserted-technical-profile.md#display-claims) för den [självkontrollerade tekniska profilen](self-asserted-technical-profile.md).
+Visningskontroller refereras i [visningsanspråken](self-asserted-technical-profile.md#display-claims) för den [självpåstränsa tekniska profilen](self-asserted-technical-profile.md).
 
-Några exempel:
+Ett exempel:
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">

@@ -1,94 +1,94 @@
 ---
-title: Skapa/anpassa återställnings planer i Azure Site Recovery
-description: Lär dig hur du skapar och anpassar återställnings planer för haveri beredskap med hjälp av Azure Site Recovery-tjänsten.
+title: Skapa/anpassa återställningsplaner i Azure Site Recovery
+description: Lär dig hur du skapar och anpassar återställningsplaner för haveriberedskap med hjälp av Azure Site Recovery-tjänsten.
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705844"
 ---
-# <a name="create-and-customize-recovery-plans"></a>Skapa och anpassa återställnings planer
+# <a name="create-and-customize-recovery-plans"></a>Skapa och anpassa återställningsplaner
 
-Den här artikeln beskriver hur du skapar och anpassar en återställnings plan för redundans i [Azure Site Recovery](site-recovery-overview.md). Innan du börjar kan du [läsa mer](recovery-plan-overview.md) om återställnings planer.
+I den här artikeln beskrivs hur du skapar och anpassar en återställningsplan för redundans i [Azure Site Recovery](site-recovery-overview.md). Innan du börjar [kan du läsa mer](recovery-plan-overview.md) om återställningsplaner.
 
 ## <a name="create-a-recovery-plan"></a>Skapa en återställningsplan
 
-1. I Recovery Services-valvet väljer du **återställnings planer (Site Recovery)**  >  **+ återställnings plan**.
-2. I **skapa återställnings plan**anger du ett namn för planen.
-3. Välj en källa och ett mål baserat på datorerna i planen och välj **Resource Manager** för distributions modellen. Käll platsen måste ha datorer som är aktiverade för redundans och återställning. 
+1. I valvet för återställningstjänster väljer du **Återställningsplaner (Site Recovery)** > **+Återställningsplan**.
+2. Ange ett namn för planen i **Skapa återställningsplan.**
+3. Välj en källa och ett mål baserat på datorerna i planen och välj **Resurshanteraren** för distributionsmodellen. Källplatsen måste ha datorer som är aktiverade för redundans och återställning. 
 
-    **Redundans** | **Källa** | **Mål** 
+    **Redundans** | **Källkod** | **Mål** 
    --- | --- | ---
    Azure till Azure | Välj Azure-region | Välj Azure-region
-   VMware till Azure | Välj konfigurations Server | Välj Azure
-   Fysiska datorer till Azure | Välj konfigurations Server | Välj Azure   
-   Hyper-V till Azure | Välj namnet på Hyper-V-platsen | Välj Azure
-   Hyper-V (hanteras av VMM) till Azure  | Välj VMM-Server | Välj Azure
+   VMware till Azure | Välj konfigurationsserver | Välj Azure
+   Fysiska datorer till Azure | Välj konfigurationsserver | Välj Azure   
+   Hyper-V till Azure | Välj hyper-V-webbplatsnamn | Välj Azure
+   Hyper-V (hanteras av VMM) till Azure  | Välj VMM-servern | Välj Azure
   
     Observera följande:
-    -  Du kan bara använda en återställnings plan för redundans från käll platsen till Azure. Du kan inte använda en återställnings plan för återställning efter fel från Azure.
-    - Käll platsen måste ha datorer som är aktiverade för redundans och återställning. 
-    - En återställnings plan kan innehålla datorer med samma källa och mål. 
-    - Du kan inkludera virtuella VMware-datorer och virtuella Hyper-V-datorer som hanteras av VMM i samma plan.
-    - Virtuella VMware-datorer och fysiska servrar kan vara i samma plan.
+    -  Du kan bara använda en återställningsplan för redundans från källplatsen till Azure. Du kan inte använda en återställningsplan för återställning efter fel från Azure.
+    - Källplatsen måste ha datorer som är aktiverade för redundans och återställning. 
+    - En återställningsplan kan innehålla datorer med samma källa och mål. 
+    - Du kan inkludera virtuella datorer med VMware och virtuella virtuella datorer med hyper-v som hanteras av VMM i samma plan.
+    - Virtuella datorer och fysiska servrar kan finnas i samma plan.
 
-4. I **Välj objekt virtuella datorer**väljer du de datorer (eller replikeringsgruppen) som du vill lägga till i planen. Klicka på **OK**.
-    - Datorer läggs till som standard grupp (grupp 1) i planen. Efter redundansväxlingen startar alla datorer i den här gruppen på samma tidpunkt.
-    - Du kan bara välja datorer på käll-och mål platserna som du har angett. 
-5. Skapa planen genom att klicka på **OK** .
+4. I **Välj objekt virtuella datorer**väljer du de datorer (eller replikeringsgruppen) som du vill lägga till i planen. Klicka sedan på **OK**.
+    - Maskiner läggs till standardgrupp (grupp 1) i planen. Efter redundans startar alla datorer i den här gruppen samtidigt.
+    - Du kan bara välja datorer på de käll- och målplatser som du har angett. 
+5. Klicka på **OK** för att skapa planen.
 
-## <a name="add-a-group-to-a-plan"></a>Lägg till en grupp i en plan
+## <a name="add-a-group-to-a-plan"></a>Lägga till en grupp i en plan
 
-Du skapar ytterligare grupper och lägger till datorer i olika grupper så att du kan ange olika beteenden per grupp. Du kan till exempel ange när datorer i en grupp ska starta efter redundansväxlingen eller ange anpassade åtgärder per grupp.
+Du skapar ytterligare grupper och lägger till datorer i olika grupper så att du kan ange olika beteenden grupp för grupp. Du kan till exempel ange när datorer i en grupp ska starta efter redundans eller ange anpassade åtgärder per grupp.
 
-1. I **återställnings planer**högerklickar du på planen > **Anpassa**. När du har skapat en plan finns alla datorer som du har lagt till i standard grupp 1.
-2. Klicka på **+ grupp**. Som standard är en ny grupp numrerad i den ordning som den har lagts till. Du kan ha upp till sju grupper.
-3. Välj den dator som du vill flytta till den nya gruppen, klicka på **Ändra grupp**och välj sedan den nya gruppen. Du kan också högerklicka på grupp namnet > **skyddat objekt**och lägga till datorer i gruppen. En dator eller replikeringsgrupp kan bara tillhöra en grupp i en återställnings plan.
+1. Högerklicka på planen > **anpassa**i **återställningsplaner.** Som standard finns alla datorer som du har lagt till i den som standardgrupp 1 när du har skapat en plan.
+2. Klicka på **+Grupp**. Som standard numreras en ny grupp i den ordning den läggs till. Du kan ha upp till sju grupper.
+3. Välj den dator som du vill flytta till den nya gruppen, klicka på **Ändra grupp**och välj sedan den nya gruppen. Du kan också högerklicka på gruppnamnet > **skyddat objekt**och lägga till datorer i gruppen. En dator eller replikeringsgrupp kan bara tillhöra en grupp i en återställningsplan.
 
 
-## <a name="add-a-script-or-manual-action"></a>Lägg till ett skript eller en manuell åtgärd
+## <a name="add-a-script-or-manual-action"></a>Lägga till ett skript eller en manuell åtgärd
 
-Du kan anpassa en återställnings plan genom att lägga till ett skript eller en manuell åtgärd. Tänk på följande:
+Du kan anpassa en återställningsplan genom att lägga till ett skript eller en manuell åtgärd. Tänk på följande:
 
-- Om du replikerar till Azure kan du integrera Azure Automation-runbooks i din återställnings plan. [Läs mer](site-recovery-runbook-automation.md).
-- Om du replikerar virtuella Hyper-V-datorer som hanteras av System Center VMM kan du skapa ett skript på den lokala VMM-servern och inkludera det i återställnings planen.
-- När du lägger till ett skript lägger till en ny uppsättning åtgärder för gruppen. En uppsättning för steg för grupp 1 skapas till exempel med namnet *grupp 1: för-steg*. Alla för steg visas i den här uppsättningen. Du kan bara lägga till ett skript på den primära platsen om du har distribuerat en VMM-Server.
-- Om du lägger till en manuell åtgärd när återställnings planen körs, stoppas den vid den tidpunkt då du infogade den manuella åtgärden. En dialog ruta visas där du får ange att den manuella åtgärden har slutförts.
-- Följ anvisningarna i [den här artikeln](hyper-v-vmm-recovery-script.md)om du vill skapa ett skript på VMM-servern.
-- Skript kan tillämpas vid redundansväxling till den sekundära platsen och under återställning efter fel från den sekundära platsen till den primära platsen. Supporten beror på ditt scenario för replikering:
+- Om du replikerar till Azure kan du integrera Azure automation runbooks i din återställningsplan. [Läs mer](site-recovery-runbook-automation.md).
+- Om du replikerar virtuella hyper-V-datorer som hanteras av System Center VMM kan du skapa ett skript på den lokala VMM-servern och inkludera det i återställningsplanen.
+- När du lägger till ett skript läggs en ny uppsättning åtgärder till för gruppen. En uppsättning försteg för grupp 1 skapas till exempel med namnet *Grupp 1: försteg*. Alla försteg visas i den här uppsättningen. Du kan bara lägga till ett skript på den primära platsen om du har distribuerat en VMM-server.
+- Om du lägger till en manuell åtgärd, när återställningsplanen körs, stoppas den vid den punkt där du infogade den manuella åtgärden. I en dialogruta uppmanas du att ange att den manuella åtgärden har slutförts.
+- Om du vill skapa ett skript på VMM-servern följer du instruktionerna i den [här artikeln](hyper-v-vmm-recovery-script.md).
+- Skript kan användas under redundans till den sekundära platsen och under återställningen från den sekundära platsen till den primära platsen. Supporten beror på replikeringsscenariot:
     
-    **Scenario** | **Redundans** | **Återställning efter fel**
+    **Scenario** | **Redundans** | **Failback**
     --- | --- | --- 
     Azure till Azure  | Runbook | Runbook
     VMware till Azure | Runbook | Ej tillämpligt 
     Hyper-V med VMM till Azure | Runbook | Skript
-    Hyper-V-webbplats till Azure | Runbook | Ej tillämpligt
+    Hyper-V-plats till Azure | Runbook | Ej tillämpligt
     VMM till sekundär VMM | Skript | Skript
 
-1. I återställnings planen klickar du på steget som åtgärden ska läggas till i och anger när åtgärden ska utföras:
-    1. Om du vill att åtgärden ska utföras innan datorerna i gruppen startas efter redundansväxlingen väljer du **Lägg till före åtgärd**.
-    1. Om du vill att åtgärden ska utföras efter att datorerna i gruppen har startats efter redundansväxlingen väljer du **Lägg till post-åtgärd**. Om du vill flytta åtgärdens position väljer du knapparna **Flytta upp** eller **Flytta ned** .
-2. I **Infoga åtgärd**väljer du **skript** eller **manuell åtgärd**.
-3. Gör så här om du vill lägga till en manuell åtgärd:
-    1. Ange ett namn för åtgärden och skriv instruktions instruktioner. Den person som kör redundansväxlingen kommer att se dessa instruktioner.
-    1. Ange om du vill lägga till den manuella åtgärden för alla typer av redundans (test, redundans, planerad redundansväxling (om det behövs)). Klicka på **OK**.
-4. Gör så här om du vill lägga till ett skript:
-    1. Om du lägger till ett VMM-skript väljer du **redundans till VMM-skript**och anger den relativa sökvägen till resursen i **skript Sök väg** . Om resursen till exempel finns på \\\<VMMServerName > \MSSCVMMLibrary\RPScripts, anger du sökvägen: \RPScripts\RPScript.PS1.
-    1. Om du lägger till en Azure Automation-körnings bok anger du **Azure Automation kontot** där runbooken finns och väljer lämpligt **Azure Runbook-skript**.
-5. Kör ett redundanstest för återställnings planen för att kontrol lera att skriptet fungerar som förväntat.
+1. I återställningsplanen klickar du på det steg som åtgärden ska läggas till i och anger när åtgärden ska utföras:
+    1. Om du vill att åtgärden ska utföras innan datorerna i gruppen startas efter redundans väljer du **Lägg till föråtgärd**.
+    1. Om du vill att åtgärden ska utföras efter att datorerna i gruppen har börjat efter redundans väljer du **Lägg till inläggsåtgärd**. Om du vill flytta åtgärdens position väljer du knapparna **Flytta upp** eller **Flytta ned.**
+2. I **åtgärden Infoga**väljer du **Skript** eller Manuell **åtgärd**.
+3. Om du vill lägga till en manuell åtgärd gör du följande:
+    1. Skriv in ett namn för åtgärden och skriv in åtgärdsinstruktioner. Den person som kör redundans kommer att se dessa instruktioner.
+    1. Ange om du vill lägga till den manuella åtgärden för alla typer av redundans (Test, Redundans, Planerad redundans (om det är relevant)). Klicka sedan på **OK**.
+4. Om du vill lägga till ett skript gör du följande:
+    1. Om du lägger till ett VMM-skript väljer du **Redundans till VMM-skript**och i **Skriptsökväg** skriver du den relativa sökvägen till resursen. Om resursen till exempel \\ \<finns på VMMServerName>\MSSCVMMLibrary\RPScripts anger du sökvägen: \RPScripts\RPScript.PS1.
+    1. Om du lägger till en Azure automation-körningsbok anger du **Azure Automation-kontot** där runbooken finns och väljer lämpligt **Azure Runbook Script**.
+5. Kör en testväxling av återställningsplanen för att säkerställa att skriptet fungerar som förväntat.
 
-## <a name="watch-a-video"></a>Titta på en video
+## <a name="watch-a-video"></a>Se ett videoklipp
 
-Titta på en video som visar hur du skapar en återställnings plan.
+Titta på en video som visar hur du skapar en återställningsplan.
 
 
 > [!VIDEO https://www.youtube.com/embed/1KUVdtvGqw8]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om att [köra redundans](site-recovery-failover.md).  
+Läs mer om [att köra redundans .](site-recovery-failover.md)  
 
     

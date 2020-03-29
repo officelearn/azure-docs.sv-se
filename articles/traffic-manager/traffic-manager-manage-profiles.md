@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: rohink
 ms.openlocfilehash: adfe7d117d2329832a5b5e9e782a9029a682ff3b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938611"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Hantera en Azure Traffic Manager-profil
@@ -30,7 +30,7 @@ Du kan skapa en Traffic Manager-profil med Azure Portal. När du har skapat din 
 ### <a name="to-create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
-2. Klicka på **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil** > **Skapa**.
+2. Klicka på **Skapa en resurs** > **Traffic** > **Manager-profil** > **Skapa.**
 4. I **Skapa Traffic Manager-profil** gör du följande:
     1. Ge profilen ett namn i **Namn**. Namnet måste var unikt inom trafficmanager.net-zonen och genererar DNS-namnet `<name>`, trafficmanager.net, som används för att öppna din Traffic Manager-profil.
     2. I **Routningsmetod** väljer du routningsmetoden **Priority** (Prioritet).
@@ -74,4 +74,4 @@ Du kan inaktivera en befintlig profil så att Traffic Manager inte refererar anv
 * [Konfigurera prioriterad routningsmetod](traffic-manager-configure-priority-routing-method.md)
 * [Konfigurera geografisk routningsmetod](traffic-manager-configure-geographic-routing-method.md) 
 * [Konfigurera viktad routningsmetod](traffic-manager-configure-weighted-routing-method.md)
-* [Konfigurera routningsmetod för prestanda](traffic-manager-configure-performance-routing-method.md)
+* [Konfigurera metod för prestandaroutning](traffic-manager-configure-performance-routing-method.md)

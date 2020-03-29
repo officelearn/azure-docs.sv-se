@@ -11,48 +11,48 @@ ms.reviewer: ''
 manager: anandsub
 ms.date: 12/19/2019
 ms.openlocfilehash: 09d4055ba98da2dd87efc9421402f2827a87ba16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440925"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 
-Med Azure Data Factory användar gränssnitts upplevelse (UX) kan du visuellt skapa och distribuera resurser för din data fabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra test körningar, felsöka iterativt och distribuera och övervaka dina pipeline-körningar.
+Med ux-upplevelsen (Azure Data Factory User Interface Experience) kan du skapa och distribuera resurser för din datafabrik visuellt utan att behöva skriva någon kod. Du kan dra aktiviteter till en pipeline-arbetsyta, utföra testkörningar, felsöka iterativt och distribuera och övervaka dina pipeline-körningar.
 
-För närvarande stöds Azure Data Factory UX bara i Microsoft Edge och Google Chrome.
+För närvarande stöds Azure Data Factory UX endast i Microsoft Edge och Google Chrome.
 
-## <a name="authoring-canvas"></a>Redigera arbets yta
+## <a name="authoring-canvas"></a>Skapa arbetsyta
 
-Klicka på Penn ikonen för att öppna arbets **ytan redigering**. 
+Om du vill öppna **redigeringsduken**klickar du på pennikonen. 
 
-![Redigera arbets yta](media/author-visually/authoring-canvas.png)
+![Skapa arbetsyta](media/author-visually/authoring-canvas.png)
 
-Här skapar du pipelines, aktiviteter, data uppsättningar, länkade tjänster, data flöden, utlösare och integrerings körningar som utgör din fabrik. För att komma igång med att skapa en pipeline med hjälp av redigerings arbets ytan, se [Kopiera data med kopierings aktiviteten](tutorial-copy-data-portal.md). 
+Här ska du skapa pipelines, aktiviteter, datauppsättningar, länkade tjänster, dataflöden, utlösare och integrationskörningar som utgör din fabrik. Information om hur du kommer igång med att skapa en pipeline med redigeringsarbetsytan finns i [Kopiera data med hjälp av kopieringen Aktivitet](tutorial-copy-data-portal.md). 
 
-Den förvalda visuella redigerings upplevelsen fungerar direkt med Data Factory tjänsten. Azure databaser git eller GitHub-integration stöds också för att tillåta käll kontroll och samarbete för arbete på dina data Factory-pipeliner. Läs mer om skillnaderna mellan dessa redigerings upplevelser i [käll kontroll i Azure Data Factory](source-control.md).
+Standardupplevelsen för visuell redigering arbetar direkt med datafabrikstjänsten. Azure Repos Git- eller GitHub-integrering stöds också för att tillåta källkontroll och samarbete för arbete med dina datafabrikspipelor. Mer information om skillnaderna mellan dessa redigeringsupplevelser finns [i Källkontroll i Azure Data Factory](source-control.md).
 
 ## <a name="expressions-and-functions"></a>Uttryck och funktioner
 
 Uttryck och funktioner kan användas i stället för statiska värden för att ange många egenskaper i Azure Data Factory.
 
-Om du vill ange ett uttryck för ett egenskaps värde väljer du **Lägg till dynamiskt innehåll** eller klickar på **Alt + P** samtidigt som du fokuserar på fältet.
+Om du vill ange ett uttryck för ett egenskapsvärde väljer du **Lägg till dynamiskt innehåll** eller klickar på Alt + **P** medan du fokuserar på fältet.
 
-![Lägg till dynamiskt innehåll](media/author-visually/dynamic-content-1.png)
+![Lägga till dynamiskt innehåll](media/author-visually/dynamic-content-1.png)
 
-Detta öppnar **Data Factory Expression Builder** där du kan bygga uttryck från systemvariabler som stöds, aktivitetens utdata, funktioner och användardefinierade variabler eller parametrar. 
+Då öppnas **Data Factory Expression Builder** där du kan skapa uttryck från systemvariabler som stöds, aktivitetsutdata, funktioner och användarspecificerade variabler eller parametrar. 
 
 ![Uttrycksverktyget](media/author-visually/dynamic-content-2.png)
 
-Information om uttrycks språk finns i [uttryck och funktioner i Azure Data Factory](control-flow-expression-language-functions.md).
+Information om uttrycksspråket finns [i Uttryck och funktioner i Azure Data Factory](control-flow-expression-language-functions.md).
 
 ## <a name="provide-feedback"></a>Ge feedback
 
-Välj **feedback** för att kommentera om funktioner eller meddela Microsoft om problem med verktyget:
+Välj **Feedback** om du vill kommentera funktioner eller meddela Microsoft om problem med verktyget:
 
 ![Feedback](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om övervakning och hantering av pipelines finns i [övervaka och hantera pipelines program mässigt](monitor-programmatically.md).
+Mer information om övervakning och hantering av pipelines finns i [Övervaka och hantera pipelines programmässigt.](monitor-programmatically.md)

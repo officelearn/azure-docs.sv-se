@@ -1,6 +1,6 @@
 ---
-title: Felsöka integration runtime med egen värd i Azure Data Factory
-description: Lär dig hur du felsöker problem med integration runtime med egen värd i Azure Data Factory.
+title: Felsöka självvärd för integrationskörning i Azure Data Factory
+description: Lär dig hur du felsöker problem med självvärd integrering i Azure Data Factory.
 services: data-factory
 author: nabhishek
 ms.service: data-factory
@@ -8,54 +8,54 @@ ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
 ms.openlocfilehash: b8492e8934c782451fb77d5a0ff56b96c34c9a00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75439878"
 ---
-# <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
+# <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka självvärd integreringskörning
 
-Den här artikeln utforskar vanliga fel söknings metoder för integration runtime med egen värd i Azure Data Factory.
+I den här artikeln beskrivs vanliga felsökningsmetoder för självvärdbaserad integrationskörning i Azure Data Factory.
 
 ## <a name="common-errors-and-resolutions"></a>Vanliga fel och lösningar
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Fel meddelande: integration runtime med egen värd kan inte ansluta till moln tjänsten
+### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Felmeddelande: Självvärdbaserad integrationskörning kan inte ansluta till molntjänsten
 
-![Problem med IR-anslutning via egen värd](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
+![Problem med IR-anslutning med egen värd](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
 #### <a name="cause"></a>Orsak 
 
-Den egna värdbaserade integrerings körningen kan inte ansluta till Data Factory tjänsten (backend). Det här problemet orsakas vanligt vis av nätverks inställningar i brand väggen.
+Den självvärderade integrationskörningen kan inte ansluta till datafabrikstjänsten (backend). Det här problemet orsakas vanligtvis av nätverksinställningarna i brandväggen.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
-1. Kontrol lera om integration runtime-tjänsten körs.
+1. Kontrollera om tjänsten integrationskörning körs.
     
-   ![Status för IR-tjänsten med egen värd](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
+   ![Status för IR-tjänst med självvärd](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
     
 1. Om tjänsten körs går du vidare till steg 3.
 
-1. Om ingen proxy har kon figurer ATS på den lokala integrerings körningen (vilket är standardinställningen) kör du följande PowerShell-kommando på den dator där den lokala integrerings körningen är installerad:
+1. Om det inte finns någon proxy konfigurerad på den självvärderade integrationskörningen (vilket är standardinställningen) kör du följande PowerShell-kommando på datorn där den självvärderade integrationskörningen är installerad:
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
     ```
         
    > [!NOTE]     
-   > URL: en för tjänsten kan variera beroende på din Data Factory plats. URL: en för tjänsten finns under **ADF UI** > **anslutningar** > **integration runtimes** > **Redigera IR** > - **noder** med egen värd > **Visa tjänst-URL: er**.
+   > Tjänstens URL kan variera beroende på din datafabrik. Du hittar tjänst-URL:en under **ADF-anslutningsanslutningars** > **Connections** > **integreringskörningar** > **Redigera självvärderade IR-körtlar** > **Nodes** > Visa**tjänstadresser**.
             
     Följande är det förväntade svaret:
             
-    ![PowerShell-kommando svar](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    ![Kommandosvar i PowerShell](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
             
-1. Om du inte får det förväntade svaret använder du någon av följande metoder som passar din situation:
+1. Om du inte får det förväntade svaret använder du någon av följande metoder som är lämpliga för din situation:
             
-    * Om du får ett meddelande om att det inte gick att lösa problemet, finns det ett Domain Name System (DNS-problem). Kontakta nätverks teamet för att åtgärda problemet.
-    * Om du får ett meddelande om att SSL/TLS-certifikat inte är betrott, kontrollerar du om certifikatet för https://wu2.frontend.clouddatahub.net/ är betrott på datorn och installerar sedan det offentliga certifikatet med hjälp av certifikat hanteraren. Den här åtgärden bör minimera problemet.
-    * Gå till **Windows** > **logg boken (loggar)**  > **program-och tjänst loggar** > **integration runtime** och kontrol lera eventuella problem som orsakas av DNS, brand Väggs regel eller företagets nätverks inställningar. (Om du upptäcker ett sådant problem stänger du anslutningen.) Eftersom alla företag har anpassade nätverks inställningar kan du kontakta nätverks teamet för att felsöka problemen.
+    * Om meddelandet "Fjärrnamn inte kunde matchas" visas ett DNS-problem (Domain Name System). Kontakta nätverksteamet för att åtgärda problemet.
+    * Om du får meddelandet "ssl/tls cert is not trusted" kontrollerar du om certifikatet för https://wu2.frontend.clouddatahub.net/ är betrott på datorn och installerar sedan det offentliga certifikatet med hjälp av Certifikathanteraren. Den här åtgärden bör minska problemet.
+    * Gå till **Windows** > **Loggboken (loggar)** > **Program och tjänster Loggar** > **Integration Runtime** och kontrollera eventuella fel som orsakas av DNS, en brandväggsregel eller företagsnätverksinställningar. (Om du hittar ett sådant fel, med våld stänga anslutningen.) Eftersom alla företag har anpassade nätverksinställningar kontaktar du nätverksteamet för att felsöka dessa problem.
 
-1. Om proxyn har kon figurer ATS på integration runtime med egen värd, kontrollerar du att proxyservern kan komma åt tjänstens slut punkt. Ett exempel kommando finns i [PowerShell, webb förfrågningar och proxyservrar](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
+1. Om "proxy" har konfigurerats på den självvärderade integrationskörningen kontrollerar du att proxyservern kan komma åt tjänstslutpunkten. Ett exempelkommando finns i [PowerShell, webbbegäranden och proxyservrar](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
     ```powershell
     $user = $env:username
@@ -76,29 +76,29 @@ Den egna värdbaserade integrerings körningen kan inte ansluta till Data Factor
 
 Följande är det förväntade svaret:
             
-![PowerShell-kommando svar 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+![Powershell-kommandosvar 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
 
 > [!NOTE] 
-> Synpunkter på proxy:
-> * Kontrol lera om proxyservern måste placeras i listan Betrodda mottagare. Om så är fallet ser du till att [dessa domäner](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) finns i listan Betrodda mottagare.
-> * Kontrol lera om TLS/SSL-certifikatet "wu2.frontend.clouddatahub.net/" är betrott på proxyservern.
-> * Om du använder Active Directory autentisering på proxyn ändrar du tjänst kontot till det användar konto som har åtkomst till proxyn som "Integration Runtime tjänst".
+> Proxy överväganden:
+> * Kontrollera om proxyservern behöver placeras i listan Betrodda mottagare. Om så är fallet kontrollerar du att [dessa domäner](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) finns med i listan Betrodda mottagare.
+> * Kontrollera om TLS/SSL-certifikatet "wu2.frontend.clouddatahub.net/" är betrott på proxyservern.
+> * Om du använder Active Directory-autentisering på proxyn ändrar du tjänstkontot till användarkontot som kan komma åt proxyn som "Integration Runtime Service".
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Fel meddelande: egen värd för integration runtime-noden/logiska SHIR är i ett inaktivt/"kör (begränsat)" tillstånd
+### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Felmeddelande: Självvärdförd integrationskörningsnod/ logisk SHIR är inaktiv/ "Körs (begränsad)"
 
 #### <a name="cause"></a>Orsak 
 
-Den egna värdbaserade integrerade runtime-noden kan ha en **inaktiv** status, som visas på följande skärm bild:
+Den självvärderade integrerade runtime-noden kan ha en **inaktiv** status, som visas i följande skärmbild:
 
-![Inaktiv IR-nod med egen värd](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+![Inaktiv IR-nod med självvärd värd](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
 Det här problemet uppstår när noder inte kan kommunicera med varandra.
 
-#### <a name="resolution"></a>Upplösning
+#### <a name="resolution"></a>Lösning
 
-1. Logga in på den nod-värdbaserade virtuella datorn. Under **program-och tjänst loggar** > **Integration Runtime**öppnar du Loggboken och filtrerar alla fel loggar.
+1. Logga in på den virtuella datorn som inte är värd för noden. Öppna Loggboken för integrering av **program och tjänster** > under Program och tjänster loggar**integrationskörningen**och filtrerar alla felloggar.
 
-1. Kontrol lera om fel loggen innehåller följande fel: 
+1. Kontrollera om en fellogg innehåller följande fel: 
     
     ```System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
     System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it. 

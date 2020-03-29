@@ -1,6 +1,6 @@
 ---
-title: Ändra pris nivå för Notification Hubs namnrymd | Microsoft Docs
-description: Lär dig hur du ändrar pris nivån för ett Azure Notification Hubs-namnområde.
+title: Ändra prisnivån för namnområdet Notification Hubs | Microsoft-dokument
+description: Lär dig hur du ändrar prisnivån för ett namnområde för Azure Notification Hubs.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -14,67 +14,67 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76261083"
 ---
-# <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Ändra pris nivå för ett namn område för Azure Notification Hub
-Notification Hubs erbjuds på tre nivåer: **kostnads fri**, **Basic**och **standard**. Den här artikeln visar hur du ändrar pris nivån för ett Azure Notification Hubs-namnområde. 
+# <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Ändra prisnivån för ett namnområde för Azure-meddelandehubbar
+Meddelandehubbar erbjuds i tre nivåer: **gratis,** **grundläggande**och **standard.** Den här artikeln visar hur du ändrar prisnivån för ett namnområde för Azure Notification Hubs. 
 
 ## <a name="overview"></a>Översikt
-I Azure Notification Hubs är en **hubb** den minsta resursen/entiteten. Den mappar vanligt vis till ett program och kan innehålla ett certifikat för varje Plattformsspecifikt meddelandesystem vi stöder för appen. Programmet kan vara en hybrid eller ett inbyggt program och ett plattforms oberoende program.
+I Azure Notification Hubs är ett **nav** den minsta resursen/entiteten. Den mappar vanligtvis till ett program och kan innehålla ett certifikat för varje plattformsmeddelandesystem som vi stöder för appen. Programmet kan vara en hybrid eller en inbyggd och en plattformsoberoende program.
 
-Ett **namn område** är en samling Notification Hub. Varje namnrymd består vanligt vis av hubbar som är relaterade till och används för ett specifikt syfte. Du kan till exempel ha tre olika namn rymder för utvecklings-, test-respektive produktions syfte. 
+Ett **namnområde** är en samling meddelandehubbar. Varje namnområde består vanligtvis av hubbar som är relaterade och används för ett visst ändamål. Du kan till exempel ha tre olika namnområden för utvecklings-, test- och produktionsändamål. 
 
-Du kan associera en pris nivå på namn områdes nivån. Notification Hubs stöder tre nivåer: **kostnads fri**, **Basic**och **standard**. Du kan använda nivån för ett namn område som passar dina krav. I följande avsnitt visas hur du ändrar pris nivån för ett Notification Hubs namn område. 
+Du kan associera en prisnivå på namnområdesnivå. Meddelandehubbar stöder tre nivåer: **gratis,** **grundläggande**och **standard**. Du kan använda nivån för ett namnområde som passar dina behov. I följande avsnitt visas hur du ändrar prisnivån för ett namnområde för meddelandehubbar. 
 
-## <a name="use-azure-portal"></a>Använd Azure Portal 
-När du använder Azure Portal kan du ändra pris nivån för ett namn område på namn områdes sidan eller en nav sida.  När du ändrar den på en nav-sida, ändrar du faktiskt den på namn områdes nivån. Den ändrar pris nivån för namn området och alla hubbar i namn området. 
+## <a name="use-azure-portal"></a>Använda Azure-portalen 
+När du använder Azure-portalen kan du ändra prisnivån för ett namnområde på namnområdessidan eller en hubbsida.  När du ändrar det på en hubbsida ändrar du den faktiskt på namnområdesnivå. Prisnivån för namnområdet och alla hubbar i namnområdet ändras. 
 
-### <a name="change-tier-on-the-namespace-page"></a>Ändra nivå på namn områdes Sidan
-Följande procedur visar hur du ändrar pris nivån för ett namn område på namn områdes sidan. När du ändrar nivån för en namnrymd, gäller den för alla hubbar i namn området.
+### <a name="change-tier-on-the-namespace-page"></a>Ändra nivå på namnområdessidan
+Följande procedur ger dig steg för att ändra prisnivån för ett namnområde på namnområdessidan. När du ändrar nivån för ett namnområde gäller den för alla hubbar i namnområdet.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **alla tjänster** på den vänstra menyn. 
-3. Välj **namn rymder för Notification Hub** i avsnittet **Sakernas Internet** . Om du väljer Star (`*`) bredvid texten läggs den till i det vänstra navigerings fältet under **Favoriter**. Det hjälper dig att komma åt sidan namn områden snabbare nästa gång. När du har lagt till den i favoriter väljer du **namn områden för Notification Hub**. 
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Välj **Alla tjänster** på den vänstra menyn. 
+3. Välj Namnområden för **meddelandehubben** i avsnittet **Sakernas Internet.** Om du väljer`*`stjärna ( ) bredvid texten läggs den till i det vänstra **navigeringsfältet**under FAVORITER . Det hjälper dig att komma åt namnrymdssidan snabbare nästa gång och framåt. När du har lagt till den i FAVORITER väljer du **Namnområden för meddelandehubben**. 
 
-    ![Alla tjänster-> Notification Hub-namnrymder](./media/change-pricing-tier/all-services-nhub.png)
-1. På sidan **namn områden för Notification Hub** väljer du det namn område som du vill ändra pris nivån för. 
-2. På sidan **namn område för meddelande hubb** för ditt namn område kan du se den aktuella pris nivån för namn området i avsnittet **Essentials** . I följande bild kan du se att pris nivån för namn området är **kostnads fri**. 
+    ![Alla tjänster -> Namnområden för meddelandehubben](./media/change-pricing-tier/all-services-nhub.png)
+1. På sidan Namnområden för **meddelandehubben** väljer du det namnområde som du vill ändra prisnivån för. 
+2. På sidan **Meddelandehubbnamnområde** för ditt namnområde kan du se den aktuella prisnivån för namnområdet i avsnittet **Essentials.** I följande bild kan du se att prisnivån för namnområdet är **ledig**. 
 
-    ![Aktuell pris nivå på namn områdes Sidan](./media/change-pricing-tier/pricing-tier-before.png)
-1. På namn områdes sidan för **Notification Hub** i namn området väljer du **pris nivå** under avsnittet **Hantera** . 
+    ![Aktuell prisnivå på namnområdessidan](./media/change-pricing-tier/pricing-tier-before.png)
+1. På sidan Namnområde för **meddelandehubben** för namnområdet väljer du **Prisnivå** under **Hantera.** 
 
-    ![Välj pris nivå på namn områdes Sidan](./media/change-pricing-tier/namespace-select-pricing-menu.png)
-6. Ändra din pris nivå och klicka på knappen **Välj** .    
-7. Du ser status för nivå ändrings åtgärden i **aviseringarna**. 
-8. Växla till **översikts** sidan. Bekräfta att den nya nivån visas för fältet **pris nivå** i avsnittet **Essentials** .     
-1. Det här steget är valfritt. Välj valfri hubb i namn området. Bekräfta att du ser samma pris nivå i avsnittet **Essentials** . Du bör se samma pris nivå för alla hubbar i namn området. 
+    ![Välj prisnivå på namnområdessidan](./media/change-pricing-tier/namespace-select-pricing-menu.png)
+6. Ändra prisnivån och klicka på knappen **Välj.**    
+7. Du ser status för nivåändringsåtgärden i **aviseringarna**. 
+8. Växla till sidan **Översikt.** Bekräfta att den nya nivån visas för fältet **Prisnivå** i avsnittet **Essentials.**     
+1. Det här steget är valfritt. Markera ett nav i namnområdet. Bekräfta att du ser samma prisnivå i avsnittet **Essentials.** Du bör se samma prisnivå för alla nav i namnområdet. 
 
-### <a name="change-tier-on-the-hub-page"></a>Ändra nivå på NAV Sidan
-Följande procedur ger dig anvisningar om hur du ändrar pris nivån för ett namn område på hubb sidan. Även om du utför de här stegen från sidan hubb, ändrar du faktiskt pris nivå för namn området och alla hubbar i namn området. 
+### <a name="change-tier-on-the-hub-page"></a>Ändra nivå på hubbsidan
+Följande procedur ger dig steg för att ändra prisnivån för ett namnområde på hubbsidan. Även om du gör dessa steg från hubbsidan ändrar du faktiskt prisnivån för namnområdet och alla hubbar i namnområdet. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **alla tjänster** på den vänstra menyn.
-3. Välj **Notification Hubs** i avsnittet **Sakernas Internet** . 
-4. Välj Notification **Hub**. 
-5. Välj **pris nivå** på den vänstra menyn. 
-6. Ändra pris nivån och klicka på knappen **Välj** . Den här åtgärden ändrar pris nivå inställningen för det namn område som innehåller hubben. Så visas den nya pris nivån på namn områdes sidan och alla nav sidor. 
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Välj **Alla tjänster** på den vänstra menyn.
+3. Välj **Meddelandehubbar** i avsnittet **Sakernas Internet.** 
+4. Välj **meddelandehubben**. 
+5. Välj **Prisnivå** på den vänstra menyn. 
+6. Ändra prisnivån och klicka på knappen **Välj.** Den här åtgärden ändrar prisnivåinställningen för namnområdet som innehåller navet. Så ser du den nya prisnivån på namnområdessidan och alla hubbsidor. 
 
-## <a name="use-rest-api"></a>Använd REST-API
-Du kan använda följande resurs leverantör REST-API: er för att hämta den aktuella pris nivån och uppdatera den. 
+## <a name="use-rest-api"></a>Använda REST-API
+Du kan använda följande REST-API:er för resursprovider för att hämta den aktuella prisnivån och uppdatera den. 
 
-### <a name="get-current-pricing-tier-for-a-namespace"></a>Hämta aktuell pris nivå för ett namn område
-Om du vill hämta den **aktuella namn områdes nivån**skickar du ett get-kommando som visas i följande exempel: 
+### <a name="get-current-pricing-tier-for-a-namespace"></a>Hämta aktuell prisnivå för ett namnområde
+Om du vill hämta den **aktuella namnområdesnivån**skickar du ett GET-kommando som visas i följande exempel: 
 
 ```REST
 GET: https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/notificationhubplan
 ```
 
-### <a name="update-pricing-tier-for-a-namespace"></a>Uppdatera pris nivån för ett namn område
-Du **uppdaterar namn områdes nivån**genom att skicka ett placera-kommando som visas i följande exempel: 
+### <a name="update-pricing-tier-for-a-namespace"></a>Uppdatera prisnivå för ett namnområde
+Om du vill **uppdatera namnområdesnivån**skickar du ett PUT-kommando som visas i följande exempel: 
 
 ```REST
 PUT: https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/notificationhubplan
@@ -84,4 +84,4 @@ Body: <NotificationHubPlan xmlns:i="https://www.w3.org/2001/XMLSchema-instance" 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om dessa nivåer och priser finns [Notification Hubs prissättning](https://azure.microsoft.com/pricing/details/notification-hubs/).
+Mer information om dessa nivåer och priser finns i [Priser för Meddelandehubbar](https://azure.microsoft.com/pricing/details/notification-hubs/).

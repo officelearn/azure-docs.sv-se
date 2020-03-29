@@ -1,6 +1,6 @@
 ---
 title: Använda Machine Learning-slutpunkter i Azure Stream Analytics
-description: Den här artikeln beskriver hur du använder maskinkod användardefinierade funktioner i Azure Stream Analytics.
+description: I den här artikeln beskrivs hur du använder användardefinierade funktioner för maskinspråk i Azure Stream Analytics.
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
@@ -8,46 +8,46 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.openlocfilehash: 239955025f21d8679cbcf0bbfe68f9070f0217c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426188"
 ---
-# <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Azure Machine Learning Studio (klassisk) integrering i Stream Analytics (förhands granskning)
-Stream Analytics stöder användardefinierade funktioner som anropar till Azure Machine Learning Studio (klassiska) slut punkter. REST API-stöd för den här funktionen beskrivs i den [Stream Analytics REST API-bibliotek](https://msdn.microsoft.com/library/azure/dn835031.aspx). Den här artikeln ger ytterligare information som behövs för lyckade implementeringen av den här funktionen i Stream Analytics. En självstudiekurs som också har publicerats och är tillgänglig [här](stream-analytics-machine-learning-integration-tutorial.md).
+# <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Azure Machine Learning Studio (klassisk) integration i Stream Analytics (Preview)
+Stream Analytics stöder användardefinierade funktioner som ropar till Azure Machine Learning Studio (klassiska) slutpunkter. REST API-stöd för den här funktionen beskrivs i [Stream Analytics REST API-bibliotek](https://msdn.microsoft.com/library/azure/dn835031.aspx). Den här artikeln innehåller ytterligare information som behövs för att den här funktionen ska kunna implementeras i Stream Analytics. En handledning har också lagts upp och finns [här](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-studio-classic-terminology"></a>Översikt: Azure Machine Learning Studio (klassisk) terminologi
-Microsoft Azure Machine Learning Studio (klassisk) tillhandahåller ett samarbete, dra och släpp-verktyg som du kan använda för att bygga, testa och distribuera förutsägelse analys lösningar på dina data. Det här verktyget kallas för *Azure Machine Learning Studio (klassisk)* . Studio används för att interagera med Machine Learning-resurser och enkelt bygga, testa och iterera på din design. Dessa resurser och deras definitioner finns nedan.
+Microsoft Azure Machine Learning Studio (klassisk) tillhandahåller ett samarbetsverktyg för att dra och släppa som du kan använda för att skapa, testa och distribuera lösningar för prediktiva analyser på dina data. Det här verktyget kallas *Azure Machine Learning Studio (klassisk)*. Studion används för att interagera med Machine Learning-resurserna och enkelt bygga, testa och iterera på din design. Dessa resurser och deras definitioner finns nedan.
 
-* **Arbetsytan**: den *arbetsytan* är en behållare som innehåller alla andra Machine Learning-resurser tillsammans i en behållare för hantering och kontroll.
-* **Experiment**: *experiment* skapas av datavetare och utnyttja datamängder och träna en maskininlärningsmodell.
-* **Slut punkt**: *slut punkter* är Azure Machine Learning Studio (klassisk) som används för att ta med funktioner som indata, tillämpa en angiven Machine Learning-modell och returnera Poäng resultat.
-* **Bedömning av webbtjänsten**: A *bedömning av webbtjänsten* är en uppsättning slutpunkter som nämns ovan.
+* **Arbetsyta:** *Arbetsytan* är en behållare som innehåller alla andra Machine Learning-resurser tillsammans i en behållare för hantering och kontroll.
+* **Experiment:** *Experiment skapas* av datavetare för att använda datauppsättningar och träna en maskininlärningsmodell.
+* **Slutpunkt:** *Slutpunkter* är Azure Machine Learning Studio (klassiskt) objekt som används för att ta funktioner som indata, tillämpa en angiven maskininlärningsmodell och returnera poängsatt utdata.
+* **Bedömning Webservice**: En *bedömning webtjänst* är en samling slutpunkter som nämnts ovan.
 
-Varje slutpunkt har API: er för batchkörning och synkron körning. Stream Analytics använder synkron körning. Den aktuella tjänsten kallas för en [begäran/svar-tjänst](../machine-learning/studio/consume-web-services.md) i Azure Machine Learning Studio (klassisk).
+Varje slutpunkt har api:er för körning av batch och synkron körning. Stream Analytics använder synkron körning. Den specifika tjänsten heter en [begäran/svarstjänst](../machine-learning/studio/consume-web-services.md) i Azure Machine Learning Studio (klassisk).
 
-## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Machine Learning-resurser som krävs för Stream Analytics-jobb
-Jobb för Stream Analytics bearbetar en begäran/svar-slutpunkt, en [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md), och alla behövs för att utföra en swagger-definition. Stream Analytics har en ytterligare slutpunkt som skapar URL: en för swagger-slutpunkten, letar upp gränssnittet och returnerar en standard UDF-definitionen för användaren.
+## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Machine Learning-resurser som behövs för Stream Analytics-jobb
+För Dataanalys jobbbearbetning är en slutpunkt för begäran/svar, en [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)och en swagger-definition alla nödvändiga för att körningen ska kunna köras. Stream Analytics har ytterligare en slutpunkt som konstruerar url:en för swagger-slutpunkten, slår upp gränssnittet och returnerar en standard-UDF-definition till användaren.
 
-## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Konfigurera ett Stream Analytics och Machine Learning-UDF via REST-API
-Med hjälp av REST API: er kan du konfigurera ditt jobb för att anropa maskinkod för Azure functions. Stegen är följande:
+## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Konfigurera en Stream Analytics och Machine Learning UDF via REST API
+Genom att använda REST API:er kan du konfigurera jobbet så att det anropar Azure Machine Language-funktioner. Stegen är följande:
 
 1. Skapa ett Stream Analytics-jobb
-2. Definiera indata
-3. Definiera utdata
+2. Definiera en indata
+3. Definiera en utdata
 4. Skapa en användardefinierad funktion (UDF)
-5. Skriv en Stream Analytics-omvandling som anropar en användardefinierad funktion
+5. Skriv en Stream Analytics-omvandling som anropar UDF
 6. Starta jobbet
 
 ## <a name="creating-a-udf-with-basic-properties"></a>Skapa en UDF med grundläggande egenskaper
-Följande exempel kod skapar exempelvis en skalär UDF med namnet *newudf* som binder till en Azure Machine Learning Studio (klassisk) slut punkt. Observera att den *endpoint* (tjänstens URI) finns på hjälpsidan för API för den valda tjänsten och *apiKey* kan hittas på huvudsidan för tjänster.
+Som ett exempel skapar följande exempelkod en scalar UDF med namnet *newudf* som binder till en Azure Machine Learning Studio (klassisk) slutpunkt. Observera att *slutpunkten* (tjänst URI) finns på API-hjälpsidan för den valda tjänsten och *apiKey* finns på huvudsidan för Tjänster.
 
 ```
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
 ```
 
-Exempel-begärandetexten:
+Exempel begäran organ:
 
 ```json
     {
@@ -67,14 +67,14 @@ Exempel-begärandetexten:
     }
 ```
 
-## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Anropa RetrieveDefaultDefinition slutpunkt för standard UDF
-När stommen UDF har skapats krävs fullständiga definitionen av en användardefinierad funktion. RetrieveDefaultDefinition-slutpunkten hjälper dig att hämta standard definitionen för en skalär funktion som är kopplad till en Azure Machine Learning Studio (klassisk) slut punkt. Nyttolasten nedan måste du hämta standard UDF-definitionen för en skalärfunktion som är bunden till en Azure Machine Learning-slutpunkt. Det Ange inte den faktiska slutpunkten som har redan angetts under PUT-begäran. Stream Analytics anropar slutpunkten som tillhandahölls i begäran om det anges uttryckligen. Annars används den som ursprungligen refereras. Här sträng UDF-tar en enda sträng parametern (en mening) och returnerar en enda utdata av typen som anger etiketten ”attitydanalys” för den meningen.
+## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Anropa Endpoint för Call RetrieveDefaultDefinition för uDF som standard
+När skelettet UDF skapas behövs den fullständiga definitionen av UDF. Endpointen RetrieveDefaultDefinition hjälper dig att få standarddefinitionen för en skalfunktion som är bunden till en Azure Machine Learning Studio -slutpunkt (klassisk). Nyttolasten nedan kräver att du får standard UDF-definitionen för en skalärfunktion som är bunden till en Azure Machine Learning-slutpunkt. Den anger inte den faktiska slutpunkten eftersom den redan har angetts under PUT-begäran. Stream Analytics anropar slutpunkten som anges i begäran om den uttryckligen anges. Annars använder den den som ursprungligen refererades. Här tar UDF en enda strängparameter (en mening) och returnerar en enda utdata av typen sträng som anger etiketten "sentiment" för den meningen.
 
 ```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
 ```
 
-Exempel-begärandetexten:
+Exempel begäran organ:
 
 ```json
     {
@@ -86,7 +86,7 @@ Exempel-begärandetexten:
     }
 ```
 
-Ett exempel på utdata detta skulle titta något i stil nedan.
+Ett exempel på detta skulle se ut ungefär som nedan.
 
 ```json
     {
@@ -126,14 +126,14 @@ Ett exempel på utdata detta skulle titta något i stil nedan.
     }
 ```
 
-## <a name="patch-udf-with-the-response"></a>Patch-UDF med svaret
-Nu en användardefinierad funktion måste korrigeras med föregående svar, enligt nedan.
+## <a name="patch-udf-with-the-response"></a>Patch UDF med svaret
+Nu UDF måste lappas med föregående svar, som visas nedan.
 
 ```
 PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
 ```
 
-Begärandetexten (utdata från RetrieveDefaultDefinition):
+Begärandetext (Utdata från RetrieveDefaultDefinition):
 
 ```json
     {
@@ -173,8 +173,8 @@ Begärandetexten (utdata från RetrieveDefaultDefinition):
     }
 ```
 
-## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementera Stream Analytics-transformering för att anropa en användardefinierad funktion
-Nu frågar en användardefinierad funktion (här med namnet scoreTweet) för varje händelse och skriva ett svar för händelsen till utdata.
+## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>Implementera Stream Analytics-omvandling för att anropa UDF
+Fråga nu UDF (här heter scoreTweet) för varje indatahändelse och skriv ett svar för den händelsen till en utdata.
 
 ```json
     {
@@ -195,4 +195,4 @@ Om du behöver mer hjälp kan du besöka vårt [Azure Stream Analytics-forum](ht
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)

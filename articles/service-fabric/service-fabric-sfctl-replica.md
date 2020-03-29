@@ -1,234 +1,234 @@
 ---
-title: Azure Service Fabric CLI – sfctl-replikering
-description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera repliker.
+title: AZURE Service Fabric CLI- sfctl-replik
+description: Lär dig mer om sfctl, kommandoradsgränssnittet i Azure Service Fabric. Innehåller en lista med kommandon för att hantera repliker.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f6ad0b4c08ac8d710340fe654a068d0a3804e58f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905807"
 ---
 # <a name="sfctl-replica"></a>sfctl replica
-Hantera de repliker som hör till-tjänstepartitioner.
+Hantera replikerna som tillhör tjänstpartitioner.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| deployed | Hämtar information om replik som distribuerats på en Service Fabric-nod. |
-| deployed-list | Hämtar listan över repliker som har distribuerats på en Service Fabric-nod. |
-| hälsa | Hämtar hälsan för en Service Fabric tillstånds känslig tjänst-replikering eller tillstånds lös tjänst instans. |
-| info | Hämtar information om en replik av en Service Fabric partition. |
-| lista | Hämtar information om repliker av en Service Fabric-tjänstepartition. |
-| ta bort | Tar bort en tjänst replik som körs på en nod. |
-| report-health | Skickar en hälso rapport på Service Fabric repliken. |
-| restart | Startar om en tjänst replik för en beständiga tjänst som körs på en nod. |
+| Distribuerat | Hämtar information om replik som distribueras på en service fabric-nod. |
+| distribuerad lista | Hämtar listan över repliker som distribueras på en service fabric-nod. |
+| Hälsa | Hämtar hälsotillstånd för en tillståndskänslig tjänstreplik för tjänst för tjänst eller tillståndslös tjänstinstans. |
+| information | Hämtar information om en replik av en Service Fabric-partition. |
+| lista | Hämtar information om repliker av en tjänstpartition för Tjänst Fabric. |
+| Ta bort | Tar bort en tjänstreplik som körs på en nod. |
+| rapport-hälsa | Skickar en hälsorapport på repliken Service Fabric. |
+| restart | Startar om en tjänstreplik av en beständig tjänst som körs på en nod. |
 
 ## <a name="sfctl-replica-deployed"></a>sfctl-replik distribuerad
-Hämtar information om replik som distribuerats på en Service Fabric-nod.
+Hämtar information om replik som distribueras på en service fabric-nod.
 
-Hämtar information om repliken som distribuerats på en Service Fabric-nod. Informationen omfattar tjänst typ, tjänst namn, aktuell tjänst åtgärd, aktuell start datum för tjänst åtgärd, partitions-ID, replik/instans-ID, rapporterad belastning och annan information.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Node-Name [required] | Nodens namn. |
-| --partitions-ID [required] | Partitionens identitet. |
-| --replik-ID [obligatoriskt] | Replikens identifierare. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
-
-### <a name="global-arguments"></a>Globala argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
-
-## <a name="sfctl-replica-deployed-list"></a>sfctl-replik distribuerad – lista
-Hämtar listan över repliker som har distribuerats på en Service Fabric-nod.
-
-Hämtar listan med information om repliker som distribuerats på en Service Fabric-nod. Informationen inkluderar partitions-ID, replik-ID, status för repliken, namnet på tjänsten, namnet på tjänst typen och annan information. Använd parametrarna PartitionId eller ServiceManifestName för att returnera information om de distribuerade replikerna som matchar de angivna värdena för dessa parametrar.
+Hämtar information om repliken som distribueras på en service fabric-nod. Informationen omfattar tjänststund, tjänstnamn, aktuell tjänståtgärd, aktuell tjänståtgärdsstartdatumtid, partitions-ID, replik-/instans-ID, rapporterad inläsning och annan information.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --partitions-ID | Partitionens identitet. |
-| --tjänst-manifest-namn | Namnet på ett tjänst manifest som är registrerat som en del av en program typ i ett Service Fabric kluster. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --partition-id [Obligatoriskt] | Partitionens identitet. |
+| --replica-id [Obligatoriskt] | Identifieraren för repliken. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-replica-health"></a>hälso tillstånd för sfctl-replik
-Hämtar hälsan för en Service Fabric tillstånds känslig tjänst-replikering eller tillstånds lös tjänst instans.
+## <a name="sfctl-replica-deployed-list"></a>sfctl-replik distribuerad lista
+Hämtar listan över repliker som distribueras på en service fabric-nod.
 
-Hämtar hälsan för en Service Fabric replik. Använd EventsHealthStateFilter för att filtrera den samling hälso händelser som rapporteras på repliken baserat på hälso tillståndet.
+Hämtar listan som innehåller information om repliker som distribueras på en service fabric-nod. Informationen omfattar partitions-ID, replik-ID, replikens status, tjänstens namn, tjänsttypens namn och annan information. Använd PartitionId- eller ServiceManifestName-frågeparametrar för att returnera information om de distribuerade replikerna som matchar de angivna värdena för dessa parametrar.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --partitions-ID [required] | Partitionens identitet. |
-| --replik-ID [obligatoriskt] | Replikens identifierare. |
-| --events-health-state-filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --partition-id | Partitionens identitet. |
+| --service-manifest-namn | Namnet på ett tjänstmanifest som registrerats som en del av en programtyp i ett Service Fabric-kluster. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-replica-info"></a>information om sfctl-replikering
-Hämtar information om en replik av en Service Fabric partition.
+## <a name="sfctl-replica-health"></a>sfctl replika hälsa
+Hämtar hälsotillstånd för en tillståndskänslig tjänstreplik för tjänst för tjänst eller tillståndslös tjänstinstans.
 
-Svaret innehåller ID, roll, status, hälsa, nodnamn, drift tid och annan information om repliken.
+Hämtar hälsotillståndet för en Service Fabric-replik. Använd EventsHealthStateFilter för att filtrera insamlingen av hälsohändelser som rapporterats på repliken baserat på hälsotillståndet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --partitions-ID [required] | Partitionens identitet. |
-| --replik-ID [obligatoriskt] | Replikens identifierare. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --partition-id [Obligatoriskt] | Partitionens identitet. |
+| --replica-id [Obligatoriskt] | Identifieraren för repliken. |
+| --events-health-state-filter | Gör det möjligt att filtrera samlingen av HealthEvent-objekt som returneras baserat på hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av operatorn "ELLER". Om det angivna värdet till exempel är 6 returneras alla händelser med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-replica-list"></a>lista över sfctl-replikering
-Hämtar information om repliker av en Service Fabric-tjänstepartition.
+## <a name="sfctl-replica-info"></a>sfctl replika info
+Hämtar information om en replik av en Service Fabric-partition.
 
-GetReplicas-slutpunkten returnerar information om replikerna för den angivna partitionen. Svaret innehåller ID, roll, status, hälsa, nodnamn, drift tid och annan information om repliken.
+Svaret innehåller ID, roll, status, hälsa, nodnamn, drifttid och annan information om repliken.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --partitions-ID [required] | Partitionens identitet. |
-| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --partition-id [Obligatoriskt] | Partitionens identitet. |
+| --replica-id [Obligatoriskt] | Identifieraren för repliken. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-replica-remove"></a>ta bort sfctl-replik
-Tar bort en tjänst replik som körs på en nod.
+## <a name="sfctl-replica-list"></a>sfctl-repliklista
+Hämtar information om repliker av en tjänstpartition för Tjänst Fabric.
 
-Detta API simulerar ett Service Fabric replik fel genom att ta bort en replik från ett Service Fabric-kluster. Borttagningen stänger repliken, överflyttar repliken till rollen ingen och tar sedan bort all statusinformation för repliken från klustret. Med det här API: et testas sökväg för replik tillstånds borttagning och den permanenta sökvägen för rapport felet simuleras via klient-API: er Varning-det finns inga säkerhets kontroller som utförs när denna API används. Felaktig användning av detta API kan leda till data förlust för tillstånds känsliga tjänster. Dessutom påverkar forceRemove-flaggan alla andra repliker som finns i samma process.
+GetReplicas-slutpunkten returnerar information om replikerna för den angivna partitionen. Svaret innehåller ID, roll, status, hälsa, nodnamn, drifttid och annan information om repliken.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Node-Name [required] | Nodens namn. |
-| --partitions-ID [required] | Partitionens identitet. |
-| --replik-ID [obligatoriskt] | Replikens identifierare. |
-| --Framtvinga-ta bort | Ta bort ett Service Fabric program eller en tjänst framtvingar utan att gå igenom den korrekt avstängnings ordningen. Den här parametern kan användas för att framtvinga borttagning av ett program eller en tjänst för vilken borttagning har nått tids gränsen på grund av problem i Service koden som förhindrar en korrekt stängning av repliker. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --partition-id [Obligatoriskt] | Partitionens identitet. |
+| --fortsättning-token | Parametern för fortsättningstoken används för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tomt värde inkluderas i svaret på API:et när resultaten från systemet inte får plats i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API:et nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller fortsättningstoken inget värde. Värdet för den här parametern bör inte URL-kodas. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-replica-report-health"></a>sfctl Replica-rapport – hälsa
-Skickar en hälso rapport på Service Fabric repliken.
+## <a name="sfctl-replica-remove"></a>sfctl replika ta bort
+Tar bort en tjänstreplik som körs på en nod.
 
-Rapporterar hälso tillståndet för den angivna Service Fabric repliken. Rapporten måste innehålla information om källan till hälso rapporten och egenskapen som den rapporteras om. Rapporten skickas till en Service Fabric Gateway-replik som vidarebefordrar till hälso lagret. Rapporten kan godkännas av gatewayen, men avvisas av hälso lagret efter extra verifiering. Hälso lagret kan till exempel avvisa rapporten på grund av en ogiltig parameter, t. ex. ett inaktuellt ordnings nummer. Om du vill se om rapporten användes i hälso lagret kör du hämta replik hälsa och kontrollerar att rapporten visas i avsnittet HealthEvents.
+Det här API:et simulerar ett e-postkontrollfel genom att ta bort en replik från ett Service Fabric-kluster. Borttagningen stänger repliken, överför repliken till rollen Ingen och tar sedan bort all tillståndsinformation för repliken från klustret. Det här API:et testar sökvägen för borttagning av repliktillstånd och simulerar den permanenta sökvägen för rapportfelet via klient-API:er. Varning - Det finns inga säkerhetskontroller som utförs när detta API används. Felaktig användning av det här API:et kan leda till dataförlust för tillståndskänsliga tjänster. Dessutom påverkar forceRemove-flaggan alla andra repliker som finns i samma process.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Health-Property [required] | Hälso informationens egenskaper. <br><br> En entitet kan ha hälso rapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning som tillåter rapportörens flexibilitet att kategorisera det tillstånds villkor som utlöser rapporten. Till exempel kan en rapportör med SourceId "LocalWatchdog" övervaka statusen för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på noden. Samma rapportör kan övervaka nodens anslutning, så att den kan rapportera en egenskap "anslutning" på samma nod. I hälso lagret behandlas dessa rapporter som separata hälso händelser för den angivna noden. Tillsammans med värdet för SourceId kan egenskapen unikt identifiera hälso informationen. |
-| --hälso tillstånd [krävs] | Möjliga värden är\: "ogiltig", "OK", "varning", "Error", "okänd". |
-| --partitions-ID [required] | Partitionens identitet. |
-| --replik-ID [obligatoriskt] | Partitionens identitet. |
-| --Käll-ID [obligatoriskt] | Det käll namn som identifierar klient/övervaknings-/system komponenten som genererade hälso informationen. |
-| --Beskrivning | Beskrivning av hälso informationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala sträng längden för beskrivningen är 4096 tecken. Om den angivna strängen blir längre trunkeras den automatiskt. Vid trunkering innehåller de sista tecknen i beskrivningen en markör, "[trunkerad]" och den totala sträng storleken är 4096 tecken. Förekomsten av markören anger för användare som har trunkerats. Observera att beskrivningen innehåller färre än 4096 tecken från den ursprungliga strängen när den trunkeras. |
-| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälso rapport skickas till ett Service Fabric Gateway-program, som vidarebefordrar till hälso lagret. Om omedelbar är inställt på Sant skickas rapporten omedelbart från HTTP-gatewayen till hälso lagret, oavsett vilka klient inställningar för klient program varan som HTTP-gatewayen använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tids inställningar och andra villkor kan det hända att det fortfarande inte går att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om omedelbar är inställt på false skickas rapporten baserat på hälso klient inställningarna från HTTP-gatewayen. Därför kommer den att grupperas enligt HealthReportSendInterval-konfigurationen. Detta är den rekommenderade inställningen eftersom den gör det möjligt för hälso klienten att optimera hälso rapporterings meddelanden till hälso Arkiv och bearbetning av hälso rapporter. Som standard skickas inte rapporter direkt. |
-| --remove-when-expired | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
-| --sekvens-nummer | Serie numret för den här hälso rapporten som en numerisk sträng. <br><br> Rapportens sekvensnummer används av hälso lagret för att identifiera inaktuella rapporter. Om inget värde anges genereras ett sekvensnummer automatiskt av hälso klienten när en rapport läggs till. |
-| --tjänst-typ | Vilken typ av tjänst replik (tillstånds lös eller tillstånds känslig) som hälso tillståndet rapporteras för. Följande är möjliga värden\: "tillstånds lös", "tillstånds känslig".  Standard\: tillstånd. |
-| --timeout-t | Standard\: 60. |
-| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ställa in tiden till oändligt. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --partition-id [Obligatoriskt] | Partitionens identitet. |
+| --replica-id [Obligatoriskt] | Identifieraren för repliken. |
+| --force-remove | Ta bort ett Service Fabric-program eller en tjänst med kraft utan att gå igenom den graciösa avstängningssekvensen. Den här parametern kan användas för att kraftfullt ta bort ett program eller en tjänst som tar bort är tidsgränsen på grund av problem i tjänstkoden som förhindrar graciös stängning av repliker. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-replica-restart"></a>sfctl-replikering, omstart
-Startar om en tjänst replik för en beständiga tjänst som körs på en nod.
+## <a name="sfctl-replica-report-health"></a>sfctl replika rapport-hälsa
+Skickar en hälsorapport på repliken Service Fabric.
 
-Startar om en tjänst replik för en beständiga tjänst som körs på en nod. Varning-det finns inga säkerhets kontroller som utförs när denna API används. Felaktig användning av detta API kan leda till tillgänglighets förlust för tillstånds känsliga tjänster.
+Rapporterar hälsotillståndet för den angivna service fabric-repliken. Rapporten måste innehålla information om källan till hälsorapporten och egenskapen som den rapporteras till. Rapporten skickas till en Service Fabric gateway Replica, som vidarebefordras till hälsoarkivet. Rapporten kan accepteras av gatewayen, men avvisas av hälsoarkivet efter extra validering. Hälsoarkivet kan till exempel avvisa rapporten på grund av en ogiltig parameter, till exempel ett inaktuellt sekvensnummer. Om du vill se om rapporten har tillämpats i hälsoarkivet kör du replikhälsa och kontrollerar att rapporten visas i avsnittet HealthEvents.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Node-Name [required] | Nodens namn. |
-| --partitions-ID [required] | Partitionens identitet. |
-| --replik-ID [obligatoriskt] | Replikens identifierare. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --health-property [Obligatoriskt] | Egenskapen av hälsoinformationen. <br><br> En entitet kan ha hälsorapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning för att tillåta reporterflexibilitet att kategorisera tillståndsvillkoret som utlöser rapporten. En reporter med SourceId "LocalWatchdog" kan till exempel övervaka tillståndet för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på den noden. Samma reporter kan övervaka nodanslutningen, så att den kan rapportera en egenskap "Anslutning" på samma nod. I hälsoarkivet behandlas dessa rapporter som separata hälsohändelser för den angivna noden. Tillsammans med SourceId identifierar egenskapen hälsoinformationen unikt. |
+| --hälsotillstånd [Krävs] | Möjliga värden\: är "Ogiltig", "Ok", "Varning", "Fel", "Okänd". |
+| --partition-id [Obligatoriskt] | Partitionens identitet. |
+| --replica-id [Obligatoriskt] | Partitionens identitet. |
+| --source-id [Obligatoriskt] | Källnamnet som identifierar komponenten klient/watchdog/system som genererade hälsoinformationen. |
+| --beskrivning | Beskrivningen av hälsoinformationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala stränglängden för beskrivningen är 4096 tecken. Om den angivna strängen är längre trunkeras den automatiskt. När de sista tecknen i beskrivningen trunkeras innehåller de sista tecknen i beskrivningen en markör "[Trunkerad]" och den totala strängstorleken 4096 tecken. Förekomsten av markören anger för användarna att trunkering inträffade. Observera att när beskrivningen trunkeras har den mindre än 4096 tecken från den ursprungliga strängen. |
+| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälsorapport skickas till ett service fabric-gatewayprogram som vidarebefordras till hälsoarkivet. Om Omedelbar är inställd på true skickas rapporten omedelbart från HTTP Gateway till hälsoarkivet, oavsett de inställningar för fabric-klient som HTTP Gateway-programmet använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tidpunkten och andra villkor kan det fortfarande misslyckas att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om Omedelbar är inställd på false skickas rapporten baserat på hälsoklientinställningarna från HTTP Gateway. Därför kommer den att batchas enligt HealthReportSendInterval-konfigurationen. Det här är den rekommenderade inställningen eftersom hälsoklienten kan optimera hälsorapporteringsmeddelanden till hälsoarkivet samt bearbetning av hälsorapporter. Som standard skickas inte rapporter omedelbart. |
+| --remove-when-expired --remove-when-expired --remove-when-expired -- | Värde som anger om rapporten tas bort från hälsoarkivet när den upphör att gälla. <br><br> Om värdet är true tas rapporten bort från hälsoarkivet när den har upphört att gälla. Om den är inställd på false behandlas rapporten som ett fel när den har upphört att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet bör de ange RemoveWhenExpired false (standard). På så sätt har reportern problem (t.ex. dödläge) och kan inte rapportera, entiteten utvärderas vid fel när hälsorapporten upphör att gälla. Detta flaggar entiteten som i felhälsotillstånd. |
+| --sekvens-nummer | Sekvensnumret för den här hälsorapporten som en numerisk sträng. <br><br> Rapportsekvensnumret används av hälsoarkivet för att identifiera inaktuella rapporter. Om inget anges genereras ett sekvensnummer automatiskt av hälsoklienten när en rapport läggs till. |
+| --service-typ | Den typ av tjänst replik (tillståndslös eller tillståndskänslig) som hälsan rapporteras. Följande är de\: möjliga värdena "statslösa", "statskänsliga".  Standardtillståndsfull.\: |
+| --timeout -t | Standard\: 60. |
+| --ttl | Den varaktighet för vilken hälsorapporten är giltig. I det här fältet används ISO8601-format för att ange varaktigheten. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid att leva. Om klienter rapporterar om övergången kan de ange att tiden ska vara oändlig. När tiden för att leva går ut tas hälsohändelsen som innehåller hälsoinformationen antingen bort från hälsoarkivet, om RemoveWhenExpired är sant eller utvärderas vid fel, om RemoveWhenExpired false. Om inget anges kan tid att leva som standard oändligt värde. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
+
+## <a name="sfctl-replica-restart"></a>sfctl replika starta om
+Startar om en tjänstreplik av en beständig tjänst som körs på en nod.
+
+Startar om en tjänstreplik av en beständig tjänst som körs på en nod. Varning - Det finns inga säkerhetskontroller som utförs när detta API används. Felaktig användning av det här API:et kan leda till tillgänglighetsförlust för tillståndskänsliga tjänster.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --partition-id [Obligatoriskt] | Partitionens identitet. |
+| --replica-id [Obligatoriskt] | Identifieraren för repliken. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempelskripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

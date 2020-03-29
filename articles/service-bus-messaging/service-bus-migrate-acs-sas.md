@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-migrera till signaturen för delad åtkomst
-description: Lär dig mer om att migrera från Azure Active Directory Access Control Service till signaturen för delad åtkomst.
+title: Azure Service Bus – migrera till signatureuktorisering för delad åtkomst
+description: Lär dig mer om att migrera från Azure Active Directory Access Control Service till Shared Access Signature auktorisering.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,56 +13,56 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 532bbaf0b983b2d4310780686777cbe895afebe4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774608"
 ---
-# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus-migrera från Azure Active Directory Access Control Service till signaturen för delad åtkomst
+# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus – migrera från Azure Active Directory Access Control Service till auktorisering av delad åtkomstsignatur
 
-Service Bus program har tidigare haft möjlighet att använda två olika auktoriseringsregler: den token för [signatur för delad åtkomst (SAS)](service-bus-sas.md) som tillhandahålls direkt av Service Bus och en federerad modell där hantering av auktoriseringsregler hanteras i [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) och tokens som hämtats från ACS skickas till Service Bus för att auktorisera åtkomst till de önskade funktionerna.
+Service Bus-program har tidigare valt att använda två olika auktoriseringsmodeller: [SAS-tokenmodellen (Shared Access Signature) som](service-bus-sas.md) tillhandahålls direkt av Service Bus och en federerad modell där hanteringen av auktoriseringsregler hanteras inuti av [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) och token som hämtas från ACS skickas till Service Bus för att ha behörighet till önskade funktioner.
 
-ACS-auktoriseringsregeln har länge ersatts av SAS- [auktorisering](service-bus-authentication-and-authorization.md) som önskad modell, och all dokumentation, vägledning och exempel använder bara SAS idag. Dessutom går det inte längre att skapa nya Service Bus namn rymder som är kopplade till ACS.
+ACS-auktoriseringsmodellen har länge ersatts av [SAS-auktorisering](service-bus-authentication-and-authorization.md) som den föredragna modellen, och all dokumentation, vägledning och alla prover använder endast SAS idag. Dessutom är det inte längre möjligt att skapa nya servicebussnamnområden som är ihopkopplade med ACS.
 
-SAS har fördelen att den inte är direkt beroende av en annan tjänst, men kan användas direkt från en klient utan några mellanhänder genom att ge klienten åtkomst till SAS-regelns namn och regel nyckeln. SAS kan också enkelt integreras med en metod där en klient måste skicka en verifierings kontroll med en annan tjänst och sedan utfärdas en token. Den senare metoden liknar ACS-användnings mönstret, men aktiverar utfärdande av åtkomsttoken baserat på programspecifika villkor som är svåra att uttrycka i ACS.
+SAS har fördelen genom att det inte är omedelbart beroende av en annan tjänst, men kan användas direkt från en klient utan mellanhänder genom att ge klienten tillgång till SAS regelnamn och regelnyckel. SAS kan också enkelt integreras med en metod där en klient först måste passera en auktoriseringskontroll med en annan tjänst och sedan utfärdas en token. Den senare metoden liknar ANVÄNDNINGSMÖNSTRET FÖR ACS, men gör det möjligt att utfärda åtkomsttoken baserat på programspecifika villkor som är svåra att uttrycka i ACS.
 
-För alla befintliga program som är beroende av ACS uppmanar vi kunderna att migrera sina program så att de förlitar sig på SAS i stället.
+För alla befintliga program som är beroende av ACS uppmanar vi kunderna att migrera sina program för att förlita sig på SAS istället.
 
-## <a name="migration-scenarios"></a>Scenarier för migrering
+## <a name="migration-scenarios"></a> Migreringsscenarier
 
-ACS och Service Bus integreras genom delade kunskaper om en *signerings nyckel*. Signerings nyckeln används av ett ACS-namnområde för att signera tokens och den används av Service Bus för att kontrol lera att token har utfärdats av det kopplade ACS-namnutrymmet. ACS-namnrymden innehåller tjänst identiteter och auktoriseringsregler. Auktoriseringsregler definierar vilken tjänst identitet eller vilken token som utfärdats av en extern identitetsprovider som hämtar vilken typ av åtkomst till en del av diagrammet för Service Bus namnrymd, i form av en längsta prefix-matchning.
+ACS och Service Bus integreras genom delad kunskap om en *signeringsnyckel.* Signeringsnyckeln används av ett ACS-namnområde för att signera auktoriseringstoken och används av Service Bus för att verifiera att token har utfärdats av det parade ACS-namnområdet. ACS-namnområdet innehåller tjänstidentiteter och auktoriseringsregler. Auktoriseringsreglerna definierar vilken tjänstidentitet eller vilken token som utfärdats av en extern identitetsprovider som får vilken typ av åtkomst till en del av namnområdesdiagrammet Service Bus, i form av en matchning med längst prefix.
 
-En ACS-regel kan till exempel ge **send** -anspråk i Path-prefixet `/` till en tjänst identitet, vilket innebär att en token som utfärdats av ACS baserat på regeln beviljar klient rättigheterna att skicka till alla entiteter i namn området. Om Path-prefixet är `/abc`är identiteten begränsad till att skickas till entiteter med namnet `abc` eller ordnas under det prefixet. Det förutsätts att läsarna av den här vägledningen för migrering redan är bekant med dessa begrepp.
+En ACS-regel kan till exempel bevilja **skicka-anspråket** på sökvägsprefixet `/` till en tjänstidentitet, vilket innebär att en token som utfärdats av ACS baserat på den regeln ger klienträttigheterna att skicka till alla entiteter i namnområdet. Om sökvägsprefixet är `/abc`är det begränsat `abc` till att skicka till entiteter som namnges eller är organiserade under prefixet. Det antas att läsarna av denna migration vägledning redan är bekant med dessa begrepp.
 
-Migreringen hamnar i tre olika kategorier:
+Migreringsscenarierna kan delas in i tre breda kategorier:
 
-1.  **Oförändrade standardvärden**. Vissa kunder använder ett [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) -objekt, skickar den automatiskt genererade identiteten för **ägar** tjänsten och den hemliga nyckeln för ACS-namnrymden, tillsammans med Service Bus-namnrymden och lägger inte till nya regler.
+1.  **Oförändrade standardvärden**. Vissa kunder använder ett [SharedSecretTokenProvider-objekt,](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) skickar den automatiskt genererade **ägarens** tjänstidentitet och dess hemliga nyckel för ACS-namnområdet, parat med servicebussnamnområdet och lägger inte till nya regler.
 
-2.  **Anpassade tjänst identiteter med enkla regler**. Vissa kunder lägger till nya tjänst identiteter och beviljar varje ny tjänst identitet **Skicka**, **Lyssna**och **Hantera** behörigheter för en viss entitet.
+2.  **Anpassade tjänstidentiteter med enkla regler**. Vissa kunder lägger till nya tjänstidentiteter och beviljar varje ny tjänstidentitet **Skicka,** **Lyssna**och **Hantera** behörigheter för en viss entitet.
 
-3.  **Anpassade tjänst identiteter med komplexa regler**. Mycket få kunder har komplexa regel uppsättningar där externt utfärdade token mappas till rättigheter för relä eller där en enskild tjänst identitet tilldelas differentierade rättigheter på flera namn områdes sökvägar genom flera regler.
+3.  **Anpassade tjänstidentiteter med komplexa regler**. Mycket få kunder har komplexa regeluppsättningar där externt utfärdade token mappas till rättigheter på Relay, eller där en enda tjänstidentitet tilldelas differentierade rättigheter på flera namnområdessökvägar via flera regler.
 
-Om du vill ha hjälp med migreringen av komplexa regel uppsättningar kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/). De andra två scenarierna möjliggör enkel migrering.
+Om du vill ha hjälp med migrering av komplexa regeluppsättningar kan du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/). De andra två scenarierna möjliggör enkel migrering.
 
 ### <a name="unchanged-defaults"></a>Oförändrade standardvärden
 
-Om programmet inte har ändrat ACS-standardvärdena kan du ersätta all [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) -användning med ett [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) -objekt och använda det förkonfigurerade **RootManageSharedAccessKey** i stället för ACS- **ägar** kontot. Observera att även om kontot för ACS- **ägare** , var den här konfigurationen (och fortfarande är) inte allmänt rekommenderat, eftersom det här kontot/regeln tillhandahåller fullständig hanterings auktoritet över namn området, inklusive behörighet att ta bort alla entiteter.
+Om ditt program inte har ändrat ACS-standardvärden kan du ersätta all [SharedSecretTokenProvider-användning](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) med ett [SharedAccessSignatureTokenProvider-objekt](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) och använda namnområdets förkonfigurerade **RootManageSharedAccessKey** i stället för ACS-ägarkontot. **owner** Observera att även med **ACS-ägarkontot** var den här konfigurationen (och är fortfarande) vanligtvis inte rekommenderad, eftersom det här kontot/regeln ger fullständig hanteringsbehörighet över namnområdet, inklusive behörighet att ta bort alla entiteter.
 
 ### <a name="simple-rules"></a>Enkla regler
 
-Om programmet använder anpassade tjänst identiteter med enkla regler, är migreringen enkel i det fall där en ACS-tjänst identitet skapades för att ge åtkomst kontroll i en specifik kö. Det här scenariot är ofta fallet i SaaS-lösningar där varje kö används som en brygga till en klient plats eller avdelnings kontor och tjänst identiteten skapas för den specifika platsen. I det här fallet kan respektive tjänste identitet migreras till en signatur för delad åtkomst, direkt i kön. Namnet på tjänst identiteten kan bli namnet på SAS-regeln och tjänstens identitets nyckel kan bli SAS-regelsamlingen. Rättigheterna för SAS-regeln konfigureras sedan likvärdigt med tillämplig ACS-regel för entiteten.
+Om programmet använder anpassade tjänstidentiteter med enkla regler är migreringen enkel i det fall en ACS-tjänstidentitet skapades för att tillhandahålla åtkomstkontroll i en viss kö. Det här scenariot är ofta fallet i SaaS-liknande lösningar där varje kö används som en brygga till en klientplats eller filialkontor och tjänstidentiteten skapas för den platsen. I det här fallet kan respektive tjänstidentitet migreras till en regel för delad åtkomstsignatur, direkt i kön. Tjänstidentitetsnamnet kan bli SAS-regelnamnet och tjänstidentitetsnyckeln kan bli SAS-regelnyckeln. Rättigheterna för SAS-regeln konfigureras sedan som motsvarar den respektive tillämpliga ACS-regeln för entiteten.
 
-Du kan göra den här nya och ytterligare konfigurationen av SAS på plats på alla befintliga namn områden som är federerade med ACS, och migreringen från ACS görs senare genom att använda [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) i stället för [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). Namn området behöver inte vara olänkat från ACS.
+Du kan göra den här nya och ytterligare konfigurationen av SAS på plats på alla befintliga namnområden som är federerade med ACS, och migreringen bort från ACS utförs därefter med [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) i stället för [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). Namnområdet behöver inte kopplas bort från ACS.
 
 ### <a name="complex-rules"></a>Komplexa regler
 
-SAS-regler är inte avsedda att vara konton, men har namngivna signerings nycklar kopplade till rättigheter. Scenarier där programmet skapar många tjänst identiteter och ger åtkomst rättigheter för flera entiteter eller hela namn området kräver fortfarande en mellanliggande token-utfärdande mellanhand. Du kan få vägledning för en sådan mellanhand genom att [kontakta supporten](https://azure.microsoft.com/support/options/).
+SAS-regler är inte avsedda att vara konton, men namnges signeringsnycklar som är associerade med rättigheter. Scenarier där programmet skapar många tjänstidentiteter och ger dem åtkomsträttigheter för flera entiteter eller hela namnområdet kräver fortfarande en tokenutgivande mellanhand. Du kan få vägledning för en sådan mellanhand genom [att kontakta supporten](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Service Bus autentisering finns i följande avsnitt:
+Mer information om autentisering av Service Bus finns i följande avsnitt:
 
-* [Service Bus autentisering och auktorisering](service-bus-authentication-and-authorization.md)
-* [Service Bus autentisering med signaturer för delad åtkomst](service-bus-sas.md)
+* [Service Bus, autentisering och auktorisering](service-bus-authentication-and-authorization.md)
+* [Service Bus-autentisering med signaturer för delad åtkomst](service-bus-sas.md)
 

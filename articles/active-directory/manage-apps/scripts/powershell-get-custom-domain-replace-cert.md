@@ -1,6 +1,6 @@
 ---
-title: PowerShell-exempel – Ersätt certifikat i Application Proxy-appar
-description: PowerShell-exempel som Mass ersätter ett certifikat i Azure Active Directory (Azure AD) Application Proxy-program.
+title: PowerShell-exempel - Ersätt certifikat i programproxyappar
+description: PowerShell-exempel som massutbytar ersätter ett certifikat i Azure Active Directory (Azure AD) Application Proxy-program.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91aafe00856f37e9d7e6b3babafecd2cbdf5f856
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75482002"
 ---
-# <a name="get-all-application-proxy-applications-published-with-the-identical-certificate-and-replace-it"></a>Hämta alla Application Proxy-program som publicerats med samma certifikat och Ersätt det
+# <a name="get-all-application-proxy-applications-published-with-the-identical-certificate-and-replace-it"></a>Få alla Application Proxy-program publicerade med samma certifikat och ersätta det
 
-Med det här PowerShell-skript exemplet kan du ersätta certifikatet i bulk för alla Azure Active Directory (Azure AD) Application Proxy-program som publiceras med samma certifikat.
+Med det här PowerShell-skriptexemplet kan du ersätta certifikatet i grupp för alla Azure Active Directory -programproxyprogram (Azure AD) som publiceras med identiska certifikat.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Med det här PowerShell-skript exemplet kan du ersätta certifikatet i bulk för
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Det här exemplet kräver [AzureAD v2 PowerShell för Graph module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) eller [AzureAD v2 PowerShell för för hands versionen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) av (AzureADPreview).
+Det här exemplet kräver [AzureAD V2 PowerShell for Graph-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) eller [AzureAD V2 PowerShell for Graph-modulförhandsgranskningsversionen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -39,13 +39,13 @@ Det här exemplet kräver [AzureAD v2 PowerShell för Graph module](https://docs
 
 | Kommando | Anteckningar |
 |---|---|
-|[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Hämtar ett huvud namn för tjänsten. |
+|[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Får en tjänst huvudman. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Hämtar ett Azure AD-program. |
-|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Hämtar ett program konfigurerat för Application Proxy i Azure AD. |
-|[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate?view=azureadps-2.0) | Tilldelar ett certifikat till ett program som är konfigurerat för Application Proxy i Azure AD. Det här kommandot laddar upp certifikatet och tillåter att programmet använder anpassade domäner. |
+|[Hämta AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Hämtar ett program som konfigurerats för programproxy i Azure AD. |
+|[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate?view=azureadps-2.0) | Tilldelar ett certifikat till ett program som konfigurerats för programproxy i Azure AD. Det här kommandot överför certifikatet och gör att programmet kan använda anpassade domäner. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure AD PowerShell-modulen finns i [Översikt över Azure AD PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Mer information om Azure AD PowerShell-modulen finns i [översikt över Azure AD PowerShell-modul](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
-Andra PowerShell-exempel för Application Proxy finns i [Azure AD PowerShell-exempel för azure AD-programproxy](../application-proxy-powershell-samples.md).
+Andra PowerShell-exempel för programproxy finns i [Azure AD PowerShell-exempel för Azure AD Application Proxy](../application-proxy-powershell-samples.md).

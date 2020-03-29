@@ -1,5 +1,5 @@
 ---
-title: Konfiguration av GPU-drivrutin för Azure N-serien för Linux
+title: Konfiguration av GPU-drivrutin i Azure N-serien för Linux
 description: Konfigurera NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Linux i Azure
 services: virtual-machines-linux
 author: cynthn
@@ -10,43 +10,43 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944565"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Linux
 
-För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Linux måste NVIDIA GPU-drivrutiner vara installerade. [NVidia GPU-drivrutinen](../extensions/hpccompute-gpu-linux.md) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure CLI eller Azure Resource Manager mallar. Se [dokumentationen för NVIDIA GPU-drivrutin](../extensions/hpccompute-gpu-linux.md) för distributioner som stöds och distributions steg.
+För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Linux måste NVIDIA GPU-drivrutiner installeras. [NVIDIA GPU Driver Extension](../extensions/hpccompute-gpu-linux.md) installerar lämpliga NVIDIA CUDA- eller GRID-drivrutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure-portalen eller verktyg som Azure CLI- eller Azure Resource Manager-mallarna. Se [dokumentationen](../extensions/hpccompute-gpu-linux.md) för NVIDIA GPU Driver Extension för distributioner och driftsättningssteg som stöds.
 
-Om du väljer att installera GPU-drivrutiner manuellt tillhandahåller den här artikeln distributioner, driv rutiner och installations-och verifierings steg som stöds. Det finns även information om manuell driv rutins installation för [virtuella Windows-datorer](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Om du väljer att installera GPU-drivrutiner manuellt innehåller den här artikeln distributioner, drivrutiner och installations- och verifieringssteg som stöds. Information om manuell drivrutinsinställning är också tillgänglig för [virtuella windows-datorer](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-För specifikationer för virtuella datorer i N-serien, lagrings kapacitet och disk information, se [storlekar för virtuella GPU Linux-datorer](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+För VM-specifikationer i N-serien, lagringskapacitet och diskinformation finns i [GPU Linux VM-storlekar](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-on-n-series-vms"></a>Installera CUDA-drivrutiner för virtuella datorer i N-serien
+## <a name="install-cuda-drivers-on-n-series-vms"></a>Installera CUDA-drivrutiner på virtuella datorer i N-serien
 
-Här följer steg för att installera CUDA-drivrutiner från NVIDIA CUDA Toolkit på virtuella datorer i N-serien. 
+Här är steg för att installera CUDA-drivrutiner från NVIDIA CUDA Toolkit på virtuella datorer i N-serien. 
 
 
-C och C++ utvecklare kan också installera hela verktygs uppsättningen för att bygga GPU-accelererade program. Mer information finns i [installations guiden för CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+C- och C++-utvecklare kan eventuellt installera hela Verktygslådan för att skapa GPU-accelererade program. Mer information finns i [CUDA-installationsguiden](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
-Om du vill installera CUDA-drivrutiner gör du en SSH-anslutning till varje virtuell dator. Verifiera att systemet har en CUDA-kompatibel GPU genom att köra följande kommando:
+Om du vill installera CUDA-drivrutiner gör du en SSH-anslutning till varje virtuell dator. Om du vill kontrollera att systemet har en GPU med CUDA-kompatibel körning kör du följande kommando:
 
 ```bash
 lspci | grep -i NVIDIA
 ```
-Du ser utdata som liknar följande exempel (visar ett NVIDIA Tesla K80-kort):
+Du kommer att se utdata som liknar följande exempel (visar ett NVIDIA Tesla K80-kort):
 
-![utdata för lspci-kommandot](./media/n-series-driver-setup/lspci.png)
+![lspci kommandoutdata](./media/n-series-driver-setup/lspci.png)
 
-Kör sedan installations kommandon som är speciella för distributionen.
+Kör sedan installationskommandon som är specifika för distributionen.
 
 ### <a name="ubuntu"></a>Ubuntu 
 
-1. Hämta och installera CUDA-drivrutinerna från NVIDIA-webbplatsen. Till exempel för Ubuntu 16,04 LTS:
+1. Ladda ner och installera CUDA-drivrutinerna från NVIDIA:s webbplats. Till exempel för Ubuntu 16.04 LTS:
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
@@ -66,7 +66,7 @@ Kör sedan installations kommandon som är speciella för distributionen.
 
    Installationen kan ta flera minuter.
 
-2. Om du vill installera hela CUDA Toolkit skriver du:
+2. Om du vill installera hela CUDA-verktygslådan kan du också installera den kompletta CUDA-verktygslådan:
 
    ```bash
    sudo apt-get install cuda
@@ -74,7 +74,7 @@ Kör sedan installations kommandon som är speciella för distributionen.
 
 3. Starta om den virtuella datorn och fortsätt att verifiera installationen.
 
-#### <a name="cuda-driver-updates"></a>CUDA driv rutins uppdateringar
+#### <a name="cuda-driver-updates"></a>Uppdateringar av CUDA-drivrutin
 
 Vi rekommenderar att du regelbundet uppdaterar CUDA-drivrutiner efter distributionen.
 
@@ -92,7 +92,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS eller Red Hat Enterprise Linux
 
-1. Uppdatera kärnan (rekommenderas). Om du väljer att inte uppdatera kerneln kontrollerar du att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
+1. Uppdatera kärnan (rekommenderas). Om du väljer att inte uppdatera kärnan, `kernel-devel` `dkms` se till att versionerna av och är lämpliga för din kärna.
 
    ```
    sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -133,7 +133,7 @@ sudo reboot
 
    Installationen kan ta flera minuter. 
 
-4. Om du vill installera hela CUDA Toolkit skriver du:
+4. Om du vill installera hela CUDA-verktygslådan kan du också installera den kompletta CUDA-verktygslådan:
 
    ```bash
    sudo yum install cuda
@@ -141,35 +141,35 @@ sudo reboot
 
 5. Starta om den virtuella datorn och fortsätt att verifiera installationen.
 
-### <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
+### <a name="verify-driver-installation"></a>Verifiera installationen av drivrutiner
 
-För att fråga GPU-enhetens tillstånd, SSH till den virtuella datorn och köra kommando rads verktyget [NVIDIA-SMI](https://developer.nvidia.com/nvidia-system-management-interface) installerat med driv rutinen. 
+Om du vill fråga gpu-enhetens tillstånd, SSH till den virtuella datorn och köra [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) kommandoradsverktyget installerat med drivrutinen. 
 
-Om driv rutinen är installerad visas utdata som liknar följande. Observera att **GPU-util** visar 0% om du för närvarande kör en GPU-arbetsbelastning på den virtuella datorn. Driv rutins versionen och GPU-informationen kan skilja sig från de som visas.
+Om drivrutinen är installerad visas utdata som liknar följande. Observera att **GPU-Util** visar 0% om du inte för närvarande kör en GPU-arbetsbelastning på den virtuella datorn. Drivrutinsversionen och GPU-informationen kan skilja sig från de som visas.
 
-![Status för NVIDIA-enhet](./media/n-series-driver-setup/smi.png)
+![STATUS FÖR NVIDIA-enheter](./media/n-series-driver-setup/smi.png)
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktive ras på virtuella datorer med RDMA-kapacitet, till exempel NC24r som distribuerats i samma tillgänglighets uppsättning eller i en enda placerings grupp i en skalnings uppsättning för virtuella datorer. RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med Intel MPI 5. x eller en senare version. Ytterligare krav följer:
+RDMA-nätverksanslutning kan aktiveras på virtuella datorer i N-serien RDMA, till exempel NC24r som distribueras i samma tillgänglighetsuppsättning eller i en enda placeringsgrupp i en vm-skalningsuppsättning. RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med Intel MPI 5.x eller en senare version. Ytterligare krav följer:
 
 ### <a name="distributions"></a>Distributioner
 
-Distribuera RDMA-kompatibla virtuella datorer i N-serien från en av avbildningarna på Azure Marketplace som har stöd för RDMA-anslutning på virtuella datorer i N-serien:
+Distribuera virtuella datorer i NMA-serien från en av avbildningarna på Azure Marketplace som stöder RDMA-anslutning på virtuella datorer i N-serien:
   
-* **Ubuntu 16,04 LTS** – konfigurera RDMA-drivrutiner på den virtuella datorn och registrera dig för Intel för att ladda ned Intel MPI:
+* **Ubuntu 16.04 LTS** - Konfigurera RDMA-drivrutiner på den virtuella datorn och registrera dig hos Intel för att hämta Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **CentOS-baserade 7,4 HPC** -drivrutiner och Intel MPI 5,1 är installerade på den virtuella datorn.
+* **CentOS-baserade 7,4 HPC** - RDMA-drivrutiner och Intel MPI 5.1 är installerade på den virtuella datorn.
 
-## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installera RUTNÄTs driv rutiner på virtuella datorer med NV eller NVv3-serien
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installera GRID-drivrutiner på virtuella NV- eller NVv3-serie
 
-Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller NVv3-serien gör du en SSH-anslutning till varje virtuell dator och följer stegen för din Linux-distribution. 
+Om du vill installera NVIDIA GRID-drivrutiner på virtuella nv- eller NVv3-seriedämpare gör du en SSH-anslutning till varje virtuell dator och följer stegen för din Linux-distribution. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
-1. Kör `lspci`-kommandot. Kontrol lera att kortet eller korten i NVIDIA M60 visas som PCI-enheter.
+1. Kör `lspci`-kommandot. Kontrollera att NVIDIA M60-kortet eller -korten är synliga som PCI-enheter.
 
 2. Installera uppdateringar.
 
@@ -184,7 +184,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    
    sudo apt-get install linux-azure -y
    ```
-3. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NVv2 virtuella datorer.) Det gör du genom att skapa en fil i `/etc/modprobe.d` med namnet `nouveau.conf` med följande innehåll:
+3. Inaktivera Nouveau-kärndrivrutinen, som är inkompatibel med NVIDIA-drivrutinen. (Använd endast NVIDIA-drivrutinen på virtuella NV- eller NVv2-datorer.) Det gör du genom `/etc/modprobe.d` att `nouveau.conf` skapa en fil med namnet med följande innehåll:
 
    ```
    blacklist nouveau
@@ -193,13 +193,13 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    ```
 
 
-4. Starta om den virtuella datorn och återanslut. Avsluta X-Server:
+4. Starta om den virtuella datorn och återanslut. Avsluta X-server:
 
    ```bash
    sudo systemctl stop lightdm.service
    ```
 
-5. Hämta och installera RUTNÄTs driv rutinen:
+5. Ladda ned och installera GRID-drivrutinen:
 
    ```bash
    wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
@@ -209,22 +209,22 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
 
-6. När du tillfrågas om du vill köra nvidia-xconfig-verktyget för att uppdatera X-konfigurationsfilen väljer du **Ja**.
+6. När du tillfrågas om du vill köra nvidia-xconfig-verktyget för att uppdatera x-konfigurationsfilen väljer du **Ja**.
 
-7. När installationen är klar kopierar du/etc/NVIDIA/gridd.conf.template till en ny fil med rutnätet. conf på plats/etc/NVIDIA/
+7. Efter installationen är klar, kopiera /etc/nvidia/gridd.conf.template till en ny fil gridd.conf på plats /etc/nvidia/
 
    ```bash
    sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
 
-8. Lägg till följande i `/etc/nvidia/gridd.conf`:
+8. Lägg till `/etc/nvidia/gridd.conf`följande i:
  
    ```
    IgnoreSP=FALSE
    EnableUI=FALSE
    ```
    
-9. Ta bort följande från `/etc/nvidia/gridd.conf` om det finns:
+9. Ta bort `/etc/nvidia/gridd.conf` följande från om det finns:
  
    ```
    FeatureType=0
@@ -234,7 +234,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS eller Red Hat Enterprise Linux 
 
-1. Uppdatera kernel-och DKMS (rekommenderas). Om du väljer att inte uppdatera kerneln kontrollerar du att versionerna av `kernel-devel` och `dkms` är lämpliga för din kernel.
+1. Uppdatera kärnan och DKMS (rekommenderas). Om du väljer att inte uppdatera kärnan, `kernel-devel` `dkms` se till att versionerna av och är lämpliga för din kärna.
  
    ```bash  
    sudo yum update
@@ -248,7 +248,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    sudo yum install hyperv-daemons
    ```
 
-2. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NV2 virtuella datorer.) Det gör du genom att skapa en fil i `/etc/modprobe.d` med namnet `nouveau.conf` med följande innehåll:
+2. Inaktivera Nouveau-kärndrivrutinen, som är inkompatibel med NVIDIA-drivrutinen. (Använd endast NVIDIA-drivrutinen på virtuella NV- eller NV2-datorer.) Det gör du genom `/etc/modprobe.d` att `nouveau.conf` skapa en fil med namnet med följande innehåll:
 
    ```
    blacklist nouveau
@@ -256,7 +256,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    blacklist lbm-nouveau
    ```
  
-3. Starta om den virtuella datorn, återanslut och installera de senaste [Linux-integrerings tjänsterna för Hyper-V och Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+3. Starta om den virtuella datorn, återanslut och installera de senaste [Linux-integrationstjänsterna för Hyper-V och Azure](https://www.microsoft.com/download/details.aspx?id=55106).
  
    ```bash
    wget https://aka.ms/lis
@@ -271,9 +271,9 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
 
    ```
  
-4. Återanslut till den virtuella datorn och kör kommandot `lspci`. Kontrol lera att kortet eller korten i NVIDIA M60 visas som PCI-enheter.
+4. Återanslut till den `lspci` virtuella datorn och kör kommandot. Kontrollera att NVIDIA M60-kortet eller -korten är synliga som PCI-enheter.
  
-5. Hämta och installera RUTNÄTs driv rutinen:
+5. Ladda ned och installera GRID-drivrutinen:
 
    ```bash
    wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
@@ -282,21 +282,21 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
-6. När du tillfrågas om du vill köra nvidia-xconfig-verktyget för att uppdatera X-konfigurationsfilen väljer du **Ja**.
+6. När du tillfrågas om du vill köra nvidia-xconfig-verktyget för att uppdatera x-konfigurationsfilen väljer du **Ja**.
 
-7. När installationen är klar kopierar du/etc/NVIDIA/gridd.conf.template till en ny fil med rutnätet. conf på plats/etc/NVIDIA/
+7. Efter installationen är klar, kopiera /etc/nvidia/gridd.conf.template till en ny fil gridd.conf på plats /etc/nvidia/
   
    ```bash
    sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
   
-8. Lägg till följande i `/etc/nvidia/gridd.conf`:
+8. Lägg till `/etc/nvidia/gridd.conf`följande i:
  
    ```
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. Ta bort följande från `/etc/nvidia/gridd.conf` om det finns:
+9. Ta bort `/etc/nvidia/gridd.conf` följande från om det finns:
  
    ```
    FeatureType=0
@@ -304,18 +304,18 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
 10. Starta om den virtuella datorn och fortsätt att verifiera installationen.
 
 
-### <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
+### <a name="verify-driver-installation"></a>Verifiera installationen av drivrutiner
 
 
-För att fråga GPU-enhetens tillstånd, SSH till den virtuella datorn och köra kommando rads verktyget [NVIDIA-SMI](https://developer.nvidia.com/nvidia-system-management-interface) installerat med driv rutinen. 
+Om du vill fråga gpu-enhetens tillstånd, SSH till den virtuella datorn och köra [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) kommandoradsverktyget installerat med drivrutinen. 
 
-Om driv rutinen är installerad visas utdata som liknar följande. Observera att **GPU-util** visar 0% om du för närvarande kör en GPU-arbetsbelastning på den virtuella datorn. Driv rutins versionen och GPU-informationen kan skilja sig från de som visas.
+Om drivrutinen är installerad visas utdata som liknar följande. Observera att **GPU-Util** visar 0% om du inte för närvarande kör en GPU-arbetsbelastning på den virtuella datorn. Drivrutinsversionen och GPU-informationen kan skilja sig från de som visas.
 
-![Status för NVIDIA-enhet](./media/n-series-driver-setup/smi-nv.png)
+![STATUS FÖR NVIDIA-enheter](./media/n-series-driver-setup/smi-nv.png)
  
 
-### <a name="x11-server"></a>Begäran om x11-Server
-Om du behöver en begäran om x11-Server för fjärr anslutningar till en NV-eller NVv2-VM rekommenderas [x11vnc](http://www.karlrunge.com/x11vnc/) eftersom den tillåter grafikens maskin varu acceleration. BusID för den M60-enheten måste läggas till manuellt i begäran om x11-konfigurations filen (vanligt vis `etc/X11/xorg.conf`). Lägg till en `"Device"`-sektion som liknar följande:
+### <a name="x11-server"></a>X11-server
+Om du behöver en X11-server för fjärranslutningar till en VIRTUELL NV eller NVV2 rekommenderas [x11vnc](http://www.karlrunge.com/x11vnc/) eftersom det tillåter maskinvaruacceleration av grafik. BusID-enheten för M60-enheten måste läggas till manuellt i X11-konfigurationsfilen (vanligtvis). `etc/X11/xorg.conf` Lägg `"Device"` till ett avsnitt som liknar följande:
  
 ```
 Section "Device"
@@ -327,15 +327,15 @@ Section "Device"
 EndSection
 ```
  
-Uppdatera dessutom `"Screen"` avsnittet för att använda den här enheten.
+Uppdatera dessutom avsnittet `"Screen"` så att du använder den här enheten.
  
-Du kan hitta decimal BusID genom att köra
+Decimalen BusID kan hittas genom att köra
 
 ```bash
 nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'
 ```
  
-BusID kan ändras när en virtuell dator tilldelas eller startas om. Därför kanske du vill skapa ett skript för att uppdatera BusID i begäran om x11-konfigurationen när en virtuell dator startas om. Du kan till exempel skapa ett skript med namnet `busidupdate.sh` (eller ett annat namn som du väljer) med innehåll som liknar följande:
+BusID kan ändras när en virtuell dator omfördelas eller startas om. Därför kanske du vill skapa ett skript för att uppdatera BusID i X11-konfigurationen när en virtuell dator startas om. Skapa till exempel ett `busidupdate.sh` skript med namnet (eller ett annat namn som du väljer) med innehåll som liknar följande:
 
 ```bash 
 #!/bin/bash
@@ -351,13 +351,13 @@ else
 fi
 ```
 
-Skapa sedan en post för ditt uppdaterings skript i `/etc/rc.d/rc3.d` så att skriptet anropas som rot vid start.
+Skapa sedan en post för `/etc/rc.d/rc3.d` uppdateringsskriptet så att skriptet anropas som root vid uppstart.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-* Du kan ställa in persistence-läge med `nvidia-smi` så att kommandots utdata går snabbare när du behöver fråga kort. Kör `nvidia-smi -pm 1`för att ställa in persistence-läge. Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
-* Om du har uppdaterat NVIDIA CUDA-drivrutinerna till den senaste versionen och hittar RDMA-connectivcity fungerar inte längre, [installerar du om RDMA-drivrutinerna](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) för att reistablish anslutningen. 
+* Du kan ställa in `nvidia-smi` persistensläge med så att utdata för kommandot går snabbare när du behöver fråga kort. Om du vill ange `nvidia-smi -pm 1`persistensläge kör du . Observera att om den virtuella datorn startas om försvinner lägesinställningen. Du kan alltid skriptlägesinställningen för att köras vid start.
+* Om du har uppdaterat NVIDIA CUDA-drivrutinerna till den senaste versionen och upptäcker att RDMA connectivcity inte längre fungerar [installerar du om RDMA-drivrutinerna](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) för att återupprätta den anslutningen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill avbilda en virtuell Linux-avbildning med dina installerade NVIDIA-drivrutiner, se [hur man generaliserar och fångar in en virtuell Linux-dator](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Information om hur du tar en Linux VM-avbildning med dina installerade NVIDIA-drivrutiner finns i [Så här generaliserar och fångar du en virtuell Linux-dator](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

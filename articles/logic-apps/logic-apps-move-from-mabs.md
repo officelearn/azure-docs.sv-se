@@ -1,6 +1,6 @@
 ---
 title: Migrera appar från BizTalk Services till Azure Logic Apps
-description: Hur du flyttar dina appar och lösningar från Microsoft Azure BizTalk Services (MABS) till Azure Logic Apps
+description: Så här flyttar du dina appar och lösningar från Microsoft Azure BizTalk Services (MABS) till Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -9,132 +9,132 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
 ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905429"
 ---
-# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrera appar och lösningar från BizTalk Services till Azure Logic Apps
+# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrera dina appar och lösningar från BizTalk Services till Azure Logic Apps
 
-Microsoft Azure BizTalk Services (MABS) tas ur bruk. Följ anvisningarna i den här artikeln om du vill flytta MABS-integrerings lösningar till [Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
+Microsoft Azure BizTalk Services (MABS) går i pension. Om du vill flytta dina MABS-integrationslösningar till [Azure Logic Apps](../logic-apps/logic-apps-overview.md)följer du anvisningarna i den här artikeln. 
 
 ## <a name="introduction"></a>Introduktion
 
-BizTalk Services består av två under tjänster:
+BizTalk Services består av två undertjänster:
 
-* Microsoft BizTalk Services Hybridanslutningar
-* EAI och EDI-brygga-baserad integrering
+* Hybridanslutningar för Microsoft BizTalk-tjänster
+* EAI och EDI-brobaserad integration
 
-[Azure App Service hybridanslutningar](../app-service/app-service-hybrid-connections.md) ersätter BizTalk Services hybridanslutningar. Azure Hybridanslutningar är tillgängligt med Azure App Service via Azure Portal. Den här tjänsten innehåller en Hybridanslutningshanteraren så att du kan hantera befintliga BizTalk Services hybrid anslutningar och även nya hybrid anslutningar som du skapar i portalen. 
+[Hybridanslutningar för Azure App Service](../app-service/app-service-hybrid-connections.md) ersätter BizTalk Services Hybrid-anslutningar. Azure Hybrid-anslutningar är tillgängligt med Azure App Service via Azure-portalen. Den här tjänsten tillhandahåller en Hybrid Connection Manager så att du kan hantera befintliga BizTalk Services-hybridanslutningar och även nya hybridanslutningar som du skapar i portalen. 
 
-[Logic Apps](../logic-apps/logic-apps-overview.md) ersätter EAI-och EDI-brygga-baserad integrering med alla funktioner i BizTalk Services med mera. Med den här tjänsten kan du snabbt och enkelt bygga komplexa integrerings lösningar i en webbläsare eller med Visual Studio.
+[Logic Apps](../logic-apps/logic-apps-overview.md) ersätter EAI- och EDI-bryggbaserad integration med alla samma funktioner i BizTalk-tjänster med mera. Den här tjänsten tillhandahåller förbrukningsbaserade arbetsflödes- och orkestreringsfunktioner i molnskala för att snabbt och enkelt kunna skapa komplexa integrationslösningar via en webbläsare eller med Visual Studio.
 
-I den här tabellen mappas BizTalk Services-funktioner till Logic Apps.
+Den här tabellen mappar BizTalk Services-funktionerna till Logic Apps.
 
-| BizTalk Services   | Logikappar            | Syfte                      |
+| BizTalk-tjänster   | Logic Apps            | Syfte                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Anslutningsprogram          | Anslutningsprogram             | Skicka och ta emot data   |
-| Bridge             | Logisk app             | Pipeline-processor           |
-| Validera fas     | XML-validerings åtgärd | Verifiera ett XML-dokument mot ett schema | 
-| Utöka steg       | Datatoken           | Befordra egenskaper till meddelanden eller för routnings beslut |
-| Transformerings steg    | Transformerings åtgärd      | Konvertera XML-meddelanden från ett format till ett annat |
-| Avkodnings steg       | Flat fil-avkodnings åtgärd | Konvertera från flat fil till XML |
-| Koda steg       | Encode-åtgärd för flat fil | Konvertera från XML till flat fil |
-| Meddelande kontroll  | Azure Functions eller API Apps | Kör anpassad kod i integreringarna |
-| Flödes åtgärd       | Villkor eller växel | Dirigera meddelanden till en av de angivna anslutningarna |
+| Bridge             | Logikapp             | Pipeline-processor           |
+| Validera steg     | Åtgärden XML-validering | Verifiera ett XML-dokument mot ett schema | 
+| Berika scenen       | Datatoken           | Befordra egenskaper till meddelanden eller för routningsbeslut |
+| Omforma steg    | Transformera åtgärd      | Konvertera XML-meddelanden från ett format till ett annat |
+| Avkoda steg       | Åtgärd för fast filavkodning | Konvertera från platt fil till XML |
+| Koda steg       | Åtgärden Fast filkoda | Konvertera från XML till platt fil |
+| Meddelandekontroll  | Azure-funktioner eller API-appar | Kör anpassad kod i dina integrationer |
+| Ruttåtgärd       | Skick eller switch | Dirigera meddelanden till en av de angivna kopplingarna |
 |||| 
 
 ## <a name="biztalk-services-artifacts"></a>BizTalk Services artefakter
 
 BizTalk Services har flera typer av artefakter. 
 
-## <a name="connectors"></a>Anslutningsprogram
+## <a name="connectors"></a>Anslutningar
 
-Med hjälp av BizTalk Services kopplingar kan du skicka och ta emot data, inklusive tvåvägs bryggor som möjliggör HTTP-baserade förfrågningar/svar-interaktioner. Logic Apps använder samma terminologi och innehåller hundratals kopplingar som har samma syfte genom att ansluta till en mängd olika tekniker och tjänster. Till exempel är kopplingarna tillgängliga för Cloud SaaS-och PaaS-tjänster, till exempel OneDrive, Office365, Dynamics CRM och fler, plus lokala system via den lokala datagatewayen som ersätter BizTalk Adapter service för BizTalk Services. Källor i BizTalk Services är begränsade till FTP, SFTP och Service Bus kö-eller ämnes prenumeration.
+BizTalk Services-kopplingar hjälper bryggor att skicka och ta emot data, inklusive tvåvägsbryggor som aktiverar HTTP-baserade request/response-interaktioner. Logic Apps använder samma terminologi och har hundratals kopplingar som tjänar samma syfte genom att ansluta till ett brett utbud av tekniker och tjänster. Anslutningsappar är till exempel tillgängliga för molnbaserade SaaS- och PaaS-tjänster, till exempel OneDrive, Office365, Dynamics CRM med mera, plus lokala system via den lokala datagatewayen, som ersätter BizTalk-adaptertjänsten för BizTalk-tjänster. Källor i BizTalk Services är begränsade till FTP-, SFTP- och Service-busskö- eller ämnesprenumeration.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
-Som standard har varje bro en HTTP-slutpunkt som är konfigurerad med körnings adressen och de relativa adress egenskaperna för bryggan. Använd [fråge-och svars](../connectors/connectors-native-reqres.md) åtgärderna för att uppnå samma resultat med Logic Apps.
+Som standard har varje brygga en HTTP-slutpunkt, som är konfigurerad med egenskaperna Runtime Address och egenskaperna Relativ adress för bryggan. Om du vill uppnå samma resultat med Logic Apps använder du åtgärderna [Begäran och svar.](../connectors/connectors-native-reqres.md)
 
 ## <a name="xml-processing-and-bridges"></a>XML-bearbetning och bryggor
 
-I BizTalk Services är en brygga likvärdig med en bearbetnings pipeline. En brygga kan ta emot data från en koppling, göra en del arbete med data och skicka resultatet till ett annat system. Logic Apps är detsamma genom att stödja samma pipeline-baserade interaktions mönster som BizTalk Services och även tillhandahålla andra integrations mönster. [XML-begäran – svars brygga](https://msdn.microsoft.com/library/azure/hh689781.aspx) i BizTalk Services kallas för en VETER-pipeline, som består av steg som utför dessa uppgifter:
+I BizTalk Services är en brygga jämförbar med en bearbetningspipeline. En brygga kan ta data som tas emot från en anslutningsapp, göra en del arbete med data och skicka resultaten till ett annat system. Logic Apps gör samma sak genom att stödja samma pipeline-baserade interaktionsmönster som BizTalk Services och även tillhandahålla andra integrationsmönster. [XML Request-Reply Bridge](https://msdn.microsoft.com/library/azure/hh689781.aspx) i BizTalk Services kallas en VETER-pipeline, som består av faser som utför dessa uppgifter:
 
-* (V) validera
-* (E) utöka
-* (T) transformera
-* (E) utöka
-* (R) väg
+* (V) Validera
+* (E) Berika
+* (T) Transformera
+* (E) Berika
+* (R) Rutt
 
-Den här bilden visar hur bearbetning delas mellan begäran och svar, som ger kontroll över begäran och svars Sök vägar separat, till exempel genom att använda olika kartor för varje sökväg:
+Den här bilden visar hur bearbetningen delas mellan begäran och svar, vilket ger kontroll över begäran och svarssökvägarna separat, till exempel genom att använda olika kartor för varje sökväg:
 
 ![](media/logic-apps-move-from-mabs/xml-request-reply.png)
 
-En enkelriktad XML-brygga lägger också till avkoda och koda steg i början och slutet av bearbetningen. Genom strömnings bryggan finns en enda utökad fas.
+Dessutom lägger en XML enkelriktad brygga till avkodnings- och kodningsfaser i början och slutet av bearbetningen. Pass-Through-bron innehåller en enda Enrich-scen.
 
-### <a name="message-processing-decoding-and-encoding"></a>Meddelande bearbetning, avkodning och kodning
+### <a name="message-processing-decoding-and-encoding"></a>Meddelandebearbetning, avkodning och kodning
 
-I BizTalk Services kan du ta emot olika typer av XML-meddelanden och bestämma det matchande schemat för det mottagna meddelandet. Det här arbetet utförs i stadiet *meddelande typer* i pipeline för mottagnings bearbetning. Avkodnings steget använder sedan den identifierade meddelande typen för att avkoda meddelandet med det angivna schemat. Om schemat är ett flat-filschema konverterar det här steget den inkommande flata filen till XML. 
+I BizTalk Services kan du ta emot olika typer av XML-meddelanden och bestämma matchningsschemat för det mottagna meddelandet. Det här arbetet utförs i fasen *Meddelandetyper* i pipelinen för mottagningsbearbetning. Avkoda scenen använder sedan den identifierade meddelandetypen för att avkoda meddelandet med hjälp av det angivna schemat. Om schemat är ett platt filschema konverteras den inkommande platta filen till XML i det här steget. 
 
-Logic Apps innehåller liknande funktioner. Du får en platt fil över olika protokoll med hjälp av de olika anslutnings utlösarna (fil system, FTP, HTTP och så vidare) och använder den [flata fil avkodnings](../logic-apps/logic-apps-enterprise-integration-flatfile.md) åtgärden för att konvertera inkommande data till XML. Du kan flytta befintliga planiska filscheman direkt till Logic Apps utan några ändringar och sedan ladda upp scheman till ditt integrations konto.
+Logic Apps ger liknande funktioner. Du får en platt fil över olika protokoll med hjälp av de olika anslutningsutlösare (Filsystem, FTP, HTTP och så vidare) och använder åtgärden [Platt filkodning](../logic-apps/logic-apps-enterprise-integration-flatfile.md) för att konvertera inkommande data till XML. Du kan flytta dina befintliga platta filscheman direkt till Logic Apps utan några ändringar och sedan ladda upp scheman till ditt integrationskonto.
 
 ### <a name="validation"></a>Validering
 
-När inkommande data har konverterats till XML (eller om XML-meddelandet togs emot), körs verifieringen för att avgöra om meddelandet följer ditt XSD-schema. Om du vill utföra den här uppgiften i Logic Apps använder du åtgärden [XML-verifiering](../logic-apps/logic-apps-enterprise-integration-xml-validation.md) . Du kan använda samma scheman från BizTalk Services utan några ändringar.
+När inkommande data har konverterats till XML (eller om XML var det mottagna meddelandeformatet) körs valideringen för att avgöra om meddelandet följer XSD-schemat. Om du vill utföra den här uppgiften i Logic Apps använder du åtgärden [XML-validering.](../logic-apps/logic-apps-enterprise-integration-xml-validation.md) Du kan använda samma scheman från BizTalk Services utan några ändringar.
 
-### <a name="transform-messages"></a>Transformera meddelanden
+### <a name="transform-messages"></a>Omvandla meddelanden
 
-I BizTalk Services konverterar Transform-steget ett XML-baserat meddelande format till ett annat. Detta arbete görs genom att använda en karta med hjälp av den TRFM-baserade mapper. I Logic Apps är processen liknande. Transformations åtgärden kör en karta från ditt integrations konto. Den största skillnaden är att Maps i Logic Apps är i XSLT-format. XSLT innehåller möjlighet att återanvända befintlig XSLT som du redan har, inklusive kartor som skapats för BizTalk Server som innehåller functoids. 
+I BizTalk Services konverterar omformningsfasen ett XML-baserat meddelandeformat till ett annat. Detta arbete görs genom att använda en karta med hjälp av TRFM-baserade mapper. I Logic Apps är processen liknande. Åtgärden Transform kör en karta från ditt integrationskonto. Den största skillnaden är att kartor i Logic Apps är i XSLT-format. XSLT innehåller möjligheten att återanvända befintliga XSLT som du redan har, inklusive kartor som skapats för BizTalk Server som innehåller functoids. 
 
-### <a name="routing-rules"></a>Routningsregler
+### <a name="routing-rules"></a>Dirigeringsregler
 
-BizTalk Services fattar ett Dirigerings beslut där slut punkten eller anslutningen skickar inkommande meddelanden eller data. Möjligheten att välja från förkonfigurerade slut punkter är möjlig med hjälp av filter alternativet för Routning:
+BizTalk Services fattar ett routningsbeslut om vilken slutpunkt eller koppling som ska skickas för inkommande meddelanden eller data. Möjligheten att välja bland förkonfigurerade slutpunkter är möjlig med alternativet routningsfilter:
 
 ![](media/logic-apps-move-from-mabs/route-filter.png)
 
-I BizTalk Services, om det *bara finns två alternativ, är det* bästa sättet att konvertera vägvals filter i BizTalk Services. Använd en **växel**om det finns fler än två.
+I BizTalk Services, om det bara finns två alternativ, är ett *villkor* det bästa sättet att konvertera routningsfilter i BizTalk Services. Om det finns fler än två använder du en **switch**.
 
-Logic Apps innehåller avancerade Logic-funktioner plus avancerat kontroll flöde och routning med [villkors uttryck](../logic-apps/logic-apps-control-flow-conditional-statement.md) och [switch-instruktioner](../logic-apps/logic-apps-control-flow-switch-statement.md).
+Logic Apps tillhandahåller sofistikerade logikfunktioner plus avancerat kontrollflöde och routning med [villkorssatser](../logic-apps/logic-apps-control-flow-conditional-statement.md) och [växelsatser](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
-### <a name="enrich"></a>Utöka
+### <a name="enrich"></a>Berika
 
-I BizTalk Services bearbetning lägger det utökar-steget till egenskaper till den meddelande kontext som är associerad med mottagna data. Du kan till exempel befordra en egenskap som ska användas för routning från en databas sökning eller genom att extrahera ett värde med ett XPath-uttryck. Logic Apps ger åtkomst till alla sammanhangsbaserade data utdata från föregående åtgärder, vilket gör det enkelt att replikera samma beteende. Om du till exempel använder åtgärden `Get Row` SQL-anslutning returnerar du data från en SQL Server databas och använder data i en besluts åtgärd för routning. På samma sätt är egenskaper för inkommande Service Bus köade meddelanden med en utlösare adresser bara, och XPath med hjälp av definitions språk uttryck för XPath-arbetsflöden.
+I BizTalk Services-bearbetningen lägger fasen Enrich till egenskaper i meddelandekontexten som är associerad med de mottagna data. Till exempel att befordra en egenskap som ska användas för routning från en databassökning eller genom att extrahera ett värde med hjälp av ett XPath-uttryck. Logic Apps ger åtkomst till alla kontextuella datautdata från föregående åtgärder, vilket gör det enkelt att replikera samma beteende. Med hjälp av `Get Row` SQL-anslutningsåtgärden returnerar du data från en SQL Server-databas och använder data i en beslutsåtgärd för routning. På samma sätt är egenskaper för inkommande Service Bus-köade meddelanden av en utlösare adresserbara, liksom XPath med språkuttrycket för xpath-arbetsflödesdefinitionen.
 
 ### <a name="run-custom-code"></a>Kör anpassad kod
 
-Med BizTalk Services kan du [köra anpassad kod](https://msdn.microsoft.com/library/azure/dn232389.aspx) som överförs i dina egna sammansättningar. Den här funktionen implementeras av [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) -gränssnittet. Varje steg i Bridge innehåller två egenskaper (vid retur-kontrollen och på avslutnings kontroll) som tillhandahåller .NET-typen som implementerar det här gränssnittet. Med anpassad kod kan du utföra mer komplex bearbetning av data och du kan återanvända befintlig kod i sammansättningar som utför vanliga affärs logik. 
+BizTalk Services kan du [köra anpassad kod](https://msdn.microsoft.com/library/azure/dn232389.aspx) som laddas upp i dina egna sammansättningar. Den här funktionen implementeras av [IMessageInspector-gränssnittet.](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) Varje steg i bryggan innehåller två egenskaper (På Retur-inspektör och Vid avslutningsinspektör) som anger den .NET-typ som du skapade som implementerar det här gränssnittet. Med anpassad kod kan du utföra mer komplex bearbetning på data och du kan återanvända befintlig kod i sammansättningar som utför gemensam affärslogik. 
 
-Logic Apps erbjuder två huvudsakliga sätt att köra anpassad kod: Azure Functions och API Apps. Azure Functions kan skapas och anropas från Logic Apps. Se [lägga till och köra anpassad kod för](../logic-apps/logic-apps-azure-functions.md)Logi Kap par via Azure Functions. Använd API Apps, en del av Azure App Service, för att skapa egna utlösare och åtgärder. Lär dig mer om hur [du skapar en anpassad API som ska användas med Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
+Logic Apps innehåller två primära sätt att köra anpassad kod: Azure Functions och API-appar. Azure Functions kan skapas och anropas från logikappar. Se [Lägga till och kör anpassad kod för logikappar via Azure Functions](../logic-apps/logic-apps-azure-functions.md). Använd API-appar, en del av Azure App Service, för att skapa egna utlösare och åtgärder. Läs mer om [hur du skapar ett anpassat API som ska användas med Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
 
-Om du har anpassad kod i sammansättningar som du anropar från BizTalk Services kan du antingen flytta koden till Azure Functions eller skapa anpassade API: er med API Apps, beroende på vad du implementerar. Om du till exempel har kod som omsluter en annan tjänst för vilken Logic Apps inte har en koppling, skapar du en API-app och använder de åtgärder som din API-app tillhandahåller i din Logic app. Om du har hjälp funktioner eller bibliotek är Azure Functions förmodligen den bästa anpassningen.
+Om du har anpassad kod i sammansättningar som du anropar från BizTalk Services kan du antingen flytta den här koden till Azure Functions eller skapa anpassade API:er med API-appar, beroende på vad du implementerar. Om du till exempel har kod som radbryter en annan tjänst som Logic Apps inte har en koppling för, skapar du en API-app och använder de åtgärder som api-appen tillhandahåller i logikappen. Om du har hjälpfunktioner eller bibliotek är Azure Functions förmodligen den bästa passformen.
 
-### <a name="edi-processing-and-trading-partner-management"></a>EDI-bearbetning och hantering av handels partner
+### <a name="edi-processing-and-trading-partner-management"></a>EDI-bearbetning och hantering av handelspartner
 
-BizTalk Services och Logic Apps innehåller EDI-och B2B-bearbetning med stöd för AS2 (Applicability Statement 2), X12 och EDIFACT. I BizTalk Services skapar du EDI-bryggor och skapar eller hanterar handels partner och avtal i den dedikerade spårnings-och hanterings portalen.
-I Logic Apps får du den här funktionen genom [Enterprise-integrationspaket (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md). EIP tillhandahåller [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och B2B-åtgärder för EDI-och B2B-bearbetning. Du kan också använda ett integrations konto för att skapa och hantera [handels partner](../logic-apps/logic-apps-enterprise-integration-partners.md) och [avtal](../logic-apps/logic-apps-enterprise-integration-agreements.md). När du har skapat ett integrations konto kan du länka en eller flera Logic Apps till kontot. Du kan sedan använda B2B-åtgärder för att få åtkomst till information om handels partner från din Logic app. Följande åtgärder tillhandahålls:
+BizTalk-tjänster och logic apps inkluderar EDI- och B2B-bearbetning med stöd för AS2 (Applicability Statement 2), X12 och EDIFACT. I BizTalk Services skapar du EDI-bryggor och skapar eller hanterar handelspartner och avtal i den dedikerade spårnings- och hanteringsportalen.
+I Logic Apps får du den här funktionen via [Enterprise Integration Pack (EIP)](../logic-apps/logic-apps-enterprise-integration-overview.md). EIP tillhandahåller [integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och B2B-åtgärder för EDI- och B2B-bearbetning. Du använder också ett integrationskonto för att skapa och hantera [handelspartner](../logic-apps/logic-apps-enterprise-integration-partners.md) och [avtal.](../logic-apps/logic-apps-enterprise-integration-agreements.md) När du har skapat ett integrationskonto kan du länka en eller flera logikappar till kontot. Du kan sedan använda B2B-åtgärder för att komma åt partnerinformation från din logikapp. Följande åtgärder tillhandahålls:
 
-* AS2-kodning
-* AS2-avkodning
-* X12-kodning
-* X12-avkodning
-* EDIFACT-kodning
-* EDIFACT-avkodning
+* AS2 Koda
+* AS2 Avkoda
+* X12 Koda
+* X12 Avkoda
+* EDIFACT-koda
+* EDIFACT Avkoda
 
-Till skillnad från BizTalk Services är de här åtgärderna fristående från transport protokollen. När du skapar dina Logi Kap par har du mer flexibilitet i vilka anslutningar du använder för att skicka och ta emot data. Du kan till exempel ta emot X12-filer som bifogade filer från e-post och sedan bearbeta dessa filer i en Logic app. 
+Till skillnad från BizTalk Services är dessa åtgärder frikopplade från transportprotokollen. Så när du skapar dina logikappar har du större flexibilitet i vilka kopplingar som du använder för att skicka och ta emot data. Du kan till exempel ta emot X12-filer som bilagor från e-post och sedan bearbeta dessa filer i en logikapp. 
 
 ## <a name="manage-and-monitor"></a>Hantera och övervaka
 
-I BizTalk Services kan en särskild Portal tillhandahålla spårnings funktioner för att övervaka och felsöka problem. Logic Apps tillhandahåller omfattande spårnings-och övervakningsfunktioner för att övervaka Logi Kap par [i Azure Portal](../logic-apps/monitor-logic-apps.md)och innehåller en mobilapp för att hålla ett öga på sakernas gång när du är på språng.
+I BizTalk Services tillhandahöll en dedikerad portal spårningsfunktioner för att övervaka och felsöka problem. Logic Apps erbjuder rikare spårnings- och övervakningsfunktioner för att [övervaka logikappar i Azure-portalen](../logic-apps/monitor-logic-apps.md)och innehåller en mobilapp för att hålla ett öga på saker när du är på resande fot.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 
-För hög tillgänglighet (HA) i BizTalk Services kan du dela bearbetnings belastningen genom att använda mer än en instans i en speciell region. Logic Apps tillhandahåller i region HA utan extra kostnad. 
+För hög tillgänglighet (HA) i BizTalk Services kan du dela bearbetningsbelastningen med mer än en instans i en viss region. Logic Apps tillhandahåller ha i regionen utan extra kostnad. 
 
-I BizTalk Services kräver haveri beredskap utanför regionen för B2B-bearbetning en säkerhets kopierings-och återställnings process. För affärs kontinuitet ger Logic Apps över flera regioner aktiva/passiva [Dr-funktioner](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md), vilket gör att du kan synkronisera B2B-data mellan integrations konton i olika regioner.
+I BizTalk Services kräver katastrofåterställning utanför regionen för B2B-bearbetning en säkerhetskopierings- och återställningsprocess. För kontinuitet i verksamheten tillhandahåller Logic Apps aktiva/passiva [DR-funktioner](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md)över flera regioner, vilket gör att du kan synkronisera B2B-data över integrationskonton i olika regioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Logic Apps?](../logic-apps/logic-apps-overview.md)
 * [Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md), eller kom snabbt igång med en [färdig mall](../logic-apps/logic-apps-create-logic-apps-from-templates.md)  
-* [Visa alla tillgängliga anslutningar](../connectors/apis-list.md) som du kan använda i Logic Apps
+* [Visa alla tillgängliga anslutningsappar](../connectors/apis-list.md) som du kan använda i logikappar

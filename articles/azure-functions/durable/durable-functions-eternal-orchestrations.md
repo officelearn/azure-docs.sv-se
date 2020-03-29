@@ -1,39 +1,39 @@
 ---
-title: Eternal-dirigering i Durable Functions – Azure
-description: Lär dig hur du implementerar Eternal-dirigering med hjälp av Durable Functions-tillägget för Azure Functions.
+title: Eviga orkestreringar i varaktiga funktioner - Azure
+description: Lär dig hur du implementerar eviga orkestreringar med hjälp av tillägget Varaktiga funktioner för Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 572fec4d6e47efd734bc84a40dc974c79bd619fb
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76262987"
 ---
-# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eternal-dirigeringar i Durable Functions (Azure Functions)
+# <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Eviga orkestreringar i varaktiga funktioner (Azure-funktioner)
 
-*Eternal-dirigering* är Orchestrator-funktioner som aldrig slutar. De är användbara när du vill använda [Durable Functions](durable-functions-overview.md) för agg regeringar och alla scenarier som kräver en oändlig loop.
+*Eviga orkestreringar* är orchestrator funktioner som aldrig tar. De är användbara när du vill använda [varaktiga funktioner](durable-functions-overview.md) för aggregatorer och alla scenarier som kräver en oändlig loop.
 
-## <a name="orchestration-history"></a>Orchestration-historik
+## <a name="orchestration-history"></a>Orkestrering historia
 
-Som förklaras i avsnittet om [Orchestration-historik](durable-functions-orchestrations.md#orchestration-history) , håller det varaktiga aktivitets ramverket att spåra historiken för varje funktions dirigering. Den här historiken växer kontinuerligt så länge Orchestrator-funktionen fortsätter att schemalägga nytt arbete. Om Orchestrator-funktionen hamnar i en oändlig slinga och kontinuerligt schemalägger arbete, kan den här historiken växa mycket stor och orsaka betydande prestanda problem. *Eternal Orchestration* -konceptet har utformats för att minimera dessa typer av problem för program som behöver oändliga slingor.
+Som förklaras i [orchestration historia](durable-functions-orchestrations.md#orchestration-history) ämnet håller durable task framework reda på historien om varje funktion orkestrering. Den här historien växer kontinuerligt så länge orchestrator-funktionen fortsätter att schemalägga nytt arbete. Om orchestrator-funktionen går in i en oändlig loop och kontinuerligt scheman fungerar, kan den här historiken växa kritiskt stor och orsaka betydande prestandaproblem. Det *eviga orkestreringskonceptet* har utformats för att minska dessa typer av problem för program som behöver oändliga loopar.
 
 ## <a name="resetting-and-restarting"></a>Återställa och starta om
 
-I stället för att använda oändliga slingor återställs deras tillstånd genom att anropa metoden `ContinueAsNew` (.NET) eller `continueAsNew` (JavaScript) i [bindningen för Orchestration-utlösaren](durable-functions-bindings.md#orchestration-trigger). Den här metoden tar en enda JSON-serialiserbar parameter, som blir den nya ingången för nästa generations funktion i Orchestrator.
+I stället för att använda oändliga loopar återställer orchestrator-funktioner sitt tillstånd genom att anropa `ContinueAsNew` metoden (.NET) eller `continueAsNew` (JavaScript) för [orchestration-utlösarbindningen](durable-functions-bindings.md#orchestration-trigger). Den här metoden tar en enda JSON-serialisable parameter, som blir den nya indata för nästa orchestrator funktion generation.
 
-När `ContinueAsNew` anropas, kommer instansen att köa ett meddelande innan det avslutas. Meddelandet startar om instansen med det nya indatavärdet. Samma instans-ID behålls, men Orchestrator-funktionens historik trunkeras effektivt.
+När `ContinueAsNew` anropas, instansen följer ett meddelande till sig själv innan den avslutas. Meddelandet startar om instansen med det nya indatavärdet. Samma instans-ID behålls, men orchestrator-funktionens historik trunkeras effektivt.
 
 > [!NOTE]
-> Det beständiga aktivitets ramverket upprätthåller samma instans-ID men skapar internt ett nytt *körnings-ID* för Orchestrator-funktionen som återställs av `ContinueAsNew`. Detta körnings-ID visas normalt inte externt, men det kan vara användbart att känna till vid fel sökning av Orchestration-körning.
+> Durable Task Framework underhåller samma instans-ID men skapar internt ett nytt *körnings-ID* för orchestrator-funktionen som återställs av `ContinueAsNew`. Det här körnings-ID:et visas i allmänhet inte externt, men det kan vara bra att känna till när du felsöker orkestertionkörning.
 
 ## <a name="periodic-work-example"></a>Exempel på periodiskt arbete
 
-Ett användnings fall för Eternal-dirigering är kod som behöver göra periodiskt arbete på obestämd tid.
+Ett användningsfall för eviga orkestreringar är kod som behöver göra periodiskt arbete på obestämd tid.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -51,9 +51,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Föregående C# exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Det föregående C#-exemplet är för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -72,16 +72,16 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Skillnaden mellan det här exemplet och en timer-utlöst funktion är att rensnings utlösare här inte baseras på ett schema. Ett CRON-schema som kör en funktion varje timme kommer till exempel att köra den på 1:00, 2:00, 3:00 osv. och kan eventuellt leda till överlappande problem. I det här exemplet, men om rensningen tar 30 minuter, kommer den att schemaläggas till 1:00, 2:30, 4:00 osv. det finns ingen risk för överlappande.
+Skillnaden mellan det här exemplet och en timer-utlöst funktion är att rensningsutlösare gånger här inte baseras på ett schema. Ett CRON-schema som kör en funktion varje timme kör det till exempel klockan 1:00, 2:00, 3:00 etc. och kan eventuellt stöta på överlappningsproblem. I det här exemplet, om rensningen tar 30 minuter, kommer den att schemaläggas klockan 1:00, 2:30, 4:00, etc. och det finns ingen risk för överlappning.
 
-## <a name="starting-an-eternal-orchestration"></a>Starta en Eternal-dirigering
+## <a name="starting-an-eternal-orchestration"></a>Starta en evig orkestrering
 
-Använd metoden `StartNewAsync` (.NET) eller `startNew` (Java Script) för att starta en Eternal-dirigering, precis som med andra Orchestration-funktioner.  
+Använd `StartNewAsync` metoden (.NET) `startNew` eller (JavaScript) för att starta en evig orkestrering, precis som du skulle ha någon annan orkestreringsfunktion.  
 
 > [!NOTE]
-> Om du behöver se till att en singleton-Eternal-dirigering körs är det viktigt att du underhåller samma instans `id` när du startar dirigeringen. Mer information finns i [instans hantering](durable-functions-instance-management.md).
+> Om du behöver se till att en evig orkestrering körs `id` är det viktigt att behålla samma instans när orchestration startas. Mer information finns i [Instanshantering](durable-functions-instance-management.md).
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
@@ -97,9 +97,9 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 ```
 
 > [!NOTE]
-> Föregående kod är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `OrchestrationClient` attribut i stället för attributet `DurableClient` och du måste använda `DurableOrchestrationClient` parameter typ i stället för `IDurableOrchestrationClient`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+> Den tidigare koden är för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `OrchestrationClient` måste du `DurableClient` använda attributet i `DurableOrchestrationClient` stället för `IDurableOrchestrationClient`attributet och du måste använda parametertypen i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -118,13 +118,13 @@ module.exports = async function (context, req) {
 
 ---
 
-## <a name="exit-from-an-eternal-orchestration"></a>Avsluta från en Eternal-dirigering
+## <a name="exit-from-an-eternal-orchestration"></a>Avsluta från en evig orkestrering
 
-Om en Orchestrator-funktion behöver slutföras måste du *inte* anropa `ContinueAsNew` och låta funktionen avslutas.
+Om en orchestrator-funktion måste slutföras så småningom *not* behöver `ContinueAsNew` du inte anropa och låta funktionen avslutas.
 
-Om en Orchestrator-funktion finns i en oändlig slinga och måste stoppas, använder du metoden `TerminateAsync` (.NET) eller `terminate` (Java Script) i [Dirigerings klient bindningen](durable-functions-bindings.md#orchestration-client) för att stoppa den. Mer information finns i [instans hantering](durable-functions-instance-management.md).
+Om en orchestrator-funktion finns i en oändlig loop `TerminateAsync` och måste `terminate` stoppas använder du metoden (.NET) eller (JavaScript) för [att stoppa](durable-functions-bindings.md#orchestration-client) den. Mer information finns i [Instanshantering](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du implementerar singleton-dirigeringar](durable-functions-singletons.md)
+> [Lär dig hur du implementerar singleton orchestrations](durable-functions-singletons.md)

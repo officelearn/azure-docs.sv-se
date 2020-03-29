@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 6890c71ac7c265d46cc77751786fea4d0b228588
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187736"
 ---
 ### <a name="troubleshoot-azure-diagnostics"></a>Felsöka Azure Diagnostics
@@ -30,8 +30,8 @@ Utför följande steg för att registrera resursprovidern i Azure Portal:
 När resursprovidern *Microsoft.insights* har registrerats kan du prova att konfigurera diagnostik på nytt.
 
 
-Om du får följande felmeddelande visas i PowerShell måste du uppdatera din version av PowerShell:
+I PowerShell måste du uppdatera versionen av PowerShell om du får följande felmeddelande:
 
 `Set-AzDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Uppdatera din version av Azure PowerShell, följer du anvisningarna i den [installera Azure PowerShell](/powershell/azure/install-az-ps) artikeln.
+Uppdatera din version av Azure PowerShell, följ instruktionerna i artikeln [Installera Azure PowerShell.](/powershell/azure/install-az-ps)

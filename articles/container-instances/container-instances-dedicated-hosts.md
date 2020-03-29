@@ -1,46 +1,46 @@
 ---
 title: Distribuera på dedikerad värd
-description: Använd en dedikerad värd för att uppnå sann isolering på värdnivå för dina Azure Container Instances arbets belastningar
+description: Använd en dedikerad värd för att uppnå verklig isolering på värdnivå för dina Azure Container Instances-arbetsbelastningar
 ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
 ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934153"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Distribuera på dedikerade värdar
 
-"Dedikerad" är en Azure Container Instances-SKU (ACI) som tillhandahåller en isolerad och dedikerad beräknings miljö för att köra behållare på ett säkert sätt. Genom att använda dedikerade SKU-resultat i varje behållar grupp som har en dedikerad fysisk server i ett Azure-datacenter kan du se till att fullständig arbets belastnings isolering uppfyller organisationens krav på säkerhet och efterlevnad. 
+"Dedikerad" är en Azure Container Instances (ACI) sku som tillhandahåller en isolerad och dedikerad beräkningsmiljö för säkert gående behållare. Med hjälp av dedikerade sku-resultaten i varje behållargrupp som har en dedikerad fysisk server i ett Azure-datacenter, vilket säkerställer fullständig arbetsbelastningsisolering för att uppfylla organisationens säkerhets- och efterlevnadskrav. 
 
-Den dedikerade SKU: n är lämplig för behållar arbets belastningar som kräver arbets belastnings isolering från ett fysiskt Server perspektiv.
+Den dedikerade sku är lämplig för behållararbetsbelastningar som kräver arbetsbelastningsisolering från ett fysiskt serverperspektiv.
 
 ## <a name="prerequisites"></a>Krav
 
-* Standard gränsen för alla prenumerationer som ska använda den dedikerade SKU: n är 0. Om du vill använda den här SKU: n för distributioner av produktions behållare skapar du ett [Azure-supportbegäran][azure-support] för att öka gränsen.
+* Standardgränsen för alla prenumerationer som ska använda den dedikerade sku är 0. Om du vill använda den här sku för distributioner av produktionsbehållare skapar du en [Azure Support-begäran för][azure-support] att öka gränsen.
 
-## <a name="use-the-dedicated-sku"></a>Använd dedikerad SKU
+## <a name="use-the-dedicated-sku"></a>Använd den dedikerade sku
 
 > [!IMPORTANT]
-> Användning av dedikerade SKU är bara tillgänglig i den senaste API-versionen (2019-12-01) som för närvarande är distribuerad. Ange den här API-versionen i distributions mal len.
+> Att använda den dedikerade sku är endast tillgängligt i den senaste API-versionen (2019-12-01) som för närvarande lanseras. Ange den här API-versionen i distributionsmallen.
 >
 
-Från och med API version 2019-12-01 finns det en `sku`-egenskap under avsnittet Egenskaper för behållar grupp i en distributions mall, vilket krävs för en ACI-distribution. För närvarande kan du använda den här egenskapen som en del av en mall för Azure Resource Manager distribution för ACI. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Från och med API-version 2019-12-01 finns det en `sku` egenskap under avsnittet behållargruppegenskaper i en distributionsmall, som krävs för en ACI-distribution. För närvarande kan du använda den här egenskapen som en del av en Azure Resource Manager-distributionsmall för ACI. Läs mer om hur du distribuerar ACI-resurser med en mall i [självstudiekursen: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-Egenskapen `sku` kan ha ett av följande värden:
-* `Standard` – standard distributions valet för ACI, som fortfarande garanterar säkerhet på hypervisor-nivå 
-* `Dedicated` – används för isolering av arbets belastnings nivåer med dedikerade fysiska värdar för behållar gruppen
+Egenskapen `sku` kan ha något av följande värden:
+* `Standard`- Standardvalet för ACI-distribution, som fortfarande garanterar säkerhet på hypervisornivå 
+* `Dedicated`- används för isolering på arbetsbelastningsnivå med dedikerade fysiska värdar för behållargruppen
 
-## <a name="modify-your-json-deployment-template"></a>Ändra mallen för JSON-distribution
+## <a name="modify-your-json-deployment-template"></a>Ändra din JSON-distributionsmall
 
-Ändra eller Lägg till följande egenskaper i distributions mal len:
-* Under `resources`anger `apiVersion` till `2012-12-01`.
-* Under egenskaperna behållar grupp, lägger du till en `sku` egenskap med värde `Dedicated`.
+Ändra eller lägg till följande egenskaper i distributionsmallen:
+* Under `resources`, `apiVersion` `2012-12-01`inställd på .
+* Lägg till en `sku` egenskap med värde `Dedicated`under egenskaperna för behållargrupp.
 
-Här är ett exempel-kodfragment för avsnittet resurser i en distributions mall för container grupper som använder den dedikerade SKU: n:
+Här är ett exempel utdrag för resursavsnittet i en distributionsmall för behållargrupp som använder den dedikerade sku:
 
 ```json
 [...]
@@ -60,7 +60,7 @@ Här är ett exempel-kodfragment för avsnittet resurser i en distributions mall
 ]
 ```
 
-Följande är en komplett mall som distribuerar en exempel behållar grupp som kör en enda behållar instans:
+Följande är en komplett mall som distribuerar en exempelbehållare grupp som kör en enda behållarinstans:
 
 ```json
 {
@@ -127,9 +127,9 @@ Följande är en komplett mall som distribuerar en exempel behållar grupp som k
 }
 ```
 
-## <a name="deploy-your-container-group"></a>Distribuera din behållar grupp
+## <a name="deploy-your-container-group"></a>Distribuera din behållargrupp
 
-Om du har skapat och redigerat distributions mal len på Skriv bordet kan du överföra den till din Cloud Shell katalog genom att dra filen till den. 
+Om du har skapat och redigerat distributionsmallfilen på skrivbordet kan du överföra den till cloud shell-katalogen genom att dra filen till den. 
 
 Skapa en resursgrupp med kommandot [az group create][az-group-create].
 
@@ -137,7 +137,7 @@ Skapa en resursgrupp med kommandot [az group create][az-group-create].
 az group create --name myResourceGroup --location eastus
 ```
 
-Distribuera mallen med kommandot [AZ Group Deployment Create][az-group-deployment-create] .
+Distribuera mallen med kommandot [az group deployment create.][az-group-deployment-create]
 
 ```azurecli-interactive
 az group deployment create --resource-group myResourceGroup --template-file deployment-template.json

@@ -1,5 +1,5 @@
 ---
-title: Konfiguration av GPU-drivrutiner för Windows i Azure-serien
+title: Konfiguration av GPU-drivrutin i Azure N-serien för Windows
 description: Konfigurera NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Windows Server eller Windows i Azure
 services: virtual-machines-windows
 author: cynthn
@@ -15,61 +15,61 @@ ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 631266f983886e3ca34d609b425f8a71b808b39f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919404"
 ---
-# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installera NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Windows 
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Windows 
 
-För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Windows måste NVIDIA GPU-drivrutiner vara installerade. [NVidia GPU-drivrutinen](../extensions/hpccompute-gpu-windows.md) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](../extensions/hpccompute-gpu-windows.md) .
+För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Windows måste NVIDIA GPU-drivrutiner installeras. [NVIDIA GPU Driver Extension](../extensions/hpccompute-gpu-windows.md) installerar lämpliga NVIDIA CUDA- eller GRID-drivrutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure-portalen eller verktyg som Azure PowerShell- eller Azure Resource Manager-mallar. Se [dokumentationen](../extensions/hpccompute-gpu-windows.md) för NVIDIA GPU Driver Extension för operativsystem och driftsättningssteg som stöds.
 
-Om du väljer att installera GPU-drivrutiner manuellt, innehåller den här artikeln stöd för operativ system, driv rutiner och installations-och verifierings steg. Det finns även information om manuell konfiguration av driv rutiner för [virtuella Linux-datorer](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du väljer att installera GPU-drivrutiner manuellt innehåller den här artikeln operativsystem, drivrutiner och installations- och verifieringssteg som stöds. Information om manuell drivrutinsinställning är också tillgänglig för [virtuella Linux-datorer](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Grundläggande specifikationer, lagrings kapacitet och disk information finns i storlekar för [GPU Windows VM](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Grundläggande specifikationer, lagringskapacitet och diskinformation finns i [GPU Windows VM-storlekar](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 [!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
-## <a name="driver-installation"></a>Driv rutins installation
+## <a name="driver-installation"></a>Installation av drivrutiner
 
-1. Anslut via fjärr skrivbord till varje virtuell dator i N-serien.
+1. Anslut med fjärrskrivbord till varje virtuell dator i N-serien.
 
-2. Hämta, extrahera och installera driv rutinen som stöds för ditt Windows-operativsystem.
+2. Hämta, extrahera och installera drivrutinen som stöds för operativsystemet Windows.
 
-Efter installationen av RUTNÄTs driv rutinen på en virtuell dator krävs en omstart. Efter installationen av CUDA-drivrutinen krävs ingen omstart.
+Efter installation av GRID-drivrutin på en virtuell dator krävs en omstart. Efter installationen av CUDA-drivrutinen krävs ingen omstart.
 
-## <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
+## <a name="verify-driver-installation"></a>Verifiera installationen av drivrutiner
 
-Observera att Nvidia-kontrollpanelen endast är tillgänglig med installationen av RUTNÄTs driv rutinen. Om du har installerat CUDA-drivrutiner visas inte Nvidia-kontrollpanelen på kontroll panelen.
+Observera att Nvidias kontrollpanel endast är tillgänglig med grid-drivrutinsinstallationen. Om du har installerat CUDA-drivrutiner kommer Nvidia-kontrollpanelen inte att synas.
 
-Du kan kontrol lera driv rutins installationen i Enhetshanteraren. I följande exempel visas lyckad konfiguration av Tesla K80-kortet på en virtuell Azure NC-dator.
+Du kan verifiera drivrutinsinstallationen i Enhetshanteraren. Följande exempel visar en lyckad konfiguration av Tesla K80-kortet på en virtuell Azure NC-dator.
 
 ![Egenskaper för GPU-drivrutin](./media/n-series-driver-setup/GPU_driver_properties.png)
 
-Kör kommando rads verktyget [NVIDIA-SMI](https://developer.nvidia.com/nvidia-system-management-interface) installerat med driv rutinen för att fråga GPU-enhetens tillstånd.
+Om du vill fråga om gpu-enhetens tillstånd kör du [kommandoradsverktyget nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) som är installerat med drivrutinen.
 
-1. Öppna en kommando tolk och ändra till katalogen **C:\Program Files\NVIDIA Corporation\NVSMI** .
+1. Öppna en kommandotolk och ändra till katalogen **C:\Program\NVIDIA Corporation\NVSMI.**
 
-2. Kör `nvidia-smi`. Om driv rutinen är installerad visas utdata som liknar följande. **GPU-util** visar **0%** om du för närvarande kör en GPU-ARBETSBELASTNING på den virtuella datorn. Driv rutins versionen och GPU-informationen kan skilja sig från de som visas.
+2. Kör `nvidia-smi`. Om drivrutinen är installerad visas utdata som liknar följande. **GPU-Util** visar **0%** om du inte för närvarande kör en GPU-arbetsbelastning på den virtuella datorn. Drivrutinsversionen och GPU-informationen kan skilja sig från de som visas.
 
-![Status för NVIDIA-enhet](./media/n-series-driver-setup/smi.png)  
+![STATUS FÖR NVIDIA-enheter](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktive ras på virtuella datorer med RDMA-kapacitet, till exempel NC24r som distribuerats i samma tillgänglighets uppsättning eller i en enda placerings grupp i en skalnings uppsättning för virtuella datorer. HpcVmDrivers-tillägget måste läggas till för att installera Windows nätverks enhets driv rutiner som aktiverar RDMA-anslutning. Om du vill lägga till VM-tillägget till en virtuell dator med RDMA-serien använder du [Azure PowerShell](/powershell/azure/overview) -cmdletar för Azure Resource Manager.
+RDMA-nätverksanslutning kan aktiveras på virtuella datorer i N-serien RDMA, till exempel NC24r som distribueras i samma tillgänglighetsuppsättning eller i en enda placeringsgrupp i en skalningsuppsättning för virtuella datorer. HpcVmDrivers-tillägget måste läggas till för att installera drivrutiner för Windows-nätverk som aktiverar RDMA-anslutning. Om du vill lägga till VM-tillägget i en virtuell dator med RDMA-aktiverad filserie använder du Azure PowerShell-cmdlets för Azure Resource Manager. [Azure PowerShell](/powershell/azure/overview)
 
-Så här installerar du det senaste version 1,1 HpcVMDrivers-tillägget på en befintlig RDMA-kompatibel virtuell dator med namnet myVM i regionen Västra USA:
+Så här installerar du den senaste versionen 1.1 HpcVMDrivers-tillägget på en befintlig VIRTUELL-kompatibel VIRTUELL MED NAMNET MYVM i västra USA:
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  Mer information finns i [tillägg och funktioner för virtuella datorer för Windows](extensions-features.md).
+  Mer information finns i [Tillägg och funktioner för virtuella datorer för Windows](extensions-features.md).
 
-RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) eller Intel MPI 5. x. 
+RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) eller Intel MPI 5.x. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utvecklare som skapar GPU-accelererade program för NVIDIA Tesla-GPU: er kan också hämta och installera det senaste [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Mer information finns i [installations guiden för CUDA](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* Utvecklare bygga GPU-accelererade applikationer för NVIDIA Tesla GPU kan också ladda ner och installera den senaste [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). Mer information finns i [CUDA-installationsguiden](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

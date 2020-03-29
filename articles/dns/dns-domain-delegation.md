@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure DNS delegering
+title: Översikt över Azure DNS-delegering
 description: Lär dig hur du ändrar domändelegering och använder Azure DNS-namnservrar för att tillhandahålla domänvärdtjänster.
 services: dns
 author: rohinkoul
@@ -8,10 +8,10 @@ ms.date: 2/19/2019
 ms.author: rohink
 ms.topic: conceptual
 ms.openlocfilehash: 9304556edb5e6207296d8ee4e8392e345869cb92
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939043"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegering av DNS-zoner med Azure DNS
@@ -22,13 +22,13 @@ Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en
 
 ### <a name="domains-and-zones"></a>Domäner och zoner
 
-Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ” **.** ”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa toppnivådomäner finns domäner på den andra nivån, till exempel ”org.se” eller ”co.uk”.  Och så vidare. Domänerna i DNS-hierarkin använder separata DNS-zoner. Zonerna distribueras globalt och finns på DNS-namnservrar runtom i världen.
+Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ”**.**”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa toppnivådomäner finns domäner på den andra nivån, till exempel ”org.se” eller ”co.uk”.  Och så vidare. Domänerna i DNS-hierarkin använder separata DNS-zoner. Zonerna distribueras globalt och finns på DNS-namnservrar runtom i världen.
 
-**DNS-zon** – En domän är ett unikt namn i Domain Name System, t.ex. ”contoso.com”. En DNS-zon används som värd för DNS-poster för en viss domän. Domänen contoso.com kan t.ex. innehålla flera DNS-poster, som mail.contoso.com (för en e-postserver) och www.contoso.com (för en webbplats).
+**DNS-zon** – En domän är ett unikt namn i Domain Name System, t.ex. ”contoso.com”. En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan t.ex. innehålla flera DNS-poster, som mail.contoso.com (för en e-postserver) och www.contoso.com (för en webbplats).
 
 **Domänregistrator** – En domänregistrator är ett företag som kan tillhandahålla Internetdomännamn. De kontrollerar om Internetdomänen som du vill använda är tillgänglig så att du kan köpa den. När domännamnet har registrerats är du domännamnets juridiska ägare. Om du redan har en Internetdomän använder du domänregistratorn för att delegera till Azure DNS.
 
-Mer information om ackrediterade domän registrators finns i [ICANN-ackrediterade registrators](https://www.icann.org/registrar-reports/accredited-list.html).
+Mer information om ackrediterade domänregistratorer finns i [ICANN-ackrediterade registratorer](https://www.icann.org/registrar-reports/accredited-list.html).
 
 ### <a name="resolution-and-delegation"></a>Matchning och delegering
 
@@ -54,13 +54,13 @@ Följande bild visar ett exempel på en DNS-fråga. Contoso.net och partners.con
 1. Klientbegäranden `www.partners.contoso.net` från den lokala DNS-servern.
 2. Eftersom den lokala DNS-servern inte har posten skickar den en begäran till rotservern.
 3. Rotservern har inte posten, men känner till adressen till `.net`-servern och ger den adressen till DNS-servern
-4. Den lokala DNS-servern skickar begäran till `.net` namnserver.
-5. `.net` namnserver har inte posten, men känner till adressen till den `contoso.net` namn servern. I det här fallet svarar den med adressen till namn servern för den DNS-zon som finns i Azure DNS.
-6. Den lokala DNS-servern skickar begäran till namnserver för zonen `contoso.net` som finns i Azure DNS.
-7. Zonen `contoso.net` saknar posten men känner till namnserver för `partners.contoso.net` och svarar med adressen. I det här fallet är det en DNS-zon som finns i Azure DNS.
-8. Den lokala DNS-servern skickar begäran till namnserver för zonen `partners.contoso.net`.
-9. `partners.contoso.net` zonen har en post och svarar med IP-adressen.
-10. Den lokala DNS-servern tillhandahåller klientens IP-adress
+4. Den lokala DNS-servern skickar `.net` begäran till namnservern.
+5. Namnservern `.net` har inte posten men känner `contoso.net` till adressen till namnservern. I det här fallet svarar den med adressen till namnservern för DNS-zonen som finns i Azure DNS.
+6. Den lokala DNS-servern skickar begäran till `contoso.net` namnservern för zonen som finns i Azure DNS.
+7. Zonen `contoso.net` har inte posten men känner `partners.contoso.net` till namnservern för och svarar med adressen. I det här fallet är det en DNS-zon som finns i Azure DNS.
+8. Den lokala DNS-servern skickar begäran till `partners.contoso.net` namnservern för zonen.
+9. Zonen `partners.contoso.net` har A-posten och svarar med IP-adressen.
+10. Den lokala DNS-servern tillhandahåller IP-adressen till klienten
 11. Klienten ansluter till webbplatsen `www.partners.contoso.net`.
 
 Varje delegering har i själva verket två kopior av NS-posterna: en i den överordnade zonen som pekar på den underordnade zonen och en annan i den underordnade zonen. Contoso.net-zonen innehåller NS-posterna för contoso.net (utöver NS-posterna i ”net”). Dessa poster kallas för auktoritativa NS-poster och finns överst i den underordnade zonen.

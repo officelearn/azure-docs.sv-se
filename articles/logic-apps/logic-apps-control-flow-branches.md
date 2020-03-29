@@ -1,77 +1,77 @@
 ---
-title: Skapa eller koppla parallella grenar för åtgärder i arbets flöden
-description: Lär dig hur du skapar eller sammanfogar parallella grenar för oberoende arbets flödes åtgärder i Azure Logic Apps
+title: Skapa eller koppla parallella grenar för åtgärder i arbetsflöden
+description: Lär dig hur du skapar eller sammanfogar parallella grenar som körs för oberoende arbetsflödesåtgärder i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
 ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75453439"
 ---
-# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Skapa eller Anslut parallella grenar för arbets flödes åtgärder i Azure Logic Apps
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Skapa eller ansluta till parallella grenar för arbetsflödesåtgärder i Azure Logic Apps
 
-Som standard körs dina åtgärder i Logic app-arbetsflöden i tur och ordning. Om du vill utföra oberoende åtgärder samtidigt kan du skapa [parallella grenar](#parallel-branches)och sedan gå över [dessa grenar](#join-branches) senare i ditt flöde. 
+Som standard körs dina åtgärder i logikapparbetsflöden sekventiellt. Om du vill utföra oberoende åtgärder samtidigt kan du skapa [parallella grenar](#parallel-branches)och sedan [ansluta till dessa grenar](#join-branches) senare i flödet. 
 
 > [!TIP] 
-> Om du har en utlösare som tar emot en matris och vill köra ett arbets flöde för varje mat ris objekt, kan du *Avgruppera* matrisen med [egenskapen **SplitOn** trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
+> Om du har en utlösare som tar emot en matris och vill köra ett arbetsflöde för varje matrisobjekt kan *dubatchera* matrisen med [egenskapen **SplitOn-utlösaren** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 <a name="parallel-branches"></a>
 
 ## <a name="add-parallel-branch"></a>Lägg till parallell gren
 
-Om du vill köra oberoende steg på samma gång kan du lägga till parallella grenar bredvid ett befintligt steg. 
+Om du vill köra oberoende steg samtidigt kan du lägga till parallella grenar bredvid ett befintligt steg. 
 
 ![Kör steg parallellt](media/logic-apps-control-flow-branches/parallel.png)
 
-Din Logic app väntar tills alla grenar är klara innan arbets flödet fortsätter. Parallella grenar körs bara när deras `runAfter` egenskaps värden matchar statusen för det avslutade överordnade steget. Till exempel är både `branchAction1` och `branchAction2` inställda på att endast köras när `parentAction` har slutförts med `Succeeded` status.
+Logikappen väntar på att alla grenar ska slutföras innan arbetsflödet fortsätter. Parallella grenar körs `runAfter` bara när deras egenskapsvärden matchar det färdiga överordnade stegets status. Till exempel `branchAction1` båda `branchAction2` och är inställda `parentAction` på `Succeeded` att köras endast när det är klart med status.
 
 > [!NOTE]
-> Innan du börjar måste din Logic app redan ha ett steg där du kan lägga till parallella grenar.
+> Innan du börjar måste logikappen redan ha ett steg där du kan lägga till parallella grenar.
 
-1. I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>öppnar du din Logic app i Logic App Designer.
+1. Öppna logikappen i Logic App Designer i <a href="https://portal.azure.com" target="_blank">Azure-portalen.</a>
 
-1. Flytta pekaren över pilen ovanför det steg där du vill lägga till parallella grenar. Välj **plus** tecknet ( **+** ) som visas och välj sedan **Lägg till en parallell gren**. 
+1. Flytta pekaren över pilen ovanför det steg där du vill lägga till parallella grenar. Välj **plustecknet** **+**( ) som visas och välj sedan **Lägg till en parallell gren**. 
 
    ![Lägg till parallell gren](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-1. I sökrutan söker du efter och väljer den åtgärd som du vill använda.
+1. Leta reda på och markera den åtgärd du vill använda i sökrutan.
 
-   ![Sök efter och välj den åtgärd du vill använda](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Sök efter och välj den åtgärd du vill ha](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   Den valda åtgärden visas nu i parallell grenen, till exempel:
+   Den valda åtgärden visas nu i den parallella grenen, till exempel:
 
-   ![Sök efter och välj den åtgärd du vill använda](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+   ![Sök efter och välj den åtgärd du vill ha](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Lägg nu till de steg som du vill använda i varje parallell gren. Om du vill lägga till en annan åtgärd i en gren flyttar du pekaren under den åtgärd där du vill lägga till en sekventiell åtgärd. Välj **plus** tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+1. Lägg nu till de steg du vill använda i varje parallell gren. Om du vill lägga till en annan åtgärd i en gren flyttar du pekaren under den åtgärd där du vill lägga till en sekventiell åtgärd. Välj **plustecknet** (**+**) som visas och välj sedan **Lägg till en åtgärd**.
 
-   ![Lägg till sekventiell åtgärd i parallell gren](media/logic-apps-control-flow-branches/add-sequential-action.png)
+   ![Lägga till sekventiell åtgärd i parallell gren](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
-1. I sökrutan söker du efter och väljer den åtgärd som du vill använda.
+1. Leta reda på och markera den åtgärd du vill använda i sökrutan.
 
-   ![Sök och välj sekventiell åtgärd](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Söka efter och välja sekventiell åtgärd](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
-   Den valda åtgärden visas nu i den aktuella grenen, till exempel:
+   Den valda åtgärden visas nu inom den aktuella grenen, till exempel:
 
-   ![Sök och välj sekventiell åtgärd](media/logic-apps-control-flow-branches/added-sequential-action.png)
+   ![Söka efter och välja sekventiell åtgärd](media/logic-apps-control-flow-branches/added-sequential-action.png)
 
-Om du vill sammanfoga grenar igen tillsammans går [du till dina parallell grenar](#join-branches). 
+Om du vill sammanfoga grenar ihop igen [ansluter du till dina parallella grenar](#join-branches). 
 
 <a name="parallel-json"></a>
 
-## <a name="parallel-branch-definition-json"></a>Definition av parallell gren (JSON)
+## <a name="parallel-branch-definition-json"></a>Parallell grendefinition (JSON)
 
-Om du arbetar i kodvyn kan du definiera parallell strukturen i din Logic Apps JSON-definition i stället, till exempel:
+Om du arbetar i kodvyn kan du definiera den parallella strukturen i logikappens JSON-definition i stället, till exempel:
 
 ``` json
 {
@@ -109,31 +109,31 @@ Om du arbetar i kodvyn kan du definiera parallell strukturen i din Logic Apps JS
 
 <a name="join-branches"></a>
 
-## <a name="join-parallel-branches"></a>Koppla parallella grenar
+## <a name="join-parallel-branches"></a>Gå med i parallella grenar
 
-Om du vill sammanfoga parallella grenar tillsammans lägger du bara till ett steg längst ned under alla grenar. Det här steget körs när alla parallella grenar har körts.
+Om du vill sammanfoga parallella grenar tillsammans lägger du bara till ett steg längst ned under alla grenar. Det här steget körs när alla parallella grenar har körts klart.
 
-![Koppla parallella grenar](media/logic-apps-control-flow-branches/join.png)
+![Gå med i parallella grenar](media/logic-apps-control-flow-branches/join.png)
 
-1. I [Azure Portal](https://portal.azure.com)kan du söka efter och öppna din Logic app i Logic App Designer. 
+1. Leta reda på och öppna logikappen i Logic App Designer i [Azure-portalen.](https://portal.azure.com) 
 
-1. Under de parallella grenar som du vill ansluta väljer du **nytt steg**. 
+1. Välj **Nytt steg**under de parallella grenar som du vill gå med i . 
 
-   ![Lägg till steg för att ansluta](media/logic-apps-control-flow-branches/add-join-step.png)
+   ![Lägg till steg för att gå med](media/logic-apps-control-flow-branches/add-join-step.png)
 
-1. I sökrutan söker du efter och väljer den åtgärd som du vill använda som det steg som ansluter till grenar.
+1. Leta reda på och markera den åtgärd du vill ha som det steg som sammanfogar grenarna i sökrutan.
 
-   ![Sök efter och Välj åtgärden som ansluter parallella grenar](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Söka efter och markera den åtgärd som kopplar parallella grenar](media/logic-apps-control-flow-branches/join-steps.png)
 
-   Dina parallella grenar är nu sammanfogade.
+   Dina parallella grenar slås nu samman.
 
-   ![Anslutna grenar](media/logic-apps-control-flow-branches/joined-branches.png)
+   ![Sammanfogade grenar](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 
-## <a name="join-definition-json"></a>Kopplings definition (JSON)
+## <a name="join-definition-json"></a>Kopplingsdefinition (JSON)
 
-Om du arbetar i kodvyn kan du definiera kopplings strukturen i din Logic Apps JSON-definition i stället, till exempel:
+Om du arbetar i kodvyn kan du definiera kopplingsstrukturen i logikappens JSON-definition i stället, till exempel:
 
 ``` json
 {
@@ -184,11 +184,11 @@ Om du arbetar i kodvyn kan du definiera kopplings strukturen i din Logic Apps JS
 ## <a name="get-support"></a>Få support
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Om du vill skicka in eller rösta på funktioner och förslag går du till [webbplatsen för Azure Logic Apps feedback från användare](https://aka.ms/logicapps-wish).
+* Om du vill skicka in eller rösta om funktioner och förslag besöker du [webbplatsen för användarfeedback för Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kör steg baserat på ett villkor (villkorliga uttryck)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Kör steg baserade på olika värden (Switch-instruktioner)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Köra och upprepa steg (slingor)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Kör steg baserat på grupperad åtgärds status (omfång)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Kör steg baserat på ett villkor (villkorssatser)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Kör steg baserat på olika värden (växelsatser)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Kör och upprepa steg (loopar)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Kör steg baserat på grupperad åtgärdsstatus (scope)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

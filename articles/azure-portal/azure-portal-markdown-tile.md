@@ -1,6 +1,6 @@
 ---
-title: Använd en anpassad markdown-panel på Azure-instrumentpaneler
-description: Lär dig hur du lägger till en markdown-panel på en Azure-instrumentpanel för att Visa statiskt innehåll
+title: Använda en anpassad markdown-panel på Azure-instrumentpaneler
+description: Lär dig hur du lägger till en markdown-panel på en Azure-instrumentpanel för att visa statiskt innehåll
 services: azure-portal
 keywords: ''
 author: mgblythe
@@ -10,57 +10,57 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 74102423461a56bb6fc19c2eb9874f96a76e34e0
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310721"
 ---
-# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Använd en markdown-panel på Azure-instrumentpaneler för att visa anpassat innehåll
+# <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Använda en markdown-panel på Azure-instrumentpaneler för att visa anpassat innehåll
 
-Du kan lägga till en markdown-panel till dina Azure-instrumentpaneler för att visa anpassat, statiskt innehåll. Du kan till exempel Visa Basic-instruktioner, en bild eller en uppsättning hyperlänkar på en markdown-panel.
+Du kan lägga till en markdown-panel på dina Azure-instrumentpaneler för att visa anpassat, statiskt innehåll. Du kan till exempel visa grundläggande instruktioner, en bild eller en uppsättning hyperlänkar på en markdown-panel.
 
-## <a name="add-a-markdown-tile-to-your-dashboard"></a>Lägg till en markdown-panel på din instrument panel
+## <a name="add-a-markdown-tile-to-your-dashboard"></a>Lägga till en markdown-panel på instrumentpanelen
 
-1. Välj **instrument panel** från Azure Portal sid panelen.
+1. Välj **Instrumentpanel** i sidofältet i Azure-portalen.
 
-   ![Skärm bild som visar portalens sid panelen](./media/azure-portal-markdown-tile/azure-portal-nav.png)
+   ![Skärmbild som visar portal sidofältet](./media/azure-portal-markdown-tile/azure-portal-nav.png)
 
-1. Om du har skapat anpassade instrument paneler, i vyn instrument panel, använder du List rutan för att välja den instrument panel där den anpassade markdown-panelen ska visas. Välj redigerings ikonen för att öppna **panel galleriet**.
+1. Om du har skapat några anpassade instrumentpaneler använder du listrutan i instrumentpanelsvyn för att välja instrumentpanelen där den anpassade markdown-panelen ska visas. Välj redigeringsikonen för att öppna **panelgalleriet**.
 
-   ![Skärm bild som visar Redigeraren för instrument panelen](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Skärmbild som visar redigeringsvyn för instrumentpanelen](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. Leta upp panelen med namnet **markdown** i **panel galleriet**och välj **Lägg till**. Panelen läggs till i instrument panelen och fönstret **Redigera markdown** öppnas.
+1. Leta reda på den panel som kallas **Markdown** i **panelgalleriet**och välj **Lägg till**. Panelen läggs till på instrumentpanelen och fönstret **Redigera markeringsfönster** öppnas.
 
-1. Ange värden för **rubrik** och **under rubrik**, som visas på panelen när du har flyttat till ett annat fält.
+1. Ange värden för **Rubrik** och **Underrubrik**, som visas på panelen när du har flyttat till ett annat fält.
 
-   ![Skärm bild som visar resultatet av att skriva rubrik och under rubrik](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
+   ![Skärmbild som visar resultatet av att ange titel och underrubrik](./media/azure-portal-markdown-tile/azure-portal-dashboard-enter-title.png)
 
-1. Välj ett av alternativen för att inkludera markdown-innehåll: **infogad redigering** eller **Infoga innehåll med URL**.
+1. Välj ett av alternativen för att inkludera markeringsinnehåll: **Infoga redigering** eller Infoga innehåll **med URL**.
 
-   - Välj **infogad redigering** om du vill ange markdown direkt.
+   - Välj **Infogad redigering** om du vill ange markdown direkt.
 
-      ![Skärm bild som visar inmatning av infogat innehåll](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
+      ![Skärmbild som visar infogat innehåll](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-inline-content.png)
 
-   - Välj **Infoga innehåll med URL** om du vill använda befintligt markdown-innehåll som är online.
+   - Välj **Infoga innehåll med URL** om du vill använda befintligt markdown-innehåll som finns online.
 
-      ![Skärm bild som visar ange URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
+      ![Skärmbild som visar att ange URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > För ökad säkerhet kan du skapa en MARKDOWN-fil och lagra den i en [BLOB för Azure Storage-konto där kryptering är aktiverat](../storage/common/storage-service-encryption.md). peka sedan på filen med URL-alternativet. Markdown-innehållet krypteras via lagrings kontots krypterings alternativ. Endast användare med behörighet till filen kan se markdown-innehållet på instrument panelen.
+      > För ökad säkerhet kan du skapa en markdown-fil och lagra den i en [Azure storage account-blob där kryptering är aktiverad](../storage/common/storage-service-encryption.md)och sedan peka på filen med hjälp av URL-alternativet. Markdown-innehållet krypteras via lagringskontots krypteringsalternativ. Endast användare med behörighet till filen kan se markdown-innehållet på instrumentpanelen.
 
-1. Välj **Done** för att stänga fönstret **Redigera markdown** . Ditt innehåll visas på markdown-panelen, som du kan ändra storlek på genom att dra handtaget i det nedre högra hörnet.
+1. Välj **Klar** om du vill stänga fönstret **Redigera markeringsmarkering.** Innehållet visas på Markdown-panelen, som du kan ändra storlek på genom att dra handtaget i det nedre högra hörnet.
 
-   ![Skärm bild som visar en anpassad markdown-panel](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Skärmbild som visar anpassad nedmärkningspanel](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
-## <a name="markdown-content-capabilities-and-limitations"></a>Funktioner och begränsningar för markdown-innehåll
+## <a name="markdown-content-capabilities-and-limitations"></a>Funktioner och begränsningar för Markdown-innehåll
 
-Du kan använda valfri kombination av oformaterad text, markdown-syntax och HTML-innehåll på markdown-panelen. I Azure Portal används ett bibliotek med öppen källkod som heter _markerad_ för att transformera ditt innehåll till HTML som visas på panelen. Den HTML-kod som tillverkas av har _marker ATS_ i förväg av portalen innan den renderas. Det här steget ser till att anpassningen inte påverkar portalens säkerhet eller layout. Under den för bearbetningen tas alla delar av HTML-koden som utgör ett potentiellt hot bort. Följande typer av innehåll tillåts inte av portalen:
+Du kan använda valfri kombination av oformaterad text, markans syntax och HTML-innehåll på markdown-panelen. Azure-portalen använder ett bibliotek med öppen källkod som kallas _markerat_ för att omvandla ditt innehåll till HTML som visas på panelen. HTML-koden som produceras av _markerad_ bearbetas i förväg av portalen innan den återges. Det här steget hjälper dig att se till att anpassningen inte påverkar portalens säkerhet eller layout. Under förbehandlingen tas alla delar av HTML-koden som utgör ett potentiellt hot bort. Följande typer av innehåll tillåts inte av portalen:
 
-* Java Script – `<script>` Taggar och infogade JavaScript-utvärderingar tas bort.
-* iframes – `<iframe>` taggar tas bort.
-* Style-`<style>` taggar tas bort. Inline Style-attribut för HTML-element stöds inte officiellt. Det kan hända att vissa infogade format element fungerar för dig, men om de stör portalens layout kan de sluta fungera när som helst. Markdown-panelen är avsedd för grundläggande, statiskt innehåll som använder portalens standardformat.
+* JavaScript `<script>` – taggar och inline JavaScript-utvärderingar tas bort.
+* iframes `<iframe>` - taggar kommer att tas bort.
+* Stil `<style>` - taggar kommer att tas bort. Infogade formatattribut för HTML-element stöds inte officiellt. Du kanske upptäcker att vissa infogade formatelement fungerar för dig, men om de stör portalens layout kan de sluta fungera när som helst. Markdown-panelen är avsedd för grundläggande, statiskt innehåll som använder portalens standardformat.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du skapar en anpassad instrument panel finns [i skapa och dela instrument paneler i Azure Portal](../azure-portal/azure-portal-dashboards.md)
+* Information om hur du skapar en anpassad instrumentpanel finns [i Skapa och dela instrumentpaneler i Azure-portalen](../azure-portal/azure-portal-dashboards.md)

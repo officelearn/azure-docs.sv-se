@@ -1,6 +1,6 @@
 ---
-title: Transformera data med Hadoop streaming-aktivitet
-description: Förklarar hur du använder Hadoop streaming-aktivitet i Azure Data Factory för att transformera data genom att köra Hadoop streaming-program i ett Hadoop-kluster.
+title: Omvandla data med hjälp av Hadoop Streaming-aktivitet
+description: I artikeln beskrivs hur du ankÃ¤nder Hadoop Streaming Activity i Azure Data Factory fÃ¤nder data genom att kÃ¤ndeka Hadoop-program i ett Hadoop-kluster.
 author: nabhishek
 ms.author: abnarain
 manager: shwang
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/16/2018
 ms.openlocfilehash: 1c12a10dfdf8e69cf05ab30d0e6aa48fea5803a3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74912899"
 ---
-# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med hjälp av Hadoop streaming-aktivitet i Azure Data Factory
+# <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Omvandla data med hjälp av Hadoop Streaming-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-hadoop-streaming-activity.md)
 > * [Aktuell version](transform-data-using-hadoop-streaming.md)
 
-HDInsight streaming-aktiviteten i en Data Factory [pipeline](concepts-pipelines-activities.md) kör Hadoop streaming-program på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller [på begäran HDInsight-](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) kluster. Den här artikeln bygger på artikeln [data omvandlings aktiviteter](transform-data.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
+HDInsight Streaming Activity i en Pipeline för [datafabrik](concepts-pipelines-activities.md) kör Hadoop Streaming-program på [ditt eget](compute-linked-services.md#azure-hdinsight-linked-service) eller on-demand HDInsight-kluster. [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Den här artikeln bygger på artikeln [om dataomvandlingsaktiviteter,](transform-data.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds.
 
-Om du är nybörjare på Azure Data Factory läser du [Introduktion till Azure Data Factory](introduction.md) och gör [självstudien: transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
+Om du inte har gjort det tidigare i Azure Data Factory läser du [in introduktion till Azure Data Factory](introduction.md) och gör [självstudien: omvandla data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
 
 ## <a name="json-sample"></a>JSON-exempel
 ```json
@@ -65,33 +65,33 @@ Om du är nybörjare på Azure Data Factory läser du [Introduktion till Azure D
 }
 ```
 
-## <a name="syntax-details"></a>Information om syntax
+## <a name="syntax-details"></a>Syntaxinformation
 
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
-| namn              | Namn på aktiviteten                     | Ja      |
-| beskrivning       | Text som beskriver vad aktiviteten används för | Nej       |
-| typ              | För Hadoop streaming-aktivitet är aktivitets typen HDInsightStreaming | Ja      |
-| linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
-| mappning            | Anger namnet på den körbara filen för mapper | Ja      |
-| minskning           | Anger namnet på den programbegränsande körbara filen | Ja      |
-| kombinations          | Anger namnet på den kombinerade program filen | Nej       |
-| fileLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra mapparna Mapper, kombinerare och minska program som ska köras. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
-| filePath          | Ange en matris med sökvägen till mapparna Mapper, kombinerare och Minskare som lagras i Azure Storage som refereras av fileLinkedService. Sökvägen är skiftlägeskänslig. | Ja      |
-| indata             | Anger WASB-sökvägen till indatafilen för mapper. | Ja      |
-| utdata            | Anger WASB-sökvägen till utdatafilen för minsknings filen. | Ja      |
-| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
-| ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
-| defines           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       | 
+| namn              | Aktivitetens namn                     | Ja      |
+| description       | Text som beskriver vad aktiviteten används för | Inga       |
+| typ              | För Hadoop Streaming Activity är aktivitetstypen HDInsightStreaming | Ja      |
+| linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den länkade tjänsten finns i artikel [om beräkningslänkade tjänster.](compute-linked-services.md) | Ja      |
+| Mapper            | Anger namnet på den körbara mapparen | Ja      |
+| Reducering           | Anger namnet på den körbara reduceren | Ja      |
+| Combiner          | Anger namnet på den körbara sammanslutningen | Inga       |
+| fileLinkedService | Referens till en Azure Storage Linked-tjänst som används för att lagra mapper-, combiner- och reducer-program som ska köras. Om du inte anger den här länkade tjänsten används Azure Storage Linked Service som definierats i hdinsight-länkade tjänsten. | Inga       |
+| Filepath          | Ange en matris med sökväg till programmen Mapper, Combiner och Reducer som lagras i Azure Storage som refereras av fileLinkedService. Sökvägen är skiftlägeskänslig. | Ja      |
+| indata             | Anger WASB-sökvägen till indatafilen för Mapper. | Ja      |
+| utdata            | Anger WASB-sökvägen till utdatafilen för Reducer. | Ja      |
+| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-klustret (eller) som anges av scriptLinkedService. Tillåtna värden: Inga, Alltid eller Fel. Standardvärde: Ingen. | Inga       |
+| Argument         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommandoradsargument till varje aktivitet. | Inga       |
+| Definierar           | Ange parametrar som nyckel-/värdepar för refererande i Hive-skriptet. | Inga       | 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar som förklarar hur du omformar data på andra sätt: 
+Se följande artiklar som förklarar hur du omvandlar data på andra sätt: 
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
 * [Hive-aktivitet](transform-data-using-hadoop-hive.md)
-* [Aktivitet i gris](transform-data-using-hadoop-pig.md)
-* [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
+* [Grisaktivitet](transform-data-using-hadoop-pig.md)
+* [MapReduce aktivitet](transform-data-using-hadoop-map-reduce.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
-* [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)
+* [Körning av maskininlärningsbatch](transform-data-using-machine-learning.md)
+* [Lagrad proceduraktivitet](transform-data-using-stored-procedure.md)

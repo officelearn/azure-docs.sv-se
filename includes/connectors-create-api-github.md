@@ -5,36 +5,36 @@ author: ecfan
 ms.author: estfan
 ms.date: 03/02/2018
 ms.openlocfilehash: 1aabc1b33722c571c6519b6620fb62211a44c2e8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789761"
 ---
-1. Skapa en tom Logic-app i [Azure Portal](https://portal.azure.com). 
+1. Skapa en tom logikapp i [Azure-portalen.](https://portal.azure.com) 
 
-2. I Logic Apps designer anger du "GitHub" som filter. 
+2. Ange "github" som filter i Logic Apps Designer. 
 
-3. Välj GitHub-anslutningen och den utlösare som du vill använda.
+3. Välj GitHub-kopplingen och den utlösare som du vill använda.
 
-   ![Välj GitHub-anslutningen och en utlösare](./media/connectors-create-api-github/github-connector.png)
+   ![Välj GitHub-anslutning och en utlösare](./media/connectors-create-api-github/github-connector.png)
 
    > [!NOTE]
-   > Alla Logic app-arbetsflöden måste börja med en utlösare. Du kan bara välja åtgärder när ditt logik arbets flöde redan börjar med en utlösare. 
+   > Alla logikapparbetsflöden måste börja med en utlösare. Du kan bara välja åtgärder när logikarbetsflödet redan börjar med en utlösare. 
 
-4. Om du inte redan har skapat en anslutning väljer du **Logga** in så att du kan ange dina GitHub-autentiseringsuppgifter när du uppmanas till det.  
+4. Om du inte tidigare har skapat en anslutning väljer du **Logga in** så att du kan ange dina GitHub-autentiseringsuppgifter när du uppmanas att göra det.  
 
    ![Logga in med dina GitHub-autentiseringsuppgifter](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
 
-   Din Logic app använder dessa autentiseringsuppgifter för att godkänna anslutning och åtkomst till data för ditt GitHub-konto. 
+   Logikappen använder dessa autentiseringsuppgifter för att auktorisera anslutning och åtkomst till data för ditt GitHub-konto. 
 
-5. Ange ditt GitHub användar namn och lösen ord och bekräfta sedan din auktorisering.
+5. Ange ditt användarnamn och lösenord för GitHub och bekräfta sedan din auktorisering.
 
    ![Ange autentiseringsuppgifter och bekräfta auktorisering](./media/connectors-create-api-github/github-connector-authorize.png)   
 
-   Din anslutning skapas nu i Azure Portal och är redo att användas.
+   Anslutningen skapas nu i Azure-portalen och är klar för användning.
 
-6. Fortsätt definiera ditt Logic app-arbetsflöde.
+6. Fortsätt att definiera arbetsflödet för logikappen.
 
-   ![Lägg till fler åtgärder i ditt Logic app-arbetsflöde](./media/connectors-create-api-github/github-connector-logic-app.png)
+   ![Lägga till fler åtgärder i logikapparbetsflödet](./media/connectors-create-api-github/github-connector-logic-app.png)
 

@@ -1,5 +1,5 @@
 ---
-title: FÖRÅLDRAD Snabb start – Azure Kubernetes-kluster för Windows
+title: (FÖRÅLDRAD) Snabbstart - Azure Kubernetes kluster för Windows
 description: Lär dig snabbt att skapa ett Kubernetes-kluster på Windows-behållare i Azure Container Service med Azure CLI.
 author: dlepow
 ms.service: container-service
@@ -8,19 +8,19 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277650"
 ---
-# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>FÖRÅLDRAD Distribuera Kubernetes-kluster för Windows-behållare
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(FÖRÅLDRAD) Distribuera Kubernetes-kluster för Windows-behållare
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här guiden beskriver hur Azure CLI används för att distribuera ett [Kubernetes](https://kubernetes.io/docs/home/)-kluster i [Azure Container Service](../container-service-intro.md). När klustret distribueras kan du ansluta till det med kommandoradsverktyget för Kubernetes `kubectl` och distribuera din första Windows-container.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ Om några minuter har kommandot slutförts och visar information om din distribu
 
 ## <a name="install-kubectl"></a>Installera kubectl
 
-För att ansluta till Kubernetes-klustret från klientdatorn använder du [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), Kubernetes kommandoradsklient. 
+Om du vill ansluta till Kubernetes-klustret från klientdatorn använder du [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)Kubernetes kommandoradsklient. 
 
 Om du använder Azure CloudShell är `kubectl` redan installerad. Om du vill installera det lokalt, kan du använda kommandot [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 
@@ -160,7 +160,7 @@ Om du vill exponera din pod för alla med en offentlig IP-adress skriver du föl
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Med det här kommandot skapar Kubernetes en tjänst och en Azure Load Balancer-regel med en offentlig IP-adress för tjänsten. 
+Med detta kommando skapar Kubernetes en tjänst och en Azure Load Balancer-regel med en offentlig IP-adress för tjänsten. 
 
 Kör följande kommando för att se status för tjänsten.
 
@@ -182,7 +182,7 @@ Du kan använda en webbläsare som du väljer för att se IIS-välkomstsidan på
 
 
 ## <a name="delete-cluster"></a>Ta bort klustret
-När klustret inte längre behövs du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
+När klustret inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az-group-delete) för att ta bort resursgruppen, containertjänsten och alla relaterade resurser.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

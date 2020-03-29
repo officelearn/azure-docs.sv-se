@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187293"
 ---
 ## <a name="next-steps"></a>Nästa steg
 
-När du har aktiverat Azure Key Vault-integrering kan du aktivera kryptering för SQL Server på din SQL-VM. Först behöver du skapa en asymmetrisk nyckel i ditt nyckelvalv och en symmetrisk nyckel i SQL Server på den virtuella datorn. Sedan kommer du att kunna köra T-SQL-uttryck för att aktivera kryptering för dina databaser och säkerhetskopieringar.
+När du har aktiverat Integrering av Azure Key Vault kan du aktivera SQL Server-kryptering på din SQL VM. Först måste du skapa en asymmetrisk nyckel i nyckelvalvet och en symmetrisk nyckel i SQL Server på den virtuella datorn. Sedan kan du köra T-SQL-satser för att aktivera kryptering för dina databaser och säkerhetskopior.
 
-Det finns flera typer av kryptering som du kan dra nytta av:
+Det finns flera olika former av kryptering som du kan dra nytta av:
 
 * [Transparent datakryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
-* [Krypterad säkerhetskopiering](https://msdn.microsoft.com/library/dn449489.aspx)
-* [Kolumnen Filnivåkryptering (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
+* [Krypterade säkerhetskopior](https://msdn.microsoft.com/library/dn449489.aspx)
+* [Kryptering på kolumnnivå (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
-Följande Transact-SQL-skript innehåller exempel för var och en av dessa områden.
+Följande Transact-SQL-skript ger exempel för vart och ett av dessa områden.
 
-### <a name="prerequisites-for-examples"></a>Krav för exempel
+### <a name="prerequisites-for-examples"></a>Förutsättningar för exempel
 
-Varje exempel baseras på två krav: en asymmetrisk nyckel från ditt nyckelvalv kallas **CONTOSO_KEY** och kallas för en autentiseringsuppgift som skapas av funktionen AKV-integreringen **Azure_EKM_TDE_cred**. Följande Transact-SQL-kommandon konfigurera förutsättningarna för att köra exemplen.
+Varje exempel baseras på de två förutsättningarna: en asymmetrisk nyckel från nyckelvalvet som kallas **CONTOSO_KEY** och en autentiseringsfil som skapats av funktionen AKV-integrering som kallas **Azure_EKM_TDE_cred**. Följande Transact-SQL-kommandon ställer in dessa förutsättningar för att köra exemplen.
 
 ``` sql
 USE master;
@@ -52,7 +52,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
 
 ### <a name="transparent-data-encryption-tde"></a>Transparent datakryptering (TDE)
 
-1. Skapa en SQL Server-inloggning som ska användas av databasmotorn för transparent Datakryptering och sedan lägga till autentiseringsuppgifter i den.
+1. Skapa en SQL Server-inloggning som ska användas av databasmotorn för TDE och lägg sedan till autentiseringsuppgifterna i den.
 
    ``` sql
    USE master;
@@ -70,7 +70,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Skapa databaskrypteringsnyckeln som ska användas för transparent Datakryptering.
+1. Skapa databaskrypteringsnyckeln som ska användas för TDE.
 
    ``` sql
    USE ContosoDatabase;
@@ -87,9 +87,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="encrypted-backups"></a>Krypterad säkerhetskopiering
+### <a name="encrypted-backups"></a>Krypterade säkerhetskopior
 
-1. Skapa en SQL Server-inloggning som ska användas av databasmotorn för kryptering av säkerhetskopieringar och Lägg till autentiseringsuppgifterna.
+1. Skapa en SQL Server-inloggning som ska användas av databasmotorn för att kryptera säkerhetskopior och lägg till autentiseringsuppgifterna i den.
 
    ``` sql
    USE master;
@@ -106,7 +106,7 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-1. Säkerhetskopiera databaskryptering för att ange med en asymmetrisk nyckel som lagras i nyckelvalvet.
+1. Säkerhetskopiera databasen som anger kryptering med den asymmetriska nyckeln som lagras i nyckelvalvet.
 
    ``` sql
    USE master;
@@ -117,9 +117,9 @@ CREATION_DISPOSITION = OPEN_EXISTING;
    GO
    ```
 
-### <a name="column-level-encryption-cle"></a>Kolumnen Filnivåkryptering (CLE)
+### <a name="column-level-encryption-cle"></a>Kryptering på kolumnnivå (CLE)
 
-Det här skriptet skapar en symmetrisk nyckel som skyddas av en asymmetrisk nyckel i key vault och använder sedan den symmetriska nyckeln för att kryptera data i databasen.
+Det här skriptet skapar en symmetrisk nyckel som skyddas av den asymmetriska nyckeln i nyckelvalvet och använder sedan den symmetriska nyckeln för att kryptera data i databasen.
 
 ``` sql
 CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -144,6 +144,6 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-Läs mer om hur du använder dessa krypteringsfunktioner, [med hjälp av EKM med SQL Server-krypteringsfunktioner](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
+Mer information om hur du använder dessa krypteringsfunktioner finns i [Använda EKM med SQL Server-krypteringsfunktioner](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Observera att stegen i den här artikeln förutsätter att du redan har SQL Server på virtuella Azure-datorer. Om den inte finns i [etablera en virtuell dator med SQL Server i Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Andra anvisningar om hur du kör SQL Server på Azure Virtual Machines finns i [SQL Server på Azure virtuella datorer – översikt](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Observera att stegen i den här artikeln förutsätter att du redan har SQL Server som körs på en virtuell Azure-dator. Om inte, se [Etablera en virtuell SQL Server-dator i Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Mer information om hur du kör SQL Server på virtuella Azure-datorer finns i [översikten SQL Server på Virtuella Azure-datorer](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).

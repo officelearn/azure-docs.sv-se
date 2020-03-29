@@ -1,6 +1,6 @@
 ---
-title: Hantera slut punkter för direkt uppspelning med .NET SDK. | Microsoft Docs
-description: Den här artikeln visar hur du hanterar strömnings slut punkter med Azure Portal.
+title: Hantera slutpunkter för direktuppspelning med .NET SDK. | Microsoft Docs
+description: Den här artikeln visar hur du hanterar slutpunkter för direktuppspelning med Azure-portalen.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,43 +16,43 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74901278"
 ---
-# <a name="manage-streaming-endpoints-with-net-sdk"></a>Hantera slut punkter för direkt uppspelning med .NET SDK  
+# <a name="manage-streaming-endpoints-with-net-sdk"></a>Hantera slutpunkter för direktuppspelning med .NET SDK  
 
 >[!NOTE]
->Läs igenom [översikts](media-services-streaming-endpoints-overview.md) artikeln. Granska även [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Se till att granska [översiktsartikeln.](media-services-streaming-endpoints-overview.md) Granska också [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
 Koden i den här artikeln visar hur du utför följande uppgifter med hjälp av Azure Media Services .NET SDK:
 
-- Granska standard slut punkten för direkt uppspelning.
-- Skapa/Lägg till ny slut punkt för direkt uppspelning.
+- Undersök standardslutpunkten för direktuppspelning.
+- Skapa/lägg till ny slutpunkt för direktuppspelning.
 
-    Du kanske vill ha flera slut punkter för direkt uppspelning om du planerar att ha olika CDN eller CDN och direkt åtkomst.
+    Du kanske vill ha flera slutpunkter för direktuppspelning om du planerar att ha olika CDN-nätverk eller ett CDN och direktåtkomst.
 
     > [!NOTE]
-    > Du faktureras bara när slut punkten för direkt uppspelning är i körnings läge.
+    > Du faktureras bara när slutpunkten för direktuppspelning körs.
     
-- Uppdatera slut punkten för direkt uppspelning.
+- Uppdatera slutpunkten för direktuppspelning.
     
-    Se till att anropa funktionen Update ().
+    Se till att anropa funktionen Update().
 
-- Ta bort slut punkten för direkt uppspelning.
+- Ta bort slutpunkten för direktuppspelning.
 
     >[!NOTE]
-    >Det går inte att ta bort standard slut punkten för direkt uppspelning.
+    >Det går inte att ta bort standardslutpunkten för direktuppspelning.
 
-Information om hur du skalar slut punkten för direkt uppspelning finns i [den här](media-services-portal-scale-streaming-endpoints.md) artikeln.
+Information om hur du skalar slutpunkten för direktuppspelning finns i den [här](media-services-portal-scale-streaming-endpoints.md) artikeln.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
+Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
 
-## <a name="add-code-that-manages-streaming-endpoints"></a>Lägg till kod som hanterar slut punkter för direkt uppspelning
+## <a name="add-code-that-manages-streaming-endpoints"></a>Lägga till kod som hanterar slutpunkter för direktuppspelning
     
 Ersätt koden i Program.cs med följande kod:
 

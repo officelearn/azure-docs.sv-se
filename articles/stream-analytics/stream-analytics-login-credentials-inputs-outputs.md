@@ -1,6 +1,6 @@
 ---
-title: Rotera autentiseringsuppgifter för inloggning i Azure Stream Analytics-jobb
-description: Den här artikeln beskriver hur du uppdaterar autentiseringsuppgifterna för indata och utdata egenskaperna i Azure Stream Analytics jobb.
+title: Rotera inloggningsuppgifter i Azure Stream Analytics-jobb
+description: I den här artikeln beskrivs hur du uppdaterar autentiseringsuppgifterna för indata och utdatamottagare i Azure Stream Analytics-jobb.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,53 +9,53 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425981"
 ---
-# <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotera autentiseringsuppgifter för inloggning för indata och utdata för ett Stream Analytics-jobb
+# <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotera inloggningsuppgifter för indata och utdata från ett Stream Analytics-jobb
 
-När du återskapar autentiseringsuppgifter för ett indata eller utdata för ett Stream Analytics-jobb kan bör du uppdatera jobbet med nya autentiseringsuppgifter. Du måste stoppa jobbet innan du uppdaterar autentiseringsuppgifterna, autentiseringsuppgifterna kan inte byta ut medan jobbet körs. För att minska fördröjningen mellan stoppa och starta om jobbet, Stream Analytics stöder återuppta ett jobb från dess senaste utdata. Det här avsnittet beskriver processen för att rotera autentiseringsuppgifter för inloggning och starta om jobbet med nya autentiseringsuppgifter.
+När du återskapar autentiseringsuppgifter för en indata eller utdata från ett Stream Analytics-jobb bör du uppdatera jobbet med nya autentiseringsuppgifter. Du måste stoppa jobbet innan du uppdaterar autentiseringsuppgifterna, du kan inte ersätta autentiseringsuppgifterna medan jobbet körs. Om du vill minska fördröjningen mellan att stoppa och starta om jobbet stöder Stream Analytics att ett jobb återupptas från den senaste utdata. I det här avsnittet beskrivs hur du roterar inloggningsuppgifterna och startar om jobbet med nya autentiseringsuppgifter.
 
-## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>Återskapa nya autentiseringsuppgifter och uppdatera ditt jobb med nya autentiseringsuppgifter 
+## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>Återskapa nya autentiseringsuppgifter och uppdatera jobbet med de nya autentiseringsuppgifterna 
 
-I det här avsnittet ska vägleder vi dig genom återskapats autentiseringsuppgifter för Blob Storage, Event Hubs, SQL-databas och Table Storage. 
+I det här avsnittet går vi igenom återskapande autentiseringsuppgifter för Blob Storage, Event Hubs, SQL Database och Table Storage. 
 
-### <a name="blob-storagetable-storage"></a>BLOB storage-/ tabellagring
-1. Logga in på Azure portal > Bläddra storage-konto som du använde för indata/utdata för Stream Analytics-jobbet.    
-2. Öppna från avsnittet inställningar **åtkomstnycklar**. Välj det som inte används av jobbet och återskapa den mellan två standardnycklar (key1, key2):  
+### <a name="blob-storagetable-storage"></a>Lagring av bloblagring/tabell
+1. Logga in på Azure-portalen > bläddra bland det lagringskonto som du använde som indata/utdata för Stream Analytics-jobbet.    
+2. Öppna **Access-nycklar**i inställningsavsnittet . Mellan de två standardnycklarna (key1, key2) väljer du den som inte används av jobbet och återskapar den:  
    ![Återskapa nycklar för lagringskonto](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
-3. Kopiera den nya nyckeln.    
-4. Bläddra ditt Stream Analytics-jobb i Azure Portal > Välj **stoppa** och vänta tills jobbet stoppa.    
-5. Leta upp Blob/Table storage indata/utdata som du vill uppdatera autentiseringsuppgifterna.    
-6. Hitta den **Lagringskontonyckel** fältet och klistra in din nyligen genererade nyckel > klickar du på **spara**.    
-7. Ett anslutnings test startar automatiskt när du sparar ändringarna, du kan visa det från fliken meddelanden. Det finns två aviseringar – en motsvarar att spara uppdateringen och andra motsvarar att testa anslutningen:  
-   ![Meddelanden när du har redigerat nyckeln](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
-8. Gå vidare till [startar ditt jobb än senast stoppad](#start-your-job-from-the-last-stopped-time) avsnittet.
+3. Kopiera den nygenererade nyckeln.    
+4. Bläddra bland ditt Stream Analytics-jobb > välj **Stopp** och vänta på att jobbet ska sluta på Azure-portalen.    
+5. Leta reda på den Blob/Table storage in/output som du vill uppdatera autentiseringsuppgifter för.    
+6. Leta reda på fältet **Lagringskontonyckel** och klistra in den nygenererade nyckeln > klicka på **Spara**.    
+7. Ett anslutningstest startar automatiskt när du sparar ändringarna, du kan visa det från fliken aviseringar. Det finns två anmälningar, en motsvarar att spara uppdateringen och andra motsvarar att testa anslutningen:  
+   ![Meddelanden efter redigering av nyckeln](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
+8. Fortsätt för att [starta jobbet från det senast stoppade tidsavsnittet.](#start-your-job-from-the-last-stopped-time)
 
 ### <a name="event-hubs"></a>Händelsehubbar
 
-1. Logga in på Azure portal > Bläddra Händelsehubben som du använde för indata/utdata för Stream Analytics-jobbet.    
-2. Öppna från avsnittet inställningar **principer för delad åtkomst** och markerar principen som kräver åtkomst. Mellan den **primärnyckel** och **sekundärnyckel**, Välj det som inte används av jobbet och återskapa den:  
-   ![Återskapa nycklar för Event Hubs](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
-3. Kopiera den nya nyckeln.    
-4. Bläddra ditt Stream Analytics-jobb i Azure Portal > Välj **stoppa** och vänta tills jobbet stoppa.    
-5. Leta upp Event hubs indata/utdata som du vill uppdatera autentiseringsuppgifterna.    
-6. Hitta den **principnyckel för Event Hub** fältet och klistra in din nyligen genererade nyckel > klickar du på **spara**.    
-7. En anslutningstest startar automatiskt när du sparar ändringarna, se till att det har har passerat.    
-8. Gå vidare till [startar ditt jobb än senast stoppad](#start-your-job-from-the-last-stopped-time) avsnittet.
+1. Logga in på Azure-portalen > bläddra i händelsehubben som du använde som indata/utdata för Stream Analytics-jobbet.    
+2. Öppna principer för **delad åtkomst** i inställningsavsnittet och välj den åtkomstprincip som krävs. Mellan **primärnyckeln** och **sekundärnyckeln**väljer du den som inte används av jobbet och återskapar den:  
+   ![Återskapa nycklar för eventhubbar](media/stream-analytics-login-credentials-inputs-outputs/regenerate-event-hub-keys.png)
+3. Kopiera den nygenererade nyckeln.    
+4. Bläddra bland ditt Stream Analytics-jobb > välj **Stopp** och vänta på att jobbet ska sluta på Azure-portalen.    
+5. Leta reda på de indata/utdata för händelsehubbar som du vill uppdatera autentiseringsuppgifter för.    
+6. Leta reda på fältet Principnyckel för **händelsehubben** och klistra in den nygenererade nyckeln > klicka på **Spara**.    
+7. Ett anslutningstest startar automatiskt när du sparar ändringarna och kontrollerar att det har klarats.    
+8. Fortsätt för att [starta jobbet från det senast stoppade tidsavsnittet.](#start-your-job-from-the-last-stopped-time)
 
 ### <a name="sql-database"></a>SQL Database
 
-Du behöver ansluta till SQL-databasen för att uppdatera autentiseringsuppgifterna för en befintlig användare. Du kan uppdatera autentiseringsuppgifterna med hjälp av Azure-portalen eller ett klientsidan verktyg som SQL Server Management Studio. Det här avsnittet beskrivs processen för att uppdatera autentiseringsuppgifterna med hjälp av Azure-portalen.
+Du måste ansluta till SQL-databasen för att uppdatera inloggningsuppgifterna för en befintlig användare. Du kan uppdatera autentiseringsuppgifter med hjälp av Azure-portalen eller ett verktyg på klientsidan, till exempel SQL Server Management Studio. Det här avsnittet visar hur du uppdaterar autentiseringsuppgifter med hjälp av Azure-portalen.
 
-1. Logga in på Azure portal > Bläddra SQL-databasen som du använde som utdata för Stream Analytics-jobbet.    
-2. Från **datautforskaren**, inloggning/ansluta till din databas > Välj typ av auktorisering som **SQL server-autentisering** > Skriv din **inloggning** och  **Lösenordet** information > Välj **Ok**.  
-   ![Återskapa autentiseringsuppgifterna för SQL-databas](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
+1. Logga in på Azure-portalen > bläddra i SQL-databasen som du använde som utdata för Stream Analytics-jobbet.    
+2. Från **Data Explorer**väljer du logga in/anslut till databasen > välja Auktoriseringstyp som **SQL-serverautentisering** > skriv in dina **inloggnings-** och **lösenordsuppgifter** > Välj **Ok**.  
+   ![Återskapa autentiseringsuppgifter för SQL-databas](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
-3. Ändra lösenordet för en av dina användare genom att köra följande fråga på fliken fråga (Ersätt `<user_name>` med ditt användarnamn och `<new_password>` med ditt nya lösenord):  
+3. På fliken Fråga ändrar du lösenordet för en av användarens genom att `<user_name>` köra följande `<new_password>` fråga (se till att ersätta med ditt användarnamn och med ditt nya lösenord):  
 
    ```SQL
    Alter user `<user_name>` WITH PASSWORD = '<new_password>'
@@ -63,21 +63,21 @@ Du behöver ansluta till SQL-databasen för att uppdatera autentiseringsuppgifte
    ```
 
 4. Anteckna det nya lösenordet.    
-5. Bläddra ditt Stream Analytics-jobb i Azure Portal > Välj **stoppa** och vänta tills jobbet stoppa.    
-6. Leta upp SQL database-utdata som du vill ska rotera autentiseringsuppgifter. Uppdatera lösenordet och spara ändringarna.    
-7. En anslutningstest startar automatiskt när du sparar ändringarna, se till att det har har passerat.    
-8. Gå vidare till [startar ditt jobb än senast stoppad](#start-your-job-from-the-last-stopped-time) avsnittet.
+5. Bläddra bland ditt Stream Analytics-jobb > välj **Stopp** och vänta på att jobbet ska sluta på Azure-portalen.    
+6. Leta reda på den SQL-databasutdata som du vill rotera autentiseringsuppgifter för. Uppdatera lösenordet och spara ändringar.    
+7. Ett anslutningstest startar automatiskt när du sparar ändringarna och kontrollerar att det har klarats.    
+8. Fortsätt för att [starta jobbet från det senast stoppade tidsavsnittet.](#start-your-job-from-the-last-stopped-time)
 
 ### <a name="power-bi"></a>Power BI
-1. Logga in på Azure portal > Bläddra ditt Stream Analytics-jobb > Välj **stoppa** och vänta tills jobbet stoppa.    
-2. Hitta Power BI-utdata som du vill förnya autentiseringsuppgifter > klickar du på den **förnya auktoriseringen** (du bör se ett meddelande) > **spara** ändringarna.    
-3. En anslutningstest startar automatiskt när du sparar ändringarna, se till att det har har passerat.    
-4. Gå vidare till [startar ditt jobb än senast stoppad](#start-your-job-from-the-last-stopped-time) avsnittet.
+1. Logga in på Azure-portalen > bläddra i ditt Stream Analytics-jobb > väljer **Stopp** och väntar på att jobbet ska sluta.    
+2. Leta upp den Power BI-utdata som du vill förnya autentiseringsuppgifter för > klickar på **förnya auktorisering** (du bör se ett meddelande om lyckade åtgärder) > **Spara** ändringarna.    
+3. Ett anslutningstest startar automatiskt när du sparar ändringarna, se till att det har gått.    
+4. Fortsätt för att [starta jobbet från det senast stoppade tidsavsnittet.](#start-your-job-from-the-last-stopped-time)
 
-## <a name="start-your-job-from-the-last-stopped-time"></a>Starta ditt jobb från senast stoppad
+## <a name="start-your-job-from-the-last-stopped-time"></a>Starta jobbet från den senast stoppade tiden
 
-1. Gå till jobbets **översikt** fönstret > Välj **starta** att starta jobbet.    
-2. Välj **senast stoppad** > klickar du på **starta**. Observera att alternativet ”senast stoppad” visas endast om du tidigare körde jobbet och haft några utdata genereras. Jobbet startas baserat på den senaste utdatavärde tid.
+1. Navigera till projektets **översiktsfönster** > väljer **Start** för att starta jobbet.    
+2. Välj **När senast stoppade** > klicka på **Start**. Observera att alternativet "När senast stoppad" bara visas om du tidigare körde jobbet och har fått en del utdata genererade. Jobbet startas om baserat på det senaste utdatavärdets tid.
    ![Starta Stream Analytics-jobbet](media/stream-analytics-login-credentials-inputs-outputs/start-stream-analytics-job.png)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -85,4 +85,4 @@ Du behöver ansluta till SQL-databasen för att uppdatera autentiseringsuppgifte
 * [Komma igång med Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referens för Azure Stream Analytics Management REST-API:et](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: rohink
 ms.openlocfilehash: 2aee4282fe6a66151ea39018f0d6c0db51f2c027
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939141"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Lägga till, inaktivera, aktivera eller ta bort slutpunkter
@@ -52,7 +52,7 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar**. 
-4. Klicka på den slut punkt som du vill inaktivera.
+4. Klicka på den slutpunkt som du vill inaktivera.
 5. På bladet **Slutpunkt** ändrar du statusen för slutpunkten till **Inaktiverad** och sedan klickar du på **Spara**.
 6. Klienter fortsätter att skicka trafik till slutpunkten under hela livstiden (TTL). Du kan ändra TTL-värdet från konfigurationssidan för Traffic Manager-profilen.
 
@@ -61,7 +61,7 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar**. 
-4. Klicka på den slut punkt som du vill aktivera.
+4. Klicka på den slutpunkt som du vill aktivera.
 5. På bladet **Slutpunkt** ändrar du statusen för slutpunkten till **Aktiverad** och sedan klickar du på **Spara**.
 6. Klienter fortsätter att skicka trafik till slutpunkten under hela livstiden (TTL). Du kan ändra TTL-värdet från konfigurationssidan för Traffic Manager-profilen.
 
@@ -70,15 +70,15 @@ Du kan också inaktivera enskilda slutpunkter som ingår i en Traffic Manager-pr
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 2. Leta efter namnet på **Traffic Manager-profilen** som du vill modifiera och klicka sedan på Traffic Manager-profilen i resultaten som visas.
 3. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar**. 
-4. Klicka på den slut punkt som du vill ta bort.
-5. Klicka på **ta bort** i **slut punkts** bladet
+4. Klicka på den slutpunkt som du vill ta bort.
+5. Klicka på **Ta bort** i **slutpunktsbladet**
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hantera Traffic Manager-profiler](traffic-manager-manage-profiles.md)
 * [Konfigurera routningsmetoder](traffic-manager-configure-routing-method.md)
-* [Felsök degraderat tillstånd i Traffic Manager](traffic-manager-troubleshooting-degraded.md)
+* [Felsöka degraderat Traffic Manager-tillstånd](traffic-manager-troubleshooting-degraded.md)
 * [Prestandaöverväganden för Traffic Manager](traffic-manager-performance-considerations.md)
-* [Åtgärder för Traffic Manager (REST API-referens)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
+* [Åtgärder i Traffic Manager (REST-API-referens)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
 

@@ -1,7 +1,7 @@
 ---
-title: Skapa DNS-zoner och post uppsättningar med hjälp av .NET SDK
+title: Skapa DNS-zoner och postuppsättningar med .NET SDK
 titleSuffix: Azure DNS
-description: I den här utbildnings vägen kommer du igång med att skapa DNS-zoner och post uppsättningar i Azure DNS med hjälp av .NET SDK.
+description: I den här utbildningssökvägen kommer du igång med att skapa DNS-zoner och postuppsättningar i Azure DNS med hjälp av .NET SDK.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -15,42 +15,42 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.openlocfilehash: c497209e456ff838786edaa19e46ebc5c1858d5f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938867"
 ---
-# <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Skapa DNS-zoner och post uppsättningar med hjälp av .NET SDK
+# <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Skapa DNS-zoner och postuppsättningar med .NET SDK
 
-Du kan automatisera åtgärder för att skapa, ta bort eller uppdatera DNS-zoner, post uppsättningar och poster med hjälp av DNS SDK med .NET DNS-hanterings biblioteket. Det finns ett fullständigt Visual Studio-projekt [här.](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
+Du kan automatisera åtgärder för att skapa, ta bort eller uppdatera DNS-zoner, postuppsättningar och poster med hjälp av DNS SDK med .NET DNS Management-biblioteket. Ett fullständigt Visual Studio-projekt finns [här.](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
 
-## <a name="create-a-service-principal-account"></a>Skapa ett konto för tjänstens huvud namn
+## <a name="create-a-service-principal-account"></a>Skapa ett huvudkonto för tjänsten
 
-Normalt beviljas program mässig åtkomst till Azure-resurser via ett dedikerat konto i stället för dina egna användarautentiseringsuppgifter. Dessa dedikerade konton kallas för tjänstens huvud konto. Om du vill använda det Azure DNS SDK-exempelprojektet måste du först skapa ett tjänst objekts konto och tilldela det rätt behörighet.
+Vanligtvis beviljas programmatisk åtkomst till Azure-resurser via ett dedikerat konto i stället för dina egna användaruppgifter. Dessa dedikerade konton kallas "tjänstens huvudnamn"-konton. Om du vill använda exempelprojektet Azure DNS SDK måste du först skapa ett huvudkonto för tjänsten och tilldela det rätt behörigheter.
 
-1. Följ [de här anvisningarna](../active-directory/develop/howto-authenticate-service-principal-powershell.md) för att skapa ett tjänst objekts konto (Azure DNS SDK-exempelprojektet antar lösenordsbaserad autentisering).
-2. Skapa en resurs grupp ([så här](../azure-resource-manager/templates/deploy-portal.md)).
-3. Använd Azure RBAC för att ge tjänstens huvud konto behörighet till resurs gruppen ([så här](../role-based-access-control/role-assignments-portal.md)).
-4. Om du använder Azure DNS SDK-exempelprojektet redigerar du filen ' program. cs ' enligt följande:
+1. Följ [dessa instruktioner](../active-directory/develop/howto-authenticate-service-principal-powershell.md) för att skapa ett huvudkonto för tjänsten (azure DNS SDK-exempelprojektet förutsätter lösenordsbaserad autentisering.)
+2. Skapa en resursgrupp ([så här gör du](../azure-resource-manager/templates/deploy-portal.md)).
+3. Använd Azure RBAC för att bevilja tjänstens huvudkonto DNS Zone Contributor-behörigheter till resursgruppen ([så här](../role-based-access-control/role-assignments-portal.md)gör du .)
+4. Om du använder exempelprojektet Azure DNS SDK redigerar du filen program.cs enligt följande:
 
-   * Infoga rätt värden för `tenantId`, `clientId` (även kallat konto-ID), `secret` (konto lösen ord för tjänstens huvud namn) och `subscriptionId` som det används i steg 1.
-   * Ange det resurs grupps namn som valdes i steg 2.
-   * Ange ett valfritt namn för DNS-zonen.
+   * Infoga rätt värden `tenantId`för `clientId` , (kallas även `secret` konto-ID), (tjänstens huvudkontolösenord) och `subscriptionId` som används i steg 1.
+   * Ange det resursgruppsnamn som valts i steg 2.
+   * Ange ett DNS-zonnamn som du väljer.
 
-## <a name="nuget-packages-and-namespace-declarations"></a>NuGet-paket och namespace-deklarationer
+## <a name="nuget-packages-and-namespace-declarations"></a>NuGet-paket och namnområdesdeklarationer
 
 Om du vill använda Azure DNS .NET SDK måste du installera **Azure DNS Management Library** NuGet-paketet och andra nödvändiga Azure-paket.
 
-1. Öppna ett projekt eller nytt projekt i **Visual Studio**.
-2. Gå till **verktyg** **>** **NuGet Package Manager** **>** **Hantera NuGet-paket för lösning.** ...
-3. Klicka på **Bläddra**, aktivera kryss rutan **Inkludera för hands version** och skriv **Microsoft. Azure. Management. DNS** i sökrutan.
-4. Välj paketet och klicka på **Installera** för att lägga till det i Visual Studio-projektet.
-5. Upprepa proceduren ovan för att även installera följande paket: **Microsoft. rest. ClientRuntime. Azure. Authentication** och **Microsoft. Azure. Management. ResourceManager**.
+1. Öppna ett projekt eller ett nytt projekt i **Visual Studio.**
+2. Gå till **Tools** **>** **NuGet Package Manager** **>** **Hantera NuGet Paket för lösning...**.
+3. Klicka på **Bläddra**, aktivera kryssrutan **Inkludera förhandsversion** och skriv **Microsoft.Azure.Management.Dns** i sökrutan.
+4. Markera paketet och klicka på **Installera** om du vill lägga till det i Visual Studio-projektet.
+5. Upprepa processen ovan för att även installera följande paket: **Microsoft.Rest.ClientRuntime.Azure.Authentication** och **Microsoft.Azure.Management.ResourceManager**.
 
 ## <a name="add-namespace-declarations"></a>Lägga till namnrymdsdeklarationer
 
-Lägg till följande deklarationer för namn områden
+Lägga till följande namnområdesdeklarationer
 
 ```cs
 using Microsoft.Rest.Azure.Authentication;
@@ -58,9 +58,9 @@ using Microsoft.Azure.Management.Dns;
 using Microsoft.Azure.Management.Dns.Models;
 ```
 
-## <a name="initialize-the-dns-management-client"></a>Initiera DNS-hanterings klienten
+## <a name="initialize-the-dns-management-client"></a>Initiera DNS-hanteringsklienten
 
-`DnsManagementClient` innehåller de metoder och egenskaper som krävs för att hantera DNS-zoner och post uppsättningar.  Följande kod loggar in på tjänstens huvud konto och skapar ett `DnsManagementClient`-objekt.
+Innehåller `DnsManagementClient` de metoder och egenskaper som krävs för att hantera DNS-zoner och postuppsättningar.  Följande kod loggar in på tjänstens huvudkonto och skapar ett `DnsManagementClient` objekt.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -71,14 +71,14 @@ dnsClient.SubscriptionId = subscriptionId;
 
 ## <a name="create-or-update-a-dns-zone"></a>Skapa eller uppdatera en DNS-zon
 
-Om du vill skapa en DNS-zon skapas först ett "Zone"-objekt som innehåller parametrarna för DNS-zonen. Eftersom DNS-zoner inte är länkade till en speciell region anges platsen till ' Global '. I det här exemplet läggs även en [Azure Resource Manager-tagg](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) till i zonen.
+Om du vill skapa en DNS-zon skapas först ett "Zone"-objekt för att innehålla DNS-zonparametrarna. Eftersom DNS-zoner inte är länkade till en viss region är platsen inställd på "global". I det här exemplet läggs även en [Azure Resource Manager-tagg](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) till i zonen.
 
-Om du faktiskt vill skapa eller uppdatera zonen i Azure DNS skickas det zon objekt som innehåller zon parametrarna till `DnsManagementClient.Zones.CreateOrUpdateAsyc`-metoden.
+Om du faktiskt vill skapa eller uppdatera zonen i Azure DNS `DnsManagementClient.Zones.CreateOrUpdateAsyc` skickas zonobjektet som innehåller zonparametrarna till metoden.
 
 > [!NOTE]
-> DnsManagementClient stöder tre arbets lägen: synkron (' CreateOrUpdate '), asynkron (' CreateOrUpdateAsync ') eller asynkron med åtkomst till HTTP-svaret (' CreateOrUpdateWithHttpMessagesAsync ').  Du kan välja något av dessa lägen, beroende på dina program behov.
+> DnsManagementClient stöder tre driftslägen: synkron ("CreateOrUpdate"),asynkron ("CreateOrUpdateAsync") eller asynkron med åtkomst till HTTP-svaret ("CreateOrUpdateWithHttpMessagesAsync").  Du kan välja något av dessa lägen, beroende på ditt programbehov.
 
-Azure DNS stöder optimistisk samtidighet, som kallas [ETags](dns-getstarted-create-dnszone.md). I det här exemplet anger du "*" för rubriken "If-None-Match" och anger Azure DNS att skapa en DNS-zon om det inte redan finns en.  Anropet Miss lyckas om det redan finns en zon med det här namnet i den aktuella resurs gruppen.
+Azure DNS stöder optimistisk samtidighet, som kallas [Etags](dns-getstarted-create-dnszone.md). I det här exemplet anger du "*" för huvudet "If-None-Match" säger till Azure DNS att skapa en DNS-zon om det inte redan finns någon.  Anropet misslyckas om det redan finns en zon med förnamnet i den angivna resursgruppen.
 
 ```cs
 // Create zone parameters
@@ -95,13 +95,13 @@ dnsZoneParams.Tags.Add("dept", "finance");
 var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneName, dnsZoneParams, null, "*");
 ```
 
-## <a name="create-dns-record-sets-and-records"></a>Skapa DNS-postuppsättningar och-poster
+## <a name="create-dns-record-sets-and-records"></a>Skapa DNS-postuppsättningar och poster
 
-DNS-poster hanteras som en post uppsättning. En post uppsättning är en uppsättning poster med samma namn och post typ inom en zon.  Post uppsättningens namn är i förhållande till zon namnet, inte det fullständigt kvalificerade DNS-namnet.
+DNS-poster hanteras som en postuppsättning. En postuppsättning är en uppsättning poster med samma namn och posttyp inom en zon.  Postuppsättningsnamnet är relativt till zonnamnet, inte det fullständigt kvalificerade DNS-namnet.
 
-Om du vill skapa eller uppdatera en post uppsättning skapas ett "RecordSet"-parameter objekt som skickas till `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. Precis som med DNS-zoner finns det tre drifts lägen: synkron (' CreateOrUpdate '), asynkron (' CreateOrUpdateAsync ') eller asynkron med åtkomst till HTTP-svaret (' CreateOrUpdateWithHttpMessagesAsync ').
+Om du vill skapa eller uppdatera en postuppsättning skapas ett `DnsManagementClient.RecordSets.CreateOrUpdateAsync`parameterobjekt för "RecordSet" och skickas till . Precis som med DNS-zoner finns det tre driftslägen: synkron ("CreateOrUpdate"),asynkron ("CreateOrUpdateAsync") eller asynkron med åtkomst till HTTP-svaret ("CreateOrUpdateWithHttpMessagesAsync").
 
-Precis som med DNS-zoner inkluderar åtgärder på post uppsättningar stöd för optimistisk samtidighet.  I det här exemplet, eftersom ingen "If-Match" eller "If-None-Match" anges, skapas alltid post uppsättningen.  Det här anropet skriver över alla befintliga post uppsättningar med samma namn och post typ i den här DNS-zonen.
+Precis som med DNS-zoner innehåller åtgärder på postuppsättningar stöd för optimistisk samtidighet.  I det här exemplet, eftersom varken "If-Match" eller "If-None-Match" anges, skapas postuppsättningen alltid.  Det här anropet skriver över alla befintliga postuppsättningar med samma namn och posttyp i den här DNS-zonen.
 
 ```cs
 // Create record set parameters
@@ -121,17 +121,17 @@ recordSetParams.Metadata.Add("user", "Mary");
 var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSetParams);
 ```
 
-## <a name="get-zones-and-record-sets"></a>Hämta zoner och post uppsättningar
+## <a name="get-zones-and-record-sets"></a>Hämta zoner och postuppsättningar
 
-Metoderna `DnsManagementClient.Zones.Get` och `DnsManagementClient.RecordSets.Get` hämtar enskilda zoner och post uppsättningar. Post uppsättningar identifieras av deras typ, namn och zon och resurs grupp de finns i. Zoner identifieras med deras namn och den resurs grupp de finns i.
+`DnsManagementClient.Zones.Get` Metoderna `DnsManagementClient.RecordSets.Get` och hämtar enskilda zoner respektive postuppsättningar. RecordSets identifieras efter typ, namn och zon och resursgrupp som de finns i. Zoner identifieras med sitt namn och den resursgrupp de finns i.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
 ```
 
-## <a name="update-an-existing-record-set"></a>Uppdatera en befintlig post uppsättning
+## <a name="update-an-existing-record-set"></a>Uppdatera en befintlig postuppsättning
 
-Om du vill uppdatera en befintlig DNS-postuppsättning måste du först hämta post uppsättningen och sedan uppdatera post uppsättningens innehåll och sedan skicka ändringen.  I det här exemplet anger vi "etag" från den hämtade post uppsättningen i parametern "If-Match". Anropet Miss lyckas om en samtidig åtgärd har ändrat post uppsättningen under tiden.
+Om du vill uppdatera en befintlig DNS-postuppsättning hämtar du först postuppsättningen och uppdaterar sedan postuppsättningens innehåll och skickar sedan ändringen.  I det här exemplet anger vi "Etag" från den hämtade posten som anges i parametern "If-Match". Anropet misslyckas om en samtidig åtgärd har ändrat postuppsättningen under tiden.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
@@ -144,11 +144,11 @@ recordSet.ARecords.Add(new ARecord("5.6.7.8"));
 recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSet, recordSet.Etag);
 ```
 
-## <a name="list-zones-and-record-sets"></a>Lista zoner och post uppsättningar
+## <a name="list-zones-and-record-sets"></a>Listzoner och postuppsättningar
 
-Om du vill visa en lista över zoner använder du metoderna *DnsManagementClient. Zones. list...* som stöd för att visa alla zoner i en specifik resurs grupp eller alla zoner i en specifik Azure-prenumeration (mellan olika resurs grupper.) Om du vill visa post uppsättningar använder du *DnsManagementClient. recordsets. list...* -metoder som stöder antingen en lista över alla post uppsättningar i en specifik zon eller endast de post uppsättningar av en specifik typ.
+Om du vill visa zoner använder du metoderna *DnsManagementClient.Zones.List...* som stöder listningen antingen alla zoner i en viss resursgrupp eller alla zoner i en viss Azure-prenumeration (över resursgrupper.) Om du vill visa postuppsättningar använder du metoder för *DnsManagementClient.RecordSets.List...* som stöder antingen en lista över alla postuppsättningar i en viss zon eller endast de postuppsättningar av en viss typ.
 
-Observera när du visar en lista över zoner och post uppsättningar som kan ha sid brytningar.  I följande exempel visas hur du itererar igenom resultat sidorna. (En artificiellt liten sid storlek på "2" används för att framtvinga växling. i praktiken ska parametern utelämnas och standard sid storleken används.)
+Observera att när du listar zoner och postuppsättningar kan resultaten sidnumreras.  I följande exempel visas hur du itererar genom resultatsidorna. (En artificiellt liten sidstorlek på "2" används för att tvinga fram personsökning, i praktiken bör den här parametern utelämnas och standardsidans storlek användas.)
 
 ```cs
 // Note: in this demo, we'll use a very small page size (2 record sets) to demonstrate paging
@@ -166,4 +166,4 @@ while (page.NextPageLink != null)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hämta [exempel projektet Azure DNS .NET SDK](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), som innehåller ytterligare exempel på hur du använder Azure DNS .NET SDK, inklusive exempel för andra typer av DNS-poster.
+Hämta [exempelprojektet Azure DNS .NET SDK](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), som innehåller ytterligare exempel på hur du använder Azure DNS .NET SDK, inklusive exempel för andra DNS-posttyper.

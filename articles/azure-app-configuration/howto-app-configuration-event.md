@@ -1,6 +1,6 @@
 ---
-title: Skicka händelser till en webb slut punkt med hjälp av Azure App konfiguration
-description: Lär dig att använda Azure App konfigurations händelse prenumerationer för att skicka ändrings händelser för nyckel värden till en webb slut punkt
+title: Skicka händelser till en webbslutpunkt med Azure App-konfiguration
+description: Lär dig att använda Azure App Configuration-händelseprenumerationer för att skicka nyckelvärdesändringar till en webbslutpunkt
 services: azure-app-configuration
 author: lisaguthrie
 ms.assetid: ''
@@ -10,19 +10,19 @@ ms.topic: how-to
 ms.date: 02/25/2020
 ms.author: lcozzens
 ms.openlocfilehash: da64f22981cc33772783093cfe75daa3eac5cef1
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672142"
 ---
-# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Dirigera Azure App konfigurations händelser till en webb slut punkt med Azure CLI
+# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Dirigera Azure App-konfigurationshändelser till en webbslutpunkt med Azure CLI
 
-I den här artikeln får du lära dig hur du konfigurerar Azure App konfigurations händelse prenumerationer för att skicka ändrings händelser för nyckel värden till en webb slut punkt. Azure App konfigurations användare kan prenumerera på händelser som genereras när nyckel värden ändras. Dessa händelser kan utlösa Webhooks, Azure Functions, Azure Storage köer eller andra händelse hanterare som stöds av Azure Event Grid. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
+I den här artikeln får du lära dig hur du konfigurerar Azure App Configuration-händelseprenumerationer för att skicka nyckelvärdesändringar till en webbslutpunkt. Azure App Configuration-användare kan prenumerera på händelser som skickas ut när nyckelvärden ändras. Dessa händelser kan utlösa webbkrokar, Azure-funktioner, Azure Storage-köer eller någon annan händelsehanterare som stöds av Azure Event Grid. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/). Du kan också använda Azure Cloud Shell.
+- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/). Du kan också använda Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -36,15 +36,15 @@ Event Grid-ämnen är Azure-resurser och måste placeras i en Azure-resursgrupp.
 
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). 
 
-I följande exempel skapas en resurs grupp med namnet `<resource_group_name>` på platsen för *västkusten* .  Ersätt `<resource_group_name>` med ett unikt namn för din resursgrupp.
+I följande exempel skapas `<resource_group_name>` en resursgrupp med namnet *westus-platsen.*  Ersätt `<resource_group_name>` med ett unikt namn för din resursgrupp.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westus
 ```
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
+## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
-Ersätt `<appconfig_name>` med ett unikt namn för konfigurations lagret och `<resource_group_name>` med resurs gruppen som du skapade tidigare. Namnet måste vara unikt eftersom det används som ett DNS-namn.
+Ersätt `<appconfig_name>` med ett unikt namn för `<resource_group_name>` konfigurationsarkivet och med resursgruppen som du skapade tidigare. Namnet måste vara unikt eftersom det används som ett DNS-namn.
 
 ```azurecli-interactive
 az appconfig create \
@@ -75,9 +75,9 @@ Webbplatsen bör visas utan några meddelanden.
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-app-configuration-store"></a>Prenumerera på appens konfigurations Arkiv
+## <a name="subscribe-to-your-app-configuration-store"></a>Prenumerera på din appkonfigurationsbutik
 
-Du prenumererar på ett ämne därför att du vill ange för Event Grid vilka händelser du vill följa och vart du vill skicka händelserna. I följande exempel prenumererar du på den app-konfiguration som du skapade och skickar URL: en från din webbapp som slut punkt för händelse avisering. Ersätt `<event_subscription_name>` med ett namn för din händelseprenumeration. För `<resource_group_name>` och `<appconfig_name>` använder du det värde du skapade tidigare.
+Du prenumererar på ett ämne därför att du vill ange för Event Grid vilka händelser du vill följa och vart du vill skicka händelserna. I följande exempel prenumererar du på appkonfigurationen som du skapade och skickar url:en från webbappen som slutpunkt för händelseavisering. Ersätt `<event_subscription_name>` med ett namn för din händelseprenumeration. För `<resource_group_name>` och `<appconfig_name>` använder du det värde du skapade tidigare.
 
 Slutpunkten för ditt webbprogram måste innehålla suffixet `/api/updates/`.
 
@@ -95,9 +95,9 @@ Visa ditt webbprogram igen och observera att en händelse för verifieringen av 
 
 ![Visa prenumerationshändelse](./media/quickstarts/event-grid/view-subscription-event.png)
 
-## <a name="trigger-an-app-configuration-event"></a>Utlös en konfigurations händelse för appen
+## <a name="trigger-an-app-configuration-event"></a>Utlösa en appkonfigurationshändelse
 
-Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Skapa ett nyckel värde med hjälp av `<appconfig_name>` från tidigare.
+Nu ska vi utlösa en händelse och se hur Event Grid distribuerar meddelandet till slutpunkten. Skapa ett nyckelvärde `<appconfig_name>` med hjälp av från tidigare.
 
 ```azurecli-interactive
 az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes
@@ -122,7 +122,7 @@ Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du planerar att fortsätta arbeta med den här program konfigurationen och händelse prenumerationen ska du inte rensa resurserna som du skapade i den här artikeln. Om du inte planerar att fortsätta kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här artikeln.
+Om du planerar att fortsätta arbeta med den här appkonfigurationen och händelseprenumerationen ska du inte rensa de resurser som skapas i den här artikeln. Om du inte planerar att fortsätta kan du använda kommandona nedan för att ta bort alla resurser som har skapats i den här artikeln.
 
 Ersätt `<resource_group_name>` med resursgruppen du skapade ovan.
 
@@ -132,8 +132,8 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet hur du skapar ämnen och händelse prenumerationer kan du läsa mer om nyckel värdes händelser och vilka Event Grid kan hjälpa dig:
+Nu när du vet hur du skapar ämnen och evenemangsprenumerationer kan du läsa mer om nyckelvärdeshändelser och vad Event Grid kan hjälpa dig att göra:
 
-- [Reagerar på nyckel värdes händelser](concept-app-configuration-event.md)
+- [Reagera på nyckelvärdehändelser](concept-app-configuration-event.md)
 - [Om Event Grid](../event-grid/overview.md)
-- [Azure Event Grid hanterare](../event-grid/event-handlers.md)
+- [Azure Event Grid-hanterare](../event-grid/event-handlers.md)

@@ -1,7 +1,7 @@
 ---
-title: Hantera SSO-och token-anpassning med anpassade principer
+title: Hantera SSO- och tokenanpassning med hjälp av anpassade principer
 titleSuffix: Azure AD B2C
-description: Lär dig mer om att hantera SSO-och token-anpassning med anpassade principer i Azure Active Directory B2C.
+description: Lär dig mer om hur du hanterar SSO- och tokenanpassning med hjälp av anpassade principer i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,23 +12,23 @@ ms.date: 10/09/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff9f57af92c50c0df6f628113bd9490ca83e1310
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189301"
 ---
-# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Hantera SSO-och token-anpassning med anpassade principer i Azure Active Directory B2C
+# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Hantera SSO- och tokenanpassning med hjälp av anpassade principer i Azure Active Directory B2C
 
-Den här artikeln innehåller information om hur du kan hantera din token, session och konfigurationer med enkel inloggning (SSO) med [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
+Den här artikeln innehåller information om hur du kan hantera dina token-, sessions- och enkel inloggningskonfigurationer (SSO) med hjälp av [anpassade principer](custom-policy-overview.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="token-lifetimes-and-claims-configuration"></a>Livstid för token och anspråks konfiguration
+## <a name="token-lifetimes-and-claims-configuration"></a>Token livstidar och anspråk konfiguration
 
-Om du vill ändra inställningarna för din token för din token lägger du till ett [ClaimsProviders](claimsproviders.md) -element i den förlitande part filen i den princip som du vill påverka.  **ClaimsProviders** -elementet är underordnat [TrustFrameworkPolicy](trustframeworkpolicy.md) -elementet.
+Om du vill ändra inställningarna för tokenlivstiderna lägger du till ett [ClaimsProviders-element](claimsproviders.md) i den förlitande partfilen för den princip som du vill påverka.  Elementet **ClaimsProviders** är underordnadt elementet [TrustFrameworkPolicy.](trustframeworkpolicy.md)
 
-Infoga elementet ClaimsProviders mellan elementet BasePolicy och RelyingParty-elementet i den förlitande part filen.
+Infoga elementet ClaimsProviders mellan Elementet BasePolicy och Elementet RelyingParty i den förlitande part-filen.
 
-I måste du ange den information som påverkar dina livstider för token. XML-filen ser ut så här:
+Inuti måste du lägga den information som påverkar din token livstid. XML-koden ser ut så här:
 
 ```XML
 <ClaimsProviders>
@@ -52,14 +52,14 @@ I måste du ange den information som påverkar dina livstider för token. XML-fi
 
 Följande värden anges i föregående exempel:
 
-- **Livstid** för åtkomsttoken – åtkomsttoken för åtkomsttoken anges med **token_lifetime_secs** metadata-objekt. Standardvärdet är 3600 sekunder (60 minuter).
-- **ID-token livs längd** -värdet för ID-token anges med **id_token_lifetime_secs** metadataobjektet. Standardvärdet är 3600 sekunder (60 minuter).
-- **Giltighets tid** för uppdateringstoken – värdet för uppdateringstoken anges med **refresh_token_lifetime_secs** metadataobjektet. Standardvärdet är 1209600 sekunder (14 dagar).
-- **Uppdatera token glidande fönster livs längd** – om du vill ange en varaktighet för en glidande period till din uppdateringstoken anger du värdet för **rolling_refresh_token_lifetime_secs** metadataelement. Standardvärdet är 7776000 (90 dagar). Om du inte vill framtvinga en glidande fönster livs längd ersätter du objektet med `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
-- **Issuer-anspråk (ISS)** -anspråket Issuer (ISS) anges med **IssuanceClaimPattern** metadata-objekt. Tillämpliga värden är `AuthorityAndTenantGuid` och `AuthorityWithTfp`.
-- **Inställning av anspråk som representerar princip-ID** – alternativen för att ange det här värdet är `TFP` (förtroende Ramverks princip) och `ACR` (referens för autentisering). `TFP` är det rekommenderade värdet. Ange **AuthenticationContextReferenceClaimPattern** med värdet för `None`.
+- **Åtkomsttokens livstid -** Livstidsvärdet för åtkomsttoken anges med **token_lifetime_secs** metadataobjekt. Standardvärdet är 3600 sekunder (60 minuter).
+- **ID token lifetime** - ID-tokenlivsvärdet anges med **id_token_lifetime_secs** metadataobjektet. Standardvärdet är 3600 sekunder (60 minuter).
+- **Uppdatera tokenlivstid** - Livstidsvärdet för uppdateringstoken anges med **refresh_token_lifetime_secs** metadataobjektet. Standardvärdet är 1209600 sekunder (14 dagar).
+- **Uppdatera livslängden** för skjutfönstret för token – Om du vill ställa in en livslängd för ett glidande fönster till din uppdateringstoken anger du värdet **för rolling_refresh_token_lifetime_secs** metadataobjektet. Standardvärdet är 7776000 (90 dagar). Om du inte vill framtvinga en glidande `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`fönsterlivslängd ersätter du objektet med .
+- **Emittent (iss) anspråk** - Emittenten (iss) anspråk ställs in med **IssuanceClaimPattern** metadata objekt. De tillämpliga `AuthorityAndTenantGuid` värdena är och `AuthorityWithTfp`.
+- **Ange anspråk som representerar princip-ID** `TFP` - Alternativen för `ACR` att ange det här värdet är (förtroenderamsprincip) och (autentiseringskontextreferens). `TFP`är det rekommenderade värdet. Ange **AuthenticationContextReferenceClaimPattern** med `None`värdet .
 
-    Lägg till följande element i **ClaimsSchema** -elementet:
+    Lägg till det här elementet i elementet **ClaimsSchema:**
 
     ```XML
     <ClaimType Id="trustFrameworkPolicy">
@@ -68,29 +68,29 @@ Följande värden anges i föregående exempel:
     </ClaimType>
     ```
 
-    Lägg till följande element i **OutputClaims** -elementet:
+    Lägg till det här elementet i **elementet OutputClaims:**
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
     ```
 
-    Ta bort **AuthenticationContextReferenceClaimPattern** -objektet för ACR.
+    För ACR tar du bort objektet **AuthenticationContextReferenceClaimPattern.**
 
-- **Subject (sub)-anspråk** – det här alternativet är standardvärdet ObjectID, om du vill växla den här inställningen till `Not Supported`ersätter du den här raden:
+- **Ämnesanspråk (under) anspråk** - Det här alternativet är objekt-ID som standard, om du vill växla den här inställningen till `Not Supported`ersätter du den här raden:
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
     ```
 
-    med den här raden:
+    med denna rad:
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
 
-## <a name="session-behavior-and-sso"></a>Sessionens beteende och SSO
+## <a name="session-behavior-and-sso"></a>Sessionsbeteende och SSO
 
-Om du vill ändra sessionens beteende och SSO-konfigurationer lägger du till ett **UserJourneyBehaviors** -element i [RelyingParty](relyingparty.md) -elementet.  **UserJourneyBehaviors** -elementet måste omedelbart följa **DefaultUserJourney**. Inuti ditt **UserJourneyBehavors** -element bör se ut som i det här exemplet:
+Om du vill ändra sessionsbeteendet och SSO-konfigurationerna lägger du till ett **UserJourneyBehaviors-element** i elementet [RelyingParty.](relyingparty.md)  Elementet **UserJourneyBehaviors** måste omedelbart följa **DefaultUserJourney**. Insidan av ditt **UserJourneyBehavors-element** ska se ut så här:
 
 ```XML
 <UserJourneyBehaviors>
@@ -100,8 +100,8 @@ Om du vill ändra sessionens beteende och SSO-konfigurationer lägger du till et
 </UserJourneyBehaviors>
 ```
 
-Följande värden har kon figurer ATS i föregående exempel:
+Följande värden konfigureras i föregående exempel:
 
-- **Enkel inloggning (SSO)** – enkel inloggning har kon figurer ATS med **SingleSignOn**. Tillämpliga värden är `Tenant`, `Application`, `Policy`och `Suppressed`.
-- Timeout för webbapp – webbappens sessions **-** timeout anges med **SessionExpiryType** -elementet. Tillämpliga värden är `Absolute` och `Rolling`.
-- **Web App-sessionens livs längd** – webbappens sessions livs längd anges med **SessionExpiryInSeconds** -elementet. Standardvärdet är 86400 sekunder (1440 minuter).
+- **Enkel inloggning (SSO)** - Enkel inloggning är konfigurerad med **SingleSignOn**. De tillämpliga `Tenant`värdena `Policy`är `Suppressed`, `Application`, och .
+- **Timeout för webbappsession** – Timeout för webbappsessionen anges med elementet **SessionExpiryType.** De tillämpliga `Absolute` värdena är och `Rolling`.
+- **Livstid för webbappsession** – Livstiden för webbappsessionen ställs in med elementet **SessionExpiryInSeconds.** Standardvärdet är 86400 sekunder (1 440 minuter).

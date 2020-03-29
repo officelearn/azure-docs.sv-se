@@ -1,6 +1,6 @@
 ---
-title: Fel söknings guide – Azure DNS
-description: I den här utbildnings vägen kan du komma igång med att felsöka vanliga problem med Azure DNS
+title: Felsökningsguide - Azure DNS
+description: I den här utbildningssökvägen kan du komma igång med felsökning av vanliga problem med Azure DNS
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 09/20/2019
 ms.author: rohink
 ms.openlocfilehash: b5e1624bf852256f6e8fb0b616258f932c5a8998
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76939030"
 ---
-# <a name="azure-dns-troubleshooting-guide"></a>Azure DNS fel söknings guide
+# <a name="azure-dns-troubleshooting-guide"></a>Felsökningsguide för Azure DNS
 
-Den här artikeln innehåller felsöknings information för vanliga Azure DNS frågor.
+Den här artikeln innehåller felsökningsinformation för vanliga Azure DNS-frågor.
 
-Om de här stegen inte löser problemet kan du också söka efter eller publicera ditt problem i vårt [forum för Community-support på MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Eller så kan du öppna en support förfrågan för Azure.
+Om dessa steg inte löser problemet kan du också söka efter eller publicera ditt problem på vårt [forum för communitysupport på MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Du kan också öppna en Azure-supportbegäran.
 
 
-## <a name="i-cant-create-a-dns-zone"></a>Det går inte att skapa en DNS-zon
+## <a name="i-cant-create-a-dns-zone"></a>Jag kan inte skapa en DNS-zon
 
 Prova ett eller flera av följande steg för att lösa vanliga problem:
 
-1.  Granska Azure DNS gransknings loggar för att fastställa orsaken till problemet.
-2.  Varje DNS-zonnamn måste vara unikt inom sin resursgrupp. Det vill säga att två DNS-zoner med samma namn inte kan dela en resurs grupp. Försök med ett annat zonnamn eller en annan resursgrupp.
+1.  Granska Azure DNS-granskningsloggarna för att fastställa felorsaken.
+2.  Varje DNS-zonnamn måste vara unikt inom sin resursgrupp. Det vill säga två DNS-zoner med samma namn kan inte dela en resursgrupp. Försök med ett annat zonnamn eller en annan resursgrupp.
 3.  Ett felmeddelande om att ”Du har nått eller överskridit maxantalet zoner i prenumerationen {subscription id}” kanske visas. Då kan du antingen använda en annan Azure-prenumeration, ta bort vissa zoner eller kontakta Azure-supporten för att öka prenumerationsgränsen.
-4.  Ett felmeddelande om att ”Zonen {zone name} inte är tillgänglig” kanske visas. Detta fel innebär att Azure DNS inte kunde allokera namnservrar för den här DNS-zonen. Försök med ett annat zonnamn. Eller, om du är domän namns ägare kan du kontakta Azure-supporten för att allokera namnservrar åt dig.
+4.  Ett felmeddelande om att ”Zonen {zone name} inte är tillgänglig” kanske visas. Detta fel innebär att Azure DNS inte kunde allokera namnservrar för den här DNS-zonen. Försök med ett annat zonnamn. Eller, om du är domännamnsägare kan du kontakta Azure-supporten för att allokera namnservrar åt dig.
 
 
 ### <a name="recommended-articles"></a>Rekommenderade artiklar
@@ -40,11 +40,11 @@ Prova ett eller flera av följande steg för att lösa vanliga problem:
 
 Prova ett eller flera av följande steg för att lösa vanliga problem:
 
-1.  Granska Azure DNS gransknings loggar för att fastställa orsaken till problemet.
+1.  Granska Azure DNS-granskningsloggarna för att fastställa felorsaken.
 2.  Finns postuppsättningen redan?  Azure DNS hanterar poster med post*uppsättningar*, vilket är en samling av poster med samma namn och av samma typ. Om det redan finns en post med samma namn och typ, redigerar du den befintliga postuppsättningen om du vill lägga till ännu en post.
-3.  Försöker du skapa en post i DNS-basdomänen (zonens ”rot”)? Om så är fallet använder DNS-konventionen tecknet ”@” som postens namn. Observera också att DNS-standarder inte tillåter CNAME-poster i zonens Apex.
+3.  Försöker du skapa en post i DNS-basdomänen (zonens ”rot”)? Om så är fallet använder DNS-konventionen tecknet ”@” som postens namn. Observera också att DNS-standarderna inte tillåter CNAME-poster i zonsponsan.
 4.  Har du en CNAME-konflikt?  DNS-standarderna tillåter inte en CNAME-post med samma namn som en post av någon annan typ. Om du har ett befintligt CNAME kommer du att misslyckas om du försöker skapa en post med samma namn och av en annan typ.  På samma sätt går det inte att skapa ett CNAME om namnet matchar en befintlig post av en annan typ. Lös konflikten genom att ta bort den andra posten eller välja ett annat postnamn.
-5.  Har du nått gränsen för antal postuppsättningar som tillåts i en DNS-zon? Det aktuella antalet postuppsättningar och det maximala antalet postuppsättningar visas i Azure Portal under ”Egenskaper” för zonen. Om du har nått den här gränsen kan du antingen ta bort vissa post uppsättningar eller kontakta Azure-supporten för att öka din post uppsättnings gräns för den här zonen. försök sedan igen. 
+5.  Har du nått gränsen för antal postuppsättningar som tillåts i en DNS-zon? Det aktuella antalet postuppsättningar och det maximala antalet postuppsättningar visas i Azure Portal under ”Egenskaper” för zonen. Om du har nått den här gränsen tar du antingen bort några postuppsättningar eller kontaktar Azure Support för att höja postgränsen för den här zonen och försök sedan igen. 
 
 
 ### <a name="recommended-articles"></a>Rekommenderade artiklar
@@ -91,7 +91,7 @@ Exempel på SRV-postnamn (tjänstnamn ”sip”, protokoll ”tcp”):
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [Azure DNS zoner och poster](dns-zones-records.md)
-* Om du vill börja använda Azure DNS kan du läsa om hur du [skapar en DNS-zon](dns-getstarted-create-dnszone-portal.md) och hur du [skapar DNS-poster](dns-getstarted-create-recordset-portal.md).
-* Om du vill migrera en befintlig DNS-zon, lär du dig att [Importera och exportera en DNS-zonfil](dns-import-export.md).
+* Lär dig mer om [Azure DNS-zoner och -poster](dns-zones-records.md)
+* Börja använda Azure DNS och lära dig hur du [skapar en DNS-zon](dns-getstarted-create-dnszone-portal.md) och [skapar DNS-poster](dns-getstarted-create-recordset-portal.md).
+* Om du vill migrera en befintlig DNS-zon lär du dig hur du [importerar och exporterar en DNS-zonfil](dns-import-export.md).
 

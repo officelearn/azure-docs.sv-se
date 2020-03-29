@@ -1,79 +1,79 @@
 ---
-title: Azure Migrate vanliga frågor och svar
-description: Få svar på vanliga frågor om tjänsten Azure Migrate.
+title: Vanliga frågor och svar om Azure Migrate
+description: Få svar på vanliga frågor om Azure Migrate-tjänsten.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
 ms.openlocfilehash: c85c5c6e11beb0178139dad152f56f420b2ac26f
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78926730"
 ---
-# <a name="azure-migrate-common-questions"></a>Azure Migrate: vanliga frågor
+# <a name="azure-migrate-common-questions"></a>Azure Migrera: Vanliga frågor
 
-I den här artikeln besvaras vanliga frågor om Azure Migrate. Om du har frågor efter att du har läst den här artikeln kan du publicera dem i [Azure Migrate-forumet](https://aka.ms/AzureMigrateForum). Du kan också granska de här artiklarna:
+Den här artikeln besvarar vanliga frågor om Azure Migrate. Om du har frågor när du har läst den här artikeln kan du publicera dem i [Azure Migrate-forumet](https://aka.ms/AzureMigrateForum). Du kan också granska följande artiklar:
 
 - Frågor om [Azure Migrate-enheten](common-questions-appliance.md)
-- Frågor om [identifiering, utvärdering och beroende visualisering](common-questions-discovery-assessment.md)
+- Frågor om [identifiering, bedömning och beroendevisualisering](common-questions-discovery-assessment.md)
 
 ## <a name="what-is-azure-migrate"></a>Vad är Azure Migrate?
 
-Azure Migrate tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och privata och offentliga virtuella moln till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering av ISV-erbjudanden från tredje part. [Läs mer](migrate-services-overview.md).
+Azure Migrate är en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbetsbelastningar och privata och offentliga virtuella moln virtuella datorer till Azure. Hubben tillhandahåller Azure Migrate-verktyg för utvärdering och migrering och ISV-erbjudanden från tredje part. [Läs mer](migrate-services-overview.md).
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Vad kan jag göra med Azure Migrate?
 
-Använd Azure Migrate för att identifiera, utvärdera och migrera lokal infrastruktur, program och data till Azure. Azure Migrate stöder utvärdering och migrering av lokala virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, andra virtualiserade virtuella datorer, databaser, webb program och virtuella skriv bord. 
+Använd Azure Migrate för att identifiera, bedöma och migrera lokal infrastruktur, program och data till Azure. Azure Migrate stöder bedömning och migrering av lokala virtuella datorer med VMware, virtuella datorer med hyper-vm, fysiska servrar, andra virtualiserade virtuella datorer, databaser, webbappar och virtuella skrivbord. 
 
 ## <a name="whats-the-difference-between-azure-migrate-and-azure-site-recovery"></a>Vad är skillnaden mellan Azure Migrate och Azure Site Recovery?
 
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en centraliserad hubb för utvärdering och migrering till Azure. 
 
-[Azure Site Recovery](../site-recovery/site-recovery-overview.md) är en katastrof återställnings lösning. 
+[Azure Site Recovery](../site-recovery/site-recovery-overview.md) är en lösning för haveriberedskap. 
 
-Verktyget Azure Migrate: Migreringsverktyg använder vissa backend-Site Recovery-funktioner för att lyfta och flytta migreringen av vissa lokala datorer.
+Azure Migrate: ServerMigreringsverktyg använder vissa backend-site recovery-funktioner för lift-and-shift-migrering av vissa lokala datorer.
 
-## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Vad är skillnaden mellan Azure Migrate: Server utvärdering och kart verktyg?
+## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Vad är skillnaden mellan Azure Migrate: Server Assessment och MAP Toolkit?
 
-Server utvärdering ger en utvärdering för att hjälpa till med migreringen och utvärdering av arbets belastningar för migrering till Azure. [Verktyget Microsoft Assessment and Planning (kart)](https://www.microsoft.com/download/details.aspx?id=7826) hjälper till med andra uppgifter, inklusive migrerings planering för nyare versioner av Windows-klient-och serveroperativ system, samt spårning av program varu användning. Fortsätt att använda kart verktyget för dessa scenarier.
+Serverutvärdering ger utvärdering för att hjälpa till med migreringsberedskap och utvärdering av arbetsbelastningar för migrering till Azure. [Verktygslådan För Microsoft Assessment and Planning (MAP)](https://www.microsoft.com/download/details.aspx?id=7826) hjälper till med andra uppgifter, inklusive migreringsplanering för nyare versioner av Windows klient- och serveroperativsystem och spårning av programanvändning. I dessa scenarier fortsätter du att använda MAP Toolkit.
 
-## <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>Vad är skillnaden mellan server utvärdering och Site Recovery distributions planeraren?
+## <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>Vad är skillnaden mellan serverutvärdering och site recovery deployment planner?
 
-Server utvärdering är ett verktyg för migrerings planering. Site Recovery Deployment Planner är ett planerings verktyg för haveri beredskap.
+Serverutvärdering är ett migreringsplaneringsverktyg. Site Recovery Deployment Planner är ett planeringsverktyg för katastrofåterställning.
 
 Välj ditt verktyg baserat på vad du vill göra:
 
-- **Planera lokal migrering till Azure**: om du planerar att migrera dina lokala servrar till Azure använder du Server bedömning för migrering. Server utvärderingen bedömer lokala arbets belastningar och ger vägledning och verktyg som hjälper dig att migrera. När migrerings planen är på plats kan du använda verktyg som Azure Migrate: Server migrering för att migrera datorerna till Azure.
-- **Planera haveri beredskap till Azure**: om du planerar att konfigurera haveri beredskap från en lokal plats till Azure med Site Recovery använder du Site Recovery Deployment Planner. Distributions planeraren ger en djup, Site Recovery-bestämd utvärdering av din lokala miljö för katastrof återställning. Det ger rekommendationer relaterade till haveri beredskap, till exempel replikering och redundans.
+- **Planera lokal migrering till Azure:** Om du planerar att migrera dina lokala servrar till Azure använder du Serverutvärdering för migreringsplanering. Serverbedömning bedömer lokala arbetsbelastningar och ger vägledning och verktyg som hjälper dig att migrera. När migreringsplanen är på plats kan du använda verktyg som Azure Migrate: Servermigrering för att migrera datorerna till Azure.
+- **Planera haveriberedskap till Azure:** Om du planerar att konfigurera haveriberedskap från lokalt till Azure med Site Recovery använder du planplaneraren för distribution av platsåterställning. Deployment Planner ger en djup, Site Recovery-specifik bedömning av din lokala miljö i syfte att katastrofåterställning. Den innehåller rekommendationer relaterade till haveriberedskap, till exempel replikering och redundans.
 
-## <a name="how-does-server-migration-work-with-site-recovery"></a>Hur fungerar server migreringen med Site Recovery?
+## <a name="how-does-server-migration-work-with-site-recovery"></a>Hur fungerar migrering av server med platsåterställning?
 
-- Om du använder Azure Migrate: Server-migrering för att utföra en *agent* lös migrering av lokala virtuella VMware-datorer är migreringen inbyggd för Azure Migrate och Site Recovery inte används.
-- Om du använder Azure Migrate: Server migrering för att utföra en *agent-baserad* migrering av virtuella VMware-datorer, eller om du migrerar virtuella Hyper-V-datorer eller fysiska servrar, Azure Migrate: Server migrering använder Azure Site Recovery-replikeringstopologin.
+- Om du använder Azure Migrate: Servermigrering för att utföra en *agentlös* migrering av lokala virtuella datorer med VMware är migreringen infödd till Azure Migrate och Site Recovery används inte.
+- Om du använder Azure Migrate: Servermigrering för att utföra en *agentbaserad* migrering av virtuella datorer med VMware, eller om du migrerar virtuella hyper-V-datorer eller fysiska servrar, använder Azure Migrate: Servermigrering azure site recovery replication-motorn.
 
 ## <a name="which-geographies-are-supported"></a>Vilka geografiska områden stöds?
 
-- **Virtuella VMware-datorer**: granska Azure Migrate som [stöds](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) för virtuella VMware-datorer.
-- **Virtuella Hyper-V-datorer**: granska de Azure Migrate [geografiska diagram som stöds](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v) för virtuella Hyper-v-datorer.
+- **Virtuella datorer med VMware**: Granska azure migrate-programledarna som [stöds](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) för virtuella datorer med VMware.
+- **Virtuella datorer med hyper-V:** Granska azure migrate-geografiska [områden som stöds](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v) för virtuella hyper-virtuella datorer.
 
 ## <a name="how-do-i-get-started"></a>Hur kommer jag igång?
 
-Identifiera det verktyg som du behöver och Lägg sedan till verktyget i ett Azure Migrate-projekt. 
+Identifiera det verktyg du behöver och lägg sedan till verktyget i ett Azure Migrate-projekt. 
 
-Så här lägger du till ett ISV-verktyg eller en driv kraft:
+Så här lägger du till ett ISV-verktyg eller Movere:
 
-1. Kom igång genom att skaffa en licens eller registrera dig för en kostnads fri utvärderings version, i enlighet med verktygs principen. Licensiering för verktyg är i enlighet med ISV-eller-verktygets licensierings modell.
-2. I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Följ anvisningarna och dokumentationen för verktyget för att ansluta verktyget till Azure Migrate.
+1. Kom igång genom att skaffa en licens eller registrera dig för en kostnadsfri utvärderingsversion i enlighet med verktygspolicyn. Licensiering av verktyg är i enlighet med ISV- eller verktygslicensieringsmodellen.
+2. I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Följ verktygsinstruktionerna och dokumentationen för att ansluta verktyget till Azure Migrate.
 
-Du kan spåra migreringens resa inifrån Azure Migrate-projektet, i Azure och i andra verktyg.
+Du kan spåra din migreringsresa inifrån Azure Migrate-projektet, i Azure och i andra verktyg.
 
-## <a name="how-do-i-delete-a-project"></a>Hur gör jag för att ta bort ett projekt?
+## <a name="how-do-i-delete-a-project"></a>Hur tar jag bort ett projekt?
 
-Lär dig hur du [tar bort ett projekt](how-to-delete-project.md). 
+Läs om hur du [tar bort ett projekt](how-to-delete-project.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [Azure Migrate översikt](migrate-services-overview.md).
+Läs [översikten över Azure Migrate](migrate-services-overview.md).

@@ -1,47 +1,47 @@
 ---
-title: Azure Service Fabric CLI – sfctl inställningar telemetri
-description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att konfigurera sfctl telemetri.
+title: Azure Service Fabric CLI- sfctl-inställningar telemetri
+description: Lär dig mer om sfctl, kommandoradsgränssnittet i Azure Service Fabric. Innehåller en lista med kommandon för att konfigurera sfctl telemetri.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 6af5fa944ef399756f9e890ddd77a7f5f32e2bfb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76903027"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
-Konfigurera inställningar för telemetri lokalt till den här instansen av sfctl.
+Konfigurera telemetriinställningar lokalt för den här instansen av sfctl.
 
-Sfctl-telemetri samlar in kommando namn utan parametrar som tillhandahålls eller deras värden, Sfctl-version, OS-typ, python-version, lyckad eller misslyckad av kommandot, fel meddelandet som returneras.
+Sfctl telemetri samlar in kommandonamn utan parametrar som tillhandahålls eller deras värden, sfctl version, OS-typ, python version, framgång eller fel på kommandot, felmeddelandet returneras.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| Ange telemetri | Aktivera eller Inaktivera telemetri. |
+| set-telemetri | Slå på eller stänga av telemetri. |
 
-## <a name="sfctl-settings-telemetry-set-telemetry"></a>sfctl inställningar telemetri set-telemetri
-Aktivera eller Inaktivera telemetri.
+## <a name="sfctl-settings-telemetry-set-telemetry"></a>sfctl-inställningar telemetri set-telemetri
+Slå på eller stänga av telemetri.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| -av | Stäng av telemetri. |
-| --på | Aktivera telemetri. Detta är standardvärdet. |
+| - Av | Stäng av telemetri. |
+| - på | Slå på telemetri. Detta är standardvärdet. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
 ### <a name="examples"></a>Exempel
 
@@ -51,7 +51,7 @@ Stäng av telemetri.
 sfctl settings telemetry set_telemetry --off
 ```
 
-Aktivera telemetri.
+Slå på telemetri.
 
 ```
 sfctl settings telemetry set_telemetry --on
@@ -59,5 +59,5 @@ sfctl settings telemetry set_telemetry --on
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Ställ in](service-fabric-cli.md) Service Fabric CLI.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempelskripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

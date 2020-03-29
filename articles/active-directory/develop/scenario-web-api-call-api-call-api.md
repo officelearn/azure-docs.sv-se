@@ -1,6 +1,6 @@
 ---
-title: 'Webb-API som anropar webb-API: er – Microsoft Identity Platform | Azure'
-description: 'Lär dig hur du skapar ett webb-API som anropar webb-API: er.'
+title: 'Webb-API som anropar webb-API: er - Microsoft identity platform | Azure'
+description: Lär dig hur du skapar ett webb-API som anropar webb-API:er.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,23 +15,23 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: d66a08d4e84a3771d6c3fa46b96c975869435452
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76833387"
 ---
-# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Ett webb-API som anropar webb-API: er: anropa ett API
+# <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Ett webb-API som anropar webb-API:er: Anropa ett API
 
-När du har en token kan du anropa ett skyddat webb-API. Du gör detta från kontrollanten för ditt webb-API.
+När du har en token kan du anropa ett skyddat webb-API. Du gör detta från styrenheten för webb-API: et.
 
-## <a name="controller-code"></a>Kod för styrenhet
+## <a name="controller-code"></a>Controller-kod
 
-# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+# <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Följande kod fortsätter med exempel koden som visas i [ett webb-API som anropar webb-API: er: Hämta en token för appen](scenario-web-api-call-api-acquire-token.md). Koden anropas i API-styrenhetens åtgärder. Den anropar ett underordnat API med namnet *ToDoList*.
+Följande kod fortsätter den exempelkod som visas i [ett webb-API som anropar webb-API:er: Hämta en token för appen](scenario-web-api-call-api-acquire-token.md). Koden anropas i åtgärderna för API-styrenheterna. Den anropar ett nedströms-API med namnet *todolist*.
 
-När du har skaffat token ska du använda den som en Bearer-token för att anropa det underordnade API: et.
+När du har skaffat token använder du den som en innehavartoken för att anropa api:et nedströms.
 
 ```csharp
 private async Task GetTodoList(bool isAppStarting)
@@ -59,11 +59,11 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 }
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-Följande kod fortsätter med exempel koden som visas i [ett webb-API som anropar webb-API: er: Hämta en token för appen](scenario-web-api-call-api-acquire-token.md). Koden anropas i API-styrenhetens åtgärder. Den anropar det underordnade API MS-diagrammet.
+Följande kod fortsätter den exempelkod som visas i [ett webb-API som anropar webb-API:er: Hämta en token för appen](scenario-web-api-call-api-acquire-token.md). Koden anropas i åtgärderna för API-styrenheterna. Den anropar API MS Graph nedströms.
 
-När du har skaffat token ska du använda den som en Bearer-token för att anropa det underordnade API: et.
+När du har skaffat token använder du den som en innehavartoken för att anropa api:et nedströms.
 
 ```Java
 private String callMicrosoftGraphMeEndpoint(String accessToken){
@@ -83,12 +83,12 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
-Ett exempel som demonstrerar det här flödet med MSAL python är ännu inte tillgängligt.
+# <a name="python"></a>[Python](#tab/python)
+Ett exempel som visar det här flödet med MSAL Python är ännu inte tillgängligt.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Ett webb-API som anropar webb-API: er: flytta till produktion](scenario-web-api-call-api-production.md)
+> [Ett webb-API som anropar webb-API:er: Flytta till produktion](scenario-web-api-call-api-production.md)

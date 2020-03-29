@@ -1,6 +1,6 @@
 ---
-title: Expandera virtuella hård diskar på en virtuell Linux-dator
-description: Lär dig hur du expanderar virtuella hård diskar på en virtuell Linux-dator med Azure CLI.
+title: Expandera virtuella hårddiskar på en Virtuell Linux-dator
+description: Lär dig hur du expanderar virtuella hårddiskar på en virtuell Linux-dator med Azure CLI.
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: conceptual
@@ -8,36 +8,36 @@ ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 1295c5276f0f342323acf8d86eaaf9f785af3e9f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945189"
 ---
-# <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandera virtuella hård diskar på en virtuell Linux-dator med Azure CLI
+# <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandera virtuella hårddiskar på en virtuell Linux-dator med Azure CLI
 
-Den här artikeln beskriver hur du expanderar hanterade diskar för en virtuell Linux-dator (VM) med Azure CLI. Du kan [lägga till data diskar](add-disk.md) för att tillhandahålla ytterligare lagrings utrymme, och du kan också expandera en befintlig data disk. Standard storleken på virtuella hård diskar för operativ systemet (OS) är vanligt vis 30 GB på en virtuell Linux-dator i Azure. 
+I den här artikeln beskrivs hur du expanderar hanterade diskar för en virtuell Linux-dator (VM) med Azure CLI. Du kan [lägga till datadiskar](add-disk.md) för att tillhandahålla ytterligare lagringsutrymme, och du kan också expandera en befintlig datadisk. Standardstorleken för virtuell hårddisk för operativsystemet (OS) är vanligtvis 30 GB på en Virtuell Linux-dator i Azure. 
 
 > [!WARNING]
-> Se alltid till att fil systemet är i felfritt tillstånd, att tabell typen för diskpartitionen stöder den nya storleken och se till att dina data säkerhets kopie ras innan du utför åtgärder för storleks ändring av disken. Mer information finns i [säkerhetskopiera virtuella Linux-datorer i Azure](tutorial-backup-vms.md). 
+> Kontrollera alltid att filsystemet är felfritt, att diskpartitionstabelltypen stöder den nya storleken och se till att dina data säkerhetskopieras innan du utför diskstorleksåtgärder. Mer information finns i [Säkerhetskopiera virtuella Linux-datorer i Azure](tutorial-backup-vms.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Expandera en Azure-hanterad disk
-Kontrol lera att du har den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och är inloggad på ett Azure-konto genom att använda [AZ-inloggning](/cli/azure/reference-index#az-login).
+Se till att du har den senaste [Azure CLI](/cli/azure/install-az-cli2) installerad och är inloggad på ett Azure-konto med hjälp av [az login](/cli/azure/reference-index#az-login).
 
-Den här artikeln kräver en befintlig virtuell dator i Azure med minst en data disk ansluten och för beredd. Om du inte redan har en virtuell dator som du kan använda kan du läsa [skapa och förbereda en virtuell dator med data diskar](tutorial-manage-disks.md#create-and-attach-disks).
+Den här artikeln kräver en befintlig virtuell dator i Azure med minst en datadisk ansluten och förberedd. Om du inte redan har en virtuell dator som du kan använda läser du [Skapa och förbereda en virtuell dator med datadiskar](tutorial-manage-disks.md#create-and-attach-disks).
 
-I följande exempel ersätter du parameter namn, till exempel *myResourceGroup* och *myVM* med dina egna värden.
+I följande exempel ersätter du exempelparameternamn som *myResourceGroup* och *myVM* med dina egna värden.
 
-1. Åtgärder på virtuella hård diskar kan inte utföras med den virtuella datorn som kör. Frigör den virtuella datorn med [AZ VM-frigörning](/cli/azure/vm#az-vm-deallocate). I följande exempel avallokeras den virtuella datorn med namnet *myVM* i resurs gruppen med namnet *myResourceGroup*:
+1. Åtgärder på virtuella hårddiskar kan inte utföras med den virtuella datorn som körs. Dela ut din virtuella dator med [az vm deallocate](/cli/azure/vm#az-vm-deallocate). I följande exempel frigörs den virtuella datorn med namnet *myVM* i resursgruppen *myResourceGroup:*
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > Den virtuella datorn måste frigöras för att expandera den virtuella hård disken. Att stoppa den virtuella datorn med `az vm stop` frigör inte beräknings resurserna. Om du vill frigöra beräknings resurser använder du `az vm deallocate`.
+    > Den virtuella datorn måste frigöras för att expandera den virtuella hårddisken. Om du `az vm stop` stoppar den virtuella datorn med frigörs inte beräkningsresurserna. Om du vill `az vm deallocate`frigöra beräkningsresurser använder du .
 
-1. Visa en lista med hanterade diskar i en resurs grupp med [AZ disk List](/cli/azure/disk#az-disk-list). I följande exempel visas en lista med hanterade diskar i resurs gruppen med namnet *myResourceGroup*:
+1. Visa en lista över hanterade diskar i en resursgrupp med [az-disklista](/cli/azure/disk#az-disk-list). I följande exempel visas en lista över hanterade diskar i resursgruppen *myResourceGroup:*
 
     ```azurecli
     az disk list \
@@ -46,7 +46,7 @@ I följande exempel ersätter du parameter namn, till exempel *myResourceGroup* 
         --output table
     ```
 
-    Expandera den disk som krävs med [AZ disk Update](/cli/azure/disk#az-disk-update). I följande exempel expanderas den hanterade disken med namnet *myDataDisk* till *200* GB:
+    Expandera den disk som krävs med [az-diskuppdatering](/cli/azure/disk#az-disk-update). I följande exempel utökas den hanterade disken med namnet *myDataDisk* till *200* GB:
 
     ```azurecli
     az disk update \
@@ -56,39 +56,39 @@ I följande exempel ersätter du parameter namn, till exempel *myResourceGroup* 
     ```
 
     > [!NOTE]
-    > När du expanderar en hanterad disk avrundas den uppdaterade storleken upp till närmaste hanterade disk storlek. En tabell med tillgängliga storlekar och nivåer för hanterade diskar finns i [Översikt över Azure Managed disks – priser och fakturering](../windows/managed-disks-overview.md).
+    > När du expanderar en hanterad disk avrundas den uppdaterade storleken uppåt till närmaste hanterade diskstorlek. En tabell över tillgängliga hanterade diskstorlekar och nivåer finns i [Azure Managed Disks Overview - Pricing and Billing](../windows/managed-disks-overview.md).
 
-1. Starta den virtuella datorn med [AZ VM start](/cli/azure/vm#az-vm-start). I följande exempel startas den virtuella datorn med namnet *myVM* i resurs gruppen med namnet *myResourceGroup*:
+1. Starta den virtuella datorn med [az vm start](/cli/azure/vm#az-vm-start). I följande exempel startar den virtuella datorn med namnet *myVM* i resursgruppen *myResourceGroup:*
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
 
-## <a name="expand-a-disk-partition-and-filesystem"></a>Expandera en diskpartition och fil system
-Om du vill använda en utökad disk expanderar du den underliggande partitionen och fil systemet.
+## <a name="expand-a-disk-partition-and-filesystem"></a>Expandera en diskpartition och ett filsystem
+Om du vill använda en utökad disk expanderar du den underliggande partitionen och filsystemet.
 
-1. SSH till den virtuella datorn med rätt autentiseringsuppgifter. Du kan se den offentliga IP-adressen för den virtuella datorn med [AZ VM show](/cli/azure/vm#az-vm-show):
+1. SSH till din virtuella dator med lämpliga autentiseringsuppgifter. Du kan se den offentliga IP-adressen för din virtuella dator med [az vm show:](/cli/azure/vm#az-vm-show)
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-1. Expandera den underliggande partitionen och fil systemet.
+1. Expandera den underliggande partitionen och filsystemet.
 
-    a. Om disken redan är monterad kan du Demontera den:
+    a. Om disken redan är monterad avmonterar du den:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-    b. Använd `parted` för att Visa disk information och ändra storlek på partitionen:
+    b. Används `parted` för att visa diskinformation och ändra storlek på partitionen:
 
     ```bash
     sudo parted /dev/sdc
     ```
 
-    Visa information om den befintliga partitionen layout med `print`. Utdata liknar följande exempel som visar den underliggande disken är 215 GB:
+    Visa information om den `print`befintliga partitionslayouten med . Utdata liknar följande exempel, som visar att den underliggande disken är 215 GB:
 
     ```bash
     GNU Parted 3.2
@@ -105,7 +105,7 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
         1      0.00B  107GB  107GB  ext4
     ```
 
-    c. Expandera partitionen med `resizepart`. Ange partitionens nummer, *1*och en storlek för den nya partitionen:
+    c. Expandera partitionen `resizepart`med . Ange partitionsnummer, *1*och en storlek för den nya partitionen:
 
     ```bash
     (parted) resizepart
@@ -113,27 +113,27 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
     End?  [107GB]? 215GB
     ```
 
-    d. Ange `quit`för att avsluta.
+    d. Om du `quit`vill avsluta anger du .
 
-1. Kontrol lera att partitionen har ändrat storlek genom att verifiera konsekvensen för partitionen med `e2fsck`:
+1. Kontrollera partitionens konsekvens med `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-1. Ändra storlek på fil systemet med `resize2fs`:
+1. Ändra storlek på filsystemet med: `resize2fs`
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-1. Montera partitionen till önskad plats, till exempel `/datadrive`:
+1. Montera partitionen på önskad plats, till exempel `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Använd `df -h`för att kontrol lera att data disken har ändrats. Följande exempel på utdata visar att data enheten */dev/sdc1* är 200 GB:
+1. Om du vill kontrollera att datadisken har ändrats använder du `df -h`. Följande exempelutdata visar att dataenheten */dev/sdc1* nu är 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -141,5 +141,5 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du behöver ytterligare lagring kan du också [lägga till data diskar till en virtuell Linux-dator](add-disk.md). 
-* Mer information om disk kryptering finns i [Azure Disk Encryption för virtuella Linux-datorer](disk-encryption-overview.md).
+* Om du behöver ytterligare lagringsutrymme kan du också [lägga till datadiskar i en Virtuell Linux.](add-disk.md) 
+* Mer information om diskkryptering finns i [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md).

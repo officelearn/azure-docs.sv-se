@@ -1,5 +1,5 @@
 ---
-title: Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES | Microsoft Docs
+title: Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SLES | Microsoft-dokument
 description: Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: radeltch
 ms.openlocfilehash: 69dcf91957263cea36f8ff6db6a7af14588998ee
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927213"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server
@@ -25,17 +25,17 @@ ms.locfileid: "78927213"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
-[401162]: https://launchpad.support.sap.com/#/notes/401162
+[401162]:https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -46,210 +46,210 @@ ms.locfileid: "78927213"
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
-För lokal utveckling kan du använda antingen HANA-systemreplikering eller använda delad lagring för att upprätta hög tillgänglighet för SAP HANA.
-På Azure Virtual Machines (VM) är HANA-systemreplikeringen på Azure för närvarande den enda funktion för hög tillgänglighet som stöds. SAP HANA replikeringen består av en primär nod och minst en sekundär nod. Ändringar av data på den primära noden replikeras till den sekundära noden synkront eller asynkront.
+För lokal utveckling kan du använda antingen HANA System Replication eller använda delad lagring för att skapa hög tillgänglighet för SAP HANA.
+På virtuella Azure-datorer är HANA System Replication på Azure för närvarande den enda funktion som stöds med hög tillgänglighet. SAP HANA Replication består av en primär nod och minst en sekundär nod. Ändringar av data på den primära noden replikeras till den sekundära noden synkront eller asynkront.
 
-I den här artikeln beskrivs hur du distribuerar och konfigurerar de virtuella datorerna, installerar kluster ramverket och installerar och konfigurerar SAP HANA system replikering.
-I exempel konfigurationerna används installations kommandon, instans nummer **03**och Hana system-ID **HN1** .
+I den här artikeln beskrivs hur du distribuerar och konfigurerar virtuella datorer, installerar klusterramverket och installerar och konfigurerar SAP HANA System Replication.
+I exempelkonfigurationerna används installationskommandon, instansnummer **03**och HANA System-ID **HN1.**
 
-Läs följande SAP-anteckningar och dokument först:
+Läs följande SAP Notes och papers först:
 
-* SAP anmärkning [1928533], som har:
-  * Listan med virtuella Azure-storlekar som stöds för distribution av SAP-program.
-  * Viktig kapacitets information för storlekar på virtuella Azure-datorer.
-  * De SAP-program och-operativ system och databas kombinationer som stöds.
-  * Den nödvändiga SAP kernel-versionen för Windows och Linux på Microsoft Azure.
-* SAP NOTE [2015553] listar kraven för SAP-program distributioner som stöds i Azure.
-* SAP NOTE [2205917] har rekommenderade OS-inställningar för SUSE Linux Enterprise Server för SAP-program.
-* SAP NOTE [1944799] har SAP HANA rikt linjer för SUSE Linux Enterprise Server för SAP-program.
-* SAP NOTE [2178632] innehåller detaljerad information om alla övervaknings mått som rapporteras för SAP i Azure.
-* SAP NOTE [2191498] har den version av SAP host agent som krävs för Linux i Azure.
-* SAP NOTE [2243692] innehåller information om SAP-licensiering på Linux i Azure.
-* SAP NOTE [1984787] innehåller allmän information om SUSE Linux Enterprise Server 12.
-* SAP anmärkning [1999351] innehåller ytterligare felsöknings information för Azure Enhanced Monitoring-tillägget för SAP.
-* SAP anmärkning [401162] innehåller information om hur du undviker "adressen som redan används" när du konfigurerar Hana-systemreplikering.
-* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla de SAP-anteckningar som krävs för Linux.
-* [SAP HANA certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-* [Azure Virtual Machines planera och implementera för SAP på Linux][planning-guide] -guiden.
+* SAP Note [1928533], som har:
+  * Listan över Azure VM-storlekar som stöds för distribution av SAP-programvara.
+  * Viktig kapacitetsinformation för Azure VM-storlekar.
+  * Sap-programvara och operativsystem (OPERATIVSYSTEM) och databaskombinationer som stöds.
+  * Den nödvändiga SAP-kärnversionen för Windows och Linux på Microsoft Azure.
+* SAP Note [2015553] listar förutsättningarna för SAP-programdistributioner som stöds av SAP i Azure.
+* SAP Note [2205917] har rekommenderat OS-inställningar för SUSE Linux Enterprise Server för SAP-program.
+* SAP Note [1944799] har SAP HANA Riktlinjer för SUSE Linux Enterprise Server för SAP-program.
+* SAP Note [2178632] innehåller detaljerad information om alla övervakningsmått som rapporteras för SAP i Azure.
+* SAP Note [2191498] har den nödvändiga SAP Host Agent-versionen för Linux i Azure.
+* SAP Note [2243692] har information om SAP-licensiering på Linux i Azure.
+* SAP Note [1984787] har allmän information om SUSE Linux Enterprise Server 12.
+* SAP Note [1999351] har ytterligare felsökningsinformation för Azure Enhanced Monitoring Extension för SAP.
+* SAP Note [401162] har information om hur du undviker "adress som redan används" när du ställer in HANA System Replication.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP Notes för Linux.
+* [SAP HANA-certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+* [Azure Virtual Machines planering och implementering för SAP på][planning-guide] Linux-guide.
 * [Azure Virtual Machines-distribution för SAP på Linux][deployment-guide] (den här artikeln).
-* [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide] -guide.
-* [SUSE Linux Enterprise Server för SAP-program 12 SP3 guider för bästa praxis][sles-for-sap-bp]
-  * Konfigurera en SAP HANA SR Performance-optimerad infrastruktur (SLES för SAP-program 12 SP1). Guiden innehåller all information som krävs för att konfigurera SAP HANA system replikering för lokal utveckling. Använd den här guiden som en bas linje.
-  * Konfigurera en SAP HANA SR-kostnads optimerad infrastruktur (SLES för SAP-program 12 SP1)
+* [Azure Virtual Machines DBMS-distribution för SAP på][dbms-guide] Linux-guide.
+* [SUSE Linux Enterprise Server för SAP-program 12 SP3 bästa praxis guider][sles-for-sap-bp]
+  * Konfigurera en SAP HANA SR-prestandaoptimerad infrastruktur (SLES för SAP Applications 12 SP1). Guiden innehåller all nödvändig information för att ställa in SAP HANA System Replication för lokal utveckling. Använd den här guiden som baslinje.
+  * Konfigurera en KOSTNADSOPTIMERAD INFRASTRUKTUR FÖR SAP HANA SR (SLES för SAP Applications 12 SP1)
 
 ## <a name="overview"></a>Översikt
 
-SAP HANA installeras på två virtuella datorer för att uppnå hög tillgänglighet. Data replikeras med hjälp av HANA-systemreplikering.
+För att uppnå hög tillgänglighet installeras SAP HANA på två virtuella datorer. Data replikeras med hjälp av HANA System Replication.
 
-![Översikt över SAP HANA hög tillgänglighet](./media/sap-hana-high-availability/ha-suse-hana.png)
+![ÖVERSIKT ÖVER HÖG TILLGÄNGLIGHET I SAP HANA](./media/sap-hana-high-availability/ha-suse-hana.png)
 
-Installations programmet för SAP HANA system replikering använder ett dedikerat virtuellt värdnamn och virtuella IP-adresser. I Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. I följande lista visas belastnings Utjämnings konfigurationen:
+SAP HANA System Replication-installationen använder en dedikerad virtuellt värdnamn och virtuella IP-adresser. På Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. Följande lista visar konfigurationen av belastningsutjämnaren:
 
-* Konfiguration av klient sidan: IP-10.0.0.13 för HN1-DB
-* Konfiguration på Server sidan: anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i HANA-systemreplikering
-* Avsöknings port: port 62503
-* Belastnings Utjämnings regler: 30313 TCP, 30315 TCP, 30317 TCP
+* Front-end konfiguration: IP-adress 10.0.0.13 för hn1-db
+* Backend-konfiguration: Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i HANA System Replication
+* Sondport: Port 62503
+* Belastningsutjämningsregler: 30313 TCP, 30315 TCP, 30317 TCP
 
 ## <a name="deploy-for-linux"></a>Distribuera för Linux
 
-Resurs agenten för SAP HANA ingår i SUSE Linux Enterprise Server för SAP-program.
-Azure Marketplace innehåller en avbildning för SUSE Linux Enterprise Server för SAP-program 12 som du kan använda för att distribuera nya virtuella datorer.
+Resursagenten för SAP HANA ingår i SUSE Linux Enterprise Server för SAP-program.
+Azure Marketplace innehåller en avbildning för SUSE Linux Enterprise Server för SAP Applications 12 som du kan använda för att distribuera nya virtuella datorer.
 
 ### <a name="deploy-with-a-template"></a>Distribuera med en mall
 
-Du kan använda en av snabb starts mallarna som finns på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar de virtuella datorerna, belastningsutjämnaren, tillgänglighets uppsättningen och så vidare.
-Följ dessa steg om du vill distribuera mallen:
+Du kan använda en av snabbstartsmallarna som finns på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar de virtuella datorerna, belastningsutjämnaren, tillgänglighetsuppsättningen och så vidare.
+Så här distribuerar du mallen:
 
-1. Öppna [databas mal len][template-multisid-db] eller den [konvergerade mallen][template-converged] på Azure Portal. 
-    Databas mal len skapar belastnings Utjämnings regler för en databas. Den konvergerade mallen skapar också regler för belastnings utjämning för en instans av ASCS/SCS och ERS (Linux). Om du planerar att installera ett SAP NetWeaver-baserat system och du vill installera ASCS/SCS-instansen på samma datorer använder du den [konvergerade mallen][template-converged].
+1. Öppna [databasmallen][template-multisid-db] eller den [konvergerade mallen][template-converged] på Azure-portalen. 
+    Databasmallen skapar endast belastningsutjämningsregler för en databas. Den konvergerade mallen skapar också belastningsutjämningsreglerna för en ASCS/SCS- och ERS-instans (endast Linux). Om du planerar att installera ett SAP NetWeaver-baserat system och vill installera ASCS/SCS-instansen på samma datorer använder du den [konvergerade mallen][template-converged].
 
 1. Ange följande parametrar:
-    - **SAP-system-ID**: Ange SAP-system-ID: t för det SAP-system som du vill installera. ID används som prefix för de resurser som distribueras.
-    - **Typ av stack**: (den här parametern kan bara användas om du använder konvergerad mall.) Välj typ av SAP NetWeaver-stack.
-    - **OS-typ**: Välj en av Linux-distributionerna. I det här exemplet väljer du **SLES 12**.
-    - **Db-typ**: Välj **Hana**.
-    - **SAP-system storlek**: Ange antalet SAPS som det nya systemet ska tillhandahålla. Om du inte är säker på hur många SAPS systemet kräver kan du fråga din SAP Technology-partner eller system integrerare.
-    - **System tillgänglighet**: Välj **ha**.
-    - **Administratörens användar namn och administratörs lösen ord**: en ny användare skapas som kan användas för att logga in på datorn.
-    - **Nytt eller befintligt undernät**: anger om ett nytt virtuellt nätverk och undernät ska skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-    - **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/subscriptions/\<prenumerations-id >/resourceGroups/\<resurs grupp namn >/providers/Microsoft.Network/virtualNetworks/\<virtuellt nätverks namn >/subnets/\<under näts namn >** .
+    - **Sap System-ID:** Ange SAP-system-ID för SAP-systemet som du vill installera. ID används som prefix för de resurser som distribueras.
+    - **Stacktyp:**(Den här parametern gäller endast om du använder den konvergerade mallen.) Välj stacktypen SAP NetWeaver.
+    - **Os Typ:** Välj en av Linux-distributioner. I det här exemplet väljer du **SLES 12**.
+    - **Db Typ**: Välj **HANA**.
+    - **Sap System Storlek:** Ange antalet SAPS som det nya systemet kommer att ge. Om du är osäker på hur många SAPS systemet behöver, fråga din SAP Technology Partner eller System Integrator.
+    - **Systemtillgänglighet:** Välj **HA**.
+    - **Administratörsanvändarnamn och administratörslösenord**: En ny användare skapas som kan användas för att logga in på datorn.
+    - **Nytt eller befintligt undernät:** Avgör om ett nytt virtuellt nätverk och undernät ska skapas eller ett befintligt undernät ska användas. Om du redan har ett virtuellt nätverk som är anslutet till det lokala nätverket väljer du **Befintlig**.
+    - **Undernäts-ID:** Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat att den virtuella datorn ska tilldelas, namnger du ID:t för det specifika undernätet. ID:t ser vanligtvis ut som **\</subscriptions/subscription ID\<>/resourceGroups/resource group name>/providers/Microsoft.Network/virtualNetworks/\<virtual network name>/subnets/undernätsnamn\<>**.
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
 > [!IMPORTANT]
-> Kontrol lera att det operativ system du väljer är SAP-certifierat för SAP HANA på de angivna VM-typerna som du använder. Listan med SAP HANA certifierade VM-typer och OS-versioner för dem kan slås upp i [SAP HANA certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Se till att klicka i informationen om den VM-typ som anges för att få en fullständig lista över SAP HANA operativ system versioner som stöds för den angivna VM-typen
+> Kontrollera att operativsystemet du väljer är SAP-certifierat för SAP HANA på de specifika VM-typer som du använder. Listan över SAP HANA-certifierade VM-typer och OS-versioner för dessa kan sökas upp i [SAP HANA-certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Se till att klicka på information om den VM-typ som anges för att få en fullständig lista över SAP HANA-stödda OS-versioner för den specifika VM-typen
 >  
 
 1. Skapa en resursgrupp.
 1. Skapa ett virtuellt nätverk.
-1. Skapa en tillgänglighets uppsättning.
-   - Ange Max uppdaterings domän.
-1. Skapa en belastningsutjämnare (intern). Vi rekommenderar [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+1. Skapa en tillgänglighetsuppsättning.
+   - Ange den maximala uppdateringsdomänen.
+1. Skapa en belastningsutjämnare (intern). Vi rekommenderar [standardbelastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    - Välj det virtuella nätverk som skapades i steg 2.
 1. Skapa virtuell dator 1.
-   - Använd en SLES4SAP-avbildning i Azure-galleriet som stöds för SAP HANA på den VM-typ som du har valt.
-   - Välj den tillgänglighets uppsättning som skapades i steg 3.
+   - Använd en SLES4SAP-avbildning i Azure-galleriet som stöds för SAP HANA på den vm-typ du valde.
+   - Välj den tillgänglighetsuppsättning som skapades i steg 3.
 1. Skapa virtuell dator 2.
-   - Använd en SLES4SAP-avbildning i Azure-galleriet som stöds för SAP HANA på den VM-typ som du har valt.
-   - Välj den tillgänglighets uppsättning som skapades i steg 3. 
-1. Lägg till data diskar.
-1. Följ dessa konfigurations steg om du använder standard Load Balancer:
-   1. Börja med att skapa en IP-pool på klient sidan:
+   - Använd en SLES4SAP-avbildning i Azure-galleriet som stöds för SAP HANA på den vm-typ du valde.
+   - Välj den tillgänglighetsuppsättning som skapades i steg 3. 
+1. Lägg till datadiskar.
+1. Om du använder standardbelastningsutjämnare följer du dessa konfigurationssteg:
+   1. Skapa först en IP-pool för fronten:
    
-      1. Öppna belastningsutjämnaren, Välj **klient delens IP-pool**och välj **Lägg till**.
-      1. Ange namnet på den nya frontend-IP-poolen (till exempel **Hana-frontend**).
-      1. Ange **tilldelningen** till **statisk** och ange IP-adressen (till exempel **10.0.0.13**).
+      1. Öppna belastningsutjämnaren, välj **frontend IP-pool**och välj **Lägg till**.
+      1. Ange namnet på den nya IP-poolen för frontend (till exempel **hana-frontend**).
+      1. Ange **tilldelningen** till **Statisk** och ange IP-adressen (till exempel **10.0.0.13**).
       1. Välj **OK**.
-      1. När den nya frontend-IP-poolen har skapats noterar du poolens IP-adress.
+      1. När den nya ip-poolen i fronten har skapats noterar du poolens IP-adress.
    
    1. Skapa sedan en backend-pool:
    
-      1. Öppna belastningsutjämnaren, Välj **backend-pooler**och välj **Lägg till**.
-      1. Ange namnet på den nya backend-poolen (till exempel **Hana-backend**).
-      1. Välj **Virtual Network**.
+      1. Öppna belastningsutjämnaren, välj **backend-pooler**och välj **Lägg till**.
+      1. Ange namnet på den nya backend-poolen (till exempel **hana-backend**).
+      1. Välj **Virtuellt nätverk**.
       1. Välj **Lägg till en virtuell dator**.
-      1. Välj * * virtuell dator * *.
-      1. Välj de virtuella datorerna i SAP HANA klustret och deras IP-adresser.
+      1. Välj ** Virtuell dator**.
+      1. Välj virtuella datorer i SAP HANA-klustret och deras IP-adresser.
       1. Välj **Lägg till**.
    
-   1. Skapa sedan en hälso avsökning:
+   1. Skapa sedan en hälsoavsökning:
    
-      1. Öppna belastningsutjämnaren, Välj **hälso avsökningar**och välj **Lägg till**.
-      1. Ange namnet på den nya hälso avsökningen (till exempel **Hana-HP**).
-      1. Välj **TCP** som protokoll och port 625**03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
+      1. Öppna belastningsutjämnaren, välj **hälsoavsökningar**och välj **Lägg till**.
+      1. Ange namnet på den nya hälsoavsökningen (till exempel **hana-hp**).
+      1. Välj **TCP** som protokoll och port 625**03**. Behåll **intervallvärdet** inställt på 5 och det **felaktiga tröskelvärdet** inställt på 2.
       1. Välj **OK**.
    
-   1. Skapa sedan reglerna för belastnings utjämning:
+   1. Skapa sedan belastningsutjämningsreglerna:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **Hana-lb**).
-      1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**, **Hana-backend** och **Hana-HP**).
-      1. Välj **ha-portar**.
-      1. Öka **tids gränsen för inaktivitet** till 30 minuter.
-      1. Se till att **Aktivera flytande IP**.
+      1. Öppna belastningsutjämnaren, välj **belastningsutjämningsregler**och välj **Lägg till**.
+      1. Ange namnet på den nya belastningsutjämnarens regel (till exempel **hana-lb**).
+      1. Välj frontend IP-adress, backend-poolen och hälsoavsökningen som du skapade tidigare (till exempel **hana-frontend,** **hana-backend** och **hana-hp**).
+      1. Välj **HA-portar**.
+      1. Öka **tidsgränsen** för inaktiv tid till 30 minuter.
+      1. Se till att **aktivera Flytande IP**.
       1. Välj **OK**.
 
    > [!Note]
-   > När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+   > När virtuella datorer utan offentliga IP-adresser placeras i serverdelspoolen för intern (ingen offentlig IP-adress) Standard Azure load balancer, kommer det inte att finnas någon utgående internetanslutning, såvida inte ytterligare konfiguration utförs för att tillåta routning till offentliga slutpunkter. Mer information om hur du uppnår utgående anslutning finns [i Offentlig slutpunktsanslutning för virtuella datorer med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. Om ditt scenario till exempel använder Basic Load Balancer, följer du dessa konfigurations steg:
-   1. Börja med att skapa en IP-pool på klient sidan:
+1. Om ditt scenario dikterar med hjälp av grundläggande belastningsutjämnare gör du så här:
+   1. Skapa först en IP-pool för fronten:
    
-      1. Öppna belastningsutjämnaren, Välj **klient delens IP-pool**och välj **Lägg till**.
-      1. Ange namnet på den nya frontend-IP-poolen (till exempel **Hana-frontend**).
-      1. Ange **tilldelningen** till **statisk** och ange IP-adressen (till exempel **10.0.0.13**).
+      1. Öppna belastningsutjämnaren, välj **frontend IP-pool**och välj **Lägg till**.
+      1. Ange namnet på den nya IP-poolen för frontend (till exempel **hana-frontend**).
+      1. Ange **tilldelningen** till **Statisk** och ange IP-adressen (till exempel **10.0.0.13**).
       1. Välj **OK**.
-      1. När den nya frontend-IP-poolen har skapats noterar du poolens IP-adress.
+      1. När den nya ip-poolen i fronten har skapats noterar du poolens IP-adress.
    
    1. Skapa sedan en backend-pool:
    
-      1. Öppna belastningsutjämnaren, Välj **backend-pooler**och välj **Lägg till**.
-      1. Ange namnet på den nya backend-poolen (till exempel **Hana-backend**).
+      1. Öppna belastningsutjämnaren, välj **backend-pooler**och välj **Lägg till**.
+      1. Ange namnet på den nya backend-poolen (till exempel **hana-backend**).
       1. Välj **Lägg till en virtuell dator**.
-      1. Välj den tillgänglighets uppsättning som skapades i steg 3.
-      1. Välj de virtuella datorerna i SAP HANA klustret.
+      1. Välj den tillgänglighetsuppsättning som skapades i steg 3.
+      1. Välj virtuella datorer i SAP HANA-klustret.
       1. Välj **OK**.
    
-   1. Skapa sedan en hälso avsökning:
+   1. Skapa sedan en hälsoavsökning:
    
-      1. Öppna belastningsutjämnaren, Välj **hälso avsökningar**och välj **Lägg till**.
-      1. Ange namnet på den nya hälso avsökningen (till exempel **Hana-HP**).
-      1. Välj **TCP** som protokoll och port 625**03**. Behåll värdet för **Interval** inställt på 5 och **tröskelvärdet för tröskelvärdet** har värdet 2.
+      1. Öppna belastningsutjämnaren, välj **hälsoavsökningar**och välj **Lägg till**.
+      1. Ange namnet på den nya hälsoavsökningen (till exempel **hana-hp**).
+      1. Välj **TCP** som protokoll och port 625**03**. Behåll **intervallvärdet** inställt på 5 och det **felaktiga tröskelvärdet** inställt på 2.
       1. Välj **OK**.
    
-   1. Skapa regler för belastnings utjämning för SAP HANA 1,0:
+   1. För SAP HANA 1.0 skapar du belastningsutjämningsregler:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3**03**).
-      1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-      1. Behåll **protokollet** inställt på **TCP**och ange Port 3**03**15.
-      1. Öka **tids gränsen för inaktivitet** till 30 minuter.
-      1. Se till att **Aktivera flytande IP**.
+      1. Öppna belastningsutjämnaren, välj **belastningsutjämningsregler**och välj **Lägg till**.
+      1. Ange namnet på den nya belastningsutjämnarens regel (till exempel hana-lb-3**03**15).
+      1. Välj ip-adressen för klientdelen, backend-poolen och hälsoavsökningen som du skapade tidigare (till exempel **hana-frontend**).
+      1. Behåll **protokollet** inställt på **TCP**och ange port 3**03**15.
+      1. Öka **tidsgränsen** för inaktiv tid till 30 minuter.
+      1. Se till att **aktivera Flytande IP**.
       1. Välj **OK**.
-      1. Upprepa de här stegen för Port 3**03**17.
+      1. Upprepa dessa steg för port 3**03**17.
    
-   1. Skapa regler för belastnings utjämning för system databasen för SAP HANA 2,0:
+   1. För SAP HANA 2.0 skapar du belastningsutjämningsreglerna för systemdatabasen:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana-lb-3**03**13).
-      1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-      1. Behåll **protokollet** inställt på **TCP**och ange Port 3**03**13.
-      1. Öka **tids gränsen för inaktivitet** till 30 minuter.
-      1. Se till att **Aktivera flytande IP**.
+      1. Öppna belastningsutjämnaren, välj **belastningsutjämningsregler**och välj **Lägg till**.
+      1. Ange namnet på den nya belastningsutjämnarens regel (till exempel hana-lb-3**03**13).
+      1. Välj ip-adressen för klientdelen, backend-poolen och hälsoavsökningen som du skapade tidigare (till exempel **hana-frontend**).
+      1. Behåll **protokollet** inställt på **TCP**och ange port 3**03**13.
+      1. Öka **tidsgränsen** för inaktiv tid till 30 minuter.
+      1. Se till att **aktivera Flytande IP**.
       1. Välj **OK**.
-      1. Upprepa dessa steg för Port 3**03**.
+      1. Upprepa dessa steg för port 3**03**14.
    
-   1. För SAP HANA 2,0 skapar du först reglerna för belastnings utjämning för klient databasen:
+   1. För SAP HANA 2.0 skapar du först belastningsutjämningsreglerna för klientdatabasen:
    
-      1. Öppna belastningsutjämnaren, Välj **belastnings Utjämnings regler**och välj **Lägg till**.
-      1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel Hana – lb-3**03**40).
-      1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **Hana-frontend**).
-      1. Behåll **protokollet** inställt på **TCP**och ange Port 3**03**40.
-      1. Öka **tids gränsen för inaktivitet** till 30 minuter.
-      1. Se till att **Aktivera flytande IP**.
+      1. Öppna belastningsutjämnaren, välj **belastningsutjämningsregler**och välj **Lägg till**.
+      1. Ange namnet på den nya belastningsutjämnarens regel (till exempel hana-lb-3**03**40).
+      1. Välj den klient-IP-adress, serverdelspool och hälsoavsökning som du skapade tidigare (till exempel **hana-frontend**).
+      1. Behåll **protokollet** inställt på **TCP**och ange port 3**03**40.
+      1. Öka **tidsgränsen** för inaktiv tid till 30 minuter.
+      1. Se till att **aktivera Flytande IP**.
       1. Välj **OK**.
-      1. Upprepa de här stegen för portarna 3**03**41 och 3**03**42.
+      1. Upprepa dessa steg för portarna 3**03**41 och 3**03**42.
 
-   Om du vill ha mer information om de portar som krävs för SAP HANA kan du läsa kapitel [anslutningarna till klient databaserna](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i guiden för [SAP HANA klient databaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) eller [SAP NOTE 2388694][2388694].
+   Mer information om de portar som krävs för SAP HANA finns i kapitlet [Anslutningar till klientdatabaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) i [SAP HANA-klientdatabaser](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) eller [SAP Note 2388694][2388694].
 
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
-> Se även SAP anmärkning [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placeras bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar misslyckas hälsoavsökningarna. Ange parameter **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [belastningsutjämnares hälsoavsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Se även SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
-## <a name="create-a-pacemaker-cluster"></a>Skapa ett pacemaker-kluster
+## <a name="create-a-pacemaker-cluster"></a>Skapa ett Pacemaker-kluster
 
-Följ stegen i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](high-availability-guide-suse-pacemaker.md) för att skapa ett grundläggande pacemaker-kluster för den här Hana-servern. Du kan använda samma pacemaker-kluster för SAP HANA och SAP NetWeaver (A) SCS.
+Följ stegen i [Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure](high-availability-guide-suse-pacemaker.md) för att skapa ett grundläggande Pacemaker-kluster för den här HANA-servern. Du kan använda samma Pacemaker-kluster för SAP HANA och SAP NetWeaver (A)SCS.
 
 ## <a name="install-sap-hana"></a>Installera SAP HANA
 
-Stegen i det här avsnittet använder följande prefix:
-- **[A]** : steget gäller för alla noder.
-- **[1]** : steget gäller endast nod 1.
-- **[2]** : steget gäller endast nod 2 i pacemaker-klustret.
+I stegen i det här avsnittet används följande prefix:
+- **[A]**: Steget gäller för alla noder.
+- **[1]**: Steget gäller endast för nod 1.
+- **[2]**: Steget gäller endast för nod 2 i Pacemaker-klustret.
 
-1. **[A]** konfiguration av disklayouten: **Logical Volume Manager (LVM)** .
+1. **[A]** Ställ in disklayouten: **Logisk volymhanterare (LVM)**.
 
-   Vi rekommenderar att du använder LVM för volymer som lagrar data och loggfiler. I följande exempel förutsätts att de virtuella datorerna har fyra anslutna data diskar som används för att skapa två volymer.
+   Vi rekommenderar att du använder LVM för volymer som lagrar data och loggfiler. I följande exempel förutsätts att de virtuella datorerna har fyra datadiskar anslutna som används för att skapa två volymer.
 
    Lista alla tillgängliga diskar:
 
@@ -270,14 +270,14 @@ Stegen i det här avsnittet använder följande prefix:
    sudo pvcreate /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Skapa en volym grupp för datafilerna. Använd en volym grupp för loggfilerna och en för den delade katalogen för SAP HANA:
+   Skapa en volymgrupp för datafilerna. Använd en volymgrupp för loggfilerna och en för den delade katalogen för SAP HANA:
 
    <pre><code>sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
    sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Skapa de logiska volymerna. En linjär volym skapas när du använder `lvcreate` utan `-i`-växeln. Vi rekommenderar att du skapar en stripe-volym för bättre I/O-prestanda, där `-i` argumentet ska vara numret på den underliggande fysiska volymen. I det här dokumentet används två fysiska volymer för data volymen, så `-i` växel argumentet är inställt på **2**. En fysisk volym används för logg volymen, så ingen `-i` växel används explicit. Använd växeln `-i` och Ställ in den på den underliggande fysiska volymens nummer när du använder mer än en fysisk volym för varje data, logg eller delade volymer.
+   Skapa de logiska volymerna. En linjär volym skapas `lvcreate` när `-i` du använder utan växeln. Vi föreslår att du skapar en stripe-volym för `-i` bättre I/O-prestanda, där argumentet ska vara antalet underliggande fysiska volymen. I det här dokumentet används två fysiska volymer `-i` för datavolymen, så växelargumentet är inställt på **2**. En fysisk volym används för loggvolymen, så ingen `-i` växel används uttryckligen. Använd `-i` växeln och ange den till numret på den underliggande fysiska volymen när du använder mer än en fysisk volym för varje data, logg eller delade volymer.
 
    <pre><code>sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
@@ -287,7 +287,7 @@ Stegen i det här avsnittet använder följande prefix:
    sudo mkfs.xfs /dev/vg_hana_shared_<b>HN1</b>/hana_shared
    </code></pre>
 
-   Skapa monterings kataloger och kopiera UUID: n för alla logiska volymer:
+   Skapa monteringskatalogerna och kopiera UUID för alla logiska volymer:
 
    <pre><code>sudo mkdir -p /hana/data/<b>HN1</b>
    sudo mkdir -p /hana/log/<b>HN1</b>
@@ -301,7 +301,7 @@ Stegen i det här avsnittet använder följande prefix:
    <pre><code>sudo vi /etc/fstab
    </code></pre>
 
-   Lägg till följande rad i `/etc/fstab`-filen:      
+   Infoga följande rad `/etc/fstab` i filen:      
 
    <pre><code>/dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
    /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
@@ -313,9 +313,9 @@ Stegen i det här avsnittet använder följande prefix:
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]** konfigurera disklayouten: **enkla diskar**.
+1. **[A]** Konfigurera disklayouten: **Plain Disks**.
 
-   För demo system kan du placera dina HANA-data och loggfiler på en disk. Skapa en partition på/dev/disk/Azure/SCSI1/LUN0 och formatera den med xfs:
+   För demosystem kan du placera dina HANA-data och loggfiler på en disk. Skapa en partition på /dev/disk/azure/scsi1/lun0 och formatera den med xfs:
 
    <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo mkfs.xfs /dev/disk/azure/scsi1/lun0-part1
@@ -325,92 +325,92 @@ Stegen i det här avsnittet använder följande prefix:
    sudo vi /etc/fstab
    </code></pre>
 
-   Infoga den här raden i/etc/fstab-filen:
+   Infoga denna rad i filen /etc/fstab:
 
    <pre><code>/dev/disk/by-uuid/<b>&lt;UUID&gt;</b> /hana xfs  defaults,nofail  0  2
    </code></pre>
 
-   Skapa mål katalogen och montera disken:
+   Skapa målkatalogen och montera disken:
 
    <pre><code>sudo mkdir /hana
    sudo mount -a
    </code></pre>
 
-1. **[A]** konfigurera värd namns matchning för alla värdar.
+1. **[A]** Ställ in värdnamnsmatchning för alla värdar.
 
-   Du kan antingen använda en DNS-server eller ändra/etc/hosts-filen på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
+   Du kan antingen använda en DNS-server eller ändra filen /etc/hosts på alla noder. I det här exemplet visas hur du använder filen /etc/hosts.
    Ersätt IP-adressen och värdnamnet i följande kommandon:
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Infoga följande rader i/etc/hosts-filen. Ändra IP-adress och värdnamn så att de matchar din miljö:
+   Infoga följande rader i filen /etc/hosts. Ändra IP-adressen och värdnamnet så att de matchar din miljö:
 
    <pre><code><b>10.0.0.5 hn1-db-0</b>
    <b>10.0.0.6 hn1-db-1</b>
    </code></pre>
 
-1. **[A]** installera SAP HANA hög tillgänglighets paket:
+1. **[A]** Installera SAP HANA-paket med hög tillgänglighet:
 
    <pre><code>sudo zypper install SAPHanaSR
    </code></pre>
 
-Om du vill installera SAP HANA systemreplikering följer du kapitel 4 i den [optimerade scenario guiden för SAP HANA SR-prestanda](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
+Om du vill installera SAP HANA System Replication följer du kapitel 4 i [SAP HANA SR-prestandaoptimerade scenarioguiden](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
 
-1. **[A]** kör **hdblcm** -programmet från Hana-DVD: n. Ange följande värden i prompten:
-   * Välj installation: ange **1**.
-   * Välj ytterligare komponenter för installation: ange **1**.
-   * Ange installations Sök väg [/Hana/Shared]: Välj RETUR.
-   * Ange namnet på den lokala värden [..]: Välj RETUR.
-   * Vill du lägga till fler värdar i systemet? (j/n) [n]: Välj RETUR.
-   * Ange SAP HANA system-ID: Ange SID för HANA, till exempel: **HN1**.
-   * Ange instans nummer [00]: Ange antalet HANA-instanser. Ange **03** om du använde Azure-mallen eller följde avsnittet manuell distribution i den här artikeln.
-   * Välj databas läge/ange index [1]: Välj RETUR.
-   * Välj system användning/ange index [4]: Välj system användning svärdet.
-   * Ange plats för data volymer [/hana/data/HN1]: Välj RETUR.
-   * Ange plats för logg volymer [/hana/log/HN1]: Välj RETUR.
-   * Begränsa maximal minnesallokering? [n]: Välj RETUR.
-   * Ange ett certifikat värd namn för värden '... ' [...]: Välj RETUR.
-   * Ange lösen ord för SAP host agent-användare (sapadm): Ange användar lösen ordet för värd agenten.
-   * Bekräfta lösen ordet för SAP host agent-användare (sapadm): Ange värd agentens användar lösen ord igen för att bekräfta.
-   * Ange system administratörs lösen ord (hdbadm): Ange system administratörens lösen ord.
-   * Bekräfta lösen ord för system administratör (hdbadm): Ange system administratörens lösen ord igen för att bekräfta.
-   * Ange system administratörens Hem Katalog [/usr/sap/HN1/home]: Välj RETUR.
-   * Ange system administratör inloggnings gränssnitt [/bin/sh]: Välj RETUR.
-   * Ange användar-ID för system administratör [1001]: Välj RETUR.
-   * Ange ID för användar gruppen (sapsys) [79]: Välj RETUR.
-   * Ange lösen ord för databas användare (SYSTEM): Ange användar lösen ordet för databasen.
-   * Bekräfta lösen ord för databas användare (SYSTEM): Ange användar lösen ordet för databasen igen för att bekräfta.
-   * Vill du starta om systemet efter omstart av datorn? [n]: Välj RETUR.
-   * Vill du fortsätta? (j/n): verifiera sammanfattningen. Fortsätt genom att ange **y** .
+1. **[A]** Kör **hdblcm-programmet** från HANA DVD. Ange följande värden vid prompten:
+   * Välj installation: Ange **1**.
+   * Välj ytterligare komponenter för installation: Ange **1**.
+   * Ange installationssökväg [/hana/delad]: Välj Retur.
+   * Ange lokalt värdnamn [..]: Välj Retur.
+   * Vill du lägga till ytterligare värdar i systemet? (y/n) [n]: Välj Retur.
+   * Ange SAP HANA-system-ID: Ange SID för HANA, till exempel: **HN1**.
+   * Ange förekomstnummer [00]: Ange HANA-förekomstnumret. Ange **03** om du har använt Azure-mallen eller följt avsnittet med manuell distribution i den här artikeln.
+   * Välj databasläge / Ange index [1]: Välj Retur.
+   * Välj Systemanvändning / Ange index [4]: Välj systemanvändningsvärdet.
+   * Ange plats för datavolymer [/hana/data/HN1]: Välj Ange.
+   * Ange plats för loggvolymer [/hana/log/HN1]: Välj Retur.
+   * Vill du begränsa maximal minnesallokering? [n]: Välj Retur.
+   * Ange certifikatvärdnamn för värden '...' [...]: Välj Enter.
+   * Ange SAPADM-användarlösenord (SAP Host Agent User): Ange användarlösenordet för värdagenten.
+   * Bekräfta SAPADM-användarlösenord (SAP Host Agent User) : Ange värdagentens användarlösenord igen för att bekräfta.
+   * Ange lösenord för systemadministratör (hdbadm): Ange lösenordet för systemadministratören.
+   * Bekräfta systemadministratör (hdbadm) Lösenord: Ange lösenordet för systemadministratören igen för att bekräfta.
+   * Ange systemadministratörens arbetskatalog [/usr/sap/HN1/home]: Välj Retur.
+   * Ange systemadministratörsinloggningsgränssnitt [/bin/sh]: Välj Retur.
+   * Ange användar-ID för systemadministratör [1001]: Välj Retur.
+   * Ange ID för användargrupp (sapsys) [79]: Välj Retur.
+   * Ange lösenord för databasanvändare (SYSTEM): Ange databasanvändarlösenordet.
+   * Bekräfta lösenord för databasanvändare (SYSTEM) : Ange lösenordet för databasanvändaren igen för att bekräfta.
+   * Starta om systemet efter omstart av maskinen? [n]: Välj Retur.
+   * Vill du fortsätta? (y/n): Validera sammanfattningen. Ange **y** för att fortsätta.
 
-1. **[A]** uppgradera SAP-värd agenten.
+1. **[A]** Uppgradera SAP-värdagenten.
 
-   Hämta det senaste SAP-värd agent arkivet från [SAP Software Center][sap-swcenter] och kör följande kommando för att uppgradera agenten. Ersätt sökvägen till arkivet så att den pekar på den fil som du laddade ned:
+   Hämta det senaste SAP Host Agent-arkivet från [SAP Software Center][sap-swcenter] och kör följande kommando för att uppgradera agenten. Ersätt sökvägen till arkivet så att den pekar på filen som du hämtade:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
 
-## <a name="configure-sap-hana-20-system-replication"></a>Konfigurera SAP HANA 2,0-systemreplikering
+## <a name="configure-sap-hana-20-system-replication"></a>Konfigurera SAP HANA 2.0-systemreplikering
 
-Stegen i det här avsnittet använder följande prefix:
+I stegen i det här avsnittet används följande prefix:
 
-* **[A]** : steget gäller för alla noder.
-* **[1]** : steget gäller endast nod 1.
-* **[2]** : steget gäller endast nod 2 i pacemaker-klustret.
+* **[A]**: Steget gäller för alla noder.
+* **[1]**: Steget gäller endast för nod 1.
+* **[2]**: Steget gäller endast för nod 2 i Pacemaker-klustret.
 
-1. **[1]** skapa klient organisations databasen.
+1. **[1]** Skapa klientdatabasen.
 
-   Om du använder SAP HANA 2,0 eller MDC skapar du en klient databas för ditt SAP NetWeaver-system. Ersätt **NW1** med sid för ditt SAP-system.
+   Om du använder SAP HANA 2.0 eller MDC skapar du en klientdatabas för DITT SAP NetWeaver-system. Ersätt **NW1** med SID i DITT SAP-system.
 
-   Kör följande kommando som < hanasid\>ADM:
+   Kör följande kommando som <hanasid\>adm:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
-1. **[1]** konfigurera systemreplikering på den första noden:
+1. **[1]** Konfigurera systemreplikering på den första noden:
 
-   Säkerhetskopiera databaserna som < hanasid\>ADM:
+   Säkerhetskopiera databaserna som <hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -428,25 +428,25 @@ Stegen i det här avsnittet använder följande prefix:
    <pre><code>hdbnsutil -sr_enable --name=<b>SITE1</b>
    </code></pre>
 
-1. **[2]** konfigurera systemreplikering på den andra noden:
+1. **[2]** Konfigurera systemreplikering på den andra noden:
     
-   Registrera den andra noden för att starta systemreplikeringen. Kör följande kommando som < hanasid\>ADM:
+   Registrera den andra noden för att starta systemreplikeringen. Kör följande kommando som <hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
-## <a name="configure-sap-hana-10-system-replication"></a>Konfigurera SAP HANA 1,0-systemreplikering
+## <a name="configure-sap-hana-10-system-replication"></a>Konfigurera SAP HANA 1.0-systemreplikering
 
-Stegen i det här avsnittet använder följande prefix:
+I stegen i det här avsnittet används följande prefix:
 
-* **[A]** : steget gäller för alla noder.
-* **[1]** : steget gäller endast nod 1.
-* **[2]** : steget gäller endast nod 2 i pacemaker-klustret.
+* **[A]**: Steget gäller för alla noder.
+* **[1]**: Steget gäller endast för nod 1.
+* **[2]**: Steget gäller endast för nod 2 i Pacemaker-klustret.
 
-1. **[1]** skapa de användare som krävs.
+1. **[1]** Skapa de användare som krävs.
 
-   Kör följande kommando som rot. Se till att ersätta fetstils strängar (HANA system-ID **HN1** och instance Number **03**) med värdena för din SAP HANA-installation:
+   Kör följande kommando som rot. Se till att ersätta fetstil (HANA System ID **HN1** och instansnummer **03)** med värdena för din SAP HANA-installation:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -454,46 +454,46 @@ Stegen i det här avsnittet använder följande prefix:
    hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME'
    </code></pre>
 
-1. **[A]** skapa posten i nyckel arkivet.
+1. **[A]** Skapa keystore-posten.
 
-   Kör följande kommando som rot för att skapa en ny nyckel lagrings post:
+   Kör följande kommando som root för att skapa en ny keystore-post:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
    </code></pre>
 
-1. **[1]** säkerhetskopiera databasen.
+1. **[1]** Säkerhetskopiera databasen.
 
-   Säkerhetskopiera databaserna som rot:
+   Säkerhetskopiera databaserna som root:
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
-   Om du använder en installation med flera klient organisationer säkerhetskopierar du även klient databasen:
+   Om du använder en installation med flera innehavare säkerhetskopierar du även klientdatabasen:
 
    <pre><code>hdbsql -d <b>HN1</b> -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
    </code></pre>
 
-1. **[1]** konfigurera systemreplikering på den första noden.
+1. **[1]** Konfigurera systemreplikering på den första noden.
 
-   Skapa den primära platsen som < hanasid\>ADM:
+   Skapa den primära platsen som <\>hanasid adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
    </code></pre>
 
-1. **[2]** konfigurera systemreplikering på den sekundära noden.
+1. **[2]** Konfigurera systemreplikering på den sekundära noden.
 
-   Registrera den sekundära platsen som < hanasid\>ADM:
+   Registrera den sekundära platsen som <\>hanasid adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
-## <a name="create-sap-hana-cluster-resources"></a>Skapa SAP HANA kluster resurser
+## <a name="create-sap-hana-cluster-resources"></a>Skapa SAP HANA-klusterresurser
 
-Skapa först HANA-topologin. Kör följande kommandon på en av pacemaker-klusternoderna:
+Skapa först HANA-topologin. Kör följande kommandon på en av Pacemaker-klusternoderna:
 
 <pre><code>sudo crm configure property maintenance-mode=true
 
@@ -513,13 +513,13 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 Skapa sedan HANA-resurserna:
 
 > [!IMPORTANT]
-> De senaste testerna visade situationer, där netcat slutar svara på begär Anden på grund av en efter släpning och dess begränsning av hantering av endast en anslutning. Netcat-resursen slutar lyssna på Azure Load Balancer-begäranden och den flytande IP-adressen blir otillgänglig.  
-> För befintliga pacemaker-kluster rekommenderar vi att du tidigare ersätter netcat med socat. För närvarande rekommenderar vi att du använder Azure-lb Resource agent, som är en del av paketets resurs agenter, med följande paket versions krav:
-> - För SLES 12 SP4/SP5 måste versionen vara minst resurs agenter-4.3.018. a7fb5035-3.30.1.  
-> - För SLES 15/15 SP1 måste versionen vara minst resurs agenter-4.3.0184.6 ee15eb2-4.13.1.  
+> Nyligen genomförda tester visade situationer, där netcat slutar svara på förfrågningar på grund av eftersläpning och dess begränsning av hantering endast en anslutning. Netcat-resursen slutar lyssna på Azure Load Balancer-begäranden och den flytande IP-adressen blir otillgänglig.  
+> För befintliga Pacemaker-kluster rekommenderade vi tidigare att ersätta netcat med socat. För närvarande rekommenderar vi att du använder azure-lb-resursagent, som är en del av paketets resursagenter, med följande paketversionskrav:
+> - För SLES 12 SP4/SP5 måste versionen vara minst resursagenter-4.3.018.a7fb5035-3.30.1.  
+> - För SLES 15/15 SP1 måste versionen vara minst resursagenter-4.3.0184.6ee15eb2-4.13.1.  
 >
-> Observera att ändringen kräver kortare stillestånds tid.  
-> För befintliga pacemaker-kluster, om konfigurationen redan har ändrats för att använda socat, enligt beskrivningen i [Azure Load-Balancer Detection härdning](https://www.suse.com/support/kb/doc/?id=7024128), finns det inget krav på att växla direkt till Azure-lb Resource agent.
+> Observera att ändringen kräver korta driftstopp.  
+> För befintliga Pacemaker-kluster, om konfigurationen redan har ändrats för att använda socat enligt beskrivningen i [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), finns det inget krav på att växla omedelbart till azure-lb-resursagenten.
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
@@ -561,7 +561,7 @@ sudo crm configure rsc_defaults resource-stickiness=1000
 sudo crm configure rsc_defaults migration-threshold=5000
 </code></pre>
 
-Kontrol lera att klustrets status är OK och att alla resurser har startats. Det är inte viktigt på vilken nod resurserna körs.
+Kontrollera att klusterstatusen är ok och att alla resurser har startats. Det är inte viktigt på vilken nod resurserna körs.
 
 <pre><code>sudo crm_mon -r
 
@@ -581,13 +581,13 @@ Kontrol lera att klustrets status är OK och att alla resurser har startats. Det
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
 </code></pre>
 
-## <a name="test-the-cluster-setup"></a>Testa kluster konfigurationen
+## <a name="test-the-cluster-setup"></a>Testa klusterinställningarna
 
-I det här avsnittet beskrivs hur du kan testa installationen. Varje test förutsätter att du är rot och att SAP HANA Master körs på den virtuella datorn **HN1-dB-0** .
+I det här avsnittet beskrivs hur du kan testa konfigurationen. Varje test förutsätter att du är root och SAP HANA-hanteraren körs på den virtuella **datorn hn1-db-0.**
 
 ### <a name="test-the-migration"></a>Testa migreringen
 
-Innan du startar testet kontrollerar du att pacemaker inte har någon misslyckad åtgärd (via crm_mon-r), det finns inga oväntade plats begränsningar (till exempel rester av ett migreringsjobb) och att HANA är Sync-tillstånd, till exempel med SAPHanaSR-showAttr:
+Innan du startar testet kontrollerar du att Pacemaker inte har någon misslyckad åtgärd (via crm_mon -r), det finns inga oväntade platsbegränsningar (till exempel rester av ett migreringstest) och att HANA är synkroniseringstillstånd, till exempel med SAPHanaSR-showAttr:
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
 
@@ -601,14 +601,14 @@ hn1-db-0 PROMOTED    1534159564  online     logreplay nws-hana-vm-1 4:P:master1:
 hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:master:worker:master 100   SITE2 sync   SOK        2.00.030.00.1522209842 nws-hana-vm-1
 </code></pre>
 
-Du kan migrera SAP HANA Master-noden genom att köra följande kommando:
+Du kan migrera SAP HANA-huvudnoden genom att köra följande kommando:
 
 <pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
 </code></pre>
 
-Om du ställer in `AUTOMATED_REGISTER="false"`ska den här sekvensen av kommandon migrera SAP HANA-huvudnoden och gruppen som innehåller den virtuella IP-adressen till HN1-DB-1.
+Om du `AUTOMATED_REGISTER="false"`anger ska den här sekvensen av kommandon migrera SAP HANA-huvudnoden och gruppen som innehåller den virtuella IP-adressen till hn1-db-1.
 
-När migreringen är färdig ser crm_mon r-utdata ut så här
+När migreringen är klar ser crm_mon -r-utdata ut så här
 
 <pre><code>Online: [ hn1-db-0 hn1-db-1 ]
 
@@ -629,7 +629,7 @@ Failed Actions:
     last-rc-change='Mon Aug 13 11:31:37 2018', queued=0ms, exec=2095ms
 </code></pre>
 
-Det går inte att starta den SAP HANA resursen på HN1-dB-0 som sekundär. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
+SAP HANA-resursen på hn1-db-0 kan inte starta som sekundär. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -638,19 +638,19 @@ hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> sapcontrol -nr <b>03</b> -function StopWait 
 hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-db-1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE1</b>
 </code></pre>
 
-Migreringen skapar plats begränsningar som behöver tas bort igen:
+Migreringen skapar platsbegränsningar som måste tas bort igen:
 
 <pre><code># Switch back to root and clean up the failed state
 exit
 hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
-Du måste också rensa statusen för den sekundära noden:
+Du måste också rensa tillståndet för den sekundära nodresursen:
 
 <pre><code>hn1-db-0:~ # crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
-Övervaka statusen för HANA-resursen med crm_mon-r. När HANA har startats på HN1-dB-0 bör utdata se ut så här
+Övervaka tillståndet för HANA-resursen med hjälp av crm_mon -r. När HANA startas på hn1-db-0, bör utgången se ut så här
 
 <pre><code>Online: [ hn1-db-0 hn1-db-1 ]
 
@@ -667,17 +667,17 @@ stonith-sbd     (stonith:external/sbd): Started hn1-db-1
      rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
 </code></pre>
 
-### <a name="test-the-azure-fencing-agent-not-sbd"></a>Testa Azure-avgränsnings agenten (inte SBD)
+### <a name="test-the-azure-fencing-agent-not-sbd"></a>Testa Azure-fäktningsagenten (inte SBD)
 
-Du kan testa konfigurationen av Azure-avgränsnings agenten genom att inaktivera nätverks gränssnittet på noden HN1-dB-0:
+Du kan testa installationen av Azure-stängselagenten genom att inaktivera nätverksgränssnittet på noden hn1-db-0:
 
 <pre><code>sudo ifdown eth0
 </code></pre>
 
-Den virtuella datorn bör nu startas om eller stoppas beroende på kluster konfigurationen.
-Om du ställer in inställningen `stonith-action` till av stoppas den virtuella datorn och resurserna migreras till den virtuella datorn som körs.
+Den virtuella datorn ska nu starta om eller stoppa beroende på klusterkonfigurationen.
+Om du `stonith-action` ställer in inställningen till av stoppas den virtuella datorn och resurserna migreras till den virtuella datorn som körs.
 
-När du har startat den virtuella datorn igen går det inte att starta SAP HANA resursen som sekundär om du anger `AUTOMATED_REGISTER="false"`. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
+När du har startat den virtuella datorn igen kan SAP `AUTOMATED_REGISTER="false"`HANA-resursen inte starta som sekundär om du anger . I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -690,9 +690,9 @@ exit
 crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 </code></pre>
 
-### <a name="test-sbd-fencing"></a>Testa SBD staket
+### <a name="test-sbd-fencing"></a>Test SBD stängsel
 
-Du kan testa installationen av SBD genom att avsluta Inquisitor-processen.
+Du kan testa installationen av SBD genom att döda inkvisitorprocessen.
 
 <pre><code>hn1-db-0:~ # ps aux | grep sbd
 root       1912  0.0  0.0  85420 11740 ?        SL   12:25   0:00 sbd: inquisitor
@@ -706,16 +706,16 @@ root      13877  0.0  0.0   9292  1572 pts/0    S+   12:27   0:00 grep sbd
 hn1-db-0:~ # kill -9 1912
 </code></pre>
 
-Klusternoden HN1-dB-0 måste startas om. Pacemaker-tjänsten kanske inte kommer igång efteråt. Se till att starta om den igen.
+Klusternoden hn1-db-0 bör startas om. Pacemaker-tjänsten kanske inte kommer igång efteråt. Se till att starta den igen.
 
-### <a name="test-a-manual-failover"></a>Testa en manuell redundansväxling
+### <a name="test-a-manual-failover"></a>Testa en manuell redundans
 
-Du kan testa en manuell redundansväxling genom att stoppa `pacemaker`-tjänsten på HN1-dB-0-noden:
+Du kan testa en manuell `pacemaker` redundans genom att stoppa tjänsten på noden hn1-db-0:
 
 <pre><code>service pacemaker stop
 </code></pre>
 
-Efter redundansväxlingen kan du starta tjänsten igen. Om du anger `AUTOMATED_REGISTER="false"`kan SAP HANA resursen på noden HN1-dB-0 inte startas som sekundär. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
+Efter redundansen kan du starta tjänsten igen. Om du `AUTOMATED_REGISTER="false"`anger kan SAP HANA-resursen på noden hn1-db-0 starta som sekundär. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
 
 <pre><code>service pacemaker start
 su - <b>hn1</b>adm
@@ -732,18 +732,18 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 ### <a name="suse-tests"></a>SUSE-tester
 
 > [!IMPORTANT]
-> Kontrol lera att det operativ system du väljer är SAP-certifierat för SAP HANA på de angivna VM-typerna som du använder. Listan med SAP HANA certifierade VM-typer och OS-versioner för dem kan slås upp i [SAP HANA certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Se till att klicka i informationen om den VM-typ som anges för att få en fullständig lista över SAP HANA operativ system versioner som stöds för den angivna VM-typen
+> Kontrollera att operativsystemet du väljer är SAP-certifierat för SAP HANA på de specifika VM-typer som du använder. Listan över SAP HANA-certifierade VM-typer och OS-versioner för dessa kan sökas upp i [SAP HANA-certifierade IaaS-plattformar](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Se till att klicka på information om den VM-typ som anges för att få en fullständig lista över SAP HANA-stödda OS-versioner för den specifika VM-typen
 
-Kör alla test fall som anges i scenariot för SAP HANA optimala prestanda optimerings scenario eller SAP HANA SR-kostnads optimerings guide, beroende på ditt användnings fall. Du hittar guiderna på [sidan SLES for SAP Best Practices][sles-for-sap-bp].
+Kör alla testfall som visas i SAP HANA SR Performance Optimized Scenario eller SAP HANA SR Kostnadsoptimerat scenario guide, beroende på ditt användningsfall. Du hittar guiderna på [SLES för SAP-metodtips.][sles-for-sap-bp]
 
-Följande tester är en kopia av test beskrivningarna av SAP HANA optimala prestanda optimerings scenario SUSE Linux Enterprise Server för SAP-program 12 SP1-guide. För en uppdaterad version ska du alltid läsa själva guiden. Se alltid till att HANA är synkroniserat innan du startar testet och kontrol lera också att pacemaker-konfigurationen är korrekt.
+Följande tester är en kopia av testbeskrivningarna av SAP HANA SR Performance Optimized Scenario SUSE Linux Enterprise Server för SAP Applications 12 SP1 guide. För en uppdaterad version, läs alltid också själva guiden. Kontrollera alltid att HANA är synkroniserat innan du startar testet och se även till att Pacemaker-konfigurationen är korrekt.
 
-I följande test beskrivningar antar vi PREFER_SITE_TAKEOVER = "true" och AUTOMATED_REGISTER = "false".
-Obs! följande tester är utformade för att köras i följd och är beroende av avsluts läget för föregående tester.
+I följande testbeskrivningar antar vi PREFER_SITE_TAKEOVER="true" och AUTOMATED_REGISTER="false".
+OBS: Följande tester är utformade för att köras i följd och beror på utgångsläget för de föregående testerna.
 
 1. TEST 1: STOPPA PRIMÄR DATABAS PÅ NOD 1
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -755,14 +755,14 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som < hanasid\>adm på noden HN1-dB-0:
+   Kör följande kommandon som <hanasid\>adm på noden hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker bör identifiera den stoppade HANA-instansen och redundansväxla till den andra noden. När redundansväxlingen är färdig stoppas HANA-instansen på Node HN1-dB-0 eftersom pacemaker inte automatiskt registrerar noden som HANA sekundär.
+   Pacemaker bör identifiera den stoppade HANA-instansen och redundansen till den andra noden. När redundansen är klar stoppas HANA-instansen på noden hn1-db-0 eftersom Pacemaker inte automatiskt registrerar noden som HANA sekundär.
 
-   Kör följande kommandon för att registrera Node HN1-dB-0 som sekundär och rensa den misslyckade resursen.
+   Kör följande kommandon för att registrera noden hn1-db-0 som sekundär och rensa den misslyckade resursen.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
@@ -770,7 +770,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -784,7 +784,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
 
 1. TEST 2: STOPPA PRIMÄR DATABAS PÅ NOD 2
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -796,14 +796,14 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Kör följande kommandon som < hanasid\>adm på noden HN1-DB-1:
+   Kör följande kommandon som <hanasid\>adm på noden hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker bör identifiera den stoppade HANA-instansen och redundansväxla till den andra noden. När redundansväxlingen är färdig stoppas HANA-instansen på Node HN1-DB-1 eftersom pacemaker inte automatiskt registrerar noden som HANA sekundär.
+   Pacemaker bör identifiera den stoppade HANA-instansen och redundansen till den andra noden. När redundansen är klar stoppas HANA-instansen på noden hn1-db-1 eftersom Pacemaker inte automatiskt registrerar noden som HANA sekundär.
 
-   Kör följande kommandon för att registrera Node HN1-DB-1 som sekundär och rensa den misslyckade resursen.
+   Kör följande kommandon för att registrera noden hn1-db-1 som sekundär och rensa den misslyckade resursen.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
@@ -811,7 +811,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -823,9 +823,9 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-1. TEST 3: KRASCHA PRIMÄR DATABAS PÅ NOD
+1. TEST 3: KRASCH PRIMÄR DATABAS PÅ NOD
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -837,14 +837,14 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som < hanasid\>adm på noden HN1-dB-0:
+   Kör följande kommandon som <hanasid\>adm på noden hn1-db-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
    
-   Pacemaker ska identifiera den stoppade HANA-instansen och redundansväxla till den andra noden. När redundansväxlingen är färdig stoppas HANA-instansen på Node HN1-dB-0 eftersom pacemaker inte automatiskt registrerar noden som HANA sekundär.
+   Pacemaker bör upptäcka den dödade HANA-instansen och redundansen till den andra noden. När redundansen är klar stoppas HANA-instansen på noden hn1-db-0 eftersom Pacemaker inte automatiskt registrerar noden som HANA sekundär.
 
-   Kör följande kommandon för att registrera Node HN1-dB-0 som sekundär och rensa den misslyckade resursen.
+   Kör följande kommandon för att registrera noden hn1-db-0 som sekundär och rensa den misslyckade resursen.
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-1 --remoteInstance=03 --replicationMode=sync --name=SITE1
    
@@ -852,7 +852,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -864,9 +864,9 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-1. TEST 4: KRASCHA PRIMÄR DATABAS PÅ NOD 2
+1. TEST 4: KRASCH PRIMÄR DATABAS PÅ NOD 2
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -878,14 +878,14 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Kör följande kommandon som < hanasid\>adm på noden HN1-DB-1:
+   Kör följande kommandon som <hanasid\>adm på noden hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
 
-   Pacemaker ska identifiera den stoppade HANA-instansen och redundansväxla till den andra noden. När redundansväxlingen är färdig stoppas HANA-instansen på Node HN1-DB-1 eftersom pacemaker inte automatiskt registrerar noden som HANA sekundär.
+   Pacemaker bör upptäcka den dödade HANA-instansen och redundansen till den andra noden. När redundansen är klar stoppas HANA-instansen på noden hn1-db-1 eftersom Pacemaker inte automatiskt registrerar noden som HANA sekundär.
 
-   Kör följande kommandon för att registrera Node HN1-DB-1 som sekundär och rensa den misslyckade resursen.
+   Kör följande kommandon för att registrera noden hn1-db-1 som sekundär och rensa den misslyckade resursen.
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2
    
@@ -893,7 +893,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -905,9 +905,9 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-1. TEST 5: NOD FÖR PRIMÄR PLATS FÖR KRASCH (NOD 1)
+1. TEST 5: KRASCH PRIMÄR PLATSNOD (NOD 1)
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -919,14 +919,14 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som rot på Node HN1-dB-0:
+   Kör följande kommandon som rot på noden hn1-db-0:
 
    <pre><code>hn1-db-0:~ #  echo 'b' > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker ska identifiera den stoppade klusternoden och stängsel noden. När noden har avgräns ATS utlöses pacemaker av HANA-instansen. När den avgränsade noden startas om startar inte pacemaker automatiskt.
+   Pacemaker bör identifiera den dödade klusternoden och stänga noden. När noden är inhägnad utlöser Pacemaker ett övertagande av HANA-instansen. När den inhägnade noden startas om startar inte Pacemaker automatiskt.
 
-   Kör följande kommandon för att starta pacemaker, rensa SBD-meddelandena för Node HN1-dB-0, registrera noden HN1-dB-0 som sekundär och rensa den misslyckade resursen.
+   Kör följande kommandon för att starta Pacemaker, rensa SBD-meddelandena för noden hn1-db-0, registrera noden hn1-db-0 som sekundär och rensa den misslyckade resursen.
 
    <pre><code># run as root
    # list the SBD device(s)
@@ -944,7 +944,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
    hn1-db-0:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-0
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -956,9 +956,9 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-1. TEST 6: KRASCHA SEKUNDÄR PLATS NOD (NOD 2)
+1. TEST 6: KRASCH SEKUNDÄR PLATSNOD (NOD 2)
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -970,14 +970,14 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Kör följande kommandon som rot på Node HN1-DB-1:
+   Kör följande kommandon som rot på noden hn1-db-1:
 
    <pre><code>hn1-db-1:~ #  echo 'b' > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker ska identifiera den stoppade klusternoden och stängsel noden. När noden har avgräns ATS utlöses pacemaker av HANA-instansen. När den avgränsade noden startas om startar inte pacemaker automatiskt.
+   Pacemaker bör identifiera den dödade klusternoden och stänga noden. När noden är inhägnad utlöser Pacemaker ett övertagande av HANA-instansen. När den inhägnade noden startas om startar inte Pacemaker automatiskt.
 
-   Kör följande kommandon för att starta pacemaker, rensa SBD-meddelandena för Node HN1-DB-1, registrera Node HN1-DB-1 som sekundär och rensa den misslyckade resursen.
+   Kör följande kommandon för att starta Pacemaker, rensa SBD-meddelandena för noden hn1-db-1, registrera noden hn1-db-1 som sekundär och rensa den misslyckade resursen.
 
    <pre><code># run as root
    # list the SBD device(s)
@@ -995,7 +995,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1009,7 +1009,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
 
 1. TEST 7: STOPPA DEN SEKUNDÄRA DATABASEN PÅ NOD 2
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1021,18 +1021,18 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som < hanasid\>adm på noden HN1-DB-1:
+   Kör följande kommandon som <hanasid\>adm på noden hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker kommer att identifiera den stoppade HANA-instansen och markera resursen som misslyckad på noden HN1-DB-1. Pacemaker bör starta om HANA-instansen automatiskt. Kör följande kommando för att rensa det felaktiga läget.
+   Pacemaker identifierar den stoppade HANA-instansen och markerar resursen som misslyckad på noden hn1-db-1. Pacemakern ska automatiskt starta om HANA-instansen. Kör följande kommando för att rensa det misslyckade tillståndet.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1046,7 +1046,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
 
 1. TEST 8: KRASCHA DEN SEKUNDÄRA DATABASEN PÅ NOD 2
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1058,18 +1058,18 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som < hanasid\>adm på noden HN1-DB-1:
+   Kör följande kommandon som <hanasid\>adm på noden hn1-db-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
 
-   Pacemaker kommer att identifiera den stoppade HANA-instansen och markera resursen som misslyckad på noden HN1-DB-1. Kör följande kommando för att rensa det felaktiga läget. Pacemaker bör sedan starta om HANA-instansen automatiskt.
+   Pacemaker kommer att upptäcka den dödade HANA-instansen och markera resursen som misslyckad på noden hn1-db-1. Kör följande kommando för att rensa det misslyckade tillståndet. Pacemaker bör sedan automatiskt starta om HANA-instansen.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1081,9 +1081,9 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-1. TEST 9: KRASCHA SEKUNDÄR PLATS-NOD (NOD 2) SOM KÖR SEKUNDÄR HANA-DATABAS
+1. TEST 9: KRASCH-SEKUNDÄR PLATSNOD (NOD 2) SOM KÖR SEKUNDÄR HANA-DATABAS
 
-   Resurs tillstånd innan du startar testet:
+   Resurstillstånd innan testet påbörjas:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1095,14 +1095,14 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som rot på Node HN1-DB-1:
+   Kör följande kommandon som rot på noden hn1-db-1:
 
    <pre><code>hn1-db-1:~ # echo b > /proc/sysrq-trigger
    </code></pre>
 
-   Pacemaker ska identifiera den stoppade klusternoden och stängsel noden. När den avgränsade noden startas om startar inte pacemaker automatiskt.
+   Pacemaker bör identifiera den dödade klusternoden och stänga noden. När den inhägnade noden startas om startar inte Pacemaker automatiskt.
 
-   Kör följande kommandon för att starta pacemaker, rensa SBD-meddelandena för Node HN1-DB-1 och rensa den misslyckade resursen.
+   Kör följande kommandon för att starta Pacemaker, rensa SBD-meddelandena för noden hn1-db-1 och rensa den misslyckade resursen.
 
    <pre><code># run as root
    # list the SBD device(s)
@@ -1116,7 +1116,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
    </code></pre>
 
-   Resurs tillstånd efter testet:
+   Resurstillstånd efter testet:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1130,7 +1130,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure Virtual Machines planera och implementera SAP][planning-guide]
-* [Azure Virtual Machines distribution för SAP][deployment-guide]
+* [Planering och implementering av virtuella Azure-datorer för SAP][planning-guide]
+* [Azure Virtual Machines-distribution för SAP][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP][dbms-guide]
 

@@ -1,6 +1,6 @@
 ---
-title: Villkorlig delnings omvandling i data flöde för mappning
-description: Dela data i olika strömmar med den villkorliga delnings omvandlingen i Azure Data Factory mappa data flöde
+title: Villkorlig delningsomvandling i mappning av dataflöde
+description: Dela upp data i olika strömmar med hjälp av den villkorliga delningsomvandlingen i Azure Data Factory-mappningsdataflödet
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
 ms.openlocfilehash: d7e2af6c98951e685192656b37226716e4340bfe
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930437"
 ---
-# <a name="conditional-split-transformation-in-mapping-data-flow"></a>Villkorlig delnings omvandling i data flöde för mappning
+# <a name="conditional-split-transformation-in-mapping-data-flow"></a>Villkorlig delningsomvandling i mappning av dataflöde
 
-Den villkorliga delnings Omvandlingen dirigerar data rader till olika strömmar baserat på matchnings villkor. Den villkorliga delnings omvandlingen liknar en ärende besluts struktur i ett programmeringsspråk. Omvandlingen utvärderar uttryck och baseras på resultaten och dirigerar data raden till den angivna data strömmen.
+Den villkorliga delade omvandlingen dirigerar datarader till olika strömmar baserat på matchande villkor. Den villkorliga delningsomvandlingen liknar en CASE-beslutsstruktur i ett programmeringsspråk. Omvandlingen utvärderar uttryck och baseras på resultaten dirigerar dataraden till den angivna strömmen.
 
 ## <a name="configuration"></a>Konfiguration
 
-Inställningen **dela vid** bestämmer om raden med data flödar till den första matchande data strömmen eller varje data ström som den matchar.
+Inställningen **Dela på** avgör om raden med data flödar till den första matchande strömmen eller varje ström som den matchar till.
 
-Använd data flödets uttrycks verktyg för att ange ett uttryck för det delade villkoret. Om du vill lägga till ett nytt villkor klickar du på plus ikonen i en befintlig rad. Du kan även lägga till en standard data ström för rader som inte matchar något villkor.
+Använd dataflödesuttrycksverktyget för att ange ett uttryck för delningsvillkoret. Om du vill lägga till ett nytt villkor klickar du på plusikonen i en befintlig rad. En standardström kan också läggas till för rader som inte matchar något villkor.
 
-![villkorlig delning](media/data-flow/conditionalsplit1.png "alternativ för villkorlig delning")
+![villkorlig delning](media/data-flow/conditionalsplit1.png "villkorsstyrda delningsalternativ")
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 
@@ -43,13 +43,13 @@ Använd data flödets uttrycks verktyg för att ange ett uttryck för det delade
 
 ### <a name="example"></a>Exempel
 
-Exemplet nedan är en villkorlig delad omvandling med namnet `SplitByYear` som tar emot inkommande data strömmar `CleanData`. Den här omvandlingen har två delnings villkor `year < 1960` och `year > 1980`. `disjoint` är falskt eftersom data hamnar i det första matchnings villkoret. Varje rad som matchar det första villkoret går till utdata Stream `moviesBefore1960`. Alla återstående rader som matchar det andra villkoret går till utdataström `moviesAFter1980`. Alla andra rader flödar genom standard data strömmen `AllOtherMovies`.
+Exemplet nedan är en villkorlig `SplitByYear` delningsomvandling som visas som tar i inkommande ström `CleanData`. Denna omvandling har `year < 1960` två `year > 1980`delade villkor och . `disjoint`är falskt eftersom data går till det första matchande villkoret. Varje rad som matchar det `moviesBefore1960`första villkoret går till utdataströmmen . Alla återstående rader som matchar det `moviesAFter1980`andra villkoret går till utdataströmmen . Alla andra rader flödar `AllOtherMovies`genom standardströmmen .
 
-I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
+I Data Factory UX ser den här omvandlingen ut som bilden nedan:
 
-![villkorlig delning](media/data-flow/conditionalsplit1.png "alternativ för villkorlig delning")
+![villkorlig delning](media/data-flow/conditionalsplit1.png "villkorsstyrda delningsalternativ")
 
-Data flödes skriptet för den här omvandlingen är i kodfragmentet nedan:
+Dataflödesskriptet för den här omvandlingen finns i kodavsnittet nedan:
 
 ```
 CleanData
@@ -62,4 +62,4 @@ CleanData
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vanliga data flödes omvandlingar som används med villkorlig delning är [Join-omvandling](data-flow-join.md), [Lookup-omvandling](data-flow-lookup.md)och [Välj omvandling](data-flow-select.md)
+Vanliga dataflödesomvandlingar som används med villkorsstyrd delning är [kopplingsomvandling,](data-flow-join.md) [uppslagsomvandling](data-flow-lookup.md)och [välja omformning](data-flow-select.md)

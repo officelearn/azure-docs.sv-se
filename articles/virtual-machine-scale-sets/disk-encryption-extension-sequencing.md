@@ -1,34 +1,34 @@
 ---
-title: Sekvensering av tillägg för skalnings uppsättningar för virtuella datorer i Azure Virtual Machine Azure Disk Encryption
-description: Den här artikeln innehåller anvisningar om hur du aktiverar Microsoft Azure Disk Encryption för virtuella Linux IaaS-datorer.
+title: Azure Disk Encryption och Azure virtual machine scale anger tilläggssekvensering
+description: Den här artikeln innehåller instruktioner om hur du aktiverar Microsoft Azure Disk Encryption för virtuella Linux IaAS-datorer.
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.openlocfilehash: aa638b86b0788b8c274f9dcb3c04c1fc385b4ae1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279019"
 ---
-# <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Använd Azure Disk Encryption med sekvensering av tillägg för skalnings uppsättning för virtuell dator
+# <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Använda Azure Disk Encryption med sekvensering av tillägg för virtuell datoruppsättning
 
-Tillägg som Azure Disk Encryption kan läggas till i en skalnings uppsättning för virtuella Azure-datorer i en angiven ordning. Det gör du genom att använda [sekvensering av tillägg](virtual-machine-scale-sets-extension-sequencing.md). 
+Tillägg som Azure-diskkryptering kan läggas till i en Azure-skala för virtuella datorer som anges i en angiven ordning. Det gör du genom att använda [förlängningssekvensering](virtual-machine-scale-sets-extension-sequencing.md). 
 
 I allmänhet bör kryptering tillämpas på en disk:
 
 - Efter tillägg eller anpassade skript som förbereder diskarna eller volymerna.
-- Innan tillägg eller anpassade skript som har åtkomst till eller använder data på de krypterade diskarna eller volymerna.
+- Före tillägg eller anpassade skript som kommer åt eller använder data på de krypterade diskarna eller volymerna.
 
-I båda fallen anger egenskapen `provisionAfterExtensions` vilket tillägg som ska läggas till senare i sekvensen.
+I båda fallen `provisionAfterExtensions` anger egenskapen vilket tillägg som ska läggas till senare i sekvensen.
 
 ## <a name="sample-azure-templates"></a>Exempel på Azure-mallar
 
-Om du vill att Azure Disk Encryption ska användas efter ett annat tillägg, måste du ange egenskapen `provisionAfterExtensions` i AzureDiskEncryption-tilläggs blocket. 
+Om du vill att Azure Disk Encryption ska `provisionAfterExtensions` tillämpas efter ett annat tillägg placerar du egenskapen i AzureDiskEncryption-tilläggets block. 
 
-Här är ett exempel på hur du använder "CustomScriptExtension", ett PowerShell-skript som initierar och formaterar en Windows-disk, följt av "AzureDiskEncryption":
+Här är ett exempel med "CustomScriptExtension", ett Powershell-skript som initierar och formaterar en Windows-disk, följt av "AzureDiskEncryption":
 
 ```json
 "virtualMachineProfile": {
@@ -84,9 +84,9 @@ Här är ett exempel på hur du använder "CustomScriptExtension", ett PowerShel
 }
 ```
 
-Om du vill att Azure Disk Encryption ska tillämpas före ett annat tillägg ska du ange egenskapen `provisionAfterExtensions` i blocket för tillägget att följa.
+Om du vill att Azure Disk Encryption ska `provisionAfterExtensions` tillämpas före ett annat tillägg, placera egenskapen i blocket av tillägget som ska följas.
 
-Här är ett exempel på hur du använder "AzureDiskEncryption" följt av "VMDiagnosticsSettings", ett tillägg som tillhandahåller funktioner för övervakning och diagnostik på en Windows-baserad virtuell Azure-dator:
+Här är ett exempel med "AzureDiskEncryption" följt av "VMDiagnosticsSettings", ett tillägg som tillhandahåller övervaknings- och diagnostikfunktioner på en Windows-baserad Virtuell Azure:Here is a example using "AzureDiskTEncryption" followed by "VMDiagnosticsSettings", ett tillägg som tillhandahåller övervaknings- och diagnostikfunktioner på en Windows-baserad Azure VM:
 
 
 ```json
@@ -152,13 +152,13 @@ Här är ett exempel på hur du använder "AzureDiskEncryption" följt av "VMDia
 ```
 
 En mer djupgående mall finns i:
-* Tillämpa Azure Disk Encryption-tillägget efter ett anpassat skal skript som formaterar disken (Linux): [distribuera-extseq-Linux-ade-after-CustomScript. JSON](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+* Använda Azure Disk Encryption-tillägget efter ett anpassat skalskript som formaterar disken (Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om att utöka ordningsföljd: [etablering av sekvens tillägg i virtuella datorers skalnings uppsättningar](virtual-machine-scale-sets-extension-sequencing.md).
-- Läs mer om `provisionAfterExtensions`-egenskapen: [referens för Microsoft. Compute-virtualMachineScaleSets/tillägg](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
-- [Azure Disk Encryption för skalnings uppsättningar för virtuella datorer](disk-encryption-overview.md)
-- [Kryptera en skalnings uppsättning för virtuella datorer med hjälp av Azure CLI](disk-encryption-cli.md)
-- [Kryptera en skalnings uppsättning för virtuella datorer med hjälp av Azure PowerShell](disk-encryption-powershell.md)
-- [Skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md)
+- Läs mer om om ordningsföljd för tillägg: [Sekvenstilläggetablering i skalningsuppsättningar för virtuella datorer](virtual-machine-scale-sets-extension-sequencing.md).
+- Läs mer `provisionAfterExtensions` om egenskapen: [Microsoft.Compute virtualMachineScaleSets/extensions mallreferens](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
+- [Azure Disk Encryption för skalningsuppsättningar för virtuella datorer](disk-encryption-overview.md)
+- [Kryptera en skala för virtuella datorer med Azure CLI](disk-encryption-cli.md)
+- [Kryptera en skala för virtuella datorer med Azure PowerShell](disk-encryption-powershell.md)
+- [Skapa och konfigurera ett nyckelvalv för Azure DiskKryptering](disk-encryption-key-vault.md)

@@ -1,6 +1,6 @@
 ---
-title: Ansluta till Azure Media Services v3 API – python
-description: Den här artikeln visar hur du ansluter till Media Services v3 API med python.
+title: Ansluta till Azure Media Services v3 API - Python
+description: Den här artikeln visar hur du ansluter till Media Services v3 API med Python.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,47 +14,47 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
 ms.openlocfilehash: 98a8cdf4120cf56184eb5735249640e3423acdf4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74888469"
 ---
-# <a name="connect-to-media-services-v3-api---python"></a>Ansluta till Media Services v3 API – python
+# <a name="connect-to-media-services-v3-api---python"></a>Ansluta till Media Services v3 API - Python
 
-Den här artikeln visar hur du ansluter till Azure Media Services v3 python SDK med hjälp av inloggnings metoden för tjänstens huvud namn.
+Den här artikeln visar hur du ansluter till Azure Media Services v3 Python SDK med hjälp av tjänstens huvudloggmetod.
 
 ## <a name="prerequisites"></a>Krav
 
-- Hämta python från [python.org](https://www.python.org/downloads/)
-- Se till att ange `PATH`-miljövariabeln
-- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Glöm inte att komma ihåg resurs gruppens namn och namnet på Media Services kontot.
-- Följ stegen i avsnittet [åtkomst-API: er](access-api-cli-how-to.md) . Registrera prenumerations-ID, program-ID (klient-ID), den autentiseringsnyckel (hemlighet) och klient-ID som du behöver i senare steg.
+- Ladda ner Python från [python.org](https://www.python.org/downloads/)
+- Se till att `PATH` ställa in miljövariabeln
+- [Skapa ett Media Services-konto](create-account-cli-how-to.md). Kom ihåg resursgruppsnamnet och mediatjänstkontonamnet.
+- Följ stegen i avsnittet [Access API:er.](access-api-cli-how-to.md) Registrera prenumerations-ID, program-ID (klient-ID), autentiseringsnyckeln (hemlig) och klient-ID som du behöver i det senare steget.
 
 > [!IMPORTANT]
-> Granska [namngivnings konventioner](media-services-apis-overview.md#naming-conventions).
+> Granska [namngivningskonventioner](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="install-the-modules"></a>Installera modulerna
 
-Om du vill arbeta med Azure Media Services med hjälp av python måste du installera dessa moduler.
+Om du vill arbeta med Azure Media Services med Python måste du installera dessa moduler.
 
-* `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory.
-* `azure-mgmt-media`-modulen, som innehåller Media Services entiteter.
+* Modulen, `azure-mgmt-resource` som innehåller Azure-moduler för Active Directory.
+* Modulen, `azure-mgmt-media` som innehåller Media Services-entiteterna.
 
-Öppna ett kommando rads verktyg och Använd följande kommandon för att installera modulerna.
+Öppna ett kommandoradsverktyg och använd följande kommandon för att installera modulerna.
 
 ```
 pip3 install azure-mgmt-resource
 pip3 install azure-mgmt-media==1.1.1
 ```
 
-## <a name="connect-to-the-python-client"></a>Anslut till python-klienten
+## <a name="connect-to-the-python-client"></a>Anslut till Python-klienten
 
-1. Skapa en fil med ett `.py`-tillägg
-1. Öppna filen i din favorit redigerare
-1. Lägg till koden som följer efter filen. Koden importerar de nödvändiga modulerna och skapar objektet Active Directory autentiseringsuppgifter som du måste ansluta till Media Services.
+1. Skapa en fil `.py` med ett tillägg
+1. Öppna filen i din favoritredigerare
+1. Lägg till koden som följer i filen. Koden importerar de moduler som krävs och skapar det Active Directory-autentiseringsobjekt som du behöver för att ansluta till Media Services.
 
-      Ange Variablernas värden till de värden som du har fått från [åtkomst till API: er](access-api-cli-how-to.md)
+      Ange variablernas värden till de värden du fick från [Access-API:er](access-api-cli-how-to.md)
 
       ```
       import adal
@@ -99,9 +99,9 @@ pip3 install azure-mgmt-media==1.1.1
       print (client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
       ```
 
-1. Kör filen
+1. Köra filen
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [python SDK](https://aka.ms/ams-v3-python-sdk).
+- Använd [Python SDK](https://aka.ms/ams-v3-python-sdk).
 - Granska Media Services [Python-referensdokumentationen](https://aka.ms/ams-v3-python-ref).

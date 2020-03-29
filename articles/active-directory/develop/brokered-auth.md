@@ -1,7 +1,7 @@
 ---
-title: Brokered Authentication i Android | Azure
+title: Förmedlad autentisering i Android | Azure
 titlesuffix: Microsoft identity platform
-description: En översikt över Brokered Authentication & auktorisering för Android i Microsoft Identity Platform
+description: En översikt över förmedlad autentisering & auktorisering för Android i Microsofts identitetsplattform
 services: active-directory
 author: shoatman
 manager: CelesteDG
@@ -14,71 +14,71 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
 ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76697905"
 ---
-# <a name="brokered-authentication-in-android"></a>Brokered Authentication i Android
+# <a name="brokered-authentication-in-android"></a>Förmedlad autentisering i Android
 
-Du måste använda någon av Microsofts autentiserings mäklare för att delta i enkel inloggning (SSO) för hela enheten och för att uppfylla organisationens principer för villkorlig åtkomst. Att integrera med en Service Broker ger följande fördelar:
+Du måste använda en av Microsofts autentiseringsmäklare för att delta i enhetsomfattande enkel inloggning (SSO) och för att uppfylla organisationens principer för villkorlig åtkomst. Att integrera med en mäklare ger följande fördelar:
 
 - Enkel inloggning för enhet
 - Villkorlig åtkomst för:
-  - Intune-appskydd
-  - Enhets registrering (Workplace Join)
-  - Hantering av mobilenheter
-- Konto hantering för hela enheten
-  -  via Android-AccountManager & konto inställningar
-  - "Arbets konto" – anpassad kontotyp
+  - Intune App Protection
+  - Enhetsregistrering (Arbetsplatskoppling)
+  - Hantering av mobila enheter
+- Kontohantering för hela enheten
+  -  via Android AccountManager & kontoinställningar
+  - "Arbetskonto" - anpassad kontotyp
 
-På Android är Microsoft Authentication Broker en komponent som ingår i [Microsoft Authenticator app](https://play.google.com/store/apps/details?id=com.azure.authenticator) och [Intune-företagsportal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
+På Android är Microsoft Authentication Broker en komponent som ingår i [Microsoft Authenticator App](https://play.google.com/store/apps/details?id=com.azure.authenticator) och [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
 
 > [!TIP]
-> Endast ett program som är värd för Service Broker aktive ras som koordinatorn i taget. Vilket program som är aktivt som en Broker bestäms av installations ordningen på enheten. Den första som ska installeras eller den som senast fanns på enheten blir aktiv Broker.
+> Endast ett program som är värd för mäklaren kommer att vara aktiv som mäklare åt gången. Vilket program som är aktivt som mäklare bestäms av installationsordern på enheten. Den första som installeras, eller den sista som finns på enheten, blir den aktiva mäklaren.
 
-Följande diagram illustrerar förhållandet mellan appen, Microsoft Authentication Library (MSAL) och Microsofts autentiserings mäklare.
+Följande diagram illustrerar förhållandet mellan din app, Microsoft Authentication Library (MSAL) och Microsofts autentiseringsmäklare.
 
-![Diagram över Broker-distribution](./media/brokered-auth/brokered-deployment-diagram.png)
+![Distributionsdiagram för mäklare](./media/brokered-auth/brokered-deployment-diagram.png)
 
-## <a name="installing-apps-that-host-a-broker"></a>Installera appar som är värdar för en Broker
+## <a name="installing-apps-that-host-a-broker"></a>Installera appar som är värdar för en mäklare
 
-Broker-värdbaserade appar kan installeras av enhetens ägare från App Store (vanligt vis Google Play Butik). Vissa API: er (resurser) skyddas dock av principer för villkorlig åtkomst som kräver att enheter:
+Appar med mäklarhosting kan installeras av enhetsägaren från deras App Store (vanligtvis Google Play Store) när som helst. Vissa API:er (resurser) skyddas dock av principer för villkorlig åtkomst som kräver att enheter är:
 
-- Registrerad (arbets plats ansluten) och/eller
-- Registrerad i enhets hantering eller
-- Registrerad i Intune-appskydd
+- Registrerad (arbetsplats förenade) och/eller
+- Registrerad i Enhetshantering eller
+- Inskriven i Intune-appskydd
 
-Om en enhet inte redan har en Service Broker-app installerad instruerar MSAL användaren att installera en så fort appen försöker hämta en token interaktivt. Appen måste sedan leda användaren genom stegen för att göra enheten kompatibel med den princip som krävs.
+Om en enhet inte redan har en mäklarapp installerad instruerar MSAL användaren att installera en så fort appen försöker hämta en token interaktivt. Appen måste sedan leda användaren genom stegen för att göra enheten kompatibel med den princip som krävs.
 
-## <a name="effects-of-installing-and-uninstalling-a-broker"></a>Effekter av installation och avinstallation av en Broker
+## <a name="effects-of-installing-and-uninstalling-a-broker"></a>Effekter av att installera och avinstallera en mäklare
 
-### <a name="when-a-broker-is-installed"></a>När en Service Broker installeras
+### <a name="when-a-broker-is-installed"></a>När en mäklare installeras
 
-När en Broker installeras på en enhet hanteras alla efterföljande interaktiva Tokenbegäran (anrop till `acquireToken()`) av Service Broker i stället för lokalt av MSAL. SSO-tillstånd som tidigare var tillgängligt för MSAL är inte tillgängligt för Broker. Detta innebär att användaren måste autentisera igen eller välja ett konto i den befintliga listan över konton som är kända för enheten.
+När en mäklare installeras på en enhet hanteras `acquireToken()`alla efterföljande interaktiva tokenbegäranden (anrop) av mäklaren i stället för lokalt av MSAL. Alla SSO-tillstånd som tidigare varit tillgängliga för MSAL är inte tillgängligt för mäklaren. Därför måste användaren autentisera igen eller välja ett konto i den befintliga listan över konton som enheten känner till.
 
-Att installera en Broker kräver inte att användaren loggar in igen. Endast när användaren behöver lösa ett `MsalUiRequiredException` skickas nästa begäran till Service Broker. `MsalUiRequiredException` genereras av flera orsaker och måste lösas interaktivt. Detta är några vanliga orsaker:
+Om du installerar en mäklare krävs inte att användaren loggar in igen. Endast när användaren behöver `MsalUiRequiredException` lösa en kommer nästa begäran att gå till mäklaren. `MsalUiRequiredException`av flera skäl och måste lösas interaktivt. Dessa är några vanliga orsaker:
 
-- Användaren ändrade lösen ordet som är kopplat till sitt konto.
+- Användaren ändrade lösenordet som är kopplat till deras konto.
 - Användarens konto uppfyller inte längre en princip för villkorlig åtkomst.
-- Användaren återkallade sitt medgivande för att appen ska associeras med sitt konto.
+- Användaren återkallade sitt samtycke för att appen skulle associeras med sitt konto.
 
-### <a name="when-a-broker-is-uninstalled"></a>När en Broker avinstalleras
+### <a name="when-a-broker-is-uninstalled"></a>När en mäklare avinstalleras
 
-Om det bara finns en Service Broker-värd app installerad och den tas bort måste användaren logga in igen. Om du avinstallerar den aktiva Broker tas kontot och tillhör ande token bort från enheten.
+Om det bara finns en mäklarvärd app installerad, och den tas bort, måste användaren logga in igen. Om du avinstallerar den aktiva mäklaren tas kontot och associerade token bort från enheten.
 
-Om Intune-företagsportal är installerat och fungerar som den aktiva utjämningen, och Microsoft Authenticator också är installerat, kommer användaren att behöva logga in igen om Intune-företagsportal (aktiv Broker) har avinstallerats. När de loggar in igen blir Microsoft Authenticator-appen den aktiva koordinatorn.
+Om Intune Company Portal är installerat och fungerar som aktiv mäklare, och Microsoft Authenticator också är installerat, måste användaren logga in igen om Intune Company Portal (aktiv mäklare) avinstalleras. När de loggar in igen blir Microsoft Authenticator-appen den aktiva mäklaren.
 
-## <a name="integrating-with-a-broker"></a>Integrera med en Service Broker
+## <a name="integrating-with-a-broker"></a>Integrera med en mäklare
 
-### <a name="generating-a-redirect-uri-for-a-broker"></a>Skapa en omdirigerings-URI för en Broker
+### <a name="generating-a-redirect-uri-for-a-broker"></a>Generera en omdirigera URI för en mäklare
 
-Du måste registrera en omdirigerings-URI som är kompatibel med Broker. Omdirigerings-URI för Broker måste innehålla appens paket namn, samt den base64-kodade representationen av appens signatur.
+Du måste registrera en omdirigera URI som är kompatibel med mäklaren. Omdirigerings-URI:n för mäklaren måste innehålla appens paketnamn, samt den base64-kodade representationen av appens signatur.
 
-Formatet för omdirigerings-URI: n är: `msauth://<yourpackagename>/<base64urlencodedsignature>`
+Formatet för omdirigera URI är:`msauth://<yourpackagename>/<base64urlencodedsignature>`
 
-Generera din base64 URL-kodade signatur med appens signerings nycklar. Här följer några exempel på kommandon som använder dina fel söknings signerings nycklar:
+Generera din Base64 url kodade signatur med hjälp av appens signeringsnycklar. Här är några exempelkommandon som använder felsökningssigneringsnycklarna:
 
 #### <a name="macos"></a>macOS
 
@@ -92,14 +92,14 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore |
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-Se [signera din app](https://developer.android.com/studio/publish/app-signing) för information om att signera din app.
+Se [Logga in appen](https://developer.android.com/studio/publish/app-signing) för information om hur du signerar appen.
 
 > [!IMPORTANT]
-> Använd din produktions signerings nyckel för produktions versionen av din app.
+> Använd produktionssigneringsnyckeln för produktionsversionen av appen.
 
-### <a name="configure-msal-to-use-a-broker"></a>Konfigurera MSAL för att använda en Service Broker
+### <a name="configure-msal-to-use-a-broker"></a>Konfigurera MSAL för att använda en mäklare
 
-Om du vill använda en Broker i din app måste du intyga att du har konfigurerat omdirigeringen av Service Broker. Inkludera till exempel både din Broker-aktiverade omdirigerings-URI – och indikerar att du har registrerat den – genom att inkludera följande i din MSAL-konfigurations fil:
+Om du vill använda en mäklare i appen måste du intyga att du har konfigurerat omdirigering av mäklaren. Inkludera till exempel både din mäklare aktiverad omdirigera URI - och ange att du registrerat det - genom att inkludera följande i din MSAL konfigurationsfil:
 
 ```javascript
 "redirect_uri" : "<yourbrokerredirecturi>",
@@ -107,18 +107,18 @@ Om du vill använda en Broker i din app måste du intyga att du har konfigurerat
 ```
 
 > [!TIP]
-> Det nya användar gränssnittet för Azure Portal app-registrering hjälper dig att generera omdirigerings-URI för Broker. Om du har registrerat din app med hjälp av den tidigare versionen, eller gjort det med hjälp av registrerings portalen för Microsoft-appen, kan du behöva generera omdirigerings-URI: n och uppdatera listan över omdirigerings-URI: er i portalen manuellt.
+> Det nya användargränssnittet för registrering av Azure-portalappar hjälper dig att generera uri-et för mäklaredirigering. Om du har registrerat din app med den äldre upplevelsen, eller gjorde det med hjälp av Microsoft-appregistreringsportalen, kan du behöva generera omdirigerings-URI:n och uppdatera listan över omdirigera URI:er i portalen manuellt.
 
-### <a name="broker-related-exceptions"></a>Undantag som rör Broker
+### <a name="broker-related-exceptions"></a>Mäklarrelaterade undantag
 
-MSAL kommunicerar med Service Broker på två sätt:
+MSAL kommunicerar med mäklaren på två sätt:
 
-- Service Broker-bindning
-- Android-AccountManager
+- Tjänst för mäklaresbunden tjänst
+- Android-kontoManager
 
-MSAL använder först den Broker-kopplade tjänsten eftersom anrop till den här tjänsten inte kräver några Android-behörigheter. Om bindningen till den kopplade tjänsten Miss lyckas använder MSAL Android AccountManager-API: et. MSAL gör detta endast om din app redan har beviljats `"READ_CONTACTS"`-behörighet.
+MSAL använder först den mäklare bundna tjänsten eftersom ringa denna tjänst inte kräver några Android-behörigheter. Om bindningen till den bundna tjänsten misslyckas kommer MSAL att använda Api:et för Android AccountManager. MSAL gör detta bara om din `"READ_CONTACTS"` app redan har beviljats behörigheten.
 
-Om du får ett `MsalClientException` med felkod `"BROKER_BIND_FAILURE"`finns det två alternativ:
+Om du `MsalClientException` får en `"BROKER_BIND_FAILURE"`med felkod finns det två alternativ:
 
-- Be användaren att inaktivera energi optimering för Microsoft Authenticator-appen och Intune-företagsportal.
-- Be användaren att bevilja `"READ_CONTACTS"` behörighet
+- Be användaren att inaktivera energioptimering för Microsoft Authenticator-appen och Intune Company Portal.
+- Be användaren att `"READ_CONTACTS"` bevilja behörigheten

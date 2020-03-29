@@ -1,5 +1,5 @@
 ---
-title: Hantera användare i Azure Data Box Gateway | Microsoft Docs
+title: Hantera användare för Azure Data Box Gateway | Microsoft Docs
 description: Beskriver hur du använder Azure-portalen för att hantera användare i Azure Data Box Gateway.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 60fd5476d687d9f44aec885cdf888572e8e523a4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78946119"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Använda Azure-portalen för att hantera användare i Azure Data Box Gateway
@@ -33,7 +33,7 @@ Användare kan ha skrivskyddad åtkomst eller fullständig behörighet. Som namn
  - **Användare med fullständig behörighet** – En lokal användare med fullständig åtkomst.
  - **Skrivskyddad användare** – En lokal användare med skrivskyddad åtkomst. Dessa användare är kopplade till resurser som tillåter skrivskyddade åtgärder.
 
-Användarbehörigheterna definieras när användaren skapas i samband med att resurserna skapas. Ändring av behörigheter på resurs nivå stöds inte för närvarande.
+Användarbehörigheterna definieras när användaren skapas i samband med att resurserna skapas. Ändring av behörigheter på resursnivå stöds för närvarande inte.
 
 ## <a name="add-a-user"></a>Lägga till en användare
 
@@ -41,11 +41,11 @@ Lägg till en användare genom att följa de här instruktionerna på Azure-port
 
 1. Gå till din Data Box Gateway-resurs på Azure-portalen och gå sedan till **Översikt**. Klicka på **+ Lägg till användare** i kommandofältet.
 
-    ![Klicka på Lägg till användare](media/data-box-gateway-manage-users/add-user-1.png)
+    ![Klicka på lägg till användare](media/data-box-gateway-manage-users/add-user-1.png)
 
 2. Ange användarnamnet och lösenordet för den användare som du vill lägga till. Bekräfta lösenordet och klicka på **Lägg till**.
 
-    ![Klicka på Lägg till användare](media/data-box-gateway-manage-users/add-user-2.png)
+    ![Klicka på lägg till användare](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
     > Dessa användare är reserverade i systemet och bör inte användas: Administratör, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount och Gäst.  
@@ -79,4 +79,4 @@ Listan över användare uppdateras för att återspegla den borttagna användare
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [hanterar bandbredd](data-box-gateway-manage-bandwidth-schedules.md).
+- Lär dig att [hantera bandbredd](data-box-gateway-manage-bandwidth-schedules.md).

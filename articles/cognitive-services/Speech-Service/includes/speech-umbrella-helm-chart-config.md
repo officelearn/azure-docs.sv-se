@@ -1,7 +1,7 @@
 ---
-title: Installera tal behållare
+title: Installera talbehållare
 titleSuffix: Azure Cognitive Services
-description: Mer information finns i tal parasollet Helm Chart Configuration Options.
+description: Information om konfigurationsalternativen för talparaplyrdiagram.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,29 +11,29 @@ ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
 ms.openlocfilehash: ed64412ccf9d192506fafe546b1ccee7941aa43a
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73523979"
 ---
-### <a name="speech-umbrella-chart"></a>Tal (paraply diagram)
+### <a name="speech-umbrella-chart"></a>Tal (paraplydiagram)
 
-Värdena i den översta nivån "parasoll"-diagrammet åsidosätter motsvarande värden i det underordnade diagrammet. Därför bör alla lokala anpassade värden läggas till här.
+Värden i det översta "paraplydiagrammet" åsidosätter motsvarande underdiagramvärden. Därför bör alla lokala anpassade värden läggas till här.
 
-|Parameter|Beskrivning|Standard|
+|Parameter|Beskrivning|Default|
 | -- | -- | -- | -- |
-| `speechToText.enabled` | Om tjänsten för **tal till text** är aktive rad. | `true` |
-| `speechToText.verification.enabled` | Om `helm test` funktionen för **tal-till-text** -tjänsten är aktive rad. | `true` |
-| `speechToText.verification.image.registry` | Den Docker-avbildnings lagrings plats som `helm test` använder för att testa **tal-till-text-** tjänsten. Helm skapar separata Pod i klustret för att testa och hämtar *test-use-* avbildningen från det här registret. | `docker.io` |
-| `speechToText.verification.image.repository` | Den Docker-avbildnings lagrings plats som `helm test` använder för att testa **tal-till-text-** tjänsten. Helm test Pod använder den här lagrings platsen för att hämta *test-use-* avbildningen. | `antsu/on-prem-client` |
-| `speechToText.verification.image.tag` | Den Docker-avbildnings tag som används med `helm test` för **tal-till-text-** tjänsten. Helm test Pod använder den här taggen för att hämta *test-use-* avbildningen. | `latest` |
-| `speechToText.verification.image.pullByHash` | Om *test-use-* avbildningen ska hämtas via hash. Om `true`ska `speechToText.verification.image.hash` läggas till, med ett giltigt hash-värde för avbildning. | `false` |
-| `speechToText.verification.image.arguments` | De argument som används för att köra Docker-avbildningen för *test-use* . Helm test Pod skickar dessa argument till behållaren när `helm test`körs. | `"./speech-to-text-client"`<br/> `"./audio/whatstheweatherlike.wav"` <br/> `"--expect=What's the weather like"`<br/>`"--host=$(SPEECH_TO_TEXT_HOST)"`<br/>`"--port=$(SPEECH_TO_TEXT_PORT)"` |
-| `textToSpeech.enabled` | Om **text till tal** -tjänsten är aktive rad. | `true` |
-| `textToSpeech.verification.enabled` | Om `helm test` funktionen för **tal-till-text** -tjänsten är aktive rad. | `true` |
-| `textToSpeech.verification.image.registry` | Den Docker-avbildnings lagrings plats som `helm test` använder för att testa **tal-till-text-** tjänsten. Helm skapar separata Pod i klustret för att testa och hämtar *test-use-* avbildningen från det här registret. | `docker.io` |
-| `textToSpeech.verification.image.repository` | Den Docker-avbildnings lagrings plats som `helm test` använder för att testa **tal-till-text-** tjänsten. Helm test Pod använder den här lagrings platsen för att hämta *test-use-* avbildningen. | `antsu/on-prem-client` |
-| `textToSpeech.verification.image.tag` | Den Docker-avbildnings tag som används med `helm test` för **tal-till-text-** tjänsten. Helm test Pod använder den här taggen för att hämta *test-use-* avbildningen. | `latest` |
-| `textToSpeech.verification.image.pullByHash` | Om *test-use-* avbildningen ska hämtas via hash. Om `true`ska `textToSpeech.verification.image.hash` läggas till, med ett giltigt hash-värde för avbildning. | `false` |
-| `textToSpeech.verification.image.arguments` | Argumenten som ska köras med *Hjälp* av Docker-avbildningen. Helm test-Pod skickar dessa argument till container när `helm test`körs. | `"./text-to-speech-client"`<br/> `"--input='What's the weather like'"` <br/> `"--host=$(TEXT_TO_SPEECH_HOST)"`<br/>`"--port=$(TEXT_TO_SPEECH_PORT)"` |
+| `speechToText.enabled` | Om **tal-till-text-tjänsten** är aktiverad. | `true` |
+| `speechToText.verification.enabled` | Om `helm test` funktionen för **tal-till-text-tjänst** är aktiverad. | `true` |
+| `speechToText.verification.image.registry` | Den dockeravbildningsdatabas som `helm test` används för att testa **tal-till-text-tjänsten.** Helm skapar separat pod inuti klustret *test-use* för testning och hämtar testanvändningsavbildningen från det här registret. | `docker.io` |
+| `speechToText.verification.image.repository` | Den dockeravbildningsdatabas som `helm test` används för att testa **tal-till-text-tjänsten.** Helm test pod använder denna databas för att dra *test-användning* bild. | `antsu/on-prem-client` |
+| `speechToText.verification.image.tag` | Docker-avbildningstaggen som används för `helm test` **tal-till-text-tjänst.** Helm test pod använder denna tagg för att dra *test-användning* bild. | `latest` |
+| `speechToText.verification.image.pullByHash` | Om *dockerbilden för testanvändning* dras av hash. Om `true` `speechToText.verification.image.hash` , ska läggas till, med giltigt bildhh-värde. | `false` |
+| `speechToText.verification.image.arguments` | De argument som används för att köra *dockeravbildningen för testanvändning.* Helm test pod skickar dessa argument `helm test`till behållaren när du kör . | `"./speech-to-text-client"`<br/> `"./audio/whatstheweatherlike.wav"` <br/> `"--expect=What's the weather like"`<br/>`"--host=$(SPEECH_TO_TEXT_HOST)"`<br/>`"--port=$(SPEECH_TO_TEXT_PORT)"` |
+| `textToSpeech.enabled` | Om **text-till-tal-tjänsten** är aktiverad. | `true` |
+| `textToSpeech.verification.enabled` | Om `helm test` funktionen för **tal-till-text-tjänst** är aktiverad. | `true` |
+| `textToSpeech.verification.image.registry` | Den dockeravbildningsdatabas som `helm test` används för att testa **tal-till-text-tjänsten.** Helm skapar separat pod inuti klustret *test-use* för testning och hämtar testanvändningsavbildningen från det här registret. | `docker.io` |
+| `textToSpeech.verification.image.repository` | Den dockeravbildningsdatabas som `helm test` används för att testa **tal-till-text-tjänsten.** Helm test pod använder denna databas för att dra *test-användning* bild. | `antsu/on-prem-client` |
+| `textToSpeech.verification.image.tag` | Docker-avbildningstaggen som används för `helm test` **tal-till-text-tjänst.** Helm test pod använder denna tagg för att dra *test-användning* bild. | `latest` |
+| `textToSpeech.verification.image.pullByHash` | Om *dockerbilden för testanvändning* dras av hash. Om `true` `textToSpeech.verification.image.hash` , ska läggas till, med giltigt bildhh-värde. | `false` |
+| `textToSpeech.verification.image.arguments` | Argumenten som ska köras med *dockeravbildningen för testanvändning.* Helm-testenheten skickar dessa argument `helm test`till behållare när du kör . | `"./text-to-speech-client"`<br/> `"--input='What's the weather like'"` <br/> `"--host=$(TEXT_TO_SPEECH_HOST)"`<br/>`"--port=$(TEXT_TO_SPEECH_PORT)"` |

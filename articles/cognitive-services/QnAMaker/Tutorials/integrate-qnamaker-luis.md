@@ -1,7 +1,7 @@
 ---
-title: LUIS och QnAMaker - Bot-integrering
+title: LUIS och QnAMaker - Bot Integration
 titleSuffix: Azure Cognitive Services
-description: När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
+description: När din QnA Maker kunskapsbas växer sig stor, blir det svårt att behålla den som en enda monolitisk uppsättning och det finns ett behov av att dela upp kunskapsbasen i mindre logiska bitar.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,57 +12,57 @@ ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71802796"
 ---
-# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Använd bot med QnA Maker-och LUIS för att distribuera kunskaps basen
-När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
+# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Använd bot med QnA Maker och LUIS för att distribuera din kunskapsbas
+När din QnA Maker kunskapsbas växer sig stor, blir det svårt att behålla den som en enda monolitisk uppsättning och det finns ett behov av att dela upp kunskapsbasen i mindre logiska bitar.
 
-Det är enkelt att skapa flera kunskapsbaser i QnA Maker, behöver du vissa logik för att dirigera inkommande frågan till rätt kunskapsbas. Du kan göra detta med hjälp av LUIS.
+Även om det är enkelt att skapa flera kunskapsbaser i QnA Maker, behöver du lite logik för att dirigera den inkommande frågan till lämplig kunskapsbas. Du kan göra detta genom att använda LUIS.
 
-Den här artikeln använder Bot Framework v3-SDK. Finns i denna [Bot Framework artikeln](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), om du är intresserad av i Bot Framework v4 SDK-version av den här informationen.
+I den här artikeln används Bot Framework v3 SDK. Se denna [Bot Framework artikel](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), om du är intresserad av Bot Framework v4 SDK version av denna information.
 
 ## <a name="architecture"></a>Arkitektur
 
-![QnA Maker med Language Understanding arkitektur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker med arkitektur för språk understanding](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
-I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan från en LUIS-modell och sedan använda den för att dirigera till rätt kunskapsbas för QnA Maker.
+I ovanstående scenario får QnA Maker först avsikten med den inkommande frågan från en LUIS-modell och använder den sedan för att dirigera den till rätt QnA Maker-kunskapsbas.
 
 ## <a name="create-a-luis-app"></a>Skapa en LUIS-app
 
-1. Logga in på den [LUIS](https://www.luis.ai/) portal.
+1. Logga in [LUIS](https://www.luis.ai/) på LUIS-portalen.
 1. [Skapa en app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
-1. [Lägg till ett intent](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) för varje QnA Maker knowledge base. Exempel yttranden bör motsvara frågor i kunskapsbaser QnA Maker.
-1. [Träna LUIS-app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera LUIS-app](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) LUIS-appen.
-1. I avsnittet **Hantera** noterar du ditt Luis app-ID, Luis-slutpunkt-nyckeln och det [anpassade domän namnet](../../cognitive-services-custom-subdomains.md). Du behöver dessa värden senare. 
+1. [Lägg till en avsikt](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) för varje QnA Maker-kunskapsbas. Exempelyttrandena bör motsvara frågor i QnA Maker-kunskapsbaserna.
+1. [Träna LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) din LUIS-app.
+1. I avsnittet **Hantera** antecknar du luis-app-ID: n, LUIS-slutpunktsnyckeln och [det anpassade domännamnet](../../cognitive-services-custom-subdomains.md). Du behöver dessa värden senare. 
 
 ## <a name="create-qna-maker-knowledge-bases"></a>Skapa QnA Maker kunskapsbaser
 
 1. Logga in på [QnA Maker](https://qnamaker.ai).
-1. [Skapa](https://www.qnamaker.ai/Create) en kunskapsbaser för varje avsikt i LUIS-app.
-1. Testa och publicera kunskapsbaser. När du publicerar varje KB noterar du KB-ID, resurs namn (anpassad under domän före _. azurewebsites.net/qnamaker_) och nyckel för att lägga till en slut punkt. Du behöver dessa värden senare. 
+1. [Skapa](https://www.qnamaker.ai/Create) kunskapsbaser för varje avsikt i LUIS-appen.
+1. Testa och publicera kunskapsbaserna. När du publicerar varje KB noterar du KB-ID:t, resursnamn (anpassad underdomän före _.azurewebsites.net/qnamaker_) och nyckeln för auktoriseringsslutpunkt. Du behöver dessa värden senare. 
 
-    Den här artikeln förutsätter att de KB-artiklar skapas i samma Azure QnA Maker-prenumeration.
+    Den här artikeln förutsätter att KBs alla skapas i samma Azure QnA Maker-prenumeration.
 
-    ![QnA Maker HTTP-begäran](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
+    ![HTTP-begäran för QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
-## <a name="web-app-bot"></a>Web app-robot
+## <a name="web-app-bot"></a>Webbapp Bot
 
-1. [Skapa en "grundläggande" webbapp för webb program](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) som automatiskt innehåller en Luis-app. Välj C# programmeringsspråk.
+1. [Skapa en "Grundläggande" Web App bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) som automatiskt innehåller en LUIS-app. Välj Programmeringsspråk för C#.
 
-1. När web app-robot skapas i Azure-portalen väljer du web app-robot.
-1. Välj **programinställningar** i Web app bot service navigering, rulla ned till **programinställningar** under tillgängliga inställningar.
-1. Ändra den **LuisAppId** till värdet för LUIS-app som skapats i föregående avsnitt som sedan är väljer **spara**.
+1. När webbapproboten har skapats väljer du webbapproboten i Azure-portalen.
+1. Välj **Programinställningar** i navigeringen i webbapprotjänsten och bläddra sedan ned till **avsnittet Programinställningar** med tillgängliga inställningar.
+1. Ändra **LuisAppId** till värdet för LUIS-appen som skapats i föregående avsnitt och välj sedan **Spara**.
 
 
-## <a name="change-code-in-basicluisdialogcs"></a>Ändra koden i BasicLuisDialog.cs
-1. Från den **Bot Management** delen av web app bot navigering i Azure portal, Välj **skapa**.
-2. Välj **öppna online Kodredigerare**. En ny webbläsarflik öppnas med online Kodredigering. 
-3. I den **WWWROOT** väljer den **-dialogrutor** katalogen och sedan öppna **BasicLuisDialog.cs**.
-4. Lägga till beroenden överst i **BasicLuisDialog.cs** fil:
+## <a name="change-code-in-basicluisdialogcs"></a>Ändra kod i BasicLuisDialog.cs
+1. Välj **Skapa**i avsnittet **Bothantering** i webbappronvigeringen i Azure-portalen .
+2. Välj **Öppna kodredigeraren online**. En ny webbläsarflik öppnas med onlineredigeringsmiljön. 
+3. I avsnittet **WWWROOT** väljer du katalogen **Dialogrutor** och öppnar sedan **BasicLuisDialog.cs**.
+4. Lägg till beroenden överst i **BasicLuisDialog.cs-filen:**
 
     ```csharp
     using System;
@@ -76,7 +76,7 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
     using System.Text;
     ```
 
-5. Lägg till den nedan klasser att deserialisera QnA Maker-svaret:
+5. Lägg till nedanstående klasser för att deserialisera QnA Maker-svaret:
 
     ```csharp
     public class Metadata
@@ -103,7 +103,7 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
     ```
 
 
-6. Lägg till följande klass för att göra en HTTP-begäran för QnA Maker-tjänsten. Observera att den **auktorisering** sidhuvudets värde innehåller word, `EndpointKey` med ett blanksteg efter ordet. JSON-resultat avserialiseras föregående klasserna och det första svaret returneras.
+6. Lägg till följande klass för att göra en HTTP-begäran till QnA Maker-tjänsten. Observera att värdet **för auktoriseringshuvudet** innehåller ordet, `EndpointKey` med ett blanksteg som följer ordet. JSON-resultatet deserialiseras till föregående klasser och det första svaret returneras.
 
     ```csharp
     [Serializable]
@@ -155,7 +155,7 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
     ```
 
 
-7. Ändra klassen BasicLuisDialog. Varje LUIS avsikt ska ha en metod som dekorerad med **LuisIntent**. Parametern för är dekorativa är det faktiska avsikt LUIS-namnet. Metodnamnet som är dekorerad _bör_ vara LUIS avsikt namnet för Läs- och underhåll men måste inte vara samma på design eller körtid.  
+7. Ändra klassen BasicLuisDialog. Varje LUIS avsikt bör ha en metod dekorerad med **LuisIntent**. Parametern till dekorationen är det faktiska LUIS-avsiktsnamnet. Metodnamnet som är inrett _ska_ vara LUIS-avsiktsnamnet för läsbarhet och underhåll, men behöver inte vara detsamma vid design eller körning.  
 
     ```csharp
     [Serializable]
@@ -223,21 +223,21 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
     ```
 
 
-## <a name="build-the-bot"></a>Skapa roboten
-1. I kodredigeraren, högerklickar du på `build.cmd` och välj **kör från konsolen**.
+## <a name="build-the-bot"></a>Bygg boten
+1. Högerklicka på `build.cmd` kodredigeraren och välj **Kör från konsol**.
 
-    ![Kör från konsolen](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
+    ![köra från konsolen](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 
-2. Kodvyn ersätts med ett terminalfönster som visar förlopp och resultat för versionen.
+2. Kodvyn ersätts med ett terminalfönster som visar förloppet och resultaten av bygget.
 
-    ![konsolen build](../media/qnamaker-tutorials-qna-luis/console-build.png)
+    ![konsol bygga](../media/qnamaker-tutorials-qna-luis/console-build.png)
 
-## <a name="test-the-bot"></a>Testa roboten
-I Azure-portalen väljer du **testa i Web Chat** att testa roboten. Skriv meddelanden från olika avsikter att få svaret från motsvarande kunskapsbasen.
+## <a name="test-the-bot"></a>Testa bot
+I Azure-portalen väljer du **Testa i webbchatt** för att testa roboten. Skriv meddelanden från olika avsikter för att få svar från motsvarande kunskapsbas.
 
-![chatt webbtest](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
+![webbchatt test](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en kontinuitetsplan för QnA Maker](../How-To/business-continuity-plan.md)
+> [Skapa en affärskontinuitetsplan för QnA Maker](../How-To/business-continuity-plan.md)

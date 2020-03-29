@@ -1,7 +1,7 @@
 ---
 title: Stöd för containrar
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du skapar en Azure Container instance-resurs.
+description: Lär dig hur du skapar en Azure-behållarinstansresurs.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,43 +10,43 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 18f4edf5cc63a448779423cc1b302130b4b80724
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75692531"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Skapa en Azure Container instance-resurs
+## <a name="create-an-azure-container-instance-resource"></a>Skapa en Azure Container Instance-resurs
 
-1. Gå till sidan [skapa](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) för container instances.
+1. Gå till sidan [Skapa](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) för behållarinstanser.
 
-2. På fliken **grundläggande** anger du följande information:
+2. På fliken **Grunderna** anger du följande information:
 
     |Inställning|Värde|
     |--|--|
     |Prenumeration|Välj din prenumeration.|
-    |Resursgrupp|Välj den tillgängliga resurs gruppen eller skapa en ny som `cognitive-services`.|
-    |Containerns namn|Ange ett namn som `cognitive-container-instance`. Namnet måste innehålla nedre CAPS.|
+    |Resursgrupp|Markera den tillgängliga resursgruppen eller skapa `cognitive-services`en ny, till exempel .|
+    |Containerns namn|Ange ett namn `cognitive-container-instance`som . Namnet måste vara i nedre lock.|
     |Location|Välj en region för distribution.|
-    |Avbildningstyp|Om behållar avbildningen lagras i ett behållar register som inte kräver autentiseringsuppgifter väljer du `Public`. Om åtkomsten till behållar avbildningen kräver autentiseringsuppgifter väljer du `Private`. Se [behållar databaser och avbildningar](../../cognitive-services-container-support.md#container-repositories-and-images) för information om huruvida behållar avbildningen är `Public` eller `Private` ("offentlig för hands version"). |
-    |Avbildningens namn|Ange plats för Cognitive Services behållare. Platsen är det som används som ett argument för kommandot `docker pull`. Referera till [behållar databaserna och avbildningarna](../../cognitive-services-container-support.md#container-repositories-and-images) för de tillgängliga avbildnings namnen och deras motsvarande lagrings plats.<br><br>Avbildningens namn måste vara fullständigt kvalificerade och ange tre delar. Först, behållar registret, sedan databasen, slutligen avbildnings namnet: `<container-registry>/<repository>/<image-name>`.<br><br>Här är ett exempel `mcr.microsoft.com/azure-cognitive-services/keyphrase` representerar Extrahering av diskussionsämne avbildningen i Microsoft Container Registry under Azure Cognitive Services-lagringsplatsen. Ett annat exempel är `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` som representerar tal till text-bilden i Microsoft-lagringsplatsen för förhands gransknings behållar registret. |
-    |OS-typ|`Linux`|
-    |Storlek|Ändra storlek till föreslagna rekommendationer för din speciella kognitiva tjänst behållare:<br>2 CPU-kärnor<br>4 GB
+    |Avbildningstyp|Om behållaravbildningen lagras i ett behållarregister som `Public`inte kräver autentiseringsuppgifter väljer du . Om åtkomst till behållaravbildningen kräver autentiseringsuppgifter väljer du `Private`. Mer information om huruvida behållaravbildningen finns `Public` `Private` i [behållardatabaser och bilder](../../cognitive-services-container-support.md#container-repositories-and-images) eller inte ("Offentlig förhandsgranskning"). |
+    |Avbildningens namn|Ange behållarens plats för Cognitive Services-behållaren. Platsen är vad som används som `docker pull` ett argument till kommandot. Se [behållardatabaser och avbildningar](../../cognitive-services-container-support.md#container-repositories-and-images) för tillgängliga bildnamn och motsvarande databas.<br><br>Bildnamnet måste vara fullt kvalificerat och ange tre delar. Först behållarregistret, sedan databasen, slutligen avbildningsnamnet: `<container-registry>/<repository>/<image-name>`.<br><br>Här är ett `mcr.microsoft.com/azure-cognitive-services/keyphrase` exempel, skulle representera nyckelfrasextrahering avbildningen i Microsoft Container Registry under Azure Cognitive Services-databasen. Ett annat `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` exempel är, som skulle representera avbildningen Tal till text i Microsoft-databasen i containerförhandsgranskningsbehållarens register. |
+    |TYP AV OS|`Linux`|
+    |Storlek|Ändra storlek till de föreslagna rekommendationerna för din specifika Cognitive Service-behållare:<br>2 CPU-kärnor<br>4 GB
 
-3. På fliken **nätverk** anger du följande information:
+3. Ange följande på fliken **Nätverk:**
 
     |Inställning|Värde|
     |--|--|
-    |Portar|Ange TCP-port till `5000`. Exponerar behållaren på port 5000.|
+    |Portar|Ställ in TCP-porten på `5000`. Exponerar behållaren på port 5000.|
 
-4. På fliken **Avancerat** anger du de **miljövariabler** som krävs för behållarens fakturerings inställningar för Azure Container instance-resursen:
+4. På fliken **Avancerat** anger du de **miljövariabler** som krävs för behållarfaktureringsinställningarna för Azure Container Instance-resursen:
 
     | Nyckel | Värde |
     |--|--|
-    |`apikey`|Kopieras från sidan **nycklar** i resursen. Det är en sträng med 32 alfanumeriska tecken utan blank steg eller bindestreck, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Kopieras från **översikts** sidan för resursen.|
+    |`apikey`|Kopierad från sidan **Nycklar** för resursen. Det är en 32 alfanumerisk teckensträng utan `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`blanksteg eller streck.|
+    |`billing`|Kopierad från sidan **Översikt** för resursen.|
     |`eula`|`accept`|
 
 5. Klicka på **Granska och skapa**
-6. När verifieringen är klar klickar du på **skapa** för att slutföra processen som skapas
+6. När valideringen har gått klickar du på **Skapa** för att slutföra skapandeprocessen
 7. När resursen har distribuerats är den klar

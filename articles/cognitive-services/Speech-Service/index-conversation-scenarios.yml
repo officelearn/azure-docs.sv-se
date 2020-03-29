@@ -1,43 +1,36 @@
 ### YamlMime:Landing
-title: Dokumentation om konversationsscenarier
-summary: Utforska de olika konversations scenarierna, konversations avskriften eller konversationen med flera enheter.
+title: Dokumentation för konversationsscenarier
+summary: Utforska de olika konversationsscenarierna. Lär dig att använda konversationsavskription eller konversation med flera enheter i mötesscenarier och transkription i callcenter-scenarier.
 metadata:
-  title: Dokumentation om konversations scenarier – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  title: Dokumentation för konversationsscenarier – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 03/16/2020
   ms.author: dapine
-  ms.openlocfilehash: 0df2992564dcf90f6b927b5a917993caec18af45
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 75254b0b0b3afb391006a422300c0d4cb9d27fdb
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79365802"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79479696"
 landingContent:
-- title: Om samtalstranskription
+- title: Om konversationsavskrift (mötesscenario)
   linkLists:
   - linkListType: overview
     links:
-    - text: Vad är en konversations avskrift?
+    - text: Vad är konversationsavskription i möten?
       url: conversation-transcription.md
   - linkListType: how-to-guide
     links:
-    - text: Hantera kundtjänstscenarier
-      url: call-center-transcription.md
-    - text: Konversations avskrift i real tid
+    - text: Konversationsavskrift i realtid
       url: how-to-use-conversation-transcription.md
     - text: Asynkron samtalstranskription
       url: how-to-async-conversation-transcription.md
-  - linkListType: reference
-    links:
-    - text: Språk stöd för konversations avskrift
-      url: conversation-transcription.md#language-support
-- title: Om konversationer med flera enheter
+- title: Om konversation med flera enheter (mötesscenario)
   linkLists:
   - linkListType: overview
     links:
@@ -47,13 +40,19 @@ landingContent:
     links:
     - text: Starta och delta i en konversation
       url: quickstarts/multi-device-conversation.md
-  - linkListType: reference
+- title: Call Center Transkription (anpassat/agentscenario)
+  linkLists:
+  - linkListType: overview
     links:
-    - text: Stöd för konversations språk med flera enheter
-      url: multi-device-conversation.md#language-support
+    - text: Hantera scenarier för callcenter
+      url: call-center-transcription.md
 - title: Referens
   linkLists:
   - linkListType: reference
     links:
-    - text: Prissättning för tal avskrift
+    - text: Stöd för konversationsavskriftspråk
+      url: conversation-transcription.md#language-support
+    - text: Stöd för konversationsspråk för flera enheter
+      url: multi-device-conversation.md#language-support
+    - text: Priser för talavskrifter
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

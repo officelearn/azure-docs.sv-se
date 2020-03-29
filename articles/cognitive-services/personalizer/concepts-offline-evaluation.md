@@ -1,7 +1,7 @@
 ---
-title: Använd metoden för offline-utvärdering – personanpassa
+title: Använd metoden Offline evaluation - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln förklarar hur du använder offline-utvärdering för att mäta appens effektivitet och analysera din inlärnings slinga.
+description: I den här artikeln beskrivs hur du använder offlineutvärdering för att mäta appens effektivitet och analysera din utbildningsloop.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,66 +11,66 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: diberry
 ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623594"
 ---
 # <a name="offline-evaluation"></a>Offlineutvärdering
 
-Offline-utvärdering är en metod som gör att du kan testa och utvärdera effektiviteten hos tjänsten personanpassa utan att ändra din kod eller påverka användar upplevelsen. Offline-utvärdering använder tidigare data som skickats från ditt program till API: erna rang och belöning, för att jämföra hur olika rankning har utförts.
+Offlineutvärdering är en metod som gör att du kan testa och bedöma personalizer-tjänstens effektivitet utan att ändra koden eller påverka användarupplevelsen. Offlineutvärdering använder tidigare data, som skickas från ditt program till rank- och belönings-API:erna, för att jämföra hur olika rang har presterat.
 
-Offline-utvärdering utförs i ett datum intervall. Intervallet kan sluta så sent som den aktuella tiden. Början av intervallet får inte vara mer än antalet dagar som har angetts för [datakvarhållning](how-to-settings.md).
+Offlineutvärdering utförs på ett datumintervall. Intervallet kan avslutas så sent som den aktuella tiden. Början av intervallet kan inte vara mer än det antal dagar som angetts för [datalagring](how-to-settings.md).
 
-Offline-utvärdering kan hjälpa dig att besvara följande frågor:
+Offlineutvärdering kan hjälpa dig att svara på följande frågor:
 
-* Hur effektivt är en anpassnings rang för lyckad anpassning?
-    * Vilka är de genomsnittliga fördelarna som uppnås av den personliga inlärnings principen för online-datorn?
-    * Hur jämförs personanpassa med effektiviteten hos vad programmet skulle ha gjort som standard?
-    * Vad skulle ha varit den jämför ande effektiviteten med ett slumpmässigt val för anpassning?
-    * Vad skulle ha varit den jämför ande effektiviteten i olika utbildnings principer som anges manuellt?
-* Vilka funktioner i kontexten bidrar mer eller mindre för att lyckas med anpassningen?
-* Vilka funktioner i åtgärderna bidrar mer eller mindre för att lyckas med anpassningen?
+* Hur effektiva är Personalizer leden för framgångsrik personalisering?
+    * Vilka är de genomsnittliga belöningar som uppnås av Personalizer online machine learning policy?
+    * Hur jämför Personalizer med effektiviteten i vad programmet skulle ha gjort som standard?
+    * Vad skulle ha varit den jämförande effektiviteten av ett slumpmässigt val för personalisering?
+    * Vad skulle ha varit den jämförande effektiviteten hos olika utbildningsstrategier som anges manuellt?
+* Vilka funktioner i sammanhanget bidrar mer eller mindre till framgångsrik personalisering?
+* Vilka funktioner i åtgärderna bidrar mer eller mindre till framgångsrik personalisering?
 
-Dessutom kan du använda offline-utvärdering för att upptäcka mer optimerade inlärnings principer som Personanpassaren kan använda för att förbättra resultaten i framtiden.
+Dessutom kan offlineutvärdering användas för att upptäcka mer optimerade inlärningsprinciper som Personalizer kan använda för att förbättra resultaten i framtiden.
 
-Offline-utvärdering ger ingen vägledning för hur många procent av händelser som ska användas för utforskning.
+Offlineutvärderingar ger inte vägledning om hur stor procentandel av händelser som ska användas för utforskning.
 
-## <a name="prerequisites-for-offline-evaluation"></a>Krav för offline-utvärdering
+## <a name="prerequisites-for-offline-evaluation"></a>Förutsättningar för offlineutvärdering
 
-Följande är viktiga överväganden för utvärdering av representativ offline:
+Följande är viktiga överväganden för den representativa offlineutvärderingen:
 
-* Ha tillräckligt med data. Det rekommenderade minimivärdet är minst 50 000 händelser.
-* Samla in data från perioder med representativt användar beteende och trafik.
+* Har tillräckligt med data. Det rekommenderade minimumet är minst 50 000 händelser.
+* Samla in data från perioder med representativt användarbeteende och trafik.
 
-## <a name="discovering-the-optimized-learning-policy"></a>Identifiera den optimerade inlärnings principen
+## <a name="discovering-the-optimized-learning-policy"></a>Identifiera den optimerade inlärningsprincipen
 
-En personanpassare kan använda processen för offline-utvärdering för att upptäcka en mer optimal inlärnings princip automatiskt.
+Personalizer kan använda offlineutvärderingsprocessen för att automatiskt identifiera en mer optimal inlärningspolicy.
 
-När du har genomfört offline-utvärderingen kan du se den jämför ande effektiviteten hos Personanpassaren med den nya principen jämfört med den aktuella online-principen. Du kan sedan använda den inlärnings principen för att göra det direkt i Personanpassare, genom att ladda ned den och ladda upp den i modeller och princip panelen. Du kan också ladda ned det för framtida analys eller användning.
+När du har utfört offlineutvärderingen kan du se den jämförande effektiviteten hos Personalizer med den nya principen jämfört med den aktuella onlinepolicyn. Du kan sedan tillämpa den inlärningspolicyn för att göra den effektiv omedelbart i Personalizer, genom att ladda ner den och ladda upp den i panelen Modeller och policy. Du kan också ladda ner den för framtida analys eller användning.
 
-Aktuella principer som ingår i utvärderingen:
+Nuvarande politik som ingår i utvärderingen:
 
-| Utbildnings inställningar | Syfte|
+| Inställningar för utbildning | Syfte|
 |--|--|
-|**Online-princip**| Den aktuella inlärnings principen som används i personanpassa |
-|**Planen**|Programmets standard (som fastställs av den första åtgärden som skickas i rang anrop)|
-|**Slumpmässig princip**|Ett tänkt rangordnings beteende som alltid returnerar slumpmässiga val av åtgärder från de angivna.|
-|**Anpassade principer**|Ytterligare inlärnings principer laddades upp när utvärderingen startades.|
-|**Optimerad princip**|Om utvärderingen startades med alternativet för att identifiera en optimerad princip, kommer den också att jämföras och du kommer att kunna ladda ned den eller göra den till en online Learning-princip som ersätter den aktuella.|
+|**Online-policy**| Den nuvarande utbildningspolitiken som används i Personalizer |
+|**Baslinje**|Programmets standard (som bestäms av den första åtgärden som skickades i Rank-anrop)|
+|**Slumpmässig policy**|Ett imaginärt Rank-beteende som alltid returnerar slumpmässigt val av åtgärder från de medföljande.|
+|**Anpassade principer**|Ytterligare utbildningsprinciper som har överförts när utvärderingen påbörjas.|
+|**Optimerad princip**|Om utvärderingen startades med möjligheten att upptäcka en optimerad policy, kommer det också att jämföras, och du kommer att kunna ladda ner den eller göra det till online learning policy, som ersätter den nuvarande.|
 
-## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Förstå relevansen för utvärderings resultat offline
+## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Förstå relevansen av offlineutvärderingsresultat
 
-När du kör en offline-utvärdering är det mycket viktigt att analysera _förtroende gränserna_ för resultaten. Om de är breda innebär det att ditt program inte har fått tillräckligt med data för att uppskattningarna ska bli exakta eller betydande. När systemet ackumulerar mer data och du kör offline-utvärderingar över längre perioder, blir konfidens intervallet smalare.
+När du kör en offlineutvärdering är det mycket viktigt att analysera _konfidens bounds_ av resultaten. Om de är breda betyder det att din ansökan inte har fått tillräckligt med data för att belöningsuppskattningarna ska vara exakta eller signifikanta. När systemet ackumulerar mer data och du kör offlineutvärderingar under längre perioder blir konfidensintervallen smalare.
 
-## <a name="how-offline-evaluations-are-done"></a>Hur offline-utvärderingar utförs
+## <a name="how-offline-evaluations-are-done"></a>Så här görs offlineutvärderingar
 
-Offline-utvärderingar görs med hjälp av en metod som kallas **Counterfactual-utvärdering**.
+Offlineutvärderingar görs med hjälp av en metod som kallas **kontrafaktisk utvärdering**.
 
-En personanpassare bygger på antagandet att användarens beteende (och därmed förmåner) inte kan förutsäga retroaktivt (det går inte att förutsäga vad som skulle ha hänt om användaren hade visat något annorlunda än vad de gjorde) och endast för att lära sig från uppmätta förmåner.
+Personalizer bygger på antagandet att användarnas beteende (och därmed belöningar) är omöjliga att förutsäga retroaktivt (Personalizer kan inte veta vad som skulle ha hänt om användaren hade visat något annat än vad de såg), och bara att lära av uppmätta belöningar.
 
-Detta är den konceptuella processen som används för utvärderingar:
+Detta är den konceptuella process som används för utvärderingar:
 
 ```
 [For a given _learning policy), such as the online learning policy, uploaded learning policies, or optimized candidate policies]:
@@ -91,22 +91,22 @@ Detta är den konceptuella processen som används för utvärderingar:
 }
 ```
 
-Offline-utvärderingen använder endast observerat användar beteende. Den här processen tar bort stora mängder data, särskilt om ditt program rangordnar anrop med ett stort antal åtgärder.
+Offlineutvärderingen använder endast observerat användarbeteende. Den här processen ignorerar stora mängder data, särskilt om ditt program gör Rank-anrop med ett stort antal åtgärder.
 
 
 ## <a name="evaluation-of-features"></a>Utvärdering av funktioner
 
-Offline-utvärderingar kan ge information om hur mycket av de speciella funktionerna för åtgärder eller sammanhang som väger för högre förmåner. Informationen beräknas med hjälp av utvärderingen mot den aktuella tids perioden och data och kan variera med tiden.
+Offlineutvärderingar kan ge information om hur mycket av de specifika funktionerna för åtgärder eller sammanhang som väger för högre belöningar. Informationen beräknas med hjälp av utvärderingen mot den angivna tidsperioden och data och kan variera med tiden.
 
-Vi rekommenderar att du tittar på funktions utvärderingar och ber:
+Vi rekommenderar att du tittar på funktionsutvärderingar och frågar:
 
-* Vilka andra, ytterligare funktioner kan ditt program eller system tillhandahålla längs de rader som är mer effektiva?
-* Vilka funktioner kan tas bort på grund av låg effektivitet? Funktioner för låg effektivitet lägger till _brus_ i Machine Learning.
-* Finns det några funktioner som av misstag ingår? Exempel på dessa är: identifierbar information om användare, dubbla ID: n osv.
-* Finns det några oönskade funktioner som inte bör användas för att anpassa sig på grund av regler eller ansvar för att tänka på säkerhet? Finns det funktioner som kan proxy (det vill säga är det som är nära spegling eller korrelera med) oönskade funktioner?
+* Vilka andra, ytterligare, funktioner kan ditt program eller system ge i linje med dem som är mer effektiva?
+* Vilka funktioner kan tas bort på grund av låg effektivitet? Funktioner med låg effektivitet ger _ljud_ i maskininlärningen.
+* Finns det några funktioner som av misstag ingår? Exempel på dessa är: användaridentifierbar information, dubbla ID: er, etc.
+* Finns det några oönskade funktioner som inte bör användas för att anpassa på grund av regulatoriska eller ansvarsfulla användningsöverväganden? Finns det funktioner som kan proxy (det vill säga nära spegel eller korrelera med) oönskade funktioner?
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera personanpassa](how-to-settings.md)
-[körning av offline-utvärdering](how-to-offline-evaluation.md) förstå [hur personanpassa fungerar](how-personalizer-works.md)
+[Konfigurera Personalizer](how-to-settings.md)
+[Run Offline Utvärderingar](how-to-offline-evaluation.md) Förstå hur [Personalizer Fungerar](how-personalizer-works.md)

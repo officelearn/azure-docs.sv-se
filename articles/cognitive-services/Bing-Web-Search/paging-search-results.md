@@ -1,7 +1,7 @@
 ---
-title: Så här bläddrar du igenom Sök Resultat – API:er för Bing-sökresultat
+title: Så här bläddrar du till sökresultat - API:er för bing-sökning
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du bläddrar genom Sök Resultat från API:er för Bing-sökresultat.
+description: Läs om hur du bläddrar igenom sökresultaten från API:erna för Bing-sökning.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: aahi
 ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73481741"
 ---
-# <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Så här bläddrar du genom resultat från API:er för Bing-sökresultat
+# <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Så här bläddrar du igenom resultaten från API:erna för Bing-sökning
 
-När du skickar ett anrop till webb-, anpassade-, bild-, diskussions-eller Videosökning-API: er för Bing returnerar Bing en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill få det uppskattade totala antalet tillgängliga resultat kan du komma åt svars objektets `totalEstimatedMatches` fält. 
+När du skickar ett samtal till API:erna för Bing-, custom-, image-, nyhets- eller videosökning returnerar Bing en delmängd av det totala antalet resultat som kan vara relevanta för frågan. Om du vill hämta det uppskattade totala antalet tillgängliga `totalEstimatedMatches` resultat öppnar du svarsobjektets fält. 
 
-Till exempel: 
+Ett exempel: 
 
 ```json
 {
@@ -35,21 +35,21 @@ Till exempel:
 }  
 ```
 
-## <a name="paging-through-search-results"></a>Växling genom Sök Resultat
+## <a name="paging-through-search-results"></a>Söka via sökresultat
 
-Om du vill bläddra igenom de tillgängliga resultaten använder du parametrarna `count` och `offset` Query när du skickar din begäran.  
+Om du vill bläddra igenom `count` `offset` de tillgängliga resultaten använder du parametrarna och frågar när du skickar din begäran.  
 
 > [!NOTE]
 >
-> * Sid indelning med Bing Video-, bild-och diskussions grupps-API: erna gäller endast för allmänna video (`/video/search`), Nyheter (`/news/search`) och bild (`/image/search`). Det går inte att växla mellan olika trender och kategorier.  
-> * Fältet `TotalEstimatedMatches` är en uppskattning av det totala antalet Sök Resultat för den aktuella frågan. När du ställer in `count` och `offset` parametrar, kan den här uppskattningen ändras.
+> * Växling med API:erna för Bing-video, bild`/video/search`och Nyheter`/news/search`gäller endast`/image/search`allmänna videosökningar ( ), nyheter ( ) och bild ( ) sökningar. Det går inte att söka igenom populära ämnen och kategorier.  
+> * Fältet `TotalEstimatedMatches` är en uppskattning av det totala antalet sökresultat för den aktuella frågan. När du `count` ställer `offset` in parametrarna och kan den här uppskattningen ändras.
 
 | Parameter | Beskrivning                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `count`   | Anger antalet resultat som ska returneras i svaret. Observera att standardvärdet för `count`och det maximala antalet resultat som kan begäras varierar beroende på API. Du hittar dessa värden i referens dokumentationen under [Nästa steg](#next-steps). |
-| `offset`  | Anger antalet resultat som ska hoppas över. `offset` är noll-baserat och måste vara mindre än (`totalEstimatedMatches` - `count`).                                           |
+| `count`   | Anger antalet resultat som ska returneras i svaret. Observera att standardvärdet `count`för och det maximala antalet resultat som du kan begära varierar beroende på API. Du hittar dessa värden i referensdokumentationen under [Nästa steg](#next-steps). |
+| `offset`  | Anger antalet resultat som ska hoppa övers. Den `offset` är noll-baserad och bör`totalEstimatedMatches` - `count`vara mindre än ( ).                                           |
 
-Om du till exempel vill visa 15 resultat per sida anger du `count` till 15 och `offset` till 0 för att få den första resultat sidan. För varje efterföljande API-anrop skulle du öka `offset` med 15. I följande exempel begärs 15 webb sidor som börjar vid förskjutningen 45.
+Om du till exempel vill visa 15 resultat per `count` sida anger `offset` du 15 och 0 för att få den första resultatsidan. För varje efterföljande API-anrop ökar du med `offset` 15. I följande exempel begärs 15 webbsidor som börjar vid offset 45.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
@@ -57,7 +57,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Om du använder standard `count`s värdet behöver du bara ange parametern `offset` fråga i dina API-anrop.  
+Om du använder `count` standardvärdet behöver du `offset` bara ange frågeparametern i DINA API-anrop.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
@@ -65,18 +65,18 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-När du använder Bing-avbildningen och video-API: er kan du använda `nextOffset`-värdet för att undvika dubbla Sök resultat. Hämta värdet från `Images` eller `Videos` svars objekt och Använd det i dina begär Anden med `offset`-parametern.  
+När du använder API:erna för Bing-bild och video kan du använda `nextOffset` värdet för att undvika dubbla sökresultat. Hämta värdet från `Images` `Videos` objekten eller svarsobjekten och `offset` använd det i dina begäranden med parametern.  
 
 > [!NOTE]
-> API för webbsökning i Bing returnerar Sök resultat som kan innehålla webb sidor, bilder, videor och nyheter. När du bläddrar genom Sök resultatet från API för webbsökning i Bing, är du bara att växla [webb sidor](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)och inte andra svars typer, till exempel bilder eller nyheter. Sök resultat i `WebPage` objekt kan innehålla resultat som även visas i andra svars typer.
+> Api:et för webbsökning på Bing returnerar sökresultat som kan innehålla webbsidor, bilder, videor och nyheter. När du bläddrar igenom sökresultaten från API:et för webbsökning på Bing söker du bara webbsidor och inte andra [svarstyper](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage)som bilder eller nyheter. Sökresultat i `WebPage` objekt kan innehålla resultat som även visas i andra svarstyper.
 >
-> Om du använder parametern `responseFilter` fråga utan att ange några filter värden ska du inte använda parametrarna `count` och `offset`. 
+> Om du `responseFilter` använder frågeparametern utan att ange några `count` `offset` filtervärden ska du inte använda parametrarna och. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är Webbsökning i Bing API: er?](bing-api-comparison.md)
+* [Vilka api:er för webbsökning på Bing?](bing-api-comparison.md)
 * [Referens för API för webbsökning i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
-* [API för anpassad Bing-sökning v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-* [API för nyhetssökning i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
-* [API för videosökning i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
-* [API för bildsökning i Bing v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Bing Anpassad sökning API v7 referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [Bing Nyheter Sök API v7 referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [Bing Video Search API v7 referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [Api för Bing-bildsökning v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

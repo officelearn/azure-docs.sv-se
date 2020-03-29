@@ -1,7 +1,7 @@
 ---
-title: 'Redigera ändringar i API: et'
+title: Skapa ändringar i API:et
 titleSuffix: Azure Cognitive Services
-description: 'Redigering av v2-och v3-API: er har ändrats. Använd den här guiden för att förstå hur du använder redigerings-API: erna.'
+description: De skribenter som skriver V2 och V3 HAR ändrats. Använd den här guiden för att förstå hur du använder redigerings-API:erna.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: eb01ccc211be55885b945c40bd88553818b0ab78
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73507807"
 ---
-# <a name="authoring-api-changes"></a>Redigera API-ändringar 
+# <a name="authoring-api-changes"></a>Skapa API-ändringar 
 
-Redigerings-API: erna uppdateras för v3 för att möjliggöra [modell dekomposition med enheter som har lärts från enheten](luis-concept-data-extraction.md). 
+De författande API:erna uppdateras för V3 för att möjliggöra [modelldetring med maskininlärda entiteter](luis-concept-data-extraction.md). 
 
-Du kan redigera i v2-eller Preview v3-API: erna. Samma app kan också välja att använda v2-eller v3 förutsägelse slut punkt svar. Du behöver inte ha samma version av API för att skriva och förutsäga slut punkts svar.
+Du kan skapa i V2 eller förhandsgranska V3 APIS. Samma app kan också välja att använda V2 eller V3 förutsägelse slutpunkt svar. Du behöver inte ha samma version av API för redigering och förutsägelse slutpunkt svar.
 
-LUIS-portalen använder v3-redigerings-API: erna exklusivt.
+LUIS-portalen använder V3-redigerings-API:erna uteslutande.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Granska [ändringar av förutsägelse slut punkten](luis-migration-api-v3.md) för v3 API.
+Granska [ändringar i förutsägelseslutpunkten](luis-migration-api-v3.md) för V3 API.

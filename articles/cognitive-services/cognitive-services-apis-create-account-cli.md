@@ -1,7 +1,7 @@
 ---
-title: Skapa en Cognitive Services resurs med hjälp av Azure CLI
+title: Skapa en Cognitive Services-resurs med Hjälp av Azure CLI
 titleSuffix: Azure Cognitive Services
-description: Kom igång med Azure Cognitive Services genom att skapa och prenumerera på en resurs med hjälp av Azures kommando rads gränssnitt.
+description: Kom igång med Azure Cognitive Services genom att skapa och prenumerera på en resurs med hjälp av Azure-kommandoradsgränssnittet.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,47 +10,47 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
 ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219614"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
+# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services-resurs med hjälp av AZURE Command-Line Interface(CLI)
 
-Använd den här snabb starten för att komma igång med Azure Cognitive Services med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cognitive Services representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) som du skapar i din Azure-prenumeration. När du har skapat resursen använder du nycklarna och slut punkten som du skapade för att autentisera dina program. 
+Använd den här snabbstarten för att komma igång med Azure Cognitive Services med hjälp av [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cognitive Services representeras av [Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) som du skapar i din Azure-prenumeration. När du har skapat resursen använder du de nycklar och en slutpunkt som du har skapat för att autentisera dina program. 
 
 
-I den här snabb starten får du lära dig hur du registrerar dig för Azure Cognitive Services och skapar ett konto som har en tjänst prenumeration eller flera tjänster med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Dessa tjänster representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), vilket gör att du kan ansluta till en eller flera av azure-API:er för Cognitive Services.
+I den här snabbstarten får du lära dig hur du registrerar dig för Azure Cognitive Services och skapar ett konto som har en prenumeration med en tjänst eller flera tjänster, med hjälp av [Azure Command Line Interface(CLI).](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Dessa tjänster representeras av [Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), vilket gör att du kan ansluta till en eller flera av Azure Cognitive Services API:er.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En giltig Azure-prenumeration – [skapa en](https://azure.microsoft.com/free/) kostnads fri.
-* [Kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* En giltig Azure-prenumeration - [Skapa en](https://azure.microsoft.com/free/) gratis.
+* [Azure-kommandoradsgränssnittet(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Installera Azure CLI och logga in 
 
-Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Logga in på den lokala installationen av CLI genom att köra kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) :
+Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Om du vill logga in på din lokala installation av CLI kör du kommandot [az login:](https://docs.microsoft.com/cli/azure/reference-index#az-login)
 
 ```azurecli-interactive
 az login
 ```
 
-Du kan också använda det gröna **try** -knappen för att köra kommandona i webbläsaren.
+Du kan också använda den gröna **Prova-knappen** för att köra dessa kommandon i din webbläsare.
  
-## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Skapa en ny resurs grupp för Azure Cognitive Services
+## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Skapa en ny Azure Cognitive Services-resursgrupp
 
-Innan du skapar en Cognitive Services resurs måste du ha en Azure-resurs grupp som innehåller resursen. När du skapar en ny resurs har du möjlighet att antingen skapa en ny resurs grupp eller använda en befintlig. Den här artikeln visar hur du skapar en ny resurs grupp.
+Innan du skapar en Cognitive Services-resurs måste du ha en Azure-resursgrupp för att innehålla resursen. När du skapar en ny resurs kan du välja att antingen skapa en ny resursgrupp eller använda en befintlig resurs. Den här artikeln visar hur du skapar en ny resursgrupp.
 
-### <a name="choose-your-resource-group-location"></a>Välj plats för resurs grupp
+### <a name="choose-your-resource-group-location"></a>Välj plats för resursgrupp
 
-Om du vill skapa en resurs behöver du en av de Azure-platser som är tillgängliga för din prenumeration. Du kan hämta en lista över tillgängliga platser med kommandot [AZ Account List-locations](/cli/azure/account#az-account-list-locations) . De flesta Cognitive Services kan nås från flera platser. Välj det som är närmast dig eller se vilka platser som är tillgängliga för tjänsten.
+Om du vill skapa en resurs behöver du en av de Azure-platser som är tillgängliga för din prenumeration. Du kan hämta en lista över tillgängliga platser med kommandot [az-kontolisteplatser.](/cli/azure/account#az-account-list-locations) De flesta kognitiva tjänster kan nås från flera platser. Välj den som är närmast dig eller se vilka platser som är tillgängliga för tjänsten.
 
 > [!IMPORTANT]
-> * Kom ihåg Azure-platsen, eftersom du behöver den när du anropar Azure-Cognitive Services.
-> * Tillgängligheten för vissa Cognitive Services kan variera beroende på region. Mer information finns i [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
+> * Kom ihåg din Azure-plats, eftersom du behöver den när du anropar Azure Cognitive Services.
+> * Tillgängligheten för vissa kognitiva tjänster kan variera mellan olika regioner. Mer information finns i [Azure-produkter efter region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
 
 ```azurecli-interactive
 az account list-locations \
@@ -58,9 +58,9 @@ az account list-locations \
     --out table
 ```
 
-När du har en Azure-plats skapar du en ny resurs grupp i Azure CLI med kommandot [AZ Group Create](/cli/azure/group#az-group-create) .
+När du har din azure-plats skapar du en ny resursgrupp i Azure CLI med kommandot [az group create.](/cli/azure/group#az-group-create)
 
-I exemplet nedan ersätter du Azure-platsen `westus2` med en av de Azure-platser som är tillgängliga för din prenumeration.
+I exemplet nedan ersätter `westus2` du azure-platsen med en av de Azure-platser som är tillgängliga för din prenumeration.
 
 ```azurecli-interactive
 az group create \
@@ -70,53 +70,53 @@ az group create \
 
 ## <a name="create-a-cognitive-services-resource"></a>Skapa en -resurs för Cognitive Services
 
-### <a name="choose-a-cognitive-service-and-pricing-tier"></a>Välj en kognitiv tjänst och pris nivå
+### <a name="choose-a-cognitive-service-and-pricing-tier"></a>Välj en kognitiv tjänst och prisnivå
 
-När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill använda, tillsammans med den [pris nivå](https://azure.microsoft.com/pricing/details/cognitive-services/) (eller SKU) som du vill använda. Du kommer att använda den här och andra information som parametrar när du skapar resursen.
+När du skapar en ny resurs måste du känna till vilken typ av tjänst du vill använda, tillsammans med den [prisnivå](https://azure.microsoft.com/pricing/details/cognitive-services/) (eller sku) du vill ha. Du kommer att använda den här och annan information som parametrar när du skapar resursen.
 
-### <a name="multi-service"></a>Multi-service
+### <a name="multi-service"></a>Flera tjänster
 
-| Tjänst                    | Metod                      |
+| Tjänst                    | Variant                      |
 |----------------------------|---------------------------|
-| Flera tjänster. Mer information finns på sidan med [pris](https://azure.microsoft.com/pricing/details/cognitive-services/) information.            | `CognitiveServices`     |
+| Flera tjänster. Se [prissidan](https://azure.microsoft.com/pricing/details/cognitive-services/) för mer information.            | `CognitiveServices`     |
 
 
 > [!NOTE]
-> Många av de Cognitive Servicesna nedan har en kostnads fri nivå som du kan använda för att testa tjänsten. Använd `F0` som SKU för resursen för att använda den kostnads fria nivån.
+> Många av Cognitive Services nedan har en kostnadsfri nivå som du kan använda för att prova tjänsten. Om du vill använda `F0` den kostnadsfria nivån använder du som sku för din resurs.
 
 ### <a name="vision"></a>Visuellt innehåll
 
-| Tjänst                    | Metod                      |
+| Tjänst                    | Variant                      |
 |----------------------------|---------------------------|
 | Visuellt innehåll            | `ComputerVision`          |
-| Custom Vision förutsägelse | `CustomVision.Prediction` |
-| Custom Vision-utbildning   | `CustomVision.Training`   |
+| Anpassad vision - Förutsägelse | `CustomVision.Prediction` |
+| Anpassad vision - Utbildning   | `CustomVision.Training`   |
 | Ansikte                       | `Face`                    |
 | Formigenkänning            | `FormRecognizer`          |
 | Handskriftsigenkänning             | `InkRecognizer`           |
 
-### <a name="search"></a>Söka
+### <a name="search"></a>Search
 
-| Tjänst            | Metod                  |
+| Tjänst            | Variant                  |
 |--------------------|-----------------------|
 | Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
-| Anpassad sökning i Bing | `Bing.CustomSearch`   |
+| Anpassad Bing-sökning | `Bing.CustomSearch`   |
 | Entitetssökning i Bing | `Bing.EntitySearch`   |
 | Bing Search        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Tal
 
-| Tjänst            | Metod                 |
+| Tjänst            | Variant                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
 | Taligenkänning | `SpeakerRecognition` |
 
 ### <a name="language"></a>Språk
 
-| Tjänst            | Metod                |
+| Tjänst            | Variant                |
 |--------------------|---------------------|
-| Formulär förståelse | `FormUnderstanding` |
+| Formulärsyssning | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
 | Textanalys     | `TextAnalytics`     |
@@ -124,23 +124,23 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 
 ### <a name="decision"></a>Beslut
 
-| Tjänst           | Metod               |
+| Tjänst           | Variant               |
 |-------------------|--------------------|
 | Avvikelseidentifiering  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
 | Personanpassning      | `Personalizer`     |
 
-Du hittar en lista över tillgängliga kognitiva tjänst typer med kommandot [AZ cognitiveservices Account List-typ](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) :
+Du kan hitta en lista över tillgängliga Cognitive Service "typer" med [az cognitiveservices konto lista-typer](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) kommando:
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
 ```
 
-### <a name="add-a-new-resource-to-your-resource-group"></a>Lägg till en ny resurs i resurs gruppen
+### <a name="add-a-new-resource-to-your-resource-group"></a>Lägga till en ny resurs i resursgruppen
 
-Om du vill skapa och prenumerera på en ny Cognitive Services-resurs använder du kommandot [AZ cognitiveservices Account Create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Detta kommando lägger till en ny fakturerbar resurs till resurs gruppen som skapades tidigare. När du skapar din nya resurs behöver du veta vilken typ av tjänst du vill använda, tillsammans med dess pris nivå (eller SKU) och en Azure-plats:
+Om du vill skapa och prenumerera på en ny Cognitive Services-resurs använder du kommandot [az cognitiveservices account create.](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) Det här kommandot lägger till en ny fakturerbar resurs i resursgruppen som skapats tidigare. När du skapar din nya resurs måste du känna till vilken typ av tjänst du vill använda, tillsammans med dess prisnivå (eller sku) och en Azure-plats:
 
-Du kan skapa en F0 (kostnads fri) resurs för avvikelse detektor, med namnet `anomaly-detector-resource` med kommandot nedan.
+Du kan skapa en F0 -resurs (ledig) för avvikelsedetektor, med namnet `anomaly-detector-resource` med kommandot nedan.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -152,15 +152,15 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="get-the-keys-for-your-resource"></a>Hämta nycklar för din resurs
+## <a name="get-the-keys-for-your-resource"></a>Hämta nycklarna till din resurs
 
-Använd kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) för att logga in på den lokala installationen av kommando rads gränssnittet (CLI).
+Om du vill logga in på din lokala installation av Command-Line Interface(CLI) använder du kommandot [az login.](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)
 
 ```azurecli-interactive
 az login
 ```
 
-Använd kommandot [AZ cognitiveservices Account Keys List](https://docs.microsoft.com/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) för att hämta nycklarna för din kognitiva tjänst resurs.
+Använd [listkommandot az cognitiveservices-kontonycklar](https://docs.microsoft.com/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) för att hämta nycklarna till din Cognitive Service-resurs.
 
 ```azurecli-interactive
     az cognitiveservices account keys list \
@@ -170,16 +170,16 @@ Använd kommandot [AZ cognitiveservices Account Keys List](https://docs.microsof
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-## <a name="pricing-tiers-and-billing"></a>Pris nivåer och fakturering
+## <a name="pricing-tiers-and-billing"></a>Prisnivåer och fakturering
 
-Pris nivåerna (och den mängd du debiteras) baseras på antalet transaktioner som du skickar med hjälp av autentiseringsinformationen. Varje pris nivå anger:
+Prisnivåer (och det belopp du faktureras) baseras på antalet transaktioner som du skickar med hjälp av din autentiseringsinformation. Varje prisnivå anger:
 * maximalt antal tillåtna transaktioner per sekund (TPS).
-* tjänst funktioner som Aktiver ATS inom pris nivån.
-* Kostnaden för en fördefinierad mängd transaktioner. Om du fortsätter över den här mängden kommer du att få en extra avgift som anges i [pris informationen](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för din tjänst.
+* tjänstfunktioner som är aktiverade inom prisnivån.
+* Kostnaden för ett fördefinierat transaktionsbelopp. Att gå över detta belopp kommer att orsaka en extra avgift som anges i [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för din tjänst.
 
-## <a name="get-current-quota-usage-for-your-resource"></a>Hämta aktuell kvot användning för din resurs
+## <a name="get-current-quota-usage-for-your-resource"></a>Hämta aktuell kvotanvändning för din resurs
 
-Använd kommandot [AZ cognitiveservices Account List-Usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) för att få användningen av din kognitiva tjänst resurs.
+Använd kommandot [az cognitiveservices account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) för att hämta användningen för din Cognitive Service-resurs.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -190,9 +190,9 @@ az cognitiveservices account list-usage \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa och ta bort en Cognitive Services resurs kan du ta bort den eller resurs gruppen. Om du tar bort resurs gruppen tas även andra resurser som ingår i gruppen bort.
+Om du vill rensa och ta bort en Cognitive Services-resurs kan du ta bort den eller resursgruppen. Om du tar bort resursgruppen tas även alla andra resurser som finns i gruppen bort.
 
-Om du vill ta bort resurs gruppen och dess associerade resurser använder du kommandot AZ Group Delete.
+Om du vill ta bort resursgruppen och dess associerade resurser använder du kommandot az group delete.
 
 ```azurecli-interactive
 az group delete --name cognitive-services-resource-group
@@ -200,7 +200,7 @@ az group delete --name cognitive-services-resource-group
 
 ## <a name="see-also"></a>Se även
 
-* [Autentisera begär anden till Azure Cognitive Services](authentication.md)
+* [Autentisera begäranden till Azure Cognitive Services](authentication.md)
 * [Vad är Azure Cognitive Services?](Welcome.md)
 * [Stöd för naturligt språk](language-support.md)
 * [Stöd för Docker-behållare](cognitive-services-container-support.md)

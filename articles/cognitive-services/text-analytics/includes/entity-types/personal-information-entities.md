@@ -1,5 +1,5 @@
 ---
-title: Namngivna entiteter för personlig information
+title: Namngivna enheter för personlig information
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,324 +9,324 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77086893"
 ---
-## <a name="personal-information-entity-types"></a>Enhets typer för personlig information:
+## <a name="personal-information-entity-types"></a>Enhetstyper för personlig information:
 
 ### <a name="person"></a>Person
-Identifiera person namn i text.
+Känn igen personnamn i text.
 
-Användning
-* Offentlig för hands version: `English`
+Språk:
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                                               | Tillgängligt från och med modell version |
+| Undertypsnamn | Beskrivning                                               | Tillgänglig från och med modellversion |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| SAKNAS          | Identifierade namn, till exempel `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+| Ej tillämpligt          | Erkända namn, `Bill Gates`till exempel ,`Marie Curie` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organisation  
 
-Identifiera organisationer, organisationer, organ, företag, klubbar och andra grupper av människor.
+Erkänn organisationer, företag, byråer, företag, klubbar och andra grupper av människor.
 
-Användning 
+Språk: 
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                                                                                       | Tillgängligt från och med modell version|
+| Undertypsnamn | Beskrivning                                                                                       | Tillgänglig från och med modellversion|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| SAKNAS          | organisationer, till exempel `Microsoft``NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| Ej tillämpligt          | organisationer, till `Microsoft`exempel `NASA`,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>Telefonnummer
 
-Telefonnummer (endast telefonnummer till USA). 
+Telefonnummer (endast amerikanska telefonnummer). 
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                                    | Tillgängligt från och med modell version |
+| Undertypsnamn | Beskrivning                                    | Tillgänglig från och med modellversion |
 |--------------|------------------------------------------------|----------------------------------------|
-| SAKNAS          | AMERIKANSKt telefonnummer, till exempel `(312) 555-0176` | `2020-02-01`                           |
+| Ej tillämpligt          | Amerikanska telefonnummer, till exempel`(312) 555-0176` | `2020-02-01`                           |
 
 ### <a name="email"></a>E-post
 
 E-postadress. 
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                                      | Tillgängligt från och med modell version |
+| Undertypsnamn | Beskrivning                                      | Tillgänglig från och med modellversion |
 |--------------|--------------------------------------------------|----------------------------------------|
-| SAKNAS          | E-postadress, till exempel `support@contoso.com` | `2020-02-01`                           |
+| Ej tillämpligt          | E-postadress, till exempel`support@contoso.com` | `2020-02-01`                           |
 
 ### <a name="url"></a>URL
 
-Internet-URL: er.
+Internet-URL:er.
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                                          | Tillgängligt från och med modell version |
+| Undertypsnamn | Beskrivning                                          | Tillgänglig från och med modellversion |
 |--------------|------------------------------------------------------|----------------------------------------|
-| SAKNAS          | URL: er till webbplatser, till exempel `https://www.bing.com` | `2020-02-01`                           |
+| Ej tillämpligt          | Webbadresser till webbplatser, till exempel`https://www.bing.com` | `2020-02-01`                           |
 
 ### <a name="ip-address"></a>IP-adress
 
-Internet Protocol adress
+Internet-protokolladress
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                              | Tillgängligt från och med modell version |
+| Undertypsnamn | Beskrivning                              | Tillgänglig från och med modellversion |
 |--------------|------------------------------------------|----------------------------------------|
-| SAKNAS          | Nätverks adress till exempel `10.0.0.101` | `2020-02-01`                           |
+| Ej tillämpligt          | Nätverksadress till exempel`10.0.0.101` | `2020-02-01`                           |
 
 ### <a name="quantity"></a>Kvantitet 
 
 Numeriska kvantiteter
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                   | Tillgängligt från och med modell version |
+| Undertypsnamn | Beskrivning                   | Tillgänglig från och med modellversion |
 |--------------|-------------------------------|----------------------------------------|
 | Ålder          | `90 days old`, `30 years old` | `2020-02-01`                           |
 
 ### <a name="datetime"></a>DateTime
 
-Datum-och tid enheter
+Datum- och tidsenheter
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                   | Tillgängligt från och med modell version |
+| Undertypsnamn | Beskrivning                   | Tillgänglig från och med modellversion |
 |--------------|-------------------------------|----------------------------------------|
-| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
+| Datum         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
-### <a name="eu-gps-coordinates"></a>EU GPS-koordinater
+### <a name="eu-gps-coordinates"></a>EU:s GPS-koordinater
 
  GPS-koordinater för platser inom Europeiska unionen. 
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn | Beskrivning                               | Tillgängligt från och med modell version |
+| Undertypsnamn | Beskrivning                               | Tillgänglig från och med modellversion |
 |--------------|-------------------------------------------|----------------------------------------|
-| SAKNAS          | GPS-koordinater inom Europeiska unionen | `2019-10-01`                           |
+| Ej tillämpligt          | GPS-koordinater inom Europeiska unionen | `2019-10-01`                           |
 
 ### <a name="azure-information"></a>Azure-information
 
-Identifierbar Azure-information inklusive autentiseringsinformation och anslutnings strängar. 
+Identifierbar Azure-information inklusive autentiseringsinformation och anslutningssträngar. 
 
-* Tillgängligt från och med modell version `2019-10-01`.
+* Tillgänglig från och `2019-10-01`med modellversion .
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
-| Under typs namn                          | Beskrivning                                                                 |
+| Undertypsnamn                          | Beskrivning                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| Azure DocumentDB auth-nyckel             | Auktoriseringsregel för en Azure DocumentDB-Server.                           |
-| Anslutnings sträng för Azure IAAS Database | Anslutnings sträng för en Azure Infrastructure as a service-databas (IaaS). |
-| Azure SQL-anslutningssträng           | Anslutnings sträng för en Azure SQL-databas.                                |
-| Azure IoT-anslutningssträng           | Anslutnings sträng för Azure sakernas internet (IoT).                        |
-| Lösen ord för Azure publicerings inställning        | Lösen ord för Azures publicerings inställningar.                                        |
-| Azure Redis Cache anslutnings sträng   | Anslutnings sträng för en Azure-cache för Redis.                             |
-| Azure SAS                             | Anslutnings sträng för Azure program vara som en tjänst (SAS).                     |
-| Azure Service Bus anslutnings sträng   | Anslutnings sträng för en Azure Service Bus.                                |
-| Azure Storage konto nyckel             | Konto nyckel för ett Azure Storage-konto.                                   |
-| Azure Storage konto nyckel (allmän)   | Allmän konto nyckel för ett Azure Storage-konto.                           |
-| SQL Server anslutnings sträng          | Anslutnings sträng för en SQL-Server.                                         |
+| Auth-nyckel för Azure DocumentDB             | Auktoriseringsnyckel för en Azure DocumentDB-server.                           |
+| Anslutningssträng för Azure IAAS-databas | Anslutningssträng för en Azure Infrastructure som tjänstdatabas (IaaS). |
+| Azure SQL-anslutningssträng           | Anslutningssträng för en Azure SQL-databas.                                |
+| Anslutningssträng för Azure IoT           | Anslutningssträng för Azure Internet of things(IoT).                        |
+| Lösenord för Azure-publiceringsinställning        | Lösenord för Azure Publish-inställningar.                                        |
+| Anslutningssträng för Azure Redis-cache   | Anslutningssträng för en Azure-cache för Redis.                             |
+| Azure SAS                             | Anslutningssträng för Azure Software som tjänst (SAS).                     |
+| Sträng för Azure Service Bus-anslutning   | Anslutningssträng för en Azure-tjänstbuss.                                |
+| Nyckeln för Azure Storage-konto             | Kontonyckel för ett Azure-lagringskonto.                                   |
+| Azure Storage-kontonyckel (allmän)   | Allmän kontonyckel för ett Azure-lagringskonto.                           |
+| Anslutningssträng för SQL Server          | Anslutningssträng för en SQL-server.                                         |
 
-### <a name="identification"></a>Fastställa
+### <a name="identification"></a>Identification
 
-* Tillgängligt från och med modell version `2019-10-01`.
+* Tillgänglig från och `2019-10-01`med modellversion .
 
-Användning
+Språk:
 
-* Offentlig för hands version: `English`
+* Offentlig förhandsgranskning:`English`
 
 #### <a name="financial-account-identification"></a>Identifiering av finansiella konton
 
-| Under typs namn               | Beskrivning                                                                |
+| Undertypsnamn               | Beskrivning                                                                |
 |----------------------------|----------------------------------------------------------------------------|
-| ABA-routing-nummer        | ABA-flöde (American Banks Association).                  |
-| SWIFT-kod                 | SWIFT-koder för information om betalnings instruktioner.                           |
-| Kreditkort                | Kreditkorts nummer.                                                       |
-| IBAN-kod                  | IBAN-koder för information om betalnings instruktioner.                            |
+| ABA-routningsnummer        | American Banker Association (ABA) transit routing nummer.                  |
+| SWIFT-kod                 | SWIFT-koder för betalningsinstruktionsinformation.                           |
+| Kreditkort                | Kreditkortsnummer.                                                       |
+| IBAN-kod                  | IBAN-koder för betalningsinstruktionsinformation.                            |
 
-#### <a name="government-and-country-specific-identification"></a>Myndighets-och landsspecifika identifiering
+#### <a name="government-and-country-specific-identification"></a>Regeringen och landsspecifik identifiering
 
-Entiteterna nedan grupperas och listas efter land:
+Enheterna nedan är grupperade och listade efter land:
 
 Argentina
-* Nationellt identitets nummer (DNI)
+* Nationellt identitetsnummer (DNI)
 
 Australien
-* Skatte fil nummer 
-* Driv Rutinens licens-ID
-* Passport-ID
-* Konto nummer för medicin
-* bankkonto nummer (till exempel kontroll, besparingar och debiterings konton)
+* Momsfilnummer 
+* Körkorts-ID
+* Pass-ID
+* Medicinskt kontonummer
+* bankkontonummer (t.ex. checkkonton, sparkonton och debetkonton)
 
 Belgien
 * Nationellt nummer
 
 Brasilien
-* Juridiskt enhets nummer (CNPJ)
+* Nummer för juridisk person (CNPJ)
 * CPF-nummer
 * Nationellt ID-kort (RG)
 
 Kanada
-* Passport-ID
-* Driv Rutinens licens-ID
-* Hälso försäkrings nummer
-* Personligt hälso-ID-nummer (PHIN)
-* Person nummer
-* bankkonto nummer (till exempel kontroll, besparingar och debiterings konton)
+* Pass-ID
+* Körkorts-ID
+* Sjukförsäkringsnummer
+* Phin -nummer för personlig hälsa (PHIN)
+* Personnummer
+* bankkontonummer (t.ex. checkkonton, sparkonton och debetkonton)
 
 Chile
-* Identitets korts nummer 
+* Id-kortsnummer 
 
 Kina
-* Identitets korts nummer
-* Nummer för Resident ID-kort (Kina)
+* Id-kortsnummer
+* ID-kort (Kina)
 
 Kroatien
-* ID-kort nummer
-* Personligt ID-nummer (OIB)
+* ID-kortsnummer
+* OIB-nummer (Personal ID)
 
 Tjeckien
-* Nummer för nationellt ID-kort
+* Nationellt ID-kortsnummer
 
 Danmark
-* Personligt ID-nummer
+* Personnummer
 
 Europeiska unionen (EU)
 * Nationellt ID-nummer
-* Passport-ID
-* Driv Rutinens licens-ID
-* Person nummer (SSN) eller motsvarande ID
-* EU: s skatte identifierings nummer (TIN)
-* EU betalkort nummer
+* Pass-ID
+* Körkorts-ID
+* Personnummer (SSN) eller motsvarande ID
+* EU:s skatteregistreringsnummer (TIN)
+* EU-betalkortsnummer
 
 Finland
 * Nationellt ID-nummer
-* Passport-ID
+* Pass-ID
 
 Frankrike
 * Nationellt ID-kort (CNI)
-* Person nummer (INSEE)
-* Passport-ID
-* Driv Rutinens licens-ID
+* Personnummer (INSEE)
+* Pass-ID
+* Körkorts-ID
 
 Tyskland
-* ID-kort nummer
-* Passport-ID
-* Driv Rutinens licens-ID
+* ID-kortsnummer
+* Pass-ID
+* Körkorts-ID
 
 Grekland 
-* Nummer för nationellt ID-kort
+* Nationellt ID-kortsnummer
 
-Hongkong SAR
-* ID Card-nummer (HKID)
+Hongkong
+* ID-kort (HKID) nummer
 
 Indien
-* Permanent konto nummer (PAN)
+* Permanent kontonummer (PAN)
 * Unikt ID-nummer (Aadhaar)
 
 Indonesien
-* ID-kort nummer (KTP)
+* ID-kortnummer (KTP)
 
 Irland
-* Personligt offentlig tjänst (PPS)-nummer
+* PPS-nummer (Personal Public Service)
 
 Israel
 * Nationellt ID
-* bankkonto nummer (till exempel kontroll, besparingar och debiterings konton)
+* bankkontonummer (t.ex. checkkonton, sparkonton och debetkonton)
 
 Italien
-* Driv Rutinens licens-ID
+* Körkorts-ID
 
 Japan
-* Inhemskt registrerings nummer
-* Nummer för boende kort
-* Driv Rutinens licens-ID
-* Socialt försäkrings nummer (SIN)
-* Passport-ID
-* bankkonto nummer (till exempel kontroll, besparingar och debiterings konton)
+* Residentt registreringsnummer
+* Uppehållskortnummer
+* Körkorts-ID
+* Socialförsäkringsnummer (SIN)
+* Pass-ID
+* bankkontonummer (t.ex. checkkonton, sparkonton och debetkonton)
 
 Malaysia
-* ID-kort nummer
+* ID-kortsnummer
 
 Nederländerna
-* BSN-nummer (medborgarnas service)
+* Medborgarens tjänst (BSN) nummer
 
 Nya Zeeland
-* Hälso tillståndets ministerium
+* Hälsoministeriets nummer
 
 Norge
-* ID-kort nummer
+* ID-kortsnummer
 
 Filippinerna
-* Enhetligt ID-nummer för flera syften
+* Enhetligt nummer för multifunktions-ID
 
 Polen
-* ID-kort nummer
-* National-ID (PESEL)
-* Passport-ID
+* ID-kortsnummer
+* Nationellt ID (PESEL)
+* Pass-ID
 
 Portugal 
-* Unionsmedborgare-kort nummer
+* Medborgare kortnummer
 
 Saudiarabien
 * Nationellt ID
 
 Singapore
-* Nummer för National registration ID Card (NRIC)
+* NRIC-nummer (National Registration ID Card)
 
 Sydafrika
 * ID-nummer
-* Inhemskt registrerings nummer
+* Organisationsnummer
 
 Sydkorea
-* Inhemskt registrerings nummer
+* Resident registreringsnummer
 
 Spanien 
-* Person nummer (SSN)
+* Personnummer (SSN)
 
 Sverige
 * Nationellt ID
-* Passport-ID
+* Pass-ID
 
 Taiwan 
 * Nationellt ID
-* Nummer för residentt certifikat (ARC/TARC)
-* Passport-ID
+* Resident certifikat (ARC/TARC) nummer
+* Pass-ID
 
 Thailand
-* Identifierings kod för population
+* Befolkningsidentifieringskod
 
 Storbritannien
-* Passport-ID
-* Driv Rutinens licens-ID
-* Nationellt försäkrings nummer (NINO)
-* NHS-nummer (National Hälsotjänst)
+* Pass-ID
+* Körkorts-ID
+* Personnummer (NINO)
+* Nationellt hälso- och sjukvårdsnummer (NHS)
 
 USA
-* Person nummer (SSN)
-* Driv Rutinens licens-ID
-* Passport-ID
-* Nummer för val av rulle
+* Personnummer (SSN)
+* Körkorts-ID
+* Pass-ID
+* Röstlängdsnummer
 * Individuellt skatte-ID-nummer (ITIN)
-* Nummer för verk ställande av narkotika (DIETANOLAMIN)
-* bankkonto nummer (till exempel kontroll, besparingar och debiterings konton)
+* Nummer hos Drug Enforcement Agency (DEA)
+* bankkontonummer (t.ex. checkkonton, sparkonton och debetkonton)

@@ -1,109 +1,79 @@
 ---
 title: Redigera en kunskapsbas - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla en enkel att använda redigering upplevelse.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: Med QnA Maker kan du hantera innehållet i din kunskapsbas genom att tillhandahålla en lättanvänd redigeringsupplevelse.
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: b5ee7f60eab0349378767473c9c80f035a65c9a5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/19/2020
+ms.openlocfilehash: 223ad3a607adc20bbe608598da9742d56788b2c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79220736"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131645"
 ---
-# <a name="edit-a-knowledge-base-in-qna-maker"></a>Redigera en kunskapsbas i QnA Maker
+# <a name="edit-qna-sets-in-your-knowledge-base"></a>Redigera QnA-uppsättningar i din kunskapsbas
 
-QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla en enkel att använda redigering upplevelse.
+Med QnA Maker kan du hantera innehållet i din kunskapsbas genom att tillhandahålla en lättanvänd redigeringsupplevelse.
 
-<a name="add-datasource"></a>
+QnA-uppsättningar läggs till från en datakälla, till exempel en fil eller URL, eller läggs till som en redaktionell källa. En redaktionell källa anger att QnA-uppsättningen har lagts till i QnA-portalen manuellt. Alla QnA-uppsättningar är tillgängliga för redigering.
 
-## <a name="edit-your-knowledge-base-content"></a>Redigera din kunskapsbas-innehåll
+## <a name="add-an-editorial-qna-set"></a>Lägga till en redaktionell QnA-uppsättning
+1. Logga in på [QnA-portalen](https://www.qnamaker.ai/)och välj sedan kunskapsbasen som du vill lägga till QnA-uppsättningen i.
+1. På sidan **REDIGERA** i kunskapsbasen väljer du **Lägg till QnA-uppsättning** för att lägga till en ny QnA-uppsättning.
 
-1.  Välj **Mina kunskaps banker** i det övre navigerings fältet. 
+1. Lägg till de **obligatoriska fråge-** och svarsfälten **i** den nya QnA-uppsättningenraden. De andra fälten är valfria. Alla fält kan ändras när som helst.
 
-    Du kan se alla tjänster som du har skapat eller delat med sorterade i fallande ordning efter **senaste ändrings** datum.
+1. Du kan också lägga till **alternativ frasering**. Alternativ frasering är någon form av frågan som skiljer sig avsevärt från den ursprungliga frågan, men bör ge samma svar.
 
-    ![Min kunskapsbaser](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+    När din kunskapsbas publiceras och du har aktiverat aktiv inlärning samlar QnA Maker in alternativa fraseringsalternativ som du kan acceptera. Dessa alternativ väljs för att öka förutsägelsenoggrannheten.
 
-1. Välj en viss kunskapsbas kan göra ändringar i den.
- 
-1. Välj **Inställningar**. Här kan du redigera obligatoriskt fält tjänstnamn.
-  
-    |Mål|Åtgärd|
-    |--|--|
-    |Lägg till webbadress|Du kan lägga till nya URL: er för att lägga till nya FAQ-innehåll i kunskaps basen genom att klicka på **Hantera kunskaps bas-> ' + Lägg till URL '**|
-    |Ta bort URL|Du kan ta bort befintliga webbadresser genom att välja ikonen Ta bort, kan Papperskorgen.|
-    |Uppdatera innehåll|Om du vill att din kunskaps bas ska crawla det senaste innehållet i befintliga webb adresser markerar du kryss rutan **Uppdatera** . Detta uppdaterar kunskaps basen med senaste URL-innehåll en gång. Detta ställer inte in ett regelbundet uppdaterings schema.|
-    |Lägg till fil|Du kan lägga till ett fil dokument som stöds som en del av en kunskaps bas genom att välja **Hantera kunskaps bas**och sedan välja **+ Lägg till fil**|
-    |Importera|Du kan också importera en befintlig kunskaps bas genom att välja knappen **Importera kunskaps bas** . |
-    |Uppdatera|Uppdatering av kunskaps basen beror på vilken **hanterings pris nivå** som används när du skapar QNA Maker tjänst som är kopplad till din kunskaps bas. Du kan också uppdatera hanteringsnivån från Azure-portalen om det behövs.
+1. Du kan också lägga till **metadata**. Om du vill visa metadata väljer du **Visa alternativ** på snabbmenyn. Metadata innehåller filter till de svar som klientprogrammet, till exempel en chattrobot, tillhandahåller.
 
-1. När du är klar med att göra ändringar i kunskaps basen väljer du **Spara och träna** i det övre högra hörnet på sidan för att spara ändringarna.    
+1. Du kan också lägga till **uppföljningsan följande.** Uppföljningsansanningar ger ytterligare konversationssökvägar till klientprogrammet som ska visas för användaren.
 
-    ![Spara och träna](../media/qnamaker-how-to-edit-kb/save-and-train.png)
+1. Välj **Spara och träna** om du vill se förutsägelser, inklusive den nya QnA-uppsättningen.
 
-    >[!CAUTION]
-    >Om du lämnar sidan innan du väljer **Spara och träna**, kommer alla ändringar att gå förlorade.
+## <a name="edit-a-qna-set"></a>Redigera en QnA-uppsättning
 
-## <a name="add-a-qna-pair"></a>Lägga till par med fråga och svar
+Alla fält i alla QnA-set kan redigeras, oavsett den ursprungliga datakällan. Vissa fält kanske inte visas på grund av de aktuella inställningarna för **visningsalternativ** som finns i kontextverktygsfältet.
 
-På sidan **Redigera** väljer du **Lägg till QNA-par** för att lägga till en ny rad i kunskaps bas tabellen.
+## <a name="delete-a-qna-set"></a>Ta bort en QnA-uppsättning
 
-![Lägg till frågor och svar om par](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
+Om du vill ta bort en QnA klickar du på **borttagningsikonen** längst till höger på QnA-raden. Det här är en permanent operation. Det kan inte göras ogjort. Överväg att exportera KB från sidan **Publicera** innan du tar bort uppsättningar.
 
-## <a name="delete-a-qna-pair"></a>Ta bort ett par frågor och svar
+![Ta bort QnA-uppsättning](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
-Om du vill ta bort en QnA klickar du på ikonen **ta bort** längst till höger på raden QNA. Det här är en permanent åtgärd. Det går inte att ångra. Överväg att exportera dina KB från sidan **publicera** innan du tar bort par. 
+## <a name="find-the-qna-set-id"></a>Hitta QnA-set-ID:t
 
-![Ta bort frågor och svar om par](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
+Om du behöver hitta QnA-set-ID:t kan du hitta det på två ställen:
 
-## <a name="add-alternate-questions"></a>Lägga till alternativa frågor
+* Hovra på borttagningsikonen på den QnA-uppsättningsrad du är intresserad av. Hovringstexten innehåller QnA-set-ID: t.
+* Exportera kunskapsbasen. Varje QnA-uppsättning i kunskapsbasen innehåller QnA-set-ID.
 
-Lägg till alternativa frågor i ett befintligt nyckelpar med frågor och svar om att förbättra sannolikheten för en matchning för att en användarfråga.
+## <a name="add-alternate-questions"></a>Lägg till alternativa frågor
 
-![Lägga till alternativa frågor](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
+Lägg till alternativa frågor i en befintlig QnA-uppsättning för att förbättra sannolikheten för en matchning till en användarfråga.
 
-## <a name="add-metadata"></a>lägga till metadata
+![Lägg till alternativa frågor](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
 
-Lägg till metadata-par genom att först välja **visnings alternativ**och sedan välja **Visa metadata**. Kolumnen metadata visas. Välj sedan **+** signera för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
+## <a name="linking-qna-sets"></a>Länka QnA-uppsättningar
 
-![Lägga till Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
+Länka QnA uppsättningar är försedd med [uppföljningsan följande](multiturn-conversation.md). Detta är en logisk koppling mellan QnA-uppsättningar, som hanteras på kunskapsbasnivå. Du kan redigera uppföljningsansanningar i QnA Maker-portalen.
 
-> [!TIP]
-> Se till att regelbundet spara och tränar kunskapsbasen när du har gjort ändringar för att undvika att förlora ändringar.
+Du kan inte länka QnA-uppsättningar i svarets metadata.
 
-## <a name="manage-large-knowledge-bases"></a>Hantera stora kunskapsbaser
+## <a name="add-metadata"></a>Lägga till metadata
 
-* **Data käll grupper**: kring grupperas efter den data källa som de extraherades från. Du kan visa eller dölja datakällan.
+Lägg till metadatauppsättningar genom att först välja **Visa alternativ**och välj sedan **Visa metadata**. Då visas kolumnen metadata. Välj sedan **+** tecknet för att lägga till en metadatauppsättning. Den här uppsättningen består av en nyckel och ett värde.
 
-    ![Använd QnA Maker data källans fält för att komprimera och expandera frågor och svar för data källor](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+## <a name="save-changes-to-the-qna-sets"></a>Spara ändringar i QnA-uppsättningarna
 
-* **Sök i kunskaps basen**: du kan söka i kunskaps basen genom att skriva i text rutan längst upp i tabellen kunskaps bas. Klicka på Ange om du vill söka i fråga, svar eller metadata för innehållet. Klicka på X-ikonen Ta bort sökrutan filtrera.
+Välj regelbundet **Spara och träna** efter att du har gjort ändringar för att undvika att förlora ändringar.
 
-    ![Använd sökrutan QnA Maker ovanför frågorna och Svaren för att minska vyn till enbart filter matchnings objekt](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
-
-* **Sid brytning**: flytta snabbt genom data källor för att hantera stora kunskaps baser
-
-    ![Använd QnA Maker sid brytnings funktioner ovanför frågorna och Svaren för att flytta genom sidor med frågor och svar](../media/qnamaker-how-to-edit-kb/pagination.png)
-
-## <a name="delete-knowledge-bases"></a>Ta bort kunskapsbaser
-
-Tar bort en knowledge base (KB) är en permanent åtgärd. Det går inte att ångra. Innan du tar bort en kunskaps bas bör du exportera kunskaps basen från sidan **Inställningar** i QNA Maker portalen. 
-
-Om du delar dina KB med [medarbetare](collaborate-knowledge-base.md) tar du bort det och alla förlorar åtkomsten till KB. 
-
-## <a name="delete-azure-resources"></a>Ta bort Azure-resurser 
-
-Om du tar bort någon av de Azure-resurser används för kunskapsbaser din QnA Maker fungerar inte längre kunskapsbaser. Innan du tar bort några resurser bör du kontrol lera att du exporterar dina kunskaps baser från sidan **Inställningar** . 
+![Lägga till metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Samar beta i en kunskaps bas](./collaborate-knowledge-base.md)
+> [Samarbeta i en kunskapsbas](./collaborate-knowledge-base.md)
+
+* [Hantera Azure-resurser som används av QnA Maker](set-up-qnamaker-service-azure.md)

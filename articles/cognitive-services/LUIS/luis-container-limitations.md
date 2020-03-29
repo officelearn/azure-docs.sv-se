@@ -1,7 +1,7 @@
 ---
-title: Begränsningar för behållare – LUIS
+title: Begränsningar för behållare - LUIS
 titleSuffix: Azure Cognitive Services
-description: De LUIS behållar språk som stöds.
+description: De LUIS-behållarspråk som stöds.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,55 +11,55 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
 ms.openlocfilehash: bd8a7a63113bcf4e972ab08655aa58b35ddff03d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73507862"
 ---
-# <a name="language-understanding-luis-container-limitations"></a>Language Understanding (LUIS) begränsningar för behållare
+# <a name="language-understanding-luis-container-limitations"></a>Begränsningar i LUIS-behållare (Language Understanding)
 
-LUIS-behållare har några viktiga begränsningar. I den här artikeln beskrivs de här begränsningarna från beroenden som inte stöds för en delmängd språk som stöds.
+LUIS-behållarna har några anmärkningsvärda begränsningar. Den här artikeln innehåller information om dessa begränsningar från beroenden som inte stöds till en delmängd av språk som stöds.
 
-## <a name="supported-dependencies-for-latest-container"></a>Beroenden som stöds för `latest` container
+## <a name="supported-dependencies-for-latest-container"></a>Beroenden som `latest` stöds för behållare
 
-Den senaste LUIS-behållaren, som lanserades på [//build/2019](https://news.microsoft.com/build2019/), stöder:
+Den senaste LUIS-behållaren, som släpptes på [//build/ 2019](https://news.microsoft.com/build2019/), stöder:
 
-* [Nya fördefinierade domäner](luis-reference-prebuilt-domains.md): de här företags fokuserade domänerna omfattar entiteter, exempel yttranden och mönster. Utöka dessa domäner för eget bruk.
+* [Nya fördefinierade domäner](luis-reference-prebuilt-domains.md): dessa företagsfokuserade domäner inkluderar entiteter, exempelyttranden och mönster. Utöka dessa domäner för eget bruk.
 
-## <a name="unsupported-dependencies-for-latest-container"></a>Beroenden som inte stöds för `latest` container
+## <a name="unsupported-dependencies-for-latest-container"></a>Beroenden som inte `latest` stöds för behållare
 
-Om du vill [Exportera för container](luis-container-howto.md#export-packaged-app-from-luis)måste du ta bort beroenden som inte stöds från Luis-appen. När du försöker exportera för container rapporterar LUIS-portalen dessa funktioner som inte stöds och som du måste ta bort.
+Om du vill [exportera efter behållare](luis-container-howto.md#export-packaged-app-from-luis)måste du ta bort beroenden som inte stöds från LUIS-appen. När du försöker exportera för behållaren rapporterar LUIS-portalen dessa funktioner som inte stöds som du behöver ta bort.
 
 Du kan använda ett LUIS-program om det **inte innehåller** något av följande beroenden:
 
-App-konfigurationer som inte stöds|Information|
+Appkonfigurationer som inte stöds|Information|
 |--|--|
-|Container kulturer stöds inte| Nederländska (`nl-NL`)<br>Japanska (`ja-JP`)<br>Tyska stöds endast med 1.0.2- [tokenizer](luis-language-support.md#custom-tokenizer-versions).|
-|Entiteter som inte stöds för alla kulturer|Fördefinierad enhets [fras](luis-reference-prebuilt-keyphrase.md) för alla kulturer|
-|Entiteter som inte stöds för engelsk (`en-US`) kultur|[GeographyV2](luis-reference-prebuilt-geographyV2.md) fördefinierade entiteter|
-|Tal Prima|Externa beroenden stöds inte i behållaren.|
+|Behållarekulturer som inte stöds| Nederländska`nl-NL`( )<br>Japanska`ja-JP`( )<br>Tyska stöds endast med [tokenizern 1.0.2](luis-language-support.md#custom-tokenizer-versions).|
+|Enheter som inte stöds för alla kulturer|[KeyPhrase](luis-reference-prebuilt-keyphrase.md) fördefinierade enhet för alla kulturer|
+|Enheter som inte stöds`en-US`för engelsk ( ) kultur|[GeographyV2](luis-reference-prebuilt-geographyV2.md) fördefinierade enheter|
+|Tal priming|Externa beroenden stöds inte i behållaren.|
 |Sentimentanalys|Externa beroenden stöds inte i behållaren.|
-|Stavnings kontroll i Bing|Externa beroenden stöds inte i behållaren.|
+|Stavningskontroll av Bing|Externa beroenden stöds inte i behållaren.|
 
 ## <a name="languages-supported"></a>Språk som stöds
 
-LUIS-behållare har stöd för en delmängd av de [språk som stöds](luis-language-support.md#languages-supported) av Luis-korrekt. LUIS-behållare kan förstå yttranden på följande språk:
+LUIS-behållare stöder en delmängd av de [språk som stöds](luis-language-support.md#languages-supported) av korrekt LUIS. LUIS-behållarna kan förstå yttranden på följande språk:
 
-| Språk | Nationell inställning | Fördefinierad domän | Fördefinierad entitet | Rekommendationer för fras lista | **[text analys](../text-analytics/language-support.md)<br>(Sentiment och<br>Reserverade|
+| Språk | Nationell inställning | Fördefinierad domän | Fördefinierad enhet | Rekommendationer för fraslista | **[Textanalys](../text-analytics/language-support.md)<br>(Sentiment och<br>Nyckelord)|
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikansk engelska | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
-| *[kinesiska](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
+| *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔️ | ✔️ | ✔️ | ❌ |
 | Franska (Frankrike) |`fr-FR` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Franska (Kanada) |`fr-CA` | ❌ | ❌ | ❌ | ✔️ |
 | Tyska |`de-DE` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italienska |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
-| Koreanska |`ko-KR` | ✔️ | ❌ | ❌ | Endast *nyckel fras* |
-| Portugisiska (Brasilien) |`pt-BR` | ✔️ | ✔️ | ✔️ | alla under kulturer |
+| Koreansk |`ko-KR` | ✔️ | ❌ | ❌ | *Endast nyckelfras* |
+| Portugisiska (Brasilien) |`pt-BR` | ✔️ | ✔️ | ✔️ | inte alla underkulturer |
 | Spanska (Spanien) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Spanska (Mexiko)|`es-MX` | ❌ | ❌ |✔️|✔️|
-| Turkiska | `tr-TR` |✔️| ❌ | ❌ | Endast *sentiment* |
+| Turkiska | `tr-TR` |✔️| ❌ | ❌ | *Endast känsla* |
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 

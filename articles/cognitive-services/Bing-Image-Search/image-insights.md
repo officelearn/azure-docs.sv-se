@@ -1,7 +1,7 @@
 ---
-title: Hämta bild insikter – API för bildsökning i Bing
+title: Hämta bildinsikter - API för bildsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder API för bildsökning i Bing för att få mer information om en avbildning.
+description: Läs om hur du använder API:et för bing-bildsökning för att få mer information om en avbildning.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: f84c6329c2a4dd0a9ad9e81f3700c9e31de95a2a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68883436"
 ---
-# <a name="get-image-insights-with-the-bing-image-search-api"></a>Hämta bild insikter med API för bildsökning i Bing
+# <a name="get-image-insights-with-the-bing-image-search-api"></a>Få bildinsikter med API:et för bildsökning av Bing
 
 > [!IMPORTANT]
-> I stället för att använda/images/details-slutpunkten för att hämta Image Insights bör du använda [visuell sökning](../bing-visual-search/overview.md) eftersom det ger mer omfattande insikter.
+> I stället för att använda slutpunkten /images/details för att få bildinsikter bör du använda [Visuell sökning](../bing-visual-search/overview.md) eftersom den ger mer omfattande insikter.
 
 
-Varje avbildning innehåller en Insights-token som du kan använda för att hämta information om avbildningen. Du kan till exempel hämta en samling relaterade bilder, webb sidor som innehåller bilden eller en lista över butiker där du kan köpa den produkt som visas i avbildningen.  
+Varje bild innehåller en insights-token som du kan använda för att få information om bilden. Du kan till exempel få en samling relaterade bilder, webbsidor som innehåller bilden eller en lista över handlare där du kan köpa produkten som visas i bilden.  
 
-För att få insikter om en bild fångar du avbildningens [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken) -token i svaret.
+Om du vill få insikter om en bild tar du bildens [imageInsightsToken-token](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image-imageinsightstoken) i svaret.
 
 ```json
 "value" : [{
@@ -41,9 +41,9 @@ För att få insikter om en bild fångar du avbildningens [imageInsightsToken](h
 }],
 ```
 
-Anropa sedan avbildnings informationens slut punkt och ange parametern [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) till token i `imageInsightsToken`.  
+Anropa sedan slutpunkten Bildinformation och ange frågeparametern [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) till token i `imageInsightsToken`.  
 
-Ange `modules` Frågeparametern för att ange de insikter som du vill hämta. Om du vill hämta alla insikter `modules` ställer `All`du in på. Om du bara vill hämta beskrivningar och insikter för samlingen `modules` anger `Caption%2CCollection`du till. En fullständig lista över möjliga insikter finns i [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Alla insikter är inte tillgängliga för alla avbildningar. Svaret innehåller alla insikter som du har begärt, om det är tillgängligt.
+Om du vill ange de insikter som `modules` du vill hämta anger du frågeparametern. Om du vill ha `modules` `All`alla insikter ställer du in dig på . Om du bara vill hämta information `modules` `Caption%2CCollection`om bildtext och samling ställer du in på . En fullständig lista över möjliga insikter finns i [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested). Alla insikter är inte tillgängliga för alla bilder. Svaret innehåller alla insikter som du har begärt, om tillgängligt.
 
 I följande exempel begärs alla tillgängliga insikter för föregående bild.
 
@@ -57,11 +57,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-## <a name="getting-insights-of-a-known-image"></a>Hämta insikter om en känd bild
+## <a name="getting-insights-of-a-known-image"></a>Få insikter om en känd bild
 
-Om du har URL: en till en bild som du vill hämta insikter om använder du Frågeparametern [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) i stället för parametern [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) för att ange avbildningen. Eller, om du har avbildnings filen kan du skicka den binära avbildningen i bröd texten i en POST-begäran. Om du använder en post- `Content-Type` begäran måste rubriken anges till. `multipart/data-form` Med båda alternativen får bildens storlek inte överstiga 1 MB.  
+Om du har URL:en till en bild som du vill få insikter om använder du frågeparametern [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) i stället för parametern [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) för att ange avbildningen. Eller, om du har bildfilen, kan du skicka binär av bilden i brödtexten i en POST-begäran. Om du använder en `Content-Type` POST-begäran måste `multipart/data-form`huvudet ställas in på . Med något av alternativen får bildens storlek inte överstiga 1 MB.  
 
-Om du har en URL till bilden visar följande exempel hur du begär insikter på en bild.
+Om du har en URL till bilden visar följande exempel hur du begär insikter om en bild.
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&imgUrl=https%3A%2F%2Fwww.mydomain.com%2Fimages%2Fsunflower.png&modules=All&mkt=en-us HTTP/1.1  
@@ -73,9 +73,9 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-## <a name="getting-all-image-insights"></a>Hämta alla bild insikter  
+## <a name="getting-all-image-insights"></a>Få alla bildinsikter  
 
-Om du vill begära alla insikter för en bild ställer [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) du in fråga- `All`parametern för moduler. För att få relaterade sökningar måste begäran innehålla användarens frågesträng. I det här exemplet visas hur du anger avbildningen med hjälp av [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) .  
+Om du vill begära alla insikter [modules](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) i en `All`avbildning ställer du in frågeparametern moduler till . För att få relaterade sökningar måste begäran innehålla användarens frågesträng. Det här exemplet visar hur du använder [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) för att ange avbildningen.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=sailing+dinghy&insightsToken=mid_68364D764J...&modules=All&mkt=en-us HTTP/1.1  
@@ -87,7 +87,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Objektet på den översta nivån är ett [ImageInsightsResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) -objekt i stället för ett [bild](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) objekt.  
+Objektet på den översta nivån är ett [ImageInsightsResponse-objekt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse) i stället för ett [Images-objekt.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images)  
 
 ```json
 {
@@ -172,14 +172,14 @@ Objektet på den översta nivån är ett [ImageInsightsResponse](https://docs.mi
 }
 ```
 
-## <a name="recognizing-entities-in-an-image"></a>Identifiera entiteter i en bild  
+## <a name="recognizing-entities-in-an-image"></a>Känna igen entiteter i en bild  
 
-Funktionen för enhets igenkänning identifierar entiteter i en bild, för närvarande endast personer. Om du vill identifiera entiteter i en avbildning [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) anger du parametern för `RecognizedEntities`moduler till.  
+Entitetsigenkänningsfunktionen identifierar entiteter i en avbildning, för närvarande endast personer. Om du vill identifiera entiteter i `RecognizedEntities`en avbildning ställer du in frågeparametern [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) till .  
 
 > [!NOTE]
-> Du kan inte ange den här modulen med någon annan modul. Om du anger den här modulen med andra moduler inkluderar inte svaret identifierade entiteter.  
+> Du får inte ange den här modulen med någon annan modul. Om du anger den här modulen med andra moduler innehåller svaret inte erkända entiteter.  
 
-Nedan visas hur du anger avbildningen med hjälp av parametern [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) . Kom ihåg att URL: en kodar frågeparametrar.  
+Följande visar hur du anger bilden med hjälp av parametern [imgUrl.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl) Kom ihåg att URL koda frågeparametrarna.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=faith+hill&insightsToken=mid_68364D764J...&modules=RecognizedEntities&mkt=en-us HTTP/1.1  
@@ -191,7 +191,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```  
 
-Nedan visas svaret på den tidigare begäran. Eftersom avbildningen innehåller två personer, identifierar svaret en region för varje person. I det här fallet har personerna identifierats i CelebrityAnnotations-och CelebRecognitionAnnotations-grupperna. Bing visar en lista över personerna i varje grupp baserat på sannolikheten att de matchar personen i den ursprungliga avbildningen. Listan är i fallande ordning. CelebRecognitionAnnotations-gruppen ger den högsta förtroende nivån som matchningen är korrekt.  
+Nedan visas svaret på den tidigare begäran. Eftersom bilden innehåller två personer identifierar svaret en region för varje person. I det här fallet kändes igen personerna i grupperna CelebrityAnnotations och CelebRecognitionAnnotations. Bing listar personerna i varje grupp baserat på sannolikheten att de matchar personen i den ursprungliga bilden. Listan är i fallande ordning av förtroende. Gruppen CelebRecognitionAnnotations ger den högsta förtroendenivån att matchningen är korrekt.  
 
 ```json
 {
@@ -212,27 +212,27 @@ Nedan visas svaret på den tidigare begäran. Eftersom avbildningen innehåller 
 }
 ```
 
-`region` Fältet identifierar det område i bilden där Bing känner igen entiteten. För människor representerar regionen personens ansikte.  
+Fältet `region` identifierar det område i bilden där Bing kände igen entiteten. För människor representerar regionen personens ansikte.  
 
-Värdena i rektangeln är relativa till den ursprungliga bildens bredd och höjd och ligger inom intervallet 0,0 till 1,0. Om bilden till exempel är 300x200 och regionens övre vänstra hörn är vid punkt (10, 20) och det nedersta högra hörnet är i punkt (290, 150), är den normaliserade rektangeln:  
+Rektangelns värden är relativa till den ursprungliga bildens bredd och höjd och ligger i intervallet 0,0 till 1,0. Om bilden till exempel är 300x200 och regionens övre vänstra hörn är vid punkten (10, 20) och det nedre högra hörnet är vid punkten (290, 150), är den normaliserade rektangeln:  
 
--   Från 10/300 = 0,03333...  
--   Översta  20/200 = 0,1  
--   Right 290/300 = 0,9667...  
--   Kanten 150/200 = 0,75  
+-   Vänster: 10 / 300 = 0,03333...  
+-   Överst: 20 / 200 = 0,1  
+-   Höger: 290 / 300 = 0,9667...  
+-   Botten: 150 / 200 = 0,75  
 
-Du kan använda den region som Bing returnerar i efterföljande insikter-anrop. Till exempel för att hämta visuellt likartade bilder av den identifierade entiteten. Mer information finns i beskära bilder som ska användas med visuellt likartade moduler och entitets igenkännings moduler. Nedan visas mappningen mellan fälten region och de frågeparametrar som du använder för att beskära bilder.  
+Du kan använda den region som Bing returnerar i efterföljande insikter. Om du till exempel vill hämta visuellt likartade bilder av den erkända entiteten. Mer information finns i Beskära bilder som ska användas med visuellt liknande moduler och entitetsigenkänningsmoduler. Följande visar mappningen mellan regionfälten och de frågeparametrar som du använder för att beskära bilder.  
 
--   Vänster Maps till [Cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
--   Översta mappar till [katt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
--   Höger Maps till [bil](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
--   Längst ned mappar till [CAB](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
+-   Vänster kartor till [cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
+-   Topp kartor till [katt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
+-   Rätt kartor till [bil](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
+-   Nedre kartor till [hytten](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
 
-## <a name="finding-visually-similar-images"></a>Hitta visuellt likartade bilder  
+## <a name="finding-visually-similar-images"></a>Hitta visuellt liknande bilder  
 
-Om du vill hitta bilder som liknar den ursprungliga bilden, ställer du in frågans frågeparameter till SimilarImages. [](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested)  
+Om du vill hitta bilder som är visuellt lika den ursprungliga bilden anger du frågeparametern för [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) till SimilarImages.  
 
-Följande begäran visar hur du kan hämta visuellt likartade bilder. Förfrågan använder [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) -Frågeparametern för att identifiera den ursprungliga avbildningen. För att förbättra relevansen bör du inkludera användarens frågesträng.  
+Följande begäran visar hur du får visuellt liknande bilder. Begäran använder parametern [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) för att identifiera den ursprungliga avbildningen. För att förbättra relevansen bör du inkludera användarens frågesträng.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?insightsToken=mid_68364D764J...&modules=SimilarImages&mkt=en-us HTTP/1.1  
@@ -263,13 +263,13 @@ Nedan visas svaret på den tidigare begäran.
     }
 ```
 
-## <a name="cropping-images-to-use-with-visually-similar-and-entity-recognition-modules"></a>Beskär bilder som ska användas med visuellt likartade moduler och entiteter för entitets igenkänning  
+## <a name="cropping-images-to-use-with-visually-similar-and-entity-recognition-modules"></a>Beskära bilder som ska användas med visuellt lika- och entitetsigenkänningsmoduler  
 
-Om du vill ange den region i bilden som Bing använder för att avgöra om bilderna är visuellt likartade eller om du vill utföra enhets igenkänning använder du parametrarna [Cal](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal), [Cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat), [CAB, CAB](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)och [bil](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car) . Som standard använder Bing hela bilden.  
+Om du vill ange vilken region för bilden som Bing använder för att avgöra om bilderna är visuellt lika eller för att utföra entitetsigenkänning använder du parametrarna [cal,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal) [cat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat), [cab](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)och [car](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car) query. Som standard använder Bing hela bilden.  
 
-Parametrarna anger det övre, vänstra hörnet och det nedre högra hörnet i den region som Bing använder för jämförelse. Ange värdena som bråk delar av original bildens bredd och höjd. Bråk värden börjar med (0,0, 0,0) överst, vänstra hörnet och slutar med (1,0, 1,0) i det nedre högra hörnet. Om du till exempel vill ange att det övre, vänstra hörnet ska starta en fjärdedel av vägen från det översta och ett kvartal på vägen från vänster sida, anger `cal` du 0,25 och `cat` 0,25.  
+Parametrarna anger det övre, vänstra hörnet och det nedre högra hörnet av det område som Bing använder för jämförelse. Ange värdena som bråk i den ursprungliga bildens bredd och höjd. Bråkvärdena börjar med (0,0, 0,0) högst upp, till vänster och slutar med (1,0, 1,0) längst ned till höger. Om du till exempel vill ange att det övre vänstra hörnet startar en fjärdedel av vägen ner `cal` från toppen och en `cat` fjärdedel av vägen in från vänster sida, inställd på 0,25 och 0,25.  
 
-Följande sekvenser av anrop visar hur du anger beskärnings regionen. Det första anropet omfattar inte beskärning och Bing känner igen två personer som står sida vid sida i bildens mitt.  
+Följande sekvens av anrop visar effekten av att ange beskärningsområdet. Det första samtalet inkluderar inte beskärning och Bing känner igen två personer som står sida vid sida i mitten av bilden.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=RecognizedEntities&imgurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0cbee6fadb43f35b2344e53da7a23ec1o0%26pid%3DApi&mkt=en-us HTTP/1.1  
@@ -281,7 +281,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```  
 
-Svaret visar två identifierade entiteter.  
+Svaret visar två erkända entiteter.  
 
 ```json
 {  
@@ -328,7 +328,7 @@ Svaret visar två identifierade entiteter.
 }  
 ```  
 
-Det andra anropet Beskär bilden lodrätt nedåt i mitten och Bing identifierade en enskild person på höger sida av bilden.  
+Det andra samtalet beskär bilden vertikalt ner i mitten och Bing kände igen en enda person på höger sida av bilden.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?cal=0.5&cat=0.0&car=1.0&cab=1.0&modules=RecognizedEntities&imgurl=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.M0cbee6fadb43f35b2344e53da7a23ec1o0%26pid%3DApi&mkt=en-us HTTP/1.1    
@@ -340,7 +340,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Svaret visar en identifierad entitet.  
+Svaret visar en erkänd entitet.  
 
 ```json  
 {  
@@ -372,11 +372,11 @@ Svaret visar en identifierad entitet.
 }  
 ```  
 
-## <a name="finding-visually-similar-products"></a>Hitta visuellt likartade produkter  
+## <a name="finding-visually-similar-products"></a>Hitta visuellt liknande produkter  
 
-Om du vill hitta bilder som innehåller produkter som liknar de produkter som finns i den ursprungliga bilden ställer du in SimilarProducts för [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) .  
+Om du vill söka efter bilder som innehåller produkter som är visuellt lika de produkter som finns i den ursprungliga avbildningen anger du frågeparametern för [moduler](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) till SimilarProducts.  
 
-Följande begäran visar hur du hämtar bilder av visuellt likartade produkter. Begäran använder [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) -Frågeparametern för att identifiera den ursprungliga avbildningen som returnerades i en tidigare begäran. För att förbättra relevansen bör du inkludera användarens frågesträng.  
+Följande begäran visar hur du får bilder av visuellt liknande produkter. Begäran använder parametern [insightsToken-fråga](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) för att identifiera den ursprungliga avbildningen som returnerades i en tidigare begäran. För att förbättra relevansen bör du inkludera användarens frågesträng.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?q=anne+klein+dresses&modules=SimilarProducts&insightsToken=ccid_WOeyfoSp*mid_4B0A357&mkt=en-us HTTP/1.1    
@@ -388,7 +388,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Nedan visas svaret på den tidigare begäran. Svaret innehåller en bild av en liknande produkt och anger hur många butiker som erbjuder produkten online, om det finns produkt värderingar och det lägsta priset som påträffades (se `aggregateOffer` fältet).  
+Nedan visas svaret på den tidigare begäran. Svaret innehåller en bild av en liknande produkt och anger hur många handlare som erbjuder produkten online, om `aggregateOffer` det finns produktklassificeringar och det lägsta priset som hittas (se fältet).  
 
 ```json
 {
@@ -408,7 +408,7 @@ Nedan visas svaret på den tidigare begäran. Svaret innehåller en bild av en l
 }
 ```
 
-Om du vill hämta en lista över de handlare som erbjuder produkten online (se fältet [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) ) anropar du API: et igen och `modules` anger till ShoppingSources. Ange `insightsToken` sedan Frågeparametern till den token som finns i produkt sammanfattnings bilden.  
+Om du vill få en lista över de handlare som erbjuder produkten online `modules` (se fältet [offerCount)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) anropar du API:et igen och ställer in på ShoppingSources. Ange sedan `insightsToken` frågeparametern till den token som finns i produktsammanfattningsavbildningen.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

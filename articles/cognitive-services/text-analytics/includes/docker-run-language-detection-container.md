@@ -1,7 +1,7 @@
 ---
-title: Kör container-exempel för kommandot Docker Run
+title: Kör behållarexempel på kommandot docker run
 titleSuffix: Azure Cognitive Services
-description: Docker Run-kommandot för Språkidentifiering container
+description: Docker-körkommando för behållare för språkidentifiering
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,13 +10,13 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: dapine
 ms.openlocfilehash: d2818336de2b3d4d810932cefb21edd95b8cf733
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70966738"
 ---
-Kör följande `docker run` kommando för att köra *språkidentifiering* -behållaren.
+Kör följande `docker run` kommando om du vill köra behållaren *Språkidentifiering.*
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -28,7 +28,7 @@ ApiKey={API_KEY}
 
 Det här kommandot:
 
-* Kör en *språkidentifiering* behållare från behållar avbildningen
-* Allokerar en processor kärna och 4 GB minne
-* Visar TCP-port 5000 och allokerar en pseudo-TTY för behållaren
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+* Kör en *behållare för språkidentifiering* från behållaravbildningen
+* Allokerar en CPU-kärna och 4 GIGABYTE (GB) minne
+* Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren
+* Tar automatiskt bort behållaren när den har avslutats. Behållaravbildningen är fortfarande tillgänglig på värddatorn.

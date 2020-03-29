@@ -1,7 +1,7 @@
 ---
-title: Integrering och distribution av projekt akustiska delar
+title: Integrering och distribution av Project Acoustics Unity
 titlesuffix: Azure Cognitive Services
-description: Den här artikeln beskriver hur du integrerar plugin-programmet för Project Akustiske Unit i ditt Unity-projekt.
+description: I den här artikeln beskrivs hur du integrerar plugin-programmet Project Acoustics Unity i Unity-projektet.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,62 +12,62 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: a8ddb0e4ca2ee4396a25a70c8b60b653aebb72d8
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72243005"
 ---
-# <a name="project-acoustics-unity-integration"></a>Integrering av projekt akustiskt union
-Den här artikeln beskriver hur du integrerar plugin-programmet för Project Akustiske Unit i ditt Unity-projekt.
+# <a name="project-acoustics-unity-integration"></a>Project Acoustics Unity integration
+I den här artikeln beskrivs hur du integrerar plugin-programmet Project Acoustics Unity i Unity-projektet.
 
-Program varu krav:
-* [Unity 2018.2 +](https://unity3d.com) för Windows
-* [Project Akustiske Unity-paket](https://www.microsoft.com/download/details.aspx?id=57346)
+Programvarukrav:
+* [Unity 2018.2+](https://unity3d.com) för Windows
+* [Project Acoustics Unity-paketet](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plug-in"></a>Importera plugin-programmet
-1. Importera de akustiska UnityPackage i ditt projekt. 
- I Unity går du till **till gångar** > **import paket** > **anpassade paketet**.
+1. Importera akustiken UnityPackage till ditt projekt. 
+ I Unity går du till**Anpassat paket**för**importpaket** >  **för tillgångar** > .
 
-    ![Menyn Unity import Package](media/import-package.png)  
+    ![Menyn Enhetsimportpaket](media/import-package.png)  
 
-1. Välj **ProjectAcoustics. unitypackage**.
+1. Välj **ProjectAcoustics.unitypackage**.
 
-1. Välj knappen **Importera** för att integrera Unity-paketet i projektet.
+1. Välj knappen **Importera** om du vill integrera Unity-paketet i projektet.
 
-    ![Dialog rutan Unity import Package](media/import-dialog.png)  
+    ![Dialogrutan Enhetsimportpaket](media/import-dialog.png)  
 
-Om du importerar plugin-programmet till ett befintligt projekt kanske projektet redan har en *MCS. rsp* -fil i projekt roten. Den här filen anger alternativ för C# kompilatorn. Sammanfoga innehållet i filen med MCS. rsp-filen som medföljer plugin-programmet för projekt akustiskt.
+Om du importerar plugin-programmet till ett befintligt projekt kanske projektet redan har en *mcs.rsp-fil* i projektroten. Den här filen anger alternativ för C#-kompilatorn. Slå ihop innehållet i filen med filen mcs.rsp som medföljer plugin-programmet Project Acoustics.
 
 ## <a name="enable-the-plug-in"></a>Aktivera plugin-programmet
-Bageri delen av akustiskt Toolkit kräver .NET 4. *x* skript körnings version. Paket import uppdaterar dina inställningar i Unit Player. Omstarts-Unit för att den här inställningen ska börja gälla.
+Den baka delen av akustik verktygslåda kräver .NET 4. *x* skriptkörningsversion. Paketimport uppdaterar inställningarna för Unity-spelare. Starta om Unity för att den här inställningen ska börja gälla.
 
-![Panelen Inställningar i enhets spelaren](media/player-settings.png)
+![Panelen Inställningar för Enhetsspelare](media/player-settings.png)
 
-![Panelen Inställningar för enhets spelaren med .NET 4,5 valt](media/net45.png)
+![Panelen Inställningar för Enhetsspelare med .NET 4.5 markerat](media/net45.png)
 
 ## <a name="set-up-audio-dsp"></a>Konfigurera ljud-DSP
-Projekt akustiska innehåller ljud körnings-DSP som integreras i Spatializer-ramverket för Unity-ljudmotorn. Den innehåller både HRTF-baserad och panorering av spatialization. Om du vill aktivera projektet akustiskt DSP går du till **redigera** > **projekt inställningar** > -**ljud** för att öppna enhetens ljud inställningar. Välj **projekt akustisker** som **Spatializer-plugin-program** för ditt projekt. Se till att **storleken på DSP-buffertstorleken** har angetts till *bästa prestanda*.
+Project Acoustics innehåller DSP-ljudkörning som integreras i Unity-ramverket för ljudmotorns spatializer. Den omfattar både HRTF-baserad och panorering spatialization. Om du vill aktivera DSP-programmet Projekt akustik går du till **Redigera** > **ljudinställningar** > **för** projektinställningar för att öppna inställningarna för Unity-ljud. Välj **Projektakustik** som **Spatializer Plugin** för ditt projekt. Kontrollera att **DSP Buffer Size** är inställt på Bästa *prestanda*.
 
-![Menyn Unity Project Settings](media/project-settings.png)  
+![Menyn Inställningar för Enhetsprojekt](media/project-settings.png)  
 
-![Panelen Unit Spatializer Settings med Project akustiska Spatializer valda](media/choose-spatializer.png)
+![Inställningspanelen Unity Spatializer med Project Acoustics spatializer markerad](media/choose-spatializer.png)
 
-Öppna sedan ljud mixern (**Window** > **ljud mixer**). Se till att du har minst en mixer med en grupp. Om du inte har en sådan, väljer du knappen **+** till höger om **mixers**. Högerklicka på den nedre delen av kanal remsan i avsnittet effekter och Lägg till effekten **Microsoft akustisker mixer** . Endast ett projekt akustiskt mixer stöds i taget.
+Öppna sedan ljudmixern **(Window** > **Audio Mixer).** Kontrollera att du har minst en mixer, med en grupp. Om du inte har någon **+** väljer du knappen till höger om **Blandare**. Högerklicka på nederkanten av kanalremsan i effektavsnittet och lägg till effekten **Microsoft Acoustics Mixer.** Endast en Projektakustisk mixer stöds åt gången.
 
-![Enhetens ljud mixer som är värd för projektet akustiska mixer](media/audio-mixer.png)
+![Unity Audio Mixer värd för projektet Akustik mixer](media/audio-mixer.png)
 
-## <a name="enable-acoustics-on-sound-sources"></a>Aktivera akustiska ljud källor
-Skapa en ljud Källa: Markera kryss rutan **Spatialize** längst ned i panelen AudioSource kontrollant. Se till att den **spatiala över gången** är inställd på full *3D*.  
+## <a name="enable-acoustics-on-sound-sources"></a>Aktivera akustik på ljudkällor
+Skapa en ljudkälla: Markera kryssrutan **Spatialize** längst ned på ljudkällapanelen. Kontrollera att **Spatial Blend** är inställd på full *3D*.  
 
-![Panelen enhet för ljud källa](media/audio-source.png)
+![Panelen Ljudkälla för enhet](media/audio-source.png)
 
 ## <a name="enable-acoustic-design"></a>Aktivera akustisk design
-Koppla *AcousticsAdjust* -skriptet till en ljud källa i din scen för att aktivera ytterligare käll design parametrar: Välj **Lägg till komponent** och välj **skript** > **akustiska ljud**.
+Anslut *AcousticsAdjust-skriptet* till en ljudkälla i scenen för att aktivera ytterligare källdesignparametrar: Välj **Lägg till komponent** och välj **Skriptakustik** > **justera**.
 
-![Unity AcousticsAdjust-skriptet](media/acoustics-adjust.png)
+![Unity AcousticsAdjust-manuset](media/acoustics-adjust.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Bageri din scen med projekt akustiska för Unity](unity-baking.md).
-* [Skapa ett Azure Batch konto](create-azure-account.md) för att gå till din scen i molnet.
-* Utforska [design processen för Project Akustiske Unit](unity-workflow.md).
+* [Baka din scen med Project Acoustics for Unity](unity-baking.md).
+* [Skapa ett Azure Batch-konto](create-azure-account.md) för att baka din scen i molnet.
+* Utforska [designprocessen Project Acoustics Unity](unity-workflow.md).

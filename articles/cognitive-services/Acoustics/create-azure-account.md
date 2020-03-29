@@ -1,7 +1,7 @@
 ---
-title: Installation av Azure Batchs konto för projekt akustiska konton
+title: Konfigurera azure-batchkonto för projekt akustik
 titlesuffix: Azure Cognitive Services
-description: Den här instruktionen beskriver hur du konfigurerar ett Azure Batch-konto för användning med projekt Akustisker och Unreal-motor integreringar.
+description: Den här inställningen beskriver hur du konfigurerar ett Azure Batch-konto för användning med Project Acoustics Unity och Unreal-motorintegrationer.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,57 +12,57 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 8f0f726d9d23f20698d3510ad674331ad74fb703
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68855087"
 ---
-# <a name="project-acoustics-azure-batch-account-setup"></a>Installation av Azure Batchs konto för projekt akustiska konton
-Den här instruktionen beskriver hur du konfigurerar ett Azure Batch-konto för användning med projekt Akustisker och Unreal-motor integreringar.
+# <a name="project-acoustics-azure-batch-account-setup"></a>Konfigurera azure-batchkonto för projekt akustik
+Den här inställningen beskriver hur du konfigurerar ett Azure Batch-konto för användning med Project Acoustics Unity och Unreal-motorintegrationer.
 
 ## <a name="get-an-azure-subscription"></a>Skaffa en Azure-prenumeration
-En [Azure-prenumeration](https://azure.microsoft.com/free/) krävs innan du konfigurerar batch-och lagrings konton. Om du registrerar dig för första gången ger Azure några tidsbegränsade kostnads fria resurser och $200 kredit.
+En [Azure-prenumeration](https://azure.microsoft.com/free/) krävs innan du konfigurerar batch- och lagringskonton. Om du registrerar dig för första gången tillhandahåller Azure några tidsbegränsade kostnadsfria resurser och 200 USD-kredit.
 
-## <a name="create-azure-batch-and-storage-accounts"></a>Skapa Azure Batch-och lagrings konton
-Följ sedan [de här anvisningarna](https://docs.microsoft.com/azure/batch/batch-account-create-portal) för att konfigurera Azure Batch och associerade Azure Storage-konton.
+## <a name="create-azure-batch-and-storage-accounts"></a>Skapa Azure Batch- och lagringskonton
+Följ sedan [dessa instruktioner](https://docs.microsoft.com/azure/batch/batch-account-create-portal) för att konfigurera dina Azure Batch- och associerade Azure Storage-konton.
 
-Välj standard alternativ för både batch-och lagrings konton:
+Välj standardalternativ för både batch- och lagringskonton:
   
-  ![Skärm bild av Azure Batch nya konto alternativ som visar standardinställningar](media/new-batch-account-create.png)
+  ![Skärmbild av azure batch nya konton alternativ som visar standardinställningar](media/new-batch-account-create.png)
 
-  ![Skärm bild av Azure Storage nya konto alternativ som visar standardinställningar](media/batch-storage-account-create.png)
+  ![Skärmbild av azure storage nya konton alternativ som visar standardinställningar](media/batch-storage-account-create.png)
 
-Det tar några minuter för Azure att distribuera kontona. Sök efter ett meddelande om slut för ande i det övre högra hörnet på portalen.
+Det tar några minuter för Azure att distribuera kontona. Leta efter ett slutförandemeddelande i det övre högra hörnet på portalen.
   
-  ![Skärm bild av distribuerat meddelande i Azure-konton](media/batch-accounts-deploy-notification.png)
+  ![Skärmbild av azure-konton som distribuerats](media/batch-accounts-deploy-notification.png)
 
-Dina konton bör nu vara synliga på din instrument panel.
+Dina konton ska nu visas på instrumentpanelen.
   
-  ![Skärm bild av Azure Portal instrument panel med en batch och ett lagrings konto](media/azure-portal-dashboard.png)
+  ![Skärmbild av Azure Portal-instrumentpanelen som visar ett batch- och lagringskonto](media/azure-portal-dashboard.png)
 
-## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Konfigurera akustiskt användar gränssnitt med Azure-autentiseringsuppgifter
-Klicka på länken batch-konto på instrument panelen och klicka sedan på länken **nycklar** på sidan batch-konto för att komma åt dina autentiseringsuppgifter.
+## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Konfigurera akustik baka användargränssnitt med Azure-autentiseringsuppgifter
+Klicka på länken Batch-konto på instrumentpanelen och klicka sedan på länken **Nycklar** på sidan Batch-konto för att komma åt dina autentiseringsuppgifter.
   
-  ![Skärm bild av Azure Batch konto med länk till tangenter-sidan markerad](media/batch-access-keys.png)
+  ![Skärmbild av Azure Batch-konto med länk till sidan Nycklar markerad](media/batch-access-keys.png)
 
-  ![Skärm bild av sidan Azure Batch konto nycklar med åtkomst nycklar](media/batch-keys-info.png)
+  ![Skärmbild av sidan Azure Batch-kontonycklar med åtkomstnycklar](media/batch-keys-info.png)
 
-Klicka på länken **lagrings konto** på sidan för att få åtkomst till dina Azure Storage kontoautentiseringsuppgifter.
+Klicka på länken **Lagringskonto** på sidan för att komma åt dina Azure Storage-kontouppgifter.
   
-  ![Skärm bild av sidan Azure Storage konto nycklar med åtkomst nycklar](media/storage-keys-info.png)
+  ![Skärmbild av sidan Azure Storage-kontonycklar med åtkomstnycklar](media/storage-keys-info.png)
 
-Ange dessa autentiseringsuppgifter i enhets- [plugin-programmet](unity-baking.md) eller [Unreal bageri-plugin](unreal-baking.md).
+Ange dessa referenser i [Unity baka plugin](unity-baking.md) eller [Unreal baka plugin](unreal-baking.md).
 
-## <a name="node-types-and-region-support"></a>Nodtyper och regions stöd
-För projekt akustiska datorer krävs Fsv2-och H-seriens beräknings optimerade Azure VM-noder som kanske inte stöds i alla Azure-regioner. Kontrol lera att du har rätt plats för batch-kontot genom att kontrol lera [den här tabellen](https://azure.microsoft.com/global-infrastructure/services) .
-![Skärm bild som visar Azure Virtual Machines efter region](media/azure-regions.png) 
+## <a name="node-types-and-region-support"></a>Stöd för nodtyper och region
+Project Acoustics kräver Fsv2- och H-seriens beräkningsoptimerade Azure VM-noder som kanske inte stöds i alla Azure-regioner. Kontrollera [den här tabellen](https://azure.microsoft.com/global-infrastructure/services) för att se till att du väljer rätt plats för ditt Batch-konto.
+![Skärmbild som visar virtuella Azure-datorer efter region](media/azure-regions.png) 
 
 ## <a name="upgrading-your-quota"></a>Uppgradera din kvot
-Azure Batch konton skapas vid skapande av konto med en gräns på 20 beräknings kärnor. Vi kanske vill öka den här gränsen för snabbare bageri tider eftersom du kan parallellisera din akustiska arbets belastning över flera noder, upp till antalet avsöknings punkter i din scen. Du kan begära en kvot ökning genom att klicka på länken **kvot** på sidan Azure Batch Portal och sedan klicka på **begär kvot ökning**:
+Azure Batch-konton etableras när kontot skapas med en gräns på 20 beräkningskärnor. Vi kanske vill öka den här gränsen för snabbare bakningstider, eftersom du kan parallellisera din akustikarbetsbelastning över många noder, upp till antalet avsökningspunkter i din scen. Du kan begära en kvotökning genom att klicka på länken **Kvot** på portalsidan för Azure Batch och sedan klicka på **Ökning av begärkvot:**
 
-![Skärm bild av sidan Azure-kvot](media/azure-quotas.png)
+![Skärmbild av sidan Azure-kvot](media/azure-quotas.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Integrera plugin-programmet för projekt i ditt [Unity](unity-integration.md) -eller [Unreal](unreal-integration.md) -projekt
+* Integrera project acoustics-insticksprogrammet i ditt [Unity-](unity-integration.md) eller [Unreal-projekt](unreal-integration.md)
 

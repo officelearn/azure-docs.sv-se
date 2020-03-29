@@ -1,7 +1,7 @@
 ---
-title: Migrera till v3-Translator Text API
+title: Migrera till V3 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller de steg som hjälper dig att migrera från v2 till v3 i Azure Cognitive Services Translator Text API.
+description: Den här artikeln innehåller stegen för att hjälpa dig att migrera från V2 till V3 i Azure Cognitive Services Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837316"
 ---
-# <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API v2 till v3-migrering
+# <a name="translator-text-api-v2-to-v3-migration"></a>Översättare Text API V2 till V3 Migrering
 
 > [!NOTE]
-> V2 föråldrades den 30 april 2018. Migrera dina program till v3 för att kunna dra nytta av nya funktioner som är tillgängliga exklusivt i v3.
+> V2 inaktuella den 30 april 2018. Migrera dina program till V3 för att dra nytta av nya funktioner som är tillgängliga exklusivt i V3.
 > 
-> Microsoft Translator-hubben kommer att dras tillbaka den 17 maj 2019. [Visa viktig information och datum för migreringen](https://www.microsoft.com/translator/business/hub/).  
+> Microsoft Translator Hub dras tillbaka den 17 maj 2019. [Visa viktig migreringsinformation och viktiga datum](https://www.microsoft.com/translator/business/hub/).  
 
-Microsoft Translator-teamet har publicerat version 3 (v3) av Translator Text API. Den här versionen innehåller nya funktioner, föråldrade metoder och ett nytt format för att skicka till och ta emot data från tjänsten Microsoft Translator. Det här dokumentet innehåller information om hur du ändrar program till att använda v3. 
+Microsoft Translator-teamet har släppt version 3 (V3) av Translator Text API. Den här versionen innehåller nya funktioner, föråldrade metoder och ett nytt format för att skicka till och ta emot data från Microsoft Translator Service. Det här dokumentet innehåller information om hur du ändrar program för att använda V3. 
 
-Slutet av det här dokumentet innehåller användbara länkar som hjälper dig att lära dig mer.
+Slutet av det här dokumentet innehåller användbara länkar som du kan lära dig mer om.
 
 ## <a name="summary-of-features"></a>Sammanfattning av funktioner
 
-* Ingen spårnings-i v3-spårning gäller för alla pris nivåer i Azure Portal. Den här funktionen innebär att ingen text som skickas till v3-API: t sparas av Microsoft.
-* JSON-XML har ersatts av JSON. Alla data som skickas till tjänsten och tas emot från tjänsten är i JSON-format.
-* Flera mål språk i en enskild begäran – översättnings metoden accepterar flera till-språk för översättning i en enskild begäran. Till exempel kan en enskild begäran vara från engelska och till tyska, spanska och japanska eller någon annan grupp av språk.
-* Tvåspråkig ord lista – en tvåspråkig ordboks metod har lagts till i API: et. Den här metoden inkluderar "Lookup" och "exempel".
-* Translittererad till en translittererad-metod har lagts till i API: et. Med den här metoden konverteras ord och meningar i ett skript (t. ex. Arabic) i ett annat skript (t. ex. Latin).
-* Språk – en ny "språk"-metod levererar språk information i JSON-format för användning med metoderna "Översätt", "dictionary" och "translittererad".
-* Nytt att översätta – nya funktioner har lagts till i "Översätt"-metoden för att stödja vissa av funktionerna i v2-API: et som separata metoder. Ett exempel är TranslateArray.
-* Speak-metoden – text till tal-funktionen stöds inte längre i Microsoft Translator-API: et. Text till tal-funktionen finns i [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Ingen spårning - I V3 No-Trace gäller för alla prisnivåer i Azure-portalen. Den här funktionen innebär att ingen text som skickas till V3 API, kommer att sparas av Microsoft.
+* JSON - XML ersätts av JSON. Alla data som skickas till tjänsten och tas emot från tjänsten är i JSON-format.
+* Flera målspråk i en enda begäran - Metoden Translate accepterar flera "till"-språk för översättning i en enda begäran. En enda begäran kan till exempel vara "från" engelska och "till" tyska, spanska och japanska, eller någon annan grupp av språk.
+* Tvåspråkig ordlista - En tvåspråkig ordboksmetod har lagts till i API:et. Den här metoden innehåller "uppslag" och "exempel".
+* Translitterat - En translitterat metod har lagts till i API. Den här metoden konverterar ord och meningar i ett skript (t.ex. arabiska) till ett annat skript (t.ex. Latin).
+* Språk - En ny "språkmetod" ger språkinformation, i JSON-format, för användning med metoderna "översätta", "ordbok" och "translitterera".
+* Ny att översätta - Nya funktioner har lagts till metoden "översätt" för att stödja några av de funktioner som fanns i V2 API som separata metoder. Ett exempel är TranslateArray.
+* Läs metod - Funktioner för text till tal stöds inte längre i Microsoft Translator API. Text till tal finns i [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
-I följande lista med v2-och v3-metoder identifieras de v3-metoder och API: er som tillhandahåller de funktioner som medföljde v2.
+Följande lista över V2- och V3-metoder identifierar V3-metoder och API:er som tillhandahåller de funktioner som medföljde V2.
 
 | V2 API-metod   | V3 API-kompatibilitet |
 |:----------- |:-------------|
@@ -47,10 +47,10 @@ I följande lista med v2-och v3-metoder identifieras de v3-metoder och API: er s
 | `TranslateArray`      | [Översätta](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Språk](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Språk](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [Identifiera](reference/v3-0-detect.md)         |
-| `DetectArray`     | [Identifiera](reference/v3-0-detect.md)         |
+| `GetLanguagesForSpeak`      | [Microsoft-taltjänst](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Microsoft-taltjänst](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `Detect`     | [Upptäcka](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Upptäcka](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Funktionen stöds inte längre       |
 | `AddTranslationArray`    | Funktionen stöds inte längre          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -59,38 +59,38 @@ I följande lista med v2-och v3-metoder identifieras de v3-metoder och API: er s
 
 ## <a name="move-to-json-format"></a>Flytta till JSON-format
 
-Microsoft Translator Text Translation v2 accepterade och returnerade data i XML-format. I v3 är alla data som skickas och tas emot med API: t i JSON-format. XML kommer inte längre att accepteras eller returneras i v3.
+Microsoft Translator Text Translation V2 accepterade och returnerade data i XML-format. I V3 är alla data som skickas och tas emot med API i JSON-format. XML accepteras eller returneras inte längre i V3.
 
-Den här ändringen påverkar flera delar av ett program som är skrivet för API: et för text översättning i v2. Exempel: språk-API: t returnerar språk information för text översättning, transkriberingsspråk och de två lexikon metoderna. Du kan begära all språk information för alla metoder i ett anrop eller begära dem individuellt.
+Den här ändringen påverkar flera aspekter av ett program som är skrivet för V2 Text Translation API. Som ett exempel: API:et språk returnerar språkinformation för textöversättning, translitterering och de två ordlistemetoderna. Du kan begära all språkinformation för alla metoder i ett samtal eller begära dem individuellt.
 
-Språk metoden kräver inte autentisering. genom att klicka på följande länk kan du se all språk information för v3 i JSON:
+Språkmetoden kräver ingen autentisering. genom att klicka på följande länk kan du se all språkinformation för V3 i JSON:
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation, ord lista, transkriberingsspråk](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,ordbok,transliteration](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>Autentiseringsnyckel
 
-Den autentiseringsnyckel som du använder för v2 kommer att accepteras för v3. Du behöver inte skaffa någon ny prenumeration. Du kommer att kunna blanda v2 och v3 i dina appar under migreringen av yearlong, vilket gör det enklare för dig att frigöra nya versioner medan du fortfarande migrerar från v2-XML till v3-JSON.
+Autentiseringsnyckeln som du använder för V2 accepteras för V3. Du behöver inte skaffa en ny prenumeration. Du kommer att kunna blanda V2 och V3 i dina appar under den årslånga migreringsperioden, vilket gör det enklare för dig att släppa nya versioner medan du fortfarande migrerar från V2-XML till V3-JSON.
 
 ## <a name="pricing-model"></a>Prismodell
 
-Microsoft Translator v3 är priss ätts på samma sätt som v2. per tecken, inklusive blank steg. De nya funktionerna i v3 gör vissa ändringar i vilka tecken som räknas för fakturering.
+Microsoft Translator V3 är prissatt på samma sätt V2 prissatts; per tecken, inklusive blanksteg. De nya funktionerna i V3 gör vissa ändringar i vilka tecken som räknas för fakturering.
 
-| V3-metod   | Antal tecken för fakturering |
+| V3-metod   | Tecken som räknas för fakturering |
 |:----------- |:-------------|
-| `Languages`     | Inga tecken har skickats, inget antal, ingen avgift.          |
-| `Translate`     | Count baseras på hur många tecken som skickas för översättning och hur många språk som tecknen översätts till. 50 tecken har skickats och 5 efterfrågade språk kommer att vara 50x5.           |
-| `Transliterate`     | Antalet tecken som skickats för transkriberingsspråk räknas.         |
-| `Dictionary lookup & example`     | Antalet tecken som har skickats för sökning efter ord lista och exempel räknas.         |
-| `BreakSentence`     | Ingen avgift.       |
-| `Detect`     | Ingen avgift.      |
+| `Languages`     | Inga tecken har skickats, inga räknade, ingen avgift.          |
+| `Translate`     | Antalet baseras på hur många tecken som skickas in för översättning och hur många språk tecknen översätts till. 50 inlämnade tecken och 5 språk som begärs kommer att vara 50x5.           |
+| `Transliterate`     | Antal tecken som skickats för translitterering räknas.         |
+| `Dictionary lookup & example`     | Antal tecken som skickas för dictionary-sökning och exempel räknas.         |
+| `BreakSentence`     | Ingen kostnad.       |
+| `Detect`     | Ingen kostnad.      |
 
-## <a name="v3-end-points"></a>V3-slut punkter
+## <a name="v3-end-points"></a>V3 slutpunkter
 
 Global
 
 * api.cognitive.microsofttranslator.com
 
-## <a name="v3-api-text-translations-methods"></a>Text översättnings metoder för v3-API
+## <a name="v3-api-text-translations-methods"></a>Metoder för V3 API-textöversättningar
 
 [`Languages`](reference/v3-0-languages.md)
 
@@ -110,40 +110,40 @@ Global
 
 > [!NOTE]
 > 
-> Microsoft Translator-hubben kommer att dras tillbaka den 17 maj 2019. [Visa viktig information och datum för migreringen](https://www.microsoft.com/translator/business/hub/).   
+> Microsoft Translator Hub dras tillbaka den 17 maj 2019. [Visa viktig migreringsinformation och viktiga datum](https://www.microsoft.com/translator/business/hub/).   
 
-Microsoft Translator v3 använder neurala maskin översättning som standard. Den kan därför inte användas med Microsoft Translator Hub. Translator-navet stöder endast äldre statistik för maskin översättning. Anpassningen av neurala-översättning är nu tillgänglig med hjälp av den anpassade översättare. [Lär dig mer om att anpassa neurala Machine Translation](custom-translator/overview.md)
+Microsoft Translator V3 använder som standard neural maskinöversättning. Den kan därför inte användas med Microsoft Translator Hub. Translator Hub stöder endast äldre statistisk maskinöversättning. Anpassning för neural översättning är nu tillgänglig med hjälp av Custom Translator. [Läs mer om att anpassa översättningen av neurala maskiner](custom-translator/overview.md)
 
-Neurala-översättning med v3-text-API: t stöder inte användning av standard kategorier (SMT, tal, Tech, generalnn).
+Neural översättning med V3 text API stöder inte användningen av standardkategorier (SMT, tal, tech, generalnn).
 
-| |Slutpunkt|    Kompatibilitet för GDPR-processor|  Använd Translator Hub| Använd anpassad översättare (förhands granskning)|
+| |Slutpunkt|    GDPR-processorefterlevnad|  Använda Translator Hub| Använd anpassad översättare (förhandsgranskning)|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API version 2| api.microsofttranslator.com|    Nej  |Ja    |Nej|
-|Translator Text API version 3| api.cognitive.microsofttranslator.com|  Ja|    Nej| Ja|
+|Översättning Text API Version 2| api.microsofttranslator.com|    Inga  |Ja    |Inga|
+|Api för översättare API version 3| api.cognitive.microsofttranslator.com|  Ja|    Inga| Ja|
 
-**Translator Text API version 3**
-* Är allmänt tillgänglig och stöds fullt ut.
-* Är GDPR-kompatibel som en processor och uppfyller alla ISO 20001 och 20018 samt SOC 3-certifierings krav. 
-* Gör att du kan anropa de neurala-nätverks översättnings system som du har anpassat med anpassad översättare (för hands version), den nya funktionen Translator NMT anpassning. 
-* Ger inte åtkomst till anpassade översättnings system som skapats med Microsoft Translator Hub.
+**Api för översättare API version 3**
+* Är allmänt tillgänglig och fullt stöd.
+* Är GDPR-kompatibel som processor och uppfyller alla ISO 20001 och 20018 samt SOC 3-certifieringskrav. 
+* Gör att du kan anropa de översättningssystem för neurala nätverk som du har anpassat med Custom Translator (Preview), den nya anpassningsfunktionen Translator NMT. 
+* Ger inte åtkomst till anpassade översättningssystem som skapats med Hjälp av Microsoft Translator Hub.
 
-Du använder version 3 av Translator Text API om du använder api.cognitive.microsofttranslator.com-slutpunkten.
+Du använder version 3 av Translator Text API Om du använder api.cognitive.microsofttranslator.com slutpunkten.
 
-**Translator Text API version 2**
-* Uppfyller inte alla certifierings krav för ISO-20001, 20018 och SOC 3. 
-* Tillåter inte att du anropar de neurala-nätverks översättnings system som du har anpassat med funktionen Translator-anpassning.
-* Ger åtkomst till anpassade översättnings system som skapats med Microsoft Translator Hub.
-* Du använder version 2 av Translator Text API om du använder api.microsofttranslator.com-slutpunkten.
+**Översättning Text API Version 2**
+* Uppfyller inte alla ISO 20001,20018- och SOC 3-certifieringskrav. 
+* Tillåter inte att du anropar de översättningssystem för neurala nätverk som du har anpassat med anpassningsfunktionen Translator.
+* Ger åtkomst till anpassade översättningssystem som skapats med Hjälp av Microsoft Translator Hub.
+* Du använder version 2 av Translator Text API Om du använder api.microsofttranslator.com slutpunkten.
 
-Ingen version av Translator-API: et skapar en post med dina översättningar. Dina översättningar delas aldrig med någon. Mer information på webb sidan [Translator-trace](https://www.aka.ms/NoTrace) .
+Ingen version av Translator API skapar en post av dina översättningar. Dina översättningar delas aldrig med någon. Mer information finns på translator [no-trace-webbsidan.](https://www.aka.ms/NoTrace)
 
 ## <a name="links"></a>Länkar
 
-* [Microsofts sekretess policy](https://privacy.microsoft.com/privacystatement)
-* [Microsoft Azure juridisk information](https://azure.microsoft.com/support/legal)
-* [Villkor för online tjänster](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Microsoft sekretesspolicy](https://privacy.microsoft.com/privacystatement)
+* [Juridisk information om Microsoft Azure](https://azure.microsoft.com/support/legal)
+* [Villkor för onlinetjänster](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Visa V 3.0-dokumentation](reference/v3-0-reference.md)
+> [Visa V3.0-dokumentation](reference/v3-0-reference.md)

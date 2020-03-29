@@ -1,5 +1,5 @@
 ---
-title: Tal tjänst
+title: Tjänst för taligenkänning
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
@@ -10,38 +10,38 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: dapine
 ms.openlocfilehash: b24918f377e0d0744331974993cbb94f963e521e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75379970"
 ---
 ## <a name="reference-docs"></a>Referensdokument
 
-Tal tjänsten tillhandahåller två SDK: er. Det första SDK: n är den främsta [talet SDK](../speech-sdk.md) och innehåller de flesta funktioner som krävs för att interagera med tal tjänsten. Det andra SDK: n är bara avsedd för enheter, med samma namn som [tal enheternas SDK](../speech-devices-sdk.md). Båda SDK: erna är tillgängliga på många språk.
+Taltjänsten tillhandahåller två SDK:er. Den första SDK är den primära [Tal-SDK](../speech-sdk.md) och ger de flesta funktioner som behövs för att interagera med taltjänsten. Den andra SDK är specifik för enheter, med lämplig benämning [talenheter SDK](../speech-devices-sdk.md). Båda SDK:erna finns på många språk.
 
-### <a name="speech-sdk-reference-docs"></a>Referens dokument för tal-SDK
+### <a name="speech-sdk-reference-docs"></a>Tal-SDK-referensdokument
 
-Använd följande lista för att hitta lämpliga referens dokument för tal-SDK:
+Använd följande lista för att hitta lämpliga tal-SDK-referensdokument:
 
-- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C#GRÄNSSNITTET<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++GRÄNSSNITTET<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/csharpref" target="_blank" rel="noopener">C# SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/cppref" target="_blank" rel="noopener">C++ SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/javaref" target="_blank" rel="noopener">Java SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/pythonref" target="_blank" rel="noopener">Python SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">Java Script SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/csspeech/javascriptref" target="_blank" rel="noopener">JavaScript SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 - <a href="https://aka.ms/csspeech/objectivecref" target="_blank" rel="noopener">Mål-C SDK<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 > [!TIP]
-> Speech service SDK underhålls och uppdateras aktivt. Information om hur du spårar ändringar, uppdateringar och funktioner finns i [viktig information om tal SDK](../releasenotes.md).
+> Taltjänsten SDK underhålls aktivt och uppdateras. Om du vill spåra ändringar, uppdateringar och tillägg finns i [versionsanteckningarna för Tal SDK](../releasenotes.md).
 
-### <a name="speech-devices-sdk-reference-docs"></a>Referens dokument för tal enheter SDK
+### <a name="speech-devices-sdk-reference-docs"></a>SDK-referensdokument för talenheter
 
-[Tal enheter SDK](../speech-devices-sdk.md) är en supermängd av talet SDK, med utökade funktioner för vissa enheter. Om du vill hämta SDK: n för tal enheter måste du först [välja ett utvecklings paket](../get-speech-devices-sdk.md#choose-a-development-kit).
+[Speech Devices SDK](../speech-devices-sdk.md) är en superuppsättning av Tal-SDK, med utökad funktionalitet för specifika enheter. Om du vill hämta SDK för talenheter måste du först [välja ett utvecklingspaket](../get-speech-devices-sdk.md#choose-a-development-kit).
 
-### <a name="rest-api-references"></a>REST API referenser
+### <a name="rest-api-references"></a>REST API-referenser
 
-Referenser till olika tal service REST-API: er finns i listan nedan:
+För referenser till olika REST-API:er för taltjänst, se listan nedan:
 
-- [REST API: tal till text](../rest-speech-to-text.md)
-- [REST API: text till tal](../rest-text-to-speech.md)
-- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: batch-avskrift och anpassning<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- [REST API: Tal-till-text](../rest-speech-to-text.md)
+- [REST API: Text-till-tal](../rest-text-to-speech.md)
+- <a href="https://cris.ai/swagger/ui/index" target="_blank" rel="noopener">REST API: Batch transkription och anpassning<span class="docon docon-navigate-external x-hidden-focus"></span></a>

@@ -1,7 +1,7 @@
 ---
-title: Sök metod för Translator Text API ord lista
+title: Uppslagsmetod för translator text API-ordlista
 titleSuffix: Azure Cognitive Services
-description: Sök metoden för ord listan innehåller alternativa översättningar för ett ord och ett litet antal idiomatiskt-fraser.
+description: Metoden Dictionary Lookup innehåller alternativa översättningar för ett ord och ett litet antal idiomatiska fraser.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: bd27827441082698bb4e0b43e7dd22d5b7e66539
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76548959"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3,0: Sök efter ord lista
+# <a name="translator-text-api-30-dictionary-lookup"></a>Kontrolltext-API 3.0: Uppslag på ordlistan
 
-Innehåller alternativa översättningar för ett ord och ett litet antal idiomatiskt-fraser. Varje översättning har en del av tal och en lista över tillbaka-översättningar. Back-translations gör det möjligt för en användare att förstå översättningen i sammanhanget. Exempel åtgärden för [ord listan](./v3-0-dictionary-examples.md) ger ytterligare ökad detalj nivå för att se exempel som använder sig av varje översättnings par.
+Ger alternativa översättningar för ett ord och ett litet antal idiomatiska fraser. Varje översättning har en del av tal och en lista över back-översättningar. Bakåtöversättningarna gör det möjligt för en användare att förstå översättningen i sitt sammanhang. Med åtgärden [Ordlisteexempel](./v3-0-dictionary-examples.md) kan du öka detaljnivån ytterligare för att se exempel på användning av varje översättningspar.
 
 ## <a name="request-url"></a>URL för begäran
 
-Skicka en `POST`-begäran till:
+Skicka `POST` en begäran till:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
@@ -31,27 +31,27 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 ## <a name="request-parameters"></a>Parametrar för begäran
 
-Parametrarna för begäran som skickades till frågesträngen är:
+Parametrar för begäran som skickas på frågesträngen är:
 
 | Frågeparameter  | Beskrivning |
 | ------ | ----------- |
-| api-version <img width=200/>   | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` |
-| från | **Obligatorisk parameter**.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary`s omfånget. |
-| till   | **Obligatorisk parameter**.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de [språk som stöds](v3-0-languages.md) som ingår i `dictionary`s omfånget. |
+| api-version <img width=200/>   | **Obligatorisk parameter**.<br/>Version av API som begärs av klienten. Värdet måste vara`3.0` |
+| Från | **Obligatorisk parameter**.<br/>Anger språket för indatatexten. Källspråket måste vara ett av de `dictionary` språk som [stöds](./v3-0-languages.md) i omfånget. |
+| till   | **Obligatorisk parameter**.<br/>Anger utdatatextens språk. Målspråket måste vara ett av de `dictionary` språk som [stöds](v3-0-languages.md) i omfånget. |
 
 
-Begärandehuvuden innehåller:
+Begäran rubriker inkluderar:
 
 | Rubriker  | Beskrivning |
 | ------ | ----------- |
-| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
-| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`. |
-| Innehålls längd   | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten. |
-| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId`. |
+| Autentiseringshuvuden <img width=200/>  | **Obligatoriskt begäranhuvud**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
+| Content-Type | **Obligatoriskt begäranhuvud**.<br/>Anger innehållstypen för nyttolasten. Möjliga värden `application/json`är: . |
+| Innehållslängd   | **Obligatoriskt begäranhuvud**.<br/>Längden på begäran kroppen. |
+| X-ClientTraceId   | **Valfritt**.<br/>Ett klientgenererat GUID för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID:t i frågesträngen med hjälp av frågeparametern `ClientTraceId`. |
 
 ## <a name="request-body"></a>Begärandetext
 
-Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med en sträng egenskap med namnet `Text`, vilket representerar den term som ska sökas.
+Brödtexten för begäran är en JSON-matris. Varje matriselement är ett JSON-objekt `Text`med en strängegenskap med namnet , som representerar termen att söka.
 
 ```json
 [
@@ -61,66 +61,66 @@ Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-o
 
 Följande begränsningar gäller:
 
-* Matrisen får innehålla högst 10 element.
-* Text värden för ett mat ris element får inte överstiga 100 tecken inklusive blank steg.
+* Matrisen kan ha högst 10 element.
+* Textvärdet för ett matriselement får inte överstiga 100 tecken, inklusive blanksteg.
 
 ## <a name="response-body"></a>Själva svaret
 
-Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den angivna matrisen. Ett resultat objekt innehåller följande egenskaper:
+Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i indatamatrisen. Ett resultatobjekt innehåller följande egenskaper:
 
-  * `normalizedSource`: en sträng som ger en normaliserad form av käll termen. Om förfrågan till exempel är JOHN, blir den normaliserade formen "John". Innehållet i det här fältet blir inmatat för att [hitta exempel](./v3-0-dictionary-examples.md).
+  * `normalizedSource`: En sträng som ger den normaliserade formen av källtermen. Om begäran till exempel är "JOHN" blir den normaliserade formen "john". Innehållet i det här fältet blir indata till [uppslagsexempel](./v3-0-dictionary-examples.md).
     
-  * `displaySource`: en sträng som ger käll termen i ett formulär som passar bäst för slut användar visning. Om indatatypen till exempel är JOHN, visar visnings formuläret den vanliga stavningen av namnet: "John". 
+  * `displaySource`: En sträng som ger källtermen i ett formulär som passar bäst för slutanvändarens visning. Om indata till exempel är "JOHN" återspeglar visningsformuläret den vanliga stavningen av namnet: "John". 
 
-  * `translations`: en lista över översättningar för käll termen. Varje element i listan är ett objekt med följande egenskaper:
+  * `translations`: En lista över översättningar för källtermen. Varje element i listan är ett objekt med följande egenskaper:
 
-    * `normalizedTarget`: en sträng som ger normaliserad form av denna term på mål språket. Det här värdet ska användas som ininformation för att [söka efter exempel](./v3-0-dictionary-examples.md).
+    * `normalizedTarget`: En sträng som ger den normaliserade formen av denna term i målspråket. Det här värdet ska användas som indata för att [söka efter exempel](./v3-0-dictionary-examples.md).
 
-    * `displayTarget`: en sträng som ger termen på mål språket och i ett formulär som passar bäst för slut användar visning. I allmänhet skiljer sig detta bara från `normalizedTarget` med avseende på versaler. Till exempel, ett korrekt substantiv som "Juan" kommer att ha `normalizedTarget = "juan"` och `displayTarget = "Juan"`.
+    * `displayTarget`: En sträng som ger termen i målspråket och i en form som passar bäst för slutanvändarens visning. I allmänhet kommer detta `normalizedTarget` bara att skilja sig från när det gäller kapitalisering. Till exempel kommer ett riktigt substantiv som "Juan" har `normalizedTarget = "juan"` och `displayTarget = "Juan"`.
 
-    * `posTag`: en sträng som associerar den här termen med en del av tal-taggen.
+    * `posTag`: En sträng som associerar den här termen med en del av taltaggen.
 
-        | taggnamn | Beskrivning  |
+        | Taggnamn | Beskrivning  |
         |----------|--------------|
-        | JUST      | Adjektiv   |
-        | ADV      | Adverb      |
-        | CONJ     | Konjunktioner |
-        | DET      | Identifierare  |
-        | ANDE    | Verb        |
+        | Adj      | Adjektiv   |
+        | Adv      | Adverb      |
+        | CONJ (PÅ ANDRA)     | Konjunktioner |
+        | DET (på andra)      | Beslutsfattare  |
+        | Modala    | Verb        |
         | Substantiv     | Substantiv        |
-        | BEREDD     | Prepositioner |
-        | PRON     | Pronomen     |
-        | VERB     | Verb        |
-        | ANNAN    | Övrigt        |
+        | Prep     | Prepositioner |
+        | Pron     | Pronomen     |
+        | Verb     | Verb        |
+        | Andra    | Annat        |
 
-        Som en implementerings anteckning fastställdes dessa taggar av en del-av-tal-taggning av den engelska sidan och sedan den mest frekventa taggen för varje käll-/mål par. Så om människor ofta översätter ett spanskt ord till en annan del av tal-taggen på engelska kan taggarna bli fel (med avseende på det spanska ordet).
+        Som en implementeringsnota bestämdes dessa taggar av en del av taltaggningen på den engelska sidan och tog sedan den vanligaste taggen för varje käll-/målpar. Så om människor ofta översätta ett spanskt ord till en annan del av tal tagg på engelska, taggar kan hamna fel (med avseende på det spanska ordet).
 
-    * `confidence`: ett värde mellan 0,0 och 1,0 som representerar "konfidens" (eller kanske mer exakt, sannolikhet i tränings data) för översättnings paret. Summan av konfidens resultatet för ett käll ord kan eventuellt inte summeras till 1,0. 
+    * `confidence`: Ett värde mellan 0,0 och 1,0 som representerar "konfidens" (eller kanske mer exakt, "sannolikhet i träningsdata") för översättningsparet. Summan av konfidenspoäng för ett källord kan eller inte kan summeras till 1,0. 
 
-    * `prefixWord`: en sträng som ger ordet att visas som prefix för översättningen. För närvarande är detta den ovan besägaiga avgöranden för substantiv, på språk som har en delvisad avgörs. Prefixet för det spanska ordet "Mosca" är till exempel "La", eftersom "Mosca" är ett Feminine Substantiv på spanska. Detta är endast beroende av översättningen och inte på källan. Om det inte finns något prefix kommer det att vara en tom sträng.
+    * `prefixWord`: En sträng som ger ordet att visa som ett prefix för översättningen. För närvarande är detta den könsrelaterade determiner av substantiv, på språk som har könsrelaterade beslutsfattare. Till exempel är prefixet för det spanska ordet "mosca" "la", eftersom "mosca" är ett feminint substantiv på spanska. Detta är bara beroende av översättningen, och inte på källan. Om det inte finns något prefix är det den tomma strängen.
     
-    * `backTranslations`: en lista över målets "tillbaka översättningar". Till exempel käll ord som målet kan översättas till. Listan är garanterat att innehålla det käll ord som begärdes (t. ex. om det ord som letas upp är "flyger", så garanterar vi att "flyg" visas i `backTranslations`s listan). Men det är inte säkert att det är i den första positionen, och det kommer ofta inte att vara det. Varje element i `backTranslations`s listan är ett objekt som beskrivs av följande egenskaper:
+    * `backTranslations`: En lista över "tillbaka översättningar" av målet. Till exempel källord som målet kan översätta till. Listan är garanterad att innehålla källordet som begärdes (t.ex. om källordet som tittades upp är "fluga", då är det garanterat att "flyga" kommer att finnas i `backTranslations` listan). Det är dock inte garanterat att vara i den första positionen, och ofta inte kommer att vara. Varje element `backTranslations` i listan är ett objekt som beskrivs av följande egenskaper:
 
-        * `normalizedText`: en sträng som ger normaliserad form av käll termen som är en back översättning av målet. Det här värdet ska användas som ininformation för att [söka efter exempel](./v3-0-dictionary-examples.md).        
+        * `normalizedText`: En sträng som ger den normaliserade formen av källtermen som är en bakåtöversättning av målet. Det här värdet ska användas som indata för att [söka efter exempel](./v3-0-dictionary-examples.md).        
 
-        * `displayText`: en sträng som ger käll termen som är en back översättning av målet i ett formulär som passar bäst för slut användar visning.
+        * `displayText`: En sträng som ger källtermen som är en bakåtöversättning av målet i en form som är bäst lämpad för slutanvändarens visning.
 
-        * `numExamples`: ett heltal som representerar antalet exempel som är tillgängliga för det här översättnings paret. Faktiska exempel måste hämtas med ett separat anrop till [Lookup-exempel](./v3-0-dictionary-examples.md). Talet är främst avsett för att under lätta visning i ett UX. Ett användar gränssnitt kan till exempel lägga till en hyperlänk i back-Translation om antalet exempel är större än noll och visar back översättning som oformaterad text om det inte finns några exempel. Observera att det faktiska antalet exempel som returneras av ett anrop till [uppslags exempel](./v3-0-dictionary-examples.md) kan vara mindre än `numExamples`, eftersom ytterligare filtrering kan tillämpas i farten för att ta bort "dåliga" exempel.
+        * `numExamples`: Ett heltal som representerar antalet exempel som är tillgängliga för det här översättningsparet. Faktiska exempel måste hämtas med ett separat anrop till [uppslagsexempel](./v3-0-dictionary-examples.md). Numret är oftast avsett att underlätta visning i en UX. Ett användargränssnitt kan till exempel lägga till en hyperlänk till bakåtöversättningen om antalet exempel är större än noll och visar bakåtöversättningen som oformaterad text om det inte finns några exempel. Observera att det faktiska antalet exempel som returneras av ett `numExamples`anrop till [uppslagsexempel](./v3-0-dictionary-examples.md) kan vara mindre än , eftersom ytterligare filtrering kan användas i farten för att ta bort "dåliga" exempel.
         
-        * `frequencyCount`: ett heltal som representerar frekvensen för det här översättnings paret i data. Huvud syftet med det här fältet är att tillhandahålla ett användar gränssnitt med ett sätt att sortera tillbaka-översättningar så att de mest frekventa villkoren är första.
+        * `frequencyCount`: Ett heltal som representerar frekvensen för detta översättningspar i data. Huvudsyftet med detta område är att tillhandahålla ett användargränssnitt med ett sätt att sortera bakåtöversättningar så att de vanligaste termerna är först.
 
     > [!NOTE]
-    > Om perioden som slås upp inte finns i ord listan är svaret 200 (OK), men `translations` listan är en tom lista.
+    > Om termen som visas inte finns i ordlistan är svaret 200 `translations` (OK) men listan är en tom lista.
 
 ## <a name="examples"></a>Exempel
 
-Det här exemplet visar hur du kan söka efter alternativa översättningar på spanska på engelsk sikt `fly`.
+I det här exemplet visas hur du slår `fly` upp alternativa översättningar på spanska av den engelska termen .
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
 ```
 
-Svars texten (förkortat för tydlighetens skull) är:
+Svarstexten (förkortad för tydlighetens skull) är:
 
 ```
 [
@@ -161,13 +161,13 @@ Svars texten (förkortat för tydlighetens skull) är:
 ]
 ```
 
-Det här exemplet visar vad som händer när termen som letas upp inte finns i det giltiga ordboks paret.
+Det här exemplet visar vad som händer när termen som visas inte finns för det giltiga ordlisteparet.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"
 ```
 
-Eftersom termen inte finns i ord listan, innehåller svars texten en tom `translations`s lista.
+Eftersom termen inte finns i ordlistan innehåller svarstexten en tom `translations` lista.
 
 ```
 [

@@ -1,7 +1,7 @@
 ---
-title: Vanliga frågor och svar om projekt akustiskt
+title: Vanliga frågor och svar om projektakustik
 titlesuffix: Azure Cognitive Services
-description: På den här sidan får du svar på frågor som ofta ifrågasätts om projekt akustiskt, inklusive hämtnings anvisningar och bageri processen.
+description: Den här sidan innehåller svar på frågor som ofta ställs om Projektakustik, inklusive nedladdningsinstruktioner och bakningsprocess.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,74 +12,74 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: fa4b6499260219b0eb8ea4df4b4ccfd5263b57bb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75770211"
 ---
-# <a name="project-acoustics-frequently-asked-questions"></a>Vanliga frågor och svar om projekt akustiskt
+# <a name="project-acoustics-frequently-asked-questions"></a>Vanliga frågor och svar om projektakustik
 
 ## <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 
-Projektet akustiskt plugin-program är ett akustiskt system som beräknar ljud vågens beteende före körning, via till statisk belysning. Molnet gör den tunga Upplyftningen av Wave fysik-beräkningar, så körnings PROCESSORns kostnad är låg.  
+Project Acoustics svit av plugins är ett akustik system som beräknar ljudvåg beteende före körning, besläktad med statisk belysning. Molnet gör tunga lyft av våg fysik beräkningar, så körning CPU kostnaden är låg.  
 
-## <a name="where-can-i-download-the-plugin"></a>Var kan jag hämta plugin-programmet?
+## <a name="where-can-i-download-the-plugin"></a>Var kan jag ladda ner plugin?
 
-Du kan ladda ned plugin-programmet för [Project Akustiske Unit](https://www.microsoft.com/download/details.aspx?id=57346) eller [Project akustisks Unreal](https://www.microsoft.com/download/details.aspx?id=58090).
+Du kan ladda ner [Project Acoustics Unity plugin](https://www.microsoft.com/download/details.aspx?id=57346) eller Project [Acoustics Unreal plugin](https://www.microsoft.com/download/details.aspx?id=58090).
 
-## <a name="does-project-acoustics-support-ltxgt-platform"></a>Stöder Project akustiskt &lt;x&gt;-plattformen?
+## <a name="does-project-acoustics-support-ltxgt-platform"></a>Har Project Acoustics stöd &lt;x&gt; plattform?
 
-Stöd för projekt akustiska plattformar utvecklas utifrån kundernas behov. Kontakta oss i avsnittet [projekt akustiska problem](https://github.com/microsoft/ProjectAcoustics/issues) och fråga om stöd för ytterligare plattformar.
+Project Acoustics plattformssupport utvecklas baserat på kundernas behov. Vänligen kontakta oss på [Project Acoustics issue forum](https://github.com/microsoft/ProjectAcoustics/issues) för att fråga om stöd för ytterligare plattformar.
 
 ## <a name="is-azure-used-at-runtime"></a>Används Azure vid körning?
 
-Nej, Cloud integration används endast under för beräknings fasen som en del av scen installationen.
+Nej, molnintegrering används endast under förkompileringsfasen som en del av sceninställningen.
  
-## <a name="what-is-simulation-input"></a>Vad är simulerings ingångar? 
+## <a name="what-is-simulation-input"></a>Vad är simuleringsindata? 
 
-Simulerings indatamängden är din 3D-scen, virtuell miljö eller spel nivå. Med projektets akustiska modeller utförs 3D-våg simuleringar som modellerar fysiken av ljud tätt, inklusive mjuk ocklusion och spridning.
+Simuleringsingången är din 3D-scen, virtuell miljö eller spelnivå. Project Acoustics utför 3D-volymetriska vågsimuleringar som modellerar ljudfysiken noga, inklusive jämn ocklusion och spridning.
  
-## <a name="what-is-the-runtime-cost"></a>Vad är körnings kostnaden?
+## <a name="what-is-the-runtime-cost"></a>Vad kostar körningen?
 
-Akustiska steg tar cirka 0,01% av processor per källa per bild ruta. RAM-användningen beror på scen storleken och kan vara mellan 10 och 100 MB.
+Akustik tar ca 0,01% cpu per källa per bildruta. RAM-användningen beror på scenstorlek och kan variera från 10 till 100 MB.
  
-## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>Behöver jag förenkla nivå geometrin? Vill du kontrol lera antalet trianglar? Får du vatten täta maskor?
+## <a name="do-i-need-to-simplify-the-level-geometry-control-triangle-count-make-meshes-watertight"></a>Måste jag förenkla nivågeometrin? Kontrollera triangelantal? Göra maskor vattentäta?
 
-Nej. Systemet kommer att hämta information om den detaljerade nivån direkt. Den kommer att vara voxelized för intern bearbetning.
+Nej. Systemet kommer att inta detaljerad nivå geometri direkt. Det kommer att voxelized för intern behandling.
  
-## <a name="whats-in-the-runtime-lookup-table"></a>Vad är en söknings tabell för körnings miljön?
+## <a name="whats-in-the-runtime-lookup-table"></a>Vad finns i uppslagstabellen för körning?
 
-ACE-filen innehåller en tabell med akustiska parametrar mellan flera olika käll-och lyssnar plats par, samt voxelized Scene-geometri som används för parameter-interpolation.
+ACE-filen innehåller är en tabell över akustiska parametrar mellan många käll- och lyssnareplatspar, samt voxelized scengeometri som används för parameterinterpolering.
  
-## <a name="can-project-acoustics-handle-moving-sources"></a>Kan projekt akustiskt hantera rörliga källor?
+## <a name="can-project-acoustics-handle-moving-sources"></a>Kan Project Acoustics hantera rörliga källor?
 
-Ja, projekt akustiskt rådfrågar uppslags tabellen och uppdaterar ljudet DSP på varje Tick, så att det kan hantera rörliga källor och lyssnare.
+Ja, Project Acoustics konsulterar uppslagstabellen och uppdaterar ljud-DSP:n på varje fästing, så att den kan hantera rörliga källor och lyssnare.
  
-## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Kan projekt akustiskt hantera dynamisk geometri? Stänger du dörrar? Väggar har lämnats bort?
+## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Kan Project Acoustics hantera dynamisk geometri? Stänga dörrar? Väggar blåst bort?
 
-Nej. Akustiska parametrar är förberäknade baserat på en spel nivås statiska tillstånd. Vi rekommenderar att du lämnar dörr geometrin ur akustiska enheter och sedan tillämpar ytterligare ocklusion baserat på status för destructible och flyttbara spel objekt med etablerade tekniker.
+Nej. De akustiska parametrarna förbeväpnas baserat på det statiska tillståndet för en spelnivå. Vi föreslår att lämna dörren geometri ur akustik, och sedan tillämpa ytterligare ocklusion baserat på tillståndet för förstörbara och rörliga spelobjekt med hjälp av etablerade tekniker.
  
-## <a name="does-project-acoustics-use-acoustic-materials"></a>Använder Project akustiskt akustiskt material?
+## <a name="does-project-acoustics-use-acoustic-materials"></a>Använder Project Acoustics akustiska material?
 
-Ja. Material plockas från fysiska material namn på din nivå, med absorptivity.
+Ja. Material plockas från de fysiska materialnamnen i din nivå, driver absorptivity.
  
-## <a name="what-do-the-probes-represent"></a>Vad representerar "avsökningar"?
+## <a name="what-do-the-probes-represent"></a>Vad representerar "sonderna"?
 
-Avsökningar är en sampling av möjliga Player-platser. Varje avsökning representerar en separat våg simulering av den scen som kommer från avsöknings platsen. Vid körning interpoleras akustiska parametrar för lyssnar platsen från nära avsöknings platser.
+Sonder är ett urval av möjliga spelarplatser. Varje sond representerar en separat vågsimulering av scenen som kommer från sondens plats. Vid körning interpoleras akustiska parametrar för lyssnarplatsen från närliggande avsökningsplatser.
  
-## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>Varför spendera så mycket data bearbetning i molnet? Vad köper jag mig?
+## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>Varför spendera så mycket beräkning i molnet? Vad köper den mig?
 
-Project-Akustisker ger korrekta och pålitliga akustiska parametrar, även för extremt komplexa virtuella miljöer, som tar alla arkitektur aspekt i beräkningen. Den ger smidig ocklusion och hinder och dynamisk reverb-variation utan manuell arbete för att rita volymer. Allt medan återstående ljus på processor under körning.
+Project Acoustics ger exakta och tillförlitliga akustiska parametrar även för ultrakomplexa virtuella miljöer, med beaktande av alla arkitektoniska aspekter. Det ger smidig ocklusion och obstruktion och dynamisk reverb variation utan manuellt arbete ritning volymer. Allt medan återstående ljus på CPU under körning.
 
-## <a name="what-exactly-happens-during-baking"></a>Vad händer exakt under "bak"?
+## <a name="what-exactly-happens-during-baking"></a>Vad exakt händer under "bakning"?
 
-En bageri består av akustiska våg simuleringar av cuboid simulerings regioner centrerade vid varje lyssnare-avsökning.
+En baka består av akustiska vågsimuleringar av kubiska simuleringsområden centrerade vid varje lyssnarsond.
 
-## <a name="is-my-source-content-secure"></a>Är ditt käll innehåll säkert?
+## <a name="is-my-source-content-secure"></a>Är mitt källinnehåll säkert?
 
-Med projektets akustiskt överförs inte käll scenens geometri till molnet. I stället körs simuleringen på en voxelization av din scen, som kombineras med avsöknings plats data och lagras i ett eget format.     
+Projektakustiken överför inte källscengeometrin till molnet. Istället fungerar simuleringen på en voxelization av din scen, som kombineras med sondplatsdata och lagras i ett eget format.     
 
 ## <a name="next-steps"></a>Nästa steg
-* Försök med [projektet akustiskt exempel på innehåll](unity-quickstart.md) eller [Unreal exempel innehåll](unreal-quickstart.md)
+* Prova [exempelinnehållet Project Acoustics Unity](unity-quickstart.md) eller [Unreal sample-innehåll](unreal-quickstart.md)
 

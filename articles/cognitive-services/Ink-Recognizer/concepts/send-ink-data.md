@@ -1,7 +1,7 @@
 ---
 title: Skicka pennanteckning till API:et för handskriftsigenkänning
 titleSuffix: Azure Cognitive Services
-description: Läs mer om hur du anropar Ink Analyzer API för olika program
+description: Lär dig mer om att anropa Ink Analyzer API för olika program
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221110"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Skicka pennanteckning till API:et för handskriftsigenkänning 
 
-Digitala pennanteckningar avser teknik som möjliggör digitala representationer av indata, till exempel handskrift och ritningar. Detta uppnås vanligt vis med en digitaliserare som samlar in ingångs enheter, till exempel en penna. När enheter fortsätter att aktivera omfattande användning av digitala pennanteckningar kan artificiell intelligens och maskininlärning möjliggöra igenkänning av skriftliga former och text i en kontext. Med pennan tecknings-API kan du skicka penndrag och få detaljerad information om dem. 
+Digitala pennanteckningar avser teknik som möjliggör digitala representationer av indata, till exempel handskrift och ritningar. Detta uppnås vanligtvis med hjälp av en digitaliserare som fångar rörelser indataenheter, till exempel en penna. När enheter fortsätter att aktivera omfattande användning av digitala pennanteckningar kan artificiell intelligens och maskininlärning möjliggöra igenkänning av skriftliga former och text i en kontext. Med API:et för pennanteckningspaneler kan du skicka pennstreck och få detaljerad information om dem. 
 
-## <a name="the-ink-recognizer-api-vs-ocr-services"></a>Bläck igenkännings-API jämfört med OCR-tjänster
+## <a name="the-ink-recognizer-api-vs-ocr-services"></a>API:et för pennanteckningscentralen jämfört med OCR-tjänster
 
-Bläck igenkännings-API: t använder inte optisk tecken igenkänning (OCR). OCR-tjänster bearbetar pixel data från bilder för att tillhandahålla hand SKRIFTS-och text igenkänning. Detta kallas ibland för offline-igenkänning. I stället kräver API-identifieraren digitala Penn strecks data som samlas in som inmatnings enhet. Att bearbeta digitala pennan tecknings data på det här sättet kan ge mer exakta igenkännings resultat jämfört med OCR-tjänster. 
+API:et för bläckast igenfärg använder inte optisk teckenigenkänning (OCR). OCR-tjänster bearbetar pixeldata från bilder för att ge handskrift och textigenkänning. Detta kallas ibland offlineigenkänning. I stället kräver INK Recognizer API digitala pennstrecksdata som fångas in när indataenheten används. Bearbetning av digitala bläckdata på detta sätt kan ge mer exakta igenkänningsresultat jämfört med OCR-tjänster. 
 
-## <a name="sending-ink-data"></a>Skicka pennan tecknings data
+## <a name="sending-ink-data"></a>Skicka pennanteckningsdata
 
-Pennan tecknings-API: n kräver X-och Y-koordinaterna som representerar de penndrag som skapats av en inmatnings enhet, från det ögonblick som identifierings ytan vidrörs när den lyfts upp. Punkterna på varje linje måste vara en sträng med kommaavgränsade värden och vara formaterade i JSON som exemplet nedan. Dessutom måste varje penndrag ha ett unikt ID i varje begäran. Om ID upprepas inom samma begäran returnerar API: t ett fel. För de mest exakta igenkännings resultaten måste du ha minst åtta siffror efter decimal tecknet. Arbets ytans ursprung (0,0) antas vara det övre vänstra hörnet på arbets ytan för pennan teckningar.
+Api:et för bläckkonementorer kräver X- och Y-koordinaterna som representerar de pennstreck som skapas av en indataenhet, från det ögonblick den vidrör identifieringsytan till när den lyfts. Punkterna för varje linje måste vara en sträng med kommaavgränsade värden och formateras i JSON som exemplet nedan. Dessutom måste varje pennstreck ha ett unikt ID i varje begäran. Om ID:n upprepas i samma begäran returnerar API:et ett fel. För de mest exakta igenkänningsresultaten, ha minst åtta siffror efter decimalkommat. Arbetsytans ursprung (0,0) antas vara det övre vänstra hörnet av arbetsytan.
 
 > [!NOTE]
-> Följande exempel är inte giltigt JSON. Du hittar en fullständig pennan tecknings-JSON-begäran på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089909).
+> Följande exempel är inte giltigt JSON. Du hittar en fullständig Ink Recognizer JSON-begäran på [GitHub](https://go.microsoft.com/fwlink/?linkid=2089909).
  
 ```json
 {
@@ -56,40 +56,40 @@ Pennan tecknings-API: n kräver X-och Y-koordinaterna som representerar de pennd
 }
 ```
 
-## <a name="ink-recognizer-response"></a>Hand SKRIFTS tolkens svar
+## <a name="ink-recognizer-response"></a>Svar på pennanteckningsre recognizeer
 
-Pennan tecknings-API: et returnerar ett analys svar om de objekt som identifieras av hand SKRIFTS innehållet. Svaret innehåller igenkännings enheter som beskriver relationerna mellan olika Penn streck. Linjer som skapar distinkta, separata former kommer att finnas i olika enheter. Varje enhet innehåller detaljerad information om dess penndrag, inklusive det identifierade objektet, dess koordinater och andra Drawing-attribut.
+API:et för pennanteckningskonetenting returnerar ett analyssvar om de objekt som identifieras från bläckinnehållet. Svaret innehåller igenkänningsenheter som beskriver relationerna mellan olika pennstreck. Till exempel linjer som skapar distinkta, separata former kommer att finnas i olika enheter. Varje enhet innehåller detaljerad information om dess pennstreck, inklusive det tolkade objektet, dess koordinater och andra ritattribut.
 
-## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Former som identifieras av pennan tecknings tolkens API
+## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Former som känns igen av API:et för bläckreformare
 
-Färg igenkännings-API: et kan identifiera de vanligaste formerna i Obs! I bilden nedan visas några grundläggande exempel. En fullständig lista över former och annat bläck innehåll som identifieras av API: et finns i [referens artikeln för API](https://go.microsoft.com/fwlink/?linkid=2089907). 
+Api:et för pennanteckningsreprimerare kan identifiera de vanligaste formerna i anteckningar. Bilden nedan visar några grundläggande exempel. En fullständig lista över former och annat bläckinnehåll som känns igen av API:et finns i [API-referensartikeln](https://go.microsoft.com/fwlink/?linkid=2089907). 
 
-![Listan över former som identifieras av pennan tecknings tolkens API](../media/shapes.png)
+![Listan över former som känns igen av API:et för bläckreformare](../media/shapes.png)
 
-## <a name="recommended-calling-patterns"></a>Rekommenderade anrops mönster
+## <a name="recommended-calling-patterns"></a>Rekommenderade samtalsmönster
 
-Du kan anropa hand SKRIFTS tolken REST API i olika mönster efter ditt program. 
+Du kan anropa INK Recognizer REST API i olika mönster beroende på ditt program. 
 
 ### <a name="user-initiated-api-calls"></a>Användarinitierade API-anrop
 
-Om du skapar en app som tar med användar indata (till exempel en anteckning-eller antecknings app), kanske du vill ge dem kontrollen av när och vilka pennan teckningar som skickas till pennan tecknings-API: et. Den här funktionen är särskilt användbar när text och former finns både på arbets ytan och användare vill utföra olika åtgärder för var och en. Överväg att lägga till markerings funktioner (till exempel ett lasso eller ett annat verktyg för geometrisk markering) som gör att användarna kan välja vad som ska skickas till API: et.  
+Om du skapar en app som tar in användaren (till exempel en antecknings- eller anteckningsapp) kanske du vill ge dem kontroll över när och vilken bläck som skickas till Ink Recognizer API. Den här funktionen är särskilt användbar när både text och former finns på arbetsytan och användarna vill utföra olika åtgärder för varje. Överväg att lägga till markeringsfunktioner (som en lasso eller annat geometriskt markeringsverktyg) som gör det möjligt för användare att välja vad som skickas till API:et.  
 
-### <a name="app-initiated-api-calls"></a>App-initierade API-anrop
+### <a name="app-initiated-api-calls"></a>Appinitierade API-anrop
 
-Du kan också använda appen för att anropa API: et för hand SKRIFTS igenkänning efter en tids gräns. Genom att skicka de aktuella penndrag till API-rutinen kan du lagra igenkännings resultat när de skapas samtidigt som du förbättrar API: ns svars tid. Du kan till exempel skicka en rad med handskriven text till API: et när du har identifierat att användaren har slutfört den. 
+Du kan också låta appen anropa Ink Recognizer API efter en timeout. Genom att skicka de aktuella pennstrecken till API:et rutinmässigt kan du lagra igenkänningsresultat när de skapas samtidigt som API:ets svarstid förbättras. Du kan till exempel skicka en rad handskriven text till API:et när du har upptäckt att användaren har slutfört den. 
 
-Med igenkännings resultatet får du information om egenskaperna för penndrag när de relaterar till varandra. Till exempel vilka linjer grupperas för att bilda samma ord, linje, lista, stycke eller form. Den här informationen kan förbättra appens funktioner för pennan tecknings funktioner genom att kunna välja grupper av linjer på samma gång, till exempel.
+Med erkännande resultat i förväg ger dig information om egenskaperna hos bläck slag som de avser varandra. Vilka linjer som grupperas för att till exempel bilda samma ord, rad, lista, stycke eller form. Den här informationen kan förbättra appens pennvalsfunktioner genom att till exempel kunna välja grupper av linjer samtidigt.
 
-## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrera pennan tecknings tolkens API med Windows Ink
+## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrera API:et för bläckmed Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) innehåller verktyg och tekniker som möjliggör digitala pennan tecknings upplevelser på flera olika enheter. Du kan kombinera Windows Ink-plattformen med pennan tecknings-API: et för att skapa program som visar och tolkar digitala Penn streck.
+[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) innehåller verktyg och tekniker för att möjliggöra digitala inking-upplevelser på en mängd olika enheter. Du kan kombinera Windows Ink-plattformen med INK Recognizer API för att skapa program som visar och tolkar digitala pennstreck.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är hand SKRIFTS tolkens API?](../overview.md)
-* [Referens för hand SKRIFTS igenkänning REST API](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Vad är API för handskriftsigenkänning?](../overview.md)
+* [REST API-referens för pennanteckning](https://go.microsoft.com/fwlink/?linkid=2089907)
 
-* Börja skicka digitala Penn strecks data med:
+* Börja skicka data med digitala pennstreck med:
     * [C#](../quickstarts/csharp.md)
     * [Java](../quickstarts/java.md)
-    * [JavaScript](../quickstarts/javascript.md)
+    * [Javascript](../quickstarts/javascript.md)

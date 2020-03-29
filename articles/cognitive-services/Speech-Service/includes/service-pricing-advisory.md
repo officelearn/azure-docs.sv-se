@@ -1,5 +1,5 @@
 ---
-title: Tal tjänst
+title: Tjänst för taligenkänning
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
@@ -10,11 +10,11 @@ ms.topic: include
 ms.date: 12/02/2019
 ms.author: dapine
 ms.openlocfilehash: ceb062cc5272fae0030c331ad7c9c6c870763df7
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74828810"
 ---
 > [!NOTE]
-> Vid testning utförs en avskrift i systemet. Detta är viktigt att tänka på eftersom prissättningen varierar per tjänst erbjudande och prenumerations nivå. Information om [den senaste informationen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services)finns alltid i den officiella Azure Cognitive Services pris-och tal tjänsten.
+> Vid testning kommer systemet att utföra en transkription. Detta är viktigt att tänka på, eftersom prissättningen varierar per tjänsteutbud och prenumerationsnivå. Se alltid den officiella Azure Cognitive Services-prissättningen - Taltjänsten för [den senaste informationen](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services).

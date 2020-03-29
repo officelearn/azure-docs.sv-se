@@ -1,30 +1,33 @@
 ### YamlMime:Landing
-title: Dokumentation om tal till text
-summary: Tal-till-text från tjänsten Speech, som även kallas tal igenkänning, aktiverar real tids avskrift av ljud strömmar till text.
+title: Dokumentation från tal till text
+summary: Tal-till-text från taltjänsten, även känd som taligenkänning, möjliggör realtids- och batchutskrift av ljudströmmar till text.
 metadata:
-  title: Dokumentation om tal till text – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  title: Tal-till-text-dokumentation - Självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 03/19/2020
   ms.author: dapine
-  ms.openlocfilehash: 7f3486e9944cf7f01c2a53ca101c5cc26530e086
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: b6f2fed7b5d6722b07b7f996c46e48ea0d86f755
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79370363"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "80052845"
 landingContent:
-- title: Om tal till text
+- title: Om tal-till-text
   linkLists:
   - linkListType: overview
     links:
-    - text: Vad är tal-till-text?
+    - text: Vad är tal-till-text i realtid?
       url: speech-to-text.md
+    - text: Vad är batch tal-till-text?
+      url: batch-transcription.md
+    - text: Grunderna i taligenkänning?
+      url: speech-to-text-basics.md
   - linkListType: quickstart
     links:
     - text: Identifiera tal med en mikrofonindata
@@ -33,7 +36,7 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Identifiera tal som lagras i bloblagring
       url: quickstarts/from-blob.md
-- title: Utveckla med tal till text
+- title: Utveckla med tal-till-text
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -45,11 +48,15 @@ landingContent:
       url: how-to-custom-speech.md
     - text: Använda komprimerade ljudindataformat
       url: how-to-use-codec-compressed-audio-input-streams.md
+  - linkListType: tutorial
+    links:
+    - text: Förbättra noggrannheten med klientmodeller
+      url: tutorial-tenant-model.md
   - linkListType: concept
     links:
-    - text: Förbereda data för Custom Speech
+    - text: Förbereda data för anpassat tal
       url: how-to-custom-speech-test-data.md
-    - text: Träna en modell för Custom Speech
+    - text: Träna en modell för anpassat tal
       url: how-to-custom-speech-train-model.md
     - text: Skapa transkriptioner med mänsklig etikett
       url: how-to-custom-speech-human-labeled-transcriptions.md
@@ -61,5 +68,5 @@ landingContent:
       url: language-support.md#speech-to-text
     - text: Vanliga frågor och svar om tal-till-text
       url: faq-stt.md
-    - text: Priser för tal till text
+    - text: Priser för tal-till-text
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

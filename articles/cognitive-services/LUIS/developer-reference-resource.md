@@ -1,115 +1,116 @@
 ---
-title: Utvecklings resurser – Language Understanding
-description: 'SDK: er, REST API: er, CLI, hjälper dig att utveckla Language Understanding-appar (LUIS) i ditt programmeringsspråk. Hantera dina Azure-resurser och LUIS-förutsägelser.'
+title: Utvecklarresurser - Språkförståelse
+description: SDK:er, REST API:er, CLI, hjälper dig att utveckla LUIS-appar (Language Understanding) i programmeringsspråket. Hantera dina Azure-resurser och LUIS-förutsägelser.
 ms.topic: reference
-ms.date: 02/11/2020
-ms.openlocfilehash: f9d531f800ba0729a1f679c0bf3b11c8958c78ed
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/16/2020
+ms.openlocfilehash: 5e375157cef4789bc2980f6154ea8d59e765ff3b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78391950"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457992"
 ---
-# <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>SDK-, REST-och CLI-utvecklarresurser för Language Understanding (LUIS)
+# <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Resurser för SDK-, REST- och CLI-utvecklare för språk understanding (LUIS)
 
-SDK: er, REST API: er, CLI, hjälper dig att utveckla Language Understanding-appar (LUIS) i ditt programmeringsspråk. Hantera dina Azure-resurser och LUIS-förutsägelser.
+SDK:er, REST API:er, CLI, hjälper dig att utveckla LUIS-appar (Language Understanding) i programmeringsspråket. Hantera dina Azure-resurser och LUIS-förutsägelser.
 
-## <a name="azure-resource-management"></a>Resurs hantering i Azure
+## <a name="azure-resource-management"></a>Azure-resurshantering
 
-Använd Azure-Cognitive Services hanterings lager för att skapa, redigera, Visa och ta bort Language Understanding eller kognitiva tjänst resurser.
+Använd Azure Cognitive Services Management-lagret för att skapa, redigera, lista och ta bort språkförståelse eller kognitiv tjänstresurs.
 
-Hitta referens dokumentation baserat på verktyget:
+Hitta referensdokumentation baserat på verktyget:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
 
-## <a name="language-understanding-authoring-and-prediction-requests"></a>Language Understanding redigerings-och förutsägelse begär Anden
+## <a name="language-understanding-authoring-and-prediction-requests"></a>Redigerings- och förutsägelsebegäranden för språkförståelse
 
-Language Understandings tjänsten nås från en Azure-resurs som du måste skapa. Det finns två resurser:
+Tjänsten Språk understanding nås från en Azure-resurs som du behöver skapa. Det finns två resurser:
 
-* Använd **redigerings** resursen för utbildning för att skapa, redigera, träna och publicera.
-* Använd **förutsägelse** för körning för att skicka användarens text och få en förutsägelse.
+* Använd **redigeringsresursen** för utbildning för att skapa, redigera, träna och publicera.
+* Använd **förutsägelsen** för körning för att skicka användarens text och få en förutsägelse.
 
-Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
 
-Använd [Cognitive Services exempel kod](https://github.com/Azure-Samples/cognitive-services-quickstart-code) för att lära dig och använda de vanligaste uppgifterna.
+Använd [Cognitive Services exempelkod](https://github.com/Azure-Samples/cognitive-services-quickstart-code) för att lära dig och använda de vanligaste uppgifterna.
 
 ### <a name="rest-specifications"></a>REST-specifikationer
 
-[Luis rest-specifikationerna](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/cognitiveservices/data-plane/LUIS), tillsammans med alla [Azure rest-specifikationer](https://github.com/Azure/azure-rest-api-specs), är offentligt tillgängliga på GitHub.
+[LUIS REST-specifikationerna](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/cognitiveservices/data-plane/LUIS), tillsammans med alla [Azure REST-specifikationer,](https://github.com/Azure/azure-rest-api-specs)är allmänt tillgängliga på GitHub.
 
-### <a name="rest-apis"></a>REST-API:er
+### <a name="rest-apis"></a>REST API:er
 
-Både redigerings-och förutsägelse slut punkts-API: er är tillgängliga från REST API: er:
+Api:er för både redigering och förutsägelseslutpunkt är tillgängliga från REST-API:er:
 
 |Typ|Version|
 |--|--|
-|Redigering|[2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[Förhandsgranska v3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
-|förutsägelse|[2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
+|Redigering|[V2 (på andra)](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[förhandsgranska V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
+|Förutsägelse|[V2 (på andra)](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3 (på andra)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
-### <a name="rest-endpoints"></a>REST-slutpunkter
+### <a name="rest-endpoints"></a>REST-ändpunkter
 
-LUIS har för närvarande två typer av slut punkter:
+LUIS har för närvarande två typer av slutpunkter:
 
-* redigering av utbildnings slut punkten
-* fråga förutsägelse på körnings slut punkten.
+* författande på slutpunkten för utbildning
+* frågeprediktion på slutpunkten för körning.
 
 |Syfte|URL|
 |--|--|
-|Redigering av utbildnings slut punkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
-|V2-körning-alla förutsägelser för runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
-|V3 runtime-versioner förutsägelse på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
-|V3 körnings plats förutsägelse på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|Redigering på slutpunkt för utbildning|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|V2 Runtime - alla förutsägelser på körningslutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+|V3 Runtime - versionsförutsägelse på slutpunkt för körning|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|V3 Runtime - kortplatsförutsägelse på slutpunkten för körning|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
 
-I följande tabell beskrivs parametrarna, som anges med klammerparenteser `{}`, i föregående tabell.
+I följande tabell beskrivs parametrarna, som `{}`betecknas med klammerparenteser , i föregående tabell.
 
 |Parameter|Syfte|
 |--|--|
 |`your-resource-name`|Namn på Azure-resurs|
-|`q` eller `query`|uttryck-texten som skickas från klientprogram, till exempel chattrobot|
-|`version`|namn på 10-siffrig version|
+|`q` eller `query`|yttrande text som skickas från klientprogram som chatt bot|
+|`version`|10 tecken version namn|
 |`slot`| `production` eller `staging`|
 
-### <a name="language-based-sdks"></a>Språkbaserade SDK: er
+### <a name="language-based-sdks"></a>Språkbaserade SDK:er
 
-|Språk |Referens dokumentation|Paket|Exempel|Snabbstarter|
+|Språk |Referensdokumentation|Paket|Exempel|Snabbstarter|
 |--|--|--|--|--|
-|C#|[Redigering](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Förutsägelse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet-redigering](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet förutsägelse](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.NET SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Skapa och hantera app](sdk-authoring.md?pivots=programming-language-csharp)<br>[Slut punkt för fråga förutsägelse](sdk-query-prediction-endpoint.md)|
-|Go|[Redigering och förutsägelse](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Redigering](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Förutsägelse](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Redigering och förutsägelse med REST](luis-get-started-get-intent-from-rest.md)|
-|Java|[Redigering och förutsägelse](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven-redigering](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven förutsägelse](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|[Redigering](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/java)<br>[Förutsägelse](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/java)|[Redigering och förutsägelse](luis-get-started-get-intent-from-rest.md)
-|Node.js|[Redigering](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Förutsägelse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM-redigering](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM förutsägelse](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Redigering](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[Förutsägelse](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[Redigering och förutsägelse med REST](luis-get-started-get-intent-from-rest.md)|
-|Python|[Redigering och förutsägelse](sdk-authoring.md?pivots=programming-language-python)|[–](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Redigering](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Redigering](sdk-authoring.md?pivots=programming-language-python)<br>[Förutsägelse med REST](luis-get-started-get-intent-from-rest.md)
+|C#|[Redigering](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Prognos](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet författande](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet förutsägelse](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net SDK-exempel](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Skapa och hantera en app](sdk-authoring.md?pivots=programming-language-csharp)<br>[Slutpunkt för frågeförutsägelse](sdk-query-prediction-endpoint.md)|
+|Go|[Redigering och förutsägelse](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Redigering](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Prognos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Redigering och förutsägelse med REST](luis-get-started-get-intent-from-rest.md)|
+|Java|[Redigering och förutsägelse](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven författande](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven förutsägelse](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|[Redigering](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/java)<br>[Prognos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/java)|[Redigering och förutsägelse](luis-get-started-get-intent-from-rest.md)
+|Node.js|[Redigering](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Prognos](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM-redigering](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)<br>[NPM förutsägelse](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime)|[Redigering](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[Prognos](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[Redigering och förutsägelse med REST](luis-get-started-get-intent-from-rest.md)|
+|Python|[Redigering och förutsägelse](sdk-authoring.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Redigering](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Redigering](sdk-authoring.md?pivots=programming-language-python)<br>[Förutsägelse med REST](luis-get-started-get-intent-from-rest.md)
 
 
 ### <a name="containers"></a>Containrar
 
-Language Understanding (LUIS) innehåller en [behållare](luis-container-howto.md) för att tillhandahålla lokala och befintliga versioner av din app.
+Språkförståelse (LUIS) innehåller en [behållare](luis-container-howto.md) för att tillhandahålla lokala och innehålla versioner av appen.
 
 ### <a name="export-and-import-formats"></a>Exportera och importera format
 
-Language Understanding ger möjlighet att hantera din app och dess modeller i ett JSON-format, `.LU` ([LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown))-format och ett komprimerat paket för language Understanding containern.
+Språkförståelse ger möjlighet att hantera din app `.LU` och dess modeller i ett JSON-format,[(LUDown)](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)format och ett komprimerat paket för språkförståelsebehållaren.
 
-Import och export av dessa format är tillgängligt från API: erna och från LUIS-portalen. Portalen innehåller import och export som en del av listan över appar och versioner.
+Det finns även import och export av dessa format från API:erna och från LUIS-portalen. Portalen tillhandahåller import och export som en del av listan Appar och versioner.
 
-## <a name="other-tools-and-sdks"></a>Andra verktyg och SDK: er
+## <a name="other-tools-and-sdks"></a>Andra verktyg och SDK:er
 
-Bot Framework är tillgängligt som [en SDK](https://github.com/Microsoft/botframework) på en rad olika språk och som en tjänst med hjälp av [Azure bot service](https://dev.botframework.com/).
+Bot-ramverket är tillgängligt som [en SDK](https://github.com/Microsoft/botframework) på en mängd olika språk och som en tjänst med [Azure Bot Service](https://dev.botframework.com/).
 
-Bot Framework innehåller [flera verktyg](https://github.com/microsoft/botbuilder-tools) som hjälper dig med language Understanding, inklusive:
+Bot framework provides several tools to help with Language Understanding, including: Bot framework provides several tools to help with Language Understanding, including: Bot framework provides [several tools](https://github.com/microsoft/botbuilder-tools) to help with Language Understanding, including: Bot framework
 
-* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) – Bygg Luis language förståelseing Models med markdown-filer
-* [Luis CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) – skapa och hantera dina Luis.AI-program
-* [Skicka](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)– hantera över-och underordnade appar
-* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) – skapa automatiskt C#/TYPESCRIPT-klasser för Luis-intentor och entiteter.
-* [Bot Framework-emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) – ett Skriv bords program som gör det möjligt för bot-utvecklare att testa och felsöka robotar som skapats med bot Framework SDK
-* [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) – ett integrerat utvecklingsverktyg för utvecklare och flera disciplin team för att bygga robotar och konversations upplevelser med Microsoft bot Framework
+* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) - Skapa LUIS-språkförståelsemodeller med hjälp av markdown-filer
+* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Skapa och hantera dina LUIS.ai-program
+* [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- hantera överordnade och underordnade appar
+* [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Generera automatiskt stöd C#/Typescript klasser för din LUIS avsikter och entiteter.
+* [Bot Framework emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - ett skrivbordsprogram som gör bot utvecklare att testa och felsöka bots byggda med Hjälp av Bot Framework SDK
+* [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) - ett integrerat utvecklingsverktyg för utvecklare och tvärvetenskapliga team för att bygga robotar och konversationsupplevelser med Microsoft Bot Framework
+* [microsoft/NLU. DevOps](https://github.com/microsoft/NLU.DevOps) - Verktyg som stöder kontinuerlig integrering och distribution för NLU-tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om vanliga [http-felkoder](luis-reference-response-codes.md)
-* [Referens dokumentation](https://docs.microsoft.com/azure/index) för alla API: er och SDK: er
-* [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) och [Azure bot service](https://dev.botframework.com/)
-* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
+* Lär dig mer om de vanliga [HTTP-felkoderna](luis-reference-response-codes.md)
+* [Referensdokumentation](https://docs.microsoft.com/azure/index) för alla API:er och SDK:er
+* [Bot-ramverket](https://github.com/Microsoft/botbuilder-dotnet) och [Azure Bot-tjänsten](https://dev.botframework.com/)
+* [LUDown (på andra)](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
 * [Kognitiva behållare](../cognitive-services-container-support.md)

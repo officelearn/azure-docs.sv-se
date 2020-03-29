@@ -1,7 +1,7 @@
 ---
-title: Instrument panel – Language Understanding-LUIS
+title: Instrumentpanel - Språkförståelse - LUIS
 titleSuffix: Azure Cognitive Services
-description: Åtgärda avsikter och entiteter med din tränade Apps instrument panel. På instrument panelen visas övergripande AppData med högdagrar av avsikter som bör åtgärdas.
+description: Åtgärda avsikter och entiteter med instrumentpanelen för den tränade appen. Instrumentpanelen visar övergripande appinformation med högdagrar av avsikter som ska åtgärdas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,162 +12,162 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73888206"
 ---
-# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Hur du använder instrument panelen för att förbättra din app
+# <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Så här använder du instrumentpanelen för att förbättra appen
 
-Hitta och åtgärda problem med dina utbildade appars avsikter när du använder exempel yttranden. På instrument panelen visas övergripande AppData med högdagrar av avsikter som bör åtgärdas. 
+Hitta och åtgärda problem med den tränade appens avsikter när du använder exempelyttranden. Instrumentpanelen visar övergripande appinformation med högdagrar av avsikter som ska åtgärdas. 
 
-Granska instrument panels analys är en iterativ process, upprepa när du ändrar och förbättrar din modell.
+Granska Dashboard analys är en iterativ process, upprepa när du ändrar och förbättra din modell.
 
-Den här sidan kommer inte att ha relevant analys för appar som inte har något exempel på yttranden i avsikter, som kallas _endast för Pattern-_ appar. 
+Den här sidan har inte relevant analys för appar som inte har några exempelyttranden i avsikter, så kallade _mönsterappar._ 
 
-## <a name="what-issues-can-be-fixed-from-dashboard"></a>Vilka problem kan åtgärdas från instrument panelen?
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>Vilka problem kan åtgärdas från instrumentpanelen?
 
-De tre problemen som åtgärdas i instrument panelen är:
+De tre problem som tas upp i instrumentpanelen är:
 
-|Problem|Diagram färg|Förklaring|
+|Problem|Diagramfärg|Förklaring|
 |--|--|--|
-|Data obalans|-|Detta inträffar när antalet exempel yttranden varierar kraftigt. Alla avsikter måste ha _ungefär_ samma antal exempel yttranden – förutom ingen avsikt. Det bör bara ha 10% – 15% av den totala antalet yttranden i appen.<br><br> Om data är obalanserade men noggrannhets noggrannheten är högre än vissa tröskelvärde rapporteras inte den här obalansen som ett problem.<br><br>**Börja med det här problemet – det kan vara rotor saken till de andra problemen.**|
-|Ta bort förutsägelser|Orange|Detta inträffar när den främsta avsikten och nästa avsikts resultat är tillräckligt nära att de kan vända sig på nästa utbildning, på grund av en [negativ sampling](luis-how-to-train.md#train-with-all-data) eller fler exempel på yttranden som har lagts till i avsikten. |
-|Felaktiga förutsägelser|Röd|Detta inträffar när ett exempel på en uttryck inte förutsägs för den märkta avsikten (det som är i).|
+|Obalans i data|-|Detta inträffar när antalet exempelytningar varierar avsevärt. Alla avsikter måste ha _ungefär_ samma antal exempel yttranden - utom ingen avsikt. Den bör bara ha 10%-15% av den totala mängden yttranden i appen.<br><br> Om data är obalanserade men avsiktsnoggrannheten ligger över ett visst tröskelvärde rapporteras inte denna obalans som ett problem.<br><br>**Börja med det här problemet - det kan vara orsaken till de andra problemen.**|
+|Oklara förutsägelser|Orange|Detta inträffar när den översta avsikten och nästa avsiktspoäng är tillräckligt nära för att de ska kunna vändas på nästa träning, på grund av [negativ sampling](luis-how-to-train.md#train-with-all-data) eller fler exempelyttranden som lagts till i avsikt. |
+|Felaktiga förutsägelser|Röd|Detta inträffar när ett exempel yttrande inte förutspås för den märkta avsikten (avsikten den är i).|
 
-Korrekta förutsägelser visas med blå färg.
+Korrekta förutsägelser representeras med färgen blå.
 
-På instrument panelen visas de här problemen och du får information om vilka avsikter som påverkas och föreslår vad du bör göra för att förbättra appen. 
+Instrumentpanelen visar dessa problem och talar om vilka avsikter som påverkas och föreslår vad du ska göra för att förbättra appen. 
 
 ## <a name="before-app-is-trained"></a>Innan appen tränas 
 
-Innan du tränar appen innehåller instrument panelen inte några förslag på korrigeringar. Träna din app för att se dessa förslag.  
+Innan du tränar appen innehåller instrumentpanelen inga förslag på korrigeringar. Träna din app för att se dessa förslag.  
 
-## <a name="check-your-publishing-status"></a>Kontrol lera publicerings status
+## <a name="check-your-publishing-status"></a>Kontrollera publiceringsstatus
 
-Kortet **publicerings status** innehåller information om den aktiva versionens senaste publicering. 
+**Statuskortet Publicering** innehåller information om den aktiva versionens senaste publicering. 
 
-Kontrol lera att den aktiva versionen är den version som du vill åtgärda. 
+Kontrollera att den aktiva versionen är den version som du vill åtgärda. 
 
-![Instrument panelen visar appens externa tjänster, publicerade regioner och sammanställda slut punkts träffar.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Instrumentpanelen visar appens externa tjänster, publicerade regioner och aggregerade slutpunktsträffar.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-Detta visar även externa tjänster, publicerade regioner och sammanställda slut punkts träffar. 
+Detta visar även alla externa tjänster, publicerade regioner och aggregerade slutpunktsträffar. 
 
 ## <a name="review-training-evaluation"></a>Granska utvärdering av utbildning
 
-**Kurs utvärderings** kortet innehåller den sammanställda sammanfattningen av appens övergripande exakthet per yta. Poängen indikerar avsikts kvalitet. 
+**Utvärderingskortet för utbildning** innehåller den aggregerade sammanfattningen av appens övergripande noggrannhet efter område. Poängen anger avsiktskvalitet. 
 
-![Utvärderings kortet för utbildning innehåller det första informations avsnittet om appens övergripande exakthet.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+![Utvärderingskortet för utbildning innehåller det första informationsområdet om appens övergripande noggrannhet.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
-Diagrammet visar korrekt förväntade intentor och problemområden med olika färger. När du förbättrar appen med förslagen ökar resultatet. 
+Diagrammet visar korrekt förutsedda avsikter och problemområden med olika färger. När du förbättrar appen med förslagen ökar den här poängen. 
 
-De föreslagna korrigeringarna separeras av problem typen och är de viktigaste för din app. Om du föredrar att granska och åtgärda problem per avsikt, använder du kortet för **[avsikter med fel](#intents-with-errors)** längst ned på sidan. 
+De föreslagna korrigeringarna avgränsas efter problemtyp och är de viktigaste för din app. Om du föredrar att granska och åtgärda problem per avsikt använder du kortet **[Avsikter med fel](#intents-with-errors)** längst ned på sidan. 
 
-Varje problems Area har intenter som måste åtgärdas. När du väljer namnet på avsikten öppnas sidan **avsikt** med ett filter som tillämpas på yttranden. Med det här filtret kan du fokusera på yttranden som orsakar problemet.
+Varje problemområde har avsikter som måste åtgärdas. När du väljer avsiktsnamnet öppnas sidan **Avsikt** med ett filter som tillämpas på yttrandena. Med det här filtret kan du fokusera på de yttranden som orsakar problemet.
 
-### <a name="compare-changes-across-versions"></a>Jämför ändringar över versioner
+### <a name="compare-changes-across-versions"></a>Jämföra ändringar mellan versioner
 
-Skapa en ny version innan du gör ändringar i appen. I den nya versionen gör du de föreslagna ändringarna i exempel yttranden för avsikten och träna sedan igen. På instrument panels sidan **utbildnings utvärderings** kort använder du alternativet **Visa ändring från tränad version** för att jämföra ändringarna. 
+Skapa en ny version innan du gör ändringar i appen. I den nya versionen gör du de föreslagna ändringarna i avsiktens exempelyttranden och tränar sedan igen. På utvärderingskortet **För** instrumentpanelssidans utvärderingskort för utbildning använder du visa ändring från **tränad version** för att jämföra ändringarna. 
 
-![Jämför ändringar över versioner](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+![Jämföra ändringar mellan versioner](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
-### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Korrigera version genom att lägga till eller redigera exempel yttranden och omträning
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Åtgärda version genom att lägga till eller redigera exempelyttranden och omskolning
 
-Den primära metoden för att åtgärda appen är att lägga till eller redigera exempel yttranden och omträna. Den nya eller ändrade yttranden måste följa rikt linjerna för [varierande yttranden](luis-concept-utterance.md).
+Den primära metoden för att åtgärda din app är att lägga till eller redigera exempelyttranden och omskola. De nya eller ändrade yttrandena måste följa riktlinjer för [olika yttranden](luis-concept-utterance.md).
 
-Att lägga till exempel yttranden bör göras av någon som:
+Lägga till exempel yttranden bör göras av någon som:
 
-* har en hög grad av förståelse för vilka yttranden som finns i olika avsikter.
-* vet hur yttranden i ett syfte kan förväxlas med ett annat avsikts sätt.
-* kan bestämma om två avsikter, som ofta förväxlas med varandra, ska komprimeras till ett enda avsikts sätt. I så fall måste olika data hämtas med entiteter.
+* har en hög grad av förståelse för vilka yttranden som finns i de olika syftena.
+* vet hur yttranden i en avsikt kan förväxlas med en annan avsikt.
+* kan avgöra om två avsikter, som ofta förväxlas med varandra, bör kollapsas till en enda avsikt. Om så är fallet måste de olika uppgifterna hämtas med entiteter.
 
-### <a name="patterns-and-phrase-lists"></a>Listor med mönster och fraser
+### <a name="patterns-and-phrase-lists"></a>Mönster och fraslistor
 
-Analytics-sidan visar inte när [mönster](luis-concept-patterns.md) eller [fras listor](luis-concept-feature.md)används. Om du lägger till dem kan det hjälpa till med felaktiga eller oklara förutsägelser, men kan inte hjälpa till med data obalans. 
+Analyssidan anger inte när [mönster](luis-concept-patterns.md) eller [fraslistor ska](luis-concept-feature.md)användas. Om du lägger till dem kan det hjälpa till med felaktiga eller otydliga förutsägelser, men det hjälper inte med dataobalans. 
 
-### <a name="review-data-imbalance"></a>Granska data obalans
+### <a name="review-data-imbalance"></a>Granska obalans i data
 
-Börja med det här problemet – det kan vara rotor saken till de andra problemen.
+Börja med det här problemet - det kan vara orsaken till de andra problemen.
 
-**Data obalanss** listan visar intentor som behöver fler yttranden för att korrigera dataobalansen. 
+Avsiktslistan **för dataobalans** visar avsikter som behöver fler yttranden för att korrigera dataobalansen. 
 
-**Så här löser du det här problemet**:
+**Så här löser du problemet:**
 
-* Lägg till fler yttranden i avsikten och träna sedan igen. 
+* Lägg till fler yttranden till avsikten och träna sedan igen. 
 
-Lägg inte till yttranden i ingen avsikt om den inte föreslås på instrument panelen.
+Lägg inte till yttranden till ingen avsikten om det inte föreslås på instrumentpanelen.
 
 > [!Tip]
-> Använd det tredje avsnittet på sidan, **yttranden per avsikt** med inställningen **yttranden (tal)** som en snabb visuell guide över vilka avsikter som behöver fler yttranden.  
-    ![använder "yttranden (Number)" för att hitta avsikter med data obalans.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+> Använd det tredje avsnittet på sidan, **Yttranden per avsikt** med inställningen **Yttranden (tal),** som en snabb visuell guide som avsikter behöver fler uttryck.  
+    ![Använd "Yttranden (tal)" för att hitta avsikter med dataobalans.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### <a name="review-incorrect-predictions"></a>Granska felaktiga förutsägelser
 
-I **fel** listan över förutsägelse avsikt visas intentor som har yttranden, som används som exempel för ett särskilt syfte, men som förutsägs för olika syften. 
+Listan **felaktig förutsägelseavsikt** visar avsikter som har yttranden, som används som exempel för en viss avsikt, men som förutses för olika avsikter. 
 
-**Så här löser du det här problemet**:
+**Så här löser du problemet:**
 
-* Redigera yttranden så att det blir mer särskilt för avsikten och träna igen.
-* Kombinera avsikter om yttranden är för tätt justerade och tränar igen.
+* Redigera yttranden för att vara mer specifika för avsikten och träna igen.
+* Kombinera avsikter om yttranden är för nära anpassade och träna igen.
 
 ### <a name="review-unclear-predictions"></a>Granska oklara förutsägelser
 
-I den **otvetydiga förutsägelse** listan visas avsikter med yttranden med förutsägelse resultat som inte är tillräckligt långt från närmaste rival, så att den översta avsikten för uttryck kan ändras vid nästa utbildning, på grund av [negativ provtagning](luis-how-to-train.md#train-with-all-data).
+Listan **över oklara** avsiktsförsiktningspunkter visar avsikter med yttranden med förutsägelsepoäng som inte är tillräckligt långt från deras närmaste rival, att den högsta avsikten för uttryck kan ändras på nästa träning, på grund av [negativ sampling](luis-how-to-train.md#train-with-all-data).
 
-**Så här löser du det här problemet**.
+**Så här åtgärdar du problemet**;
 
-* Redigera yttranden så att det blir mer särskilt för avsikten och träna igen.
-* Kombinera avsikter om yttranden är för tätt justerade och tränar igen.
+* Redigera yttranden för att vara mer specifika för avsikten och träna igen.
+* Kombinera avsikter om yttranden är för nära anpassade och träna igen.
 
 ## <a name="utterances-per-intent"></a>Yttranden per avsikt
 
-Det här kortet visar den övergripande appens hälsa i avsikten. När du korrigerar avsikter och omtränar kan du fortsätta att ta en titt på det här kortet för problem.
+Det här kortet visar den övergripande appens hälsa i alla avsikter. När du åtgärdar avsikter och omskolar, fortsätt att titta på det här kortet för problem.
 
-Följande diagram visar en väl bal anse rad app med nästan inga problem att åtgärda.
+Följande diagram visar en välbalanserad app med nästan inga problem att åtgärda.
 
-![Följande diagram visar en väl bal anse rad app med nästan inga problem att åtgärda.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+![Följande diagram visar en välbalanserad app med nästan inga problem att åtgärda.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
 
-Följande diagram visar en dåligt bal anse rad app med många problem att åtgärda.
+Följande diagram visar en dåligt balanserad app med många problem att åtgärda.
 
-![Följande diagram visar en väl bal anse rad app med nästan inga problem att åtgärda.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![Följande diagram visar en välbalanserad app med nästan inga problem att åtgärda.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
-Hovra över varje avsikts fält för att få information om avsikten. 
+Hovra över varje avsiktsfält för att få information om avsikten. 
 
-![Följande diagram visar en väl bal anse rad app med nästan inga problem att åtgärda.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![Följande diagram visar en välbalanserad app med nästan inga problem att åtgärda.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
-Använd funktionen **Sortera efter** för att ordna avsikter efter ärende typ, så att du kan fokusera på de mest problematiska avsikterna med det problemet. 
+Använd funktionen **Sortera efter** för att ordna avsikter efter ärendetyp så att du kan fokusera på de mest problematiska avsikter med det problemet. 
 
 ## <a name="intents-with-errors"></a>Avsikter med fel
 
-Med det här kortet kan du granska problem för ett bestämt avsikts sätt. Standardvyn för det här kortet är de mest problematiska insikterna så att du vet var du vill fokusera på dina insatser.
+Med det här kortet kan du granska problem för en viss avsikt. Standardvyn för det här kortet är de mest problematiska avsikter så att du vet var du ska fokusera dina ansträngningar.
 
-![Med kortet för avsikter med fel kan du granska problem för ett bestämt avsikts sätt. Kortet filtreras till de mest problematiska avsikterna som standard, så att du vet var du vill fokusera på dina insatser.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+![Med kortet Avsikter med fel kan du granska problem för en viss avsikt. Kortet filtreras som standard till de mest problematiska avsikter, så att du vet var du ska fokusera dina ansträngningar.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
 
-Det övre ring diagrammet visar problem med avsikten mellan de tre problem typerna. Om det finns problem i de tre problem typerna har varje typ sitt eget diagram, tillsammans med alla rival-intenter. 
+Det översta donutdiagrammet visar problemen med avsikten mellan de tre problemtyperna. Om det finns problem i de tre problemtyperna har varje typ ett eget diagram nedan, tillsammans med eventuella rivaliserande avsikter. 
 
-### <a name="filter-intents-by-issue-and-percentage"></a>Filter avsikter per ärende och procent
+### <a name="filter-intents-by-issue-and-percentage"></a>Filtrera avsikter efter utleverans och procent
 
-I det här avsnittet av kortet kan du hitta exempel yttranden som faller utanför fel tröskeln. Vi rekommenderar att du vill att rätt förutsägelser ska vara betydande. Procent andelen är verksamhets-och kund driven. 
+I det här avsnittet av kortet kan du hitta exempelyttranden som faller utanför felgränsen. Helst vill du att korrekta förutsägelser ska vara betydande. Den procentsatsen är affärs- och kunddriven. 
 
-Fastställ de procent andelen av tröskelvärdet som du är van vid för ditt företag. 
+Bestäm tröskelprocent som du är bekväm med för ditt företag. 
 
-Med filtret kan du hitta avsikter med ett speciellt problem:
+Med filtret kan du hitta avsikter med specifika problem:
 
-|Filter|Föreslagen procent|Syfte|
+|Filter|Föreslagen procentsats|Syfte|
 |--|--|--|
-|De flesta problematiska avsikter|-|**Börja här** – åtgärda yttranden i det här syftet är att förbättra appen mer än andra korrigeringar.|
-|Korrigera förutsägelser nedan|60 %|Detta är den procentuella andelen yttranden i vald avsikt som är korrekt men har en förtroende poäng under tröskelvärdet. |
-|Ta bort förutsägelser ovan|15 %|Detta är procent andelen yttranden i den valda avsikten som förväxlas med närmaste rival-avsikt.|
-|Felaktigt förutsägelser över|15 %|Detta är den procentuella andelen yttranden i den valda avsikten som är felaktigt förväntad. |
+|Mest problematiska avsikter|-|**Börja här** - Om du åtgärdar yttranden i den här avsikten förbättras appen mer än andra korrigeringar.|
+|Korrigera förutsägelser nedan|60 %|Det här är procentandelen yttranden i den valda avsikten som är korrekta men har en konfidenspoäng under tröskelvärdet. |
+|Oklara prognoser ovan|15 %|Det här är procentandelen yttranden i den valda avsikten som förväxlas med den närmaste rivaliserande avsikten.|
+|Felaktiga förutsägelser ovan|15 %|Det här är procentandelen yttranden i den valda avsikten som är felaktigt förutsedda. |
 
-### <a name="correct-prediction-threshold"></a>Korrekt förutsägelse tröskel
+### <a name="correct-prediction-threshold"></a>Korrigera tröskelvärde för förutsägelse
 
-Vad är en säker förutsägelse av Tillförlitlighets poängen? I början av utveckling av appar kan 60% vara målet. Använd **rätt förutsägelser nedan** med procent andelen av 60% för att hitta eventuella yttranden i vald avsikt som måste åtgärdas.
+Vad är en säker förutsägelse förtroende poäng till dig? I början av apputveckling kan 60% vara ditt mål. Använd **rätt förutsägelser nedan** med procentandelen 60 % för att hitta eventuella yttranden i den valda avsikten som måste åtgärdas.
 
-### <a name="unclear-or-incorrect-prediction-threshold"></a>Oklart eller felaktigt förutsägelse tröskel
+### <a name="unclear-or-incorrect-prediction-threshold"></a>Oklart eller felaktigt tröskelvärde för förutsägelse
 
-Med dessa två filter kan du hitta yttranden i den valda avsikten utanför ditt tröskelvärde. Du kan tänka på dessa två procent satser som fel procent. Om du är van med 10-15% fel frekvens för förutsägelser, ställer du in filter tröskeln på 15% för att hitta alla yttranden över det här värdet. 
+Med de här två filtren kan du hitta yttranden i den valda avsikten utanför tröskelvärdet. Du kan tänka på dessa två procentsatser som felprocent. Om du är bekväm med en felfrekvens på 10–15 % för förutsägelser anger du filtertröskeln till 15 % för att hitta alla yttranden över det här värdet. 
 
 ## <a name="next-steps"></a>Nästa steg
 

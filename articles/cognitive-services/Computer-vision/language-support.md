@@ -1,7 +1,7 @@
 ---
-title: Språk stöd – Visuellt innehåll
+title: Språkstöd - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller en lista över naturliga språk som stöds av Visuellt innehåll funktioner; OCR, Identifiera text och läsa.
+description: Den här artikeln innehåller en lista över naturliga språk som stöds av funktioner för datorseende. OCR, Känn igen text och läsa.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: a834c68119340d796f87971912a07fc0524a6d21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220142"
 ---
-# <a name="language-support-for-computer-vision"></a>Språk stöd för Visuellt innehåll
+# <a name="language-support-for-computer-vision"></a>Språkstöd för datorseende
 
-Vissa funktioner i Visuellt innehåll stöd för flera språk. de funktioner som inte nämns här stöder bara engelska.
+Vissa funktioner i Datorseende stöder flera språk. alla funktioner som inte nämns här stöder bara engelska.
 
 ## <a name="text-recognition"></a>Textigenkänning
 
-Visuellt innehåll kan identifiera text på många språk. Mer specifikt stöder [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API en mängd olika språk, medan API: et för [läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) -och [identifiera text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) stöder endast engelska. Se [identifiera utskrift och handskriven text](concept-recognizing-text.md) för mer information om den här funktionen och fördelarna med varje API.
+Computer Vision kan känna igen text på många språk. Ocr-API:et stöder en mängd olika språk, medan [Läs-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [API:et för inkänns](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) endast engelska. [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) Se [Känna igen utskriven och handskriven text](concept-recognizing-text.md) för mer information om den här funktionen och fördelarna med varje API.
 
-OCR identifierar automatiskt språket för det inmatade materialet, så det finns inget behov av att ange en språkkod i API-anropet. Språk koder returneras dock alltid som värdet för `"language"`-noden i JSON-svaret.
+OCR identifierar automatiskt språket i indatamaterialet, så det finns ingen anledning att ange en språkkod i API-anropet. Språkkoder returneras dock alltid som värdet `"language"` för noden i JSON-svaret.
 
 |Språk| Språkkod | OCR-API |
 |:-----|:----:|:-----:|
 |Arabiska | `ar`|✔ |
-|Förenklad kinesiska | `zh-Hans`|✔ |
+|Kinesiska (förenklad) | `zh-Hans`|✔ |
 |Kinesiska (traditionell) | `zh-Hant`|✔ |
 |Tjeckiska | `cs` |✔ |
 |Danska | `da` |✔ |
@@ -43,24 +43,24 @@ OCR identifierar automatiskt språket för det inmatade materialet, så det finn
 |Ungerska | `hu` |✔ |
 |Italienska | `it` |✔ |
 |Japanska | `ja` |✔ |
-|Koreanska | `ko` |✔ |
+|Koreansk | `ko` |✔ |
 |Norska | `nb` |✔ |
 |Polska | `pl` |✔ |
 |Portugisiska | `pt` |✔ |
 |Rumänska | `ro` |✔ |
 |Ryska | `ru` |✔ |
 |Serbiska (kyrillisk) | `sr-Cyrl` |✔ |
-|Serbiska (latinsk) | `sr-Latn` |✔ |
+|Serbiska (latinsk) (Serbien) | `sr-Latn` |✔ |
 |Slovakiska | `sk` |✔ |
 |Spanska | `es` |✔ |
 |Svenska | `sw` |✔ |
 |Turkiska | `tr` |✔ |
 
-## <a name="image-analysis"></a>Bild analys
+## <a name="image-analysis"></a>Bildanalys
 
-Vissa åtgärder för API: et [analys-image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan returnera resultat på andra språk, som anges med parametern `language` fråga. Andra åtgärder returnerar resultat på engelska oavsett vilket språk som anges, och andra genererar ett undantag för språk som inte stöds. Åtgärder anges med parametrarna `visualFeatures` och `details` frågeparametrar; i [översikten](home.md) finns en lista över alla åtgärder som du kan utföra med bild analys.
+Vissa åtgärder i [Api för analys - avbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan `language` returnera resultat på andra språk som anges med frågeparametern. Andra åtgärder returnerar resultat på engelska oavsett vilket språk som anges, och andra genererar ett undantag för språk som inte stöds. Åtgärder anges med `visualFeatures` parametrarna och `details` fråga. se [Översikten](home.md) för en lista över alla åtgärder du kan göra med bildanalys.
 
-|Språk | Språkkod | Kategorier | Taggar | Beskrivning | Barn | Varumärken | Färg | Ansikten | ImageType | Objekt | Kändisar | Landmärken |
+|Språk | Språkkod | Kategorier | Taggar | Beskrivning | Vuxen | Varumärken | Color | Ansikten | Bildtyp | Objekt | Kändisar | Landmärken |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Kinesiska | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Svenska | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
@@ -70,7 +70,7 @@ Vissa åtgärder för API: et [analys-image](https://westus.dev.cognitive.micros
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med Visuellt innehåll funktionerna som nämns i den här hand boken.
+Kom igång med de datorseendefunktioner som nämns i den här guiden.
 
-* [Analysera en lokal avbildning (REST)](./quickstarts/csharp-analyze.md)
+* [Analysera en lokal bild (REST)](./quickstarts/csharp-analyze.md)
 * [Extrahera utskriven text (REST)](./quickstarts/csharp-print-text.md)

@@ -1,64 +1,111 @@
 ---
 title: Vad är nytt i Formigenkänning?
 titleSuffix: Azure Cognitive Services
-description: Förstå de senaste ändringarna i formulärets tolknings-API.
+description: Förstå de senaste ändringarna i API:et för formulärreform.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 2109d25d3962063c711dcab491855d9ebf1cf694
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 7f20244906581dd2869bbc7fcd997d5245540eda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80155179"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
-I den här artikeln beskrivs de viktigaste ändringarna som medföljer nya versioner av formulär igenkännings-API: et.
+Tjänsten Formulärrekänningstjänsten uppdateras löpande. Använd den här artikeln för att hålla dig uppdaterad med funktionsförbättringar, korrigeringar och dokumentationsuppdateringar.
 
 > [!NOTE]
-> Snabb starter och guider i den här dokument uppsättningen använder alltid den senaste versionen av API, om de inte anger något annat.
+> Snabbstartarna och stödlinjerna för Formulär recognizer använder alltid den senaste versionen av API:et, om inget annat anges.
 
-## <a name="form-recognizer-20-preview"></a>Formulär igenkänning 2,0 (för hands version)
+## <a name="march-2020"></a>Mars 2020 
+
+### <a name="extraction-enhancements"></a>Extraktionsförbättringar
+
+Den här versionen innehåller extraktionsförbättringar och noggrannhetsförbättringar, särskilt möjligheten att märka och extrahera flera nyckel-/värdepar i samma textrad. 
+ 
+### <a name="form-recognizer-sample-labeling-tool-is-now-open-source"></a>Exempeletikettverktyget för formuläridentater är nu öppen källkod
+
+Exempeletikettverktyget för formulärreformat är nu tillgängligt som ett projekt med öppen källkod. Du kan integrera den i dina lösningar och göra kundspecifika ändringar för att möta dina behov.
+
+Mer information om exempeletikningsverktyget för formulärreformat finns i dokumentationen som finns på [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+
+### <a name="labeling-value-types"></a>Märkning av värdetyper
+
+Värdetyper är nu tillgängliga för användning med exempeletikettverktyget för formulärmedkännare. Dessa värdetyper stöds för närvarande: 
+
+* String
+* Tal 
+* Integer
+* Datum 
+* Tid
+
+Den här bilden visar hur värdetypsmarkering ser ut i exempeletikettverktyget för formulärdeform:
+
+> [!div class="mx-imgBorder"]
+> ![Val av värdetyp med verktyg för exempeletiketter](./media/whats-new/formre-value-type.png)
+
+Den extraherade tabellen finns i JSON-utdata i `pageResults`.
+
+### <a name="table-visualization"></a>Tabellvisualisering 
+
+Etikettverktyget för formulärreformat visar nu tabeller som har identifierats i dokumentet. På så sätt kan du visa de tabeller som har identifierats och extraherats från dokumentet innan du etiketterar och analyserar med exempeletikettverktyget för formulärmedkännare. Den här funktionen kan växlas på/av med hjälp av lageralternativet. 
+
+Det här är ett exempel på hur tabeller känns igen och extraheras:
+
+> [!div class="mx-imgBorder"]
+> ![Tabellvisualisering med hjälp av exempeletikettverktyget](./media/whats-new/formre-table-viz.png)
+
+> [!IMPORTANT]
+> Det går inte att märka tabeller. Om tabeller inte känns igen och extrated automatiskt, kan du bara märka dem som nyckel / värde par. När du etiketterar tabeller som nyckel-/värdepar ska du märka varje cell som ett värde.
+
+### <a name="tls-12-enforcement"></a>Tvingande TLS 1.2
+
+* TLS 1.2 tillämpas nu för alla HTTP-begäranden till den här tjänsten. Mer information finns i [Azure Cognitive Services-säkerhet](../cognitive-services-security.md).
+
+## <a name="january-2020"></a>Januari 2020
+
+Den här versionen introducerar Form Recognizer 2.0 (förhandsversion). I avsnitten nedan hittar du mer information om nya funktioner, förbättringar och ändringar. 
 
 ### <a name="new-features"></a>Nya funktioner
 
 * **Anpassad modell**
-  * **Träna med etiketter** Nu kan du träna en anpassad modell med manuellt märkta data. Detta resulterar i bättre modeller och kan skapa modeller som fungerar med komplexa formulär eller formulär som innehåller värden utan nycklar.
-  * **Asynkront API** Du kan använda asynkrona API-anrop för att träna med och analysera stora data uppsättningar och filer.
-  * **Stöd för TIFF-fil** Nu kan du träna med och extrahera data från TIFF-dokument.
-  * **Förbättringar av extraherings precision**
+  * **Träna med etiketter** Du kan nu träna en anpassad modell med manuellt märkta data. Detta resulterar i bättre presterande modeller och kan producera modeller som fungerar med komplexa formulär eller formulär som innehåller värden utan nycklar.
+  * **Asynkron API** Du kan använda async API-anrop för att träna med och analysera stora datauppsättningar och filer.
+  * **Stöd för TIFF-filer** Du kan nu träna med och extrahera data från TIFF-dokument.
+  * **Förbättringar av extraktionsnoggrannheten**
 
-* **Fördefinierad kvitto modell**
-  * **Tip-belopp** Nu kan du extrahera Tip-mängder och andra handskrivna värden.
-  * **Extrahering av rad objekt** Du kan extrahera rad objekt värden från inleveranser.
-  * **Konfidens intervall** Du kan visa modellens förtroende för varje extraherat värde.
-  * **Förbättringar av extraherings precision**
+* **Fördefinierad kvittomodell**
+  * **Tipsbelopp** Du kan nu extrahera tipsbelopp och andra handskrivna värden.
+  * **Utvinning av radartikel** Du kan extrahera radartikelvärden från inleveranser.
+  * **Konfidensvärden** Du kan visa modellens förtroende för varje extraherat värde.
+  * **Förbättringar av extraktionsnoggrannheten**
 
-* **Extrahering av layout** Du kan nu använda layout-API: et för att extrahera text data och tabell data från formulären.
+* **Extrahering av layout** Du kan nu använda layout-API:et för att extrahera textdata och tabelldata från formulären.
 
-### <a name="custom-model-api-changes"></a>Ändringar i anpassade modell-API
+### <a name="custom-model-api-changes"></a>Anpassade ändringar av modellens API
 
-Alla API: er för utbildning och användning av anpassade modeller har bytt namn och vissa synkrona metoder är nu asynkrona. Följande är viktiga ändringar:
+Alla API:er för utbildning och användning av anpassade modeller har bytt namn och vissa synkrona metoder är nu asynkrona. Följande är stora förändringar:
 
-* Processen för att träna en modell är nu asynkron. Du initierar utbildning genom **/Custom/Models** -API-anropet. Anropet returnerar ett åtgärds-ID, som du kan skicka till **Custom/Models/{modelID}** för att returnera inlärnings resultatet.
-* Nyckel/värde-extrahering initieras nu av **/Custom/Models/{modelID}/Analyze** -API-anropet. Anropet returnerar ett åtgärds-ID, som du kan skicka till **Custom/Models/{modelID}/analyzeResults/{resultID}** för att returnera extraherings resultatet.
-* Åtgärds-ID för träna-åtgärden finns nu i **plats** rubriken för HTTP-svar, inte **Åtgärds platsens** huvud.
+* Processen att träna en modell är nu asynkron. Du initierar utbildning via **API-anropet /custom/models.** Det här anropet returnerar ett åtgärds-ID som du kan skicka till **anpassade/modeller/{modelID}** för att returnera träningsresultaten.
+* Utvinning av nyckel/värde initieras nu av **API-anropet /custom/models/{modelID}/analyze.** Det här anropet returnerar ett åtgärds-ID som du kan skicka till **anpassade/modeller/{modelID}/analyzeResults/{resultID}** för att returnera extraheringsresultaten.
+* Operations-ID:erna för tågåtgärden finns nu i **platshuvudet** för HTTP-svar, inte **i huvudet för driftplats.**
 
-### <a name="receipt-api-changes"></a>Ändringar i kvitto-API
+### <a name="receipt-api-changes"></a>Api-ändringar för inleverans
 
-API: erna för läsning av försäljnings kvitton har bytt namn.
+API:erna för att läsa försäljningsinleveranser har bytt namn.
 
-* Extrahering av kvitto data initieras nu av **/prebuilt/Receipt/Analyze** -API-anropet. Anropet returnerar ett åtgärds-ID, som du kan skicka till **/prebuilt/Receipt/analyzeResults/{resultID}** för att returnera extraherings resultatet.
+* Extrahering av inleveransdata initieras nu av **API-anropet /prebuilt/receipt/analyze.** Det här anropet returnerar ett åtgärds-ID som du kan skicka till **/fördefinierade/inleverans/analyzeResults/{resultID}** för att returnera extraheringsresultaten.
 
-### <a name="output-format-changes"></a>Format ändringar
+### <a name="output-format-changes"></a>Ändringar i utdataformat
 
-JSON-Svaren för alla API-anrop har nya format. Vissa nycklar och värden har lagts till, tagits bort eller bytt namn. Se snabb starter för exempel på aktuella JSON-format.
+JSON-svaren för alla API-anrop har nya format. Vissa nycklar och värden har lagts till, tagits bort eller bytt namn. Se snabbstarterna för exempel på aktuella JSON-format.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med [formulär igenkännings-API: erna](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)genom att slutföra en [snabb start](quickstarts/curl-train-extract.md) .
+Slutför en [snabbstart](quickstarts/curl-train-extract.md) för att komma igång med [API:erna för formulärmedkänningsreformat](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm).

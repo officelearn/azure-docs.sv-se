@@ -1,7 +1,7 @@
 ---
-title: Tal enheter SDK mikrofon mat ris rekommendationer
+title: Rekommendationer för SDK-mikrofonmatris för talenheter
 titleSuffix: Azure Cognitive Services
-description: Tal enheter SDK mikrofon mat ris rekommendationer. Dessa array-Geometries rekommenderas för användning med Microsoft Audio-stacken.
+description: Rekommendationer för SDK-mikrofonmatriser för talenheter. Dessa matrisgeometrier rekommenderas för användning med Microsoft Audio Stack.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,105 +11,105 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77168130"
 ---
-# <a name="speech-devices-sdk-microphone-array-recommendations"></a>Tal enheter SDK mikrofon mat ris rekommendationer
+# <a name="speech-devices-sdk-microphone-array-recommendations"></a>Rekommendationer för SDK-mikrofon för talenheter
 
-I den här artikeln får du lära dig hur du utformar en mikrofon för tal enheter SDK.
+I den här artikeln får du lära dig hur du utformar en mikrofonmatris för Speech Devices SDK.
 
-Tal enheter SDK fungerar bäst med en mikrofon som har utformats enligt följande rikt linjer, inklusive mikrofonens geometri och val av komponent. Vägledning ges även om integrering och andra överväganden.
+Speech Devices SDK fungerar bäst med en mikrofonmatris som har utformats enligt följande riktlinjer, inklusive mikrofongeometri och komponentval. Vägledning ges också om integration och elektriska överväganden.
 
-## <a name="microphone-geometry"></a>Mikrofon geometri
+## <a name="microphone-geometry"></a>Mikrofongeometri
 
-Följande array-Geometries rekommenderas för användning med Microsoft Audio-stacken. Platsen för ljud källor och avvisande av omgivande brus har förbättrats med ett större antal mikrofoner med beroenden för vissa program, användar scenarier och enhets form faktorn.
+Följande matrisgeometrier rekommenderas för användning med Microsoft Audio Stack. Placeringen av ljudkällor och avvisande av omgivningsljud förbättras med större antal mikrofoner med beroenden av specifika program, användarscenarier och enhetsformfaktorn.
 
-|     | Cirkulär matris |     | Linjär matris |     |
+|     | Cirkulär matris |     | Linjär array |     |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| \# MICS | 7 | 4 | 4 | 2 |
-| Geometri | 6, yttre, 1 Center, radie = 42,5 mm, jämnt fördelad | 3 yttre, 1 Center, radie = 42,5 mm, jämnt fördelad | Length = 120 mm, avstånd = 40 mm | Avstånd = 40 mm |
+| \#Mikrofoner | 7 | 4 | 4 | 2 |
+| Geometri | 6 Yttre, 1 Mitt, Radie = 42,5 mm, jämnt fördelade | 3 Yttre, 1 Mitt, Radie = 42,5 mm, jämnt fördelade | Längd = 120 mm, Avstånd = 40 mm | Avstånd = 40 mm |
 
-Mikrofon kanaler bör sorteras enligt den numrering som visas för varje över gång, vilket ökar från 0. Microsoft Audio-stacken kräver en ytterligare referens ström för ljud uppspelning för att utföra avvisning av eko.
+Mikrofonkanaler bör beställas enligt den numrering som avbildas för varje matris ovan, ökar från 0. Microsoft Audio Stack kräver ytterligare en referensström av ljuduppspelning för att utföra ekoavbokning.
 
 ## <a name="component-selection"></a>Val av komponent
 
-Mikrofon komponenter bör väljas för att korrekt återge en signal utan brus och störningar.
+Mikrofonkomponenter bör väljas för att korrekt återge en signal utan buller och distorsion.
 
-De rekommenderade egenskaperna vid val av mikrofoner är:
+De rekommenderade egenskaperna när du väljer mikrofoner är:
 
 | Parameter | Rekommenderas |
 | --------- | ----------- |
-| SNR | \>= 65 dB (1 kHz Signal 94 dBSPL, A-viktat brus) |
-| Amplitud matchning | ± 1 dB @ 1 kHz |
-| Fas matchning | ± 2° @ 1 kHz |
-| Plats för akustisk överlagring (AOP) | \>= 120 dBSPL (THD = 10%) |
-| Bit hastighet | Minst 24-bitars |
+| Snr | \>= 65 dB (1 kHz signal 94 dBSPL, A-viktat brus) |
+| Amplitudmatchning | ± 1 dB @ 1 kHz |
+| Matchning av fas | ± 2° @ 1 kHz |
+| Akustisk överbelastningspunkt (AOP) | \>= 120 dBSPL (THD = 10%) |
+| Bithastighet | Minst 24-bitars |
 | Samplingsfrekvens | Minst 16 kHz\* |
-| Frekvens svar | ± 3 dB, 200-8000 Hz flytande mask\* |
-| Tillförlitlighet | Lagrings temperatur intervall – 40 ° c till 70 ° c<br />Drift temperatur intervall – 20 ° c till 55 ° c |
+| Frekvensomfång | ± 3 dB, 200-8000 Hz flytande mask\* |
+| Tillförlitlighet | Temperaturområde för förvaring -40°C till 70°C<br />Drifttemperaturområde -20°C till 55°C |
 
-\*_högre samplings frekvenser eller "bredare" frekvens intervall kan krävas för VoIP-program (High-Quality Communications)_
+\*_Högre provtagningshastigheter eller "bredare" frekvensområden kan vara nödvändiga för högkvalitativa kommunikationsprogram (VoIP)_
 
-Val av lämplig komponent måste kombineras med en lämplig electroacoustic-integrering för att undvika att de använda komponenternas prestanda försämras. Unika användnings fall kan också kräva ytterligare krav (till exempel: drift temperatur intervall).
+Bra komponentval måste paras ihop med god elektroakustisk integration för att undvika att försämra prestandan hos de komponenter som används. Unika användningsfall kan också kräva ytterligare krav (t.ex. driftstemperaturområden).
 
-## <a name="microphone-array-integration"></a>Integrering av mikrofon mat ris
+## <a name="microphone-array-integration"></a>Integrering av mikrofonmatris
 
-Mikrofonens prestanda när den är integrerad i en enhet skiljer sig från komponent specifikationen. Det är viktigt att se till att mikrofonerna är väl matchade efter integrationen. Därför bör enhetens prestanda mätas efter fast vinst eller EQ uppfylla följande rekommendationer:
+Mikrofonmatrisens prestanda när den är integrerad i en enhet skiljer sig från komponentspecifikationen. Det är viktigt att se till att mikrofonerna matchas väl efter integration. Därför bör enhetens prestanda som mäts efter en fast förstärkning eller EQ uppfylla följande rekommendationer:
 
 | Parameter          | Rekommenderas                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \> 63 dB (1 kHz Signal 94 dBSPL, viktat brus) |
-| Känslighet för utdata | – 26 dBFS/pa @ 1 kHz (rekommenderas)                  |
-| Amplitud matchning | ± 2 dB, 200-8000 Hz                                |
-| THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, femte ordningen             |
-| Frekvens svar | ± 6 dB, 200-8000 Hz flytande mask\*\*              |
+| Snr                | \>63 dB (1 kHz signal 94 dBSPL, A-viktat brus) |
+| Utgångskänslighet | -26 dBFS/Pa @ 1 kHz (rekommenderas)                  |
+| Amplitudmatchning | ± 2 dB, 200-8000 Hz                                |
+| THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5:e ordningen             |
+| Frekvensomfång | ± 6 dB, 200-8000 Hz flytande mask\*\*              |
 
-\*\*_en högtalare med låg förvrängning krävs för att mäta THD (t. ex. Neumann KH120)_
+\*\*_En låg distorsion högtalare krävs för att mäta THD (t.ex._
 
-\*\*_bredare frekvens intervall kan behövas för VoIP-program (High-Quality Communications)_
+\*\*_"Bredare" frekvensområden kan vara nödvändiga för högkvalitativa kommunikationsprogram (VoIP)_
 
-## <a name="speaker-integration-recommendations"></a>Rekommendationer för högtalar integrering
+## <a name="speaker-integration-recommendations"></a>Rekommendationer för integrering av högtalare
 
-Eftersom avvisning av eko krävs för tal igenkännings enheter som innehåller högtalare, tillhandahålls ytterligare rekommendationer för val och integrering av talare.
+Eftersom ekoavbokning är nödvändig för taligenkänningsenheter som innehåller högtalare, ges ytterligare rekommendationer för val och integrering av högtalare.
 
 | Parameter | Rekommenderas |
 | --------- | ----------- |
-| Överväganden vid linearitet | Ingen icke-linjär bearbetning efter en högtalar referens krävs annars en maskinvarubaserad loopback-referens ström |
-| Talare loopback | Tillhandahålls via WASAPI, privata API: er, anpassade ALSA-plugin-program (Linux) eller tillhandahålls via kanal för inbyggd program vara |
-| THD% | 3: e oktav band som ligger minst femte ordningen, 70 dBA-uppspelning @ 0,8 m ≤ 6,3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
-| Eko koppling till mikrofoner | \>-10 dB-TCLw med ITU-T G. 122, bilaga B. 4 metod, normaliserad till MIC-nivå<br />TCLw = TCLwmeasured \+ (uppmätt nivå – känslighet för mål)<br />TCLw = TCLwmeasured \+ (uppmätt nivå – (-26)) |
+| Linjäritet överväganden | Ingen icke-linjär bearbetning efter högtalarreferens, annars krävs en maskinvarubaserad loopback-referensström |
+| Loopback för högtalare | Tillhandahålls via WASAPI, privata API: er, anpassade ALSA plug-in (Linux), eller tillhandahålls via firmware kanal |
+| THD% | 3. Oktav Band minst 5: e ordningen, 70 dBA Uppspelning @ 0,8 m ≤ 6,3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
+| Ekokoppling till mikrofoner | \>-10 dB TCLw med ITU-T G.122 Bilaga B.4-metoden, normaliserad till mikrofonnivå<br />TCLw = TCLwmeasured \+ (uppmätt nivå - målutdatakänslighet)<br />TCLw = TCLwmeasured \+ (uppmätt nivå - (-26)) |
 
-## <a name="integration-design-architecture"></a>Integrations design arkitektur
+## <a name="integration-design-architecture"></a>Arkitektur för integrationsdesign
 
-Följande rikt linjer för arkitektur är nödvändiga vid integrering av mikrofoner i en enhet:
+Följande riktlinjer för arkitektur är nödvändiga när mikrofoner integreras i en enhet:
 
 | Parameter | Rekommendation |
 | --------- | -------------- |
-| Likhet av MIC-port | Alla mikrofon portar har samma längd i matrisen |
-| Mikrofon port dimensioner | Port storlek Ø 0,8 – 1,0 mm. Port längd/port diameter \< 2 |
-| MIC-tätning         | Packning av tätningar som implementeras enhetligt i stacken. Rekommendera \> 70% komprimerings förhållande för skum packningar |
-| MIC-tillförlitlighet     | Nätet ska användas för att förhindra damm och ingress (mellan PCB för nedre portade mikrofoner och tätnings-/Top-Cover) |
-| MIC-isolering       | Gummi packningar och vibrationer från hela strukturen, särskilt för att isolera eventuella vibrations banor på grund av integrerade högtalare |
-| Samplings klocka      | Enhets ljud måste vara fritt från Darr och kombinations fall med låg belastning |
-| Post funktion   | Enheten måste kunna registrera enskilda kanals RAW-strömmar samtidigt |
-| USB                 | Alla USB-enheter för ljud inspelning måste ange beskrivningar enligt [rev3-specifikationen för USB-ljud enheter](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Mikrofon geometri | Driv rutiner måste implementera [mikrofoner med mikrofon mat ris](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) korrekt |
-| Identifierings möjligheten     | Enheter får inte ha någon avupptäcken maskin vara, inbyggd program vara eller program vara från tredje parts programvarubaserad, som inte är linjärt, till/från enheten |
-| Infångnings format      | Infångnings format måste ha en minsta samplings frekvens på 16 kHz och rekommenderat 24-bitars djup |
+| Likhet med mic-port | Alla mikrofonportar är lika långa i matrisen |
+| Dimensioner för micport | Portstorlek Ø0,8-1,0 mm. Portlängd / \< Port diameter 2 |
+| Mic tätning         | Tätningspackningar implementeras jämnt i stack-up. Rekommendera \> 70% kompressionsförhållande för skumpackningar |
+| Mic Tillförlitlighet     | Maskan ska användas för att förhindra damm och inträngning (mellan PCB för bottenportade mikrofoner och tätningspackning/övre lock) |
+| Isolering av mikrofon       | Gummipackningar och vibrationskoppling genom struktur, särskilt för att isolera vibrationsvägar på grund av integrerade högtalare |
+| Provtagning Klocka      | Enhetsljud måste vara fritt från jitter och avbrott med låg drift |
+| Postkapacitet   | Enheten måste kunna spela in enskilda kanallysströmmar samtidigt |
+| USB                 | Alla USB-ljudingångenheter måste ställa in beskrivningar enligt [USB Audio Devices Rev3-specifikationen](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
+| Mikrofongeometri | Drivrutiner måste implementera [mikrofonmatrisgeometribeskrivare](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) korrekt |
+| Upptäckbarhet     | Enheter får inte ha några oupptäckta eller okontrollerbara maskinvaru-, firmware- eller tredjepartsprogrambaserade icke-linjära ljudbehandlingsalgoritmer till/från enheten |
+| Spela in format      | Insamlingsformat måste använda en samplingsfrekvens på minst 16 kHz och rekommenderat 24-bitarsdjup |
 
-## <a name="electrical-architecture-considerations"></a>Överväganden vid elektrisk arkitektur
+## <a name="electrical-architecture-considerations"></a>Elektriska arkitekturöverväganden
 
-I förekommande fall kan matriser vara anslutna till en USB-värd (till exempel en SoC som kör Microsoft Audio-stacken) och gränssnitt till tal tjänster eller andra program.
+I förekommande fall kan matriser vara anslutna till en USB-värd (till exempel en SoC som kör Microsoft Audio Stack) och gränssnitt till taltjänster eller andra program.
 
-Maskin varu komponenter som PDM-till-TDM-konvertering bör se till att det dynamiska intervallet och SNR-mikrofonerna bevaras i omsamplingar.
+Maskinvarukomponenter som PDM-till-TDM-konvertering bör säkerställa att mikrofonernas dynamiska omfång och SNR bevaras i re-samplers.
 
-Höghastighets ljud klass 2,0 bör stödjas i alla ljud-MCU för att tillhandahålla nödvändig bandbredd för upp till sju kanaler med högre samplings hastigheter och bitdjup.
+Usb Audio Class 2.0 med hög hastighet bör stödjas i alla ljud-MCUs för att ge den bandbredd som krävs för upp till sju kanaler med högre samplingshastigheter och bitdjup.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om tal enheter SDK](speech-devices-sdk.md)
+> [Läs mer om SDK-talenheterna](speech-devices-sdk.md)

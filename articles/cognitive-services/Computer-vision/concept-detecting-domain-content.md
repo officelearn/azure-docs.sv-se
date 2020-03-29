@@ -1,7 +1,7 @@
 ---
-title: Domänbaserad innehålls-Visuellt innehåll
+title: Domänspecifikt innehåll - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du anger en avbildnings kategoriserings domän för att returnera mer detaljerad information om en avbildning.
+description: Lär dig hur du anger en bildkategoriseringsdomän för att returnera mer detaljerad information om en bild.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,25 +12,25 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68946326"
 ---
-# <a name="detect-domain-specific-content"></a>Identifiera domänbaserat innehåll
+# <a name="detect-domain-specific-content"></a>Identifiera domänspecifikt innehåll
 
-Förutom taggning och övergripande kategorisering, stöder Visuellt innehåll också ytterligare domänbaserad analys med hjälp av modeller som har tränats på specialiserade data.
+Förutom taggning och kategorisering på hög nivå stöder Computer Vision också ytterligare domänspecifik analys med hjälp av modeller som har utbildats på specialiserade data.
 
-Det finns två sätt att använda domänbaserade modeller: själva (begränsad analys) eller som en förbättring av kategoriserings funktionen.
+Det finns två sätt att använda de domänspecifika modellerna: av sig själva (begränsad analys) eller som en förbättring av kategoriseringsfunktionen.
 
-### <a name="scoped-analysis"></a>Omfattnings analys
+### <a name="scoped-analysis"></a>Analys av omfattning
 
-Du kan analysera en avbildning med hjälp av den valda domän bara modellen genom att anropa [/Analyze-\<API: et för modeller/modell\>](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) .
+Du kan analysera en avbildning med endast den valda domänspecifika modellen genom att anropa [modell/\<\>modell /Analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API.
 
-Följande är ett exempel på JSON-svar som returneras av **modellerna Models/kändisar/analysera** API för den aktuella avbildningen:
+Följande är ett exempel JSON svar returneras av **modeller / kändisar / analysera** API för den givna bilden:
 
-![Satya Nadella position, leende](./images/satya.jpeg)
+![Satya Nadella stående, leende](./images/satya.jpeg)
 
 ```json
 {
@@ -55,13 +55,13 @@ Följande är ett exempel på JSON-svar som returneras av **modellerna Models/k�
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Förbättrad kategoriserings analys
+### <a name="enhanced-categorization-analysis"></a>Förbättrad kategoriseringsanalys
 
-Du kan också använda domänbaserade modeller för att komplettera allmänna bild analyser. Du gör detta som en del av en [övergripande kategorisering](concept-categorizing-images.md) genom att ange företagsspecifika modeller i *informations* parametern i API-anropet [analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
+Du kan också använda domänspecifika modeller för att komplettera allmän bildanalys. Du gör detta som en del av [högnivåkategorisering](concept-categorizing-images.md) genom att ange domänspecifika modeller i *parametern* [Analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API i analys-API-anropet.
 
-I det här fallet anropas klassificeraren för 86-kategorin först. Om någon av de identifierade kategorierna har en matchande domänbaserad modell skickas avbildningen även genom den modellen och resultaten läggs till.
+I det här fallet kallas 86-kategori taxonomin klassificeraren först. Om någon av de identifierade kategorierna har en matchande domänspecifik modell skickas avbildningen också genom den modellen och resultaten läggs till.
 
-Följande JSON-svar visar hur domänbaserad analys kan tas med `detail` i noden i en bredare kategoriserings analys.
+Följande JSON-svar visar hur domänspecifik analys `detail` kan inkluderas som noden i en bredare kategoriseringsanalys.
 
 ```json
 "categories":[
@@ -96,16 +96,16 @@ Följande JSON-svar visar hur domänbaserad analys kan tas med `detail` i noden 
 ]
 ```
 
-## <a name="list-the-domain-specific-models"></a>Visa en lista över domänbaserade modeller
+## <a name="list-the-domain-specific-models"></a>Lista de domänspecifika modellerna
 
-Visuellt innehåll stöder för närvarande följande företagsspecifika modeller:
+För närvarande stöder Datorseende följande domänspecifika modeller:
 
 | Namn | Beskrivning |
 |------|-------------|
-| kändisar | Kändis-igenkänning, stöds för bilder som klassificeras i `people_` kategorin |
-| landmärken | Landmärkes igenkänning, stöds för bilder som klassificeras `building_` i `outdoor_` kategorierna eller |
+| Kändisar | Kändisigenkänning, stöds `people_` för bilder som klassificeras i kategorin |
+| Landmärken | Landmark erkännande, stöds för `outdoor_` bilder `building_` som klassificeras i eller kategorier |
 
-Anrop till [modell](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) -API: et returnerar den här informationen tillsammans med de kategorier som varje modell kan använda:
+Om du [anropar](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) modell-API:et returneras den här informationen tillsammans med de kategorier som varje modell kan tillämpas på:
 
 ```json
 {
@@ -139,4 +139,4 @@ Anrop till [modell](https://westus.dev.cognitive.microsoft.com/docs/services/5ad
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp om att [kategorisera bilder](concept-categorizing-images.md).
+Lär dig begrepp om [att kategorisera bilder](concept-categorizing-images.md).

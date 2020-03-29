@@ -10,20 +10,20 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: c63356ba81aefb2ac28bd5f077bd743488656cfc
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 192d3d1a7bd792779b068a9c0c7ac34c7bee1c80
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77279681"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80116998"
 ---
-Om dina appar behöver kunna redige ras av andra personer måste du lägga till de associerade e-postadresserna i Azure Portalens redigerings resurs.
+Om dina appar behöver skapas av andra måste du lägga till tillhörande e-postadresser i Azure-portalens redigeringsresurs.
 
-Om du är **ägare eller administratör för din Azure-prenumeration**kan du lägga till en deltagare till resursen.
+Om du äger **eller är administratör för din Azure-prenumeration**kan du lägga till en deltagare i resursen.
 
-Om du **inte är ägare eller administratör för din Azure-prenumeration**måste ditt Azure-konto ha `Microsoft.Authorization/roleAssignments/write` behörigheter.
+Om du inte är **ägare eller administratör för din Azure-prenumeration**måste ditt Azure-konto ha `Microsoft.Authorization/roleAssignments/write` behörighet.
 
-Om du har problem med den här roll tilldelningen granskar du:
+Om du har problem med den här rolltilldelningen läser du:
 
-* [Roll tilldelningar i Azure](../../../role-based-access-control/role-assignments-portal.md)
- * [Fel sökning av Azure Access Control](../../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)
+* [Azure-rolltilldelningar](../../../role-based-access-control/role-assignments-portal.md)
+* [Felsökning av Azure-åtkomstkontroll](../../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)

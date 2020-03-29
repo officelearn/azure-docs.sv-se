@@ -1,7 +1,7 @@
 ---
-title: Kör Azure Container Instances-Textanalys
+title: Köra Azure-behållarinstanser - Textanalys
 titleSuffix: Azure Cognitive Services
-description: Distribuera text Analytics-behållare till Azure Container instance och testa den i en webbläsare.
+description: Distribuera textanalysbehållarna till Azure Container Instance och testa den i en webbläsare.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,33 +11,33 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 7ae8fbd404c9c2b650e4eed30c219e8ffafe55f7
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74383541"
 ---
-# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuera en Textanalys-behållare till Azure Container Instances
+# <a name="deploy-a-text-analytics-container-to-azure-container-instances"></a>Distribuera en Text Analytics-behållare till Azure Container Instances
 
-Lär dig hur du distribuerar Cognitive Services [textanalys][install-and-run-containers] -behållaren till Azure [container instances][container-instances]. Den här proceduren exemplifies skapandet av en Textanalys resurs, skapandet av en associerad Attitydanalys avbildning och möjlighet att utnyttja den här dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
+Lär dig hur du distribuerar Behållaren för Cognitive Services [Text Analytics][install-and-run-containers] till Azure [Container Instances][container-instances]. Den här proceduren exemplifierar skapandet av en Text Analytics-resurs, skapandet av en associerad sentimentanalysbild och möjligheten att utöva denna orkestrering av de två från en webbläsare. Med hjälp av behållare kan flytta utvecklarnas uppmärksamhet från att hantera infrastruktur till att istället fokusera på applikationsutveckling.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Använd en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* Använd en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [Create a Cognitive Services Text Analytics resource](../includes/create-text-analytics-resource.md)]
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](../../containers/includes/create-container-instances-resource.md)]
 
-#### <a name="key-phrase-extractiontabkeyphrase"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
+#### <a name="key-phrase-extraction"></a>[Extrahering av diskussionsämne](#tab/keyphrase)
 
 [!INCLUDE [Verify the Key Phrase Extraction container instance](../includes/verify-key-phrase-extraction-container.md)]
 
-#### <a name="language-detectiontablanguage"></a>[Språkidentifiering](#tab/language)
+#### <a name="language-detection"></a>[Språkidentifiering](#tab/language)
 
 [!INCLUDE [Verify the Language Detection container instance](../includes/verify-language-detection-container.md)]
 
-#### <a name="sentiment-analysistabsentiment"></a>[Attitydanalys](#tab/sentiment)
+#### <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
 
@@ -45,8 +45,8 @@ Lär dig hur du distribuerar Cognitive Services [textanalys][install-and-run-con
 
 ## <a name="next-steps"></a>Nästa steg 
 
-* Använd fler [Cognitive Services behållare](../../cognitive-services-container-support.md)
-* Använd [textanalys anslutna tjänsten](../vs-text-connected-service.md)
+* Använda fler [Cognitive Services-behållare](../../cognitive-services-container-support.md)
+* Använda tjänsten [Text Analytics Connected](../vs-text-connected-service.md)
 
 [install-and-run-containers]: ./text-analytics-how-to-install-containers.md
 [container-instances]: https://docs.microsoft.com/azure/container-instances

@@ -1,7 +1,7 @@
 ---
-title: Språkstöd – QnA Maker
+title: Språkstöd - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: En lista över kulturen, naturligt språk som stöds av QnA Maker för kunskapsbasen. Blanda inte språk i samma knowledge base.
+description: En lista över kultur, naturliga språk som stöds av QnA Maker för din kunskapsbas. Blanda inte språk i samma kunskapsbas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220560"
 ---
-# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Språk stöd för en QnA Maker resurs-och kunskaps baser
+# <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Språkstöd för en QnA Maker resurs- och kunskapsbas
 
-Språk för tjänsten väljs när du skapar den första kunskaps basen i resursen. Alla ytterligare kunskaps baser i resursen måste vara på samma språk. 
+Språk för tjänsten väljs när du skapar den första kunskapsbasen i resursen. Alla ytterligare kunskapsbaser i resursen måste vara på samma språk. 
 
-Språket bestämmer relevansen hos resultaten QnA Maker ger svar på användar frågor.
+Språket avgör relevansen av de resultat som QnA Maker tillhandahåller som svar på användarfrågor.
 
-Lär dig mer om [påverkan av val av språk](../how-to/language-knowledge-base.md).
+Läs mer om [hur språkval påverkar](../how-to/language-knowledge-base.md).
 
 ## <a name="languages-supported"></a>Språk som stöds
 
@@ -60,7 +60,7 @@ Följande lista innehåller de språk som stöds för en QnA Maker-resurs.
 |Italienska|
 |Japanska|
 |Kannada|
-|Koreanska|
+|Koreansk|
 |Lettiska|
 |Litauiska|
 |Malayalam|
@@ -79,7 +79,7 @@ Följande lista innehåller de språk som stöds för en QnA Maker-resurs.
 |Svenska|
 |Tamilska|
 |Telugu|
-|Thai|
+|Thailändska|
 |Turkiska|
 |Ukrainska|
 |Urdu|

@@ -1,7 +1,7 @@
 ---
-title: Fördefinierad temperatur enhet – LUIS
+title: Temperatur fördefinierad enhet - LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller temperatur fördefinierade entitetsinformation i Språkförståelse (LUIS).
+description: Den här artikeln innehåller information om fördefinierad entitet för temperatur i SPRÅKFÖRSTÅELSE (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,28 +12,28 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 7e2b48c6353f56ab2269a8718146cb765797adba
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270373"
 ---
-# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Fördefinierad temperatur enhet för en LUIS-app
-Temperatur extraherar en mängd olika typer av temperatur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller temperatur till programmet. Temperatur enheten stöds i [många kulturer](luis-reference-prebuilt-entities.md).
+# <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Fördefinierad entitet för temperatur för en LUIS-app
+Temperatur extraherar en mängd olika temperaturtyper. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller temperatur i programmet. Temperaturentitet stöds i [många kulturer](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-temperature"></a>Typer av temperatur
-Temperaturen hanteras från [Recognizer-text GitHub-](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) lagringsplatsen
+Temperaturen hanteras från [GitHub-databasen med identifierartext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819)
 
-## <a name="resolution-for-prebuilt-temperature-entity"></a>Lösning för fördefinierade temperatur entitet
+## <a name="resolution-for-prebuilt-temperature-entity"></a>Upplösning för fördefinierad temperaturenhet
 
-Följande enhets objekt returneras för frågan:
+Följande entitetsobjekt returneras för frågan:
 
 `set the temperature to 30 degrees`
 
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är med parametern `verbose` som har angetts till `false`:
+Följande JSON är `verbose` med parametern inställd `false`på:
 
 ```json
 "entities": {
@@ -45,8 +45,8 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
-Följande JSON är med parametern `verbose` som har angetts till `true`:
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
+Följande JSON är `verbose` med parametern inställd `true`på:
 
 ```json
 "entities": {
@@ -75,7 +75,7 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
 ```
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas upplösningen för enheten **Builtin. temperatur** .
+I följande exempel visas upplösningen för den **inbyggda.temperatureniteten.**
 
 ```json
 "entities": [
@@ -95,6 +95,6 @@ I följande exempel visas upplösningen för enheten **Builtin. temperatur** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
 
-Lär dig mer om enheterna [procent](luis-reference-prebuilt-percentage.md), [antal](luis-reference-prebuilt-number.md)och [ålder](luis-reference-prebuilt-age.md) .
+Läs mer om [procent-](luis-reference-prebuilt-percentage.md) [och](luis-reference-prebuilt-number.md)åldersentiteter. [age](luis-reference-prebuilt-age.md)

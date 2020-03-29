@@ -1,69 +1,78 @@
 ---
-title: Använda batch-avskrifter – tal tjänst
+title: Vad är batch transkription - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: Batch avskrift är perfekt om du vill att transkribera ett stort antal ljud i lagring, till exempel Azure Blobs. Med hjälp av dedikerad REST-API kan du pekar på ljudfiler med signatur för delad åtkomst (SAS) URI och ta emot avskrifter asynkront.
+description: Batch transkription är perfekt om du vill transkribera en stor mängd ljud i lagring, till exempel Azure Blobbar. Genom att använda det dedikerade REST API:et kan du peka på ljudfiler med en SAS-signatur (Shared Access Signature) och asynkront ta emot transkriptioner.
 services: cognitive-services
-author: PanosPeriorellis
+author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: panosper
-ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.date: 03/18/2020
+ms.author: wolfma
+ms.openlocfilehash: ee7fbddade055c11f5870aa5a588a2fd02f10a23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500001"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131607"
 ---
-# <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
+# <a name="what-is-batch-transcription"></a>Vad är batch transkription?
 
-Batch-avskrift är perfekt för att skriva över en stor mängd ljud i lagring. Genom att använda dedikerade REST API kan du peka på ljudfiler med en SAS-URI (signatur för delad åtkomst) och få svars resultaten asynkront.
+Batch transkription är en uppsättning REST API-åtgärder som gör att du kan transkribera en stor mängd ljud i lagring. Du kan peka på ljudfiler med en SAS-signatur (Shared Access Signature) och asynkront ta emot transkriptionsresultat.
 
-API: et erbjuder asynkron avskrift av tal till text och andra funktioner. Du kan använda REST API för att Visa metoder för att:
+Asynkron tal-till-text transkription är bara en av funktionerna. Du kan använda klotranskription-REST-API:er för att anropa följande metoder:
 
-- Skapa en grupp bearbetnings begär Anden
-- Fråga efter status
-- Hämta avskrifts resultat
-- Ta bort avskrifts information från tjänsten
 
-Det detaljerade API: et är tillgängligt som ett [Swagger-dokument](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)under rubriken `Custom Speech transcriptions`.
 
-Jobb för batch-avskrifter schemaläggs enligt bästa prestanda. För närvarande finns det ingen uppskattning för när ett jobb ändras till körnings tillstånd. Under normal system belastning bör det ske inom några minuter. När den faktiska avskriften bearbetas fort i körnings tillstånd bearbetas den faktiska avskriften än ljudet i real tid.
+|    Batch transkription Operation                                             |    Metod    |    REST API-anrop                                   |
+|------------------------------------------------------------------------------|--------------|----------------------------------------------------|
+|    Skapar en ny transkription.                                              |    POST      |    api/speechtotext/v2.0/transkriptioner            |
+|    Hämtar en lista över transkriptioner för den autentiserade prenumerationen.    |    HÄMTA       |    api/speechtotext/v2.0/transkriptioner            |
+|    Hämtar en lista över språk som stöds för offline transkriptioner.              |    HÄMTA       |    api/speechtotext/v2.0/transkriptioner/språk    |
+|    Uppdaterar de föränderliga detaljerna i transkriptionen som identifieras av dess ID.    |    Patch     |    api/speechtotext/v2.0/transkriptioner/{id}       |
+|    Tar bort den angivna transkriptionsuppgiften.                                 |    DELETE    |    api/speechtotext/v2.0/transkriptioner/{id}       |
+|    Får transkriptionen identifierad av det angivna ID:t.                        |    HÄMTA       |    api/speechtotext/v2.0/transkriptioner/{id}       |
 
-Bredvid det lättanvända API: t behöver du inte distribuera anpassade slut punkter och du har inte några samtidiga krav att följa.
 
-## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="subscription-key"></a>Prenumerations nyckel
 
-Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nyckel från [Azure Portal](https://portal.azure.com) genom att följa vår [Guide för att komma igång](get-started.md).
+Du kan granska och testa det detaljerade API:et, som `Custom Speech transcriptions`är tillgängligt som ett [Swagger-dokument](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A)under rubriken .
+
+Batch transkription jobb är schemalagda på bästa sätt. För närvarande finns det ingen uppskattning för när ett jobb ändras till körtillståndet. Under normal systembelastning bör det ske inom några minuter. En gång i körtillstånd bearbetas den faktiska transkriptionen snabbare än ljudet i realtid.
+
+Bredvid det lättanvända API:et behöver du inte distribuera anpassade slutpunkter och du har inga samtidighetskrav att följa.
+
+## <a name="prerequisites"></a>Krav
+
+### <a name="subscription-key"></a>Prenumerationsnyckel
+
+Precis som med alla funktioner i taltjänsten skapar du en prenumerationsnyckel från [Azure-portalen](https://portal.azure.com) genom att följa vår [Komma igång-guide](get-started.md).
 
 >[!NOTE]
-> En standard prenumeration (S0) för tal tjänst krävs för att använda batch-avskriftering. Kostnadsfria prenumerationsnycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> En standardprenumeration (S0) för Tal-tjänsten krävs för att använda batchdeskription. Gratis prenumerationsnycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Anpassade modeller
 
-Om du planerar att anpassa akustiska eller språk modeller följer du stegen i [Anpassa modeller för akustisk modell](how-to-customize-acoustic-models.md) och [design anpassnings språk](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell-ID. Du kan hämta modell-ID när du inspekterar informationen om modellen. Det behövs ingen distribuerad anpassad slut punkt för batch-avskrifts tjänsten.
+Om du planerar att anpassa akustiska modeller eller språkmodeller följer du stegen i [Anpassa akustiska modeller](how-to-customize-acoustic-models.md) och [språkmodeller för designanpassning](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batchranskription behöver du deras modell-ID. Du kan hämta modell-ID:t när du kontrollerar modellens information. En distribuerad anpassad slutpunkt behövs inte för batchavskriftningstjänsten.
 
-## <a name="the-batch-transcription-api"></a>Batch-avskrift API
+## <a name="the-batch-transcription-api"></a>Api:et för batch-transkription
 
 ### <a name="supported-formats"></a>Format som stöds
 
-API: et för Batch avskrift stöder följande format:
+Api:et för batchavskrifter stöder följande format:
 
-| Format | Codec | Bithastighet | Samplingshastighet |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bitars | 8 kHz eller 16 kHz, mono eller stereo |
-| MP3-FILEN | PCM | 16-bitars | 8 kHz eller 16 kHz, mono eller stereo |
-| OGG | OPUS | 16-bitars | 8 kHz eller 16 kHz, mono eller stereo |
+| Format | Codec | Bitrate | Exempelhastighet                     |
+|--------|-------|---------|---------------------------------|
+| WAV    | PCM   | 16 bitar  | 8 kHz eller 16 kHz, mono eller stereo |
+| Mp3    | PCM   | 16 bitar  | 8 kHz eller 16 kHz, mono eller stereo |
+| Ogg    | Opus  | 16 bitar  | 8 kHz eller 16 kHz, mono eller stereo |
 
-För stereo ljud strömmar delas vänster och höger kanaler upp under avskriften. För varje kanal skapas en JSON-resultat fil. De tidsstämplar som genereras per uttryck gör att utvecklaren kan skapa en sorterad slutlig avskrift.
+För stereoljudströmmar delas vänster och höger kanal under transkriptionen. För varje kanal skapas en JSON-resultatfil. Tidsstämplarna som genereras per uttryck gör det möjligt för utvecklaren att skapa en ordnad slutlig avskrift.
 
 ### <a name="configuration"></a>Konfiguration
 
-Konfigurations parametrar tillhandahålls som JSON:
+Konfigurationsparametrar tillhandahålls som JSON:
 
 ```json
 {
@@ -83,13 +92,13 @@ Konfigurations parametrar tillhandahålls som JSON:
 }
 ```
 
-### <a name="configuration-properties"></a>Konfigurations egenskaper
+### <a name="configuration-properties"></a>Konfigurationsegenskaper
 
-Använd dessa valfria egenskaper för att konfigurera avskrifter:
+Använd de här valfria egenskaperna för att konfigurera transkription:
 
 :::row:::
    :::column span="1":::
-      **ProfileServiceApplicationProxy**
+      **Parametern**
    :::column-end:::
    :::column span="2":::
       **Beskrivning**
@@ -99,55 +108,55 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
       `ProfanityFilterMode`
    :::column-end:::
    :::column span="2":::
-      Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `None` för att förhindra filtrering av svordomar, `Masked` för att ersätta svordomar med asterisker, `Removed` för att ta bort alla svordomar från resultatet eller `Tags` för att lägga till taggar med svordomar. Standardvärdet är `Masked`.
+      Anger hur svordomar ska hanteras i igenkänningsresultat. Godkända värden `None` är att inaktivera svordomar `Masked` filtrering, att ersätta svordomar `Removed` med asterisker, att ta `Tags` bort alla svordomar från resultatet, eller att lägga till "svordomar" taggar. Standardinställningen är `Masked`.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `PunctuationMode`
    :::column-end:::
    :::column span="2":::
-      Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` om du vill inaktivera interpunktion, `Dictated` till att ange ett explicit (talade) skiljetecken `Automatic` för att tillåta avkodaren att hantera skiljetecken eller `DictatedAndAutomatic` att använda dikterade och automatiska skiljetecken. Standardvärdet är `DictatedAndAutomatic`.
+      Anger hur skiljetecken ska hanteras i igenkänningsresultat. Godkända värden `None` är att inaktivera `Dictated` interpunktion, att antyda explicit `Automatic` (talat) skiljetecken, att låta `DictatedAndAutomatic` avkodaren hantera skiljetecken, eller att använda dikterade och automatiska skiljetecken. Standardinställningen är `DictatedAndAutomatic`.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `AddWordLevelTimestamps`
    :::column-end:::
    :::column span="2":::
-      Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` för att aktivera tidsstämplar på Word-nivå och `false` (standardvärdet) för att inaktivera det.
+      Anger om tidsstämplar på ordnivå ska läggas till i utdata. Godkända värden `true` är att aktivera tidsstämplar på ordnivå och `false` (standardvärdet) för att inaktivera den.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `AddSentiment`
    :::column-end:::
    :::column span="2":::
-      Anger att sentiment ska läggas till i uttryck. Godkända värden är `true` för att aktivera sentiment per uttryck och `false` (standardvärdet) för att inaktivera det.
+      Anger om sentimentanalys ska tillämpas på uttrycket. Godkända värden `true` är `false` att aktivera och (standardvärdet) för att inaktivera den.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `AddDiarization`
    :::column-end:::
    :::column span="2":::
-      Anger att diarization-analys ska utföras på indatamängden som förväntas vara en mono kanal som innehåller två röster. Godkända värden är `true` att aktivera diarization och `false` (standardvärdet) för att inaktivera det. Det kräver också att `AddWordLevelTimestamps` anges till sant.
+      Anger att diariseringsanalys ska utföras på indata, som förväntas vara monokanal som innehåller två röster. Godkända värden `true` aktiverar diarisering `false` och (standardvärdet) för att inaktivera den. Det måste `AddWordLevelTimestamps` också ställas in på sant.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `TranscriptionResultsContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Valfri URL med [tjänstens SAS](../../storage/common/storage-sas-overview.md) till en skrivbar behållare i Azure. Resultatet kommer att lagras i den här behållaren.
+      Valfri URL med [service SAS](../../storage/common/storage-sas-overview.md) till en skrivbar behållare i Azure. Resultatet lagras i den här behållaren.
 :::row-end:::
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
-Batch-avskrift stöder [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa ljud och skriva avskrifter till lagring.
+Batch transkription stöder [Azure Blob lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa ljud och skriva transkriptioner till lagring.
 
-## <a name="the-batch-transcription-result"></a>Resultatet av batch-avskriften
+## <a name="the-batch-transcription-result"></a>Resultatet av batchutskriften
 
-För svartvita indata skapas en resultat fil för ett avskrifts resultat. För ljud för stereo indata skapas två avskrifts resultat. Var och en har den här strukturen:
+För mono inmatningsljud skapas en transkriptionsresultatfil. För stereoinmatningsljud skapas två transkriptionsresultatfiler. Var och en har denna struktur:
 
 ```json
 {
-  "AudioFileResults":[ 
+  "AudioFileResults":[
     {
       "AudioFileName": "Channel.0.wav | Channel.1.wav"      'maximum of 2 channels supported'
       "AudioFileUrl": null                                  'always null'
@@ -209,20 +218,20 @@ För svartvita indata skapas en resultat fil för ett avskrifts resultat. För l
 
 Resultatet innehåller följande formulär:
 
-|Typ|Innehåll|
-|-|-|
-|`Lexical`|De faktiska orden som identifieras.
-|`ITN`|Inverterad text – normaliserad text för den tolkade texten. Förkortningar ("läkare Smith" till "Dr Smith"), telefonnummer och andra transformeringar tillämpas.
-|`MaskedITN`|REDUNDANSVÄXLINGAR-formuläret med en svordom som används.
-|`Display`|Den tolkade textens visnings form. Detta inkluderar tillagd interpunktion och Skift läge.
+| Formulär        | Innehåll                                                                                                                                                  |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Lexical`   | De faktiska orden känns igen.                                                                                                                             |
+| `ITN`       | Omvänd text-normaliserad form av den tolkade texten. Förkortningar ("doctor smith" till "dr smith"), telefonnummer och andra omvandlingar tillämpas. |
+| `MaskedITN` | ITN-formen med svordomar maskering tillämpas.                                                                                                             |
+| `Display`   | Visningsformen för den tolkade texten. Tillagd interpunktion och versaler ingår.                                                             |
 
-## <a name="speaker-separation-diarization"></a>Högtalar separation (Diarization)
+## <a name="speaker-separation-diarization"></a>Avskiljande av högtalare (Diarization)
 
-Diarization är en process för att åtskilja högtalare i ett ljud. Vår batch-pipeline stöder diarization och kan identifiera två högtalare på svartvita kanal inspelningar. Funktionen är inte tillgänglig i stereo inspelningar.
+Diarization är processen att separera högtalare i en bit ljud. Vår Batch pipeline stöder diarization och kan känna igen två högtalare på mono kanal inspelningar. Funktionen är inte tillgänglig på stereoinspelningar.
 
-Alla avskrifts utdata innehåller en `SpeakerId`. Om diarization inte används visas `"SpeakerId": null` i JSON-utdata. För diarization har vi stöd för två röster, så att högtalarna identifieras som `"1"` eller `"2"`.
+All transkriptionsutdata `SpeakerId`innehåller en . Om diarisering inte används `"SpeakerId": null` visas den i JSON-utdata. För diarization stöder vi två röster, `"1"` så `"2"`högtalarna identifieras som eller .
 
-Om du vill begära diarization behöver du bara lägga till relevant parameter i HTTP-begäran som visas nedan.
+Om du vill begära diarisering måste du helt enkelt lägga till den relevanta parametern i HTTP-begäran enligt nedan.
 
  ```json
 {
@@ -238,21 +247,21 @@ Om du vill begära diarization behöver du bara lägga till relevant parameter i
 }
 ```
 
-Tidsstämplar på Word-nivå måste också vara "aktiverat" eftersom parametrarna i ovanstående begäran visar.
+Tidsstämplar på Word-nivå måste också vara "aktiverade" som parametrarna i ovanstående begäran anger.
 
-## <a name="sentiment-analysis"></a>Attitydanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Funktionen sentiment beräknar sentiment uttryckt i ljudet. Sentiment uttrycks med ett värde mellan 0 och 1 för `Negative`, `Neutral`och `Positive` sentiment. Sentiment-analys kan till exempel användas i Call Center-scenarier:
+Sentimentfunktionen uppskattar känslan som uttrycks i ljudet. Sentimentet uttrycks av ett värde mellan `Negative`0 och 1 för , `Neutral`och `Positive` sentiment. Sentimentanalys kan till exempel användas i scenarier för kundtjänster:
 
-- Få insikt om kund nöjdhet
-- Få insikter om prestanda hos agenterna (team som tar emot samtal)
-- Hitta den exakta tidpunkten när ett samtal tog en tur i en negativ riktning
-- Vad som gick bra när du aktiverar ett negativt anrop till en positiv riktning
-- Identifiera vad kunderna gillar och vad de gillar om en produkt eller en tjänst
+- Få insikt om kundnöjdhet
+- Få insikt om agenternas prestanda (team tar samtalen)
+- Hitta den exakta tidpunkten när ett samtal tog en sväng i negativ riktning
+- Vad gick bra när man vände ett negativt samtal till en positiv riktning
+- Identifiera vad kunderna gillar och vad de ogillar med en produkt eller en tjänst
 
-Sentiment betygs ätt per ljud segment baserat på det lexikala formuläret. Hela texten i det ljud segmentet används för att beräkna sentiment. Ingen sammanställd sentiment beräknas för hela avskriften.
+Sentimentet poängsätts per ljudsegment baserat på den lexikala formen. Hela texten inom det ljudsegmentet används för att beräkna sentiment. Ingen aggregerad sentiment beräknas för hela transkriptionen. För närvarande sentimentanalys är endast tillgänglig för det engelska språket.
 
-Exempel på JSON-utdata ser ut så här:
+Ett JSON-utdataexempel ser ut nedan:
 
 ```json
 {
@@ -290,33 +299,36 @@ Exempel på JSON-utdata ser ut så här:
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Avskrifts tjänsten kan hantera ett stort antal skickade avskrifter. Du kan fråga efter status för dina avskrifter genom en `GET` i [avskrifts metoden](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Behåll informationen som returneras till en rimlig storlek genom att ange `take` parameter (några hundra). [Ta bort avskrifter](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regelbundet från tjänsten när du har hämtat resultatet. Detta garanterar snabba svar från avskrifts hanterings samtal.
+Transkriptionstjänsten kan hantera ett stort antal inlämnade transkriptioner. Du kan fråga status för dina `GET` transkriptioner genom en på [transkriptionsmetoden](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/GetTranscriptions). Håll informationen returnerad till en rimlig `take` storlek genom att ange parametern (några hundra). [Ta bort transkriptioner](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A/DeleteTranscription) regelbundet från tjänsten när du har hämtat resultaten. Detta garanterar snabba svar från transkriptionens hanteringsanrop.
 
 ## <a name="sample-code"></a>Exempelkod
 
-Fullständiga exempel är tillgängliga i [GitHub-lagringsplatsen](https://aka.ms/csspeech/samples) i under katalogen `samples/batch`.
+Fullständiga exempel är tillgängliga i [GitHub-exempeldatabasen](https://aka.ms/csspeech/samples) i underkatalogen. `samples/batch`
 
-Du måste anpassa exempel koden med din prenumerations information, tjänst regionen, SAS-URI: n som pekar på ljud filen för att skriva och modell-ID om du vill använda en anpassad akustisk eller språk modell.
+> [!NOTE]
+> Batch transkription funktionalitet exponeras via REST API som beskrivs ovan. Således Batch transkription kan användas från nästan alla programmeringsspråk eller miljö som stöder REST. Exemplen nedan och exempel i GitHub är bara representativa och anger **inte** gränser för var API:et kan användas.
+
+Du måste anpassa exempelkoden med din prenumerationsinformation, tjänstregionen, SAS URI som pekar på ljudfilen för att transkribera och modell-ID om du vill använda en anpassad akustisk modell eller språkmodell.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
-Exempel koden konfigurerar klienten och skickar in avskrifts förfrågan. Den söker sedan efter statusinformation och skriver ut information om avskrifts förloppet.
+Exempelkoden ställer in klienten och skickar transkriptionsbegäran. Den söker sedan efter statusinformation och skriver ut information om transkriptionsförloppet.
 
 [!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
-Fullständig information om föregående anrop finns i vårt Swagger- [dokument](https://westus.cris.ai/swagger/ui/index). För det fullständiga exemplet som visas här går du till [GitHub](https://aka.ms/csspeech/samples) i under katalogen `samples/batch`.
+För fullständig information om föregående samtal, se vårt [Swagger-dokument](https://westus.cris.ai/swagger/ui/index). För hela exemplet som visas här, gå `samples/batch` till [GitHub](https://aka.ms/csspeech/samples) i underkatalogen.
 
-Anteckna asynkron konfigurationen för att skicka ljud och ta emot avskrift status. Klienten som du skapar är en .NET-HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filens information och en `GetTranscriptions` metod för att ta emot resultatet. `PostTranscriptions` returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts statusen.
+Ta del av den asynkrona inställningen för att publicera ljud och ta emot transkriptionsstatus. Klienten som du skapar är en HTTP-klient för .NET. Det finns `PostTranscriptions` en metod för att skicka `GetTranscriptions` information om ljudfiler och en metod för att ta emot resultaten. `PostTranscriptions`returnerar en `GetTranscriptions` handtag och använder den för att skapa en handtag för att få transkriptionsstatus.
 
-Aktuella exempelkoden Ange inte en anpassad modell. Tjänsten använder baslinjemodeller för att skriva av den filen eller filerna. Om du vill ange modeller, kan du skicka på samma metod som modell-ID för akustiska och språkmodellen.
+Den aktuella exempelkoden anger inte en anpassad modell. Tjänsten använder baslinjemodellerna för att transkribera filen eller filerna. Om du vill ange modellerna kan du vidarebefordra samma metod som modell-ID:erna för den akustiska och språkmodellen.
 
 > [!NOTE]
-> För bas linje avskrifter behöver du inte deklarera ID: t för bas linje modeller. Om du bara anger ett språk modells-ID (och inget akustiskt modell-ID) väljs en matchande akustisk modell automatiskt. Om du bara anger ett akustiskt modell-ID väljs en matchande språk modell automatiskt.
+> För baslinjeranskriptioner behöver du inte deklarera ID:t för baslinjemodellerna. Om du bara anger ett språkmodell-ID (och inget akustiskt modell-ID) väljs en matchande akustisk modell automatiskt. Om du bara anger ett akustiskt modell-ID väljs en matchande språkmodell automatiskt.
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-Du hittar exemplet i `samples/batch`-katalogen i [GitHub-exempel lagrings platsen](https://aka.ms/csspeech/samples).
+Du hittar exemplet i `samples/batch` katalogen i [GitHub-exempeldatabasen](https://aka.ms/csspeech/samples).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)

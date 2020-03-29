@@ -1,7 +1,7 @@
 ---
-title: Docker-exempel för Attitydanalys container
+title: Exempel på behållaredockningsdockor för sentimentanalys
 titleSuffix: Azure Cognitive Services
-description: Docker-exempel för Attitydanalys container
+description: Exempel på behållaredockningsdockor för sentimentanalys
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: dapine
 ms.openlocfilehash: c384d9d8af932db343aad106b6e89ea87821d900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71148497"
 ---
-### <a name="sentiment-analysis-container-docker-examples"></a>Docker-exempel för Attitydanalys container
+### <a name="sentiment-analysis-container-docker-examples"></a>Exempel på behållaredockningsdockor för sentimentanalys
 
-Följande Docker-exempel är för Attitydanalys container.
+Följande dockerexempel är för behållaren sentimentanalys.
 
 #### <a name="basic-example"></a>Grundläggande exempel 
 
@@ -30,7 +30,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} 
   ```
 
-#### <a name="logging-example"></a>Loggnings exempel 
+#### <a name="logging-example"></a>Exempel på loggning 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

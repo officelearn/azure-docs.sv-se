@@ -1,36 +1,36 @@
 ---
-title: Använd Visuellt innehåll container med Kubernetes och Helm
+title: Använd Computer Vision-behållaren med Kubernetes och Helm
 titleSuffix: Azure Cognitive Services
-description: Distribuera Visuellt innehåll-behållaren till en Azure Container instance och testa den i en webbläsare.
+description: Distribuera behållaren för datorseende till en Azure Container-instans och testa den i en webbläsare.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/16/2020
 ms.author: dapine
-ms.openlocfilehash: 22ec16f66c463cde49adbc9c472e461169df5eeb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 126060875c09d70b8680447d78b7cf6ccdd782af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383788"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458026"
 ---
-# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Använd Visuellt innehåll container med Kubernetes och Helm
+# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Använd Computer Vision-behållaren med Kubernetes och Helm
 
-Ett alternativ för att hantera dina Visuellt innehåll behållare lokalt är att använda Kubernetes och Helm. Med Kubernetes och Helm för att definiera en Visuellt innehåll behållar avbildning skapar vi ett Kubernetes-paket. Det här paketet kommer att distribueras till ett Kubernetes-kluster lokalt. Slutligen ska vi utforska hur du testar de distribuerade tjänsterna. Mer information om att köra Docker-behållare utan Kubernetes-dirigering finns i [Installera och köra visuellt innehåll behållare](computer-vision-how-to-install-containers.md).
+Ett alternativ för att hantera dina Computer Vision-behållare lokalt är att använda Kubernetes och Helm. Med Kubernetes och Helm för att definiera en datorseende behållarevbild, skapar vi ett Kubernetes-paket. Det här paketet kommer att distribueras till ett Kubernetes-kluster lokalt. Slutligen ska vi undersöka hur du testar de distribuerade tjänsterna. Mer information om hur du kör Docker-behållare utan Kubernetes orkestrering finns i [installera och köra Datorseende-behållare](computer-vision-how-to-install-containers.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Följande krav gäller innan du använder Visuellt innehåll behållare lokalt:
+Följande förutsättningar innan du använder Datorseende-behållare lokalt:
 
-|Krävs|Syfte|
-|--|--|
-| Azure-konto | Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free-azure-account] innan du börjar. |
-| Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] krävs för att hantera delade autentiseringsuppgifter från behållar registret. Kubernetes krävs också innan Helm, som är Kubernetes Package Manager. |
-| Helm CLI | Som en del av [Helm CLI][helm-install] -installationen måste du också initiera Helm, som kommer att installera [till][tiller-install]. |
-| Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt**|
+| Krävs | Syfte |
+|----------|---------|
+| Azure-konto | Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][free-azure-account] konto innan du börjar. |
+| Kubernetes CLI | [Kubernetes CLI][kubernetes-cli] krävs för att hantera delade autentiseringsuppgifter från behållarregistret. Kubernetes behövs också före Helm, som är Kubernetes pakethanterare. |
+| Helm CLI | Installera [Helm CLI][helm-install], som används för att installera ett helm-diagram (containerpaketdefinition). |
+| Resurs för datorseende |För att kunna använda behållaren måste du ha:<br><br>En Azure **Computer Vision-resurs** och den associerade API-nyckeln slutpunkten URI. Båda värdena är tillgängliga på sidorna Översikt och Nycklar för resursen och krävs för att starta behållaren.<br><br>**{API_KEY}**: En av de två tillgängliga resursnycklarna på sidan **Nycklar**<br><br>**{ENDPOINT_URI}**: Slutpunkten som anges på **sidan Översikt**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -38,19 +38,19 @@ Följande krav gäller innan du använder Visuellt innehåll behållare lokalt:
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
+### <a name="container-requirements-and-recommendations"></a>Krav och rekommendationer för behållare
 
 [!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Ansluta till Kubernetes-klustret
 
-Värddatorn förväntas ha ett tillgängligt Kubernetes-kluster. I den här självstudien om hur du [distribuerar ett Kubernetes-kluster](../../aks/tutorial-kubernetes-deploy-cluster.md) kan du få en uppfattning om hur du distribuerar ett Kubernetes-kluster till en värddator.
+Värddatorn förväntas ha ett tillgängligt Kubernetes-kluster. Se den här självstudien om [hur du distribuerar ett Kubernetes-kluster](../../aks/tutorial-kubernetes-deploy-cluster.md) för en begreppsmässig förståelse av hur du distribuerar ett Kubernetes-kluster till en värddator.
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Dela Docker-autentiseringsuppgifter med Kubernetes-klustret
 
-Om du vill tillåta att Kubernetes-klustret `docker pull` konfigurerade avbildningarna från `containerpreview.azurecr.io` container Registry, måste du överföra Docker-autentiseringsuppgifterna till klustret. Kör kommandot [`kubectl create`][kubectl-create] nedan om du vill skapa en *Docker-register hemlighet* baserat på de autentiseringsuppgifter som ges av åtkomst förutsättningen för behållar registret.
+Om du vill tillåta Kubernetes-klustret `docker pull` till `containerpreview.azurecr.io` de konfigurerade avbildningarna från behållarregistret måste du överföra dockerautentiseringsuppgifterna till klustret. Kör [`kubectl create`][kubectl-create] kommandot nedan för att skapa en *dockerregisterhemlighet* baserat på de autentiseringsuppgifter som tillhandahålls från förutsättningen för behållarregisteråtkomst.
 
-Kör följande kommando från det kommando rads gränssnitt du väljer. Se till att ersätta `<username>`, `<password>`och `<email-address>` med autentiseringsuppgifterna för behållar registret.
+Kör följande kommandogränssnitt från kommandoradsgränssnittet. Var noga med `<username>` `<password>`att `<email-address>` ersätta autentiseringsuppgifterna för behållarens register.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -61,35 +61,35 @@ kubectl create secret docker-registry containerpreview \
 ```
 
 > [!NOTE]
-> Om du redan har åtkomst till `containerpreview.azurecr.io` container Registry kan du skapa en Kubernetes-hemlighet med hjälp av den generiska flaggan i stället. Överväg följande kommando som körs mot din Docker-konfigurations-JSON.
+> Om du redan har `containerpreview.azurecr.io` åtkomst till behållarregistret kan du skapa en Kubernetes-hemlighet med den allmänna flaggan i stället. Tänk på följande kommando som körs mot din Docker-konfiguration JSON.
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
 >      --type=kubernetes.io/dockerconfigjson
 > ```
 
-Följande utdata skrivs ut till-konsolen när hemligheten har skapats.
+Följande utdata skrivs ut till konsolen när hemligheten har skapats.
 
 ```console
 secret "containerpreview" created
 ```
 
-Verifiera att hemligheten har skapats genom att köra [`kubectl get`][kubectl-get] med flaggan `secrets`.
+Om du vill kontrollera att hemligheten `secrets` har skapats kör du [`kubectl get`][kubectl-get] flaggan med flaggan.
 
 ```console
 kubectl get secrets
 ```
 
-Om du kör `kubectl get secrets` skrivs alla konfigurerade hemligheter ut.
+Kör utskrifterna `kubectl get secrets` alla konfigurerade hemligheter.
 
 ```console
 NAME                  TYPE                                  DATA      AGE
 containerpreview      kubernetes.io/dockerconfigjson        1         30s
 ```
 
-## <a name="configure-helm-chart-values-for-deployment"></a>Konfigurera Helm för distribution
+## <a name="configure-helm-chart-values-for-deployment"></a>Konfigurera Helm-diagramvärden för distribution
 
-Börja med att skapa en mapp med namnet *Read*och klistra sedan in följande yaml-innehåll i en ny fil med namnet *Chart. yml*.
+Börja med att skapa en mapp med namnet *read*och klistra sedan in följande YAML-innehåll i en ny fil med namnet *Chart.yml*.
 
 ```yaml
 apiVersion: v1
@@ -98,7 +98,7 @@ version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
 ```
 
-Om du vill konfigurera standardvärdena för Helm-diagrammet kopierar du och klistrar in följande YAML i en fil med namnet `values.yaml`. Ersätt `# {ENDPOINT_URI}` och `# {API_KEY}` kommentarer med dina egna värden.
+Om du vill konfigurera standardvärdena för Helm-diagrammet kopierar och klistrar du in följande YAML i en fil med namnet `values.yaml`. Ersätt `# {ENDPOINT_URI}` kommentarerna `# {API_KEY}` och kommentarerna med dina egna värderingar.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -118,11 +118,11 @@ read:
 ```
 
 > [!IMPORTANT]
-> Om värdena för `billing` och `apikey` inte anges upphör tjänsterna att gälla efter 15 min. Det går inte heller att verifiera eftersom tjänsterna inte är tillgängliga.
+> Om `billing` värdena och `apikey` inte tillhandahålls upphör tjänsterna att gälla efter 15 min. På samma sätt kommer verifieringen att misslyckas eftersom tjänsterna inte kommer att vara tillgängliga.
 
-Skapa en mapp för *mallar* under *Läs* katalogen. Kopiera och klistra in följande YAML i en fil med namnet `deployment.yaml`. `deployment.yaml`-filen fungerar som en Helm-mall.
+Skapa en *mallmapp* under *läskatalogen.* Kopiera och klistra in följande YAML i en fil med namnet `deployment.yaml`. Filen `deployment.yaml` fungerar som en Helm-mall.
 
-> Mallar genererar MANIFEST filer, som är YAML-formaterade resurs beskrivningar som Kubernetes kan förstå. [– Helm diagram mal len guide][chart-template-guide]
+> Mallar genererar manifestfiler, som är YAML-formaterade resursbeskrivningar som Kubernetes kan förstå. [- Mallguide för Helm-diagram][chart-template-guide]
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -163,25 +163,25 @@ spec:
     app: read-app
 ```
 
-Mallen anger en belastnings Utjämnings tjänst och distributionen av din behållare/avbildning för läsning.
+Mallen anger en belastningsutjämnad tjänst och distributionen av din behållare/avbildning för Läsning.
 
-### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes-paketet (Helm-diagrammet)
+### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes-paketet (Helm-sjökortet)
 
-*Helm-diagrammet* innehåller konfigurationen av vilka Docker-avbildningar som ska hämtas från `containerpreview.azurecr.io` container Registry.
+*Helm-diagrammet* innehåller konfigurationen för vilken dockeravbildning(er) som ska hämtas från `containerpreview.azurecr.io` behållarregistret.
 
-> Ett [Helm-diagram][helm-charts] är en samling filer som beskriver en relaterad uppsättning Kubernetes-resurser. Ett enkelt diagram kan användas för att distribuera något enkelt, t. ex. en memcached POD eller något komplext, t. ex. en fullständig webbapp med HTTP-servrar, databaser, cacheminnen och så vidare.
+> Ett [Helm-diagram][helm-charts] är en samling filer som beskriver en relaterad uppsättning Kubernetes-resurser. Ett enda diagram kan användas för att distribuera något enkelt, till exempel en memcached pod, eller något komplext, som en fullständig webbappstack med HTTP-servrar, databaser, cacheminnen och så vidare.
 
-De tillhandahållna *Helm-diagrammen* hämtar Docker-avbildningarna av den visuellt innehåll tjänsten och motsvarande tjänst från `containerpreview.azurecr.io` container Registry.
+Medföljande *Helm-diagram* hämtar dockeravbildningarna för dataseendetjänsten `containerpreview.azurecr.io` och motsvarande tjänst från behållarregistret.
 
-## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installera Helm-diagrammet på Kubernetes-klustret
+## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installera Helm-diagrammet i Kubernetes-klustret
 
-För att kunna installera *Helm-diagrammet*måste du köra kommandot [`helm install`][helm-install-cmd] . Se till att köra installations kommandot från katalogen ovanför `read`-mappen.
+Om du vill installera *rodret måste* [`helm install`][helm-install-cmd] vi köra kommandot. Kontrollera att installationskommandot körs från `read` katalogen ovanför mappen.
 
 ```console
-helm install read --name read
+helm install read ./read
 ```
 
-Här är ett exempel på utdata som du kan förväntas se från en lyckad installations körning:
+Här är ett exempel på utdata som du kan förvänta dig att se från en lyckad installation körning:
 
 ```console
 NAME: read
@@ -203,7 +203,7 @@ NAME    READY  UP-TO-DATE  AVAILABLE  AGE
 read    0/1    1           0          0s
 ```
 
-Kubernetes-distributionen kan ta flera minuter att slutföra. För att bekräfta att både poddar och tjänsterna är korrekt distribuerade och tillgängliga, kör du följande kommando:
+Kubernetes-distributionen kan ta över flera minuter att slutföra. Om du vill bekräfta att både poddar och tjänster har distribuerats och är tillgängliga på rätt sätt kör du följande kommando:
 
 ```console
 kubectl get all
@@ -232,10 +232,10 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du installerar program med Helm i Azure Kubernetes service (AKS) [finns här][installing-helm-apps-in-aks].
+Mer information om hur du installerar program med Helm i Azure Kubernetes Service (AKS) [finns här][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Cognitive Services behållare][cog-svcs-containers]
+> [Behållare för kognitiva tjänster][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
@@ -245,7 +245,6 @@ Mer information om hur du installerar program med Helm i Azure Kubernetes servic
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
 [helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
-[tiller-install]: https://helm.sh/docs/install/#installing-tiller
 [helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

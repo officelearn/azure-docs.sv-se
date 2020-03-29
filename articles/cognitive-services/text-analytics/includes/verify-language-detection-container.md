@@ -1,7 +1,7 @@
 ---
-title: Verifiera Språkidentifiering container instance
+title: Verifiera behållarförekomsten för språkidentifiering
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du verifierar Språkidentifiering container-instansen.
+description: Lär dig hur du verifierar behållarinstansen för språkidentifiering.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,22 +10,22 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: dapine
 ms.openlocfilehash: f4e0770bc052044a408f2c4088f2bd5ead225aa3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70968618"
 ---
-### <a name="verify-the-language-detection-container-instance"></a>Verifiera Språkidentifiering container instance
+### <a name="verify-the-language-detection-container-instance"></a>Verifiera behållarförekomsten för språkidentifiering
 
 1. Välj fliken **Översikt** och kopiera IP-adressen.
-1. Öppna en ny flik i webbläsaren och ange IP-adressen. Ange `http://<IP-address>:5000 (http://55.55.55.55:5000`till exempel). Behållarens start sida visas, där du kan se att behållaren körs.
+1. Öppna en ny webbläsarflik och ange IP-adressen. Skriv `http://<IP-address>:5000 (http://55.55.55.55:5000`till exempel ). Behållarens startsida visas, vilket gör att du vet att behållaren körs.
 
-    ![Visa start sidan för behållaren för att kontrol lera att den körs](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Visa behållarhemsidan för att kontrollera att den körs](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
-1. Välj länken **Service API-Beskrivning** för att gå till behållarens Swagger-sida.
+1. Välj länken **Service API Description** för att gå till behållarens Swagger-sida.
 
-1. Välj någon av **post** -API: erna och välj **prova**. Parametrarna visas, vilket inkluderar följande inmatade exempel:
+1. Välj någon av **POST API:erna** och välj Prova **det**. Parametrarna visas, vilket inkluderar det här exemplet indata:
 
     ```json
     {
@@ -49,13 +49,13 @@ ms.locfileid: "70968618"
     }
     ```
 
-1. Ange **showStats** till `true`.
+1. Ställ in **showStats** till `true`.
 
-1. Välj **Kör** för att fastställa sentiment för texten.
+1. Välj **Kör** för att bestämma textens inställning.
 
-    Modellen som är paketerad i behållaren genererar en poäng som sträcker sig från 0 till 1, där 0 är negativt sentiment och 1 är ett positivt sentiment.
+    Modellen som är paketerad i behållaren genererar en poäng som sträcker sig från 0 till 1, där 0 är negativt sentiment och 1 är positivt sentiment.
 
-    Det JSON-svar som returneras innehåller sentiment för den uppdaterade text ingången:
+    JSON-svaret som returneras innehåller sentiment för den uppdaterade textinmatningen:
 
     ```json
     {
@@ -127,4 +127,4 @@ ms.locfileid: "70968618"
     }
     ```
 
-Vi kan nu korrelera dokumenten i nytto lasten för svars nytto Last till de ursprungliga nytto Last dokumenten enligt `id`deras motsvarande. Varje dokument behandlas oberoende av varandra som innehåller olika statistik `characterCount` , `transactionCount`till exempel och. Dessutom har `detectedLanguages` varje resulterande dokument matrisen `name`med, `iso6391Name`, och `score` för varje språk som identifieras. När flera språk identifieras används den `score` för att fastställa det mest sannolika språket.
+Vi kan nu korrelera dokumenten i svaret nyttolast JSON uppgifter till `id`den ursprungliga begäran nyttolast dokument med motsvarande . Varje dokument behandlas oberoende av olika `characterCount` statistiska `transactionCount`uppgifter, till exempel och . Dessutom har varje resulterande `detectedLanguages` dokument `name`matrisen med , `iso6391Name`och `score` för varje språk som identifieras. När flera språk identifieras `score` används det för att bestämma det mest sannolika språket.

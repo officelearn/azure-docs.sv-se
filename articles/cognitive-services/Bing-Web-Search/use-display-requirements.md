@@ -1,7 +1,7 @@
 ---
-title: 'Använd och visa kraven för API: er för Bing-sökresultat'
+title: Användnings- och visningskrav för API:erna för Bing-sökning
 titleSuffix: Azure Cognitive Services
-description: 'Krav för att visa sökresultat från API: er för Bing-sökresultat i dina program.'
+description: Kraven för att visa sökresultat från API:erna för Bing-sökning i dina program.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60499893"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Användnings- och visningskrav för API:er för Bing-sökresultat
 
-Dessa användning och visa krav gäller för varje tillämpning av innehåll och tillhörande information från följande Bing Search API: erna, inklusive relationer, metadata och andra tecken.
+Dessa användnings- och visningskrav gäller för all implementering av innehållet och tillhörande information från följande API:er för Bing-sökning, inklusive relationer, metadata och andra signaler.
 
-- Anpassad sökning i Bing
+- Anpassad Bing-sökning
 - Entitetssökning i Bing
 - Bildsökning i Bing
 - Nyhetssökning i Bing
 - Videosökning i Bing
-- Bings visuella sökning
+- Visuell sökning i Bing
 - Webbsökning i Bing
 - Stavningskontroll i Bing
 - Automatiska förslag i Bing
@@ -34,138 +34,138 @@ Dessa användning och visa krav gäller för varje tillämpning av innehåll och
 ## <a name="definitions"></a>Definitioner
 
 
-|Term  |Beskrivning  |
+|Period  |Beskrivning  |
 |---------|---------|
-|Svar     | En kategori med resultatet som returneras i svaret. Ett svar från Bing Web Search API kan exempelvis innehålla svar i kategorier av webbsidan resultat, bild, video, visuella objekt och nyheter. |
-|Svar     | Eventuella och alla svar och associerade data som tas emot som svar på ett enda anrop till ett Search-API. |
-|Resultat    | Objekt av informationen i ett svar. Till exempel är uppsättning data anslutna med en enda nyhetsartikel ett resultat i ett nytt svar. |
-|Sök-API: er    | sammantaget, Bing Custom Search, API för Entitetssökning, bildsökning, nyhetssökning, Videosökningsresultat, Visual Search, lokala företag Sök och Web Search API: er. |
+|Svar     | En kategori av resultat som returneras i ett svar. Ett svar från API:et för webbsökning på Bing kan till exempel innehålla svar i kategorierna webbsidans resultat, bild, video, visuella och nyheter. |
+|Svar     | Alla svar och tillhörande data som tas emot som svar på ett enda anrop till ett sök-API. |
+|Resultat    | Ett informationsobjekt i ett svar. Den uppsättning data som är kopplad till en enda nyhetsartikel är till exempel ett resultat av ett nyhetssvar. |
+|Sök API:er    | tillsammans API:erna för anpassad sökning i Bing, entitetssökning, bildsökning, nyhetssökning, videosökning, visuell sökning, lokal företagssökning och webbsökning. |
 
-## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Begränsningar för stavningskontroll i Bing och automatiska förslag i Bing
+## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Api-begränsningar för Bing-stavningskontroll och Bing-kortspel
 
 Gör inte:
 
-- Kopiera, lagra eller cachelagra alla data som du får från stavningskontroll i Bing eller Bing automatiska förslag i API: er.
-- Använda data som du får från stavningskontroll i Bing eller Bing automatiska förslag i API: er som en del av alla machine learning eller liknande algoritmiska aktivitet. Använd inte dessa data att träna, utvärdera och förbättra nya eller befintliga tjänster som du eller tredje part kan erbjuda.
+- Kopiera, lagra eller cachelagra data som du får från API:erna för stavningskontroll eller Bing-kort.
+- Använd data som du får från Bing Spell Check eller Bing Autosuggest API:er som en del av maskininlärning eller liknande algoritmisk aktivitet. Använd inte dessa data för att träna, utvärdera eller förbättra nya eller befintliga tjänster som du eller tredje part kan erbjuda.
 
 ## <a name="bing-search-apis"></a>API:er för Bing-sökresultat
 
 > [!NOTE]
-> Kraven i det här avsnittet gäller bara den Search API: er, vilket inte inkluderar stavningskontroll i Bing eller automatiska förslag i Bing. 
+> Kraven i det här avsnittet gäller endast sök-API:erna, som inte innehåller Bing Spell Check eller Bing Autosuggest. 
 
-### <a name="internet-search-experience-requirements"></a>Krav för Internet-upplevelse
+### <a name="internet-search-experience-requirements"></a>Krav på sökupplevelse på Internet
 
-Alla data som returneras i svar kan bara användas i sökupplevelser för internet. En internet-sökupplevelse innebär det innehåll som visas: 
+Alla data som returneras i svar får endast användas i sökupplevelser på Internet. En sökupplevelse på Internet innebär att innehållet visas: 
 
-- Är relevant och snabbt på slutanvändarens direct query eller andra tecken på sina search intresse och avsikt (till exempel en användare som anges sökfråga). 
+- Är relevant och lyhörd för slutanvändarens direkta fråga, eller annan indikation på deras sökintresse och avsikt (till exempel en användarindikerat sökfråga). 
 
-- Hjälper användarna att hitta och gå till det svaret datakällor. Till exempel med klickbara länkar från hyperlänkar i svaret.
+- Hjälper användarna att hitta och navigera till svarets datakällor. Till exempel att tillhandahålla klickbara länkar från hyperlänkar i svaret.
 
-- Innehåller flera resultat för användaren kan välja mellan. 
+- Innehåller flera resultat som användaren kan välja mellan. 
 
-- Finns i en placering som gör att användarna kan söka efter.
+- Finns i en placering som gör det möjligt för användare att söka.
 
-- Innehåller en synliga tecken på att innehållet är en internet-sökresultat. Till exempel en instruktion som innehållet är ”från webben”.
+- Innehåller en synlig indikation på att innehållet är ett sökresultat på Internet. Till exempel ett uttalande om att innehållet är "från webben".
 
-- Innehåller andra lämpliga åtgärder för att säkerställa att dina API: et för Bing Search-data inte kränker någon mot gällande lagar och tredje parts rättigheter. Konsultationen din juridiska rådgivare att avgöra vilka mått kan vara lämpliga.
+- Innehåller andra lämpliga åtgärder för att säkerställa att dina Bing Search API-data inte bryter mot gällande lagar eller tredje parts rättigheter. Kontakta dina juridiska rådgivare för att avgöra vilka åtgärder som kan vara lämpliga.
 
-Det enda undantaget kraven internet search upplevelse är för identifiering av URL: en, enligt beskrivningen nedan. 
+Det enda undantaget från dessa krav på sökupplevelse på Internet är för identifiering av webbadresser, som beskrivs senare i den här artikeln. 
 
 ### <a name="restrictions"></a>Begränsningar
 
 Gör inte:
 
-- Kopiera, lagra eller cachelagra data från svar (förutom kvarhållning i den utsträckning som tillåts av [replikeringsmodellen](#continuity-of-service). 
+- Kopiera, lagra eller cachelagra data från svar (utom lagring i den utsträckning som tillåts [av kontinuitet i tjänsten](#continuity-of-service). 
 
-- Använda data som tas emot från Sök-API: er som en del av alla machine learning eller liknande algoritmiska aktivitet. Använd inte dessa data att träna, utvärdera och förbättra nya eller befintliga tjänster som du eller tredje part kan erbjuda.
+- Använd data som tas emot från sök-API:erna som en del av maskininlärning eller liknande algoritmisk aktivitet. Använd inte dessa data för att träna, utvärdera eller förbättra nya eller befintliga tjänster som du eller tredje part kan erbjuda.
 
-- Ändra innehållet i resultatet (annat än att formatera om dem på ett sätt som inte kränker någon andra krav), såvida inte krävs enligt lag eller godkänt av Microsoft. 
+- Ändra innehållet i resultaten (annat än att formatera om dem på ett sätt som inte bryter mot något annat krav), om inte krävs enligt lag eller godkänts av Microsoft. 
 
-- Utelämna attribution information och URL: er som är associerade med resultatet innehåll.
+- Utelämna attributionsinformation och webbadresser som är associerade med resultatinnehåll.
 
-- Ändra ordning, t.ex. genom att utelämnande resultaten som visas i ett svar när en order eller rangordning anges, såvida inte krävs enligt lag eller godkänt av Microsoft. 
+- Ändra ordning, inklusive genom utelämnande, resultaten visas i ett svar när en order eller rangordning tillhandahålls, om inte krävs enligt lag eller godkänts av Microsoft. 
 
     > [!NOTE]
-    > Det här kravet gäller inte för sortering implementerats via portalen för API: et för Bing Custom Search.
+    > Det här kravet gäller inte för ombeställning som implementeras via portalen för API:et för anpassad sökning i Bing.
 
-- Visa andra innehåll i någon del av ett svar på ett sätt som skulle leda till en användare att tro att det andra innehållet är en del av svaret. 
+- Visa annat innehåll inom någon del av ett svar på ett sätt som skulle få en användare att tro att det andra innehållet är en del av svaret. 
 
-- Visa reklam som inte levereras av Microsoft på en sida som visar någon del av ett svar. 
+- Visa reklam som inte tillhandahålls av Microsoft på någon sida som visar någon del av ett svar. 
 
-- Visa reklam på sidor med svar:
-    - Från Bing-bild, nyhetssökning, Videosökning eller Visual Search API: er
-    - Som filtreras eller begränsad främst (eller enbart) till avbildningen, nyheter och/eller video- eller visual search-resultaten.
+- Visa all reklam på sidor med svar:
+    - Från API:erna Bing Image, News Search, Video Search eller Visual Search
+    - Som filtreras eller begränsas främst (eller enbart) till bild, nyheter och/eller video eller visuella sökresultat.
 
-### <a name="notices-and-branding"></a>Information om och anpassning 
-Gör du:
+### <a name="notices-and-branding"></a>Meddelanden och varumärke 
+Göra:
 
-- Inkludera en funktionell hyperlänk till på en framträdande plats i [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839), nära varje punkt i användarupplevelsen (UX) som erbjuder en användare möjlighet att ange en sökfråga. Etiketten på hyperlänken **Microsoft Privacy Statement**.
+- På ett framträdande sätt kan du inkludera en funktionell hyperlänk till [Microsofts sekretesspolicy](https://go.microsoft.com/fwlink/?LinkId=521839), nära varje punkt i användarupplevelsen (UX) som ger en användare möjlighet att mata in en sökfråga. Märk sekretesspolicyn för **Hyperlänken från Microsoft**.
 
-- Visa på en framträdande plats Bing anpassning, konsekvent med den [Bing riktlinjer](https://go.microsoft.com/fwlink/?linkid=833278), nära varje punkt i UX-Gränssnittet som erbjuder en användare möjlighet att ange en sökfråga. Anpassning av sådana måste tydligt tillstånd till användaren som Microsoft är sökupplevelsen internet.
+- Visa Bing-varumärke, i enlighet med riktlinjerna för [användning av Bing-varumärke,](https://go.microsoft.com/fwlink/?linkid=833278)nära varje punkt i användarupplevelsen som ger en användare möjlighet att mata in en sökfråga. Ett sådant varumärke måste tydligt ange för användaren att Microsoft driver sökupplevelsen på Internet.
 
-- Du kan attributet varje svar (eller del av ett svar) som visas från Bing-webbsökning, bildsökning, nyhetssökning, Videosökning och Visual Search API: er till Microsoft, såvida inte Microsoft anger något annat skriftligen för din användning. Detta beskrivs i [Bing riktlinjer](https://go.microsoft.com/fwlink/?linkid=833278). 
+- Du kan tillskriva varje svar (eller del av ett svar) som visas från API:erna för webbsökning, bildsökning, nyhetssökning, videosökning och visuell sökning till Microsoft, såvida inte Microsoft anger något annat skriftligt för din användning. Detta beskrivs i [Bing Trademark Usage Guidelines](https://go.microsoft.com/fwlink/?linkid=833278). 
 
 Gör inte:
 
-- Attributet svar (eller delar av svar) visas från Bing Custom Search API till Microsoft, såvida inte Microsoft anger något annat skriftligen för viss bruk.
+- Attributsvar (eller delar av svar) som visas från API:et för anpassad sökning i Bing till Microsoft, såvida inte Microsoft anger något annat skriftligt för just din användning.
 
-### <a name="transferring-responses"></a>Överföring svar
+### <a name="transferring-responses"></a>Överföra svar
 
-Om du aktiverar en användare att överföra ett svar från ett Sök-API till en annan användare, till exempel via en app för meddelanden eller sociala medier bokföring, följande gäller: 
+Om du gör det möjligt för en användare att överföra ett svar från ett sök-API till en annan användare, till exempel via en meddelandeapp eller inlägg i sociala medier, gäller följande: 
 
 - Överförda svar måste:
-  - Bestå av innehåll som är oförändrade från innehållet i svaren visas för överföring användaren. Formateringsändringar är tillåtna.
-  - Inte innehåller några data i form av metadata.
-  - Visningsspråket som anger svaret har hämtats via en internet-sökupplevelse som drivs av Bing på svar från Bing webb, bild, nyheter, Video och Visual API: er. Exempel: du kan visa språk, till exempel ”drivs av Bing” eller ”Läs” mer om den här avbildningen i Bing eller du kan använda Bing-logotyp.
-  - Visa språk som du anger svaret har hämtats via en internet-sökupplevelse på svar från Bing Custom Search API. Du kan till exempel visa språk, till exempel ”Läs mer om det här sökresultatet”.
-  - Visa den fullständiga fråga som används för att generera svaret på en framträdande plats.
-  - Inkludera en framstående länk eller liknande information till den underliggande källan i svaret, antingen direkt eller via sökmotor (bing.com, m.bing.com eller din anpassade search-tjänst, så är tillämpligt).
-- Du kan inte automatisera överföringen av svar. En överföring måste initieras av en användaråtgärd och ett försök gjordes att överföra ett svar på ett tydligt.
-- Du kan bara aktivera en användare att överföra svar som visades som svar på överföring användarens fråga.
+  - Består av innehåll som inte ändras från innehållet i svaren som visas för den överförande användaren. Det är tillåtet att formatera ändringar.
+  - Innehåller inga data i metadataformuläret.
+  - För svar från API:erna för Bing-webben, bild, nyheter, video och visuella objekt, visas språk som anger att svaret erhölls via en sökupplevelse på Internet som drivs av Bing. Du kan till exempel visa språk som "Drivs av Bing" eller "Läs mer om den här bilden på Bing" eller använda Bing-logotypen.
+  - För svar från API:et för anpassad sökning på Bing visas ett visningsspråk som anger att svaret erhölls via en sökupplevelse på Internet. Du kan till exempel visa språk som "Läs mer om det här sökresultatet".
+  - Visa den fullständiga frågan som används för att generera svaret på ett framträdande sätt.
+  - Inkludera en framträdande länk eller liknande attribution till den underliggande källan till svaret, antingen direkt eller via sökmotorn (bing.com, m.bing.com eller din anpassade söktjänst, beroende på vad som är tillämpligt).
+- Du får inte automatisera överföringen av svar. En överföring måste initieras av en användaråtgärd som tydligt styrker en avsikt att överföra ett svar.
+- Du kan bara aktivera en användare för att överföra svar som visades som svar på den överförande användarens fråga.
 
-### <a name="continuity-of-service"></a>Tjänstens stabilitet 
+### <a name="continuity-of-service"></a>Kontinuitet i tjänsten 
 
-Kopiera, lagra, eller inte cachelagra data från Sök-API-svar. Om du vill aktivera affärskontinuitet service åtkomst och dataåtergivning, kan du dock behålla resultaten enbart under följande förhållanden:
+Kopiera, lagra eller cachelagra inte data från sök-API-svar. För att möjliggöra kontinuitet i tjänstens åtkomst och dataåtergivning kan du behålla resultaten endast under följande villkor:
 
 #### <a name="device"></a>Enhet
 
-Du kan aktivera en användare att behålla resultaten på en enhet för den mindre av (i) 24 timmar från att frågan, eller (ii) tills en användare skickar en annan fråga för uppdaterade resultat, förutsatt att sparade resultat får användas endast:
+Du kan göra det möjligt för en användare att behålla resultaten på en enhet under mindre belopp av (i) 24 timmar från tidpunkten för frågan, eller (ii) tills en användare skickar en annan fråga för uppdaterade resultat, förutsatt att balanserade resultat endast får användas:
 
-- Att aktivera att användaren kommer åt resultat som tidigare returnerats till den användaren på enheten (till exempel när det gäller avbrott i tjänsten).
-- För att lagra resultatet som returneras för proaktiv frågan anpassade i väntan på användarens behov, baserat på användarens signaler (till exempel när det gäller förväntade tjänstavbrott).
+- Så här gör du det möjligt för användaren att komma åt resultat som tidigare returnerats till den användaren på den enheten (till exempel vid avbrott i tjänsten).
+- Om du vill lagra resultat som returneras för din proaktiva fråga som är anpassad i väntan på användarens behov, baserat på användarens signaler (till exempel vid förväntade avbrott i tjänsten).
 
 #### <a name="server"></a>Server
 
-Du kan behålla resultaten som är specifika för en enskild användare på ett säkert sätt på en server som du kan styra och visa sparade resultatet:
+Du kan behålla resultat som är specifika för en enskild användare på ett säkert sätt på en server som du styr och endast visa de balanserade resultaten:
 
-- Att aktivera att användaren kommer åt en historisk rapport över resultat som tidigare returnerats till användaren i din lösning. Resultaten kan inte (i) kvar i mer än 21 dagar från tidpunkten för slutanvändarens första fråga och (ii) visas som svar på en användares nya eller upprepade fråga.
-- Anpassade i väntan på användarens behov, baserat på användarens signaler att lagra resultatet som returneras för proaktiv frågan. Du kan lagra dessa resultat för den mindre av (i) 24 timmar från att frågan, eller (ii) tills en användare skickar en annan fråga för uppdaterade resultat.
+- Så här gör du det möjligt för användaren att komma åt en historisk rapport över resultat som tidigare returnerats till den användaren i din lösning. Resultaten får inte (i) behållas i mer än 21 dagar från tidpunkten för slutanvändarens första fråga och (ii) visas som svar på en användares nya eller upprepade fråga.
+- Om du vill lagra resultat som returneras för din proaktiva fråga som är anpassad i väntan på användarens behov, baserat på användarens signaler. Du kan lagra dessa resultat för mindre av (i) 24 timmar från tidpunkten för frågan, eller (ii) tills en användare skickar en annan fråga för uppdaterade resultat.
 
-När det är kvar, kan inte resultat för en viss användare vara commingled med resultat för en annan användare. Det vill säga resultatet av varje användare behålls och levererat separat.
+När de behålls kan resultaten för en viss användare inte blandas med resultat för en annan användare. Det innebär att resultaten för varje användare måste behållas och levereras separat.
 
 ### <a name="general"></a>Allmänt 
 
-För alla sparade resultat:
+För alla presentation av balanserade resultat:
 
-- Inkludera ett meddelande om tydliga, visas den tid som frågan har skickats.
-- Finns användarna med en knapp eller liknande innebär att en ny fråga och få uppdaterade resultat. 
-- Behålla Bing företagsanpassning vid utformning av resultaten.
-- ta bort (och uppdatera med en ny fråga om det behövs) lagrade resultaten inom tidsramar som angetts.
+- Inkludera ett tydligt, synligt meddelande om när frågan skickades.
+- Presentera användaren med en knapp eller liknande sätt att fråga om och få uppdaterade resultat. 
+- Behåll varumärket Bing i presentationen av resultaten.
+- Ta bort (och uppdatera med en ny fråga om det behövs) de lagrade resultaten inom de angivna tidsramarna.
 
-### <a name="non-display-url-discovery"></a>Identifiering av icke-Visa URL 
+### <a name="non-display-url-discovery"></a>Identifiering av URL som inte visas 
 
-Du bara använda Sök efter svar i en icke-internet sökfunktion för att upptäcka URL: er för informationskällor som svarar på en fråga från dina användare eller en kund. Du kan kopiera dessa URL: er i en rapport eller liknande svar som du anger:
+Du får endast använda söksvar i en sökupplevelse som inte är på Internet i det enda syftet att identifiera webbadresser till informationskällor som svarar på en fråga från din användare eller kund. Du kan kopiera sådana webbadresser i en rapport eller liknande svar som du anger:
 
-- Endast till användaren eller kund som svar på frågan.
-- Endast om den innehåller betydande ytterligare värdefullt innehåll, relevanta för frågan.
+- Endast till den användaren eller kunden, som svar på den frågan.
+- Endast om det innehåller betydande ytterligare värdefullt innehåll, relevant för frågan.
 
-I föregående avsnitt av Sök-API: er använder och visa krav gäller inte för den här icke-visa användning, förutom följande: 
+De föregående avsnitten i sök-API:er använder och visar kraven gäller inte för denna användning som inte visas, förutom följande: 
 
-- Inte cachelagra, kopiera eller spara data eller innehåll från, eller som är härledda från Sök-svaret än begränsad URL kopiering som beskrivs ovan.
-- Se till att din användning av data (inklusive URL: er) som tas emot från API: er för sökresultat inte kränker någon mot gällande lagar och tredje parts rättigheter.
-- Använd inte data (inklusive URL: er) togs emot från API: er för sökresultat som en del av search index eller machine learning eller liknande algoritmiska aktivitet. Använd inte dessa data för att skapa train, utvärdera eller förbättra tjänster som du eller tredje part kan erbjuda.
+- Cacheminne, kopiera eller lagra inte data eller innehåll från eller härledas från söksvaret, förutom den begränsade URL-kopiering som beskrivits tidigare.
+- Se till att din användning av data (inklusive webbadresserna) som tas emot från sök-API:erna inte bryter mot gällande lagar eller tredje parts rättigheter.
+- Använd inte data (inklusive webbadresser) som tas emot från sök-API:erna som en del av något sökindex eller maskininlärning eller liknande algoritmisk aktivitet. Använd inte dessa data för att skapa tåg, utvärdera eller förbättra tjänster som du eller tredje part kan erbjuda.
 
 ## <a name="gdpr-compliance"></a>GDPR-efterlevnad  
 
-Du förstår att du och Microsoft är med avseende på alla personliga data omfattas av EU allmänna Dataskyddsförordningen (GDPR) och som har bearbetats i samband med anrop till API: er sökresultat, stavningskontroll i Bing eller automatiska förslag i Bing oberoende data-styrenheter enligt GDPR. Du är oberoende av varandra ansvarig för din efterlevnad med GDPR.  
+När det gäller alla personuppgiftsanpassade som omfattas av EU:s allmänna dataskyddsförordning (GDPR) och som behandlas i samband med samtal till API:erna för sök-API: er, Bing Spell Check API eller Bing Autosuggest API, förstår du att du och Microsoft är oberoende registeransvariga enligt GDPR. Du är oberoende ansvarig för att du följer GDPR.  
 

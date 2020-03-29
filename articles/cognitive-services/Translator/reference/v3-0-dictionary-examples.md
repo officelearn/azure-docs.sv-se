@@ -1,7 +1,7 @@
 ---
-title: Exempel metod för Translator Text API-ordlista
+title: Exempelmetod för translator text API-ordlista
 titleSuffix: Azure Cognitive Services
-description: Exempel metoden Translator Text API Dictionary innehåller exempel som visar hur termer i ord listan används i kontexten.
+description: Metoden Translator Text API Dictionary Examples innehåller exempel som visar hur termer i ordlistan används i kontext.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76548075"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3,0: exempel på ord lista
+# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ordlista Exempel
 
-Innehåller exempel som visar hur termer i ord listan används i kontexten. Den här åtgärden används i tandem med [ord](./v3-0-dictionary-lookup.md)lists ökning.
+Innehåller exempel som visar hur termer i ordlistan används i kontext. Den här åtgärden används tillsammans med [Dictionary-sökning](./v3-0-dictionary-lookup.md).
 
 ## <a name="request-url"></a>URL för begäran
 
-Skicka en `POST`-begäran till:
+Skicka `POST` en begäran till:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0
@@ -31,30 +31,30 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 ## <a name="request-parameters"></a>Parametrar för begäran
 
-Parametrarna för begäran som skickades till frågesträngen är:
+Parametrar för begäran som skickas på frågesträngen är:
 
 | Frågeparameter | Beskrivning |
 | --------- | ----------- |
-| api-version <img width=200/> | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`. |
-| från | **Obligatorisk parameter**.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary`s omfånget. |
-| till | **Obligatorisk parameter**.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary`s omfånget.  | 
+| api-version <img width=200/> | **Obligatorisk parameter**.<br/>Version av API som begärs av klienten. Värdet måste `3.0`vara . |
+| Från | **Obligatorisk parameter**.<br/>Anger språket för indatatexten. Källspråket måste vara ett av de `dictionary` språk som [stöds](./v3-0-languages.md) i omfånget. |
+| till | **Obligatorisk parameter**.<br/>Anger utdatatextens språk. Målspråket måste vara ett av de `dictionary` språk som [stöds](./v3-0-languages.md) i omfånget.  | 
 
-Begärandehuvuden innehåller:
+Begäran rubriker inkluderar:
 
 | Rubriker  | Beskrivning |
 | ------ | ----------- |
-| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
-| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`. |
-| Innehålls längd   | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten. |
-| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId`. |
+| Autentiseringshuvuden <img width=200/>  | **Obligatoriskt begäranhuvud**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
+| Content-Type | **Obligatoriskt begäranhuvud**.<br/>Anger innehållstypen för nyttolasten. Möjliga värden `application/json`är: . |
+| Innehållslängd   | **Obligatoriskt begäranhuvud**.<br/>Längden på begäran kroppen. |
+| X-ClientTraceId   | **Valfritt**.<br/>Ett klientgenererat GUID för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID:t i frågesträngen med hjälp av frågeparametern `ClientTraceId`. |
 
 ## <a name="request-body"></a>Begärandetext
 
-Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med följande egenskaper:
+Brödtexten för begäran är en JSON-matris. Varje matriselement är ett JSON-objekt med följande egenskaper:
 
-  * `Text`: en sträng som anger den term som ska sökas. Detta bör vara värdet för ett `normalizedText` fält från back-translations för en tidigare [ord söknings](./v3-0-dictionary-lookup.md) förfrågan. Det kan också vara värdet för fältet `normalizedSource`.
+  * `Text`: En sträng som anger termen att söka efter. Detta bör vara värdet `normalizedText` för ett fält från bakåtöversättningarna för en tidigare [uppslagsbegäran för ordlista.](./v3-0-dictionary-lookup.md) Det kan också vara `normalizedSource` värdet på fältet.
 
-  * `Translation`: en sträng som anger den översatta text som tidigare returnerades av [ord listans Sök](./v3-0-dictionary-lookup.md) åtgärd. Detta bör vara värdet från fältet `normalizedTarget` i listan `translations` i Sök svaret för [ord listan](./v3-0-dictionary-lookup.md) . Tjänsten kommer att returnera exempel för det specifika käll målets Word-par.
+  * `Translation`: En sträng som anger den översatta texten som tidigare returnerats av [uppslagningen av ordlistan.](./v3-0-dictionary-lookup.md) Detta bör vara värdet `normalizedTarget` från `translations` fältet i listan över [uppslagssvaret för ordlista.](./v3-0-dictionary-lookup.md) Tjänsten returnerar exempel för det specifika ordparet för källmål.
 
 Ett exempel är:
 
@@ -66,43 +66,43 @@ Ett exempel är:
 
 Följande begränsningar gäller:
 
-* Matrisen får innehålla högst 10 element.
-* Text värden för ett mat ris element får inte överstiga 100 tecken inklusive blank steg.
+* Matrisen kan ha högst 10 element.
+* Textvärdet för ett matriselement får inte överstiga 100 tecken, inklusive blanksteg.
 
 ## <a name="response-body"></a>Själva svaret
 
-Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den angivna matrisen. Ett resultat objekt innehåller följande egenskaper:
+Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i indatamatrisen. Ett resultatobjekt innehåller följande egenskaper:
 
-  * `normalizedSource`: en sträng som ger en normaliserad form av käll termen. I allmänhet ska detta vara identiskt med värdet för fältet `Text` i det matchande List indexet i bröd texten i begäran.
+  * `normalizedSource`: En sträng som ger den normaliserade formen av källtermen. I allmänhet bör detta vara identiskt med värdet för `Text` fältet vid det matchande listindexet i brödtexten för begäran.
     
-  * `normalizedTarget`: en sträng som ger en normaliserad form av mål termen. I allmänhet ska detta vara identiskt med värdet för fältet `Translation` i det matchande List indexet i bröd texten i begäran.
+  * `normalizedTarget`: En sträng som ger den normaliserade formen av måltermen. I allmänhet bör detta vara identiskt med värdet för `Translation` fältet vid det matchande listindexet i brödtexten för begäran.
   
-  * `examples`: en lista över exempel för paret (käll termen, mål termen). Varje element i listan är ett objekt med följande egenskaper:
+  * `examples`: En lista med exempel för paret (källterm, målterm). Varje element i listan är ett objekt med följande egenskaper:
 
-    * `sourcePrefix`: strängen som ska sammanfogas _innan_ värdet för `sourceTerm` för att bilda ett fullständigt exempel. Lägg inte till ett blank stegs tecken eftersom det redan finns där. Det här värdet kan vara en tom sträng.
+    * `sourcePrefix`: Strängen som ska _before_ sammanfogas `sourceTerm` för värdera av att bilda ett färdigt exempel. Lägg inte till ett blanksteg, eftersom det redan finns där när det ska vara. Det här värdet kan vara en tom sträng.
 
-    * `sourceTerm`: en sträng som motsvarar den faktiska termen som har sökts upp. Strängen läggs till med `sourcePrefix` och `sourceSuffix` för att bilda det fullständiga exemplet. Värdet är avgränsat så att det kan markeras i ett användar gränssnitt, t. ex. med fetstil.
+    * `sourceTerm`: En sträng som motsvarar den faktiska termen tittade upp. Strängen läggs `sourcePrefix` till `sourceSuffix` med och för att skapa ett fullständigt exempel. Dess värde separeras så att det kan markeras i ett användargränssnitt, t.ex.
 
-    * `sourceSuffix`: strängen som ska sammanfogas _efter_ värdet för `sourceTerm` för att skapa ett fullständigt exempel. Lägg inte till ett blank stegs tecken eftersom det redan finns där. Det här värdet kan vara en tom sträng.
+    * `sourceSuffix`: Strängen som ska _sammanfogas_ `sourceTerm` efter värdet av att bilda ett färdigt exempel. Lägg inte till ett blanksteg, eftersom det redan finns där när det ska vara. Det här värdet kan vara en tom sträng.
 
-    * `targetPrefix`: en sträng som liknar `sourcePrefix` men för målet.
+    * `targetPrefix`: En sträng `sourcePrefix` som liknar men för målet.
 
-    * `targetTerm`: en sträng som liknar `sourceTerm` men för målet.
+    * `targetTerm`: En sträng `sourceTerm` som liknar men för målet.
 
-    * `targetSuffix`: en sträng som liknar `sourceSuffix` men för målet.
+    * `targetSuffix`: En sträng `sourceSuffix` som liknar men för målet.
 
     > [!NOTE]
-    > Om det inte finns några exempel i ord listan är svaret 200 (OK), men `examples` listan är en tom lista.
+    > Om det inte finns några exempel i ordlistan är svaret `examples` 200 (OK) men listan är en tom lista.
 
 ## <a name="examples"></a>Exempel
 
-Det här exemplet visar hur du söker efter exempel på det par som består av den engelska termen `fly` och dess spanska översättnings `volar`.
+Det här exemplet visar hur du slår upp exempel `fly` för paret `volar`som består av den engelska termen och dess spanska översättning .
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
 ```
 
-Svars texten (förkortat för tydlighetens skull) är:
+Svarstexten (förkortad för tydlighetens skull) är:
 
 ```
 [

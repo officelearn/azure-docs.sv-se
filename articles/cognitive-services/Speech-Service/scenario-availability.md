@@ -1,7 +1,7 @@
 ---
-title: Scenario tillgänglighet – tal tjänst
+title: Tillgänglighet för scenario - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: 'Tal-SDK: n har många scenarier i en mängd olika programmeringsspråk och miljöer. Alla scenarier är inte tillgängliga i alla programmeringsspråk eller i alla miljöer än. Nedan visas tillgänglighet för varje scenario.'
+description: Speech SDK har många scenarier i en mängd olika programmeringsspråk och miljöer. Alla scenarier är inte tillgängliga i alla programmeringsspråk eller alla miljöer ännu. Nedan listas tillgängligheten för varje scenario.
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
@@ -11,46 +11,46 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
 ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76264211"
 ---
-# <a name="scenario-availability"></a>Scenario tillgänglighet
+# <a name="scenario-availability"></a>Tillgänglighet för scenario
 
-Tal-SDK: n har många scenarier i en mängd olika programmeringsspråk och miljöer. Alla scenarier är inte tillgängliga i alla programmeringsspråk eller i alla miljöer än. Nedan visas tillgänglighet för varje scenario.
+Speech SDK har många scenarier i en mängd olika programmeringsspråk och miljöer. Alla scenarier är inte tillgängliga i alla programmeringsspråk eller alla miljöer ännu. Nedan listas tillgängligheten för varje scenario.
 
-- **Tal igenkänning (SR), fras lista, avsikt, översättning och lokala behållare**
-  - Alla programmeringsspråk/miljöer där det finns en pil-länk <img src="media/index/link.jpg" height="15" width="15"></img> i snabb starts tabellen [här](https://aka.ms/csspeech).
-- **Text till tal (TTS)**
+- **Taligenkänning (SR), fraslista, avsikt, översättning och lokala behållare**
+  - Alla programmeringsspråk/miljöer där det finns en pillänk <img src="media/index/link.jpg" height="15" width="15"></img> i snabbstartstabellen [här](https://aka.ms/csspeech).
+- **Text-till-tal (TTS)**
   - C++/Windows & Linux
   - C#/Windows & UWP & Unity
-  - Java (JRE och Android)
+  - Java (Jre och Android)
   - Python
   - Swift
   - Objective-C
-  - TTS-REST API kan användas i alla andra situationer.
-- **Nyckelord upptäcka (KWS)**
+  - TTS REST API kan användas i alla andra situationer.
+- **Sökord spotting (KWS)**
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
-  - Java/Windows & Linux & Android (Speech-enheter SDK)
-  - Nyckelordet upptäcka (KWS) fungerar med valfri mikrofon typ, officiell KWS support, men är för närvarande begränsad till de mikrofoner som finns i Azure Kinect DK-maskinvara eller tal enheter SDK
-- **Röst assistenter**
+  - Java/Windows & Linux & Android (Talenheter SDK)
+  - Funktionen för sökordsspottning (KWS) kan fungera med alla mikrofontyper, officiella KWS-stöd är dock för närvarande begränsat till de mikrofonmatriser som finns i Azure Kinect DK-maskinvaran eller Speech Devices SDK
+- **Röstassistenter**
   - C++/Windows & Linux & macOS
   - C#/Windows
-  - Java/Windows & Linux & macOS & Android (tal enheter SDK)
-- **Konversations avskrift**
+  - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
+- **Konversation Transkription**
   - C++/Windows & Linux
-  - C#(Framework & .NET Core)/Windows & UWP & Linux
-  - Java/Windows & Linux & Android (Speech-enheter SDK)
+  - C# (Ram & .NET Core)/Windows & UWP & Linux
+  - Java/Windows & Linux & Android (Talenheter SDK)
 - **Konversation med flera enheter**
   - C++/Windows
-  - C#(Framework & .NET Core)/Windows
-- **Svars Center-avskrift**
+  - C# (Ramverket & .NET Core)/Windows
+- **Transkription av callcenter**
   - REST API och kan användas i alla situationer
-- **Codec-komprimerad ljud inspelning**
+- **Codec komprimerad ljudingång**
   - C++/Linux
   - C#/Linux
   - Java/Linux, Android och iOS

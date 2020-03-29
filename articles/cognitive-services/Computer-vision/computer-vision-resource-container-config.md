@@ -1,7 +1,7 @@
 ---
-title: Konfigurera behållare – Visuellt innehåll
+title: Konfigurera behållare - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du konfigurerar både nödvändiga och valfria inställningar för Identifiera text behållare i Visuellt innehåll.
+description: Den här artikeln visar hur du konfigurerar både obligatoriska och valfria inställningar för identifiera textbehållare i datorseende.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,103 +12,103 @@ ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
 ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73718984"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Konfigurera Visuellt innehåll Docker-behållare
+# <a name="configure-computer-vision-docker-containers"></a>Konfigurera behållare för datorseendedocker
 
-Du konfigurerar Visuellt innehåll behållarens körnings miljö med hjälp av `docker run` kommando argument. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Det finns flera [exempel](#example-docker-run-commands) på kommandot. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
+Du konfigurerar datorseende-behållarens körningsmiljö `docker run` med hjälp av kommandoargumenten. Den här behållaren har flera nödvändiga inställningar, tillsammans med några valfria inställningar. Flera [exempel på](#example-docker-run-commands) kommandot är tillgängliga. De behållarspecifika inställningarna är faktureringsinställningarna. 
 
 ## <a name="configuration-settings"></a>Konfigurationsinställningar
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Inställningarna [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting)och [`Eula`](#eula-setting) används tillsammans och du måste ange giltiga värden för alla tre. annars startar inte behållaren. Mer information om hur du använder dessa konfigurations inställningar för att instansiera en behållare finns i [fakturering](computer-vision-how-to-install-containers.md).
+> [`ApiKey`](#apikey-configuration-setting)Inställningarna [`Billing`](#billing-configuration-setting), [`Eula`](#eula-setting) och används tillsammans och du måste ange giltiga värden för alla tre. Annars startar inte behållaren. Mer information om hur du använder de här konfigurationsinställningarna för att instansiera en behållare finns i [Fakturering](computer-vision-how-to-install-containers.md).
 
-## <a name="apikey-configuration-setting"></a>Konfigurations inställning för ApiKey
+## <a name="apikey-configuration-setting"></a>Konfigurationsinställning för ApiKey
 
-Inställningen `ApiKey` anger den Azure `Cognitive Services` resurs nyckel som används för att spåra fakturerings information för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig nyckel för den _Cognitive Services_ resurs som angetts för inställningen [`Billing`](#billing-configuration-setting) konfiguration.
+Inställningen `ApiKey` anger den `Cognitive Services` Azure-resursnyckel som används för att spåra faktureringsinformation för behållaren. Du måste ange ett värde för ApiKey och värdet måste vara en giltig [`Billing`](#billing-configuration-setting) nyckel för cognitive services-resursen som angetts för konfigurationsinställningen. _Cognitive Services_
 
-Du hittar den här inställningen på följande plats:
+Den här inställningen finns på följande plats:
 
-* Azure Portal: **Cognitive Services** resurs hantering under **nycklar**
+* Azure-portal: **Resurshantering för Kognitiva tjänster** under **Nycklar**
 
-## <a name="applicationinsights-setting"></a>ApplicationInsights-inställning
+## <a name="applicationinsights-setting"></a>Inställning av ApplicationInsights
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
-## <a name="billing-configuration-setting"></a>Konfigurations inställning för fakturering
+## <a name="billing-configuration-setting"></a>Konfigurationsinställning för fakturering
 
-Inställningen `Billing` anger slut punkts-URI för den _Cognitive Services_ resursen på Azure som används för att mäta fakturerings information för behållaren. Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _Cognitive Services_ -resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
+Inställningen `Billing` anger slutpunkts-URI för _Cognitive Services-resursen_ på Azure som används för att mäta faktureringsinformation för behållaren. Du måste ange ett värde för den här konfigurationsinställningen och värdet måste vara en giltig slutpunkts-URI för en _Cognitive Services-resurs_ på Azure. Behållaren rapporterar användning ungefär var 10 till 15:e minut.
 
-Du hittar den här inställningen på följande plats:
+Den här inställningen finns på följande plats:
 
-* Azure Portal: **Cognitive Services** översikt, med etiketter `Endpoint`
+* Azure-portal: Översikt över **Kognitiva tjänster,** märkt`Endpoint`
 
-Kom ihåg att lägga till `vision/v1.0` routning i slut punkts-URI: n enligt följande tabell. 
+Kom ihåg `vision/v1.0` att lägga till routningen i slutpunkts-URI enligt följande tabell. 
 
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
-|Ja| `Billing` | Sträng | URI för fakturerings slut punkt<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Ja| `Billing` | String | URI för faktureringsslutpunkt<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
-## <a name="eula-setting"></a>Licens avtals inställning
+## <a name="eula-setting"></a>Eula-inställning
 
 [!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
-## <a name="fluentd-settings"></a>Fluent-inställningar
+## <a name="fluentd-settings"></a>Flytande inställningar
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Inställningar för autentiseringsuppgifter för HTTP-proxy
+## <a name="http-proxy-credentials-settings"></a>Inställningar för HTTP-proxyautentiseringsuppgifter
 
 [!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
-## <a name="logging-settings"></a>Loggnings inställningar
+## <a name="logging-settings"></a>Loggningsinställningar
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-## <a name="mount-settings"></a>Monterings inställningar
+## <a name="mount-settings"></a>Montera inställningar
 
-Använd bind-monteringar för att läsa och skriva data till och från behållaren. Du kan ange en inmatnings montering eller utmatnings montering genom att ange alternativet `--mount` i kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) .
+Använd bindningsfästen för att läsa och skriva data till och från behållaren. Du kan ange ett indatafäste eller `--mount` utdatafäste genom att ange alternativet i [dockerkörningskommandot.](https://docs.docker.com/engine/reference/commandline/run/)
 
-Visuellt innehåll behållare använder inte indata eller utdata monteras för att lagra utbildning eller tjänst data. 
+Datorseende-behållarna använder inte indata- eller utdatafästen för att lagra tränings- eller servicedata. 
 
-Den exakta syntaxen för värd monterings platsen varierar beroende på värd operativ systemet. Dessutom kanske [värd datorns](computer-vision-how-to-install-containers.md#the-host-computer)monterings plats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värd monterings platsens behörigheter. 
+Den exakta syntaxen för värdmonteringsplatsen varierar beroende på värdoperativsystemet. Dessutom kanske [värddatorns](computer-vision-how-to-install-containers.md#the-host-computer)monteringsplats inte är tillgänglig på grund av en konflikt mellan behörigheter som används av Docker-tjänstkontot och värdfästeplatsbehörigheterna. 
 
 |Valfri| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | Sträng | Visuellt innehåll behållare använder inte detta.|
-|Valfri| `Output` | Sträng | Målet för utmatnings monteringen. Standardvärdet är `/output`. Detta är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåten| `Input` | String | Datorseende behållare använder inte detta.|
+|Valfri| `Output` | String | Målet för utmatningsfästet. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållarloggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>Exempel på Docker-körnings kommandon
+## <a name="example-docker-run-commands"></a>Exempel på dockerkörningskommandon
 
-I följande exempel används konfigurations inställningarna för att illustrera hur du skriver och använder `docker run`-kommandon.  När den körs fortsätter behållaren att köras tills du [stoppar](computer-vision-how-to-install-containers.md#stop-the-container) den.
+I följande exempel används konfigurationsinställningarna för `docker run` att illustrera hur du skriver och använder kommandon.  När den körs fortsätter behållaren att köras tills du [stoppar](computer-vision-how-to-install-containers.md#stop-the-container) den.
 
-* **Rad fortsättnings bokstav**: Docker-kommandona i följande avsnitt använder omvänt snedstreck `\`, som ett fortsättnings streck. Ersätt eller ta bort detta baserat på värd operativ systemets krav. 
-* **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
+* **Rad-fortsättning**tecken : Docker kommandon i följande avsnitt använder `\`tillbaka snedstreck, , som en rad fortsättning tecken. Ersätt eller ta bort detta baserat på värdoperativsystemets krav. 
+* **Argumentordning**: Ändra inte ordningen på argumenten om du inte är väl bekant med Docker-behållare.
 
-Ersätt {_argument_name_} med dina egna värden:
+Ersätt {_argument_name_} med dina egna värderingar:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|
-| **{API_KEY}** | Slut punkts nyckeln för `Computer Vision` resursen på sidan för Azure `Computer Vision`-nycklar. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | Värdet för fakturerings slut punkten är tillgängligt på översikts sidan för Azure-`Computer Vision`.| Se [samla in obligatoriska parametrar](computer-vision-how-to-install-containers.md#gathering-required-parameters) för explicita exempel. |
+| **{API_KEY}** | Slutpunktsnyckeln `Computer Vision` för resursen `Computer Vision` på sidan Azure Keys. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | Värdet för faktureringsslutpunkt är `Computer Vision` tillgängligt på sidan Azure Overview.| Se [samla in nödvändiga parametrar](computer-vision-how-to-install-containers.md#gathering-required-parameters) för explicita exempel. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](computer-vision-how-to-install-containers.md#billing).
-> ApiKey-värdet är **nyckeln** på sidan med resurs nycklar för Azure `Cognitive Services`.
+> Alternativen `Eula` `Billing`, `ApiKey` och måste anges för att behållaren ska kunna köras. Annars startar inte behållaren.  Mer information finns i [Fakturering](computer-vision-how-to-install-containers.md#billing).
+> ApiKey-värdet är **nyckeln** från `Cognitive Services` sidan Azure Resource keys.
 
-## <a name="container-docker-examples"></a>Behållare Docker-exempel
+## <a name="container-docker-examples"></a>Exempel på containerdockor
 
-Följande Docker-exempel är för Read-behållaren.
+Följande Docker-exempel är för Läs-behållaren.
 
-### <a name="basic-example"></a>Basic-exempel
+### <a name="basic-example"></a>Grundläggande exempel
 
   ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -118,7 +118,7 @@ Följande Docker-exempel är för Read-behållaren.
   ApiKey={API_KEY} 
   ```
 
-### <a name="logging-example"></a>Loggnings exempel 
+### <a name="logging-example"></a>Exempel på loggning 
 
   ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -131,4 +131,4 @@ Följande Docker-exempel är för Read-behållaren.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [om hur du installerar och kör behållare](computer-vision-how-to-install-containers.md).
+* Granska [Hur du installerar och kör behållare](computer-vision-how-to-install-containers.md).

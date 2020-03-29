@@ -1,7 +1,7 @@
 ---
-title: URL-fördefinierade entiteter – LUIS
+title: URL fördefinierade enheter - LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller en url fördefinierade entitetsinformation i Språkförståelse (LUIS).
+description: Den här artikeln innehåller url fördefinierade entitetsinformation i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,27 +12,27 @@ ms.topic: reference
 ms.date: 10/04/2019
 ms.author: diberry
 ms.openlocfilehash: 49f145ce3e9022826abad5d274dd611bb2cc6530
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270351"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>URL-fördefinierad entitet för en LUIS-app
-URL: en entitet extraherar URL: er med domännamn eller IP-adresser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller URL: er till programmet. URL-entiteten stöds endast i `en-us` kultur.
+URL-entiteten extraherar webbadresser med domännamn eller IP-adresser. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller webbadresser till programmet. URL-entitet `en-us` stöds endast i kulturen.
 
-## <a name="types-of-urls"></a>Typer av URL: er
-URL: en hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml)
+## <a name="types-of-urls"></a>Typer av webbadresser
+Url hanteras från [GitHub-databasen för identifierartext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml)
 
-## <a name="resolution-for-prebuilt-url-entity"></a>Lösning för den fördefinierade URL: en entitet
+## <a name="resolution-for-prebuilt-url-entity"></a>Lösning för fördefinierad URL-entitet
 
-Följande enhets objekt returneras för frågan:
+Följande entitetsobjekt returneras för frågan:
 
 `https://www.luis.ai is a great cognitive services example of artificial intelligence`
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är med parametern `verbose` som har angetts till `false`:
+Följande JSON är `verbose` med parametern inställd `false`på:
 
 ```json
 "entities": {
@@ -41,9 +41,9 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
 
-Följande JSON är med parametern `verbose` som har angetts till `true`:
+Följande JSON är `verbose` med parametern inställd `true`på:
 
 ```json
 "entities": {
@@ -69,7 +69,7 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
 ```
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas en lösning på https://www.luis.ai är ett exempel på en bra kognitiv tjänst exempel på artificiell intelligens
+Följande exempel visar upplösningen https://www.luis.ai av är ett bra kognitivt tjänste-exempel på artificiell intelligens
 
 ```json
 "entities": [
@@ -86,6 +86,6 @@ I följande exempel visas en lösning på https://www.luis.ai är ett exempel p�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
 
-Lär dig mer om entiteterna [ordning](luis-reference-prebuilt-ordinal.md), [antal](luis-reference-prebuilt-number.md)och [temperatur](luis-reference-prebuilt-temperature.md) .
+Lär dig mer om [number](luis-reference-prebuilt-number.md) [ordnings-](luis-reference-prebuilt-ordinal.md) [och](luis-reference-prebuilt-temperature.md) temperatureniteter.

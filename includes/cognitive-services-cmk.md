@@ -9,44 +9,44 @@ ms.date: 03/11/2020
 ms.author: egeaney
 ms.custom: include
 ms.openlocfilehash: e5e1755e6351d308c041de5cefe943e9874c8ebd
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79372198"
 ---
-### <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
+### <a name="enable-customer-managed-keys"></a>Aktivera kundhanterade nycklar
 
-Du måste använda Azure Key Vault för att lagra dina Kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Den Cognitive Services resursen och nyckel valvet måste finnas i samma region och i samma Azure Active Directory-klient (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Du måste använda Azure Key Vault för att lagra dina kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckelvalv, eller så kan du använda Azure Key Vault API:er för att generera nycklar. Cognitive Services-resursen och nyckelvalvet måste finnas i samma region och i samma Azure Active Directory-klientorganisation (Azure AD), men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
-En ny Cognitive Services resurs krypteras alltid med Microsoft-hanterade nycklar. Det går inte att aktivera Kundhanterade nycklar vid den tidpunkt då resursen skapas. Kundhanterade nycklar lagras i Azure Key Vault och nyckel valvet måste tillhandahållas med åtkomst principer som ger nyckel behörigheter till den hanterade identitet som är kopplad till den Cognitive Services resursen. Den hanterade identiteten är bara tillgänglig när resursen har skapats med hjälp av pris nivån för CMK.
+En ny Cognitive Services-resurs krypteras alltid med Microsoft-hanterade nycklar. Det går inte att aktivera kundhanterade nycklar när resursen skapas. Kundhanterade nycklar lagras i Azure Key Vault och nyckelvalvet måste etableras med åtkomstprinciper som ger nyckelbehörigheter till den hanterade identiteten som är associerad med Cognitive Services-resursen. Den hanterade identiteten är endast tillgänglig när resursen har skapats med hjälp av prisnivån för CMK.
 
-Information om hur du använder Kundhanterade nycklar med Azure Key Vault för Cognitive Services kryptering finns i:
+Mer information om hur du använder kundhanterade nycklar med Azure Key Vault för Cognitive Services-kryptering finns i:
 
-- [Konfigurera Kundhanterade nycklar med Key Vault för Cognitive Services kryptering från Azure Portal](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md)
+- [Konfigurera kundhanterade nycklar med Key Vault för Cognitive Services-kryptering från Azure-portalen](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md)
 
-Om du aktiverar Kundhanterade nycklar aktive ras även en systemtilldelad hanterad identitet, en funktion i Azure AD. När systemtilldelad hanterad identitet har Aktiver ATS registreras den här resursen med Azure Active Directory. När den hanterade identiteten har registrerats får den åtkomst till den Key Vault som valts under kund hanterade nyckel inställningar. Du kan läsa mer om [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-
-> [!IMPORTANT]
-> Om du inaktiverar systemtilldelade hanterade identiteter tas åtkomst till nyckel valvet bort och alla data som krypteras med kund nycklarna kommer inte längre att vara tillgängliga. Alla funktioner som är beroende av dessa data upphör att fungera.
+Om du aktiverar kundhanterade nycklar aktiveras också en systemtilldelad hanterad identitet, en funktion i Azure AD. När den tilldelade systemtilldelade hanterade identiteten är aktiverad registreras den här resursen med Azure Active Directory. När den hanterade identiteten har registrerats får den åtkomst till det nyckelvalv som valts under kundhanterade nyckelinställningar. Du kan läsa mer om [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 > [!IMPORTANT]
-> Hanterade identiteter stöder för närvarande inte scenarier mellan kataloger. När du konfigurerar Kundhanterade nycklar i Azure Portal tilldelas en hanterad identitet automatiskt under försättsblad. Om du senare flyttar prenumerationen, resurs gruppen eller resursen från en Azure AD-katalog till en annan överförs inte den hanterade identitet som är kopplad till resursen till den nya klienten, så Kundhanterade nycklar kanske inte längre fungerar. Mer information finns i **överföra en prenumeration mellan Azure AD-kataloger** i [vanliga frågor och svar och kända problem med hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
+> Om du inaktiverar systemtilldelade hanterade identiteter tas åtkomsten till nyckelvalvet bort och alla data som krypteras med kundnycklarna kommer inte längre att vara tillgängliga. Alla funktioner som är beroende av dessa data kommer att sluta fungera.
 
-### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Lagra Kundhanterade nycklar i Azure Key Vault
+> [!IMPORTANT]
+> Hanterade identiteter stöder för närvarande inte scenarier för korskataloger. När du konfigurerar kundhanterade nycklar i Azure-portalen tilldelas en hanterad identitet automatiskt under skalen. Om du sedan flyttar prenumerationen, resursgruppen eller resursen från en Azure AD-katalog till en annan överförs inte den hanterade identiteten som är associerad med resursen till den nya klienten, så kundhanterade nycklar kanske inte längre fungerar. Mer information finns i **Överföra en prenumeration mellan Azure AD-kataloger** i vanliga frågor och andra frågor och kända problem med hanterade [identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories).  
 
-Om du vill aktivera Kundhanterade nycklar måste du använda en Azure Key Vault för att lagra dina nycklar. Du måste aktivera både den **mjuka borttagningen** och **Rensa inte** egenskaperna i nyckel valvet.
+### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Lagra kundhanterade nycklar i Azure Key Vault
 
-Endast RSA-nycklar med storleken 2048 stöds med Cognitive Services kryptering. Mer information om nycklar finns **Key Vault nycklar** i [om Azure Key Vault nycklar, hemligheter och certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
+Om du vill aktivera kundhanterade nycklar måste du använda ett Azure Key Vault för att lagra dina nycklar. Du måste aktivera egenskaperna **Mjuk borttagning** **och Rensa inte** på nyckelvalvet.
 
-### <a name="rotate-customer-managed-keys"></a>Rotera Kundhanterade nycklar
+Endast RSA-nycklar i storlek 2048 stöds med Cognitive Services-kryptering. Mer information om nycklar finns i **Key Vault-nycklar** i [Om Azure Key Vault-nycklar, hemligheter och certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys).
 
-Du kan rotera en kundhanterad nyckel i Azure Key Vault enligt efterlevnadsprinciper. När nyckeln roteras måste du uppdatera Cognitive Services-resursen för att använda den nya nyckel-URI: n. Information om hur du uppdaterar resursen för att använda en ny version av nyckeln i Azure Portal finns i avsnittet **Uppdatera nyckel versionen** i [Konfigurera kund hanterade nycklar för Cognitive Services med hjälp av Azure Portal](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md).
+### <a name="rotate-customer-managed-keys"></a>Rotera kundhanterade nycklar
 
-Rotation av nyckeln utlöser inte Omkryptering av data i resursen. Det krävs ingen ytterligare åtgärd från användaren.
+Du kan rotera en kundhanterad nyckel i Azure Key Vault enligt dina efterlevnadsprinciper. När nyckeln roteras måste du uppdatera Cognitive Services-resursen för att kunna använda den nya nyckeln URI. Mer information om hur du uppdaterar resursen för att använda en ny version av nyckeln i Azure-portalen finns i avsnittet **Uppdatera nyckelversionen** i [Konfigurera kundhanterade nycklar för Cognitive Services med hjälp av Azure-portalen](..\articles\cognitive-services\Encryption\cognitive-services-encryption-keys-portal.md).
 
-### <a name="revoke-access-to-customer-managed-keys"></a>Återkalla åtkomst till Kundhanterade nycklar
+Om du roterar nyckeln kan du inte återskapa data i resursen. Användaren behöver inte vidta några ytterligare åtgärder.
 
-Om du vill återkalla åtkomsten till Kundhanterade nycklar använder du PowerShell eller Azure CLI. Mer information finns i [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) eller [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Att återkalla åtkomsten på ett effektivt sätt blockerar åtkomsten till alla data i Cognitive Services resursen, eftersom krypterings nyckeln inte är tillgänglig via Cognitive Services.
+### <a name="revoke-access-to-customer-managed-keys"></a>Återkalla åtkomst till kundhanterade nycklar
+
+Om du vill återkalla åtkomsten till kundhanterade nycklar använder du PowerShell eller Azure CLI. Mer information finns i [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) eller [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Om du återkallar åtkomst blockeras åtkomsten till alla data i Cognitive Services-resursen, eftersom krypteringsnyckeln inte är tillgänglig för Cognitive Services.
 
 

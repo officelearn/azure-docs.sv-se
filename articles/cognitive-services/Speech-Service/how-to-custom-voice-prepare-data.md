@@ -1,7 +1,7 @@
 ---
-title: Förbereda data för anpassade röst tal tjänster
+title: Så här förbereder du data för tjänsten Custom Voice - Speech
 titleSuffix: Azure Cognitive Services
-description: Skapa en anpassad röst för ditt varumärke med röst tjänsten. Du anger Studio-inspelningar och tillhör ande skript, genererar tjänsten en unik röst modell som är anpassad till den inspelade rösten. Använd den här rösten för att syntetisera tal i dina produkter, verktyg och program.
+description: Skapa en anpassad röst för ditt varumärke med taltjänsten. Du tillhandahåller studioinspelningar och tillhörande skript, tjänsten genererar en unik röstmodell inställd på den inspelade rösten. Använd den här rösten för att syntetisera tal i dina produkter, verktyg och program.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,145 +11,145 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74805985"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Förbereda data för att skapa en anpassad röst
 
-När du är redo att skapa en anpassad text till tal-röst för ditt program är det första steget att samla in ljud inspelningar och tillhör ande skript för att börja träna röst modellen. Tal tjänsten använder dessa data för att skapa en unik röst som passar rösten i inspelningarna. När du har tränat rösten kan du börja syntetisera tal i dina program.
+När du är redo att skapa en anpassad text-till-tal-röst för ditt program är det första steget att samla in ljudinspelningar och tillhörande skript för att börja träna röstmodellen. Taltjänsten använder dessa data för att skapa en unik röst inställd för att matcha rösten i inspelningarna. När du har tränat rösten kan du börja syntetisera tal i dina program.
 
-Du kan börja med en liten mängd data för att skapa ett koncept bevis. Men mer data som du anger, desto mer naturlig kommer din anpassade röst att ljud. Innan du kan träna din egen text till tal-röst modell behöver du ljud inspelningar och tillhör ande text avskrifter. På den här sidan granskar vi data typer, hur de används och hur du hanterar dem.
+Du kan börja med en liten mängd data för att skapa ett konceptbevis. Men ju mer data du tillhandahåller, desto mer naturligt kommer din anpassade röst att låta. Innan du kan träna din egen text-till-tal-röstmodell behöver du ljudinspelningar och tillhörande textavskrifter. På den här sidan granskar vi datatyper, hur de används och hur du hanterar var och en.
 
 ## <a name="data-types"></a>Datatyper
 
-En data uppsättning för röst utbildning innehåller ljud inspelningar och en textfil med tillhör ande avskrifter. Varje ljudfil ska innehålla en enda uttryck (en enda mening eller en enskild tur för ett dialog system) och vara mindre än 15 sekunder lång.
+En röstutbildningsdatauppsättning innehåller ljudinspelningar och en textfil med tillhörande transkriptioner. Varje ljudfil ska innehålla ett enda uttryck (en enda mening eller en enda sväng för ett dialogsystem) och vara mindre än 15 sekunder lång.
 
-I vissa fall kanske du inte har rätt data uppsättning klar och vill testa den anpassade röst utbildningen med tillgängliga ljudfiler, kort eller lång, med eller utan avskrifter. Vi tillhandahåller verktyg (beta) som hjälper dig att segmentera ditt ljud i yttranden och förbereda avskrifter med hjälp av [batch-Avskrifts-API: et](batch-transcription.md).
+I vissa fall kanske du inte har rätt datauppsättning redo och kommer att vilja testa den anpassade röstutbildningen med tillgängliga ljudfiler, korta eller långa, med eller utan utskrifter. Vi tillhandahåller verktyg (beta) som hjälper dig att segmentera ditt ljud i yttranden och förbereda avskrifter med hjälp av [Batch Transkription API](batch-transcription.md).
 
-Den här tabellen innehåller data typer och hur de används för att skapa en anpassad röst modell för text till tal.
+I den här tabellen visas datatyper och hur var och en används för att skapa en anpassad röstmodell för text till tal.
 
-| Datatyp | Beskrivning | Används till att | Ytterligare tjänst krävs | Kvantitet för träning av en modell | Språk (er) |
+| Datatyp | Beskrivning | När du ska använda detta | Ytterligare service krävs | Kvantitet för utbildning av en modell | Språk(er) |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Individuell yttranden + matchande avskrift** | En samling (. zip) av ljudfiler (. wav) som enskilda yttranden. Varje ljudfil bör vara högst 15 sekunder, länkad med en formaterad avskrift (. txt). | Professionella inspelningar med matchande avskrifter | Redo för utbildning. | Inget hård krav för en-US och zh-CN. Fler än 2000 + distinkta yttranden för andra språk. | [Alla anpassade röst inställningar](language-support.md#customization) |
-| **Långt ljud + avskrift (beta)** | En samling (. zip) av långa, segmenterade ljudfiler (längre än 20 sekunder), kopplad till en avskrift (. txt) som innehåller alla talade ord. | Du har ljudfiler och matchande avskrifter, men de är inte segmenterade i yttranden. | Segmentering (med batch-avskriftering).<br>Omvandling av ljud format där det behövs. | Inget hård krav  | [Alla anpassade röst inställningar](language-support.md#customization) |
-| **Endast ljud (beta)** | En samling (. zip) av ljudfiler utan avskrift. | Du har bara ljudfiler tillgängliga, utan avskrifter. | Segmentering och avskrifts generering (med batch-avskriftering).<br>Omvandling av ljud format där det behövs.| Inget hård krav | [Alla anpassade röst inställningar](language-support.md#customization) |
+| **Individuella yttranden + matchande avskrift** | En samling (.zip) med ljudfiler (.wav) som enskilda yttranden. Varje ljudfil bör vara 15 sekunder eller mindre lång, parat med en formaterad avskrift (.txt). | Professionella inspelningar med matchande avskrifter | Redo för träning. | Inga hårda krav för en-USA och zh-CN. Mer än 2 000+ olika yttranden för andra språk. | [Alla anpassade röstinst.på](language-support.md#customization) |
+| **Långt ljud + avskrift (beta)** | En samling (.zip) med långa, osegmenterade ljudfiler (längre än 20 sekunder), parat med en avskrift (.txt) som innehåller alla talade ord. | Du har ljudfiler och matchande avskrifter, men de är inte segmenterade i yttranden. | Segmentering (med hjälp av batchranskription).<br>Ljudformat omvandling där det behövs. | Inga hårda krav  | [Alla anpassade röstinst.på](language-support.md#customization) |
+| **Endast ljud (beta)** | En samling (.zip) av ljudfiler utan en utskrift. | Du har bara ljudfiler tillgängliga, utan utskrifter. | Segmentering + transkriptionsgenerering (med hjälp av batchranskription).<br>Ljudformat omvandling där det behövs.| Inga hårda krav | [Alla anpassade röstinst.på](language-support.md#customization) |
 
-Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip-fil. Varje data uppsättning får bara innehålla en enda datatyp.
+Filer ska grupperas efter typ i en datauppsättning och laddas upp som en zip-fil. Varje datauppsättning kan bara innehålla en enda datatyp.
 
 > [!NOTE]
-> Det maximala antalet data uppsättningar som får importeras per prenumeration är 10. zip-filer för kostnads fria prenumerationer (F0) och 500 för S0-användare (standard prenumeration).
+> Det maximala antalet datauppsättningar som får importeras per prenumeration är 10 .zip-filer för kostnadsfria prenumerationsanvändare (F0) och 500 för S0-användare (Standard subscription).
 
-## <a name="individual-utterances--matching-transcript"></a>Individuell yttranden + matchande avskrift
+## <a name="individual-utterances--matching-transcript"></a>Individuella yttranden + matchande avskrift
 
-Du kan förbereda inspelningar av enskilda yttranden och den matchande avskriften på två sätt. Skriv antingen ett skript och låt det läsas av en röst personal eller Använd allmänt tillgänglig ljud och skriv det till text. Om du gör det senare kan du redigera disfluencies från ljudfilerna, till exempel "UM" och andra fyllnings ljud, hackare, mumbled ord eller feluttal.
+Du kan förbereda inspelningar av enskilda yttranden och den matchande avskriften på två sätt. Antingen skriva ett skript och få den läst av en röst talang eller använda offentligt tillgängliga ljud och transkribera den till text. Om du gör det senare, redigera disfluenser från ljudfiler, till exempel "um" och andra fyllmedel ljud, hakar, mumlade ord eller feluttal.
 
-Om du vill skapa ett bra röst teckensnitt skapar du inspelningarna i ett tyst rum med en mikrofon med hög kvalitet. Konsekvent volym, tal hastighet, talande färgdjup och lättfattliga programspecifika mannerisms av tal är viktigt.
+Om du vill skapa ett bra röstteckensnitt skapar du inspelningarna i ett tyst rum med en mikrofon av hög kvalitet. Konsekvent volym, talfrekvens, talhöjd och uttrycksfulla manér av tal är viktiga.
 
 > [!TIP]
-> Om du vill skapa en röst för produktions användning rekommenderar vi att du använder en proffsig inspelning Studio och röst personal. Mer information finns i [så här spelar du in röst exempel för en anpassad röst](record-custom-voice-samples.md).
+> För att skapa en röst för produktionsbruk rekommenderar vi att du använder en professionell inspelningsstudio och rösttalang. Mer information finns i [Så här spelar du in röstexempel för en anpassad röst](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Ljudfiler
 
-Varje ljudfil bör innehålla en enda uttryck (en enda mening eller ett enda sätt i ett dialog system) som är mindre än 15 sekunder långt. Alla filer måste vara på samma talade språk. Anpassade text till tal-röster med flera språk stöds inte, med undantag för kinesiska-engelska bi-språk. Varje ljudfil måste ha ett unikt numeriskt fil namn med fil namns tillägget. wav.
+Varje ljudfil ska innehålla ett enda uttryck (en enda mening eller en enda sväng i ett dialogsystem), mindre än 15 sekunder långt. Alla filer måste vara på samma talade språk. Flerspråkiga anpassade text-till-tal-röster stöds inte, med undantag för den kinesisk-engelska tvåspråkiga. Varje ljudfil måste ha ett unikt numeriskt filnamn med filnamnstillägget .wav.
 
-Följ dessa rikt linjer när du förbereder ljud.
+Följ dessa riktlinjer när du förbereder ljud.
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | RIFF (. wav), grupperad i en. zip-fil |
+| Filformat | RIFF (.wav), grupperat i en ZIP-fil |
 | Samplingsfrekvens | Minst 16 000 Hz |
-| Exempel format | PCM, 16-bitars |
-| Filnamn | Numeriskt, med fil namns tillägget. wav. Inga dubbla fil namn tillåts. |
-| Ljud längd | Kortare än 15 sekunder |
-| Arkiv format | .zip |
-| Maximal Arkiv storlek | 2048 MB |
+| Exempelformat | PCM, 16-bitars |
+| Filnamn | Numerisk, med .wav-tillägget. Inga dubblettfilnamn tillåts. |
+| Ljudlängd | Kortare än 15 sekunder |
+| Arkivformat | .zip |
+| Maximal arkivstorlek | 2048 MB |
 
 > [!NOTE]
-> WAV-filer med en samplings frekvens som är lägre än 16 000 Hz avvisas. Om en. zip-fil innehåller. wav-filer med olika samplings frekvenser importeras bara de som är lika med eller högre än 16 000 Hz. Portalen importeras. zip-arkiv är upp till 200 MB. Men flera arkiv kan laddas upp.
+> WAV-filer med en samplingsfrekvens som är lägre än 16 000 Hz kommer att avvisas. Om en ZIP-fil innehåller WAV-filer med olika samplingsfrekvens importeras endast de som är lika med eller högre än 16 000 Hz. Portalen importerar för närvarande .zip-arkiv upp till 200 MB. Flera arkiv kan dock laddas upp.
 
-### <a name="transcripts"></a>Avskrifter
+### <a name="transcripts"></a>Utskrifter
 
-Avskrifts filen är en textfil med oformaterad text. Använd dessa rikt linjer för att förbereda dina avskrifter.
+Transkriptionsfilen är en oformaterad textfil. Använd dessa riktlinjer för att förbereda dina transkriptioner.
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | Oformaterad text (. txt) |
-| Kodnings format | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE eller UTF-16-vara. För zh-CN-, ANSI/ASCII-och UTF-8-kodningar stöds inte. |
-| antal yttrande per rad | **En** – varje rad i avskrifts filen ska innehålla namnet på en av ljudfilerna följt av motsvarande avskrift. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t). |
+| Filformat | Oformaterad text (.txt) |
+| Kodningsformat | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE eller UTF-16-BE. För zh-CN stöds inte ANSI/ASCII- och UTF-8-kodningar. |
+| antal yttrande per rad | **En** - Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna, följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t). |
 | Maximal filstorlek | 2048 MB |
 
-Nedan visas ett exempel på hur avskrifterna organiseras uttryck av uttryck i en txt-fil:
+Nedan följer ett exempel på hur transkriptionerna är ordnade yttrande genom yttrande i en .txt-fil:
 
 ```
 0000000001[tab] This is the waistline, and it's falling.
 0000000002[tab] We have trouble scoring.
 0000000003[tab] It was Janet Maslin.
 ```
-Det är viktigt att avskrifterna är 100% exakta avskrifter av motsvarande ljud. Fel i avskrifterna kommer att medföra kvalitets förluster under utbildningen.
+Det är viktigt att transkriptionerna är 100% korrekta transkriptioner av motsvarande ljud. Fel i utskrifterna kommer att införa kvalitetsförlust under utbildningen.
 
 > [!TIP]
-> När du skapar text till tal-röster för produktion väljer du yttranden (eller Skriv skript) som tar hänsyn till både fonetisk täckning och effektivitet. Har du problem med att få de resultat du vill ha? [Kontakta det anpassade röst](mailto:speechsupport@microsoft.com) teamet och lär dig mer om att be oss att kontakta.
+> När du skapar text-till-tal-röster för produktion väljer du yttranden (eller skrivskript) som tar hänsyn till både fonetisk täckning och effektivitet. Har du problem med att få de resultat du vill ha? [Kontakta Custom Voice-teamet](mailto:speechsupport@microsoft.com) för att ta reda på mer om hur vi kan konsultera.
 
 ## <a name="long-audio--transcript-beta"></a>Långt ljud + avskrift (beta)
 
-I vissa fall kanske du inte har segmenterat ljud tillgängligt. Vi tillhandahåller en tjänst (beta) via den anpassade röst portalen som hjälper dig att segmentera långa ljudfiler och skapa avskrifter. Kom ihåg att den här tjänsten kommer att debiteras mot din prenumerations användning för tal till text.
+I vissa fall kanske du inte har segmenterat ljud tillgängligt. Vi tillhandahåller en tjänst (beta) via den anpassade röstportalen som hjälper dig att segmentera långa ljudfiler och skapa transkriptioner. Tänk på att den här tjänsten debiteras mot din tal-till-text-prenumerationsanvändning.
 
 > [!NOTE]
-> Tjänsten för tjänst för lång ljuds segmentering använder funktionen för batch-avskrifter i tal-till-text, som endast stöder S0-användare (standard prenumeration). Under bearbetningen av segmentering skickas ljudfiler och avskrifter också till Custom Speech tjänsten för att förfina igenkännings modellen så att precisionen kan förbättras för dina data. Inga data kommer att behållas under den här processen. När segmenteringen är färdig lagras endast yttranden segmenterad och deras mappnings avskrifter för hämtning och träning.
+> Tjänsten för segmentering av långa ljud utnyttjar batch-transkriptionsfunktionen i tal-till-text, som endast stöder S0-användare (Standard subscription). Under bearbetningen av segmenteringen skickas även dina ljudfiler och transkriptioner till tjänsten Custom Speech för att förfina igenkänningsmodellen så att noggrannheten kan förbättras för dina data. Inga data kommer att lagras under den här processen. När segmenteringen är klar lagras endast yttranden som segmenterats och deras mappningsavskrifter för nedladdning och utbildning.
 
 ### <a name="audio-files"></a>Ljudfiler
 
-Följ dessa rikt linjer när du förbereder ljud för segmentering.
+Följ dessa riktlinjer när du förbereder ljud för segmentering.
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | RIFF (. wav) med en samplings frekvens på minst 16 kHz – 16-bitars i PCM eller. mp3 med en bit hastighet på minst 256 kbit/s, grupperad i en. zip-fil |
-| Filnamn | ASCII-och Unicode-tecken stöds. Dubbla namn tillåts inte. |
-| Ljud längd | Längre än 20 sekunder |
-| Arkiv format | .zip |
-| Maximal Arkiv storlek | 2048 MB |
+| Filformat | RIFF (.wav) med en samplingsfrekvens på minst 16 khz-16-bitars i PCM eller .mp3 med en bithastighet på minst 256 KBps, grupperad i en ZIP-fil |
+| Filnamn | ASCII- och Unicode-tecken stöds. Inga dubblettnamn tillåts. |
+| Ljudlängd | Längre än 20 sekunder |
+| Arkivformat | .zip |
+| Maximal arkivstorlek | 2048 MB |
 
-Alla ljudfiler ska grupperas i en zip-fil. Det är OK att skicka WAV-filer och. mp3-filer till ett enda ljud-zip. Du kan till exempel Ladda upp en zip-fil som innehåller en ljudfil med namnet "kingstory. wav", 45-Second-Long och ett annat ljud med namnet "queenstory. mp3", 200-sekund-lång. Alla. mp3-filer omvandlas till. wav-formatet efter bearbetning.
+Alla ljudfiler ska grupperas i en zip-fil. Det är OK att sätta .wav-filer och .mp3-filer i en ljud zip. Du kan till exempel ladda upp en zip-fil som innehåller en ljudfil med namnet "kingstory.wav", 45 sekunder lång och ett annat ljud med namnet "queenstory.mp3", 200 sekunder lång. Alla .mp3-filer omvandlas till WAV-formatet efter bearbetningen.
 
-### <a name="transcripts"></a>Avskrifter
+### <a name="transcripts"></a>Utskrifter
 
-Avskrifter måste förberedas enligt de specifikationer som anges i den här tabellen. Varje ljudfil måste matchas med en avskrift.
+Avskrifter måste vara beredda att de specifikationer som anges i denna tabell. Varje ljudfil måste matchas med en utskrift.
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | Oformaterad text (. txt), grupperad i en. zip |
-| Filnamn | Använd samma namn som den matchande ljud filen |
-| Kodnings format | UTF-8-endast struktur |
-| antal yttrande per rad | Obegränsat |
+| Filformat | Oformaterad text (.txt), grupperad i en .zip |
+| Filnamn | Använda samma namn som den matchande ljudfilen |
+| Kodningsformat | ENDAST UTF-8-STRUKTUR |
+| antal yttrande per rad | Obegränsad |
 | Maximal filstorlek | 2048 MB |
 
-Alla avskrifts filer i den här data typen ska grupperas i en zip-fil. Du har till exempel laddat upp en zip-fil som innehåller en ljudfil med namnet "kingstory. wav", 45 sekunder och en annan med namnet "queenstory. mp3", 200 sekunder lång. Du måste ladda upp en annan zip-fil som innehåller två avskrifter, en med namnet "kingstory. txt", den andra som är queenstory. txt. I varje oformaterad textfil kommer du att ange en fullständig korrekt avskrift för det matchande ljudet.
+Alla transkriptionsfiler i den här datatypen ska grupperas i en zip-fil. Till exempel har du laddat upp en zip-fil som innehåller en ljudfil med namnet "kingstory.wav", 45 sekunder lång, och en annan som heter "queenstory.mp3", 200 sekunder lång. Du måste ladda upp en annan zip-fil som innehåller två avskrifter, en som heter "kingstory.txt", den andra en "queenstory.txt". I varje oformaterad textfil kommer du att tillhandahålla den fullständiga korrekta transkriptionen för det matchande ljudet.
 
-När din data uppsättning har laddats upp hjälper vi dig att segmentera ljud filen i yttranden baserat på avskriften. Du kan kontrol lera de segmenterade yttranden och de matchande avskrifterna genom att hämta data uppsättningen. Unika ID: n tilldelas automatiskt till segmentets yttranden. Det är viktigt att du ser till att avskrifterna du anger är 100% korrekta. Fel i avskrifterna kan minska noggrannheten under ljud segmentering och ger ytterligare kvalitets förluster i den utbildnings fas som kommer senare.
+När din datauppsättning har laddats upp hjälper vi dig att segmentera ljudfilen i yttranden baserat på den utskrift som tillhandahålls. Du kan kontrollera de segmenterade yttrandena och de matchande transkriptionerna genom att hämta datauppsättningen. Unika ID:n tilldelas automatiskt till segmenterade yttranden. Det är viktigt att du ser till att de utskrifter du anger är 100% korrekta. Fel i transkriptionerna kan minska noggrannheten under ljudsegmenteringen och ytterligare införa kvalitetsförlust i träningsfasen som kommer senare.
 
 ## <a name="audio-only-beta"></a>Endast ljud (beta)
 
-Om du inte har avskrifter för ljud inspelningar använder du alternativet **endast ljud** för att ladda upp dina data. Vårt system kan hjälpa dig att segmentera och skriva av ljudfiler. Tänk på att den här tjänsten kommer att räknas mot din prenumerations användning från tal till text.
+Om du inte har transkriptioner för dina ljudinspelningar använder du alternativet **Endast ljud** för att ladda upp dina data. Vårt system kan hjälpa dig att segmentera och transkribera dina ljudfiler. Tänk på att den här tjänsten räknas in i prenumerationsanvändningen för tal till text.
 
-Följ dessa rikt linjer när du förbereder ljud.
+Följ dessa riktlinjer när du förbereder ljud.
 
 > [!NOTE]
-> Tjänsten för tjänst för lång ljuds segmentering använder funktionen för batch-avskrifter i tal-till-text, som endast stöder S0-användare (standard prenumeration).
+> Tjänsten för segmentering av långa ljud utnyttjar batch-transkriptionsfunktionen i tal-till-text, som endast stöder S0-användare (Standard subscription).
 
 | Egenskap | Värde |
 | -------- | ----- |
-| Fil format | RIFF (. wav) med en samplings frekvens på minst 16 kHz – 16-bitars i PCM eller. mp3 med en bit hastighet på minst 256 kbit/s, grupperad i en. zip-fil |
-| Filnamn | ASCII-och Unicode-tecken stöds. Inget dubblettnamn tillåts. |
-| Ljud längd | Längre än 20 sekunder |
-| Arkiv format | .zip |
-| Maximal Arkiv storlek | 2048 MB |
+| Filformat | RIFF (.wav) med en samplingsfrekvens på minst 16 khz-16-bitars i PCM eller .mp3 med en bithastighet på minst 256 KBps, grupperad i en ZIP-fil |
+| Filnamn | ASCII- och Unicode-tecken stöds. Inget dubblettnamn tillåts. |
+| Ljudlängd | Längre än 20 sekunder |
+| Arkivformat | .zip |
+| Maximal arkivstorlek | 2048 MB |
 
-Alla ljudfiler ska grupperas i en zip-fil. När din data uppsättning har laddats upp kommer vi att hjälpa dig att segmentera ljud filen i yttranden baserat på vår Speech batch avskrifting-tjänst. Unika ID: n tilldelas automatiskt till segmentets yttranden. Matchande avskrifter genereras genom tal igenkänning. Alla. mp3-filer omvandlas till. wav-formatet efter bearbetning. Du kan kontrol lera de segmenterade yttranden och de matchande avskrifterna genom att hämta data uppsättningen.
+Alla ljudfiler ska grupperas i en zip-fil. När din datauppsättning har laddats upp hjälper vi dig att segmentera ljudfilen i yttranden baserat på vår utskriftstjänst för talbatchen. Unika ID:n tilldelas automatiskt till segmenterade yttranden. Matchande avskrifter genereras genom taligenkänning. Alla .mp3-filer omvandlas till WAV-formatet efter bearbetningen. Du kan kontrollera de segmenterade yttrandena och de matchande transkriptionerna genom att hämta datauppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en anpassad röst](how-to-custom-voice-create-voice.md)
-- [Guide: spela in dina röst exempel](record-custom-voice-samples.md)
+- [Guide: Spela in dina röstexempel](record-custom-voice-samples.md)

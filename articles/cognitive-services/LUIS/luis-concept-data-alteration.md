@@ -1,41 +1,41 @@
 ---
-title: Data ändring – LUIS
-description: Lär dig hur data kan ändras innan förutsägelser i Språkförståelse (LUIS)
+title: Dataändring - LUIS
+description: Lär dig hur data kan ändras före förutsägelser i Språkförståelse (LUIS)
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: 5547724a6333d248a7ba4e9aeecaaa8f331feb7d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: b3b36351a64a4e1a0bd13d5785a4e0609a80901d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79221099"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292066"
 ---
-# <a name="alter-utterance-data-before-or-during-prediction"></a>Ändra uttryck data före eller under förutsägelse
-LUIS innehåller olika sätt att manipulera uttryck före eller under förutsägelser. Detta inkluderar att [åtgärda stavnings](luis-tutorial-bing-spellcheck.md)-och åtgärda tids zons problem för färdiga [datetimeV2](luis-reference-prebuilt-datetimev2.md).
+# <a name="alter-utterance-data-before-or-during-prediction"></a>Ändra uttrycksdata före eller under förutsägelse
+LUIS tillhandahåller sätt att manipulera uttryck före eller under förutsägelsen. Dessa inkluderar [fastställande stavning](luis-tutorial-bing-spellcheck.md), och fastställande tidszon frågor för fördefinierade [datetimeV2](luis-reference-prebuilt-datetimev2.md).
 
-## <a name="correct-spelling-errors-in-utterance"></a>Rätta stavfel i uttryck
+## <a name="correct-spelling-errors-in-utterance"></a>Korrigera stavfel i uttryck
 
 
 ### <a name="v3-runtime"></a>V3-körning
 
-Förbearbeta text för stavnings korrigeringar innan du skickar uttryck till LUIS. Använd exempel yttranden med rätt stavning för att se till att du får rätt förutsägelser.
+Förbehandla text för stavningskorrigeringar innan du skickar uttrycket till LUIS. Använd exempelyttranden med rätt stavning för att se till att du får rätt förutsägelser.
 
-Använd [stavningskontroll i Bing](../bing-spell-check/overview.md) för att korrigera text innan du skickar den till Luis.
+Använd Stavningskontroll i [Bing](../bing-spell-check/overview.md) för att korrigera text innan du skickar den till LUIS.
 
-### <a name="prior-to-v3-runtime"></a>Före v3-körning
+### <a name="prior-to-v3-runtime"></a>Före V3-körning
 
-LUIS använder [API för stavningskontroll i Bing v7](../Bing-Spell-Check/overview.md) för att korrigera stavfel i uttryck. LUIS måste den nyckel som associeras med den tjänsten. Skapa nyckeln och Lägg sedan till nyckeln som en QueryString-parameter i [slut punkten](https://go.microsoft.com/fwlink/?linkid=2092356).
+LUIS använder [Bing Spell Check API V7](../Bing-Spell-Check/overview.md) för att korrigera stavfel i uttryck. LUIS behöver nyckeln som är associerad med den tjänsten. Skapa nyckeln och lägg sedan till nyckeln som frågeparameter vid [slutpunkten](https://go.microsoft.com/fwlink/?linkid=2092356).
 
-Slutpunkten kräver två parametrar för stavningskorrigeringar ska fungera:
+Slutpunkten kräver två params för stavningskorrigeringar för att fungera:
 
 |Param|Värde|
 |--|--|
 |`spellCheck`|boolean|
-|`bing-spell-check-subscription-key`|[API för stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) slut punkts nyckel för v7|
+|`bing-spell-check-subscription-key`|[Bing Stavningskontroll API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) slutpunkt nyckel|
 
-När [API för stavningskontroll i Bing v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) identifierar ett fel returneras den ursprungliga uttryck och de korrigerade uttryck returneras tillsammans med förutsägelser från slut punkten.
+När [Bing Stavningskontroll API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) upptäcker ett fel returneras det ursprungliga uttrycket och den korrigerade uttrycket tillsammans med förutsägelser från slutpunkten.
 
-#### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[V2-effektpunktssvar för förutsägelse](#tab/V2)
 
 ```JSON
 {
@@ -49,7 +49,7 @@ När [API för stavningskontroll i Bing v7](https://azure.microsoft.com/services
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[V3-effektslutpunktssvar för förutsägelse](#tab/V3)
 
 ```JSON
 {
@@ -70,47 +70,47 @@ När [API för stavningskontroll i Bing v7](https://azure.microsoft.com/services
 * * *
 
 ### <a name="list-of-allowed-words"></a>Lista över tillåtna ord
-Stavnings kontrolls-API: t för Bing som används i LUIS stöder inte en lista över ord som ska ignoreras under stavnings kontrollen. Om du behöver tillåta en lista över ord eller akronymer, bearbetar du uttryck i klient programmet innan du skickar uttryck till LUIS för avsikts förutsägelse.
+API:et för stavningskontroll av Bing som används i LUIS stöder inte en lista med ord som ska ignoreras vid ändringar av stavningskontroll. Om du behöver tillåta en lista med ord eller förkortningar bearbetar du uttrycket i klientprogrammet innan yttrandet skickas till LUIS för avsiktsförutsägelse.
 
-## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Ändra tidszonen för fördefinierade datetimeV2 entitet
-När en LUIS-app använder den fördefinierade [datetimeV2](luis-reference-prebuilt-datetimev2.md) -entiteten kan ett datetime-värde returneras i förutsägelse svaret. Tidszonen för begäran används för att fastställa rätt datum/tid att returnera. Om förfrågan kommer från en bot eller ett annat centraliserad program innan du kommer till LUIS, korrigera tidszonen LUIS använder.
+## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Ändra tidszon för fördefinierad datetimeV2-entitet
+När en LUIS-app använder den fördefinierade [datetimeV2-entiteten](luis-reference-prebuilt-datetimev2.md) kan ett datetime-värde returneras i förutsägelsesvaret. Tidszonen för begäran används för att bestämma rätt datumtid att returnera. Om begäran kommer från en bot eller ett annat centraliserat program innan du kommer till LUIS korrigerar du tidszonen SOM LUIS använder.
 
-### <a name="endpoint-querystring-parameter"></a>Frågeparametern slutpunkt
-Tids zonen korrigeras genom att lägga till användarens tidszon till [slut punkten](https://go.microsoft.com/fwlink/?linkid=2092356) med hjälp av `timezoneOffset` param. Värdet för `timezoneOffset` ska vara ett positivt eller negativt tal, i minuter, för att ändra tiden.
+### <a name="endpoint-querystring-parameter"></a>Parameter för slutpunktsfrågesträngning
+Tidszonen korrigeras genom att användarens tidszon läggs till i `timezoneOffset` [slutpunkten](https://go.microsoft.com/fwlink/?linkid=2092356) med hjälp av param. Värdet av `timezoneOffset` bör vara det positiva eller negativa talet, i minuter, för att ändra tiden.
 
 |Param|Värde|
 |--|--|
-|`timezoneOffset`|positivt eller negativt tal på bara några minuter|
+|`timezoneOffset`|positivt eller negativt tal, i minuter|
 
-### <a name="daylight-savings-example"></a>Sommartid besparingar exempel
-Om du behöver den returnerade förskapade datetimeV2 för att justera för sommar tid, bör du använda parametern `timezoneOffset` QueryString med ett +/-värde i minuter för [slut punkts](https://go.microsoft.com/fwlink/?linkid=2092356) frågan.
+### <a name="daylight-savings-example"></a>Exempel på sommartid
+Om du behöver den returnerade fördefinierade datetimeV2 för att justera `timezoneOffset` för sommartid, bör du använda frågesträngparametern med ett +/- värde i minuter för [slutpunktsfrågan.](https://go.microsoft.com/fwlink/?linkid=2092356)
 
-#### <a name="v2-prediction-endpoint-request"></a>[V2-begäran om slut punkts förutsägelse](#tab/V2)
-
-Lägg till 60 minuter:
-
-https://{region}. API. kognitiv. Microsoft. com/Luis/v 2.0/Apps/{appId}? q = sätt ljuset på? **timezoneOffset = 60**& verbose = {boolean} & stavnings kontroll = {boolean} & mellanlagring = {boolean} & Bing-stavning-check-prenumeration-nyckel = {string} & logg = {Boolean}
-
-Ta bort 60 minuter:
-
-https://{region}. API. kognitiv. Microsoft. com/Luis/v 2.0/Apps/{appId}? q = sätt ljuset på? **timezoneOffset =-60**& verbose = {boolean} & stavnings kontroll = {boolean} & mellanlagring = {boolean} & Bing-stavning-check-prenumeration-nyckel = {string} & logg = {Boolean}
-
-#### <a name="v3-prediction-endpoint-request"></a>[V3 förutsägelse slut punkts förfrågan](#tab/V3)
+#### <a name="v2-prediction-endpoint-request"></a>[V2-begäran om förutsägelseslutpunkt](#tab/V2)
 
 Lägg till 60 minuter:
 
-https://{region}. API. kognitivt. Microsoft. com/Luis/v 3.0 – för hands version/appar/{appId}/platser/produktion/förutsägelse? fråga = aktivera indikeringarna? **timezoneOffset = 60**& stavnings kontroll = {boolean} & Bing-stavning-check-prenumeration-nyckel = {string} & logg = {Boolean}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
 Ta bort 60 minuter:
 
-https://{region}. API. kognitivt. Microsoft. com/Luis/v 3.0 – för hands version/appar/{appId}/platser/produktion/förutsägelse? fråga = aktivera indikeringarna? **timezoneOffset =-60**& stavnings kontroll = {boolean} & Bing-stavning-check-prenumeration-nyckel = {string} & logg = {Boolean}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
 
-Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+#### <a name="v3-prediction-endpoint-request"></a>[V3-begäran om för förutsägelseslutpunkt](#tab/V3)
+
+Lägg till 60 minuter:
+
+`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+
+Ta bort 60 minuter:
+
+`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}`
+
+Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
 
 * * *
 
-## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C#-kod anger rätt värde för timezoneOffset
-I följande C# kod används [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) -klassens [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) -metod för att fastställa rätt `timezoneOffset` baserat på system tid:
+## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C#-koden bestämmer rätt värde för tidszonOffset
+Följande C#-kod använder [klassen TimeZoneInfo-klassens](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) [FindSystemTimeZoneById-metod](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) för att fastställa rätt `timezoneOffset` baserat på systemtid:
 
 ```csharp
 // Get CST zone id
@@ -129,4 +129,4 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Korrigera stavfel i den här självstudien](luis-tutorial-bing-spellcheck.md)
+> [Korrigera stavfel med den här självstudien](luis-tutorial-bing-spellcheck.md)

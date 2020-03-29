@@ -1,7 +1,7 @@
 ---
-title: Dokumentation om Swagger-tal service
+title: Swagger dokumentation - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: 'Swagger-dokumentationen kan användas för att automatiskt generera SDK: er för ett antal programmeringsspråk. Alla åtgärder i vår tjänst stöds av Swagger'
+description: Swagger-dokumentationen kan användas för att automatiskt generera SDK:er för ett antal programmeringsspråk. All verksamhet i vår tjänst stöds av Swagger
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,40 +11,40 @@ ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77430813"
 ---
 # <a name="swagger-documentation"></a>Dokumentation om Swagger
 
-Tal tjänsten erbjuder en Swagger-specifikation för att interagera med en fåtal av REST-API: er som används för att importera data, skapa modeller, testa modell precision, skapa anpassade slut punkter, köa batch-avskrifter och hantera prenumerationer. De flesta åtgärder som är tillgängliga via Custom Speech Portal kan slutföras via programmering med dessa API: er.
+Taltjänsten erbjuder en Swagger-specifikation för att interagera med en handfull REST-API:er som används för att importera data, skapa modeller, testa modellnoggrannhet, skapa anpassade slutpunkter, köa batchavskrifter och hantera prenumerationer. De flesta åtgärder som är tillgängliga via portalen Anpassat tal kan slutföras programmässigt med hjälp av dessa API:er.
 
 > [!NOTE]
-> Både tal-till-text-och text till tal-åtgärder stöds tillgängliga som REST-API: er, som i sin tur dokumenteras i Swagger-specifikationen.
+> Både Tal-till-text- och text-till-tal-åtgärder stöds som REST-API:er, vilket i sin tur dokumenteras i Swagger-specifikationen.
 
 ## <a name="generating-code-from-the-swagger-specification"></a>Generera kod från Swagger-specifikationen
 
-[Swagger-specifikationen](https://cris.ai/swagger/ui/index) har alternativ som gör att du snabbt kan testa olika sökvägar. Ibland är det dock önskvärt att generera kod för alla sökvägar och skapa ett enda bibliotek med anrop som du kan basera framtida lösningar på. Låt oss ta en titt på processen för att skapa ett Python-bibliotek.
+[Swagger-specifikationen](https://cris.ai/swagger/ui/index) har alternativ som gör att du snabbt kan testa för olika banor. Men ibland är det önskvärt att generera kod för alla sökvägar, skapa ett enda bibliotek med anrop som du kan basera framtida lösningar på. Låt oss ta en titt på processen för att generera ett Python-bibliotek.
 
-Du måste ange Swagger till samma region som din röst tjänst prenumeration. Du kan bekräfta din region i Azure Portal under din röst tjänst resurs. En fullständig lista över regioner som stöds finns i [regioner](regions.md).
+Du måste ange Swagger till samma region som din taltjänstprenumeration. Du kan bekräfta din region i Azure-portalen under din taltjänstresurs. En fullständig lista över regioner som stöds finns i [regioner](regions.md).
 
 1. Gå till https://editor.swagger.io
 2. Klicka på **Arkiv**och sedan på **Importera**
-3. Ange Swagger-URL, inklusive regionen för din prenumerations tjänst prenumeration `https://<your-region>.cris.ai/docs/v2.0/swagger`
-4. Klicka på **generera klient** och välj python
-5. Spara klient biblioteket
+3. Ange swagger-URL:en, inklusive regionen för din taltjänstprenumeration`https://<your-region>.cris.ai/docs/v2.0/swagger`
+4. Klicka på **Generera klient** och välj Python
+5. Spara klientbiblioteket
 
-Du kan använda python-biblioteket som du genererade med [tal tjänst exemplen på GitHub](https://aka.ms/csspeech/samples).
+Du kan använda Python-biblioteket som du genererade med [taltjänstexemplen på GitHub](https://aka.ms/csspeech/samples).
 
-## <a name="reference-docs"></a>Referens dokument
+## <a name="reference-docs"></a>Referensdokument
 
-* [REST (Swagger): batch-avskrift och anpassning](https://westus.cris.ai/swagger/ui/index)
-* [REST API: tal till text](rest-speech-to-text.md)
-* [REST API: text till tal](rest-text-to-speech.md)
+* [REST (Swagger): Batch transkription och anpassning](https://westus.cris.ai/swagger/ui/index)
+* [REST API: Tal-till-text](rest-speech-to-text.md)
+* [REST API: Text-till-tal](rest-text-to-speech.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Tal tjänst exempel på GitHub](https://aka.ms/csspeech/samples).
-* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+* [Exempel på taltjänst på GitHub](https://aka.ms/csspeech/samples).
+* [Skaffa en prenumerationsnyckel för taltjänsten gratis](get-started.md)

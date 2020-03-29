@@ -1,7 +1,7 @@
 ---
-title: Koncept för tal-SDK ljud indata strömmar
+title: Tal SDK-ljudinmatningsströmsbegrepp
 titleSuffix: Azure Cognitive Services
-description: 'En översikt över funktionerna i API: t för tal SDK: s ljud inspelnings ström.'
+description: En översikt över funktionerna i Speech SDK:s API för ljudinmatningsström.
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74109946"
 ---
-# <a name="about-the-speech-sdk-audio-input-stream-api"></a>Om API för tal-SDK ljud inspelnings ström
+# <a name="about-the-speech-sdk-audio-input-stream-api"></a>Om API:et för ljudinmatningsström för Tal SDK
 
-API: t för tal-SDK är ett sätt att strömma ljud till igenkännings funktionen i stället för att använda antingen mikrofonen eller indatafil **-API:** erna.
+Speech SDK:s **API för ljudinmatningsström** är ett sätt att strömma ljud till kännenheterna i stället för att använda antingen mikrofonen eller API:erna för indatafilen.
 
-Följande steg krävs när du använder ljud inspelnings strömmar:
+Följande steg krävs när du använder ljudingångsströmmar:
 
-- Identifiera formatet för ljud strömmen. Formatet måste stödjas av talet SDK och tal tjänsten. För närvarande stöds endast följande konfiguration:
+- Identifiera formatet på ljudströmmen. Formatet måste stödjas av tal-SDK och taltjänsten. För närvarande stöds endast följande konfiguration:
 
-  Ljud exempel i PCM-format, en kanal, 16000 sampel per sekund, 32000 byte per sekund, två block justera (16 bitar, inklusive utfyllnad för ett exempel), 16 bitar per sampel.
+  Ljudexempel i PCM-format, en kanal, 16000 samplingar per sekund, 32000 byte per sekund, två blockjustering (16 bitar inklusive utfyllnad för ett prov), 16 bitar per prov.
 
-  Motsvarande kod i SDK: n för att skapa ljud formatet ser ut så här:
+  Motsvarande kod i SDK för att skapa ljudformatet ser ut så här:
 
   ```csharp
   byte channels = 1;
@@ -36,9 +36,9 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Kontrol lera att din kod kan tillhandahålla rå ljuddata enligt dessa specifikationer. Om dina ljud käll data inte matchar de format som stöds måste ljudet kodas till det format som krävs.
+- Se till att koden kan tillhandahålla RAW-ljuddata enligt dessa specifikationer. Om ljudkällans data inte matchar formaten som stöds måste ljudet kodas om till önskat format.
 
-- Skapa din egen klass för ljud indata-Stream härledda från `PullAudioInputStreamCallback`. Implementera `Read()` och `Close()` medlemmar. Den exakta funktions signaturen är språk beroende, men koden kommer att se ut ungefär som i det här kod exemplet:
+- Skapa din egen ljudinmatningsströmsklass som härleds från `PullAudioInputStreamCallback`. Genomföra `Read()` och `Close()` medlemmar. Den exakta funktionssignaturen är språkberoende, men koden liknar det här kodexemplet:
 
   ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
@@ -59,7 +59,7 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
    };
   ```
 
-- Skapa en ljud konfiguration baserat på ditt ljud format och en indataströmmen. Skicka både din vanliga tal konfiguration och konfigurationen av ljud indata när du skapar din tolk. Exempel:
+- Skapa en ljudkonfiguration baserat på ljudformat och inmatningsström. Passera både din vanliga talkonfiguration och ljudinmatningskonfigurationen när du skapar din identifierare. Ett exempel:
 
   ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
@@ -76,4 +76,4 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Se hur du kan känna igen tal i C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Se hur du känner igen tal i C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

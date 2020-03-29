@@ -1,7 +1,7 @@
 ---
-title: Så här uppfyller du kommandon från en klient med talet SDK
+title: Så här uppfyller du kommandon från en klient med Tal-SDK
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln förklarar vi hur du hanterar anpassade kommando aktiviteter på en klient med tal-SDK.
+description: I den här artikeln förklarar vi hur du hanterar anpassade kommandon aktiviteter på en klient med Tal SDK.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,52 +11,52 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: donkim
 ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79367757"
 ---
-# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Utföra kommandon från en klient med talet SDK (för hands version)
+# <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Uppfylla kommandon från en klient med Tal-SDK (förhandsversion)
 
-För att slutföra uppgifter med hjälp av ett anpassat kommando program kan du skicka anpassade nytto laster till en ansluten klient enhet.
+Om du vill slutföra uppgifter med hjälp av ett program för anpassade kommandon kan du skicka anpassade nyttolaster till en ansluten klientenhet.
 
-I den här artikeln får du:
+I den här artikeln ska du:
 
-- Definiera och skicka en anpassad JSON-nyttolast från programmet för anpassade kommandon
-- Ta emot och visualisera det anpassade JSON-nyttolasten C# från ett UWP-program för tal-SDK
+- Definiera och skicka en anpassad JSON-nyttolast från ditt program för anpassade kommandon
+- Ta emot och visualisera det anpassade JSON-nyttolastens innehåll från ett C# UWP Speech SDK-klientprogram
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- En Azure-prenumerations nyckel för tal service
-  - [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
-- En tidigare skapad app med anpassade kommandon
-  - [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
-- Ett klient program som är kompatibla med Speech SDK
-  - [Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)](./quickstart-custom-speech-commands-speech-sdk.md)
+- En Azure-prenumerationsnyckel för Tal-tjänst
+  - [Skaffa en gratis](get-started.md) eller skapa den på [Azure-portalen](https://portal.azure.com)
+- En tidigare skapad app för anpassade kommandon
+  - [Snabbstart: Skapa ett anpassat kommando med parametrar (förhandsgranskning)](./quickstart-custom-speech-commands-create-parameters.md)
+- Ett Speech SDK-aktiverat klientprogram
+  - [Snabbstart: Ansluta till ett anpassat kommandoprogram med Tal-SDK (förhandsversion)](./quickstart-custom-speech-commands-speech-sdk.md)
 
-## <a name="optional-get-started-fast"></a>Valfritt: kom igång snabbt
+## <a name="optional-get-started-fast"></a>Valfritt: Kom igång snabbt
 
-I den här artikeln beskrivs steg för steg hur du gör ett klient program att prata med dina anpassade kommandon. Om du föredrar att använda den fullständiga käll koden som är färdig att kompilera som används i den här artikeln finns i exempel på tal- [SDK](https://aka.ms/csspeech/samples).
+I den här artikeln beskrivs steg för steg hur du gör ett klientprogram för att prata med ditt program för anpassade kommandon. Om du föredrar att dyka rätt i, den kompletta, färdiga att kompilera källkod som används i den här artikeln finns i [Tal SDK-exemplen](https://aka.ms/csspeech/samples).
 
-## <a name="fulfill-with-json-payload"></a>Uppfylla med JSON-nyttolast
+## <a name="fulfill-with-json-payload"></a>Uppfylla med JSON nyttolast
 
-1. Öppna ditt tidigare skapade program för anpassade kommandon från [tal Studio](https://speech.microsoft.com/)
-1. Kontrol lera att du har den tidigare skapade regeln som svarar på användaren genom att titta i avsnittet **regler för slut för ande** .
-1. Om du vill skicka en nytto Last direkt till klienten skapar du en ny regel med åtgärden skicka aktivitet
+1. Öppna ditt tidigare skapade program för anpassade kommandon från [Talstudion](https://speech.microsoft.com/)
+1. Kontrollera avsnittet **Slutföranderegler** för att se till att du har den tidigare skapade regeln som svarar tillbaka till användaren
+1. Om du vill skicka en nyttolast direkt till klienten skapar du en ny regel med åtgärden Skicka aktivitet
 
    > [!div class="mx-imgBorder"]
-   > ![skicka regel för slut för ande av aktivitet](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
+   > ![Regel för slutförande av aktivitet](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
    | Inställning | Föreslaget värde | Beskrivning |
    | ------- | --------------- | ----------- |
    | Regelnamn | UpdateDeviceState | Ett namn som beskriver syftet med regeln |
-   | Villkor | Obligatorisk parameter – `OnOff` och `SubjectDevice` | Villkor som avgör när regeln kan köras |
-   | Åtgärder | `SendActivity` (se nedan) | Den åtgärd som ska vidtas när regel villkoret är sant |
+   | Villkor | Obligatorisk parameter `OnOff` - och`SubjectDevice` | Villkor som avgör när regeln kan köras |
+   | Åtgärder | `SendActivity`(se nedan) | Åtgärden som ska vidtas när regelvillkoret är sant |
 
    > [!div class="mx-imgBorder"]
-   > ![skicka](media/custom-speech-commands/fulfill-sdk-send-activity-action.png) för aktivitets nytto Last
+   > ![Skicka aktivitetsnyttolast](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
    ```json
    {
@@ -67,11 +67,11 @@ I den här artikeln beskrivs steg för steg hur du gör ett klient program att p
    }
    ```
 
-## <a name="create-visuals-for-device-on-or-off-state"></a>Skapa visuella objekt för enhet på eller av-tillstånd
+## <a name="create-visuals-for-device-on-or-off-state"></a>Skapa visuella objekt för enheten på eller utanför läget
 
-I [snabb start: Anslut till ett anpassat kommando program med talet SDK (för hands version) du har](./quickstart-custom-speech-commands-speech-sdk.md) skapat ett program för tal-SDK-klient som hanterade kommandon, till exempel `turn on the tv`, `turn off the fan`. Nu kan du lägga till visuella objekt så att du kan se resultatet av dessa kommandon.
+I [Snabbstart: Anslut till ett anpassat kommandoprogram med tal-SDK (förhandsversion)](./quickstart-custom-speech-commands-speech-sdk.md) skapade du `turn on the tv`ett `turn off the fan`Speech SDK-klientprogram som hanterade kommandon som , . Lägg nu till några visuella objekt så att du kan se resultatet av dessa kommandon.
 
-Lägg till etiketterade rutor med text som visar **på** eller **av** med hjälp av följande XML tillagt i `MainPage.xaml.cs`
+Lägga till märkta rutor med text som anger **På** eller **Av** med hjälp av följande XML som lagts till i`MainPage.xaml.cs`
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
@@ -90,14 +90,14 @@ Lägg till etiketterade rutor med text som visar **på** eller **av** med hjälp
 </StackPanel>
 ```
 
-## <a name="handle-customizable-payload"></a>Hantera anpassningsbar nytto Last
+## <a name="handle-customizable-payload"></a>Hantera anpassningsbar nyttolast
 
-Nu när du har skapat en JSON-nyttolast kan du lägga till en referens i [JSON.net](https://www.newtonsoft.com/json) -biblioteket för att hantera deserialisering.
+Nu när du har skapat en JSON-nyttolast kan du lägga till en referens till [det JSON.NET](https://www.newtonsoft.com/json) biblioteket för att hantera avserialisering.
 
 > [!div class="mx-imgBorder"]
-> ![skicka](media/custom-speech-commands/fulfill-sdk-json-nuget.png) för aktivitets nytto Last
+> ![Skicka aktivitetsnyttolast](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
-I `InitializeDialogServiceConnector` lägger du till följande i `ActivityReceived` händelse hanteraren. Den ytterligare koden extraherar nytto lasten från aktiviteten och ändrar det visuella läget för TV: n eller fläkten på motsvarande sätt.
+Lägg `InitializeDialogServiceConnector` till följande `ActivityReceived` i händelsehanteraren. Den extra koden kommer att extrahera nyttolasten från aktiviteten och ändra det visuella tillståndet för TV eller fläkt i enlighet med detta.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -135,11 +135,11 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 
 1. Starta programmet
 1. Välj Aktivera mikrofon
-1. Välj knappen prata
-1. Säg `turn on the tv`
-1. TV-apparatens visuella tillstånd ska ändras till "på"
+1. Välj knappen Samtal
+1. Säga`turn on the tv`
+1. Tv:ns visuella tillstånd ska ändras till "På"
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Gör så här: Lägg till valideringar i anpassade kommando parametrar (för hands version)](./how-to-custom-speech-commands-validations.md)
+> [Så här lägger du till valideringar i parametrar för anpassat kommando (förhandsgranskning)](./how-to-custom-speech-commands-validations.md)

@@ -1,7 +1,7 @@
 ---
-title: Förutsägelse resultat – LUIS
+title: Förutsägelse poäng - LUIS
 titleSuffix: Azure Cognitive Services
-description: Ett förutsägelse Poäng visar graden av exakthet som LUIS-API-tjänsten har för förutsägelse resultat baserat på en användares uttryck.
+description: En förutsägelsepoäng anger graden av förtroende som LUIS API-tjänsten har för förutsägelseresultat, baserat på ett användarutseende.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,72 +12,72 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74280815"
 ---
-# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Förutsägelse poängen visar förutsägelse noggrannhet för avsikt och entiteter
+# <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Förutsägelsepoäng indikerar förutsägelsenoggrannhet för avsikt och entiteter
 
-Ett förutsägelse Poäng visar graden av Tillförlitlighets LUIS som har förutsägelse resultat för en användares uttryck.
+En förutsägelsepoäng anger graden av förtroende LUIS har för förutsägelseresultat av ett användarutseende.
 
-En förutsägelse poäng är mellan noll (0) och en (1). Ett exempel på en mycket säker på LUIS-poäng är 0,99. Ett exempel på en poäng med låg säkerhet är 0,01. 
+En förutsägelsepoäng är mellan noll (0) och en (1). Ett exempel på en mycket säker LUIS poäng är 0,99. Ett exempel på ett poängv för lågt självförtroende är 0,01. 
 
-|Poäng värde|Confidence|
+|Poängvärde|Konfidensbedömning|
 |--|--|
-|1|visst matchning|
-|0,99|hög exakthet|
-|0,01|låg förtroende|
-|0|visst gick inte att matcha|
+|1|bestämd match|
+|0.99|högt förtroende|
+|0,01|lågt förtroende|
+|0|definitivt underlåtenhet att matcha|
 
-## <a name="top-scoring-intent"></a>TOP-bedömning avsikt
+## <a name="top-scoring-intent"></a>Avsikt med högsta poäng
 
-Varje uttryck förutsägelse returnerar en top-bedömning avsikt. Den här förutsägelsen är en numerisk jämförelse av förutsägelse poängen. 
+Varje uttryck förutsägelse returnerar en top-scoring avsikt. Denna förutsägelse är en numerisk jämförelse av förutsägelsepoäng. 
 
-## <a name="proximity-of-scores-to-each-other"></a>Närhet av poängen till varandra
+## <a name="proximity-of-scores-to-each-other"></a>Närhet av poäng till varandra
 
-De 2 främsta poängen kan ha en mycket liten skillnad mellan dem. LUIS indikerar inte det här avståndet, förutom att returnera det översta resultatet.  
+De 2 bästa poängen kan ha en mycket liten skillnad mellan dem. LUIS anger inte denna närhet annat än att returnera den högsta poängen.  
 
-## <a name="return-prediction-score-for-all-intents"></a>Returnera förutsägelse poäng för alla avsikter
+## <a name="return-prediction-score-for-all-intents"></a>Returnera förutsägelsepoäng för alla avsikter
 
-Ett test- eller slutpunkten resultat kan innehålla alla avsikter. Den här konfigurationen är inställd på slut punkten med rätt QueryString-namn/värde-par.
+Ett test- eller slutpunktsresultat kan innehålla alla avsikter. Den här konfigurationen anges på slutpunkten med rätt frågesträngnamn/värdepar.
 
-|Förutsägelse-API|QueryString-namn|
+|Förutsägelse-API|Namn på frågesträng|
 |--|--|
-|V3|`show-all-intents=true`|
+|V3 (på andra)|`show-all-intents=true`|
 |V2|`verbose=true`|
 
-## <a name="review-intents-with-similar-scores"></a>Granska avsikter med liknande resultat
+## <a name="review-intents-with-similar-scores"></a>Granska avsikter med liknande poäng
 
-Att granska poängen för alla avsikter är ett bra sätt att kontrol lera att det inte bara är rätt avsikt att identifiera, men att nästa identifierade avsikts resultat är betydligt och konsekvent lägre för yttranden.
+Granska poängen för alla avsikter är ett bra sätt att kontrollera att inte bara är rätt avsikt identifieras, men att nästa identifierade avsiktens poäng är betydligt och konsekvent lägre för yttranden.
 
-Om flera avsikter har Stäng förutsägelse resultat, baserat på kontexten för ett uttryck kan LUIS växla mellan avsikter. För att åtgärda den här situationen fortsätter du att lägga till yttranden till varje avsikt med en större mängd olika kontext skillnader eller så kan du ha klient programmet, t. ex. en chatt-robot, göra programmerings alternativ för hur du hanterar de två främsta intentarna.
+Om flera avsikter har nära förutsägelsepoäng, baserat på kontexten för ett uttryck, kan LUIS växla mellan avsikterna. För att åtgärda den här situationen, fortsätta att lägga till yttranden till varje avsikt med ett bredare utbud av kontextuella skillnader eller så kan du ha klientprogrammet, till exempel en chattrobot, göra programmatiska val om hur du hanterar de två högsta avsikterna.
 
-2 avsikter, som är för nära resultat, kan inverteras på grund av **icke-deterministisk utbildning**. Den främsta poängen kan bli andra upp och att andra översta resultatet kan bli den första översta poängen. För att förhindra den här situationen lägger du till exempel yttranden i båda de två viktigaste intentarna för uttryck med ordet och kontexten som särskiljer 2 avsikter. Två avsikter ska ha om samma antal exempel yttranden. En tumregel för separering att förhindra invertering på grund av utbildning, är 15% skillnad i poäng.
+De 2 avsikter, som är alltför nära poäng, kan invertera på grund av **icke-deterministisk utbildning**. Den översta poängen kan bli den andra toppen och den andra högsta poängen kan bli den första högsta poängen. För att förhindra den här situationen lägger du till exempelyttranden till var och en av de två främsta avsikterna för det uttrycket med ordval och kontext som skiljer de två avsikterna åt. De två avsikterna bör ha ungefär samma antal exempel yttranden. En tumregel för separation för att förhindra inversion på grund av träning, är en 15% skillnad i poäng.
 
-Du kan inaktivera **icke-deterministisk utbildning** genom att [träna med alla data](luis-how-to-train.md#train-with-all-data).
+Du kan stänga av den **icke-deterministiska träningen** genom [att träna med alla data](luis-how-to-train.md#train-with-all-data).
 
-## <a name="differences-with-predictions-between-different-training-sessions"></a>Skillnader med förutsägelser mellan olika utbildnings möten
+## <a name="differences-with-predictions-between-different-training-sessions"></a>Skillnader med förutsägelser mellan olika träningspass
 
-När du tränar samma modell i en annan app, och poängen inte är samma, beror det på att det finns en **icke-deterministisk utbildning** (ett element av slumpmässig het). För det andra innebär någon överlappning av ett uttryck till mer än en avsikt främsta syftet för samma uttryck kan ändras baserat på utbildning.
+När du tränar samma modell i en annan app, och poängen inte är desamma, beror den här skillnaden på att det finns **icke-deterministisk träning** (ett inslag av slumpmässighet). För det andra innebär varje överlappning av ett uttryck till mer än en avsikt att den översta avsikten för samma uttryck kan ändras baserat på utbildning.
 
-Om din chatt-robot kräver en viss LUIS Poäng för att tyda på en avsikt, bör du använda Poäng skillnaden mellan de två viktigaste. Den här situationen ger flexibilitet för variationer i träning.
+Om din chattrobot kräver en specifik LUIS-poäng för att indikera förtroende för en avsikt, bör du använda poängskillnaden mellan de två bästa avsikter. Denna situation ger flexibilitet för variationer i utbildning.
 
-Du kan inaktivera **icke-deterministisk utbildning** genom att [träna med alla data](luis-how-to-train.md#train-with-all-data).
+Du kan stänga av den **icke-deterministiska träningen** genom [att träna med alla data](luis-how-to-train.md#train-with-all-data).
 
-## <a name="e-exponent-notation"></a>E (exponent)-format
+## <a name="e-exponent-notation"></a>E (exponent) notation
 
-Förutsägelse resultat kan använda exponent notation, som _visas_ ovanför intervallet 0-1, till exempel `9.910309E-07`. Den här poängen är en indikation på ett mycket **litet** tal.
+Förutsägelsepoäng kan använda exponent notation, _som visas_ ovanför intervallet `9.910309E-07`0-1, till exempel . Denna poäng är en indikation på ett mycket **litet** antal.
 
-|E-notering poäng |Faktiska poäng|
+|E-notationspoäng |Faktiska poäng|
 |--|--|
 |9.910309E-07|.0000009910309|
 
 ## <a name="punctuation"></a>Skiljetecken
 
-[Lär dig mer](luis-concept-utterance.md#punctuation-marks) om hur du använder eller ignorerar interpunktion. 
+[Läs mer](luis-concept-utterance.md#punctuation-marks) om hur du använder eller ignorerar interpunktion. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [Lägg till entiteter](luis-how-to-add-entities.md) för att lära dig mer om hur du lägger till entiteter i Luis-appen.
+Se [Lägga till entiteter](luis-how-to-add-entities.md) om du vill veta mer om hur du lägger till entiteter i LUIS-appen.

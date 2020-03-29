@@ -1,7 +1,7 @@
 ---
-title: Röst assistenter – tal tjänst
+title: Röstassistenter - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: En översikt över funktionerna, funktionerna och begränsningarna för röst assistenter med hjälp av Speech Software Development Kit (SDK).
+description: En översikt över funktioner, funktioner och begränsningar för röstassistenter som använder Speech Software Development Kit (SDK).
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -11,83 +11,83 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
 ms.openlocfilehash: 9219c9a72ce9e1cfba3504b0b8e16ade77f8a5e5
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369904"
 ---
 # <a name="what-is-a-voice-assistant"></a>Vad är röstassistent?
 
-Röst assistenter som använder tal tjänsten gör det möjligt för utvecklare att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser.
+Röstassistenter som använder taltjänsten ger utvecklare möjlighet att skapa naturliga, människoliknande konversationsgränssnitt för sina program och upplevelser.
 
-Röst assistents tjänsten ger snabb, tillförlitlig interaktion mellan en enhet och en assistent implementering som använder antingen (1) bot-ramverkets direkta rad tal kanal eller (2) den integrerade anpassade kommando tjänsten (för hands version) för att slutföra uppgiften.
+Röstassistenttjänsten ger snabb och tillförlitlig interaktion mellan en enhet och en assistentimplementering som använder antingen (1) Bot Frameworks direct line speech-kanal eller (2) den integrerade tjänsten Custom Commands (Preview) för slutförande av uppgifter.
 
-Program ansluter till röst assistents tjänsten med Speech Software Development Kit (SDK).
+Program ansluter till röstassistenttjänsten med Speech Software Development Kit (SDK).
 
-   ![Koncept diagram för röst assistentens Dirigerings tjänst flöde](media/voice-assistants/overview.png "Röst assistent flödet")
+   ![Konceptuellt diagram över röstassistentens orkestreringsflöde](media/voice-assistants/overview.png "Röstassistentens flöde")
 
-## <a name="choosing-an-assistant-solution"></a>Välja en assistent lösning
+## <a name="choosing-an-assistant-solution"></a>Välja en assistentlösning
 
-Det första steget för att skapa en röst assistent är att bestämma vad det ska göra. Tal tjänsten innehåller flera, kompletterande lösningar för att utforma dina assistenters interaktioner. Oavsett om du vill ha flexibilitet och mångsidighet att den [direkta linjens tal](direct-line-speech.md) kanal i bot ramverket ger eller enklast [anpassade kommandon (för hands version)](custom-commands.md) för enkla scenarier kan du komma igång genom att välja rätt verktyg.
+Det första steget för att skapa en röstassistent är att bestämma vad den ska göra. Taltjänsten innehåller flera kompletterande lösningar för att skapa assistentinteraktioner. Oavsett om du vill ha den flexibilitet och mångsidighet som Bot Frameworks [direct line-talkanal](direct-line-speech.md) ger eller enkelheten i [anpassade kommandon (förhandsversion)](custom-commands.md) för enkla scenarier, kommer du att komma igång om du väljer rätt verktyg.
 
-| Om du vill ... | Överväg sedan... | Till exempel... |
+| Om du vill... | Tänk då på... | Till exempel... |
 |-------------------|------------------|----------------|
-|Öppen konversation med robust kompetens integrering och fullständig distributions kontroll | Robot Frameworks [direkta linje tal](direct-line-speech.md) kanal | <ul><li>"Jag måste gå till Seattle"</li><li>"Vilken typ av pizza kan jag beställa?"</li></ul>
-|Kommando-och kontroll-eller uppgifts riktad konversation med förenklad redigering och värd | [Anpassade kommandon (förhands granskning)](custom-commands.md) | <ul><li>"Sätt på overhead-ljus"</li><li>"Gör 5 grader till varma"</ul>
+|Öppen konversation med robust integrering av färdigheter och fullständig driftsättningskontroll | Bot Framework's [Direct Line Tal](direct-line-speech.md) kanal | <ul><li>"Jag måste åka till Seattle"</li><li>"Vilken typ av pizza kan jag beställa?"</li></ul>
+|Kommando- och kontroll- eller uppgiftsorienterad konversation med förenklad redigering och hosting | [Anpassade kommandon (förhandsgranskning)](custom-commands.md) | <ul><li>"Slå på luftljuset"</li><li>"Gör det 5 grader varmare"</ul>
 
-Vi rekommenderar [direkt linje tal](direct-line-speech.md) som det bästa valet om du inte är säker på vad du vill att din assistent ska hantera. Den erbjuder integrering med en omfattande uppsättning verktyg och redigerings hjälpmedel, till exempel den [virtuella assistenten och företags mal len](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) och den [QNA Maker tjänsten](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) för att bygga på vanliga mönster och använda dina befintliga kunskaps källor.
+Vi rekommenderar [direktlinjetal](direct-line-speech.md) som det bästa standardvalet om du ännu inte är säker på vad du vill att assistenten ska hantera. Det erbjuder integration med en omfattande uppsättning verktyg och redigeringshjälpmedel som [Virtual Assistant Solution och Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) och [QnA Maker-tjänsten](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) för att bygga vidare på vanliga mönster och använda dina befintliga kunskapskällor.
 
-[Anpassade kommandon (förhands granskning)](custom-commands.md) ger en strömlinjeformad redigerings-och värd upplevelse som är särskilt anpassad för det naturliga språk kommandot och kontroll scenarier.
+[Anpassade kommandon (förhandsversion)](custom-commands.md) ger en strömlinjeformad redigerings- och värdupplevelse som är särskilt anpassad för kommando- och kontrollscenarier för naturligt språk.
 
-   ![Jämförelse av Assistant-lösningar](media/voice-assistants/assistant-solution-comparison.png "Jämförelse av Assistant-lösningar")
+   ![Jämförelse av assistentlösningar](media/voice-assistants/assistant-solution-comparison.png "Jämförelse av assistentlösningar")
 
-## <a name="core-features"></a>Kärn funktioner
+## <a name="core-features"></a>Kärnfunktioner
 
-Oavsett om du väljer [direkt linje tal](direct-line-speech.md) eller [anpassade kommandon (för hands version)](custom-commands.md) för att skapa dina Assistant-interaktioner, kan du använda en omfattande uppsättning anpassnings funktioner för att anpassa din assistent till ditt varumärke, din produkt och din personlighet.
+Oavsett om du väljer [Direktlinjetal](direct-line-speech.md) eller [anpassade kommandon (förhandsversion)](custom-commands.md) för att skapa assistentinteraktioner kan du använda en omfattande uppsättning anpassningsfunktioner för att anpassa assistenten till ditt varumärke, din produkt och din personlighet.
 
 | Kategori | Funktioner |
 |----------|----------|
-|[Anpassat nyckelord](speech-devices-sdk-create-kws.md) | Användare kan starta konversationer med assistenter med ett anpassat nyckelord som "Hej contoso". En app gör detta med en anpassad nyckelords motor i tal-SDK: n, som kan konfigureras med ett anpassat nyckelord [som du kan generera här](speech-devices-sdk-create-kws.md). Röst assistenter kan använda kontroll av nyckelord på tjänst sidan för att förbättra noggrannheten för nyckelords aktiveringen (oberoende av enheten).
-|[Tal till text](speech-to-text.md) | Röst assistenter konverterar ljud i real tid till identifierad text med [tal-till-text](speech-to-text.md) från tal tjänsten. Den här texten är tillgänglig, eftersom den har tilldelats till både din assistent implementering och ditt klient program.
-|[Text till tal](text-to-speech.md) | Text svar från din assistent är syntetiskt med [text-till-tal](text-to-speech.md) från tal-tjänsten. Denna syntes görs sedan tillgänglig för ditt klient program som en ljud ström. Microsoft erbjuder möjlighet att bygga din egen anpassade, högkvalitativa neurala TTS-röst som ger en röst till ditt varumärke. [Kontakta oss](mailto:mstts@microsoft.com)om du vill veta mer.
+|[Anpassat nyckelord](speech-devices-sdk-create-kws.md) | Användare kan starta konversationer med assistenter med ett anpassat nyckelord som "Hej Contoso". En app gör detta med en anpassad sökordsmotor i Tal-SDK, som kan konfigureras med ett anpassat nyckelord [som du kan generera här](speech-devices-sdk-create-kws.md). Röstassistenter kan använda nyckelordsverifiering på servicesidan för att förbättra sökordsaktiveringens noggrannhet (enbart jämfört med enheten).
+|[Tal till text](speech-to-text.md) | Röstassistenter konverterar realtidsljud till tolkad text med [tal-till-text](speech-to-text.md) från taltjänsten. Den här texten är tillgänglig, eftersom den transkriberas, till både assistentimplementeringen och klientprogrammet.
+|[Text till tal](text-to-speech.md) | Textsvar från assistenten syntetiseras med hjälp av [Text-till-tal](text-to-speech.md) från taltjänsten. Den här syntesen görs sedan tillgänglig för klientprogrammet som en ljudström. Microsoft erbjuder möjligheten att bygga din egen anpassade, högkvalitativa Neural TTS röst som ger en röst till ditt varumärke. Kontakta [oss](mailto:mstts@microsoft.com)om du vill veta mer.
 
-## <a name="getting-started-with-voice-assistants"></a>Komma igång med röst assistenter
+## <a name="getting-started-with-voice-assistants"></a>Komma igång med röstassistenter
 
-Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på mindre än 10 minuter. Den här tabellen innehåller en lista med snabb starter för röst assistenten, sorterade efter språk.
+Vi erbjuder snabbstarter utformade för att du ska kunna köra kod på mindre än 10 minuter. Den här tabellen innehåller en lista över snabbstarter för röstassistenter, ordnade efter språk.
 
 | Snabbstart | Plattform | API-referens |
 |------------|----------|---------------|
-| C#, UWP | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
-| Java | Windows, macOS, Linux | [Mellan](https://aka.ms/csspeech/javaref) |
-| Java | Android | [Mellan](https://aka.ms/csspeech/javaref) |
+| C#, UWP | Windows | [Bläddra](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Bläddra](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Bläddra](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Exempelkod
 
-Exempel kod för att skapa en röst assistent finns på GitHub. Dessa exempel avser klient programmet för att ansluta till din assistent i flera populära programmeringsspråk.
+Exempelkod för att skapa en röstassistent finns på GitHub. Dessa exempel täcker klientprogrammet för anslutning till din assistent i flera populära programmeringsspråk.
 
-* [Röst assistents exempel (SDK)](https://aka.ms/csspeech/samples)
-* [Självstudie: röst aktivera din assistent med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Exempel på röstassistenter (SDK)](https://aka.ms/csspeech/samples)
+* [Självstudiekurs: Röst aktivera din assistent med Tal SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="tutorial"></a>Självstudier
 
-En själv studie kurs om hur du [aktiverar röst samtal till din assistent med hjälp av tal-SDK: n och den direkta rad igenkännings kanalen](tutorial-voice-enable-your-bot-speech-sdk.md).
+En handledning om hur [du röstaktiverar assistenten med hjälp av engelska kanalen Tal SDK och Direkt linje](tutorial-voice-enable-your-bot-speech-sdk.md).
 
 ## <a name="customization"></a>Anpassning
 
-Röst assistenter som skapats med röst tjänsten kan använda alla anpassnings alternativ som är tillgängliga för [tal-till-text](speech-to-text.md), [text till tal](text-to-speech.md)och [anpassad val av nyckelord](speech-devices-sdk-create-kws.md).
+Röstassistenter som skapats med hjälp av taltjänsten kan använda alla anpassningsalternativ som är tillgängliga för [tal till text,](speech-to-text.md) [text till tal](text-to-speech.md)och anpassad [nyckelordsval](speech-devices-sdk-create-kws.md).
 
 > [!NOTE]
-> Anpassnings alternativen varierar efter språk/språk (se [språk som stöds](supported-languages.md)).
+> Anpassningsalternativen varierar beroende på språk/språk (se [Språk som stöds).](supported-languages.md)
 
-## <a name="reference-docs"></a>Referens dokument
+## <a name="reference-docs"></a>Referensdokument
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+* [Skaffa en prenumerationsnyckel för taltjänsten gratis](get-started.md)
 * [Hämta tal-SDK](speech-sdk.md)
-* [Läs mer om anpassade kommandon (förhands granskning)](custom-commands.md)
-* [Läs mer om direkt linje tal](direct-line-speech.md)
+* [Läs mer om anpassade kommandon (förhandsgranskning)](custom-commands.md)
+* [Läs mer om Direktlinjetal](direct-line-speech.md)

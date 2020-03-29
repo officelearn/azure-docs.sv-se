@@ -1,7 +1,7 @@
 ---
 title: Skapa en resurs för Avancerad läsare
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du skapar en ny fördjupad läsar resurs med en anpassad under domän och sedan konfigurerar Azure AD i din Azure-klient.
+description: Den här artikeln visar hur du skapar en ny Immersive Reader-resurs med en anpassad underdomän och sedan konfigurerar Azure AD i din Azure-klient.
 services: cognitive-services
 author: rwaller
 manager: guillasi
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
 ms.openlocfilehash: 41efe4592c65ae3cdd85ce1b212554e50691905a
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78330727"
 ---
-# <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Skapa en fördjupad läsar resurs och konfigurera Azure Active Directory autentisering
+# <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Skapa en Immersive Reader-resurs och konfigurera Azure Active Directory-autentisering
 
-I den här artikeln innehåller vi ett skript som skapar en fördjupad läsar resurs och konfigurerar Azure Active Directory (Azure AD)-autentisering. Varje gången en fördjupad läsar resurs skapas, oavsett om det är det här skriptet eller i portalen, måste det också konfigureras med Azure AD-behörigheter. Det här skriptet hjälper dig med det.
+I den här artikeln tillhandahåller vi ett skript som skapar en Immersive Reader-resurs och konfigurerar Azure Active Directory (Azure AD) autentisering. Varje gång en Immersive Reader-resurs skapas, oavsett om det är med det här skriptet eller i portalen, måste den också konfigureras med Azure AD-behörigheter. Detta skript kommer att hjälpa dig med det.
 
-Skriptet är utformat för att skapa och konfigurera alla nödvändiga integrerande läsare och Azure AD-resurser i ett enda steg. Men du kan också konfigurera Azure AD-autentisering för en befintlig fördjupad läsar resurs, om du t. ex. redan har skapat en i Azure Portal.
+Skriptet är utformat för att skapa och konfigurera alla nödvändiga Immersive Reader- och Azure AD-resurser för er alla i ett steg. Men du kan också bara konfigurera Azure AD-autentisering för en befintlig Immersive Reader-resurs, om du till exempel råkar ha redan skapat en i Azure-portalen.
 
-För vissa kunder kan det vara nödvändigt att skapa flera fördjupade Reader-resurser, för utveckling eller produktion, eller för flera olika regioner som din tjänst distribueras i. I dessa fall kan du komma tillbaka och använda skriptet flera gånger för att skapa olika fördjupade läsar resurser och få dem konfigurerade med Azure AD-behörigheterna.
+För vissa kunder kan det vara nödvändigt att skapa flera Immersive Reader-resurser, för utveckling kontra produktion eller kanske för flera olika regioner som tjänsten distribueras i. I dessa fall kan du komma tillbaka och använda skriptet flera gånger för att skapa olika Immersive Reader-resurser och få dem konfigurerade med Azure AD-behörigheterna.
 
-Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga integrerande läsare och Azure AD-resurser i din prenumeration och skapar dem bara vid behov om de inte redan finns. Om det är första gången du skapar en fördjupad läsare-resurs, kommer skriptet att göra allt du behöver. Om du bara vill använda det för att konfigurera Azure AD för en befintlig fördjupad läsar resurs som skapades i portalen, så gör det också. Det kan också användas för att skapa och konfigurera flera fördjupade läsares resurser.
+Skriptet är utformat för att vara flexibelt. Den söker först efter befintliga Immersive Reader- och Azure AD-resurser i din prenumeration och skapar dem bara efter behov om de inte redan finns. Om det är första gången du skapar en Immersive Reader-resurs kommer skriptet att göra allt du behöver. Om du vill använda den bara för att konfigurera Azure AD för en befintlig Immersive Reader-resurs som har skapats i portalen, kommer det att göra det också. Det kan också användas för att skapa och konfigurera flera Immersive Reader-resurser.
 
 ## <a name="set-up-powershell-environment"></a>Konfigurera PowerShell-miljö
 
-1. Börja med att öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Se till att Cloud Shell är inställt på PowerShell i den övre vänstra List rutan eller genom att skriva `pwsh`.
+1. Börja med att öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Kontrollera att molnskalet är inställt på PowerShell i den övre `pwsh`vänstra hand-rullgardinsmenyn eller genom att skriva .
 
-1. Kopiera och klistra in följande kod avsnitt i gränssnittet.
+1. Kopiera och klistra in följande kodavsnitt i skalet.
 
     ```azurepowershell-interactive
     function Create-ImmersiveReaderResource(
@@ -141,7 +141,7 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
     }
     ```
 
-1. Kör funktionen `Create-ImmersiveReaderResource`, och ange parametrarna efter behov.
+1. Kör funktionen `Create-ImmersiveReaderResource`och ange parametrarna efter behov.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource
@@ -159,16 +159,16 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
 
     | Parameter | Kommentarer |
     | --- | --- |
-    | SubscriptionName |Namnet på den Azure-prenumeration som ska användas för den fördjupade läsar resursen. Du måste ha en prenumeration för att kunna skapa en resurs. |
-    | ResourceName |  Måste vara alfanumeriska och kan innehålla "-", förutsatt att "-" inte är det första eller sista. Längden får inte överskrida 63 tecken.|
-    | ResourceSubdomain |En anpassad under domän krävs för den fördjupande läsar resursen. Under domänen används av SDK när tjänsten för avancerad läsare anropas för att starta läsaren. Under domänen måste vara globalt unik. Under domänen måste vara alfanumerisk och kan innehålla "-", förutsatt att "-" inte är det första eller sista. Längden får inte överskrida 63 tecken. Den här parametern är valfri om resursen redan finns. |
-    | ResourceSKU |Alternativ: `S0`. Besök vår [Cognitive Services prissättnings sida](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) om du vill veta mer om de olika tillgängliga SKU: er. Den här parametern är valfri om resursen redan finns. |
-    | ResourceLocation |Alternativ: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. Den här parametern är valfri om resursen redan finns. |
-    | ResourceGroupName |Resurser skapas i resurs grupper inom prenumerationer. Ange namnet på en befintlig resurs grupp. Om resurs gruppen inte redan finns skapas en ny med det här namnet. |
-    | ResourceGroupLocation |Om din resurs grupp inte finns måste du ange en plats där gruppen ska skapas. Du hittar en lista över platser genom att köra `az account list-locations`. Använd egenskapen *namn* (utan blank steg) för det returnerade resultatet. Den här parametern är valfri om din resurs grupp redan finns. |
-    | AADAppDisplayName |Visnings namnet för Azure Active Directorys programmet. Om det inte går att hitta något befintligt Azure AD-program skapas en ny med det här namnet. Den här parametern är valfri om Azure AD-programmet redan finns. |
-    | AADAppIdentifierUri |URI för Azure AD-appen. Om det inte går att hitta en befintlig Azure AD-App skapas en ny med denna URI. Till exempel `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |Ett lösen ord som du skapar kommer att användas senare för att autentisera när du hämtar en token för att starta den fördjupade läsaren. Lösen ordet måste innehålla minst 16 tecken, innehålla minst 1 specialtecken och innehålla minst 1 numeriskt tecken. |
+    | SubscriptionName |Namn på den Azure-prenumeration som ska användas för din Immersive Reader-resurs. Du måste ha en prenumeration för att kunna skapa en resurs. |
+    | ResourceName |  Måste vara alfanumeriskt och kan innehålla '-', så länge '-' inte är det första eller sista tecknet. Längden får inte överstiga 63 tecken.|
+    | ResourceSubdomain |En anpassad underdomän behövs för din Immersive Reader-resurs. Underdomänen används av SDK när du anropar tjänsten Immersive Reader för att starta läsaren. Underdomänen måste vara globalt unik. Underdomänen måste vara alfanumerisk och innehålla '-', så länge '-' inte är det första eller sista tecknet. Längden får inte överstiga 63 tecken. Den här parametern är valfri om resursen redan finns. |
+    | ResourceSKU |Alternativ: `S0`. Besök vår [prissida för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) om du vill veta mer om varje tillgänglig SKU. Den här parametern är valfri om resursen redan finns. |
+    | ResourceLocation |Alternativ: `eastus` `eastus2`, `southcentralus` `westus`, `westus2` `australiaeast`, `southeastasia` `centralindia`, `japaneast` `northeurope`, `uksouth` `westeurope`, , , , , , . Den här parametern är valfri om resursen redan finns. |
+    | ResourceGroupName |Resurser skapas i resursgrupper inom prenumerationer. Ange namnet på en befintlig resursgrupp. Om resursgruppen inte redan finns skapas en ny med det här namnet. |
+    | ResursgruppLokalisering |Om resursgruppen inte finns måste du ange en plats där du kan skapa gruppen. Om du vill hitta `az account list-locations`en lista över platser kör du . Använd *name* namnegenskapen (utan blanksteg) för det returnerade resultatet. Den här parametern är valfri om resursgruppen redan finns. |
+    | AADAppDisplayName |Visningsnamnet för Azure Active Directory-programmet. Om ett befintligt Azure AD-program inte hittas skapas ett nytt med det här namnet. Den här parametern är valfri om Azure AD-programmet redan finns. |
+    | AADAppIdentifierUri |Uri för Azure AD-appen. Om en befintlig Azure AD-app inte hittas skapas en ny med den här URI:n. Till exempel `https://immersivereaderaad-mycompany`. |
+    | AADAppClientSecret |Ett lösenord som du skapar som används senare för att autentisera när du skaffar en token för att starta Immersive Reader. Lösenordet måste vara minst 16 tecken långt, innehålla minst ett specialtecken och innehålla minst ett numeriskt tecken. |
 
 1. Kopiera JSON-utdata till en textfil för senare användning. Resultatet bör likna följande.
 
@@ -183,10 +183,10 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa snabb starten för [Node. js](./quickstart-nodejs.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
-* Visa [python-självstudien](./tutorial-python.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
-* Se snabb [självstudien](./tutorial-ios-picture-immersive-reader.md) för att se vad mer du kan göra med avancerad läsar-SDK med Swift
-* Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)
+* Visa [snabbstarten Node.js](./quickstart-nodejs.md) för att se vad mer du kan göra med Immersive Reader SDK med Node.js
+* Visa [Python-självstudien](./tutorial-python.md) för att se vad mer du kan göra med Immersive Reader SDK med Python
+* Visa [Swift-självstudien](./tutorial-ios-picture-immersive-reader.md) för att se vad mer du kan göra med Immersive Reader SDK med Swift
+* Utforska [den uppslukande läsaren SDK](https://github.com/microsoft/immersive-reader-sdk) och [Immersive Reader SDK-referensen](./reference.md)
 
 
 

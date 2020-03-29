@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220329"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Sök efter nyheter med API för nyhetssökning i Bing
@@ -107,7 +107,7 @@ Om Bing kan fastställa vilken kategori nyhetsartikeln tillhör innehåller den 
 
 ## <a name="get-todays-top-news"></a>Hämta dagens viktigaste nyheter
 
-Om du vill hämta dagens Populära nyhets artiklar kan du skicka samma allmänna diskussions förfrågning som tidigare, samtidigt som du lämnar den `q` parametern unset.
+För att få dagens bästa nyhetsartiklar, kan du skicka samma allmänna `q` nyhetsförfrågan som tidigare, samtidigt som parametern urkopplas.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Svars tiden för att hämta de viktigaste nyheterna är nästan samma som för att få allmänna nyheter. `news`-svaret innehåller dock inte fältet `totalEstimatedMatches` eftersom det gäller ett visst antal resultat. Antalet viktiga nyhetsartiklar kan variera beroende på nyhetscykeln. Se till att använda fältet `provider` för att använda artikeln.
+Svaret för att få toppnyheter är nästan samma som den för att få allmänna nyheter. `news`-svaret innehåller dock inte fältet `totalEstimatedMatches` eftersom det gäller ett visst antal resultat. Antalet viktiga nyhetsartiklar kan variera beroende på nyhetscykeln. Var noga med `provider` att använda fältet för att tillskriva artikeln.
 
 ## <a name="get-news-by-category"></a>Hämta nyheter efter kategori
 

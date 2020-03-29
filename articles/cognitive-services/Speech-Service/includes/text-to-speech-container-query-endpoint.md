@@ -1,5 +1,5 @@
 ---
-title: Slut punkt för frågans text till tal-behållare
+title: Frågeslutpunkt för behållare för text till tal
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,15 +9,15 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: dapine
 ms.openlocfilehash: 8460ddca5cff2b3da540b5fa8cf66e0687892789
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73491143"
 ---
-Behållaren tillhandahåller [rest-baserade slut punkts-API: er](../rest-text-to-speech.md). Det finns många [exempel på käll kods projekt](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) för plattforms-, ramverk-och språkvarianter som är tillgängliga.
+Behållaren tillhandahåller [REST-baserade endpoint API:er](../rest-text-to-speech.md). Det finns många [exempel på källkodsprojekt](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/) för plattforms-, ram- och språkvariationer.
 
-Med *standard text till tal* -behållaren bör du förlita dig på språket och rösten för den avbildnings tagg som du laddade ned. Om du till exempel har hämtat `latest`-taggen är standard språket `en-US` och `JessaRUS` rösten. Argumentet `{VOICE_NAME}` skulle då [`en-US-JessaRUS`](../language-support.md#standard-voices). Se exempel SSML nedan:
+Med standardbehållaren *för text till tal* bör du förlita dig på språken och rösten för den bildtagg du hämtade. Om du till exempel `latest` hämtade taggen är `en-US` standardspråket och rösten. `JessaRUS` Argumentet `{VOICE_NAME}` skulle då [`en-US-JessaRUS`](../language-support.md#standard-voices)vara . Se exemplet SSML nedan:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -27,11 +27,11 @@ Med *standard text till tal* -behållaren bör du förlita dig på språket och 
 </speak>
 ```
 
-För *anpassad text till tal* måste du dock Hämta **rösten/modellen** från den [anpassade röst portalen](https://aka.ms/custom-voice-portal). Namnet på den anpassade modellen är synonymt med röst namnet. Gå till sidan **utbildning** och kopiera den **röst/modell** som ska användas som `{VOICE_NAME}` argument.
+Men för *anpassad text-till-tal* måste du hämta **Voice / modellen** från den anpassade [röstportalen](https://aka.ms/custom-voice-portal). Det anpassade modellnamnet är synonymt med röstnamnet. Navigera till **sidan Utbildning** och kopiera **voice/-modellen** som ska användas som `{VOICE_NAME}` argument.
 <br><br>
-:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Anpassad röst modell – röst namn":::
+:::image type="content" source="../media/custom-voice/custom-voice-model-voice-name.png" alt-text="Anpassad röstmodell - röstnamn":::
 
-Se exempel SSML nedan:
+Se exemplet SSML nedan:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
@@ -41,7 +41,7 @@ Se exempel SSML nedan:
 </speak>
 ```
 
-Nu ska vi skapa en HTTP POST-begäran, vilket ger några rubriker och en data nytto Last. Ersätt `{VOICE_NAME}` plats hållaren med ditt eget värde.
+Låt oss konstruera en HTTP POST-begäran, med några rubriker och en datanyttolast. Ersätt `{VOICE_NAME}` platshållaren med ditt eget värde.
 
 ```curl
 curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 \
@@ -53,8 +53,8 @@ curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 
 
 Det här kommandot:
 
-* Skapar en HTTP POST-begäran för `speech/synthesize/cognitiveservices/v1` slut punkten.
-* Anger ett `Accept` huvud för `audio/*`
-* Anger ett `Content-Type` sidhuvud för `application/ssml+xml`. mer information finns i [brödtext för begäran](../rest-text-to-speech.md#request-body).
-* Anger ett `X-Microsoft-OutputFormat` rubrik för `riff-16khz-16bit-mono-pcm`, för fler alternativ, se [ljud uppspelning](../rest-text-to-speech.md#audio-outputs).
-* Skickar [SSML-begäran (Speech syntes Markup Language)](../speech-synthesis-markup.md) till den `{VOICE_NAME}` till slut punkten.
+* Konstruerar en HTTP `speech/synthesize/cognitiveservices/v1` POST-begäran för slutpunkten.
+* Anger ett `Accept` huvud på`audio/*`
+* Anger ett `Content-Type` huvud `application/ssml+xml`i , mer information, se [begärandetext](../rest-text-to-speech.md#request-body).
+* Anger ett `X-Microsoft-OutputFormat` huvud `riff-16khz-16bit-mono-pcm`i , för fler alternativ se [ljudutdata](../rest-text-to-speech.md#audio-outputs).
+* Skickar [SSML-begäran (Speech Synthesis Markup Language)](../speech-synthesis-markup.md) som ges `{VOICE_NAME}` till slutpunkten.

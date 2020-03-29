@@ -1,7 +1,7 @@
 ---
-title: Migrera dina ansikts data över prenumerationer – ansikte
+title: Migrera dina ansiktsdata över prenumerationer - Face
 titleSuffix: Azure Cognitive Services
-description: Den här guiden visar hur du migrerar dina lagrade ansikts data från en ansikts prenumeration till en annan.
+description: Den här guiden visar hur du migrerar dina lagrade ansiktsdata från en Face-prenumeration till en annan.
 services: cognitive-services
 author: lewlu
 manager: nitinme
@@ -11,37 +11,37 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: lewlu
 ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76169815"
 ---
-# <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts data till en annan ansikts prenumeration
+# <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansiktsdata till en annan Face-prenumeration
 
-Den här guiden visar hur du flyttar ansikts data, till exempel ett sparat PersonGroup-objekt med ansikten, till en annan Azure Cognitive Services Face-prenumeration. Om du vill flytta data använder du ögonblicks bild funktionen. På så sätt undviker du att upprepade gånger skapa och träna ett PersonGroup-eller FaceList-objekt när du flyttar eller utökar dina åtgärder. Du kanske t. ex. har skapat ett PersonGroup-objekt med en kostnads fri utvärderings prenumeration och nu vill migrera den till din betalda prenumeration. Eller så kanske du behöver synkronisera ansikts data mellan prenumerationer i olika regioner för en stor företags åtgärd.
+Den här guiden visar hur du flyttar ansiktsdata, till exempel ett sparat PersonGroup-objekt med ansikten, till en annan Azure Cognitive Services Face-prenumeration. Om du vill flytta data använder du funktionen Ögonblicksbild. På så sätt undviker du att behöva bygga och träna ett PersonGroup- eller FaceList-objekt upprepade gånger när du flyttar eller expanderar verksamheten. Du kanske till exempel har skapat ett PersonGroup-objekt med hjälp av en kostnadsfri utvärderingsprenumeration och nu vill migrera det till din betalda prenumeration. Du kan också behöva synkronisera ansiktsdata mellan prenumerationer i olika regioner för en stor företagsåtgärd.
 
-Samma migrations strategi gäller även för LargePersonGroup-och LargeFaceList-objekt. Om du inte är bekant med begreppen i den här hand boken kan du se deras definitioner i rikt linjer för [ansikts igenkänning](../concepts/face-recognition.md) . I den här guiden används klient biblioteket Face .NET C#med.
+Samma migreringsstrategi gäller även för LargePersonGroup- och LargeFaceList-objekt. Om du inte är bekant med begreppen i den här guiden läser du deras definitioner i konceptguiden [för ansiktsigenkänning.](../concepts/face-recognition.md) Den här guiden använder Face .NET-klientbiblioteket med C#.
 
 ## <a name="prerequisites"></a>Krav
 
-Du behöver följande objekt:
+Du behöver följande:
 
-- Två ansikts prenumerations nycklar, en med befintliga data och en att migrera till. Följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)om du vill prenumerera på ansikts tjänsten och hämta din nyckel.
-- ID-strängen för ansikts prenumeration som motsvarar mål prenumerationen. Välj **Översikt** i Azure Portal för att hitta den. 
+- Två Face-prenumerationsnycklar, en med befintliga data och en att migrera till. Om du vill prenumerera på Ansiktstjänsten och hämta din nyckel följer du instruktionerna i [Skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- Den Face-prenumerations-ID-sträng som motsvarar målprenumerationen. Om du vill hitta den väljer du **Översikt** i Azure-portalen. 
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet
 
-I den här guiden används en enkel konsol app för att köra ansikts data-migreringen. En fullständig implementering finns i exemplet på [ansikts ögonblicks bild](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) på GitHub.
+Den här guiden använder en enkel konsolapp för att köra ansiktsdatamigrering. En fullständig implementering finns i [exemplet med ögonblicksbilden face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) på GitHub.
 
-1. Skapa ett nytt konsol program .NET Framework projekt i Visual Studio. Ge den namnet **FaceApiSnapshotSample**.
-1. Hämta de NuGet-paket som behövs. Högerklicka på ditt projekt i Solution Explorer och välj **Hantera NuGet-paket**. Välj fliken **Bläddra** och välj inkludera för **hands version**. Sök efter och installera följande paket:
-    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+1. Skapa ett nytt konsolapp .NET Framework-projekt i Visual Studio. Namn det **FaceApiSnapshotSample**.
+1. Hämta de NuGet-paket som behövs. Högerklicka på projektet i Lösningsutforskaren och välj **Hantera NuGet-paket**. Välj fliken **Bläddra** och välj **Inkludera förhandsversion**. Hitta och installera följande paket:
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-förhandsversion](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
-## <a name="create-face-clients"></a>Skapa ansikts klienter
+## <a name="create-face-clients"></a>Skapa ansiktsklienter
 
-I **main** -metoden i *program.cs*skapar du två [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) -instanser för dina käll-och mål prenumerationer. I det här exemplet används en ansikts prenumeration i Asien, östra region som källa och en västra USA-prenumeration som mål. Det här exemplet visar hur du migrerar data från en Azure-region till en annan. 
+Skapa två [FaceClient-instanser](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) för käll- och målprenumerationer i **huvudmetoden** i *Program.cs.* I det här exemplet används en Face-prenumeration i regionen Östasien som källa och en prenumeration i västra USA som mål. Det här exemplet visar hur du migrerar data från en Azure-region till en annan. 
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -57,21 +57,21 @@ var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West 
     };
 ```
 
-Fyll i prenumerations nyckel värden och slut punkts-URL: er för dina käll-och mål prenumerationer.
+Fyll i prenumerationsnyckelvärdena och slutpunktsadresserna för dina käll- och målprenumerationer.
 
 
-## <a name="prepare-a-persongroup-for-migration"></a>Förbereda en PersonGroup för migrering
+## <a name="prepare-a-persongroup-for-migration"></a>Förbereda en persongrupp för migrering
 
-Du behöver ID: t för PersonGroup i din käll prenumeration för att migrera den till mål prenumerationen. Använd metoden [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) för att hämta en lista över dina PersonGroup-objekt. Hämta sedan egenskapen [PersonGroup. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Den här processen ser olika ut beroende på vilka PersonGroup-objekt du har. I den här hand boken lagras käll-PersonGroup-ID: t i `personGroupId`.
+Du behöver persongruppens ID i källprenumerationen för att migrera det till målprenumerationen. Använd metoden [PersonGroupOperationsExtensions.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) för att hämta en lista över dina PersonGroup-objekt. Hämta sedan egenskapen [PersonGroup.PersonGroupId.](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) Den här processen ser annorlunda ut beroende på vilka PersonGroup-objekt du har. I den här guiden lagras källpersongrupps-ID i `personGroupId`.
 
 > [!NOTE]
-> [Exempel koden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) skapar och tågen en ny PersonGroup som kan migreras. I de flesta fall bör du redan ha en PersonGroup att använda.
+> [Exempelkoden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) skapar och tränar en ny PersonGroup att migrera. I de flesta fall bör du redan ha en PersonGroup att använda.
 
-## <a name="take-a-snapshot-of-a-persongroup"></a>Ta en ögonblicks bild av en PersonGroup
+## <a name="take-a-snapshot-of-a-persongroup"></a>Ta en ögonblicksbild av en persongrupp
 
-En ögonblicks bild är tillfällig Fjärrlagring för vissa typer av ansikts data. Den fungerar som en typ av Urklipp för att kopiera data från en prenumeration till en annan. Först tar du en ögonblicks bild av data i käll prenumerationen. Sedan tillämpar du den på ett nytt data objekt i mål prenumerationen.
+En ögonblicksbild är tillfällig fjärrlagring för vissa Face-datatyper. Den fungerar som ett slags Urklipp för att kopiera data från en prenumeration till en annan. Först tar du en ögonblicksbild av data i källprenumerationen. Sedan använder du det på ett nytt dataobjekt i målprenumerationen.
 
-Använd käll prenumerationens FaceClient-instans för att ta en ögonblicks bild av PersonGroup. Använd [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) med PersonGroup-ID och mål prenumerationens ID. Om du har flera mål prenumerationer lägger du till dem som mat ris poster i den tredje parametern.
+Använd källprenumerationens FaceClient-instans för att ta en ögonblicksbild av PersonGroup. Använd [TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet) med PersonGroup-ID:t och målprenumerationens ID. Om du har flera målprenumerationer lägger du till dem som matrisposter i den tredje parametern.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -81,24 +81,24 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> Processen att ta och använda ögonblicks bilder stör inte några vanliga anrop till käll-eller mål PersonGroups eller FaceLists. Gör inte samtidiga anrop som ändrar källobjektet, t. ex. [FaceList hanterings samtal](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) eller [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) -anrop, till exempel. Ögonblicks bild åtgärden kan köras före eller efter dessa åtgärder eller kan uppstå fel.
+> Processen att ta och tillämpa ögonblicksbilder stör inte några vanliga anrop till källan eller rikta persongrupper eller facelists. Ring inte samtidiga samtal som ändrar källobjektet, till exempel [FaceList-hanteringsanrop](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) eller [persongruppstågsanropet,](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) till exempel. Ögonblicksbildåtgärden kan köras före eller efter dessa åtgärder eller kan stöta på fel.
 
-## <a name="retrieve-the-snapshot-id"></a>Hämta ögonblicks bild-ID
+## <a name="retrieve-the-snapshot-id"></a>Hämta ögonblicksbild-ID:et
 
-Den metod som används för att ta ögonblicks bilder är asynkron, så du måste vänta tills den är klar. Ögonblicks bild åtgärder kan inte avbrytas. I den här koden övervakar metoden `WaitForOperation` det asynkrona anropet. Den kontrollerar status var 100 MS. När åtgärden har slutförts hämtar du ett åtgärds-ID genom att parsa fältet `OperationLocation`. 
+Den metod som används för att ta ögonblicksbilder är asynkron, så du måste vänta på att den har slutförts. Det går inte att avbryta ögonblicksbildåtgärder. I den `WaitForOperation` här koden övervakar metoden det asynkrona anropet. Den kontrollerar status var 100 ms. När åtgärden är klar hämtar du ett operations-ID genom att tolka fältet. `OperationLocation` 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
 var operationStatus = await WaitForOperation(FaceClientEastAsia, takeOperationId);
 ```
 
-Ett typiskt `OperationLocation`-värde ser ut så här:
+Ett `OperationLocation` typiskt värde ser ut så här:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
 ```
 
-`WaitForOperation` Helper-metoden finns här:
+Hjälpmetoden `WaitForOperation` är här:
 
 ```csharp
 /// <summary>
@@ -127,21 +127,21 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-När åtgärds statusen visar `Succeeded`hämtar du ögonblicks bildens ID genom att parsa fältet `ResourceLocation` i den returnerade OperationStatus-instansen.
+När åtgärdsstatusen visar `Succeeded`hämtar du ögonblicksbild-ID:n genom att tolka `ResourceLocation` fältet för den returnerade OperationStatus-instansen.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 ```
 
-Ett typiskt `resourceLocation`-värde ser ut så här:
+Ett `resourceLocation` typiskt värde ser ut så här:
 
 ```csharp
 "/snapshots/e58b3f08-1e8b-4165-81df-aa9858f233dc"
 ```
 
-## <a name="apply-a-snapshot-to-a-target-subscription"></a>Använd en ögonblicks bild för en mål prenumeration
+## <a name="apply-a-snapshot-to-a-target-subscription"></a>Använda en ögonblicksbild på en målprenumeration
 
-Skapa sedan den nya PersonGroup i mål prenumerationen genom att använda ett slumpmässigt genererat ID. Använd sedan mål prenumerationens FaceClient-instans för att tillämpa ögonblicks bilden på den här PersonGroup. Skicka in ögonblicks bild-ID: t och det nya PersonGroup-ID: t.
+Skapa sedan den nya PersonGroup i målprenumerationen med hjälp av ett slumpmässigt genererat ID. Använd sedan målprenumerationens FaceClient-instans för att tillämpa ögonblicksbilden på den här persongruppen. Skicka i ögonblicksbild-ID och det nya PersonGroup-ID:et.
 
 ```csharp
 var newPersonGroupId = Guid.NewGuid().ToString();
@@ -150,25 +150,25 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 
 
 > [!NOTE]
-> Ett ögonblicks bild objekt är giltigt endast för 48 timmar. Ta bara en ögonblicks bild om du tänker använda den för datamigrering strax efter.
+> Ett Snapshot-objekt är giltigt i endast 48 timmar. Ta bara en ögonblicksbild om du tänker använda den för datamigrering strax efter.
 
-En ögonblicks bild tillämpa begäran returnerar ett annat åtgärds-ID. Hämta det här ID: t genom att parsa `OperationLocation`-fältet för den returnerade applySnapshotResult-instansen. 
+En begäran om att tillämpa ögonblicksbild returnerar ett annat åtgärds-ID. Om du vill hämta det `OperationLocation` här ID:t tolkar du fältet för den returnerade applySnapshotResult-instansen. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-Processen för ögonblicks bild programmet är också asynkron, så Använd `WaitForOperation` för att vänta tills den har slutförts.
+Ögonblicksbilden programprocessen är också asynkron, `WaitForOperation` så återigen använda för att vänta på att det ska slutföras.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
 ```
 
-## <a name="test-the-data-migration"></a>Testa datamigreringen
+## <a name="test-the-data-migration"></a>Testa datamigrering
 
-När du har tillämpat ögonblicks bilden fyller den nya PersonGroup i mål prenumerationen med de ursprungliga ansikts data. Som standard kopieras också utbildnings resultat. Den nya PersonGroup är redo för ansikts identifierings anrop utan att behöva omträna.
+När du har tillämpat ögonblicksbilden fylls den nya PersonGroup i målprenumerationen med de ursprungliga ansiktsdata. Som standard kopieras även träningsresultat. Den nya PersonGroup är redo för ansiktsidentifieringsamtal utan att behöva omskolning.
 
-Testa datamigreringen genom att köra följande åtgärder och jämföra de resultat som de skriver ut till-konsolen:
+Om du vill testa datamigreringen kör du följande åtgärder och jämför de resultat de skriver ut på konsolen:
 
 ```csharp
 await DisplayPersonGroup(FaceClientEastAsia, personGroupId);
@@ -180,7 +180,7 @@ await DisplayPersonGroup(FaceClientWestUS, newPersonGroupId);
 await IdentifyInPersonGroup(FaceClientWestUS, newPersonGroupId);
 ```
 
-Använd följande hjälp metoder:
+Använd följande hjälpmetoder:
 
 ```csharp
 private static async Task DisplayPersonGroup(IFaceClient client, string personGroupId)
@@ -216,13 +216,13 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 }
 ```
 
-Nu kan du använda den nya PersonGroup i mål prenumerationen. 
+Nu kan du använda den nya PersonGroup i målprenumerationen. 
 
-Om du vill uppdatera mål PersonGroup igen i framtiden skapar du en ny PersonGroup för att ta emot ögonblicks bilden. Det gör du genom att följa stegen i den här hand boken. Ett enda PersonGroup-objekt kan endast ha en ögonblicks bild som tillämpas på den en gång.
+Om du vill uppdatera målpersongruppen igen i framtiden skapar du en ny PersonGroup för att ta emot ögonblicksbilden. Gör det genom att följa stegen i den här guiden. Ett enda PersonGroup-objekt kan ha en ögonblicksbild tillämpad på det bara en gång.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört migreringen av ansikts data tar du bort objektet Snapshot manuellt.
+När du har migrerat ansiktsdata tar du bort ögonblicksbildobjektet manuellt.
 
 ```csharp
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
@@ -230,10 +230,10 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå sedan till relevant API-referens dokumentation, utforska en exempel-app som använder ögonblicks bild funktionen eller följ en instruktion för att börja använda andra API-åtgärder som nämns här:
+Se sedan relevant API-referensdokumentation, utforska en exempelapp som använder snapshot-funktionen eller följa en instruktionsguide för att börja använda de andra API-åtgärder som nämns här:
 
-- [Dokumentation för ögonblicks bild referens (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
-- [Exempel på ansikts ögonblicks bild](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
+- [Dokumentation för referens för ögonblicksbilder (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
+- [Exempel på ansiktsögonblicksbild](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Lägg till ansikten](how-to-add-faces.md)
 - [Identifiera ansikten i en bild](HowtoDetectFacesinImage.md)
 - [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)

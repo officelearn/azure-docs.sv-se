@@ -1,7 +1,7 @@
 ---
-title: Stöd för språk - automatiska förslag i Bing
+title: Språkstöd - API för automatiska förslag på Bing
 titleSuffix: Azure Cognitive Services
-description: En lista över språk som stöds och regioner för automatiska förslag i Bing.
+description: En lista över språk och regioner som stöds för API:et för automatiska förslag på Bing.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60547344"
 ---
-# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Språk och din region stöd för automatiska förslag i Bing
+# <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Språk- och regionstöd för API:et för automatiska förslag på Bing
 
-Följande Listar de språk som stöds av automatiska förslag i Bing.
+Följande listar de språk som stöds av API för automatiska förslag på Bing.
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -32,7 +32,7 @@ Följande Listar de språk som stöds av automatiska förslag i Bing.
 | Nederländska (Nederländerna)      | `nl-NL`          |
 | Engelska (Australien)    | `en-AU`          |
 | Engelska (Kanada)     | `en-CA`          |
-| English (India)    | `en-IN`          |
+| Engelska (Indien)    | `en-IN`          |
 | Engelska (Indonesien)     | `en-ID`          |
 | Engelska (Malaysia)     | `en-MY`          |
 | Engelska (Nya Zeeland)    | `en-NZ`          |
@@ -50,7 +50,7 @@ Följande Listar de språk som stöds av automatiska förslag i Bing.
 | Tyska (Schweiz)      | `de-CH`          |
 | Italienska     | `it`          |
 | Japanska    | `ja`          |
-| Koreanska      | `ko`          |
+| Koreansk      | `ko`          |
 | Norska   | `no`          |
 | Polska      | `pl`          |
 | Portugisiska (Brasilien)   | `pt-BR`|
@@ -60,11 +60,11 @@ Följande Listar de språk som stöds av automatiska förslag i Bing.
 | Spanska (Chile)     | `es-CL`          |
 | Spanska (Mexiko)    | `es-MX`          |
 | Spanska (Spanien)    | `es-ES`          |
-| Spanska (USA)    | `es-US`          |
+| Spanska (Förenta staterna)    | `es-US`          |
 | Svenska     | `sv`          |
 | Turkiska     | `tr`          |
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- [Sida för Azure Cognitive Services-dokumentation](https://docs.microsoft.com/azure/cognitive-services/)
-- [Cognitive Services produktsida för Azure](https://azure.microsoft.com/services/cognitive-services/)
+- [Dokumentationssida för Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+- [Produktsida för Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa ett anpassat kommando (för hands version) – tal tjänst'
+title: 'Snabbstart: Skapa ett anpassat kommando (förhandsgranskning) - Taltjänst'
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln skapar och testar du ett program med en värd för anpassade kommandon.
+description: I den här artikeln skapar och testar du ett värdprogram för anpassade kommandon.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,147 +11,147 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76155595"
 ---
-# <a name="quickstart-create-a-custom-command-preview"></a>Snabb start: skapa ett anpassat kommando (förhands granskning)
+# <a name="quickstart-create-a-custom-command-preview"></a>Snabbstart: Skapa ett anpassat kommando (förhandsgranskning)
 
-I den här artikeln får du lära dig hur du skapar och testar ett program med en värd för anpassade kommandon.
-Programmet kommer att identifiera en uttryck som "slå på TV" och svara med ett enkelt meddelande "OK, som aktiverar TV".
+I den här artikeln får du lära dig hur du skapar och testar ett värdprogram för anpassade kommandon.
+Ansökan kommer att känna igen ett uttryck som "slå på TV" och svara med ett enkelt meddelande "Ok, slå på TV".
 
 ## <a name="prerequisites"></a>Krav
 
-- En tal prenumeration.
+- En Talprenumeration.
 
-Om du inte har en tal prenumeration kan du skapa en genom att gå till [tal Studio](https://speech.microsoft.com/) och välja **skapa en tal resurs**.
+Om du inte har en talprenumeration kan du skapa en genom att navigera till [Talstudion](https://speech.microsoft.com/) och välja **Skapa en talresurs**.
 
   > [!div class="mx-imgBorder"]
-  > [![skapa ett projekt](media/custom-speech-commands/create-new-subscription.png)](media/custom-speech-commands/create-new-subscription.png#lightbox)
+  > [![Skapa ett](media/custom-speech-commands/create-new-subscription.png) projekt](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > Endast regionen westus2 stöds under för hands versionen.
+  > Under förhandsgranskningen stöds endast westus2-regionen.
 
-## <a name="go-to-the-speech-studio-for-custom-commands"></a>Gå till tal Studio för anpassade kommandon
+## <a name="go-to-the-speech-studio-for-custom-commands"></a>Gå till Talstudion för anpassade kommandon
 
-1. Öppna webbläsaren och gå till [tal Studio](https://speech.microsoft.com/)
+1. Öppna webbläsaren och navigera till [Talstudion](https://speech.microsoft.com/)
 1. Ange dina autentiseringsuppgifter för att logga in på portalen
 
-   - Standardvyn är listan med tal prenumerationer
+   - Standardvyn är din lista över talprenumerationer
      > [!NOTE]
-     > Om du inte ser sidan Välj prenumeration kan du gå dit genom att välja "tal resurser" på menyn Inställningar i det översta fältet.
+     > Om du inte ser den valda prenumerationssidan kan du navigera dit genom att välja "Talresurser" på inställningsmenyn i det övre fältet.
 
-1. Välj din tal prenumeration och välj sedan **gå till Studio**
-1. Välj **anpassade kommandon (förhands granskning)**
+1. Välj din Talprenumeration och välj sedan **Gå till Studio**
+1. Välj **anpassade kommandon (förhandsgranskning)**
 
-Standardvyn är en lista över de anpassade kommando program som du har skapat.
+Standardvyn är en lista över de anpassade kommandoprogram som du har skapat.
 
-## <a name="create-a-custom-commands-project"></a>Skapa ett anpassat kommandon-projekt
+## <a name="create-a-custom-commands-project"></a>Skapa ett projekt för anpassade kommandon
 
-1. Välj **nytt projekt** för att skapa ett nytt projekt
+1. Välj **Nytt projekt** för att skapa ett nytt projekt
 
    > [!div class="mx-imgBorder"]
-   > ![skapa ett projekt](media/custom-speech-commands/create-new-project.png)
+   > ![Skapa ett projekt](media/custom-speech-commands/create-new-project.png)
 
-1. Ange projekt namn och språk.
-1. Välj en redigerings resurs. Om det inte finns några giltiga redigerings resurser skapar du en genom att välja **Skapa ny resurs**.
+1. Ange projektets namn och språk.
+1. Välj en redigeringsresurs. Om det inte finns några giltiga redigeringsresurser skapar du en genom att välja **Skapa ny resurs**.
 
    > [!div class="mx-imgBorder"]
    > ![Skapa en resurs](media/custom-speech-commands/create-new-resource.png)
 
-   1. Ange resurs namn, grupp, plats och pris nivå.
+   1. Ange resursnamn, grupp, plats och prisnivå.
 
          > [!NOTE]
-         > Du kan skapa resurs grupper genom att ange önskat resurs grupp namn i fältet resurs grupp. Resurs gruppen skapas när du väljer **skapa** .
+         > Du kan skapa resursgrupper genom att ange önskat resursgruppsnamn i fältet "Resursgrupp". Resursgruppen skapas när **Skapa** är markerat.
 
-1. Skapa projektet genom att klicka på **skapa** .
-1. När du har skapat väljer du ditt projekt.
+1. Klicka på **Skapa** om du vill skapa projektet.
+1. När du har skapat det väljer du projektet.
 
-Din vy bör nu vara en översikt över ditt anpassade kommandon-program.
+Vyn bör nu vara en översikt över programmet Anpassade kommandon.
 
 ## <a name="update-luis-resources-optional"></a>Uppdatera LUIS-resurser (valfritt)
 
-Du kan uppdatera resurs uppsättningen för redigering i fönstret nytt projekt och ange en förutsägelse resurs som används för att identifiera indata under körningen.
+Du kan uppdatera redigeringsresursuppsättningen i det nya projektfönstret och ange en förutsägelseresurs som används för att känna igen indata under körning.
 
 > [!NOTE]
-> Du måste ange en förutsägelse resurs innan ditt program begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av redigerings resursen.
+> Du måste ange en förutsägelseresurs innan programmet begär förutsägelser utöver de 1 000 begäranden som tillhandahålls av redigeringsresursen.
 
 > [!div class="mx-imgBorder"]
-> ![ange LUIS-resurser](media/custom-speech-commands/set-luis-resources.png)
+> ![Ange LUIS-resurser](media/custom-speech-commands/set-luis-resources.png)
 
-1. Navigera till fönstret LUIS-resurser genom att välja **Inställningar** i den vänstra rutan och sedan **Luis-resurser** från fönstret i mitten.
-1. Välj en förutsägelse resurs eller skapa en genom att välja **Skapa ny resurs**
+1. Navigera till fönstret LUIS-resurser genom att välja **Inställningar** i den vänstra rutan och sedan **LUIS-resurser** från mittenfönstret.
+1. Välj en förutsägelseresurs eller skapa en genom att välja **Skapa ny resurs**
 1. Välj **Spara**
 
 ## <a name="create-a-new-command"></a>Skapa ett nytt kommando
 
-Nu kan du skapa ett kommando. Vi använder ett exempel som tar en enskild uttryck, `turn on the tv`och svarar med meddelandet `Ok, turning on the TV`.
+Nu kan du skapa ett kommando. Låt oss använda ett exempel som tar `turn on the tv`ett enda uttryck `Ok, turning on the TV`och svarar med meddelandet .
 
-1. Skapa ett nytt kommando genom att välja ikonen `+` bredvid kommandon och ge den namnet `TurnOn`
+1. Skapa ett nytt kommando `+` genom att markera ikonen bredvid kommandon och ge det namnet`TurnOn`
 1. Välj **Spara**
 
 > [!div class="mx-imgBorder"]
-> ![skapa ett kommando](media/custom-speech-commands/create-add-command.png)
+> ![Skapa ett kommando](media/custom-speech-commands/create-add-command.png)
 
 Ett kommando är en uppsättning:
 
 | Grupp            | Beskrivning                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Exempelmeningar | Exempel yttranden användaren kan säga att utlösa det här kommandot                                                                 |
+| Exempel på meningar | Exempel yttranden användaren kan säga att utlösa detta kommando                                                                 |
 | Parametrar       | Information som krävs för att slutföra kommandot                                                                                |
-| Regler för slut för ande | De åtgärder som ska vidtas för att utföra kommandot. Till exempel för att svara på användaren eller kommunicera med en annan webb tjänst |
-| Avancerade regler   | Ytterligare regler för att hantera mer detaljerade eller komplexa situationer                                                              |
+| Regler för slutförande | De åtgärder som ska vidtas för att uppfylla kommandot. Om du till exempel vill svara på användaren eller kommunicera med en annan webbtjänst |
+| Avancerade regler   | Ytterligare regler för att hantera mer specifika eller komplexa situationer                                                              |
 
-### <a name="add-a-sample-sentence"></a>Lägg till en exempel mening
+### <a name="add-a-sample-sentence"></a>Lägga till en exempel mening
 
-Vi börjar med exempel meningar och ger ett exempel på vad användaren kan säga:
+Låt oss börja med Exempelmeningar och ge ett exempel på vad användaren kan säga:
 
 ```
 turn on the tv
 ```
 
-För närvarande har vi inga parametrar så att vi kan gå vidare till slut för ande regler.
+För nu har vi inga parametrar så vi kan gå vidare till slutföranderegler.
 
-### <a name="add-a-completion-rule"></a>Lägg till en regel för slut för ande
+### <a name="add-a-completion-rule"></a>Lägga till en slutföranderegel
 
-Lägg nu till en regel för slut för ande för att svara på användaren som anger att en åtgärd utförs.
+Lägg nu till en slutföranderegel för att svara användaren och ange att en åtgärd vidtas.
 
-1. Skapa en ny regel för slut för ande genom att välja `+` ikonen bredvid slut för ande regler
-1. Ange regel namnet
+1. Skapa en ny slutföranderegel `+` genom att välja ikonen bredvid Slutföranderegler
+1. Ange regelnamnet
 1. Lägga till en åtgärd
-   1. Skapa en ny röst svars åtgärd genom att välja ikonen `+` bredvid åtgärder och välj `SpeechResponse`
+   1. Skapa en ny talsvarsåtgärd `+` genom att välja ikonen bredvid Åtgärder och välja`SpeechResponse`
    1. Ange svaret
 
    > [!NOTE]
-   > Vanlig text måste börja med ett bindestreck. Mer information finns [här](https://aka.ms/sc-lg-format)
+   > Vanlig text måste börja med ett streck. För mer information, gå [hit](https://aka.ms/sc-lg-format)
 
    > [!div class="mx-imgBorder"]
-   > ![skapa ett tal svar](media/custom-speech-commands/create-speech-response-action.png)
+   > ![Skapa ett talsvar](media/custom-speech-commands/create-speech-response-action.png)
 
 1. Klicka på **Spara** för att spara regeln
 
 > [!div class="mx-imgBorder"]
-> ![skapa en regel för slut för ande](media/custom-speech-commands/create-basic-completion-response-rule.png)
+> ![Skapa en slutföranderegel](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
 | Inställning    | Föreslaget värde                          | Beskrivning                                        |
 | ---------- | ---------------------------------------- | -------------------------------------------------- |
-| Regelnamn  | "ConfirmationResponse"                   | Ett namn som beskriver syftet med regeln          |
+| Regelnamn  | "BekräftelseSvar"                   | Ett namn som beskriver syftet med regeln          |
 | Villkor | Inget                                     | Villkor som avgör när regeln kan köras    |
-| Åtgärder    | SpeechResponse "– OK, aktivera TV" | Den åtgärd som ska vidtas när regel villkoret är sant |
+| Åtgärder    | SpeechResponse "- Ok, slå på TV: n" | Åtgärden som ska vidtas när regelvillkoret är sant |
 
-## <a name="try-it-out"></a>Prova
+## <a name="try-it-out"></a>Prova det
 
-Testa beteendet med hjälp av panelen test chatt.
+Testa beteendet med hjälp av testchattpanelen.
 
 > [!div class="mx-imgBorder"]
-> ![test med Web Chat](media/custom-speech-commands/create-basic-test-chat.png)
+> ![Testa med webbchatt](media/custom-speech-commands/create-basic-test-chat.png)
 
-- Du skriver: "slå på TV"
-- Förväntat svar: "OK, aktivera TV"
+- Du skriver: "slå på tv: n"
+- Förväntad respons: "Ok, slå på tv: n"
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
+> [Snabbstart: Skapa ett anpassat kommando med parametrar (förhandsgranskning)](./quickstart-custom-speech-commands-create-parameters.md)

@@ -1,7 +1,7 @@
 ---
 title: Designbegrepp för akustiksimulering
 titlesuffix: Azure Cognitive Services
-description: Den här konceptuella översikten förklarar hur projekt akustiskt införlivar akustisk simulering med ljud design processen.
+description: Den här konceptuella översikten förklarar hur Project Acoustics innehåller akustisk simulering i ljuddesignprocessen.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,55 +12,55 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: 11e1e3f45b5198ddedb6c31fcd354185adef445d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854294"
 ---
-# <a name="project-acoustics-design-process-concepts"></a>Process koncept för projekt akustiska design processer
+# <a name="project-acoustics-design-process-concepts"></a>Projekt Akustik Design ProcessKoncept
 
-Den här konceptuella översikten förklarar hur projekt akustiskt införlivar fysisk akustisk simulering i ljud design processen.
+Den här konceptuella översikten förklarar hur Project Acoustics införlivar fysisk akustisk simulering i ljuddesignprocessen.
 
-## <a name="sound-design-with-audio-dsp-parameters"></a>Ljud design med parametrar för ljud-DSP
+## <a name="sound-design-with-audio-dsp-parameters"></a>Ljuddesign med DSP-parametrar för ljud
 
-interaktiva 3D-titlar får sitt specifika ljud med DSP-block (digital signal process bearbetning) som finns i en ljud motor. Dessa block varierar i komplexitet från enkel mixning, till Reverberation, eko, fördröjning, utjämning, komprimering och begränsning samt andra effekter. Om du väljer, ordnar och ställer in parametrar för dessa effekter är ljud designern ansvar, som skapar ett ljud diagram som uppnår miljöns smak och spel mål.
+3D interaktiva titlar uppnå sitt speciella ljud med hjälp av ljud digital signalbehandling (DSP) block värd i en ljudmotor. Dessa block varierar i komplexitet från enkel blandning, till efterklang, eko, fördröjning, utjämning, komprimering och begränsande, och andra effekter. Att välja, ordna och ställa in parametrar på dessa effekter är ljuddesignerns ansvar, som bygger ett ljuddiagram som uppnår upplevelsens estetiska och gameplay-mål.
 
-I en interaktiv rubrik, när ljud och lyssnare flyttas i 3D-rymden, hur kan parametrarna anpassas till ändrade villkor? Ljud designern ordnar ofta volymer i det utrymme som är programmerat för att utlösa parameter ändringar för att uppnå ändringar i Reverberation-effekter, till exempel eller för att sätta upp ljud i blandningen när lyssnaren flyttas från en del av scenen till en annan. Akustiska system är också tillgängliga som kan automatisera vissa av dessa effekter.
+I en interaktiv titel, som ljud och lyssnare flytta hela 3D-rymden, hur dessa parametrar anpassa sig till förändrade förhållanden? Ljuddesignern ordnar ofta volymer i hela utrymmet som är programmerade för att utlösa parameterändringar för att uppnå ändringar i efterklangseffekter, till exempel, eller för att ducka ljud i mixen när lyssnaren flyttar från en del av scenen till en annan. Akustik system finns också som kan automatisera några av dessa effekter.
 
-3D-rubriker använder belysnings-och kinematik fysik system som är fysik-motiverade men designer-justerade för att uppnå en blandning av nedspännande och spel mål. En visuell designer anger inte enskilda pixel värden, utan justerar i stället 3D-modeller, material och lätta transport system som är fysiskt baserade på att utbyta visuella objekt och CPU-kostnader. Vad är den likvärdiga processen för ljud? Projekt akustiska är ett första steg i utforskningen av den här frågan. Först trycker vi på vad det innebär att transportera akustisk energi genom ett utrymme.
+3D-titlar använder belysning och kinematiska fysiksystem som är fysikmotiverade men designanpassade för att uppnå en blandning av nedsänknings- och spelmål. En visuell designer anger inte enskilda pixelvärden, utan justerar snarare 3D-modeller, material och lätta transportsystem som alla är fysiskt baserade för att kompromissa med visuell estetik och CPU-kostnader. Vad skulle vara motsvarande process för ljud? Project Acoustics är ett första steg i utforskningen av denna fråga. Först ska vi beröra vad det innebär att transportera akustisk energi genom ett utrymme.
 
-![Skärm bild av AltSpace-scen överlappad med Reverb-zoner](media/reverb-zones-altspace.png)
+![Skärmbild av AltSpace-scenen överlagrad med reverb-zoner](media/reverb-zones-altspace.png)
 
-## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Impulse svar: Att akustiskt ansluta två punkter i rymden
+## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Impulssvar: Akustiskt ansluta två punkter i rymden
 
-Om du är bekant med ljud design kan du vara bekant med akustiska Impulse-svar. Ett akustiskt Impulse-svar modellerar transporten av ett ljud från en källa till en lyssnare. Ett Impulse-svar kan därför fånga alla intressanta effekter av rums akustiskhet, till exempel ocklusion och Reverberation. Impulse-svar har också vissa kraftfulla egenskaper som gör att ljud-DSP-effekter kan skalas. Genom att lägga till två ljud signaler tillsammans och bearbetningen med ett Impulse-svar får du samma resultat som när du tillämpar Impulse-svaret separat på varje signal och lägger till resultaten. Akustisk spridning och Impulse svar är inte heller beroende av att ljudet bearbetas, endast på den scen som är modell och käll-och lyssnar platser. Ett Impulse-svar använder sig av till att från scenens effekt vid ljud spridningen.
+Om du är bekant med ljuddesign kan du känna till akustiska impulssvar. En akustisk impulsrespons modellerar transporten av ett ljud från en källa till en lyssnare. Därför kan ett impulssvar fånga varje intressant effekt av rumsakustik som ocklusion och efterklang. Impulssvar har också vissa kraftfulla egenskaper som gör att ljud DSP effekter att skala. Att lägga till två ljudsignaler tillsammans och bearbeta med ett impulssvar ger samma resultat som att tillämpa impulssvaret separat på varje signal och lägga till resultaten. Akustisk spridning och impulssvar beror inte heller på vilket ljud som bearbetas, bara på scenen som modelleras och käll- och lyssnarplatserna. Kort sagt, ett impulssvar destillerar scenens effekt på ljudutbredning.
 
-Ett Impulse-svar fångar varje intressant rums akustisk och vi kan använda den för att effektivt kunna använda ett filter, och vi kan få Impulse svar från mätningar eller simuleringar. Men vad händer om vi inte vill att de akustiska ljuden ska matcha fysiken exakt, utan i stället forma den för att matcha känslomässig-kraven för en scen? Men ungefär som pixel värden är ett Impulse-svar bara en lista med tusentals siffror, hur kan vi ändra det för att möta de smak behoven? Och vad gör vi om vi vill ha ocklusion/hinder som varierar smidigt samtidigt som de passerar genom doorways eller bakom hinder, hur många Impulse-svar behöver vi för att få en smidig påverkan? Vad händer om källan flyttas snabbt? Hur interpolerar vi?
+Ett impulssvar fångar varje intressant rum akustisk effekt, och vi kan tillämpa den på ljud effektivt med ett filter, och vi kan få impulssvar från mätning eller simulering. Men tänk om vi inte riktigt vill att akustiken ska matcha fysiken exakt, utan snarare forma den för att matcha de känslomässiga kraven på en scen? Men ungefär som pixelvärden, är en impuls svar bara en lista med tusentals siffror, hur kan vi möjligen justera den för att möta estetiska behov? Och vad händer om vi vill ha ocklusion / obstruktion som varierar smidigt när du passerar genom dörröppningar eller bakom hinder, hur många impulssvar behöver vi för att få en smidig effekt? Vad händer om källan rör sig snabbt? Hur interpolerar vi?
 
-Det låter svårt att använda simulerings-och Impulse-svar för vissa aspekter av akustiska titlar i interaktiva titlar. Men vi kan fortfarande bygga ett ljud transport system som stöder designer-justeringar om vi kan ansluta våra Impulse-svar från simulering med våra välkända parametrar för ljud-och-effekter.
+Det låter svårt att använda simulering och impulssvar för vissa aspekter av akustik i interaktiva titlar. Men vi kan fortfarande bygga ett ljudtransportsystem som stöder designer justeringar om vi kan ansluta våra impulssvar från simulering med våra välbekanta ljud DSP effektparametrar.
 
-## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Ansluter simuleringen till Audio DSP med parametrar
+## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Ansluta simulering till ljud DSP med parametrar
 
-Ett Impulse-svar innehåller alla intressanta (och varje intressant) akustiskt resultat. Ljud-DSP-block, när deras parametrar är korrekt inställda, kan återge en intressant akustisk funktion. Använda akustisk simulering för att driva ett ljud-DSP-block för att automatisera ljud transport i en 3D-scen är bara en fråga om att mäta egenskaperna för ljudet DSP från ett Impulse-svar. Detta mått är bra att förstå för vissa vanliga och viktiga akustiska effekter, inklusive ocklusion, hinder, portaling och Reverberation.
+Ett impulssvar innehåller varje intressant (och varje ointressant) akustisk effekt. Audio DSP block, när deras parametrar är korrekt inställda, kan göra intressant akustisk effekt. Använda akustisk simulering för att driva ett ljud DSP block för att automatisera ljudtransport i en 3D-scen är bara en fråga om att mäta ljud DSP parametrar från en impulsrespons. Denna mätning är väl förstådd för vissa vanliga och viktiga akustiska effekter inklusive ocklusion, obstruktion, portalling och efterklang.
 
-Men om simuleringen är direkt ansluten till ljud-DSP-parametrarna, där är designer-justeringen? Vad fick vi? Dessutom får vi en betydande mängd minne tillbaka genom att ta bort Impulse-svar och behålla några DSP-parametrar. Och för att ge designern lite kraft över slut resultatet behöver vi bara hitta ett sätt att infoga designern mellan simuleringen och ljud-DSP.
+Men om simuleringen är ansluten direkt till ljud DSP parametrar, var är designern justering? Vad fick vi? Tja, vi får en betydande mängd minne tillbaka genom att kasta impulssvar och behålla några DSP parametrar. Och för att ge designern lite makt över slutresultatet behöver vi bara hitta ett sätt att infoga designern mellan simuleringen och ljudet DSP.
 
-![Graf med impulset svar med parametrar överlappande](media/acoustic-parameters.png)
+![Graf med stiliserad impulsrespons med parametrar överlagrad](media/acoustic-parameters.png)
 
-## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Ljud design genom omvandling av ljud-DSP-parametrar från simulering
+## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Ljuddesign genom att omvandla DSP-parametrar för ljud från simulering
 
-Ta hänsyn till vilken påverkan dina sol glasögon har på din vy av världen. På en ljus dag kan glasögonen minska skinet till något bekvämare. I ett mörkt rum kanske du inte kan se något alls. Glasögonen anger inte en viss nivå av ljus styrka i alla situationer. de gör bara allt mörkare.
+Tänk på vilken effekt dina solglasögon har på din syn på världen. En ljus dag kan glasögonen reducera glansen till något bekvämare. I ett mörkt rum kanske du inte kan se någonting alls. Glasögonen ställer inte in en viss nivå av ljusstyrka i alla situationer; de gör allt mörkare.
 
-Om vi använder simulering för att köra vår ljud-DSP med parametrarna ocklusion och Reverberation kan vi lägga till ett filter efter att simulatorn har justerat parametrarna som DSP ' ser ". Filtret tvingar inte en viss nivå av ocklusion-eller reverb-längd, ungefär som sol Glaser ger inte alla rum samma ljus styrka. Filtret kan bara göra var occluder occlude mindre. Eller occlude mer. Genom att lägga till och justera ett "mörkare" ocklusion parameter filter, skulle stora öppna rum fortfarande ha lite till ingen ocklusion-effekt medan doorways skulle öka från en medels Tor till en stark ocklusion-effekt, samtidigt som den bevarar smidighet i effekt över gångar som simuleringen erbjuder.
+Om vi använder simulering för att driva vårt ljud DSP med ocklusion och efterklang parametrar, kan vi lägga till ett filter efter simulatorn för att justera de parametrar som DSP "ser". Filtret skulle inte genomdriva en viss nivå av ocklusion eller reverb svanslängd, ungefär som solglasögon inte gör varje rum samma ljusstyrka. Filtret kan bara göra varje occluder ocklude mindre. Eller ocklude mer. Genom att lägga till och justera en "mörkare" ocklusion parameter filter, stora, öppna rum skulle fortfarande ha liten eller ingen ocklusion effekt, medan dörröppningar skulle öka från ett medium till en stark ocklusion effekt, samtidigt som jämnhet i effekt övergångar som simuleringen ger.
 
-I det här paradigmet ändrar designerns aktivitet från att välja akustiska parametrar för varje situation, för att välja och justera filter som ska tillämpas på de viktigaste DSP-parametrarna som kommer från simuleringen. Den höjer designens aktiviteter från de smala problemen med att ställa in smidiga över gångar för att öka intensiteten hos ocklusion-och Reverberation-effekter och förekomsten av källor i blandningen. När situationen kräver det är ett filter alltid tillgängligt för att gå tillbaka till att välja DSP-parametrar för en speciell källa i en speciell situation.
+I detta paradigm ändras designerns uppgift från att välja akustiska parametrar för varje situation, till att välja och justera filter för att tillämpa på de viktigaste DSP-parametrarna som kommer från simuleringen. Det höjer designerns verksamhet från den smala oro för att inrätta smidiga övergångar till högre oro för intensiteten av ocklusion och efterklang effekter och förekomsten av källor i mixen. Naturligtvis, när situationen kräver, ett filter alltid tillgänglig är att helt enkelt gå tillbaka till att välja DSP parametrar för en viss källa i en viss situation.
 
-## <a name="sound-design-in-project-acoustics"></a>Ljud design i projekt akustiska data
+## <a name="sound-design-in-project-acoustics"></a>Ljuddesign i Project Acoustics
 
-Project Akustiske-paketet integrerar var och en av de komponenter som beskrivs ovan: en simulator, en kodare som extraherar parametrar och skapar en akustisk till gång, ljud-DSP och ett urval av filter. Med en ljud design med projekt akustiskt kan du välja parametrar för de filter som justerar parametrarna ocklusion och Reverberation som härleds från simuleringen och tillämpas på ljud-DSP, med dynamiska kontroller som visas i spel redigeraren och ljud motorn.
+Project Acoustics-paketet integrerar var och en av de komponenter som beskrivs ovan: en simulator, en kodare som extraherar parametrar och bygger akustiktillgången, ljud-DSP och ett urval av filter. Ljuddesign med Project Acoustics innebär att välja parametrar för de filter som justerar ocklusions- och efterklangsparametrarna som härleds från simulering och tillämpas på ljud-DSP, med dynamiska kontroller exponerade inuti spelredigeraren och ljudmotorn.
 
 ## <a name="next-steps"></a>Nästa steg
-* Prova design paradigmet med hjälp av [projektet akustisk snabb start för](unity-quickstart.md) enhets-eller [projekt akustisker-snabb start för Unreal](unreal-quickstart.md)
-* Utforska [design kontrollerna för projekt akustiskt för Unit](unity-workflow.md) eller [Project akustisker design Controls for Unreal](unreal-workflow.md)
+* Prova designparadigmet med quickstart för [Project Acoustics för Unity](unity-quickstart.md) eller project [acoustics quickstart för Unreal](unreal-quickstart.md)
+* Utforska [designkontrollerna för Project Acoustics för Unity](unity-workflow.md) eller [designkontrollerna project acoustics för Unreal](unreal-workflow.md)
 

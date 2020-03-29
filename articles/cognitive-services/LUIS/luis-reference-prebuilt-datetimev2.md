@@ -1,7 +1,7 @@
 ---
-title: DatetimeV2 fördefinierade entiteter – LUIS
+title: DatetimeV2 Fördefinierade enheter - LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln har datetimeV2 fördefinierade entitetsinformation i Språkförståelse (LUIS).
+description: Den här artikeln har datetimeV2 fördefinierad entitetsinformation i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,22 +12,22 @@ ms.topic: reference
 ms.date: 01/07/2020
 ms.author: diberry
 ms.openlocfilehash: 30132983f37323e798efd330f5cc8f15c0a9d2b6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270740"
 ---
-# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2-fördefinierad entitet för en LUIS-app
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 fördefinierad entitet för en LUIS-app
 
-Den **datetimeV2** fördefinierade entiteten extraherar datum-och tids värden. Dessa värden lösa i ett standardformat för klientprogram kan använda. När ett uttryck har ett datum eller en tid som inte är fullständig, innehåller LUIS _både tidigare och framtida värden_ i slut punkts svaret. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller datetimeV2 till programmet avsikter.
+**DatetimeV2** fördefinierade entiteten extraherar datum- och tidsvärden. Dessa värden matchas i ett standardiserat format för klientprogram att använda. När ett uttryck har ett datum eller en tid som inte har slutförts, innehåller LUIS _både tidigare och framtida värden_ i slutpunktssvaret. Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller datetimeV2 i programavsikterna.
 
 ## <a name="types-of-datetimev2"></a>Typer av datetimeV2
-DatetimeV2 hanteras från [identifierare-text GitHub-](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml) lagringsplatsen.
+DatetimeV2 hanteras från [GitHub-databasen med identifierare-text.](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-DateTime.yaml)
 
 ## <a name="example-json"></a>Exempel på JSON
 
-Följande uttryck och dess partiella JSON-svar visas nedan.
+Följande yttrande och dess partiella JSON-svar visas nedan.
 
 `8am on may 2nd 2019`
 
@@ -53,7 +53,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 }
 ```
 
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/1-2)
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/1-2)
 
 ```json
 
@@ -113,20 +113,20 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 ]
  ```
 
-|Egenskapsnamn |Egenskapstypen och beskrivning|
+|Egenskapsnamn |Egenskapstyp och beskrivning|
 |---|---|
-|Entitet|**String** -text extraherad från uttryck med typ av datum, tid, datum intervall eller tidsintervall.|
-|typ|**sträng** – en av under [typerna för datetimeV2](#subtypes-of-datetimev2)
-|startIndex|**int** – indexet i uttryck som entiteten börjar på.|
-|endIndex|**int** – indexet i uttryck som entiteten slutar på.|
-|lösning|Har en `values` matris som har ett, två eller fyra [matchnings värden](#values-of-resolution).|
-|slut|Slutvärdet för en tid, eller ett datum intervall, i samma format som `value`. Används endast om `type` är `daterange`, `timerange`eller `datetimerange`|
+|Entitet|**sträng** - Text som extraherats från uttrycket med typ av datum, tid, datumintervall eller tidsintervall.|
+|typ|**sträng** - En av [undertyperna av datetimeV2](#subtypes-of-datetimev2)
+|startIndex (startIndex)|**int** - Indexet i uttrycket där entiteten börjar.|
+|endIndex (på ett år)|**int** - Indexet i uttrycket som entiteten slutar på.|
+|Upplösning|Har `values` en matris som har ett, två eller fyra [värden för upplösning](#values-of-resolution).|
+|slut|Slutvärdet för en tid, eller datumintervall, `value`i samma format som . Används endast `type` `daterange`om `timerange`är , eller`datetimerange`|
 
 * * *
 
-## <a name="subtypes-of-datetimev2"></a>Undertyper till datetimeV2
+## <a name="subtypes-of-datetimev2"></a>Undertyper av datetimeV2
 
-Den fördefinierade **datetimeV2** -entiteten har följande under typer och exempel på dem finns i tabellen som följer:
+Den fördefinierade entiteten **datetimeV2** har följande undertyper och exempel på var och en finns i tabellen nedan:
 * `date`
 * `time`
 * `daterange`
@@ -134,48 +134,48 @@ Den fördefinierade **datetimeV2** -entiteten har följande under typer och exem
 * `datetimerange`
 
 
-## <a name="values-of-resolution"></a>Värdena för lösning
-* Matrisen innehåller ett element om datum och tid i uttryck är helt angivna och entydiga.
-* Matrisen innehåller två element om datetimeV2-värdet är tvetydig. Tvetydighet innehåller brist på specifika år, en tid eller tidsintervall. Exempel finns i [tvetydiga datum](#ambiguous-dates) . När tiden är tvetydig för am. eller körs båda värdena ingår.
-* Matrisen har fyra element om uttryck innehåller två element med tvetydighet. Denna tvetydighet innehåller element som har:
-  * Ett datum eller ett intervall som är tvetydig avseende år
-  * En tid eller ett tidsintervall som är tvetydig avseende A.M. eller PM Till exempel 3:00 den 3 April.
+## <a name="values-of-resolution"></a>Värden för upplösning
+* Matrisen har ett element om datum eller tid i uttrycket är fullständigt angivet och entydigt.
+* Matrisen har två element om datetimeV2-värdet är tvetydigt. Tvetydighet inkluderar brist på specifikt år, tid eller tidsintervall. Se [Tvetydiga datum](#ambiguous-dates) för exempel. När tiden är tvetydig för A.M. eller p.m., inkluderas båda värdena.
+* Matrisen har fyra element om uttrycket har två element med tvetydighet. Denna tvetydighet innehåller element som har:
+  * Ett datum- eller datumintervall som är tvetydigt i år
+  * En tid eller ett tidsintervall som är tvetydigt när det gäller A.M. eller P.M. Till exempel 3:00 3 april.
 
-Varje element i `values` matrisen kan ha följande fält:
+Varje element `values` i matrisen kan ha följande fält:
 
-|Egenskapsnamn|Beskrivning av egenskap|
+|Egenskapsnamn|Beskrivning av egenskapen|
 |--|--|
-|Timex|tid, datum eller datum intervall uttryckt i TIMEX-format som följer [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3-attribut för anteckningen med TimeML-språket. Den här anteckningen beskrivs i [TIMEX-rikt linjerna](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|rest|term som används för att beskriva hur du använder värdet, till exempel `before`, `after`.|
-|typ|Under typen, som kan vara något av följande: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
-|värde|**Valfritt.** Ett DateTime-objekt i formatet ÅÅÅÅ-MM-DD (Date), HH: mm: SS (Time) ÅÅÅÅ-MM-dd HH: mm: SS (datetime). Om `type` är `duration`är värdet antalet sekunder (varaktighet) <br/> Används endast om `type` är `datetime` eller `date`, `time`eller varaktighet.|
+|Timex|tid, datum eller datumintervall uttryckt i TIMEX-format som följer [ISO 8601-standarden](https://en.wikipedia.org/wiki/ISO_8601) och TIMEX3-attributen för anteckningar med hjälp av TimeML-språket. Den här anteckningen beskrivs i [TIMEX-riktlinjerna](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|Mod|term som används för att beskriva `before` `after`hur du använder värdet, till exempel , .|
+|typ|Undertypen, som kan vara något `datetime`av `date` `time`följande `daterange` `timerange`objekt: , , , , , `datetimerange`, , `duration`, `set`.|
+|värde|**Valfri.** Ett datetime-objekt i Format yyyy-MM-dd (datum), HH:mm:ss (tid) yyyy-MM-dd HH:mm:ss (datetime). Om `type` `duration`är , är värdet antalet sekunder (varaktighet) <br/> Används endast `type` `datetime` om `date` `time`är eller , eller varaktighet.|
 
-## <a name="valid-date-values"></a>Ogiltigt datum
+## <a name="valid-date-values"></a>Giltiga datumvärden
 
 **DatetimeV2** stöder datum mellan följande intervall:
 
 | Min | Max |
 |----------|-------------|
-| den 1 januari 1900   | den 31 December 2099 |
+| Den 1 januari 1900   | den 31 december 2099 |
 
 ## <a name="ambiguous-dates"></a>Tvetydiga datum
 
-Om datumet kan vara i förflutna eller framtida, LUIS innehåller båda värdena. Ett exempel är ett uttryck som innehåller månad och datum utan året.
+Om datumet kan vara i det förflutna eller framtiden, ger LUIS båda värdena. Ett exempel är ett uttryck som innehåller månad och datum utan år.
 
-Till exempel, med följande uttryck:
+Med tanke på följande uttryck:
 
 `May 2nd`
 
-* Om dagens datum är den 3 2017, innehåller LUIS både ”2017-05-02” och ”2018-05-02” som värden.
-* När dagens datum är den 1 maj 2017, innehåller LUIS både ”2016-05-02” och ”2017-05-02” som värden.
+* Om dagens datum är 3 maj 2017 tillhandahåller LUIS både "2017-05-02" och "2018-05-02" som värden.
+* När dagens datum är 1 maj 2017 tillhandahåller LUIS både "2016-05-02" och "2017-05-02" som värden.
 
-I följande exempel visas av lösningen på entitet som är ”maj 2”. Denna lösning förutsätter att dagens datum är ett datum mellan den 2 2017 och den 1 2018.
-Fält med `X` i fältet `timex` är delar av det datum som inte uttryckligen anges i uttryck.
+Följande exempel visar upplösningen för entiteten "2 maj". Denna resolution förutsätter att dagens datum är ett datum mellan 2 maj 2017 och 1 maj 2018.
+Fält `X` med `timex` i fältet är delar av det datum som inte uttryckligen anges i uttryck.
 
-## <a name="date-resolution-example"></a>Exempel på datum matchning
+## <a name="date-resolution-example"></a>Exempel på datummatchning
 
 
-Följande uttryck och dess partiella JSON-svar visas nedan.
+Följande yttrande och dess partiella JSON-svar visas nedan.
 
 `May 2nd`
 
@@ -204,7 +204,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 }
 ```
 
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/2-2)
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/2-2)
 
 ```json
 "entities": {
@@ -272,11 +272,11 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 ```
 * * *
 
-## <a name="date-range-resolution-examples-for-numeric-date"></a>Datum intervallet upplösning exempel för numeriska datum
+## <a name="date-range-resolution-examples-for-numeric-date"></a>Exempel på datumintervallmatchning för numeriskt datum
 
-`datetimeV2` entiteten extraherar datum-och tidsintervall. Fälten `start` och `end` anger början och slutet av intervallet. LUIS innehåller **DateRange** -värden för både innevarande år och nästa år för uttryck-`May 2nd to May 5th`. I fältet `timex` anger värdena för `XXXX`ns tvetydighet. `P3D` anger att tids perioden är tre dagar lång.
+Entiteten `datetimeV2` extraherar datum- och tidsintervall. `start` Fälten `end` och anger början och slutet av intervallet. För uttryck `May 2nd to May 5th`ger LUIS **daterange-värden** för både innevarande år och nästa år. I `timex` fältet anger `XXXX` värdena årets tvetydighet. `P3D`anger att tidsperioden är tre dagar lång.
 
-Följande uttryck och dess partiella JSON-svar visas nedan.
+Följande yttrande och dess partiella JSON-svar visas nedan.
 
 `May 2nd to May 5th`
 
@@ -309,7 +309,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 ```
 
 
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/3-2)
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/3-2)
 
 ```json
 
@@ -376,11 +376,11 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 ```
 * * *
 
-## <a name="date-range-resolution-examples-for-day-of-week"></a>Datum intervallet upplösning exempel för dag i veckan
+## <a name="date-range-resolution-examples-for-day-of-week"></a>Exempel på datumintervallmatchning för veckodag
 
-I följande exempel visas hur LUIS använder **datetimeV2** för att lösa uttryck-`Tuesday to Thursday`. I det här exemplet är det aktuella datumet 19 juni. LUIS innehåller **DateRange** -värden för båda datum intervallen före och efter det aktuella datumet.
+I följande exempel visas hur LUIS använder **datetimeV2** för att lösa uttrycket `Tuesday to Thursday`. I det här exemplet är det aktuella datumet den 19 juni. LUIS innehåller **daterange-värden** för båda datumintervallen som föregår och följer det aktuella datumet.
 
-Följande uttryck och dess partiella JSON-svar visas nedan.
+Följande yttrande och dess partiella JSON-svar visas nedan.
 
 `Tuesday to Thursday`
 
@@ -411,7 +411,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 }
 ```
 
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/4-2)
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/4-2)
 
 ```json
 "entities": {
@@ -478,23 +478,23 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 * * *
 
 ## <a name="ambiguous-time"></a>Tvetydig tid
-Värden matrisen har två tidselement om den tid, eller tidsintervallet är tvetydig. Om det finns en tvetydig tid, har värden båda kl. och. gånger.
+Värdematrisen har två tidselement om tiden eller tidsintervallet är tvetydigt. När det finns en tvetydig tid, värden har både A.M. och p.m. Gånger.
 
-## <a name="time-range-resolution-example"></a>Exempel på tid intervallet namnmatchning
+## <a name="time-range-resolution-example"></a>Exempel på tidsintervallupplösning
 
-DatetimeV2 JSON-svaret har ändrats i API v3. I följande exempel visas hur LUIS använder **datetimeV2** för att lösa uttryck som har ett tidsintervall.
+DatetimeV2 JSON-svaret har ändrats i API V3. I följande exempel visas hur LUIS använder **datetimeV2** för att lösa uttryck som har ett tidsintervall.
 
-Ändringar från API v2:
-* Egenskapen `datetimeV2.timex.type` returneras inte längre eftersom den returneras på den överordnade nivån `datetimev2.type`.
-* Egenskapen `datetimeV2.value` har bytt namn till `datetimeV2.timex`.
+Ändringar från API V2:
+* `datetimeV2.timex.type`returneras inte längre eftersom den returneras på `datetimev2.type`den överordnade nivån .
+* Egenskapen `datetimeV2.value` har bytt `datetimeV2.timex`namn till .
 
-Följande uttryck och dess partiella JSON-svar visas nedan.
+Följande yttrande och dess partiella JSON-svar visas nedan.
 
 `from 6pm to 7pm`
 
 #### <a name="v3-response"></a>[V3-svar](#tab/5-1)
 
-Följande JSON är med parametern `verbose` som har angetts till `false`:
+Följande JSON är `verbose` med parametern inställd `false`på:
 
 ```JSON
 
@@ -517,9 +517,9 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/5-2)
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/5-2)
 
-Följande JSON är med parametern `verbose` som har angetts till `true`:
+Följande JSON är `verbose` med parametern inställd `true`på:
 
 ```json
 
@@ -582,9 +582,9 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
 
 * * *
 
-## <a name="time-resolution-example"></a>Exempel på tids upplösning
+## <a name="time-resolution-example"></a>Exempel på tidsupplösning
 
-Följande uttryck och dess partiella JSON-svar visas nedan.
+Följande yttrande och dess partiella JSON-svar visas nedan.
 
 `8am`
 
@@ -609,7 +609,7 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/6-2)
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/6-2)
 
 ```json
 "entities": {
@@ -669,20 +669,20 @@ Följande uttryck och dess partiella JSON-svar visas nedan.
 
 * * *
 
-## <a name="deprecated-prebuilt-datetime"></a>Föråldrad fördefinierade datum/tid
+## <a name="deprecated-prebuilt-datetime"></a>Föråldrad fördefinierad datetime
 
-Den `datetime` fördefinierade entiteten är inaktuell och ersätts av **datetimeV2**.
+Den `datetime` fördefinierade entiteten är föråldrad och ersätts av **datetimeV2**.
 
-Om du vill ersätta `datetime` med `datetimeV2` i LUIS-appen utför du följande steg:
+Gör `datetime` så `datetimeV2` här om du vill ersätta med i LUIS-appen:
 
-1. Öppna fönstret **entiteter** i Luis-webbgränssnittet.
-2. Ta bort **datetime** -förbyggda entiteten.
+1. Öppna fönstret **Entiteter** i webbgränssnittet LUIS.
+2. Ta bort den fördefinierade entiteten **datetime.**
 3. Klicka på **Lägg till fördefinierad entitet**
 4. Välj **datetimeV2** och klicka på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
 
-Lär dig mer om [dimension](luis-reference-prebuilt-dimension.md), [e-](luis-reference-prebuilt-email.md) postentiteter och [nummer](luis-reference-prebuilt-number.md).
+Lär dig mer om [dimensionen,](luis-reference-prebuilt-dimension.md) [e-postentiteterna](luis-reference-prebuilt-email.md) och [numret](luis-reference-prebuilt-number.md).
 

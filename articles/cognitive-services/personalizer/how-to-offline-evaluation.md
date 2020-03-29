@@ -1,7 +1,7 @@
 ---
-title: Så här gör du en offline-utvärdering – Personanpassare
+title: Så här utför du offlineutvärdering - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar hur du använder offline-utvärdering för att mäta appens effektivitet och analysera din inlärnings slinga.
+description: Den här artikeln visar hur du använder offlineutvärdering för att mäta appens effektivitet och analysera din utbildningsloop.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,54 +11,54 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: diberry
 ms.openlocfilehash: ce85c2d264b2b4849a4a36ed757150292fdf39f0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77622789"
 ---
-# <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysera din inlärnings slinga med en offline-utvärdering
+# <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysera din inlärningsloop med en offlineutvärdering
 
-Lär dig hur du slutför en offline-utvärdering och förstår resultatet.
+Läs om hur du slutför en offlineutvärdering och förstår resultaten.
 
-Med offline-utvärdering kan du mäta hur effektiv Personanpassare jämförs med programmets standard beteende, se vilka funktioner som bidrar mest till anpassning och identifiera nya maskin inlärnings värden automatiskt.
+Offlineutvärderingar gör att du kan mäta hur effektiv Personalizer jämförs med programmets standardbeteende, lära dig vilka funktioner som bidrar mest till anpassning och upptäcker nya maskininlärningsvärden automatiskt.
 
-Läs om [offline-utvärderingar](concepts-offline-evaluation.md) för mer information.
+Läs mer om [offlineutvärderingar.](concepts-offline-evaluation.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En konfigurerad personanpassa slinga
-* Den personliga slingan måste ha en representativ mängd data – som en ungefärligt rekommenderar vi minst 50 000 händelser i sina loggar för meningsfulla utvärderings resultat. Om du vill kan du också ha tidigare exporterade _Learning-principfiler_ som du kan jämföra och testa i samma utvärdering.
+* En konfigurerad Personalizer-loop
+* Personalizer-loopen måste ha en representativ mängd data - som en ballpark rekommenderar vi minst 50 000 händelser i sina loggar för meningsfulla utvärderingsresultat. Du kan också tidigare ha exporterat _utbildningsprincipfiler_ som du kan jämföra och testa i samma utvärdering.
 
-## <a name="run-an-offline-evaluation"></a>Köra en offline-utvärdering
+## <a name="run-an-offline-evaluation"></a>Kör en offlineutvärdering
 
-1. Leta upp din personanpassa resurs i [Azure Portal](https://azure.microsoft.com/free/).
-1. I Azure Portal går du till avsnittet **utvärderingar** och väljer **Skapa utvärdering**.
-    ![i Azure Portal går du till avsnittet * * utvärdering * * och väljer * * Skapa utvärdering * *.](./media/offline-evaluation/create-new-offline-evaluation.png)
+1. Leta reda på din Personalizer-resurs i [Azure-portalen.](https://azure.microsoft.com/free/)
+1. Gå till avsnittet **Utvärderingar** i Azure-portalen och välj **Skapa utvärdering**.
+    ![Gå till avsnittet **Utvärderingar** i Azure-portalen och välj **Skapa utvärdering**.](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Konfigurera följande värden:
 
-    * Ett namn på utvärderingen.
-    * Start-och slutdatum – dessa är datum som anger det data intervall som ska användas i utvärderingen. Dessa data måste finnas i loggarna, enligt vad som anges i [datakvarhållning](how-to-settings.md) svärdet.
-    * Optimerings identifieringen är inställd på **Ja**.
+    * Ett utvärderingsnamn.
+    * Start- och slutdatum - det här är datum som anger det dataintervall som ska användas i utvärderingen. Dessa data måste finnas i loggarna, enligt vad som anges i [datalagringsvärdet.](how-to-settings.md)
+    * Optimeringsidentifiering inställd på **ja**.
 
     > [!div class="mx-imgBorder"]
-    > ![välja inställningar för utvärdering av offline](./media/offline-evaluation/create-an-evaluation-form.png)
+    > ![Välj inställningar för offlineutvärdering](./media/offline-evaluation/create-an-evaluation-form.png)
 
-1. Starta utvärderingen genom att välja **OK**.
+1. Starta utvärderingen genom att välja **Ok**.
 
-## <a name="review-the-evaluation-results"></a>Granska utvärderings resultaten
+## <a name="review-the-evaluation-results"></a>Granska utvärderingsresultaten
 
-Utvärderingen kan ta lång tid att köra, beroende på mängden data som ska bearbetas, antalet inlärnings principer som ska jämföras och om en optimering har begärts.
+Utvärderingar kan ta lång tid att köra, beroende på hur mycket data som ska bearbetas, antal utbildningsprinciper att jämföra och om en optimering begärdes.
 
-När du är klar kan du välja utvärderingen i listan över utvärderingar och sedan välja **Jämför poängen för ditt program med andra potentiella inlärnings inställningar**. Välj den här funktionen om du vill se hur din aktuella utbildnings princip fungerar jämfört med en ny princip.
+När du är klar kan du välja utvärderingen i listan över utvärderingar och sedan välja **Jämför poängen för ditt program med andra potentiella inlärningsinställningar**. Välj den här funktionen när du vill se hur din nuvarande utbildningspolitik fungerar jämfört med en ny princip.
 
-1. Granska prestanda för [utbildnings principerna](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
+1. Granska resultaten av [utbildningsprinciperna](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
 
     > [!div class="mx-imgBorder"]
-    > [![granska utvärderings resultat](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
+    > [![Granska utvärderingsresultat](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
 
-1. Välj **tillämpa** för att tillämpa principen som förbättrar modellen för dina data.
+1. Välj **Använd** om du vill tillämpa den princip som förbättrar modellen bäst för dina data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [hur offline-utvärdering fungerar](concepts-offline-evaluation.md).
+* Läs mer om [hur offlineutvärderingar fungerar](concepts-offline-evaluation.md).

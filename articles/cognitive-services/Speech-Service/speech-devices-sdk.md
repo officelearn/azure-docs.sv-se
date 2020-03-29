@@ -1,7 +1,7 @@
 ---
-title: Tal enheter SDK – tal service
+title: Talenheter SDK - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: 'Kom igång med SDK: N för tal-enheter. Tal tjänsten fungerar med en mängd olika enheter och ljud källor. Tal Devices SDK är ett redan utformad bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.'
+description: Kom igång med SDK för talenheter. Taltjänsten fungerar med en mängd olika enheter och ljudkällor. Speech Devices SDK är ett förjusterat bibliotek som är parat med specialbyggda utvecklingspaket för mikrofonmatriser.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,49 +11,49 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
 ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370652"
 ---
-# <a name="what-is-the-speech-devices-sdk"></a>Vad är det för tal enheter SDK?
+# <a name="what-is-the-speech-devices-sdk"></a>Vad är SDK för talenheter?
 
-[Tal tjänsten](overview.md) fungerar med en mängd olika enheter och ljud källor. Nu kan dra du ditt talprogram till nästa nivå med matchande maskinvara och programvara. Tal Devices SDK är ett redan utformad bibliotek som är länkat till specialbyggda, mikrofon matris development Kit.
+[Taltjänsten](overview.md) fungerar med en mängd olika enheter och ljudkällor. Nu kan du ta dina talprogram till nästa nivå med matchad maskinvara och programvara. Speech Devices SDK är ett förjusterat bibliotek som är parat med specialbyggda utvecklingspaket för mikrofonmatriser.
 
-Med hjälp av tal Devices SDK kan du:
+Speech Devices SDK kan hjälpa dig:
 
-- Snabbt testa nya voice-scenarier.
-- Integrera enkelt molnbaserad tal-tjänst i din enhet.
-- Skapa en enastående användarupplevelse för kunderna.
+- Testa snabbt nya röstscenarier.
+- Enklare att integrera den molnbaserade taltjänsten i enheten.
+- Skapa en exceptionell användarupplevelse för dina kunder.
 
-Tal enheternas SDK använder tal- [SDK](speech-sdk.md). Använd våra avancerade algoritmer för ljud bearbetning med enhetens mikrofon mat ris för att skicka ljudet till [tal tjänsten](overview.md). Det ger korrekt [tal igenkänning](speech-to-text.md) i långt fält via brus Undertryckning, avvisning av eko, beamforming och dereverberation.
+Talenheterna SDK förbrukar [Tal-SDK](speech-sdk.md). Använda våra avancerade ljudbehandlingsalgoritmer med enhetens mikrofonmatris för att skicka ljudet till [taltjänsten](overview.md). Det ger korrekt långt fält [taligenkänning](speech-to-text.md) via brusreducering, eko annullering, strålformning och dereverberation.
 
-Du kan också använda tal enhets-SDK: n för att bygga omgivande enheter som har ditt eget [anpassade nyckelord](speech-devices-sdk-create-kws.md). Ett anpassat nyckelord är en stack-ikon som startar en användar interaktion som är unik för ditt varumärke.
+Du kan också använda SDK för talenheter för att skapa omgivande enheter som har ett eget [anpassat nyckelord](speech-devices-sdk-create-kws.md). Ett anpassat nyckelord ger en ledtråd som startar en användarinteraktion som är unik för ditt varumärke.
 
-Med tal enheter SDK kan du använda olika röst funktioner, till exempel [röst assistenter](https://aka.ms/bots/speech/va), enhets sorterings system, [konversations avskrift](conversation-transcription-service.md)och smarta högtalare. Du kan svara på användare med text, tala tillbaka till dem på en standard-eller [anpassad röst](how-to-customize-voice-font.md), tillhandahålla Sök resultat, [översätta](speech-translation.md) till andra språk och mycket annat. Vi ser fram emot att se vad du skapa!
+Speech Devices SDK möjliggör en mängd olika röstaktiverade scenarier, till exempel [röstassistenter,](https://aka.ms/bots/speech/va)drive-thru-beställningssystem, [konversationsavskription](conversation-transcription-service.md)och smarta högtalare. Du kan svara användare med text, säga tillbaka till dem med en standardröst eller [anpassad röst,](how-to-customize-voice-font.md)ge sökresultat, [översätta](speech-translation.md) till andra språk med mera. Vi ser fram emot att se vad du bygger!
 
 ## <a name="get-the-speech-devices-sdk"></a>Hämta Speech Devices SDK
 
 ### <a name="android"></a>Android
 
-För Android laddar enheter ned den senaste versionen av [Android Speech-enheterna SDK](https://aka.ms/sdsdk-download-android).
+För Android hämtar enheter den senaste versionen av [Android Speech Devices SDK](https://aka.ms/sdsdk-download-android).
 
 ### <a name="windows"></a>Windows
 
-För Windows tillhandahålls exempel programmet som ett plattforms oberoende Java-program. Ladda ned den senaste versionen av [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
-Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) på 64-bitars Windows. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+För Windows tillhandahålls exempelprogrammet som ett Java-program över flera plattformar. Ladda ner den senaste versionen av [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
+Programmet är byggt med Speech SDK-paketet och Eclipse Java IDE (v4) på 64-bitars Windows. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
 ### <a name="linux"></a>Linux
 
-För Linux tillhandahålls exempel programmet som ett plattforms oberoende Java-program. Ladda ned den senaste versionen av [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
-Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) på 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8). Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
+För Linux tillhandahålls exempelprogrammet som ett Java-program över flera plattformar. Ladda ner den senaste versionen av [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
+Programmet är byggt med Speech SDK-paketet, och Eclipse Java IDE (v4) på 64-bitars Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
-Det finns ytterligare binärfiler som stöder kommande enheter, [Roobo v2-DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter)och [GGEC-högtalare](https://aka.ms/sdsdk-download-speaker).
+Ytterligare binärfiler tillhandahålls för att stödja kommande enheter, [Roobo v2 DDK,](https://aka.ms/sdsdk-download-roobov2) [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter)och [GGEC Speaker](https://aka.ms/sdsdk-download-speaker).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Välj din tal enhet](get-speech-devices-sdk.md)
+> [Välj talenhet](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+> [Skaffa en prenumerationsnyckel för taltjänsten gratis](get-started.md)

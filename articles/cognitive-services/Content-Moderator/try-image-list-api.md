@@ -1,7 +1,7 @@
 ---
-title: Måttliga bilder med anpassade listor och API-konsolen – Content Moderator
+title: Moderera bilder med anpassade listor och API-konsolen - Innehållsmoderator
 titleSuffix: Azure Content Moderator
-description: 'Du kan använda API: et för List hantering i Azure Content Moderator för att skapa anpassade listor med avbildningar.'
+description: Du kan använda API:et för listhantering i Azure Content Moderator för att skapa anpassade listor med avbildningar.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,71 +11,71 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72757192"
 ---
-# <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Måttlig med anpassade bild listor i API-konsolen
+# <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderera med anpassade bildlistor i API-konsolen
 
-Du kan använda [API: et för List hantering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) i Azure Content moderator för att skapa anpassade listor med avbildningar. Använd de anpassade listorna med avbildningar med bild redigerings-API: et. Avbildnings redigerings åtgärden utvärderar avbildningen. Om du skapar anpassade listor jämförs den också med bilderna i dina anpassade listor. Du kan använda anpassade listor för att blockera eller tillåta avbildningen.
+Du kan använda [API:et för listhantering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672) i Azure Content Moderator för att skapa anpassade listor med avbildningar. Använd de anpassade listorna med bilder med API:et för bildmoderering. Åtgärden för bildmoderering utvärderar avbildningen. Om du skapar anpassade listor jämför åtgärden den också med bilderna i dina anpassade listor. Du kan använda anpassade listor för att blockera eller tillåta bilden.
 
 > [!NOTE]
 > Det finns en maxgräns på **5 bildlistor** där varje lista **inte får överstiga 10 000 bilder**.
 >
 
-Du kan använda API: et för List hantering för att utföra följande uppgifter:
+Du använder API:et för listhantering för att utföra följande uppgifter:
 
 - Skapa en lista.
-- Lägg till avbildningar i en lista.
-- Skärm bilder mot bilderna i en lista.
+- Lägg till bilder i en lista.
+- Skärmbilder mot bilderna i en lista.
 - Ta bort bilder från en lista.
 - Ta bort en lista.
 - Redigera listinformation.
 - Uppdatera indexet så att ändringar i listan inkluderas i en ny genomsökning.
 
 ## <a name="use-the-api-console"></a>Använda API-konsolen
-Innan du kan testa API: et i online-konsolen behöver du din prenumerations nyckel. Detta finns på fliken **Inställningar** i rutan **OCP-APIM-Subscription-Key** . Mer information finns i [Översikt](overview.md).
+Innan du kan provköra API:et i onlinekonsolen behöver du din prenumerationsnyckel. Detta finns på fliken **Inställningar** i rutan **Ocp-Apim-Subscription-Key.** Mer information finns i [Översikt](overview.md).
 
-## <a name="refresh-search-index"></a>Uppdatera Sök index
+## <a name="refresh-search-index"></a>Uppdatera sökindex
 
-När du har gjort ändringar i en avbildnings lista måste du uppdatera dess index för att ändringarna ska ingå i framtida genomsökningar. Det här steget påminner om hur en sökmotor på Skriv bordet (om den är aktive rad) eller en Webbs öknings motor kontinuerligt uppdaterar sitt index för att inkludera nya filer eller sidor.
+När du har gjort ändringar i en bildlista måste du uppdatera indexet för att ändringar ska inkluderas i framtida genomsökningar. Det här steget liknar hur en sökmotor på skrivbordet (om den är aktiverad) eller en sökmotor kontinuerligt uppdaterar sitt index för att inkludera nya filer eller sidor.
 
-1. I [list hanterings-API-referensen bild lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)väljer du **bild listor**på den vänstra menyn och väljer sedan **Uppdatera Sök index**.
+1. Välj **Bildlistor**på [API-referensen för bildlistehantering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)och välj sedan **Uppdatera sökindex**.
 
-   Sidan **avbildnings listor – uppdatera Sök index** öppnas.
+   Sidan **Bildlistor - Uppdatera sökindex** öppnas.
 
-2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
+2. För **Open API-testkonsol**väljer du den region som bäst beskriver din plats. 
  
-    ![Bild listor – uppdatera Sök index sidan Val av område](images/test-drive-region.png)
+    ![Bildlistor – val av sökindex för sidområde](images/test-drive-region.png)
 
-    **Avbildnings listorna – uppdatera API-konsolen för Sök index** öppnas.
+    API-konsolen **Image List - Refresh Search Index** öppnas.
 
-3. I rutan **listId** anger du List-ID. Ange din prenumerations nyckel och välj sedan **Skicka**.
+3. Ange list-ID i rutan **ListId.** Ange din prenumerationsnyckel och välj sedan **Skicka**.
 
-   ![Bild listor – uppdatera Sök index konsol rutan svar innehålls ruta](images/try-image-list-refresh-1.png)
+   ![Bildlistor – rutan Uppdatera sökindexkonsolens svarsinnehåll](images/try-image-list-refresh-1.png)
 
 
-## <a name="create-an-image-list"></a>Skapa en bild lista
+## <a name="create-an-image-list"></a>Skapa en bildlista
 
-1. Gå till [Bild List hantering API-referensen](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
+1. Gå till [API-referensen för api för bildlistehantering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672).
 
-   Sidan **avbildnings listor – skapa** öppnas. 
+   Sidan **Bildlistor - Skapa** öppnas. 
 
-3. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats.
+3. För **Open API-testkonsol**väljer du den region som bäst beskriver din plats.
 
-   ![Bild listor – skapa val av sid region](images/test-drive-region.png)
+   ![Bildlistor - Val av sidregion](images/test-drive-region.png)
 
-   **Avbildnings listorna – skapa API-** konsolen öppnas.
+   **Bildlistorna - Skapa** API-konsolen öppnas.
  
-4. I rutan **OCP-APIM-Subscription-Key** anger du din prenumerations nyckel.
+4. Ange din prenumerationsnyckel i rutan **Ocp-Apim-Subscription-Key.**
 
-5. I rutan **begär ande innehåll** anger du värden för **namn** (till exempel min lista) och **Beskrivning**.
+5. I **rutan Begäran** anger du värden för **Namn** (till exempel MyList) och **Beskrivning**.
 
-   ![Avbildnings listor-skapa namn och beskrivning för begär Ande för konsol](images/try-terms-list-create-1.png)
+   ![Bildlistor - Skapa brödnamn och beskrivning av begäran om konsolbegäran](images/try-terms-list-create-1.png)
 
-6. Använd plats hållare för nyckel/värde-par för att tilldela mer beskrivande metadata till listan.
+6. Använd platshållare för nyckelvärdespar för att tilldela listan mer beskrivande metadata.
 
        {
           "Name": "MyExclusionList",
@@ -87,83 +87,83 @@ När du har gjort ändringar i en avbildnings lista måste du uppdatera dess ind
           }
        }
 
-   Lägg till List-metadata som nyckel/värde-par och inte de faktiska bilderna.
+   Lägg till listmetadata som nyckelvärdespar och inte de faktiska bilderna.
  
-7. Välj **Skicka**. Listan har skapats. Observera det **ID-** värde som är associerat med den nya listan. Du behöver det här ID: t för andra funktioner i hantering av bild listor.
+7. Välj **Skicka**. Listan skapas. Observera **ID-värdet** som är associerat med den nya listan. Du behöver det här ID:t för andra funktioner för hantering av bildlistelista.
 
-   ![Bild listor – innehålls rutan skapa konsol svar visar List-ID](images/try-terms-list-create-2.png)
+   ![Bildlistor - Innehållsrutan Skapa konsolsvar visar list-ID](images/try-terms-list-create-2.png)
  
-8. Lägg sedan till avbildningar i listan. Välj **bild**på menyn till vänster och välj sedan **Lägg till bild**.
+8. Lägg sedan till bilder i MyList. Välj **Bild**på den vänstra menyn och välj sedan **Lägg till bild**.
 
-   Sidan **avbildning – Lägg till bild** öppnas. 
+   Sidan **Bild - Lägg till bild** öppnas. 
 
-9. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats.
+9. För **Open API-testkonsol**väljer du den region som bäst beskriver din plats.
 
-   ![Bild – Lägg till val av sid region för bild](images/test-drive-region.png)
+   ![Bild - Val av bildsida](images/test-drive-region.png)
 
-   API **-konsolen avbildning – Lägg till bild** öppnas.
+   **Api-konsolen Image - Add Image** öppnas.
  
-10. I rutan **listId** anger du det List-ID som du genererade och anger sedan URL: en för den avbildning som du vill lägga till. Ange din prenumerations nyckel och välj sedan **Skicka**.
+10. I rutan **ListId** anger du det list-ID som du har skapat och anger sedan url:en till den bild som du vill lägga till. Ange din prenumerationsnyckel och välj sedan **Skicka**.
 
-11. Om du vill kontrol lera att avbildningen har lagts till i listan väljer du **bild**på den vänstra menyn och väljer **Hämta alla bild-ID**.
+11. Om du vill kontrollera att bilden har lagts till i listan väljer du **Bild**på den vänstra menyn och väljer sedan **Hämta alla bild-ID: n**.
 
-    API **-konsolen bild-hämta alla bild-ID** : n öppnas.
+    **Api-konsolen Image - Get All Image Ids** öppnas.
   
-12. I rutan **listId** anger du List-ID och anger sedan din prenumerations nyckel. Välj **Skicka**.
+12. I rutan **ListId** anger du list-ID:t och anger sedan din prenumerationsnyckel. Välj **Skicka**.
 
-    ![Bild – hämta alla avbildnings-ID: n för konsol svars innehåll visar de bilder som du har angett](images/try-image-list-create-11.png)
+    ![Bild - Hämta alla bild-ID-konsolSvarsinnehållsrutor visar de bilder som du har angett](images/try-image-list-create-11.png)
  
-10. Lägg till några fler bilder. Nu när du har skapat en anpassad lista med avbildningar kan du prova att [utvärdera bilder](try-image-api.md) med hjälp av listan med anpassade avbildningar. 
+10. Lägg till några fler bilder. Nu när du har skapat en anpassad lista med bilder kan du prova [att utvärdera bilder](try-image-api.md) med hjälp av den anpassade avbildningslistan. 
 
 ## <a name="delete-images-and-lists"></a>Ta bort bilder och listor
 
-Det är enkelt att ta bort en bild eller en lista. Du kan använda API: et för att utföra följande uppgifter:
+Det är enkelt att ta bort en bild eller en lista. Du kan använda API:et för att utföra följande uppgifter:
 
-- Ta bort en avbildning. (**Avbildning – ta bort**)
-- Ta bort alla bilder i en lista utan att ta bort listan. (**Bild-ta bort alla bilder**)
-- Ta bort en lista och allt dess innehåll. (**Bild listor – ta bort**)
+- Ta bort en avbildning. (**Bild - Ta bort**)
+- Ta bort alla bilder i en lista utan att ta bort listan. (Bild **- Ta bort alla bilder)**
+- Ta bort en lista och allt dess innehåll. (**Bildlistor - Ta bort**)
 
-Det här exemplet tar bort en enskild avbildning:
+I det här exemplet tas en enda bild bort:
 
-1. I [bild listans hanterings-API-referens](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)väljer du **bild**på den vänstra menyn och väljer sedan **ta bort**. 
+1. Välj **Bild**i [API-referensen för bildlistehantering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)och välj sedan **Ta bort**. 
 
-   Sidan **avbildnings borttagning** öppnas.
+   Sidan **Bild - Ta bort** öppnas.
 
-2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats. 
+2. För **Open API-testkonsol**väljer du den region som bäst beskriver din plats. 
 
-   ![Bild-ta bort val av sid region](images/test-drive-region.png)
+   ![Bild - Ta bort markering av sidregion](images/test-drive-region.png)
  
-   API **-konsolen för avbildnings borttagning** öppnas.
+   **Bild - Ta bort** API-konsolen öppnas.
  
-3. I rutan **listId** anger du ID för listan att ta bort en avbildning från.  Detta är det antal som returneras i **bilden – hämta alla avbildnings-ID-** konsolen för en lista. Ange sedan **ImageId** för den avbildning som ska tas bort. 
+3. I rutan **ListId** anger du ID:et i listan som en bild ska tas bort från.  Detta är numret som returneras i **konsolen Image - Get All Image Ids** för MyList. Ange sedan **bildens ImageId** för att ta bort. 
 
-I vårt exempel är List-ID **58953**, värdet för **ContentSource**. Avbildningens ID är **59021**, värdet för **ContentIds**.
+I vårt exempel är list-ID **58953**, värdet för **ContentSource**. Bild-ID är **59021**, värdet för **ContentIds**.
 
-1. Ange din prenumerations nyckel och välj sedan **Skicka**.
+1. Ange din prenumerationsnyckel och välj sedan **Skicka**.
 
-1. Verifiera att avbildningen har tagits bort med hjälp av konsolen **avbildning – hämta alla avbildnings-ID: n** .
+1. Om du vill kontrollera att bilden har tagits bort använder du konsolen **Bild - Få alla avbildnings-ID:n.**
  
-## <a name="change-list-information"></a>Ändra List information
+## <a name="change-list-information"></a>Ändra listinformation
 
-Du kan redigera en listas namn och beskrivning och lägga till objekt i metadata.
+Du kan redigera en listas namn och beskrivning och lägga till metadataobjekt.
 
-1. I [list hanterings-API-referensen bild lista](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)väljer du **bild listor**på den vänstra menyn och väljer sedan **uppdaterings information**. 
+1. Välj **Bildlistor**på [API-referensen för bildlistehantering](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f672)och välj sedan Uppdatera information på den vänstra menyn och välj sedan **Uppdatera information**. 
 
-   Sidan **avbildnings listor – uppdaterings information** öppnas.
+   Sidan **Bildlistor - Uppdatera information** öppnas.
 
-2. För **öppna API test-konsolen**väljer du den region som bäst beskriver din plats.  
+2. För **Open API-testkonsol**väljer du den region som bäst beskriver din plats.  
 
-    ![Bild listor – val av sid region för uppdaterings information](images/test-drive-region.png)
+    ![Bildlistor – val av uppdateringsinformationssida](images/test-drive-region.png)
 
-    **Avbildnings listorna – API-konsolen för uppdaterings information** öppnas.
+    API-konsolen **Image List - Update Details** öppnas.
  
-3. I rutan **listId** anger du List-ID och anger sedan din prenumerations nyckel.
+3. I rutan **ListId** anger du list-ID:t och anger sedan din prenumerationsnyckel.
 
-4. I rutan **begär ande innehåll** , gör dina ändringar och välj sedan knappen **Skicka** på sidan.
+4. Gör ändringarna i rutan **Begär** och välj sedan knappen **Skicka** på sidan.
 
-   ![Bild listor – uppdaterings information konsol begär ande text redigeringar](images/try-terms-list-change-1.png)
+   ![Bildlistor – Uppdatera information om att begäran om begäran om begäran om förfrågan](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd REST API i koden eller börja med [avbildningen listar .net snabb start](image-lists-quickstart-dotnet.md) för att integrera med ditt program.
+Använd REST API i koden eller börja med [imagelistorna .NET-snabbstart](image-lists-quickstart-dotnet.md) för att integrera med ditt program.

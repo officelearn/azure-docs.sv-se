@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: c5c9ad8be8bd4cd834b01a0c67e0bbc81b8cdd4a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68881893"
 ---
 # <a name="using-the-bing-spell-check-api"></a>Använda API:et för stavningskontroll i Bing
@@ -122,5 +122,5 @@ Om fältet `type` är RepeatedToken kan du ändå ersätta token med `suggestion
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är API för stavningskontroll i Bing?](../overview.md)
+- [Vad är API:et för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

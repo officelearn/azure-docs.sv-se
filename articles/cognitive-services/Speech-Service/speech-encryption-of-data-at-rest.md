@@ -1,7 +1,7 @@
 ---
-title: Tal tjänst kryptering av data i vila
+title: Kryptering av taltjänst för data i vila
 titleSuffix: Azure Cognitive Services
-description: Tal tjänst kryptering av data i vila.
+description: Kryptering av taltjänst av data i vila.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
@@ -10,41 +10,41 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
 ms.openlocfilehash: 3ccc9820f38a8c32d0b390663eb6b4430b42e8f0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79372363"
 ---
-# <a name="speech-service-encryption-of-data-at-rest"></a>Tal tjänst kryptering av data i vila
+# <a name="speech-service-encryption-of-data-at-rest"></a>Kryptering av taltjänst för data i vila
 
-Tal tjänsten krypterar automatiskt dina data när de sparas i molnet. Tal tjänst kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden.
+Taltjänsten krypterar automatiskt dina data när de sparas till molnet. Kryptering av taltjänster skyddar dina data och hjälper dig att uppfylla dina organisatoriska säkerhets- och efterlevnadsåtaganden.
 
-## <a name="about-cognitive-services-encryption"></a>Om Cognitive Services kryptering
+## <a name="about-cognitive-services-encryption"></a>Om Cognitive Services-kryptering
 
-Data krypteras och dekrypteras med hjälp av [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) [-kompatibla 256-bitars AES-](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kryptering. Kryptering och dekryptering är transparent, vilket innebär att kryptering och åtkomst hanteras åt dig. Dina data är säkra som standard och du behöver inte ändra din kod eller dina program för att utnyttja kryptering.
+Data krypteras och dekrypteras med [FIPS 140-2-kompatibel](https://en.wikipedia.org/wiki/FIPS_140-2) [256-bitars AES-kryptering.](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) Kryptering och dekryptering är transparenta, vilket innebär att kryptering och åtkomst hanteras för dig. Dina data är säkra som standard och du behöver inte ändra din kod eller dina program för att dra nytta av kryptering.
 
-## <a name="about-encryption-key-management"></a>Om hantering av krypterings nyckel
+## <a name="about-encryption-key-management"></a>Om hantering av krypteringsnyckel
 
-När du använder Custom Speech och anpassad röst kan tal tjänsten lagra följande data i molnet:  
+När du använder Anpassad tal och anpassad röst kan taltjänsten lagra följande data i molnet:  
 
-* Tal spårnings data – endast om du aktiverar spårning för din anpassade slut punkt
-* Överförda utbildningar och test data
+* Talspårningsdata - bara om du aktiverar spårningen för din anpassade slutpunkt
+* Uppladdade tränings- och testdata
 
-Som standard lagras dina data i Microsofts lagring och din prenumeration använder Microsoft-hanterade krypterings nycklar. Du kan också välja att förbereda ditt eget lagrings konto. Åtkomst till butiken hanteras av den hanterade identiteten och tal tjänsten kan inte direkt komma åt dina egna data, till exempel tal spårnings data, anpassnings tränings data och anpassade modeller.
+Som standard lagras dina data i Microsofts lagring och din prenumeration använder Microsoft-hanterade krypteringsnycklar. Du har också en möjlighet att förbereda ditt eget lagringskonto. Åtkomsten till arkivet hanteras av tjänsten Hanterad identitet och taltjänsten kan inte direkt komma åt dina egna data, till exempel talspårningsdata, anpassningsutbildningsdata och anpassade modeller.
 
 Mer information om hanterad identitet finns i [Vad är hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Ta med din egen lagring (BYOS) för anpassning och loggning
+## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>Ta med eget lagringsutrymme (BYOS) för anpassning och loggning
 
-Om du vill begära åtkomst för att ta med din egen lagring kan du fylla i och skicka in tjänsten [Speech service – ta med din egen lagring (BYOS)](https://aka.ms/cogsvc-cmk). När du har godkänt måste du skapa ditt eget lagrings konto för att lagra de data som krävs för anpassning och loggning. När du lägger till ett lagrings konto aktiverar tal tjänst resursen en systemtilldelad hanterad identitet. När systemtilldelad hanterad identitet har Aktiver ATS kommer den här resursen att registreras med Azure Active Directory (AAD). När den hanterade identiteten har registrerats får den åtkomst till lagrings kontot. Du kan lära dig mer om hanterade identiteter här. Mer information om hanterad identitet finns i [Vad är hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+För att begära åtkomst för att få ditt eget lagringsutrymme, fyll i och skicka [in taltjänsten - ta med ditt eget formulär för lagring (BYOS).](https://aka.ms/cogsvc-cmk) När du har godkänts måste du skapa ett eget lagringskonto för att lagra de data som krävs för anpassning och loggning. När du lägger till ett lagringskonto aktiverar taltjänstresursen en systemtilldelerad hanterad identitet. När den systemtilldelade hanterade identiteten har aktiverats registreras den här resursen med Azure Active Directory (AAD). När den hanterade identiteten har registrerats får den åtkomst till lagringskontot. Du kan läsa mer om hanterade identiteter här. Mer information om hanterad identitet finns i [Vad är hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 > [!IMPORTANT]
-> Om du inaktiverar systemtilldelade hanterade identiteter kommer åtkomst till lagrings kontot att tas bort. Detta leder till att de delar av tal tjänsten som kräver åtkomst till lagrings kontot slutar fungera.  
+> Om du inaktiverar systemtilldelade hanterade identiteter tas åtkomsten till lagringskontot bort. Detta gör att de delar av taltjänsten som kräver åtkomst till lagringskontot slutar fungera.  
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-BYOS är för närvarande tillgängligt i följande regioner:
+BYOS är för närvarande tillgängligt i dessa regioner:
 
 * USA, södra centrala
 * USA, västra 2
@@ -52,5 +52,5 @@ BYOS är för närvarande tillgängligt i följande regioner:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Speech service – Hämta ditt eget lagrings formulär (BYOS)](https://aka.ms/cogsvc-cmk)
+* [Taltjänst - ta med eget formulär för lagring (BYOS)](https://aka.ms/cogsvc-cmk)
 * [Vad är hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).

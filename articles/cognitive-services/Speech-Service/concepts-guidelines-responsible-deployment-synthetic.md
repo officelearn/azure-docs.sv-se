@@ -1,7 +1,7 @@
 ---
-title: Rikt linjer för ansvarig distribution av syntetisk röst teknik
+title: Riktlinjer för ansvarsfull användning av syntetisk röstteknik
 titleSuffix: Azure Cognitive Services
-description: Microsofts allmänna design rikt linjer för att använda syntetisk röst teknik. De här utvecklades i studier som Microsoft genomförde med röst personal, konsumenter, och för användare med tal sjukdomar för att vägleda utvecklingen av syntetisk röst.
+description: Microsofts allmänna designriktlinjer för användning av syntetisk röstteknik. Dessa har utvecklats i studier som Microsoft genomfört med röst talang, konsumenter, samt personer med talstörningar för att styra en ansvarsfull utveckling av syntetisk röst.
 services: cognitive-services
 author: benoah
 manager: nitinme
@@ -11,59 +11,59 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
 ms.openlocfilehash: a529ac8b7ce16d3ee4463f1b4bc2e8007e5b79b5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73836768"
 ---
-# <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Rikt linjer för ansvarig distribution av syntetisk röst teknik
-Här följer Microsofts allmänna design rikt linjer för att använda syntetisk röst teknik. Dessa utvecklades i studier som Microsoft genomförde med röst personal, konsumenter, samt individer med tal sjukdomar för att vägleda utvecklingen av syntetisk röst.
+# <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Riktlinjer för ansvarsfull användning av syntetisk röstteknik
+Här är Microsofts allmänna designriktlinjer för användning av syntetisk röstteknik. Dessa har utvecklats i studier som Microsoft genomfört med röst talang, konsumenter, samt personer med talstörningar för att styra en ansvarsfull utveckling av syntetisk röst.
 
-## <a name="general-considerations"></a>Allmänna överväganden
-För distribution av syntetisk tal teknik gäller följande rikt linjer för de flesta scenarier.
+## <a name="general-considerations"></a>Generella saker att tänka på
+För distribution av syntetisk talteknik gäller följande riktlinjer i de flesta scenarier.
 
-### <a name="disclose-when-the-voice-is-synthetic"></a>Lämna ut när rösten är syntetisk
-Om du avmarkerar att en röst är en dator som genereras kan du inte bara minimera risken för skadliga resultat från bedrägeri, men det ökar också förtroendet i organisationen som levererar rösten. Lär dig mer om [att lämna](concepts-disclosure-guidelines.md)ut.
+### <a name="disclose-when-the-voice-is-synthetic"></a>Avslöja när rösten är syntetisk
+Att avslöja att en röst är datorgenererad minimerar inte bara risken för skadliga resultat från bedrägeri utan ökar också förtroendet för organisationen att leverera rösten. Läs mer om [hur du avslöjar](concepts-disclosure-guidelines.md).
 
-### <a name="select-appropriate-voice-types-for-your-scenario"></a>Välj lämpliga röst typer för ditt scenario
-Överväg noga användnings sammanhanget och de potentiella skadan som är associerade med att använda syntetisk röst. Till exempel är det inte säkert att de syntetiska rösterna med hög kvalitet är lämpliga i högrisk scenarier, t. ex. för personliga meddelanden, ekonomiska transaktioner eller komplexa situationer som kräver mänsklig anpassning eller empati. Användarna kan också ha olika förväntningar för röst typer. Till exempel, när du lyssnar på känsliga nyheter som läses av en syntetisk röst, föredrar vissa användare en mer empatisk och mänsklig läsning av nyheterna, medan andra föredrar en mer enkel färgs visning av rösten. Överväg att testa ditt program för att bättre förstå användar inställningarna.
+### <a name="select-appropriate-voice-types-for-your-scenario"></a>Välj lämpliga rösttyper för ditt scenario
+Noga överväga ramen för användning och de potentiella skador som är förknippade med att använda syntetisk röst. Till exempel kan högfif syntetiska röster inte vara lämpliga i högriskscenarier, till exempel för personliga meddelanden, finansiella transaktioner eller komplexa situationer som kräver mänsklig anpassningsförmåga eller empati. Användare kan också ha olika förväntningar på rösttyper. Till exempel, när du lyssnar på känsliga nyheter som läses av en syntetisk röst, vissa användare föredrar en mer empatisk och människoliknande läsning av nyheterna, medan andra föredrog en mer monoton, opartisk röst. Överväg att testa ditt program för att bättre förstå användarinställningar.
 
 ### <a name="be-transparent-about-capabilities-and-limitations"></a>Var transparent om funktioner och begränsningar
-Det är mer troligt att användarna har fler förväntningar när de använder syntetiska röst agenter med hög kvalitet. Det innebär att om system funktionerna inte uppfyller förväntningarna kan förtroendet bli lidande och kan resultera i krångligt eller till och med skadliga upplevelser.
+Användare är mer benägna att ha högre förväntningar när de interagerar med high-fidelity syntetiska röstagenter. Följaktligen, när systemkapacitet inte uppfyller dessa förväntningar, förtroende kan lida, och kan resultera i obehagliga, eller till och med skadliga upplevelser.
 
-### <a name="provide-optional-human-support"></a>Ge tillvals personal support
-I tvetydiga, transaktions scenarier (till exempel ett Call Support Center) kan användarna inte alltid lita på en dator agent för att svara på lämpliga förfrågningar. Stöd för mänsklig personal kan vara nödvändigt i dessa fall, oberoende av den realistiska kvaliteten på systemets röst eller funktion.
+### <a name="provide-optional-human-support"></a>Ge mänskligt stöd som tillval
+I tvetydiga, transaktionsscenarier (till exempel ett supportcenter för samtal) litar användarna inte alltid på en datoragent för att svara på deras begäranden på rätt sätt. Mänskligt stöd kan vara nödvändigt i dessa situationer, oavsett den realistiska kvaliteten på rösten eller förmågan i systemet.
 
-## <a name="considerations-for-voice-talent"></a>Överväganden för röst personal
-När du arbetar med röst personal, till exempel röst aktörer, för att skapa syntetiska röster, gäller rikt linjerna nedan.
+## <a name="considerations-for-voice-talent"></a>Överväganden för rösttalang
+När man arbetar med rösttalanger, som röstskådespelare, för att skapa syntetiska röster gäller riktlinjen nedan.
 
-### <a name="obtain-meaningful-consent-from-voice-talent"></a>Få ett meningsfullt godkännande från röst personal
-Röst personal förväntar sig att ha kontroll över deras röst teckensnitt (hur och var den ska användas) och ersätts när den används. System ägare bör därför få uttryckligt skriftligt tillstånd från röst personal och ha tydliga avtals krav för användnings fall, varaktigheten för användning, kompensation och så vidare. Vissa röst personal är inte medvetna om den potentiella skadliga användningen av tekniken och bör vara sammanutbildad av systemets ägare om funktionerna i tekniken. Mer information om röst personal och medgivande finns i vår information [om röst personal](https://aka.ms/disclosure-voice-talent).
+### <a name="obtain-meaningful-consent-from-voice-talent"></a>Få meningsfullt samtycke från rösttalang
+Röst talang förväntar sig att ha kontroll över sin röst teckensnitt (hur och var det kommer att användas) och kompenseras när som helst det används. Systemägare bör därför få uttryckligt skriftligt tillstånd från rösttalanger och ha tydliga avtalsenliga specifikationer för användningsfall, användningstid, ersättning och så vidare. Vissa röst talang är omedvetna om de potentiella skadliga användningsområden för tekniken och bör utbildas av systemägare om funktionerna i tekniken. För mer information om rösttalang och samtycke, läs vår [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent).
 
 
-## <a name="considerations-for-those-with-speech-disorders"></a>Att tänka på med tal sjukdomar
-När du arbetar med individer med tal sjukdomar, för att skapa eller distribuera syntetisk röst teknik gäller följande rikt linjer.
+## <a name="considerations-for-those-with-speech-disorders"></a>Överväganden för personer med talstörningar
+När du arbetar med personer med talstörningar, för att skapa eller distribuera syntetisk röstteknik gäller följande riktlinjer.
 
-### <a name="provide-guidelines-to-establish-contracts"></a>Ange rikt linjer för att upprätta kontrakt
-Ange rikt linjer för att skapa avtal med personer som använder syntetisk röst för att få hjälp med att tala. Kontraktet bör överväga att ange de parter som äger rösten, varaktigheten för användning, villkor för ägarskaps överföring, procedurer för att ta bort röst teckensnittet och hur du förhindrar obehörig åtkomst. Du kan också aktivera den avtalade överföringen av röst teckensnitts ägande efter dödsfall till familje medlemmar om den personen har fått behörighet.
+### <a name="provide-guidelines-to-establish-contracts"></a>Ge riktlinjer för att upprätta avtal
+Ge riktlinjer för att upprätta avtal med personer som använder syntetisk röst för hjälp att tala. Avtalet bör överväga att specificera de parter som äger rösten, användningstiden, kriterier för ägarbyte, förfaranden för att ta bort röstteckensnittet och hur man förhindrar obehörig åtkomst. Dessutom möjliggöra avtalsöverföring av röstteckensnittsägande efter dödsfall till familjemedlemmar om den personen har gett tillstånd.
 
-### <a name="account-for-inconsistencies-in-speech-patterns"></a>Konto för inkonsekvenser i tal mönster
-För enskilda användare med tal sjukdomar som registrerar sina egna röst teckensnitt kan inkonsekvenser i deras tal mönster (slurring eller oförmåga att uttala vissa ord) komplicera inspelnings processen. I dessa fall bör syntetisk röst teknik och inspelnings sessioner hantera dem (det vill säga ge raster och ytterligare antal inspelnings sessioner).
+### <a name="account-for-inconsistencies-in-speech-patterns"></a>Redogöra för inkonsekvenser i talmönster
+För personer med talstörningar som spelar in sina egna röstteckensnitt kan inkonsekvenser i deras talmönster (sluddrande eller oförmåga att uttala vissa ord) komplicera inspelningsprocessen. I dessa fall bör syntetisk röstteknik och inspelningssessioner rymma dem (det vill säga ge raster och ytterligare antal inspelningssessioner).
 
 ### <a name="allow-modification-over-time"></a>Tillåt ändring över tid
-Individer med tal sjukdomar vill göra uppdateringar av sin syntetiska röst för att återspegla ålders fördelning (till exempel ett barn som når puberty). Individer kan också ha stilistiska inställningar som förändras över tid, och det kan vara bra att göra ändringar i bredd, dekor färg eller andra röst egenskaper.
+Personer med talstörningar önskan att göra uppdateringar av sin syntetiska röst för att återspegla åldrande (till exempel ett barn når puberteten). Individer kan också ha stilistiska preferenser som ändras med tiden, och kanske vill göra ändringar i tonhöjd, accent eller andra röstegenskaper.
 
 
 ## <a name="reference-docs"></a>Referensdokument
 
-* [Utlämnande av röst personal](https://aka.ms/disclosure-voice-talent)
-* [Översikt över hantera](concepts-gating-overview.md)
-* [Lämna ut](concepts-disclosure-guidelines.md)
-* [Design mönster för utlämnande](concepts-disclosure-patterns.md)
+* [Avslöjande för Voice Talent](https://aka.ms/disclosure-voice-talent)
+* [Gating Översikt](concepts-gating-overview.md)
+* [Hur avslöja](concepts-disclosure-guidelines.md)
+* [Designmönster för avslöjanden](concepts-disclosure-patterns.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utlämnande av röst personal](https://aka.ms/disclosure-voice-talent)
-* [Lämna ut](concepts-disclosure-guidelines.md)
-* [Design mönster för utlämnande](concepts-disclosure-patterns.md)
+* [Avslöjande för Voice Talent](https://aka.ms/disclosure-voice-talent)
+* [Hur avslöja](concepts-disclosure-guidelines.md)
+* [Designmönster för avslöjanden](concepts-disclosure-patterns.md)

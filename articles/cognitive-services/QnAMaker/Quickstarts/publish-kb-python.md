@@ -1,36 +1,36 @@
 ---
-title: 'Snabb start: publicera kunskaps bas, REST, python-QnA Maker'
-description: Den här python REST-baserade snabb starten publicerar din kunskaps bas och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
+title: 'Snabbstart: Publicera kunskapsbas, REST, Python - QnA Maker'
+description: Den här Python REST-baserade snabbstarten publicerar din kunskapsbas och skapar en slutpunkt som kan anropas i ditt program eller chattrobot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 6f053ecbd58d3c2527c1b904437dcc4715c76af1
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851656"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med hjälp av Python
 
-Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publiceringen skickar push-överför den senaste versionen av kunskaps basen till ett dedikerat Azure Kognitiv sökning-index och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
+Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publicering skickar den senaste versionen av kunskapsbasen till ett dedikerat Azure Cognitive Search-index och skapar en slutpunkt som kan anropas i ditt program eller chattrobot.
 
-Den här snabb starten anropar QnA Maker REST API: er:
+Den här snabbstarten anropar QnA Maker REST API:er:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Python 3.7](https://www.python.org/downloads/)
-* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
-* QnA Maker kunskaps bas (KB) ID hittades i URL: en i URL: en för frågesträngen `kbid` som visas nedan.
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta nyckeln och slutpunkten (som innehåller resursnamnet) väljer du **Snabbstart** för din resurs i Azure-portalen.
+* QnA Maker-knowledge base-ID (KB) `kbid` som finns i URL:en i frågesträngparametern enligt nedan.
 
     ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     Om du inte har en kunskapsbas ännu kan du kan skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](../how-to/create-knowledge-base.md).
 
 > [!NOTE]
-> Kompletta lösningsfiler är tillgängliga från [**Azure-Samples/cognitive-services-qnamaker-python** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> De fullständiga lösningsfilerna är tillgängliga från [ **Azure-Samples/cognitive-services-qnamaker-python GitHub-databasen** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-knowledge-base-python-file"></a>Skapa en Python-fil för kunskapsbas
 
@@ -38,7 +38,7 @@ Skapa en fil som heter `publish-kb-3x.py`.
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
-Högst upp i `publish-kb-3x.py` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
+Längst upp i `publish-kb-3x.py` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=1-1 "Add the required dependencies")]
 

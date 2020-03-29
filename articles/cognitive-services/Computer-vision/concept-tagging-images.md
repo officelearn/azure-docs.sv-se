@@ -1,7 +1,7 @@
 ---
-title: Innehålls etiketter – Visuellt innehåll
+title: Innehållstaggar - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Lär dig begrepp som rör funktionen för att tagga bilder i API för visuellt innehåll.
+description: Lär dig begrepp som är relaterade till bildtaggningsfunktionen i API:et för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945106"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244519"
 ---
 # <a name="applying-content-tags-to-images"></a>Applicera innehållstaggar på bilder
 
-Visuellt innehåll returnerar Taggar baserat på tusentals identifierbara objekt, boende, landskap och åtgärder. I de fall där taggarna är tvetydiga eller dess betydelse inte är allmän kännedom ger API-svaren ”ledtrådar” för att tydliggöra taggarnas betydelse i en viss kontext. Taggar är inte ordnade som en taxonomi och det finns inga arvshierarkier. En samling innehållstaggar utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor som är formaterade i fullständiga meningar. Observera att engelska för tillfället är det enda språket som stöds för bildbeskrivning.
+Computer Vision returnerar taggar baserat på tusentals igenkännbara objekt, levande varelser, landskap och handlingar. I de fall där taggarna är tvetydiga eller dess betydelse inte är allmän kännedom ger API-svaren ”ledtrådar” för att tydliggöra taggarnas betydelse i en viss kontext. Taggar är inte ordnade som en taxonomi och det finns inga arvshierarkier. En samling innehållstaggar utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor som är formaterade i fullständiga meningar. Observera att engelska för tillfället är det enda språket som stöds för bildbeskrivning.
 
-När du har laddat upp en bild eller angett en bild-URL, Visuellt innehåll algoritmerna utdata-Taggar baserat på de objekt, levnadsn och åtgärder som identifierats i bilden. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.
+När du laddar upp en bild eller anger en bild-URL, matar algoritmer för Visuellt innehåll ut taggar baserade på objekt, levande varelser och åtgärder som identifierats i bilden. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.
 
-## <a name="image-tagging-example"></a>Exempel på bild taggning
+## <a name="image-tagging-example"></a>Exempel på bildtaggning
 
-Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när du taggar visuella funktioner som identifieras i exempel bilden.
+Följande JSON-svar illustrerar vad Datorseende returnerar när visuella funktioner som identifieras i exempelbilden taggas.
 
-![Ett blått hus och en främre meter](./Images/house_yard.png).
+![Ett blått hus och framsidan](./Images/house_yard.png).
 
 ```json
 {
@@ -83,6 +83,13 @@ Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när du taggar
 }
 ```
 
+## <a name="use-the-api"></a>Använda API:et
+
+Taggningsfunktionen är en del av [Api:et för analyseravbildning.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Du kan anropa det här API:et via en inbyggd SDK eller via REST-anrop. Inkludera `Tags` i frågeparametern **visualFeatures.** Sedan, när du får hela JSON svar, helt enkelt tolka `"tags"` strängen för innehållet i avsnittet.
+
+* [Snabbstart: Datorseende .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp om att [kategorisera bilder](concept-categorizing-images.md) och [beskriva bilder](concept-describing-images.md).
+Lär dig de relaterade begreppen [att kategorisera bilder](concept-categorizing-images.md) och beskriva [bilder](concept-describing-images.md).

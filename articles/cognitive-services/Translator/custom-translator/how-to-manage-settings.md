@@ -1,7 +1,7 @@
 ---
-title: Hur hanterar jag inställningar? – Anpassade Translator
+title: Hur hanterar man inställningar? - Anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Hantera inställningar, skapa arbets yta, dela arbets yta och hantera prenumerations nyckel i anpassad översättare.
+description: Hantera inställningar, skapa arbetsyta, dela arbetsyta och hantera prenumerationsnyckel i Anpassad översättare.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,97 +10,97 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219515"
 ---
-# <a name="how-to-manage-settings"></a>Hantera inställningar
+# <a name="how-to-manage-settings"></a>Så här hanterar du inställningar
 
-På sidan Inställningar för anpassad översättare kan du skapa en ny arbets yta, dela din arbets yta och lägga till eller ändra din prenumerations nyckel för Microsoft-översättning.
+På sidan Anpassade översättares inställningar kan du skapa en ny arbetsyta, dela arbetsytan och lägga till eller ändra prenumerationsnyckeln för Microsoft Translation.
 
-Så här öppnar du sidan inställningar:
+Så här öppnar du inställningssidan:
 
-1. Logga in på den [anpassade översättnings](https://portal.customtranslator.azure.ai/) portalen.
-2. På den anpassade översättnings portalen klickar du på kugg hjuls ikonen på sido panelen.
+1. Logga in på portalen [Anpassad översättare.](https://portal.customtranslator.azure.ai/)
+2. På Custom Translator portal, klicka på växelikonen i sidofältet.
 
-    ![Inställnings länk](media/how-to/how-to-settings.png)
+    ![Ange länk](media/how-to/how-to-settings.png)
 
-## <a name="associating-microsoft-translator-subscription"></a>Kopplar Microsoft Translator-prenumeration
+## <a name="associating-microsoft-translator-subscription"></a>Associera Microsoft Translator-prenumeration
 
-Du måste ha en prenumerations nyckel för Microsoft Translator Text API kopplad till din arbets yta för att träna eller distribuera modeller.
+Du måste ha en prenumerationsnyckel för Microsoft Translator Text API som är associerad med arbetsytan för att träna eller distribuera modeller.
 
 Om du inte har någon prenumeration följer du stegen nedan:
 
-1. Prenumerera på Microsoft Translator Text API. Den här artikeln visar hur du prenumererar på Microsoft Translator Text API.
-2. Notera nyckeln för din Translator-prenumeration. Antingen KEY1 eller Key2 är acceptabla.
-3. Gå tillbaka till den anpassade översättnings portalen.
+1. Prenumerera på Microsoft Translator Text API. I den här artikeln visas hur du prenumererar på Microsoft Translator Text API.
+2. Notera nyckeln för din översättareprenumeration. Någon av Key1 eller Key2 är acceptabla.
+3. Navigera tillbaka till portalen För anpassad översättare.
 
 ### <a name="add-existing-key"></a>Lägg till befintlig nyckel
 
-1.  Gå till sidan Inställningar för din arbets yta.
-2.  Klicka på Lägg till nyckel
+1.  Navigera till sidan "Inställningar" för arbetsytan.
+2.  Klicka på Lägg till tangent
 
-    ![Så här lägger du till prenumerations nyckel](media/how-to/how-to-add-subscription-key.png)
+    ![Så här lägger du till prenumerationsnyckel](media/how-to/how-to-add-subscription-key.png)
 
-3. I dialog rutan anger du nyckeln för din Translator-prenumeration och klickar sedan på knappen Lägg till.
+3. I dialogrutan anger du nyckeln för din översättareprenumeration och klickar sedan på knappen "Lägg till".
 
-    ![Så här lägger du till prenumerations nyckel](media/how-to/how-to-add-subscription-key-dialog.png)
-4.  När du har lagt till en nyckel kan du ändra eller ta bort nyckeln när du vill.
+    ![Så här lägger du till prenumerationsnyckel](media/how-to/how-to-add-subscription-key-dialog.png)
+4.  När du har lagt till en nyckel kan du ändra eller ta bort nyckeln när som helst.
 
-    ![Prenumerations nyckel efter tillägg](media/how-to/subscription-key-after-add.png)
+    ![Prenumerationsnyckel efter tillägg](media/how-to/subscription-key-after-add.png)
 
-## <a name="manage-your-workspace"></a>Hantera din arbets yta
+## <a name="manage-your-workspace"></a>Hantera din arbetsyta
 
-En arbets yta är en arbets yta för att skriva och skapa ett anpassat översättnings system. En arbets yta kan innehålla flera projekt, modeller och dokument.
+En arbetsyta är en arbetsyta för att komponera och bygga ditt anpassade översättningssystem. En arbetsyta kan innehålla flera projekt, modeller och dokument.
 
-Om olika delar av arbetet måste delas med olika personer kan det vara praktiskt att skapa flera arbets ytor.
+Om olika delar av ditt arbete behöver delas med olika personer kan det vara användbart att skapa flera arbetsytor.
 
 ## <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
 
-1.  Gå till sidan Inställningar för arbets yta.
-2.  Klicka på knappen "ny arbets yta" i avsnittet "Skapa ny arbets yta".
+1.  Navigera till sidan "Inställningar" på arbetsytan.
+2.  Klicka på knappen "Ny arbetsyta" i avsnittet "Skapa ny arbetsyta".
 
-    ![Skapa ny arbets yta](media/how-to/create-new-workspace.png)
+    ![Skapa ny arbetsyta](media/how-to/create-new-workspace.png)
 
-4.  I dialog rutan anger du namnet på den nya arbets ytan.
-5.  Klicka på "skapa".
+4.  Ange namnet på den nya arbetsytan i dialogrutan.
+5.  Klicka på "Skapa".
 
-    ![Dialog rutan skapa ny arbets yta](media/how-to/create-new-workspace-dialog.png)
+    ![Skapa en ny arbetsyta](media/how-to/create-new-workspace-dialog.png)
 
-## <a name="share-your-workspace"></a>Dela din arbets yta
+## <a name="share-your-workspace"></a>Dela arbetsytan
 
-I en anpassad översättare kan du dela din arbets yta med andra, om olika delar av arbetet måste delas med olika personer.
+I Anpassad översättare kan du dela din arbetsyta med andra om olika delar av ditt arbete behöver delas med olika personer.
 
-1.  Gå till sidan Inställningar för arbets yta.
-2.  Klicka på knappen Dela i avsnittet delnings inställningar.
+1.  Navigera till sidan "Inställningar" på arbetsytan.
+2.  Klicka på knappen Dela i avsnittet "Delningsinställningar".
 
-    ![Dela arbets yta](media/how-to/share-workspace.png)
+    ![Dela arbetsyta](media/how-to/share-workspace.png)
 
-3.  I dialog rutan anger du en kommaavgränsad lista med e-postadresser som du vill att den här arbets ytan ska delas med. Se till att du delar med den e-postadress som personen använder för att logga in på anpassad översättare med. Välj sedan lämplig nivå för delnings behörighet.
+3.  I dialogrutan anger du en kommaavgränsad lista över e-postadresser som du vill att arbetsytan ska delas med. Se till att du delar med den e-postadress som personen använder för att logga in på Anpassad översättare med. Välj sedan lämplig delningsbehörighet.
 
-4.  Om arbets ytan fortfarande har standard namnet "min arbets yta" måste du ändra den innan du delar din arbets yta.
-5.  Klicka på Spara.
+4.  Om arbetsytan fortfarande har standardnamnet "Min arbetsyta" måste du ändra den innan arbetsytan delas.
+5.  Klicka på "Spara".
 
-## <a name="sharing-permissions"></a>Delnings behörigheter
+## <a name="sharing-permissions"></a>Dela behörigheter
 
-1.  **Läsare:** En läsare på arbets ytan kommer att kunna visa all information på arbets ytan.
+1.  **Läsare:** En läsare på arbetsytan kan visa all information på arbetsytan.
 
-2.  **Redigerare:** En redigerare i arbets ytan kommer att kunna lägga till dokument, träna modeller och ta bort dokument och projekt. De kan lägga till en prenumerations nyckel, men du kan inte ändra vilken arbets yta som delas med, ta bort arbets ytan eller ändra arbets ytans namn.
+2.  **Redaktör:** En redigerare på arbetsytan kan lägga till dokument, träna modeller och ta bort dokument och projekt. De kan lägga till en prenumerationsnyckel, men de kan inte ändra vem arbetsytan delas med, ta bort arbetsytan eller ändra arbetsytans namn.
 
-3.  **Ägare:** En ägare har fullständig behörighet till arbets ytan.
+3.  **Ägare:** En ägare har fullständig behörighet till arbetsytan.
 
-## <a name="change-sharing-permission"></a>Ändra delnings behörighet
+## <a name="change-sharing-permission"></a>Ändra behörighet för delning
 
-När en arbets yta delas visas alla e-postadresser som arbets ytan delas med i avsnittet delnings inställningar. Du kan ändra befintliga delnings behörigheter för varje e-postadress om du har ägar åtkomst till arbets ytan.
+När en arbetsyta delas visas alla e-postadresser som arbetsytan delas med i avsnittet "Delningsinställningar". Du kan ändra befintlig delningsbehörighet för varje e-postadress om du har ägaråtkomst till arbetsytan.
 
-1.  I avsnittet delnings inställningar för varje e-postmeny visas den aktuella behörighets nivån i list rutan för varje e-postmeddelande.
+1.  I avsnittet "Delningsinställningar" för varje e-postmeddelande visar en rullgardinsmeny den aktuella behörighetsnivån.
 
-2.  Klicka på list menyn och välj den nya behörighets nivå som du vill tilldela den e-postadressen.
+2.  Klicka på den nedrullningsbara menyn och välj den nya behörighetsnivå som du vill tilldela den e-postadressen.
 
-    ![Delnings behörighets inställningar](media/how-to/sharing-permission-settings.png)
+    ![Behörighetsinställningar för delning](media/how-to/sharing-permission-settings.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig [hur du migrerar din arbets yta och ditt projekt](how-to-migrate.md) från [Microsoft Translator Hub](https://hub.microsofttranslator.com)
+- Lär dig hur du [migrerar arbetsytan och projektet](how-to-migrate.md) från [Microsoft Translator Hub](https://hub.microsofttranslator.com)

@@ -1,7 +1,7 @@
 ---
-title: API HTTP-svars koder – LUIS
+title: API HTTP-svarskoder - LUIS
 titleSuffix: Azure Cognitive Services
-description: 'Förstå vilka HTTP-svarskoder returneras från LUIS redigerings- och slutpunkt-API: er'
+description: Förstå vilka HTTP-svarskoder som returneras från LUIS Authoring and Endpoint API:er
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,34 +12,34 @@ ms.topic: reference
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: 405381a2d80ee6469b2b90bcb25923004fe55882
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270254"
 ---
-# <a name="common-api-response-codes-and-their-meaning"></a>Vanliga API-svars koder och deras innebörd
+# <a name="common-api-response-codes-and-their-meaning"></a>Vanliga API-svarskoder och deras innebörd
 
-API: erna för [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) och [slut punkter](https://go.microsoft.com/fwlink/?linkid=2092356) returnerar http-svars koder. Svarsmeddelanden innehåller information som är specifika för en begäran, är HTTP-svarsstatuskod allmän.
+[Redigerings-](https://go.microsoft.com/fwlink/?linkid=2092087) och slutpunkts-API:erna returnerar HTTP-svarskoder. [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) Svarsmeddelanden innehåller information som är specifik för en begäran, men HTTP-svarsstatuskoden är allmän.
 
 ## <a name="common-status-codes"></a>Vanliga statuskoder
-I följande tabell visas några av de vanligaste HTTP-svars status koderna för [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -och [slut punkts](https://go.microsoft.com/fwlink/?linkid=2092356) -API: erna:
+I följande tabell visas några av de vanligaste HTTP-svarsstatuskoderna för [redigerings-](https://go.microsoft.com/fwlink/?linkid=2092087) och slutpunkts-API:erna: [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356)
 
 |Kod|API|Förklaring|
 |:--|--|--|
-|400|Redigering, slutpunkten|begärans-parametrarna är felaktiga vilket innebär att de obligatoriska parametrarna är saknas, är för stor eller har en felaktig|
-|400|Redigering, slutpunkten|brödtexten för begäran är felaktig JSON finns saknas, är för stor eller har en felaktig|
-|401|Redigering|används slutpunktsnyckeln för prenumerationen, i stället för redigering av nyckel|
-|401|Redigering, slutpunkten|Ogiltig, är tomt eller har en felaktig nyckel|
-|401|Redigering, slutpunkten| nyckel matchar inte region|
-|401|Redigering|du är inte ägare eller deltagare|
-|401|Redigering|Ogiltig order för API-anrop|
-|403|Redigering, slutpunkten|Totalt antal månatliga viktiga lagringskvoten har överskridits|
-|409|Slutpunkt|programmet fortfarande läses in|
-|410|Slutpunkt|programmet måste modellkomponenten och publiceras igen|
-|414|Slutpunkt|frågan överskrider antalet tillåtna tecken|
-|429|Redigering, slutpunkten|Hastighetsbegränsning överskriden (förfrågningar per sekund)|
+|400|Redigering, slutpunkt|parametrarna för begäran är felaktiga, vilket innebär att de parametrar som krävs saknas, missbildas eller är för stora|
+|400|Redigering, slutpunkt|begärans kropp är felaktig, vilket innebär att JSON saknas, missbildas eller är för stor|
+|401|Redigering|använd slutpunktsprenumerationsnyckel i stället för att skapa nyckel|
+|401|Redigering, slutpunkt|ogiltig, felaktig eller tom nyckel|
+|401|Redigering, slutpunkt| nyckeln matchar inte region|
+|401|Redigering|du inte är ägare eller medarbetare|
+|401|Redigering|ogiltig ordning för API-anrop|
+|403|Redigering, slutpunkt|total gräns för månatlig nyckelkvot överskriden|
+|409|Slutpunkt|programmet laddas fortfarande|
+|410|Slutpunkt|ansökan måste omskolas och publiceras på nytt|
+|414|Slutpunkt|frågan överskrider maxteckengränsen|
+|429|Redigering, slutpunkt|Hastighetsgränsen överskrids (begäranden/sekund)|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* REST API [redigering](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) och [slut punkts](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) dokumentation
+* DOKUMENTATION för REST [API-redigering](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) och [slutpunkt](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)

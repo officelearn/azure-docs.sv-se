@@ -1,7 +1,7 @@
 ---
-title: Granskningar, arbets flöden och jobb koncept – Content Moderator
+title: Begreppen Recensioner, Arbetsflöden och Jobb - Innehållsmoderator
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln får du lära dig mer om huvud begreppen i gransknings verktyget. recensioner, arbets flöden och jobb.
+description: I den här artikeln får du lära dig mer om de centrala begreppen i granskningsverktyget. granskningar, arbetsflöden och jobb.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
 ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221154"
 ---
-# <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar av innehålls moderatorer, arbets flöden och jobb
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>Granskningar, arbetsflöden och jobb för innehållsmoderering
 
-Content Moderator kombinerar dator-assisterad redaktör med funktioner för mänsklig inblandning för att skapa en optimal redigerings process för verkliga scenarier. Detta sker via det molnbaserad [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com). I den här guiden får du lära dig mer om huvud begreppen i gransknings verktyget: granskningar, arbets flöden och jobb.
+Innehållsmoderator kombinerar datorstödd moderering med funktioner som används i loopen för att skapa en optimal modereringsprocess för verkliga scenarier. Det gör detta genom det molnbaserade [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com). I den här guiden får du lära dig mer om de grundläggande begreppen i granskningsverktyget: recensioner, arbetsflöden och jobb.
 
 ## <a name="reviews"></a>Omdömen
 
-I en granskning överförs innehållet till gransknings verktyget och visas på fliken **Granska** . Härifrån kan användare ändra de använda taggarna och tillämpa egna anpassade taggar efter behov. När en användare skickar en granskning skickas resultatet till en angiven slut punkt för återanrop och innehållet tas bort från platsen.
+I en granskning överförs innehållet till granskningsverktyget och visas under fliken **Granska.** Härifrån kan användarna ändra de använda taggarna och använda sina egna anpassade taggar efter behov. När en användare skickar en granskning skickas resultaten till en angiven motringningsslutpunkt och innehållet tas bort från webbplatsen.
 
-![Granska verktygs webbplats öppna i en webbläsare på fliken Granska](./Review-Tool-user-Guide/images/image-workflow-review.png)
+![Webbplatsen för granskningsverktyg som är öppen i en webbläsare på fliken Granska](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-I [guiden granska verktyg](./review-tool-user-guide/review-moderated-images.md) kan du komma igång med att skapa recensioner eller se [rest Apis guide](./try-review-api-review.md) för att lära dig hur du gör det program mässigt.
+Se [guiden Granska verktyg](./review-tool-user-guide/review-moderated-images.md) för att komma igång med att skapa recensioner, eller se [REST API-guiden](./try-review-api-review.md) för att lära dig hur du gör det programmässigt.
 
 ## <a name="workflows"></a>Arbetsflöden
 
-Ett arbets flöde är ett molnbaserad anpassat filter för innehåll. Arbets flöden kan ansluta till en mängd olika tjänster för att filtrera innehåll på olika sätt och vidta lämplig åtgärd. Med Content Moderator-anslutningen kan ett arbets flöde automatiskt tillämpa kontrollanter och skapa recensioner med innehåll som har skickats.
+Ett arbetsflöde är ett molnbaserat anpassat filter för innehåll. Arbetsflöden kan ansluta till en mängd olika tjänster för att filtrera innehåll på olika sätt och sedan vidta lämpliga åtgärder. Med Content Moderator-kopplingen kan ett arbetsflöde automatiskt tillämpa modereringstaggar och skapa recensioner med inskickat innehåll.
 
-### <a name="view-workflows"></a>Visa arbets flöden
+### <a name="view-workflows"></a>Visa arbetsflöden
 
-Om du vill visa dina befintliga arbets flöden går du till [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar** > **arbets flöden**.
+Om du vill visa dina befintliga arbetsflöden går du till [granskningsverktyget](https://contentmoderator.cognitive.microsoft.com/) och väljer **Inställningar** > **Arbetsflöden**.
 
-![Standard arbets flöde](images/default-workflow-listed.PNG)
+![Standardarbetsflöde](images/default-workflow-listed.PNG)
 
-Arbets flöden kan beskrivas fullständigt som JSON-strängar som gör dem tillgängliga via programmering. Om du väljer **redigerings** alternativet för arbets flödet och sedan väljer fliken **JSON** visas ett JSON-uttryck som följande:
+Arbetsflöden kan beskrivas fullständigt som JSON-strängar, vilket gör dem tillgängliga programmässigt. Om du väljer alternativet **Redigera** för arbetsflödet och sedan väljer fliken **JSON** visas ett JSON-uttryck som följande:
 
 ```json
 {
@@ -64,16 +64,16 @@ Arbets flöden kan beskrivas fullständigt som JSON-strängar som gör dem tillg
 }
 ```
 
-I [guiden granska verktyg](./review-tool-user-guide/workflows.md) kan du komma igång med att skapa och använda arbets flöden, eller se [rest Apis guide](./try-review-api-workflow.md) för att lära dig hur du gör det program mässigt.
+Läs [verktygsguiden](./review-tool-user-guide/workflows.md) för granskning för att komma igång med att skapa och använda arbetsflöden, eller se [REST API-guiden](./try-review-api-workflow.md) för att lära dig hur du gör det programmässigt.
 
 ## <a name="jobs"></a>Jobb
 
-Ett redigerings jobb fungerar som en typ av omslutning för funktionerna i Content moderatoring, arbets flöden och recensioner. Jobbet skannar ditt innehåll med hjälp av API: et för Content Moderator bild redigeringsprogram eller API för text redigering och kontrollerar det mot det angivna arbets flödet. Utifrån arbets flödes resultatet kan det hända att det inte går att skapa en granskning för innehållet i [gransknings verktyget](./review-tool-user-guide/human-in-the-loop.md). Både granskningar och arbets flöden kan skapas och konfigureras med deras respektive API: er, men jobb-API: et gör att du kan få en detaljerad rapport över hela processen (som kan skickas till en angiven slut punkt för återanrop).
+Ett modereringsjobb fungerar som ett slags omslag för funktionaliteten för innehållsmoderering, arbetsflöden och recensioner. Jobbet söker igenom ditt innehåll med hjälp av API:et för bildmoderering av innehållsmoderererering eller API för textmoderering och kontrollerar det sedan mot det angivna arbetsflödet. Baserat på arbetsflödesresultaten kan det hända att det skapar en recension av innehållet i [granskningsverktyget](./review-tool-user-guide/human-in-the-loop.md). Även om både granskningar och arbetsflöden kan skapas och konfigureras med sina respektive API:er, kan du med jobb-API:et få en detaljerad rapport över hela processen (som kan skickas till en angiven motringningsslutpunkt).
 
-Se [rest Apis guide](./try-review-api-job.md) för att komma igång med jobb.
+Se [REST API-guiden](./try-review-api-job.md) för att komma igång med jobb.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Testkör jobb- [API-konsolen](try-review-api-job.md)och Använd REST API kod exempel. Om du är bekant med Visual Studio och C#kontrollerar du även [jobben .net snabb start](moderation-jobs-quickstart-dotnet.md). 
-* För recensioner kan du komma igång med [Granska API-konsolen](try-review-api-review.md)och använda REST API kod exempel. Se avsnittet recensioner i [.net-snabb](dotnet-sdk-quickstart.md)starten.
-* För video granskningar använder du [snabb starten för video granskning](video-reviews-quickstart-dotnet.md)och lär dig hur du [lägger till avskrifter i video granskningen](video-transcript-reviews-quickstart-dotnet.md).
+* Testa enheten för [JOBB-API-konsolen](try-review-api-job.md)och använd rest-API-kodexemplen. Om du är bekant med Visual Studio och C#, kolla också in [jobben .NET snabbstart](moderation-jobs-quickstart-dotnet.md). 
+* Om du vill granska kan du komma igång med [API-konsolen Granska](try-review-api-review.md)och använda exempel på REST API-kod. Se sedan avsnittet recensioner i [snabbstarten .NET](dotnet-sdk-quickstart.md).
+* För videorecensioner använder du [snabbstarten Videogranskning](video-reviews-quickstart-dotnet.md)och lär dig hur du [lägger till utskrifter i videogranskningen](video-transcript-reviews-quickstart-dotnet.md).

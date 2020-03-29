@@ -1,5 +1,5 @@
 ---
-title: Skicka Sök begär anden till API för videosökning i Bing
+title: Skicka sökförfrågningar till API:et för videosökning i Bing
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln beskrivs parametrarna och attributen för begäranden som skickas till API:et för videosökning i Bing samt det JSON-svarsobjekt som det returnerar.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: aahi
 ms.openlocfilehash: b27aa1409d543c157069d2701c49ef54a097e552
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220296"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Skicka sökbegäranden till API:et för videosökning i Bing
@@ -23,7 +23,7 @@ I den här artikeln beskrivs parametrarna och attributen för begäranden som sk
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Föreslå söktermer med API:et för automatiska förslag i Bing
+## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Föreslå söktermer med API:t Automatiska förslag i Bing
 
 Om du tillhandahåller en sökruta där användaren anger sin sökterm bör du använda [API för automatiska förslag i Bing ](../../bing-autosuggest/get-suggested-search-terms.md) för att ge bättre funktioner. API:t returnerar föreslagna frågesträngar baserat på partiella söktermer som användaren skriver in.
 

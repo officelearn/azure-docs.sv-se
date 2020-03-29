@@ -1,7 +1,7 @@
 ---
 title: Metodtips när du använder API:et för avvikelseidentifiering
 titleSuffix: Azure Cognitive Services
-description: 'Läs mer om bästa praxis när du söker efter avvikelser med API: T för Avvikelseidentifiering detektor.'
+description: Lär dig mer om metodtips när du identifierar avvikelser med API:et för avvikelsedetektor.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,50 +11,50 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67721620"
 ---
-# <a name="best-practices-for-using-the-anomaly-detector-api"></a>Metodtips för API: T för Avvikelseidentifiering detektor
+# <a name="best-practices-for-using-the-anomaly-detector-api"></a>Metodtips för användning av API:et för avvikelsedetektor
 
-Avvikelseidentifiering detektor API är en tillståndslös avvikelseidentifieringstjänst. Prestanda resultat kan påverkas av:
+API:et för avvikelsedetektor är en tillståndslös avvikelseidentifieringstjänst. Resultatens riktighet och prestanda kan påverkas av:
 
 * Hur dina tidsseriedata förbereds.
-* Avvikelseidentifiering detektor API-parametrar som användes.
-* Antalet datapunkter i API-begäran. 
+* API-parametrarna för avvikelsedetektorn som användes.
+* Antalet datapunkter i din API-begäran. 
 
-Använd den här artikeln om du vill veta mer om bästa praxis för att använda API: et får bästa resultat för dina data. 
+Använd den här artikeln om du vill lära dig mer om metodtips för hur du använder API:et för att få bästa resultat för dina data. 
 
-## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>När du ska använda batch (hela) eller senaste (senaste) pekar avvikelseidentifiering
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>När batch (hela) eller senaste (sista) punkt avvikelseidentifiering ska användas
 
-Avvikelseidentifiering detektor API batch identifiering slutpunkt kan du identifiera avvikelser genom hela times series-data. I det här identifieringsläget, skapas en enda statistisk modell och tillämpas på varje punkt i datauppsättningen. Om din tidsserier har den nedan egenskaper, vi rekommenderar att du använder batch-identifiering förhandsgranska data i ett API-anrop.
+Med API:et för avvikelsedetektorns batchidentifiering kan du identifiera avvikelser genom data i hela tidsserierna. I det här identifieringsläget skapas en enda statistisk modell på varje punkt i datauppsättningen. Om din tidsserie har nedanstående egenskaper rekommenderar vi att du använder batchidentifiering för att förhandsgranska dina data i ett API-anrop.
 
-* En säsongens tidsserie, med tillfällig avvikelser.
-* En fast trend tidsserie, med tillfälliga toppar/dalar. 
+* En säsongsmässig tidsserie, med enstaka avvikelser.
+* En platt trend tidsserie, med enstaka spikar / dips. 
 
-Vi rekommenderar inte med hjälp av batch-avvikelseidentifiering för realtidsdata övervakning eller används i time series-data som inte har ovan egenskaper. 
+Vi rekommenderar inte att du använder batchavvikelseidentifiering för dataövervakning i realtid eller använder den på tidsseriedata som inte har ovanstående egenskaper. 
 
-* Identifiering av batch skapar och gäller endast en modell, identifiering för varje punkt sker i samband med hela serien. Om time series datatrender uppåt och nedåt utan säsongsberoende, några saker för ändrar (dalar och toppar i data) kan missas i modellen. På samma sätt kan räknas några saker av ändring som är mindre viktig än de som senare i datauppsättningen inte betydelse i modellen.
+* Batchidentifiering skapar och tillämpar endast en modell, identifieringen för varje punkt görs i samband med hela serier. Om tidsseriedatatrenderna uppåt och nedåt utan säsongsvariationer kan vissa förändringspunkter (dips och toppar i data) missas av modellen. På samma sätt kan vissa ändringspunkter som är mindre betydande än de senare i datauppsättningen inte räknas som tillräckligt betydande för att införlivas i modellen.
 
-* Batch-identifiering är långsammare än identifiering av avvikelser status för den senaste tidpunkten när du gör realtidsdata övervakning, på grund av antalet punkter som analyseras.
+* Batchidentifiering är långsammare än att identifiera avvikelsestatus för den senaste punkten när du gör dataövervakning i realtid, på grund av antalet punkter som analyseras.
 
-För övervakning av data i realtid rekommenderar vi att identifiera avvikelser statusen för din senaste datapunkt endast. Genom att kontinuerligt tillämpa den senaste återställningspunkt identifiering, kan strömmande data övervakning göras mer effektivt och korrekt.
+För dataövervakning i realtid rekommenderar vi att du upptäcker avvikelsestatus för den senaste datapunkten. Genom att kontinuerligt tillämpa den senaste punktdetekteringen kan övervakning av strömmande data göras mer effektivt och korrekt.
 
-Exemplet nedan beskriver påverkan dessa identifiering lägen kan ha på prestanda. Den första bilden visar resultatet av kontinuerligt identifiering av avvikelser status senaste punkt längs 28 tidigare visad datapunkter. Avvikelser är röda punkter.
+I exemplet nedan beskrivs vilken inverkan dessa identifieringslägen kan ha på prestanda. Den första bilden visar resultatet av att kontinuerligt upptäcka avvikelsestatus senaste punkten längs 28 tidigare sett datapunkter. De röda punkterna är avvikelser.
 
-![En bild som visar avvikelseidentifiering med hjälp av den senaste tidpunkten](../media/last.png)
+![En bild som visar avvikelseidentifiering med den senaste punkten](../media/last.png)
 
-Nedan är samma data med hjälp av batch-avvikelseidentifiering. Modellen som byggts för åtgärden har ignorerats flera avvikelser som markerats av rektanglar.
+Nedan visas samma datauppsättning med batchavvikelseidentifiering. Modellen som skapats för åtgärden har ignorerat flera avvikelser, markerade med rektanglar.
 
-![En bild som visar avvikelseidentifiering med batch-metoden](../media/entire.png)
+![En bild som visar avvikelseidentifiering med batchmetoden](../media/entire.png)
 
 ## <a name="data-preparation"></a>Förberedelse av data
 
-API: T för Avvikelseidentifiering detektor accepterar tidsserier data formaterats som en JSON-begäran. En tidsserie kan vara numeriska data registreras med tiden i sekventiell ordning. Du kan skicka windows av time series-data till den Avvikelseidentifiering detektor API-slutpunkten för att förbättra prestanda för API: er. Det minsta antalet datapunkter som du kan skicka är 12, och högsta 8640 punkter. [Kornighet](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) definieras som hastigheten som data samplas med. 
+Api:et för avvikelsedetektorn accepterar tidsseriedata som är formaterade till ett JSON-begärandeobjekt. En tidsserie kan vara alla numeriska data som registreras över tid i sekventiell ordning. Du kan skicka fönster i tidsseriedata till API-slutpunkten för avvikelsedetektor för att förbättra API:ets prestanda. Det minsta antalet datapunkter som du kan skicka är 12 och det högsta är 8640 poäng. [Granularitet](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) definieras som den hastighet som dina data samplas på. 
 
-Datapunkter som skickas till API: T för Avvikelseidentifiering detektor måste ha en giltig Coordinated Universal Time (UTC) tidsstämpel och numeriska värden. 
+Datapunkter som skickas till API:et för avvikelsedetektor måste ha en giltig TIDSstämpel (Coordinated Universal Time) och det numeriska värdet. 
 
 ```json
 {
@@ -72,7 +72,7 @@ Datapunkter som skickas till API: T för Avvikelseidentifiering detektor måste 
 }
 ```
 
-Om dina data samplas med ett tidsintervall som inte är standard, kan du ange den genom att lägga till den `customInterval` attribut i din begäran. Om din serien samplas var femte minut, du lägga till följande JSON-begäran:
+Om dina data samplas med ett tidsintervall som inte `customInterval` är standard kan du ange det genom att lägga till attributet i din begäran. Om din serie till exempel samplas var femte minut kan du lägga till följande i din JSON-begäran:
 
 ```json
 {
@@ -81,27 +81,27 @@ Om dina data samplas med ett tidsintervall som inte är standard, kan du ange de
 }
 ```
 
-### <a name="missing-data-points"></a>Saknade datapunkter
+### <a name="missing-data-points"></a>Datapunkter saknas
 
-Saknade datapunkter är vanliga i jämnt fördelade time series datauppsättningar, särskilt de som med en bra kornighet (ett litet exempelintervall. Till exempel data samplas några minuters mellanrum). Mindre än 10% av det förväntade antalet punkter i dina data som saknas får inte ha en negativ inverkan på resultaten av programuppdateringsidentifieringen. Överväg att fylla luckor i dina data baserat på dess egenskaper som Ersätt datapunkter från en tidigare period, linjär interpolation eller ett glidande medelvärde.
+Saknade datapunkter är vanliga i jämnt fördelade tidsseriedatauppsättningar, särskilt de med fin granularitet (Ett litet samplingsintervall. Till exempel samplas data med några minuters mellanrum). Mindre än 10 % av det förväntade antalet punkter i dina data bör inte ha en negativ inverkan på identifieringsresultaten. Överväg att fylla i luckor i dina data baserat på dess egenskaper som att ersätta datapunkter från en tidigare period, linjär interpolation eller ett glidande medelvärde.
 
-### <a name="aggregate-distributed-data"></a>Sammanställd distribuerade data
+### <a name="aggregate-distributed-data"></a>Aggregerade distribuerade data
 
-API: T för Avvikelseidentifiering detektor fungerar bäst på ett jämnt fördelade tidsserier. Om dina data distribueras slumpmässigt, du bör samla ihop den av en tidsenhet som Per minut, per timme eller dag till exempel.
+Api:et för avvikelsedetektor fungerar bäst i en jämnt fördelad tidsserie. Om dina data distribueras slumpmässigt bör du aggregera dem med en tidsenhet, till exempel Per minut, timme eller dagligen.
 
-## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>Identifiering av avvikelser i data med säsongens mönster
+## <a name="anomaly-detection-on-data-with-seasonal-patterns"></a>Avvikelseidentifiering på data med säsongsmönster
 
-Om du vet att dina tidsseriedata har en säsongsknutet mönster (en som inträffar med jämna mellanrum), kan du förbättra noggrannheten och API-svarstiden. 
+Om du vet att dina tidsseriedata har ett säsongsmönster (ett som inträffar med jämna mellanrum) kan du förbättra noggrannheten och API-svarstiden. 
 
-Ange en `period` när du skapar din JSON-begäran kan förkorta svarstiden för identifiering av avvikelser med upp till 50%. Den `period` är ett heltal som anger ungefär hur många datapunkter tidsserien tar du upprepa ett mönster. Till exempel en tidsserie med en datapunkt per dag skulle ha en `period` som `7`, och en tidsserie med en punkt per timme (med samma veckovisa mönster) skulle ha en `period` av `7*24`. Om du är osäker på dina data mönster kan du inte ange den här parametern.
+Om du `period` anger en när du konstruerar JSON-begäran kan avvikelseidentifieringsfördröjningen minskas med upp till 50 %. Är `period` ett heltal som anger ungefär hur många datapunkter tidsserierna tar att upprepa ett mönster. En tidsserie med en datapunkt per `period` dag `7`skulle till exempel ha en som , och en tidsserie med en poäng per timme (med samma veckomönster) skulle ha en `period` av `7*24`. Om du är osäker på dina datas mönster behöver du inte ange den här parametern.
 
-För bästa resultat bör du ange 4 `period`är för datapunkt, plus ytterligare en. Till exempel varje timme data med ett mönster för veckovis enligt beskrivningen ovan bör ge 673 datapunkter i frågans brödtext (`7 * 24 * 4 + 1`).
+För bästa resultat, `period`ge 4' s värde av datapunkt, plus en extra. Till exempel bör timdata med ett veckomönster enligt beskrivningen ovan ge 673 datapunkter i begärandeorganet (`7 * 24 * 4 + 1`).
 
-### <a name="sampling-data-for-real-time-monitoring"></a>Sampling av data för övervakning i realtid
+### <a name="sampling-data-for-real-time-monitoring"></a>Provtagningsdata för övervakning i realtid
 
-Om din strömmande data samplas med en liten stund (till exempel sekunder eller minuter), kan skickar det rekommenderade antalet datapunkter överskrida Avvikelseidentifiering detektor API maximala antalet tillåtna (8640 datapunkter). Överväg att skicka ett urval av dina time series-data med ett större tidsintervall som timmar om dina data visas en stabil säsongsknutet mönster. Sampling dina data på det här sättet kan du också märkbart förbättra API-svarstiden. 
+Om dina strömmande data samplas med ett kort intervall (till exempel sekunder eller minuter) kan det rekommenderade antalet datapunkter överskrida API:et för avvikelsedetektorer (8640 datapunkter). Om dina data visar ett stabilt säsongsmönster kan du överväga att skicka ett urval av tidsseriedata med ett större tidsintervall, till exempel timmar. Att prova dina data på det här sättet kan också märkbart förbättra API-svarstiden. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är API: T för Avvikelseidentifiering detektor?](../overview.md)
-* [Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av Avvikelseidentifiering detektor REST API](../quickstarts/detect-data-anomalies-csharp.md)
+* [Vad är API:et för avvikelseidentifiering?](../overview.md)
+* [Snabbstart: Identifiera avvikelser i tidsseriedata med REST API:et för avvikelsedetektor](../quickstarts/detect-data-anomalies-csharp.md)

@@ -1,7 +1,7 @@
 ---
-title: Språk stöd – Content Moderator-API
+title: Språkstöd - API för innehållsmoderator
 titleSuffix: Azure Cognitive Services
-description: Det här är en lista över naturliga språk som stöds av Azure Cognitive Services Content Moderator API.
+description: Det här är en lista över naturliga språk som Azure Cognitive Services Content Moderator API stöder.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,101 +11,101 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744358"
 ---
-# <a name="language-support-for-content-moderator-api"></a>Språk stöd för Content Moderator API
+# <a name="language-support-for-content-moderator-api"></a>Språkstöd för API för innehållsmoderator
 
 > [!NOTE]
-> För parametern **språk** tilldelar du `eng` eller låter den vara tom för att se den datorbaserade **klassificerings** svaret (för hands version). **Den här funktionen stöder enbart engelska**.
+> För **language** språkparametern `eng` tilldelar eller lämnar den tom för att se det maskinstödda **klassificeringssvaret** (förhandsgranskningsfunktionen). **Den här funktionen stöder endast engelska**.
 >
-> För identifiering av **svordomar** kan du använda [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln eller lämna det tomt.
+> För identifiering av **svordomar termer,** använd [ISO 639-3-koden](http://www-01.sil.org/iso639-3/codes.asp) för de språk som stöds i den här artikeln, eller lämna den tom.
 
 
-| Språkidentifiering | Svordomar   | OCR    | Automatisk korrigering     |
+| Språkidentifiering | Olämpligt språk   | OCR    | Automatisk korrigering     |
 | -------------------- |-------------|--------|---------------------|
-| Arabiska (romersk)   | Afrikaans   | Arabiska   | Arabiska |
-| Balinese | Albanska | Kinesiska (förenklad)    | Danska |
+| Arabiska (romaniserad)   | Afrikaans   | Arabiska   | Arabiska |
+| Balinesiska | Albanska | Kinesiska (förenklad)    | Danska |
 | Bengali | Amhariska | Kinesiska (traditionell)     | Nederländska |
-| Buginese | Arabiska | Tjeckiska                     | Svenska |
+| Buginese (buginese) | Arabiska | Tjeckiska                     | Svenska |
 | Buhid | Armeniska | Danska                     | Finska |
-| Carian | Assamesiska | Nederländska                     | Franska |
+| Carian (bil) | Assamesiska | Nederländska                     | Franska |
 | Kinesiska (förenklad) | Azerbajdzjanska | Svenska  | Grekiska (modern) |
-| Kinesiska (traditionell) | Bangla – Bangladesh | Finska  | Italienska |
-| Kyrkslaviska (slaviska) | Bangla – Indien | Franska     | Koreanska |
-| Coptic | Baskiska | Tyska                      | Norska |
+| Kinesiska (traditionell) | Bangla - Bangladesh | Finska  | Italienska |
+| Kyrka (slaviska) | Bangla - Indien | Franska     | Koreansk |
+| Koptiska | Baskiska | Tyska                      | Norska |
 | Tjeckiska |  Vitryska | Grekiska (modern)         | Polska |
-| Dhivehi | Bosniska – kyrilliska | Ungerska      | Portugisiska |
-| Nederländska | Bosniska – latinsk | Italienska             | Rumänska |
-| Engelska (Creole) | Bretonska [icke-GeoPol] | Japanska  | Ryska |
-| Farsi | Bulgariska | Koreanska                        | Slovakiska |
+| Divehi | Bosniska - kyrilliska | Ungerska      | Portugisiska |
+| Nederländska | Bosniska - latin | Italienska             | Rumänska |
+| Engelska (kreolskt) | Breton [icke-GeoPol] | Japanska  | Ryska |
+| Persiska | Bulgariska | Koreansk                        | Slovakiska |
 | Franska | Katalanska | Norska                        | Spanska |
-| Tyska | Central kurdiska | Polska        | Turkiska |
-| Grekiska | Cherokesiska | Portugisiska | |
-| Haitian | Kinesiska (förenklad) | Rumänska | |
-| Hebreiska | Kinesiska (traditionell)-Hongkong SAR | Ryska | |
-| Hindi | Kinesiska (traditionell)-Taiwan | Serbiska, kyrilliska | |
-| Hmong | Kroatiska | Serbiska, latinsk | |
+| Tyska | Centrala kurdiska | Polska        | Turkiska |
+| Grekiska | Cherokee | Portugisiska | |
+| Haitiska | Kinesiska (förenklad) | Rumänska | |
+| Hebreiska | Kinesiska (traditionell) - Hong Kong SAR | Ryska | |
+| Hindi | Kinesiska (traditionell) - Taiwan | Serbiska kyrilliska | |
+| Hmong | Kroatiska | Serbiska latinska | |
 | Ungerska | Tjeckiska | Slovakiska | |
 | Italienska | Danska | Spanska | |
 | Japanska | Dari | Svenska | |
-| Koreanska | Nederländska | Turkiska | |
+| Koreansk | Nederländska | Turkiska | |
 | Kurdiska (arabiska) | Svenska | | |
-| Kurdiska (latinsk) | Estniska | | |
-| Lepcha | Filipino | | |
-| Limbu | Finska | | |
+| Kurdiska (latin) | Estniska | | |
+| Lepcha (ura/) | Filipino | | |
+| Limbu (av en) | Finska | | |
 | Lu | Franska | | |
-| Lycian | Galiciska | | |
-| Lydian | Georgiska | | |
-| Mycenaean (grekiska) | Tyska | | |
-| Nko | Grekiska | | |
-| Norska (bokmål) | Gujarati | | |
-| Norska (nynorsk) |  Haus | | |
-| Gammal (persiska) | Hebreiska | | |
-| Afghanska | Hindi | | |
+| Lykiska | Galiciska | | |
+| Lydiska | Georgiska | | |
+| Mykenska (grekiska) | Tyska | | |
+| Nko (på annat sätt) | Grekiska | | |
+| Norska (Bokmal) | Gujarati | | |
+| Norska (nynorsk) |  Hausa | | |
+| Gamla (persiska) | Hebreiska | | |
+| Pashto | Hindi | | |
 | Polska | Ungerska | | |
 | Portugisiska | Isländska | | |
-| Punjabi | IBO | | |
-| Rejang | Indonesiska | | |
+| Punjabi | Ibo | | |
+| Rejang (på efterrätt) | Indonesiska | | |
 | Ryska | Inuktitut | | |
-| Santali | Irländska | | |
-| Sasak | Xhosa | | |
-| Saurashtra | Zulu | | |
+| Santali (av santali) | Iriska | | |
+| Sasak (sasak) | isiXhosa (olikartade) | | |
+| Saurashtra (sej till) | isiZulu (olikartade) | | |
 | Serbiska (kyrillisk) | Italienska | | |
-| Serbiska (latinsk) | Japanska | | |
-| Sinhala | Kannada | | |
+| Serbiska (latinsk) (Serbien) | Japanska | | |
+| Singalesiska | Kannada | | |
 | Slovenska | Kazakiska | | |
-| Spanska | Kambodjanska | | |
-| Svenska | Quiché | | |
-| Sylheti | Rwanda | | |
-| Syrisk | Swahili | | |
-| Tagbanwa | Konkani | | |
-| Tai (Nua) | Koreanska | | |
-| Tamashek | Kirgiziska | | |
-| Turkiska | Laos | | |
-| Ugaritic | Lettiska | | |
+| Spanska | Khmer | | |
+| Svenska | K'iche (på andra sätt) | | |
+| Sylheti (på andra) | Kinjarwanda | | |
+| Syriska | Kiswahili | | |
+| Tagbanwa (på) | Konkani | | |
+| Tai (Nua) | Koreansk | | |
+| Tamashek (sej) | Kirgiziska | | |
+| Turkiska | Lao | | |
+| Ugaritic (ugaritisk) | Lettiska | | |
 | Uzbekiska (kyrillisk) | Litauiska | | |
-| Uzbekiska (latinsk) | Luxemburgiska | | |
+| Uzbekiska (latin) | Luxemburgiska | | |
 | Vai | Makedonska | | |
 | Yi | Malajiska | | |
-| Zhuang, Chuang | Malayalam | | |
+| Zhuang , Chuang | Malayalam | | |
 | | Maltesiska | | |
 | | Maori | | |
 | | Marathi | | |
 | | Mongoliska | | |
-| | Nepal | | |
+| | Nepali | | |
 | | Norska (bokmål) | | |
 | | Norska (nynorsk) | | |
-| | Odia | | |
-| | Afghanska | | |
+| | Odia (olikartade) | | |
+| | Pashto | | |
 | | Persiska | | |
 | | Polska | | |
-| | Portugisiska (Brasilien) | | |
-| | Portugisiska-Portugal | | |
-| | Pulaar | | |
+| | Portugisiska – Brasilien | | |
+| | Portugisiska – Portugal | | |
+| | Pulaar (pulaar) | | |
 | | Punjabi | | |
 | | Punjabi (Pakistan) | | |
 | | Quechua (Peru) | | |
@@ -113,13 +113,13 @@ ms.locfileid: "73744358"
 | | Ryska | | |
 | | Skotsk gaeliska | | |
 | | Serbiska (kyrillisk) | | |
-| | Serbiska (kyrillisk, Bosnien och Hercegovina) | | |
-| | Serbiska (latinsk) | | |
-| | Nordsotho | | |
-| | Nordsotho | | |
-| | Tswana | | |
+| | Serbiska (kyrilliska, Bosnien och Hercegovina) | | |
+| | Serbiska (latinsk) (Serbien) | | |
+| | Sesotho (sejho) | | |
+| | Sesotho sa Leboa | | |
+| | Setwana (olika) | | |
 | | Sindhi | | |
-| | Sinhala | | |
+| | Singalesiska | | |
 | | Slovakiska | | |
 | | Slovenska | | |
 | | Spanska | | |
@@ -128,7 +128,7 @@ ms.locfileid: "73744358"
 | | Tamilska | | |
 | | Tatariska | | |
 | | Telugu | | |
-| | Thai | | |
+| | Thailändska | | |
 | | Tigrinja | | |
 | | Turkiska | | |
 | | Turkmeniska | | |
@@ -136,7 +136,7 @@ ms.locfileid: "73744358"
 | | Urdu | | |
 | | Uiguriska | | |
 | | Uzbekiska | | |
-| | Valencianska | | |
+| | Valencia | | |
 | | Vietnamesiska | | |
 | | Walesiska | | |
 | | Wolof | | |

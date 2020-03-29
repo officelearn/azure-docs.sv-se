@@ -1,81 +1,81 @@
 ---
-title: Konversations avskrift (för hands version) – tal tjänst
+title: Konversationsavskrift (förhandsgranskning) - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: Konversations avskrift är en tal-till-text-lösning som kombinerar tal igenkänning, högtalar identifiering och menings tilldelningar till varje talare (även kallat diarization) för att tillhandahålla real tids och/eller asynkron avskrift av alla konversationer.
+description: Konversationsavskrift är en lösning för möten som kombinerar igenkänning, högtalar-ID och diarisering för att ge transkription av alla konversationer.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 03/16/2020
 ms.author: dapine
-ms.openlocfilehash: 8fc52428795b0dc8123d501dac9605c473f61456
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: ba56c7fb989658195f6394c7390c4f83027c7c96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79367830"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479747"
 ---
-# <a name="what-is-conversation-transcription-preview"></a>Vad är en konversations avskrift (för hands version)?
+# <a name="what-is-conversation-transcription-in-meetings-preview"></a>Vad är konversationsavskription i möten (förhandsgranskning)?
 
-Konversations avskrift är en [tal-till-text-](speech-to-text.md) lösning som kombinerar tal igenkänning, högtalar identifiering och menings tilldelningar till varje talare (även kallat _diarization_) för att tillhandahålla real tids och/eller asynkron avskrift av alla konversationer. Konversations avskrift skiljer sig från högtalare i en konversation för att fastställa vem som sade vad och när och gör det enkelt för utvecklare att lägga till tal till text till sina program som utför multi-talare-diarization.
+Konversationsavskrifter är en [tal-till-text-lösning](speech-to-text.md) som kombinerar taligenkänning, högtalaridentifiering och meningsattribution till varje högtalare (kallas även _diarisering)_ för att tillhandahålla realtids- och/eller asynkron transkription av alla konversationer. Konversationsavskrift skiljer högtalarna i en konversation för att avgöra vem som sa vad och när, och gör det enkelt för utvecklare att lägga till tal-till-text i sina program som utför diarisering med flera högtalare.
 
 ## <a name="key-features"></a>Huvudfunktioner
 
-- **Tidsstämplar** – varje talare uttryck har en tidsstämpel, så att du lätt kan hitta när en fras har sagts.
-- **Läsbara** avskrifter – avskrifter har formatering och interpunktion läggs till automatiskt för att se till att texten stämmer överens med vad som sades.
-- **Användar profiler** – användar profiler skapas genom insamling av användar röst exempel och skickas till skapande av signatur.
-- **Högtalar identifiering** – högtalarna identifieras med hjälp av användar profiler och ett _högtalar-ID_ tilldelas till var och en.
-- **Diarization för flera högtalare** – avgör vem som sade det genom att syntetisera ljud strömmen med varje högtalar-ID.
-- **Real tids avskrift** – ange direkt avskrifter av vem som säger vad och när konversationen sker.
-- **asynkron avskrift** – ge avskrifter med högre noggrannhet med hjälp av en ljud ström i Multichannel.
+- **Tidsstämplar** - varje talare yttrande har en tidsstämpel, så att du enkelt kan hitta när en fras sades.
+- **Läsbara transkriptioner** - transkriptioner har formatering och interpunktion läggs automatiskt till för att säkerställa att texten stämmer överens med vad som sades.
+- **Användarprofiler** - användarprofiler genereras genom att samla in användarröstprover och skicka dem till signaturgenerering.
+- **Högtalaridentifiering** - högtalare identifieras med hjälp av användarprofiler och en _högtalaridentifierare_ tilldelas var och en.
+- **Flerhögtalardiarization** - avgöra vem som sa vad genom att syntetisera ljudströmmen med varje högtalaridentifierare.
+- **Realtid transkription** - ge levande utskrifter av vem som säger vad och när medan samtalet sker.
+- **asynkron transkription** – ge transkriptioner med högre noggrannhet med hjälp av en flerkanalig ljudström.
 
 > [!NOTE]
-> Även om konversations avskrift inte begränsar antalet högtalare i rummet, är det optimerat för 2-10-högtalare per session.
+> Även om konversationsavskrifter inte sätter någon gräns för antalet högtalare i rummet, är den optimerad för 2-10 högtalare per session.
 
 ## <a name="use-cases"></a>Användningsfall
 
-### <a name="inclusive-meetings"></a>Inkluderade möten
+### <a name="inclusive-meetings"></a>Inkluderande möten
 
-För att göra möten för alla, till exempel deltagare som är döva och hörselskadade, är det viktigt att du har avskrifter i real tid. Konversations avskrift i real tids läge tar Mötes ljud och avgör vem som säger vad, vilket gör det möjligt för alla Mötes deltagare att följa avskriften och delta i mötet utan fördröjning.
+För att göra möten inkluderande för alla, till exempel deltagare som är döva och hörselskadade, är det viktigt att ha transkription i realtid. Konversationsavskrift i realtidsläge tar mötesljud och avgör vem som säger vad, så att alla mötesdeltagare kan följa utskriften och delta i mötet utan dröjsmål.
 
 ### <a name="improved-efficiency"></a>Förbättrad effektivitet
 
-Mötes deltagare kan fokusera på mötet och lämna kommentarer till konversations avskrift. Deltagare kan aktivt delta i mötet och snabbt följa upp nästa steg, med hjälp av avskriften i stället för att anteckna och potentiellt sakna något under mötet.
+Mötesdeltagarna kan fokusera på mötet och lämna anteckningar till konversationsavskrift. Deltagarna kan aktivt delta i mötet och snabbt följa upp nästa steg, med hjälp av utskriften istället för att göra anteckningar och eventuellt missa något under mötet.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Det här är en översikt på hög nivå över hur konversations avskrift fungerar.
+Detta är en översikt över hur konversationsavskription fungerar.
 
-![Diagrammet importera konversations avskrift](media/scenarios/conversation-transcription-service.png)
+![Fönstret Import konversationsavskrifter](media/scenarios/conversation-transcription-service.png)
 
-## <a name="expected-inputs"></a>Förväntade indata
+## <a name="expected-inputs"></a>Förväntade ingångar
 
-- **Ljud ström för flera kanaler** – information om specifikationer och design finns i [Microsoft Speech Device SDK-mikrofonen](https://aka.ms/cts/microphone). Läs mer eller köp ett utvecklings paket i [Hämta Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
-- **Användar röst exempel** – konversations avskrift kräver användar profiler i förväg i konversationen. Du måste samla in ljud inspelningar från varje användare och sedan skicka inspelningarna till [tjänsten Signature generation](https://aka.ms/cts/signaturegenservice) för att verifiera ljudet och generera användar profiler.
+- **Ljudström med flera kanaler** – Mer information om specifikation och design finns i [Microsoft Speech Device SDK Microphone](https://aka.ms/cts/microphone). Mer information om eller köpa ett utvecklingspaket finns i [Hämta Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
+- **Användarintexter** – Konversationsavskrift behöver användarprofiler före konversationen. Du måste samla in ljudinspelningar från varje användare och sedan skicka inspelningarna till [signaturgenereringstjänsten](https://aka.ms/cts/signaturegenservice) för att validera ljudet och generera användarprofiler.
 
-## <a name="real-time-vs-asynchronous"></a>Real tids vs. Asynchronous
+## <a name="real-time-vs-asynchronous"></a>Realtid kontra asynkron
 
-Konversations avskriften har tre avskrifts lägen:
+Konversation transkription erbjuder tre transkriptionslägen:
 
-### <a name="real-time"></a>Real tids
+### <a name="real-time"></a>Realtid
 
-Ljuddata bearbetas Live för att returnera högtalar-ID + avskrift. Välj det här läget om kravet på avskrifts lösning är att ge konversations deltagarna en Live-avskrifts visning av den pågående konversationen. Du kan till exempel skapa ett program för att göra möten mer lättillgängliga för döva och hörselskadade deltagare är ett idealiskt användnings fall för real tids avskrifter.
+Ljuddata bearbetas live för att returnera högtalaridentifierare + avskrift. Välj det här läget om kravet på transkriptionslösning är att ge konversationsdeltagarna en liveutskriftsvy av deras pågående konversation. Till exempel, bygga en ansökan om att göra möten mer tillgängliga döva och hörselskadade deltagare är ett idealiskt användningsfall för realtid transkription.
 
 ### <a name="asynchronous"></a>Asynkron
 
-Ljuddata är en batch som bearbetas för att returnera högtalar identifierare och avskrift. Välj det här läget om kravet på avskrifts lösning är att ge högre noggrannhet utan Live-avskrifts läge. Om du till exempel vill skapa ett program som gör det möjligt för Mötes deltagare att enkelt komma igång med missade möten använder du det asynkrona avskrifts läget för att få resultat med hög precisions avskrifter.
+Ljuddata är batchbearbetning för att returnera högtalare identifierare och avskrift. Välj det här läget om kravet på transkriptionslösning är att ge högre noggrannhet utan live-utskriftsvy. Om du till exempel vill skapa ett program så att mötesdeltagarna enkelt kan komma ikapp missade möten använder du det asynkrona transkriptionsläget för att få transkriptionsresultat med hög noggrannhet.
 
-### <a name="real-time-plus-asynchronous"></a>Real tids plus asynkront
+### <a name="real-time-plus-asynchronous"></a>Realtid plus asynkron
 
-Ljuddata bearbetas Live för att returnera högtalar-ID + avskrift, och dessutom skapas en begäran om att också få en hög noggrannhets avskrift genom asynkron bearbetning. Välj det här läget om ditt program har behov av avskrifter i real tid men kräver en högre noggrannhets avskrift för användning när konversationen eller mötet har inträffat.
+Ljuddata bearbetas live för att returnera högtalaridentifierare + avskrift, och dessutom skapas en begäran för att också få en högkvalitativ avskrift genom asynkron bearbetning. Välj det här läget om ditt program har behov av transkription i realtid men också kräver en utskrift med högre noggrannhet för användning efter att konversationen eller mötet har ägt rum.
 
 ## <a name="language-support"></a>Stöd för språk
 
-För närvarande stöder konversations avskriften "en-US" och "zh-CN" i följande regioner: *Central* -och *asienöstra*. Om du behöver ytterligare stöd för nationella inställningar kontaktar du [konversationens Avskrifts funktion](mailto:CTSFeatureCrew@microsoft.com).
+För närvarande stöder Konversation Transkription "en-US" och "zh-CN" i följande regioner: *centralus* och *eastasia*. Om du behöver ytterligare språksupport kontaktar du [Konversationsutskriftsfunktionen Crew](mailto:CTSFeatureCrew@microsoft.com).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriva över konversationer i real tid](how-to-use-conversation-transcription-service.md)
+> [Transkribera konversationer i realtid](how-to-use-conversation-transcription-service.md)

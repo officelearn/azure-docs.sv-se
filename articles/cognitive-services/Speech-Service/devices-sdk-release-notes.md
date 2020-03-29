@@ -1,7 +1,7 @@
 ---
-title: Dokumentation om tal enheter SDK
+title: SDK-dokumentation för Talenheter
 titleSuffix: Azure Cognitive Services
-description: Viktig information innehåller en logg över uppdateringar, förbättringar, fel korrigeringar och ändringar av tal enheternas SDK. Den här artikeln uppdateras med varje version av tal enheter SDK.
+description: Viktig information innehåller en logg över uppdateringar, förbättringar, buggfixar och ändringar i Speech Devices SDK. Den här artikeln uppdateras med varje utgåva av Speech Devices SDK.
 services: cognitive-services
 author: wsturman
 manager: nitinme
@@ -10,95 +10,95 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: c12aaea1dbc99a3f6db064e03b4b49e569f15194
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189062"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80371610"
 ---
-# <a name="release-notes-speech-devices-sdk"></a>Viktig information: tal enheter SDK
+# <a name="release-notes-speech-devices-sdk"></a>Viktig information: Talenheter SDK
 
-I följande avsnitt listas ändringar i de senaste versionerna.
+I följande avsnitt visas ändringar i de senaste versionerna.
 
-## <a name="speech-devices-sdk-190"></a>1\.9.0 för tal enheter SDK:
+## <a name="speech-devices-sdk-190"></a>Talenheter SDK 1.9.0:
 
-- Inledande binärfiler för [URBETTER DDK](https://aka.ms/sdsdk-download-urbetter) (Linux arm64) tillhandahålls.
-- Roobo v1 använder nu Maven för tal-SDK: n
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.9.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
+- Inledande binärfiler för [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter) (Linux ARM64) tillhandahålls.
+- Roobo v1 använder nu Maven för tal SDK
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.9.0. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
 
-## <a name="speech-devices-sdk-170"></a>1\.7.0 för tal enheter SDK:
+## <a name="speech-devices-sdk-170"></a>Talenheter SDK 1.7.0:
 
 - Linux ARM stöds nu.
-- Första binärfiler för [Roobo v2-DDK](https://aka.ms/sdsdk-download-roobov2) tillhandahålls (Linux-arm64).
-- Windows-användare kan använda `AudioConfig.fromDefaultMicrophoneInput()` eller `AudioConfig.fromMicrophoneInput(deviceName)` för att ange vilken mikrofon som ska användas.
-- Biblioteks storleken har optimerats.
-- Stöd för multi-turn-igenkänning med samma tal-/avsikts igenkännings objekt.
-- Korrigera tillfällig låsning som skulle inträffa när du stoppar igenkänningen.
-- Exempel appar innehåller nu en exempel deltagare. Properties-fil för att demonstrera fil formatet.
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.7.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
+- Inledande binärfiler för [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2) tillhandahålls (Linux ARM64).
+- Windows-användare `AudioConfig.fromDefaultMicrophoneInput()` kan `AudioConfig.fromMicrophoneInput(deviceName)` använda eller ange vilken mikrofon som ska användas.
+- Bibliotekets storlek har optimerats.
+- Stöd för multi-turn erkännande med samma tal / avsikt recognizer objekt.
+- Åtgärda tillfällig låser som skulle uppstå när du stoppar igenkänningen.
+- Exempelappar innehåller nu en exempeldeldeldeldeldeltagare.egenskaper för att visa filens format.
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.7.0. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
 
-## <a name="speech-devices-sdk-160"></a>1\.6.0 för tal enheter SDK:
+## <a name="speech-devices-sdk-160"></a>Talenheter SDK 1.6.0:
 
-- Stöd för [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) på Windows och Linux med gemensamt [exempel program](https://aka.ms/sdsdk-download)
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.6.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
+- Stöd [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) på Windows och Linux med vanliga [exempelprogram](https://aka.ms/sdsdk-download)
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.6.0. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
 
-## <a name="speech-devices-sdk-151"></a>1\.5.1 för tal enheter SDK:
+## <a name="speech-devices-sdk-151"></a>Talenheter SDK 1.5.1:
 
-- Inkludera [konversations avskrift](conversation-transcription-service.md) i exempel appen.
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.5.1. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
+- Inkludera [konversationsavskrift](conversation-transcription-service.md) i exempelappen.
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.5.1. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
 
-## <a name="speech-devices-sdk-150-2019-may-release"></a>Tal enheter SDK-1.5.0:2019-maj-utgåva
+## <a name="speech-devices-sdk-150-2019-may-release"></a>Talenheter SDK 1.5.0: 2019-maj release
 
-- Tal enheter SDK är nu GA och inte längre en gated Preview.
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.5.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
-- Nya nyckelords teknik ger avsevärda kvalitets förbättringar, se bryta ändringar.
-- Ny pipeline för ljud bearbetning för förbättrad igenkänning i långt fält.
+- Speech Devices SDK är nu GA och inte längre en gated förhandsvisning.
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.5.0. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
+- Ny sökordsteknik ger betydande kvalitetsförbättringar, se Breaking Changes.
+- Ny ljudbearbetningspipeline för förbättrad långt fältigenkänning.
 
-**Bryta ändringar**
+**Bryta förändringar**
 
-- På grund av den nya nyckelords tekniken måste alla nyckelord skapas på nytt i den förbättrade nyckelords portalen. För att helt ta bort gamla nyckelord från enheten avinstallera den gamla appen.
-  - ADB Uninstall com. Microsoft. coginitiveservices. Speech. Samples. sdsdkstarterapp
+- På grund av den nya sökordstekniken måste alla sökord återskapas på vår förbättrade sökordsportal. Om du vill ta bort gamla nyckelord helt från enheten avinstallerar du den gamla appen.
+  - adb avinstallera com.microsoft.cognitiveservices.speech.samples.sdsdkstarterapp
 
-## <a name="speech-devices-sdk-140-2019-apr-release"></a>Tal enheter SDK-1.4.0:2019-apr-version
+## <a name="speech-devices-sdk-140-2019-apr-release"></a>Talenheter SDK 1.4.0: 2019-Apr release
 
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.4.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.4.0. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
 
-## <a name="speech-devices-sdk-131-2019-mar-release"></a>Tal enheter SDK-1.3.1:2019-Mar-version
+## <a name="speech-devices-sdk-131-2019-mar-release"></a>Talenheter SDK 1.3.1: 2019-Mar-release
 
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.3.1. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
-- Uppdaterad nyckelords hantering, se bryta ändringar.
-- Exempel programmet lägger till val av språk för både tal igenkänning och översättning.
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.3.1. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
+- Uppdaterad sökordshantering, se Bryta ändringar.
+- Exempelprogram lägger till språkval för både taligenkänning och översättning.
 
-**Bryta ändringar**
+**Bryta förändringar**
 
-- Att [Installera ett nyckelord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) har förenklats, det är nu en del av appen och behöver inte separat installation på enheten.
-- Nyckelords igenkänningen har ändrats och två händelser stöds.
-  - `RecognizingKeyword,` anger att tal resultatet innehåller (ej verifierade) nyckelords text.
-  - `RecognizedKeyword`anger att nyckelords igenkänningen har identifierat nyckelordet.
+- [Installera ett sökord](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) har förenklats, det är nu en del av appen och behöver inte separat installation på enheten.
+- Nyckelordsigenkänningen har ändrats och två händelser stöds.
+  - `RecognizingKeyword,`anger att talresultatet innehåller (overifierad) nyckelordstext.
+  - `RecognizedKeyword`anger att sökordsigenkänningen har fyllts i när det har visats att det angivna nyckelordet har fyllts i.
 
-## <a name="speech-devices-sdk-110-2018-nov-release"></a>Tal enheter SDK-1.1.0:2018-nov-version
+## <a name="speech-devices-sdk-110-2018-nov-release"></a>Talenheter SDK 1.1.0: 2018-Nov release
 
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.1.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
-- Långt fält tal igenkännings precision har förbättrats med vår Enhanced Audio Processing algorithm.
-- Exempel programmet har lagt till stöd för kinesiska tal igenkänning.
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.1.0. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
+- Far Field Taligenkänningsnoggrannhet har förbättrats med vår förbättrade ljudbehandlingsalgoritm.
+- Exempelprogram har lagt till stöd för kinesisk taligenkänning.
 
-## <a name="speech-devices-sdk-101-2018-oct-release"></a>Tal enheter SDK 1.0.1:2018 – oktober version
+## <a name="speech-devices-sdk-101-2018-oct-release"></a>Talenheter SDK 1.0.1: 2018-okt release
 
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.0.1. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
-- Tal igenkännings precisionen förbättras med vår förbättrade algoritm för ljud bearbetning
-- Ett program med kontinuerlig igenkännings ljud session har åtgärd ATS.
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 1.0.1. Mer information finns i [dess viktig information](https://aka.ms/csspeech/whatsnew).
+- Taligenkänningsnoggrannheten kommer att förbättras med vår förbättrade ljudbehandlingsalgoritm
+- En ljudsessionsbugg för kontinuerlig igenkänning är fast.
 
-**Bryta ändringar**
+**Bryta förändringar**
 
-- Med den här versionen införs ett antal icke-bakåtkompatibla ändringar. Mer information om API: erna finns i [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
-- KWS-modellens filer är inte kompatibla med tal enheter SDK-1.0.1. De befintliga nyckelorden tas bort när de nya nyckelorden skrivs till enheten.
+- Med den här versionen introduceras ett antal brytningsändringar. Kontrollera [denna sida](https://aka.ms/csspeech/breakingchanges_1_0_0) för information om API: er.
+- KWS-modellfilerna är inte kompatibla med Talenheter SDK 1.0.1. De befintliga nyckelordsfilerna tas bort när de nya nyckelordsfilerna har skrivits till enheten.
 
-## <a name="speech-devices-sdk-050-2018-aug-release"></a>Tal enheter SDK-0.5.0:2018-aug-version
+## <a name="speech-devices-sdk-050-2018-aug-release"></a>Talenheter SDK 0.5.0: 2018-Aug release
 
-- Bättre precision för tal igenkänning genom att åtgärda ett fel i koden för ljud bearbetning.
-- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 0.5.0. Mer information finns i [versions anteckningarna](releasenotes.md#cognitive-services-speech-sdk-050-2018-july-release).
+- Förbättrad noggrannhet en taligenkänning genom att åtgärda en bugg i ljudbehandlingskoden.
+- Uppdaterade [speech SDK-komponenten](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) till version 0.5.0. Mer information finns i [dess viktig information](releasenotes.md#cognitive-services-speech-sdk-050-2018-july-release).
 
-## <a name="speech-devices-sdk-0212733-2018-may-release"></a>Tal enheter SDK-0.2.12733:2018-maj-utgåva
+## <a name="speech-devices-sdk-0212733-2018-may-release"></a>Talenheter SDK 0.2.12733: 2018-Maj release
 
-Den första offentliga för hands versionen av Cognitive Services Speech-enheter SDK.
+Den första offentliga förhandsversionen av Cognitive Services Speech Devices SDK.

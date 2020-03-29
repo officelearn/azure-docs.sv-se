@@ -1,59 +1,59 @@
 ---
-title: Så här fungerar Personanpassare – Personanpassare
-description: Inlärnings _slingan_ använder Machine Learning för att bygga modellen som förutsäger den främsta åtgärden för ditt innehåll. Modellen har bara tränats på dina data som du har skickat till den med rang-och belönings samtal.
+title: Hur Personalizer Fungerar - Personalizer
+description: _Personalizer-loopen_ använder maskininlärning för att skapa modellen som förutsäger den översta åtgärden för ditt innehåll. Modellen tränas uteslutande på dina data som du skickade till den med Rank and Reward-samtalen.
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623754"
 ---
 # <a name="how-personalizer-works"></a>Så här fungerar Personanpassning
 
-Den personanpassa resursen, din _inlärnings slinga_, använder Machine Learning för att bygga modellen som förutsäger den främsta åtgärden för ditt innehåll. Modellen har bara tränats på dina data som du har skickat till den med **rang** -och **belönings** samtal. Varje slinga är helt oberoende av varandra.
+Personalizer-resursen, din _inlärningsslinga,_ använder maskininlärning för att skapa modellen som förutsäger den översta åtgärden för ditt innehåll. Modellen tränas uteslutande på dina data som du skickade till den med **Rank and** **Reward-samtalen.** Varje slinga är helt oberoende av varandra.
 
-## <a name="rank-and-reward-apis-impact-the-model"></a>API: er för rang och belöning påverkar modellen
+## <a name="rank-and-reward-apis-impact-the-model"></a>Rank- och belönings-API:er påverkar modellen
 
-Du skickar _åtgärder med funktioner_ och _kontext funktioner_ till ranknings-API: et. **Ranknings** -API: et bestämmer att du vill använda antingen:
+Du skickar _åtgärder med funktioner_ och _kontextfunktioner_ till Rank API. **Rank** API beslutar att använda antingen:
 
-* _Sårbarhet_: den aktuella modellen för att avgöra den bästa åtgärden baserat på tidigare data.
-* _Utforska_: Välj en annan åtgärd i stället för den översta åtgärden. Du [konfigurerar den här procent andelen](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) för din personanpassa resurs i Azure Portal.
+* _Utnyttja_: Den nuvarande modellen för att avgöra den bästa åtgärden baserat på tidigare data.
+* _Utforska_: Välj en annan åtgärd i stället för den översta åtgärden. Du [konfigurerar den här procentsatsen](how-to-settings.md#configure-exploration-to-allow-the-learning-loop-to-adapt) för din Personalizer-resurs i Azure-portalen.
 
-Du fastställer belönings poängen och skickar poängen till belönings-API: et. **Belönings** -API: et:
+Du bestämmer belöningspoängen och skickar den poängen till belönings-API:et. Belönings-API:et: **Reward**
 
-* Samlar in data för att träna modellen genom att registrera funktionerna och belönings poängen för varje rang samtal.
-* Använder dessa data för att uppdatera modellen baserat på konfigurationen som anges i _inlärnings principen_.
+* Samlar in data för att träna modellen genom att registrera funktionerna och belöningspoängen för varje rankningsanrop.
+* Använder dessa data för att uppdatera modellen baserat på den konfiguration som anges i _utbildningsprincipen_.
 
-## <a name="your-system-calling-personalizer"></a>Systemet som ringer upp personanpassa
+## <a name="your-system-calling-personalizer"></a>Ditt system ringer Personalizer
 
-Följande bild visar det arkitektoniska flödet för anrop av rang-och belönings samtal:
+Följande bild visar det arkitektoniska flödet av att anropa rank- och belöningssamtalen:
 
 ![alternativ text](./media/how-personalizer-works/personalization-how-it-works.png "Så här fungerar anpassning")
 
-1. Du skickar _åtgärder med funktioner_ och _kontext funktioner_ till ranknings-API: et.
+1. Du skickar _åtgärder med funktioner_ och _kontextfunktioner_ till Rank API.
 
-    * Personanpassa bestämmer om du vill utnyttja den aktuella modellen eller utforska nya val för modellen.
-    * Ranknings resultatet skickas till EventHub.
-1. Den främsta rangordningen returneras till ditt system som _belönings åtgärds-ID_.
-    Ditt system presenterar innehållet och avgör en belönings poäng baserat på dina egna affärs regler.
-1. Systemet returnerar belönings poängen till inlärnings slingan.
-    * När Personanpassaren tar emot belöningen skickas belöningen till EventHub.
-    * Rankningen och belöningen korreleras.
-    * AI-modellen uppdateras utifrån korrelations resultatet.
-    * Härlednings motorn uppdateras med den nya modellen.
+    * Personalizer bestämmer om att utnyttja den nuvarande modellen eller utforska nya val för modellen.
+    * Rankningsresultatet skickas till EventHub.
+1. Den översta rankningen returneras till ditt system som _belöningsåtgärds-ID._
+    Ditt system presenterar det innehållet och bestämmer en belöningspoäng baserat på dina egna affärsregler.
+1. Ditt system returnerar belöningspoängen till inlärningsslingan.
+    * När Personalizer får belöningen skickas belöningen till EventHub.
+    * Rang och belöning är korrelerade.
+    * AI-modellen uppdateras baserat på korrelationsresultaten.
+    * Inferensmotorn uppdateras med den nya modellen.
 
-## <a name="personalizer-retrains-your-model"></a>Personanpassaren tränar om din modell
+## <a name="personalizer-retrains-your-model"></a>Personalizer begränsar din modell
 
-Personanpassaren tränar om din modell baserat på din **modell frekvens uppdaterings** inställning på din personanpassa resurs i Azure Portal.
+Personalizer begränsar din modell baserat på din **modellfrekvensuppdateringsinställning** på din Personalizer-resurs i Azure-portalen.
 
-I personanpassaren används alla data som för närvarande finns kvar, baserat på inställningen för **datakvarhållning** i antal dagar på din personanpassa resurs i Azure Portal.
+Personalizer använder alla data som för närvarande lagras, baserat på inställningen **Datakvarhållning** i antal dagar på din Personalizer-resurs i Azure-portalen.
 
-## <a name="research-behind-personalizer"></a>Forskning bakom personanpassa
+## <a name="research-behind-personalizer"></a>Forskning bakom Personalizer
 
-Personanpassan är baserad på vetenskaps-och forsknings verksamhet i området för [förstärknings undervisning](concepts-reinforcement-learning.md) , inklusive arbeten, forsknings aktiviteter och fort löp ande forsknings områden i Microsoft Research.
+Personalizer bygger på spetsforskning och forskning inom [området Reinforcement Learning,](concepts-reinforcement-learning.md) inklusive uppsatser, forskningsverksamhet och pågående områden för utforskning inom Microsoft Research.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [de viktigaste scenarierna](where-can-you-use-personalizer.md) för personanpassare
+Läs mer om [de bästa scenarierna](where-can-you-use-personalizer.md) för Personalizer

@@ -1,7 +1,7 @@
 ---
-title: Tal fonetiska uppsättningar – tal tjänst
+title: Talfonten - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder det fonetiska alfabetet i Speech service till det internationella fonetiska alfabetet (IPA) och när du ska använda den som angetts.
+description: Lär dig hur du kartlägger taltjänstens fonetiska alfabet till det internationella fonetiska alfabetet (IPA) och när du ska använda vilken uppsättning.
 services: cognitive-services
 author: zhaoyunED
 manager: junwg
@@ -11,288 +11,288 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 770e97ad126f66efb43bf8cf7eb12f7510858192
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78675333"
 ---
-# <a name="speech-service-phonetic-sets"></a>Fonetiska uppsättningar för tal tjänst
+# <a name="speech-service-phonetic-sets"></a>Fonetiska uppsättningar för taltjänst
 
-Tal tjänsten definierar fonetiska alfabet ("telefon uppsättningar" för kort), bestående av sju språk. `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`och `zh-TW`. Tal tjänstens telefonnummer anges vanligt vis till det <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">internationella fonetiska alfabetet ( <span class="docon docon-navigate-external x-hidden-focus"> </span>IPA) </a>. Telefon uppsättningar för tal tjänster används tillsammans med [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md)som en del av det text till tal-erbjudandet. I den här artikeln får du lära dig hur dessa telefon uppsättningar mappas och när du ska använda vilken telefon uppsättning.
+Taltjänsten definierar fonetiska alfabet ("telefonuppsättningar" för korta), bestående av sju språk; `en-US`, `fr-FR` `de-DE`, `es-ES` `ja-JP`, `zh-CN`, `zh-TW`och . Taltjänstens telefonuppsättningar mappas vanligtvis till <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">det <span class="docon docon-navigate-external x-hidden-focus"> </span>internationella fonetiska alfabetet (IPA). </a> Telefonuppsättningar för taltjänsten används tillsammans med [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md)som en del av text-till-tal-tjänsterbjudandet. I den här artikeln får du lära dig hur dessa telefonuppsättningar mappas och när du ska använda vilken telefonuppsättning.
 
-# <a name="en-us"></a>[en-US](#tab/en-US)
+# <a name="en-us"></a>[sv-USA](#tab/en-US)
 
-### <a name="english-suprasegmentals"></a>Engelskt suprasegmentals
+### <a name="english-suprasegmentals"></a>Engelska suprasegmentals
 
-| Exempel 1 (start för konsonant, ord initial för vokal) | Exempel 2 (Intervocalic för konsonant, Word medial Nucleus för vokal) | Exempel 3 (CODA för konsonant, Word final för vokal) | Kommentarer |
+| Exempel 1 (Debut för konsonant, ordinit för vokal) | Exempel 2 (Intervocalic för konsonant, ord medial kärna för vokal) | Exempel 3 (Coda för konsonant, ordfinal för vokal) | Kommentarer |
 |--|--|--|--|
-| Burger/b er **1** r-g AX r/ | falafel/f AX-l AA **1** -f AX l/ | gitarr/g IH-t AA **1** r/ | Röst tjänst telefon ange stress efter vokalen av den betonade stavelseen |
-| inopportune/IH **2** -n AA-p AX r-t Gu 1 n/ | delikhet/d IH-s ih **2**-m AX-l händelsehubbnamnområde 1-r AX-t iy/ | personal/w er er 1 r k-f Ao **2** r s/ | Röst tjänst telefon ange stress efter vokalen under understrykad stavelse |
+| burgare /b **er 1** r - g ax r/ | falafel /f ax - l aa **1** - f ax l/ | gitarr /g ih - t aa **1** r/ | Taltjänsttelefonuppsättning satte spänning efter vokalen av den stressade stavelsen |
+| olämplig /ih **2** - n aa - p ax r - t uw 1 n/ | olika /d ih - s ih **2**- m yxa - l eh 1 - r ax - t iy/ | arbetsstyrka /w er 1 r k - f ao **2** r s/ | Taltjänsttelefonuppsättning satte spänning efter vokalen av den stressade stavelsen |
 
 ### <a name="english-vowels"></a>Engelska vokaler
 
 | `sapi` | `ipa` | Exempel 1     | Exempel 2 | Exempel 3                   |
 |--------|-------|---------------|-----------|-----------------------------|
-| iy     | `i`   | **EA**t       | f-**ee**l  | Vall**ey**                  |
-| ih     | `ɪ`   | **i**f        | f**i**lla  |                             |
-| ey     | `eɪ`  | **en**te       | g**a**te  | d-**AY**                     |
-| händelsehubbnamnområde     | `ɛ`   | **e**mycket     | p**e**t   | m-**händelsehubbnamnområde** (sällsynt ord slutligen) |
-| AE     | `æ`   | **en**ctive    | c**a**t   | n**Ah** (sällsynt ord slutligen) |
-| '     | `ɑ`   | **o**-bstinate | p**o**PPY | r**Ah** (sällsynt ord slutligen) |
-| Ao     | `ɔ`   | **o**-intervall    | c**au**se | Ut**Ah**                    |
-| ojsan     | `ʊ`   | b**säkerhets**k      |           |                             |
-| ISA     | `oʊ`  | **o**LD       | cl**o**Ne | g**o**                      |
-| Gu     | `u`   | **U**ber      | b**säkerhets**St | t-**säkerhets**                     |
-| Ah     | `ʌ`   | **u**ncle     | c**u**t   |                             |
-| ay     | `aɪ`  | **i**-CE       | b-**i**te  | fl-**y**                     |
-| AW     | `aʊ`  | **OU**t       | s**OU**to | c **-** av                     |
-| oy     | `ɔɪ`  | **OI**l       | j**OI**n  | t-**Oy**                     |
-| y-Gu   | `ju`  | **Yu**ma      | h**man** | f**y**                     |
-| AX     | `ə`   | **en**go       | wom**a**n | är**en**                    |
+| Iy     | `i`   | ea t **(påt)**       | f**ee**l  | vall**ey (på annat sätt)**                  |
+| Ih     | `ɪ`   | **Jag**f        | f**i**ll  |                             |
+| Ey     | `eɪ`  | **en**te       | g**en**te  | d**ay (på)**                     |
+| Eh     | `ɛ`   | **e**mycket     | p**e**t   | m**eh** (sällsynt ord äntligen) |
+| Ae     | `æ`   | **en**ctive    | c**a**t   | n**ah** (sällsynt ord äntligen) |
+| aa     | `ɑ`   | **o**bstinate (bstinate) | p**o**ppy | r**ah** (sällsynt ord äntligen) |
+| Ao     | `ɔ`   | **o**räckvidd    | c au se **(på)** | Ut**ah (ut ah)**                    |
+| Uh     | `ʊ`   | b**oo**k      |           |                             |
+| Ow     | `oʊ`  | o ld **(o**ld)       | cl o ne (på**andra)** | g**o**                      |
+| uw (uw)     | `u`   | U ber **(U**ber)      | b**oo**st | t**oo (t oo)**                     |
+| Ah     | `ʌ`   | **u**ncle (3)     | c**u**t   |                             |
+| Ay     | `aɪ`  | **Jag**ce       | b**i**te (på)  | fl**y (fl y)**                     |
+| Aw     | `aʊ`  | **ou t (ou**t)       | s ou th **(ou**th) s ou th | c**ow (ow)**                     |
+| Oy     | `ɔɪ`  | **oi l (oi**l)       | j**oi**n  | t**oy (t oy)**                     |
+| y uw (y uw)   | `ju`  | **Yu**ma (yu ma)      | h**u**man | f**ew (f ew)**                     |
+| Ax     | `ə`   | **en**gå       | wom**a**n | är**en**                    |
 
 ### <a name="english-r-colored-vowels"></a>Engelska R-färgade vokaler
 
 | `sapi` | `ipa` | Exempel 1    | Exempel 2      | Exempel 3  |
 |--------|-------|--------------|----------------|------------|
-| IH r   | `ɪɹ`  | **öron**s     | t**IR**-amisu   | n**öron**   |
-| händelsehubbnamnområde r   | `ɛɹ`  | **luft**plan | app**ar**-ently | SC**ar**e  |
-| ojsan r   | `ʊɹ`  |              |                | c**ditt**e   |
-| Ay r   | `aɪɹ` | **Irland**, mark  | f**IR**-eplace  | CH**oir**  |
-| AW r   | `aʊɹ` | **timme**s    | p**ägre**full   | s**vår**   |
-| Ao r   | `ɔɹ`  | **eller**ange   | m**eller**Al      | s**Oar**   |
-| AA r   | `ɑɹ`  | **ar**-tist   | s:t**ar**t      | c**ar**    |
-| er r   | `ɝ`   | **öron**    | b**IR**d       | f**Your**    |
-| AX r   | `ɚ`   |              | alla**er**-Gy    | d**er** |
+| ih r (på)   | `ɪɹ`  | **örat**s     | t**ir**amisu   | n**öra**   |
+| eh r (på väg till)   | `ɛɹ`  | **flygplan** | app**ar**ently | sc**ar**e  |
+| uh r (på)   | `ʊɹ`  |              |                | c**din**e   |
+| ay r (ay r)   | `aɪɹ` | **Ire**mark  | f**ir**eplace  | ch**oir (olika)**  |
+| aw r (på)   | `aʊɹ` | **timme**s    | p**ower**ful   | s**vår**   |
+| ao r (på andra sätt)   | `ɔɹ`  | **eller**ange   | m**eller**al      | s**åra**   |
+| aa r (på nytt)   | `ɑɹ`  | ar tist **(ar**tist)   | st**ar**t      | c**ar (på)**    |
+| er r (er r)   | `ɝ`   | **öra**th    | b**ir**d       | f**din**    |
+| ax r   | `ɚ`   |              | alla**er**gy    | supp**er (supp er)** |
 
-### <a name="english-semivowels"></a>Engelskt Semivowels
+### <a name="english-semivowels"></a>Engelska Semivowels
 
 | `sapi` | `ipa` | Exempel 1           | Exempel 2  | Exempel 3 |
 |--------|-------|---------------------|------------|-----------|
-| A      | `w`   | **w**i:te, s**UE** | Al**w**AYS |           |
-| Y      | `j`   | **y**-ARD, f**e**w   | på**i**  |           |
+| w      | `w`   | **w**ith, s**ue**de | al**w**ays |           |
+| y      | `j`   | **y**ard, f**e**w   | på**i**på  |           |
 
-### <a name="english-aspirated-oral-stops"></a>Engelska inpiratkopierade muntliga stopp
+### <a name="english-aspirated-oral-stops"></a>Engelska aspirerade orala stopp
 
 | `sapi` | `ipa` | Exempel 1 | Exempel 2   | Exempel 3  |
 |--------|-------|-----------|-------------|------------|
-| p      | `p`   | **p**ut   | ha s**PP**en  | FLA**p**   |
-| b      | `b`   | **b**-ig   | NUM**b**er  | CRA**b**   |
-| t      | `t`   | **t**-ALK  | capi**t**Al | sough**t** |
-| d      | `d`   | **d**-ig   | kördes**d**om  | ro**d**    |
-| KB      | `k`   | **c**ut   | SLA**CK**er | IRA-**q**   |
+| P      | `p`   | **p**ut (ut)   | ha**pp**en  | fla**p**   |
+| b      | `b`   | **b**ig (på)   | num**b**er  | cra**b**   |
+| t      | `t`   | **t**alk (t alk)  | capi t al **(yr ut)** | sough**t (på)** |
+| d      | `d`   | **d**ig (d ig)   | sprang**d**om  | ro**d**    |
+| k      | `k`   | **c**ut (olika)   | sla**ck**er | Ira**q**   |
 | g      | `g`   | **g**o    | a**g**o     | dra**g**   |
 
-### <a name="english-nasal-stops"></a>Nasal för engelska stoppas
+### <a name="english-nasal-stops"></a>Engelska Nasal stannar
 
 | `sapi` | `ipa` | Exempel 1        | Exempel 2  | Exempel 3   |
 |--------|-------|------------------|------------|-------------|
-| m      | `m`   | **m**at, sammantaget   | ca**m**-era | Roo**m**    |
-| n      | `n`   | **n**o, s**n** | te**n**t   | kyckling**n** |
-| ng     | `ŋ`   |                  | Li**n**k   | s**ing**    |
+| m      | `m`   | **m**på, smash   | ca**m**era | roo**m**    |
+| n      | `n`   | **n**o, s**n**ow | te**n**t   | chicke**n** |
+| Ng     | `ŋ`   |                  | li**n**k   | s**ing (ing)**    |
 
-### <a name="english-fricatives"></a>Engelskt fricatives
+### <a name="english-fricatives"></a>Engelska fricatives
 
 | `sapi` | `ipa` | Exempel 1   | Exempel 2        | Exempel 3  |
 |--------|-------|-------------|------------------|------------|
-| b      | `f`   | **f**ork    | Le**f**t         | HAL**f**   |
-| v      | `v`   | **v**ärde   | e**v**-version        | Lo**v**e   |
-| i:te     | `θ`   | **th**i    | **Empat**y      | mån  |
-| DH     | `ð`   | **en**    | Mo**er**       | smoo |
-| s      | `s`   | **s**     | RI**s**k         | fakta**s**  |
-| z      | `z`   | **ö**-AP     | Bu**s**y         | barn**s**   |
-| f     | `ʃ`   | **sh** e    | abbrevia**ti** | ru-**sh**   |
-| zh     | `ʒ`   | **J**acques | lä**s**urera     | Gara**g**e |
-| &      | `h`   | **h**-ELP    | en**h**-ning      | a –**h**a!  |
+| f      | `f`   | f ork **(f**ork)    | le**f**t         | hal**f (hal f)**   |
+| v      | `v`   | v alue **(på**alue)   | e**v**ent        | lo**v**e   |
+| Th     | `θ`   | **th**i    | empa th y **(y)**      | mon**th (mån)**  |
+| Dh     | `ð`   | **th**sv    | mo th er (mo**th**er)       | smoo**th** |
+| s      | `s`   | **s**det     | ri**s**k         | fakta**s**  |
+| z      | `z`   | **z**ap (på)     | bu**s**y (på)         | barn**s**   |
+| Sh     | `ʃ`   | **sh** e    | abbrevia**ti**på | ru**sh (ru sh)**   |
+| Zh     | `ʒ`   | **J**acques (2) | grund**s**ure     | gara**g**e |
+| h      | `h`   | h elp **(h**elp)    | sv**h**ance      | a-**h**a!  |
 
-### <a name="english-affricates"></a>Engelskt affricates
+### <a name="english-affricates"></a>Engelska affricates
 
 | `sapi` | `ipa` | Exempel 1 | Exempel 2    | Exempel 3  |
 |--------|-------|-----------|--------------|------------|
-| v     | `tʃ`  | **CH**in  | Fu**t**urera   | Atta**CH** |
-| jh     | `dʒ`  | **j**Oy   | Ori**g**Inal | Oran**g**e |
+| ch     | `tʃ`  | **ch**i  | fu**t**ure   | atta**ch (atta ch)** |
+| Jh     | `dʒ`  | **j**oy (på)   | ori**g**inal | elleren**g**e |
 
-### <a name="english-approximants"></a>Engelskt approximants
+### <a name="english-approximants"></a>Engelska approximanter
 
 | `sapi` | `ipa` | Exempel 1          | Exempel 2  | Exempel 3 |
 |--------|-------|--------------------|------------|-----------|
-| L      | `l`   | **l**-ID, g**l**AD  | PA**l**ACE | Chi**lla** |
-| R      | `ɹ`   | **r**Ed, b**r**ing | bo-**RR** | ta**r**   |
+| l      | `l`   | **l**id, g**l**annons  | pa**l**ess | chi**ll (chi ll)** |
+| r      | `ɹ`   | **r**ed, b**r**ing | bo**rr**ow | ta**r (ta r)**   |
 
 # <a name="fr-fr"></a>[fr-FR](#tab/fr-FR)
 
 ### <a name="french-suprasegmentals"></a>Franska suprasegmentals
 
-Tal tjänstens telefon uppsättning placerar stress efter vokalen för den betonade stavelseen, men telefonnumret för `fr-FR` Speech service har inte stöd för IPA-understressen "ˌ". Om IPA-understressen behövs bör du använda IPA direkt.
+Den tjänste- tal ringer uppsättningen sätter spänning efter vokalen av den stressade syllablen, emellertid; Telefonuppsättningen `fr-FR` för taltjänsten stöder inte IPA-undergruppen '". Om IPA-undergruppen behövs bör du använda IPA direkt.
 
 ### <a name="french-vowels"></a>Franska vokaler
 
 | `sapi` | `ipa` | Exempel 1     | Exempel 2       | Exempel 3 |
 |--------|-------|---------------|-----------------|-----------|
-| a      | `a`   | **en**rbre     | p**a**TTE       | IR**a**   |
-| '     | `ɑ`   |               | p**â**te        | p**a**s   |
-| AA ~   | `ɑ̃`  | **en**Fant    | ENF**en**t      | t**EM**PS |
-| AX     | `ə`   |               | p**e**Tite      | l**e**    |
-| händelsehubbnamnområde     | `ɛ`   | **e**-lle      | p**e**RDU       | ét**AI**t |
-| gemenskaps     | `ø`   | **œu**FS      | CR i**EU**     | Qu**EU**  |
-| ey     | `e`   | ému           | crétin          | ôté       |
-| händelsehubbnamnområde ~   | `ɛ̃`  | **im**-port | p**Ein**tt    | mat**i** |
-| iy     | `i`   | **jag**dée      | PET**i**te      | är**jag**   |
-| ø     | `œ`   | **œu**f       | p**EU**r        |           |
-| o     | `ɔ`   | **o**-bstacle  | c**o**-RPS       |           |
-| till ~   | `ɔ̃`  | **på**storlek      | r**på**deur     | b**på**   |
-| ISA     | `o`   | **au**-diteur  | b**Eau**koppling    | p**ô**    |
-| OE ~   | `œ̃ ` | **registrering**        | l**un**di       | br**o**  |
-| Gu     | `u`   | **OU**-trage   | intr**OU**vable | **ou**    |
-| uy     | `y`   | **u**Ne       | p**u**NIR       | él**u**   |
+| a      | `a`   | **en**rbre     | p**en**tte       | ir**en**   |
+| aa     | `ɑ`   |               | p**â**te        | p**a**s   |
+| aa ~   | `ɑ̃`  | **sv**fläkt    | svf**en**t      | t em ps **(t)** |
+| Ax     | `ə`   |               | p**e**tite      | l**e**    |
+| Eh     | `ɛ`   | **e**lle (0)      | p**e**rdu       | ét**ai**t |
+| Eu     | `ø`   | **œu fs (œu**fs)      | cr**eu**ser     | qu**eu (qu eu)**  |
+| Ey     | `e`   | ému (olika betydelser)           | crétin (på)          | ôté (svenska)       |
+| eh ~   | `ɛ̃`  | im portant **(im**portant) | p ein ture **(p ein**ture)    | matta**i** |
+| Iy     | `i`   | **Jag**dée      | husdjur**i**te      | är**jag**   |
+| Oe     | `œ`   | **œu f (œu**f)       | p eu r **(på andra)**        |           |
+| Oh     | `ɔ`   | **o**bstacle (bstacle)  | c**o**rps       |           |
+| oh ~   | `ɔ̃`  | **på**ze      | r**på**deur     | b**på**   |
+| Ow     | `o`   | **au**diteur (au diteur)  | b**eau kupp**    | p**ô (ô)**    |
+| oe ~   | `œ̃ ` | **Fn**        | l**un**di       | br**un**  |
+| uw (uw)     | `u`   | ou trage **(ou**trage)   | intr**ou**vable | **Ou**    |
+| Uy     | `y`   | u ne **(et**na)       | p**u**nir p       | él**u (olika betydelser)**   |
 
 ### <a name="french-consonants"></a>Franska konsonanter
 
 | `sapi` | `ipa` | Exempel 1   | Exempel 2     | Exempel 3                        |
 |--------|-------|-------------|---------------|----------------------------------|
-| b      | `b`   | **b**-ête    | ha**b**-Ille   | ro**b**e                         |
-| d      | `d`   | **d**Irland    | Ron**d**EUR   | Chau**d**e                       |
-| b      | `f`   | **f**-Emme   | Su**FF**-IXE   | bo**f**                          |
-| g      | `g`   | **g**auche  | é**g**ALE     | BA-**Gu**e                        |
-| ng     | `ŋ`   |             |               | [<sup>1</sup>](#fr-1)Park |
-| hy     | `ɥ`   | h**u**i Il   | n**u**Irland     |                                  |
-| KB      | `k`   | **c**-Arte   | é**c**aille   | vara**c**                          |
-| L      | `l`   | **l**-Ong    | é**l**Irland     | BA**l**                          |
-| m      | `m`   | **m**-Adam  | AI**m**er     | Po**mm**e                        |
-| n      | `n`   | **n**ou    | te**n**IR     | bo**NN**e                        |
-| nj     | `ɲ`   |             |               | PEI**GN**e                       |
-| p      | `p`   | **p**Atte   | Re-**s**som     | ca**p**                          |
-| R      | `ʁ`   | **r**på     | Cha**r**IoT   | skickati**r**                       |
-| s      | `s`   | **s**Ourir  | en**SS**EZ     | PA**SS**e                        |
-| f     | `ʃ`   | **CH**för handsare | ma**CH**AD   | Po **,** e                        |
-| t      | `t`   | **t**-ête    | ô**t**er      | Ne**t**                          |
-| v      | `v`   | **v**-överordnad    | i**v**-retur  | rê**v**e                         |
-| A      | `w`   | **OU**i     | f**OU**AD    |                                  |
-| Y      | `j`   | **j**OD     | p**i**étiner  | Mars-**Ille**                    |
-| z      | `z`   | \* * z * * éro   | Rai**s**onner | ro**s**e                         |
-| zh     | `ʒ`   | **j**Ardin  | man**g**er    | Piè**g**e                        |
-|        | `n‿`  |             |               | u**n** Arbre                     |
-|        | `t‿`  |             |               | Quan**d**                        |
+| b      | `b`   | **b**ête (ête)    | ha b ille (ha**b)**   | ro**b**e                         |
+| d      | `d`   | **d**ire (på)    | ron**d**eur (0)   | chau**d**e                       |
+| f      | `f`   | f emme **(f**emme)   | su**ff**ixe   | bo**f (ar)**                          |
+| g      | `g`   | **g**auche (  | é**g**ale     | ba**gu**e                        |
+| Ng     | `ŋ`   |             |               | [<sup>1</sup>](#fr-1)park**ing** |
+| hy     | `ɥ`   | h u ile **(h u**ile)   | n**u**ire     |                                  |
+| k      | `k`   | **c**arte (på ett sätt som är)   | é**c**aille   | vara**c**                          |
+| l      | `l`   | **l**ong (på)    | é**l**ire     | ba**l**                          |
+| m      | `m`   | **m**adame (  | ai**m**er     | po**mm**e                        |
+| n      | `n`   | **n**ous (ous)    | te**n**ir     | bo**nn**e                        |
+| Nj     | `ɲ`   |             |               | pei**gn**e                       |
+| P      | `p`   | **p**atte (p atte)   | re**p**som     | ca**p (ca p)**                          |
+| r      | `ʁ`   | **r**på     | cha**r**iot   | senti**r**                       |
+| s      | `s`   | **s**ourir (s ourir)  | en**ss**ez     | pa**ss**e                        |
+| Sh     | `ʃ`   | ch anter **(olika)** | ma**ch**ine   | po**ch**e                        |
+| t      | `t`   | t ête **(t**ête)    | ô**t**er      | ne**t**                          |
+| v      | `v`   | **v**ent    | i**v**ange  | rê**v**e                         |
+| w      | `w`   | **ou**jag     | f**ou**ine    |                                  |
+| y      | `j`   | **y od (y**od)     | p**i**étiner  | Marse**ille**                    |
+| z      | `z`   | **z **éro   | rai**s**onner | ro**s**e                         |
+| Zh     | `ʒ`   | **j**ardin (ardin)  | man**g**er    | piè**g**e                        |
+|        | `n‿`  |             |               | u**n** arbre                     |
+|        | `t‿`  |             |               | quan**d (quan d)**                        |
 |        | `z‿`  |             |               | di**x**                          |
 
 <a id="fr-1"></a>
-**1** *endast för några främmande ord.*
+**1** *Endast för vissa främmande ord.*
 
 > [!TIP]
-> Telefonnumret för `fr-FR` Speech service har inte stöd för följande franska liasions, `n‿`, `t‿`och `z‿`. Om de behövs bör du överväga att använda IPA direkt.
+> Telefonuppsättningen `fr-FR` Taltjänst stöder inte följande franska liasions, `n‿`, `t‿`och `z‿`. Om de behövs bör du överväga att använda IPA direkt.
 
 # <a name="de-de"></a>[de-DE](#tab/de-DE)
 
 ### <a name="german-suprasegmentals"></a>Tyska suprasegmentals
 
-| Exempel 1 (start för konsonant, ord initial för vokal) | Exempel 2 (Intervocalic för konsonant, Word medial Nucleus för vokal) | Exempel 3 (CODA för konsonant, Word final för vokal) | Kommentarer |
+| Exempel 1 (Debut för konsonant, ordinit för vokal) | Exempel 2 (Intervocalic för konsonant, ord medial kärna för vokal) | Exempel 3 (Coda för konsonant, ordfinal för vokal) | Kommentarer |
 |--|--|--|--|
-| Anders/a **1** n-d AX r s/ | Multiplikationszeichen/m ojsan l-t iy-p l iy-k a-TS y: **1** n s – TS AY-c n/ | Biologie/b iy-iy-g **1**/ | Röst tjänst telefon ange stress efter vokalen av den betonade stavelseen |
-| Allgemeinwissen/a **2** l-g AX-m AY 1 n-v IH-s n/ | Abfallentsorgungsfirma/a 1 p-f a l-^ händelsehubbnamnområde n t-z och **2** AX r-g ojsan ng s-f IH AX r-m a/ | Computertomographie/k-m-p y Gu 1-t AX r-t-d-d-d-f iy **2**/ | Röst tjänst telefon ange stress efter vokalen under understrykad stavelse |
+| anders /a **1** n - d ax r s/ | Multiplikationszeichen /m uh l - t iy - p l iy - k a - ts y **ow 1** n s - ts ay - c n/ | Biologie /b iy - ow - l ow - g iy **1**/ | Taltjänsttelefonuppsättning satte spänning efter vokalen av den stressade stavelsen |
+| Allgemeinwissen /a **2** l - g yxa - m ay 1 n - v ih - s n/ | Abfallentsorgungsfirma /a 1 p - f a l - ^ eh n t - z oh **2** ax r - g uh ng s - f ih ax r - m a/ | Computertomographie /k oh m - p y uw 1 - t ax r - t ow - m ow - g r a - f iy **2**/ | Taltjänsttelefonuppsättning satte spänning efter vokalen av den stressade stavelsen |
 
 ### <a name="german-vowels"></a>Tyska vokaler
 
 | `sapi` | `ipa`     | Exempel 1                             | Exempel 2     | Exempel 3                          |
 |--------|-----------|---------------------------------------|---------------|------------------------------------|
-| en     | `aː`      | **Ett**ber                              | Maßst**a**b   | Schem**a**                         |
-| a      | `a`       | **En**bfall                            | B**a**CH      | Agath**a**                         |
-| o     | `ɔ`       | **O**-sten                             | PF**o**sten   |                                    |
-| händelsehubbnamnområde    | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1</sup>](#de-v-1) Fasci**AE** |
-| händelsehubbnamnområde     | `ɛ`       | **ä**ndern                            | ProZ**e**NT   | Amygdal**AE**                      |
-| AX     | `ə`       | [<sup>2</sup>](#de-v-2)v**e**rstauen | Aach**e**n    | Frag**e**                          |
-| iy     | `iː`      | **Jag**körde                              | ABB**IE**gt   | Relativitätstheor**IE**            |
-| ih     | `ɪ`       | **Jag**nnung                            | s**i**ngen    | Trä**y**                          |
-| gemenskaps     | `øː`      | **Ö**Ski                              | ABL**ö**-sten  | Malm**ö**                          |
-| ISA     | `o`, `oː` | **o**-hnE                              | Balk**o**n    | Trept                        |
-| ø     | `œ`       | **Ö**ffnung                           | BEF**ö**-rdern |                                    |
-| ey     | `e`, `eː` | **E**-Berhard                          | ABF**e**gt    | b                                  |
-| Gu     | `uː`      | **U**                               | H**u**t       | AKK**u**                           |
-| ojsan     | `ʊ`       | **U**nterschiedes                     | b**u**NT      |                                    |
-| UE     | `yː`      | **Ü**bermut                           | PFL**ü**gt    | Män**ü**                           |
-| uy     | `ʏ`       | **ü**PPIG                             | S**y**-stam    |                                    |
+| A:     | `aː`      | **En**ber                              | Maßst**a**b   | Schem**en**                         |
+| a      | `a`       | **En**bfall                            | B**a**ch      | Agath**en**                         |
+| Oh     | `ɔ`       | **O**sten                             | Pf**o**sten   |                                    |
+| Eh:    | `ɛː`      | **Ä**hnlichkeit                       | B**ä**r       | [<sup>1.</sup>](#de-v-1) Fasci**ae** |
+| Eh     | `ɛ`       | **ä**ndern                            | Proz e nt **(mer/** vi/ hon är på andra sätt   | Amygdal**ae**                      |
+| Ax     | `ə`       | [<sup>2</sup>](#de-v-2)'v**e**rstauen | Aach**e**n    | Frag**e**                          |
+| Iy     | `iː`      | **Jag**sprang                              | abb**dvs**gt   | Relativitätstheor**dvs**            |
+| Ih     | `ɪ`       | **Jag**nnung                            | s**i**ngen    | Trä**y**                          |
+| Eu     | `øː`      | **Ö**sen (olika)                              | abl**ö**sten  | Malm**ö**                          |
+| Ow     | `o`, `oː` | **o**hne (hne)                              | Balk**o**n    | Trept**aj**                        |
+| Oe     | `œ`       | **Ö**ffnung                           | bef**ö**rdern |                                    |
+| Ey     | `e`, `eː` | **E**berhard (0)                          | abf**e**gt    | b                                  |
+| uw (uw)     | `uː`      | **U**göra                               | H**u**t       | Akk**u (1)**                           |
+| Uh     | `ʊ`       | **U**nterschiedes (storbritannien)                     | b u nt **(b u**nt)      |                                    |
+| Ue     | `yː`      | Ü bermut **(ü**bermut)                           | pfl**ü**gt    | Män**ü**                           |
+| Uy     | `ʏ`       | **ü**ppig (ü ppig)                             | S**y**stam    |                                    |
 
 <a id="de-v-1"></a>
-**1** *endast i ord av främmande ursprung, t. ex.: Fasci**AE**.*<br>
+**1** *Endast i ord av utländskt ursprung, såsom: Fasci**ae**.*<br>
 <a id="de-v-2"></a>
-**2** *intially endast i ord av främmande ursprung, till exempel **en**ppointment. Stavelse – inlednings vis i: ' v**e**rstauen.*
+**2** *Ord-intially endast i ord av utländskt ursprung såsom **En**ppointment. Stavelse-initialt i: 'v**e**rstauen.*
 
-### <a name="german-diphthong"></a>Tyska Diphthong
+### <a name="german-diphthong"></a>Tyska diftong
 
 | `sapi` | `ipa`       | Exempel 1    | Exempel 2          | Exempel 3 |
 |--------|-------------|--------------|--------------------|-----------|
-| ay     | `ai`        | **EI**nsam   | Unabhängigk**EI**t | ABT**EI** |
-| AW     | `au`        | **au**-ßen    | ABB**au**St        | St**au**  |
-| oy     | `ɔy`, `ɔʏ̯` | **EU**-phorie | TR**äu**MT         | SCH**EU** |
+| Ay     | `ai`        | ei nsam **(ei**nsam)   | Unabhängigk**ei**t | Abt**ei (på andra sätt)** |
+| Aw     | `au`        | **au**ßen (au ßen)    | abb**au**st        | St**au (st au)**  |
+| Oy     | `ɔy`, `ɔʏ̯` | **Eu**phorie | tr**äu**mt         | sch**eu** |
 
-### <a name="german-semivowels"></a>Tyska semivowels
+### <a name="german-semivowels"></a>Tyska halvröster
 
 | `sapi` | `ipa` | Exempel 1 | Exempel 2    | Exempel 3  |
 |--------|-------|-----------|--------------|------------|
-| AX r   | `ɐ`   |           | abänd**er**n | Lås**er** |
+| ax r   | `ɐ`   |           | abänd**er**n | lås**er** |
 
 ### <a name="german-consonants"></a>Tyska konsonanter
 
 | `sapi` | `ipa` | Exempel 1 | Exempel 2 | Exempel 3 |
 |--|--|--|--|--|
-| b | `b` | **B**-ank |  | [<sup>1</sup>](#de-c-1) PU**b** |  |
-| c | `ç` | **CH**EMIE | mögli**CH**St | [<sup>2</sup>](#de-c-2)i**CH** |
-| d | `d` | **d**-anken | [<sup>3</sup>](#de-c-3) Längd**d**l | [<sup>4</sup>](#de-c-4) Clau**d**e |  |
-| jh | `ʤ` | **J**EFF | gemana**g**t | [<sup>5</sup>](#de-c-5) Kanal**g**e |
-| b | `f` | **F**-ahrtdauer | Angri**AA**slustig | abbruchrei**f** |  |
-| g | `g` | **g**ut |  | [<sup>6</sup>](#de-c-6) GRE**g** |  |
-| & | `h` | **H**-ausanbau |  |  |  |
-| Y | `j` | **J**OD | Reakt**i** | HU**i** |  |
-| KB | `k` | **K**OMA | Aspe**k**t | FLEC**k** |  |
-| L | `l` | **l**au | ähne**l**n | zuvie**l** |  |
-| m | `m` | **M**ut | A**m**t | Leh**m** |  |
-| n | `n` | **n**un | u**n**d | Okej**n** |  |
-| ng | `ŋ` | [<sup>7</sup>](#de-c-7)**ng**Uyen | Schwa**tomma** | R**ing** |  |
-| p | `p` | **P**Artner | abru**p**t | Ti**p** |  |
-| växling | `pf` | **PF**-ERD | damm-**PF**t | Till**PF** |  |
-| R | `ʀ`, `r`, `ʁ` | **R**-Eise | KNU-**resurspost**t | Haa**r** |  |
-| s | `s` | [<sup>8</sup>](#de-c-8)**S**taccato | BI**s**t | Mie**s** |  |
-| f | `ʃ` | **SCH**egel | mi**SCH**t | Lappi**SCH** |  |
-| t | `t` | **T**-Raum | S**t**-raße | MK**t** |  |
-| ts | `ts` | **Z**μg | Ar**z**t | Wit**z** |  |
-| v | `tʃ` | **Tsch**echien | aufgepu**tsch**t | bundesdeu**tsch** |  |
-| v | `v` | **v**-Inken | Q**u**Alle | [<sup>9</sup>](#de-c-9) Gr**säkerhets**ve |  |
-| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11</sup>](#de-c-11)`ç` | [<sup>12</sup>](#de-c-12) BA**CH**erach | Ma **-** t mögli**CH**St | Schma**CH** |
-| z | `z` | **s**uper |  |  |  |
-| zh | `ʒ` | **G**enre | B**re**-ezinski | Edvi**g**e |
+| b | `b` | **B**ank |  | [<sup>1.</sup>](#de-c-1) Pu**b (3)** |  |
+| c | `ç` | **Ch**emie (olika år) | mögli**ch**st | [<sup>2</sup>](#de-c-2)i**ch** |
+| d | `d` | **d**anken (svenska) | [<sup>3.</sup>](#de-c-3) Len**d**l | [<sup>4.</sup>](#de-c-4) Clau**d**e |  |
+| Jh | `ʤ` | **J**eff (på) | gemana**g**t | [<sup>5 5</sup>](#de-c-5) Chan**g**e |
+| f | `f` | **F**ahrtdauer | angri**ff**slustig | abbruchrei**f** |  |
+| g | `g` | **g**ut (olika) |  | [<sup>6.</sup>](#de-c-6) Gre**g (mycket)** |  |
+| h | `h` | **H**ausanbau |  |  |  |
+| y | `j` | **J**od (2) | Reakt**i**på | hu**jag** |  |
+| k | `k` | **K**oma | Aspe**k**t | Flec**k (flec k)** |  |
+| l | `l` | **l**au (au) | ähne**l**n | zuvie**l (på** |  |
+| m | `m` | **M**ut (olika) | A**m**t | Leh**m** |  |
+| n | `n` | **n**un | u**n**d | Huh**n** |  |
+| Ng | `ŋ` | [<sup>7</sup>](#de-c-7)Ng uyen **(ng**uyen) | Schwa**nk (svenska)** | R**ing (R ing)** |  |
+| P | `p` | P artner **(på ett**sätt) | abru**p**t | Ti**p (et)** |  |
+| Pf | `pf` | Pf erd **(pf**erd) | dammen**pf**t | Till**pf** |  |
+| r | `ʀ`, `r`, `ʁ` | **R**eise (R eise) | knu**rr**t | Haa**r (på andra)** |  |
+| s | `s` | [<sup>8</sup>](#de-c-8)**S**taccato | bi**s**t | mie**s** |  |
+| Sh | `ʃ` | **Sch**ule (svenska) | mi**sch**t | lappi**sch (svenska)** |  |
+| t | `t` | **T**raum (t raum) | S t raße (s**t**raße) | Mu**t** |  |
+| ts | `ts` | **Z**ug (ug) | Ar**z**t | Vett**z** |  |
+| ch | `tʃ` | **Tsch**echien (000) | aufgepu**tsch**t | bundesdeu**tsch (bundesdeu)** |  |
+| v | `v` | w inken **(svenska)** | Q**u**alle | [<sup>9.</sup>](#de-c-9) Gr**oo**ve |  |
+| x | [<sup>10</sup>](#de-c-10)`x`,[<sup>11 (På)</sup>](#de-c-11)`ç` | [<sup>12 år</sup>](#de-c-12) Ba**ch**erach | Ma**ch**t mögli**ch**st | Schma**ch** 'i**ch** |
+| z | `z` | **s**uper (upprea) |  |  |  |
+| Zh | `ʒ` | **G**enre | B**re**ezinski | Edvi**g**e |
 
 <a id="de-c-1"></a>
-**1** *endast i ord av främmande ursprung, t. ex.: PU**b**.*<br>
+**1** *Endast i ord av utländskt ursprung, såsom: Pu**b**.*<br>
 <a id="de-c-2"></a>
-**2** *Soft "CH" efter "e" och "i"*<br>
+**2** *Mjuk "ch" efter "e" och "i"*<br>
 <a id="de-c-3"></a>
-**3** *endast i ord av främmande ursprung, t. ex.: längd**d**l.*<br>
+**3** *Endast i ord av utländskt ursprung, såsom: Len**d**l.*<br>
 <a id="de-c-4"></a>
-**4** *endast i ord av främmande ursprung som: Clau**d**e.*<br>
+**4** *Endast i ord av utländsk härkomst såsom: Clau**d**e.*<br>
 <a id="de-c-5"></a>
-**5** *endast i ord av främmande ursprung, till exempel: n**g**e.*<br>
+**5** *Endast i ord av utländsk härkomst såsom: Chan**g**e.*<br>
 <a id="de-c-6"></a>
-**6** *Word-endast i ord som är av främmande ursprung, till exempel GRE**g**.*<br>
+**6** *Ord-terminally endast i ord av utländskt ursprung som Gre**g**.*<br>
 <a id="de-c-7"></a>
-**7** *endast i ord av främmande ursprung, till exempel: **ng**Uyen.*<br>
+**7** *Endast i ord av utländsk härkomst såsom: **Ng**uyen.*<br>
 <a id="de-c-8"></a>
-**8** *endast i ord av främmande ursprung, t. ex.: **S**taccato.*<br>
+**8** *Endast i ord av utländsk härkomst såsom: **S**taccato.*<br>
 <a id="de-c-9"></a>
-**9** *endast i ord av främmande ursprung, t. ex.: gr**säkerhets**ve.*<br>
+**9** *Endast i ord av utländskt ursprung, såsom: Gr**oo**ve.*<br>
 <a id="de-c-10"></a>
-**10** *är IPA `x` en svår "CH" efter alla icke-främre vokaler (a, AA,, ojsan, Gu och Diphthong AW).*<br>
+**10** *IPA `x` är en hård "ch" efter alla icke-främre vokaler (a, aa, oh, ow, uh, uw och diftong aw).*<br>
 <a id="de-c-11"></a>
-**11** *IPA `ç` är en mjuk "CH" efter front vokaler (IH, IY, händelsehubbnamnområde, AE, uy, UE, OE, EU även i diphthongs Ay, Oy) och konsonanter*<br>
+**11** *IPA `ç` är en mjuk "ch" efter främre vokaler (ih, iy, eh, ae, uy, ue, oe, eu även i diftonger ay, oy) och konsonanter*<br>
 <a id="de-c-12"></a>
-**12** *ord till början endast i ord av främmande ursprung, t. ex.: **J**Uan. Stavelse-från början även i ord som: ba**CH**erach.*<br>
+**12** *Ord-inledningsvis endast i ord av utländskt ursprung, såsom: **J**uan. Stavelse-initialt uttrycker in också något liknande: Ba**ch**erach.*<br>
 
-### <a name="german-oral-consonants"></a>Tyska orala konsonanter
+### <a name="german-oral-consonants"></a>Tyska muntliga konsonanter
 
 | `sapi` | `ipa` | Exempel 1                                  |
 |--------|-------|--------------------------------------------|
-| ^      | `ʔ`   | beachtlich/b AX-^ a 1 x t-l IH c/ |
+| ^      | `ʔ`   | beachtlich /b ax - ^ a 1 x t - l ih c/ |
 
 > [!NOTE]
-> Vi måste lägga till en [GS\] telefon mellan två distinkta vokaler, förutom att de två vokalerna är en äkta Diphthong. Den här orala konsonanten är en glottal-stopp, mer information finns i <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">glottal Stop <span class="docon docon-navigate-external x-hidden-focus"></a></a>.
+> Vi måste lägga till\] en [gs telefon mellan två distinkta vokaler, utom de två vokalerna är en äkta diftong. Denna muntliga konsonant är en glottal stopp, för mer information, <a href="http://en.wikipedia.org/wiki/Glottal_stop" target="_blank">se glottal stopp <span class="docon docon-navigate-external x-hidden-focus"> </a> </a>.
 
 # <a name="es-es"></a>[es-ES](#tab/es-ES)
 
@@ -300,105 +300,105 @@ Tal tjänstens telefon uppsättning placerar stress efter vokalen för den beton
 
 | `sapi` | `ipa` | Exempel 1    | Exempel 2     | Exempel 3    |
 |--------|-------|--------------|---------------|--------------|
-| a      | `a`   | **en**LTO     | c**a**ntar    | CAS**a**     |
-| Jag      | `i`   | **jag**bérica  | av**i**Spa    | skatt**i**     |
-| e      | `e`   | **e**-LeFante | vid**e**nKlicka    | elefant**e** |
-| o      | `o`   | **o**-Caso    | ENC**o**-ntrar | ocasenc**o** |
-| ä      | `u`   | **u**sted    | p**u**nta     | Juanl**u**   |
+| a      | `a`   | **en**lto     | c**en**ntar    | cas**a**     |
+| i      | `i`   | **Jag**bérica  | av**jag**spa    | skatt**i**     |
+| e      | `e`   | **e**lefante (på samma sätt som | på**e**nto    | elefant**e** |
+| o      | `o`   | **o**caso (20)    | enc**o**ntrar | ocasenc**o** |
+| U      | `u`   | u sted **(sv)**    | p**u**nta     | Juanl**u (3)**   |
 
 ### <a name="spanish-consonants"></a>Spanska konsonanter
 
 | `sapi` | `ipa`      | Exempel 1  | Exempel 2      | Exempel 3      |
 |--------|------------|------------|----------------|----------------|
-| b      | `b`        | **b**-aobab |                | **s b**        |
-|        | `β`        |            | Bao**b**AB     | baoba**b**     |
-| v     | `tʃ`       | **CH**Eque | Co**CH**e      | Marraque**CH** |
-| d      | `d`        | **d**-Edo   |                | portlan**d**   |
-|        | `ð`        |            | de**d**o       | Verda**d**     |
-| b      | `f`        | **f**-ácil  | ele**f**för hands   | PU**f**        |
-| g      | `g`        | **g**Anga  |                | dópin**g**     |
-|        | `ɣ`        |            | a**g**UA       | tuare**g**     |
-| J      | `j`        | **jag**Odo   | Cal**i**listan   | Re-**y**        |
-| JJ     | `j.j` `jj` |            | Vi**lla**a      |                |
-| KB      | `k`        | **c**-oche  | bo,**c**a       | titáni**c**    |
-| L      | `l`        | **l**-ápiz  | a**l**a        | sladdar**l**     |
-| lla     | `ʎ`        | **ll**-Ave  | desarro**lla**o |                |
-| m      | `m`        | **m**-ordning | a**m**p.a.       | álbu**m**      |
-| n      | `n`        | **n**Ada   | CE**n**a       | rató**n**      |
-| nj     | `ɲ`        | **ñ**-Aña   | Ara**ñ**-azo    |                |
-| p      | `p`        | **p**OCA   | till**p**o       | sluta**p**       |
-| R      | `ɾ`        |            | ca**r**a       | Abri**r**      |
-| post     | `r`        | **r**-adio  | Co**RR**e      | PU-**resurspost**       |
-| s      | `s`        | **s**ACO   | va**s**o       | Pelo**s**      |
-| t      | `t`        | **t**-oldo  | a**t**ar       | Disque**t**    |
-| i:te     | `θ`        | **z**-EBRA  | en**z**UL       | lápi**z**      |
-| A      | `w`        | h**u**ESO  | AG**u**a       | Gua**u**       |
-| x      | `x`        | **j**OTA   | a**j**o        | relo**j**      |
+| b      | `b`        | **b**aobab (en) |                | am**b**        |
+|        | `β`        |            | bao**b**ab     | baoba**b (på)**     |
+| ch     | `tʃ`       | ch eque **(olika)** | co**ch**e      | Marraque**ch (olika)** |
+| d      | `d`        | **d**edo (edo)   |                | portlan**d**   |
+|        | `ð`        |            | de**d**o       | verda**d (på väg mot den)**     |
+| f      | `f`        | **f**ácil (f ácil)  | ele f ante **(ele f**ante)   | pu**f (på)**        |
+| g      | `g`        | **g**anga (nde)  |                | dópin**g**     |
+|        | `ɣ`        |            | en**g**ua       | tuare**g**     |
+| J      | `j`        | **Jag**odo   | cal**jag**ente   | re**y**        |
+| Jj     | `j.j` `jj` |            | vi**ll**a      |                |
+| k      | `k`        | **c**oche  | bo**c**a       | titáni**c (på)**    |
+| l      | `l`        | **l**ápiz (ápiz)  | a**l**a        | corde**l**     |
+| Ll     | `ʎ`        | **ll**ave  | desarro**ll**o |                |
+| m      | `m`        | **m**för | en**m**ar       | álbu**m**      |
+| n      | `n`        | **n**ada (på nytt)   | ce**n**a       | rató**n (på)**      |
+| Nj     | `ɲ`        | ñ aña **(ña)**   | ara**ñ**azo    |                |
+| P      | `p`        | **p**oca (på)   | till**p**o       | sto**p**       |
+| r      | `ɾ`        |            | ca**r**a       | abri**r (abri r)**      |
+| Rr     | `r`        | r adio **(på**nytt)  | co**rr**e      | pu**rr (rr)**       |
+| s      | `s`        | s aco **(på**nytt)   | va**s**o       | pelo**s**      |
+| t      | `t`        | **t**oldo (1)  | en**t**ar       | disque**t**    |
+| Th     | `θ`        | **z**ebra (på ett sätt)  | a**z**ul       | lápi**z (lápi z)**      |
+| w      | `w`        | h**u**eso  | ag**u**a       | gua**u (svenska)**       |
+| x      | `x`        | **j**ota (ota)   | a**j**o        | relo**j (på)**      |
 
 > [!TIP]
-> Telefonnumret för `es-ES` Speech service har inte stöd för följande spanska IPA, `β`, `ð`och `ɣ`. Om de behövs bör du överväga att använda IPA direkt.
+> Telefonuppsättningen `es-ES` Taltjänst stöder inte följande spanska `β`IPA, , `ð`och `ɣ`. Om de behövs bör du överväga att använda IPA direkt.
 
 # <a name="zh-cn"></a>[zh-CN](#tab/zh-CN)
 
-Tal tjänstens telefon uppsättning för `zh-CN` baseras på den interna uppsättningen för <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">telefonnummer <span class="docon docon-navigate-external x-hidden-focus"></span> pinyin</a> .
+Taltjänstens telefon `zh-CN` som ställts in baseras på den inbyggda telefonen <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Pinyin-uppsättningen.</a>
 
 ### <a name="tone"></a>Lämplig ton
 
-| Pinyin-ton | `sapi` | Character-exempel |
+| Pinyin ton | `sapi` | Exempel på tecken |
 |-------------|--------|-------------------|
-| mā          | MA 1  | 妈                 |
-| má          | ma 2  | 麻                 |
-| mǎ          | ma 3  | 马                 |
-| mà          | ma 4  | 骂                 |
-| &          | ma 5  | 嘛                 |
+| mā ()          | ma 1 (1)  | Det är inte så att jag                 |
+| má (på)          | ma 2 (2)  | Det är inte så att jag                 |
+| mķ          | ma 3 (3)  | Det är inte så att jag                 |
+| mà (på)          | ma 4 (4)  | Det är inte så att jag                 |
+| Ma          | ma 5 (5)  | Det är inte så att jag                 |
 
 #### <a name="example"></a>Exempel
 
 | Tecken | Tjänst för taligenkänning                |
 |-----------|-------------------------------|
-| 组织关系      | zu 3-Zhi 1-Guan 1 – XI 5 |
-| 累进        | Lei-3-Jin 4                 |
-| 西宅巷       | XI 1-Zhai 2-Xiang 4      |
+| 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン      | zu 3 - zhi 1 - guan 1 - xi 5 |
+| Det är inte så att jag        | lei 3 -jin 4                 |
+| 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン       | xi 1 - zhai 2 - xiang 4      |
 
 # <a name="zh-tw"></a>[zh-TW](#tab/zh-TW)
 
-Tal tjänstens telefon uppsättning för `zh-TW` baseras på den <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">inbyggda uppsättningen telefoner <span class="docon docon-navigate-external x-hidden-focus"></span> </a> .
+Taltjänstens telefon `zh-TW` som är inställd på baseras på den inbyggda telefonen <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">Bopomofo <span class="docon docon-navigate-external x-hidden-focus"></span> </a> set.
 
 ### <a name="tone"></a>Lämplig ton
 
-| Tal tjänst tonen | Bopomofo-ton | Exempel (Word) | Röst tjänst telefoner | Bopomofo | Pinyin (拼音) |
+| Ton för taltjänst | Bopomofo ton | Exempel (ord) | Telefoner för taltjänst | Bopomofo | Pinyin (中ン) |
 |---------------------|---------------|----------------|-----------------------|----------|-------------|
-| ˉ                   | saknas         | 偵              | ㄓㄣˉ                   | ㄓㄣ       | zhēn        |
-| ˊ                   | ˊ             | 察              | ㄔㄚˊ                   | ㄔㄚˊ      | chá         |
-| ˇ                   | ˇ             | 打              | ㄉㄚˇ                   | ㄉㄚˇ      | dǎ          |
-| ˋ                   | ˋ             | 望              | ㄨㄤˋ                   | ㄨㄤˋ      | wàng        |
-| ˙                   | ˙             | 影子             | 一ㄥˇ ㄗ˙               | 一ㄥˇ ㄗ˙  | Yǐng Zi    |
+| det är inte så här                   | tomt         | Det är inte så att jag              | det är inte så här                   | det är inte så här       | zhēn (zhēn)        |
+| det är inte så här                   | det är inte så här             | Det är inte så att jag              | det är inte så här                   | det är inte så här      | Chá (olikartade)         |
+| – Det är inte så här.                   | – Det är inte så här.             | Det är inte så att jag              | – Det är inte så här.                   | – Det är inte så här.      | dķ ( d)          |
+| det är inte så här                   | det är inte så här             | Det är inte så att jag              | det är inte så här                   | det är inte så här      | wàng (wàng)        |
+| ˙                   | ˙             | Det är inte så att jag             | Det är inte så att               | Det är inte så att  | yķng zi    |
 
 #### <a name="example"></a>Exempel
 
 | Tecken | `sapi`   |
 |-----------|----------|
-| 狗         | ㄍㄡˇ      |
-| 然后        | ㄖㄢˊㄏㄡˋ   |
-| 剪掉        | ㄐㄧㄢˇㄉㄧㄠˋ |
+| Det är inte så att jag         | – Det är inte så här.      |
+| Det är inte så att jag        | det är inte så här   |
+| Det är inte så att jag        | Det är inte så här. |
 
 # <a name="ja-jp"></a>[ja-JP](#tab/ja-JP)
 
-Tal tjänstens telefon uppsättning för `ja-JP` baseras på den inbyggda telefon- <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">kana <span class="docon docon-navigate-external x-hidden-focus"></span> </a> -uppsättningen.
+Taltjänstens telefon `ja-JP` som ställts in baseras på den inbyggda telefonen <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">Kana-uppsättningen. <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 
-### <a name="stress"></a>Stryka
+### <a name="stress"></a>Stress
 
 | `sapi` | `ipa`          |
 |--------|----------------|
-| `ˈ`    | `ˈ` mainstress |
-| `+`    | `ˌ` under stress  |
+| `ˈ`    | `ˈ`huvudstress |
+| `+`    | `ˌ`substress  |
 
 #### <a name="example"></a>Exempel
 
 | Tecken | `sapi`  | `ipa`       |
 |-----------|---------|-------------|
-| 合成        | ゴ'ウセ    | Go-ˈ wɯseji   |
-| 所有者       | ショュ'ウ?ャ | ɕjojɯˈwɯɕja |
-| 最適化       | サィテキカ +  | sajitecikaˌ |
+| Det är inte så här.        | Det är inte så att jag    | goˈwseji (på)   |
+| Det är inte så att jag       | ショュ'ウ?ャ | 中jojˈw中ja |
+| 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン       | 中ンンン+  | sajitecika (sajitecika) |
 
 ***

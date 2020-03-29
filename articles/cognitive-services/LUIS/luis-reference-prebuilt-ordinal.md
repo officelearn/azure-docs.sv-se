@@ -1,7 +1,7 @@
 ---
-title: Ordnings fördefinierad entitet – LUIS
+title: Ordnings och annan fördefinierad enhet - LUIS
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln innehåller ordningstal fördefinierade entitetsinformation i Språkförståelse (LUIS).
+description: Den här artikeln innehåller ordningsversion av fördefinierad entitetsinformation i Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,27 +12,27 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: bb3bb27db48255f534e873ed4e93ac62f07016af
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273453"
 ---
-# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Fördefinierad ordnings enhet för en LUIS-app
-Ordnings talet är en numerisk representation av ett objekt inuti en mängd: `first`, `second``third`. Eftersom den här entiteten har redan tränats, behöver du inte att lägga till exempel yttranden som innehåller ordningstal till programmet avsikter. Ordnings tal enheten stöds i [många kulturer](luis-reference-prebuilt-entities.md).
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Ordningsordning för en LUIS-app
+Ordningstal är en numerisk representation av ett `first`objekt `second` `third`i en uppsättning: , . Eftersom den här entiteten redan har tränats behöver du inte lägga till exempelyttranden som innehåller ordnings av programavsikterna. Ordningsordning stöds i [många kulturer](luis-reference-prebuilt-entities.md).
 
-## <a name="types-of-ordinal"></a>Typer av nummer
-Ordnings talet hanteras från GitHub-lagringsplatsen för [identifierare – text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)
+## <a name="types-of-ordinal"></a>Typer av ordningssorter
+Ordningsvakt hanteras från [GitHub-databasen med identifierartext](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45)
 
-## <a name="resolution-for-prebuilt-ordinal-entity"></a>Lösning för fördefinierade ordningstal entitet
+## <a name="resolution-for-prebuilt-ordinal-entity"></a>Upplösning för fördefinierad ordningsenhet
 
-Följande enhets objekt returneras för frågan:
+Följande entitetsobjekt returneras för frågan:
 
 `Order the second option`
 
 #### <a name="v3-response"></a>[V3-svar](#tab/V3)
 
-Följande JSON är med parametern `verbose` som har angetts till `false`:
+Följande JSON är `verbose` med parametern inställd `false`på:
 
 ```json
 "entities": {
@@ -41,8 +41,8 @@ Följande JSON är med parametern `verbose` som har angetts till `false`:
     ]
 }
 ```
-#### <a name="v3-verbose-response"></a>[V3 utförlig Response](#tab/V3-verbose)
-Följande JSON är med parametern `verbose` som har angetts till `true`:
+#### <a name="v3-verbose-response"></a>[V3-verbos respons](#tab/V3-verbose)
+Följande JSON är `verbose` med parametern inställd `true`på:
 
 ```json
 "entities": {
@@ -69,7 +69,7 @@ Följande JSON är med parametern `verbose` som har angetts till `true`:
 
 #### <a name="v2-response"></a>[V2-svar](#tab/V2)
 
-I följande exempel visas upplösningen för enheten **Builtin. ordnings tal** .
+I följande exempel visas upplösningen för den **inbyggda.ordningsarentiteten.**
 
 ```json
 "entities": [
@@ -88,6 +88,6 @@ I följande exempel visas upplösningen för enheten **Builtin. ordnings tal** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+Läs mer om [slutpunkten för V3-förutsägelse](luis-migration-api-v3.md).
 
-Lär dig mer om [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [telefonnummer](luis-reference-prebuilt-phonenumber.md)och [temperatur](luis-reference-prebuilt-temperature.md) enheter.
+Lär dig mer om [OrdinalV2,](luis-reference-prebuilt-ordinal-v2.md) [telefonnummer](luis-reference-prebuilt-phonenumber.md)och temperatureniteter. [temperature](luis-reference-prebuilt-temperature.md)

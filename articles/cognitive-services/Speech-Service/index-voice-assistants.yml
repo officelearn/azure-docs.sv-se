@@ -1,25 +1,24 @@
 ### YamlMime:Landing
-title: Dokumentation om röstassistenter
-summary: Röst assistenter som använder tal tjänsten gör det möjligt för utvecklare att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser.
+title: Dokumentation för röstassistenter
+summary: Röstassistenter som använder taltjänsten ger utvecklare möjlighet att skapa naturliga, människoliknande konversationsgränssnitt för sina program och upplevelser.
 metadata:
-  title: Dokumentation om röst assistenter – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  title: Dokumentation för röstassistenter – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 369213485934236a05ecb3fcb458bdd28fd76136
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 6ae919317269753cbc3c8bf5b0df11e19a47989f
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79365567"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415163"
 landingContent:
-- title: Om röst assistenter
+- title: Om röstassistenter
   linkLists:
   - linkListType: overview
     links:
@@ -33,7 +32,7 @@ landingContent:
     links:
     - text: Vanliga frågor och svar om röstassistenter
       url: faq-voice-assistants.md
-    - text: Priser för röst assistenter
+    - text: Prissättning för röstassistenter
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
 - title: Utveckla med anpassade kommandon
   linkLists:
@@ -43,21 +42,21 @@ landingContent:
       url: quickstart-custom-speech-commands-create-new.md
     - text: Skapa ett anpassat kommando med parametrar
       url: quickstart-custom-speech-commands-create-parameters.md
-    - text: Använd anpassade kommandon med anpassad röst
+    - text: Använda anpassade kommandon med anpassad röst
       url: quickstart-custom-speech-commands-select-custom-voice.md
-    - text: Använd anpassade kommandon med talet SDK
+    - text: Använda anpassade kommandon med Tal-SDK
       url: quickstart-custom-speech-commands-speech-sdk.md
   - linkListType: how-to-guide
     links:
-    - text: Utföra kommandon från en klient
+    - text: Uppfylla kommandon från en klient
       url: how-to-custom-speech-commands-fulfill-sdk.md
-    - text: Lägg till parameter validering
+    - text: Lägga till parameterverifiering
       url: how-to-custom-speech-commands-validations.md
-    - text: Lägg till en bekräftelse
+    - text: Lägga till en bekräftelse
       url: how-to-custom-speech-commands-confirmations.md
-    - text: Lägg till en enstaka stegs korrigering
+    - text: Lägga till en korrigering i ett steg
       url: how-to-custom-speech-commands-one-step-correction.md
-- title: Utveckla med direkt linje tal
+- title: Utveckla med direktlinjetal
   linkLists:
   - linkListType: quickstart
     links:
@@ -79,5 +78,5 @@ landingContent:
       url: speech-devices-sdk-create-kws.md
   - linkListType: reference
     links:
-    - text: Rikt linjer för anpassad namngivning av nyckelord
+    - text: Riktlinjer för namngivning för anpassade nyckelord
       url: speech-devices-sdk-kws-guidelines.md

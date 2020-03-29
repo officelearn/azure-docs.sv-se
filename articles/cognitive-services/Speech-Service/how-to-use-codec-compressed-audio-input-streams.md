@@ -1,7 +1,7 @@
 ---
-title: Stream codec Compressed Audio med tal SDK-tal-tjänsten
+title: Strömma codec-komprimerat ljud med tjänsten Tal SDK - Tal
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du direktuppspelar komprimerat ljud till tal tjänsten med talet SDK. Tillgängligt för C++, C#, och Java för Linux, java i Android och mål-C i iOS.
+description: Lär dig hur du streamar komprimerat ljud till taltjänsten med Tal-SDK. Tillgänglig för C++, C#och Java för Linux, Java i Android och Objective-C i iOS.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -12,23 +12,23 @@ ms.date: 03/09/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
 ms.openlocfilehash: 3fab02d3dc567a2c54edad5bfb05abe7d99f7b7c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943801"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Använd codec-komprimerad ljud inspelning med talet SDK
+# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Använda codec-komprimerad ljudingång med Tal SDK
 
-Med API: t för tal service SDK **komprimerad ljud inspelnings ström** får du ett sätt att strömma komprimerat ljud till tal tjänsten med antingen en `PullStream` eller `PushStream`.
+Speech-tjänsten SDK **Compressed Audio Input Stream** API är ett sätt att `PullStream` strömma `PushStream`komprimerat ljud till taltjänsten med hjälp av antingen a eller .
 
 > [!IMPORTANT]
-> Strömmande komprimerade indata-ljud C#stöds C++för närvarande för Java på Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8). Det finns också stöd för java i Android och mål-C på iOS-plattformen.
-> Tal SDK-version 1.7.0 eller senare krävs (version 1.10.0 eller senare för RHEL 8, CentOS 8).
+> Strömmande komprimerat indataljud stöds för närvarande för C#, C++, Java på Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). Det stöds också för Java i Android och Objective-C i iOS-plattformen.
+> Tal SDK version 1.7.0 eller senare krävs (version 1.10.0 eller högre för RHEL 8, CentOS 8).
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/csharp/prerequisites.md)]
@@ -46,7 +46,7 @@ Med API: t för tal service SDK **komprimerad ljud inspelnings ström** får du 
 [!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/objectivec/prerequisites.md)]
 ::: zone-end
 
-## <a name="example-code-using-codec-compressed-audio-input"></a>Exempel kod med codec komprimerad ljud inspelning
+## <a name="example-code-using-codec-compressed-audio-input"></a>Exempelkod med codec-komprimerad ljudingång
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-tos/compressed-audio-input/csharp/examples.md)]

@@ -1,7 +1,7 @@
 ---
-title: Konversations avskrift i real tid (för hands version) – tal tjänst
+title: Konversationsavskrift i realtid (förhandsgranskning) - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder konversations avskrift i real tid med talet SDK. Tillgängligt för C++, C#och Java.
+description: Läs om hur du använder konversationsavskription i realtid med Tal-SDK. Tillgänglig för C++, C#och Java.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -11,46 +11,46 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
 ms.openlocfilehash: 64a9e11cec7164fb4421dd018238de9f0670382b
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76263735"
 ---
-# <a name="real-time-conversation-transcription-preview"></a>Konversations avskrift i real tid (för hands version)
+# <a name="real-time-conversation-transcription-preview"></a>Konversationsavskrift i realtid (förhandsgranskning)
 
-Talet SDK: s **ConversationTranscriber** -API gör att du kan skriva över möten och andra konversationer med möjlighet att lägga till, ta bort och identifiera flera deltagare genom att strömma ljud till tal tjänsten med hjälp av `PullStream` eller `PushStream`. I det här avsnittet måste du veta hur du använder tal-till-text med talet SDK (version 1.8.0 eller senare). Mer information finns i [Vad är tal tjänster](overview.md).
+Med Speech SDK:s **ConversationTranscriber-API** kan du transkribera möten och andra konversationer med möjlighet att `PullStream` lägga `PushStream`till, ta bort och identifiera flera deltagare genom att strömma ljud till taltjänsten med eller . Det här avsnittet kräver att du vet hur du använder Tal-till-text med Tal-SDK (version 1.8.0 eller senare). Mer information finns i [Vad är taltjänster](overview.md).
 
 ## <a name="limitations"></a>Begränsningar
 
-- ConversationTranscriber-API: et stöds C++för C#, och Java på Windows, Linux och Android.
-- För närvarande tillgängligt i språken "en-US" och "zh-CN" i följande regioner: _Central_ -och _asienöstra_.
-- Kräver en 7-MIC cirkulär multi-Microphone-matris med en uppspelnings referens ström. Mikrofonens matris ska uppfylla [vår specifikation](https://aka.ms/sdsdk-microphone).
-- [Tal enheternas SDK](speech-devices-sdk.md) tillhandahåller lämpliga enheter och en exempel-app som demonstrerar konversations avskrift.
+- ConversationTranscriber-API:et stöds för C++, C# och Java på Windows, Linux och Android.
+- För närvarande finns i "en-US" och "zh-CN" språk i följande regioner: _centralus_ och _eastasia_.
+- Kräver en matris med 7 mikrofoner med uppspelningsreferens. Mikrofonen array bör uppfylla [våra specifikationer](https://aka.ms/sdsdk-microphone).
+- [Speech Devices SDK](speech-devices-sdk.md) tillhandahåller lämpliga enheter och en exempelapp som visar konversationsavskription.
 
-## <a name="optional-sample-code-resources"></a>Valfria exempel kod resurser
+## <a name="optional-sample-code-resources"></a>Valfria exempelkodresurser
 
-Tal enhets-SDK: n innehåller exempel kod i Java för ljud fångst i real tid med 8 kanaler.
+Speech Device SDK innehåller exempelkod i Java för ljudinspelning i realtid med 8 kanaler.
 
-- [Exempel kod för ROOBO-enhet](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
-- [Exempel kod för Azure Kinect dev kit](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
+- [EXEMPELKOD FÖR ROOBO-enhet](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
+- [Exempelkod för Azure Kinect Dev Kit](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
 ## <a name="prerequisites"></a>Krav
 
-En röst tjänst prenumeration. Du kan [få en utvärderings prenumeration för tal](https://azure.microsoft.com/try/cognitive-services/) om du inte har någon.
+En prenumeration på taltjänsten. Du kan [få en taltestprenumeration](https://azure.microsoft.com/try/cognitive-services/) om du inte har någon.
 
-## <a name="create-voice-signatures"></a>Skapa röst under skrifter
+## <a name="create-voice-signatures"></a>Skapa röstsignaturer
 
-Det första steget är att skapa röst signaturer för konversations deltagarna för effektiv högtalar identifiering.
+Det första steget är att skapa röstsignaturer för konversationsdeltagarna för effektiv högtalaridentifiering.
 
-### <a name="audio-input-requirements"></a>Krav för ljud inspelning
+### <a name="audio-input-requirements"></a>Krav på ljudinmatning
 
-- Indata-ljudwave-filen för att skapa röst under skrifter ska vara i 16-bitars exempel, 16 kHz samplings frekvens och ett enda kanal format (mono).
-- Den rekommenderade längden för varje ljud sampling är mellan trettio sekunder och två minuter.
+- Indataljudvågsfilen för att skapa röstsignaturer ska finnas i 16-bitarsprover, 16 kHz-samplingsfrekvens och ett monoformat med en kanal (.input audio wave file for creating voice signatures should be in 16-bit samples, 16 kHz sample rate, and a single channel (mono) format.
+- Den rekommenderade längden för varje ljudprov är mellan trettio sekunder och två minuter.
 
 ### <a name="sample-code"></a>Exempelkod
 
-I följande exempel visas två olika sätt att skapa röst signatur med [hjälp av REST API](https://aka.ms/cts/signaturegenservice) i C#. Observera att du måste ersätta verklig information för "YourSubscriptionKey", Wave-filnamnet för "speakerVoice. wav" och din region för `{region}` och "YourServiceRegion" (_centralt_ eller _asienöstra_).
+I följande exempel visas två olika sätt att skapa röstsignatur med hjälp av [REST API](https://aka.ms/cts/signaturegenservice) i C#. Observera att du måste ersätta verklig information med "YourSubscriptionKey", ditt vågfilnamn för "speakerVoice.wav" och din region för `{region}` och "YourServiceRegion"_(centralus_ eller _eastasia)._
 
 ```csharp
 class Program
@@ -102,20 +102,20 @@ class Program
 }
 ```
 
-## <a name="transcribe-conversations"></a>Skriva över konversationer
+## <a name="transcribe-conversations"></a>Transkribera konversationer
 
-Följande exempel kod visar hur du kan skriva om konversationer i real tid för tre högtalare. Det förutsätter att du redan har skapat röst signaturer för varje talare som visas ovan. Ersätt verklig information för "YourSubscriptionKey" och "YourServiceRegion" när du skapar SpeechConfig-objektet.
+Följande exempelkod visar hur du transkriberar konversationer i realtid för tre högtalare. Det förutsätter att du redan har skapat röstsignaturer för varje högtalare som visas ovan. Ersätt verklig information med "YourSubscriptionKey" och "YourServiceRegion" när du skapar SpeechConfig-objektet.
 
-Exempel kod markeringar är:
+Exempel på kodhöjdpunkter är:
 
-- Skapa ett `Conversation`-objekt från `SpeechConfig`-objektet med hjälp av ett mötes-ID som genereras med hjälp av `Guid.NewGuid()`
-- Skapa ett `ConversationTranscriber`-objekt och delta i konversationen med `JoinConversationAsync()` för att starta avskriften
-- Registrera händelser av intresse
-- Lägga till eller ta bort deltagare i konversationen med hjälp av objektet konversation
+- Skapa `Conversation` ett objekt `SpeechConfig` från objektet med hjälp av en mötesidentifierare som genereras med hjälp av`Guid.NewGuid()`
+- Skapa `ConversationTranscriber` ett objekt och `JoinConversationAsync()` delta i konversationen med för att starta transkriptionen
+- Registrera evenemang av intresse
+- Lägga till eller ta bort deltagare i konversationen med konversationsobjektet
 - Strömma ljudet
-- I tal SDK-version 1.9.0 och senare har både `int` och `string` värde typer stöd i fältet röstens signatur version.
+- I Tal SDK version 1.9.0 `int` `string` och framåt stöds båda och värdetyper i versionsfältet för röstsignatur.
 
-Avskrifts-och högtalar identifieraren kommer tillbaka i de registrerade händelserna.
+Transkriptionen och högtalaridentifieraren kommer tillbaka i de registrerade händelserna.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -218,4 +218,4 @@ public class MyConversationTranscriber
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Avskrift av asynkron konversation](how-to-async-conversation-transcription.md)
+> [Asynkron samtalstranskription](how-to-async-conversation-transcription.md)

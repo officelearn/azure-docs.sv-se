@@ -1,25 +1,24 @@
 ### YamlMime:Landing
 title: Dokumentation om talöversättning
-summary: Tal översättning från Speech service möjliggör real tids-, tal-till-tal-och tal-till-text-översättning i real tid av ljud strömmar
+summary: Talöversättning från taltjänsten möjliggör tal-till-tal-översättning i realtid och tal-till-text-översättning av ljudströmmar
 metadata:
-  title: Dokumentation om tal översättning – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  title: Dokumentation för talöversättning – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 742b9710fc7ab396aa906c956d6809df9440c78e
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 75f620d5210f5ba0dc61ac1c5be2f30aa23dea9c
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79367983"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415334"
 landingContent:
-- title: Om tal Översättning
+- title: Om talöversättning
   linkLists:
   - linkListType: overview
     links:
@@ -29,19 +28,19 @@ landingContent:
     links:
     - text: Översätta tal till text
       url: quickstarts/translate-speech-to-text.md
-    - text: Översätta tal till flera målspråk
+    - text: Översätt tal till flera målspråk
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: Översätta tal-till-tal
       url: quickstarts/translate-speech-to-speech.md
-- title: Utveckla med tal Översättning
+- title: Utveckla med talöversättning
   linkLists:
   - linkListType: learn
     links:
-    - text: Översätt tal i real tid
+    - text: Översätt tal i realtid
       url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
-    - text: 'Översätt och syntetisera text med REST API: er'
+    - text: Översätta och syntetisera text med REST-API:er
       url: ../translator/tutorial-build-flask-app-translation-synthesis.md
 - title: Referens
   linkLists:
@@ -51,5 +50,5 @@ landingContent:
       url: language-support.md#speech-translation
     - text: Vanliga frågor och svar om talöversättning
       url: https://www.microsoft.com/translator/business/faq/
-    - text: Prissättning för tal Översättning
+    - text: Priser för talöversättning
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

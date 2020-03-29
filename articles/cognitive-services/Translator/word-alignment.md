@@ -1,7 +1,7 @@
 ---
-title: Justering av ord – Translator Text API
+title: Word-justering - API för översättare
 titleSuffix: Azure Cognitive Services
-description: Om du vill ta emot information om anpassning använder du metoden Översätt och inkluderar den valfria includeAlignment-parametern.
+description: Om du vill ta emot justeringsinformation använder du metoden Översätt och inkluderar parametern includeAlignment.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,35 +12,35 @@ ms.date: 06/04/2019
 ms.author: swmachan
 ms.custom: seodec18
 ms.openlocfilehash: dd4ff1e39c062910f4627973c801dc3c51f345e5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837231"
 ---
-# <a name="how-to-receive-word-alignment-information"></a>Så här tar du emot information om Word-anpassning
+# <a name="how-to-receive-word-alignment-information"></a>Så här får du information om ordjustering
 
-## <a name="receiving-word-alignment-information"></a>Ta emot Word-justerings information
-Om du vill ta emot information om anpassning använder du metoden Översätt och inkluderar den valfria includeAlignment-parametern.
+## <a name="receiving-word-alignment-information"></a>Ta emot information om ordjustering
+Om du vill ta emot justeringsinformation använder du metoden Översätt och inkluderar parametern includeAlignment.
 
-## <a name="alignment-information-format"></a>Format för justerings information
-Justeringen returneras som ett sträng värde av följande format för varje ord i källan. Informationen för varje ord avgränsas med ett blank steg, inklusive för icke-separerade språk (skript) som kinesiska:
+## <a name="alignment-information-format"></a>Format för justeringsinformation
+Justeringen returneras som ett strängvärde för följande format för varje ord i källan. Informationen för varje ord avgränsas med ett blanksteg, inklusive för icke-utrymmesavgränsade språk (skript) som kinesiska:
 
-[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+[[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
-Exempel på justerings sträng: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+Exempel justering sträng: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
-Kolon separerar exempelvis start-och slut index, strecket separerar språken och avståndet separerar orden. Ett ord kan justeras med noll, ett eller flera ord på det andra språket och de justerade orden kan vara icke-sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Metoden returnerar inga fel i detta fall.
+Med andra ord separerar kolon start- och slutindex, strecket separerar språken och utrymmet separerar orden. Ett ord kan justeras med noll, en eller flera ord på det andra språket, och de justerade orden kan vara icke-sammanhängande. När det inte finns någon justeringsinformation är justeringselementet tomt. Metoden returnerar inget fel i det fallet.
 
 ## <a name="restrictions"></a>Begränsningar
-Justering returneras bara för en delmängd av språk paren i detta läge:
-* från engelska till ett annat språk.
-* från andra språk till engelska utom förenklad kinesiska, traditionell kinesiska och lettiska till engelska
-* från japanska till koreanska eller från koreanska till japanska får du ingen justerings information om meningen är en konserverad översättning. Exempel på en konserverad översättning är "det här är ett test", "Jag älskar dig" och andra meningar med hög frekvens.
+Justering returneras endast för en delmängd av språkparen just nu:
+* från engelska till något annat språk;
+* från något annat språk till engelska med undantag för förenklad kinesiska, traditionell kinesiska och lettiska
+* från japanska till koreanska eller från koreanska till japanska Du kommer inte att få justeringsinformation om meningen är en konserverad översättning. Exempel på en konserverad översättning är "Detta är ett test", "Jag älskar dig", och andra högfrekventa meningar.
 
 ## <a name="example"></a>Exempel
 
-Exempel-JSON
+Exempel på JSON
 
 ```json
 [

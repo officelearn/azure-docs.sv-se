@@ -1,7 +1,7 @@
 ---
-title: Dokument information – anpassad översättare
+title: Dokumentinformation - Anpassad översättare
 titleSuffix: Azure Cognitive Services
-description: Sidan dokument lista visar det första 10 dokumentet i din arbets yta. För vart och ett av dokumenten visas namn, koppling, typ, språk, uppladdnings tid och e-postadress för den användare som laddade upp dokumentet.
+description: På dokumentlistsidan visas de första 10 dokumenten på arbetsytan. För vart och ett av dokumenten visas namn, parkoppling, typ, språk, uppladdningstidsstämpel och e-postadressen till den användare som laddade upp dokumentet.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,36 +10,36 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595590"
 ---
 # <a name="view-document-details"></a>Visa dokumentinformation
 
-Sidan dokument lista visar det första 10 dokumentet i din arbets yta. För vart och ett av dokumenten visas namn, koppling, typ, språk, uppladdnings tid och e-postadress för den användare som laddade upp dokumentet.
+På dokumentlistsidan visas de första 10 dokumenten på arbetsytan. För vart och ett av dokumenten visas namn, parkoppling, typ, språk, uppladdningstidsstämpel och e-postadressen till den användare som laddade upp dokumentet.
 
-Klicka på ett enskilt dokument för att visa sidan med dokument information. Sidan dokument information visar listan över extraherade meningar från dokumentet.
+Klicka på ett enskilt dokument för att visa sidan med dokumentinformation. På sidan med dokumentinformation visas listan över extraherade meningar från dokumentet.
 
-- Som standard är "källa"-språket markerat i list rutan, men du kan växla för att Visa meningar på mål språket.
-- 20 meningar visas som standard på varje sida. Du kan använda sid brytnings kontrollen för att bläddra mellan sidor.
+- Som standard är källspråket markerat i listrutan, men du kan växla för att visa meningar på målspråket.
+- 20 meningar visas som standard per sida. Du kan använda sidnumreringskontrollen för att bläddra mellan sidor.
 
-![dokument information](media/how-to/how-to-view-document-details.png)
+![information om dokument](media/how-to/how-to-view-document-details.png)
 
 ## <a name="delete-a-document"></a>Ta bort ett dokument
 
-Användaren måste vara ägare av arbets ytan för att ta bort dokumentet för att ta bort ett dokument. Dessutom, om ett dokument används av en modell, som är i någon del av inlärnings processen eller någon del av distributions processen, går det inte att ta bort dokumentet.
+Användaren måste vara arbetsyteägare för att kunna ta bort dokumentet för att ett dokument ska kunna tas bort. Om ett dokument används av en modell, som ingår i någon del av utbildningsprocessen eller någon del av distributionsprocessen, kan dokumentet inte tas bort.
 
-1. Gå till sidan dokument
-2.  Hovra över alla dokument poster och klicka på pappers korgs ikonen.
+1. Gå till dokumentsidan
+2.  Hovra på alla dokument post och klicka på papperskorgen ikonen.
 
     ![Ta bort dokument](media/how-to/how-to-delete-document-1.png)
 
 3.  Bekräfta borttagning.
 
-    ![Bekräfta borttagning](media/how-to/how-to-delete-document-confirm.png)
+    ![Ta bort bekräfta](media/how-to/how-to-delete-document-confirm.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig [hur du tränar en modell](how-to-train-model.md).
+- Läs om hur du [tränar en modell](how-to-train-model.md).

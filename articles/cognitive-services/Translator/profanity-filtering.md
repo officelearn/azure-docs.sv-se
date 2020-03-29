@@ -1,7 +1,7 @@
 ---
-title: Filtrering av svordomar – Translator Text API
+title: Filtrering av svordomar - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Använd funktionen för svordomar för att fastställa nivån på svordomar som har översatts i din text i Azure Cognitive Services Translator Text API.
+description: Använd svordomarfiltrering för att bestämma nivån på svordomar som översätts i din text i Azure Cognitive Services Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: e7e2097e0d3daf360f1fa0f30bf3fd2c62c07163
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73836231"
 ---
-# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Lägg till svordoms-filtrering med Translator Text API
+# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Lägga till svordomarfiltrering med Translator Text API
 
-Tjänsten Translator behåller normalt svordomar som finns i källan i översättningen. Graden av svordomar och kontexten som gör ord svordomar olika mellan kulturer. På grund av detta kan det innebära att svordomar på mål språket förstärks eller minskas.
+Normalt behåller översättaretjänsten svordomar som finns i källan i översättningen. Graden av svordomar och det sammanhang som gör ord profana skiljer sig mellan kulturer. Som ett resultat kan graden av svordomar i målspråket förstärkas eller minskas.
 
-Om du vill undvika att se svordomar i översättningen, även om det finns svordomar i käll texten, använder du filtrerings alternativet för svordomar i metoden Översätt (). Med det här alternativet kan du välja om du vill se hur svordomar tas bort, markerade med lämpliga taggar eller vidta åtgärder som inte vidtas.
+Om du vill undvika att se svordomar i översättningen, även om svordomar finns i källtexten, använder du alternativet svordomarfiltrering som är tillgängligt i metoden Translate(). Med det här alternativet kan du välja om du vill se svordomar borttaget, markerat med lämpliga taggar eller inte vidta några åtgärder.
 
-Metoden Översätt () använder parametern "alternativ", som innehåller det nya elementet "ProfanityAction". De godkända värdena för ProfanityAction är "noaction", "märkta" och "Deleted".
+Metoden Translate() tar parametern "options", som innehåller det nya elementet "ProfanityAction". De accepterade värdena för ProfanityAction är "NoAction", "Marked" och "Deleted".
 
-## <a name="accepted-values-of-profanityaction-and-examples"></a>Godkända värden för ProfanityAction och exempel
-|ProfanityAction-värde | Åtgärd | Exempel: källa-Japansk | Exempel: Target – engelska|
+## <a name="accepted-values-of-profanityaction-and-examples"></a>Accepterade värden för ProfanityAction och exempel
+|SvordomarÅtgärdsvärde | Åtgärd | Exempel: Källa - Japanska | Exempel: Target - Engelska|
 | :---|:---|:---|:---|
-| Noaction | Standard. Samma som att inte ställa in alternativet. Svordomar skickas från källa till mål. | 彼は変態です från en omfattande | Han är en Jerk. |
-| Klassificera | Svordomar ord omges av XML-taggar \<svordomar >... \</Profanity >. | 彼は変態です från en omfattande | Han är \<svordomar > Jerk\</Profanity >. |
-| Borttagen | Svordomar-ord tas bort från utdata utan ersättning. | 彼は från en omfattande | Han är en. |
+| Ingen åtgärd | Standard. Samma som att inte ange alternativet. Svordomar passerar från källa till mål. | 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン | Han är en idiot. |
+| Markerade | Profana ord är omgivna av XML-taggar \<svordomar> ... \</svordomar>. | 中ンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンンン | Han är \<ett svordomar>jerk\</ svordomar>. |
+| Borttagen | Profana ord tas bort från utdata utan ersättning. | Det är inte så att jag | Han är en. |
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Använd svordoms-filtrering med ditt Translator API-anrop](reference/v3-0-translate.md)
+> [Tillämpa svordomarfiltrering med ditt Translator API-anrop](reference/v3-0-translate.md)

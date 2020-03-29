@@ -1,7 +1,7 @@
 ---
-title: Förstärka inlärning – Personanpassare
+title: Förstärkning Lärande - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Personanpassaren använder information om åtgärder och aktuell kontext för att göra bättre rangordnings förslag. Informationen om dessa åtgärder och kontext är attribut eller egenskaper som kallas funktioner.
+description: Personalizer använder information om åtgärder och aktuella sammanhang för att göra bättre rankningsförslag. Informationen om dessa åtgärder och kontext är attribut eller egenskaper som kallas funktioner.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,63 +11,63 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
 ms.openlocfilehash: 36071cdee25cfa99fc54b0e5c0c0aa822cb5fe2f
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68662842"
 ---
-# <a name="what-is-reinforcement-learning"></a>Vad är förstärknings inlärning?
+# <a name="what-is-reinforcement-learning"></a>Vad är Reinforcement Learning?
 
-Förstärknings inlärning är en metod för maskin inlärning som lär sig beteenden genom att få feedback från användningen.
+Reinforcement Learning är en metod för maskininlärning som lär sig beteenden genom att få feedback från dess användning.
  
-Förstärka inlärningen fungerar med:
+Reinforcement Learning fungerar av:
 
-* Tillhandahålla en möjlighet eller frihets grader för att införa ett beteende som fattar beslut eller val.
-* Tillhandahålla sammanhangsbaserad information om miljön och val.
-* Ge feedback om hur väl beteendet uppnår ett visst mål.
+* Att ge en möjlighet eller grad av frihet att anta ett beteende - som att fatta beslut eller val.
+* Ger kontextuell information om miljön och val.
+* Att ge feedback om hur väl beteendet uppnår ett visst mål.
 
-Även om det finns många under typer och stilar för förstärknings inlärning, så är det här hur konceptet fungerar i en Personanpassare:
+Även om det finns många subtyper och stilar av förstärkning lärande, är detta hur konceptet fungerar i Personalizer:
 
-* Ditt program ger möjlighet att visa en innehålls del från en lista med alternativ.
-* Programmet innehåller information om varje alternativ och användarens kontext.
-* Ditt program beräknar en _belönings Poäng_.
+* Din ansökan ger möjlighet att visa en bit innehåll från en lista med alternativ.
+* Ditt program innehåller information om varje alternativ och användarens kontext.
+* Ditt program beräknar en _belöningspoäng_.
 
-Till skillnad från vissa metoder för att förbättra inlärningen kräver inte Personanpassan att en simulering fungerar i. Dess Learning-algoritmer är utformade för att reagera på en extern värld (och kontrol lera den) och lära sig från varje data punkt med en förståelse för att det är en unik affärs möjlighet som kostar tid och pengar att skapa, och att det finns en icke-noll-ångra (förlust av eventuell belöning) om bästa prestanda inträffar.
+Till skillnad från vissa metoder för förstärkning lärande, personalizer kräver inte en simulering för att arbeta i. Dess inlärningsalgoritmer är utformade för att reagera på en omvärld (kontra kontrollera den) och lära av varje datapunkt med en förståelse för att det är en unik möjlighet som kostar tid och pengar att skapa, och att det finns en icke-noll ånger (förlust av eventuell belöning) om suboptimal prestanda händer.
 
-## <a name="what-type-of-reinforcement-learning-algorithms-does-personalizer-use"></a>Vilken typ av förstärka inlärnings algoritmer använder sig av Personanpassare?
+## <a name="what-type-of-reinforcement-learning-algorithms-does-personalizer-use"></a>Vilken typ av förstärkningsinlärningsalgoritmer använder Personalizer?
 
-Den aktuella versionen av Personanpassare använder **sammanhangsbaserade Bandits**, en metod för att förstärka inlärningen som är inramad av beslut eller val mellan diskreta åtgärder, i en viss kontext.
+Den nuvarande versionen av Personalizer använder **kontextuella banditer**, en metod för förstärkning lärande som är inramad kring att fatta beslut eller val mellan diskreta åtgärder, i ett visst sammanhang.
 
-_Besluts minnet_, den modell som har tränats att samla in det bästa möjliga beslutet, baserat på ett sammanhang, använder en uppsättning linjära modeller. Detta har flera gånger visat affärs resultat och är en beprövad metod, delvis eftersom de kan lära sig från verkliga världen snabbt utan att behöva multi-pass-utbildning, och delvis eftersom de kan komplettera övervakade inlärnings modeller och djup neurala nätverks modeller.
+_Beslutsminnet_, den modell som har utbildats för att fånga bästa möjliga beslut, med tanke på ett sammanhang, använder en uppsättning linjära modeller. Dessa har upprepade gånger visat affärsresultat och är ett beprövat tillvägagångssätt, delvis för att de kan lära av den verkliga världen mycket snabbt utan att behöva multi-pass utbildning, och delvis för att de kan komplettera övervakade inlärningsmodeller och djupa neurala nätverksmodeller.
 
-Den utforska/utnyttja trafik tilldelningen görs slumpmässigt efter procent andelen för utforskning och standardalgoritmen för utforskning är Epsilon-girig.
+Utforska / utnyttja trafikallokering görs slumpmässigt efter den procentuella uppsättningen för prospektering, och standardalgoritmen för utforskning är epsilon-giriga.
 
-### <a name="history-of-contextual-bandits"></a>Historik för sammanhangsbaserade Bandits
+### <a name="history-of-contextual-bandits"></a>Historia kontextuella banditer
 
-John Langford myntade namnet kontextuell Bandits (Langford och Zhang [2007]) för att beskriva en dragbar del av förstärknings inlärningen och har arbetat på ett halv dussin dokument som förbättrar vår förståelse av hur du kan lära dig i det här paradigmet:
+John Langford myntade namnet Contextual Bandits (Langford och Zhang [2007]) för att beskriva en tarmkanalen subet av förstärkning lärande och har arbetat på ett halvt dussin papper förbättra vår förståelse för hur man lär sig i detta paradigm:
 
 * Beygelzimer et al. [2011]
-* Dudík et al. [2011a, b]
+* Dudík et al. [2011a,b]
 * Agarwal et al. [2014, 2012]
 * Beygelzimer och Langford [2009]
 * Li et al. [2010]
 
-John har också fått flera självstudier tidigare i ämnen som gemensam förutsägelse (ICML 2015), kontextuell bandit teori (NIPS 2013), aktiv inlärning (ICML 2009) och exempel på komplexitets gränser (ICML 2003)
+John har också gett flera tutorials tidigare om ämnen som Gemensam förutsägelse (ICML 2015), Contextual Bandit Theory (NIPS 2013), Active Learning (ICML 2009) och Sample Complexity Bounds (ICML 2003)
 
-## <a name="what-machine-learning-frameworks-does-personalizer-use"></a>Vilka ramverk för Machine Learning används?
+## <a name="what-machine-learning-frameworks-does-personalizer-use"></a>Vilka maskininlärningsramverk använder Personalizer?
 
-En personanpassare använder för närvarande [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki) som grund för Machine Learning. Det här ramverket tillåter maximalt data flöde och lägsta latens när du gör anpassnings rankning och tränar modellen med alla händelser.
+Personalizer använder för närvarande [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki) som grund för maskininlärning. Det här ramverket möjliggör maximalt dataflöde och lägsta svarstid när du gör anpassningsleden och tränar modellen med alla händelser.
 
 ## <a name="references"></a>Referenser
 
-* [Fatta sammanhangsbaserade beslut med låg teknisk skuld](https://arxiv.org/abs/1606.03966)
-* [En minsknings metod för god klassificering](https://arxiv.org/abs/1803.02453)
-* [Effektiv sammanhangsbaserad Bandits i icke-stationiga världar](https://arxiv.org/abs/1708.01799)
-* [Rest förlust förutsägelse: Förstärkning: inlärning utan stegvis feedback](https://openreview.net/pdf?id=HJNMYceCW)
-* [Mappnings instruktioner och visuella observationer till åtgärder med förstärkt inlärning](https://arxiv.org/abs/1704.08795)
-* [Lär dig att söka bättre än din lärare](https://arxiv.org/abs/1502.02206)
+* [Fatta kontextuella beslut med låg teknisk skuld](https://arxiv.org/abs/1606.03966)
+* [En minskningsmetod för rättvis klassificering](https://arxiv.org/abs/1803.02453)
+* [Effektiva kontextuella banditer i icke-stationära världar](https://arxiv.org/abs/1708.01799)
+* [Residual Loss Prediction: Förstärkning: lärande utan inkrementell feedback](https://openreview.net/pdf?id=HJNMYceCW)
+* [Kartundervisning och visuella observationer till åtgärder med förstärkningsinlärning](https://arxiv.org/abs/1704.08795)
+* [Att lära sig att söka bättre än din lärare](https://arxiv.org/abs/1502.02206)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Offline-utvärdering](concepts-offline-evaluation.md) 
+[Offlineutvärdering](concepts-offline-evaluation.md) 

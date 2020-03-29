@@ -1,43 +1,43 @@
 ---
-title: Text till tal-API-referens (REST) – tal service
+title: API-referens för text till tal (REST) - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder text-till-tal-REST API. I den här artikeln får du lära dig om auktorisering, alternativ frågan, hur du strukturerar en begäran och får ett svar.
+description: Läs om hur du använder REST-API:et för text till tal. I den här artikeln får du lära dig mer om auktoriseringsalternativ, frågealternativ, hur du strukturerar en begäran och får ett svar.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.author: erhopf
-ms.openlocfilehash: ab0891653f449b13f50dc43b196cf16a2f71370e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 03/23/2020
+ms.author: dapine
+ms.openlocfilehash: 17b5e21291078f424ee775f21add181859dbbed5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975830"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131638"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-till-tal (REST API)
 
-Med röst tjänsten kan du [konvertera text till syntetiskt tal](#convert-text-to-speech) och [Hämta en lista över röster som stöds](#get-a-list-of-voices) för en region med en uppsättning REST API: er. Varje tillgänglig slut punkt är associerad med en region. En prenumerations nyckel för den slut punkt/region som du planerar att använda måste anges.
+Med taltjänsten kan du [konvertera text till syntetiserat tal](#convert-text-to-speech) och få en lista med röster som [stöds](#get-a-list-of-voices) för en region med hjälp av en uppsättning REST-API:er. Varje tillgänglig slutpunkt är associerad med en region. En prenumerationsnyckel för slutpunkten/regionen som du planerar att använda krävs.
 
-Text till tal-REST API stöder neurala och standard text till tal-röster, som var och en har stöd för ett särskilt språk och dialekt, som identifieras av locale.
+REST API för text-till-tal stöder neurala och standardtext-till-tal-röster, som alla stöder ett visst språk och dialekt, som identifieras av språk.
 
-* En fullständig lista över röster finns i [språk stöd](language-support.md#text-to-speech).
+* En fullständig lista med röster finns i [språkstöd](language-support.md#text-to-speech).
 * Information om regional tillgänglighet finns i [regioner](regions.md#text-to-speech).
 
 > [!IMPORTANT]
-> Kostnaderna varierar för standard-, anpassad-och neurala-röster. Mer information finns i [prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Kostnaderna varierar för standard, anpassade och neurala röster. Mer information finns i [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Innan du använder det här API: et, förstå:
+Innan du använder det här API:et, förstå:
 
-* Text till tal REST-API kräver ingen auktoriseringsrubrik. Det innebär att du måste utföra en token exchange för att komma åt tjänsten. Mer information finns i [Autentisering](#authentication).
+* REST API för text-till-tal kräver ett auktoriseringshuvud. Det innebär att du måste slutföra ett tokenutbyte för att komma åt tjänsten. Mer information finns i [Autentisering](#authentication).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="get-a-list-of-voices"></a>Hämta en lista över röster
+## <a name="get-a-list-of-voices"></a>Få en lista med röster
 
-Med `voices/list` slut punkten kan du få en fullständig lista över röster för en bestämd region eller slut punkt.
+Slutpunkten `voices/list` kan du få en fullständig lista med röster för en viss region / slutpunkt.
 
 ### <a name="regions-and-endpoints"></a>Regioner och slutpunkter
 
@@ -63,21 +63,21 @@ Med `voices/list` slut punkten kan du få en fullständig lista över röster f�
 | USA, västra | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, västra 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
-### <a name="request-headers"></a>Begärandehuvud
+### <a name="request-headers"></a>Begärandehuvuden
 
-I den här tabellen listas obligatoriska och valfria rubriker för text till tal-begäranden.
+I den här tabellen visas obligatoriska och valfria rubriker för text-till-tal-begäranden.
 
-| Huvud | Beskrivning | Obligatoriskt / valfritt |
+| Huvud | Beskrivning | Obligatoriskt/tillval |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
+| `Authorization` | En auktoriseringstoken som föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
 
 ### <a name="request-body"></a>Begärandetext
 
-Det krävs ingen brödtext för att `GET` begär anden till den här slut punkten.
+En kropp krävs inte `GET` för begäranden till den här slutpunkten.
 
-### <a name="sample-request"></a>Exempelbegäran
+### <a name="sample-request"></a>Exempel på begäran
 
-Den här begäran kräver bara ett Authorization-huvud.
+Den här begäran kräver bara ett auktoriseringshuvud.
 
 ```http
 GET /cognitiveservices/voices/list HTTP/1.1
@@ -88,10 +88,10 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="sample-response"></a>Exempelsvar
 
-Svaret har trunkerats för att illustrera ett svars struktur.
+Detta svar har trunkerats för att illustrera strukturen för ett svar.
 
 > [!NOTE]
-> Röst tillgänglighet varierar beroende på region/slut punkt.
+> Rösttillgängligheten varierar beroende på region/slutpunkt.
 
 ```json
 [
@@ -99,75 +99,84 @@ Svaret har trunkerats för att illustrera ett svars struktur.
         "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
         "ShortName": "ar-EG-Hoda",
         "Gender": "Female",
-        "Locale": "ar-EG"
+        "Locale": "ar-EG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
         "ShortName": "ar-SA-Naayf",
         "Gender": "Male",
-        "Locale": "ar-SA"
+        "Locale": "ar-SA",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
         "ShortName": "bg-BG-Ivan",
         "Gender": "Male",
-        "Locale": "bg-BG"
+        "Locale": "bg-BG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
         "Name": "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)",
         "ShortName": "ca-ES-HerenaRUS",
         "Gender": "Female",
-        "Locale": "ca-ES"
+        "Locale": "ca-ES",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
     },
     {
-        "Name": "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)",
-        "ShortName": "cs-CZ-Jakub",
-        "Gender": "Male",
-        "Locale": "cs-CZ"
+        "Name": "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)",
+        "ShortName": "zh-CN-XiaoxiaoNeural",
+        "Gender": "Female",
+        "Locale": "zh-CN",
+        "SampleRateHertz": "24000",
+        "VoiceType": "Neural"
     },
 
     ...
-
 ]
 ```
 
 ### <a name="http-status-codes"></a>HTTP-statuskoder
 
-HTTP-statuskod för varje svar anger lyckad eller vanliga fel.
+HTTP-statuskoden för varje svar anger lyckade eller vanliga fel.
 
 | HTTP-statuskod | Beskrivning | Möjlig orsak |
 |------------------|-------------|-----------------|
 | 200 | OK | Begäran lyckades. |
-| 400 | Felaktig förfrågan | En obligatorisk parameter är tom, null eller saknas. Eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. Ett vanligt problem är en rubrik som är för lång. |
-| 401 | Behörighet saknas | Begäran har inte behörighet. Kontrollera att din prenumerationsnyckel eller token är giltig och i rätt region. |
-| 429 | För många begäranden | Du har överskridit kvoten eller antalet begäranden som tillåts för din prenumeration. |
-| 502 | Felaktig gateway | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden. |
+| 400 | Felaktig begäran | En obligatorisk parameter saknas, är tom eller null. Eller så är värdet som skickas till en obligatorisk eller valfri parameter ogiltig. Ett vanligt problem är en rubrik som är för lång. |
+| 401 | Behörighet saknas | Begäran är inte auktoriserad. Kontrollera att din prenumerationsnyckel eller token är giltig och i rätt region. |
+| 429 | För många förfrågningar | Du har överskridit kvoten eller frekvensen av begäranden som tillåts för din prenumeration. |
+| 502 | Felaktig gateway    | Problem med nätverk eller server. Kan också indikera ogiltiga rubriker. |
 
 
 ## <a name="convert-text-to-speech"></a>Konvertera text-till-tal
 
-Med `v1`-slutpunkten kan du konvertera text till tal med [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md).
+Ändpunkten `v1` kan du konvertera text-till-tal med hjälp av [talsyntes markup språk (SSML)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Regioner och slutpunkter
 
-Dessa regioner har stöd för text till tal med hjälp av REST-API. Kontrollera att du väljer den slutpunkt som matchar din region för prenumerationen.
+Dessa regioner stöds för text-till-tal med REST API. Se till att du väljer den slutpunkt som matchar din prenumerationsregion.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-### <a name="request-headers"></a>Begärandehuvud
+### <a name="request-headers"></a>Begärandehuvuden
 
-I den här tabellen listas obligatoriska och valfria rubriker för text till tal-begäranden.
+I den här tabellen visas obligatoriska och valfria rubriker för text-till-tal-begäranden.
 
-| Huvud | Beskrivning | Obligatoriskt / valfritt |
+| Huvud | Beskrivning | Obligatoriskt/tillval |
 |--------|-------------|---------------------|
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
+| `Authorization` | En auktoriseringstoken som föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Krävs |
 | `Content-Type` | Anger innehållstypen för den angivna texten. Godkänt värde: `application/ssml+xml`. | Krävs |
-| `X-Microsoft-OutputFormat` | Anger formatet för ljuduppspelning. En fullständig lista över godkända värden, se [ljud utdata](#audio-outputs). | Krävs |
-| `User-Agent` | Programnamnet. Det tillhandahållna värdet måste vara mindre än 255 tecken. | Krävs |
+| `X-Microsoft-OutputFormat` | Anger ljudutdataformatet. En fullständig lista över godkända värden finns i [ljudutdata](#audio-outputs). | Krävs |
+| `User-Agent` | Programnamnet. Värdet måste vara mindre än 255 tecken. | Krävs |
 
-### <a name="audio-outputs"></a>Ljud utdata
+### <a name="audio-outputs"></a>Ljudutgångar
 
-Detta är en lista över de format som ljud som skickas i varje begäran som den `X-Microsoft-OutputFormat` rubrik. Var och en innehåller en bithastigheten och kodningstyp. Tal tjänsten har stöd för 24 kHz-, 16 kHz-och 8 kHz-ljudutdata.
+Det här är en lista över ljudformat som `X-Microsoft-OutputFormat` stöds som skickas i varje begäran som sidhuvud. Varje innehåller en bitrate och kodning typ. Taltjänsten stöder ljudutgångar på 24 kHz, 16 kHz och 8 kHz.
 
 |||
 |-|-|
@@ -180,18 +189,18 @@ Detta är en lista över de format som ljud som skickas i varje begäran som den
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Om din valda röst- och utdataformat har olika bithastigheter, samplas ljudet efter behov. 24 kHz-röster stöder dock inte `audio-16khz-16kbps-mono-siren` och `riff-16khz-16kbps-mono-siren` utdataformat.
+> Om det valda röst- och utdataformatet har olika bithastigheter samplas ljudet om efter behov. 24 kHz-röster stöder `audio-16khz-16kbps-mono-siren` dock `riff-16khz-16kbps-mono-siren` inte och utdataformat.
 
 ### <a name="request-body"></a>Begärandetext
 
-Bröd texten i varje `POST`-begäran skickas som [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md). Med SSML kan du välja röst och språk för det syntetiskt tal som returneras av text till tal-tjänsten. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech).
+Brödtexten `POST` för varje begäran skickas som [SSML (Speech Synthesis Markup Language).](speech-synthesis-markup.md) Med SSML kan du välja röst och språk för det syntetiserade tal som returneras av text-till-tal-tjänsten. En fullständig lista över röster som stöds finns i [språkstöd](language-support.md#text-to-speech).
 
 > [!NOTE]
-> Om du använder en anpassad röst kan bröd texten i en begäran skickas som oformaterad text (ASCII eller UTF-8).
+> Om du använder en anpassad röst kan brödtexten i en begäran skickas som oformaterad text (ASCII eller UTF-8).
 
-### <a name="sample-request"></a>Exempelbegäran
+### <a name="sample-request"></a>Exempel på begäran
 
-Den här HTTP-begäran använder SSML för att ange röst- och språk. Brödtexten får inte överskrida 1 000 tecken.
+Den här HTTP-begäran använder SSML för att ange röst och språk. Om kroppslängden är lång, och det resulterande ljudet överstiger 10 minuter - det kortas till 10 minuter. Med andra ord får ljudlängden inte överstiga 10 minuter.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
@@ -208,30 +217,30 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-Se våra snabb starter för språkspecifika exempel:
+Se våra snabbstarter för språkspecifika exempel:
 
-* [.NET Core,C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [.NET-kärna, C #](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
 * [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
 * [Node.js](quickstart-nodejs-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>HTTP-statuskoder
 
-HTTP-statuskod för varje svar anger lyckad eller vanliga fel.
+HTTP-statuskoden för varje svar anger lyckade eller vanliga fel.
 
 | HTTP-statuskod | Beskrivning | Möjlig orsak |
 |------------------|-------------|-----------------|
 | 200 | OK | Begäran lyckades. svarstexten är en ljudfil. |
-| 400 | Felaktig förfrågan | En obligatorisk parameter är tom, null eller saknas. Eller värdet som skickas till antingen en obligatorisk eller valfri parameter är ogiltig. Ett vanligt problem är en rubrik som är för lång. |
-| 401 | Behörighet saknas | Begäran har inte behörighet. Kontrollera att din prenumerationsnyckel eller token är giltig och i rätt region. |
-| 413 | Begäran om entiteten är för stor | SSML-indata är längre än 1024 tecken. |
-| 415 | Medie typen stöds inte | Det är möjligt att fel `Content-Type` tillhandahölls. `Content-Type` ska anges till `application/ssml+xml`. |
-| 429 | För många begäranden | Du har överskridit kvoten eller antalet begäranden som tillåts för din prenumeration. |
-| 502 | Felaktig gateway | Problem med nätverket eller servern. Kan också vara ogiltiga sidhuvuden. |
+| 400 | Felaktig begäran | En obligatorisk parameter saknas, är tom eller null. Eller så är värdet som skickas till en obligatorisk eller valfri parameter ogiltig. Ett vanligt problem är en rubrik som är för lång. |
+| 401 | Behörighet saknas | Begäran är inte auktoriserad. Kontrollera att din prenumerationsnyckel eller token är giltig och i rätt region. |
+| 413 | Begär entiteten för stor | SSML-ingången är längre än 1024 tecken. |
+| 415 | Medietyp som inte stöds | Det är möjligt att `Content-Type` fel angavs. `Content-Type`bör ställas `application/ssml+xml`in på . |
+| 429 | För många förfrågningar | Du har överskridit kvoten eller frekvensen av begäranden som tillåts för din prenumeration. |
+| 502 | Felaktig gateway    | Problem med nätverk eller server. Kan också indikera ogiltiga rubriker. |
 
-Om HTTP-status är `200 OK`, brödtexten i svaret innehåller en ljudfil i det begärda formatet. Den här filen kan spelas upp när den har överförts, sparas i en buffert eller sparas som en fil.
+Om HTTP-statusen är `200 OK`innehåller brödtexten i svaret en ljudfil i det begärda formatet. Den här filen kan spelas upp när den överförs, sparas i en buffert eller sparas i en fil.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
-- [Anpassa språkmodeller](how-to-customize-language-model.md)
+- [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services)
+- [Asynkron syntes för långformigt ljud](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Komma igång med Custom Voice](how-to-custom-voice.md)

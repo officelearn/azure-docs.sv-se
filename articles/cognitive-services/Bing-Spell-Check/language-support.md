@@ -1,7 +1,7 @@
 ---
-title: Stöd för språk - stavningskontroll i Bing
+title: Språkstöd - API för stavningskontroll av Bing
 titleSuffix: Azure Cognitive Services
-description: En lista med naturligt språk som stöds av den stavningskontroll i Bing.
+description: En lista över naturliga språk som stöds av API:et för stavningskontroll av Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66390170"
 ---
-# <a name="language-and-region-support-for-bing-spell-check-api"></a>Stöd för språk och din region för stavningskontroll i Bing
+# <a name="language-and-region-support-for-bing-spell-check-api"></a>Språk- och regionstöd för API för stavningskontroll av Bing
 
-Dessa språk som stöds av den stavningskontroll i Bing (endast i `spell` läge).
+Dessa språk stöds av API:et för `spell` stavningskontroll av Bing (endast i läge).
 
-Tänk på att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och antingen `Accept-Language` eller `setLang` ska anges som det beskrivs i [Stavningskontrolls-API v7-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Observera att för att arbeta `en-US`med `mkt` något annat språk `Accept-Language` `setLang` än bör den ställas in och antingen eller bör ställas in som det har beskrivits i [Stavningskontroll API v7 referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -34,7 +34,7 @@ Tänk på att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och a
 | Nederländska (Nederländerna)      | `nl-NL`          |
 | Engelska (Australien)    | `en-AU`          |
 | Engelska (Kanada)     | `en-CA`          |
-| English (India)    | `en-IN`          |
+| Engelska (Indien)    | `en-IN`          |
 | Engelska (Indonesien)     | `en-ID`          |
 | Engelska (Malaysia)     | `en-MY`          |
 | Engelska (Nya Zeeland)    | `en-NZ`          |
@@ -52,7 +52,7 @@ Tänk på att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och a
 | Tyska (Schweiz)      | `de-CH`          |
 | Italienska     | `it`          |
 | Japanska    | `ja`          |
-| Koreanska      | `ko`          |
+| Koreansk      | `ko`          |
 | Norska   | `no`          |
 | Polska      | `pl`          |
 | Portugisiska (Brasilien)   | `pt-BR`|
@@ -62,11 +62,11 @@ Tänk på att du arbetar med ett annat språk än `en-US`, `mkt` ska anges och a
 | Spanska (Chile)     | `es-CL`          |
 | Spanska (Mexiko)    | `es-MX`          |
 | Spanska (Spanien)    | `es-ES`          |
-| Spanska (USA)    | `es-US`          |
+| Spanska (Förenta staterna)    | `es-US`          |
 | Svenska     | `sv`          |
 | Turkiska     | `tr`          |
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 - [Dokumentationssida om Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
 - [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

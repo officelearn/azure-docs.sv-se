@@ -1,41 +1,40 @@
 ### YamlMime:Landing
-title: Dokumentation om värdar
-summary: Tal tjänst behållare är tillgängliga för både tal-till-text-och text till tal-scenarier, som omfattar standard eller anpassade modeller.
+title: Hosting dokumentation
+summary: Taltjänstbehållare är tillgängliga för både tal-till-text- och text-till-tal-scenarier, som omfattar standardmodeller eller anpassade modeller.
 metadata:
-  title: Dokumentation – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  title: Värddokumentation – självstudier, API-referens - Azure Cognitive Services | Microsoft-dokument
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: ff12c357ba273c6965b11db4eabc1890925439be
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 8298a2e37520e7920f18b7ffd5b49074098e0243
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79366708"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415912"
 landingContent:
-- title: Om värd tjänster
+- title: Om hosting
   linkLists:
   - linkListType: concept
     links:
-    - text: Installera och kör tal behållare
+    - text: Installera och köra Talbehåll för
       url: speech-container-howto.md
-    - text: Tal behållare med Kubernetes och Helm
+    - text: Talcontainrar med Kubernetes och Helm
       url: speech-container-howto-on-premises.md
-    - text: Tal behållare på Azure Container instances
+    - text: Talbehållare på Azure-behållarinstanser
       url: deploy-speech-on-container-instances.md
 - title: Skapa och konfigurera
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Skapa en Azure tal-resurs
+    - text: Skapa en Azure Speech-resurs
       url: get-started.md#new-resource
-    - text: Konfigurera tal behållare
+    - text: Konfigurera talbehållare
       url: speech-container-configuration.md
 - title: Referens
   linkLists:
@@ -43,5 +42,5 @@ landingContent:
     links:
     - text: Regioner som stöds
       url: regions.md
-    - text: Nationella moln
+    - text: Suveräna moln
       url: sovereign-clouds.md

@@ -1,7 +1,7 @@
 ---
-title: Translator Text API BreakSentence-metod
+title: Metod för upplösning av translatortext-API
 titleSuffix: Azure Cognitive Services
-description: Metoden Translator Text API BreakSentence identifierar placeringen av menings gränser i en text del.
+description: Metoden Translator Text API BreakSentence identifierar placeringen av meningsgränser i en textartikel.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76548126"
 ---
-# <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3,0: BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>Översättare Text API 3.0: BreakSentence
 
-Anger placeringen av menings gränser i en text del.
+Identifierar placeringen av meningsgränser i en textartikel.
 
 ## <a name="request-url"></a>URL för begäran
 
-Skicka en `POST`-begäran till:
+Skicka `POST` en begäran till:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
@@ -31,26 +31,26 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 ## <a name="request-parameters"></a>Parametrar för begäran
 
-Parametrarna för begäran som skickades till frågesträngen är:
+Parametrar för begäran som skickas på frågesträngen är:
 
 | Frågeparameter | Beskrivning |
 | -------| ----------- |
-| api-version <img width=200/>   | **Parameter för obligatorisk fråga**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`. |
-| language | **Valfri frågeparameter**.<br/>Språk tag gen som identifierar språk för inmatad text. Om ingen kod anges används automatisk språk identifiering. |
-| -skriptet    | **Valfri frågeparameter**.<br/>Skript tag gen som identifierar skriptet som används av inmatad text. Om ett skript inte anges kommer standard språket för språket att antas.  | 
+| api-version <img width=200/>   | **Obligatorisk frågeparameter**.<br/>Version av API som begärs av klienten. Värdet måste `3.0`vara . |
+| language | **Valfri frågeparameter**.<br/>Språktagg som identifierar språket i indatatexten. Om ingen kod har angetts tillämpas automatisk språkidentifiering. |
+| -skriptet    | **Valfri frågeparameter**.<br/>Skripttaggen som identifierar skriptet som används av indatatexten. Om inget skript anges antas språkets standardskript.  | 
 
-Begärandehuvuden innehåller:
+Begäran rubriker inkluderar:
 
 | Rubriker | Beskrivning |
 | ------- | ----------- |
-| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
-| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`. |
-| Innehålls längd    | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten.  | 
-| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Observera att du kan utelämna detta sidhuvud om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId`.  | 
+| Autentiseringshuvuden <img width=200/>  | **Obligatoriskt begäranhuvud**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
+| Content-Type | **Obligatoriskt begäranhuvud**.<br/>Anger innehållstypen för nyttolasten. Möjliga värden `application/json`är: . |
+| Innehållslängd    | **Obligatoriskt begäranhuvud**.<br/>Längden på begäran kroppen.  | 
+| X-ClientTraceId   | **Valfritt**.<br/>Ett klientgenererat GUID för att unikt identifiera begäran. Observera att du kan utelämna det här huvudet om du inkluderar spårnings-ID:t i frågesträngen med hjälp av frågeparametern `ClientTraceId`.  | 
 
 ## <a name="request-body"></a>Begärandetext
 
-Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med en sträng egenskap med namnet `Text`. Menings gränser beräknas för värdet för egenskapen `Text`. En exempel begär ande text med en text ruta ser ut så här:
+Brödtexten för begäran är en JSON-matris. Varje matriselement är ett JSON-objekt `Text`med en strängegenskap med namnet . Meningsgränser beräknas för egenskapens `Text` värde. En exempelbegärandet brödtext med en textsbit ser ut så där:
 
 ```json
 [
@@ -60,24 +60,24 @@ Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-o
 
 Följande begränsningar gäller:
 
-* Matrisen får innehålla högst 100 element.
-* Text värden för ett mat ris element får inte överstiga 10 000 tecken inklusive blank steg.
-* Hela texten som ingår i begäran får inte överstiga 50 000 tecken inklusive blank steg.
-* Om parametern `language` Query anges måste alla mat ris element vara på samma språk. Annars används automatisk identifiering av språk för varje mat ris element oberoende av varandra.
+* Matrisen kan ha högst 100 element.
+* Textvärdet för ett matriselement får inte överstiga 10 000 tecken, inklusive blanksteg.
+* Hela texten som ingår i begäran får inte överstiga 50 000 tecken, inklusive blanksteg.
+* Om `language` frågeparametern har angetts måste alla matriselement vara på samma språk. Annars används automatisk identifiering av språk på varje matriselement oberoende av varandra.
 
 ## <a name="response-body"></a>Själva svaret
 
-Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den angivna matrisen. Ett resultat objekt innehåller följande egenskaper:
+Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i indatamatrisen. Ett resultatobjekt innehåller följande egenskaper:
 
-  * `sentLen`: en matris med heltal som representerar längden på meningarna i text elementet. Matrisens längd är antalet meningar och värdena är längden på varje mening. 
+  * `sentLen`: En matris med heltal som representerar längden på meningarna i textelementet. Matrisens längd är antalet meningar och värdena är längden på varje mening. 
 
-  * `detectedLanguage`: ett objekt som beskriver det identifierade språket via följande egenskaper:
+  * `detectedLanguage`: Ett objekt som beskriver det identifierade språket genom följande egenskaper:
 
-     * `language`: kod för identifierat språk.
+     * `language`: Koden för det upptäckta språket.
 
-     * `score`: ett flyt värde som indikerar förtroendet i resultatet. Poängen är mellan noll och en och en låg poäng indikerar en låg exakthet.
+     * `score`: Ett flytvärde som anger förtroendet för resultatet. Poängen är mellan noll och ett och en låg poäng indikerar ett lågt självförtroende.
      
-    Observera att egenskapen `detectedLanguage` endast visas i result-objektet när språk automatisk identifiering begärs.
+    Observera att `detectedLanguage` egenskapen bara finns i resultatobjektet när automatiskt språkidentifiering begärs.
 
 Ett exempel på JSON-svar är:
 
@@ -100,13 +100,13 @@ Ett exempel på JSON-svar är:
   <th>Beskrivning</th>
   <tr>
     <td>X-RequestId</td>
-    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används i fel söknings syfte.</td>
+    <td>Värde som genereras av tjänsten för att identifiera begäran. Den används för felsökning.</td>
   </tr>
 </table> 
 
-## <a name="response-status-codes"></a>Svars status koder
+## <a name="response-status-codes"></a>Statuskoder för svar
 
-Följande är de möjliga HTTP-statuskod som en begäran returnerar. 
+Följande är möjliga HTTP-statuskoder som en begäran returnerar. 
 
 <table width="100%">
   <th width="20%">Statuskod</th>
@@ -117,35 +117,35 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
   <tr>
     <td>400</td>
-    <td>En av frågeparametrarna saknas eller är ogiltig. Korrigera parametrarna för begäran innan du försöker igen.</td>
+    <td>En av frågeparametrarna saknas eller är ogiltig. Korrigera parametrar för begäran innan du försöker igen.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>Det gick inte att autentisera begäran. Kontrol lera att autentiseringsuppgifterna har angetts och är giltiga.</td>
+    <td>Det gick inte att autentisera begäran. Kontrollera att autentiseringsuppgifterna är angivna och giltiga.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>Begäran har inte behörighet. Se fel meddelandet information. Detta indikerar ofta att alla kostnads fria översättningar som ingår i en utvärderings prenumeration har använts.</td>
+    <td>Begäran är inte auktoriserad. Kontrollera informationsfelmeddelandet. Detta indikerar ofta att alla kostnadsfria översättningar som medföljer en provprenumeration har förbrukats.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>Servern avvisade begäran på grund av att klienten har överskridit gränsen för begäran.</td>
+    <td>Servern avvisade begäran eftersom klienten har överskridit begärangränser.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för felet, begär ande identifierare från svars huvud `X-RequestId`och klient-ID: n från begärans huvud `X-ClientTraceId`.</td>
+    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för `X-RequestId`felet, begärandeidentifierare från svarshuvudet och klientidentifierare från begäranden `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår rapporterar du det med: datum och tid för felet, begär ande identifierare från svars huvud `X-RequestId`och klient-ID: n från begärans huvud `X-ClientTraceId`.</td>
+    <td>Servern är inte tillgänglig för tillfället. Försök igen. Om felet kvarstår rapporterar du det med: datum och tid för `X-RequestId`felet, begärandeidentifierare från svarshuvudet och klientidentifierare från begäranden `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
-Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3-Translator text API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Om ett fel inträffar returnerar begäran också ett JSON-felsvar. Felkoden är ett 6-siffrigt nummer som kombinerar den tresiffriga HTTP-statuskoden följt av ett tresiffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referenssidan för v3 Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas hur du hämtar menings gränser för en enda mening. Språket i meningen identifieras automatiskt av tjänsten.
+Följande exempel visar hur du får meningsgränser för en enda mening. Språket i meningen identifieras automatiskt av tjänsten.
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

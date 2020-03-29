@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: dapine
 ms.openlocfilehash: cc1fc56f70c2867225903904c7e9706f876f07e2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943867"
 ---
-Om du vill strömma i ett komprimerat ljud format till tal tjänsten skapar du en `PullAudioInputStream` eller `PushAudioInputStream`. Skapa sedan en `AudioConfig` från en instans av data ström klassen och ange komprimerings formatet för data strömmen.
+Om du vill strömma i komprimerat ljudformat `PullAudioInputStream` `PushAudioInputStream`till taltjänsten skapar du en eller . Skapa sedan `AudioConfig` en från en förekomst av din flödesklass och ange dataflödets komprimeringsformat.
 
-Vi antar att du har en data Ströms klass som heter `pullStream` och använder OPUS/OGG. Din kod kan se ut så här:
+Anta att du har en indataströmklass anropad `pullStream` och använder OPUS/OGG. Din kod kan se ut så här:
 
 ```java
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;

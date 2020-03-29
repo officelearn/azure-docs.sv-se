@@ -1,7 +1,7 @@
 ---
-title: Taxonomi för avbildnings kategorier – Visuellt innehåll
+title: Taxonomi av bildkategorier - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Hämta 86-kategorierna för taxonomi för API för visuellt innehåll i Azure Cognitive Services.
+description: Hämta de 86 kategorierna taxonomi för API:et för datorseende i Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 42562f3e19844621cb3893cb4ce185e85cf7e0ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68565752"
 ---
-# <a name="computer-vision-86-category-taxonomy"></a>Visuellt innehåll 86-kategori-taxonomi
+# <a name="computer-vision-86-category-taxonomy"></a>Computer Vision 86-kategori taxonomi
 
-sammandrag
+abstract_
 
 abstract_net
 
@@ -32,7 +32,7 @@ abstract_shape
 
 abstract_texture
 
-animalie
+animal_
 
 animal_bird
 
@@ -44,7 +44,7 @@ animal_horse
 
 animal_panda
 
-skapa
+building_
 
 building_arch
 
@@ -64,7 +64,7 @@ building_street
 
 dark_
 
-varor
+drink_
 
 drink_can
 
@@ -100,7 +100,7 @@ indoor_venue
 
 dark_light
 
-andra
+others_
 
 outdoor_
 
@@ -132,7 +132,7 @@ outdoor_water
 
 outdoor_waterside
 
-användar
+people_
 
 people_baby
 
@@ -152,7 +152,7 @@ people_tattoo
 
 people_young
 
-plan
+plant_
 
 plant_branch
 

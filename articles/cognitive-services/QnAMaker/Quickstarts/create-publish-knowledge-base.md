@@ -1,158 +1,158 @@
 ---
-title: 'Snabb start: skapa, träna och publicera kunskaps bas – QnA Maker'
-description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar för att besvara frågor QnA Maker.
+title: 'Snabbstart: Skapa, träna och publicera kunskapsbas - QnA Maker'
+description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på att skapa en QnA Maker-kunskapsbas från en enkel faq-webbsida för att svara på frågor som QnA Maker.
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.openlocfilehash: b1f80006e2dc72b5b623f4c29c093c734dc1efea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220582"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabbstart: Skapa, träna och publicera din QnA Maker-kunskapsbas
 
-Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar för att besvara frågor QnA Maker.
+Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på att skapa en QnA Maker-kunskapsbas från en enkel faq-webbsida för att svara på frågor som QnA Maker.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
-> * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-> * En QnA Maker [resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) som skapats i Azure Portal. Kom ihåg Azure Active Directory ID, prenumeration, QnA-resurs namn som du valde när du skapade resursen.
+> * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+> * En QnA [Maker-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) som skapats i Azure-portalen. Kom ihåg ditt Azure Active Directory-ID, Prenumeration, QnA-resursnamn som du valde när du skapade resursen.
 
-## <a name="create-your-first-qna-maker-knowledge-base"></a>Skapa din första QnA Maker kunskaps bas
+## <a name="create-your-first-qna-maker-knowledge-base"></a>Skapa din första QnA Maker-kunskapsbas
 
-1. Logga in på [QnAMaker.AI](https://QnAMaker.ai) -portalen med dina Azure-autentiseringsuppgifter.
+1. Logga in [QnAMaker.ai](https://QnAMaker.ai) på QnAMaker.ai-portalen med dina Azure-autentiseringsuppgifter.
 
-1. I QnA Maker-portalen väljer du **skapa en kunskaps bas**.
+1. I QnA Maker-portalen väljer du **Skapa en kunskapsbas**.
 
-1. På sidan **skapa** hoppar du över **steg 1** om du redan har din QNA Maker-resurs.
+1. Hoppa över steg **1** på sidan **Skapa** om du redan har din QnA Maker-resurs.
 
-    Om du inte har skapat resursen ännu väljer du **skapa en QNA-tjänst**. Du dirigeras till [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) för att konfigurera en QnA Maker-tjänst i din prenumeration. Kom ihåg Azure Active Directory ID, prenumeration, QnA-resurs namn som du valde när du skapade resursen.
+    Om du inte har skapat resursen ännu väljer du **Skapa en QnA-tjänst**. Du dirigeras till [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) för att konfigurera en QnA Maker-tjänst i din prenumeration. Kom ihåg ditt Azure Active Directory-ID, Prenumeration, QnA-resursnamn som du valde när du skapade resursen.
 
-    När du är klar med att skapa resursen i Azure Portal går du tillbaka till QnA Maker Portal, uppdaterar sidan webbläsare och fortsätter till **steg 2**.
+    När du är klar med att skapa resursen i Azure-portalen går du tillbaka till QnA Maker-portalen, uppdaterar webbläsarsidan och fortsätter till **steg 2**.
 
-1. I **steg 3**väljer du din Active Directory, prenumeration, tjänst (resurs) och språket för alla kunskaps baser som skapats i tjänsten.
+1. I **steg 3**väljer du din Active Directory, prenumeration, tjänst (resurs) och språket för alla kunskapsbaser som skapats i tjänsten.
 
-   ![Skärm bild av att välja en QnA Maker tjänst kunskaps bas](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+   ![Skärmbild av att välja en kunskapsbas för QnA Maker-tjänsten](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. I **steg 3**namnger du kunskaps basen **mitt exempel på QNA KB**.
+1. I **steg 3**namnger du kunskapsbasen **Mitt exempel QnA KB**.
 
-1. I **steg 4**konfigurerar du inställningarna med följande tabell:
+1. Konfigurera inställningarna med följande tabell i **steg 4:**
 
     |Inställning|Värde|
     |--|--|
-    |**Aktivera extrahering av flera adresser från URL: er, PDF-eller docx-filer.**|Markerad|
-    |**Standard svars text**| `Quickstart - default answer not found.`|
+    |**Aktivera extrahering med flera svängar från webbadresser, PDF- eller .docx-filer.**|Markerad|
+    |**Standardsvarstext**| `Quickstart - default answer not found.`|
     |**+ Lägg till URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
-    |**CHI2TEST – Chat**|Välj **Professional**|
+    |**Chit-chatt**|Välj **Professional**|
 
-1. I **steg 5**väljer **du skapa din KB**.
+1. I **steg 5**väljer du **Skapa kb.**
 
-    Extraherings processen tar en stund att läsa dokumentet och identifiera frågor och svar.
+    Extraheringsprocessen tar en stund att läsa dokumentet och identifiera frågor och svar.
 
-    När QnA Maker har skapat kunskaps basen öppnas sidan **kunskaps bas** . Du kan redigera innehållet i kunskaps basen på den här sidan.
+    När QnA Maker har skapat kunskapsbasen öppnas sidan **Kunskapsbas.** Du kan redigera innehållet i kunskapsbasen på den här sidan.
 
-## <a name="add-a-new-question-and-answer-set"></a>Lägg till en ny fråga och svars uppsättning
+## <a name="add-a-new-question-and-answer-set"></a>Lägga till en ny fråge- och svarsuppsättning
 
-1. På sidan **Redigera** på QNA Maker-portalen väljer du **+ Lägg till QNA-paret** från kontext verktygsfältet.
+1. På sidan Redigera på portalen **Redigera** i QnA Maker väljer du + Lägg **till QnA-par** i kontextverktygsfältet.
 1. Lägg till följande fråga:
 
     `How many Azure services are used by a knowledge base?`
 
-1. Lägg till svaret som formaterats med _markdown_:
+1. Lägg till svaret formaterat med _markdown:_
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Lägg till frågan som text och svaret formaterat med markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    ![ Lägg till frågan som text och svaret formaterat med markeringsmarkering.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 
-    Markdown-symbolen `*`används för punkter. `\n` används för en ny rad.
+    Markeringssymbolen `*`används för punktlistor. Används `\n` för en ny rad.
 
-    På sidan **Redigera** visas markdown. När du använder **test** panelen senare ser du att markdown visas som den ska.
+    På sidan **Redigera** visas markeringen. När du använder **testpanelen** senare visas markeringen korrekt.
 
 ## <a name="save-and-train"></a>Spara och öva
 
-I det övre högra hörnet väljer du **Spara och träna** för att spara dina ändringar och träna QNA Maker. Redigeringarna försvinner om de inte sparas.
+Längst upp till höger väljer du **Spara och tränar** för att spara dina redigeringar och träna QnA Maker . Redigeringarna försvinner om de inte sparas.
 
-## <a name="test-the-knowledge-base"></a>Testa kunskaps basen
+## <a name="test-the-knowledge-base"></a>Testa kunskapsbasen
 
-1. I den QnA Maker portalen, i det övre högra hörnet, väljer du **test** för att testa att ändringarna du gjort har genomförts.
-1. Ange ett exempel på en användar fråga i text rutan.
+1. I QnA Maker-portalen, längst upp till höger, väljer du **Testa** för att testa att ändringarna du gjorde trädde i kraft.
+1. Ange en exempelanvändarfråga i textrutan.
 
     `How many Azure services are used by a knowledge base?`
 
-    ![ Ange ett exempel på en användar fråga i text rutan. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    ![ Ange en exempelanvändarfråga i textrutan. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
 
-1. Välj **Granska** för att undersöka svaret i detalj. Test fönstret används för att testa dina ändringar i kunskaps basen innan du publicerar din kunskaps bas.
+1. Välj **Granska** för att undersöka svaret i detalj. Testfönstret används för att testa dina ändringar i kunskapsbasen innan du publicerar din kunskapsbas.
 
-1. Välj **testa** igen för att stänga **test** panelen.
+1. Välj **Testa** igen om du vill stänga **testpanelen.**
 
 ## <a name="publish-the-knowledge-base"></a>Publicera kunskapsbasen
 
-När du publicerar en kunskaps bas flyttas innehållet i din kunskaps bas från `test`-indexet till ett `prod`-index i Azure Search.
+När du publicerar en kunskapsbas flyttas innehållet `test` i kunskapsbasen från indexet till ett `prod` index i Azure-sökning.
 
-![Skärm bild av hur du flyttar innehållet i kunskaps basen](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
+![Skärmbild av hur du flyttar innehållet i kunskapsbasen](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
-1. I QnA Maker Portal väljer du **publicera**. Bekräfta sedan genom att välja **Publicera** på sidan.
+1. Välj **Publicera**i QnA Maker-portalen . Bekräfta sedan genom att välja **Publicera** på sidan.
 
     QnA Maker-tjänsten har nu publicerats. Du kan använda slutpunkten i ditt program eller din robotkod.
 
-    ![Skärm bild av lyckad publicering](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
+    ![Skärmbild av lyckad publicering](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
-## <a name="create-a-bot"></a>Skapa en robot
+## <a name="create-a-bot"></a>Skapa en bot
 
-När du har publicerat kan du skapa en robot från **publicerings** sidan:
+När du har publicerat kan du skapa en robot från sidan **Publicera:**
 
-* Du kan skapa flera robotar snabbt, allt som pekar på samma kunskaps bas för olika regioner eller prissättnings planer för enskilda robotar.
-* Om du bara vill ha en robot för kunskaps basen använder du länken **Visa alla robotar på Azure Portal** för att visa en lista över din aktuella robotar.
+* Du kan skapa flera robotar snabbt, alla pekar på samma kunskapsbas för olika regioner eller prisplaner för enskilda robotar.
+* Om du bara vill ha en bot för kunskapsbasen använder du **länken Visa alla dina robotar på Azure-portalen** för att visa en lista över dina aktuella robotar.
 
-När du gör ändringar i kunskaps basen och återpublicerar behöver du inte vidta några åtgärder i bot-roboten. Den har redan kon figurer ATS för att fungera med kunskaps basen och fungerar med alla framtida ändringar i kunskaps basen. Varje gång du publicerar en kunskaps bas uppdateras alla robotar som är anslutna till den automatiskt.
+När du gör ändringar i kunskapsbasen och publicerar om behöver du inte vidta ytterligare åtgärder med roboten. Den är redan konfigurerad för att fungera med kunskapsbasen och fungerar med alla framtida ändringar i kunskapsbasen. Varje gång du publicerar en kunskapsbas uppdateras alla robotar som är anslutna till den automatiskt.
 
-1. På sidan **publicera** i QNA Maker-portalen väljer du **skapa bot**. Den här knappen visas bara när du har publicerat kunskaps basen.
+1. Välj **Skapa bot**på sidan **Publicera** på portalen För QnA Maker . Den här knappen visas först när du har publicerat kunskapsbasen.
 
-    ![Skärm bild som visar hur du skapar en robot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
+    ![Skärmbild av hur du skapar en robot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-1. En ny flik i webbläsaren öppnas för Azure Portal med sidan för att skapa Azure Bot Service. Konfigurera Azure bot service. Robot-och QnA Maker kan dela Web App Service-planen, men kan inte dela webbappen. Det innebär att **appens namn** måste vara ett annat än namnet på appen för tjänsten QNA Maker.
+1. En ny webbläsarflik öppnas för Azure-portalen, med Azure Bot-tjänstens skapandesida. Konfigurera Azure bot-tjänsten. Roboten och QnA Maker kan dela webbapptjänstplanen, men kan inte dela webbappen. Det innebär att **appnamnet** för roboten måste skilja sig från appnamnet för QnA Maker-tjänsten.
 
-    * **Inte**
-        * Ändra bot-referens – om den inte är unik.
-        * Välj SDK-språk. När bot har skapats kan du ladda ned koden till din lokala utvecklings miljö och fortsätta utvecklings processen.
-    * **Gör inte**
-        * ändra följande inställningar i Azure Portal när du skapar bot-roboten. De är i förväg ifyllda för din befintliga kunskaps bas:
-           * QnA auth-nyckel
-           * App Service-plan och plats
+    * **Gör följande**
+        * Ändra bot handtag - om det inte är unikt.
+        * Välj SDK-språk. När boten har skapats kan du ladda ner koden till din lokala utvecklingsmiljö och fortsätta utvecklingsprocessen.
+    * **Gör inte följande**
+        * ändra följande inställningar i Azure-portalen när du skapar roboten. De är förifyllda för din befintliga kunskapsbas:
+           * QnA Auth-nyckel
+           * App serviceplan och plats
 
 
-1. När roboten har skapats öppnar du **bot-tjänstens** resurs.
-1. Under **bot-hantering**väljer du **test i Web Chat**.
-1. Skriv följande i Chat-prompten för att **skriva ditt meddelande**:
+1. När roboten har skapats öppnar du **bot-tjänstresursen.**
+1. Under **Bot Management**väljer du Testa i **webbchatt**.
+1. I chattprodunden **för Skriv in meddelandet**anger du:
 
     `Azure services?`
 
-    Chatt-roboten svarar med ett svar från din kunskaps bas.
+    Chattroboten svarar med ett svar från din kunskapsbas.
 
-    ![Ange en användar fråga i test-webbchatten.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    ![Ange en användarfråga i testwebbchatten.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
 
-## <a name="what-did-you-accomplish"></a>Vad gjorde du?
+## <a name="what-did-you-accomplish"></a>Vad åstadkom du?
 
-Du har skapat en ny kunskaps bas, lagt till en offentlig URL i kunskaps basen, lagt till din egen QnA uppsättning, tränad, testad och publicerat kunskaps basen.
+Du skapade en ny kunskapsbas, lade till en offentlig WEBBADRESS i kunskapsbasen, lade till din egen QnA-uppsättning, tränade, testade och publicerade kunskapsbasen.
 
-När du har publicerat kunskaps basen har du skapat en robot och testat roboten.
+När du har publicerat kunskapsbasen skapade du en bot och testade roboten.
 
-Detta skedde om några minuter utan att behöva skriva någon kod eller rensa innehållet.
+Allt detta skedde på några minuter utan att behöva skriva någon kod eller rensa innehållet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte fortsätter med nästa snabb start tar du bort QnA Maker-och bot Framework-resurserna i Azure Portal.
+Om du inte fortsätter till nästa snabbstart tar du bort ramresurserna QnA Maker och Bot i Azure-portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägg till frågor med metadata](add-question-metadata-portal.md)
+> [Lägga till frågor med metadata](add-question-metadata-portal.md)
 
 Mer information:
 
 * [Markdown-format i svar](../reference-markdown-format.md)
-* QnA Maker [data källor](../concepts/knowledge-base.md).
+* QnA [Maker-datakällor](../concepts/knowledge-base.md).
 
 

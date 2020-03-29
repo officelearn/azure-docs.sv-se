@@ -1,7 +1,7 @@
 ---
-title: Ansikts identifiering – Visuellt innehåll
+title: Ansiktsigenkänning - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Lär dig begrepp som rör funktionen för ansikts igenkänning i API för visuellt innehåll.
+description: Lär dig begrepp som rör ansiktsidentifieringsfunktionen i API:et för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,23 +11,23 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945249"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244709"
 ---
-# <a name="face-detection-with-computer-vision"></a>Ansikts igenkänning med Visuellt innehåll
+# <a name="face-detection-with-computer-vision"></a>Ansiktsigenkänning med datorseende
 
-Visuellt innehåll kan identifiera mänskliga ansikten i en bild och generera ålder, kön och rektangeln för varje identifierad ansikte. 
+Computer Vision kan upptäcka mänskliga ansikten i en bild och generera ålder, kön och rektangel för varje upptäckt ansikte. 
 
 > [!NOTE]
-> Den här funktionen erbjuds även av Azure [Face](/azure/cognitive-services/face/) service. Se det här alternativet för mer detaljerad ansikts analys, inklusive identifiering av ansikte och identifiering. 
+> Den här funktionen erbjuds [Face](/azure/cognitive-services/face/) också av Azure Face-tjänsten. Se det här alternativet för mer detaljerad ansiktsanalys, inklusive ansiktsidentifiering och posedetektering. 
 
-## <a name="face-detection-examples"></a>Exempel på ansikts igenkänning
+## <a name="face-detection-examples"></a>Exempel på ansiktsigenkänning
 
-I följande exempel demonstreras det JSON-svar som returneras av Visuellt innehåll för en bild som innehåller ett enda människo ansikte.
+Följande exempel visar JSON-svaret som returneras av Datorseende för en bild som innehåller ett enda mänskligt ansikte.
 
 ![Visuellt innehåll analyserar kvinnoansikte på tak](./Images/woman_roof_face.png)
 
@@ -54,9 +54,9 @@ I följande exempel demonstreras det JSON-svar som returneras av Visuellt inneh�
 }
 ```
 
-Nästa exempel visar det JSON-svar som returneras för en bild som innehåller flera mänskliga ansikten.
+Nästa exempel visar JSON-svaret som returneras för en bild som innehåller flera mänskliga ansikten.
 
-![Syn analys av familjens foto ansikte](./Images/family_photo_face.png)
+![Vision Analysera Familjefoto Ansikte](./Images/family_photo_face.png)
 
 ```json
 {
@@ -111,6 +111,9 @@ Nästa exempel visar det JSON-svar som returneras för en bild som innehåller f
 }
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="use-the-api"></a>Använda API:et
 
-Mer information om hur du använder funktionen för ansikts igenkänning finns i referens dokumentationen för att [analysera avbildning](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
+Ansiktsidentifieringsfunktionen är en del av [Api:et för analyseravbildning.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Du kan anropa det här API:et via en inbyggd SDK eller via REST-anrop. Inkludera `Faces` i frågeparametern **visualFeatures.** Sedan, när du får hela JSON svar, helt enkelt tolka `"faces"` strängen för innehållet i avsnittet.
+
+* [Snabbstart: Datorseende .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)

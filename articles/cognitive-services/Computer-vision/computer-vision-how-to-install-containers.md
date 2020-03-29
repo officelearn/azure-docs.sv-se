@@ -1,42 +1,42 @@
 ---
-title: Installera och köra behållare – Visuellt innehåll
+title: Så här installerar och kör du behållare - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Så här hämtar, installerar och kör behållare för visuellt innehåll i den här genomgången självstudien.
+description: Så här hämtar, installerar och kör du behållare för datorseende i den här genomgången självstudiekurs.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 03/17/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 530a8848eceecb1a15d14ce1fef2aa58a3ef5908
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f8d19ded32f7f4a90b23106b6cec53418eef407e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79220252"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458043"
 ---
-# <a name="install-and-run-read-containers-preview"></a>Installera och köra Läs behållare (förhands granskning)
+# <a name="install-and-run-read-containers-preview"></a>Installera och köra läsbehållare (förhandsversion)
 
-Med behållare kan du köra Visuellt innehåll-API: er i din egen miljö. Behållare är fantastiska för särskilda säkerhets-och data styrnings krav. I den här artikeln får du lära dig hur du hämtar, installerar och kör en Visuellt innehåll-behållare.
+Med behållare kan du köra API:erna för datorseende i din egen miljö. Behållare är bra för specifika säkerhets- och datastyrningskrav. I den här artikeln får du lära dig hur du hämtar, installerar och kör en datorseendebehållare.
 
-En enda Docker-behållare, *Läs*, är tillgänglig för visuellt innehåll. Med *Läs* behållaren kan du identifiera och extrahera *utskriven text* från bilder av olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer och visitkort. Dessutom identifierar *läsnings* behållaren *handskriven text* i bilder och innehåller PDF-, TIFF-och fil stöd för flera sidor. Mer information finns i [Read](concept-recognizing-text.md#read-api) API-dokumentationen.
+En enda Docker-behållare, *Read,* är tillgänglig för datorseende. *Med läsbehållaren* kan du identifiera och extrahera *tryckt text* från bilder av olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer och visitkort. Dessutom identifierar *läsbehållaren* *handskriven text* i bilder och tillhandahåller stöd för PDF-, TIFF- och flersidiga filer. Mer information finns i [dokumentationen till Läs](concept-recognizing-text.md#read-api) API.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du måste uppfylla följande krav innan du använder behållarna:
+Du måste uppfylla följande förutsättningar innan du använder behållarna:
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motor| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
-|Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker`-kommandon.| 
-|Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt**|
+|Docker-motorn| Du måste dockermotorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras så att behållarna kan ansluta till och skicka faktureringsdata till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Förtrogenhet med Docker | Du bör ha en grundläggande förståelse för Docker-begrepp, till exempel register, databaser, behållare och `docker` behållaravbildningar, samt kunskap om grundläggande kommandon.| 
+|Resurs för datorseende |För att kunna använda behållaren måste du ha:<br><br>En Azure **Computer Vision-resurs** och den associerade API-nyckeln slutpunkten URI. Båda värdena är tillgängliga på sidorna Översikt och Nycklar för resursen och krävs för att starta behållaren.<br><br>**{API_KEY}**: En av de två tillgängliga resursnycklarna på sidan **Nycklar**<br><br>**{ENDPOINT_URI}**: Slutpunkten som anges på **sidan Översikt**|
 
-## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
+## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till det privata behållarregistret
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -46,31 +46,31 @@ Du måste uppfylla följande krav innan du använder behållarna:
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="advanced-vector-extension-support"></a>Stöd för avancerad Vector-tillägg
+### <a name="advanced-vector-extension-support"></a>Avancerat stöd för vektortillägg
 
-**Värddatorn** är den dator som kör Docker-behållaren. Värden *måste ha stöd* för [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Du kan söka efter AVX2-stöd på Linux-värdar med följande kommando:
+**Värddatorn** är den dator som kör dockerbehållaren. Värden *måste ha stöd för* [avancerade vektortillägg](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Du kan söka efter AVX2-stöd på Linux-värdar med följande kommando:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
 > [!WARNING]
-> Värddatorn *krävs* för att stödja AVX2. Containern fungerar *inte* korrekt utan AVX2-stöd.
+> Värddatorn *krävs* för att stödja AVX2. Behållaren *fungerar inte* korrekt utan AVX2-stöd.
 
-### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
+### <a name="container-requirements-and-recommendations"></a>Krav och rekommendationer för behållare
 
 [!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
-## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållaravbildningen med`docker pull`
 
-Behållar avbildningar för läsning är tillgängliga.
+Behållaravbildningar för Läsning är tillgängliga.
 
-| Container | Container Registry/namn på lagrings plats/avbildning |
+| Container | Behållarens register / Databas / Bildnamn |
 |-----------|------------|
 | Läsa | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
 
-Använd kommandot [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållar avbildning.
+Använd [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) kommandot för att hämta en behållaravbildning.
 
-### <a name="docker-pull-for-the-read-container"></a>Docker pull för Läs behållaren
+### <a name="docker-pull-for-the-read-container"></a>Docker dra för Läsbehållaren
 
 ```bash
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
@@ -78,18 +78,18 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-## <a name="how-to-use-the-container"></a>Använda behållaren
+## <a name="how-to-use-the-container"></a>Så här använder du behållaren
 
-När behållaren är på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren finns på [värddatorn](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
-1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](computer-vision-resource-container-config.md) på `docker run` kommandot är tillgängliga. 
-1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint). 
+1. [Kör behållaren](#run-the-container-with-docker-run)med de faktureringsinställningar som krävs. Fler [exempel](computer-vision-resource-container-config.md) `docker run` på kommandot är tillgängliga. 
+1. [Fråga behållarens förutsägelseslutpunkt](#query-the-containers-prediction-endpoint). 
 
-## <a name="run-the-container-with-docker-run"></a>Kör behållaren med `docker run`
+## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
-Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Information om hur du hämtar `{ENDPOINT_URI}`-och `{API_KEY}`-värden finns i avsnittet om [obligatoriska parametrar](#gathering-required-parameters) .
+Använd [kommandot docker run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Se [samla in nödvändiga parametrar](#gathering-required-parameters) för `{ENDPOINT_URI}` information `{API_KEY}` om hur du får och värden.
 
-[Exempel](computer-vision-resource-container-config.md#example-docker-run-commands) på kommandot `docker run` är tillgängliga.
+[Exempel](computer-vision-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
@@ -101,15 +101,15 @@ ApiKey={API_KEY}
 
 Det här kommandot:
 
-* Kör Läs containern från behållar avbildningen.
-* Allokerar 8 processor kärnor och 16 GB minne.
+* Kör läskbehållaren från behållaravbildningen.
+* Allokerar 8 CPU-kärnor och 16 GB minne.
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+* Tar automatiskt bort behållaren när den har avslutats. Behållaravbildningen är fortfarande tillgänglig på värddatorn.
 
-Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
+Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run-commands) `docker run` på kommandot är tillgängliga. 
 
 > [!IMPORTANT]
-> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
+> Alternativen `Eula` `Billing`, `ApiKey` och måste anges för att behållaren ska kunna köras. Annars startar inte behållaren.  Mer information finns i [Fakturering](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -117,21 +117,21 @@ Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
+## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelseslutpunkt
 
-Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse. 
+Behållaren tillhandahåller REST-baserade slutpunkts-API:er för frågeförutsägels. 
 
-Använd värden `http://localhost:5000`för behållar-API: er.
+Använd värden, `http://localhost:5000`för behållar-API:er.
 
 ### <a name="asynchronous-read"></a>Asynkron läsning
 
-Du kan använda `POST /vision/v2.0/read/core/asyncBatchAnalyze` och `GET /vision/v2.0/read/operations/{operationId}` åtgärder i samförstånd för att läsa en avbildning asynkront, på liknande sätt som i Visuellt innehåll tjänsten använder motsvarande REST-åtgärder. Den asynkrona POST metoden returnerar ett `operationId` som används som identifierare till HTTP GET-begäran.
+Du kan `POST /vision/v2.0/read/core/asyncBatchAnalyze` använda `GET /vision/v2.0/read/operations/{operationId}` och åtgärder i samförstånd för att asynkront läsa en bild, liknande hur tjänsten Datorseende använder motsvarande REST-åtgärder. Den asynkrona POST-metoden `operationId` returnerar en som används som identifer till HTTP GET-begäran.
 
-I Swagger-ANVÄNDARGRÄNSSNITTET väljer du `asyncBatchAnalyze` för att expandera den i webbläsaren. Välj sedan **försök** > **Välj fil**. I det här exemplet ska vi använda följande bild:
+Välj för att expandera det `asyncBatchAnalyze` i webbläsaren i användargränssnittet i swagger.From the swagger UI, select the to expand it in the browser. Välj sedan **Prova** > **fil**. I det här exemplet använder vi följande bild:
 
-![tabbar eller blank steg](media/tabs-vs-spaces.png)
+![flikar vs blanksteg](media/tabs-vs-spaces.png)
 
-När det asynkrona inlägget har körts returneras en status kod för **HTTP 202** . Som en del av svaret finns ett `operation-location`-huvud som innehåller slut punkten för begäran.
+När asynkront POST har körts returneras en **HTTP 202-statuskod.** Som en del av svaret `operation-location` finns det ett huvud som innehåller resultatslutpunkten för begäran.
 
 ```http
  content-length: 0
@@ -140,7 +140,7 @@ När det asynkrona inlägget har körts returneras en status kod för **HTTP 202
  server: Kestrel
 ```
 
-`operation-location` är den fullständigt kvalificerade URL: en och nås via en HTTP GET. Här är JSON-svaret från att köra `operation-location`-URL: en från föregående bild:
+Den `operation-location` är den fullt kvalificerade WEBBADRESSEN och nås via en HTTP GET. Här är JSON-svaret från `operation-location` att köra webbadressen från föregående bild:
 
 ```json
 {
@@ -186,7 +186,7 @@ När det asynkrona inlägget har körts returneras en status kod för **HTTP 202
 
 ### <a name="synchronous-read"></a>Synkron läsning
 
-Du kan använda åtgärden `POST /vision/v2.0/read/core/Analyze` för att synkront läsa en avbildning. När bilden har lästs in helt och hållet returnerar API: et ett JSON-svar. Det enda undantaget är om ett fel inträffar. När ett fel inträffar returneras följande JSON:
+Du kan `POST /vision/v2.0/read/core/Analyze` använda åtgärden för att synkroniskt läsa en bild. När bilden läses i sin helhet, då och först då returnerar API:et ett JSON-svar. Det enda undantaget är om ett fel inträffar. När ett fel uppstår returneras följande JSON:
 
 ```json
 {
@@ -194,7 +194,7 @@ Du kan använda åtgärden `POST /vision/v2.0/read/core/Analyze` för att synkro
 }
 ```
 
-Objektet JSON Response har samma objekt diagram som den asynkrona versionen. Om du är en JavaScript-användare och vill ha typ säkerhet kan följande typer användas för att omvandla JSON-svaret som ett `AnalyzeResult`-objekt.
+JSON-svarsobjektet har samma objektdiagram som den asynkrona versionen. Om du är JavaScript-användare och vill ha typsäkerhet kan följande typer användas `AnalyzeResult` för att casta JSON-svaret som ett objekt.
 
 ```typescript
 export interface AnalyzeResult {
@@ -241,25 +241,25 @@ export interface Word {
 }
 ```
 
-Ett exempel på användnings fall finns i <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">sand Box typescript- <span class="docon docon-navigate-external x-hidden-focus"></span> sandbox här</a> och välj **Kör** för att visualisera den lättanvända användningen.
+Ett exempel på användningsfall finns i <a href="https://aka.ms/ts-read-api-types" target="_blank" rel="noopener noreferrer">Sandlådan <span class="docon docon-navigate-external x-hidden-focus"></span> TypeScript här</a> och väljer **Kör** för att visualisera dess användarvänlighet.
 
-## <a name="stop-the-container"></a>Stoppa behållaren
+## <a name="stop-the-container"></a>Stoppa containern
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du kör behållaren med en utgående [montering](./computer-vision-resource-container-config.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
+Om du kör behållaren med en [utdatamontering](./computer-vision-resource-container-config.md#mount-settings) och loggning aktiverad genererar behållaren loggfiler som är användbara för att felsöka problem som inträffar när du startar eller kör behållaren.
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 
-Cognitive Services behållare skickar fakturerings information till Azure med motsvarande resurs på ditt Azure-konto.
+Cognitive Services-behållarna skickar faktureringsinformation till Azure med motsvarande resurs på ditt Azure-konto.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om dessa alternativ finns i [Configure containers](./computer-vision-resource-container-config.md).
+Mer information om dessa alternativ finns i [Konfigurera behållare](./computer-vision-resource-container-config.md).
 
 <!--blogs/samples/video course -->
 
@@ -267,21 +267,21 @@ Mer information om dessa alternativ finns i [Configure containers](./computer-vi
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och visuellt behållare som körs. Sammanfattning:
+I den här artikeln har du lärt dig begrepp och arbetsflöden för att hämta, installera och köra Datorseende behållare. Sammanfattningsvis:
 
-* Visuellt innehåll tillhandahåller en Linux-behållare för Docker, inkapsling av läsa.
-* Behållar avbildningar laddas ned från behållar förhands gransknings registret i Azure.
-* Behållaravbildningar som körs i Docker.
-* Du kan använda antingen REST API eller SDK för att anropa åtgärder i Read containers genom att ange värd-URI för behållaren.
-* Du måste ange faktureringsinformation när instanser skapades av en behållare.
+* Computer Vision tillhandahåller en Linux-behållare för Docker, kapsla in Read.
+* Behållaravbildningar hämtas från behållarförhandsgranskningsregistret i Azure.
+* Behållaravbildningar körs i Docker.
+* Du kan använda antingen REST API eller SDK för att anropa åtgärder i Läs-behållare genom att ange behållarens värd-URI.
+* Du måste ange faktureringsinformation när du instansierar en behållare.
 
 > [!IMPORTANT]
-> Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services behållare skickar inte kund information (till exempel den bild eller text som analyseras) till Microsoft.
+> Cognitive Services-behållare är inte licensierade för att köras utan att vara anslutna till Azure för mätning. Kunderna måste alltid kunna kommunicera faktureringsinformation med mätartjänsten. Cognitive Services-behållare skickar inte kunddata (till exempel den bild eller text som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Granska [Konfigurera behållare](computer-vision-resource-container-config.md) för konfigurations inställningar
-* Läs [visuellt innehåll översikt](Home.md) och lär dig mer om att känna igen utskrift och handskriven text
-* Mer information om de metoder som stöds av behållaren finns i [API för visuellt innehåll](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
-* Läs vanliga [frågor och svar (FAQ)](FAQ.md) för att lösa problem som rör visuellt innehåll-funktioner.
-* Använd fler [Cognitive Services behållare](../cognitive-services-container-support.md)
+* Granska [Konfigurera behållare](computer-vision-resource-container-config.md) för konfigurationsinställningar
+* Granska [översikten Över visuellt](Home.md) innehåll om du vill veta mer om hur du känner igen tryckt och handskriven text
+* Mer information om de metoder som stöds av behållaren finns i [API:et](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) för visuellt innehåll.
+* Se [Vanliga frågor och svar om](FAQ.md) vanliga frågor och svar för att lösa problem som rör datorseendefunktioner.
+* Använda fler [Cognitive Services-behållare](../cognitive-services-container-support.md)

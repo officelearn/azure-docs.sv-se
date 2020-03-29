@@ -1,7 +1,7 @@
 ---
-title: Hur du använder rangordning för att visa sökresultat - API för webbsökning i Bing
+title: Så här använder du rankningar för att visa sökresultat - API för webbsökning
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du använder rangordning för att visa sökresultat från Bing Web Search API.
+description: Lär dig hur du använder rankning för att visa sökresultat från API:et för webbsökning på Bing.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -12,29 +12,29 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 677f6089f649aae720a6303a7e1512e3c7ebeca7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66390123"
 ---
-# <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Hur du använder rangordning för att visa resultat för webbsökning i Bing  
+# <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Så här använder du rankning för att visa API-resultat för webbsökning på Bing  
 
-Varje sökning svaret innehåller en [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) svar som anger hur du måste visa sökresultatet. Rangordning svaret grupperar resultaten av mainline innehållet och sidopanelen innehåll för en traditionell sökresultat sidan. Om du inte visa resultatet i en traditionell likriktade och sidopanelen format, måste du ange likriktade innehåll högre synlighet än sidopanelen innehållet.  
+Varje söksvar innehåller ett [RankResponse-svar](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse) som anger hur du måste visa sökresultaten. Rankningssvaret grupperar resultat efter huvudlinjeinnehåll och sidofältsinnehåll för en traditionell sökresultatsida. Om du inte visar resultaten i ett traditionellt huvudlinje- och sidofältsformat måste du ge huvudlinjens innehåll högre synlighet än sidofältets innehåll.  
 
-Inom varje grupp (mainline eller sidopanelen), [objekt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) matris identifierar den ordning som innehållet måste finnas i. Varje objekt innehåller följande två sätt att identifiera resultatet i ett svar.  
+Inom varje grupp (huvudlinje eller sidofält) identifierar matrisen [Objekt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) den ordning som innehållet måste visas i. Varje objekt innehåller följande två sätt att identifiera resultatet i ett svar.  
 
--   `answerType` och `resultIndex` – den `answerType` fältet identifierar svar (till exempel webbsidan eller nyheter) och `resultIndex` identifierar ett resultat i svaret (till exempel nyhetsartikel). Indexet är nollbaserat.  
+-   `answerType`och `resultIndex` — `answerType` Fältet identifierar svaret (till exempel Webbsida `resultIndex` eller Nyheter) och identifierar ett resultat i svaret (till exempel en nyhetsartikel). Indexet är nollbaserat.  
 
--   `value` – Det `value` fält innehåller ett ID som matchar ID: T för ett svar eller ett resultat i svaret. Svaret eller resultatet innehålla ID men inte båda.  
+-   `value`— `value` Fältet innehåller ett ID som matchar ID:t för antingen ett svar eller ett resultat i svaret. Antingen svaret eller resultaten innehåller ID men inte båda.  
 
-Med hjälp av ID är enklare att använda eftersom du bara behöver matcha rangordning ID med ID: T för ett svar eller ett av resultaten. Om ett svar-objekt innehåller en `id` fältet, visa resultat som svaret finns tillsammans. Till exempel om den `News` objektet innehåller de `id` fältet, visa alla nyhetsartiklar tillsammans. Om den `News` objekt omfattar inte den `id` fältet och sedan varje nyhetsartikel innehåller en `id` fältet och svaret rangordning blandas i nyhetsartiklar med resultaten från andra svar.  
+Det är enklare att använda ID:t eftersom du bara behöver matcha ranknings-ID:t med ID:t för ett svar eller något av dess resultat. Om ett svarsobjekt innehåller ett `id` fält visar du alla svarsresultat tillsammans. Om objektet `News` till exempel `id` innehåller fältet visar du alla nyhetsartiklar tillsammans. Om `News` objektet inte innehåller `id` fältet innehåller varje nyhetsartikel `id` ett fält och rankningssvaret blandar nyhetsartiklarna med resultaten från andra svar.  
 
-Med hjälp av den `answerType` och `resultIndex` är lite mer komplicerad. Du använder `answerType` att identifiera det svar som innehåller resultatet ska visas. Sedan använder du `resultIndex` till index via svarets resultat att få resultat att visa. (Den `answerType` värdet är namnet på fältet i den [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) objekt.) Om du ska visa resultat som svaret finns tillsammans rangordning svaret objekt inte innehåller den `resultIndex` fält.  
+Använda `answerType` och `resultIndex` är lite mer komplicerat. Du `answerType` använder för att identifiera svaret som innehåller de resultat som ska visas. Sedan använder `resultIndex` du för att indexera genom svarets resultat för att få resultatet att visas. (Värdet `answerType` är namnet på fältet i [SearchResponse-objektet.)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) Om du ska visa alla svarsresultat tillsammans innehåller svarsobjektet inte `resultIndex` fältet.  
 
-## <a name="ranking-response-example"></a>Rangordning svar-exempel
+## <a name="ranking-response-example"></a>Exempel på rankningssvar
 
-Följande visar ett exempel [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Web-svaret inte innehåller en `id` fält, visa alla webbsidor individuellt baserat på rangordning (varje webbsidan innehåller en `id` fältet). Och eftersom de bilder, videoklipp och relaterade sökningar svar omfattar den `id` fält, visa resultatet av var och en av dessa tillsammans svar baserat på rangordning.
+Följande visar ett exempel [på RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Eftersom webbsvaret inte `id` innehåller något fält visas alla webbsidor individuellt baserat på rangordningen (varje webbsida innehåller ett `id` fält). Och eftersom bilderna, videorna och relaterade `id` sökningar svaren innehåller fältet, visar du resultaten av vart och ett av dessa svar tillsammans baserat på rangordningen.
 
 ```json
 {  
@@ -205,23 +205,23 @@ Följande visar ett exempel [RankingResponse](https://docs.microsoft.com/rest/ap
 }  
 ```  
 
-Baserat på den här rangordning svar, visar det likriktade följande sökresultat:  
+Baserat på det här rankningssvaret visar huvudlinjen följande sökresultat:  
 
--   Det första resultatet för webbsida
--   Alla avbildningar  
--   Andra och tredje webbsidan resultaten  
+-   Det första webbsidans resultat
+-   Alla bilder  
+-   Den andra och tredje webbsidan resultat  
 -   Alla videor  
--   4, 5 och 6 webbsidan resultaten  
+-   Den 4: e, 5: e och 6: e webbsidan resultat  
 
-Och sidopanelen skulle visa följande sökresultat:  
+Och sidofältet skulle visa följande sökresultat:  
 
 -   Alla relaterade sökningar  
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du lyfter unranked resultat finns i [befordrar svar som inte rangordnas](./filter-answers.md#promoting-answers-that-are-not-ranked).
+Information om hur du marknadsför orankade resultat finns i [Marknadsför svar som inte rankas](./filter-answers.md#promoting-answers-that-are-not-ranked).
 
-Information om hur du begränsar antalet rankad svar i svaret finns i [begränsningen av antalet svar i svaret](./filter-answers.md#limiting-the-number-of-answers-in-the-response).
+Information om hur du begränsar antalet rangordnade svar i svaret finns [i Begränsa antalet svar i svaret](./filter-answers.md#limiting-the-number-of-answers-in-the-response).
 
-En C# exempel som använder rangordning för att visa resultat finns i [rangordning självstudie i C#](./csharp-ranking-tutorial.md).
+Ett C#-exempel som använder rankning för att visa resultat finns i [självstudiekursen C#ranking](./csharp-ranking-tutorial.md).

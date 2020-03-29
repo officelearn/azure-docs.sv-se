@@ -1,7 +1,7 @@
 ---
-title: Publicera app – LUIS
+title: Publicera app - LUIS
 titleSuffix: Azure Cognitive Services
-description: När du är klar att skapa och testa active LUIS-appen blir tillgänglig för klientprogrammet genom att publicera den till slutpunkten.
+description: När du är klar med att skapa och testa din aktiva LUIS-app gör du den tillgänglig för klientprogrammet genom att publicera den till slutpunkten.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,88 +11,88 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c91a3ca73d70dd5fd2848bed0f43f14a817087d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79220890"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053437"
 ---
-# <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicera din aktiva, utbildade app till en mellanlagrings-eller produktions slut punkt
+# <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicera din aktiva, tränade app till en mellanlagrings- eller produktionsslutpunkt
 
-När du har skapat, tränat och testat din aktiva LUIS-app, gör du den tillgänglig för klient programmet genom att publicera den till slut punkten. 
+När du är klar med att skapa, träna och testa din aktiva LUIS-app gör du den tillgänglig för klientprogrammet genom att publicera den till slutpunkten. 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## <a name="publishing"></a>Publicera
 
-1. Om du vill publicera till slut punkten väljer du **publicera** i den övre högra panelen. 
+1. Om du vill publicera till slutpunkten väljer du **Publicera** i den övre högra panelen. 
 
-    ![Knappen publicera överst, höger navigerings fält](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+    ![Knappen Publicera i övre, högra navigeringsfältet](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-1. Välj inställningar för den publicerade förutsägelse slut punkten och välj sedan **publicera**.
+1. Välj dina inställningar för den publicerade slutpunkten för förutsägelse och välj sedan **Publicera**.
 
-    ![Välj publicerings inställningar och sedan knappen publicera](./media/luis-how-to-publish-app/publish-pop-up.png)
+    ![Välj publiceringsinställningar och välj sedan knappen Publicera](./media/luis-how-to-publish-app/publish-pop-up.png)
 
-### <a name="publishing-slots"></a>Publicerings platser
+### <a name="publishing-slots"></a>Publicering av ankomst- och avgångstider
 
 Välj rätt plats när popup-fönstret visas: 
 
 * Mellanlagring
 * Produktion 
 
-Genom att använda både publicerings platser kan du välja att ha två olika versioner av din app tillgängliga på de publicerade slut punkterna eller samma version på två olika slut punkter. 
+Genom att använda båda publiceringsplatserna kan du ha två olika versioner av appen tillgängliga vid de publicerade slutpunkterna eller samma version på två olika slutpunkter. 
 
-### <a name="publishing-regions"></a>Publicera regioner
+### <a name="publishing-regions"></a>Publiceringsregioner
 
-Appen publiceras till alla regioner som är kopplade till resurserna för LUIS förutsägelse slut punkt som lagts till i LUIS-portalen från sidan **hantera** ->  **[Azure-resurser](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
+Appen publiceras i alla regioner som är associerade med slutpunktsresurserna LUIS-förutsägelse som lagts till i LUIS-portalen från sidan **Hantera** -> **[Azure-resurser.](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** 
 
-Till exempel, för en app som skapas på [www.Luis.AI](https://www.luis.ai), om du skapar en Luis-resurs i två regioner, **väster** och **östra**, och lägger till dem i appen som resurser, publiceras appen i båda regionerna. Mer information om LUIS-regioner finns i [regioner](luis-reference-regions.md).
+För en app som skapats på [www.luis.ai](https://www.luis.ai), om du skapar en LUIS-resurs i två regioner, **westus** och **eastus**och lägger till dessa i appen som resurser, publiceras appen i båda regionerna. Mer information om LUIS-regioner finns i [Regioner](luis-reference-regions.md).
 
 > [!TIP]
-> Det finns 3 redigerings regioner. Du måste redigera i den region som du ska publicera till. Om du behöver publicera i alla regioner måste du hantera redigerings processen och den resulterande tränade modellen i alla tre redigerings regionerna. 
+> Det finns 3 författarregioner. Du måste skapa i den region som du tänker publicera till. Om du behöver publicera i alla regioner måste du hantera redigeringsprocessen och den resulterande tränade modellen i alla tre redigeringsregioner. 
 
 
-## <a name="configuring-publish-settings"></a>Konfigurera inställningar för publicering
+## <a name="configuring-publish-settings"></a>Konfigurera publiceringsinställningar
 
-När du har valt plats, konfigurerar du publicerings inställningarna för:
+När du har valt plats konfigurerar du publiceringsinställningarna för:
 
-* Attitydanalys
-* Stavnings korrigering – v2 endast förutsägelse slut punkt
-* Tal Prima 
+* Sentimentanalys
+* Stavningskorrigering - endast v2-förutsägelseslutpunkt
+* Tal priming 
 
-När du har publicerat är de här inställningarna tillgängliga för granskning på sidan hantera **publicerings inställningar** i avsnittet **Hantera** . Du kan ändra inställningarna med varje publicering. Om du avbryter en publicering avbryts även eventuella ändringar som du har gjort under publiceringen. 
+När du har publicerat kan dessa inställningar granskas från sidan **Hantera** **inställningar.** Du kan ändra inställningarna för varje publicering. Om du avbryter en publicering avbryts även alla ändringar som du gjorde under publiceringen. 
 
-### <a name="when-your-app-is-published"></a>När din app publiceras
+### <a name="when-your-app-is-published"></a>När appen publiceras
 
-När din app har publicerats visas ett meddelande längst upp i webbläsaren. Meddelandet innehåller också en länk till slut punkterna. 
+När appen har publicerats visas ett meddelande om lyckade uppgifter högst upp i webbläsaren. Meddelandet innehåller också en länk till slutpunkterna. 
 
-Välj länken om du behöver slutpunkts-URL. Du kan också gå till URL-adresserna för slut punkter genom att välja **Hantera** i den översta menyn och sedan välja **Azure-resurser** på den vänstra menyn. 
+Om du behöver slutpunkts-URL:en väljer du länken. Du kan också komma åt slutpunktsadresserna genom att välja **Hantera** i den övre menyn och sedan välja **Azure-resurser** på den vänstra menyn. 
 
-## <a name="sentiment-analysis"></a>Attitydanalys
+## <a name="sentiment-analysis"></a>Sentimentanalys
 
 <a name="enable-sentiment-analysis"></a>
 
-Sentiment-analys gör det möjligt för LUIS att integrera med [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för att tillhandahålla sentiment och nyckel fras analys. 
+Sentimentanalys gör det möjligt för LUIS att integrera med [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) för att ge sentiment och nyckelfrasanalys. 
 
-Du behöver inte ange en nyckel för textanalys och det är kostnadsfritt faktureringen för den här tjänsten på Azure-kontot. 
+Du behöver inte ange en Text Analytics-nyckel och det finns ingen faktureringsavgift för den här tjänsten till ditt Azure-konto. 
 
-Åsiktsdata är ett värde mellan 1 och 0 som anger vilka positiva (närmare 1) eller ett negativt (närmare 0) känsla av data. Sentiment-etiketten för `positive`, `neutral`och `negative` är per kultur som stöds. För närvarande stöder endast engelska sentiment-etiketter. 
+Sentimentdata är en poäng mellan 1 och 0 som anger den positiva (närmare 1) eller negativa (närmare 0) sentimentet för data. Sentimentetiketten `neutral`för `negative` `positive`, och är per kultur som stöds. För närvarande stöder endast engelska sentimentetiketter. 
 
-Mer information om JSON-slutpunktens svar med sentiment-analys finns i [sentiment-analys](luis-concept-data-extraction.md#sentiment-analysis)
+Mer information om JSON-slutpunktssvaret med sentimentanalys finns i [Sentimentanalys](luis-concept-data-extraction.md#sentiment-analysis)
 
-## <a name="spelling-correction"></a>Stavnings korrigering
+## <a name="spelling-correction"></a>Stavningskorrigering
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
-Korrigeringar av stavning görs före LUIS User uttryck förutsägelse. Du kan se ändringar i den ursprungliga uttryck, inklusive stavning, i svaret.
+Stavningskorrigeringar görs innan FÖRUTSÄGELSEN OM LUIS-användares uttryck. Du kan se eventuella ändringar i det ursprungliga uttrycket, inklusive stavning, i svaret.
 
-## <a name="speech-priming"></a>Tal Prima
+## <a name="speech-priming"></a>Tal priming
 
-Tal Prima är den process som används för att skicka LUIS-modellen till tal tjänster före konvertering av text till tal. Detta gör att röst tjänsten ger tal konverteringen mer exakt för din modell. Detta tillåter robot tal-och LUIS-begäranden och svar i ett anrop genom att göra ett tal samtal och få tillbaka ett LUIS-svar. Det ger mindre latens.
+Talpriming är processen att använda skicka LUIS-modellen till Tal tjänster före konvertering av text till tal. På så sätt kan taltjänsten ge talkonvertering mer exakt för din modell. Detta gör bot Tal och LUIS förfrågningar och svar i ett samtal genom att göra ett tal samtal och få tillbaka en LUIS svar. Det ger mindre latens totalt sett.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [Hantera nycklar](./luis-how-to-azure-subscription.md) för att lägga till nycklar till Azure-prenumerationen i Luis och hur du ställer in stavningskontroll i Bing nyckel och inkluderar alla avsikter i resultat.
-* Se [träna och testa din app](luis-interactive-test.md) för instruktioner om hur du testar din publicerade app i test konsolen.
+* Se [Hantera nycklar](./luis-how-to-azure-subscription.md) för att lägga till nycklar till Azure-prenumerationsnyckeln i LUIS och hur du ställer in Bing-stavningskontroll-tangenten och inkluderar alla avsikter i resultaten.
+* Se [Träna och testa appen](luis-interactive-test.md) för instruktioner om hur du testar din publicerade app i testkonsolen.
 

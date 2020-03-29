@@ -1,7 +1,7 @@
 ---
-title: Bild beskrivningar – Visuellt innehåll
+title: Bildbeskrivningar - Datorseende
 titleSuffix: Azure Cognitive Services
-description: Begrepp relaterade till bild beskrivnings funktionen i API för visuellt innehåll.
+description: Begrepp relaterade till bildbeskrivningsfunktionen i API:et för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: dcf61c642a9f8ad7aa68d72736ce8fdb0e9a6e3c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7bf95a2b49608ef1f031a3b443db92b42cdae624
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945268"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244723"
 ---
-# <a name="describe-images-with-human-readable-language"></a>Beskriv bilder med läsligt språk
+# <a name="describe-images-with-human-readable-language"></a>Beskriva bilder med läsbart språk som kan läsas av människor
 
-Visuellt innehåll kan analysera en bild och generera en läslig mening som beskriver dess innehåll. Algoritmen returnerar flera beskrivningar baserat på olika visuella funktioner, och varje beskrivning får en säkerhets poäng. Slutgiltiga utdata är en lista över beskrivningar som har beställts från högst till lägsta förtroende.
+Computer Vision kan analysera en bild och generera en mänsklig läsbar mening som beskriver dess innehåll. Algoritmen returnerar faktiskt flera beskrivningar baserat på olika visuella funktioner, och varje beskrivning får en konfidenspoäng. Den slutliga utdata är en lista över beskrivningar som beställts från högsta till lägsta förtroende.
 
-## <a name="image-description-example"></a>Bild beskrivnings exempel
+## <a name="image-description-example"></a>Exempel på bildbeskrivning
 
-Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när du beskriver exempel bilden baserat på dess visuella funktioner.
+Följande JSON-svar illustrerar vad Datorseende returnerar när du beskriver exempelbilden baserat på dess visuella funktioner.
 
-![En svart och vit bild av byggnader i Manhattan](./Images/bw_buildings.png)
+![En svartvit bild av byggnader på Manhattan](./Images/bw_buildings.png)
 
 ```json
 {
@@ -56,6 +56,13 @@ Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när du beskri
 }
 ```
 
+## <a name="use-the-api"></a>Använda API:et
+
+Bildbeskrivningsfunktionen är en del av [Api:et för analyseravbildning.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Du kan anropa det här API:et via en inbyggd SDK eller via REST-anrop. Inkludera `Description` i frågeparametern **visualFeatures.** Sedan, när du får hela JSON svar, helt enkelt tolka `"description"` strängen för innehållet i avsnittet.
+
+* [Snabbstart: Datorseende .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp om att [Tagga bilder](concept-tagging-images.md) och [kategorisera bilder](concept-categorizing-images.md).
+Lär dig de relaterade begreppen [att tagga bilder](concept-tagging-images.md) och [kategorisera bilder](concept-categorizing-images.md).

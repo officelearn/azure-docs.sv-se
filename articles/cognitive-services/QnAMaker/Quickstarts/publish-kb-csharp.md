@@ -1,41 +1,41 @@
 ---
-title: 'Snabb start: publicera kunskaps bas, C# rest,-QNA Maker'
-description: Den C# här rest-baserade snabb starten publicerar din kunskaps bas och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
+title: 'Snabbstart: Publicera kunskapsbas, REST, C# - QnA Maker'
+description: Den här C# REST-baserade snabbstarten publicerar din kunskapsbas och skapar en slutpunkt som kan anropas i ditt program eller chattrobot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 0a2f64795d82928e33a10c7e9d162f2333cdf7bf
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851711"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med C#
 
-Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publiceringen skickar push-överför den senaste versionen av kunskaps basen till ett dedikerat Azure Kognitiv sökning-index och skapar en slut punkt som kan anropas i ditt program eller chatt-robot.
+Den här REST-baserade snabbstarten går igenom hur du programmatiskt publicerar din kunskapsbas (KB). Publicering skickar den senaste versionen av kunskapsbasen till ett dedikerat Azure Cognitive Search-index och skapar en slutpunkt som kan anropas i ditt program eller chattrobot.
 
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) (Publicera) – detta API kräver inte någon information i brödtexten för begäran.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
-* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
-* QnA Maker kunskaps bas (KB) ID hittades i URL: en i URL: en för frågesträngen `kbid` som visas nedan.
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta nyckeln och slutpunkten (som innehåller resursnamnet) väljer du **Snabbstart** för din resurs i Azure-portalen.
+* QnA Maker-knowledge base-ID (KB) `kbid` som finns i URL:en i frågesträngparametern enligt nedan.
 
     ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
     Om du inte har en kunskapsbas ännu kan du kan skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas](create-new-kb-csharp.md).
 
 > [!NOTE]
-> Kompletta lösningsfiler är tillgängliga från [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> De fullständiga lösningsfilerna är tillgängliga från [ **Azure-Samples/cognitive-services-qnamaker-csharp GitHub-databasen** ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-knowledge-base-project"></a>Skapa kunskapsbasprojekt
 
-1. Öppna Visual Studio 2019 Community Edition.
-1. Skapa ett nytt **konsol program (.net Core)-** projekt och namnge projektet `QnaMakerQuickstart`. Godkänn standardinställningarna för de återstående inställningarna.
+1. Öppna Visual Studio 2019 Community edition.
+1. Skapa ett nytt **Console App-projekt (.NET Core)** och namnge projektet `QnaMakerQuickstart`. Godkänn standardinställningarna för de återstående inställningarna.
 
 ## <a name="add-required-dependencies"></a>Lägga till nödvändiga beroenden
 
@@ -45,11 +45,11 @@ Den här snabbstarten anropar API:er för QnA Maker:
 
 ## <a name="add-required-constants"></a>Lägg till nödvändiga konstanter
 
-I **program** -klassen lägger du till de konstanter som krävs för att få åtkomst till QNA Maker.
+I klassen **Program** lägger du till de konstanter som krävs för att komma åt QnA Maker.
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=8-34 "Add the required constants")]
 
-## <a name="add-the-main-method-to-publish-the-knowledge-base"></a>Lägg till main-metoden för att publicera kunskaps basen
+## <a name="add-the-main-method-to-publish-the-knowledge-base"></a>Lägg till huvudmetoden för att publicera kunskapsbasen
 
 Efter konstanterna som krävs lägger du till följande kod, som gör en HTTPS-begäran för API:et för QnA Maker för att publicera en kunskapsbas och tar emot svaret:
 

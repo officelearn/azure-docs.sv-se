@@ -1,7 +1,7 @@
 ---
-title: Avancerad läsare SDK-referens
+title: Uppslukande läsare SDK-referens
 titleSuffix: Azure Cognitive Services
-description: 'SDK: n för avancerad läsare innehåller ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt program.'
+description: Den uppslukande Reader SDK innehåller ett JavaScript-bibliotek som låter dig integrera Immersive Reader i ditt program.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
 ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76156411"
 ---
-# <a name="immersive-reader-sdk-reference-guide"></a>Referens guide för avancerad läsare SDK
+# <a name="immersive-reader-sdk-reference-guide"></a>Referensguide för för en uppslukande läsare SDK
 
-SDK: n för avancerad läsare innehåller ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt program.
+Den uppslukande Reader SDK innehåller ett JavaScript-bibliotek som låter dig integrera Immersive Reader i ditt program.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
-SDK: n visar funktionerna:
+SDK exponerar funktionerna:
 
 - [`ImmersiveReader.launchAsync(token, subdomain, content, options)`](#launchasync)
 
@@ -33,7 +33,7 @@ SDK: n visar funktionerna:
 
 ## <a name="launchasync"></a>launchAsync
 
-Startar den fördjupade läsaren i en `iframe` i ditt webb program.
+Startar Immersive Reader i `iframe` en i din webbapplikation.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
@@ -44,23 +44,23 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | `token` | sträng | Azure AD-autentiseringstoken. |
-| `subdomain` | sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. |
-| `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
-| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfri. |
+| `subdomain` | sträng | Den anpassade underdomänen för din Immersive Reader-resurs i Azure. |
+| `content` | [Innehåll](#content) | Ett objekt som innehåller innehållet som ska visas i Immersive Reader. |
+| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden i Immersive Reader. Valfri. |
 
 ### <a name="returns"></a>Returnerar
 
-Returnerar ett `Promise<LaunchResponse>`som löses när den fördjupade läsaren läses in. `Promise` matchar ett [`LaunchResponse`](#launchresponse) -objekt.
+Returnerar `Promise<LaunchResponse>`en , som löser när den uppslukande läsaren läses in. Den `Promise` löser till [`LaunchResponse`](#launchresponse) ett objekt.
 
 ### <a name="exceptions"></a>Undantag
 
-Den returnerade `Promise` avvisas med ett [`Error`](#error) -objekt om den fördjupade läsaren inte kan läsas in. Mer information finns i [fel koderna](#error-codes).
+Den returnerade `Promise` avvisas [`Error`](#error) med ett objekt om Immersive Reader inte kan läsas in. Mer information finns i [felkoderna](#error-codes).
 
 ## <a name="close"></a>stäng
 
-Stänger den fördjupade läsaren.
+Stänger Immersive Reader.
 
-Ett exempel på användnings fall är om knappen Avsluta är dold genom att ange ```hideExitButton: true``` i [alternativ](#options). Sedan kan en annan knapp (till exempel ett mobil huvuds bakre pil) anropa den här ```close``` funktionen när den klickas.
+Ett exempel på användningsfall för den här ```hideExitButton: true``` funktionen är om stängningsknappen döljs genom att du ställer in [alternativ](#options). Sedan kan en annan knapp (till exempel en bakåtpil ```close``` för mobilhuvudet) anropa den här funktionen när du klickar på den.
 
 ```typescript
 close(): void;
@@ -68,11 +68,11 @@ close(): void;
 
 ## <a name="renderbuttons"></a>renderButtons
 
-Den här funktionen formaterar och uppdaterar dokumentets fördjupade läsa knapp element. Om ```options.elements``` anges återger den här funktionen knappar i ```options.elements```. Annars återges knapparna i dokumentets element som har klassen ```immersive-reader-button```.
+Den här funktionen utformar och uppdaterar dokumentets immersive Reader-knappelement. Om ```options.elements``` det finns, kommer den ```options.elements```här funktionen att återge knappar i . Annars återges knapparna i dokumentets element som har ```immersive-reader-button```klassen .
 
-Den här funktionen anropas automatiskt av SDK: n när fönstret läses in.
+Den här funktionen anropas automatiskt av SDK när fönstret läses in.
 
-Se [valfria attribut](#optional-attributes) för fler åter givnings alternativ.
+Se [Valfria attribut](#optional-attributes) för fler återgivningsalternativ.
 
 ```typescript
 renderButtons(options?: RenderButtonsOptions): void;
@@ -82,13 +82,13 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 | Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Alternativ för att konfigurera vissa beteenden för funktionen renderButtons. Valfri. |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Alternativ för att konfigurera vissa beteenden i funktionen renderButtons. Valfri. |
 
 ## <a name="types"></a>Typer
 
 ### <a name="content"></a>Innehåll
 
-Innehåller det innehåll som ska visas i den fördjupade läsaren.
+Innehåller innehållet som ska visas i Immersive Reader.
 
 ```typescript
 {
@@ -99,7 +99,7 @@ Innehåller det innehåll som ska visas i den fördjupade läsaren.
 
 ### <a name="chunk"></a>Segment
 
-Ett enda data segment som skickas till innehållet i den fördjupade läsaren.
+En enda bit data, som kommer att skickas in i innehållet i den uppslukande läsaren.
 
 ```typescript
 {
@@ -120,9 +120,9 @@ Innehåller svaret från anropet till `ImmersiveReader.launchAsync`.
 }
 ```
 
-### <a name="cookiepolicy-enum"></a>CookiePolicy Enum
+### <a name="cookiepolicy-enum"></a>CookiePolicy uppräkning
 
-En uppräkning som används för att ange principen för avancerad läsares cookie-användning. Se [alternativ](#options).
+En uppräkning som används för att ange principen för Immersive Reader cookie-användning. Se [alternativ](#options).
 
 ```typescript
 enum CookiePolicy { Disable, Enable }
@@ -132,25 +132,25 @@ enum CookiePolicy { Disable, Enable }
 
 | MIME-typ | Beskrivning |
 | --------- | ----------- |
-| text/oformaterat | Oformaterad text. |
+| text/oformaterad | Oformaterad text. |
 | text/html | HTML-innehåll. [Läs mer](#html-support)|
-| program/mathml + XML | MathML (matematiskt Markup Language). [Läs mer](./how-to/display-math.md).
-| Application/VND. openxmlformats-officedocument. WordprocessingML. Document | Dokument för Microsoft Word. docx-format.
+| program/mathml+xml | Matematiskt markeringsspråk (MathML). [Läs mer](./how-to/display-math.md).
+| application/vnd.openxmlformats-officedocument.wordprocessingml.document | Dokument i Microsoft Word .docx-format.
 
 ### <a name="html-support"></a>HTML-stöd
 
 | HTML | Innehåll som stöds |
 | --------- | ----------- |
-| Teckensnitts format | Fet, kursiv, understruken, kod, genomstruken, upphöjd, nedsänkt |
-| Osorterade listor | Skiva, cirkel, kvadrat |
-| Ordnade listor | Decimal, gemener, gemener, gemener, gemener, gemener och gemener |
+| Teckenstilar | Fetstil, kursiv, understrykning, kod, genomstruken, upphöjd, nedsänkt |
+| Osorterade listor | Skiva, Cirkel, Kvadrat |
+| Ordnade listor | Decimal, Övre alfa, nedre alfa, övre-romerska, nedre-romerska |
 | Hyperlänkar | Kommer snart |
 
-Taggar som inte stöds kommer att återges jämförbart. Bilder och tabeller stöds inte för närvarande.
+Taggar som inte stöds kommer att återges jämförbart. Bilder och tabeller stöds för närvarande inte.
 
 ### <a name="options"></a>Alternativ
 
-Innehåller egenskaper som konfigurerar vissa beteenden för den fördjupade läsaren.
+Innehåller egenskaper som konfigurerar vissa beteenden för den uppslukande läsaren.
 
 ```typescript
 {
@@ -168,7 +168,7 @@ Innehåller egenskaper som konfigurerar vissa beteenden för den fördjupade lä
 
 ### <a name="renderbuttonsoptions"></a>RenderButtonsOptions
 
-Alternativ för att återge knapparna för avancerad läsare.
+Alternativ för rendering av immersive Reader-knapparna.
 
 ```typescript
 {
@@ -189,16 +189,16 @@ Innehåller information om felet.
 
 #### <a name="error-codes"></a>Felkoder
 
-| Programmera | Beskrivning |
+| Kod | Beskrivning |
 | ---- | ----------- |
-| BadArgument | Det angivna argumentet är ogiltigt, se `message` för mer information. |
-| Timeout | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
-| TokenExpired | Angiven token har upphört att gälla. |
-| Begränsas | Anrops frekvens gränsen har överskridits. |
+| BadArgument (onda) | Det angivna argumentet är `message` ogiltigt, se för mer information. |
+| Timeout | Den uppslukande läsaren kunde inte läsas in inom den angivna tidsgränsen. |
+| TokenExpired | Den angivna token har upphört att gälla. |
+| Spjäll | Gränsen för samtalshastighet har överskridits. |
 
-## <a name="launching-the-immersive-reader"></a>Starta den fördjupade läsaren
+## <a name="launching-the-immersive-reader"></a>Starta den uppslukande läsaren
 
-SDK tillhandahåller standard formatet för knappen för att starta den fördjupade läsaren. Använd attributet `immersive-reader-button` Class för att aktivera den här formateringen. Mer information finns i [den här artikeln](./how-to-customize-launch-button.md) .
+SDK ger standardformat för knappen för att starta Immersive Reader. Använd `immersive-reader-button` klassattributet för att aktivera den här formateringen. Se [den här artikeln](./how-to-customize-launch-button.md) för mer information.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -206,17 +206,17 @@ SDK tillhandahåller standard formatet för knappen för att starta den fördjup
 
 ### <a name="optional-attributes"></a>Valfria attribut
 
-Använd följande attribut för att konfigurera utseendet och utseendet på knappen.
+Använd följande attribut för att konfigurera knappens utseende och känsla.
 
 | Attribut | Beskrivning |
 | --------- | ----------- |
-| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text`eller `iconAndText`. Som standard `icon`. |
-| `data-locale` | Anger språkvarianten. Exempel: `en-US` eller `fr-FR`. Standardvärdet är engelska `en`. |
-| `data-icon-px-size` | Anger storleken på ikonen i bild punkter. Standardvärdet är 20px. |
+| `data-button-style` | Anger knappens format. Kan `icon`vara `text`, `iconAndText`eller . Standardvärdet `icon`till . |
+| `data-locale` | Ställer in språken. Exempel: `en-US` eller `fr-FR`. Standard på `en`engelska . |
+| `data-icon-px-size` | Anger ikonens storlek i pixlar. Standardvärdet till 20px. |
 
 ## <a name="browser-support"></a>Stöd för webbläsare
 
-Använd de senaste versionerna av följande webbläsare för bästa möjliga upplevelse med avancerad läsare.
+Använd de senaste versionerna av följande webbläsare för bästa upplevelse med Immersive Reader.
 
 * Microsoft Edge
 * Internet Explorer 11
@@ -226,5 +226,5 @@ Använd de senaste versionerna av följande webbläsare för bästa möjliga upp
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Snabb start: skapa en webbapp som startar den fördjupadeC#läsaren ()](./quickstart.md)
+* Utforska [Immersive Reader SDK på GitHub](https://github.com/microsoft/immersive-reader-sdk)
+* [Snabbstart: Skapa en webbapp som startar Immersive Reader (C#)](./quickstart.md)

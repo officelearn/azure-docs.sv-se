@@ -1,7 +1,7 @@
 ---
-title: Migrera från Translator Speech API till tal tjänsten
+title: Migrera från translator-tal-API:et till taltjänsten
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du migrerar dina program från Translator Speech API till tal tjänsten.
+description: Läs om hur du migrerar dina program från Translator Speech API till taltjänsten.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,60 +11,60 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
 ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77560906"
 ---
-# <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrera från Translator Speech API till tal tjänsten
+# <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrera från translator-tal-API:et till taltjänsten
 
-Använd den här artikeln för att migrera dina program från Microsoft Translator Speech API till [tal tjänsten](index.yml). I den här guiden beskrivs skillnaderna mellan Translator Speech API-och tal tjänsten och en översikt över strategier för att migrera dina program.
+Använd den här artikeln om du vill migrera dina program från Microsoft Translator Speech API till [taltjänsten](index.yml). Den här guiden beskriver skillnaderna mellan representations-api:et och taltjänsten och föreslår strategier för att migrera dina program.
 
 > [!NOTE]
-> Din Translator Speech API prenumerations nyckel accepteras inte av tal tjänsten. Du måste skapa en ny röst tjänst prenumeration.
+> Prenumerationsnyckeln för Translator Speech API accepteras inte av taltjänsten. Du måste skapa en ny prenumeration på taltjänsten.
 
 ## <a name="comparison-of-features"></a>Jämförelse av funktioner
 
-| Funktion                                           | Translator Speech API                                  | Tjänst för taligenkänning | Detaljer                                                                                                                                                                                                                                                                            |
+| Funktion                                           | Translator Speech API                                  | Tjänst för taligenkänning | Information                                                                                                                                                                                                                                                                            |
 |---------------------------------------------------|-----------------------------------------------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Översättning till text                               | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Översättning till tal                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Global slut punkt                                   | :heavy_check_mark:                                              | : heavy_minus_sign:                 | Tal tjänsten erbjuder inte en global slut punkt. En global slut punkt kan automatiskt dirigera trafik till närmaste regionala slut punkt, vilket minskar svars tiden i ditt program.                                                    |
-| Regionala slut punkter                                | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Tids gräns för anslutning                             | 90 minuter                                               | Obegränsat med SDK. 10 minuter med en WebSockets-anslutning.                                                                                                                                                                                                                                                                                   |
-| Auth Key i rubrik                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Flera språk som har översatts i en enskild begäran | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDK: er är tillgängliga                                    | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Se [dokumentationen för tal tjänst](index.yml) för tillgängliga SDK: er.                                                                                                                                                    |
+| Global slutpunkt                                   | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Taltjänsten erbjuder ingen global slutpunkt. En global slutpunkt kan automatiskt dirigera trafik till närmaste regionala slutpunkt, vilket minskar svarstiden i ditt program.                                                    |
+| Regionala slutpunkter                                | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| Tidsgräns för anslutning                             | 90 minuter                                               | Obegränsad med SDK. 10 minuter med en WebSockets-anslutning.                                                                                                                                                                                                                                                                                   |
+| Auth-tangenten i sidhuvudet                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| Flera språk översatta i en enda begäran | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| SDK:er tillgängliga                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Se [taltjänstdokumentationen](index.yml) för tillgängliga SDK:er.                                                                                                                                                    |
 | WebSockets-anslutningar                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Språk-API                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | Tal tjänsten har stöd för samma mängd språk som beskrivs i artikeln [Translator-API språk referens](../translator-speech/languages-reference.md) . |
-| Filter och markör för svordomar                       | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| . WAV/PCM som inmatade                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Andra filtyper som indata                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
+| API för språk                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Taltjänsten stöder samma språkintervall som beskrivs i [referensartikeln för Translator API-språk.](../translator-speech/languages-reference.md) |
+| Svordomar filter och markör                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| . WAV/PCM som ingång                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
+| Andra filtyper som indata                         | :heavy_minus_sign:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Partiella resultat                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Timing-information                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
-| Korrelations-ID                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
-| Anpassade tal modeller                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Tal tjänsten erbjuder anpassade tal modeller som gör att du kan anpassa tal igenkänning till organisationens unika vokabulär.                                                                                                                                           |
-| Anpassade översättnings modeller                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Om du prenumererar på Microsoft text översättnings-API: et kan du använda [anpassad översättare](https://www.microsoft.com/translator/business/customization/) för att använda dina egna data för mer exakta översättningar.                                                 |
+| Information om tidsinställning                                       | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                 |
+| Korrelations-ID                                    | :heavy_check_mark:                                              | :heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
+| Anpassade talmodeller                              | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Taltjänsten erbjuder anpassade talmodeller som gör att du kan anpassa taligenkänning till organisationens unika ordförråd.                                                                                                                                           |
+| Anpassade översättningsmodeller                         | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Genom att prenumerera på Microsoft Text Translation API kan du använda [Custom Translator](https://www.microsoft.com/translator/business/customization/) för att använda dina egna data för mer exakta översättningar.                                                 |
 
 ## <a name="migration-strategies"></a>Migreringsstrategier
 
-Om du eller din organisation har program som är i utvecklings-eller produktions miljön som använder Translator Speech API bör du uppdatera dem så att de använder tal tjänsten. I dokumentationen för [tal tjänsten](index.yml) finns information om tillgängliga SDK: er, kod exempel och självstudier. Tänk på följande när du migrerar:
+Om du eller din organisation har program under utveckling eller produktion som använder Translator Speech API bör du uppdatera dem för att använda taltjänsten. Se [taltjänstdokumentationen](index.yml) för tillgängliga SDK:er, kodexempel och självstudier. Tänk på följande när du migrerar:
 
-* Tal tjänsten erbjuder inte en global slut punkt. Ta reda på om programmet fungerar effektivt när det använder en enda regional slut punkt för all trafik. Om inte, Använd geolokalisering för att fastställa den effektiva slut punkten.
+* Taltjänsten erbjuder ingen global slutpunkt. Ta reda på om ditt program fungerar effektivt när det använder en enda regional slutpunkt för all trafik. Om inte, använd geolokalisering för att bestämma den mest effektiva slutpunkten.
 
-* Om programmet använder långsiktiga anslutningar och inte kan använda de tillgängliga SDK: erna kan du använda en WebSockets-anslutning. Hantera tids gränsen på 10 minuter genom att ansluta vid rätt tidpunkter.
+* Om programmet använder långlivade anslutningar och inte kan använda tillgängliga SDK:er kan du använda en WebSockets-anslutning. Hantera 10-minuters tidsgränsen genom att återansluta vid lämpliga tidpunkter.
 
-* Om programmet använder Translator Text API och Translator Speech API för att aktivera anpassade översättnings modeller, kan du lägga till kategori-ID: n direkt med hjälp av tal tjänsten.
+* Om ditt program använder Translator Text API och Translator Speech API för att aktivera anpassade översättningsmodeller kan du lägga till kategori-ID:er direkt med hjälp av taltjänsten.
 
-* Till skillnad från Translator Speech API kan tal tjänsten slutföra översättningar till flera språk i en enskild begäran.
+* Till skillnad från Translator Speech API kan taltjänsten slutföra översättningar till flera språk i en enda begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Prova röst tjänsten kostnads fritt](get-started.md)
-* [Snabb start: identifiera tal i en UWP-app med hjälp av talet SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Prova Taltjänst gratis](get-started.md)
+* [Snabbstart: Känna igen tal i en UWP-app med tal-SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Se även
 
-* [Vad är tal tjänsten](overview.md)
-* [Dokumentation om Speech service och Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Vad är taltjänsten](overview.md)
+* [Taltjänst och Tal-SDK-dokumentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

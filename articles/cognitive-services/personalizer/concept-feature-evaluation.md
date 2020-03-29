@@ -1,7 +1,7 @@
 ---
-title: Funktions utvärdering – Personanpassare
+title: Funktionsutvärdering - Personalizer
 titleSuffix: Azure Cognitive Services
-description: När du kör en utvärdering i din personanpassa resurs från Azure Portal, ger Personanpassaren information om vilka funktioner i kontexten och åtgärder som påverkar modellen.
+description: När du kör en utvärdering i din Personalizer-resurs från Azure-portalen ger Personalizer information om vilka funktioner i kontext och åtgärder som påverkar modellen.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,75 +11,75 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
 ms.openlocfilehash: 31243b5e9da55aafbc376fa416c1b00a4499c116
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70242417"
 ---
 # <a name="feature-evaluation"></a>Funktionsutvärdering
 
-När du kör en utvärdering i din personanpassa resurs från [Azure Portal](https://portal.azure.com), ger personanpassaren information om vilka funktioner i kontexten och åtgärder som påverkar modellen. 
+När du kör en utvärdering i din Personalizer-resurs från [Azure-portalen](https://portal.azure.com)ger Personalizer information om vilka funktioner i kontext och åtgärder som påverkar modellen. 
 
-Det här är användbart för att:
+Detta är användbart för att:
 
-* Föreställ dig ytterligare funktioner som du kan använda och få inspiration från vilka funktioner som är viktiga i modellen.
-* Se vilka funktioner som inte är viktiga och eventuellt ta bort dem eller analysera vad som kan påverka användningen.
-* Ge vägledning till redaktionella eller undervisande team om nytt innehåll eller produkter som är värda att sätta i katalogen.
-* Felsök vanliga problem och misstag som inträffar när du skickar funktioner till en Personligre.
+* Föreställ dig ytterligare funktioner du kan använda, få inspiration från vilka funktioner som är viktigare i modellen.
+* Se vilka funktioner som inte är viktiga och eventuellt ta bort dem eller ytterligare analysera vad som kan påverka användningen.
+* Ge vägledning till redaktionella eller kureringsteam om nytt innehåll eller nya produkter som är värda att ta med i katalogen.
+* Felsöka vanliga problem och misstag som inträffar när funktioner skickas till Personalizer.
 
-De viktigaste funktionerna har starkare vikter i modellen. Eftersom de här funktionerna har starkare vikt brukar de vara närvarande när en Personanpassare erhåller högre förmåner.
+De viktigare funktionerna har starkare vikter i modellen. Eftersom dessa funktioner har starkare vikt, de tenderar att vara närvarande när Personalizer får högre belöningar.
 
-## <a name="getting-feature-importance-evaluation"></a>Få utvärdering av funktions prioritet
+## <a name="getting-feature-importance-evaluation"></a>Utvärdering av funktionsvikt
 
-Om du vill visa funktions resultat måste du köra en utvärdering. Utvärderingen skapar välläsbara funktions etiketter baserat på de funktions namn som observerats under utvärderings perioden.
+Om du vill se resultat för funktionsbetydelse måste du köra en utvärdering. Utvärderingen skapar läsbara funktionsetiketter som kan läsas av människor baserat på de funktionsnamn som observerats under utvärderingsperioden.
 
-Den resulterande informationen om funktions prioritet representerar den aktuella personanpassa online-modellen. I utvärderingen analyseras funktions vikten för modellen som sparades vid slutdatumet för utvärderings perioden, efter att du har genomgått all utbildning som gjorts under utvärderingen, med den aktuella utbildnings principen online. 
+Den resulterande informationen om funktionsvikt representerar den aktuella Personalizer-onlinemodellen. Utvärderingen analyserar funktionens betydelse för den modell som sparades vid utvärderingsperiodens slutdatum, efter att ha genomgått all utbildning som gjorts under utvärderingen, med den aktuella online-inlärningspolicyn. 
 
-Resultatet av funktions prioriteten representerar inte andra principer och modeller som testas eller skapas under utvärderingen.  Utvärderingen innehåller inte funktioner som skickats till en egen användare efter utvärderings periodens slut.
+Funktionsviktresultaten representerar inte andra principer och modeller som testats eller skapats under utvärderingen.  Utvärderingen kommer inte att innehålla funktioner som skickas till Personalizer efter utvärderingsperiodens.
 
-## <a name="how-to-interpret-the-feature-importance-evaluation"></a>Tolka utvärderingen av funktions prioriteten
+## <a name="how-to-interpret-the-feature-importance-evaluation"></a>Hur man tolkar funktionen betydelse utvärdering
 
-Personanpassaren utvärderar funktioner genom att skapa "grupper" av funktioner som har liknande prioritet. En grupp kan anses ha en övergripande starkare prioritet än andra, men i gruppen är det alfabetiskt att ordna funktionerna.
+Personalizer utvärderar funktioner genom att skapa "grupper" av funktioner som har liknande betydelse. En grupp kan sägas ha övergripande större betydelse än andra, men inom gruppen, beställning av funktioner är alfabetiskt.
 
-Information om varje funktion inkluderar:
+Information om varje funktion innehåller:
 
-* Om funktionen kommer från kontext eller åtgärder.
-* Funktions nyckel och värde.
+* Om funktionen kommer från sammanhang eller åtgärder.
+* Funktionsnyckel och värde.
 
-Till exempel kan en app för fabriks en Ice-beställning se "context. Väder: het" som en mycket viktig funktion.
+En app för beställning av glassbutik kan till exempel se "Context.Weather:Hot" som en mycket viktig funktion.
 
-I personanpassaren visas korrelationer av funktioner som, när de beaktas tillsammans, ger högre förmåner.
+Personalizer visar korrelationer av funktioner som, när de beaktas tillsammans, ger högre belöningar.
 
-Du kan till exempel se "context. Väder: hett *med* action. MenuItem: icecream" och "context. Väder: kall *med* action. MenuItem: WarmTea:
+Du kan till exempel se "Context.Weather:Hot *with* Action.MenuItem:IceCream" samt "Context.Weather:Cold *with* Action.MenuItem:WarmTea:
 
-## <a name="actions-you-can-take-based-on-feature-evaluation"></a>Åtgärder som du kan vidta utifrån funktions utvärdering
+## <a name="actions-you-can-take-based-on-feature-evaluation"></a>Åtgärder som du kan vidta baserat på funktionsutvärdering
 
 ### <a name="imagine-additional-features-you-could-use"></a>Föreställ dig ytterligare funktioner som du kan använda
 
-Få inspiration från viktigare funktioner i modellen. Om du till exempel ser "context. MobileBattery: low" i en mobilapp kan du tänka på att anslutnings typen även kan göra att kunderna väljer att visa ett videoklipp över ett annat och sedan lägga till funktioner för Anslutnings typ och bandbredd i din app.
+Få inspiration från de viktigaste funktionerna i modellen. Om du till exempel ser "Context.MobileBattery:Low" i en videomobilapp kanske du tror att anslutningstypen också kan få kunderna att välja att se ett videoklipp framför ett annat och sedan lägga till funktioner om anslutningstyp och bandbredd i appen.
 
 ### <a name="see-what-features-are-not-important"></a>Se vilka funktioner som inte är viktiga
 
-Potentiellt ta bort viktiga funktioner eller analysera vad som kan påverka användningen. Funktionerna kan rangordnas lågt av många skäl. Det kan bero på att funktionen inte påverkar användar beteendet. Men det kan också betyda att funktionen inte är uppenbar för användaren. 
+Eventuellt ta bort oviktiga funktioner eller ytterligare analysera vad som kan påverka användningen. Funktioner kan rankas lågt av många skäl. En kan vara att verkligen funktionen inte påverkar användarnas beteende. Men det kan också innebära att funktionen inte är uppenbar för användaren. 
 
-Till exempel kan en video webbplats se att "action. VideoResolution = 4K" är en funktion med låg prioritet, vilket strider mot användar forskningen. Orsaken kan vara att programmet inte ens nämner eller visar video upplösningen, så att användarna inte ändrar beteendet baserat på den.
+En videowebbplats kan till exempel se att "Action.VideoResolution=4k" är en funktion med låg prioritet som motsäger användarforskning. Orsaken kan vara att programmet inte ens nämner eller visar videoupplösningen, så att användarna inte ändrar sitt beteende baserat på det.
 
-### <a name="provide-guidance-to-editorial-or-curation-teams"></a>Ge vägledning för redaktionella eller undervisande team
+### <a name="provide-guidance-to-editorial-or-curation-teams"></a>Ge vägledning till redaktioner eller kureringsteam
 
-Ge vägledning om nytt innehåll eller produkter som är värda att sätta i katalogen. Personanpassaren är utformad för att vara ett verktyg som förstärker mänsklig insikt och team. Ett sätt att göra detta är att ge information till redaktionella grupper om vad som är det om produkter, artiklar eller innehåll som är i funktion. Scenariot för video program kan till exempel visa att det finns en viktig funktion som kallas "action. VideoEntities. Cat: true", vilket gör att redaktionella teamet kan ta med mer Cat-videor.
+Ge vägledning om nytt innehåll eller produkter som är värda att ta med i katalogen. Personalizer är utformad för att vara ett verktyg som förstärker mänsklig insikt och team. Ett sätt det gör detta är genom att ge information till redaktionella grupper om vad det handlar om produkter, artiklar eller innehåll som driver beteende. Scenariot för videoprogram kan till exempel visa att det finns en viktig funktion som kallas "Action.VideoEntities.Cat:true", vilket får redaktionen att ta in fler kattvideor.
 
-### <a name="troubleshoot-common-problems-and-mistakes"></a>Felsök vanliga problem och misstag
+### <a name="troubleshoot-common-problems-and-mistakes"></a>Felsöka vanliga problem och misstag
 
-Vanliga problem och misstag kan åtgärdas genom att ändra program koden så att den inte skickar olämpliga eller felaktigt formaterade funktioner till Personanpassaren. 
+Vanliga problem och misstag kan åtgärdas genom att ändra programkoden så att den inte skickar olämpliga eller felaktigt formaterade funktioner till Personalizer. 
 
 Vanliga misstag när du skickar funktioner är följande:
 
-* Skicka personligt identifierbar information (PII). Personligt identifierbar information för en enskild person (t. ex. namn, telefonnummer, kreditkorts nummer, IP-adresser) bör inte användas med Personanpassare. Om ditt program behöver spåra användare använder du ett UUID som inte identifierar identifiering eller något annat UserID-nummer. I de flesta fall är detta också problematiskt.
-* Med ett stort antal användare är det osannolikt att varje användares interaktion kommer att väga mer än populationens interaktion, så att användar-ID: n (även om icke-PII) ofta lägger till mer brus än värdet i modellen.
-* Skicka datum-tid-fält som exakta tidsstämplar i stället för bearbetas tids värden. Ha funktioner som context. TimeStamp. Day = måndag eller "context. TimeStamp. Hour" = "13" är mer användbart. Det kommer att finnas högst 7 eller 24 funktions värden för var och en. Men "context. TimeStamp": "1985-04-12T23:20:50.52 Z" är så exakt att det inte går att lära sig från det eftersom det aldrig kommer att ske igen.
+* Skicka personligt identifierbar information (PII). PiI som är specifikt för en individ (t.ex. namn, telefonnummer, kreditkortsnummer, IP-adresser) ska inte användas med Personalizer. Om ditt program behöver spåra användare använder du ett icke-identifierande UUID eller något annat UserID-nummer. I de flesta fall är detta också problematiskt.
+* Med ett stort antal användare är det osannolikt att varje användares interaktion kommer att väga mer än alla befolkningens interaktion, så att skicka användar-ID (även om icke-PII) förmodligen kommer att lägga till mer buller än värde till modellen.
+* Skicka datumtidsfält som exakta tidsstämplar i stället för medbaserade tidsvärden. Det är mer användbart att ha funktioner som Context.TimeStamp.Day=Monday eller "Context.TimeStamp.Hour"="13". Det kommer att finnas högst 7 eller 24 funktionsvärden för varje. Men "Context.TimeStamp":"1985-04-12T23:20:50.52Z" är så exakt att det inte kommer att finnas något sätt att lära av det eftersom det aldrig kommer att hända igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Förstå [skalbarhet och prestanda](concepts-scalability-performance.md) med personanpassare.
+Förstå [skalbarhet och prestanda](concepts-scalability-performance.md) med Personalizer.
 

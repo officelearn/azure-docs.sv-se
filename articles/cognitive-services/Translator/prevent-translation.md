@@ -1,5 +1,5 @@
 ---
-title: Förhindra innehålls översättning – Translator Text API
+title: Förhindra innehållsöversättning - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: Förhindra översättning av innehåll med Translator Text API. Med Translator Text API kan du tagga innehåll så att det inte översätts.
 services: cognitive-services
@@ -8,23 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: 15a36451c18d65df6667f24284f3f69f3d1c06b8
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c7be4a0ea1a9d24a8b262132632a0bbb63ae1b96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326759"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052487"
 ---
-# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Förhindra översättning av innehåll med Translator Text API
+# <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Så här förhindrar du översättning av innehåll med Translator Text API
 
-Med Translator Text API kan du tagga innehåll så att det inte översätts. Till exempel kanske du vill tagga kod, ett varumärkes namn eller ett ord/en fras som inte är meningsfull när den lokaliseras.
+Med Translator Text API kan du tagga innehåll så att det inte översätts. Du kanske till exempel vill tagga kod, ett varumärke eller ett ord/en fras som inte är meningsfullt när den är lokaliserad.
 
-## <a name="methods-for-preventing-translation"></a>Metoder för att förhindra Översättning
-1. Återvänd till en Twitter-tagg @somethingtopassthrough eller #somethingtopassthrough. Avescape efter översättning. Detta är det reguljära uttrycket för giltiga Twitter-Taggar: `\B@[A-Za-z]+[A-Za-z0-9_]+)`. En tagg ska inledas med ett @-tecken följt av ett tecken och följt av ett eller flera tecken, siffror eller under streck. Vi rekommenderar att du håller taggarna korta och att den inledande taggen måste föregås av ett blank steg.
+## <a name="methods-for-preventing-translation"></a>Metoder för att förhindra översättning
 
-2. Tagga ditt innehåll med `notranslate`. Det är avsiktligt att detta fungerar endast när textType anges som HTML
+1. Tagga ditt `notranslate`innehåll med . Det är avsiktligt att detta fungerar endast när indatatextType är inställd som HTML
 
    Exempel:
 
@@ -38,11 +37,11 @@ Med Translator Text API kan du tagga innehåll så att det inte översätts. Til
    <div>This will be translated. </div>
    ```
 
-3. Använd den [dynamiska ord listan](dynamic-dictionary.md) för att ange en speciell översättning.
+2. Använd den [dynamiska ordlistan](dynamic-dictionary.md) för att ordinera en viss översättning.
 
-4. Överför inte strängen till Translator Text API för översättning.
+3. Skicka inte strängen till Translator Text API för översättning.
 
-5. Anpassad översättare: Använd en [ord lista i en anpassad översättare](custom-translator/what-is-dictionary.md) för att föreskriva översättning av en fras med en sannolikhet på 100%.
+4. Anpassad översättare: Använd en [ordlista i Custom Translator](custom-translator/what-is-dictionary.md) för att ordinera översättning av en fras med 100% sannolikhet.
 
 
 ## <a name="next-steps"></a>Nästa steg

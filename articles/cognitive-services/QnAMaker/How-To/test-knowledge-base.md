@@ -1,88 +1,88 @@
 ---
-title: Så här testar du en kunskapsbas - QnA Maker
-description: Testa kunskapsbasen QnA Maker är en viktig del av en iterativ process för att förbättra svaren som returneras. Du kan testa kunskapsbas via ett förbättrat chatt-gränssnitt som också kan du göra ändringar.
+title: Hur man testar en kunskapsbas - QnA Maker
+description: Att testa din QnA Maker-kunskapsbas är en viktig del av en iterativ process för att förbättra noggrannheten i de svar som returneras. Du kan testa kunskapsbasen genom ett förbättrat chattgränssnitt som du också kan göra ändringar.
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927265"
 ---
-# <a name="test-your-knowledge-base-in-qna-maker"></a>Testa din kunskaps bas i QnA Maker
+# <a name="test-your-knowledge-base-in-qna-maker"></a>Testa din kunskapsbas i QnA Maker
 
-Testa kunskapsbasen QnA Maker är en viktig del av en iterativ process för att förbättra svaren som returneras. Du kan testa kunskapsbas via ett förbättrat chatt-gränssnitt som också kan du göra ändringar.
+Att testa din QnA Maker-kunskapsbas är en viktig del av en iterativ process för att förbättra noggrannheten i de svar som returneras. Du kan testa kunskapsbasen genom ett förbättrat chattgränssnitt som du också kan göra ändringar.
 
-## <a name="interactively-test-in-qna-maker-portal"></a>Testa interaktivt i QnA Maker Portal
+## <a name="interactively-test-in-qna-maker-portal"></a>Testa interaktivt i QnA Maker-portalen
 
-1. Gå till kunskaps basen genom att välja namnet på sidan **Mina kunskaps baser** .
-1. Välj **testa** i programmets övre panel för att komma åt test-bildspel-panelen.
-1. Ange en fråga i textrutan och tryck RETUR.
-1. Bäst matchade svaret från kunskapsbasartikel returneras som svaret.
+1. Öppna kunskapsbasen genom att välja dess namn på sidan **Mina kunskapsbaser.**
+1. Om du vill komma åt panelen Testa utbild väljer du **Testa** på programmets övre panel.
+1. Ange en fråga i textrutan och välj Retur.
+1. Det bäst matchade svaret från kunskapsbasen returneras som svar.
 
-### <a name="clear-test-panel"></a>Rensa test panelen
+### <a name="clear-test-panel"></a>Rensa testpanelen
 
-Om du vill rensa alla angivna test frågor och resultat från test konsolen väljer du **börja** i det övre vänstra hörnet på test panelen.
+Om du vill ta bort alla inmatade testfrågor och deras resultat från testkonsolen väljer du **Börja i** det övre vänstra hörnet på testpanelen.
 
-### <a name="close-test-panel"></a>Stäng test panelen
+### <a name="close-test-panel"></a>Stäng testpanelen
 
-Välj knappen **testa** igen för att stänga test panelen. Panelen Test är öppen, kan du inte redigera innehållet i kunskapsbasen.
+Om du vill stänga testpanelen markerar du knappen **Testa** igen. När testpanelen är öppen kan du inte redigera knowledge base-innehållet.
 
-### <a name="inspect-score"></a>Granska resultatet
+### <a name="inspect-score"></a>Kontrollera poäng
 
-Du har granskat informationen om test resultatet i inspektions panelen.
+Du kontrollerar information om testresultatet i kontrollpanelen.
 
-1.  Med test-out-panelen öppen väljer du **Granska** för mer information om svaret.
+1.  När panelen Testa utbild är öppen väljer du **Kontrollera** om du vill ha mer information om svaret.
 
     ![Granska svar](../media/qnamaker-how-to-test-kb/inspect.png)
 
-2.  Inspektions panelen visas. Panelen visas den översta bedömning avsikt, samt alla identifierade entiteter. På panelen visas resultatet av den valda uttryck.
+2.  Inspektionspanelen visas. Panelen innehåller den högsta poängavsikten samt alla identifierade entiteter. Panelen visar resultatet av det valda uttrycket.
 
-### <a name="correct-the-top-scoring-answer"></a>Korrigera upp bedömning svar
+### <a name="correct-the-top-scoring-answer"></a>Korrigera det högsta poängsvaret
 
-Om det översta bedömnings svaret är felaktigt väljer du rätt svar i listan och väljer **Spara och träna**.
+Om det högsta poängsvaret är felaktigt väljer du rätt svar i listan och väljer **Spara och träna**.
 
-![Korrigera upp bedömning svar](../media/qnamaker-how-to-test-kb/choose-answer.png)
+![Korrigera det högsta poängsvaret](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
-### <a name="add-alternate-questions"></a>Lägga till alternativa frågor
+### <a name="add-alternate-questions"></a>Lägg till alternativa frågor
 
-Du kan lägga till alternativa former av en fråga till ett visst svar. Typ av alternativ som svarar på i textrutan och klicka på Ange om du vill lägga till dem. Välj **Spara och träna** för att lagra uppdateringarna.
+Du kan lägga till alternativa formulär för en fråga i ett visst svar. Skriv de alternativa svaren i textrutan och klicka på Retur för att lägga till dem. Välj **Spara och träna** om du vill lagra uppdateringarna.
 
-![Lägga till alternativa frågor](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
+![Lägg till alternativa frågor](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
-### <a name="add-a-new-answer"></a>Lägg till ett nytt svar
+### <a name="add-a-new-answer"></a>Lägga till ett nytt svar
 
-Du kan lägga till ett nytt svar om någon av de befintliga svar som kunde matchas är felaktiga eller svaret inte finns i knowledge base (ingen bra matchning hittades i KB).
+Du kan lägga till ett nytt svar om något av de befintliga svaren som matchades är felaktiga eller om svaret inte finns i kunskapsbasen (ingen bra matchning finns i KB).
 
-Längst ned i listan med svar använder du text rutan för att ange ett nytt svar och trycker på RETUR för att lägga till den.
+Längst ned i svarslistan använder du textrutan för att ange ett nytt svar och trycker på Retur för att lägga till det.
 
-Välj **Spara och träna** för att spara det här svaret. Ett nytt par frågor svar har nu lagts till din kunskapsbas.
+Välj **Spara och träna** om du vill spara det här svaret. Ett nytt frågesvarspar har nu lagts till i din kunskapsbas.
 
 > [!NOTE]
-> Alla redigeringar av kunskaps basen sparas bara när du trycker på knappen **Spara och träna** .
+> Alla ändringar i din kunskapsbas sparas bara när du trycker på knappen **Spara och träna.**
 
-### <a name="test-the-published-knowledge-base"></a>Testa den publicerade kunskaps basen
+### <a name="test-the-published-knowledge-base"></a>Testa den publicerade kunskapsbasen
 
-Du kan testa den publicerade versionen av kunskaps basen i test fönstret. När du har publicerat KB väljer du rutan **publicerad KB** och skickar en fråga för att få resultat från den publicerade KB.
+Du kan testa den publicerade versionen av kunskapsbasen i testfönstret. När du har publicerat KB väljer du rutan Publicerad KB och skickar en fråga för att få resultat från den publicerade KB.Once you have published the KB, select the **Published KB** and send a query to get results from the published KB.
 
 ![Testa mot en publicerad KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
-## <a name="batch-test-with-tool"></a>Batch-test med verktyget
+## <a name="batch-test-with-tool"></a>Batchtest med verktyg
 
-Använd batch-testverktyget när du vill:
+Använd batchtestverktyget när du vill:
 
-* Fastställ bästa svar och Poäng för en uppsättning frågor
-* verifiera förväntat svar för uppsättning av frågor
+* bestämma topp svar och poäng för en uppsättning frågor
+* validera förväntat svar för uppsättning frågor
 
-Läs [själv studie kursen](../Quickstarts/batch-testing.md) för batch-testning för steg-för-steg-anvisningar.
+Läs [batchtestningshandledningen](../Quickstarts/batch-testing.md) för steg-för-steg-instruktioner.
 
-Batch-testning ingår i batch-testverktyget. Det här verktyget är tillgängligt som en [zippad körbar fil](https://aka.ms/qnamakerbatchtestingtool) för hämtning eller som [ C# käll kod](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
+Batchtestning är försedd med batchtestverktyget. Detta verktyg finns som en [zippad körbar](https://aka.ms/qnamakerbatchtestingtool) för nedladdning eller som [C # källkod](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
 
-[Referens dokumentation om verktyget](../reference-tsv-format-batch-testing.md) inkluderar:
+[Referensdokumentation om verktyget](../reference-tsv-format-batch-testing.md) innehåller:
 
-* kommando rads exemplet för verktyget
-* formatet för TSV-och utdatafiler
+* kommandoradsexemplet för verktyget
+* formatet för TSV-in- och outfile-filer
 
 ## <a name="next-steps"></a>Nästa steg
 

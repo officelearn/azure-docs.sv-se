@@ -1,7 +1,7 @@
 ---
-title: Spåra minnes användning i tal SDK – tal tjänst
+title: Så här spårar du minnesanvändning för Tal SDK - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: Speech service SDK stöder flera programmeringsspråk för konvertering från tal till text och text till tal, tillsammans med tal översättning. Den här artikeln beskriver minnes hanterings verktyg som är inbyggda i SDK.
+description: Taltjänsten SDK stöder många programmeringsspråk för tal-till-text- och text-till-tal-konvertering, tillsammans med talöversättning. I den här artikeln beskrivs verktyg för minneshantering som är inbyggda i SDK.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -12,35 +12,35 @@ ms.date: 12/10/2019
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: da5103317a2215aca68cec14ba8a0951258c9b89
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75456436"
 ---
-# <a name="how-to-track-speech-sdk-memory-usage"></a>Spåra minnes användning för tal-SDK
+# <a name="how-to-track-speech-sdk-memory-usage"></a>Så här spårar du minnesanvändning för Tal SDK
 
-Tal-SDK: n baseras på en inbyggd kodbas som projiceras i flera programmeringsspråk via en serie Interoperabilitets lager. Varje språkspecifik projektion har idiomatically rätt funktioner för att hantera objekt livs cykeln. Dessutom innehåller tal-SDK minnes hanterings verktyg för att spåra resursanvändning med objekt loggning och objekt begränsningar. 
+Tal-SDK baseras på en inbyggd kodbas som projiceras i flera programmeringsspråk genom en serie interoperabilitetslager. Varje språkspecifik projektion har idiomatiskt korrekta funktioner för att hantera objektets livscykel. Dessutom innehåller Tal-SDK minneshanteringsverktyg för att spåra resursanvändning med objektloggning och objektgränser. 
 
-## <a name="how-to-read-object-logs"></a>Läsa objekt loggar
+## <a name="how-to-read-object-logs"></a>Så här läser du objektloggar
 
-Om [tal-SDK-loggning är aktive rad](how-to-use-logging.md), genereras spårnings etiketter för att aktivera historisk objekt observation. Taggarna är: 
+Om [Speech SDK-loggning är aktiverat](how-to-use-logging.md)skickas spårningstaggar ut för att aktivera historisk objektobservation. Dessa taggar inkluderar: 
 
 * `TrackHandle` eller `StopTracking` 
-* Objekt typen
-* Det aktuella antalet objekt som spårar objekt typen och det aktuella talet som spåras.
+* Objekttypen
+* Det aktuella antalet objekt som spåras typen av objekt och det aktuella numret som spåras.
 
-Här är en exempel logg: 
+Här är en exempellogg: 
 
 ```terminal
 (284): 8604ms SPX_DBG_TRACE_VERBOSE:  handle_table.h:90 TrackHandle type=Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult handle=0x0x7f688401e1a0, ptr=0x0x7f688401e1a0, total=19
 ```
 
-## <a name="set-a-warning-threshold"></a>Ange ett varnings tröskelvärde
+## <a name="set-a-warning-threshold"></a>Ange en varningströskel
 
-Du har möjlighet att skapa en varnings tröskel och om tröskelvärdet överskrids (förutsatt att loggning är aktiverat) loggas ett varnings meddelande. Varnings meddelandet innehåller en dumpning av alla objekt som förekommer tillsammans med antalet. Den här informationen kan användas för att bättre förstå problem. 
+Du har möjlighet att skapa en varningströskel och om tröskelvärdet överskrids (förutsatt att loggning är aktiverat) loggas ett varningsmeddelande. Varningsmeddelandet innehåller en dump av alla objekt som finns tillsammans med deras räkning. Den här informationen kan användas för att bättre förstå problem. 
 
-Om du vill aktivera ett varnings tröskelvärde måste det anges i ett `SpeechConfig`-objekt. Det här objektet kontrol leras när en ny tolk skapas. I följande exempel antar vi att du har skapat en instans av `SpeechConfig` som heter `config`:
+Om du vill aktivera ett varningströskel måste det anges på ett `SpeechConfig` objekt. Det här objektet kontrolleras när en ny identifierare skapas. I följande exempel bör vi anta att du har `SpeechConfig` `config`skapat en förekomst av anropade:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -85,11 +85,11 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")
 > [!TIP]
 > Standardvärdet för den här egenskapen är 10 000.
 
-## <a name="set-an-error-threshold"></a>Ange ett fel tröskelvärde 
+## <a name="set-an-error-threshold"></a>Ange ett feltröskel 
 
-Med hjälp av tal-SDK kan du ange det maximala antalet objekt som tillåts vid en angiven tidpunkt. Om den här inställningen är aktive rad kommer försök att skapa nya tolknings objekt att Miss lyckas när det maximala antalet träffar. Befintliga objekt kommer att fortsätta att fungera.
+Med tal-SDK kan du ange det maximala antalet objekt som tillåts vid en viss tidpunkt. Om den här inställningen är aktiverad misslyckas försök att skapa nya objekt. Befintliga objekt fortsätter att fungera.
 
-Här är ett exempel fel:
+Här är ett exempelfel:
 
 ```terminal
 Runtime error: The maximum object count of 500 has been exceeded.
@@ -102,7 +102,7 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
 ```
 
-Om du vill aktivera ett fel tröskelvärde måste det anges i ett `SpeechConfig`-objekt. Det här objektet kontrol leras när en ny tolk skapas. I följande exempel antar vi att du har skapat en instans av `SpeechConfig` som heter `config`:
+Om du vill aktivera ett feltröskel måste det anges på ett `SpeechConfig` objekt. Det här objektet kontrolleras när en ny identifierare skapas. I följande exempel bör vi anta att du har `SpeechConfig` `config`skapat en förekomst av anropade:
 
 ::: zone pivot="programming-language-csharp"
 
@@ -145,9 +145,9 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 ::: zone-end
 
 > [!TIP]
-> Standardvärdet för den här egenskapen är det plattformsspecifika maximala värdet för en `size_t` data typ. En typisk igenkänning kommer att förbruka mellan 7 och 10 interna objekt.
+> Standardvärdet för den här egenskapen är det `size_t` plattformsspecifika högsta värdet för en datatyp. En typisk igenkänning förbrukar mellan 7 och 10 interna objekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta utvärderings prenumerationen för din röst tjänst](get-started.md)
-* [Lär dig att känna igen tal med en mikrofon](quickstarts/speech-to-text-from-microphone.md)
+* [Skaffa provprenumerationen för Taltjänsten](get-started.md)
+* [Lär dig hur du känner igen tal med en mikrofon](quickstarts/speech-to-text-from-microphone.md)

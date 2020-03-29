@@ -1,7 +1,7 @@
 ---
-title: Koncept för ansikts igenkänning och attribut
+title: Begrepp för ansiktsidentifiering och attribut
 titleSuffix: Azure Cognitive Services
-description: Ansikts igenkänning är en åtgärd för att hitta människo ansikten i en bild och eventuellt returnera olika typer av ansikts data.
+description: Ansiktsigenkänning är effekten av att hitta mänskliga ansikten i en bild och eventuellt returnera olika typer av ansiktsrelaterade data.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -11,73 +11,73 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
 ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73743064"
 ---
-# <a name="face-detection-and-attributes"></a>Ansikts igenkänning och attribut
+# <a name="face-detection-and-attributes"></a>Ansiktsigenkänning och attribut
 
-I den här artikeln förklaras begreppen ansikts igenkänning och attribut för ansikts data. Ansikts igenkänning är en åtgärd för att hitta människo ansikten i en bild och eventuellt returnera olika typer av ansikts data.
+I den här artikeln beskrivs begreppen ansiktsidentifiering och ansiktsattributdata. Ansiktsigenkänning är effekten av att hitta mänskliga ansikten i en bild och eventuellt returnera olika typer av ansiktsrelaterade data.
 
-Du kan använda åtgärden för att [identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) ansikten i en bild. Varje identifierad ansikte motsvarar minst ett faceRectangle-fält i svaret. Den här uppsättningen med pixel koordinater för vänster, topp, bredd och höjd markerar den placerade ytan. Med hjälp av dessa koordinater kan du få fram platsen och dess storlek. I API-svaret visas ansikten i storleks ordningen från störst till minsta.
+Du använder åtgärden [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) för att identifiera ansikten i en bild. Varje detekterad yta motsvarar minst ett faceRectangle-fält i svaret. Den här uppsättningen pixelkoordinater för vänster, överkant, bredd och höjd markerar den placerade ytan. Med hjälp av dessa koordinater kan du få platsen för ansiktet och dess storlek. I API-svaret visas ansikten i storleksordning från största till minsta.
 
 ## <a name="face-id"></a>Ansikts-ID
 
-Ansikts-ID: t är en unik identifierare-sträng för varje identifierad ansikte i en bild. Du kan begära ett ansikts-ID i ditt [ansikts-detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API-anrop.
+Ansikts-ID är en unik identifierare sträng för varje upptäckt ansikte i en bild. Du kan begära ett ansikts-ID i ditt [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API-anrop.
 
 ## <a name="face-landmarks"></a>Ansiktslandmärken
 
-Ansikts landmärken är en uppsättning enkla punkter på ett ansikte, till exempel elever eller spets. Som standard finns 27 fördefinierade landmärkespunkter. Följande bild visar alla 27 punkter:
+Face landmärken är en uppsättning lätt att hitta punkter på ett ansikte, såsom eleverna eller spetsen på näsan. Som standard finns 27 fördefinierade landmärkespunkter. Följande bild visar alla 27 punkter:
 
-![Ett ansikts diagram med alla 27 landmärken märkta](../Images/landmarks.1.jpg)
+![Ett ansiktsdiagram med alla 27 landmärken märkta](../Images/landmarks.1.jpg)
 
-Koordinaterna för punkterna returneras i antal bild punkter.
+Koordinaterna för punkterna returneras i enheter av pixlar.
 
 ## <a name="attributes"></a>Attribut
 
-Attribut är en uppsättning funktioner som du kan välja att identifiera i API: t för [ansikts igenkänning](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) . Följande attribut kan identifieras:
+Attribut är en uppsättning funktioner som eventuellt kan identifieras av [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API. Följande attribut kan identifieras:
 
-* **Ålder**. Den uppskattade åldern i år av ett visst ansikte.
-* **Oskärpa**. Blurriness för ytan i bilden. Det här attributet returnerar ett värde mellan noll och en och en informell klassificering av låg, medel eller hög.
-* **Känslo**. En lista över känslor med identifierings förtroende för den aktuella ytan. Förtroende poängen normaliseras och poängen i alla känslor-enheter kan läggas upp till ett. Känslor som returneras är lycka, ledsenhet, neutral, ilska, prefresta, avsky, överraskning och frukt.
-* **Exponering**. Exponeringen av ansikte i bilden. Det här attributet returnerar ett värde mellan noll och ett informellt omdöme för underexponering, goodExposure eller överexponering.
-* **Ansikts hår**. Den uppskattade förekomsten av ansikts hår och längden för den aktuella ytan.
-* **Kön**. Den uppskattade kön för den aktuella ytan. Möjliga värden är hane, hona och jämställdhets.
-* **Glasögon**. Om den aktuella ytan har glasögon. Möjliga värden är noglas, ReadingGlasses, sol glasögon och SIME Goggles.
-* **Hår**. Hår texten. Det här attributet visar om hår är synligt, om baldness identifieras och vilka hår färger som identifieras.
-* **Head-attityd**. Facets orientering i 3D-rymden. Det här attributet beskrivs i vinklar, rullning och Yaw i grader. Värde intervallen är-90 grader till 90 grader,-180-grader till 180 grader och-90 grader till 90 grader. Se följande diagram för vinkel mappningar:
+* **Ålder**. Den beräknade åldern i år av ett visst ansikte.
+* **Oskärpa**. Suddigheten i ansiktet i bilden. Det här attributet returnerar ett värde mellan noll och ett och en informell klassificering av låg, medel eller hög.
+* **Känslor**. En lista över känslor med deras upptäckt förtroende för det givna ansiktet. Konfidenspoäng normaliseras, och poängen över alla känslor lägger till upp till en. De känslor som returneras är lycka, sorg, neutral, ilska, förakt, avsky, överraskning och rädsla.
+* **Exponering**. Exponeringen av ansiktet i bilden. Det här attributet returnerar ett värde mellan noll och ett och en informell klassificering av underExponering, goodExposure eller overExposure.
+* **Ansiktshår**. Den uppskattade ansiktshår närvaro och längden för det givna ansiktet.
+* **Kön**. Det uppskattade könet på det givna ansiktet. Möjliga värden är män, kvinnor och könlösa.
+* **Glasögon**. Om det givna ansiktet har glasögon. Möjliga värden är NoGlasses, ReadingGlasses, Solglasögon och Simglasögon.
+* **Hår**. Håret typ av ansiktet. Detta attribut visar om håret är synligt, om skallighet detekteras och vilka hårfärger som detekteras.
+* **Huvud pose**. Ansiktets orientering i 3D-rymden. Det här attributet beskrivs av tonhöjds-, rullnings- och girvinklar i grader. Värdeområdena är -90 grader till 90 grader, -180 grader till 180 grader och -90 grader till 90 grader. Se följande diagram för vinkelmappningar:
 
-    ![Ett huvud med axlarna för bredd, rulle och Yaw som är märkta](../Images/headpose.1.jpg)
-* **Makeup**. Om FACET har makeup. Det här attributet returnerar ett booleskt värde för eyeMakeup och lipMakeup.
-* **Brus**. Det visuella bruset som har identifierats i ansikts bilden. Det här attributet returnerar ett värde mellan noll och en och en informell klassificering av låg, medel eller hög.
-* **Ocklusion**. Om det finns objekt som blockerar delar av FACET. Det här attributet returnerar ett booleskt värde för eyeOccluded, foreheadOccluded och mouthOccluded.
-* **Leende**. Leende-uttrycket för den aktuella ytan. Värdet är mellan noll och ett för ett tydligt leende.
+    ![Ett huvud med tonhöjd, rulle och giryxor märkta](../Images/headpose.1.jpg)
+* **Smink.** Oavsett om ansiktet har smink. Det här attributet returnerar ett booleskt värde för eyeMakeup och lipMakeup.
+* **Buller**. Det visuella bruset som upptäcks i ansiktsbilden. Det här attributet returnerar ett värde mellan noll och ett och en informell klassificering av låg, medel eller hög.
+* **Ocklusion**. Om det finns objekt som blockerar delar av ansiktet. Detta attribut returnerar ett booleskt värde för eyeOccluded, foreheadOccluded och mouthOccluded.
+* **Le.** Leendet uttryck för det givna ansiktet. Detta värde är mellan noll för inget leende och en för ett klart leende.
 
 > [!IMPORTANT]
-> Ansikts attribut förväntas genom användning av statistiska algoritmer. De kanske inte alltid är korrekt. Var försiktig när du fattar beslut baserat på attribut data.
+> Ansiktsattribut förutses med hjälp av statistiska algoritmer. De kanske inte alltid är korrekta. Var försiktig när du fattar beslut baserat på attributdata.
 
 ## <a name="input-data"></a>Indata
 
-Använd följande tips för att se till att dina inmatade bilder ger de mest exakta identifierings resultaten:
+Använd följande tips för att se till att indatabilderna ger de mest exakta identifieringsresultaten:
 
-* De inspelnings bild format som stöds är JPEG, PNG, GIF för den första ramen och BMP.
-* Bild filens storlek får inte vara större än 4 MB.
-* Det detekterings bara områdets storleks intervall är 36 x 36 till 4096 x 4096 bild punkter. Ansikten utanför det här intervallet identifieras inte.
-* Vissa ansikten kanske inte kan identifieras på grund av tekniska utmaningar. Extrema ansikts vinklar (Head attityd) eller ansikts ocklusion (objekt som sol glasögon eller händerna som blockerar en del av ansiktet) kan påverka identifieringen. Front-och närbelägna ansikten ger bäst resultat.
+* De indatabildformat som stöds är JPEG, PNG, GIF för den första bildrutan och BMP.
+* Bildfilsstorleken bör inte vara större än 4 MB.
+* Detekterbara området för ansiktsstorlek är 36 x 36 till 4096 x 4096 pixlar. Ansikten utanför det här intervallet kommer inte att upptäckas.
+* Vissa ansikten kanske inte upptäcks på grund av tekniska utmaningar. Extrema ansiktsvinklar (huvudställning) eller ansiktsocklusion (föremål som solglasögon eller händer som blockerar en del av ansiktet) kan påverka detektionen. Främre och nära frontal ansikten ger bästa resultat.
 
-Om du identifierar ansikten från en video-feed kan du förbättra prestanda genom att justera vissa inställningar på video kameran:
+Om du upptäcker ansikten från ett videoflöde kan du kanske förbättra prestanda genom att justera vissa inställningar på videokameran:
 
-* **Utjämning**: många video kameror använder en jämnare påverkan. Du bör inaktivera detta om du kan skapa en oskärpa mellan ramar och minska skärpan.
-* **Slutarhastighet**: en snabbare slutarhastighet minskar mängden rörelse mellan ramar och gör varje ram tydligare. Vi rekommenderar en slutarhastighet på 1/60 sekund eller snabbare.
-* **Vinklad vinkel**: vissa kameror anger slutarhastighets vinkel i stället för slutarhastighet. Om möjligt bör du använda en lägre slutarhastighets vinkel. Detta leder till tydligare video bild rutor.
+* **Utjämning:** Många videokameror använder en utjämnande effekt. Du bör stänga av detta om du kan eftersom det skapar en oskärpa mellan bildrutor och minskar tydligheten.
+* **Slutartid:** En snabbare slutartid minskar mängden rörelse mellan ramar och gör varje bildruta tydligare. Vi rekommenderar slutartider på 1/60 sekund eller snabbare.
+* **Slutarvinkel:** Vissa kameror anger slutarvinkel istället för slutartid. Du bör använda en lägre slutarvinkel om möjligt. Detta kommer att resultera i tydligare videobildrutor.
 
     >[!NOTE]
-    > En kamera med en nedre vinklad vinkel får mindre ljus i varje ram, så bilden blir mörkare. Du måste bestämma vilken rätt nivå som ska användas.
+    > En kamera med en lägre slutarvinkel får mindre ljus i varje bildruta, så bilden blir mörkare. Du måste bestämma rätt nivå för användning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du är bekant med ansikts igenkännings koncept kan du läsa mer om hur du skriver ett skript som identifierar ansikten i en specifik bild.
+Nu när du är bekant med ansiktsidentifieringsbegrepp kan du lära dig att skriva ett skript som identifierar ansikten i en viss bild.
 
 * [Identifiera ansikten i en bild](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

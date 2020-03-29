@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
 ms.openlocfilehash: 367ae27a6afec803d2e3f98f54bdcf852330ddc6
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "70274563"
 ---
-## <a name="configure-an-environment-variable-for-authentication"></a>Konfigurera en miljö variabel för autentisering
+## <a name="configure-an-environment-variable-for-authentication"></a>Konfigurera en miljövariabel för autentisering
 
-Program måste autentisera åtkomst till de Cognitive Services de använder. För att autentisera, rekommenderar vi att du skapar en miljö variabel för att lagra nycklarna för dina Azure-resurser. 
+Program måste autentisera åtkomsten till de Kognitiva tjänster de använder. För att autentisera rekommenderar vi att du skapar en miljövariabel för att lagra nycklarna till dina Azure-resurser. 
 
-När du har nyckeln kan du skriva den till en ny miljö variabel på den lokala datorn som kör programmet. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `your-key` med en av nycklarna för din resurs.
+När du har nyckeln skriver du den till en ny miljövariabel på den lokala datorn som kör programmet. Konfigurera miljövariabeln genom att öppna ett konsolfönster och följa anvisningarna för ditt operativsystem. Ersätt `your-key` med en av nycklarna för din resurs.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx COGNITIVE_SERVICE_KEY "your-key"
 ```
 
-När du har lagt till miljövariabeln kan du behöva starta om alla program som körs och som behöver läsa in miljövariabeln, däribland konsolfönstret. Om du till exempel använder Visual Studio som redigerings program måste du starta om Visual Studio innan du kör exemplet.
+När du har lagt till miljövariabeln kan du behöva starta om alla program som körs och som behöver läsa in miljövariabeln, däribland konsolfönstret. Om du till exempel använder Visual Studio som redigerare startar du om Visual Studio innan du kör exemplet.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export COGNITIVE_SERVICE_KEY=your-key
@@ -33,7 +33,7 @@ export COGNITIVE_SERVICE_KEY=your-key
 
 När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[Macos](#tab/unix)
 
 Redigera din .bash_profile och lägg till miljövariabeln:
 

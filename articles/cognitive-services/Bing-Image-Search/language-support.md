@@ -1,7 +1,7 @@
 ---
-title: Språk stöd – API för bildsökning i Bing
+title: Språkstöd - API för bildsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Ta reda på vilka länder/regioner och språk som stöds av API för bildsökning i Bing.
+description: Ta reda på vilka länder/regioner och språk som stöds av API:et för bildsökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68881925"
 ---
-# <a name="language-and-region-support-for-the-bing-image-search-api"></a>Språk-och region stöd för API för bildsökning i Bing
+# <a name="language-and-region-support-for-the-bing-image-search-api"></a>Språk- och regionstöd för API:et för bildsökning i Bing
 
-API för bildsökning i Bing har stöd för fler än tre dussin länder/regioner, många med fler än ett språk. Om du anger ett land/en region med en fråga, är det främst att förfina Sök resultat baserat på intressen i landet/regionen. Dessutom kan resultaten innehålla länkar till Bing, och dessa länkar kan lokalisera Bing-användargränssnittet enligt angivet land/regioner eller språk.
+API:et för bildsökning på Bing stöder mer än tre dussin länder/regioner, många med mer än ett språk. Om du anger ett land/en region med en fråga används i första hand för att förfina sökresultaten baserat på intressen i det landet/regionen. Dessutom kan resultaten innehålla länkar till Bing, och dessa länkar kan lokalisera Bing-användarupplevelsen enligt det angivna landet/regionerna eller språket.
 
-Om du vill ange land/region och språk ställer du `mkt` in Frågeparametern (marknads) till en kod från tabellen **marknader** nedan. Marknaden anger både land/region och språk. Om användaren vill se visnings text på ett annat språk anger `setLang` du Frågeparametern till rätt språkkod.
+Om du vill ange land/region `mkt` och språk anger du frågeparametern (marknad) till en kod i tabellen **Marknader** nedan. Marknaden anger både ett land/en region och ett språk. Om användaren föredrar att visa visningstext på `setLang` ett annat språk anger du frågeparametern till lämplig språkkod.
 
-Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett land/en region måste du också ange en eller flera språk koder med `Accept-Language` HTTP-huvudet. Vilka språk som stöds varierar beroende på land/region; de anges för varje land/region i tabellen marknad.
+Du kan också ange land/region `cc` med frågeparametern. Om du anger ett land/en region måste du också `Accept-Language` ange en eller flera språkkoder med HTTP-huvudet. Språken som stöds varierar mellan olika länder och regioner. de anges för varje land/region i tabellen Marknader.
 
 > [!NOTE]
-> API: et för Trends images stöder för närvarande endast följande marknader:
-> - en-US (engelska, USA)
-> - en-CA (engelska, Kanada)
-> - en – AU (engelska, Australien)
+> Api:et för populära bilder stöder för närvarande endast följande marknader:
+> - sv-US (engelska, USA)
+> - sv-CA (Engelska, Kanada)
+> - sv-AU (engelska, Australien)
 > - zh-CN (kinesiska, Kina)
 
 ## <a name="countriesregions"></a>Länder/regioner
@@ -47,14 +47,14 @@ Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett l
 |Finland|FI|
 |Frankrike|FR|
 |Tyskland|DE|
-|Hongkong SAR|HK|
+|Hongkong|HK|
 |Indien|IN|
-|Indonesien|id|
-|Italien|it|
+|Indonesien|ID|
+|Italien|IT|
 |Japan|JP|
 |Korea|KR|
 |Malaysia|MY|
-|Mexico|MX|
+|Mexiko|MX|
 |Nederländerna|NL|
 |Nya Zeeland|NZ|
 |Norge|NO|
@@ -70,53 +70,53 @@ Alternativt kan du ange land/region med `cc` Frågeparametern. Om du anger ett l
 |Schweiz|CH|
 |Taiwan|TW|
 |Turkiet|TR|
-|Storbritannien och Nordirland|GB|
+|Storbritannien|GB|
 |USA|USA|
 
 
-## <a name="markets"></a>Marknaden
+## <a name="markets"></a>Marknader
 
-|Land/region|Språk|Marknads kod|
+|Land/region|Språk|Marknadskod|
 |-------|--------|-----------|
 |Argentina|Spanska|es-AR|
-|Australien|Svenska|SV-Australien|
-|Österrike|Tyska|Tyskland-AT|
+|Australien|Svenska|sv-AU|
+|Österrike|Tyska|av-AT|
 |Belgien|Nederländska|nl-BE|
 |Belgien|Franska|fr-BE|
 |Brasilien|Portugisiska|pt-BR|
-|Kanada|Svenska|en CA: N|
+|Kanada|Svenska|sv-CA|
 |Kanada|Franska|fr-CA|
 |Chile|Spanska|es-CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
-|Hongkong SAR|Traditionell kinesiska|zh-HK|
-|Indien|Svenska|en Indien|
-|Indonesien|Svenska|en-ID|
-|Italien|Italienska|IT-IT|
+|Hongkong|Traditionell kinesiska|zh-HK|
+|Indien|Svenska|sv-IN|
+|Indonesien|Svenska|sv-ID|
+|Italien|Italienska|it-IT|
 |Japan|Japanska|ja-JP|
-|Korea|Koreanska|ko-KR|
-|Malaysia|Svenska|en-MY|
-|Mexico|Spanska|es-MX|
-|Nederländerna|Nederländska|NL-NL|
-|Nya Zeeland|Svenska|en NZ|
+|Korea|Koreansk|ko-KR|
+|Malaysia|Svenska|sv-MIN|
+|Mexiko|Spanska|es-MX|
+|Nederländerna|Nederländska|nl-NL|
+|Nya Zeeland|Svenska|sv-NZ|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
-|Portugal|Portugisiska|PT-PT|
-|Filippinerna|Svenska|en-PH|
+|Portugal|Portugisiska|pt-PT|
+|Filippinerna|Svenska|sv-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Svenska|en-ZA|
+|Sydafrika|Svenska|sv-ZA|
 |Spanien|Spanska|es-ES|
-|Sverige|Svenska|SV-SE|
-|Schweiz|Franska|fr CH|
-|Schweiz|Tyska|Tyskland – CH|
+|Sverige|Svenska|sv-SE|
+|Schweiz|Franska|fr-CH|
+|Schweiz|Tyska|de-CH (olika)|
 |Taiwan|Traditionell kinesiska|zh-TW|
-|Turkiet|Turkiska|TR-TR|
-|Storbritannien och Nordirland|Svenska|en-GB|
-|USA|Svenska|en-US|
-|USA|Spanska|es-US|
+|Turkiet|Turkiska|tr-TR|
+|Storbritannien|Svenska|en-GB|
+|USA|Svenska|sv-SE|
+|USA|Spanska|es-USA|
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Nyhetssökning i Bing slut punkter finns i [nyheter bildsökning API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).
+Mer information om slutpunkterna För Bing-nyheter finns i [API V7-referens för nyhetsbildsökning.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

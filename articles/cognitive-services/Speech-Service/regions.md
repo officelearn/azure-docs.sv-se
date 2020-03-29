@@ -1,7 +1,7 @@
 ---
-title: Regioner – tal tjänst
+title: Regioner - Taltjänst
 titleSuffix: Azure Cognitive Services
-description: En lista över tillgängliga regioner och slut punkter för tal tjänsten, inklusive tal-till-text, text till tal och tal översättning.
+description: En lista över tillgängliga regioner och slutpunkter för taltjänsten, inklusive tal-till-text, text-till-tal och talöversättning.
 services: cognitive-services
 author: mahilleb-msft
 manager: nitinme
@@ -12,39 +12,39 @@ ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220472"
 ---
-# <a name="speech-service-supported-regions"></a>Regioner som stöds av tal tjänster
+# <a name="speech-service-supported-regions"></a>Regioner som stöds av taltjänsten
 
-Med taltjänsten kan ditt program kan omvandla ljud till text, utför talöversättning och konvertera text till tal. Tjänsten är tillgänglig i flera regioner med unika slutpunkter för taligenkänning SDK och REST API: er.
+Med taltjänsten kan programmet konvertera ljud till text, utföra talöversättning och dold text till tal. Tjänsten är tillgänglig i flera regioner med unika slutpunkter för API:erna Tal SDK och REST.
 
-Tal portalen för att utföra anpassade konfigurationer i din tal upplevelse för alla regioner finns här: https://speech.microsoft.com
+Talportalen för att utföra anpassade konfigurationer till din talupplevelse för alla regioner finns här:https://speech.microsoft.com
 
-Se till att anropet stämmer överens med din prenumerations region för anrop av din röst tjänst.
+För anrop av din Taltjänst kontrollerar du att samtalet matchar regionen för din prenumeration.
 
 ## <a name="speech-sdk"></a>Speech SDK
 
-I [talet SDK](speech-sdk.md)anges regioner som en sträng (till exempel som en parameter för att `SpeechConfig.FromSubscription` i tal-SDK för C#).
+I [Tal-SDK](speech-sdk.md)anges regioner som en sträng (till exempel `SpeechConfig.FromSubscription` som en parameter till i Tal-SDK för C#).
 
-### <a name="speech-to-text-text-to-speech-and-translation"></a>Tal till text, text till tal och översättning
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Tal-till-text, text-till-tal och översättning
 
-Anpassnings portalen för tal finns här: https://speech.microsoft.com
+Portalen för talanpassning finns här:https://speech.microsoft.com
 
-Tal tjänsten är tillgänglig i dessa regioner för **tal igenkänning**, **text till tal**och **översättning**:
+Taltjänsten är tillgänglig i dessa regioner för **taligenkänning,** **text till tal**och **översättning:**
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-Om du använder [tal-SDK](speech-sdk.md)anges regioner av **regions-ID** : t (till exempel som en parameter till `SpeechConfig.FromSubscription`). Se till att regionen matchar region för din prenumeration.
+Om du använder [Tal-SDK](speech-sdk.md)anges regioner av **regionidentifieraren** (till `SpeechConfig.FromSubscription`exempel som en parameter till ). Kontrollera att regionen matchar regionen för din prenumeration.
 
 ### <a name="intent-recognition"></a>Avsiktsigenkänning
 
-Tillgängliga regioner för **avsikts igenkänning** via tal-SDK: n är följande:
+Tillgängliga regioner för **avsiktsigenkänning** via Tal-SDK är följande:
 
-| Global region | Region           | Regions-ID |
+| Global region | Region           | Regionidentifierare |
 | ------------- | ---------------- | -------------------- |
 | Asien          | Asien, östra        | `eastasia`           |
 | Asien          | Sydostasien   | `southeastasia`      |
@@ -59,13 +59,13 @@ Tillgängliga regioner för **avsikts igenkänning** via tal-SDK: n är följand
 | Nordamerika | USA, västra 2        | `westus2`            |
 | Sydamerika | Brasilien, södra     | `brazilsouth`        |
 
-Det här är en delmängd av de publicerings regioner som stöds av [language Understandings tjänsten (Luis)](/azure/cognitive-services/luis/luis-reference-regions).
+Det här är en delmängd av de publiceringsregioner som stöds av [tjänsten Språkförståelse (LUIS).](/azure/cognitive-services/luis/luis-reference-regions)
 
 ### <a name="voice-assistants"></a>Röstassistenter
 
-[Tal-SDK](speech-sdk.md) har stöd för **röst assistent** funktioner i följande regioner:
+[Tal-SDK](speech-sdk.md) stöder **röstassistentfunktioner** i dessa regioner:
 
-| Region         | Regions-ID |
+| Region         | Regionidentifierare |
 | -------------- | -------------------- |
 | USA, västra        | `westus`             |
 | USA, västra 2      | `westus2`            |
@@ -75,29 +75,29 @@ Det här är en delmängd av de publicerings regioner som stöds av [language Un
 | Europa, norra   | `northeurope`        |
 | Sydostasien | `southeastasia`      |
 
-## <a name="rest-apis"></a>REST-API:er
+## <a name="rest-apis"></a>REST API:er
 
-Speech-tjänsten exponerar även REST-slutpunkter för förfrågningar om tal till text och text till tal.
+Taltjänsten visar också REST-slutpunkter för tal-till-text- och text-till-tal-begäranden.
 
 ### <a name="speech-to-text"></a>Tal till text
 
-För referens dokumentation för tal till text, se [tal-till-text-REST API](rest-speech-to-text.md).
+Referensdokumentation mellan tal och text finns i [REST API för tal till text](rest-speech-to-text.md).
 
-Slut punkten för REST API har följande format:
+Slutpunkten för REST API har följande format:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Ersätt `<REGION_IDENTIFIER>` med den identifierare som matchar regionen för din prenumeration från den här tabellen:
+Ersätt `<REGION_IDENTIFIER>` med identifieraren som matchar regionen för din prenumeration från den här tabellen:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
-> Språk parametern måste läggas till i URL: en för att undvika att ett HTTP-4xx-fel tas emot. Till exempel är det språk som är inställt på engelska som använder den västra amerikanska slut punkten: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+> Språkparametern måste läggas till i URL:en för att undvika att ett 4xx HTTP-fel inte tas emot. Språket som är inställt på amerikansk engelska med slutpunkten för västra USA är till exempel: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ### <a name="text-to-speech"></a>Text till tal
 
-Dokumentation om text till tal-referenser finns i [text till tal-REST API](rest-text-to-speech.md).
+Dokumentation för text-till-tal-referens finns i [REST API för text till tal](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

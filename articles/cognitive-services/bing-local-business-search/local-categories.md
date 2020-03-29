@@ -1,7 +1,7 @@
 ---
-title: Sök efter kategorier för API för lokal sökning i Bing
+title: Sök kategorier för API:et för sökning i Bing lokalt företag
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln får du lära dig hur du anger Sök kategorier för API-slutpunkt för lokal sökning i Bing.
+description: Använd den här artikeln om du vill lära dig hur du anger sökkategorier för slutpunkten för Bing Local Business-sök-API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,79 +11,79 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: 56b94d66eb0929d2fd0ca74a1a631d229330adfa
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "69906399"
 ---
-# <a name="search-categories-for-the-bing-local-business-search-api"></a>Sök efter kategorier för API för lokal sökning i Bing
+# <a name="search-categories-for-the-bing-local-business-search-api"></a>Sök kategorier för API:et för sökning i Bing lokalt företag
 
-Med API: t för lokal sökning i Bing kan du söka efter lokala affär senheter i en mängd olika kategorier, med prioritet till resultat som stänger en användares plats. Du kan inkludera dessa sökningar i sökningar tillsammans med `localCircularView` [parametrarna](specify-geographic-search.md)och `localMapView` .
+Med API:et för sökning i Bing kan du söka efter lokala företag i en mängd olika kategorier, med prioritet för resultat som stänger en användares plats. Du kan inkludera dessa sökningar `localCircularView` i `localMapView` sökningar tillsammans med [och parametrar](specify-geographic-search.md).
 
 
-## <a name="toplevel-categories"></a>TopLevel-kategorier 
+## <a name="toplevel-categories"></a>Toppklasskategorier 
 
-Följande typer definierar viktiga Sök kategorier.  Mer än en kategori kan anges med en kommaavgränsad lista som har tilldelats till `localCategories` parametern.  
-- EatDrink 
-- SeeDo 
+Följande typer definierar huvudkategorier för sökning.  Mer än en kategori kan anges med hjälp av en kommaavgränsad lista som tilldelats parametern. `localCategories`  
+- EatDrink (andra) 
+- SeGör 
 - Butik 
-- HotelsAndMotels 
-- BanksAndCreditUnions 
+- HotellOchMotels 
+- BankerOchCreditUnions 
 - Parkering 
 - Sjukhus 
 
-## <a name="sub-categories"></a>Under Kategorier
-Under Kategorier skickas på samma sätt som `localCategories`. Under kategorier är mer exakta kategorier. De är underordnade i den meningen att om du anger en kategori C och en av dess under Kategorier i samma kommaavgränsad lista får du samma resultat som om du har angett enbart C.
+## <a name="sub-categories"></a>Underkategorier
+Underkategorier skickas på samma `localCategories`sätt som . Underkategorier är mer specifika kategorier. De är underordnade i den meningen att om du anger en kategori C och en av dess underkategorier S i samma kommaavgränsade lista, får du samma resultat som om du angav C ensam.
 
-### <a name="eat-drink"></a>Äta dryck 
+### <a name="eat-drink"></a>Ät dryck 
 |  |  |  |  |
 | - | - | - | - |
-| BreweriesAndBrewPubs | CocktailLounges | AfricanRestaurants |
-| AmericanRestaurants | Bagels | BarbecueRestaurants |
-| Taverns | SportsBars | Fält |
-| BarsGrillsAndPubs | BuffetRestaurants| BelgianRestaurants | 
-| BritishRestaurants | CafeRestaurants | CaribbeanRestaurants |
-| ChineseRestaurants | CoffeeAndTea | Delicatessens | 
+| BryggerierOchBrewPubs | CocktailLounges ( | AfrikanskaRestauranger |
+| AmerikanskaRestauranger | Bagels | GrillRestauranger |
+| Tavernor | SportBars | Barer |
+| BarsGrillsOchPubs | BufféRestauranger| BelgiskaRestauranger | 
+| BrittiskaRestauranger | CafeRestauranger | KaribienRestauranger |
+| KinesiskaRestauranger | KaffeOchTea | Delikatesser | 
 | DeliveryService | Diners | DiscountStores | 
-| Donuts | FastFood | FrenchRestaurants | 
-| FrozenYogurt | GermanRestaurants | Supermarknad | 
-| GreekRestaurants | Inköps varor | HawaiianRestaurants | 
-| HungarianRestaurants | IceCreamAndFrozenDesserts | IndianRestaurants | 
-| ItalianRestaurants | JapaneseRestaurants | Juicer | 
-| KoreanRestaurants | LiquorStores | MexicanRestaurants |
-| MiddleEasternRestaurants | Pizza | PolishRestaurants | 
-| PortugueseRestaurants | Pretzels | Sektorn | 
-| RussianAndUkrainianRestaurants | Sydsandwichöarna | SeafoodRestaurants | 
-| SpanishRestaurants | SteakHouseRestaurants | SushiRestaurants | 
-| Sak | ThaiRestaurants | TurkishRestaurants | 
-| VegetarianAndVeganRestaurants | VietnameseRestaurants|  |
+| Munkar | Fastfood | FranskaRestauranger | 
+| FrozenYogurt (svenska) | TyskaRestauranger | Stormarknader | 
+| GrekiskaRestauranger | Livsmedelsaffär | HawaiianRestauranger | 
+| UngerskaRestauranger | IceCreamAndFrozenDesserts | IndiskaRestauranger | 
+| ItalienskaRestauranger | JapanskaRestauranger | Juice | 
+| KoreanskaRestauranger | LiquorStores (SpritButiker) | MexikanskaRestauranger |
+| MiddleEasternRestaurants | Pizza | PolskaRestauranger | 
+| PortugisiskaRestauranger | Pretzels | Restauranger | 
+| RyskaOchUkrainianRestaurants | Smörgåsar | SeafoodRestauranger | 
+| SpanskaRestauranger | SteakHouseRestauranger | SushiRestauranger | 
+| Takeaway | ThaiRestauranger | TurkiskaRestauranger | 
+| Vegetariska OchVeganRestauranger | VietnamesiskaRestauranger|  |
  
-### <a name="see-do"></a>Se gör 
+### <a name="see-do"></a>Se Gör 
 |  |  |  |
 | -- | -- | -- |
-| AmusementParks | Attractions | Carnivals |
-| Casinos | LandmarksAndHistoricalSites | MiniatureGolfCourses |
-| MovieTheaters | Museums | Parker |
-| SightseeingTours | TouristInformation | Zoos |
+| Nöjesparker | Attraktioner | Karnevaler |
+| Kasinon | LandmärkenOchhistoriskaplatser | MiniatyrGolfKursar |
+| Biotheaters | Museer | Parker |
+| SightseeingTours | TuristInformation | Djurparker |
  
 ### <a name="shop"></a>Butik 
 |  |  |  |
 | -- | -- | -- |
-| AntiqueStores | Böcker | CDAndRecordStores |
-| ChildrensClothingStores | CigarAndTobaccoShops | ComicBookStores |
-| DepartmentStores | DiscountStores | FleaMarketsAndBazaars |
-| FurnitureStores | HomeImprovementStores | JewelryAndWatchesStores |
-| KitchenwareStores | LiquorStores | MallsAndShoppingCenters |
-| MensClothingStores | MusicStores | OutletStores |
-| PetShops | PetSupplyStores | SchoolAndOfficeSupplyStores |
-| ShoeStores | SportingGoodsStores | ToyAndGameStores |
-| VitaminAndSupplementStores | WomensClothingStores |  |
+| AntiqueStores (AntiqueStores) | Bokhandlar | CDAndRecordStores |
+| BarnsClothingStores | CigarAndTobaccoButiker | ComicBookStores (På andra hand) |
+| AvdelningButiker | DiscountStores | LoppmarknaderOchBazaars |
+| MöblerButiker | HemImprovementButiker | SmyckenOchWatchesStores |
+| KöksutrustningButiker | LiquorStores (SpritButiker) | GalleriorOchShoppingCenters |
+| MensClothingStores | MusicStores (MusikButiker) | OutletStores (Utloppshandel) |
+| PetShops (på nytt) | PetSupplyStores | SkolaOchOfficeSupplyStores |
+| ShoeStores (Skoaffärer) | SportingGoodsButiker | ToyAndGameStores |
+| VitaminAndSupplementButiker | WomensClothingStores |  |
 
 
-## <a name="examples-of-local-categories-search"></a>Exempel på lokala Sök kategorier
+## <a name="examples-of-local-categories-search"></a>Exempel på sökning i lokala kategorier
 
-Följande exempel får resultat enligt `localCategories` parametern:
+Följande exempel FÅ resultat `localCategories` enligt parametern:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=HotelsAndMotels`
 
@@ -93,11 +93,11 @@ Följande exempel får resultat enligt `localCategories` parametern:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localcategories=Hospitals`
 
-Följande fråga begränsar antalet "sjukhus"-resultat till de första tre returnerade från Bing-API: et för lokal affärs sökning:
+Följande fråga begränsar antalet "sjukhusresultat" till de tre första som returneras från API:et för lokal företagssökning på Bing:
 
 `https://api.cognitive.microsoft.com/localbusinesses/v7.0/search?&q=&mkt=en-US&localCategories=Hospitals&count=3&offset=0`
 
-I följande exempel på JSON-svar ingår tre sjukhus i den större Seattle-ytan:
+Följande exempel JSON svar omfattar tre sjukhus i större Seattle-området:
 
 ```json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
@@ -217,6 +217,6 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- [Geografiska Sök gränser](specify-geographic-search.md)
+- [Geografiska sökgränser](specify-geographic-search.md)
 - [Fråga och svar](local-search-query-response.md)
-- [Snabb start iC#](quickstarts/local-quickstart.md)
+- [Snabbstart i C #](quickstarts/local-quickstart.md)

@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 90ab36389ceac2e8aad12332db433732525c62f5
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851832"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med hjälp av Java
@@ -18,18 +18,18 @@ Den här snabbstarten går igenom hur du programmatiskt skapar ett exempel på Q
 
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Skapa kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
-* [Hämta åtgärdsinformation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Få åtgärdsinformation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Java-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
+[Java-exempel](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [på referensdokumentation](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Go 1.10.1](https://golang.org/dl/)
-* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta nyckeln och slutpunkten (som innehåller resursnamnet) väljer du **Snabbstart** för din resurs i Azure-portalen.
 
-[Exempel koden](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java) finns på GitHub-lagrings platsen för QNA Maker med Java.
+[Exempelkoden](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java) är tillgänglig på GitHub-repo för QnA Maker med Java.
 
 ## <a name="create-a-knowledge-base-file"></a>Skapa en kunskapsbasfil
 
@@ -37,19 +37,19 @@ Skapa en fil som heter `CreateKB.java`
 
 ## <a name="add-the-required-dependencies"></a>Lägga till nödvändiga beroenden
 
-Högst upp i `CreateKB.java` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
+Längst upp i `CreateKB.java` lägger du till följande rader för att lägga till nödvändiga beroenden i projektet:
 
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Lägga till nödvändiga konstanter
 När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs till klassen `CreateKB` för åtkomst till QnA Maker.
 
-Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln och resurs namnet genom att välja **snabb start** i Azure Portal för din QNA Maker resurs.
+Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta nyckel- och resursnamnet väljer du **Snabbstart** i Azure-portalen för din QnA Maker-resurs.
 
 Ställ in följande värden:
 
-* `<your-qna-maker-subscription-key>` – **nyckeln** är en 32 tecken sträng och är tillgänglig i Azure Portal, på QNA Maker resursen på snabb starts sidan. Detta är inte samma som för förutsägelse slut punkts nyckel.
-* `<your-resource-name>` – ditt **resurs namn** används för att skapa slut punkts-URL: en för redigering i formatet för `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Detta är inte samma URL som används för att fråga efter förutsägelse slut punkten.
+* `<your-qna-maker-subscription-key>`- **Nyckeln** är en 32 teckensträng och är tillgänglig i Azure-portalen, på QnA Maker-resursen, på snabbstartssidan. Detta är inte samma sak som förutsägelseslutpunktsnyckeln.
+* `<your-resource-name>`- Ditt **resursnamn** används för att skapa den författande slutpunkts-URL:en för redigering, i formatet `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Det här är inte samma URL som används för att fråga ut förutsägelseslutpunkten.
 
 Du behöver inte lägga till den sista klammerparentesen för att avsluta klassen. Den finns i det sista kodfragmentet i slutet av den här snabbstarten.
 
@@ -86,7 +86,7 @@ Lägg till följande metod för att skapa kunskapsbasen genom att anropa Post-me
 
 [!code-java[Add CreateKB method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=139-144 "Add CreateKB method")]
 
-Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID:t. Använd åtgärds-ID:t för att fastställa om KB har skapats.
+Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID. Använd åtgärds-ID:t för att fastställa om KB har skapats.
 
 ```JSON
 {
@@ -117,7 +117,7 @@ Upprepa anropet tills det lyckas eller misslyckas:
 ```
 
 ## <a name="add-a-main-method"></a>Lägga till en main-metod
-Main-metoden skapar kunskapsbasen och söker sedan efter status. Åtgärds-ID: t returneras i fältet POSTens svars huvud **plats**och används som en del av vägen i get-begäran. `while` loopen försöker utföra statusen igen om den inte är klar.
+Main-metoden skapar kunskapsbasen och söker sedan efter status. Operations-ID returneras i FÄLTET POST-svarshuvudplats och används sedan som en del av flödet i GET-begäran. **Location** Loopen `while` försöker status om den inte är klar.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 
@@ -129,7 +129,7 @@ Main-metoden skapar kunskapsbasen och söker sedan efter status. Åtgärds-ID: t
     javac -cp ".;libs/*" CreateKB.java
     ```
 
-2. Ange följande kommando på en kommandorad för att köra programmet. Begäran skickas till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultat var 30:e sekund. Varje svar skrivs ut i konsolfönstret.
+2. Ange följande kommando på en kommandorad för att köra programmet. Begäran skickas till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultat var 30:e sekund. Varje svar skrivs ut till konsolfönstret.
 
     ```bash
     java -cp ",;libs/*" CreateKB

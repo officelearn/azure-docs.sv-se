@@ -1,56 +1,56 @@
 ---
-title: Hantera modell-och inlärnings inställningar – Personanpassare
-description: Datorns modell-och utbildnings inställningar kan exporteras för säkerhets kopiering i ditt eget käll kontroll system.
+title: Hantera modell- och inlärningsinställningar - Personalizer
+description: Den maskininlärda modellen och inlärningsinställningarna kan exporteras för säkerhetskopiering i ditt eget källkontrollsystem.
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: c544d058019c8d507f65dc6bfd854376b364abd1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624301"
 ---
-# <a name="how-to-manage-model-and-learning-settings"></a>Hantera modell-och inlärnings inställningar
+# <a name="how-to-manage-model-and-learning-settings"></a>Så här hanterar du modell- och inlärningsinställningar
 
-Datorns modell-och utbildnings inställningar kan exporteras för säkerhets kopiering i ditt eget käll kontroll system.
+Den maskininlärda modellen och inlärningsinställningarna kan exporteras för säkerhetskopiering i ditt eget källkontrollsystem.
 
-## <a name="export-the-personalizer-model"></a>Exportera en personanpassa modell
+## <a name="export-the-personalizer-model"></a>Exportera Personalizer-modellen
 
-I resurs hanteringens avsnitt för **modell-och inlärnings inställningar**, granska modell skapande och senaste uppdaterade datum och exportera den aktuella modellen. Du kan använda Azure Portal eller anpassade API: er för att exportera en modell fil för arkivering.
+I avsnittet Resurshantering för **modell- och utbildningsinställningar**granskar du skapandet av modeller och senast uppdaterade datum och exporterar den aktuella modellen. Du kan använda Azure-portalen eller Personalizer-API:erna för att exportera en modellfil för arkivering.
 
-![Exportera aktuell personanpassa modell](media/settings/export-current-personalizer-model.png)
+![Exportera aktuell personalizer-modell](media/settings/export-current-personalizer-model.png)
 
-## <a name="clear-data-for-your-learning-loop"></a>Rensa data för din inlärnings slinga
+## <a name="clear-data-for-your-learning-loop"></a>Rensa data för din utbildningsloop
 
-1. I Azure Portal för din personanpassa resurs på sidan **modell-och utbildnings inställningar** väljer du **Rensa data**.
-1. Om du vill rensa alla data och återställa inlärnings slingan till det ursprungliga läget markerar du alla tre kryss rutorna.
+1. På sidan **Modell- och inlärningsinställningar** på sidan Modell- och utbildningsinställningar i Azure-portalen väljer du **Rensa data**på sidan Modell- och utbildningsinställningar .
+1. Om du vill rensa alla data och återställa inlärningsloopen till det ursprungliga tillståndet markerar du alla tre kryssrutor.
 
-    ![I Azure Portal rensar du data från en personanpassa resurs.](./media/settings/clear-data-from-personalizer-resource.png)
+    ![Rensa data från Personalizer-resursen i Azure-portalen.](./media/settings/clear-data-from-personalizer-resource.png)
 
     |Värde|Syfte|
     |--|--|
-    |Loggade anpassnings-och belönings data.|Dessa loggnings data används i offline-utvärderingar. Rensa data om du återställer din resurs.|
-    |Återställ anpassnings modellen.|Den här modellen ändras på varje omskolning. Den här frekvensen av utbildning anges i **frekvensen för överförings modeller** på **konfigurations** sidan. |
-    |Ange inlärnings principen som standard.|Om du har ändrat inlärnings principen som en del av en offline-utvärdering återställs den till den ursprungliga inlärnings principen.|
+    |Loggade anpassnings- och belöningsdata.|Den här loggningsdata används i offlineutvärderingar. Rensa data om du återställer resursen.|
+    |Återställ Personalizer-modellen.|Denna modell ändras på varje omskolning. Den här utbildningsfrekvensen anges i **uppladdningsmodellfrekvensen** på **sidan Konfiguration.** |
+    |Ange att utbildningsprincipen ska standard.|Om du har ändrat utbildningsprincipen som en del av en offlineutvärdering återställs den till den ursprungliga utbildningsprincipen.|
 
-1. Välj **Rensa markerade data** för att påbörja clearing processen. Status rapporteras i Azure-meddelanden i det övre högra navigerings fönstret.
+1. Välj **Rensa markerade data** för att påbörja clearingprocessen. Status rapporteras i Azure-meddelanden i navigeringen längst upp till höger.
 
-## <a name="import-a-new-learning-policy"></a>Importera en ny utbildnings princip
+## <a name="import-a-new-learning-policy"></a>Importera en ny utbildningspolitik
 
-Inställningarna för [inlärnings principen](concept-active-learning.md#understand-learning-policy-settings) bestämmer modell utbildningens _Egenskaper_ . Utför en [offline-utvärdering](how-to-offline-evaluation.md) för att hitta en ny inlärnings princip.
+[Inställningarna för inlärningsprincipen](concept-active-learning.md#understand-learning-policy-settings) bestämmer _modellutbildningens hyperparametrar._ Gör en [offlineutvärdering](how-to-offline-evaluation.md) för att hitta en ny inlärningsprincip.
 
-1. Öppna [Azure Portal](https://portal.azure.com)och välj din personanpassa resurs.
-1. Välj **modell-och inlärnings inställningar** i avsnittet **resurs hantering** .
-1. För inställningarna för att **Importera inlärning** väljer du den fil som du skapade med JSON-formatet som anges ovan och väljer sedan knappen **överför** .
+1. Öppna [Azure-portalen](https://portal.azure.com)och välj din Personalizer-resurs.
+1. Välj **Modell- och utbildningsinställningar** i avsnittet **Resurshantering.**
+1. För **inställningarna för importinlärning** väljer du den fil som du skapade med det JSON-format som anges ovan och väljer sedan **knappen Ladda upp.**
 
-    Vänta på meddelandet att inlärnings principen har laddats upp.
+    Vänta på meddelandet om att utbildningsprincipen har överförts.
 
-## <a name="export-a-learning-policy"></a>Exportera en utbildnings princip
+## <a name="export-a-learning-policy"></a>Exportera en utbildningspolitik
 
-1. Öppna [Azure Portal](https://portal.azure.com)och välj din personanpassa resurs.
-1. Välj **modell-och inlärnings inställningar** i avsnittet **resurs hantering** .
-1. För inställningarna för att **Importera inlärning** väljer du knappen **Exportera inlärnings inställningar** . Detta sparar `json`-filen på den lokala datorn.
+1. Öppna [Azure-portalen](https://portal.azure.com)och välj din Personalizer-resurs.
+1. Välj **Modell- och utbildningsinställningar** i avsnittet **Resurshantering.**
+1. För **inställningarna för Importera inlärning** väljer du knappen **Exportera utbildningsinställningar.** Då sparas `json` filen på den lokala datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig hur du hanterar en utbildnings princip](how-to-manage-model.md)
+[Läs om hur du hanterar en utbildningspolitik](how-to-manage-model.md)

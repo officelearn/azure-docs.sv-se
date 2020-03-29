@@ -1,7 +1,7 @@
 ---
-title: Ord lista – LUIS
+title: Ordlista - LUIS
 titleSuffix: Azure Cognitive Services
-description: Ordlistan beskrivs de termer som du kan stöta på när du arbetar med LUIS API Service.
+description: Ordlistan förklarar termer som du kan stöta på när du arbetar med LUIS API-tjänsten.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,180 +11,180 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220956"
 ---
-# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
-Den Språkförståelse (LUIS) ordlista förklarar villkor som du kan stöta på när du arbetar med LUIS API Service.
+# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ordlista för språkförståelse med gemensamt ordförråd och begrepp
+I LUIS-ordlistan (Language Understanding) förklaras termer som du kan stöta på när du arbetar med LUIS API-tjänsten.
 
-## <a name="active-version"></a>Aktiv version
+## <a name="active-version"></a><a name="active-version"></a>Aktiv version
 
-Den aktiva LUIS-versionen är den version som tar emot alla ändringar i modellen. Om du vill göra ändringar i en version som inte är den aktiva versionen i [Luis](luis-reference-regions.md) -portalen måste du först ange den versionen som aktiv.
+Den aktiva LUIS-versionen är den version som tar emot eventuella ändringar i modellen. Om [LUIS](luis-reference-regions.md) du vill göra ändringar i en version som inte är den aktiva versionen i LUIS-portalen måste du först ange den versionen som aktiv.
 
-## <a name="authoring"></a>Redigerings
+## <a name="authoring"></a><a name="authoring"></a>Redigering
 
-Redigering är möjligheten att skapa, hantera och distribuera en Luis- [app](#luis-app), antingen med hjälp av [Luis](luis-reference-regions.md) -portalen eller [redigerings-API: er](https://go.microsoft.com/fwlink/?linkid=2092087).
+Redigering är möjligheten att skapa, hantera och distribuera en [LUIS-app](#luis-app), antingen med [LUIS-portalen](luis-reference-regions.md) eller [redigerings-API:erna](https://go.microsoft.com/fwlink/?linkid=2092087).
 
-## <a name="authoring-key"></a>Redigerings nyckel
+## <a name="authoring-key"></a><a name="authoring-key"></a>Redigeringsnyckel
 
-Tidigare kallades ”Programmatic” nyckel. Används för att redigera appen. Används inte för produktionsnivån endpoint-frågor. Mer information finns i [nyckel gränser](luis-boundaries.md#key-limits).
+Tidigare kallad "Programmatic" nyckel. Används för att skapa appen. Används inte för slutpunktsfrågor på produktionsnivå. Mer information finns i [Nyckelgränser](luis-boundaries.md#key-limits).
 
-## <a name="batch-test-json-file"></a>Batch test-JSON-fil
+## <a name="batch-test-json-file"></a><a name="batch-test-json-file"></a>Batchtest JSON-fil
 
-Batch-testning är möjligheten att verifiera en aktuell LUIS-Apps modell med en konsekvent och känd test uppsättning av användar-yttranden. Batch-testet definieras i en [JSON-formaterad fil](luis-concept-batch-test.md#batch-file-format).
+Batchtestning är möjligheten att validera en aktuell LUIS-apps modell med en konsekvent och känd testuppsättning av användaryttranden. Batchtestet definieras i en [JSON-formaterad fil](luis-concept-batch-test.md#batch-file-format).
 
 Se även:
-* [Koncept](luis-concept-batch-test.md)
+* [Begrepp](luis-concept-batch-test.md)
 * [Anvisningar](luis-how-to-batch-test.md)
-* [Självstudie](luis-tutorial-batch-testing.md)
+* [Självstudier](luis-tutorial-batch-testing.md)
 
-## <a name="collaborator"></a>Medarbetare
+## <a name="collaborator"></a><a name="collaborator"></a>Medarbetare
 
-En medarbetare/deltagare, är inte [ägare](#owner) till appen, men har samma behörighet för att lägga till, redigera och ta bort avsikter, entiteter, yttranden.
+En medarbetare/deltagare, är inte [ägare](#owner) till appen, men har samma behörighet att lägga till, redigera och ta bort avsikter, entiteter, yttranden.
 
-## <a name="contributor"></a>Arbeta
+## <a name="contributor"></a><a name="contributor"></a>Deltagare
 
-En deltagare är samma sak som en [medarbetare](#collaborator).
+En bidragsgivare är samma sak som en [medarbetare](#collaborator).
 
-## <a name="descriptor"></a>Script
+## <a name="descriptor"></a><a name="descriptor"></a>Deskriptor
 
-En beskrivning är en [funktion](#features) som tillämpas på en modell i inlärnings tid, inklusive [fras listor](#phrase-list) och [entiteter](#entity). 
+En deskriptor är en [funktion](#features) som tillämpas på en modell vid utbildning, inklusive [fraslistor](#phrase-list) och [entiteter](#entity). 
 
-## <a name="domain"></a>Domänsuffix
+## <a name="domain"></a><a name="domain"></a>Domain
 
-I LUIS-kontexten är en **domän** ett kunskaps området. Din domän är specifik för din app område. Detta kan vara ett allmänt område, till exempel appen resa agent. En resa agent-app kan också vara specifika för bara delarna av information för ditt företag, till exempel specifika geografiska platser, språken och tjänsterna.
+I LUIS-kontexten är en **domän** ett kunskapsområde. Din domän är specifik för ditt appområde. Detta kan vara ett allmänt område som resebyråappen. En reseagentapp kan också vara specifik för bara informationsområden för ditt företag, till exempel specifika geografiska platser, språk och tjänster.
 
-## <a name="endpoint"></a>Endpoint
+## <a name="endpoint"></a><a name="endpoint"></a>Slutpunkt
 
-[Luis-slutpunktens](https://go.microsoft.com/fwlink/?linkid=2092356) URL är den plats där du skickar Luis frågor när [appen Luis](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen för den publicerade appen samt app-ID. Du hittar slut punkten på sidan **[nycklar och slut punkter](luis-how-to-azure-subscription.md)** i din app, eller så kan du hämta slut punkts-URL: en från [Hämta app information](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+[LUIS-slutpunkts-URL:en](https://go.microsoft.com/fwlink/?linkid=2092356) är den plats där du skickar LUIS-frågor efter att [LUIS-appen](#luis-app) har skapats och publicerats. Slutpunkts-URL:en innehåller regionen för den publicerade appen samt app-ID:et. Du kan hitta slutpunkten på sidan **[Nycklar och slutpunkter](luis-how-to-azure-subscription.md)** i din app, eller så kan du hämta slutpunkts-URL:en från [Api:et hämta appinformation.](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37)
 
-## <a name="entity"></a>Entitetsrelation
+## <a name="entity"></a><a name="entity"></a>Entitet
 
-[Entiteter](luis-concept-entity-types.md) är viktiga ord i [yttranden](luis-concept-utterance.md) som beskriver information som är relevant för [avsikten](luis-concept-intent.md)och som ibland är nödvändig för IT. En entitet är i grunden en datatyp i LUIS.
+[Entiteter](luis-concept-entity-types.md) är viktiga ord i [yttranden](luis-concept-utterance.md) som beskriver information som är relevant för [avsikten](luis-concept-intent.md), och ibland är de nödvändiga för den. En entitet är i huvudsak en datatyp i LUIS.
 
-## <a name="f-measure"></a>F-mått
+## <a name="f-measure"></a><a name="f-measure"></a>F-åtgärd
 
-I [batch-testning](luis-interactive-test.md#batch-testing)är det ett mått på testets noggrannhet.
+Vid [batchtestning](luis-interactive-test.md#batch-testing), ett mått på testets noggrannhet.
 
-## <a name="false-negative"></a>Falskt negativt (FN)
+## <a name="false-negative-fn"></a><a name="false-negative"></a>Falskt negativt (FN)
 
-I [batch-testning](luis-interactive-test.md#batch-testing)representerar data punkterna yttranden där appen felaktigt förutsäger frånvaron av mål avsikten/entiteten.
+I [batchtestning](luis-interactive-test.md#batch-testing)representerar datapunkterna yttranden där appen felaktigt förutspådde frånvaron av målavsikten/entiteten.
 
-## <a name="false-positive"></a>Falskt positivt (RP)
+## <a name="false-positive-fp"></a><a name="false-positive"></a>Falskt positivt (FP)
 
-I [batch-testning](luis-interactive-test.md#batch-testing)representerar data punkterna yttranden där appen felaktigt förutsäger förekomsten av mål avsikten/entiteten.
+I [batchtestning](luis-interactive-test.md#batch-testing)representerar datapunkterna yttranden där din app felaktigt förutspådde förekomsten av målavsikten/entiteten.
 
-## <a name="features"></a>Egenskaper
+## <a name="features"></a><a name="features"></a>Funktioner
 
-I Machine Learning är en [funktion](luis-concept-feature.md) en särskiljande egenskaps-eller dataattribut som systemet iakttar.
+I maskininlärning är en [funktion](luis-concept-feature.md) ett särskiljande drag eller attribut för data som ditt system observerar.
 
-## <a name="intent"></a>Avsikt
+## <a name="intent"></a><a name="intent"></a>Avsikt
 
-En [avsikt](luis-concept-intent.md) representerar en uppgift eller åtgärd som användaren vill utföra. Det är en syfte eller mål som är uttryckt i indata för en användare, till exempel en flygning för bokning, betala en faktura eller att söka efter en nyhetsartikel. LUIS, är avsiktlig förutsägelse baserad på hela uttryck. Entiteter, jämförelse, är ett uttryck.
+En [avsikt](luis-concept-intent.md) representerar en uppgift eller åtgärd som användaren vill utföra. Det är ett syfte eller mål som uttrycks i en användares indata, till exempel att boka en flygning, betala en faktura eller hitta en nyhetsartikel. I LUIS baseras avsiktsförutsägelsen på hela uttrycket. Entiteter, som jämförelse, är bitar av ett uttryck.
 
-## <a name="labeling"></a>Märkning
+## <a name="labeling"></a><a name="labeling"></a>Märkning
 
-Etikettering, eller markering, är en process för att associera ett ord eller en fras i en avsikts [uttryck](#utterance) med en [entitet](#entity) (datatyp).
+Märkning, eller märkning, är processen att associera ett ord eller en fras i en avsikts [yttrande](#utterance) med en [entitet](#entity) (datatyp).
 
-## <a name="luis-app"></a>LUIS-app
+## <a name="luis-app"></a><a name="luis-app"></a>LUIS-appen
 
-En LUIS-app är en samling språk modeller för bearbetning av naturligt språk, inklusive [avsikter](#intent), [entiteter](#entity)och etiketterade [yttranden](#utterance).
+En LUIS-app är en samling språkmodeller för bearbetning av naturligt språk, inklusive [avsikter,](#intent) [entiteter](#entity)och [märkta yttranden](#utterance).
 
-## <a name="owner"></a>Innehavare
+## <a name="owner"></a><a name="owner"></a>Ägare
 
 Varje app har en ägare som är den person som skapade appen. Ägaren kan lägga till [medarbetare](#collaborator).
 
-## <a name="pattern"></a>Skuggning
-Den föregående mönster funktionen ersätts med [mönster](luis-concept-patterns.md). Använda mönster för att förbättra prognosens noggrannhet genom att tillhandahålla färre utbildning exempel.
+## <a name="patterns"></a><a name="pattern"></a>Mönster
+Den tidigare mönsterfunktionen [ersätts](luis-concept-patterns.md)med Mönster . Använd mönster för att förbättra förutsägelsenoggrannheten genom att ge färre träningsexempel.
 
-## <a name="phrase-list"></a>Fras lista
+## <a name="phrase-list"></a><a name="phrase-list"></a>Fraslista
 
-En [fras lista](luis-concept-feature.md) innehåller en grupp med värden (ord eller fraser) som tillhör samma klass och som måste behandlas på samma sätt (t. ex. namn på städer eller produkter). En utbytbara lista behandlas som synonymer.
+En [fraslista](luis-concept-feature.md) innehåller en grupp värden (ord eller fraser) som tillhör samma klass och som måste behandlas på samma sätt (till exempel namn på städer eller produkter). En utbytbar lista behandlas som synonymer.
 
-## <a name="prebuilt-domains"></a>Fördefinierad domän
+## <a name="prebuilt-domain"></a><a name="prebuilt-domains"></a>Fördefinierad domän
 
-En [fördefinierad domän](luis-how-to-use-prebuilt-domains.md) är en Luis-app som kon figurer ATS för en speciell domän, till exempel Home Automation (HomeAutomation) eller restaurang reservationer (RestaurantReservation). Den avsikter och yttranden entiteter har konfigurerats för den här domänen.
+En [fördefinierad domän](luis-how-to-use-prebuilt-domains.md) är en LUIS-app som konfigurerats för en viss domän, till exempel hemautomation (HomeAutomation) eller restaurangbokningar (RestaurantReservation). Avsikter, yttranden och entiteter är konfigurerade för den här domänen.
 
-## <a name="prebuilt-entity"></a>Fördefinierad entitet
+## <a name="prebuilt-entity"></a><a name="prebuilt-entity"></a>Fördefinierad enhet
 
-En [fördefinierad entitet](luis-prebuilt-entities.md) är en entitets Luis som innehåller vanliga typer av information som t. ex. nummer, URL och e-post. Du kan välja att lägga till en fördefinierade entitet i ditt program.
+En [fördefinierad entitet](luis-prebuilt-entities.md) är en entitet LUIS tillhandahåller vanliga typer av information som nummer, URL och e-post. Du väljer att lägga till en fördefinierad entitet i ditt program.
 
-## <a name="precision"></a>Tillräcklig
-I [batch-testning](luis-interactive-test.md#batch-testing)är precision (även kallat positivt förutsägande värde) den andel av relevanta yttranden bland de hämtade yttranden.
+## <a name="precision"></a><a name="precision"></a>Precision
+I [batchtestning](luis-interactive-test.md#batch-testing)är precision (även kallat positivt prediktivt värde) den del av relevanta yttranden bland de hämtade yttrandena.
 
-## <a name="programmatic-key"></a>Programmerings nyckel
+## <a name="programmatic-key"></a><a name="programmatic-key"></a>Programmatisk nyckel
 
-Har bytt namn till [redigerings nyckel](#authoring-key).
+Bytt namn till [redigeringsnyckel](#authoring-key).
 
-## <a name="publish"></a>Publish
+## <a name="publish"></a><a name="publish"></a>Publicera
 
-Publicering innebär att göra en LUIS aktiv-version tillgänglig antingen för mellanlagrings-eller produktions [slut punkten](#endpoint).  
+Publicering innebär att göra en LUIS-aktiv version tillgänglig på antingen mellanlagrings- eller [produktionsslutpunkten](#endpoint).  
 
-## <a name="quota"></a>Resurser
+## <a name="quota"></a><a name="quota"></a>Kvot
 
-LUIS-kvoten är begränsningen för [Azure-prenumerations nivån](https://aka.ms/luis-price-tier). LUIS-kvot kan begränsas av båda begäranden per sekund (http-Status 429) och Totalt antal begäranden under en månad (http-Status 403).
+LUIS-kvoten är begränsningen av [Azure-prenumerationsnivån](https://aka.ms/luis-price-tier). LUIS-kvoten kan begränsas av både begäranden per sekund (HTTP Status 429) och totala begäranden under en månad (HTTP-status 403).
 
-## <a name="recall"></a>Föregående
-I [batch-testning](luis-interactive-test.md#batch-testing)kan du återkalla (även kallat känslighet) för att Luis ska kunna generaliseras.
+## <a name="recall"></a><a name="recall"></a>Återkalla
+I [batchtestning](luis-interactive-test.md#batch-testing), återkallande (kallas även känslighet), är möjligheten för LUIS att generalisera.
 
-## <a name="semantic-dictionary"></a>Semantisk ord lista
-En semantiska ordlista finns på sidan med listan över entiteten samt sidan fras. Den semantiska innehåller förslag på ord baserat på den aktuella omfattningen.
+## <a name="semantic-dictionary"></a><a name="semantic-dictionary"></a>Semantisk ordlista
+En semantisk ordlista finns på sidan Listahet samt på sidan Fraslista. Den semantiska ordlistan innehåller förslag på ord baserat på det aktuella omfånget.
 
-## <a name="sentiment-analysis"></a>Attitydanalys
-Sentiment-analys ger positiva eller negativa värden för yttranden som tillhandahålls av [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
+## <a name="sentiment-analysis"></a><a name="sentiment-analysis"></a>Attitydanalys
+Sentimentanalys ger positiva eller negativa värden för de yttranden som tillhandahålls av [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/).
 
-## <a name="speech-priming"></a>Tal Prima
+## <a name="speech-priming"></a><a name="speech-priming"></a>Tal priming
 
-Tal promotor kan ditt taltjänsten vara förbereder sig med LUIS-modellen.
+Med talpriming kan din taltjänst förberedas med din LUIS-modell.
 
-## <a name="spelling-correction"></a>Stavnings korrigering
+## <a name="spelling-correction"></a><a name="spelling-correction"></a>Stavningskorrigering
 
-Aktivera Bing-stavningskontroll att korrigera felstavade ord. i yttranden innan förutsägelse.
+Aktivera Stavningskontroll av Bing för att korrigera felstavade ord i uttryck före förutsägelse.
 
-## <a name="starter-key"></a>Start nyckel
+## <a name="starter-key"></a><a name="starter-key"></a>Startnyckel
 
-En kostnads fri nyckel som ska användas när den först börjar med LUIS.
+En ledig nyckel att använda när du först börjar använda LUIS.
 
-## <a name="structure"></a>Hierarkistruktur
+## <a name="structure"></a><a name="structure"></a>Struktur
 
-Lägg till strukturen till en enhet som har registrerats av enheten för att tillhandahålla del komponenter med beskrivningar (funktioner) och begränsningar (reguljära uttryck eller List enheter).
+Lägg till struktur i en datorinlärd entitet för att tillhandahålla underkomponenter med beskrivningar (funktioner) och begränsningar (reguljära uttryck eller listentiteter).
 
-## <a name="subscription-key"></a>Prenumerations nyckel
+## <a name="subscription-key"></a><a name="subscription-key"></a>Prenumerationsnyckel
 
-Prenumerations nyckeln är den **förutsägelse slut punkt** nyckel som är kopplad till den Luis-tjänst [som du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte [redigerings nyckel](#programmatic-key). Om du har en slutpunktsnyckel kan användas för alla begäranden om slutpunkten i stället för nyckeln för redigering. Du kan se den aktuella slut punkts nyckeln i slut punkts-URL: en längst ned på [sidan **nycklar och slut punkter** ](luis-how-to-azure-subscription.md) på [Luis](luis-reference-regions.md) webbplats. Det är värdet för namn/värde-paret för **prenumerations nyckel** .
+Prenumerationsnyckeln är **den slutpunktsnyckel för förutsägelse som** är associerad med LUIS-tjänsten som du skapade i [Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte [redigeringsnyckeln](#programmatic-key). Om du har en slutpunktsnyckel bör den användas för alla slutpunktsbegäranden i stället för redigeringsnyckeln. Du kan se din aktuella slutpunktsnyckel i slutpunktsadressen längst ned på sidan [ **Nycklar och slutpunkter** ](luis-how-to-azure-subscription.md) på [LUIS-webbplatsen.](luis-reference-regions.md) Det är värdet av **prenumerationsnyckelnamn/värdepar.**
 
-## <a name="test"></a>Koncentration
+## <a name="test"></a><a name="test"></a>Test
 
-Att [testa](luis-interactive-test.md#test-your-app) en Luis app innebär att skicka en uttryck till Luis och Visa JSON-resultatet.
+[Att testa](luis-interactive-test.md#test-your-app) en LUIS-app innebär att skicka ett uttryck till LUIS och visa JSON-resultaten.
 
-## <a name="timezoneoffset"></a>Förskjutning av tidszon
+## <a name="timezone-offset"></a><a name="timezoneoffset"></a>Tidszon förskjutning
 
-Slutpunkten innehåller timezoneOffset. Detta är antalet minuter som du vill lägga till eller ta bort från datetimeV2 fördefinierade entitet. Till exempel om uttryck är är ”vilken tid är det nu”?, datetimeV2 som returneras den aktuella tiden för klientbegäran. Om klientens begäran kommer från en bot eller andra program som inte är samma som din robot användare, bör du skicka in förskjutningen mellan roboten och användaren.
+Slutpunkten innehåller tidszonoffset. Det här är numret i minuter som du vill lägga till eller ta bort från den fördefinierade entiteten datetimeV2. Om uttrycket till exempel är "vilken tid är det nu?", är datetimeV2 som returneras den aktuella tiden för klientbegäran. Om din klientbegäran kommer från en bot eller annat program som inte är samma som din bot användare, bör du passera i förskjutningen mellan bot och användaren.
 
-Se [ändra tidszon för en fördefinierad datetimeV2-entitet](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
+Se [Ändra tidszon för fördefinierad datetimeV2-entitet](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a>Åtkomsttokenbegäran
-En token är den minsta enheten som kan förses med i en entitet. Tokenisering baseras på programmets [kultur](luis-language-support.md#tokenization).
+## <a name="token"></a><a name="token"></a>Token
+En token är den minsta enhet som kan märkas i en entitet. Tokenisering baseras på programmets [kultur](luis-language-support.md#tokenization).
 
-## <a name="train"></a>Utbilda
+## <a name="train"></a><a name="train"></a>Tåg
 
-Träning är en process för att lära sig LUIS om eventuella ändringar i den aktiva versionen sedan den senaste utbildningen.
+Utbildning är processen att lära LUIS om eventuella ändringar i den aktiva versionen sedan den senaste utbildningen.
 
-## <a name="true-negative"></a>Sant negativt (TN)
+## <a name="true-negative-tn"></a><a name="true-negative"></a>Sant negativt (TN)
 
-I [batch-testning](luis-interactive-test.md#batch-testing)representerar data punkterna yttranden där appen korrekt förutsäger frånvaron av mål avsikten/entiteten.
+I [batchtestning](luis-interactive-test.md#batch-testing)representerar datapunkterna yttranden där appen korrekt förutspådde frånvaron av målavsikten/entiteten.
 
-## <a name="true-positive"></a>Sant positivt (TP)
+## <a name="true-positive-tp"></a><a name="true-positive"></a>Sant positivt (TP)
 
-I [batch-testning](luis-interactive-test.md#batch-testing)representerar data punkterna yttranden som din app korrekt förutsäger förekomsten av mål avsikt/entitet.
+I [batchtestning](luis-interactive-test.md#batch-testing)representerar datapunkterna yttranden där appen korrekt förutspådde förekomsten av målavsikten/entiteten.
 
-## <a name="utterance"></a>Uttryck
+## <a name="utterance"></a><a name="utterance"></a>Yttrande
 
-Ett uttryck är ett naturligt språk, exempelvis ”boken 2 tickets till Seattle nästa tisdag”. Exempel yttranden läggs till i avsikten.
+Ett yttrande är ett naturligt språk fras som "boka 2 biljetter till Seattle nästa tisdag". Exempelyttranden läggs till i avsikten.
 
-## <a name="version"></a>2.0.1
+## <a name="version"></a><a name="version"></a>Version
 
-En LUIS- [version](luis-how-to-manage-versions.md) är en speciell data modell som är associerad med ett Luis app-ID och den publicerade slut punkten. Varje LUIS-app har minst en version.
+En [LUIS-version](luis-how-to-manage-versions.md) är en specifik datamodell som är associerad med ett LUIS-app-ID och den publicerade slutpunkten. Varje LUIS-app har minst en version.

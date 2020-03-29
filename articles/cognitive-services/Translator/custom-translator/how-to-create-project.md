@@ -1,7 +1,7 @@
 ---
-title: Så här skapar du en projekt – anpassad översättare
+title: Så här skapar du ett projekt - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln beskriver hur du skapar och hanterar ett projekt i den anpassade Azure Cognitive Services-konverteraren.
+description: I den här artikeln beskrivs hur du skapar och hanterar ett projekt i Azure Cognitive Services Custom Translator.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,59 +10,59 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73836570"
 ---
 # <a name="create-a-project"></a>Skapa ett projekt
 
-Ett projekt är en behållare för modeller, dokument och tester. Varje projekt innehåller automatiskt alla dokument som överförs till den arbets ytan som har rätt språk par.
+Ett projekt är en behållare för modeller, dokument och tester. Varje projekt innehåller automatiskt alla dokument som överförs till arbetsytan som har rätt språkpar.
 
-Att skapa projektet är det första steget i att skapa en modell.
+Att skapa projekt är det första steget mot att skapa en modell.
 
 ## <a name="create-a-project"></a>Skapa ett projekt:
 
-1.  I den [anpassade översättnings](https://portal.customtranslator.azure.ai) portalen klickar du på skapa projekt.
+1.  Klicka på Skapa projekt i portalen [Anpassad översättare.](https://portal.customtranslator.azure.ai)
 
     ![Skapa projekt](media/how-to/how-to-create-project.png)
 
-2.  Ange följande information om ditt projekt i dialog rutan:
+2.  Ange följande information om projektet i dialogrutan:
 
-    a.  Projekt namn (obligatoriskt): ge projektet ett unikt, meningsfullt namn. Det är inte nödvändigt att nämna språken i rubriken.
+    a.  Projektnamn (obligatoriskt): Ge projektet ett unikt och meningsfullt namn. Det är inte nödvändigt att nämna språken i titeln.
 
-    b.  Beskrivning: en kort sammanfattning om projektet. Den här beskrivningen påverkar inte beteendet för den anpassade översättaren eller det resulterande anpassade systemet, men kan hjälpa dig att skilja mellan olika projekt.
+    b.  Beskrivning: En kort sammanfattning om projektet. Den här beskrivningen har inget inflytande över beteendet hos den anpassade översättaren eller det anpassade systemet, men kan hjälpa dig att skilja mellan olika projekt.
 
-    c.  Språk par (obligatoriskt): Välj det språk som du vill översätta från och till.
+    c.  Språkpar (obligatoriskt): Välj det språk som du översätter från och till.
 
-    d.  Kategori (krävs): Välj den kategori som passar bäst för ditt projekt. Kategorin beskriver terminologin och formatet för dokumenten som du tänker översätta.
+    d.  Kategori (obligatoriskt): Välj den kategori som är mest lämplig för projektet. Kategorin beskriver terminologin och stilen på de dokument som du tänker översätta.
 
-    e.  Kategori Beskrivning: Använd det här fältet för att bättre beskriva det specifika fält eller den bransch där du arbetar. Om din kategori till exempel är medicin kan du lägga till ett visst dokument, t. ex. en operation eller Pediatrics. Beskrivningen påverkar inte beteendet för den anpassade översättaren eller det resulterande anpassade systemet.
+    e.  Kategoribeskrivning: Använd det här fältet för att bättre beskriva det område eller den bransch där du arbetar. Till exempel, om din kategori är medicin, kan du lägga till ett visst dokument, en sådan operation, eller pediatrik. Beskrivningen har inget inflytande över beteendet hos den anpassade översättaren eller det anpassade systemet.
 
-    f.  Projekt etikett: [projekt etiketten](workspace-and-project.md#project-labels) skiljer mellan projekt med samma språk par och kategori. Vi rekommenderar att du *bara* använder en etikett om du planerar att bygga flera projekt för samma språk par och samma kategori och vill komma åt dessa projekt med en annan kategori. Använd inte det här fältet om du bara skapar system för en kategori. Det krävs ingen projekt etikett och det är inte praktiskt att skilja mellan språk par. Du kan använda samma etikett för flera projekt.
+    f.  Projektetikett: [Projektetiketten](workspace-and-project.md#project-labels) skiljer mellan projekt med samma språkpar och kategori. Du kan *också* använda en etikett om du planerar att skapa flera projekt för samma språkpar och samma kategori och vill komma åt dessa projekt med ett annat KategoriID. Använd inte det här fältet om du bara bygger system för en kategori. En projektetikett krävs inte och kan inte skilja mellan språkpar. Du kan använda samma etikett för flera projekt.
 
-    ![Dialog rutan skapa projekt](media/how-to/how-to-create-project-dialog.png)
+    ![Dialogrutan Skapa projekt](media/how-to/how-to-create-project-dialog.png)
 
 3.  Klicka på Skapa
 
-## <a name="view-project-details"></a>Visa projekt information
+## <a name="view-project-details"></a>Visa projektinformation
 
-Landnings sidan för anpassad översättare visar de första 10 projekten i din arbets yta. Det visar projekt namn, språk par, kategori, status och BLEU poäng.
+Målsidan för Custom Translator visar de första 10 projekten på arbetsytan. Den visar projektets namn, språkpar, kategori, status och BLEU-poäng.
 
-När du har valt ett projekt visas följande på projekt sidan:
+När du har valt ett projekt visas följande på projektsidan:
 
-- Kategorinr: en Kategorinhet skapas genom att sammanfoga WorkspaceID, projekt etiketten och kategori koden. Du kan använda kategorin med text Translator för att hämta anpassade översättningar.
+- CategoryID: Ett CategoryID skapas genom att sammanfoga WorkspaceID- , projektetiketten och kategorikoden. Du använder CategoryID med API:et för textöversättare för att få anpassade översättningar.
 
-- Knappen träna: Använd den här knappen för att starta en [träna en modell](how-to-train-model.md).
+- Tågknapp: Använd den här knappen för att starta en [utbildning en modell](how-to-train-model.md).
 
-- Knappen Lägg till dokument: Använd den här knappen för att [Ladda upp dokument](how-to-upload-document.md).
+- Knappen Lägg till dokument: Använd den här knappen för att [ladda upp dokument](how-to-upload-document.md).
 
-- Knappen Filtrera dokument: Använd den här knappen för att filtrera och söka efter vissa dokument.
+- Knappen Filterdokument: Använd den här knappen för att filtrera och söka efter specifika dokument.
 
-    ![Visa projekt information](media/how-to/how-to-view-project.png)
+    ![Visa projektinformation](media/how-to/how-to-view-project.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig [hur du söker, redigerar och tar bort projekt](how-to-search-edit-delete-projects.md).
-- Lär dig [hur du överför dokument](how-to-upload-document.md) för att bygga översättnings modeller.
+- Läs om hur du [söker, redigerar, tar bort projekt](how-to-search-edit-delete-projects.md).
+- Läs om hur du [laddar upp dokument](how-to-upload-document.md) för att skapa översättningsmodeller.

@@ -1,7 +1,7 @@
 ---
-title: Välj ett tal igenkännings läge med tal-SDK
+title: Välj ett taligenkänningsläge med Tal-SDK
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du väljer det bästa igenkännings läget när du använder tal-SDK.
+description: Läs om hur du väljer det bästa igenkänningsläget när du använder Tal-SDK.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -12,25 +12,25 @@ ms.date: 03/10/2020
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
 ms.openlocfilehash: d997cb592d9d648998f2b44d9f61f465f05faeb0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79079830"
 ---
-# <a name="choose-a-speech-recognition-mode"></a>Välj ett tal igenkännings läge
+# <a name="choose-a-speech-recognition-mode"></a>Välj ett taligenkänningsläge
 
-När du överväger tal-till-text-igenkänning tillhandahåller [tal-SDK](speech-sdk.md) flera lägen för tal bearbetning. Begreppsmässigt kallas ibland *igenkännings läge*. I den här artikeln jämförs de olika igenkännings lägena.
+När man överväger tal-till-text-igenkänningsåtgärder innehåller [Tal-SDK](speech-sdk.md) flera lägen för bearbetning av tal. Begreppsmässigt, ibland kallas *igenkänningsläge*. I den här artikeln jämförs de olika tolkningslägena.
 
-## <a name="recognize-once"></a>Identifiera en gång
+## <a name="recognize-once"></a>Känn igen en gång
 
-Om du vill bearbeta varje uttryck en "mening" i taget använder du funktionen "identifiera en gång". Den här metoden identifierar en känd uttryck från indatamängden från början av identifierad tal tills nästa paus. Normalt markerar en paus en menings slut eller en rad-till-tanke.
+Om du vill bearbeta varje uttryck en "mening" i taget, använd "känna igen en gång"-funktionen. Den här metoden identifierar ett erkänt uttryck från indata som börjar i början av det identifierade talet tills nästa paus. Vanligtvis markerar en paus slutet på en mening eller tankegång.
 
-I slutet av en känd uttryck slutar tjänsten att bearbeta ljudet från denna begäran. Den maximala gränsen för igenkänning är en menings varaktighet på 20 sekunder.
+I slutet av ett erkänt uttryck slutar tjänsten att bearbeta ljud från den begäran. Den maximala gränsen för igenkänning är en strafflängd på 20 sekunder.
 
 ::: zone pivot="programming-language-csharp"
 
-Mer information om hur du använder funktionen `RecognizeOnceAsync` finns i [.net Speech SDK-dokument](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
+Mer information om `RecognizeOnceAsync` hur du använder funktionen finns i [.NET Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechRecognizer_RecognizeOnceAsync).
 
 ```csharp
 var result = await recognizer.RecognizeOnceAsync();
@@ -39,7 +39,7 @@ var result = await recognizer.RecognizeOnceAsync();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-Mer information om hur du använder funktionen `RecognizeOnceAsync` finns i [ C++ tal SDK-dokumenten](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync).
+Mer information om `RecognizeOnceAsync` hur du använder funktionen finns i [C++ Speech SDK docs](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizeonceasync).
 
 ```cpp
 auto result = recognize->RecognizeOnceAsync().get();
@@ -48,7 +48,7 @@ auto result = recognize->RecognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Mer information om hur du använder funktionen `recognizeOnceAsync` finns i [Java Speech SDK-dokument](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
+Mer information om `recognizeOnceAsync` hur du använder funktionen finns i [Java Speech SDK docs](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechRecognizer.recognizeOnceAsync?view=azure-java-stable).
 
 ```java
 SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
@@ -57,7 +57,7 @@ SpeechRecognitionResult result = recognizer.recognizeOnceAsync().get();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Mer information om hur du använder `recognize_once`-funktionen finns i [python Speech SDK-dokument](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult).
+Mer information om `recognize_once` hur du använder funktionen finns i [Python Speech SDK-dokument](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python#recognize-once------azure-cognitiveservices-speech-speechrecognitionresult).
 
 ```python
 result = speech_recognizer.recognize_once()
@@ -66,13 +66,13 @@ result = speech_recognizer.recognize_once()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Ytterligare språk finns i [referens dokument för tal-SDK](speech-to-text.md#speech-sdk-reference-docs).
+Fler språk finns i [tal-SDK-referensdokumenten](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
 ## <a name="continuous"></a>Kontinuerlig igenkänning
 
-Om du behöver tids krävande igenkännings igenkänning använder du Start-och motsvarande stopp-funktioner för kontinuerlig igenkänning. Start funktionen startar och fortsätter att bearbeta alla yttranden tills du anropar funktionen Stop eller tills den är för lång tid i tystnaden. När du använder det kontinuerliga läget måste du registrera dig för de olika händelser som ska utlösas vid instansen. Till exempel utlöses händelsen "erkänd" när tal igenkänning sker. Du måste ha en händelse hanterare på plats för att kunna hantera igenkänning.
+Om du behöver långvarig igenkänning använder du start- och motsvarande stoppfunktioner för kontinuerlig igenkänning. Startfunktionen startar och fortsätter att bearbeta alla yttranden tills du anropar stoppfunktionen, eller tills för mycket tid i tystnad har passerat. När du använder det kontinuerliga läget, se till att registrera dig till de olika händelser som kommer att skjuta vid förekomst. Händelsen "igenkänd" utlöses till exempel när taligenkänning inträffar. Du måste ha en händelsehanterare på plats för att hantera igenkänning.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -154,17 +154,17 @@ speech_recognizer.stop_continuous_recognition()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Ytterligare språk finns i [referens dokument för tal-SDK](speech-to-text.md#speech-sdk-reference-docs).
+Fler språk finns i [tal-SDK-referensdokumenten](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
-## <a name="dictation"></a>Diktering
+## <a name="dictation"></a>Diktamen
 
-När du använder kontinuerlig igenkänning kan du aktivera dikterings bearbetning genom att använda motsvarande "Aktivera diktering"-funktion. Det här läget kommer att göra att tal konfigurations instansen tolkar ord beskrivningar av menings strukturer som interpunktion. Till exempel skulle uttryck "är du bor i stadens frågetecken" tolkas som texten "är du bor i staden?".
+När du använder kontinuerlig igenkänning kan du aktivera dikteringsbearbetning med hjälp av motsvarande "aktivera dikteringsfunktion". Det här läget gör att talkonfigurationsförekomsten tolkar ordbeskrivningar av meningsstrukturer, till exempel interpunktion. Till exempel skulle uttrycket "Bor du i stan frågetecken" tolkas som texten "Bor du i stan?".
 
 ::: zone pivot="programming-language-csharp"
 
-Mer information om hur du använder funktionen `EnableDictation` finns i [.net Speech SDK-dokument](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
+Mer information om `EnableDictation` hur du använder funktionen finns i [.NET Speech SDK docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet#Microsoft_CognitiveServices_Speech_SpeechConfig_EnableDictation).
 
 ```csharp
 // Enable diction
@@ -174,7 +174,7 @@ SpeechConfig.EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-cpp"
 
-Mer information om hur du använder funktionen `EnableDictation` finns i [ C++ tal SDK-dokumenten](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
+Mer information om `EnableDictation` hur du använder funktionen finns i [C++ Speech SDK docs](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation).
 
 ```cpp
 // Enable diction
@@ -184,7 +184,7 @@ SpeechConfig->EnableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-Mer information om hur du använder funktionen `enableDictation` finns i [Java Speech SDK-dokument](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
+Mer information om `enableDictation` hur du använder funktionen finns i [Java Speech SDK docs](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.SpeechConfig.enableDictation?view=azure-java-stable).
 
 ```java
 // Enable diction
@@ -194,7 +194,7 @@ SpeechConfig.enableDictation();
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
-Mer information om hur du använder `enable_dictation`-funktionen finns i [python Speech SDK-dokument](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
+Mer information om `enable_dictation` hur du använder funktionen finns i [Python Speech SDK-dokument](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#enable-dictation--).
 
 ```python
 # Enable diction
@@ -204,11 +204,11 @@ SpeechConfig.enable_dictation()
 ::: zone-end
 ::: zone pivot="programming-language-more"
 
-Ytterligare språk finns i [referens dokument för tal-SDK](speech-to-text.md#speech-sdk-reference-docs).
+Fler språk finns i [tal-SDK-referensdokumenten](speech-to-text.md#speech-sdk-reference-docs).
 
 ::: zone-end
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Utforska ytterligare exempel på tal-SDK på GitHub](https://aka.ms/csspeech/samples)
+> [Utforska ytterligare Tal SDK-exempel på GitHub](https://aka.ms/csspeech/samples)

@@ -1,7 +1,7 @@
 ---
-title: Språk stöd – LUIS
+title: Språkstöd - LUIS
 titleSuffix: Azure Cognitive Services
-description: LUIS har olika funktioner i tjänsten. Alla funktioner är inte på samma språkparitet. Kontrollera att de funktioner som du är intresserad av stöds i kulturen för språk som du arbetar med. En LUIS-app är kultur-specifika och kan inte ändras när den är inställd.
+description: LUIS har en mängd olika funktioner i tjänsten. Alla funktioner är inte på samma språkparitet. Kontrollera att de funktioner du är intresserad av stöds i den språkkultur du riktar dig till. En LUIS-app är kulturspecifik och kan inte ändras när den har ställts in.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,72 +12,72 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220857"
 ---
-# <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
+# <a name="language-and-region-support-for-luis"></a>Språk- och regionstöd för LUIS
 
-LUIS har olika funktioner i tjänsten. Alla funktioner är inte på samma språkparitet. Kontrollera att de funktioner som du är intresserad av stöds i kulturen för språk som du arbetar med. En LUIS-app är kultur-specifika och kan inte ändras när den är inställd.
+LUIS har en mängd olika funktioner i tjänsten. Alla funktioner är inte på samma språkparitet. Kontrollera att de funktioner du är intresserad av stöds i den språkkultur du riktar dig till. En LUIS-app är kulturspecifik och kan inte ändras när den har ställts in.
 
-## <a name="multi-language-luis-apps"></a>Flera language Understanding Intelligent Service-appar
+## <a name="multi-language-luis-apps"></a>LUIS-appar på flera språk
 
-Om du behöver ett klientprogram för flera språk LUIS som en chattrobot finns ett par alternativ. Om LUIS har stöd för alla språk, kan du utveckla en LUIS-app för varje språk. Varje LUIS-app har ett unikt app-ID och slutpunkten log. Om du behöver ange språk förståelse för ett språk LUIS inte stöder kan du använda [Microsoft Translator API](../Translator/translator-info-overview.md) för att översätta uttryck till ett språk som stöds, skicka uttryck till Luis-slutpunkten och ta emot de resulterande poängen.
+Om du behöver ett LUIS-klientprogram på flera språk, till exempel en chatbot, har du några alternativ. Om LUIS stöder alla språk utvecklar du en LUIS-app för varje språk. Varje LUIS-app har ett unikt app-ID och slutpunktslogg. Om du behöver ge språkförståelse för ett språk som LUIS inte stöder kan du använda [Microsoft Translator API](../Translator/translator-info-overview.md) för att översätta uttrycket till ett språk som stöds, skicka uttryck till LUIS-slutpunkten och få de resulterande poängen.
 
 ## <a name="languages-supported"></a>Språk som stöds
 
 LUIS förstår yttranden på följande språk:
 
-| Språk |Nationell inställning  |  Fördefinierade domän | Fördefinierade entitet | Rekommendationer för fras lista | **[text analys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)|
+| Språk |Nationell inställning  |  Fördefinierad domän | Fördefinierad enhet | Rekommendationer för fraslista | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment och<br>Nyckelord)|
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
-| Arabiska (förhands granskning-modern standard arabisk) |`ar-AR`|-|-|-|-|
-| *[kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
+| Arabiska (förhandsvisning - modern standard arabiska) |`ar-AR`|-|-|-|-|
+| *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Nederländska |`nl-NL` |✔|  -   |-|✔|
 | Franska (Frankrike) |`fr-FR` |✔| ✔ |✔ |✔|
 | Franska (Kanada) |`fr-CA` |-|   -   |-|✔|
 | Tyska |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
 | Italienska |`it-IT` |✔| ✔ |✔|✔|
-| *[japanska](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Endast diskussionsämne|
-| Koreanska |`ko-KR` |✔|   -   |-|Endast diskussionsämne|
-| Portugisiska (Brasilien) |`pt-BR` |✔| ✔ |✔ |inte alla underordnade kulturer|
+| *[Japanska](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Endast nyckelfras|
+| Koreansk |`ko-KR` |✔|   -   |-|Endast nyckelfras|
+| Portugisiska (Brasilien) |`pt-BR` |✔| ✔ |✔ |inte alla underkulturer|
 | Spanska (Spanien) |`es-ES` |✔| ✔ |✔|✔|
 | Spanska (Mexiko)|`es-MX` |-|  -   |✔|✔|
-| Turkiska | `tr-TR` |✔|-|-|Endast sentiment|
+| Turkiska | `tr-TR` |✔|-|-|Endast känsla|
 
-Språk stöd varierar för [färdiga entiteter](luis-reference-prebuilt-entities.md) och [fördefinierade domäner](luis-reference-prebuilt-domains.md).
+Språkstöd varierar för [fördefinierade entiteter](luis-reference-prebuilt-entities.md) och [fördefinierade domäner](luis-reference-prebuilt-domains.md).
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
-### <a name="japanese-support-notes"></a>\* Japanska stöder anteckningar
+### <a name="japanese-support-notes"></a>*Japanska supportanteckningar
 
- - Eftersom LUIS stöder inte syntaktiska analys och kommer inte att förstå skillnaden mellan Keigo och informell japanska, måste du lägga till de olika nivåerna av förfarande utbildning exempel för dina program.
-     - でございます är inte samma som です.
-     - です är inte samma som だ.
+ - Eftersom LUIS inte ger syntaktisk analys och inte kommer att förstå skillnaden mellan Keigo och informella japanska, måste du införliva de olika nivåerna av formalitet som utbildning exempel för dina program.
+     - Det är inte samma sak som.
+     - Det är inte samma sak som.
 
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
-### <a name="speech-api-supported-languages"></a>Talspråk för API som stöds
-Se språk som [stöds](../speech-service/speech-to-text.md) av tal i tal för tallägen.
+### <a name="speech-api-supported-languages"></a>Språk som stöds av tal-API
+Se [Språk som stöds](../speech-service/speech-to-text.md) av talstöd för språk i taldiktationsläge.
 
-### <a name="bing-spell-check-supported-languages"></a>Stavningskontroll i Bing stöds språk
-Se Stavningskontroll i Bing [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) för en lista över språk och status som stöds.
+### <a name="bing-spell-check-supported-languages"></a>Språk som stöds av Bing-stavningskontroll
+Se Språk för stavningskontroll [som stöds](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) av Bing för en lista över språk och status som stöds.
 
-## <a name="rare-or-foreign-words-in-an-application"></a>Sällsynta eller främmande ord i ett program
-I `en-us` kulturen lär sig LUIS att skilja de flesta engelska ord, inklusive slang. I `zh-cn` kulturen lär sig LUIS att skilja på de flesta kinesiska tecknen. Om du använder ett sällsynt ord i `en-us` eller ett specialtecken i `zh-cn`och du ser att LUIS inte verkar särskilja ordet eller specialtecknet kan du lägga till ordet eller symbolen i en [fras List funktion](luis-how-to-add-features.md). Till exempel ska utanför programmet – det vill säga främmande ord--kultur läggas till en fras-list-funktion.
+## <a name="rare-or-foreign-words-in-an-application"></a>Sällsynta eller främmande ord i en ansökan
+I `en-us` kulturen lär sig LUIS att skilja de flesta engelska ord, inklusive slang. I `zh-cn` kulturen lär sig LUIS att skilja de flesta kinesiska tecken. Om du använder ett `en-us` sällsynt `zh-cn`ord i eller tecken i , och du ser att LUIS inte verkar skilja det ordet eller tecknet, kan du lägga till det ordet eller tecknet i en [fraslistefunktion](luis-how-to-add-features.md). Ord utanför programmets kultur - det vill säga utländska ord – bör till exempel läggas till i en fraslistefunktion.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
-### <a name="hybrid-languages"></a>Hybrid-språk
-Hybrid språk kombinera ord från två kulturer, till exempel engelska och kinesiska. De här språken stöds inte i LUIS eftersom en app är baserad på en enda kultur.
+### <a name="hybrid-languages"></a>Hybridspråk
+Hybridspråk kombinerar ord från två kulturer som engelska och kinesiska. Dessa språk stöds inte i LUIS eftersom en app baseras på en enda kultur.
 
 ## <a name="tokenization"></a>Tokenisering
-För att utföra maskin inlärning bryter LUIS en uttryck till [token](luis-glossary.md#token) baserat på kulturen.
+För att utföra maskininlärning bryter LUIS ett uttryck i [token baserat](luis-glossary.md#token) på kultur.
 
-|Språk|  varje blanksteg eller specialtecken | tecknet nivå|sammansatta ord|[en token enhet returnerades](luis-concept-data-extraction.md#tokenized-entity-returned)
+|Språk|  varje utrymme eller specialtecken | teckennivå|sammansatta ord|[tokeniserad entitet returnerad](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |Arabiska|||||
 |Kinesiska||✔||✔|
@@ -89,21 +89,21 @@ För att utföra maskin inlärning bryter LUIS en uttryck till [token](luis-glos
 | Hindi |✔|-|-|-|-|
 |Italienska|✔||||
 |Japanska||||✔|
-|Koreanska||✔||✔|
+|Koreansk||✔||✔|
 |Portugisiska (Brasilien)|✔||||
 |Spanska (es-ES)|✔||||
 |Spanska (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>Anpassade tokenizer-versioner
+### <a name="custom-tokenizer-versions"></a>Anpassade tokenizerversioner
 
-Följande kulturer har anpassade tokenizer-versioner:
+Följande kulturer har anpassade tokenizerversioner:
 
-|Culture (Kultur)|Version|Syfte|
+|Kultur|Version|Syfte|
 |--|--|--|
-|Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare går in `Ich fahre einen krankenwagen` som en uttryck, aktive ras den `Ich fahre einen kranken wagen`. Tillåta markering av `kranken` och `wagen` oberoende av olika entiteter.|
-|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på blank steg.<br> om en användare går in `Ich fahre einen krankenwagen` som en uttryck, förblir den en enda token. Därför markeras `krankenwagen` som en enskild enhet. |
+|Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela upp dem med hjälp av en maskininlärningsbaserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare `Ich fahre einen krankenwagen` anger som ett uttryck, `Ich fahre einen kranken wagen`vrids den till . Tillåta märkning `kranken` av `wagen` och oberoende som olika enheter.|
+|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på mellanslag.<br> Om en användare `Ich fahre einen krankenwagen` anger som ett uttryck förblir det en enda token. Således `krankenwagen` är markerad som en enda enhet. |
 
-### <a name="migrating-between-tokenizer-versions"></a>Migrera mellan tokenizer-versioner
+### <a name="migrating-between-tokenizer-versions"></a>Migrera mellan tokenizerversioner
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
@@ -206,6 +206,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Tokenisering sker på App-nivå. Det finns inget stöd för tokenisering på versions nivå.
+Tokenisering sker på appnivå. Det finns inget stöd för tokenisering på versionsnivå.
 
-[Importera filen som en ny app](luis-how-to-start-new-app.md)i stället för en version. Den här åtgärden innebär att den nya appen har ett annat app-ID men använder den tokenizer-version som anges i filen.
+[Importera filen som en ny app](luis-how-to-start-new-app.md)i stället för en version. Den här åtgärden innebär att den nya appen har ett annat app-ID men använder tokenizerversionen som anges i filen.

@@ -1,7 +1,7 @@
 ---
-title: Skicka och använda API-frågor och svar – Bing lokal företags sökning
+title: Skicka och använda API-frågor och svar - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
-description: Använd den här artikeln för att lära dig hur du skickar och använder Sök frågor med API för lokal sökning i Bing.
+description: Använd den här artikeln om du vill lära dig hur du skickar och använder sökfrågor med API:et för lokal företagssökning på Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74326727"
 ---
-# <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Skicka och använda Bing API-frågor och svar för lokal sökning i Bing
+# <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Skicka och använda API-frågor och svar för Bing Local Business Search
 
-Du kan få lokala resultat från Bing-API: et för lokal sökning genom att skicka en Sök fråga till dess slut punkt och inkludera `Ocp-Apim-Subscription-Key`s huvudet, vilket krävs. Förutom tillgängliga [rubriker](local-search-reference.md#headers) och [parametrar](local-search-reference.md#query-parameters)kan du anpassa sökningarna genom att ange [geografiska gränser](specify-geographic-search.md) för det område som ska genomsökas och vilka [Kategorier](local-search-query-response.md) av platser som returneras.
+Du kan få lokala resultat från API:et för sökning i Bing `Ocp-Apim-Subscription-Key` lokalt företag genom att skicka en sökfråga till slutpunkten och inkludera huvudet, vilket krävs. Tillsammans med tillgängliga [rubriker](local-search-reference.md#headers) och [parametrar](local-search-reference.md#query-parameters)kan sökningar anpassas genom att ange [geografiska gränser](specify-geographic-search.md) för det område som ska sökas och [kategorierna](local-search-query-response.md) av platser returneras.
 
 ## <a name="creating-a-request"></a>Skapa en begäran
 
-Om du vill skicka en begäran till Bing-API: et för lokal sökning lägger du till en sökterm i `q=` parameter innan du lägger till den i API-slutpunkten och inkluderar `Ocp-Apim-Subscription-Key`s huvudet. Till exempel:
+Om du vill skicka en begäran till API:et för `q=` lokal företagssökning i Bing lägger `Ocp-Apim-Subscription-Key` du till en sökterm i parametern innan du lägger till den i API-slutpunkten och inklusive huvudet. Ett exempel:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
-URL-syntaxen för fullständig begäran visas nedan. Se [snabb starter](quickstarts/local-quickstart.md)för den lokala Business Search-API: n och referens innehåll för [huvuden](local-search-reference.md#headers) och [parametrar](local-search-reference.md#query-parameters) för mer information om att skicka begär Anden. 
+Syntaxen för url-begäran visas nedan. Mer information om hur du skickar begäranden finns i [snabbstarten](quickstarts/local-quickstart.md)för Bing Local Business Search API och referensinnehåll för [rubriker](local-search-reference.md#headers) och [parametrar.](local-search-reference.md#query-parameters) 
 
-Information om lokala Sök kategorier finns i [Sök kategorier för API: et för lokal sökning i Bing](local-categories.md).
+Information om lokala sökkategorier finns i [Sökkategorier för API:et för lokal företagssökning.](local-categories.md)
 
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
@@ -37,7 +37,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 
 ## <a name="using-responses"></a>Använda svar
 
-JSON-svar från Bing Local Business Search-API: et innehåller ett `SearchResponse`-objekt. API: et kommer att returnera relevanta Sök resultat i fältet `places`. Om inga resultat hittas tas fältet `places` inte med i svaret.
+JSON-svar från API:et för `SearchResponse` lokal företagssökning i Bing innehåller ett objekt. API:et returnerar relevanta `places` sökresultat i fältet. Om inga resultat hittas inkluderas inte fältet `places` i svaret.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -52,29 +52,29 @@ JSON-svar från Bing Local Business Search-API: et innehåller ett `SearchRespon
 . . . 
 ```
 
-### <a name="search-result-attributes"></a>Sök Resultat-attribut
+### <a name="search-result-attributes"></a>Sökresultatattribut
 
-JSON-resultaten som returneras av API: et omfattar följande attribut:
+JSON-resultaten som returneras av API:et innehåller följande attribut:
 
 * _type
-* adresspool
-* entityPresentationInfo
-* geografiska
+* adress
+* enhetPresentationInfo
+* Geo
 * id
 * namn
-* routeablePoint
-* samtal
+* ruttbarPunkt
+* telefon
 * url
 
-Allmän information om sidhuvuden, parametrar, marknads koder, svars objekt, fel osv. finns i [Bing-v7 för lokal sökning i API](local-search-reference.md) .
+Allmän information om rubriker, parametrar, marknadskoder, svarsobjekt, fel osv., se [Bing Local Search API v7-referensen.](local-search-reference.md)
 
 > [!NOTE]
-> Du eller en tredje part å din vägnar får inte använda, behålla, lagra, cachelagra, dela eller distribuera data från den lokala Sök-API: n för att testa, utveckla, träna, distribuera eller göra tillgängliga tjänster eller funktioner som inte kommer från Microsoft. 
+> Du, eller en tredje part för din räkning, får inte använda, behålla, lagra, cachelagra, dela eller distribuera data från API:et för lokal sökning i syfte att testa, utveckla, träna, distribuera eller tillgängliggöra tjänster eller funktioner som inte kommer från Microsoft. 
 
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
-Följande JSON-svar innehåller Sök resultat som anges av frågan `?q=restaurant+in+Bellevue`.
+Följande JSON-svar innehåller sökresultat som `?q=restaurant+in+Bellevue`anges av frågan .
 
 ```json
 Vary: Accept-Encoding
@@ -147,7 +147,7 @@ Expires: Tue, 16 Oct 2018 16:25:15 GMT
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Snabb start för lokal affärs sökning](quickstarts/local-quickstart.md)
-- [Lokal affärs sökning Java snabb start](quickstarts/local-search-java-quickstart.md)
-- [Snabb start för lokal Business search-nod](quickstarts/local-search-node-quickstart.md)
-- [Snabb start för att söka i lokalt företag](quickstarts/local-search-python-quickstart.md)
+- [Snabbstart för lokal företagssökning](quickstarts/local-quickstart.md)
+- [Snabbstart för Java-sökning för lokal företagssökning](quickstarts/local-search-java-quickstart.md)
+- [Snabbstart för söknod för lokalt företag](quickstarts/local-search-node-quickstart.md)
+- [Snabbstart för Lokal företagssökning i Python](quickstarts/local-search-python-quickstart.md)

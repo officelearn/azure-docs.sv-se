@@ -1,6 +1,6 @@
 ---
-title: Anslut till slack från Azure Logic Apps
-description: Automatisera aktiviteter och arbets flöden som övervakar filer och hantera kanaler, grupper och meddelanden i ditt slack-konto med hjälp av Azure Logic Apps
+title: Ansluta till Slack från Azure Logic Apps
+description: Automatisera uppgifter och arbetsflöden som övervakar filer och hanterar kanaler, grupper och meddelanden i ditt Slack-konto med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,65 +8,65 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789179"
 ---
-# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Övervaka och hantera slack med Azure Logic Apps
+# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Övervaka och hantera Slack med Azure Logic Apps
 
-Med Azure Logic Apps och slack-kopplingen kan du skapa automatiserade uppgifter och arbets flöden som övervakar dina slack-filer och hantera dina slack-kanaler, meddelanden, grupper osv. till exempel:
+Med Azure Logic Apps och Slack-anslutningsappen kan du skapa automatiserade uppgifter och arbetsflöden som övervakar dina Slack-filer och hanterar dina Slack-kanaler, meddelanden, grupper och så vidare, till exempel:
 
 * Övervaka när nya filer skapas.
-* Skapa, lista och ansluta kanaler 
-* Publicera meddelanden.
-* Skapa grupper och Ställ in stör ej.
+* Skapa, lista och gå med kanaler 
+* Skicka meddelanden.
+* Skapa grupper och ange stör ej.
 
-Du kan använda utlösare som får svar från ditt slack-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt slack-konto. Du kan också använda andra åtgärder för att använda utdata från slack-åtgärder. Till exempel kan du skicka e-post med Office 365 Outlook Connector när en ny fil skapas. Om du är nybörjare på Logi Kap par kan du läsa om [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Du kan använda utlösare som får svar från ditt Slack-konto och göra utdata tillgängliga för andra åtgärder. Du kan använda åtgärder som utför uppgifter med ditt Slack-konto. Du kan också låta andra åtgärder använda utdata från Slack-åtgärder. När en ny fil skapas kan du till exempel skicka e-post med Office 365 Outlook-kopplingen. Om du inte har tidigare i logikappar läser du [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Ditt [slack](https://slack.com/) -konto och användarautentiseringsuppgifter
+* Ditt [Slack-konto](https://slack.com/) och dina användaruppgifter
 
-  Dina autentiseringsuppgifter ger din Logic-app behörighet att skapa en anslutning och komma åt ditt slack-konto.
+  Dina autentiseringsuppgifter ger logikappen behörighet att skapa en anslutning och komma åt ditt Slack-konto.
 
-* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Den Logic app där du vill komma åt ditt slack-konto. [Skapa en tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md)för att börja med en slack-utlösare. Om du vill använda en slack-åtgärd startar du din Logic-app med en utlösare, till exempel en slack-utlösare eller en annan utlösare, till exempel **upprepnings**
+* Logikappen där du vill komma åt ditt Slack-konto. Om du vill börja med en Slack-utlösare [skapar du en tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Om du vill använda en Slack-åtgärd startar du logikappen med en utlösare, till exempel en Slack-utlösare eller en annan utlösare, till exempel **utlösaren För återkommande.**
 
-## <a name="connect-to-slack"></a>Anslut till slack
+## <a name="connect-to-slack"></a>Anslut till Slack
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer, om du inte redan har gjort det.
+1. Logga in på [Azure-portalen](https://portal.azure.com)och öppna logikappen i Logic App Designer, om den inte redan är öppen.
 
-1. Skriv "slack" som filter i rutan Sök i tomma Logi Kap par. Välj den utlösare som du vill använda under listan utlösare. 
+1. För tomma logikappar anger du "slack" som filter i sökrutan. Markera den utlösare du vill använda under listan utlösare. 
 
    ELLER
 
-   För befintliga Logic Apps, under det sista steget där du vill lägga till en åtgärd, väljer du **nytt steg**. 
-   Skriv "slack" som filter i rutan Sök. 
-   Under listan åtgärder väljer du den åtgärd som du vill använda.
+   För befintliga logikappar väljer du **Nytt steg**under det sista steget där du vill lägga till en åtgärd . 
+   Skriv "slack" som filter i sökrutan. 
+   Välj den åtgärd du vill använda under åtgärdslistan.
 
    Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. 
-   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+   Välj plustecknet**+**( ) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. Om du uppmanas att logga in på slack loggar du in på din slack-arbetsyta. 
+1. Om du uppmanas att logga in på Slack loggar du in på din Slack-arbetsyta. 
 
-   ![Logga in på slack-arbetsytan](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
+   ![Logga in på Slack-arbetsytan](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
 
-1. Ge åtkomst till din Logic app.
+1. Auktorisera åtkomst för din logikapp.
 
-   ![Auktorisera åtkomst till slack](./media/connectors-create-api-slack/slack-authorize-access.png)
+   ![Auktorisera åtkomst till Slack](./media/connectors-create-api-slack/slack-authorize-access.png)
 
-1. Ange nödvändig information för den valda utlösaren eller åtgärden. Lägg till fler åtgärder om du vill fortsätta att skapa din Logic app-arbetsflöde.
+1. Ange nödvändiga uppgifter för den valda utlösaren eller åtgärden. Om du vill fortsätta att skapa logikappens arbetsflöde lägger du till fler åtgärder.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information om utlösare, åtgärder och gränser, som beskrivs av kopplingens OpenAPI (tidigare Swagger) Beskrivning, finns i kopplingens [referens sida](/connectors/slack/).
+Teknisk information om utlösare, åtgärder och begränsningar, som beskrivs av kopplingens OpenAPI-beskrivning (tidigare Swagger) finns i kopplingens [referenssida](/connectors/slack/).
 
 ## <a name="get-support"></a>Få support
 
@@ -75,4 +75,4 @@ Teknisk information om utlösare, åtgärder och gränser, som beskrivs av koppl
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps-kopplingar](../connectors/apis-list.md)

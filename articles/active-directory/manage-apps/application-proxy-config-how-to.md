@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du ett program med Application Proxy | Microsoft Docs
-description: Lär dig hur du skapar och konfigurerar ett programproxy-program i några enkla steg
+title: Konfigurera ett programproxyprogram | Microsoft-dokument
+description: Lär dig hur du skapar och konfigurerar ett APplication Proxy-program i några enkla steg
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,55 +17,55 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7aaf2eb282bc3fd0b9f3853ce493c479a3d3c3a9
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67807859"
 ---
-# <a name="how-to-configure-an-application-proxy-application"></a>Så här konfigurerar du ett programproxy-program
+# <a name="how-to-configure-an-application-proxy-application"></a>Konfigurera ett programproxyprogram
 
-Den här artikeln hjälper dig att förstå hur du konfigurerar en Application Proxy-program i Azure AD att exponera dina lokala program till molnet.
+Den här artikeln hjälper dig att förstå hur du konfigurerar ett programproxyprogram i Azure AD för att exponera dina lokala program för molnet.
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 
-Mer information om att första konfigurationer och skapa ett programproxy-program via administrationsportalen, följer du de [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
+Om du vill veta mer om de första konfigurationerna och skapandet av ett programproxyprogram via administratörsportalen följer du [publiceringsprogrammen med Azure AD Application Proxy](application-proxy-add-on-premises-application.md).
 
-Mer information om hur du konfigurerar anslutningar finns i [aktivera Application Proxy på Azure-portalen](application-proxy-add-on-premises-application.md).
+Mer information om hur du konfigurerar anslutningsappar finns [i Aktivera programproxy i Azure-portalen](application-proxy-add-on-premises-application.md).
 
-Information om att ladda upp certifikat och använda anpassade domäner finns i [arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
+Information om hur du laddar upp certifikat och använder anpassade domäner finns [i Arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
-## <a name="create-the-applicationsetting-the-urls"></a>Skapa programinställning/URL: er
+## <a name="create-the-applicationsetting-the-urls"></a>Skapa programmet/ställa in webbadresserna
 
-Om du följer stegen i den [publicera program med Azure AD Application Proxy](application-proxy-add-on-premises-application.md) dokumentation och att du får ett fel som skapar program, se felinformationen för information och förslag på hur du åtgärdar den programmet. De vanligaste felmeddelanden som innehåller en föreslagen åtgärd. Kontrollera om du vill undvika vanliga fel:
+Om du följer stegen i [Publiceringsprogrammen med Azure AD Application Proxy-dokumentation](application-proxy-add-on-premises-application.md) och får ett felmeddelande om hur du skapar programmet läser du felinformationen för information och förslag på hur du åtgärdar programmet. De flesta felmeddelanden innehåller en föreslagen korrigering. För att undvika vanliga fel, kontrollera:
 
-- Du är administratör med behörighet att skapa en Application Proxy-program
-- Den interna URL: en är unikt
-- Den externa URL: en är unikt
-- URL: er börjar med http eller https och sluta med en ”/”
-- URL: en ska vara ett domännamn, inte en IP-adress
+- Du är administratör med behörighet att skapa ett programproxyprogram
+- Den interna webbadressen är unik
+- Den externa webbadressen är unik
+- Webbadresserna börjar med http eller https och slutar med ett "/"
+- Webbadressen ska vara ett domännamn, inte en IP-adress
 
-Ett felmeddelande visas i det övre högra hörnet när du skapar programmet. Du kan också välja meddelandeikonen till felmeddelanden visas.
+Felmeddelandet ska visas i det övre högra hörnet när du skapar programmet. Du kan också välja meddelandeikonen för att se felmeddelandena.
 
-![Visar var du hittar Notification-fråga i Azure portal](./media/application-proxy-config-how-to/error-message.png)
+![Visar var meddelandeprompten finns i Azure-portalen](./media/application-proxy-config-how-to/error-message.png)
 
-## <a name="configure-connectorsconnector-groups"></a>Konfigurera anslutningar/anslutningsapp-grupper
+## <a name="configure-connectorsconnector-groups"></a>Konfigurera kopplingar/kopplingsgrupper
 
-Om du har svårt att konfigurera ditt program på grund av varning om kopplingar och anslutningsapp-grupper, läser du anvisningarna om hur du aktiverar programproxy för information om hur du hämtar kopplingar. Om du vill veta mer om anslutningsappar finns i den [kopplingar dokumentation](application-proxy-connectors.md).
+Om du har problem med att konfigurera programmet på grund av varning om kopplingar och anslutningsgrupper läser du instruktioner om hur du aktiverar Programproxy för mer information om hur du hämtar kopplingar. Om du vill veta mer om kopplingar läser du [dokumentationen](application-proxy-connectors.md)för kopplingar .
 
-Om dina anslutningar är inaktiva, innebär det att de är det går inte att nå tjänsten. Det här är ofta eftersom inte alla nödvändiga portar är öppna. Om du vill se en lista över portar som krävs finns i avsnittet förutsättningar för att aktivera Application Proxy-dokumentationen.
+Om dina kopplingar är inaktiva innebär det att de inte kan nå tjänsten. Detta beror ofta på att alla nödvändiga portar inte är öppna. Information om hur du ser en lista över nödvändiga portar finns i avsnittet för erfordringar i dokumentationen för programproxy.
 
-## <a name="upload-certificates-for-custom-domains"></a>Ladda upp certifikat för egna domäner
+## <a name="upload-certificates-for-custom-domains"></a>Ladda upp certifikat för anpassade domäner
 
-Anpassade domäner kan du ange domänen för ditt externa URL: er. Om du vill använda anpassade domäner, måste du ladda upp certifikatet för domänen. Information om hur du använder anpassade domäner och certifikat finns i [arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
+Med anpassade domäner kan du ange domänen för externa webbadresser. Om du vill använda anpassade domäner måste du ladda upp certifikatet för den domänen. Information om hur du använder anpassade domäner och certifikat finns i [Arbeta med anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
-Om du stöter på problem som har överfört certifikatet, leta efter felmeddelanden i portal för mer information om problem med certifikatet. Vanliga problem med säkerhetscertifikat är:
+Om du stöter på problem med att ladda upp certifikatet letar du efter felmeddelandena i portalen efter ytterligare information om problemet med certifikatet. Vanliga certifikatproblem är:
 
 - Utgånget certifikat
 - Certifikatet är självsignerat
-- Certifikatet saknar privat nyckel
+- Certifikatet saknar den privata nyckeln
 
-Ett felmeddelande visas i det övre högra hörnet när du försöker ladda upp certifikatet. Du kan också välja meddelandeikonen till felmeddelanden visas.
+Felmeddelandet visas i det övre högra hörnet när du försöker ladda upp certifikatet. Du kan också välja meddelandeikonen för att se felmeddelandena.
 
 ## <a name="next-steps"></a>Nästa steg
 

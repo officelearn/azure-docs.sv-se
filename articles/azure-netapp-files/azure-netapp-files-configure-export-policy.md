@@ -1,6 +1,6 @@
 ---
-title: Konfigurera export princip för NFS-volym – Azure NetApp Files
-description: Beskriver hur du konfigurerar export policy för att kontrol lera åtkomsten till en NFS-volym med hjälp av Azure NetApp Files
+title: Konfigurera exportprincip för NFS-volym - Azure NetApp-filer
+description: Beskriver hur du konfigurerar exportprincip för att styra åtkomsten till en NFS-volym med Hjälp av Azure NetApp-filer
 services: azure-netapp-files
 author: b-juche
 ms.author: b-juche
@@ -9,19 +9,19 @@ ms.workload: storage
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.openlocfilehash: b96fca3a5627a1c6c96c8db5c1c209a51c5e102a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551566"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Konfigurera exportprincipen för en NFS-volym
 
-Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en Azure NetApp Files-volym. Azure NetApp Files export policy stöder endast NFS-volymer.  Både NFSv3 och NFSv4 stöds. 
+Beskriver hur du konfigurerar en exportpolicy och kontrollerar åtkomst till en Azure NetApp Files-volym. Azure NetApp Files exportprincip stöder endast NFS-volymer.  Både NFSv3 och NFSv4 stöds. 
 
 ## <a name="steps"></a>Steg 
 
-1.  Klicka på **Exportera princip** i Azure NetApp Files navigerings fönstret. 
+1.  Klicka på **Exportera princip** från navigeringsfönstret för Azure NetApp Files. 
 
 2.  Ange information för följande fält för att skapa en exportpolicyregel:   
     *  **Index**   

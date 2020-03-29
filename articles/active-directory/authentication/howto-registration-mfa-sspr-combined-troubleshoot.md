@@ -1,6 +1,6 @@
 ---
-title: Felsöka kombinerad registrerings-Azure Active Directory
-description: Felsöka Azure AD-Multi-Factor Authentication och en kombination av lösen ords återställning via självbetjäning (för hands version)
+title: Felsöka kombinerad registrering - Azure Active Directory
+description: Felsöka Azure AD Multi-Factor Autentisering och självbetjäning lösenordsåterställning kombinerad registrering (förhandsversion)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,78 +12,78 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74847396"
 ---
-# <a name="troubleshooting-combined-security-information-registration-preview"></a>Felsöka kombinerad säkerhets informations registrering (för hands version)
+# <a name="troubleshooting-combined-security-information-registration-preview"></a>Felsöka kombinerad registrering av säkerhetsinformation (förhandsversion)
 
-Informationen i den här artikeln är avsedd att leda administratörer som har fel söknings problem som rapporteras av användare av den kombinerade registrerings upplevelsen.
+Informationen i den här artikeln är avsedd att vägleda administratörer som felsöker problem som rapporterats av användare av den kombinerade registreringsupplevelsen.
 
 |     |
 | --- |
-| Kombinerad säkerhets informations registrering för Azure Multi-Factor Authentication och Azure Active Directory (Azure AD) självbetjäning för återställning av lösen ord är en offentlig förhands gransknings funktion i Azure AD. Mer information om förhandsversioner finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| Kombinerad registrering av säkerhetsinformation för Azure Multi-Factor Authentication och Azure Active Directory (Azure AD) självbetjäningslösenordsåterställning är en offentlig förhandsversion av Azure AD. Mer information om förhandsgranskningar finns i [Tilläggsvillkor för microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
-Händelserna som loggas för kombinerad registrering finns i kategorin autentiseringsmetoder i gransknings loggarna för Azure AD.
+De händelser som loggas för kombinerad registrering finns i kategorin Autentiseringsmetoder i Azure AD-granskningsloggarna.
 
-![Azure AD audit logs-gränssnittet visar registrerings händelser](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Azure AD-granskningsloggar gränssnitt som visar registreringshändelser](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
-I följande tabell visas alla gransknings händelser som har genererats vid kombinerad registrering:
+I följande tabell visas alla granskningshändelser som genereras av kombinerad registrering:
 
 | Aktivitet | Status | Orsak | Beskrivning |
 | --- | --- | --- | --- |
-| Användaren registrerade all nödvändig säkerhets information | Lyckades | Användaren registrerade all nödvändig säkerhets information. | Den här händelsen inträffar när en användare har slutfört registreringen.|
-| Användaren registrerade all nödvändig säkerhets information | Fel | Användaren avbröt registreringen av säkerhets information. | Den här händelsen inträffar när en användare avbryter registreringen från avbrotts läge.|
-| Användarens registrerade säkerhets information | Lyckades | *Metod*för registrerad användare. | Den här händelsen inträffar när en användare registrerar en enskild metod. *Metoden* kan vara en Authenticator-app, telefon, e-post, säkerhets frågor, applösenord, alternativ telefon och så vidare.| 
-| Användare granskad säkerhets information | Lyckades | Användaren har granskat säkerhets informationen. | Den här händelsen inträffar när en användare väljer **ser bra ut** på sidan granskning av säkerhets information.|
-| Användare granskad säkerhets information | Fel | Användaren kunde inte granska säkerhets informationen. | Den här händelsen inträffar när en användare väljer **ser bra ut** på sidan granskning av säkerhets information men det går inte att utföra något på Server delen.|
-| Användaren tog bort säkerhets information | Lyckades | *Metoden*User Deleted. | Den här händelsen inträffar när en användare tar bort en enskild metod. *Metoden* kan vara en Authenticator-app, telefon, e-post, säkerhets frågor, applösenord, alternativ telefon och så vidare.|
-| Användaren tog bort säkerhets information | Fel | Användaren kunde inte ta bort *metoden*. | Den här händelsen inträffar när en användare försöker ta bort en metod men försöket Miss lyckas av någon anledning. *Metoden* kan vara en Authenticator-app, telefon, e-post, säkerhets frågor, applösenord, alternativ telefon och så vidare.|
-| Användaren ändrade standard säkerhets information | Lyckades | Användaren ändrade standard säkerhets informationen för *metoden*. | Den här händelsen inträffar när en användare ändrar standard metoden. *Metoden* kan vara meddelandeautentisering, en kod från min Authenticator-app eller token, anropa + X XXXXXXXXXX, text A kod till + x xxxxxxxxx och så vidare.|
-| Användaren ändrade standard säkerhets information | Fel | Användaren kunde inte ändra standard säkerhets informationen för *metoden*. | Den här händelsen inträffar när en användare försöker ändra standard metoden, men försöket Miss lyckas av någon anledning. *Metoden* kan vara meddelandeautentisering, en kod från min Authenticator-app eller token, anropa + X XXXXXXXXXX, text A kod till + x xxxxxxxxx och så vidare.|
+| Användaren registrerade all nödvändig säkerhetsinformation | Lyckades | Användaren registrerade all nödvändig säkerhetsinformation. | Den här händelsen inträffar när en användare har slutfört registreringen.|
+| Användaren registrerade all nödvändig säkerhetsinformation | Fel | Registrering av säkerhetsinformation avbröts. | Den här händelsen inträffar när en användare avbryter registreringen från avbrottsläge.|
+| Användarregistrerad säkerhetsinformation | Lyckades | Användarregistrerad *metod*. | Den här händelsen inträffar när en användare registrerar en enskild metod. *Metod* kan vara Authenticator app, Telefon, E-post, Säkerhetsfrågor, App lösenord, Alternativ telefon, och så vidare.| 
+| Användaröversikterad säkerhetsinformation | Lyckades | Användaren har granskat säkerhetsinformationen. | Den här händelsen inträffar när en användare väljer **Ser bra ut** på sidan för granskning av säkerhetsinformation.|
+| Användaröversikterad säkerhetsinformation | Fel | Användaren kunde inte granska säkerhetsinformation. | Den här händelsen inträffar när en användare väljer **Ser bra ut** på sidan säkerhetsinformationsgranskning, men något misslyckas på backend.|
+| Säkerhetsinformation om användaruttaget | Lyckades | *Användartagen metod*. | Den här händelsen inträffar när en användare tar bort en enskild metod. *Metod* kan vara Authenticator app, Telefon, E-post, Säkerhetsfrågor, App lösenord, Alternativ telefon, och så vidare.|
+| Säkerhetsinformation om användaruttaget | Fel | Det gick inte att ta bort *metoden*. | Den här händelsen inträffar när en användare försöker ta bort en metod, men försöket misslyckas av någon anledning. *Metod* kan vara Authenticator app, Telefon, E-post, Säkerhetsfrågor, App lösenord, Alternativ telefon, och så vidare.|
+| Användaren har ändrat standardsäkerhetsinformation | Lyckades | Användaren har ändrat standardsäkerhetsinformationen för *metoden*. | Den här händelsen inträffar när en användare ändrar standardmetoden. *Metod* kan vara Authenticator app anmälan, En kod från min autentiserare app eller token, Ring + X XXXXXXXXXX, Text en kod till +X XXXXXXXXX, och så vidare.|
+| Användaren har ändrat standardsäkerhetsinformation | Fel | Det gick inte att ändra standardsäkerhetsinformationen för *metoden*. | Den här händelsen inträffar när en användare försöker ändra standardmetoden, men försöket misslyckas av någon anledning. *Metod* kan vara Authenticator app anmälan, En kod från min autentiserare app eller token, Ring + X XXXXXXXXXX, Text en kod till +X XXXXXXXXX, och så vidare.|
 
-## <a name="troubleshooting-interrupt-mode"></a>Fel sökning av avbrotts läge
-
-| Symptom | Felsökningsanvisningar |
-| --- | --- |
-| Jag ser inte de metoder jag förväntade mig. | 1. kontrol lera om användaren har en administratörs roll för Azure AD. Om ja, se skillnaderna mellan SSPR admin-principen. <br> 2. avgör om användaren avbryts på grund av Multi-Factor Authentication tvångs registrering eller SSPR. Se [flödesschemat](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md#combined-registration-modes) under "kombinerade registrerings lägen" för att avgöra vilka metoder som ska visas. <br> 3. ta reda på hur nyligen Multi-Factor Authentication-eller SSPR-principen ändrades. Om ändringen var nyligen kan det ta lite tid innan den uppdaterade principen har spridits.|
-
-## <a name="troubleshooting-manage-mode"></a>Fel sökning av hanterings läge
+## <a name="troubleshooting-interrupt-mode"></a>Felsöka avbrottsläge
 
 | Symptom | Felsökningsanvisningar |
 | --- | --- |
-| Jag har inte möjlighet att lägga till en viss metod. | 1. kontrol lera om metoden är aktive rad för Multi-Factor Authentication eller för SSPR. <br> 2. om metoden är aktive rad sparar du principerna igen och väntar 1-2 timmar innan du testar igen. <br> 3. om metoden är aktive rad kontrollerar du att användaren inte redan har konfigurerat det maximala antalet för den här metoden som de tillåts att konfigurera.|
+| Jag ser inte de metoder jag förväntade mig att se. | 1. Kontrollera om användaren har en Azure AD-administratörsroll. Om ja, visa sspr-administratörsprincipskillnaderna. <br> 2. Avgöra om användaren avbryts på grund av multifaktorautentisering registrering verkställighet eller SSPR registrering verkställighet. Se [flödesschemat](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md#combined-registration-modes) under "Kombinerade registreringslägen" för att avgöra vilka metoder som ska visas. <br> 3. Bestäm hur nyligen multifaktorautentisering eller SSPR-principen har ändrats. Om ändringen senaste, kan det ta lite tid för den uppdaterade principen att sprida.|
+
+## <a name="troubleshooting-manage-mode"></a>Felsöka hanteringsläge
+
+| Symptom | Felsökningsanvisningar |
+| --- | --- |
+| Jag har inte möjlighet att lägga till en viss metod. | 1. Bestäm om metoden är aktiverad för multifaktorautentisering eller för SSPR. <br> 2. Om metoden är aktiverad sparar du principerna igen och väntar 1-2 timmar innan du testar igen. <br> 3. Om metoden är aktiverad, se till att användaren inte redan har ställt in det maximala antalet av den metoden som de tillåts att ställa in.|
 
 ## <a name="disable-combined-registration"></a>Inaktivera kombinerad registrering
 
-När en användare registrerar ett telefonnummer och/eller en mobilapp i den nya kombinerade miljön, stämplar vår tjänst en uppsättning flaggor (StrongAuthenticationMethods) för dessa metoder för den användaren. Med den här funktionen kan användaren utföra Multi-Factor Authentication med dessa metoder när Multi-Factor Authentication krävs.
+När en användare registrerar ett telefonnummer och/eller en mobilapp i den nya kombinerade upplevelsen stämplar vår tjänst en uppsättning flaggor (StrongAuthenticationMethods) för dessa metoder på den användaren. Med den här funktionen kan användaren utföra multifaktorautentisering med dessa metoder när multifaktorautentisering krävs.
 
-Om en administratör aktiverar för hands versionen registreras användarna genom den nya upplevelsen och administratören inaktiverar förhands granskningen. användare kan vara osäkert registrerade för Multi-Factor Authentication även.
+Om en administratör aktiverar förhandsversionen registrerar sig användarna via den nya upplevelsen och sedan inaktiverar administratören förhandsgranskningen kan användarna omedvetet vara registrerade för multifaktorautentisering också.
 
-Om en användare som har slutfört en kombinerad registrering går till den aktuella återställnings sidan för självbetjäning för lösen ords återställning (SSPR) på [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)uppmanas användaren att utföra Multi-Factor Authentication innan de kan komma åt sidan. Det här steget förväntas från en teknisk synpunkt, men det är nytt för användare som tidigare har registrerats för SSPR. Även om det här extra steget förbättrar användarens säkerhets position genom att tillhandahålla en annan säkerhets nivå kan administratörer vilja återställa sina användare så att de inte längre kan utföra Multi-Factor Authentication.  
+Om en användare som har slutfört kombinerad registrering går till den aktuella [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)registreringssidan för självbetjäningslösenordsåterställning (SSPR) på uppmanas användaren att utföra multifaktorautentisering innan de kan komma åt sidan. Det här steget förväntas från en teknisk synvinkel, men det är nytt för användare som tidigare registrerats endast för SSPR. Även om det här extra steget förbättrar användarens säkerhetsposition genom att tillhandahålla en annan säkerhetsnivå, kanske administratörer vill återställa sina användare så att de inte längre kan utföra multifaktorautentisering.  
 
-### <a name="how-to-roll-back-users"></a>Återställa användare
+### <a name="how-to-roll-back-users"></a>Så här återställer du användare
 
-Om du, som administratör, vill återställa en användares Multi-Factor Authentication inställningar, kan du använda PowerShell-skriptet som anges i nästa avsnitt. Skriptet tar bort egenskapen StrongAuthenticationMethods för en användares mobilapp och/eller telefonnummer. Om du kör det här skriptet för dina användare måste de registreras igen för Multi-Factor Authentication om de behöver det. Vi rekommenderar att du testar återställningen med en eller två användare innan du återställer alla berörda användare.
+Om du som administratör vill återställa en användares multifaktorautentiseringsinställningar kan du använda PowerShell-skriptet som finns i nästa avsnitt. Skriptet rensar egenskapen StrongAuthenticationMethods för en användares mobilapp och/eller telefonnummer. Om du kör det här skriptet för användarna måste de registrera om för multifaktorautentisering om de behöver det. Vi rekommenderar att du testar återställning med en eller två användare innan du återställer alla berörda användare.
 
-Stegen nedan hjälper dig att återställa en användare eller grupp av användare.
+De steg som följer hjälper dig att återställa en användare eller grupp av användare.
 
 #### <a name="prerequisites"></a>Krav
 
-1. Installera lämpliga Azure AD PowerShell-moduler. I ett PowerShell-fönster kör du följande kommandon för att installera modulerna:
+1. Installera lämpliga Azure AD PowerShell-moduler. I ett PowerShell-fönster kör du dessa kommandon för att installera modulerna:
 
    ```powershell
    Install-Module -Name MSOnline
    Import-Module MSOnline
    ```
 
-1. Spara listan över berörda användar objekt-ID: n till datorn som en textfil med ett ID per rad. Anteckna filens plats.
-1. Spara följande skript på datorn och anteckna var skriptet finns:
+1. Spara listan över berörda användarobjekt-ID:er på datorn som en textfil med ett ID per rad. Anteckna platsen för filen.
+1. Spara följande skript på datorn och anteckna platsen för skriptet:
 
    ```powershell
    <# 
@@ -144,22 +144,22 @@ Stegen nedan hjälper dig att återställa en användare eller grupp av använda
    }
    ```
 
-#### <a name="rollback"></a>Återtagande
+#### <a name="rollback"></a>Rollback
 
-Kör följande kommando i ett PowerShell-fönster och ange platser för skript och användar fil. Ange autentiseringsuppgifter för global administratör när du uppmanas till det. Skriptet kommer att resultera i resultatet av varje användar uppdaterings åtgärd.
+I ett PowerShell-fönster kör du följande kommando och tillhandahåller skript- och användarfilplatser. Ange globala administratörsautentiseringsuppgifter när du uppmanas att göra det. Skriptet kommer att mata ut resultatet av varje användaruppdateringsåtgärd.
 
 `<script location> -path <user file location>`
 
-### <a name="disable-the-preview-experience"></a>Inaktivera förhands gransknings upplevelsen
+### <a name="disable-the-preview-experience"></a>Inaktivera förhandsgranskningsupplevelsen
 
-Gör så här för att inaktivera förhands gransknings upplevelsen för dina användare:
+Så här inaktiverar du förhandsgranskningsupplevelsen för användarna:
 
-1. Logga in på Azure Portal som användar administratör.
-2. Gå till **Azure Active Directory** > **användar inställningar** > **Hantera inställningar för för hands versions funktionerna i åtkomst panelen**.
-3. Under **användare kan använda för hands versions funktioner för att registrera och hantera säkerhets information**, ange Selector till **none**och välj **Spara**.
+1. Logga in på Azure-portalen som användaradministratör.
+2. Gå till Azure Active > **Directory-användarinställningar** > **Hantera inställningar för förhandsgranskningsfunktioner på åtkomstpanelen**. **Azure Active Directory**
+3. Under **Användare kan använda förhandsgranskningsfunktioner för att registrera och hantera säkerhetsinformation**ställer du in väljaren på **Ingen**och väljer sedan **Spara**.
 
-Användarna kommer inte längre att uppmanas att registrera sig med hjälp av för hands versionen.
+Användarna uppmanas inte längre att registrera sig med hjälp av förhandsgranskningsupplevelsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om den offentliga för hands versionen av kombinerad registrering för lösen ords återställning via självbetjäning och Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Läs mer om den offentliga förhandsversionen av kombinerad registrering för återställning av lösenord för självbetjäning och Azure Multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

@@ -1,17 +1,17 @@
 ---
 title: Arbeta med Reliable Collections
-description: Lär dig metod tips för att arbeta med pålitliga samlingar i ett Azure Service Fabric-program.
+description: Lär dig de bästa metoderna för att arbeta med tillförlitliga samlingar i ett Azure Service Fabric-program.
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645981"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
-Service Fabric erbjuder en tillstånds känslig programmerings modell som är tillgänglig för .NET-utvecklare via pålitliga samlingar. Mer specifikt Service Fabric tillhandahåller tillförlitliga ord listor och Reliable Queue-klasser. När du använder dessa klasser partitioneras ditt tillstånd (för skalbarhet), replikeras (för tillgänglighet) och överförs inom en partition (för sur semantik). Nu ska vi titta på en typisk användning av ett tillförlitligt Dictionary-objekt och se vad det faktiskt gör.
+Service Fabric erbjuder en tillståndskänslig programmeringsmodell som är tillgänglig för .NET-utvecklare via Reliable Collections. Service Fabric tillhandahåller tillförlitlig ordlista och tillförlitliga köklasser. När du använder dessa klasser är ditt tillstånd partitionerat (för skalbarhet), replikerat (för tillgänglighet) och verkställts inom en partition (för ACID-semantik). Låt oss titta på en typisk användning av en tillförlitlig ordlista objekt och se vad det faktiskt gör.
 
 ```csharp
 try
@@ -38,20 +38,20 @@ catch (TimeoutException)
 }
 ```
 
-Alla åtgärder på Reliable Dictionary-objekt (förutom för ClearAsync, som inte kan ångras), kräver ett ITransaction-objekt. Objektet har associerat med alla ändringar som du försöker göra till en tillförlitlig ord lista och/eller Reliable Queue-objekt inom en enda partition. Du kan hämta ett ITransaction-objekt genom att anropa partitionens StateManager's CreateTransaction-metod.
+Alla åtgärder på tillförlitliga ordlisteobjekt (förutom ClearAsync, som inte kan ångras), kräver ett ITransaction-objekt. Det här objektet har associerat med det alla ändringar som du försöker göra i någon tillförlitlig ordlista och /eller tillförlitliga köobjekt i en enda partition. Du hämtar ett ITransaction-objekt genom att anropa partitionens StateManagers CreateTransaction-metod.
 
-I koden ovan skickas ITransaction-objektet till en tillförlitlig ord listas AddAsync-metod. Internt kan ord listor som accepterar en nyckel ta ett lås-/skrivar lås som är kopplat till nyckeln. Om metoden ändrar nyckelns värde, tar metoden ett Skriv lås i nyckeln och om metoden bara läser från nyckelns värde, tas ett läslås på nyckeln. Eftersom AddAsync ändrar nyckelns värde till det nya, överförda värdet, tas nyckelns Skriv lås. Om två (eller fler) trådar försöker att lägga till värden med samma nyckel samtidigt, kommer en tråd att hämta Skriv låset och de andra trådarna kommer att blockeras. Som standard blockeras metoder i upp till 4 sekunder för att låsa sig. efter 4 sekunder genererar metoderna en TimeoutException. Det finns metod överlagringar som gör att du kan skicka ett explicit timeout-värde om du vill.
+I koden ovan skickas ITransaction-objektet till en tillförlitlig ordlistas AddAsync-metod. Internt tar ordlistemetoder som accepterar en nyckel ett läsar-/brännarelås som är associerat med nyckeln. Om metoden ändrar nyckelns värde, tar metoden ett skrivlås på nyckeln och om metoden bara läser från nyckelns värde, tas ett läslås på nyckeln. Eftersom AddAsync ändrar nyckelns värde till det nya, inst passerade värdet tas nyckelns skrivlås. Så om 2 (eller fler) trådar försöker lägga till värden med samma nyckel samtidigt, kommer en tråd att hämta skrivlåset och de andra trådarna blockerar. Som standard blockerar metoderna i upp till 4 sekunder för att hämta låset. efter 4 sekunder, metoderna kasta en TimeoutException. Metodöverbelastningar finns så att du kan skicka ett explicit timeout-värde om du föredrar det.
 
-Vanligt vis skriver du koden för att reagera på en TimeoutException genom att fånga den och försöka utföra hela åtgärden igen (se koden ovan). Jag anropar bara uppgiften i min enkla kod. fördröjning som skickar 100 millisekunder varje gång. Men i verkligheten kan du vara bättre på att använda en viss typ av exponentiell säkerhets fördröjning i stället.
+Vanligtvis skriver du din kod för att reagera på en TimeoutException genom att fånga den och försöka igen hela åtgärden (som visas i koden ovan). I min enkla kod, jag ringer bara Task.Delay passerar 100 millisekunder varje gång. Men i verkligheten kan du vara bättre att använda någon form av exponentiell back-off dröjsmål istället.
 
-När låset har hämtats lägger AddAsync till nyckel-och värde objekt referenser till en intern tillfällig ord lista som är associerad med ITransaction-objektet. Detta görs för att ge dig en semantik med Läs-och skriv åtgärder. Det innebär att när du anropar AddAsync, kommer ett senare anrop till TryGetValueAsync (med samma ITransaction-objekt) att returnera värdet även om du inte har allokerat transaktionen ännu. Därefter serialiserar AddAsync dina nyckel-och värde objekt till byte-matriser och lägger till dessa byte-matriser i en loggfil på den lokala noden. Slutligen skickar AddAsync byte-matriser till alla sekundära repliker så att de har samma nyckel/värde-information. Även om nyckel-/värde informationen har skrivits till en loggfil, betraktas inte informationen som en del av ord listan förrän transaktionen som de är kopplad till har genomförts.
+När låset har hämtats lägger AddAsync till nyckel- och värdeobjektreferenserna i en intern tillfällig ordlista som är associerad med ITransaction-objektet. Detta görs för att ge dig läs-din-egen-skriver semantik. Det vill säga när du har ringt AddAsync returnerar ett senare anrop till TryGetValueAsync (med samma ITransaction-objekt) värdet även om du ännu inte har bekräftat transaktionen. AddAsync serialiserar sedan dina nyckel- och värdeobjekt till bytematriser och lägger till dessa bytematriser i en loggfil på den lokala noden. Slutligen skickar AddAsync byte-matriserna till alla sekundära repliker så att de har samma nyckel-/värdeinformation. Även om nyckel-/värdeinformationen har skrivits till en loggfil, betraktas informationen inte som en del av ordlistan förrän transaktionen som de är associerade med har genomförts.
 
-I koden ovan genomför anropet till CommitAsync alla transaktioner. Mer specifikt lägger den till inchecknings information i logg filen på den lokala noden och skickar sedan inchecknings posten till alla sekundära repliker. När ett kvorum (majoritet) av replikerna har svarat betraktas alla data ändringar permanenta och eventuella lås som är kopplade till nycklar som ändrades via ITransaction-objektet släpps så att andra trådar/transaktioner kan ändra samma nycklar och deras värden.
+I koden ovan genomför anropet till CommitAsync alla transaktionens åtgärder. Specifikt lägger den till commit-information till loggfilen på den lokala noden och skickar även commit-posten till alla sekundära repliker. När en kvorum (majoritet) av replikerna har svarat, alla dataändringar anses permanenta och alla lås som är associerade med nycklar som manipulerades via ITransaction-objektet släpps så att andra trådar / transaktioner kan manipulera samma nycklar och deras värden.
 
-Om CommitAsync inte anropas (vanligt vis på grund av ett undantag som genereras) tas ITransaction-objektet bort. Vid avslut av ett icke dedikerat ITransaction-objekt lägger Service Fabric till Avbryt information till den lokala nodens loggfil och behöver inte skickas till någon av de sekundära replikerna. Sedan släpps alla lås som är kopplade till nycklar som manipulerades via transaktionen.
+Om CommitAsync inte anropas (vanligtvis på grund av att ett undantag genereras) tas objektet ITransaction bort. När du inaktiverar ett oengagerad ITransaction-objekt avbryter Service Fabric information till den lokala nodens loggfil och ingenting behöver skickas till någon av de sekundära replikerna. Och sedan, alla lås i samband med nycklar som manipulerades via transaktionen släpps.
 
-## <a name="common-pitfalls-and-how-to-avoid-them"></a>Vanliga fall GRO par och hur du undviker dem
-Nu när du förstår hur de pålitliga samlingarna fungerar internt kan vi ta en titt på några vanliga fel användnings områden. Se koden nedan:
+## <a name="common-pitfalls-and-how-to-avoid-them"></a>Vanliga fallgropar och hur man undviker dem
+Nu när du förstår hur de tillförlitliga samlingarna fungerar internt, låt oss ta en titt på några vanliga missbruk av dem. Se koden nedan:
 
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
@@ -68,9 +68,9 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-När du arbetar med en vanlig .NET-ord lista kan du lägga till en nyckel/värde i ord listan och sedan ändra värdet för en egenskap (till exempel LastLogin). Den här koden kommer dock inte att fungera korrekt med en tillförlitlig ord lista. Kom ihåg från den tidigare diskussionen, anropet till AddAsync serialiserar nyckel/värde-objekten till byte-matriser och sparar sedan matriserna till en lokal fil och skickar dem till de sekundära replikerna. Om du senare ändrar en egenskap ändras egenskapens värde endast i minnet. den lokala filen eller de data som skickas till replikerna påverkas inte. Om processen kraschar utlöses det i minnet. När en ny process startar eller om en annan replik blir primär, är det gamla egenskap svärdet det som är tillgängligt.
+När du arbetar med en vanlig .NET-ordlista kan du lägga till en nyckel/ett värde i ordlistan och sedan ändra värdet för en egenskap (till exempel LastLogin). Den här koden fungerar dock inte korrekt med en tillförlitlig ordlista. Kom ihåg från den tidigare diskussionen, anropet till AddAsync serialiserar nyckel-/värdeobjekten till bytematriser och sparar sedan matriserna i en lokal fil och skickar dem även till de sekundära replikerna. Om du senare ändrar en egenskap ändrar detta egenskapens värde i minnet. Det påverkar inte den lokala filen eller de data som skickas till replikerna. Om processen kraschar, vad som finns i minnet kastas bort. När en ny process startar eller om en annan replik blir primär, är det gamla egenskapsvärdet det som är tillgängligt.
 
-Jag kan inte stressa tillräckligt med hur enkelt det är att göra den typ av misstag som visas ovan. Och du får bara lära dig om misstaget om/när processen slutar fungera. Rätt sätt att skriva koden är att helt enkelt återställa de två raderna:
+Jag kan inte nog betona hur lätt det är att göra den typ av misstag som visas ovan. Och, du kommer bara lära sig om misstaget om / när processen går ner. Det korrekta sättet att skriva koden är helt enkelt att vända de två raderna:
 
 
 ```csharp
@@ -82,7 +82,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-Här är ett annat exempel som visar vanliga fel:
+Här är ett annat exempel som visar ett vanligt misstag:
 
 ```csharp
 using (ITransaction tx = StateManager.CreateTransaction())
@@ -101,9 +101,9 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-Med vanliga .NET-ord listor är koden ovan fin och är ett vanligt mönster: utvecklaren använder en nyckel för att leta upp ett värde. Om värdet finns ändrar utvecklaren egenskapens värde. Men med pålitliga samlingar uppvisar den här koden samma problem som redan diskuterat: **du får inte ändra ett objekt när du har gett det ett tillförlitligt samlings objekt.**
+Återigen, med vanliga .NET ordböcker, koden ovan fungerar bra och är ett vanligt mönster: utvecklaren använder en nyckel för att slå upp ett värde. Om värdet finns ändrar utvecklaren en egenskaps värde. Men med tillförlitliga samlingar uppvisar den här koden samma problem som redan diskuterats: **du får inte ändra ett objekt när du har gett det till en tillförlitlig samling.**
 
-Det korrekta sättet att uppdatera ett värde i en tillförlitlig samling är att hämta en referens till det befintliga värdet och betrakta det objekt som refereras till av denna referens oföränderlig. Skapa sedan ett nytt objekt som är en exakt kopia av det ursprungliga objektet. Nu kan du ändra statusen för det nya objektet och skriva det nya objektet i samlingen så att det blir serialiserat till byte-matriser, läggs till i den lokala filen och skickas till replikerna. När du har gjort ändringarna, är InMemory-objekten, den lokala filen och alla repliker samma exakta tillstånd. Allt är klart!
+Det korrekta sättet att uppdatera ett värde i en tillförlitlig samling, är att få en referens till det befintliga värdet och överväga objektet som avses i denna referens oföränderlig. Skapa sedan ett nytt objekt som är en exakt kopia av det ursprungliga objektet. Nu kan du ändra tillståndet för det nya objektet och skriva det nya objektet i samlingen så att det blir serialiserad till byte arrayer, läggas till den lokala filen och skickas till replikerna. När du har begått ändringen eller objekten har in-memory-objekten, den lokala filen och alla repliker exakt tillstånd. Allt är bra!
 
 Koden nedan visar det korrekta sättet att uppdatera ett värde i en tillförlitlig samling:
 
@@ -131,10 +131,10 @@ using (ITransaction tx = StateManager.CreateTransaction())
 }
 ```
 
-## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definiera oföränderliga data typer för att förhindra fel i programmerare
-Vi vill att kompilatorn ska rapportera fel när du av misstag producerar kod som ligger i ett annat tillstånd för ett objekt som du ska överväga att överväga. Men C# kompileraren har inte möjlighet att göra detta. För att undvika potentiella programprograms buggar rekommenderar vi starkt att du definierar de typer som du använder med tillförlitliga samlingar för att vara oföränderliga typer. Det innebär särskilt att du går till kärn värdes typer (t. ex. siffror [Int32, UInt64, osv.], DateTime, GUID, TimeSpan och like). Du kan också använda sträng. Det är bäst att undvika samlings egenskaper som serialisering och deserialisering av dem kan ofta försämra prestanda. Men om du vill använda samlings egenskaper rekommenderar vi starkt att du använder. NETs bibliotek med oföränderlig samling ([system. Collections. oföränderligt](https://www.nuget.org/packages/System.Collections.Immutable/)). Det här biblioteket är tillgängligt för nedladdning från https://nuget.org. Vi rekommenderar också att du förseglar dina klasser och gör fälten skrivskyddade när det är möjligt.
+## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definiera oföränderliga datatyper för att förhindra programmerarfel
+Helst vill vi att kompilatorn ska rapportera fel när du av misstag producerar kod som muterar tillståndet för ett objekt som du ska betrakta oföränderligt. Men C # kompilatorn inte har förmågan att göra detta. För att undvika potentiella programmerarfel rekommenderar vi därför starkt att du definierar de typer du använder med tillförlitliga samlingar som oföränderliga typer. Detta innebär att du håller dig till kärnvärdetyper (till exempel siffror [Int32, UInt64, etc.], DateTime, Guid, TimeSpan och liknande). Du kan också använda String. Det är bäst att undvika insamling egenskaper som serialisering och deserializing dem kan ofta skada prestanda. Men om du vill använda samlingsegenskaper rekommenderar vi starkt att du använder . NET:s oföränderliga samlingsbibliotek ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Det här biblioteket kan https://nuget.orghämtas från . Vi rekommenderar också att du förseglar dina klasser och gör fälten skrivskyddade när det är möjligt.
 
-I UserInfo-typen nedan visas hur du definierar en oföränderlig typ som utnyttjar rekommendationerna ovan.
+Användarinfo-typen nedan visar hur du definierar en oföränderlig typ som utnyttjar ovannämnda rekommendationer.
 
 ```csharp
 [DataContract]
@@ -173,7 +173,7 @@ public sealed class UserInfo
 }
 ```
 
-Typen ItemId är också en oåterkallelig typ som visas här:
+ItemId-typen är också en oföränderlig typ som visas här:
 
 ```csharp
 [DataContract]
@@ -189,22 +189,22 @@ public struct ItemId
 }
 ```
 
-## <a name="schema-versioning-upgrades"></a>Schema version (uppgraderingar)
-Internt serialiserar pålitliga samlingar dina objekt med hjälp av. NETs DataContractSerializer. De Serialiserade objekten sparas på den primära replikens lokala disk och överförs också till de sekundära replikerna. När din tjänst är vuxen är det troligt att du vill ändra vilken typ av data (schema) som krävs för din tjänst. Sätt versions hantering av dina data med stor noggrannhet. Först och främst måste du alltid kunna deserialisera gamla data. Det innebär att din avserialiserings kod måste vara oändligt bakåtkompatibel: version 333 av Service koden måste kunna hantera data som placeras i en tillförlitlig samling av version 1 av Service koden 5 år sedan.
+## <a name="schema-versioning-upgrades"></a>Schemaversionering (uppgraderingar)
+Internt serialiserar tillförlitliga samlingar dina objekt med . NET:s DataContractSerializer. Serialiserade objekt sparas till den primära replikens lokala disk och överförs också till sekundära repliker. När tjänsten förfaller är det troligt att du vill ändra vilken typ av data (schema) som tjänsten kräver. Närma sig versionshantering av dina data med stor omsorg. Först och främst måste du alltid kunna deserialisera gamla data. Detta innebär att din avserialiseringskod måste vara oändligt bakåtkompatibel: Version 333 av din servicekod måste kunna fungera på data som placeras i en tillförlitlig samling efter version 1 av din tjänstkod för 5 år sedan.
 
-Dessutom uppgraderas Service koden till en uppgraderings domän i taget. Under en uppgradering har du därför två olika versioner av Service koden som körs samtidigt. Du behöver inte använda den nya versionen av Service koden för att kunna hantera det nya schemat eftersom gamla versioner av Service koden inte kan hanteras. När det är möjligt bör du utforma varje version av tjänsten så att den är kompatibel med en version. Det innebär särskilt att v1 av din service kod ska kunna ignorera eventuella schema element som den inte uttryckligen hanterar. Det måste dock kunna spara data som inte uttryckligen vet om och skriva ut den när du uppdaterar en ord lista nyckel eller ett värde.
+Dessutom uppgraderas servicekoden en uppgraderingsdomän i taget. Så under en uppgradering har du två olika versioner av din servicekod som körs samtidigt. Du måste undvika att den nya versionen av tjänstkoden använder det nya schemat eftersom gamla versioner av tjänstkoden kanske inte kan hantera det nya schemat. När det är möjligt bör du utforma varje version av din tjänst så att den är framåtkompatibel med en version. Detta innebär att V1 i tjänstkoden ska kunna ignorera alla schemaelement som den inte uttryckligen hanterar. Den måste dock kunna spara alla data som den inte uttryckligen känner till och skriva tillbaka dem när du uppdaterar en ordlistenyckel eller ett värde.
 
 > [!WARNING]
-> Även om du kan ändra schemat för en nyckel måste du se till att nyckelns hash-kod och är lika med algoritmerna är stabila. Om du ändrar hur någon av dessa algoritmer fungerar kommer du inte att kunna leta upp nyckeln i den tillförlitliga ord listan någonsin igen.
-> .NET-strängar kan användas som en nyckel men Använd själva strängen som nyckel – Använd inte resultatet av String. GetHashCode som nyckel.
+> Även om du kan ändra schemat för en nyckel måste du se till att nyckelns hash-kod och algoritmer är lika med. Om du ändrar hur någon av dessa algoritmer fungerar, kommer du inte att kunna slå upp nyckeln i den tillförlitliga ordlistan någonsin igen.
+> .NET-strängar kan användas som en nyckel men använda själva strängen som nyckeln – använd inte resultatet av String.GetHashCode som nyckel.
 
-Alternativt kan du utföra vad som vanligt vis kallas för en uppgradering. Med en uppgradering i två faser uppgraderar du tjänsten från v1 till v2: v2 innehåller koden som känner till hur den nya schema ändringen fungerar, men den här koden körs inte. När v2-koden läser v1-data, körs den på den och skriver v1-data. Efter att uppgraderingen har slutförts i alla uppgraderings domäner kan du på andra sätt signalera till de v2-instanser som uppgraderingen har slutförts. (Ett sätt att signalera detta är att distribuera en konfigurations uppgradering. det här gör du till en uppgradering i två steg.) V2-instanserna kan nu läsa v1-data, konvertera den till v2-data, använda den och skriva ut den som v2-data. När andra instanser läser v2-data behöver de inte konvertera den, de fungerar bara på den och skriva ut v2-data.
+Du kan också utföra vad som vanligtvis kallas en två uppgradering. Med en tvåfasuppgradering uppgraderar du tjänsten från V1 till V2: V2 innehåller koden som vet hur du hanterar den nya schemaändringen men den här koden körs inte. När V2-koden läser V1-data fungerar den på den och skriver V1-data. Sedan, när uppgraderingen är klar över alla uppgraderingsdomäner, kan du på något sätt signalera till de V2-instanser som körs att uppgraderingen är klar. (Ett sätt att signalera detta är att distribuera en konfigurationsuppgradering, det är det som gör detta till en tvåfasuppgradering.) Nu kan V2-instanserna läsa V1-data, konvertera dem till V2-data, arbeta på den och skriva ut dem som V2-data. När andra instanser läser V2-data behöver de inte konvertera dem, de fungerar bara på den och skriver ut V2-data.
 
 ## <a name="next-steps"></a>Efterföljande moment
-Information om hur du skapar Forward-kompatibla data kontrakt finns i [vidarebefordra-kompatibla data kontrakt](https://msdn.microsoft.com/library/ms731083.aspx)
+Mer information om hur du skapar framåtkompatibla datakontrakt finns i [Vidarebefordrankompatibla datakontrakt](https://msdn.microsoft.com/library/ms731083.aspx)
 
-För att lära dig metod tips om versions data kontrakt, se [data kontrakt version](https://msdn.microsoft.com/library/ms731138.aspx)
+Information om hur du gör det bästa sättet att ta reda på de bästa metoderna för versionshantering av datakontrakt finns i [Versionshantering av data](https://msdn.microsoft.com/library/ms731138.aspx)
 
-Information om hur du implementerar versions tolerans data kontrakt finns i [versions tolerans återanrop för serialisering](https://msdn.microsoft.com/library/ms733734.aspx)
+Mer information om hur du implementerar versionstoleranta datakontrakt finns i [Versionstoleranta serialiseringsåterknäst](https://msdn.microsoft.com/library/ms733734.aspx)
 
-Information om hur du tillhandahåller en data struktur som kan samverka över flera versioner finns i [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
+Mer information om hur du tillhandahåller en datastruktur som kan samverka mellan flera versioner finns [i IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)

@@ -1,6 +1,6 @@
 ---
-title: Databehandling med höga prestanda – Azure-datorer | Microsoft Docs
-description: Läs mer om databehandling med höga prestanda på Azure.
+title: Högpresterande datoranvändning – virtuella Azure-datorer | Microsoft-dokument
+description: Lär dig mer om högpresterande datoranvändning på Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,19 +13,19 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
 ms.openlocfilehash: 10549abfbdacf1fc1ae6b99f4cab20a290c32a2d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707813"
 ---
 # <a name="optimization-for-linux"></a>Optimering för Linux
 
-Den här artikeln beskriver några viktiga tekniker för att optimera din OS-avbildning. Läs mer om [aktiverar InfiniBand](enable-infiniband.md) och optimera OS-avbildningar.
+Den här artikeln visar några viktiga tekniker för att optimera din OS-avbildning. Läs mer om [hur du aktiverar InfiniBand](enable-infiniband.md) och optimerar OS-avbildningarna.
 
 ## <a name="update-lis"></a>Uppdatera LIS
 
-Om du distribuerar med hjälp av en anpassad avbildning (till exempel ett äldre operativsystem som CentOS/RHEL 7.4 eller 7.5), uppdatera LIS på den virtuella datorn.
+Om du distribuerar med en anpassad avbildning (till exempel ett äldre operativsystem som CentOS/RHEL 7.4 eller 7.5) uppdaterar du LIS på den virtuella datorn.
 
 ```bash
 wget https://aka.ms/lis
@@ -34,23 +34,23 @@ pushd LISISO
 ./upgrade.sh
 ```
 
-## <a name="reclaim-memory"></a>Frigöra minne
+## <a name="reclaim-memory"></a>Återta minne
 
-Förbättra effektiviteten genom att automatiskt frigöra minne för att undvika till fjärrminne.
+Förbättra effektiviteten genom att automatiskt hämta minne för att undvika åtkomst till fjärrminne.
 
 ```bash
 echo 1 >/proc/sys/vm/zone_reclaim_mode
 ```
 
-Så här gör detta finns kvar när den virtuella datorn startas om:
+Så här kvarstår detta efter att den virtuella datorn har startats om:
 
 ```bash
 echo "vm.zone_reclaim_mode = 1" >> /etc/sysctl.conf sysctl -p
 ```
 
-## <a name="disable-firewall-and-selinux"></a>Inaktivera brandväggen och SELinux
+## <a name="disable-firewall-and-selinux"></a>Inaktivera brandvägg och SELinux
 
-Inaktivera brandväggen och SELinux.
+Inaktivera brandvägg och SELinux.
 
 ```bash
 systemctl stop iptables.service
@@ -64,7 +64,7 @@ sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 
 ## <a name="disable-cpupower"></a>Inaktivera cpupower
 
-Inaktivera cpupower.
+Inaktivera cpu-kraft.
 
 ```bash
 service cpupower status
@@ -75,6 +75,6 @@ sudo systemctl disable cpupower
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [aktiverar InfiniBand](enable-infiniband.md) och optimera OS-avbildningar.
+* Läs mer om [hur du aktiverar InfiniBand](enable-infiniband.md) och optimerar OS-bilder.
 
 * Läs mer om [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) på Azure.

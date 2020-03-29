@@ -1,13 +1,13 @@
 ---
-title: Skapa din första Azure Service Fabric-app i Linux med hjälp avC#
-description: Lär dig hur du skapar och distribuerar ett Service Fabric program C# med hjälp av och .net Core 2,0.
+title: 'Skapa din första Azure Service Fabric-app på Linux med C #'
+description: Lär dig hur du skapar och distribuerar ett Service Fabric-program med C# och .NET Core 2.0.
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458133"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
@@ -22,7 +22,7 @@ Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET 
 ## <a name="prerequisites"></a>Krav
 Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
-Du bör även installera [Service Fabric CLI](service-fabric-cli.md)
+Du kommer också att vilja installera [Service Fabric CLI](service-fabric-cli.md)
 
 ### <a name="install-and-set-up-the-generators-for-c"></a>Installera och konfigurera generatorerna för C#
 Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fabric-program från en terminal med en Yeoman-mallgenerator. Följ dessa steg för att konfigurera Service Fabric Yeoman-mallgeneratorer för C#:
@@ -33,7 +33,7 @@ Service Fabric tillhandahåller ramverktyg som hjälper dig att skapa Service Fa
    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
    nvm install node 
    ```
-2. Installera [Yeoman](https://yeoman.io/)-mallgeneratorn på datorn från NPM
+2. Installera [Yeoman](https://yeoman.io/) mallgenerator på din maskin från NPM
 
    ```bash
    npm install -g yo
@@ -89,7 +89,7 @@ Du hittar parametrarna till de här kommandona i de genererade manifesten i prog
 När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 > [!IMPORTANT]
-> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric Runtime. På så sätt kan dina Reliable Services-tjänster kommunicera med de underliggande Service Fabric runtime-API: erna. Mer information finns i [Konfigurera en Reliable Services app för att köra Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att validera ditt program med Service Fabric-körningen. Om du gör det kan dina Reliable Services-tjänster kommunicera med de underliggande API:erna för service fabric-körning. Mer information finns i [Konfigurera en reliable services-app som ska köras på Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
@@ -97,7 +97,7 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.
 
-   Om du använder MAC OS X måste du kopiera mappen myactorsvcTestClient till samma plats i behållaren genom att köra följande ytterligare kommandon.
+   När det gäller MAC OS X måste du kopiera myactorsvcTestClient-mappen till samma plats i behållaren genom att köra följande ytterligare kommandon.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

@@ -1,6 +1,6 @@
 ---
-title: Använd StorSimple 8000-serien sammanfattning av enhet | Microsoft Docs
-description: Beskriver sammanfattning av StorSimple Device Manager service enhet och hur du använder det för att visa mätvärden i storage och anslutna initierare och hitta serienumret och IQN.
+title: Använd enhetssammanfattning i StorSimple 8000-serien | Microsoft-dokument
+description: Beskriver sammanfattningen av StorSimple Device Manager-tjänstenheten och hur du använder den för att visa lagringsmått och anslutna initierare och hitta serienumret och IQN.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,85 +15,85 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60578325"
 ---
-# <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Använda enhets-sammanfattning i StorSimple Device Manager-tjänsten
+# <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Använda enhetssammanfattningen i StorSimple Enhetshanteraren
 
 ## <a name="overview"></a>Översikt
-Sammanfattningsbladet för StorSimple-enhet ger dig en översikt över information för en specifik StorSimple-enhet, till skillnad från sammanfattningsbladet för tjänsten, vilket ger dig information om de enheter som ingår i Microsoft Azure StorSimple-lösningen.
+Sammanfattningsbladet för StorSimple-enheten ger dig en översikt över information för en viss StorSimple-enhet, till skillnad från bladet för servicesammanfattning, som ger dig information om alla enheter som ingår i Microsoft Azure StorSimple-lösningen.
 
-Bladet sammanfattning innehåller en sammanfattning av en enhet i StorSimple 8000-serien som har registrerats med en viss StorSimple Device Manager, markera dessa problem med enheter som behöver åtgärdas av en systemadministratör. Den här självstudien introducerar sammanfattningsbladet för device, förklarar innehåll och funktionen och beskrivs vilka aktiviteter som du kan utföra från det här bladet.
+Enhetssammanfattningsbladet ger en sammanfattande vy över en StorSimple 8000-serieenhet som är registrerad med en viss StorSimple-enhetshanterare, vilket belyser de enhetsproblem som behöver en systemadministratörs uppmärksamhet. Den här självstudien introducerar enhetssammanfattningsbladet, förklarar innehållet och funktionen och beskriver de uppgifter som du kan utföra från det här bladet.
 
-Sammanfattningsbladet för enheten visar följande information:
+Enhetssammanfattningsbladet visar följande information:
 
-![Sammanfattningsbladet för enhet](./media/storsimple-8000-device-dashboard/device-summary1.png)
+![Sammanfattningsblad för enhet](./media/storsimple-8000-device-dashboard/device-summary1.png)
 
-## <a name="management-command-bar"></a>Hantering av kommandofältet
+## <a name="management-command-bar"></a>Kommandofältet Hantering
 
-På bladet för StorSimple-enhet kan du se alternativ för att hantera din StorSimple-enhet. Du kan se kommandon för hantering överst på bladet och till vänster. Lägg till resurser eller volymer, eller uppdatera eller redundansväxla din enhet med hjälp av dessa alternativ.
+I StorSimple-enhetens blad ser du alternativen för att hantera din StorSimple-enhet. Du ser hanteringskommandona över bladets överkant och på vänster sida. Använd de här alternativen om du vill lägga till resurser eller volymer, eller uppdatera eller växla över enheten.
 
-![Hantering av kommandofältet](./media/storsimple-8000-device-dashboard/device-summary2.png)
+![Kommandofältet Hantering](./media/storsimple-8000-device-dashboard/device-summary2.png)
 
 ## <a name="essentials"></a>Essentials
 
-Området essentials samlar in några av de viktiga egenskaperna som, status, modell, mål-IQN och programvaruversionen. 
+Essentials-området fångar några av de viktiga egenskaperna som status, modell, mål-IQN och programvaruversionen. 
 
-![Enheten essentials](./media/storsimple-8000-device-dashboard/device-summary3.png)
+![Det väsentliga enhetsdespekterna](./media/storsimple-8000-device-dashboard/device-summary3.png)
 
 ## <a name="monitoring"></a>Övervakning
 
-* Den **aviseringar** panelen innehåller en ögonblicksbild av alla aktiva aviseringar för enheten, grupperade efter allvarlighetsgrad.
+* Panelen **Aviseringar** innehåller en ögonblicksbild av alla aktiva aviseringar för enheten, grupperade efter allvarlighetsgrad för aviseringar.
 
-    ![Alert panel](./media/storsimple-8000-device-dashboard/device-summary4.png)
+    ![Varningspanel](./media/storsimple-8000-device-dashboard/device-summary4.png)
 
-    Klicka på ikonen för att öppna den **aviseringar** bladet och klicka sedan på en enskild varning att visa ytterligare information om den här aviseringen, inklusive alla rekommenderade åtgärder. Du kan även radera aviseringen om problemet har lösts.
+    Klicka på panelen för att öppna bladet **Aviseringar** och klicka sedan på en enskild avisering för att visa ytterligare information om den aviseringen, inklusive rekommenderade åtgärder. Du kan också rensa aviseringen om problemet har lösts.
 
-    ![Klicka på aviseringen panel](./media/storsimple-8000-device-dashboard/device-summary10.png)
+    ![Klicka på varningspanel](./media/storsimple-8000-device-dashboard/device-summary10.png)
 
-* Den **Status och hälsa** panel ger insikter om maskinvara komponentens hälsostatus för en enhet, inklusive enhetens status. Enhetens status kan vara offline, online, inaktiverad eller redo för installation.
+* Panelen **Status och hälsa** ger insikter om maskinvarukomponentens hälsotillstånd för en enhet, inklusive enhetens status. Enhetsstatusen kan vara offline, online, inaktiverad eller klar att konfigureras.
 
-    ![Status och hälsa panel](./media/storsimple-8000-device-dashboard/device-summary5.png)
+    ![Panelen Status och hälsa](./media/storsimple-8000-device-dashboard/device-summary5.png)
 
-* Den **volymer** panelen innehåller en sammanfattning av antalet volymer i enheten för grupperade efter status.
+* Panelen **Volymer** innehåller en sammanfattning av antalet volymer i enheten grupperade efter status.
 
-    ![Volymbrickan](./media/storsimple-8000-device-dashboard/device-summary6.png)
+    ![Panel för volymer](./media/storsimple-8000-device-dashboard/device-summary6.png)
 
-    Klicka på ikonen för att öppna den **volymer** listan bladet och klicka sedan på en enskild volym för att visa eller ändra dess egenskaper.
+    Klicka på panelen för att öppna listbladet **Volymer** och klicka sedan på en enskild volym för att visa eller ändra dess egenskaper.
     
-    ![Klicka på volymer panel](./media/storsimple-8000-device-dashboard/device-summary9.png)
+    ![Klicka på panelen Volymer](./media/storsimple-8000-device-dashboard/device-summary9.png)
     
-    Läs mer om hur du [hantera volymer](storsimple-8000-manage-volumes-u2.md).
+    Mer information finns i hur du [hanterar volymer](storsimple-8000-manage-volumes-u2.md).
 
-* I den **användning** diagrammet, du kan visa den primära lagringen som används av enheten och den molnlagring som används under de senaste 7 dagarna standard tidsperiod.
+* I **användningsdiagrammet** kan du visa den primära lagring som används över enheten och molnlagringen som förbrukats under de senaste 7 dagarna, standardtidsperioden.
 
-     ![Användningsikonen](./media/storsimple-8000-device-dashboard/device-summary7.png)
+     ![Användningspanel](./media/storsimple-8000-device-dashboard/device-summary7.png)
     
-     Välj en annan tidsskala genom att använda den **redigera** alternativ i det övre högra hörnet av diagrammet.
+     Om du vill välja en annan tidsskala använder du alternativet **Redigera** i diagrammets övre högra hörn.
 
-     ![Redigera Användningsdiagram](./media/storsimple-8000-device-dashboard/device-summary12.png)
+     ![Redigera användningsdiagram](./media/storsimple-8000-device-dashboard/device-summary12.png)
 
-     I det här diagrammet kan du visa mått för total primär lagring (mängden data som skrivits av värdar till din enhet) och den totala molnlagring som används av din enhet under en viss tidsperiod.
+     I det här diagrammet kan du visa mått för den totala primära lagringen (mängden data som skrivits av värdar till din enhet) och den totala molnlagring som används av enheten under en viss tidsperiod.
   
-     I det här sammanhanget *primärlagring* refererar till den totala mängden data som skrivits av värden och kan delas upp på volymtyp: *primär nivåindelad lagring* omfattar både lokalt lagrade data och data nivåindelade molnet. *Primär lokalt fixerad lagring* innehåller bara data som lagras lokalt. *Molnlagring*, å andra sidan är ett mått på den totala mängden data som lagras i molnet. Den här lagringen omfattar nivåindelade data och säkerhetskopieringar. De data som lagras i molnet är deduplicerad och komprimeras, medan primärlagring Anger mängden lagringsutrymme som används innan data dedupliceras och komprimeras. (Du kan jämföra dessa två tal för att få en uppfattning om hastigheten med komprimering.) För båda primära och molnlagring, de mängder som anges är baserat på åtkomstfrekvensen för spårning som du konfigurerar. Exempel: Om du väljer en frekvens på en vecka sedan diagrammet visar data för varje dag under föregående vecka.
+     I det här sammanhanget refererar *primär lagring* till den totala mängden data som skrivits av värden och kan delas upp efter volymtyp: *primär nivåindelad lagring* omfattar både lokalt lagrade data och data som nivåindelas till molnet. *Primär lokalt fäst lagring* innehåller bara data som lagras lokalt. *Molnlagring*, å andra sidan, är ett mått på den totala mängden data som lagras i molnet. Den här lagringen innehåller nivåindelade data och säkerhetskopior. Data som lagras i molnet dedupliceras och komprimeras, medan primär lagring anger hur mycket lagringsutrymme som används innan data dedupliceras och komprimeras. (Du kan jämföra dessa två siffror för att få en uppfattning om komprimeringsfrekvensen.) För både primär lagring och molnlagring baseras de belopp som visas på spårningsfrekvensen som du konfigurerar. Om du till exempel väljer en enveckorsfrekvens visas data för varje dag i föregående vecka.
 
-     Om du vill se hur mycket molnlagring som används över tid, Välj den **CLOUD STORAGE används** alternativet. Om du vill se det totala lagringsutrymmet som har skrivits av värden, den **primär NIVÅINDELAD lagring används** och **primära LOKALT FÄST STORAGE används** alternativ. 
-     Mer information finns i [använda StorSimple Device Manager-tjänsten för att övervaka din StorSimple-enhet](storsimple-monitor-device.md).
+     Om du vill se hur mycket molnlagring som förbrukas över tid väljer du alternativet **CLOUD STORAGE USED.** Om du vill se det totala lagringsutrymme som har skrivits av värden väljer du alternativen **PRIMÄR NIVÅINDELAD LAGRING SOM ANVÄNDS** OCH PRIMÄR LOKALT **NÅLAD LAGRING ANVÄNDS.** 
+     Mer information finns i [Använda Tjänsten StorSimple Device Manager för att övervaka din StorSimple-enhet](storsimple-monitor-device.md).
 
 
-* Den **kapacitet** panelen visar den primära lagringen som är etablerade och återstående för enheten i förhållande till det totala lagringsutrymmet för samma. **Etablerade** refererar till det lagringsutrymme som är förberedd och är allokerad för användning, **återstående** refererar till den återstående kapacitet som kan etableras i den här enheten. 
+* Panelen **Kapacitet** visar den primära lagring som är etablerad och som finns kvar över enheten i förhållande till det totala lagringsutrymme som är tillgängligt för samma. **Etablerat** avser mängden lagringsutrymme som förbereds och allokeras för användning, **Återstående** refererar till den återstående kapaciteten som kan etableras över den här enheten. 
 
-    ![Användningsikonen](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Användningspanel](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
-    Klicka på den här panelen för att visa hur kapaciteten etableras mellan nivåindelade och lokalt fixerade volymer. Den **återstående Nivåindelad** kapacitet är den tillgängliga kapaciteten som kan etableras inklusive molnet, medan den **återstående lokala** är den kapacitet kvar på diskar som är kopplade till den här enheten.
+    Klicka på den här panelen om du vill visa hur kapaciteten etableras över nivåindelade och lokalt fästa volymer. **Återstående nivåindelad** kapacitet är den tillgängliga kapaciteten som kan etableras inklusive molnet, medan **återstående lokal** är den återstående lokala kapaciteten som finns kvar på diskarna som är anslutna till den här enheten.
 
-    ![Klicka på Användningsdiagram](./media/storsimple-8000-device-dashboard/device-summary13.png)
+    ![Klicka på användningsdiagram](./media/storsimple-8000-device-dashboard/device-summary13.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om den [sammanfattningsbladet för tjänsten StorSimple](storsimple-8000-service-dashboard.md).
-* Läs mer om [med StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Läs mer om [sammanfattningsbladet för StorSimple-tjänsten](storsimple-8000-service-dashboard.md).
+* Läs mer om [hur du använder Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

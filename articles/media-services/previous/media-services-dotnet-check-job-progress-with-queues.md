@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Queue storage för att övervaka jobbmeddelanden för Media Services med .NET | Microsoft Docs
-description: Lär dig hur du använder Azure Queue storage för att övervaka jobbmeddelanden för Media Services. Kodexemplet är skriven i C# och använder Media Services SDK för .NET.
+title: Använd Azure-kölagring för att övervaka Jobbmeddelanden för Media Services med .NET | Microsoft-dokument
+description: Lär dig hur du använder Azure Queue storage för att övervaka Jobbmeddelanden för Media Services. Kodexemplet skrivs i C# och använder Media Services SDK för .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64868109"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure Queue storage för att övervaka jobbmeddelanden för Media Services med .NET 
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Använd Azure-kölagring för att övervaka Jobbmeddelanden för Media Services med .NET 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-När du kör kodningsjobb kräver ofta ett sätt att spåra jobbförloppet. Du kan konfigurera Media Services för att leverera meddelanden till [Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md). Du kan övervaka förloppet genom att hämta meddelanden från Queue storage. 
+När du kör kodningsjobb behöver du ofta ett sätt att spåra jobbframsteg. Du kan konfigurera Media Services för att leverera meddelanden till [Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md). Du kan övervaka jobbförloppet genom att få meddelanden från kölagringen. 
 
-Meddelanden som levereras till Queue storage kan nås från var som helst i världen. Queue storage meddelanden arkitekturen är tillförlitliga och skalbara. Avsökning kölagring för meddelanden rekommenderas över andra metoder.
+Meddelanden som levereras till kölagring kan nås var som helst i världen. Meddelandearkitekturen För kölagring är tillförlitlig och mycket skalbar. Avsökningskölagring för meddelanden rekommenderas över med andra metoder.
 
-Ett vanligt scenario för att lyssna på Media Services-meddelanden är om du utvecklar ett innehållshanteringssystem som måste utföra någon ytterligare åtgärd efter ett kodningsjobb är klar (till exempel till nästa steg i ett arbetsflöde eller för att publicera utlösare innehåll).
+Ett vanligt scenario för att lyssna på Media Services-meddelanden är om du utvecklar ett innehållshanteringssystem som behöver utföra ytterligare uppgifter när ett kodningsjobb har slutförts (till exempel för att utlösa nästa steg i ett arbetsflöde eller för att publicera innehållet).
 
-Den här artikeln visar hur du hämtar meddelanden från Queue storage.  
+Den här artikeln visar hur du får meddelanden från kölagring.  
 
 ## <a name="considerations"></a>Överväganden
-Tänk på följande när du utvecklar Media Services-program som använder Queue storage:
+Tänk på följande när du utvecklar Media Services-program som använder kölagring:
 
-* Queue storage ger inte en garanti för först in först ut (FIFO) sorterade leverans. Mer information finns i [Azure-köer och Azure Service Bus-köer jämfört med och Contrasted](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-* Queue storage är inte en push-tjänst. Du måste söka i kön.
+* Kölagring ger ingen garanti för första-i-först-ut (FIFO) beställd leverans. Mer information finns i [Azure-köer och Azure Service Bus-köer jämfört och kontrasterat](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Kölagring är inte en push-tjänst. Du måste avsöka kön.
 * Du kan ha valfritt antal köer. Mer information finns i [REST API för kötjänst](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
-* Kölagring har några begränsningar och specifik information skrivs till känna till. Dessa beskrivs i [Azure-köer och Azure Service Bus-köer jämfört med och Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+* Kölagring har vissa begränsningar och detaljer att vara medveten om. Dessa beskrivs i [Azure-köer och Azure Service Bus-köer jämfört och kontrasterat](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
-## <a name="net-code-example"></a>.NET-kodexempel
+## <a name="net-code-example"></a>Exempel på .NET-kod
 
 Kodexemplet i det här avsnittet gör följande:
 
-1. Definierar den **EncodingJobMessage** klass som mappar till meddelandeformat för meddelandet. Koden deserializes meddelanden som tas emot från kön i objekt av den **EncodingJobMessage** typen.
-2. Läser in informationen om Media Services och lagring från filen app.config. Kodexemplet använder den här informationen för att skapa den **CloudMediaContext** och **CloudQueue** objekt.
-3. Skapar den kö som tar emot meddelanden om kodningsjobbet.
-4. Skapar notification slutpunkten som är mappad till kön.
-5. Kopplar slutpunkten meddelande till jobbet och skickar kodningsjobbet. Du kan ha flera notification-slutpunkterna som hör till ett projekt.
-6. Pass **NotificationJobState.FinalStatesOnly** till den **AddNew** metod. (I det här exemplet vi bara är intresserad slutlig status för jobb-bearbetning.)
+1. Definierar klassen **EncodingJobMessage** som mappar till meddelandemeddelandeformatet. Koden deserialiserar meddelanden som tas emot från kön till objekt av typen **EncodingJobMessage.**
+2. Läser in kontoinformationen för Media Services och Storage från filen app.config. Kodexemplet använder den här informationen för att skapa **CloudMediaContext-** och **CloudQueue-objekten.**
+3. Skapar kön som tar emot meddelandemeddelanden om kodningsjobbet.
+4. Skapar meddelandeslutpunkten som mappas till kön.
+5. Kopplar meddelandeslutpunkten till jobbet och skickar kodningsjobbet. Du kan ha flera aviseringsslutpunkter kopplade till ett jobb.
+6. Skickar **NotificationJobState.FinalStatesOnly** till metoden **AddNew.** (I det här exemplet är vi bara intresserade av sluttillstånden för jobbbearbetningen.)
 
         job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-7. Om du skickar **NotificationJobState.All**, du får alla ändringsmeddelanden för följande tillstånd: i kö, schemalagda, bearbetning och klar. Men som tidigare nämnts garanterar kölagring inte sorterad leverans. Om du vill sortera meddelanden använder den **tidsstämpel** egenskapen (definieras för den **EncodingJobMessage** typ i exemplet nedan). Dubbletter av meddelanden är möjliga. Om du vill söka efter dubbletter, använda den **ETag egenskapen** (definieras för den **EncodingJobMessage** typ). Det är också möjligt att vissa aviseringar om tillståndsändringar hämta hoppades över.
-8. Väntar på att jobbet att komma till slutfört tillstånd genom att kontrollera kön var tionde sekund. Tar bort meddelanden när de har bearbetats.
-9. Tar bort kön och notification-slutpunkten.
+7. Om du skickar **NotificationJobState.All**får du alla följande tillståndsändringsmeddelanden: köade, schemalagda, bearbetning och färdiga. Som nämnts tidigare garanterar dock kölagring inte beställd leverans. Om du vill beställa meddelanden använder du egenskapen **Tidsstämpel** (definierad på typen **EncodingJobMessage** i exemplet nedan). Dubblettmeddelanden är möjliga. Om du vill söka efter dubbletter använder du **egenskapen ETag** (definierad på typen **EncodingJobMessage).** Det är också möjligt att vissa tillståndsändringsmeddelanden hoppas över.
+8. Väntar på att jobbet ska komma till det färdiga tillståndet genom att kontrollera kön var 10:e sekund. Tar bort meddelanden när de har bearbetats.
+9. Tar bort kön och aviseringsslutpunkten.
 
 > [!NOTE]
-> Det rekommenderade sättet att övervaka en jobbets status är genom att lyssna på meddelanden, som visas i följande exempel:
+> Det rekommenderade sättet att övervaka ett jobbs tillstånd är att lyssna på meddelandemeddelanden, vilket visas i följande exempel:
 >
-> Du kan också du kan kontrollera på en jobbets status med hjälp av den **IJob.State** egenskapen.  Ett meddelande om att ett jobb avslutas kan tas emot innan tillståndet på **IJob** är inställd på **slutfört**. Den **IJob.State** egenskapen visar korrekt tillstånd med en liten fördröjning.
+> Du kan också kontrollera ett jobbs tillstånd med egenskapen **IJob.State.**  Ett meddelande om att ett jobb har slutförts kan komma innan tillståndet på **IJob** är inställt på **Färdigt**. **Egenskapen IJob.State** återspeglar det korrekta tillståndet med en liten fördröjning.
 >
 >
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
-2. Skapa en ny mapp (mappen kan finnas var som helst på den lokala enheten) och kopiera en MP4-fil som du vill koda och strömma eller progressivt hämta. I det här exemplet används sökvägen ”C:\Media”.
-3. Lägg till en referens till den **avsnittsgruppen** biblioteket.
+1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
+2. Skapa en ny mapp (mappen kan finnas var som helst på den lokala enheten) och kopiera en MP4-fil som du vill koda och strömma eller hämta progressivt. I det här exemplet används sökvägen "C:\Media".
+3. Lägg till en referens till **biblioteket System.Runtime.Serialization.**
 
 ### <a name="code"></a>Kod
 
@@ -342,7 +342,7 @@ namespace JobNotification
 }
 ```
 
-I föregående exempel produceras följande utdata: Dina värden varierar.
+I föregående exempel producerades följande utdata: Dina värden varierar.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4

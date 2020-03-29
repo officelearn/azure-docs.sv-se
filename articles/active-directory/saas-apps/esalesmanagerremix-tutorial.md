@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med E försäljning Manager REMIXA | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och E försäljning Manager REMIXA.
+title: 'Självstudiekurs: Azure Active Directory-integrering med E Sales Manager Remix | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och E Sales Manager Remix.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,49 +17,49 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65406956"
 ---
-# <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med E-försäljningschef Remix
+# <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrera Azure Active Directory med Remix av E-försäljningschef
 
-I den här självstudien får du lära dig hur du integrerar Azure Active Directory (Azure AD) med E försäljning Manager REMIXA.
+I den här självstudien får du lära dig hur du integrerar Azure Active Directory (Azure AD) med E Sales Manager Remix.
 
-Genom att integrera Azure AD med E försäljning Manager REMIXA kan få du följande fördelar:
+Genom att integrera Azure AD med E Sales Manager Remix får du följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till E försäljning Manager REMIXA.
-- Du kan aktivera användarna att få loggar in automatiskt på E försäljning Manager REMIXA (enkel inloggning eller SSO) med sina Azure AD-konton.
+- Du kan styra i Azure AD som har åtkomst till E Sales Manager Remix.
+- Du kan göra det möjligt för användarna att logga in automatiskt på E Sales Manager Remix (enkel inloggning eller SSO) med sina Azure AD-konton.
 - Du kan hantera dina konton på en central plats, Azure-portalen.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med E försäljning Manager REMIXA, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med E Sales Manager Remix behöver du följande:
 
 - En Azure AD-prenumeration
-- En prenumeration på E försäljning Manager REMIXA SSO-aktiverad
+- En E Sales Manager Remix SSO-aktiverad prenumeration
 
 > [!NOTE]
-> När du testar stegen i den här självstudien rekommenderar vi att du gör *inte* använder en produktionsmiljö.
+> När du testar stegen i den här självstudien rekommenderar vi att du *inte* använder en produktionsmiljö.
 
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. 
+I den här självstudien testar du azure AD enkel inloggning i en testmiljö. 
 
-Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+Det scenario som beskrivs i den här självstudien består av två huvudbyggstenar:
 
-* Att lägga till E försäljning Manager REMIXA från galleriet
-* Konfigurera och testa Azure AD enkel inloggning
+* Lägga till E Sales Manager Remix från galleriet
+* Konfigurera och testa enkel inloggning i Azure AD
 
-## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Lägg till E försäljning Manager REMIXA från galleriet
-Om du vill konfigurera integreringen av Azure AD med E försäljning Manager REMIXA, lägga till E försäljning Manager REMIXA från galleriet i listan över hanterade SaaS-appar genom att göra följande:
+## <a name="add-e-sales-manager-remix-from-the-gallery"></a>Lägg till E Sales Manager Remix från galleriet
+Om du vill konfigurera integreringen av Azure AD med E Sales Manager Remix lägger du till E Sales Manager Remix från galleriet i listan över hanterade SaaS-appar genom att göra följande:
 
 1. I den vänstra rutan i [Azure-portalen](https://portal.azure.com) väljer du **Azure Active Directory**. 
 
@@ -67,212 +67,212 @@ Om du vill konfigurera integreringen av Azure AD med E försäljning Manager REM
 
 1. Välj **Företagsprogram** > **Alla program**.
 
-    ![Fönstret ”program”][2]
+    ![Fönstret "Företagsprogram"][2]
     
-1. Om du vill lägga till ett nytt program, Välj **nytt program** överst i fönstret.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program** högst upp i fönstret.
 
     ![Knappen Nytt program][3]
 
-1. I sökrutan skriver **E försäljning Manager REMIXA**väljer **E försäljning Manager REMIXA** i resultatlistan och välj sedan **Lägg till**.
+1. Skriv E Sales **Manager Remix**i sökrutan, välj **E Sales Manager Remix** i resultatlistan och välj sedan **Lägg till**.
 
-    ![E försäljning Manager REMIXA i resultatlistan](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
+    ![E Sales Manager Remix i resultatlistan](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med E försäljning Manager REMIXA, baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du azure AD enkel inloggning med E Sales Manager Remix, baserat på en testanvändare som heter "Britta Simon".
 
-För enkel inloggning att fungera, behöver Azure AD att identifiera användaren E försäljning Manager REMIXA och dess motsvarighet i Azure AD. Med andra ord etableras en länk förhållandet mellan en Azure AD-användare och samma användare i E försäljning Manager REMIXA.
+För att enkel inloggning ska fungera måste Azure AD identifiera E Sales Manager Remix-användaren och dess motsvarighet i Azure AD. Med andra ord måste en länkrelation mellan en Azure AD-användare och samma användare i E Sales Manager Remix upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med E försäljning Manager REMIXA, slutför du byggblocken i nästa fem avsnitt:
+Om du vill konfigurera och testa en enkel Azure AD-inloggning med E Sales Manager Remix slutför du byggblocken i de följande fem avsnitten:
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt E försäljning Manager REMIXA program genom att göra följande:
+Aktivera enkel Azure AD-inloggning i Azure-portalen och konfigurera enkel inloggning i ditt E Sales Manager Remix-program genom att göra följande:
 
-1. I Azure-portalen på den **E försäljning Manager REMIXA** application integration markerar **enkel inloggning**.
+1. Välj Enkel inloggning på sidan Integrering av E Sales Manager **Remix-program**på sidan **E Sales Manager Remix-** programintegration .
 
-    ![Länken ”enkel inloggning”][4]
+    ![Länken "Enkel inloggning"][4]
 
-1. I den **enkel inloggning** fönstret i den **läge för enkel inloggning** väljer **SAML-baserad inloggning**.
+1. I fönstret **Enkel inloggning** väljer du **SAML-baserad inloggning**i rutan Enkel **inloggningsläge** .
  
-    ![Fönstret ”enkel inloggning”](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
+    ![Fönstret "Enkel inloggning"](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-1. Under **REMIXA E försäljning Manager-domän och URL: er**, gör du följande:
+1. Gör följande under **E Sales Manager Remix Domain and URL:er:**
 
-    ![REMIXA E försäljning Manager-domän och URL: er med enkel inloggning för information](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
+    ![E Sales Manager Remix Domän och webbadresser enkel inloggningsinformation](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. I den **inloggnings-URL** skriver du en URL i formatet: *https://\<Server-baserade-URL > /\<underdomän > / esales-pc*.
+    a. I rutan **Inloggnings-URL** skriver du en URL i följande format: *https://\<Server-Based-URL>/\<underdomän>/esales-pc*.
 
-    b. I den **identifierare** skriver du en URL i formatet: *https://\<Server-baserade-URL > /\<underdomän > /* .
+    b. Skriv en URL i följande format i rutan **Identifierare:** *https://\<Serverbaserad URL->/\<underdomän>/*.
 
-    c. Obs den **identifierare** värdet för senare användning i den här självstudien.
+    c. Observera **identifierare** värdet för senare användning i den här självstudien.
     
     > [!NOTE] 
-    > Föregående värden är inte verkliga. Uppdatera dem med faktiska inloggning URL och identifierare. Kontakta för att få värdena [REMIXA E försäljning Manager-klienten supportteamet](mailto:esupport@softbrain.co.jp).
+    > Föregående värden är inte verkliga. Uppdatera dem med den faktiska inloggnings-URL:en och identifieraren. Kontakta [supportteamet](mailto:esupport@softbrain.co.jp)för E Sales Manager Remix Client om du vill hämta värdena.
 
-1. Under **SAML-signeringscertifikat**väljer **certifikat (Base64)** , och sedan spara certifikatfilen på datorn.
+1. Under **SAML-signeringscertifikat**väljer du **Certifikat (Base64)** och sparar sedan certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
+    ![Nedladdningslänken för certifikat (Base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-1. Välj den **visa och redigera alla andra användarattribut** kryssrutan och välj sedan den **e-postadress** attribut.
+1. Markera kryssrutan **Visa och redigera alla andra användarattribut** och markera sedan **attributet emailaddress.**
     
-    ![Fönstret användarattribut](./media/esalesmanagerremix-tutorial/configure1.png)
+    ![Fönstret Användarattribut](./media/esalesmanagerremix-tutorial/configure1.png)
 
-    Den **redigera attributet** öppnas.
+    Fönstret **Redigera attribut** öppnas.
 
-1. Kopiera den **Namespace** och **namn** värden. Generera värdet i mönstret  *\<Namespace > /\<namn >* , och spara den för senare användning i den här självstudien.
+1. Kopiera **värdena Namnområde** och **Namn.** Generera värdet i mönstret * \<Namnområde>/\<Namn>* och spara det för senare användning i den här självstudien.
 
     ![Fönstret Redigera attribut](./media/esalesmanagerremix-tutorial/configure2.png)
 
-1. Under **E försäljning Manager REMIXA Configuration**väljer **konfigurera E försäljning Manager REMIXA**.
+1. Under **Remixkonfiguration för E-försäljningschef**väljer du **Konfigurera Remix av E-försäljningschef**.
 
-    ![E-försäljningschef Remix konfiguration](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+    ![Remixkonfiguration för E-försäljningschef](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
-    Den **konfigurera inloggning** öppnas.
+    Fönstret **Konfigurera inloggning** öppnas.
 
-1. I den **Snabbreferens** avsnittet, kopiera utloggnings-URL och URL för SAML enkel inloggning.
+1. I avsnittet **Snabbreferens** kopierar du utskrivningsadressen och SAML:s url för en enda inloggningstjänst.
 
 1. Välj **Spara**.
 
     ![Knappen Spara](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-1. Logga in på ditt E försäljning Manager REMIXA program som administratör.
+1. Logga in på ditt E Sales Manager Remix-program som administratör.
 
-1. Längst upp till höger, Välj **till administratör-menyn**.
+1. Längst upp till höger väljer du **Till administratörsmeny**.
 
-    ![Kommandot ”till administratör-meny](./media/esalesmanagerremix-tutorial/configure4.png)
+    ![Kommandot "Till administratörsmeny"](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. I den vänstra rutan väljer **systeminställningar** > **samarbete med externa system**.
+1. Välj **Systeminställningar** > **Samarbete med externt system**i den vänstra rutan .
 
-    ![”Systeminställningar” och ”samarbete med externa system”-länkar](./media/esalesmanagerremix-tutorial/configure5.png)
+    ![Länkarna "Systeminställningar" och "Samarbete med externt system"](./media/esalesmanagerremix-tutorial/configure5.png)
     
-1. I den **samarbete med externa system** väljer **SAML**.
+1. I fönstret **Samarbete med externa system** väljer du **SAML**.
 
-    ![Fönstret ”samarbete med externa system”](./media/esalesmanagerremix-tutorial/configure6.png)
+    ![Fönstret "Samarbete med externt system"](./media/esalesmanagerremix-tutorial/configure6.png)
 
-1. Under **inställningen för SAML-autentisering**, gör du följande:
+1. Gör följande under **INSTÄLLNINGEN FÖR SAML-autentisering:**
 
-    ![Avsnittet ”inställningen för SAML-autentisering”](./media/esalesmanagerremix-tutorial/configure3.png)
+    ![Avsnittet "SAML-autentiseringsinställning"](./media/esalesmanagerremix-tutorial/configure3.png)
     
-    a. Välj den **PC version** markerar du kryssrutan.
+    a. Markera kryssrutan **PC-version.**
     
-    b. I den **samarbete objekt** , i listrutan, väljer du **e-post**.
+    b. Välj **e-post**i listrutan **i avsnittet Samarbete.**
 
-    c. I den **samarbete objekt** rutan, klistra in anspråksvärdet för som du kopierade tidigare från Azure-portalen (det vill säga **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** ).
+    c. I **rutan Samarbetsobjekt** klistrar du in anspråksvärdet som du kopierade tidigare från Azure-portalen (det vill säga **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
-    d. I den **utfärdare (entitets-ID)** rutan, klistra in ID-värde som du kopierade tidigare från den **REMIXA E försäljning Manager-domän och URL: er** på Azure portal.
+    d. I rutan **Utfärdare (entitets-ID)** klistrar du in identifierarvärdet som du kopierade tidigare från avsnittet **E Sales Manager Remix Domain och URL:er** i Azure-portalen.
 
-    e. Om du vill ladda upp nedladdade certifikatet från Azure portal, Välj **filval**.
+    e. Om du vill ladda upp det nedladdade certifikatet från Azure-portalen väljer du **Filval**.
 
-    f. I den **inloggnings-URL för ID** rutan, klistra in Webbadressen för SAML enkel inloggning som du kopierade tidigare i Azure-portalen.
+    f. I rutan **ID-providerns inloggnings-URL** klistrar du in den SAML-url för en enda inloggningstjänst som du kopierade tidigare i Azure-portalen.
 
-    g. I **utloggnings-URL för identitetsprovider** rutan, klistra in utloggning URL-värdet som du kopierade tidigare i Azure-portalen.
+    g. I **url-url-rutan för identitetsprovsprovsanloggning** klistrar du in url-värdet för utloggning som du kopierade tidigare i Azure-portalen.
 
-    h. Välj **Ange fullständig**.
+    h. Välj **Inställning klar**.
 
 > [!TIP]
-> När du konfigurerar appen, du kan läsa en kortare version av föregående anvisningar i den [Azure-portalen](https://portal.azure.com). När du har lagt till appen i den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken och öppna den Embedded-dokumentation i den **Configuration** avsnittet längst ned. Mer information om funktionen embedded-dokumentation finns i [embedded-dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+> När du konfigurerar appen kan du läsa en kortfattad version av föregående instruktioner i [Azure-portalen](https://portal.azure.com). När du har lagt till appen i avsnittet **Active Directory** > **Enterprise Applications** väljer du fliken Enkel **inloggning** och öppnar sedan den inbäddade dokumentationen i avsnittet **Konfiguration** längst ned. Mer information om den inbäddade dokumentationsfunktionen finns i [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du testanvändare Britta Simon i Azure portal genom att göra följande:
+I det här avsnittet skapar du testanvändaren Britta Simon i Azure-portalen genom att göra följande:
 
 ![Skapa en Azure AD-testanvändare][100]
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**.
+1. Välj Azure Active Directory i Den vänstra rutan i **Azure-portalen**.
 
-    ![Azure Active Directory-länk](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
+    ![Azure Active Directory-länken](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-1. Om du vill visa en lista över aktuella användare, Välj **användare och grupper** > **alla användare**.
+1. Om du vill visa en lista över aktuella användare väljer du **Användare och grupper** > **Alla användare**.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-1. Överst på den **alla användare** väljer **Lägg till**.
+1. Välj **Lägg till**högst upp i fönstret **Alla användare.**
 
     ![Knappen Lägg till](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
-    Den **användaren** öppnas.
+    **Fönstret Användare** öppnas.
 
-1. I den **användaren** fönstret gör du följande:
+1. Gör följande i **fönstret Användare:**
 
-    ![Fönstret användare](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
+    ![Fönstret Användare](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-    a. I den **namn** skriver **BrittaSimon**.
+    a. Skriv **BrittaSimon**i rutan **Namn** .
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+    b. Skriv e-postadressen till användaren Britta Simon i rutan **Användarnamn.**
 
-    c. Välj den **visa lösenord** och anteckna värdet som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och notera sedan värdet som visas i rutan **Lösenord.**
 
     d. Välj **Skapa**.
  
-### <a name="create-an-e-sales-manager-remix-test-user"></a>Skapa en testanvändare E försäljning Manager REMIXA
+### <a name="create-an-e-sales-manager-remix-test-user"></a>Skapa en E Sales Manager Remix-testanvändare
 
-1. Logga in på ditt E försäljning Manager REMIXA program som administratör.
+1. Logga in på ditt E Sales Manager Remix-program som administratör.
 
-1. Välj **till administratör-menyn** från menyn längst upp till höger.
+1. Välj **Till administratörsmenyn** längst upp till höger.
 
-    ![E-försäljningschef Remix konfiguration](./media/esalesmanagerremix-tutorial/configure4.png)
+    ![Remixkonfiguration för E-försäljningschef](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Välj **företagets inställningar** > **underhåll av avdelningar och anställda**, och välj sedan **personal som är registrerad**.
+1. Välj **Företagets inställningar** > **Underhåll av avdelningar och medarbetare**och välj sedan Anställda **registrerade**.
 
-    ![Fliken ”anställda registered”](./media/esalesmanagerremix-tutorial/user1.png)
+    ![Fliken "Anställda registrerade"](./media/esalesmanagerremix-tutorial/user1.png)
 
-1. I den **registrering av nya medarbetare** avsnittet, gör du följande:
+1. Gör följande i avsnittet **Registrering av nya medarbetare:**
     
-    ![”Ny anställd registrering” avsnittet](./media/esalesmanagerremix-tutorial/user2.png)
+    ![Avsnittet "Registrering av nya medarbetare"](./media/esalesmanagerremix-tutorial/user2.png)
 
-    a. I den **medarbetarnamn** skriver du namnet på användaren (till exempel **Britta**).
+    a. Skriv namnet på användaren (till exempel **Britta**) i rutan **Medarbetarnamn** .
 
-    b. Slutför de återstående obligatoriska fälten.
+    b. Fyll i de återstående obligatoriska fälten.
     
-    c. Om du aktiverar SAML kan kan inte administratören logga in på sidan logga in. Bevilja inloggning administratörsbehörighet till användare genom att välja den **administratörsinloggning** markerar du kryssrutan.
+    c. Om du aktiverar SAML kan administratören inte logga in från inloggningssidan. Bevilja administratörsinloggningsbehörighet till användaren genom att markera kryssrutan **Administratörsinloggning.**
 
-    d. Välj **registrering**.
+    d. Välj **Registrering**.
 
-1. I framtiden, för att logga in som administratör, logga in som den användare som har administratörsbehörighet och välj sedan längst upp till höger, **till administratör-menyn**.
+1. Om du vill logga in som administratör i framtiden loggar du in som den användare som har administratörsbehörighet och väljer sedan **till administratörsmeny**längst upp till höger .
 
-    ![Kommandot ”till administratör-meny](./media/esalesmanagerremix-tutorial/configure4.png)
+    ![Kommandot "Till administratörsmeny"](./media/esalesmanagerremix-tutorial/configure4.png)
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska aktivera du användaren Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till E försäljning Manager REMIXA. Du gör detta genom att göra följande: 
+I det här avsnittet kan du göra det möjligt för användare Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till E Sales Manager Remix. Gör så här: 
 
-![Tilldela rollen][200] 
+![Tilldela användarrollen][200] 
 
-1. I Azure-portalen öppnar du den **program** visa, gå till den **Directory** visa och välj sedan **företagsprogram** > **alla program**.
+1. Öppna **programvyn i** Azure-portalen, gå till **katalogvyn** och välj sedan **Enterprise-program** > **Alla program**.
 
-    ![”Program” och ”alla program”-länkar][201] 
+    ![Länkarna "Företagsprogram" och "Alla program"][201] 
 
-1. I den **program** väljer **E försäljning Manager REMIXA**.
+1. Välj E Sales **Manager Remix**i listan **Program** .
 
-    ![Länken E försäljning Manager REMIXA](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
+    ![Länken E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-1. I den vänstra rutan väljer **användare och grupper**.
+1. Välj Användare och **grupper**i den vänstra rutan .
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”][202]
 
-1. Välj **Lägg till** och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
+1. Välj **Lägg till** och välj sedan **Användare och grupper**i fönstret Lägg till **tilldelning** .
 
     ![Fönstret Lägg till tilldelning][203]
 
-1. I den **användare och grupper** fönstret i den **användare** väljer **Britta Simon**.
+1. Välj **Britta Simon**i listan **Användare** **och grupper** .
 
-1. Välj den **Välj** knappen.
+1. Välj knappen **Välj.**
 
-1. I den **Lägg till tilldelning** väljer **tilldela**.
+1. Välj **Tilldela**i fönstret **Lägg till tilldelning** .
     
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
 
-När du väljer panelen E försäljning Manager REMIXA i åtkomstpanelen, bör du vara inloggad automatiskt till ditt E försäljning Manager REMIXA program.
+När du väljer panelen E Sales Manager Remix på åtkomstpanelen bör du loggas in automatiskt i ditt E Sales Manager Remix-program.
 
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier om integrering av SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

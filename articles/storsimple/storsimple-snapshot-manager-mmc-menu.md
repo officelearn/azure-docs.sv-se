@@ -1,6 +1,6 @@
 ---
-title: StorSimple Snapshot Manager MMC-meny åtgärder | Microsoft Docs
-description: Beskriver hur du använder standard meny åtgärderna i Microsoft Management Console (MMC) i StorSimple Snapshot Manager.
+title: Mmc-menc-menc-åtgärder för StorSimple Snapshot Manager | Microsoft-dokument
+description: I artikeln beskrivs hur du anvÃ¤nder mmc-menyåtgärder fÃ¤r standard (Microsoft Management Console) i StorSimple Snapshot Manager.
 services: storsimple
 documentationcenter: NA
 author: twooley
@@ -15,90 +15,90 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: ced075395c4f2a51308d5d3b0cbe4c0153a17816
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75931474"
 ---
-# <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Använd MMC-meny åtgärderna i StorSimple Snapshot Manager
+# <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Använda MMC-menyåtgärderna i StorSimple Snapshot Manager
 
 ## <a name="overview"></a>Översikt
-I StorSimple Snapshot Manager visas följande åtgärder på alla åtgärds menyer och alla varianter av **Åtgärds** fönstret.
+I StorSimple Snapshot Manager visas följande åtgärder på alla åtgärdsmenyer och alla varianter av **åtgärdsfönstret.**
 
 * Visa
 * Nytt fönster från här 
 * Uppdatera 
-* Exportera lista 
+* Exportlista 
 * Hjälp 
 
-De här åtgärderna ingår i Microsoft Management Console (MMC) och är inte bara för StorSimple Snapshot Manager. Den här självstudien beskriver de här åtgärderna och förklarar hur du använder dem i StorSimple Snapshot Manager.
+Dessa åtgärder är en del av Microsoft Management Console (MMC) och är inte specifika för StorSimple Snapshot Manager. Den här självstudien beskriver dessa åtgärder och förklarar hur du använder var och en av dem i StorSimple Snapshot Manager.
 
 ## <a name="view"></a>Visa
-Du kan använda alternativet **Visa** för att ändra **resultat** fönstrets vy och ändra konsol fönstrets vy. 
+Du kan använda alternativet **Visa** för att ändra **resultatfönstrets** vy och ändra konsolfönstervyn. 
 
-#### <a name="to-change-the-results-pane-view"></a>Ändra resultat fönstrets vy
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** högerklickar du på en nod eller expanderar noden och högerklickar på ett objekt i **resultat** fönstret och klickar sedan på alternativet **Visa** . 
-3. Om du vill lägga till eller ta bort kolumner som visas i **resultat** fönstret klickar du på **Lägg till/ta bort kolumner**. Dialog rutan **Lägg till/ta bort kolumner** visas.
+#### <a name="to-change-the-results-pane-view"></a>Så här ändrar du vyn Resultatruta
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Högerklicka på en nod i **fönstret Omfattning** eller expandera noden och högerklicka på ett objekt i **resultatfönstret** och klicka sedan på alternativet **Visa.** 
+3. Om du vill lägga till eller ta bort kolumnerna som visas i **resultatfönstret** klickar du på **Lägg till/ta bort kolumner**. Dialogrutan **Lägg till/ta bort kolumner** visas.
    
-    ![Lägg till eller ta bort kolumner från resultat fönstret](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Add_remove_columns.png) 
+    ![Lägga till eller ta bort kolumner från fönstret Resultat](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Add_remove_columns.png) 
 4. Fyll i formuläret enligt följande:
    
-   * Välj objekt i listan **tillgängliga** kolumner och klicka på **Lägg** till för att lägga till dem i listan över **kolumner som visas** . 
-   * Klicka på objekt i listan **kolumner som visas** och ta bort dem från listan genom att klicka på **ta bort** . 
-   * Markera ett objekt i listan kolumner som **visas** och klicka på **Flytta upp** eller **Flytta ned** för att flytta objektet uppåt eller nedåt i listan. 
-   * Klicka på **Återställ standardvärden** om du vill återgå till standard **resultat** fönstrets konfiguration. 
-5. När du är färdig med dina val klickar du på **OK**. 
+   * Markera objekt i listan **Tillgängliga** kolumner och klicka på **Lägg till** om du vill lägga till dem i listan **Visade kolumner.** 
+   * Klicka på objekt i listan **Visade kolumner** och klicka på **Ta bort** om du vill ta bort dem från listan. 
+   * Markera ett objekt i listan **Visade** kolumner och klicka på **Flytta uppåt** eller **Flytta ned** om du vill flytta objektet uppåt eller nedåt i listan. 
+   * Klicka på **Återställ standardinställningar** om du vill återgå till standardkonfigurationen **för resultatfönstret.** 
+5. När du är klar med dina val klickar du på **OK**. 
 
-#### <a name="to-change-the-console-window-view"></a>Ändra konsol fönstrets vy
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** högerklickar du på en nod, klickar på **Visa**och klickar sedan på **Anpassa**. Dialog rutan **Anpassa** visas.
+#### <a name="to-change-the-console-window-view"></a>Så här ändrar du konsolfönstervyn
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Högerklicka på en nod i **fönstret Omfattning,** klicka på **Visa**och klicka sedan på **Anpassa**. Dialogrutan **Anpassa** visas.
    
-    ![Anpassa konsol fönstret](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Customize.png) 
-3. Markera eller avmarkera kryss rutorna för att visa eller dölja objekt i konsol fönstret. När du är färdig med dina val klickar du på **OK**.
+    ![Anpassa konsolfönstret](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Customize.png) 
+3. Markera eller avmarkera kryssrutorna för att visa eller dölja objekt i konsolfönstret. När du är klar med dina val klickar du på **OK**.
 
 ## <a name="new-window-from-here"></a>Nytt fönster från här
-Du kan använda det **nya fönstret härifrån** för att öppna ett nytt konsol fönster.
+Du kan använda alternativet **Nytt fönster härifrån** för att öppna ett nytt konsolfönster.
 
-#### <a name="to-open-a-new-console-window"></a>Öppna ett nytt konsol fönster
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** högerklickar du på en nod och klickar sedan på **nytt fönster**härifrån. 
+#### <a name="to-open-a-new-console-window"></a>Så här öppnar du ett nytt konsolfönster
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Högerklicka på valfri nod i **fönstret Omfattning** och klicka sedan på Nytt **fönster härifrån**. 
    
-    Ett nytt fönster visas med endast den omfattning som du har valt. Om du till exempel högerklickar på noden **säkerhets kopierings principer** visas bara noden **säkerhets kopierings principer** i fönstret **omfattning** och en lista över definierade säkerhets kopierings principer i **resultat** fönstret. Se följande exempel.
+    Ett nytt fönster visas som visar bara det scope som du har markerat. Om du till exempel högerklickar på **noden Principer för säkerhetskopiering** visas bara noden **Säkerhetskopieringsprinciper** i **fönstret Omfattning** och en lista över definierade principer för säkerhetskopiering i **resultatfönstret.** Se följande exempel.
    
     ![Nytt fönster från här](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_NewWindow.png) 
 
 ## <a name="refresh"></a>Uppdatera
-Du kan använda **uppdaterings** åtgärden för att uppdatera konsol fönstret.
+Du kan använda åtgärden **Uppdatera** för att uppdatera konsolfönstret.
 
-#### <a name="to-update-the-console-window"></a>Så här uppdaterar du konsol fönstret
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** högerklickar du på en nod eller expanderar noden och högerklickar på ett objekt i **resultat** fönstret och klickar sedan på **Uppdatera**. 
+#### <a name="to-update-the-console-window"></a>Så här uppdaterar du konsolfönstret
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Högerklicka på en nod i **fönstret Omfattning** eller expandera noden och högerklicka på ett objekt i **resultatfönstret** och klicka sedan på **Uppdatera**. 
 
-## <a name="export-list"></a>Exportera lista
-Du kan använda åtgärden **Exportera lista** för att spara en lista i en fil med kommaavgränsade värden (CSV). Du kan till exempel exportera listan över säkerhets kopierings principer eller säkerhets kopierings katalogen. Du kan sedan importera CSV-filen till ett kalkyl blads program för analys.
+## <a name="export-list"></a>Exportlista
+Du kan använda åtgärden **Exportlista** för att spara en lista i en CSV-fil (kommaavgränsad värde). Du kan till exempel exportera listan över principer för säkerhetskopiering eller säkerhetskopieringskatalogen. Du kan sedan importera CSV-filen till ett kalkylbladsprogram för analys.
 
-#### <a name="to-save-a-list-in-a-comma-separated-value-csv-file"></a>Så här sparar du en lista i en fil med kommaavgränsade värden (CSV)
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager. 
-2. I fönstret **omfattning** högerklickar du på en nod eller expanderar noden och högerklickar på ett objekt i **resultat** fönstret och klickar sedan på **Exportera lista**. 
-3. Dialog rutan **Exportera lista** visas. Fyll i formuläret enligt följande: 
+#### <a name="to-save-a-list-in-a-comma-separated-value-csv-file"></a>Så här sparar du en lista i en CSV-fil (kommaavgränsad värde)
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager. 
+2. Högerklicka på en nod i **fönstret Omfattning** eller expandera noden och högerklicka på ett objekt i **resultatfönstret** och klicka sedan på **Exportera lista**. 
+3. Dialogrutan **Exportera lista** visas. Fyll i formuläret enligt följande: 
    
-   1. I rutan **fil namn** skriver du ett namn på CSV-filen eller klickar på pilen för att välja i list rutan.
-   2. Klicka på pilen i rutan fil **format** och välj en filtyp i list rutan.
-   3. Om du bara vill spara markerade objekt markerar du raderna och klickar sedan på kryss rutan **Spara endast markerade rader** . Om du vill spara alla exporterade listor avmarkerar du kryss rutan **Spara endast markerade rader** .
+   1. Skriv ett namn på CSV-filen i rutan **Filnamn** eller klicka på pilen för att välja från listrutan.
+   2. Klicka på pilen i rutan **Filformat** och välj en filtyp i listrutan.
+   3. Om du bara vill spara markerade objekt markerar du raderna och klickar sedan på kryssrutan **Spara endast markerade rader.** Om du vill spara alla exporterade listor avmarkerar du kryssrutan **Spara endast markerade rader.**
    4. Klicka på **Spara**.
       
-      ![Exportera lista som en fil med kommaavgränsade värden](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
+      ![Exportera lista som en kommaavgränsad värdefil](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
 ## <a name="help"></a>Hjälp
-Du kan använda **Hjälp** -menyn för att Visa tillgänglig Onlinehjälp för StorSimple Snapshot Manager och MMC.
+Du kan använda **hjälpmenyn** för att visa tillgänglig onlinehjälp för StorSimple Snapshot Manager och MMC.
 
-#### <a name="to-view-available-online-help"></a>Visa tillgänglig onlinehjälp
-1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
-2. I fönstret **omfattning** högerklickar du på en nod eller expanderar noden och högerklickar på ett objekt i **resultat** fönstret och klickar sedan på **Hjälp**. 
+#### <a name="to-view-available-online-help"></a>Så här visar du tillgänglig onlinehjälp
+1. Klicka på skrivbordsikonen för att starta StorSimple Snapshot Manager.
+2. Högerklicka på en nod i **fönstret Omfattning** eller expandera noden och högerklicka på ett objekt i **resultatfönstret** och klicka sedan på **Hjälp**. 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [användar gränssnittet för StorSimple-Snapshot Manager](storsimple-use-snapshot-manager.md).
-* Lär dig mer om hur du [använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
+* Läs mer om [användargränssnittet i StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
+* Läs mer om [hur du använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Prestanda justering av TCP/IP-prestanda för virtuella Azure-datorer | Microsoft Docs
-description: Lär dig olika vanliga metoder för prestanda justering av TCP/IP-prestanda och deras relation till virtuella Azure-datorer.
+title: TCP/IP-prestandajustering för virtuella Azure-datorer | Microsoft-dokument
+description: Lär dig olika vanliga TCP/IP-prestandajusteringstekniker och deras relation till virtuella Azure-datorer.
 services: virtual-network
 documentationcenter: na
 author: rimayber
@@ -16,363 +16,363 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: bb23484903ac3ce129c6e7a7a27e0765c227fb1d
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68297774"
 ---
-# <a name="tcpip-performance-tuning-for-azure-vms"></a>Prestanda justering för TCP/IP för virtuella Azure-datorer
+# <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP-prestandajustering för virtuella Azure-datorer
 
-I den här artikeln beskrivs vanliga metoder för prestanda justering av TCP/IP-prestanda och några saker att tänka på när du använder dem för virtuella datorer som körs på Azure. Den ger en grundläggande översikt över teknikerna och utforska hur de kan finjusteras.
+I den här artikeln beskrivs vanliga TCP/IP-prestandajusteringstekniker och några saker att tänka på när du använder dem för virtuella datorer som körs på Azure. Det kommer att ge en grundläggande översikt över de tekniker och utforska hur de kan justeras.
 
-## <a name="common-tcpip-tuning-techniques"></a>Vanliga metoder för att justera TCP/IP-justering
+## <a name="common-tcpip-tuning-techniques"></a>Vanliga TCP/IP-trimningstekniker
 
-### <a name="mtu-fragmentation-and-large-send-offload"></a>MTU, fragmentering och överföring av stora sändningar
+### <a name="mtu-fragmentation-and-large-send-offload"></a>MTU, fragmentering och stor avlastning
 
-#### <a name="mtu"></a>STORLEK
+#### <a name="mtu"></a>Mtu
 
-Den största överförings enheten (MTU) är den största storleks ramen (paket), som anges i byte, som kan skickas över ett nätverks gränssnitt. MTU är en konfigurerbar inställning. Standard-MTU som används på virtuella Azure-datorer och standardinställningen på de flesta nätverks enheter globalt är 1 500 byte.
+Den maximala överföringsenheten (MTU) är den största storleksramen (paketet), som anges i byte, som kan skickas över ett nätverksgränssnitt. MTU är en konfigurerbar inställning. Standard-MTU som används på virtuella Azure-datorer och standardinställningen på de flesta nätverksenheter globalt är 1 500 byte.
 
 #### <a name="fragmentation"></a>Fragmentering
 
-Fragmentering inträffar när ett paket skickas som överskrider MTU för ett nätverks gränssnitt. TCP/IP-stacken kommer att dela upp paketet i mindre delar (fragment) som överensstämmer med gränssnittets MTU. Fragmentering sker i IP-skiktet och är oberoende av det underliggande protokollet (t. ex. TCP). När ett paket med 2 000 byte skickas över ett nätverks gränssnitt med ett MTU-värde på 1 500, kommer paketet att delas upp i 1 1 500-byte-paket och 1 500 byte-paket.
+Fragmentering uppstår när ett paket skickas som överskrider MTU för ett nätverksgränssnitt. TCP/IP-stacken kommer att dela upp paketet i mindre delar (fragment) som överensstämmer med gränssnittets MTU. Fragmentering sker vid IP-lagret och är oberoende av det underliggande protokollet (till exempel TCP). När ett paket på 2 000 byte skickas över ett nätverksgränssnitt med en MTU på 1 500, delas paketet upp i ett paket på 1 500 byte och ett paket på 500 byte.
 
-Nätverks enheter i sökvägen mellan en källa och ett mål kan antingen släppa paket som överskrider MTU eller fragmentera paketet till mindre delar.
+Nätverksenheter i sökvägen mellan en källa och ett mål kan antingen släppa paket som överskrider MTU eller fragmentera paketet i mindre delar.
 
-#### <a name="the-dont-fragment-bit-in-an-ip-packet"></a>Biten Fragmentera inte i ett IP-paket
+#### <a name="the-dont-fragment-bit-in-an-ip-packet"></a>Don't Fragment-biten i ett IP-paket
 
-Biten Fragmentera inte (DF) är en flagga i IP-protokollets huvud. DF-biten anger att nätverks enheter på sökvägen mellan avsändaren och mottagaren inte får fragmentera paketet. Den här biten kan ställas in av många skäl. (Mer information finns i avsnittet "Path MTU Discovery" i den här artikeln för ett exempel.) När en nätverks enhet tar emot ett paket med biten Fragmentera inte och paketet överskrider enhetens gränssnitts-MTU är standard beteendet för enheten att släppa paketet. Enheten skickar ett meddelande om ICMP-fragmentering som krävs till den ursprungliga källan för paketet.
+Df-biten (Don't Fragment) är en flagga i IP-protokollhuvudet. DF-biten anger att nätverksenheter på sökvägen mellan avsändaren och mottagaren inte får fragmentera paketet. Denna bit kan ställas in av många skäl. (Se avsnittet "Path MTU Discovery" i den här artikeln till exempel.) När en nätverksenhet tar emot ett paket med bituppsättningen Fragmentera inte och det paketet överskrider enhetens gränssnitt MTU, är standardbeteendet att enheten släpper paketet. Enheten skickar ett meddelande om ICMP-fragmentering Som behövs tillbaka till paketets ursprungliga källa.
 
-#### <a name="performance-implications-of-fragmentation"></a>Prestanda konsekvenser för fragmentering
+#### <a name="performance-implications-of-fragmentation"></a>Konsekvenser av fragmenteringens prestanda
 
-Fragmentering kan ha negativa prestanda effekter. En av de främsta orsakerna till prestanda är att CPU/minnes påverkan från fragmentering och sammansättning av paket. När en nätverks enhet behöver fragmentera ett paket måste det allokeras processor-/minnes resurser för att utföra fragmentering.
+Fragmentering kan ha negativa prestandakonsekvenser. En av de främsta orsakerna till effekten på prestanda är CPU / minne effekten av fragmentering och återmontering av paket. När en nätverksenhet behöver fragmentera ett paket måste den allokera CPU/minnesresurser för att utföra fragmentering.
 
-Samma sak händer när paketet sätts samman igen. Nätverks enheten måste lagra alla fragment tills de tas emot så att de kan ommontera dem i det ursprungliga paketet. Den här processen för fragmentering och sammansättning kan också orsaka svars tider.
+Samma sak händer när paketet sätts ihop igen. Nätverksenheten måste lagra alla fragment tills de tas emot så att den kan sätta ihop dem igen i det ursprungliga paketet. Den här fragmenteringen och återmonteringen kan också orsaka svarstid.
 
-De andra möjliga negativa prestanda indirekt är att fragmenterade paket kan hamna i felaktig ordning. När paket tas emot i fel ordning kan vissa typer av nätverks enheter släppa dem. När detta sker måste hela paketet återsändas.
+Den andra möjliga negativa prestandakonsekvensen av fragmentering är att fragmenterade paket kan komma i fel ordning. När paket tas emot i oordning kan vissa typer av nätverksenheter släppa dem. När det händer måste hela paketet återsändas.
 
-Fragment ignoreras vanligt vis av säkerhetsenheter som nätverks brand väggar eller när en nätverks enhet tar emot buffertar. När en nätverks enhets mottagningsbuffertar är slut försöker en nätverks enhet sätta samman ett fragmenterat paket igen, men har inte resurserna för att lagra och omanvända paketet.
+Fragment släpps vanligtvis av säkerhetsenheter som nätverksbrandvägger eller när en nätverksenhets mottagningsbuffertar är uttömda. När en nätverksenhets mottagningsbuffertar är försöker en nätverksenhet att sätta ihop ett fragmenterat paket igen, men har inte resurser att lagra och uppdatera paketet igen.
 
-Fragmentering kan ses som en negativ åtgärd, men stöd för fragmentering krävs när du ansluter olika nätverk via Internet.
+Fragmentering kan ses som en negativ operation, men stöd för fragmentering är nödvändigt när du ansluter olika nätverk via Internet.
 
-#### <a name="benefits-and-consequences-of-modifying-the-mtu"></a>Fördelar och konsekvenser för att ändra MTU
+#### <a name="benefits-and-consequences-of-modifying-the-mtu"></a>Fördelar och konsekvenser av att ändra MTU
 
-I allmänhet kan du skapa ett effektivare nätverk genom att öka MTU. Varje paket som överförs har huvud information som läggs till i det ursprungliga paketet. När fragmenteringen skapar fler paket finns det fler huvud kostnader och det gör nätverket mindre effektivt.
+Generellt sett kan du skapa ett effektivare nätverk genom att öka MTU. Varje paket som överförs har rubrikinformation som läggs till i det ursprungliga paketet. När fragmentering skapar fler paket finns det mer rubrikomkostnader och det gör nätverket mindre effektivt.
 
-Här är ett exempel. Ethernet-huvudstorleken är 14 byte plus en kontroll ordning i 4 byte-ramar för att säkerställa ram konsekvens. Om 1 2 000 byte-paket skickas läggs 18 byte med Ethernet-kostnader till i nätverket. Om paketet är fragmenterat i ett 1 500 byte-paket och ett paket med 500 byte, kommer varje paket att ha 18 byte Ethernet-huvud, totalt 36 byte.
+Här är ett exempel. Ethernet-huvudstorleken är 14 byte plus en 4-byte ram kontrollsekvens för att säkerställa ramen konsekvens. Om ett paket med 2 000 byte skickas läggs 18 byte Ethernet-omkostnader till i nätverket. Om paketet är fragmenterat till ett paket med 1 500 byte och ett paket på 500 byte har varje paket 18 byte Ethernet-huvud, totalt 36 byte.
 
-Tänk på att det inte nödvändigt vis skapas något effektivare nätverk när du ökar MTU. Om ett program bara skickar 500 byte-paket, kommer samma rubrik för sidhuvudet att finnas om MTU är 1 500 byte eller 9 000 byte. Nätverket blir effektivare endast om det använder större paket storlekar som påverkas av MTU.
+Tänk på att en ökning av MTU inte nödvändigtvis skapar ett effektivare nätverk. Om ett program bara skickar paket med 500 byte finns samma huvudomkostnader om MTU är 1 500 byte eller 9 000 byte. Nätverket blir bara effektivare om det använder större paketstorlekar som påverkas av MTU.
 
 #### <a name="azure-and-vm-mtu"></a>Azure och VM MTU
 
-Standard-MTU för virtuella Azure-datorer är 1 500 byte. Azure Virtual Network stacken kommer att försöka fragmentera ett paket med 1 400 byte.
+Standardvärdet MTU för virtuella Azure-datorer är 1 500 byte. Azure Virtual Network stacken försöker fragmentera ett paket med 1 400 byte.
 
-Observera att Virtual Network stack inte är ineffektiv eftersom den fragmenterar paket på 1 400 byte trots att de virtuella datorerna har en MTU på 1 500. En stor del av nätverks paketen är mycket mindre än 1 400 eller 1 500 byte.
+Observera att den virtuella nätverksstacken inte är ineffektiv eftersom den fragmenterar paket med 1 400 byte även om virtuella datorer har en MTU på 1 500. En stor andel av nätverkspaketen är mycket mindre än 1 400 eller 1 500 byte.
 
 #### <a name="azure-and-fragmentation"></a>Azure och fragmentering
 
-Virtual Network stack har kon figurer ATS för att ta bort "out of order-fragment", som är fragmenterade paket som inte kommer in i sin ursprungliga fragmenterade ordning. Paketen ignoreras huvudsakligen på grund av ett säkerhets problem i nätverket i november 2018 som kallas FragmentSmack.
+Virtual Network stack är inställd på att släppa "ur funktion fragment," det vill säga fragmenterade paket som inte kommer fram i sin ursprungliga fragmenterade ordning. Dessa paket tas bort främst på grund av en sårbarhet för nätverkssäkerhet som tillkännagavs i november 2018 som kallas FragmentSmack.
 
-FragmentSmack är en defekt i hur Linux-kerneln hanterade omsammansättning av fragmenterade IPv4-och IPv6-paket. En angripare kan använda det här felet för att utlösa dyra ommonterings åtgärder, vilket kan leda till ökad CPU och en denial of service i mål systemet.
+FragmentSmack är ett fel i hur Linux-kärnan hanteras återmontering av fragmenterade IPv4 och IPv6-paket. En fjärrangripare kan använda det här felet för att utlösa dyra fragment återmontering åtgärder, vilket kan leda till ökad CPU och en överbelastning på målsystemet.
 
-#### <a name="tune-the-mtu"></a>Justera MTU
+#### <a name="tune-the-mtu"></a>Ställ in MTU
 
-Du kan konfigurera en virtuell Azure-dators MTU, som du kan i andra operativ system. Men du bör överväga fragmenteringen i Azure, som beskrivs ovan, när du konfigurerar en MTU.
+Du kan konfigurera en Azure VM MTU, som du kan i alla andra operativsystem. Men du bör tänka på den fragmentering som sker i Azure, som beskrivs ovan, när du konfigurerar en MTU.
 
-Vi uppmuntrar inte kunderna att öka VM-MTU. Denna diskussion är avsedd att förklara information om hur Azure implementerar MTU och utför fragmentering.
+Vi uppmuntrar inte kunder att öka VM MTUs. Den här diskussionen är avsedd att förklara information om hur Azure implementerar MTU och utför fragmentering.
 
 > [!IMPORTANT]
->Att utöka MTU är inte känt för att förbättra prestandan och kan ha en negativ effekt på programmets prestanda.
+>Att öka MTU är inte känt för att förbättra prestanda och kan ha en negativ effekt på programmets prestanda.
 >
 >
 
-#### <a name="large-send-offload"></a>Avlastning för stor överföring
+#### <a name="large-send-offload"></a>Stor avlastning av skicka
 
-Avlastning av stor överföring (LSO) kan förbättra nätverks prestanda genom att avlasta paket segmentering till Ethernet-kortet. När LSO är aktive rad skapar TCP/IP-stacken ett stort TCP-paket och skickar det till Ethernet-kortet för segmentering innan det vidarebefordras. Fördelen med LSO är att det kan frigöra processorn från att segmentera paket i storlekar som stämmer överens med MTU och avlastning som bearbetar till Ethernet-gränssnittet där det utförs i maskin vara. Läs mer om fördelarna med LSO i stödjande överföring av [stora](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso)sändningar.
+Stor skicka avlastning (LSO) kan förbättra nätverksprestanda genom att avlasta segmenteringen av paket till Ethernet-kortet. När LSO är aktiverat skapar TCP/IP-stacken ett stort TCP-paket och skickar det till Ethernet-kortet för segmentering innan du vidarebefordrar det. Fördelen med LSO är att det kan frigöra processorn från segmentering paket i storlekar som överensstämmer med MTU och avlasta den bearbetningen till Ethernet-gränssnittet där det utförs i hårdvara. Mer information om fördelarna med LSO finns i [Stöd för stora avlastning.](https://docs.microsoft.com/windows-hardware/drivers/network/performance-in-network-adapters#supporting-large-send-offload-lso)
 
-När LSO är aktive rad kan Azure-kunder se stora ram storlekar när de utför paket insamlingar. Dessa stora bild storlekar kan leda till att vissa kunder tror att fragmentering sker eller att en stor MTU används när det inte är det. Med LSO kan Ethernet-kortet annonsera en större maximal segment storlek (MSS) till TCP/IP-stacken för att skapa ett större TCP-paket. Hela den icke segmenterade ramen vidarebefordras sedan till Ethernet-kortet och visas i en paket avbildning som utförs på den virtuella datorn. Men paketet kommer att delas upp i många mindre ramar av Ethernet-kortet, enligt Ethernet-kortets MTU.
+När LSO är aktiverat kan Azure-kunder se stora ramstorlekar när de utför paketinsamlingar. Dessa stora ramstorlekar kan leda till att vissa kunder tror att fragmentering sker eller att en stor MTU används när den inte är det. Med LSO kan Ethernet-kortet annonsera en större maximal segmentstorlek (MSS) till TCP/IP-stacken för att skapa ett större TCP-paket. Hela den här icke-segmenterade ramen vidarebefordras sedan till Ethernet-kortet och visas i en paketinsamling som utförs på den virtuella datorn. Men paketet kommer att delas upp i många mindre ramar av Ethernet-adaptern, enligt Ethernet-adapterns MTU.
 
-### <a name="tcp-mss-window-scaling-and-pmtud"></a>Skalnings-och PMTUD för TCP MSS-fönster
+### <a name="tcp-mss-window-scaling-and-pmtud"></a>TCP MSS fönsterskalning och PMTUD
 
-#### <a name="tcp-maximum-segment-size"></a>Maximal segment storlek för TCP
+#### <a name="tcp-maximum-segment-size"></a>Maximal segmentstorlek för TCP
 
-TCP maximal segment storlek (MSS) är en inställning som begränsar TCP-segmentens storlek, vilket förhindrar fragmentering av TCP-paket. Operativ system använder vanligt vis den här formeln för att ange MSS:
+TCP maximal segmentstorlek (MSS) är en inställning som begränsar storleken på TCP-segment, vilket undviker fragmentering av TCP-paket. Operativsystem använder vanligtvis den här formeln för att ange MSS:
 
 `MSS = MTU - (IP header size + TCP header size)`
 
-IP-huvudet och TCP-huvudet är 20 byte vardera, eller 40 byte totalt. Det innebär att ett gränssnitt med en MTU på 1 500 har en MSS på 1 460. Men MSS kan konfigureras.
+IP-huvudet och TCP-huvudet är 20 byte vardera, eller 40 byte totalt. Så ett gränssnitt med en MTU på 1.500 kommer att ha en MSS på 1.460. Men MSS är konfigurerbar.
 
-Den här inställningen är överenskommen i den tre tre-vägs hand skakningen när en TCP-session har kon figurer ATS mellan en källa och ett mål. Båda sidorna skickar ett MSS-värde och den nedre av de två används för TCP-anslutningen.
+Den här inställningen är överenskommen i TCP trevägshandskakning när en TCP-session ställs in mellan en källa och ett mål. Båda sidor skickar ett MSS-värde och den nedre av de två används för TCP-anslutningen.
 
-Tänk på att käll-och mål-MTU inte är de enda faktorer som avgör MSS-värdet. Mellanliggande nätverks enheter, t. ex. VPN-gatewayer, inklusive Azure VPN Gateway, kan justera MTU oberoende av källa och mål för att säkerställa optimal nätverks prestanda.
+Tänk på att MTUs för källan och målet inte är de enda faktorer som avgör MSS-värdet. Mellanliggande nätverksenheter, som VPN-gateways, inklusive Azure VPN Gateway, kan justera MTU oberoende av källan och målet för att säkerställa optimal nätverksprestanda.
 
-#### <a name="path-mtu-discovery"></a>Sökväg till MTU-identifiering
+#### <a name="path-mtu-discovery"></a>Identifiering av bana MTU
 
-MSS förhandlas, men det är inte säkert att den faktiska MSS som kan användas anges. Detta beror på att andra nätverks enheter i sökvägen mellan källan och målet kan ha ett lägre MTU-värde än källan och målet. I det här fallet släpper enheten vars MTU är mindre än paketet. Enheten skickar tillbaka en ICMP-fragmentering som krävs (typ 3, kod 4) meddelande som innehåller dess MTU. Detta ICMP-meddelande gör att käll värden kan minska sökvägen till MTU. Processen kallas för sökvägs-MTU-identifiering (PMTUD).
+MSS förhandlas fram, men det kanske inte anger den faktiska mss som kan användas. Detta beror på att andra nätverksenheter i sökvägen mellan källan och målet kan ha ett lägre MTU-värde än källan och målet. I det här fallet släpper enheten vars MTU är mindre än paketet paketet. Enheten skickar tillbaka ett ICMP-fragmenteringsmeddelande som behövs (typ 3, kod 4) som innehåller dess MTU. Med det här ICMP-meddelandet kan källvärden minska sin sökväg MTU på rätt sätt. Processen kallas Path MTU Discovery (PMTUD).
 
-PMTUD-processen är ineffektiv och påverkar nätverks prestanda. När paket skickas som överskrider en nätverks Sök vägs MTU måste paketen återsändas med en lägre MSS. Om avsändaren inte får meddelandet ICMP-fragmentering som krävs, kanske på grund av en nätverks brand vägg i sökvägen (kallas vanligt vis en *PMTUD Blackhole*), så vet inte avsändaren att den behöver minska MSS och kommer kontinuerligt att överföra paketet. Därför rekommenderar vi inte att du ökar den virtuella Azure-datorns MTU.
+PMTUD-processen är ineffektiv och påverkar nätverkets prestanda. När paket skickas som överskrider en nätverkssökvägs MTU måste paketen återsändas med en lägre MSS.When packets are sent that exceed a network path's MTU, the packets need to retransmitted with a lower MSS. Om avsändaren inte får meddelandet ICMP Fragmentation Needed, kanske på grund av en nätverksbrandvägg i sökvägen (vanligen kallat *ett PMTUD-svarthål),* vet avsändaren inte att den behöver sänka MSS och kontinuerligt skickar paketet. Det är därför vi inte rekommenderar att du ökar Azure VM MTU.
 
 #### <a name="vpn-and-mtu"></a>VPN och MTU
 
-Om du använder virtuella datorer som utför inkapsling (t. ex. IPsec-VPN) finns det några ytterligare överväganden angående paket storlek och MTU. VPN lägger till fler huvuden i paket, vilket ökar paket storleken och kräver en mindre MSS.
+Om du använder virtuella datorer som utför inkapsling (som IPsec VPN) finns det några ytterligare överväganden om paketstorlek och MTU. VPN lägger till fler rubriker i paket, vilket ökar paketstorleken och kräver en mindre MSS.
 
-För Azure rekommenderar vi att du ställer in TCP MSS ihopfogning till 1 350 byte och tunnel Interface MTU till 1 400. Mer information finns på [sidan VPN-enheter och IPSec/IKE-parametrar](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
+För Azure rekommenderar vi att du ställer in TCP MSS-fastspänning till 1 350 byte och tunnelgränssnitt MTU till 1 400. Mer information finns på [sidan VPN-enheter och IPSec/IKE-parametrar](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-### <a name="latency-round-trip-time-and-tcp-window-scaling"></a>Svars tid, Tur och retur-tid och TCP-Window skalning
+### <a name="latency-round-trip-time-and-tcp-window-scaling"></a>Svarstid, rundresa och TCP-fönsterskalning
 
-#### <a name="latency-and-round-trip-time"></a>Svars tid och tids fördröjning
+#### <a name="latency-and-round-trip-time"></a>Latens och rundresa
 
-Nätverks fördröjningen styrs av hastigheten på ljuset över ett fiber optiskt nätverk. Nätverks data flödet i TCP styrs också effektivt av tiden för tur och retur mellan två nätverks enheter.
+Nätverksfördröjning styrs av ljusets hastighet över ett fiberoptiskt nätverk. Nätverksgenomströmning för TCP styrs också effektivt av rundresatiden (RTT) mellan två nätverksenheter.
 
 | | | | |
 |-|-|-|-|
-|**Route**|**Mellanrummet**|**Enkelriktad tid**|**RTT**|
-|New York till San Francisco|4 148 km|21 MS|42 MS|
-|New York till London|5 585 km|28 MS|56 MS|
-|New York till Sydney|15 993 km|80 MS|160 MS|
+|**Routa**|**Avstånd**|**Enkelriktad tid**|**RTT**|
+|New York till San Francisco|4 148 km|21 ms|42 ms|
+|New York till London|5 585 km|28 ms|56 ms|
+|New York till Sydney|15 993 km|80 ms|160 ms|
 
-I den här tabellen visas det räta linje avståndet mellan två platser. I nätverk är avståndet vanligt vis längre än det räta linje avståndet. Här är en enkel formel för att beräkna lägsta efter klickning som styrs av ljus hastigheten:
+I den här tabellen visas det raka avståndet mellan två platser. I nätverk är avståndet vanligtvis längre än det raka avståndet. Här är en enkel formel för att beräkna minsta RTT som styrs av ljusets hastighet:
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-Du kan använda 200 för att sprida hastigheten. Detta är avståndet, i meter, att det ljuset överförs i 1 millisekunder.
+Du kan använda 200 för spridningshastigheten. Detta är avståndet, i meter, att ljuset färdas i 1 millisekund.
 
-Vi tar med New York till San Francisco som ett exempel. Det raka linje avståndet är 4 148 km. När du ansluter det värdet till ekvationen får vi följande:
+Låt oss ta New York till San Francisco som ett exempel. Den raka linjen är 4.148 km. Genom att koppla in det värdet i ekvationen får vi följande:
 
 `Minimum RTT = 2 * (4,148 / 200)`
 
-Resultatet av formeln är i millisekunder.
+Utgången av ekvationen är i millisekunder.
 
-Om du vill få bästa möjliga nätverks prestanda är det logiska alternativet att välja mål med det kortaste avståndet mellan dem. Du bör också utforma ditt virtuella nätverk för att optimera trafik vägen och minska svars tiden. Mer information finns i avsnittet "nätverks design överväganden" i den här artikeln.
+Om du vill få bästa nätverksprestanda är det logiska alternativet att välja mål med det kortaste avståndet mellan dem. Du bör också utforma det virtuella nätverket för att optimera trafiksökvägen och minska svarstiden. Mer information finns i avsnittet "Nätverksdesignöverväganden" i den här artikeln.
 
-#### <a name="latency-and-round-trip-time-effects-on-tcp"></a>Tids fördröjning för svars tider och tids fördröjningar i TCP
+#### <a name="latency-and-round-trip-time-effects-on-tcp"></a>Svarstids- och rundningstidseffekter på TCP
 
-Svars tiden för fördröjningen har direkt påverkan på högsta TCP-dataflöde. I TCP-protokollet är *fönster storlek* den maximala mängd trafik som kan skickas via en TCP-anslutning innan avsändaren måste ta emot bekräftelse från mottagaren. Om TCP-MSS är inställt på 1 460 och TCP-fönstrets storlek är inställt på 65 535 kan avsändaren skicka 45-paket innan den måste ta emot bekräftelse från mottagaren. Om avsändaren inte får bekräftelse, kommer data att skickas igen. Här är formeln:
+Tur-och-retur-tid har en direkt effekt på maximalt TCP-dataflöde. I TCP-protokollet är *fönsterstorlek* den maximala mängden trafik som kan skickas via en TCP-anslutning innan avsändaren behöver ta emot bekräftelse från mottagaren. Om TCP MSS är inställd på 1 460 och TCP-fönsterstorleken är inställd på 65 535 kan avsändaren skicka 45 paket innan den måste ta emot bekräftelse från mottagaren. Om avsändaren inte får bekräftelse, kommer det att återsända data. Här är formeln:
 
 `TCP window size / TCP MSS = packets sent`
 
-I det här exemplet är 65 535/1 460 avrundat uppåt till 45.
+I det här exemplet avrundas 65 535 / 1 460 uppåt till 45.
 
-Detta "väntar på bekräftelse", en mekanism för att säkerställa tillförlitlig leverans av data, är det som gör att det påverkar TCP-dataflödet. Den längre avsändaren väntar på bekräftelse, desto längre tid måste vänta innan data skickas.
+Detta tillstånd "väntar på bekräftelse", en mekanism för att säkerställa tillförlitlig leverans av data, är vad som orsakar RTT att påverka TCP-dataflöde. Ju längre avsändaren väntar på bekräftelse, desto längre måste vänta innan du skickar mer data.
 
-Här är formeln för att beräkna det maximala data flödet för en enskild TCP-anslutning:
+Här är formeln för att beräkna det maximala dataflödet för en enda TCP-anslutning:
 
 `Window size / (RTT latency in milliseconds / 1,000) = maximum bytes/second`
 
-Den här tabellen visar det högsta antalet megabyte/per sekund för en enda TCP-anslutning. (För läsbarhet används megabyte för mått enheten.)
+Den här tabellen visar det maximala megabyte/per sekund-dataflödet för en enda TCP-anslutning. (För läsbarhet används megabyte för måttenheten.)
 
 | | | | |
 |-|-|-|-|
-|**TCP-fönster storlek (byte)**|**Svars tid (MS)**|**Maximalt data flöde i MB/sekund**|**Maximalt megabits-/sekund data flöde**|
-|65,535|1|65,54|524,29|
-|65,535|30|2,18|17,48|
-|65,535|60|1,09|8,74|
-|65,535|90|.73|5,83|
+|**TCP-fönsterstorlek (byte)**|**RTT-svarstid (ms)**|**Maximalt megabyte/sekundgenomflöde**|**Maximalt megabit/sekundgenomflöde**|
+|65,535|1|65.54|524.29|
+|65,535|30|2.18|17.48|
+|65,535|60|1.09|8.74|
+|65,535|90|.73|5.83|
 |65,535|120|.55|4.37|
 
-Om paketen förloras kommer det maximala data flödet för en TCP-anslutning att minskas medan avsändaren skickar om data som redan har skickats.
+Om paket går förlorade minskas det maximala dataflödet för en TCP-anslutning medan avsändaren skickar om data som den redan har skickat.
 
-#### <a name="tcp-window-scaling"></a>Skalning av TCP-fönster
+#### <a name="tcp-window-scaling"></a>TCP-fönsterskalning
 
-TCP Window Scaling är en teknik som dynamiskt ökar TCP-fönstrets storlek för att tillåta att mer data skickas innan en bekräftelse krävs. I det föregående exemplet skulle 45 paket skickas innan en bekräftelse krävdes. Om du ökar antalet paket som kan skickas innan en bekräftelse krävs minskar du antalet gånger som en avsändare väntar på bekräftelse, vilket ökar det maximala TCP-dataflödet.
+TCP-fönsterskalning är en teknik som dynamiskt ökar TCP-fönsterstorleken så att fler data kan skickas innan en bekräftelse krävs. I föregående exempel skulle 45 paket skickas innan en bekräftelse krävdes. Om du ökar antalet paket som kan skickas innan en bekräftelse behövs minskar du antalet gånger en avsändare väntar på bekräftelse, vilket ökar TCP:s maximala dataflöde.
 
 Den här tabellen illustrerar dessa relationer:
 
 | | | | |
 |-|-|-|-|
-|**TCP-fönster storlek (byte)**|**Svars tid (MS)**|**Maximalt data flöde i MB/sekund**|**Maximalt megabits-/sekund data flöde**|
-|65,535|30|2,18|17,48|
-|131 070|30|4.37|34,95|
-|262 140|30|8,74|69,91|
-|524 280|30|17,48|139,81|
+|**TCP-fönsterstorlek (byte)**|**RTT-svarstid (ms)**|**Maximalt megabyte/sekundgenomflöde**|**Maximalt megabit/sekundgenomflöde**|
+|65,535|30|2.18|17.48|
+|131,070|30|4.37|34.95|
+|262,140|30|8.74|69.91|
+|524,280|30|17.48|139.81|
 
-Men TCP-Huvudvärdet för TCP Window-storlek är bara 2 byte långt, vilket innebär att det maximala värdet för ett mottagnings fönster är 65 535. För att öka den maximala fönster storleken introducerades en skalnings faktor för TCP-fönster.
+Men TCP-huvudvärdet för TCP-fönsterstorleken är bara 2 byte lång, vilket innebär att det maximala värdet för ett mottagningsfönster är 65 535. För att öka den maximala fönsterstorleken introducerades en TCP-fönsterskalafaktor.
 
-Skalnings faktorn är också en inställning som du kan konfigurera i ett operativ system. Här är formeln för att beräkna TCP-fönstrets storlek med hjälp av skalnings faktorer:
+Skalfaktorn är också en inställning som du kan konfigurera i ett operativsystem. Här är formeln för att beräkna TCP-fönsterstorleken med hjälp av skalningsfaktorer:
 
 `TCP window size = TCP window size in bytes \* (2^scale factor)`
 
-Här är beräkningen för en fönster skalnings faktor på 3 och en fönster storlek på 65 535:
+Här är beräkningen för en fönsterskala faktor 3 och en fönsterstorlek på 65.535:
 
 `65,535 \* (2^3) = 262,140 bytes`
 
-En skalnings faktor på 14 resulterar i en TCP-fönster storlek på 14 (den högsta tillåtna förskjutningen). TCP-fönstrets storlek är 1 073 725 440 byte (8,5 Gigabit).
+En skalfaktor på 14 resulterar i en TCP-fönsterstorlek på 14 (den högsta tillåtna förskjutningen). TCP-fönsterstorleken är 1 073 725 440 byte (8,5 gigabit).
 
-#### <a name="support-for-tcp-window-scaling"></a>Stöd för skalning av TCP-fönster
+#### <a name="support-for-tcp-window-scaling"></a>Stöd för TCP-fönsterskalning
 
-Windows kan ange olika skalnings faktorer för olika anslutnings typer. (Klasser av anslutningar är data Center, Internet och så vidare.) Du använder `Get-NetTCPConnection` PowerShell-kommandot för att Visa anslutnings typen fönster skalning:
+Windows kan ange olika skalningsfaktorer för olika anslutningstyper. (Klasser av anslutningar inkluderar datacenter, internet och så vidare.) Du använder `Get-NetTCPConnection` kommandot PowerShell för att visa anslutningstypen för fönsterskalning:
 
 ```powershell
 Get-NetTCPConnection
 ```
 
-Du kan använda `Get-NetTCPSetting` PowerShell-kommandot för att visa värdena för varje klass:
+Du kan `Get-NetTCPSetting` använda powershell-kommandot för att visa värdena för varje klass:
 
 ```powershell
 Get-NetTCPSetting
 ```
 
-Du kan ställa in den inledande TCP-fönster storleken och TCP-skalnings faktorn `Set-NetTCPSetting` i Windows med hjälp av PowerShell-kommandot. Mer information finns i [set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Du kan ange den ursprungliga TCP-fönsterstorleken och TCP-skalningsfaktorn `Set-NetTCPSetting` i Windows med kommandot PowerShell. Mer information finns i [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting
 ```
 
-Detta är de effektiva TCP-inställningarna `AutoTuningLevel`för:
+Dessa är de effektiva TCP-inställningarna för: `AutoTuningLevel`
 
 | | | | |
 |-|-|-|-|
-|**AutoTuningLevel**|**Skalnings faktor**|**Skalnings multiplikator**|**Formel för<br/>att beräkna maximal fönster storlek**|
-|Inaktiverad|Ingen|Inga|Fönster storlek|
-|Begränsat|4|2^4|Fönster storlek * (2 ^ 4)|
-|Hög begränsad|2|2 ^ 2|Fönster storlek * (2 ^ 2)|
-|Normal|8|2 ^ 8|Fönster storlek * (2 ^ 8)|
-|Experimentell|14|2 ^ 14|Fönster storlek * (2 ^ 14)|
+|**Autotuninglevel**|**Skalningsfaktor**|**Skalning multiplikator**|**Formel<br/>för att beräkna maximal fönsterstorlek**|
+|Disabled|Inget|Inget|Fönsterstorlek|
+|Begränsade|4|2^4|Fönsterstorlek * (2^4)|
+|Mycket begränsad|2|2^2|Fönsterstorlek * (2^2)|
+|Normal|8|2^8|Fönsterstorlek * (2^8)|
+|Experimentell|14|2^14|Fönsterstorlek * (2^14)|
 
-De här inställningarna är mest sannolika att påverka TCP-prestanda, men kom ihåg att många andra faktorer på Internet, utanför Azures kontroll, kan påverka TCP-prestanda.
+Dessa inställningar är mest benägna att påverka TCP-prestanda, men tänk på att många andra faktorer på internet, utanför Azures kontroll, också kan påverka TCP-prestanda.
 
-#### <a name="increase-mtu-size"></a>Öka MTU-storlek
+#### <a name="increase-mtu-size"></a>Öka MTU-storleken
 
-Eftersom en större MTU innebär en större MSS kanske du undrar om du ökar TCP-prestandan genom att öka MTU-storleken. Förmodligen inte. Det finns funktioner för-och nack delar med paket storlek än bara TCP-trafik. Som vi nämnt tidigare är de viktigaste faktorerna som påverkar TCP-dataflödets prestanda TCP-fönster storlek, paket förlust och för gång.
+Eftersom en större MTU innebär en större MSS, kanske du undrar om en ökning av MTU kan öka TCP-prestanda. Förmodligen inte. Det finns fördelar och nackdelar med paketstorlek utöver bara TCP-trafik. Som diskuterats tidigare är de viktigaste faktorerna som påverkar TCP-dataflödesprestanda TCP-fönsterstorlek, paketförlust och RTT.
 
 > [!IMPORTANT]
-> Vi rekommenderar inte att Azure-kunder ändrar standard-MTU-värdet på virtuella datorer.
+> Vi rekommenderar inte att Azure-kunder ändrar standardvärdet för MTU på virtuella datorer.
 >
 >
 
-### <a name="accelerated-networking-and-receive-side-scaling"></a>Accelererat nätverk och skalning på mottagar Sidan
+### <a name="accelerated-networking-and-receive-side-scaling"></a>Snabbare nätverk och ta emot sidoskalning
 
 #### <a name="accelerated-networking"></a>Snabbare nätverk
 
-Nätverks funktionerna i den virtuella datorn har historiskt sin processor intensiv både på den virtuella gäst datorn och hypervisorn/värden. Varje paket som överförs via värden bearbetas i program varan av värd processorn, inklusive alla virtuella nätverks inkapslingar och avkapsling. Ju mer trafik som går via värden, desto högre processor belastning. Och om värd processorn är upptagen med andra åtgärder påverkar det även nätverks data flöde och svars tider. Azure löser problemet med accelererat nätverk.
+Nätverksfunktioner för virtuella datorer har historiskt sett varit PROCESSOR-intensiva på både gästdatorn och hypervisorn/värden. Varje paket som transiterar genom värden bearbetas i programvara av värdprocessorn, inklusive alla virtuella nätverksinkapsling och kapsling. Så ju mer trafik som går igenom värden, desto högre CPU belastning. Och om värdprocessorn är upptagen med andra åtgärder, som också kommer att påverka nätverksdataflödet och svarstiden. Azure åtgärdar det här problemet med accelererade nätverk.
 
-Accelererat nätverk ger konsekvent ultralow nätverks fördröjning via den interna programmerbara maskin varan för Azure och tekniker som SR-IOV. Accelererat nätverk flyttar mycket av den Azure-programdefinierade nätverks stacken från processorerna och till FPGA-baserade SmartNICs. Den här ändringen gör det möjligt för slutanvändare att frigöra beräknings cykler, vilket innebär mindre belastning på den virtuella datorn, vilket minskar Darr och inkonsekvens i svars tid. Med andra ord kan prestanda vara mer deterministisk.
+Accelererade nätverk ger konsekvent ultralåg nätverksfördröjning via den interna programmerbara maskinvaran för Azure och tekniker som SR-IOV. Accelererade nätverk flyttar mycket av Azure-programvarudefinierade nätverksstacken från processorerna och till FPGA-baserade SmartNIC.Accelerated networking moves much of the Azure software-defined networking stack off the CPCUs and into FPGA-based SmartNICs. Den här ändringen gör det möjligt för slutanvändaren att återta beräkningscykler, vilket ger mindre belastning på den virtuella datorn, vilket minskar jitter och inkonsekvens i svarstiden. Med andra ord kan prestanda vara mer deterministiska.
 
-Accelererat nätverk förbättrar prestanda genom att låta den virtuella gäst datorn kringgå värden och upprätta en Datapath direkt med en värds SmartNIC. Här är några fördelar med accelererat nätverk:
+Accelererade nätverk förbättrar prestanda genom att låta gästen VM kringgå värden och upprätta en dataväg direkt med en värds SmartNIC. Här är några fördelar med accelererade nätverk:
 
-- **Lägre latens/högre paket per sekund (PPS)** : Om du tar bort den virtuella växeln från Datapath elimineras de tids paket som ägnas åt värden för princip bearbetning och ökar antalet paket som kan bearbetas på den virtuella datorn.
+- **Lägre latens / högre paket per sekund (pps)**: Ta bort den virtuella växeln från datapath eliminerar tid paket spendera i värden för principbearbetning och ökar antalet paket som kan bearbetas i den virtuella datorn.
 
-- **Reducerade Darr**: Bearbetning av virtuella växlar beror på den mängd princip som måste tillämpas och arbets belastningen för den processor som utför bearbetningen. Genom att avlasta den tvingande principen till maskin varan tar du bort den variabiliteten genom att leverera paket direkt till den virtuella datorn, vilket eliminerar kommunikationen mellan värd och virtuell dator och alla program avbrott och kontext växlar.
+- **Minskad jitter:** Virtuell växelbearbetning beror på hur mycket princip som måste tillämpas och arbetsbelastningen för processorn som gör bearbetningen. Avlastning av principförsämringen till maskinvaran tar bort den variabiliteten genom att leverera paket direkt till den virtuella datorn, vilket eliminerar kommunikation mellan värd och dator och alla programvaruavbrott och kontextväxlar.
 
-- **Minskad processor användning**: Om den virtuella växeln kringgås i värden går det snabbare att bearbeta nätverks trafiken.
+- **Minskad CPU-användning:** Förbi den virtuella växeln i värden leder till mindre CPU-användning för bearbetning av nätverkstrafik.
 
-Om du vill använda accelererat nätverk måste du uttryckligen aktivera det på varje aktuell virtuell dator. Instruktioner finns i [skapa en virtuell Linux-dator med accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) .
+Om du vill använda accelererade nätverk måste du uttryckligen aktivera det på varje tillämplig virtuell dator. Se [Skapa en virtuell Linux-dator med accelererade nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) för instruktioner.
 
-#### <a name="receive-side-scaling"></a>Skalning på mottagar Sidan
+#### <a name="receive-side-scaling"></a>Ta emot sidoskalning
 
-För skalning på mottagar sidan (RSS) är en teknik för nätverks driv rutiner som distribuerar mottagandet av nätverks trafiken mer effektivt genom att distribuera mottagnings bearbetning över flera processorer i ett system med flera processorer. RSS gör det möjligt för ett system att bearbeta mer mottagen trafik eftersom den använder alla tillgängliga processorer i stället för bara en. En mer teknisk diskussion om RSS finns i [Introduktion till skalning på mottagar sidan](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
+Ta emot sidoskalning (RSS) är en nätverksdrivrutinsteknik som distribuerar mottagning av nätverkstrafik mer effektivt genom att distribuera mottagningsbearbetning över flera processorer i ett system med flera processorer. Enkelt uttryckt tillåter RSS ett system för att bearbeta mer mottagen trafik eftersom det använder alla tillgängliga processorer istället för bara en. En mer teknisk diskussion om RSS finns i [Introduktion för att ta emot sidoskalning](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-För att få bästa möjliga prestanda när accelererat nätverk är aktiverat på en virtuell dator måste du aktivera RSS. RSS kan även ge förmåner på virtuella datorer som inte använder accelererat nätverk. En översikt över hur du avgör om RSS är aktiverat och hur du aktiverar det finns i [optimera nätverks data flöde för virtuella Azure-datorer](https://aka.ms/FastVM).
+För att få bästa prestanda när accelererade nätverk är aktiverat på en virtuell dator måste du aktivera RSS. RSS kan också ge fördelar för virtuella datorer som inte använder accelererade nätverk. En översikt över hur du tar reda på om RSS är aktiverat och hur du aktiverar det finns [i Optimera nätverksdataflödet för virtuella Azure-datorer](https://aka.ms/FastVM).
 
-### <a name="tcp-timewait-and-timewait-assassination"></a>TCP-TIME_WAIT och TIME_WAIT-Assassination
+### <a name="tcp-time_wait-and-time_wait-assassination"></a>Mordet på TCP TIME_WAIT och TIME_WAIT
 
-TCP-TIME_WAIT är en annan gemensam inställning som påverkar nätverkets och programmets prestanda. På upptagna virtuella datorer som öppnar och stänger många Sockets, antingen som klienter eller som servrar (käll-IP: käll-port + mål-IP: målport), under normal drift av TCP, kan en socket få ett TIME_WAIT-tillstånd under en längre tid. TIME_WAIT-statusen är avsedd att tillåta att ytterligare data levereras på en socket innan de stängs. TCP/IP-stackar förhindrar vanligt vis åter användning av en socket genom att tyst släppa klientens TCP SYN-paket.
+TCP TIME_WAIT är en annan vanlig inställning som påverkar nätverkets och programmets prestanda. På upptagna virtuella datorer som öppnar och stänger många sockets, antingen som klienter eller som servrar (Source IP:Source Port + Destination IP:Destination Port), under normal drift av TCP, kan en viss socket hamna i ett TIME_WAIT tillstånd under lång tid. Det TIME_WAIT tillståndet är avsett att tillåta att ytterligare data levereras på ett uttag innan du stänger den. Så TCP / IP stackar i allmänhet förhindra återanvändning av en socket genom att tyst släppa klientens TCP SYN-paket.
 
-Hur lång tid en socket är i TIME_WAIT kan konfigureras. Det kan vara mellan 30 sekunder och 240 sekunder. Sockets är en begränsad resurs och antalet socketar som kan användas vid en bestämd tidpunkt kan konfigureras. (Antalet tillgängliga Sockets är normalt cirka 30 000.) Om de tillgängliga socketarna används, eller om klienter och servrar har felmatchade TIME_WAIT-inställningar och en virtuell dator försöker återanvända en socket i ett TIME_WAIT-tillstånd, kommer nya anslutningar inte att fungera eftersom TCP SYN-paketen ignoreras tyst.
+Den tid som ett uttag är i TIME_WAIT kan konfigureras. Det kan variera från 30 sekunder till 240 sekunder. Sockets är en begränsad resurs och antalet sockets som kan användas vid en given tidpunkt kan konfigureras. (Antalet tillgängliga sockets är vanligtvis cirka 30 000.) Om de tillgängliga socketarna förbrukas, eller om klienter och servrar har matchat TIME_WAIT inställningar och en virtuell dator försöker återanvända en socket i ett TIME_WAIT tillstånd, misslyckas nya anslutningar när TCP SYN-paket tyst tas bort.
 
-Värdet för port intervall för utgående Sockets kan vanligt vis konfigureras i TCP/IP-stacken i ett operativ system. Samma sak gäller för TCP TIME_WAIT-inställningar och åter användning av socket. Att ändra dessa siffror kan eventuellt förbättra skalbarheten. Men beroende på situationen kan dessa ändringar orsaka problem med samverkan. Du bör vara försiktig om du ändrar dessa värden.
+Värdet för portintervallet för utgående sockets kan vanligtvis konfigureras i TCP/IP-stacken i ett operativsystem. Samma sak gäller för TCP TIME_WAIT inställningar och uttag återanvändning. Om du ändrar dessa siffror kan skalbarheten förbättras. Men beroende på situationen kan dessa förändringar orsaka driftskompatibilitetsproblem. Du bör vara försiktig om du ändrar dessa värden.
 
-Du kan använda TIME_WAIT-Assassination för att hantera den här skalnings begränsningen. Med TIME_WAIT Assassination kan en socket återanvändas i vissa situationer, t. ex. När sekvensnumret i IP-paketet för den nya anslutningen överskrider sekvensnumret för det sista paketet från den tidigare anslutningen. I det här fallet kommer operativ systemet att tillåta att den nya anslutningen upprättas (den kommer att acceptera den nya SYNen/ACK) och tvinga den tidigare anslutningen i ett TIME_WAIT-tillstånd. Den här funktionen stöds på virtuella Windows-datorer i Azure. Om du vill veta mer om stöd i andra virtuella datorer kan du kontakta OS-leverantören.
+Du kan använda TIME_WAIT mordet för att ta itu med den här skalningsbegränsningen. TIME_WAIT mordet gör att en socket kan återanvändas i vissa situationer, till exempel när sekvensnumret i IP-paketet för den nya anslutningen överskrider sekvensnumret för det sista paketet från den tidigare anslutningen. I det här fallet tillåter operativsystemet att den nya anslutningen upprättas (det accepterar den nya SYN/ACK) och tvingar stänga den tidigare anslutningen som var i ett TIME_WAIT tillstånd. Den här funktionen stöds på virtuella Windows-datorer i Azure. Om du vill veta mer om support i andra virtuella datorer kontaktar du os-leverantören.
 
-Information om hur du konfigurerar inställningar för TCP-TIME_WAIT och käll port intervall finns i [inställningar som kan ändras för att förbättra nätverks prestanda](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
+Mer information om hur du konfigurerar TCP-TIME_WAIT inställningar och källportintervall finns [i Inställningar som kan ändras för att förbättra nätverksprestanda](https://docs.microsoft.com/biztalk/technical-guides/settings-that-can-be-modified-to-improve-network-performance).
 
-## <a name="virtual-network-factors-that-can-affect-performance"></a>Virtuella nätverks faktorer som kan påverka prestanda
+## <a name="virtual-network-factors-that-can-affect-performance"></a>Virtuella nätverksfaktorer som kan påverka prestanda
 
-### <a name="vm-maximum-outbound-throughput"></a>Maximalt utgående data flöde för virtuell dator
+### <a name="vm-maximum-outbound-throughput"></a>Dator maximal utgående dataflöde
 
-Azure tillhandahåller en mängd olika storlekar och typer av virtuella datorer, var och en med en annan blandning av prestanda funktionerna. En av dessa funktioner är nätverks data flöde (eller bandbredd) som mäts i megabit per sekund (Mbit/s). Eftersom virtuella datorer finns på delad maskin vara måste nätverks kapaciteten delas relativt mellan de virtuella datorerna med samma maskin vara. Större virtuella datorer allokeras mer bandbredd än mindre virtuella datorer.
+Azure tillhandahåller en mängd olika vm-storlekar och typer, var och en med en annan blandning av prestandafunktioner. En av dessa funktioner är nätverksdataflöde (eller bandbredd), som mäts i megabit per sekund (Mbps). Eftersom virtuella datorer finns på delad maskinvara måste nätverkskapaciteten delas rättvist mellan de virtuella datorerna med samma maskinvara. Större virtuella datorer allokeras mer bandbredd än mindre virtuella datorer.
 
-Nätverks bandbredden som allokeras till varje virtuell dator mäts på utgående trafik (utgående trafik) från den virtuella datorn. All nätverks trafik som lämnar den virtuella datorn räknas till den tilldelade gränsen, oavsett destination. Om till exempel en virtuell dator har en gräns på 1 000 Mbit/s, gäller den gränsen om den utgående trafiken är avsedd för en annan virtuell dator i samma virtuella nätverk eller en utanför Azure.
+Nätverksbandbredden som allokeras till varje virtuell dator mäts på utgående (utgående) trafik från den virtuella datorn. All nätverkstrafik som lämnar den virtuella datorn räknas in i den allokerade gränsen, oavsett mål. Om en virtuell dator till exempel har en gräns på 1 000 Mbit/s gäller den gränsen om den utgående trafiken är avsedd för en annan virtuell dator i samma virtuella nätverk eller en utanför Azure.
 
-Ingress är inte avgiftsbelagda eller begränsade direkt. Men det finns andra faktorer, till exempel processor-och lagrings gränser, som kan påverka en virtuell dators möjlighet att bearbeta inkommande data.
+Inträngning mäts inte eller begränsas direkt. Men det finns andra faktorer, som CPU och lagringsgränser, som kan påverka en virtuell dators förmåga att bearbeta inkommande data.
 
-Accelererat nätverk är utformat för att förbättra nätverks prestanda, inklusive svars tid, data flöde och processor belastning. Accelererat nätverk kan förbättra data flödet för en virtuell dator, men det kan bara göras till den virtuella datorns allokerade bandbredd.
+Accelererad nätverk är utformad för att förbättra nätverkets prestanda, inklusive svarstid, dataflöde och CPU-användning. Accelererade nätverk kan förbättra en virtuell dators dataflöde, men det kan bara göra det upp till den virtuella datorns allokerade bandbredd.
 
-Virtuella Azure-datorer har minst ett nätverks gränssnitt kopplat till sig. De kan ha flera. Bandbredden som tilldelas en virtuell dator är summan av all utgående trafik över alla nätverks gränssnitt som är anslutna till datorn. Med andra ord allokeras bandbredden för varje virtuell dator, oavsett hur många nätverks gränssnitt som är anslutna till datorn.
+Virtuella Azure-datorer har minst ett nätverksgränssnitt kopplat till dem. De kan ha flera. Den bandbredd som allokeras till en virtuell dator är summan av all utgående trafik i alla nätverksgränssnitt som är anslutna till datorn. Med andra ord allokeras bandbredden per virtuell dator, oavsett hur många nätverksgränssnitt som är anslutna till datorn.
 
-Förväntat utgående data flöde och antalet nätverks gränssnitt som stöds av varje VM-storlek beskrivs i [storlekar för virtuella Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill se maximalt data flöde väljer du en typ, som **generell användning**, och hittar sedan avsnittet om storleks serien på den resulterande sidan (till exempel "Dv2-serien"). För varje serie finns det en tabell som ger nätverks specifikationer i den sista kolumnen, som kallas "maximalt antal nätverkskort/förväntad nätverks bandbredd (Mbit/s)."
+Förväntat utgående dataflöde och antalet nätverksgränssnitt som stöds av varje vm-storlek beskrivs i [Storlekar för virtuella Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Om du vill visa maximalt dataflöde väljer du en typ, till **exempel Allmänt ändamål,** och letar sedan reda på avsnittet om storleksserierna på den resulterande sidan (till exempel "Dv2-serien"). För varje serie finns det en tabell som innehåller nätverksspecifikationer i den sista kolumnen, som heter "Max nätverkskort / Förväntad nätverksbandbredd (Mbps)."
 
-Data flödes gränsen gäller för den virtuella datorn. Data flödet påverkas inte av följande faktorer:
+Gränsen för dataflöde gäller för den virtuella datorn. Dataflöde påverkas inte av dessa faktorer:
 
-- **Antal nätverks gränssnitt**: Bandbredds gränsen gäller summan av all utgående trafik från den virtuella datorn.
+- **Antal nätverksgränssnitt: Bandbreddsgränsen**gäller summan av all utgående trafik från den virtuella datorn.
 
-- **Accelererat nätverk**: Även om den här funktionen kan vara till hjälp vid att uppnå den publicerade gränsen, ändrar den inte gränsen.
+- **Accelererade nätverk:** Även om den här funktionen kan vara till hjälp för att uppnå den publicerade gränsen, ändrar den inte gränsen.
 
-- **Trafik mål**: Alla destinationer räknas mot utgående gräns.
+- **Trafikdestination**: Alla destinationer räknas in mot den utgående gränsen.
 
 - **Protokoll**: All utgående trafik över alla protokoll räknas mot gränsen.
 
-Mer information finns i [bandbredd för virtuella dator nätverk](https://aka.ms/AzureBandwidth).
+Mer information finns i [Bandbredd för virtuell datornätverk](https://aka.ms/AzureBandwidth).
 
-### <a name="internet-performance-considerations"></a>Överväganden för Internet prestanda
+### <a name="internet-performance-considerations"></a>Hänsyn till internetprestanda
 
-Som vi diskuterat i den här artikeln kan faktorer på Internet och utanför kontrollen av Azure påverka nätverks prestanda. Här följer några av dessa faktorer:
+Som diskuterats i hela den här artikeln kan faktorer på internet och utanför kontrollen av Azure påverka nätverkets prestanda. Här är några av dessa faktorer:
 
-- **Svars tid**: Tiden för fördröjningen mellan två destinationer kan påverkas av problem i mellanliggande nätverk, av trafik som inte tar vägen "kortaste", och av under optimala peering-sökvägar.
+- **Svarstid:** Tur-och-returtiden mellan två destinationer kan påverkas av problem på mellanliggande nätverk, av trafik som inte tar den "kortaste" avståndsvägen och av suboptimala peering-vägar.
 
-- **Paket förlust**: Paket förlust kan orsakas av överbelastning på nätverket, problem med fysiska vägar och underpresterande nätverks enheter.
+- **Paketförlust:** Paketförlust kan orsakas av nätverksöverbelastning, problem med fysiska sökvägar och underpresterande nätverksenheter.
 
-- **MTU-storlek/fragmentering**: Fragmentering längs sökvägen kan leda till fördröjningar i data ankomsten eller i paket som anländer i rätt ordning, vilket kan påverka leveransen av paket.
+- **MTU storlek /fragmentering:** Fragmentering längs sökvägen kan leda till förseningar i dataankomst eller i paket som anländer i oordning, vilket kan påverka leveransen av paket.
 
-Traceroute är ett utmärkt verktyg för att mäta egenskaper för nätverks prestanda (till exempel paket förlust och svars tid) tillsammans med varje nätverks Sök väg mellan en käll enhet och en mål enhet.
+Traceroute är ett bra verktyg för att mäta nätverksprestandaegenskaper (som paketförlust och svarstid) längs varje nätverkssökväg mellan en källenhet och en målenhet.
 
-### <a name="network-design-considerations"></a>Nätverks design överväganden
+### <a name="network-design-considerations"></a>Hänsyn till nätverksdesign
 
-Tillsammans med de överväganden som beskrivs tidigare i den här artikeln kan topologin för ett virtuellt nätverk påverka nätverkets prestanda. Till exempel en nav-och-eker-design som används för att sänka trafik till ett virtuellt nätverk med en hubb kommer att introducera nätverks fördröjning, vilket påverkar övergripande nätverks prestanda.
+Tillsammans med de överväganden som diskuterats tidigare i den här artikeln kan topologin för ett virtuellt nätverk påverka nätverkets prestanda. En hub-and-spoke-design som backhauls trafik globalt till ett virtuellt nätverk med en hubb introducerar till exempel nätverksfördröjning, vilket påverkar den totala nätverksprestandan.
 
-Antalet nätverks enheter som nätverks trafiken passerar genom kan också påverka den totala svars tiden. I en nav-och-eker-design, om trafiken passerar genom en virtuell eker-nätverks installation och en nav-installation före överföring till Internet, kan virtuella nätverks enheter introducera svars tid.
+Antalet nätverksenheter som nätverkstrafiken passerar genom kan också påverka den totala svarstiden. I en hub-and-spoke-design kan nätverksvirvliga enheter införa svarstid om trafiken passerar genom en virtuell virtuell e-nätverksinstallation och en virtuell hubb-apparat innan den överförs till internet.
 
-### <a name="azure-regions-virtual-networks-and-latency"></a>Azure-regioner, virtuella nätverk och svars tid
+### <a name="azure-regions-virtual-networks-and-latency"></a>Azure-regioner, virtuella nätverk och svarstid
 
-Azure-regioner består av flera data Center som finns inom ett allmänt geografiskt område. Dessa data Center kanske inte är fysiskt bredvid varandra. I vissa fall är de åtskilda med upp till 10 kilo meter. Det virtuella nätverket är ett logiskt överlägg ovanpå det fysiska Azure-datacenter-nätverket. Ett virtuellt nätverk kräver ingen speciell nätverkstopologi i data centret.
+Azure-regioner består av flera datacenter som finns inom ett allmänt geografiskt område. Dessa datacenter kanske inte är fysiskt bredvid varandra. I vissa fall är de åtskilda med så mycket som 10 kilometer. Det virtuella nätverket är ett logiskt överlägg ovanpå Azures fysiska datacenternätverk. Ett virtuellt nätverk innebär inte någon specifik nätverkstopologi i datacentret.
 
-Till exempel kan två virtuella datorer som finns i samma virtuella nätverk och undernät finnas i olika rack, rader eller till och med data Center. De kan avgränsas med fötter av fiber optisk kabel eller med kilo meter av fiber optisk kabel. Den här variationen kan leda till variabel latens (några skillnader i millisekunder) mellan olika virtuella datorer.
+Till exempel kan två virtuella datorer som finns i samma virtuella nätverk och undernät finnas i olika rack, rader eller till och med datacenter. De kan separeras med fötter av fiberoptisk kabel eller kilometer fiberoptisk kabel. Den här variationen kan medföra variabel svarstid (några millisekunders skillnad) mellan olika virtuella datorer.
 
-Den geografiska placeringen av virtuella datorer och den potentiella resultat fördröjningen mellan två virtuella datorer kan påverkas av konfigurationen av tillgänglighets uppsättningar och Tillgänglighetszoner. Men avståndet mellan data Center i en region är regions-/regionsspecifika och främst påverkade av data Center sto pol Ogin i regionen.
+Den geografiska placeringen av virtuella datorer och den potentiella resulterande svarstiden mellan två virtuella datorer kan påverkas av konfigurationen av tillgänglighetsuppsättningar och tillgänglighetszoner. Men avståndet mellan datacenter i en region är regionspecifikt och påverkas främst av datacentertopologi i regionen.
 
-### <a name="source-nat-port-exhaustion"></a>Källa för NAT-Port
+### <a name="source-nat-port-exhaustion"></a>Utmattning av NAT-portar för källa
 
-En distribution i Azure kan kommunicera med slut punkter utanför Azure på det offentliga Internet och/eller i det offentliga IP-utrymmet. När en instans initierar en utgående anslutning, mappar Azure dynamiskt den privata IP-adressen till en offentlig IP-adress. När du har skapat den här mappningen kan returnera trafik för utgående sitta flöde också komma åt den privata IP-adressen som flödet kommer från.
+En distribution i Azure kan kommunicera med slutpunkter utanför Azure på det offentliga internet och/eller i det offentliga IP-utrymmet. När en instans initierar en utgående anslutning mappar Azure dynamiskt den privata IP-adressen till en offentlig IP-adress. När Azure har skapat den här mappningen kan returtrafik för det utgående flödet också nå den privata IP-adressen där flödet har sitt ursprung.
 
-För varje utgående anslutning måste Azure Load Balancer underhålla mappningen under en viss tids period. Med den här typen av Azure-klient kan du behålla den här mappningen för varje utgående flöde för varje virtuell dator som kan vara resurs intensiv. Därför finns det gränser som är inställda och baserade på konfigurationen av Azure-Virtual Network. Eller, för att säga att en virtuell Azure-dator bara kan göra ett visst antal utgående anslutningar vid en viss tidpunkt. När de här gränserna uppnås kan den virtuella datorn inte göra fler utgående anslutningar.
+För varje utgående anslutning måste Azure Load Balancer underhålla den här mappningen under en viss tidsperiod. Med Azures multitenant karaktär kan det vara resurskrävande att underhålla den här mappningen för varje utgående flöde för varje virtuell dator. Så det finns gränser som är inställda och baserat på konfigurationen av Azure Virtual Network. Eller, för att säga att mer exakt, en Azure VM kan bara göra ett visst antal utgående anslutningar vid en viss tidpunkt. När dessa gränser har uppnåtts kan den virtuella datorn inte skapa fler utgående anslutningar.
 
-Men det här beteendet kan konfigureras. Mer information om SNAT och SNAT port överbelastning finns i [den här artikeln](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
+Men detta beteende är konfigurerbart. Mer information om utmattning av SNAT- och SNAT-portar finns i [den här artikeln](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections).
 
-## <a name="measure-network-performance-on-azure"></a>Mät nätverks prestanda på Azure
+## <a name="measure-network-performance-on-azure"></a>Mäta nätverksprestanda på Azure
 
-Ett antal prestanda som är maximala i den här artikeln är relaterade till nätverks fördröjningen/tur och retur-tiden mellan två virtuella datorer. Det här avsnittet innehåller några förslag på hur du testar svars tid/sökmetod och hur du testar TCP-prestanda och prestanda för virtuella dator nätverk. Du kan justera och testa TCP/IP-och nätverks värden som beskrivs tidigare med hjälp av de metoder som beskrivs i det här avsnittet. Du kan koppla latens-, MTU-, MSS-och Window-värden till de beräkningar som tillhandahölls tidigare och jämföra teoretiska Max värdena med faktiska värden som du anser under testningen.
+Ett antal av prestandamaxringarna i den här artikeln är relaterade till nätverksfördröjningen/rundresatiden (RTT) mellan två virtuella datorer. Det här avsnittet innehåller några förslag på hur du testar svarstid/RTT och hur du testar TCP-prestanda och VM-nätverksprestanda. Du kan ställa in och prestandatesta TCP/IP- och nätverksvärden som diskuterats tidigare med hjälp av de tekniker som beskrivs i det här avsnittet. Du kan koppla svarstids-, MTU-, MSS- och fönsterstorleksvärdena i beräkningarna som angetts tidigare och jämföra teoretiska maximum med faktiska värden som du observerar under testningen.
 
-### <a name="measure-round-trip-time-and-packet-loss"></a>Mäta tids fördröjning för svar och paket förlust
+### <a name="measure-round-trip-time-and-packet-loss"></a>Mät tur-och-retur-tid och paketförlust
 
-TCP-prestanda är kraftigt beroende av sökslag och paket förlust. PING-verktyget som är tillgängligt i Windows och Linux är det enklaste sättet att mäta efter-och paket förlust. Utdata från PING visar den minsta/högsta/genomsnittliga svars tiden mellan en källa och ett mål. Det visar även paket förlust. PING använder ICMP-protokollet som standard. Du kan använda PsPing för att testa TCP-inkörning. Mer information finns i [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping).
+TCP-prestanda är starkt beroende av RTT och paketförlust. PING-verktyget som finns i Windows och Linux är det enklaste sättet att mäta RTT och paketförlust. Utdata från PING visar minsta/högsta/genomsnittliga svarstiden mellan en källa och ett mål. Det kommer också att visa paketförlust. PING använder ICMP-protokollet som standard. Du kan använda PsPing för att testa TCP RTT. Mer information finns i [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping).
 
-### <a name="measure-actual-throughput-of-a-tcp-connection"></a>Mäta det faktiska data flödet för en TCP-anslutning
+### <a name="measure-actual-throughput-of-a-tcp-connection"></a>Mäta det faktiska dataflödet för en TCP-anslutning
 
-NTttcp är ett verktyg för att testa TCP-prestandan för en virtuell Linux-eller Windows-dator. Du kan ändra olika TCP-inställningar och sedan testa fördelarna med NTttcp. Mer information finns i följande resurser:
+NTttcp är ett verktyg för att testa TCP-prestanda för en Linux eller Windows VM. Du kan ändra olika TCP-inställningar och sedan testa fördelarna med hjälp av NTttcp. Mer information finns i följande resurser:
 
-- [Test av bandbredd/data flöde (NTttcp)](https://aka.ms/TestNetworkThroughput)
+- [Testning av bandbredd/dataflöde (NTttcp)](https://aka.ms/TestNetworkThroughput)
 
 - [NTttcp-verktyg](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769)
 
-### <a name="measure-actual-bandwidth-of-a-virtual-machine"></a>Mäta faktisk bandbredd för en virtuell dator
+### <a name="measure-actual-bandwidth-of-a-virtual-machine"></a>Mäta den faktiska bandbredden för en virtuell dator
 
-Du kan testa prestanda för olika VM-typer, accelererade nätverk och så vidare med hjälp av ett verktyg som kallas iPerf. iPerf är också tillgängligt i Linux och Windows. iPerf kan använda TCP eller UDP för att testa det övergripande nätverks genomflödet. iPerf TCP-genomflöde påverkas av de faktorer som beskrivs i den här artikeln (t. ex. latens och önskad sökpunkt). Så UDP kan ge bättre resultat om du bara vill testa maximalt data flöde.
+Du kan testa prestanda för olika vm-typer, accelererade nätverk och så vidare, med hjälp av ett verktyg som kallas iPerf. iPerf finns även på Linux och Windows. iPerf kan använda TCP eller UDP för att testa det övergripande nätverksdataflödet. iPerf TCP-dataflödestester påverkas av de faktorer som beskrivs i den här artikeln (som latens och RTT). Så UDP kan ge bättre resultat om du bara vill testa maximalt dataflöde.
 
 Mer information finns i dessa artiklar:
 
-- [Felsöka ExpressRoute Network Performance](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
+- [Felsöka Expressroute-nätverksprestanda](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-network-performance)
 
 - [Verifiera VPN-dataflöde till ett virtuellt nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-validate-throughput-to-vnet)
 
 ### <a name="detect-inefficient-tcp-behaviors"></a>Identifiera ineffektiva TCP-beteenden
 
-I paket fångster kan Azure-kunder se TCP-paket med TCP-flaggor (SÄCKAR, DUPLICERA ACK, resändning och snabb återöverföring) som kan tyda på problem med nätverks prestanda. Dessa paket indikerar särskilt nätverks ineffektivhet som orsakas av paket förlust. Men paket förlust orsakas inte nödvändigt vis av Azures prestanda problem. Prestanda problem kan bero på problem med program, problem med operativ system eller andra problem som inte är direkt relaterade till Azure-plattformen.
+I paketinsamlingar kan Azure-kunder se TCP-paket med TCP-flaggor (SACK, DUP ACK, RETRANSMIT och FAST RETRANSMIT) som kan tyda på problem med nätverksprestanda. Dessa paket anger specifikt nätverks ineffektivitet som uppstår till följd av paketförlust. Men paketförlust orsakas inte nödvändigtvis av Azure-prestandaproblem. Prestandaproblem kan bero på programproblem, operativsystemproblem eller andra problem som kanske inte är direkt relaterade till Azure-plattformen.
 
-Tänk också på att vissa återöverföringar och identiska bekräftelser är normala i ett nätverk. TCP-protokoll är byggda för att vara pålitliga. Bevis på dessa TCP-paket i en paket fångst indikerar inte nödvändigt vis ett system problem, om de inte är för stora.
+Tänk också på att vissa återsändningar och dubbla åtkomstkontrollistor är normala i ett nätverk. TCP-protokoll byggdes för att vara tillförlitliga. Bevis på dessa TCP-paket i en paketfångst tyder inte nödvändigtvis på ett systemfelsproblem, såvida de inte är överdrivna.
 
-Dessa paket typer anger dock att TCP-dataflöde inte uppnår sin maximala prestanda, av skäl som beskrivs i andra avsnitt i den här artikeln.
+Ändå är dessa pakettyper indikationer på att TCP-dataflödet inte uppnår sin maximala prestanda, av skäl som beskrivs i andra avsnitt i den här artikeln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om prestanda justering av TCP/IP-prestanda för virtuella Azure-datorer kan du läsa om andra saker att tänka på när du [planerar virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) eller [Lär dig mer om att ansluta och konfigurera virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/).
+Nu när du har lärt dig mer om TCP/IP-prestandajustering för virtuella Azure-datorer kanske du vill läsa om andra överväganden för [att planera virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) eller lära dig mer om hur du ansluter och [konfigurerar virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/).

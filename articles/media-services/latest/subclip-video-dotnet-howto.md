@@ -1,6 +1,6 @@
 ---
-title: Underklipp en video när kodning med Azure Media Services
-description: Det här avsnittet beskriver hur du underklipp en video när kodning med Azure Media Services med .NET SDK
+title: Subclip en video vid kodning med Azure Media Services
+description: I det här avsnittet beskrivs hur du underklipp en video när du kodar med Azure Media Services med .NET SDK
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
 ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67305149"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Underklipp en video när encoding med Media Services - .NET
+# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclip en video vid kodning med Media Services - .NET
 
-Du kan trimma eller en video på underklipp när du kodar den med hjälp av en [jobbet](https://docs.microsoft.com/rest/api/media/jobs). Den här funktionen fungerar med alla [transformera](https://docs.microsoft.com/rest/api/media/transforms) som skapats med hjälp av antingen den [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) förinställningar, eller [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) förinställningar.
+Du kan trimma eller klippa en video när du kodar den med hjälp av ett [jobb](https://docs.microsoft.com/rest/api/media/jobs). Den här funktionen fungerar med alla [transformeringar](https://docs.microsoft.com/rest/api/media/transforms) som skapas med hjälp av antingen [förinställningarna BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) eller [förinställningarna StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)
 
-Följande C# exempel skapas ett jobb som tar bort en video i en tillgång som den skickar ett kodningsjobb. 
+I följande C#-exempel skapas ett jobb som trimmar en video i en tillgång när den skickar ett kodningsjobb. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att slutföra stegen som beskrivs i det här avsnittet måste ha du till:
+För att kunna utföra stegen som beskrivs i det här avsnittet måste du:
 
 - [Skapa ett Azure Media Services-konto](create-account-cli-how-to.md)
-- Skapa en transformering och indata och utdata tillgångar. Du kan se hur du skapar en transformering och indata- och tillgångar i den [överföra, koda och strömma videor med hjälp av .NET](stream-files-tutorial-with-api.md) självstudien.
-- Granska den [Encoding konceptet](encoding-concept.md) avsnittet.
+- Skapa en transformering och indata- och utdatatillgångar. Du kan se hur du skapar en transformerings- och indata- och utdatatillgångar i [upload-, koda och strömma videor med .NET-självstudien.](stream-files-tutorial-with-api.md)
+- Gå igenom [begreppsämnet Kodning.](encoding-concept.md)
 
 ## <a name="example"></a>Exempel
 
@@ -91,4 +91,4 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Koda med en anpassad transformering](customize-encoder-presets-how-to.md) 
+[Så här kodar du med en anpassad transformering](customize-encoder-presets-how-to.md) 

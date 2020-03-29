@@ -1,6 +1,6 @@
 ---
-title: Skydda kommunikationen av OPC UA-enheter med OPC Vault – Azure | Microsoft Docs
-description: Så här registrerar du OPC UA-program och hur du utfärdar signerade program certifikat för dina OPC UA-enheter med OPC-valvet.
+title: Skydda kommunikationen mellan OPC UA-enheter med OPC Vault – Azure | Microsoft-dokument
+description: Så här registrerar du OPC UA-program och hur du utfärdar signerade programcertifikat för dina OPC UA-enheter med OPC Vault.
 author: mregen
 ms.author: mregen
 ms.date: 8/16/2018
@@ -9,102 +9,102 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75454199"
 ---
-# <a name="use-the-opc-vault-certificate-management-service"></a>Använd certifikat hanterings tjänsten för OPC Vault
+# <a name="use-the-opc-vault-certificate-management-service"></a>Använda tjänsten för hantering av OPC Vault-certifikat
 
-Den här artikeln förklarar hur du registrerar program och hur du utfärdar signerade program certifikat för OPC UA-enheter.
+I den här artikeln beskrivs hur du registrerar program och hur du utfärdar signerade programcertifikat för dina OPC UA-enheter.
 
 ## <a name="prerequisites"></a>Krav
 
-### <a name="deploy-the-certificate-management-service"></a>Distribuera certifikat hanterings tjänsten
+### <a name="deploy-the-certificate-management-service"></a>Distribuera certifikathanteringstjänsten
 
-Distribuera först tjänsten till Azure-molnet. Mer information finns i [distribuera OPC Vault Certificate Management Service](howto-opc-vault-deploy.md).
+Distribuera först tjänsten till Azure-molnet. Mer information finns [i Distribuera certifikathanteringstjänsten OPC Vault](howto-opc-vault-deploy.md).
 
-### <a name="create-the-issuer-ca-certificate"></a>Skapa certifikat utfärdarens CA-certifikat
+### <a name="create-the-issuer-ca-certificate"></a>Skapa certifikatet utfärdare av certifikatutfärdare
 
-Om du inte redan har gjort det skapar du certifikat UTFÄRDARens certifikat. Mer information finns i [skapa och hantera utfärdarens certifikat för OPC-valvet](howto-opc-vault-manage.md).
+Om du inte har gjort det ännu skapar du certifikatet utfärdare. Mer information finns i [Skapa och hantera Utfärdarcertifikatet för OPC Vault](howto-opc-vault-manage.md).
 
 ## <a name="secure-opc-ua-applications"></a>Säkra OPC UA-program
 
-### <a name="step-1-register-your-opc-ua-application"></a>Steg 1: registrera ditt OPC UA-program 
+### <a name="step-1-register-your-opc-ua-application"></a>Steg 1: Registrera din OPC UA-applikation 
 
 > [!IMPORTANT]
-> Skrivar rollen krävs för att registrera ett program.
+> Rollen Författare krävs för att registrera ett program.
 
-1. Öppna certifikat tjänsten på `https://myResourceGroup-app.azurewebsites.net`och logga in.
-2. Gå till **Registrera ny**. För en program registrering måste användaren ha minst en tilldelad skrivar roll.
-2. Post formuläret följer namngivnings konventioner i OPC UA. I följande skärm bild visas till exempel inställningarna för [OPC UA Reference Server](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) som exempel i OPC UA .net-standard stack:
+1. Öppna certifikattjänsten `https://myResourceGroup-app.azurewebsites.net`på och logga in.
+2. Gå till **Registrera ny**. För en programregistrering måste en användare ha minst rollen Writer tilldelad.
+2. I anmälningsformuläret följer namnkonventioner i OPC UA. I följande skärmbild visas till exempel inställningarna för [OPC UA Reference Server-exemplet](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) i OPC UA .NET Standard-stacken:
 
-   ![Skärm bild av UA-referens Server registrering](media/howto-opc-vault-secure/reference-server-registration.png "Registrering av UA-referens Server")
+   ![Skärmbild av registrering av UA-referensserver](media/howto-opc-vault-secure/reference-server-registration.png "Registrering av UA-referensserver")
 
-5. Välj **Registrera** för att registrera programmet i databasen för certifikat tjänst program. Arbets flödet guidar användaren direkt till nästa steg för att begära ett signerat certifikat för programmet.
+5. Välj **Registrera om** du vill registrera programmet i certifikattjänstprogramdatabasen. Arbetsflödet guidar direkt användaren till nästa steg för att begära ett signerat certifikat för programmet.
 
-### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Steg 2: skydda ditt program med ett CA-signerat program certifikat
+### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Steg 2: Skydda ditt program med ett certifikatutfärdare signerat programcertifikat
 
-Skydda ditt OPC UA-program genom att utfärda ett signerat certifikat baserat på en certifikat signerings förfrågan (CSR). Alternativt kan du begära ett nytt nyckel par, som innehåller en ny privat nyckel i PFX-eller PEM-format. Information om vilka metoder som stöds för ditt program finns i dokumentationen för din OPC UA-enhet. I allmänhet rekommenderas CSR-metoden, eftersom den inte kräver att en privat nyckel överförs över en tråd.
+Skydda ditt OPC UA-program genom att utfärda ett signerat certifikat baserat på en begäran om certifikatsignering (CSR). Alternativt kan du begära ett nytt nyckelpar, som innehåller en ny privat nyckel i PFX- eller PEM-format. Information om vilken metod som stöds för ditt program finns i dokumentationen för din OPC UA-enhet. I allmänhet rekommenderas CSR-metoden, eftersom den inte kräver att en privat nyckel överförs över en tråd.
 
-#### <a name="request-a-new-certificate-with-a-new-keypair"></a>Begär ett nytt certifikat med ett nytt nyckel par
+#### <a name="request-a-new-certificate-with-a-new-keypair"></a>Begär ett nytt certifikat med ett nytt nyckelpar
 
-1. Gå till **program**.
-3. Välj **ny begäran** för ett program i listan.
+1. Gå till **Program**.
+3. Välj **Ny begäran** för ett listat program.
 
-   ![Skärm bild av nytt begär ande certifikat](media/howto-opc-vault-secure/request-new-certificate.png "Begär nytt certifikat")
+   ![Skärmbild av begär nytt certifikat](media/howto-opc-vault-secure/request-new-certificate.png "Begär nytt certifikat")
 
-3. Välj **Begär nytt nyckel par och certifikat** för att begära en privat nyckel och ett nytt signerat certifikat med den offentliga nyckeln för ditt program.
+3. Välj **Begär nytt KeyPair och certifikat om** du vill begära en privat nyckel och ett nytt signerat certifikat med den offentliga nyckeln för ditt program.
 
-   ![Skärm bild av skapa ett nytt nyckel par och certifikat](media/howto-opc-vault-secure/generate-new-key-pair.png "Generera nytt nyckelpar")
+   ![Skärmbild av Generera ett nytt KeyPair och -certifikat](media/howto-opc-vault-secure/generate-new-key-pair.png "Generera nytt nyckelpar")
 
-4. Fyll i formuläret med ett ämne och domän namnen. För den privata nyckeln väljer du PEM eller PFX med lösen ord. Välj Skapa **nytt nyckel par** för att skapa en certifikatbegäran.
+4. Fyll i formuläret med ett ämne och domännamnen. För den privata nyckeln väljer du PEM eller PFX med lösenord. Välj **Generera nytt KeyPair** för att skapa certifikatbegäran.
 
-   ![Skärm bild av Visa information om certifikatbegäran](media/howto-opc-vault-secure/approve-reject.png "Godkänn certifikat")
+   ![Skärmbild av information om visa certifikatbegäran](media/howto-opc-vault-secure/approve-reject.png "Godkänna certifikat")
 
-5. Godkännande kräver en användare med rollen god kännare och med signerings behörighet i Azure Key Vault. I det typiska arbets flödet ska rollen god kännare och beställare tilldelas olika användare. Välj **Godkänn** eller **avvisa** för att starta eller avbryta den faktiska skapandet av nyckel paret och signerings åtgärden. Det nya nyckel paret skapas och lagras på ett säkert sätt i Azure Key Vault tills det laddas ned av certifikat beställaren. Det resulterande certifikatet med offentlig nyckel signeras av CA: n. Det kan ta några sekunder att slutföra dessa åtgärder.
+5. Godkännande kräver en användare med rollen Godkännare och med signeringsbehörigheter i Azure Key Vault. I det vanliga arbetsflödet bör rollerna Godkännare och Beställare tilldelas olika användare. Välj **Godkänn** eller **Avvisa** om du vill starta eller avbryta det faktiska skapandet av nyckelparet och signeringsåtgärden. Det nya nyckelparet skapas och lagras säkert i Azure Key Vault, tills det hämtas av certifikatutfärdaren. Det resulterande certifikatet med offentlig nyckel signeras av certifikatutfärdaren. Dessa åtgärder kan ta några sekunder att slutföra.
 
-   ![Skärm bild av Visa information om certifikatbegäran med godkännande meddelande längst ned](media/howto-opc-vault-secure/view-key-pair.png "Visa nyckel par")
+   ![Skärmbild av Visa information om certifikatbegäran, med godkännandemeddelande längst ned](media/howto-opc-vault-secure/view-key-pair.png "Visa nyckelpar")
 
-7. Den resulterande privata nyckeln (PFX eller PEM) och Certificate (DER) kan hämtas härifrån i det format som valts som binär fil hämtning. En Base64-kodad version är också tillgänglig, till exempel för att kopiera och klistra in certifikatet till en kommando rad eller text inmatning. 
-8. När den privata nyckeln har hämtats och lagrats på ett säkert sätt kan du välja **ta bort privat nyckel**. Certifikatet med den offentliga nyckeln är fortfarande tillgängligt för framtida bruk.
-9. På grund av användningen av ett signerat certifikat för certifikat utfärdare bör certifikat utfärdaren och listan över återkallade certifikat (CRL) också hämtas här.
+7. Den resulterande privata nyckeln (PFX eller PEM) och certifikat (DER) kan laddas ner härifrån i det format som valts som binär filhämtning. En base64-kodad version är också tillgänglig, till exempel för att kopiera och klistra in certifikatet på en kommandorad eller textpost. 
+8. När den privata nyckeln har hämtats och lagrats på ett säkert sätt kan du välja **Ta bort privat nyckel**. Certifikatet med den offentliga nyckeln är fortfarande tillgängligt för framtida bruk.
+9. På grund av användningen av ett certifikatutfärdarsignerat certifikat bör certifikatlistan för certifikatutfärdare och återkallade certifikat (CRL) också hämtas här.
 
-Det beror nu på den OPC UA-enhet som används för att tillämpa det nya nyckel paret. Certifikat utfärdarens certifikat och CRL kopieras vanligt vis till en `trusted` mapp, medan offentliga och privata nycklar för program certifikatet används i en `own` mapp i certifikat arkivet. Vissa enheter kanske redan har stöd för Server-push för certifikat uppdateringar. Se dokumentationen för din OPC UA-enhet.
+Nu beror det på OPC UA-enheten hur man använder det nya nyckelparet. Certifikatutfärdarcertifikatet och certifikatutfärdaren `trusted` kopieras vanligtvis till en mapp, medan de `own` offentliga och privata nycklarna till programcertifikatet tillämpas på en mapp i certifikatarkivet. Vissa enheter kanske redan stöder server push för certifikatuppdateringar. Se dokumentationen för din OPC UA-enhet.
 
-#### <a name="request-a-new-certificate-with-a-csr"></a>Begär ett nytt certifikat med en CSR 
+#### <a name="request-a-new-certificate-with-a-csr"></a>Begära ett nytt certifikat med en kundtjänstrepresentant 
 
-1. Gå till **program**.
-3. Välj **ny begäran** för ett program i listan.
+1. Gå till **Program**.
+3. Välj **Ny begäran** för ett listat program.
 
-   ![Skärm bild av nytt begär ande certifikat](media/howto-opc-vault-secure/request-new-certificate.png "Begär nytt certifikat")
+   ![Skärmbild av begär nytt certifikat](media/howto-opc-vault-secure/request-new-certificate.png "Begär nytt certifikat")
 
-3. Välj **Begär nytt certifikat med signerings förfrågan** för att begära ett nytt signerat certifikat för ditt program.
+3. Välj **Begär nytt certifikat med signeringsbegäran om** du vill begära ett nytt signerat certifikat för ditt program.
 
-   ![Skärm bild av skapa ett nytt certifikat](media/howto-opc-vault-secure/generate-new-certificate.png "Skapa nytt certifikat")
+   ![Skärmbild av Generera ett nytt certifikat](media/howto-opc-vault-secure/generate-new-certificate.png "Generera nytt certifikat")
 
-4. Ladda upp CSR genom att välja en lokal fil eller genom att klistra in en Base64-kodad CSR i formuläret. Välj **Skapa nytt certifikat**.
+4. Ladda upp CSR genom att välja en lokal fil eller genom att klistra in en base64-kodad CSR i formuläret . Välj **Generera nytt certifikat**.
 
-   ![Skärm bild av Visa information om certifikatbegäran](media/howto-opc-vault-secure/approve-reject-csr.png "Godkänn CSR")
+   ![Skärmbild av information om visa certifikatbegäran](media/howto-opc-vault-secure/approve-reject-csr.png "Godkänna kundtjänstrepresentant")
 
-5. Godkännande kräver en användare med rollen god kännare och med signerings behörighet i Azure Key Vault. Välj **Godkänn** eller **avvisa** för att starta eller avbryta den faktiska signerings åtgärden. Det resulterande certifikatet med offentlig nyckel signeras av CA: n. Den här åtgärden kan ta några sekunder att slutföra.
+5. Godkännande kräver en användare med rollen Godkännare och med signeringsbehörigheter i Azure Key Vault. Välj **Godkänn** eller **Avvisa** om du vill starta eller avbryta den faktiska signeringsåtgärden. Det resulterande certifikatet med offentlig nyckel signeras av certifikatutfärdaren. Den här åtgärden kan ta några sekunder att slutföra.
 
-   ![Skärm bild av Visa information om certifikatbegäran med godkännande meddelande längst ned](media/howto-opc-vault-secure/view-cert-csr.png "Visa certifikat")
+   ![Skärmbild av Visa information om certifikatbegäran, med godkännandemeddelande längst ned](media/howto-opc-vault-secure/view-cert-csr.png "Visa certifikat")
 
-6. Det resulterande certifikatet (DER) kan laddas ned härifrån som en binär fil. En Base64-kodad version är också tillgänglig, till exempel för att kopiera och klistra in certifikatet till en kommando rad eller text inmatning. 
-10. När certifikatet har hämtats och lagrats på ett säkert sätt kan du välja **ta bort certifikat**.
-11. På grund av användningen av ett signerat certifikat från en certifikat utfärdare, ska CA-certifikatet och CRL: en även hämtas här.
+6. Det resulterande certifikatet (DER) kan laddas ner härifrån som binär fil. En base64-kodad version är också tillgänglig, till exempel för att kopiera och klistra in certifikatet på en kommandorad eller textpost. 
+10. När certifikatet har hämtats och lagrats på ett säkert sätt kan du välja **Ta bort certifikat**.
+11. På grund av användningen av ett certifikatutfärdarsignerat certifikat bör certifikatutfärdaren och referenslaboratoriet också hämtas här.
 
-Det beror nu på den OPC UA-enhet som används för att tillämpa det nya certifikatet. Certifikat utfärdarens certifikat och CRL kopieras vanligt vis till en `trusted` mapp, medan program certifikatet används i en `own` mapp i certifikat arkivet. Vissa enheter kanske redan har stöd för Server-push för certifikat uppdateringar. Se dokumentationen för din OPC UA-enhet.
+Nu beror det på OPC UA-enheten hur du använder det nya certifikatet. Certifikatutfärdarcertifikatet och certifikatutfärdaren `trusted` kopieras vanligtvis till en mapp, medan programcertifikatet tillämpas på en `own` mapp i certifikatarkivet. Vissa enheter kanske redan stöder server push för certifikatuppdateringar. Se dokumentationen för din OPC UA-enhet.
 
-### <a name="step-3-device-secured"></a>Steg 3: säker enhet
+### <a name="step-3-device-secured"></a>Steg 3: Enheten säkrad
 
-OPC UA-enheten är nu redo att kommunicera med andra OPC UA-enheter som skyddas av CA-signerade certifikat, utan ytterligare konfiguration.
+OPC UA-enheten är nu redo att kommunicera med andra OPC UA-enheter som skyddas av certifikatutfärdare signerade certifikat, utan ytterligare konfiguration.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du skyddar OPC UA-enheter kan du:
+Nu när du har lärt dig att säkra OPC UA-enheter kan du:
 
 > [!div class="nextstepaction"]
-> [Köra en tjänst för säker certifikat hantering](howto-opc-vault-secure-ca.md)
+> [Köra en säker certifikathanteringstjänst](howto-opc-vault-secure-ca.md)

@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect-synkronisering: Aktivera AD-Papperskorgen | Microsoft Docs'
-description: Det här avsnittet rekommenderar användning av Papperskorgen i Active Directory-funktionen med Azure AD Connect.
+title: 'Azure AD Connect-synkronisering: Aktivera AD-papperskorgen | Microsoft-dokument'
+description: I det här avsnittet rekommenderas användning av AD-papperskorgen med Azure AD Connect.
 services: active-directory
-keywords: Papperskorgen i Active Directory, oavsiktlig borttagning, källfästpunkt
+keywords: AD Papperskorgen, oavsiktlig borttagning, källankare
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -18,32 +18,32 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fe7d3ea7d4f6d648438efc1a484d5909ade2f23
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60382903"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect-synkronisering: Aktivera AD-papperskorgen
-Vi rekommenderar att du aktiverar Papperskorgen i Active Directory-funktionen för din lokala Active-kataloger som synkroniseras till Azure AD. 
+Vi rekommenderar att du aktiverar AD-papperskorgen för dina lokala aktiva kataloger, som är synkroniserade med Azure AD. 
 
-Om du av misstag tar bort en lokal AD user-objektet och återställning med hjälp av funktionen, Azure AD återställs motsvarande användarobjekt i Azure AD.  Information om funktionen Papperskorgen i Active Directory finns i artikeln [Scenarioöversikt för återställning av borttagna Active Directory objekt](https://technet.microsoft.com/library/dd379542.aspx).
+Om du av misstag har tagit bort ett lokalt AD-användarobjekt och återställt det med funktionen återställer Azure AD motsvarande Azure AD-användarobjekt.  Information om ad-papperskorgen finns i artikeln [Scenarioöversikt för återställning av borttagna Active Directory-objekt](https://technet.microsoft.com/library/dd379542.aspx).
 
-## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>Fördelarna med att aktivera AD-Papperskorgen
-Den här funktionen hjälper med att återställa objekt för Azure AD genom att göra följande:
+## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>Fördelar med att aktivera AD-papperskorgen
+Den här funktionen hjälper till att återställa Azure AD-användarobjekt genom att göra följande:
 
-* Om du av misstag tar bort en lokal AD-användare objekt för motsvarande Azure AD user-objektet kommer att tas bort i nästa synkroniseringscykel. Som standard Azure AD sparas den borttagna Azure AD-användarobjektet i ej permanent borttagna tillstånd i 30 dagar.
+* Om du av misstag har tagit bort ett lokalt AD-användarobjekt tas motsvarande Azure AD-användarobjekt bort i nästa synkroniseringscykel. Som standard håller Azure AD det borttagna Azure AD-användarobjektet i mjukt borttaget tillstånd i 30 dagar.
 
-* Om du har en lokal AD återvinning Bin funktionen är aktiverad kan du återställa den borttagna lokala AD user-objektet utan att ändra dess Källfästpunkt-värde. När de återställda lokalerna AD-användarobjektet synkroniseras till Azure AD, Azure AD kommer återställningen motsvarande ej permanent borttagna Azure AD user-objektet. Information om källfästpunktsattributet finns i artikeln [Azure AD Connect: Designbegrepp](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
+* Om du har aktiverat funktionen AD-papperskorgen kan du återställa det borttagna lokala AD-användarobjektet utan att ändra värdet för källankaret. När det återställda lokala AD-användarobjektet synkroniseras med Azure AD återställs motsvarande azure AD-användarobjekt med mjukt borttaget. Information om source anchor-attribut finns i artikeln [Azure AD Connect: Design concepts](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor).
 
-* Om du inte har en lokal AD-Papperskorgen funktionen är aktiverad kan du bli ombedd att skapa ett användarobjekt i AD för att ersätta det borttagna objektet. Om Azure AD Connect-synkroniseringstjänsten har konfigurerats för att använda en systemgenererad AD-attribut (till exempel ObjectGuid) för källfästpunktsattributet för nyligen skapade AD user-objektet inte samma Källankare värde som det borttagna objektet för AD-användare. När AD nyligen skapade objektet synkroniseras till Azure AD, Azure AD skapar en ny Azure AD user-objektet i stället för att återställa det ej permanent borttagna objektet för Azure AD-användare.
+* Om du inte har aktiverat funktionen AD-papperskorgen kan du behöva skapa ett AD-användarobjekt för att ersätta det borttagna objektet. Om Azure AD Connect-synkroniseringstjänsten är konfigurerad för att använda systemgenererat AD-attribut (till exempel ObjectGuid) för attributet Source Anchor, har det nyligen skapade AD-användarobjektet inte samma källankarevärde som det borttagna AD-användarobjektet. När det nyligen skapade AD-användarobjektet synkroniseras med Azure AD skapar Azure AD ett nytt Azure AD-användarobjekt i stället för att återställa det borttagna Azure AD-användarobjektet.
 
 > [!NOTE]
-> Som standard bort Azure AD-användarobjekt i ej permanent borttagna tillstånd i Azure AD är fortfarande i 30 dagar innan de tas bort permanent. Administratörer kan dock snabbare borttagningen av sådana objekt. När objekt tas bort permanent, de inte längre kan återställas, även om lokala Papperskorgen i Active Directory-funktionen är aktiverad.
+> Som standard håller Azure AD borttagna Azure AD-användarobjekt i mjukt borttaget tillstånd i 30 dagar innan de tas bort permanent. Administratörer kan dock påskynda borttagningen av sådana objekt. När objekten har tagits bort permanent kan de inte längre återställas, även om den lokala AD-papperskorgen-funktionen är aktiverad.
 
 ## <a name="next-steps"></a>Nästa steg
-**Översiktsavsnitt**
+**Avsnitt om översikt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Synkronisering av Azure AD Connect: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

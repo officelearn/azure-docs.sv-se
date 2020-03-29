@@ -1,5 +1,5 @@
 ---
-title: RDG och Azure MFA server med RADIUS-Azure Active Directory
+title: RDG och Azure MFA Server med RADIUS - Azure Active Directory
 description: Det här är sidan om Azure Multi-Factor-autentisering som beskriver hur du distribuerar Fjärrskrivbordsgateway (RDG) och Azure Multi-Factor Authentication Server med RADIUS.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,22 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9ef90ce9e6d3849a4c778326b02040f0b1fc764a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848025"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Fjärrskrivbordsgateway och Azure Multi-Factor Authentication Server med RADIUS
 
-Ofta använder gatewayen för fjärr skrivbord (RD) lokala [nätverks princip tjänster (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) för att autentisera användare. I den här artikeln beskrivs hur du dirigerar RADIUS-förfrågningar från Fjärrskrivbordsgateway (via lokal NPS) till Multi-Factor Authentication-servern. Kombinationen Azure MFA och Fjärrskrivbordsgateway innebär att användarna har åtkomst till sina arbetsmiljöer var de än är samtidigt som du kan kräva stark autentisering.
+Ofta använder Fjärrskrivbordsgatewayen de lokala [NPS (Network Policy Services)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) för att autentisera användare. I den här artikeln beskrivs hur du dirigerar RADIUS-förfrågningar från Fjärrskrivbordsgateway (via lokal NPS) till Multi-Factor Authentication-servern. Kombinationen Azure MFA och Fjärrskrivbordsgateway innebär att användarna har åtkomst till sina arbetsmiljöer var de än är samtidigt som du kan kräva stark autentisering.
 
 Eftersom Windows-autentisering för Terminal Services inte stöds för Server 2012 R2 använder du Fjärrskrivbordsgateway och RADIUS för integrering med MFA-servern.
 
 Installera Azure Multi-Factor Authentication Server på en separat server, som sedan skickar RADIUS-begäran via en proxyanslutning till NPS på RDG-servern. När NPS har verifierat användarnamnet och lösenordet returneras ett svar till Multi-Factor Authentication-servern. MFA-servern utför sedan den andra delen i autentiseringen och returnerar ett svar till gatewayen.
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare bör använda molnbaserad Azure Multi-Factor-autentisering. Befintliga kunder som har aktiverat MFA Server före den 1 juli kommer att kunna ladda ner den senaste versionen, framtida uppdateringar och generera aktiveringsautentiseringsuppgifter som vanligt.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -36,7 +36,7 @@ Installera Azure Multi-Factor Authentication Server på en separat server, som s
 - En fjärrskrivbordsgateway som autentiserar med Network Policy Services.
 
 > [!NOTE]
-> Den här artikeln bör endast användas med MFA Server-distributioner, inte Azure MFA (molnbaserad).
+> Den här artikeln bör endast användas med MFA Server-distributioner, inte Azure MFA (Molnbaserad).
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Konfigurera Fjärrskrivbordsgateway
 
@@ -82,7 +82,7 @@ Azure Multi-Factor Authentication Server är konfigurerat som en RADIUS-proxy me
 3. Gå till fliken **Mål** och markera alternativknappen **RADIUS-servrar**.
 4. Välj **Lägg till** och ange IP-adressen, den delade hemligheten och portarna för NPS-servern. Om du använder en central NPS-server är RADIUS-klienten och RADIUS-målet samma. Den delade hemligheten måste matcha den som konfigurerats i avsnittet RADIUS-klient på NPS-servern.
 
-![RADIUS-autentisering i MFA Server](./media/howto-mfaserver-nps-rdg/radius.png)
+![Radieautentisering i MFA-server](./media/howto-mfaserver-nps-rdg/radius.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

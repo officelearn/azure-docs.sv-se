@@ -1,6 +1,6 @@
 ---
-title: Analysera data i Azure Data Lake Storage Gen1 med hjälp av Power BI | Microsoft Docs
-description: Använd Power BI för att analysera data som lagras i Azure Data Lake Storage Gen1
+title: Analysera data i Azure Data Lake Storage Gen1 med Power BI | Microsoft-dokument
+description: Använda Power BI för att analysera data som lagras i Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -13,89 +13,89 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65603206"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analysera data i Azure Data Lake Storage Gen1 med hjälp av Power BI
-I den här artikeln får du lära dig hur du använder Power BI Desktop att analysera och visualisera data som lagras i Azure Data Lake Storage Gen1.
+I den här artikeln får du lära dig hur du använder Power BI Desktop för att analysera och visualisera data som lagras i Azure Data Lake Storage Gen1.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Innan du påbörjar de här självstudierna måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett konto för Data Lake Storage Gen1**. Följ anvisningarna på [Kom igång med Azure Data Lake Storage Gen1 med Azure portal](data-lake-store-get-started-portal.md). Den här artikeln förutsätter att du redan har skapat ett konto med Data Lake Storage Gen1, namnet **myadlsg1**, och överföra en exempeldatafil (**Drivers.txt**) till den. Den här exempelfilen är tillgänglig för nedladdning från [Azure Data Lake Git-lagringsplats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
-* **Power BI Desktop**. Du kan ladda ned det från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
+* **Ett Data Lake Storage Gen1-konto**. Följ instruktionerna på [Kom igång med Azure Data Lake Storage Gen1 med Hjälp av Azure-portalen](data-lake-store-get-started-portal.md). Den här artikeln förutsätter att du redan har skapat ett Data Lake Storage Gen1-konto, kallat **myadlsg1,** och överfört en exempeldatafil **(Drivers.txt)** till den. Den här exempelfilen är tillgänglig för hämtning från [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt).
+* **Power BI-skrivbordet**. Du kan hämta den från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=45331). 
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>Skapa en rapport i Power BI Desktop
-1. Starta Power BI Desktop på din dator.
-2. Från den **Start** menyfliksområdet, klickar du på **hämta Data**, och klicka sedan på mer. I den **hämta Data** dialogrutan klickar du på **Azure**, klickar du på **Azure Data Lake Store**, och klicka sedan på **Connect**.
+1. Starta Power BI Desktop på datorn.
+2. Klicka på Hämta **data**i menyfliksområdet **Start** och klicka sedan på Mer. Klicka på **Azure**i dialogrutan **Hämta data,** klicka på **Azure Data Lake Store**och klicka sedan på **Anslut**.
    
-    ![Ansluta till Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "ansluta till Data Lake Storage Gen1")
-3. Om du ser en dialogruta om connector i en utvecklingsfas kan du välja om du vill fortsätta.
-4. I den **Azure Data Lake Store** dialogrutan Ange URL: en till ditt Data Lake Storage Gen1-konto och klicka sedan på **OK**.
+    ![Ansluta till DataSjölagring Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Ansluta till DataSjölagring Gen1")
+3. Om du ser en dialogruta om att kopplingen är i en utvecklingsfas väljer du att fortsätta.
+4. I dialogrutan **Azure Data Lake Store** anger du URL:en till ditt DataSjölagringsgenm1-konto och klickar sedan på **OK**.
    
-    ![URL: en för Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL: en för Data Lake Storage Gen1")
-5. I dialogrutan nästa klickar du på **logga in** att logga in på Data Lake Storage Gen1-kontot. Du omdirigeras till din organisations inloggningssida. Följ anvisningarna för att logga in på kontot.
+    ![URL för DataSjölagring Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-url.png "URL för DataSjölagring Gen1")
+5. Klicka på **Logga in i** kontot Data Lake Storage Gen1 i nästa dialogruta. Du omdirigeras till organisationens inloggningssida. Följ anvisningarna för att logga in på kontot.
    
-    ![Logga in på Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "logga in på Data Lake Storage Gen1")
-6. När du har loggat in klickar du på **Connect**.
+    ![Logga in i Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Logga in i Data Lake Storage Gen1")
+6. När du har loggat in klickar du på **Anslut**.
    
-    ![Ansluta till Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "ansluta till Data Lake Storage Gen1")
-7. Nästa dialogruta visar den fil som du överfört till ditt Data Lake Storage Gen1-konto. Kontrollera informationen och klicka sedan på **belastningen**.
+    ![Ansluta till DataSjölagring Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Ansluta till DataSjölagring Gen1")
+7. I nästa dialogruta visas filen som du har laddat upp till ditt Data Lake Storage Gen1-konto. Kontrollera informationen och klicka sedan på **Läs in**.
    
-    ![Läsa in data från Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "läsa in data från Data Lake Storage Gen1")
-8. När data har lästs in på Power BI, ser du följande fält i den **fält** fliken.
+    ![Läsa in data från Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Läsa in data från Data Lake Storage Gen1")
+8. När data har lästs in i Power BI visas följande fält på fliken **Fält.**
    
-    ![Importerade fält](./media/data-lake-store-power-bi/imported-fields.png "importeras fält")
+    ![Importerade fält](./media/data-lake-store-power-bi/imported-fields.png "Importerade fält")
    
-    Om du vill visualisera och analysera data och föredrar vi emellertid att data kan tillgängliga per följande fält
+    Men för att visualisera och analysera data, föredrar vi att data ska vara tillgängliga enligt följande fält
    
-    ![Önskade fält](./media/data-lake-store-power-bi/desired-fields.png "önskade fält")
+    ![Önskade fält](./media/data-lake-store-power-bi/desired-fields.png "Önskade fält")
    
-    I nästa steg ska kan vi uppdatera frågan om du vill konvertera den importerade informationen i det önskade formatet.
-9. Från den **Start** menyfliksområdet, klickar du på **redigera frågor**.
+    I nästa steg uppdaterar vi frågan för att konvertera importerade data i önskat format.
+9. Klicka på Redigera **frågor**i menyfliksområdet **Start.**
    
-    ![Redigera frågor](./media/data-lake-store-power-bi/edit-queries.png "redigera frågor")
-10. I frågeredigeraren under den **innehåll** kolumnen, klickar du på **binära**.
+    ![Redigera frågor](./media/data-lake-store-power-bi/edit-queries.png "Redigera frågor")
+10. Klicka på **Binär**under kolumnen **Innehåll** i frågeredigeraren.
     
-    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query1.png "redigera frågor")
-11. Du ser en filikon som representerar den **Drivers.txt** filen du laddade upp. Högerklicka på filen och klicka på **CSV**.    
+    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query1.png "Redigera frågor")
+11. Du kommer att se en filikon som representerar **filen Drivers.txt** som du har laddat upp. Högerklicka på filen och klicka på **CSV**.    
     
-    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query2.png "redigera frågor")
-12. Du bör se utdata som visas nedan. Dina data är nu tillgänglig i ett format som du kan använda för att skapa visualiseringar.
+    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query2.png "Redigera frågor")
+12. Du bör se en utdata som visas nedan. Dina data är nu tillgängliga i ett format som du kan använda för att skapa visualiseringar.
     
-    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query3.png "redigera frågor")
-13. Från den **Start** menyfliksområdet, klickar du på **Stäng och tillämpa**, och klicka sedan på **Stäng och tillämpa**.
+    ![Redigera frågor](./media/data-lake-store-power-bi/convert-query3.png "Redigera frågor")
+13. Klicka på Stäng **och Använd**i menyfliksområdet **Start** och klicka sedan på **Stäng och Använd**.
     
-    ![Redigera frågor](./media/data-lake-store-power-bi/load-edited-query.png "redigera frågor")
-14. När frågan har uppdaterats kan den **fält** fliken visas de nya fält som är tillgängliga för visualisering.
+    ![Redigera frågor](./media/data-lake-store-power-bi/load-edited-query.png "Redigera frågor")
+14. När frågan har uppdaterats visar fliken **Fält** de nya fält som är tillgängliga för visualisering.
     
-    ![Uppdatera fält](./media/data-lake-store-power-bi/updated-query-fields.png "uppdatera fält")
-15. Låt oss skapa ett cirkeldiagram för att representera drivrutinerna i varje stad för respektive land/region. Om du vill göra det, gör du följande val.
+    ![Uppdaterade fält](./media/data-lake-store-power-bi/updated-query-fields.png "Uppdaterade fält")
+15. Låt oss skapa ett cirkeldiagram för att representera drivrutinerna i varje stad för ett visst land/en viss region. Gör följande val för att göra detta.
     
-    1. Klicka på symbolen för ett cirkeldiagram från fliken visualiseringar.
+    1. Klicka på symbolen för ett cirkeldiagram på fliken Visualiseringar.
        
-        ![Skapa cirkeldiagram](./media/data-lake-store-power-bi/create-pie-chart.png "skapa cirkeldiagram")
-    2. De kolumner som vi ska använda är **kolumn 4** (namn på ort) och **kolumnen 7** (namn på land/region). Dra dessa kolumner från **fält** fliken **visualiseringar** fliken enligt nedan.
+        ![Skapa cirkeldiagram](./media/data-lake-store-power-bi/create-pie-chart.png "Skapa cirkeldiagram")
+    2. De kolumner som vi ska använda är **kolumn 4** (namnet på staden) och **kolumn 7** (namnet på landet/regionen). Dra dessa kolumner från fliken **Fält** till fliken **Visualiseringar** enligt nedan.
        
-        ![Skapa visualiseringar](./media/data-lake-store-power-bi/create-visualizations.png "skapa visualiseringar")
-    3. Cirkeldiagrammet bör nu se ut ungefär som den som visas nedan.
+        ![Skapa visualiseringar](./media/data-lake-store-power-bi/create-visualizations.png "Skapa visualiseringar")
+    3. Cirkeldiagrammet ska nu likna det som visas nedan.
        
-        ![Cirkeldiagram](./media/data-lake-store-power-bi/pie-chart.png "skapa visualiseringar")
-16. Genom att välja ett visst land/region på sidnivå, kan du nu se antalet drivrutiner i varje stad för den valda land/regionen. Under exempelvis den **visualiseringar** fliken, under **på sidnivå**väljer **Brasilien**.
+        ![Cirkeldiagram](./media/data-lake-store-power-bi/pie-chart.png "Skapa visualiseringar")
+16. Genom att välja ett visst land/en viss region från sidnivåfiltren kan du nu se antalet drivrutiner i varje stad i det valda landet/regionen. Välj till exempel **Brasilien**under **Filter på sidnivå**under fliken **Visualiseringar.**
     
-    ![Välj ett land](./media/data-lake-store-power-bi/select-country.png "Välj land/region")
-17. Cirkeldiagrammet uppdateras automatiskt för att visa drivrutinerna i Brasilien städerna.
+    ![Välj ett land](./media/data-lake-store-power-bi/select-country.png "Välj ett land eller en region")
+17. Cirkeldiagrammet uppdateras automatiskt för att visa drivrutinerna i städerna i Brasilien.
     
-    ![Drivrutiner i ett land](./media/data-lake-store-power-bi/driver-per-country.png "drivrutiner per land/region")
-18. Från den **filen** -menyn klickar du på **spara** att spara visualiseringen som en Power BI Desktop-fil.
+    ![Förare i ett land](./media/data-lake-store-power-bi/driver-per-country.png "Förare per land/region")
+18. På **Arkiv-menyn** klickar du på **Spara** för att spara visualiseringen som en Power BI-skrivbordsfil.
 
-## <a name="publish-report-to-power-bi-service"></a>Publicera rapporten till Power BI-tjänsten
-När du har skapat visualiseringar i Power BI Desktop kan dela du den med andra genom att publicera den till Power BI-tjänsten. Anvisningar för hur du gör finns i [publicera från Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
+## <a name="publish-report-to-power-bi-service"></a>Publicera rapport till Power BI-tjänsten
+När du har skapat visualiseringarna i Power BI Desktop kan du dela den med andra genom att publicera den i Power BI-tjänsten. Instruktioner om hur du gör det finns i [Publicera från Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Analysera data i Data Lake Storage Gen1 med Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

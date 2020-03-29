@@ -1,6 +1,6 @@
 ---
-title: Åtkomstkontroll för fjärransluten övervakning – Azure | Microsoft Docs
-description: Den här artikeln innehåller information om hur du kan konfigurera rollbaserad åtkomstkontroll (RBAC) i lösningsacceleratorn för fjärrövervakning
+title: Åtkomstkontroll för fjärrövervakning – Azure | Microsoft-dokument
+description: Den här artikeln innehåller information om hur du kan konfigurera rollbaserade åtkomstkontroller (RBAC) i lösningsacceleratorn för fjärrövervakning
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,95 +9,95 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67203172"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomstkontroller i lösningsacceleratorn för fjärrövervakning
 
-Den här artikeln innehåller information om hur du konfigurerar rollbaserad åtkomstkontroll i lösningsacceleratorn för fjärrövervakning. Rollbaserad åtkomstkontroll kan du begränsa åtkomsten för enskilda användare till specifika funktioner i lösningen.
+Den här artikeln innehåller information om hur du konfigurerar rollbaserade åtkomstkontroller i lösningsacceleratorn för fjärrövervakning. Med rollbaserade åtkomstkontroller kan du begränsa åtkomsten för enskilda användare till specifika funktioner i lösningen.
 
 ## <a name="default-settings"></a>Standardinställningar
 
-Första gången du distribuerar lösningen för fjärrövervakning, finns det två roller: **Administratören** och **skrivskyddad**.
+När du först distribuerar lösningen för fjärrövervakning finns det två roller: **Admin** och **Skrivskyddad**.
 
-Alla användare i den **Admin** rollen har fullständig åtkomst till lösning, inklusive följande behörigheter nedan. En användare i den **skrivskyddad** rollen har endast åtkomst till visa lösningen.
+Alla användare i **administratörsrollen** har fullständig åtkomst till lösningen, inklusive följande behörigheter nedan. En användare i rollen **Skrivskydd** har bara åtkomst till att visa lösningen.
 
-| Behörighet            | Admin | Skrivskyddad |
+| Behörighet            | Admin | Skrivskydd |
 |----------------       |-------|-----------|
-| Visa lösningen         | Ja   | Ja       |
-| Uppdatera larm         | Ja   | Nej        |
-| Ta bort larm         | Ja   | Nej        |
-| Skapa enheter        | Ja   | Nej        |
-| Uppdatera enheter        | Ja   | Nej        |
-| Ta bort enheter        | Ja   | Nej        |
-| Skapa enhetsgrupper  | Ja   | Nej        |
-| Uppdatera enhetsgrupper  | Ja   | Nej        |
-| Ta bort enhetsgrupper  | Ja   | Nej        |
-| Skapa regler          | Ja   | Nej        |
-| Uppdateringsregler          | Ja   | Nej        |
-| Ta bort regler          | Ja   | Nej        |
-| Skapa jobb           | Ja   | Nej        |
-| SIM-hantering av uppdatering | Ja   | Nej        |
+| Visa lösning         | Ja   | Ja       |
+| Uppdatera larm         | Ja   | Inga        |
+| Ta bort larm         | Ja   | Inga        |
+| Skapa enheter        | Ja   | Inga        |
+| Uppdatera enheter        | Ja   | Inga        |
+| Ta bort enheter        | Ja   | Inga        |
+| Skapa enhetsgrupper  | Ja   | Inga        |
+| Uppdatera enhetsgrupper  | Ja   | Inga        |
+| Ta bort enhetsgrupper  | Ja   | Inga        |
+| Skapa regler          | Ja   | Inga        |
+| Uppdatera regler          | Ja   | Inga        |
+| Ta bort regler          | Ja   | Inga        |
+| Skapa jobb           | Ja   | Inga        |
+| Uppdatera SIM-hantering | Ja   | Inga        |
 
-Som standard tilldelas automatiskt den användare som distribueras lösningen i **Admin** roll och är en Azure Active Directory-programmets ägare. Ägare program kan tilldela du roller till andra användare via Azure portal. Om du vill att en annan användare att tilldela roller i lösningen, måste de också anges som programägare i Azure-portalen.
+Som standard tilldelas användaren som distribuerade lösningen automatiskt **administratörsrollen** och är ägare till Azure Active Directory-program. Som programägare kan du tilldela roller till andra användare via Azure-portalen. Om du vill att en annan användare ska tilldela roller i lösningen måste de också anges som programägare i Azure-portalen.
 
 > [!NOTE]
-> Den användare som distribueras lösningen är den **endast person** som kan visa den direkt efter dess har skapats. Om du vill bevilja andra åtkomst till om du vill visa programmet som en skrivskyddad, administratör, eller en anpassad roll, se följande anvisningarna nedan på Lägg till eller ta bort användare.
+> Användaren som distribuerade lösningen är den **enda person** som kan visa den direkt efter att den har skapats. Om du vill ge andra åtkomst att visa programmet som antingen en skrivskyddad, administratör eller en anpassad roll läser du följande anvisningar nedan om att lägga till eller ta bort användare.
 
-## <a name="add-or-remove-users"></a>Lägg till eller ta bort användare
+## <a name="add-or-remove-users"></a>Lägga till eller ta bort användare
 
-Ägare Azure Active Directory-program kan använda du Azure-portalen för att lägga till eller ta bort en användare till en roll från lösningen för fjärrövervakning. I följande anvisningar används den [företagsprogram i Azure Active Directory](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) som skapades när du har distribuerat av lösningen för fjärrövervakning.
+Som ägare av Azure Active Directory-program kan du använda Azure-portalen för att lägga till eller ta bort en användare till en roll från lösningen för fjärrövervakning. I följande steg används [Azure Active Directory-företagsprogrammet](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) som skapades när du distribuerade lösningen för fjärrövervakning.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-1. Kontrollera den [användare finns i katalogen](../active-directory/fundamentals/add-users-azure-active-directory.md) du använder. Du har valt katalog när du har loggat in på den [Microsoft Azure IoT-Lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators) plats. Katalognamnet är synlig i det övre högra hörnet av den [sidan](https://www.azureiotsolutions.com/Accelerators).
+1. Kontrollera [att användaren finns i den katalog](../active-directory/fundamentals/add-users-azure-active-directory.md) du använder. Du valde den katalog som ska användas när du loggade in på webbplatsen [Microsoft Azure IoT Solution Accelerators.](https://www.azureiotsolutions.com/Accelerators) Katalognamnet visas längst upp till höger på [sidan](https://www.azureiotsolutions.com/Accelerators).
 
-1. Hitta den **företagsprogram** för din lösning i Azure-portalen. En gång kan filtrera listan genom att ange **programtyp** till **alla program**. Sök efter namnet på programmet med appen. Programnamnet är namnet på lösningen för fjärrövervakning. Visningsnamn för lösningen och program finns i följande skärmbild **contoso rm4**.
+1. Hitta **Enterprise-programmet** för din lösning i Azure-portalen. En gång där, filtrera listan genom att ställa **in Programtyp** till **alla program**. Sök efter ditt program efter programnamn. Programnamnet är namnet på fjärrövervakningslösningen. I följande skärmdump är lösningen och programvisningsnamnen **contoso-rm4**.
 
-    ![Företagsprogram](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
+    ![Program för företag](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 
-1. Kontrollera att du är ägare till programmet genom att klicka på programmet och sedan på **ägare**. I följande skärmbild **Contoso admin** äger den **contoso rm4** program:
+1. Kontrollera att du är ägare till programmet genom att klicka på programmet och sedan klicka på **Ägare**. I följande skärmdump är **Contoso admin** en ägare av **contoso-rm4** ansökan:
 
     ![Ägare](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
-    Om du inte är ägare måste du be en befintlig ägare för att lägga till dig i listan. Endast ägare kan tilldela programroller som **Admin** eller **skrivskyddad** till andra användare.
+    Om du inte är ägare måste du be en befintlig ägare att lägga till dig i listan. Endast ägare kan tilldela programroller som **Admin** eller **Skrivskydd** till andra användare.
 
-1. Om du vill se en lista över användare som tilldelas till roller i programmet, klickar du på **användare och grupper**.
+1. Klicka på **Användare och grupper**om du vill visa listan över användare som tilldelats roller i programmet .
 
-1. Om du vill lägga till en användare klickar du på **+ Lägg till användare**, och klicka sedan på **användare och grupper, inga valda** att välja en användare i katalogen.
+1. Om du vill lägga till en användare klickar du på **+ Lägg till användare**och klickar sedan på Användare och **grupper, Ingen markerad** för att välja en användare i katalogen.
 
-1. Om du vill tilldela användaren till en roll, klickar du på **Välj roll, inga valda** och välj antingen den **Admin** eller **skrivskyddad** roll för användaren. Klicka på **Välj**, och klicka sedan på **tilldela**.
+1. Om du vill tilldela användaren till en roll klickar du på **Välj roll, Ingen markerad** och väljer antingen rollen **Admin** eller **Skrivskydd** för användaren. Klicka på **Markera**och sedan på **Tilldela**.
 
     ![Välja en roll](media/iot-accelerators-remote-monitoring-rbac/selectrole.png)
 
-1. Användaren kan nu komma åt av lösningen för fjärrövervakning med de behörigheter som definierats av rollen.
+1. Användaren kan nu komma åt lösningen för fjärrövervakning med de behörigheter som definierats av rollen.
 
-1. Du kan ta bort användare från programmet på den **användare och grupper** i portalen.
+1. Du kan ta bort användare från programmet på sidan **Användare och grupper** i portalen.
 
 ## <a name="create-a-custom-role"></a>Skapa en anpassad roll
 
-Lösningen för fjärrövervakning innehåller den **Admin** och **skrivskyddad** roller när det distribueras först. Du kan lägga till anpassade roller med olika uppsättningar av behörigheter. För att definiera en anpassad roll, måste du:
+Lösningen för fjärrövervakning innehåller rollerna **Admin** och **Skrivskydd** när den först distribueras. Du kan lägga till anpassade roller med olika behörighetsgrupper. Om du vill definiera en anpassad roll måste du:
 
-- Lägga till en ny roll i programmet i Azure-portalen.
-- Definiera en princip för den nya rollen i mikrotjänster för autentisering och auktorisering.
-- Uppdatera lösningens webbgränssnittet.
+- Lägg till en ny roll i programmet i Azure-portalen.
+- Definiera en princip för den nya rollen i mikrotjänsten Autentisering och auktorisering.
+- Uppdatera lösningens webbgränssnitt.
 
-### <a name="define-a-custom-role-in-the-azure-portal"></a>Definiera en anpassad roll i Azure portal
+### <a name="define-a-custom-role-in-the-azure-portal"></a>Definiera en anpassad roll i Azure-portalen
 
-Följande steg beskriver hur du lägger till en roll till ett program i Azure Active Directory. I det här exemplet skapar du en ny roll som medlemmarna kan skapa, uppdatera och ta bort enheter i lösningen för fjärrövervakning.
+I följande steg beskrivs hur du lägger till en roll i ett program i Azure Active Directory. I det här exemplet skapar du en ny roll som gör det möjligt för medlemmar att skapa, uppdatera och ta bort enheter i lösningen för fjärrövervakning.
 
-1. Hitta den **appregistrering** för din lösning i Azure-portalen. Programnamnet är namnet på lösningen för fjärrövervakning. Visningsnamn för lösningen och program finns i följande skärmbild **contoso rm4**.
+1. Hitta **appregistreringen** för din lösning i Azure-portalen. Programnamnet är namnet på fjärrövervakningslösningen. I följande skärmdump är lösningen och programvisningsnamnen **contoso-rm4**.
 
     ![Appregistrering](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
-1. Välj ditt program och klicka sedan på **Manifest**. Du kan se de två befintliga [approller](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) definierats för programmet:
+1. Markera ditt program och klicka sedan på **Manifest**. Du kan se de två befintliga [approllerna](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) som definierats för programmet:
 
     ![Visa manifest](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
-1. Redigera manifest för att lägga till en roll med namnet **ManageDevices** som visas i följande kodavsnitt. Du behöver en unik sträng, till exempel ett GUID för nytt roll-ID. Du kan generera ett nytt GUID med en tjänst som den [Online GUID-Generator](https://www.guidgenerator.com/):
+1. Redigera manifestet om du vill lägga till en roll som heter **ManageDevices** enligt följande utdrag. Du behöver en unik sträng som ett GUID för det nya roll-ID:t. Du kan generera ett nytt GUID med hjälp av en tjänst som [Online GUID Generator:](https://www.guidgenerator.com/)
 
     ```json
     "appRoles": [
@@ -138,11 +138,11 @@ Följande steg beskriver hur du lägger till en roll till ett program i Azure Ac
 
 ### <a name="define-a-policy-for-the-new-role"></a>Definiera en princip för den nya rollen
 
-När du vill lägga till rollen till appen i Azure-portalen, måste du definiera en princip i [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) för den roll som tilldelar de behörigheter som krävs för att hantera enheter.
+När du har lagt till rollen i appen i Azure-portalen måste du definiera en princip i [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) för den roll som tilldelar de behörigheter som behövs för att hantera enheter.
 
-1. Klona den [Remote Monitoring Mikrotjänster](https://github.com/Azure/remote-monitoring-services-dotnet) databasen från GitHub till den lokala datorn.
+1. Klona databasen [för mikrotjänster för fjärrövervakning](https://github.com/Azure/remote-monitoring-services-dotnet) från GitHub till den lokala datorn.
 
-1. Redigera den **auth/Services/data/policies/roles.json** fil att lägga till principen för den **ManageDevices** roll som du ser i följande kodavsnitt. Den **ID** och **rollen** värdena måste matcha rolldefinitionen i appmanifestet i föregående avsnitt. Listan över tillåtna åtgärder gör att någon är i den **ManageDevices** roll för att skapa, uppdatera och ta bort enheter som är anslutna till lösningen:
+1. Redigera **filen auth/Services/data/policies/roles.json** om du vill lägga till principen för rollen **ManageDevices** enligt följande kodavsnitt. **ID-** och **rollvärdena** måste matcha rolldefinitionen i appmanifestet från föregående avsnitt. Listan över tillåtna åtgärder gör det möjligt för någon i rollen **ManageDevices** att skapa, uppdatera och ta bort enheter som är anslutna till lösningen:
 
     ```json
     {
@@ -184,11 +184,11 @@ När du vill lägga till rollen till appen i Azure-portalen, måste du definiera
     }
     ```
 
-1. När du har redigerat den **Services/data/policies/roles.json** filen, återskapa och distribuera om autentisering och auktorisering mikrotjänst kan utvecklingsacceleratorn.
+1. När du har redigerat filen **Tjänster/data/policies/roles.json** återskapas och distribueras om mikrotjänsten Autentisering och auktorisering till lösningsacceleratorn.
 
-### <a name="how-the-web-ui-enforces-permissions"></a>Hur webbgränssnittet använder behörigheter
+### <a name="how-the-web-ui-enforces-permissions"></a>Så här tillämpar webbgränssnittet behörigheter
 
-Webb Gränssnittet använder de [autentisering och auktorisering mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) för att avgöra vilka åtgärder en användare kan ta och vilka kontroller som visas i Användargränssnittet. Exempel: om din lösning kallas **contoso rm4**, webbgränssnittet hämtar en lista över tillåtna åtgärder för den aktuella användaren genom att skicka följande begäran:
+Webbgränssnittet använder [mikrotjänsten Autentisering och auktorisering](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) för att avgöra vilka åtgärder en användare får vidta och vilka kontroller som är synliga i användargränssnittet. Om lösningen till exempel kallas **contoso-rm4**hämtar webbgränssnittet en lista över tillåtna åtgärder för den aktuella användaren genom att skicka följande begäran:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -197,7 +197,7 @@ X-Source: true
 Authorization: Bearer <JWT Token from ADAL>
 ```
 
-För en användare som heter **Enhetshanteraren** i den **ManageDevices** , svaret innehåller följande JSON i brödtext:
+För en användare som heter **Enhetshanteraren** i rollen **ManageDevices** innehåller svaret följande JSON i brödtexten:
 
 ```json
 {
@@ -212,7 +212,7 @@ För en användare som heter **Enhetshanteraren** i den **ManageDevices** , svar
 }
 ```
 
-Följande kodavsnitt från [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) i den [webbanvändargränssnittet](https://github.com/Azure/pcs-remote-monitoring-webui/) visar hur behörigheterna som tillämpas deklarativt:
+Följande kodavsnitt från [deviceDelete.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/pages/devices/flyouts/deviceDelete/deviceDelete.js) i [webbgränssnittet](https://github.com/Azure/pcs-remote-monitoring-webui/) visar hur behörigheterna tillämpas deklarativt:
 
 ```json
 <FlyoutContent>
@@ -224,13 +224,13 @@ Följande kodavsnitt från [deviceDelete.js](https://github.com/Azure/pcs-remote
 </FlyoutContent>
 ```
 
-Mer information finns i [skyddade komponenter](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/shared/protected/README.md). Du kan definiera ytterligare behörigheter i den [authModel.js](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/services/models/authModels.js) fil.
+Mer information finns i [Skyddade komponenter](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/components/shared/protected/README.md). Du kan definiera ytterligare behörigheter i [authModel.js-filen.](https://github.com/Azure/pcs-remote-monitoring-webui/blob/master/src/services/models/authModels.js)
 
-### <a name="how-the-microservices-enforce-permissions"></a>Hur mikrotjänsterna tillämpa behörigheter
+### <a name="how-the-microservices-enforce-permissions"></a>Så här framtvingar mikrotjänster behörigheter
 
-Mikrotjänster kan du också kontrollera behörigheter för att skydda mot obehörig API-begäranden. När en mikrotjänst får en API-begäran, avkodar och verifierar JWT-token för att få det användar-ID och de behörigheter som är associerade med användarens roll.
+Mikrotjänsterna kontrollerar också behörigheter för att skydda mot obehöriga API-begäranden. När en mikrotjänst tar emot en API-begäran avkodar och valideras JWT-token för att hämta användar-ID och behörigheter som är associerade med användarens roll.
 
-Följande kodavsnitt från den [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) fil i den [IoTHub Manager mikrotjänst](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager), visar hur behörigheterna som används:
+Följande kodavsnitt från [DevicesController.cs-filen](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) i [mikrotjänsten IoTHub Manager](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager)visar hur behörigheterna tillämpas:
 
 ```csharp
 [HttpDelete("{id}")]
@@ -243,11 +243,11 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur rollbaserad åtkomst kontroller är implementerade i lösningsacceleratorn för fjärrövervakning.
+I den här artikeln fick du lära dig hur rollbaserade åtkomstkontroller implementeras i lösningsacceleratorn för fjärrövervakning.
 
-Se [konfigurera åtkomstkontroller för Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) information om hur du hanterar åtkomst till Time Series Insights explorer i lösningsacceleratorn för fjärrövervakning.
+Se [Konfigurera åtkomstkontroller för Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) för information om hur du hanterar åtkomsten till Time Series Insights-utforskaren i lösningsacceleratorn för fjärrövervakning.
 
-Mer information om lösningsacceleratorn för fjärrövervakning finns [arkitektur för fjärrövervakning](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Mer begreppsmässig information om lösningsacceleratorn för fjärrövervakning finns i [Fjärrövervakningsarkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Mer information om hur du anpassar lösningen för fjärrövervakning finns [anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md)
+Mer information om hur du anpassar lösningen för fjärrövervakning finns i [Anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

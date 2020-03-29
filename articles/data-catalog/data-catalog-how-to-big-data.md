@@ -1,29 +1,29 @@
 ---
-title: Så här katalogiserar du Big data i Azure Data Catalog
-description: Instruktions artikel som markerar mönster för att använda Azure Data Catalog med data källor med Big data, inklusive Azure Blob Storage, Azure Data Lake och Hadoop HDFS.
+title: Katalogisera stordata i Azure Data Catalog
+description: Instruktioner artikel som markerar mönster för att använda Azure Data Catalog med "big data"-datakällor, inklusive Azure Blob Storage, Azure Data Lake och Hadoop HDFS.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 88dc85003fa2a3e41d8a31055ff8ba9b0fcc7492
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71300575"
 ---
-# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Så här katalogiserar du Big data i Azure Data Catalog
+# <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Katalogisera stordata i Azure Data Catalog
 
 ## <a name="introduction"></a>Introduktion
 
-**Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Det är allt som hjälper människor att upptäcka, förstå och använda data källor och hjälpa organisationer att få mer värde än befintliga data källor, inklusive big data.
+**Microsoft Azure Data Catalog** är en fullständigt hanterad molntjänst som fungerar som ett system för registrering och identifieringssystem för företagets datakällor. Det handlar om att hjälpa människor att upptäcka, förstå och använda datakällor och hjälpa organisationer att få mer värde från sina befintliga datakällor, inklusive stordata.
 
-**Azure Data Catalog** stöder registrering av Azures lagrings blobbar och kataloger samt Hadoop HDFS-filer och kataloger. Den delvis strukturerade typen av data källor ger stor flexibilitet. Men för att få ut det mesta värdet för att registrera dem med **Azure Data Catalog**måste användarna fundera över hur data källorna är ordnade.
+**Azure Data Catalog** stöder registrering av Azure Blog Storage blobbar och kataloger samt Hadoop HDFS filer och kataloger. Dessa datakällors halvstrukturerade karaktär ger stor flexibilitet. Men för att få mest värde från att registrera dem med **Azure Data Catalog**måste användarna överväga hur datakällorna är organiserade.
 
-## <a name="directories-as-logical-data-sets"></a>Kataloger som logiska data uppsättningar
+## <a name="directories-as-logical-data-sets"></a>Kataloger som logiska datauppsättningar
 
-Ett vanligt mönster för att ordna stora data källor är att behandla kataloger som logiska data uppsättningar. Kataloger på den översta nivån används för att definiera en data uppsättning, medan undermappar definierar partitioner och de filer som de innehåller lagrar själva data.
+Ett vanligt mönster för att organisera stordatakällor är att behandla kataloger som logiska datauppsättningar. Kataloger på översta nivån används för att definiera en datauppsättning, medan undermappar definierar partitioner och de filer som de innehåller lagrar själva data.
 
 Ett exempel på det här mönstret kan vara:
 
@@ -42,13 +42,13 @@ Ett exempel på det här mönstret kan vara:
         ...
 ```
 
-I det här exemplet representerar vehicle_maintenance_events och location_tracking_events logiska data uppsättningar. Var och en av dessa mappar innehåller datafiler som organiseras efter år och månad i undermappar. Var och en av dessa mappar kan eventuellt innehålla hundratals eller tusentals filer.
+I det här exemplet representerar vehicle_maintenance_events och location_tracking_events logiska datauppsättningar. Var och en av dessa mappar innehåller datafiler som är ordnade efter år och månad i undermappar. Var och en av dessa mappar kan potentiellt innehålla hundratals eller tusentals filer.
 
-I det här mönstret är det förmodligen ingen mening att registrera enskilda filer med **Azure Data Catalog** . Registrera i stället de kataloger som representerar de data uppsättningar som är meningsfulla för de användare som arbetar med data.
+I det här mönstret är det förmodligen inte meningsfullt att registrera enskilda filer med **Azure Data Catalog.** Registrera i stället de kataloger som representerar de datauppsättningar som är meningsfulla för användarna som arbetar med data.
 
-## <a name="reference-data-files"></a>Referens data filer
+## <a name="reference-data-files"></a>Referensdatafiler
 
-Ett kompletterande mönster är att lagra referens data uppsättningar som enskilda filer. Dessa data uppsättningar kan betraktas som "små" sidor av Big data och är ofta likartade med dimensioner i en analys data modell. Referens data filen innehåller poster som används för att tillhandahålla kontext för de datafiler som lagras någon annan stans i stor data lagret.
+Ett kompletterande mönster är att lagra referensdatauppsättningar som enskilda filer. Dessa datamängder kan ses som den "lilla" sidan av stordata, och liknar ofta dimensioner i en analytisk datamodell. Referensdatafiler innehåller poster som används för att ge kontext för huvuddelen av de datafiler som lagras någon annanstans i stordatalagret.
 
 Ett exempel på det här mönstret kan vara:
 
@@ -58,14 +58,14 @@ Ett exempel på det här mönstret kan vara:
     \maintenance_types.csv
 ```
 
-När ett analytiker eller en data expert arbetar med de data som finns i de större katalog strukturerna kan data i dessa referenser användas för att ge mer detaljerad information om entiteter som endast refereras till av namn eller ID i den större data uppsättningen.
+När en analytiker eller datavetare arbetar med data som finns i de större katalogstrukturerna kan data i dessa referensfiler användas för att ge mer detaljerad information för entiteter som endast refereras efter namn eller ID i den större datauppsättningen.
 
-I det här mönstret är det klokt att registrera de enskilda referens data filerna med **Azure Data Catalog**. Varje fil representerar en data uppsättning och var och en kan vara kommenterad och identifierad individuellt.
+I det här mönstret är det vettigt att registrera de enskilda referensdatafilerna med **Azure Data Catalog**. Varje fil representerar en datauppsättning och var och en kan kommenteras och identifieras individuellt.
 
 ## <a name="alternate-patterns"></a>Alternativa mönster
 
-Mönstren som beskrivs i föregående avsnitt är bara två möjliga sätt som ett stort data lager kan organiseras, men varje implementering är annorlunda. Oavsett hur dina data källor är strukturerade, när du registrerar stora data källor med **Azure Data Catalog**, fokuserar vi på att registrera de filer och kataloger som representerar de data uppsättningar som är av värde för andra inom din organisation. Att registrera alla filer och kataloger kan göra katalogen rörig, vilket gör det svårare för användarna att hitta vad de behöver.
+De mönster som beskrivs i föregående avsnitt är bara två möjliga sätt att organisera ett stort datalager, men varje implementering är olika. Oavsett hur dina datakällor är strukturerade, när du registrerar stordatakällor med **Azure Data Catalog**, fokusera på att registrera de filer och kataloger som representerar de datauppsättningar som är av värde för andra inom din organisation. Registrera alla filer och kataloger kan röran katalogen, vilket gör det svårare för användarna att hitta vad de behöver.
 
 ## <a name="summary"></a>Sammanfattning
 
-Genom att registrera data källor med **Azure Data Catalog** blir det enklare att identifiera och förstå. Genom att registrera och kommentera Big datafiler och kataloger som representerar logiska data uppsättningar kan du hjälpa användarna att hitta och använda de stora data källor som de behöver.
+Registrera datakällor med **Azure Data Catalog** gör dem lättare att upptäcka och förstå. Genom att registrera och kommentera stordatafiler och kataloger som representerar logiska datauppsättningar kan du hjälpa användarna att hitta och använda de stordatakällor de behöver.

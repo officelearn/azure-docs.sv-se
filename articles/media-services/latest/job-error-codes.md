@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services jobb (kodning och analysera) felkoder | Microsoft Docs
-description: Den här artikeln länkar till jobbet fel koder referensavsnittet och ger användbara länkar till närliggande ämnen.
+title: Azure Media Services-jobb (kodning och analys) felkoder | Microsoft-dokument
+description: Den här artikeln länkar till jobbfelkoder referensavsnitt och ger användbara länkar till relaterade ämnen.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,30 +14,30 @@ ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
 ms.openlocfilehash: 9443a50d130e6542672eb143bcb56d04d63959a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65235702"
 ---
 # <a name="media-services-job-error-codes"></a>Felkoder för Media Services-jobb
 
-Den här artikeln länkar till en REST-referensdokumentet detaljerad beskrivning av [jobbet](transforms-jobs-concept.md) felkoder och meddelanden.
+Det här avsnittet länkar till ett REST-referensdokument för detaljerad beskrivning av [jobbfelkoder](transforms-jobs-concept.md) och meddelanden.
 
 ## <a name="job-error-codes"></a>Jobbfelkoder
 
-Följande REST-dokument ger detaljerade förklaringar om [jobbet felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Följande REST-dokument innehåller detaljerade förklaringar om [jobbfelkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Ställ frågor, ge feedback, få uppdateringar
 
-Kolla in den [Azure Media Services-community](media-services-community.md) artikeln olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+Kolla in [communityartikeln i Azure Media Services](media-services-community.md) för att se olika sätt att ställa frågor, ge feedback och få uppdateringar om Medietjänster.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- [Felkoder för slutpunkten för direktuppspelning](streaming-endpoint-error-codes.md)
-- [Azure Media Services-begrepp](concepts-overview.md)
+- [Felkoder för slutpunkter för direktuppspelning](streaming-endpoint-error-codes.md)
+- [Azure Media Services-koncept](concepts-overview.md)
 - [Kvoter och begränsningar](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Exempel: komma åt felkod och ett meddelande från ApiException med .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)
+[Exempel: åtkomst felkod och meddelande från ApiException med .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)

@@ -1,6 +1,6 @@
 ---
 title: Koda EDIFACT-meddelanden
-description: Verifiera EDI och generera XML med EDIFACT Message Encoder för Azure Logic Apps med Enterprise-integrationspaket
+description: Validera EDI och generera XML med EDIFACT-meddelandekodare för Azure Logic Apps med Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,88 +9,88 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 257cbd0b1a68ddd2b16235e6f8dec5d5b0eb10e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790655"
 ---
-# <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Koda EDIFACT-meddelanden för Azure Logic Apps med Enterprise-integrationspaket
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Koda EDIFACT-meddelanden för Azure Logic Apps med Enterprise Integration Pack
 
-Med koda EDIFACT Message Connector kan du verifiera egenskaper för EDI och partner, generera ett XML-dokument för varje transaktions uppsättning och begära en teknisk bekräftelse, funktions bekräftelse eller både och.
-Om du vill använda den här anslutningen måste du lägga till anslutningen till en befintlig utlösare i din Logic app.
+Med meddelandekopplingen Koda EDIFACT kan du validera EDI- och partnerspecifika egenskaper, generera ett XML-dokument för varje transaktionsuppsättning och begära en teknisk bekräftelse, funktionell bekräftelse eller båda.
+Om du vill använda den här kopplingen måste du lägga till kopplingen i en befintlig utlösare i logikappen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 Här är de objekt du behöver:
 
-* Ett Azure-konto; Du kan skapa ett [kostnads fritt konto](https://azure.microsoft.com/free)
-* Ett [integrations konto](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierats och associerats med din Azure-prenumeration. Du måste ha ett integrations konto för att kunna använda kodningen EDIFACT Message Connector. 
-* Minst två [partner](logic-apps-enterprise-integration-partners.md) som redan har definierats i ditt integrations konto
-* Ett [EDIFACT-avtal](logic-apps-enterprise-integration-edifact.md) som redan har definierats i ditt integrations konto
+* Ett Azure-konto; du kan skapa ett [gratis konto](https://azure.microsoft.com/free)
+* Ett [integrationskonto](logic-apps-enterprise-integration-create-integration-account.md) som redan har definierats och associerats med din Azure-prenumeration. Du måste ha ett integrationskonto för att kunna använda meddelandekopplingen Koda EDIFACT. 
+* Minst två [partner](logic-apps-enterprise-integration-partners.md) som redan har definierats i ditt integrationskonto
+* Ett [EDIFACT-avtal](logic-apps-enterprise-integration-edifact.md) som redan har definierats i ditt integrationskonto
 
 ## <a name="encode-edifact-messages"></a>Koda EDIFACT-meddelanden
 
-1. [Skapa en Logic-app](quickstart-create-first-logic-app-workflow.md).
+1. [Skapa en logikapp](quickstart-create-first-logic-app-workflow.md).
 
-2. EDIFACT Message Connector har inte utlösare, så du måste lägga till en utlösare för att starta din Logic app, t. ex. en begäran-utlösare. Lägg till en utlösare i Logic Apps designer och Lägg sedan till en åtgärd i din Logic app.
+2. Meddelandekopplingen Koda EDIFACT har inga utlösare, så du måste lägga till en utlösare för att starta logikappen, till exempel en begärandeutlösare. Lägg till en utlösare i Logic App Designer och lägg sedan till en åtgärd i logikappen.
 
-3.  I rutan Sök anger du "EDIFACT" som filter. Välj antingen **koda EDIFACT-meddelande efter avtals namn** eller **koda till EDIFACT-meddelande med identiteter**.
+3.  Skriv "EDIFACT" som filter i sökrutan. Välj antingen **Koda EDIFACT-meddelande efter avtalsnamn** eller **Koda till EDIFACT-meddelande av identiteter**.
    
-    ![Sök EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
+    ![sök EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 
-3. Om du inte tidigare skapade några anslutningar till ditt integrations konto uppmanas du att skapa anslutningen nu. Ge anslutningen ett namn och välj det integrations konto som du vill ansluta.
+3. Om du inte tidigare har skapat några anslutningar till ditt integrationskonto uppmanas du att skapa anslutningen nu. Namnge anslutningen och välj det integrationskonto som du vill ansluta.
 
-    ![Skapa integrations konto anslutning](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage1.png)  
+    ![skapa anslutning till integrationskonto](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage1.png)  
 
-    Egenskaper med en asterisk måste anges.
+    Egenskaper med en asterisk krävs.
 
     | Egenskap | Information |
     | --- | --- |
-    | Anslutnings namn * |Ange ett namn för anslutningen. |
-    | Integrations konto * |Ange ett namn för ditt integrations konto. Se till att ditt integrations konto och din Logic app finns på samma Azure-plats. |
+    | Anslutningsnamn * |Ange vilket namn som helst för din anslutning. |
+    | Integrationskonto * |Ange ett namn för ditt integrationskonto. Kontrollera att ditt integrationskonto och logikapp finns på samma Azure-plats. |
 
-5.  När du är klar bör din anslutnings information se ut ungefär som i det här exemplet. Klicka på **skapa**om du vill slutföra skapandet av anslutningen.
+5.  När du är klar bör anslutningsinformationen se ut ungefär som det här exemplet. Om du vill slutföra skapandet av anslutningen väljer du **Skapa**.
 
-    ![anslutnings information för integrations konto](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
+    ![anslutningsinformation för integrationskonto](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
 
-    Nu skapas din anslutning.
+    Anslutningen har nu skapats.
 
-    ![integrerings konto anslutningen har skapats](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage4.png)
+    ![anslutning till integrationskonto har skapats](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage4.png)
 
-#### <a name="encode-edifact-message-by-agreement-name"></a>Koda EDIFACT-meddelande efter avtals namn
+#### <a name="encode-edifact-message-by-agreement-name"></a>Koda EDIFACT-meddelande efter avtalsnamn
 
-Om du har valt att koda EDIFACT-meddelanden efter avtals namn öppnar du listan **namn på EDIFACT** -avtal, anger eller väljer ditt EDIFACT-avtals namn. Ange det XML-meddelande som ska kodas.
+Om du väljer att koda EDIFACT-meddelanden efter avtalsnamn öppnar du listan Namn på **EDIFACT-avtal,** anger eller väljer ditt EDIFACT-avtalsnamn. Ange det XML-meddelande som ska kodas.
 
-![Ange EDIFACT avtals namn och XML-meddelande som ska kodas](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
+![Ange EDIFACT-avtalsnamn och XML-meddelande som ska kodas](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 
-#### <a name="encode-edifact-message-by-identities"></a>Koda EDIFACT-meddelande med identiteter
+#### <a name="encode-edifact-message-by-identities"></a>Koda EDIFACT-meddelande efter identiteter
 
-Om du väljer att koda EDIFACT-meddelanden efter identiteter anger du avsändar-ID, avsändarens kvalificerare, mottagar identifierare och mottagarens kvalificerare enligt konfigurationen i ditt EDIFACT-avtal. Välj det XML-meddelande som ska kodas.
+Om du väljer att koda EDIFACT-meddelanden efter identitet anger du avsändarens identifierare, avsändare kvalificerare, mottagareidentifierare och mottagare kvalificerare som konfigurerats i ditt EDIFACT-avtal. Markera det XML-meddelande som ska kodas.
 
-![Ange identiteter för avsändare och mottagare, Välj XML-meddelande för att koda](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
+![Ange identiteter för avsändare och mottagare, välj XML-meddelande som ska kodas](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
 
-## <a name="edifact-encode-details"></a>Information om EDIFACT-kod
+## <a name="edifact-encode-details"></a>EDIFACT Koda detaljer
 
-EDIFACT-anslutningsprogrammet för kodning utför följande uppgifter: 
+Koda EDIFACT-anslutningen utför dessa uppgifter: 
 
-* Lös avtalet genom att matcha avsändarens kvalificerare & identifierare och mottagarens kvalificerare och identifierare
-* Serialiserar EDI Interchange och konverterar XML-kodade meddelanden till EDI-transaktions uppsättningar i Interchange.
-* Använder transaktions uppsättnings huvud och trailer-segment
-* Genererar ett utbytes kontroll nummer, ett grupp kontroll nummer och ett kontroll nummer för transaktions uppsättning för varje utgående utbyte
-* Ersätter avgränsare i nytto Last data
-* Validerar EDI-och partner-/regionsspecifika egenskaper
-  * Schema validering av transaktions uppsättningens data element mot meddelande schemat.
-  * EDI-verifiering utförs på transaktions uppsättnings data element.
-  * Utökad verifiering utförs på transaktions uppsättnings data element
-* Genererar ett XML-dokument för varje transaktions uppsättning.
+* Lösa avtalet genom att matcha avsändarens kvalificerare &-kvalifieraren och mottagarens kvalificerare och identifierare
+* Serialiserar EDI-utbytet och konverterar XML-kodade meddelanden till EDI-transaktionsuppsättningar i utbytet.
+* Tillämpar segment för transaktionsuppsättningshuvud och trailer
+* Genererar ett utbyteskontrollnummer, ett gruppkontrollnummer och ett transaktionsuppsättningskontrollnummer för varje utgående utbyte
+* Ersätter avgränsare i nyttolastdata
+* Validerar EDI- och partnerspecifika egenskaper
+  * Schemavalidering av transaktionsuppsättningsdataelementen mot meddelandeschemat.
+  * EDI-validering som utförs på dataelement för transaktionsuppsättningar.
+  * Utökad validering utförd på dataelement för transaktionsuppsättning
+* Genererar ett XML-dokument för varje transaktionsuppsättning.
 * Begär en teknisk och/eller funktionell bekräftelse (om den är konfigurerad).
   * Som en teknisk bekräftelse anger CONTRL-meddelandet mottagandet av ett utbyte.
-  * Som en funktionell bekräftelse anger CONTRL-meddelandet godkännande eller avvisande av mottagen utbyte, grupp eller meddelande, med en lista över fel eller funktioner som inte stöds
+  * Som en funktionell bekräftelse anger CONTRL-meddelandet godkännande eller avvisande av det mottagna utbytet, gruppen eller meddelandet, med en lista över fel eller funktioner som inte stöds
 
 ## <a name="view-swagger-file"></a>Visa Swagger-fil
-Information om hur du visar Swagger-information för EDIFACT-anslutningen finns i [EDIFACT](/connectors/edifact/).
+Information om hur du visar Swagger-informationen för EDIFACT-anslutningen finns i [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om Enterprise-integrationspaket](logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket") 
+[Läs mer om Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise Integration Pack") 
 

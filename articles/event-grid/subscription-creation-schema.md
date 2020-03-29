@@ -1,6 +1,6 @@
 ---
-title: Schema för Azure Event Grid-prenumeration
-description: I den här artikeln beskrivs egenskaperna för att prenumerera på en händelse med Azure Event Grid. Event Grid prenumerations schema.
+title: Azure Event Grid-prenumerationsschema
+description: I den här artikeln beskrivs egenskaperna för att prenumerera på en händelse med Azure Event Grid. Prenumerationsschema för Event Grid.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,53 +8,53 @@ ms.topic: reference
 ms.date: 01/23/2020
 ms.author: babanisa
 ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720766"
 ---
-# <a name="event-grid-subscription-schema"></a>Händelseschema Grid-prenumeration
+# <a name="event-grid-subscription-schema"></a>Prenumerationsschema för Event Grid
 
-Om du vill skapa en Event Grid-prenumeration, skicka en begäran att skapa händelse prenumerationen igen. Använd följande format:
+Om du vill skapa en Event Grid-prenumeration skickar du en begäran till prenumerationen Skapa händelse. Använd följande format:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-Om du till exempel vill skapa en händelse prenumeration för ett lagrings konto med namnet `examplestorage` i en resurs grupp med namnet `examplegroup`använder du följande format:
+Om du till exempel vill skapa en `examplestorage` händelseprenumeration för ett lagringskonto som namnges i en resursgrupp med namnet `examplegroup`använder du följande format:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-Händelsen prenumerationens namn måste vara 3 – 64 tecken långt och får bara innehålla a – z, A – Z, 0-9 och ”-”. Artikeln beskriver egenskaper och schemat för innehållet i begäran.
+Namnet på händelseprenumerationen måste vara 3-64 tecken långt och kan bara innehålla a-z, A-Ö, 0-9 och "-". I artikeln beskrivs egenskaperna och schemat för brödtexten för begäran.
  
-## <a name="event-subscription-properties"></a>Händelseegenskaper för prenumeration
+## <a name="event-subscription-properties"></a>Egenskaper för händelseprenumeration
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| mål | object | Det objekt som definierar slutpunkten. |
-| filter | object | Ett valfritt fält för att filtrera typerna av händelser. |
+| mål | objekt | Objektet som definierar slutpunkten. |
+| filter | objekt | Ett valfritt fält för filtrering av typer av händelser. |
 
-### <a name="destination-object"></a>Målobjekt
+### <a name="destination-object"></a>målobjekt
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| endpointType | sträng | Typ av slutpunkt för prenumerationen (webhook/HTTP, Event Hub eller kön). | 
-| endpointUrl | sträng | Mål-URL för händelser i den här händelseprenumerationen. | 
+| slutpunktTyp | sträng | Typ av slutpunkt för prenumerationen (webhook/HTTP, Event Hub eller kö). | 
+| slutpunktUrl | sträng | Mål-URL:en för händelser i den här händelseprenumerationen. | 
 
-### <a name="filter-object"></a>filterobjekt
+### <a name="filter-object"></a>filtrera objekt
 
-| Egenskap | Typ | Description |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| includedEventTypes | array | Matchningen när händelsetyp i händelsemeddelandet är en exakt matchning till någon av dessa namn för typen av händelse. Genererar ett fel när händelsenamn inte matchar de registrerade händelsen typnamn för händelsekällan. Standard matchar alla händelsetyper. |
-| subjectBeginsWith | sträng | En prefixmatchning filtrera till ämnesfältet i meddelandet. Matchar alla standard- eller tom sträng. | 
-| subjectEndsWith | sträng | Ett suffix-match filtrera till ämnesfältet i meddelandet. Matchar alla standard- eller tom sträng. |
-| isSubjectCaseSensitive | sträng | Kontroller är skiftlägeskänslig matchning för filter. |
+| inkluderadeEventTypes | matris | Matcha när händelsetypen i händelsemeddelandet är en exakt matchning till ett av dessa händelsetypsnamn. Väcker ett fel när händelsenamnet inte matchar de registrerade händelsetypsnamnen för händelsekällan. Standard matchar alla händelsetyper. |
+| ämneBeginsWith | sträng | Ett prefixmatchningsfilter till ämnesfältet i händelsemeddelandet. Standardsträngen eller den tomma strängen matchar alla. | 
+| subjectEndsWith | sträng | Ett suffixmatchningsfilter till ämnesfältet i händelsemeddelandet. Standardsträngen eller den tomma strängen matchar alla. |
+| ärSbjectCaseSensitive | sträng | Styr skiftlägeskänslig matchning för filter. |
 
 
-## <a name="example-subscription-schema"></a>Exempel prenumerationsschema
+## <a name="example-subscription-schema"></a>Exempel på prenumerationsschema
 
 ```json
 {
@@ -77,4 +77,4 @@ Händelsen prenumerationens namn måste vara 3 – 64 tecken långt och får bar
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Event Grid finns i [Vad är event Grid?](overview.md)
+* En introduktion till Händelserutnätet finns i [Vad är händelserutnät?](overview.md)

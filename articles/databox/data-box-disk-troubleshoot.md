@@ -9,25 +9,25 @@ ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
 ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67805712"
 ---
-# <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Använd loggarna för att felsöka problem med schemavalidering i Azure Data Box-Disk
+# <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Använda loggar för att felsöka valideringsproblem i Azure Data Box Disk
 
-Den här artikeln gäller för Microsoft Azure Data Box-Disk. Artikeln beskriver hur du använder loggarna för att felsöka verifieringsproblem kan du få se när du distribuerar den här lösningen.
+Den här artikeln gäller Microsoft Azure Data Box Disk. I artikeln beskrivs hur du använder loggarna för att felsöka valideringsproblemen som du kan se när du distribuerar den här lösningen.
 
-## <a name="validation-tool-log-files"></a>Loggfiler för verifiering verktyget
+## <a name="validation-tool-log-files"></a>Loggfiler för valideringsverktyg
 
-När du verifiera att data på diskar med hjälp av den [verifiering verktyget](data-box-disk-deploy-copy-data.md#validate-data), en *error.xml* genereras för att logga in eventuella fel. Loggfilen finns i den `Drive:\DataBoxDiskImport\logs` mapp för enheten. Det finns en länk i felloggen när du kör verifieringen.
+När du validerar data på diskarna med [valideringsverktyget](data-box-disk-deploy-copy-data.md#validate-data)genereras ett *error.xml* för att logga eventuella fel. Loggfilen finns i `Drive:\DataBoxDiskImport\logs` mappen på enheten. En länk till felloggen tillhandahålls när du kör valideringen.
 
 <!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
-Om du kör flera sessioner för verifiering, skapas en felloggen per session.
+Om du kör flera sessioner för validering genereras en fellogg per session.
 
-- Här är ett exempel på felloggen när data läses in i den `PageBlob` mappen är inte 512 byte-justerad. Alla data som överförs till PageBlob måste vara 512-byte justerad, till exempel en VHD eller VHDX. Fel i den här filen finns i den `<Errors>` och varningar i `<Warnings>`.
+- Här är ett exempel på felloggen `PageBlob` när de data som läses in i mappen inte är 512 byte justerat. Alla data som överförs till PageBlob måste vara 512 byte justerade, till exempel en virtuell hårddisk eller VHDX. Felen i den här `<Errors>` filen finns `<Warnings>`i och varningar i .
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -48,7 +48,7 @@ Om du kör flera sessioner för verifiering, skapas en felloggen per session.
         </ErrorLog>
     ```
 
-- Här är ett exempel på felloggen när behållarens namn inte är giltig. Mappen som du skapar under `BlockBlob`, `PageBlob`, eller `AzureFile` mappar på disken blir en behållare i Azure Storage-kontot. Namnet på behållaren måste följa den [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
+- Här är ett exempel på felloggen när behållarnamnet inte är giltigt. Mappen som du `BlockBlob`skapar `PageBlob`under `AzureFile` , eller mappar på disken blir en behållare i ditt Azure Storage-konto. Namnet på behållaren måste följa [Azure-namngivningskonventionerna](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
     ```xml
         <?xml version="1.0" encoding="utf-8"?>
@@ -69,31 +69,31 @@ Om du kör flera sessioner för verifiering, skapas en felloggen per session.
     </ErrorLog>
     ```
 
-## <a name="validation-tool-errors"></a>Verifieringsfel för verktyget
+## <a name="validation-tool-errors"></a>Fel i valideringsverktyget
 
-Fel i den *error.xml* med motsvarande rekommenderade åtgärder sammanfattas i tabellen nedan.
+Felen i *error.xml* med motsvarande rekommenderade åtgärder sammanfattas i följande tabell.
 
 | Felkod| Beskrivning                       | Rekommenderade åtgärder               |
 |------------|--------------------------|-----------------------------------|
-| `None` | Verifierat data. | Ingen åtgärd krävs. |
-| `InvalidXmlCharsInPath` |Kunde inte skapa en manifestfil som filsökvägen innehåller tecken som inte är giltiga. | Ta bort dessa tecken om du vill fortsätta.  |
-| `OpenFileForReadFailed`| Det gick inte att bearbeta filen. Detta kan bero på en åtkomst-problem eller filen systemfel.|Det gick inte att läsa filen på grund av ett fel. Felinformation finns i undantaget. |
-| `Not512Aligned` | Den här filen är inte ett giltigt format för PageBlob mapp.| Endast ladda uppladdningsdata som är 512 byte justerad `PageBlob` mapp. Ta bort filen från mappen PageBlob eller flytta den till mappen BlockBlob. Gör om verifieringen.|
-| `InvalidBlobPath` | Filsökväg mappas inte till en giltig sökväg i molnet enligt den Azure-Blob namngivningskonventioner.|Följ riktlinjerna för Azure namngivning för att byta namn på sökvägen till filen. |
-| `EnumerationError` | Det gick inte att räkna upp filen för verifiering. |Det kan finnas flera orsaker till det här felet. En troligaste orsaken är åtkomst till filen. |
-| `ShareSizeExceeded` | Den här filen orsakade Azure filresursens storlek överskrider Azure gränsen på 5 TB.|Minska storleken på data i resursen så att den överensstämmer med den [storleksbegränsningar för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Gör om verifieringen. |
-| `AzureFileSizeExceeded` | Filstorleken överskrider Azure filstorleksbegränsningar.| Minska storleken på filen eller data så att den överensstämmer med den [storleksbegränsningar för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Gör om verifieringen.|
-| `BlockBlobSizeExceeded` | Filstorleken överskrider storleksgränserna för Azure Block Blob. | Minska storleken på filen eller data så att den överensstämmer med den [storleksbegränsningar för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Gör om verifieringen. |
-| `ManagedDiskSizeExceeded` | Filstorleken överskrider storleksgränserna Azure Managed Disk. | Minska storleken på filen eller data så att den överensstämmer med den [storleksbegränsningar för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Gör om verifieringen. |
-| `PageBlobSizeExceeded` | Filstorleken överskrider storleksgränserna Azure Managed Disk. | Minska storleken på filen eller data så att den överensstämmer med den [storleksbegränsningar för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits). Gör om verifieringen. |
-| `InvalidShareContainerFormat`  |Directory-namnen överensstämmer inte med Azure regler för namngivning av behållare eller resurser.         |Den första mapp som skapats under de befintliga mapparna på disken blir en behållare i ditt storage-konto. Den här resursen eller behållare namnet följer inte namngivningskonventionerna i Azure. Byt namn på filen så att den överensstämmer [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen.   |
-| `InvalidBlobNameFormat` | Filsökväg mappas inte till en giltig sökväg i molnet enligt den Azure-Blob namngivningskonventioner.|Byt namn på filen så att den överensstämmer [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen. |
-| `InvalidFileNameFormat` | Filsökväg mappas inte till en giltig sökväg i molnet enligt filen Azure namngivningskonventioner. |Byt namn på filen så att den överensstämmer [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen. |
-| `InvalidDiskNameFormat` | Filsökväg mappas inte till ett giltigt disk-namn i molnet enligt namnkonventioner för Azure Managed Disk. |Byt namn på filen så att den överensstämmer [namngivningskonventionerna Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Gör om verifieringen.       |
-| `NotPartOfFileShare` | Ladda upp sökvägen för filer är inte giltig. Ladda upp filer till en mapp i Azure Files.   | Ta bort filer i fel och överföra filerna till en införande mapp. Gör om verifieringen. |
-| `NonVhdFileNotSupportedForManagedDisk` | Att det går inte att överföra en icke-VHD-filen som en hanterad disk. |Ta bort icke-VHD-filer från `ManagedDisk` mapp som dessa inte stöds eller flytta filerna till en `PageBlob` mapp. Gör om verifieringen. |
+| `None` | Data har validerats. | Ingen åtgärd krävs. |
+| `InvalidXmlCharsInPath` |Det gick inte att skapa en manifestfil eftersom filsökvägen har tecken som inte är giltiga. | Ta bort dessa tecken för att fortsätta.  |
+| `OpenFileForReadFailed`| Det gick inte att bearbeta filen. Detta kan bero på ett åtkomstproblem eller filsystem skadad.|Det gick inte att läsa filen på grund av ett fel. Felinformationen finns i undantaget. |
+| `Not512Aligned` | Den här filen är inte i ett giltigt format för PageBlob-mappen.| Ladda bara upp data som är 512 byte justerade mot `PageBlob` mappen. Ta bort filen från PageBlob-mappen eller flytta den till mappen BlockBlob. Försök igen med valideringen.|
+| `InvalidBlobPath` | Filsökvägen mappas inte till en giltig blob-sökväg i molnet enligt azure blob-namngivningskonventionerna.|Följ riktlinjerna för namngivning av Azure för att byta namn på filsökvägen. |
+| `EnumerationError` | Det gick inte att räkna upp filen för validering. |Det kan finnas flera orsaker till det här felet. En trolig orsak är åtkomst till filen. |
+| `ShareSizeExceeded` | Den här filen orsakade att Azure-filresursstorleken överskred Azure-gränsen på 5 TB.|Minska storleken på data i resursen så att den överensstämmer med [Azure-objektstorleksgränserna](data-box-disk-limits.md#azure-object-size-limits). Försök igen med valideringen. |
+| `AzureFileSizeExceeded` | Filstorleken överskrider storleksgränserna för Azure File.| Minska storleken på filen eller data så att den överensstämmer med [Azure-objektstorleksgränserna](data-box-disk-limits.md#azure-object-size-limits). Försök igen med valideringen.|
+| `BlockBlobSizeExceeded` | Filstorleken överskrider storleksgränserna för Azure Block Blob. | Minska storleken på filen eller data så att den överensstämmer med [Azure-objektstorleksgränserna](data-box-disk-limits.md#azure-object-size-limits). Försök igen med valideringen. |
+| `ManagedDiskSizeExceeded` | Filstorleken överskrider storleksgränserna för Azure Managed Disk. | Minska storleken på filen eller data så att den överensstämmer med [Azure-objektstorleksgränserna](data-box-disk-limits.md#azure-object-size-limits). Försök igen med valideringen. |
+| `PageBlobSizeExceeded` | Filstorleken överskrider storleksgränserna för Azure Managed Disk. | Minska storleken på filen eller data så att den överensstämmer med [Azure-objektstorleksgränserna](data-box-disk-limits.md#azure-object-size-limits). Försök igen med valideringen. |
+| `InvalidShareContainerFormat`  |Katalognamnen överensstämmer inte med Azure-namngivningskonventioner för behållare eller resurser.         |Den första mappen som skapas under de befintliga mapparna på disken blir en behållare i ditt lagringskonto. Det här resurs- eller behållarnamnet överensstämmer inte med Azure-namngivningskonventionerna. Byt namn på filen så att den överensstämmer med [Azure-namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Försök igen med valideringen.   |
+| `InvalidBlobNameFormat` | Filsökvägen mappas inte till en giltig blob-sökväg i molnet enligt azure blob-namngivningskonventionerna.|Byt namn på filen så att den överensstämmer med [Azure-namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Försök igen med valideringen. |
+| `InvalidFileNameFormat` | Sökvägen mappas inte till en giltig filsökväg i molnet enligt namngivningskonventionerna för Azure File. |Byt namn på filen så att den överensstämmer med [Azure-namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Försök igen med valideringen. |
+| `InvalidDiskNameFormat` | Sökvägen mappas inte till ett giltigt disknamn i molnet enligt namngivningskonventionerna för Azure Managed Disk. |Byt namn på filen så att den överensstämmer med [Azure-namngivningskonventioner](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Försök igen med valideringen.       |
+| `NotPartOfFileShare` | Uppladdningssökvägen för filer är ogiltig. Ladda upp filerna till en mapp i Azure Files.   | Ta bort filerna av misstag och ladda upp filerna till en förskapad mapp. Försök igen med valideringen. |
+| `NonVhdFileNotSupportedForManagedDisk` | Det går inte att överföra en icke-VHD-fil som en hanterad disk. |Ta bort de filer `ManagedDisk` som inte är vhd-filer från `PageBlob` mappen eftersom de inte stöds eller flytta dessa filer till en mapp. Försök igen med valideringen. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Felsöka [data uppladdningsfel](data-box-disk-troubleshoot-upload.md).
+- Felsöka [datauppladdningsfel](data-box-disk-troubleshoot-upload.md).

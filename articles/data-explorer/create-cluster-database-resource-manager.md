@@ -1,6 +1,6 @@
 ---
-title: Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av en Azure Resource Manager mall
-description: Lär dig hur du skapar ett Azure Datautforskaren-kluster och-databas med hjälp av en Azure Resource Manager mall
+title: Skapa ett Azure Data Explorer-kluster och -databas med hjälp av en Azure Resource Manager-mall
+description: Lär dig hur du skapar ett Azure Data Explorer-kluster och -databas med hjälp av en Azure Resource Manager-mall
 author: orspod
 ms.author: orspodek
 ms.reviewer: lugoldbe
@@ -8,31 +8,31 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.openlocfilehash: 56639d8a29ad8eac465845c8d354d04b31ba6093
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75911968"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av en Azure Resource Manager mall
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Skapa ett Azure Data Explorer-kluster och -databas med hjälp av en Azure Resource Manager-mall
 
 > [!div class="op_single_selector"]
-> * [Portalen](create-cluster-database-portal.md)
+> * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
-> * [PowerShell](create-cluster-database-powershell.md)
+> * [Powershell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
 > * [Azure Resource Manager-mall](create-cluster-database-resource-manager.md)
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. 
 
-I den här artikeln skapar du ett Azure Datautforskaren-kluster och-databas med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/management/overview.md). Artikeln visar hur du definierar vilka resurser distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](/azure/azure-resource-manager/resource-group-authoring-templates). För JSON-syntax och egenskaper som ska användas i en mall, se [resurs typer för Microsoft. Kusto](/azure/templates/microsoft.kusto/allversions).
+I den här artikeln skapar du ett Azure Data Explorer-kluster och databas med hjälp av en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md). Artikeln visar hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Information om hur du skapar mallar finns [i redigera Azure Resource Manager-mallar](/azure/azure-resource-manager/resource-group-authoring-templates). JSON-syntax och egenskaper som ska användas i en mall finns i [Microsoft.Kusto-resurstyper](/azure/templates/microsoft.kusto/allversions).
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="azure-resource-manager-template-for-cluster-and-database-creation"></a>Azure Resource Manager mall för kluster-och databas skapande
+## <a name="azure-resource-manager-template-for-cluster-and-database-creation"></a>Azure Resource Manager-mall för att skapa kluster och databaser
 
-I den här artikeln använder du en [befintlig snabb starts mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json)
+I den här artikeln använder du en [befintlig snabbstartsmall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json)
 
 ```json
 {
@@ -94,15 +94,15 @@ I den här artikeln använder du en [befintlig snabb starts mall](https://raw.gi
 }
 ```
 
-Mer information om mallar finns i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/).
+Mer mallexempel finns i [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
 
-## <a name="deploy-the-template-and-verify-template-deployment"></a>Distribuera mallen och verifiera distribution av mallar
+## <a name="deploy-the-template-and-verify-template-deployment"></a>Distribuera mallen och verifiera malldistributionen
 
-Du kan distribuera Azure Resource Manager-mallen med [hjälp av Azure Portal](#use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment) eller [med hjälp av PowerShell](#use-powershell-to-deploy-the-template-and-verify-template-deployment).
+Du kan distribuera Azure Resource Manager-mallen med hjälp av [Azure-portalen](#use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment) eller [med powershell](#use-powershell-to-deploy-the-template-and-verify-template-deployment).
 
-### <a name="use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment"></a>Använd Azure Portal för att distribuera mallen och verifiera distribution av mallar
+### <a name="use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment"></a>Använda Azure-portalen för att distribuera mallen och verifiera malldistributionen
 
-1. För att skapa ett kluster och en databas, använder du följande knapp för att starta distributionen. Högerklicka och välj **Öppna i nytt fönster** så att du kan följa resten av stegen i den här artikeln.
+1. Om du vill skapa ett kluster och en databas använder du följande knapp för att starta distributionen. Högerklicka och välj **Öppna i nytt fönster** så att du kan följa resten av stegen i den här artikeln.
 
     [![Distribuera till Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
@@ -110,18 +110,18 @@ Du kan distribuera Azure Resource Manager-mallen med [hjälp av Azure Portal](#u
 
     ![Distribuera till Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-    Du kan [Redigera och distribuera mallen i Azure Portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) med hjälp av formuläret.
+    Du kan [redigera och distribuera mallen i Azure-portalen](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) med hjälp av formuläret.
 
-1. Fullständiga **grundläggande** och **inställnings** avsnitt. Välj unikt kluster och databas namn.
-Det tar några minuter att skapa ett Azure Datautforskaren-kluster och-databas.
+1. Kompletta **basics-** och **inställningsavsnitt.** Välj unika kluster- och databasnamn.
+Det tar några minuter att skapa ett Azure Data Explorer-kluster och databas.
 
-1. För att verifiera distributionen öppnar du resurs gruppen i [Azure Portal](https://portal.azure.com) för att hitta det nya klustret och databasen. 
+1. För att verifiera distributionen öppnar du resursgruppen i [Azure-portalen](https://portal.azure.com) för att hitta ditt nya kluster och din nya databas. 
 
-### <a name="use-powershell-to-deploy-the-template-and-verify-template-deployment"></a>Använd PowerShell för att distribuera mallen och verifiera distribution av mallar
+### <a name="use-powershell-to-deploy-the-template-and-verify-template-deployment"></a>Använda powershell för att distribuera mallen och verifiera malldistribution
 
-#### <a name="deploy-the-template-using-powershell"></a>Distribuera mallen med PowerShell
+#### <a name="deploy-the-template-using-powershell"></a>Distribuera mallen med powershell
 
-1. Välj **prova** med följande kodblock och följ sedan anvisningarna för att logga in på Azure Cloud Shell.
+1. Välj **Prova det** från följande kodblock och följ sedan instruktionerna för att logga in på Azure Cloud-skalet.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -137,12 +137,12 @@ Det tar några minuter att skapa ett Azure Datautforskaren-kluster och-databas.
     ```
 
 1. Välj **Kopiera** för att kopiera PowerShell-skriptet.
-1. Högerklicka på Shell-konsolen och välj sedan **Klistra in**.
-Det tar några minuter att skapa ett Azure Datautforskaren-kluster och-databas.
+1. Högerklicka på skalkonsolen och välj sedan **Klistra in**.
+Det tar några minuter att skapa ett Azure Data Explorer-kluster och databas.
 
 #### <a name="verify-the-deployment-using-powershell"></a>Verifiera distributionen med PowerShell
 
-Verifiera distributionen genom att använda följande Azure PowerShell skript.  Om Cloud Shell fortfarande är öppen, behöver du inte kopiera/köra den första raden (Read-Host). Mer information om hur du hanterar Azure Datautforskaren-resurser i PowerShell finns i [AZ. Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
+Om du vill verifiera distributionen använder du följande Azure PowerShell-skript.  Om Cloud Shell fortfarande är öppet behöver du inte kopiera/köra den första raden (Läsvärd). Mer information om hur du hanterar Azure Data Explorer-resurser i PowerShell finns i [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -159,4 +159,4 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Mata in data i Azure Datautforskaren-kluster och-databas](ingest-data-overview.md)
+[Övrdata i Azure Data Explorer kluster och databas](ingest-data-overview.md)

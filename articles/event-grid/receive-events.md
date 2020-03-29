@@ -1,6 +1,6 @@
 ---
 title: Ta emot händelser från Azure Event Grid till en HTTP-slutpunkt
-description: Beskriver hur du verifierar en HTTP-slutpunkt, och sedan ta emot och deserialisera händelser från Azure Event Grid
+description: Beskriver hur du validerar en HTTP-slutpunkt och sedan får och avserialiserar händelser från Azure Event Grid
 services: event-grid
 author: banisadr
 manager: darosa
@@ -9,30 +9,30 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
 ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60803792"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
-Den här artikeln beskrivs hur du [validera en HTTP-slutpunkt](security-authentication.md#webhook-event-delivery) att ta emot händelser från en händelseprenumeration och ta emot och deserialisera händelserna. Den här artikeln använder en Azure-funktion i demonstrationssyfte, men samma koncept gäller oavsett var programmet finns.
+I den här artikeln beskrivs hur du [validerar en HTTP-slutpunkt](security-authentication.md#webhook-event-delivery) för att ta emot händelser från en händelseprenumeration och sedan ta emot och avserialisera händelser. Den här artikeln använder en Azure-funktion för demonstrationsändamål, men samma begrepp gäller oavsett var programmet finns.
 
 > [!NOTE]
-> Det är **starkt** rekommenderar att du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) när du utlöser en Azure-funktion med Event Grid. Användning av en allmän webhooksutlösare här är i demonstrativt syfte.
+> Vi rekommenderar **starkt** att du använder en [utlösare av händelserutnät](../azure-functions/functions-bindings-event-grid.md) när du utlöser en Azure-funktion med händelserutnät. Användningen av en generisk WebHook utlösare här är demonstrativ.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Du behöver en funktionsapp med en HTTP-utlöst funktion.
 
 ## <a name="add-dependencies"></a>Lägga till beroenden
 
-Om du håller på att utveckla i .NET, [lägger till ett beroende](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) till din funktion för den `Microsoft.Azure.EventGrid` [Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Exemplen i den här artikeln kräver version 1.4.0 eller senare.
+Om du utvecklar i .NET [lägger du till](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) `Microsoft.Azure.EventGrid` ett beroende i din funktion för [Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Exemplen i den här artikeln kräver version 1.4.0 eller senare.
 
-SDK: er för andra språk är tillgängliga via den [publicera SDK: er](./sdk-overview.md#data-plane-sdks) referens. Dessa paket har modeller för interna händelsetyper som `EventGridEvent`, `StorageBlobCreatedEventData`, och `EventHubCaptureFileCreatedEventData`.
+SDK:er för andra språk är tillgängliga via referensen [Publicera SDK:er.](./sdk-overview.md#data-plane-sdks) Dessa paket har modeller för inbyggda `EventGridEvent` `StorageBlobCreatedEventData`händelsetyper `EventHubCaptureFileCreatedEventData`som , och .
 
-Klicka på länken ”Visa filer” i din Azure-funktion (de flesta till höger i Azure functions-portalen) och skapa en fil med namnet project.json. Lägg till följande innehåll till den `project.json` och spara den:
+Klicka på länken "Visa filer" i din Azure-funktion (till höger i fönstret Azure-funktioner) och skapa en fil som heter project.json. Lägg till följande `project.json` innehåll i filen och spara det:
 
  ```json
 {
@@ -46,15 +46,15 @@ Klicka på länken ”Visa filer” i din Azure-funktion (de flesta till höger 
 }
 ```
 
-![Har lagts till NuGet-paketet](./media/receive-events/add-dependencies.png)
+![Tillagt NuGet-paket](./media/receive-events/add-dependencies.png)
 
-## <a name="endpoint-validation"></a>Slutpunktsvalideringen
+## <a name="endpoint-validation"></a>Validering av slutpunkt
 
-Det första som du vill göra är att hantera `Microsoft.EventGrid.SubscriptionValidationEvent` händelser. Varje gång någon prenumererar på en händelse Event Grid skickar en verifiering-händelse till slutpunkten med en `validationCode` i datanyttolasten för. Slutpunkten som krävs för att echo tillbaka detta i svarstexten till [bevisa slutpunkten är giltig och ägs av dig](security-authentication.md#webhook-event-delivery). Om du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) i stället för att en WebHook-funktion som utlöses, slutpunktsvalideringen hanteras åt dig. Om du använder en API-tjänst från tredje part (t.ex. [Zapier](https://zapier.com) eller [IFTTT](https://ifttt.com/)), kan du inte kunna programmässigt echo verifieringskoden. För dessa tjänster kan du manuellt verifiera prenumerationen med hjälp av en URL för verifiering som skickas i händelsen prenumeration verifiering. Kopiera URL: en i den `validationUrl` egenskapen och skicka en GET-begäran antingen via en REST-klient eller webbläsaren.
+Det första du vill göra `Microsoft.EventGrid.SubscriptionValidationEvent` är att hantera händelser. Varje gång någon prenumererar på en händelse skickar Event Grid `validationCode` en valideringshändelse till slutpunkten med en i datanyttolasten. Slutpunkten krävs för att upprepa detta tillbaka i svarsorganet för att bevisa att [slutpunkten är giltig och ägs av dig](security-authentication.md#webhook-event-delivery). Om du använder en utlösare för [händelserutnät](../azure-functions/functions-bindings-event-grid.md) i stället för en WebHook-utlöst funktion hanteras slutpunktsverifiering åt dig. Om du använder en API-tjänst från tredje part (som [Zapier](https://zapier.com) eller [IFTTT)](https://ifttt.com/)kanske du inte kan upprepa valideringskoden programmässigt. För dessa tjänster kan du manuellt validera prenumerationen med hjälp av en validerings-URL som skickas i prenumerationsverifieringshändelsen. Kopiera webbadressen `validationUrl` i egenskapen och skicka en GET-begäran antingen via en REST-klient eller din webbläsare.
 
-I C#, den `DeserializeEventGridEvents()` funktionen deserializes Event Grid-händelser. Den deserializes händelsedata till rätt typ, till exempel StorageBlobCreatedEventData. Använd den `Microsoft.Azure.EventGrid.EventTypes` klassen för att få stöds händelsetyper och namn.
+I C#, `DeserializeEventGridEvents()` deserialiserar funktionen händelserna Event Grid. Händelsedata deserialiserar händelsedata till lämplig typ, till exempel StorageBlobCreatedEventData. Använd `Microsoft.Azure.EventGrid.EventTypes` klassen för att hämta händelsetyper och namn som stöds.
 
-Använd följande kod för att programmässigt echo verifieringskoden. Du hittar exempel på [Grid händelsekonsument exempel](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer).
+Om du vill upprepa valideringskoden programmässigt använder du följande kod. Du hittar relaterade exempel i [exemplet Event Grid Consumer](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer).
 
 ```csharp
 using System.Net;
@@ -115,9 +115,9 @@ module.exports = function (context, req) {
 };
 ```
 
-### <a name="test-validation-response"></a>Testa verifieringssvaret
+### <a name="test-validation-response"></a>Svar på testvalidering
 
-Testa funktionen för validering svar genom att klistra in exempelhändelse till testfältet för funktionen:
+Testa valideringssvarsfunktionen genom att klistra in exempelhändelsen i testfältet för funktionen:
 
 ```json
 [{
@@ -134,13 +134,13 @@ Testa funktionen för validering svar genom att klistra in exempelhändelse till
 }]
 ```
 
-När du klickar på Kör utdata ska vara 200 OK och `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` i brödtext:
+När du klickar på Kör ska utdata `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` vara 200 OK och i brödtexten:
 
-![verifieringssvaret](./media/receive-events/validation-response.png)
+![valideringssvar](./media/receive-events/validation-response.png)
 
-## <a name="handle-blob-storage-events"></a>Hantera Blob storage-händelser
+## <a name="handle-blob-storage-events"></a>Hantera blob-lagringshändelser
 
-Nu ska vi utöka funktion för att hantera `Microsoft.Storage.BlobCreated`:
+Nu ska vi utöka funktionen `Microsoft.Storage.BlobCreated`för att hantera:
 
 ```cs
 using System.Net;
@@ -213,9 +213,9 @@ module.exports = function (context, req) {
 
 ```
 
-### <a name="test-blob-created-event-handling"></a>Testa Blob Skapad händelsehantering
+### <a name="test-blob-created-event-handling"></a>Test Blob Skapad händelsehantering
 
-Prova de nya funktionerna för funktionen genom att placera en [Blob storage-händelse](./event-schema-blob-storage.md#example-event) i testfältet och körs:
+Testa funktionens nya funktioner genom att placera en [Blob-lagringshändelse](./event-schema-blob-storage.md#example-event) i testfältet och köra:
 
 ```json
 [{
@@ -243,21 +243,21 @@ Prova de nya funktionerna för funktionen genom att placera en [Blob storage-hä
 }]
 ```
 
-Du bör se utdata för blob-URL: en i funktionsloggen för:
+Du bör se blob URL-utdata i funktionsloggen:
 
-![Loggen](./media/receive-events/blob-event-response.png)
+![Utdatalogg](./media/receive-events/blob-event-response.png)
 
-Du kan också testa genom att skapa ett Blob storage-konto eller General Purpose V2 (GPv2) Storage-konto, [att lägga till och händelseprenumerationen](../storage/blobs/storage-blob-event-quickstart.md), och ställa in slutpunkten funktions-URL:
+Du kan också testa genom att skapa ett Blob storage-konto eller Ett GPv2-konto (General Purpose V2), [lägga till och händelseprenumeration](../storage/blobs/storage-blob-event-quickstart.md)och ange slutpunkten i funktions-URL:en:
 
 ![Funktionswebbadress](./media/receive-events/function-url.png)
 
 ## <a name="handle-custom-events"></a>Hantera anpassade händelser
 
-Slutligen kan du utöka funktionen en gång till så att den kan också hantera anpassade händelser. 
+Slutligen kan utöka funktionen en gång till så att den också kan hantera anpassade händelser. 
 
-I C# SDK stöder mappar ett namn på evenemang till datatypen händelse. Använd den `AddOrUpdateCustomEventMapping()` funktionen för att mappa den anpassade händelsen.
+I C#stöder SDK att mappa ett händelsetypsnamn till händelsedatatypen. Använd `AddOrUpdateCustomEventMapping()` funktionen för att mappa den anpassade händelsen.
 
-Lägg till en kontroll för evenemanget `Contoso.Items.ItemReceived`. Sista koden bör se ut:
+Lägg till en `Contoso.Items.ItemReceived`check för ditt evenemang . Din slutliga kod ska se ut så här:
 
 ```cs
 using System.Net;
@@ -348,7 +348,7 @@ module.exports = function (context, req) {
 
 ### <a name="test-custom-event-handling"></a>Testa anpassad händelsehantering
 
-Slutligen testa att din funktion kan nu hantera dina anpassade Händelsetyp:
+Testa slutligen att din funktion nu kan hantera din anpassade händelsetyp:
 
 ```json
 [{
@@ -364,10 +364,10 @@ Slutligen testa att din funktion kan nu hantera dina anpassade Händelsetyp:
 }]
 ```
 
-Du kan också testa den här funktionen live av [skicka en anpassad händelse med CURL från portalen](./custom-event-quickstart-portal.md) eller [skicka information till ett anpassat ämne](./post-to-custom-topic.md) med hjälp av någon tjänst eller program som kan skicka till en slutpunkt som [Postman](https://www.getpostman.com/). Skapa ett anpassat ämne och en händelseprenumeration med slutpunkten som funktions-URL.
+Du kan också testa den här funktionen live genom [att skicka en anpassad händelse med CURL från portalen](./custom-event-quickstart-portal.md) eller genom att publicera ett anpassat [ämne](./post-to-custom-topic.md) med någon tjänst eller ett program som kan publicera till en slutpunkt som [Postman](https://www.getpostman.com/). Skapa ett anpassat ämne och en händelseprenumeration med slutpunktsuppsättningen som funktions-URL.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska den [Azure Event Grid Management och publicera SDK: er](./sdk-overview.md)
-* Lär dig hur du [publicera till ett anpassat ämne](./post-to-custom-topic.md)
-* Testa någon av fler djupgående självstudier för Event Grid och funktioner som [storleksändring av bilder har överförts till Blob storage](resize-images-on-storage-blob-upload-event.md)
+* Utforska [Azure Event Grid Management och publicera SDK:er](./sdk-overview.md)
+* Läs om hur du [gör inlägg i ett anpassat ämne](./post-to-custom-topic.md)
+* Prova en av de djupgående händelserutnät och funktioner tutorials som ändra storlek på bilder som [laddats upp till Blob-lagring](resize-images-on-storage-blob-upload-event.md)

@@ -1,6 +1,6 @@
 ---
-title: Översikt över skalning av medie bearbetning | Microsoft Docs
-description: Det här avsnittet innehåller en översikt över skalning av medie bearbetning med Azure Media Services.
+title: Översikt över bearbetning av mediebearbetning | Microsoft-dokument
+description: Det här avsnittet är en översikt över hur mediebearbetning med Azure Media Services skalas med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,54 +14,54 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
 ms.openlocfilehash: 780d3ab5047bff321d0c554880ba2995bcf25524
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70102915"
 ---
-# <a name="scaling-media-processing-overview"></a>Översikt över skalning av medie bearbetning 
-Den här sidan ger en översikt över hur och varför medie bearbetningen skalas. 
+# <a name="scaling-media-processing-overview"></a>Översikt över bearbetning av skalningsmedia 
+Den här sidan ger en översikt över hur och varför mediebearbetning ska skalas. 
 
 ## <a name="overview"></a>Översikt
-Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** eller **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**. Mer information finns i [reserverade enhets typer](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
+Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**. Mer information finns i [reserverade enhetstyper](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
 
-Förutom att ange typ av reserverad enhet kan du ange för att etablera ditt konto med reserverade enheter. Antalet etablerade reserverade enheter anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto. Om ditt konto till exempel har fem reserverade enheter körs fem medie uppgifter samtidigt så länge det finns aktiviteter som ska bearbetas. Återstående aktiviteter väntar i kön och hämtas för bearbetning i turordning när en aktivitet som körs slutförs. Om ett konto inte har några reserverade enheter, kommer uppgifter att hämtas sekventiellt. I det här fallet beror vänte tiden mellan en aktivitet och en start beroende på tillgängligheten för resurser i systemet.
+Förutom att ange den reserverade enhetstypen kan du ange att ditt konto ska etableras med reserverade enheter. Antalet etablerade reserverade enheter anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto. Om ditt konto till exempel har fem reserverade enheter körs fem medieuppgifter samtidigt så länge det finns uppgifter som ska bearbetas. De återstående uppgifterna väntar i kön och hämtas för bearbetning sekventiellt när en aktivitet som körs slutförs. Om ett konto inte har några etablerade reserverade enheter hämtas aktiviteter sekventiellt. I det här fallet beror väntetiden mellan en aktivitetsavbehandling och nästa start på tillgängligheten för resurser i systemet.
 
-## <a name="choosing-between-different-reserved-unit-types"></a>Välja mellan olika reserverade enhets typer
-I följande tabell får du hjälp att fatta ett beslut när du väljer mellan olika kodnings hastigheter. Det innehåller också några benchmark-fall på [en video som du kan ladda ned](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) för att utföra egna tester:
+## <a name="choosing-between-different-reserved-unit-types"></a>Välja mellan olika reserverade enhetstyper
+Följande tabell hjälper dig att fatta ett beslut när du väljer mellan olika kodningshastigheter. Det ger också några benchmark fall på [en video som du kan ladda ner](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) för att utföra dina egna tester:
 
-|RU-typ|Scenario|Exempel resultat för den [7](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) : a minimala 1080p-videon|
+|RU-typ|Scenario|Exempel resultat för [7 min 1080p video](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Kodning med enkel bit hastighet. <br/>Filer vid SD eller under upplösning, inte tids känsliga, låga kostnader.|Kodning till enkel bit hastighet för SD-fil med enkel bit hastighet med "H264, enkel bit hastighet SD 16x9" tar cirka 7 minuter.|
-| **S2**|Kodning med enkel bit hastighet och flera bit hastigheter.<br/>Normal användning för både SD-och HD-kodning.|Kodning med för inställningen "H264, enskild bit hastighet" tar cirka 6 minuter.<br/><br/>Kodning med för inställningen "H264, Multiple bit hastighet" tar cirka 12 minuter.|
-| **S3**|Kodning med enkel bit hastighet och flera bit hastigheter.<br/>Högupplösta HD-och 4K-lösningar. Tids känslig, snabbare svars tids kodning.|Kodning med en för inställning för "H264, enkel bit hastighet" tar cirka 3 minuter.<br/><br/>Encoding med för inställningen "H264, Multiplable bit/1080p" tar cirka 8 minuter.|
+| **S1**|Enkel bithastighetskodning. <br/>Filer på SD eller lägre upplösningar, inte tidskänsliga, låga kostnader.|Kodning till en enda bithastighet SD-upplösning MP4-fil med "H264 Single Bitrate SD 16x9" tar cirka 7 minuter.|
+| **S2**|Enkel bithastighet och flera bithastighetskodning.<br/>Normal användning för både SD- och HD-kodning.|Kodning med "H264 Single Bitrate 720p" förinställda tar cirka 6 minuter.<br/><br/>Kodning med "H264 Multiple Bitrate 720p" förinställda tar cirka 12 minuter.|
+| **S3**|Enkel bithastighet och flera bithastighetskodning.<br/>Full HD och 4K-upplösning videor. Tidskänslig, snabbare turnaround kodning.|Kodning med "H264 Single Bitrate 1080p" förinställda tar cirka 3 minuter.<br/><br/>Kodning med "H264 Multiple Bitrate 1080p" förinställda tar cirka 8 minuter.|
 
 ## <a name="considerations"></a>Överväganden
 > [!IMPORTANT]
-> Läs överväganden som beskrivs i det här avsnittet.  
+> Granska överväganden som beskrivs i det här avsnittet.  
 > 
 > 
 
-* För ljud analys-och video analys jobb som utlöses av Media Services v3 eller Video Indexer rekommenderas S3-enhets typ starkt.
-* Om du använder den delade poolen, det vill säga utan reserverade enheter, har dina kodade aktiviteter samma prestanda som i S1-ru: er. Det finns dock ingen övre gräns för den tid som dina aktiviteter kan spendera i köade tillstånd, och vid en och samma tidpunkt är det bara bara en aktivitet som kommer att köras.
+* För jobben Ljudanalys och videoanalys som utlöses av Media Services v3 eller Video Indexer rekommenderas S3-enhetstypen starkt.
+* Om du använder den delade poolen, det villa om att utan några reserverade enheter, har kodningsuppgifterna samma prestanda som med S1 Ru:er. Det finns dock ingen övre gräns för den tid som dina aktiviteter kan spendera i köläge, och vid varje given tidpunkt körs bara en aktivitet.
 
 ## <a name="billing"></a>Fakturering
 
-Du debiteras baserat på antalet minuter som de reserverade enheterna är etablerade i ditt konto. Detta inträffar oberoende av om det finns jobb som körs i ditt konto. En detaljerad förklaring finns i avsnittet vanliga frågor och svar i den [prissättning för Media Services](https://azure.microsoft.com/pricing/details/media-services/) sidan.   
+Du debiteras baserat på antalet minuter som de mediereserverade enheterna har etablerats i ditt konto. Detta sker oberoende av om det finns några jobb som körs i ditt konto. En detaljerad förklaring finns i avsnittet Vanliga frågor och svar på prissidan för [Media Services.](https://azure.microsoft.com/pricing/details/media-services/)   
 
 ## <a name="quotas-and-limitations"></a>Kvoter och begränsningar
-Information om kvoter och begränsningar och hur du öppnar ett support ärende finns i [kvoter och begränsningar](media-services-quotas-and-limitations.md).
+Information om kvoter och begränsningar och hur du öppnar en supportbiljett finns i [Kvoter och begränsningar](media-services-quotas-and-limitations.md).
 
 ## <a name="next-step"></a>Nästa steg
-Uppnå den skalnings bara medie bearbetnings uppgiften med någon av dessa tekniker: 
+Uppnå bearbetningsuppgiften för skalning av media med någon av dessa tekniker: 
 
 > [!div class="op_single_selector"]
-> * [NET](media-services-dotnet-encoding-units.md)
+> * [.NET](media-services-dotnet-encoding-units.md)
 > * [Portal](media-services-portal-scale-media-processing.md)
-> * [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
+> * [Resten](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+> * [Php](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 > 
 
 > [!NOTE]

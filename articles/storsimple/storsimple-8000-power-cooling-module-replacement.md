@@ -1,6 +1,6 @@
 ---
-title: 'Ersätt en PCM: en på din enhet i StorSimple 8000-serien | Microsoft Docs'
-description: Beskriver hur du tar bort och ersätter den kraft och kylning modulen (PCM) på din StorSimple-enhet
+title: Byt ut en PCM på storsimaple 8000-serien | Microsoft-dokument
+description: Förklarar hur du tar bort och byter ut Power and Cooling Module (PCM) på Din StorSimple-enhet
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -15,78 +15,78 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60632507"
 ---
-# <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Ersätt en ström och kylning modulen på StorSimple-enheten
+# <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Ersätta en energi- och kylningsmodul på StorSimple-enheten
 ## <a name="overview"></a>Översikt
-Ström och kylning modulen (PCM) i Microsoft Azure StorSimple-enheten består av en strömförsörjning och kylfläktar som styrs från den primära servern och EBOD-höljen. Det är bara en PCM som är certifierade för varje kabinett. Primär höljet är certifierad för en 764 W PCM och EBOD-hölje är certifierad för en 580 W PCM. Även om PCMs för primära höljet och EBOD-kabinett är olika, är ersättning proceduren identiska.
+Power and Cooling Module (PCM) i din Microsoft Azure StorSimple-enhet består av en strömförsörjnings- och kylfläktar som styrs via de primära och EBOD-kapslingarna. Det finns bara en modell av PCM som är certifierad för varje kapsling. Den primära kapslingen är certifierad för en 764 W PCM och EBOD-höljet är certifierat för en 580 W PCM. Även om PCM:erna för den primära kapslingen och EBOD-höljet är olika, är ersättningsproceduren identisk.
 
 I den här självstudien beskrivs hur du:
 
 * Ta bort en PCM
-* Installera en ersättning PCM
+* Installera en ersättnings-PCM
 
 > [!IMPORTANT]
-> Innan du tar bort och ersätter en PCM granska säkerhetsinformation i [StorSimple maskinvaruersättning komponenten](storsimple-8000-hardware-component-replacement.md).
+> Innan du tar bort och byter ut en PCM bör du läsa säkerhetsinformationen i [StorSimples maskinvarukomponentersättning](storsimple-8000-hardware-component-replacement.md).
 
 
-## <a name="before-you-replace-a-pcm"></a>Innan du ersätter en PCM
-Tänk på följande viktiga problem innan du ersätter din PCM:
+## <a name="before-you-replace-a-pcm"></a>Innan du byter ut en PCM
+Tänk på följande viktiga problem innan du byter ut din PCM:
 
-* Om det inte går att strömförsörjning i PCM, lämna felaktiga installerat modulen, men ta bort kontakten. Fläkten fortsätter att ta emot power från höljet och fortsätta att tillhandahålla rätt kylning. Om fläkten misslyckas måste PCM ersättas omedelbart.
-* Innan du tar bort PCM att koppla från kraften från PCM genom att stänga av den huvudsakliga växeln (om sådan finns) eller genom att fysiskt tar bort kontakten. Detta ger en varning visas för systemet att stänga power är nära förestående.
-* Kontrollera att den andra PCM fungerar korrekt för fortsatt systemfunktioner innan du ersätter felaktiga PCM. En felaktig PCM måste ersättas med ett fullt fungerande PCM så snart som möjligt.
-* PCM-modulen ersättning tar bara några minuter att slutföra, men den måste slutföras inom 10 minuter för att ta bort den misslyckade PCM för att förhindra överhettning.
-* Observera att de ersättning 764 W PCM moduler levereras från fabriken inte innehåller extrabatteri modulen. Du måste ta bort batteriet från din felaktiga PCM och infoga dem i modulen ersättning innan du utför ersättningen. Läs mer om hur du [ta bort och infoga en extrabatteri modul](storsimple-8000-battery-replacement.md).
+* Om strömförsörjningen till PCM går sönder lämnar du den felaktiga modulen installerad, men tar bort nätsladden. Fläkten kommer att fortsätta att ta emot ström från höljet och fortsätta att ge korrekt kylning. Om fläkten misslyckas måste PCM bytas ut omedelbart.
+* Innan du tar bort PCM kopplar du bort strömmen från PCM genom att stänga av huvudbrytaren (i förekommande fall) eller genom att fysiskt ta bort nätsladden. Detta ger en varning till ditt system om att en avstängning är nära förestående.
+* Se till att den andra PCM fungerar för fortsatt systemdrift innan du byter ut den felaktiga PCM. En felaktig PCM måste bytas ut av en fullt fungerande PCM så snart som möjligt.
+* PCM-modulbyte tar bara några minuter att slutföra, men det måste slutföras inom 10 minuter efter att du tagit bort den misslyckade PCM för att förhindra överhettning.
+* Observera att de 764 W PCM-moduler som levereras från fabriken inte innehåller batterimodulen för säkerhetskopiering. Du måste ta bort batteriet från din felaktiga PCM och sedan sätta in det i ersättningsmodulen innan du utför bytet. Mer information finns i hur du [tar bort och sätter i en batterimodul för säkerhetskopiering](storsimple-8000-battery-replacement.md).
 
 ## <a name="remove-a-pcm"></a>Ta bort en PCM
-Följ dessa anvisningar när du är redo att ta bort en ström och kylning modulen (PCM) från Microsoft Azure StorSimple-enheten.
+Följ dessa instruktioner när du är redo att ta bort en PCM (Power and Cooling Module) från din Microsoft Azure StorSimple-enhet.
 
 > [!NOTE]
-> Innan du tar bort din PCM kan du kontrollera att du har rätt ersättning (764 V för primära höljet) eller 580 W för EBOD-höljet.
+> Innan du tar bort DIN PCM kontrollerar du att du har rätt ersättning (764 W för den primära höljet eller 580 W för EBOD-höljet).
 
-#### <a name="to-remove-a-pcm"></a>Ta bort en PCM
-1. I den klassiska Azure-portalen klickar du på **Inställningar > övervaka > hälsotillstånd för maskinvara**. Kontrollera status för PCM-komponenter under **delade komponenter** att identifiera vilka PCM misslyckades:
+#### <a name="to-remove-a-pcm"></a>Så här tar du bort en PCM
+1. Klicka på Inställningar > övervaka > maskinvaruhälsa i Den klassiska **Azure-portalen**. Kontrollera status för PCM-komponenter under **Delade komponenter** för att identifiera vilken PCM som har misslyckats:
    
-   * Om en strömförsörjning i PCM 0 har misslyckats, status för **strömförsörjning i PCM 0** blir röd.
-   * Om en strömförsörjning i PCM 1 har misslyckats, status för **strömförsörjning i PCM 1** blir röd.
-   * Om fläkten i PCM 1 har misslyckats, status för antingen **kylning 0 för PCM 0** eller **kylning 1 för PCM 0** blir röd.
-2. Leta upp den misslyckade PCM på baksidan av primära höljet. Om du använder en modell 8600 identifiera primära höljet genom att titta på System enhet ID-numret visas på panelen LED-skärm. Standard enhets-ID som visas på det primära höljet är **00**, medan standard enhets-ID som visas på EBOD-hölje är **01**. Följande diagram och tabell förklarar frontpanel för LED-skärmen.
+   * Om en strömförsörjning i PCM 0 har misslyckats blir statusen **för strömförsörjningen i PCM 0** röd.
+   * Om en strömförsörjning i PCM 1 har misslyckats, kommer statusen **för strömförsörjningen i PCM 1** att vara röd.
+   * Om fläkten i PCM 1 har misslyckats, kommer statusen för antingen **Cooling 0 för PCM 0** eller **Cooling 1 för PCM 0** att vara röd.
+2. Leta reda på den misslyckade PCM på baksidan av den primära inneslutningen. Om du kör en 8600-modell identifierar du den primära höljet genom att titta på systemenhetens identifieringsnummer som visas på frontpanelens LED-display. Standardenhets-ID som visas på den primära höljet är **00,** medan standardenhets-ID som visas på EBOD-höljet är **01**. I följande diagram och tabell förklaras lysdiodernas frontpanel.
    
-    ![Systemid för OPS frontpanel](./media/storsimple-power-cooling-module-replacement/IC740991.png)
+    ![System-ID på ops-panelen på framsidan](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
-     **Bild 1** fram panelen för enheten  
-   
-   | Label (Etikett) | Beskrivning |
-   |:--- |:--- |
-   | 1 |Ljud av |
-   | 2 |System power |
-   | 3 |Modulen fel |
-   | 4 |Logiska fel |
-   | 5 |Visa för enhet-ID |
-3. Övervakningsindikatorer på baksidan primära höljet kan också användas för att identifiera den felaktiga PCM. Se följande diagram och tabell för att förstå hur du använder de led: ar för att hitta den felaktiga PCM. Till exempel om det LED som motsvarar den **fläkt misslyckas** är tänd, fläkten misslyckades. På samma sätt, om den LED motsvarar **AC misslyckas** är tänd, strömförsörjningen misslyckades. 
-   
-    ![Serverdelen av enheten PCM övervakningsindikatorer](./media/storsimple-power-cooling-module-replacement/IC740992.png)
-   
-     **Bild 2** tillbaka of PCM med övervakningsindikatorer
+     **Bild 1** Enhetens frontpanel  
    
    | Label (Etikett) | Beskrivning |
    |:--- |:--- |
-   | 1 |AC-strömavbrott |
-   | 2 |Fläkt fel |
-   | 3 |Batteri fel |
+   | 1 |Ljudavstängning |
+   | 2 |Systemström |
+   | 3 |Modul fel |
+   | 4 |Logiskt fel |
+   | 5 |Enhets-ID-skärm |
+3. The monitoring indicator LEDs in the back of the primary enclosure can also be used to identify the faulty PCM. Se följande diagram och tabell för att förstå hur du använder lysdioderna för att hitta den felaktiga PCM. Om till exempel lysdioden som motsvarar **fläkten misslyckas** tänds har fläkten misslyckats. På samma sätt, om lysdioden som motsvarar **AC Fail** lyser, har strömförsörjningen misslyckats. 
+   
+    ![Bakplan av pcm-övervakningsindikator för enheten](./media/storsimple-power-cooling-module-replacement/IC740992.png)
+   
+     **Bild 2** Baksidan av PCM med indikatorlysdioder
+   
+   | Label (Etikett) | Beskrivning |
+   |:--- |:--- |
+   | 1 |Strömavbrott |
+   | 2 |Fläktfel |
+   | 3 |Batterifel |
    | 4 |PCM OK |
-   | 5 |DC strömavbrott |
-   | 6 |Batteri är felfria |
-4. Se följande diagram på baksidan av StorSimple-enheten för att hitta den misslyckade PCM-modulen. PCM 0 är till vänster och PCM 1 till höger. Tabellen nedan beskrivs modulerna.
+   | 5 |Dc strömavbrott |
+   | 6 |Batteriet är hälsosamt |
+4. Se följande diagram på baksidan av StorSimple-enheten för att hitta den misslyckade PCM-modulen. PCM 0 är till vänster och PCM 1 är till höger. Tabellen som följer förklarar modulerna.
    
-     ![Serverdelen av enhetens primära Höljesmoduler](./media/storsimple-power-cooling-module-replacement/IC740994.png)
+     ![Bakplan av enhetens primära kapslingsmoduler](./media/storsimple-power-cooling-module-replacement/IC740994.png)
    
-     **Bild 3** baksidan av enheten med plugin-program 
+     **Bild 3** Baksidan av enheten med plug-in-moduler 
    
    | Label (Etikett) | Beskrivning |
    |:--- |:--- |
@@ -94,51 +94,51 @@ Följ dessa anvisningar när du är redo att ta bort en ström och kylning modul
    | 2 |PCM 1 |
    | 3 |Kontrollant 0 |
    | 4 |Kontrollant 1 |
-5. Stäng av felaktiga PCM och koppla från strömsladd för leverans. Du kan nu ta bort PCM.
-6. Rapportelementen låset och serversidan referensens PCM mellan tummen och pekfingret och klämma dem tillsammans för att öppna referensen.
+5. Stäng av den felaktiga PCM-datorn och koppla bort nätsladden. Du kan nu ta bort PCM.
+6. Ta tag i spärren och sidan av PCM-handtaget mellan tummen och pekfingret och tryck ihop dem för att öppna handtaget.
    
-    ![Öppna en PCM referens](./media/storsimple-power-cooling-module-replacement/IC740995.png)
+    ![Öppna PCM-handtag](./media/storsimple-power-cooling-module-replacement/IC740995.png)
    
-    **Bild 4** att öppna PCM-referens
-7. Krama referensen och ta bort PCM.
+    **Bild 4** Öppna PCM-handtaget
+7. Ta tag i handtaget och ta bort PCM.
    
-    ![Ta bort enhet PCM](./media/storsimple-power-cooling-module-replacement/IC740996.png)
+    ![Ta bort PCM för enhet](./media/storsimple-power-cooling-module-replacement/IC740996.png)
    
-    **Bild 5** tar bort PCM
+    **Bild 5** Ta bort PCM
 
-## <a name="install-a-replacement-pcm"></a>Installera en ersättning PCM
-Följ dessa instruktioner för att installera en PCM i din StorSimple-enhet. Se till att du har satt extrabatteri modulen innan du installerar att ersätta PCM (gäller endast 764 W PCMs). Läs mer om hur du [ta bort och infoga en extrabatteri modul](storsimple-8000-battery-replacement.md).
+## <a name="install-a-replacement-pcm"></a>Installera en ersättnings-PCM
+Följ dessa instruktioner för att installera en PCM i Din StorSimple-enhet. Kontrollera att du har satt i batterimodulen för säkerhetskopiering innan du installerar pcm-ersättningen (gäller endast 764 W PCMs). Mer information finns i hur du [tar bort och sätter i en batterimodul för säkerhetskopiering](storsimple-8000-battery-replacement.md).
 
-#### <a name="to-install-a-pcm"></a>Att installera en PCM
-1. Kontrollera att du har rätt ersättningen PCM för den här höljet. Primär höljet måste en 764 W PCM och EBOD-höljet måste en 580 W PCM. Du bör inte försöka använda 580 W PCM i det primära höljet eller 764 W PCM i EBOD-hölje. Följande bild visar var du vill identifiera den här informationen på den etikett som fästs på PCM.
+#### <a name="to-install-a-pcm"></a>Så här installerar du en PCM
+1. Kontrollera att du har rätt ersättnings-PCM för den här höljet. Den primära kapslingen behöver en 764 W PCM och EBOD-höljet behöver en 580 W PCM. Du bör inte försöka använda 580 W PCM i primärhöljet eller 764 W PCM i EBOD-höljet. Följande bild visar var den här informationen ska identifieras på etiketten som är anbringad på PCM.
    
-    ![Enheten PCM etikett](./media/storsimple-power-cooling-module-replacement/IC740973.png)
+    ![PCM-etikett för enhet](./media/storsimple-power-cooling-module-replacement/IC740973.png)
    
-    **Bild 6** PCM etikett
-2. Sök efter skador höljet var särskilt uppmärksam på anslutningarna. 
+    **Bild 6** PCM-etikett
+2. Kontrollera om det finns skador på höljet, med särskild uppmärksamhet på kontakterna. 
    
    > [!NOTE]
-   > **Installera inte modulen om alla connector stift är böjda.**
+   > **Installera inte modulen om några kontaktstift är böjda.**
    > 
    > 
-3. Dra modulen till höljet med PCM-referensen i öppet läge.
+3. Med PCM-handtaget i öppet läge skjuter du modulen in i höljet.
    
-    ![Installera enheten PCM](./media/storsimple-power-cooling-module-replacement/IC740975.png)
+    ![Installera PCM för enhet](./media/storsimple-power-cooling-module-replacement/IC740975.png)
    
-    **Bild 7** installerar PCM
-4. Stäng manuellt PCM-referensen. Du bör höra ett klick som talar med referensen spärr.
-   
-   > [!NOTE]
-   > För att säkerställa att PIN-koder för anslutningstjänsten har utövar, kan du försiktigt tug på referensen utan att släppa låset. Om PCM skjuts ut, innebär det att låset stängdes innan anslutningarna engagerade.
-   
-5. Ansluta strömkablarna till en strömkälla och till PCM.
-6. Skydda belastningen befrielse balar.
-7. Aktivera PCM.
-8. Verifiera att ersättningen lyckades: navigera till din enhet i Azure-portalen för StorSimple Device Manager-tjänsten och sedan till **Inställningar > övervaka > hälsotillstånd för maskinvara**. Under den **delade komponenter**, status för PCM vara grön.
+    **Bild 7** Installera PCM
+4. Stäng PCM-handtaget manuellt. Du bör höra ett klick när handtaget spärren engagerar.
    
    > [!NOTE]
-   > Det kan ta några minuter för att ersätta PCM att initiera helt.
+   > För att säkerställa att kontaktstiften har aktiverats kan du försiktigt dra i handtaget utan att lossa spärren. Om PCM glider ut innebär det att spärren stängdes innan kontakterna aktiverades.
+   
+5. Anslut strömkablarna till strömkällan och till PCM.
+6. Säkra dragavlastningsbalarna.
+7. Slå på PCM.
+8. Kontrollera att ersättningen lyckades: i Azure-portalen för tjänsten StorSimple Device Manager navigerar du till enheten och går sedan till **Inställningar > Övervaka > maskinvaruhälsa**. Under de **delade komponenterna**ska PCM:s status vara grön.
+   
+   > [!NOTE]
+   > Det kan ta några minuter för ersättning PCM att helt initiera.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [StorSimple maskinvaruersättning komponenten](storsimple-8000-hardware-component-replacement.md).
+Läs mer om byte av [Maskinvarukomponent i StorSimple](storsimple-8000-hardware-component-replacement.md).
 

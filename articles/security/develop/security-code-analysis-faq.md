@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor om dokumentation om Microsoft Security code Analysis
-description: Den här artikeln innehåller vanliga frågor och svar om tillägget Microsoft Security code Analysis
+title: Vanliga frågor och svar om Microsoft Security Code Analysis-dokumentation
+description: Den här artikeln innehåller en vanliga frågor och svar om tillägget Microsoft Security Code Analysis
 author: vharindra
 manager: sukhans
 ms.author: terrylan
@@ -13,98 +13,98 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74851527"
 ---
-# <a name="frequently-asked-questions"></a>Vanliga frågor
-Har du frågor? Läs följande vanliga frågor och svar om du vill ha mer information.
+# <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+Har du frågor? Läs följande vanliga frågor och svar för mer information.
 
 ## <a name="general-faq"></a>Vanliga frågor och svar
 
 ### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>Kan jag installera tillägget på min Visual Studio Team Foundation Server-instans i stället för på en Azure DevOps-instans?
 
-Nej. Tillägget är inte tillgängligt för hämtning och installation av Visual Studio Team Foundation Server.
+Nej. Tillägget är inte tillgängligt för nedladdning och installation för Visual Studio Team Foundation Server.
 
-### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>Måste jag köra Microsofts säkerhets kod analys med min version? 
+### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>Måste jag köra Microsoft Security Code Analysis med min version? 
 
-Kanske. Det beror på typen av analys verktyg. Käll koden kan vara det enda som krävs, eller så kan du behöva bygga utdata.
+Kanske. Det beror på vilken typ av analysverktyg. Källkoden kan vara det enda som krävs, eller byggutdata kan krävas.
 
-Till exempel, CredScan (Credential scanner) analyserar filer i mappstrukturen för kod lagrings platsen. På grund av den här analysen kan du köra CredScan och publicera säkerhets analys loggar i en fristående version för att få resultat.
+CredScan (Credential Scanner) analyserar till exempel filer i koddatabasens mappstruktur. På grund av den här analysen kan du köra credscan- och publicera säkerhetsanalysloggar skapa uppgifter i en fristående version för att få resultat.
 
-För andra verktyg som BinSkim som analyserar efter build-artefakter krävs versionen först.
+För andra verktyg som BinSkim som analyserar post-build artefakter, bygget krävs först.
 
-### <a name="can-i-break-my-build-when-results-are-found"></a>Kan jag avbryta min version när det finns resultat?
+### <a name="can-i-break-my-build-when-results-are-found"></a>Kan jag bryta min version när resultaten hittas?
 
-Ja. Du kan införa en Bygg rast när ett verktyg rapporterar ett problem i logg filen. Lägg bara till bygg aktiviteten efter analys och markera kryss rutan för alla verktyg som du vill bryta skapandet för.
+Ja. Du kan introducera en byggbrytning när ett verktyg rapporterar ett problem eller problem i loggfilen. Lägg bara till aktiviteten Efter analys och markera kryssrutan för alla verktyg som du vill bryta bygget för.
 
-I användar gränssnittet för aktiviteten efter analys kan du välja att avbryta versionen när ett verktyg rapporterar antingen fel eller både fel och varningar.
+I användargränssnittet för aktiviteten Efter analys kan du välja att bryta versionen när ett verktyg rapporterar antingen fel eller både fel och varningar.
 
-### <a name="how-do-the-command-line-arguments-in-azure-devops-differ-from-those-arguments-in-the-standalone-desktop-tools"></a>Hur skiljer sig kommando rads argumenten i Azure DevOps från dessa argument i de fristående Skriv bords verktygen? 
+### <a name="how-do-the-command-line-arguments-in-azure-devops-differ-from-those-arguments-in-the-standalone-desktop-tools"></a>Hur skiljer sig kommandoradsargumenten i Azure DevOps från argumenten i de fristående skrivbordsverktygen? 
 
-För det mesta är Azure DevOps build-aktiviteterna direkta omslutningar runt kommando rads argumenten för säkerhets verktygen. Du kan skicka som argument till en Bygg aktivitet som du vanligt vis skickar till ett kommando rads verktyg.
+För det mesta är Azure DevOps-bygguppgifterna direkta omslag runt kommandoradsargumenten i säkerhetsverktygen. Du kan skicka som argument till en bygguppgift allt som du normalt skickar till ett kommandoradsverktyg.
 
 Märkbara skillnader:
 
-- Verktygen körs från källmappen i agenten $ (build. SourcesDirectory) eller från% BUILD_SOURCESDIRECTORY%. Ett exempel är C:\Agent\_work\1\s.
-- Sökvägar i argumenten kan vara relativa till roten i den käll katalog som anges ovan. Sökvägar kan också vara absoluta. Du får absoluta sökvägar antingen genom att använda Azure DevOps build-variabler eller genom att köra en lokal agent med kända distributions platser för lokala resurser.
-- Verktyg tillhandahåller automatiskt en sökväg eller mapp till utdatafilen. Om du anger en utmatnings plats för en build-uppgift ersätts platsen med en sökväg till vår välkända plats för loggar på Build-agenten
-- Vissa ytterligare kommando rads argument har ändrats för vissa verktyg. Ett exempel är tillägg eller borttagning av alternativ som garanterar att inget användar gränssnitt startas.
+- Verktyg körs från källmappen för agenten $(Build.SourcesDirectory) eller från %BUILD_SOURCESDIRECTORY%. Ett exempel är C:\agent\_work\1\s.
+- Sökvägar i argumenten kan vara relativa till roten i den källkatalog som tidigare listats. Banor kan också vara absoluta. Du får absoluta sökvägar antingen genom att använda Azure DevOps Build Variables eller genom att köra en lokal agent med kända distributionsplatser för lokala resurser.
+- Verktygen tillhandahåller automatiskt en sökväg eller mapp för utdatafilen. Om du anger en utdataplats för en bygguppgift ersätts den platsen med en sökväg till vår välkända plats för loggar på byggagenten
+- Vissa ytterligare kommandoradsargument ändras för vissa verktyg. Ett exempel är tillägg eller borttagning av alternativ som säkerställer att inget grafiskt gränssnitt startas.
 
-### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>Kan jag köra en build-aktivitet som en skanner för autentiseringsuppgifter över flera databaser i en Azure DevOps-version?
+### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>Kan jag köra en bygguppgift som Autentiseringsskanner över flera databaser i en Azure DevOps Build?
 
-Nej. Det finns inte stöd för att köra säkra utvecklings verktyg över flera databaser i en enda pipeline.
+Nej. Det går inte att köra de säkra utvecklingsverktygen i flera databaser i en enda pipeline.
 
-### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>Den utdatafil som jag har angett skapas inte eller så går det inte att hitta den utdatafil som jag har angett
+### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>Utdatafilen som jag angav skapas inte eller så hittar jag inte utdatafilen som jag angav
 
-Bygg aktiviteter filtrerar vissa användarindata. För den här frågan är det särskilt att uppdatera platsen för den genererade utdatafilen till en gemensam plats på Build-agenten. Mer information om den här platsen finns i följande frågor.
+Bygguppgifterna filtrerar vissa användarindata. För den här frågan specifikt uppdaterar de platsen för den genererade utdatafilen för att vara en gemensam plats på byggagenten. Mer information om den här platsen finns i följande frågor.
 
-### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Var sparas utdatafilerna som genereras av verktygen? 
+### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Var sparas utdatafilerna av verktygen? 
 
-Bygg aktiviteterna lägger automatiskt till utdata sökvägar till den här välkända platsen på Build-agenten: $ (agent. BuildDirectory)\_sdt\logs. Eftersom vi är standardiserade på den här platsen har alla team som skapar eller använder kod analys loggar till gång till utdata.
+Byggaktiviteterna lägger automatiskt till utdatasökvägar till den här välkända platsen på\_byggagenten: $(Agent.BuildDirectory) sdt\logs. Eftersom vi standardiserar på den här platsen har alla team som producerar eller använder kodanalysloggar åtkomst till utdata.
 
-### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Kan jag köa en build för att köra dessa uppgifter på en värdbaserad build-agent? 
+### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Kan jag köa en version för att köra dessa uppgifter på en värdbyggagent? 
 
-Ja. Alla aktiviteter och verktyg i tillägget kan köras på en värdbaserad build-agent.
+Ja. Alla uppgifter och verktyg i tillägget kan köras på en värdbyggd byggagent.
 
 >[!NOTE]
-> Build-uppgiften för program mot skadlig kod kräver en build-agent med Windows Defender aktiverat. Den värdbaserade Visual Studio 2017 och senare innehåller en sådan agent. Bygg aktiviteten körs inte på den värdbaserade agenten för Visual Studio 2015.
+> Build-uppgiften Mot Skadlig Kod kannning kräver en byggagent med Windows Defender aktiverat. Hosted Visual Studio 2017 och senare tillhandahålla en sådan agent. Bygguppgiften körs inte på den värdbaserade Visual Studio 2015-agenten.
 >
-> Även om signaturer inte kan uppdateras på dessa agenter bör signaturer alltid vara mindre än tre timmar gamla.
+> Även om signaturer inte kan uppdateras på dessa agenter, bör signaturer alltid vara mindre än tre timmar gamla.
 
-### <a name="can-i-run-these-build-tasks-as-part-of-a-release-pipeline-as-opposed-to-a-build-pipeline"></a>Kan jag köra dessa build-uppgifter som en del av en versions pipeline i stället för en build-pipeline?
+### <a name="can-i-run-these-build-tasks-as-part-of-a-release-pipeline-as-opposed-to-a-build-pipeline"></a>Kan jag köra dessa bygguppgifter som en del av en versionspipeline i motsats till en byggpipeline?
 
-Ja, i de flesta fall.
+I de flesta fall, ja.
 
-Azure DevOps stöder dock inte körning av aktiviteter i versions pipeliner när aktiviteterna publicerar artefakter. Denna bristande support förhindrar att aktiviteten publicera säkerhets analys loggar kan köras i en versions pipeline. Aktiviteten kan i stället Miss lyckas med ett beskrivande fel meddelande.
+Azure DevOps stöder dock inte att utföra uppgifter i versionspipelines när dessa uppgifter publicerar artefakter. Den här bristen på stöd förhindrar att aktiviteten Publicera säkerhetsanalysloggar körs i en versionspipeline. Uppgiften misslyckas i stället med ett beskrivande felmeddelande.
 
-### <a name="from-where-do-the-build-tasks-download-the-tools"></a>Varifrån kan du hämta verktygen med Bygg aktiviteterna?
+### <a name="from-where-do-the-build-tasks-download-the-tools"></a>Varifrån hämtar bygguppgifterna verktygen?
 
-Med build-uppgifter kan du hämta verktygnas NuGet-paket från [Azure DevOps Package Management-flödet](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json). Bygg uppgifter kan också använda Node Package Manager, som måste förinstalleras på Build-agenten. Ett exempel på en sådan installation är kommandot **NPM install tslint**.
+Skapa uppgifter kan hämta verktygens NuGet-paket från [Azure DevOps Package Management feed](https://securitytools.pkgs.visualstudio.com/_packaging/SecureDevelopmentTools/nuget/v3/index.json). Bygguppgifter kan också använda Nod Package Manager, som måste förinstalleras på byggagenten. Ett exempel på en sådan installation är kommandot **npm installera tslint**.
 
-### <a name="what-effect-does-installing-the-extension-have-on-my-azure-devops-organization"></a>Vilken funktion installerar tillägget på min Azure DevOps-organisation? 
+### <a name="what-effect-does-installing-the-extension-have-on-my-azure-devops-organization"></a>Vilken effekt har installationen av tillägget på min Azure DevOps-organisation? 
 
-Vid installationen blir de säkerhets build-uppgifter som tillhandahålls av tillägget tillgängliga för alla användare i din organisation. När du skapar eller redigerar en Azure-pipeline är dessa uppgifter tillgängliga från samlings listan för build-Task. Annars har du ingen påverkan på hur du installerar tillägget i din Azure DevOps-organisation. Installationen ändrar inte några konto inställningar, projekt inställningar eller pipeliner.
+Vid installationen blir säkerhetsbyggen som tillhandahålls av tillägget tillgängliga för alla användare i organisationen. När du skapar eller redigerar en Azure Pipeline är dessa uppgifter tillgängliga från samlingslistan för build-task. Annars har det ingen effekt att installera tillägget i din Azure DevOps-organisation. Installationen ändrar inga kontoinställningar, projektinställningar eller pipelines.
 
-### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>Vill du installera tillägget ändra mina befintliga Azure-pipeliner? 
+### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>Ändrar installationen av tillägget mina befintliga Azure Pipelines? 
 
-Nej. Om du installerar tillägget blir säkerhets byggen tillgängliga för att lägga till dina pipeliner. Du måste fortfarande lägga till eller uppdatera Bygg definitioner, så att verktygen kan arbeta med din Bygg process.
+Nej. Om du installerar tillägget blir säkerhetsversionsuppgifterna tillgängliga för tillägg till dina pipelines. Du måste fortfarande lägga till eller uppdatera byggdefinitioner, så att verktygen kan fungera med byggprocessen.
 
-## <a name="task-specific-faq"></a>Vanliga frågor och svar om aktiviteter
+## <a name="task-specific-faq"></a>Uppgiftsspecifika vanliga frågor och svar
 
-Frågor som är specifika för att bygga uppgifter visas i det här avsnittet.
+Frågor som är specifika för att skapa uppgifter visas i det här avsnittet.
 
 ### <a name="credential-scanner"></a>Skanner för autentiseringsuppgifter
 
-#### <a name="what-are-common-suppression-scenarios-and-examples"></a>Vad är vanliga undervisnings scenarier och exempel?
+#### <a name="what-are-common-suppression-scenarios-and-examples"></a>Vad är vanliga undertryckande scenarier och exempel?
 
-Här följer information om två av de vanligaste undervisnings scenarierna.
+Här är information om två av de vanligaste undertryckande scenarier.
 
-##### <a name="to-suppress-all-occurrences-of-a-given-secret-within-the-specified-path"></a>För att utelämna alla förekomster av en viss hemlighet inom den angivna sökvägen
+##### <a name="to-suppress-all-occurrences-of-a-given-secret-within-the-specified-path"></a>Så här undertrycker du alla förekomster av en viss hemlighet i den angivna sökvägen
 
-Hash-nyckeln för hemligheten från CredScan-utdatafilen krävs på det sätt som visas i följande exempel.
+Hash-nyckeln för hemligheten från CredScan-utdatafilen krävs enligt följande exempel.
 
         {
             "tool": "Credential Scanner",
@@ -117,21 +117,21 @@ Hash-nyckeln för hemligheten från CredScan-utdatafilen krävs på det sätt so
         }
 
 >[!WARNING]
-> Hash-nyckeln genereras av en del av matchning svärdet eller fil innehållet. Eventuell käll kods revision kan ändra hash-nyckeln och inaktivera regeln för att utelämna.
+> Hash-nyckeln genereras av en del av det matchande värdet eller filinnehållet. Alla källkodsändringar kan ändra hash-tangenten och inaktivera dämpningsregeln.
 
-##### <a name="to-suppress-all-secrets-in-a-specified-file-or-to-suppress-the-secrets-file-itself"></a>För att ignorera alla hemligheter i en angiven fil eller för att undertrycka själva hemligheter filen
+##### <a name="to-suppress-all-secrets-in-a-specified-file-or-to-suppress-the-secrets-file-itself"></a>Så här undertrycker du alla hemligheter i en angiven fil eller för att undertrycka själva hemlighetsfilen
 
-Fil uttrycket kan vara ett fil namn. Det kan också vara basename delen av en fullständig fil Sök väg eller ett fil namn. Jokertecken stöds inte.
+Filuttrycket kan vara ett filnamn. Det kan också vara basnamnet del av en fullständig filsökväg eller ett filnamn. Jokertecken stöds inte.
 
-I följande exempel visas hur du döljer filen \<InputPath > \src\JS\lib\angular.js
+I följande exempel visas hur \<du undertrycker indatapath-filen>\src\JS\lib\angular.js
 
-Exempel på giltiga undertrycks regler:
+Exempel på giltiga undertryckande regler:
 
-- \<InputPath > \src\JS\lib\angular.js-förhindrar filen på den angivna sökvägen
+- \<InputPath>\src\JS\lib\angular.js - undertrycker filen i den angivna sökvägen
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
-- vinkel. js-ignorerar alla filer med samma namn
+- angular.js - undertrycker alla filer med samma namn
 
         {
             "tool": "Credential Scanner",
@@ -148,80 +148,80 @@ Exempel på giltiga undertrycks regler:
         }      
 
 >[!WARNING] 
-> Alla framtida hemligheter som läggs till i filen ignoreras också automatiskt.
+> Alla framtida hemligheter som läggs till i filen kommer också att undertryckas automatiskt.
 
-#### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>Vilka är rekommenderade rikt linjer för att hantera hemligheter?
+#### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>Vilka är rekommenderade riktlinjer för hantering av hemligheter?
 
-Med följande resurser kan du på ett säkert sätt hantera hemligheter och komma åt känslig information i dina program:
+Följande resurser hjälper dig att hantera hemligheter på ett säkert sätt och få tillgång till känslig information inifrån dina program:
 
  - [Azure Key Vault](../../key-vault/index.yml)
  - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
- - [Azure AD-Hanterad tjänstidentitet (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
+ - [Azure AD-hanterad tjänstidentitet (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Hanterade identiteter i Azure App Service och Azure Functions](../../app-service/overview-managed-identity.md)
- - [AppAuthentication-bibliotek](../../key-vault/service-to-service-authentication.md)
+ - [AppAuthentication bibliotek](../../key-vault/service-to-service-authentication.md)
 
 
-Mer information finns i blogg inlägget [Hantera hemligheter på ett säkert sätt i molnet](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
+Mer information finns i blogginlägget [Hantera hemligheter säkert i molnet](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
 
-#### <a name="can-i-write-my-own-custom-searchers"></a>Kan jag skriva egna anpassade sökre?
+#### <a name="can-i-write-my-own-custom-searchers"></a>Kan jag skriva mina egna anpassade sökare?
 
-Den här typen av autentiseringsuppgifter förlitar sig på en uppsättning innehålls sökre som är vanligt definierade i filen buildsearchers. xml. Filen innehåller en matris med serialiserade XML-objekt som representerar ett **ContentSearcher** -objekt. Programmet distribueras med en uppsättning vältestade sökverktyg. Men du kan även implementera egna anpassade sökverktyg.
+Autentiseringsläsare förlitar sig på en uppsättning innehållssökare som vanligen definieras i filen buildsearchers.xml. Filen innehåller en matris med serialiserade XML-objekt som representerar ett **ContentSearcher-objekt.** Programmet distribueras med en uppsättning väl testade sökare. Men du kan implementera dina egna anpassade sökare också.
 
-En innehålls sökre definieras enligt följande:
+En innehållssökare definieras på följande sätt:
 
-- **Namn**: namnet på den beskrivande sökmotor som ska användas i utdatafilen för autentiseringsuppgifter. Vi rekommenderar att du använder namngivnings konventionen kamel notation för Sök efter namn.
-- **RuleID**: det stabila täckande ID: t för Sök funktionen:
-    - En standard sökre för en autentiseringsuppgift-skanner tilldelas ett **RuleID** -värde som CSCAN0010, CSCAN0020 eller CSCAN0030. Den sista siffran är reserverad för att slå samman eller dela upp Sök grupper via reguljära uttryck (regex).
-    - **RuleID** -värdet för en anpassad sökning måste ha ett eget namn område. Exempel är CSCAN-\<namn område\>0010, CSCAN-\<namespace\>0020 och CSCAN-\<namespace\>0030.
-    - Ett fullständigt kvalificerat Sök namn är kombinationen av ett **RuleID** -värde och ett Sök förnamn. Exempel är CSCAN0010. KeyStoreFiles och CSCAN0020. Base64EncodedCertificate.
-- **ResourceMatchPattern**: regex för fil namns tillägg för att kontrol lera mot Sök funktionen.
-- **ContentSearchPatterns**: en matris med strängar som innehåller regex-uttryck som ska matchas. Om inga Sök mönster har definierats returneras alla filer som matchar **ResourceMatchPattern** -värdet.
-- **ContentSearchFilters**: en matris med strängar som innehåller regex-instruktioner för att filtrera sökalternativ som är Specific false-identifieringar.
-- **MatchDetails**: ett beskrivande meddelande, mildrande instruktioner eller båda för att läggas till för varje matchning av Sök funktionen.
-- **Rekommendation**: förslag – fält innehåll för en matchning med hjälp av för snabb rapport formatet.
-- **Allvarlighets grad**: ett heltal som visar allvarlighets graden för ett problem. Den högsta allvarlighets graden har värdet 1.
+- **Namn**: Det beskrivande söknamnet som ska användas i Autentiseringsläsares utdatafiler. Vi rekommenderar att du använder namngivningskonventionen för att söka eftersöksjägaren.
+- **RuleId**: Sökarens stabila ogenomskinliga ID:
+    - En standardsökare för autentiseringsuppgifter tilldelas ett **RuleId-värde** som CSCAN0010, CSCAN0020 eller CSCAN0030. Den sista siffran är reserverad för att eventuellt slå samman eller dela sökgrupper via reguljära uttryck (regex).
+    - **RuleId-värdet** för en anpassad sökare ska ha ett eget namnområde. Exempel är\<CSCAN-\>Namespace 0010, CSCAN-\<Namespace\>0020 och CSCAN-\<Namespace\>0030.
+    - Ett fullständigt kvalificerat sökarnamn är kombinationen av ett **RuleId-värde** och ett sökarnamn. Exempel är CSCAN0010. KeyStoreFiles och CSCAN0020. Base64Kodacertificate.
+- **ResourceMatchPattern**: Regex av filnamnstillägg för att kontrollera mot sökaren.
+- **ContentSearchPatterns**: En matris med strängar som innehåller regex-satser som ska matchas. Om inga sökmönster har definierats returneras alla filer som matchar **ResourceMatchPattern-värdet.**
+- **ContentSearchFilters**: En matris med strängar som innehåller regex-satser för att filtrera sökspecifika falska positiva identifieringar.
+- **MatchDetails**: Ett beskrivande meddelande, begränsningsinstruktioner eller båda som ska läggas till för varje matchning av sökaren.
+- **Rekommendation**: Innehåll för förslag-fält för en matchning med hjälp av PREfast rapportformat.
+- **Allvarlighetsgrad**: Ett heltal som återspeglar allvarlighetsgraden för ett problem. Den högsta allvarlighetsgraden har värdet 1.
 
-  ![XML som visar installations programmet för autentiseringsuppgifter](./media/security-tools/6-credscan-customsearchers.png)
+  ![XML som visar inställningar för autentiseringsläsare](./media/security-tools/6-credscan-customsearchers.png)
 
-### <a name="roslyn-analyzers"></a>Roslyn-analyser
+### <a name="roslyn-analyzers"></a>Roslyn-analysverktyg
 
-#### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Vad är vanliga fel när du använder Roslyn för analys av uppgifter?
+#### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Vilka är vanliga fel när du använder aktiviteten Roslyn Analyzers?
 
-##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>Projektet återställdes med fel version av Microsoft. NetCore. app
+##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>Projektet återställdes med en felaktig Microsoft.NETCore.App-version
 
-Det fullständiga fel meddelandet:
+Det fullständiga felmeddelandet:
 
-"Fel: projektet har återställts med Microsoft. NetCore. app version *x.* x, men med de aktuella inställningarna används version *y. y. y* i stället. Lös problemet genom att kontrol lera att samma inställningar används för återställning och för efterföljande åtgärder, till exempel build eller Publish. Det här problemet kan vanligt vis uppstå om egenskapen RuntimeIdentifier anges under build eller Publish men inte under återställningen. "
+"Fel: Projektet återställdes med Microsoft.NETCore.App version *x.x.x.x*, men med aktuella inställningar skulle version *y.y.y* användas i stället. LÃ¶s problemet genom att kontrollera att samma inställningar används fÃ¶r återställning och fÃ¶r efterföljande åtgärder som att skapa eller publicera. Det här problemet kan vanligtvis uppstå om egenskapen RuntimeIdentifier anges under bygg eller publicera men inte under återställningen."
 
-Eftersom Roslyn-uppgifter körs som en del av kompileringen måste käll trädet på Build-datorn vara i ett build-tillstånd.
+Eftersom Roslyn Analyzers-uppgifter körs som en del av kompileringen måste källträdet på byggda datorn vara i ett byggbart tillstånd.
 
-Ett steg mellan dina huvud steg för bygge och Roslyn kan ha gjort att käll trädet har försatts i ett tillstånd som förhindrar att de skapas. Det här extra steget är förmodligen **dotNet. exe Publish**. Försök att duplicera det steg som gör en NuGet återställning precis innan steget Roslyn analys verktyg. Det här dubblerade steget kan sätta tillbaka käll trädet i ett buildable-tillstånd.
+Ett steg mellan huvudbygget och Roslyn Analyzers-stegen kan ha försatt källträdet i ett tillstånd som förhindrar att byggnaden byggs. Det här extra steget är förmodligen **dotnet.exe publicera**. Prova att duplicera steget som gör en NuGet-återställning strax före Roslyn Analyzers-steget. Det här duplicerade steget kan försätta källträdet i ett byggbart tillstånd igen.
 
-##### <a name="cscexe-cant-create-an-analyzer-instance"></a>CSC. exe kan inte skapa en analys instans
+##### <a name="cscexe-cant-create-an-analyzer-instance"></a>csc.exe kan inte skapa en analysatorinstans
 
-Det fullständiga fel meddelandet:
+Det fullständiga felmeddelandet:
 
-"CSC. exe" avslutades med felkod 1--en instans av Analyzer *AAAA* kan inte skapas från C:\\*bbbb*. dll: det gick inte att läsa in filen eller sammansättningen "Microsoft. CodeAnalysis, version =*X. x*. x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen ”.
+"'csc.exe' exited with error code 1 -- An instance of analyzer *AAAA* cannot be created from C:\\*BBBB*.dll : Could not load file or assembly 'Microsoft.CodeAnalysis, Version=*X.X.X.X*, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. Det går inte att hitta den angivna filen."
 
-Se till att din kompilator stöder Roslyn-analyser. Om du kör kommandot **CSC. exe/version** ska du rapportera version svärdet 2,6 eller senare.
+Se till att kompilatorn stöder Roslyn Analyzers. Om du kör kommandot **csc.exe /version** ska ett versionsvärde på 2.6 eller senare rapporteras.
 
-Ibland kan en. CSPROJ-fil åsidosätta build-datorns Visual Studio-installation genom att referera till ett paket från Microsoft.Net. compilers. Om du inte tänker använda en angiven version av kompilatorn tar du bort referenser till Microsoft.Net. compilers. Annars kontrollerar du att versionen av det refererade paketet är 2,6 eller senare.
+Ibland kan en CSproj-fil åsidosätta byggmaskinens Visual Studio-installation genom att referera till ett paket från Microsoft.Net.Compilers. Om du inte tänker använda en viss version av kompilatorn tar du bort referenser till Microsoft.Net.Compilers. Annars, se till att versionen av det refererade paketet är också 2,6 eller senare.
 
-Försök att hämta fel logg Sök vägen, som anges i alternativet **CSC. exe/Errorlog** . Alternativet och sökvägen visas i loggen för build-uppgiften Roslyn-analyser. De kan se ut ungefär som **/Errorlog: f:\ts-services-123\_work\456\s\Some\Project\Code\Code.CSPROJ.sarif**
+Försök att hämta sökvägen för felloggen, som anges i alternativet **csc.exe /errorlog.** Alternativet och sökvägen visas i loggen för roslynanalysatorernas bygguppgift. De kan se ut ungefär **som /errorlog:F:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.sarif**
 
-##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C# Kompilator versionen är inte tillräckligt aktuell
+##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C# kompilator versionen är inte tillräckligt nyligen
 
-Om du vill hämta de senaste versionerna C# av kompileraren går du till [Microsoft.net. compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Hämta den installerade versionen genom att köra **CSC. exe/version** i en kommando tolk. Se till att referera till ett Microsoft.Net. compilers NuGet-paket som är version 2,6 eller senare.
+Om du vill hämta de senaste versionerna av C#-kompilatorn går du till [Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers). Om du vill hämta den installerade versionen kör du **csc.exe /version** i en kommandotolk. Kontrollera att du refererar till ett Microsoft.Net.Compilers NuGet-paket som är version 2.6 eller senare.
 
-##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>MSBuild-och VSBuild-loggar hittas inte
+##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>MSBuild- och VSBuild-loggar hittades inte
 
-Roslyn analys verktyg behöver fråga Azure DevOps efter MSBuild-loggen från MSBuild-build-uppgiften. Om Analyzer-aktiviteten körs omedelbart efter MSBuild-uppgiften, är loggen ännu inte tillgänglig. Placera andra aktiviteter mellan aktiviteten MSBuild och Roslyn. Exempel på andra uppgifter är BinSkim och antivirus program.
+Roslyn Analyzers-bygguppgiften måste fråga Azure DevOps för MSBuild-loggen från MSBuild-bygguppgiften. Om analysatoraktiviteten körs direkt efter MSBuild-aktiviteten är loggen ännu inte tillgänglig. Placera andra aktiviteter mellan MSBuild-aktiviteten och aktiviteten Roslyn Analyzers. Exempel på andra uppgifter är BinSkim och Anti-Malware Scanner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver ytterligare hjälp är Microsoft Security code Analysis-supporten tillgänglig måndag till fredag från 9:00 till 5:00 PM Pacific, normal tid.
+Om du behöver ytterligare hjälp är Microsoft Security Code Analysis Support tillgängligt måndag till fredag från 09:00 till 17:00 Pacific Standard Time.
 
-- Onboarding: Läs vår [onboarding-dokumentation](security-code-analysis-onboard.md)
+- Onboarding: Se vår [onboarding-dokumentation](security-code-analysis-onboard.md)
   
-- Support: skicka e-post till vårt team på [Microsoft Security code Analysis support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)
+- Support: Skicka e-post till vårt team på [Microsoft Security Code Analysis Support](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

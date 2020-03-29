@@ -1,8 +1,8 @@
 ---
 title: Skicka säkra push-meddelanden med Azure Notification Hubs
-description: Lär dig hur du skickar säkra push-meddelanden till en Android-app från Azure. Kod exempel som skrivits i Java C#och.
+description: Läs om hur du skickar säkra push-meddelanden till en Android-app från Azure. Kodexempel skrivna i Java och C#.
 documentationcenter: android
-keywords: push-meddelande, push-meddelanden, push-meddelanden, Android push-meddelanden
+keywords: push-meddelande,push-meddelanden,push-meddelanden,android push-meddelanden
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 419a9f9b5ce698c7516edd55856cbea9891ba029
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71212180"
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Skicka säkra push-meddelanden med Azure Notification Hubs
@@ -34,44 +34,44 @@ ms.locfileid: "71212180"
 ## <a name="overview"></a>Översikt
 
 > [!IMPORTANT]
-> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
+> Du måste ha ett aktivt Azure-konto för att slutföra den här kursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 
-Med stöd för push-meddelanden i Microsoft Azure kan du få åtkomst till en lättanvänd och utskalad push-meddelande infrastruktur med flera plattformar, vilket avsevärt fören klar implementeringen av push-meddelanden för både konsument-och företags program för mobila plattformar.
+Med push-meddelandestöd i Microsoft Azure kan du komma åt en lättanvänd, infrastruktur för utskalade push-meddelanden med flera plattformar, vilket förenklar implementeringen av push-meddelanden för både konsument- och företagsprogram för mobila plattformar.
 
-På grund av regler eller säkerhets begränsningar kan ett program ibland vilja inkludera något i meddelandet som inte kan skickas via standard infrastrukturen för push-meddelanden. I den här självstudien beskrivs hur du uppnår samma upplevelse genom att skicka känslig information via en säker, autentiserad anslutning mellan klientens Android-enhet och appens Server del.
+På grund av regel- eller säkerhetsbegränsningar kan ibland ett program vilja inkludera något i meddelandet som inte kan överföras via standardinfrastrukturen för push-meddelanden. Den här självstudien beskriver hur du uppnår samma upplevelse genom att skicka känslig information via en säker, autentiserat anslutning mellan klientens Android-enhet och appens backend.
 
-På hög nivå är flödet följande:
+På en hög nivå är flödet följande:
 
-1. Appens backend-sida:
-   * Lagrar säker nytto Last i backend-databasen.
-   * Skickar ID för det här meddelandet till Android-enheten (ingen säker information skickas).
-2. Appen på enheten när meddelandet tas emot:
-   * Android-enheten kontaktar Server dels förfrågan om säker nytto Last.
-   * Appen kan visa nytto lasten som ett meddelande på enheten.
+1. Appens baksida:
+   * Lagrar säker nyttolast i backend-databas.
+   * Skickar ID:t för detta meddelande till Android-enheten (ingen säker information skickas).
+2. Appen på enheten, när du tar emot meddelandet:
+   * Android-enheten kontaktar backend-begäran om säker nyttolast.
+   * Appen kan visa nyttolasten som ett meddelande på enheten.
 
-Det är viktigt att Observera att i föregående flöde (och i den här självstudien) förutsätts att enheten lagrar en autentiseringstoken i den lokala lagringen efter att användaren har loggat in. Den här metoden garanterar en sömlös upplevelse eftersom enheten kan hämta meddelandets säkra nytto last med denna token. Om ditt program inte lagrar autentiseringstoken på enheten, eller om dessa token kan ha upphört att gälla, bör enhetens app vid mottagandet av push-meddelandet Visa ett allmänt meddelande där användaren uppmanas att starta appen. Appen autentiserar sedan användaren och visar meddelande nytto lasten.
+Det är viktigt att notera att i föregående flöde (och i den här självstudien) antas det att enheten lagrar en autentiseringstoken i den lokala lagringen, när användaren loggar in. Den här metoden garanterar en sömlös upplevelse, eftersom enheten kan hämta meddelandets säkra nyttolast med den här token. Om ditt program inte lagrar autentiseringstoken på enheten, eller om dessa token kan komma att gälla, bör enhetsappen när du tar emot push-meddelandet visa ett allmänt meddelande som uppmanar användaren att starta appen. Appen autentiserar sedan användaren och visar aviseringsnyttolasten.
 
-I den här självstudien visas hur du skickar säkra push-meddelanden. Den bygger vidare på självstudien [meddela användarna](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , så du bör slutföra stegen i den själv studie kursen först om du inte redan har gjort det.
+Den här självstudien visar hur du skickar säkra push-meddelanden. Den bygger på [notify users](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) handledning, så du bör slutföra stegen i den handledningen först om du inte redan har.
 
 > [!NOTE]
-> I den här självstudien förutsätter vi att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [komma igång med Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> Den här självstudien förutsätter att du har skapat och konfigurerat meddelandehubben enligt beskrivningen i [Komma igång med Meddelandehubbar (Android).](notification-hubs-android-push-notification-google-gcm-get-started.md)
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-android-project"></a>Ändra Android-projektet
 
-Nu när du ändrade appens Server del för att skicka bara *ID: t* för ett push-meddelande måste du ändra din Android-app för att hantera meddelandet och anropa Server delen för att hämta det säkra meddelandet som ska visas.
-För att uppnå det här målet måste du se till att din Android-app vet hur de autentiseras med Server delen när de tar emot push-meddelanden.
+Nu när du har ändrat appens serverdel för att bara skicka *ID:t* för ett push-meddelande måste du ändra din Android-app för att hantera meddelandet och ringa tillbaka din serverdel för att hämta det säkra meddelandet som ska visas.
+För att uppnå detta mål måste du se till att din Android-app vet hur du autentiserar sig med din backend när den tar emot push-meddelandena.
 
-Ändra nu *inloggnings* flödet för att spara värdet för Authentication-huvudet i appens delade inställningar. Analoga mekanismer kan användas för att lagra alla autentiseringstoken (t. ex. OAuth-token) som appen måste använda utan att kräva användarautentiseringsuppgifter.
+Ändra nu *inloggningsflödet* för att spara värdet för autentiseringshuvudet i de delade inställningarna för din app. Liknande mekanismer kan användas för att lagra alla autentiseringstoken (till exempel OAuth-token) som appen måste använda utan att användaren behöver autentiseringsuppgifter.
 
-1. I ditt Android-Apps lägger du till följande konstanter högst upp i `MainActivity` klassen:
+1. I ditt Android-appprojekt lägger du till `MainActivity` följande konstanter högst upp i klassen:
 
     ```java
     public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
     public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
     ```
-2. Uppdatera- `MainActivity`metodeni-klassen såattdeninnehållerföljandekod:`getAuthorizationHeader()`
+2. Uppdatera metoden `MainActivity` så att `getAuthorizationHeader()` den innehåller följande kod fortfarande:
 
     ```java
     private String getAuthorizationHeader() throws UnsupportedEncodingException {
@@ -86,15 +86,15 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
         return basicAuthHeader;
     }
     ```
-3. Lägg till följande `import` -uttryck högst upp `MainActivity` i filen:
+3. Lägg till `import` följande satser `MainActivity` högst upp i filen:
 
     ```java
     import android.content.SharedPreferences;
     ```
 
-Ändra nu den hanterare som anropas när meddelandet tas emot.
+Byt nu hanteraren som anropas när meddelandet tas emot.
 
-1. `OnReceive()` I- `MyHandler` klassen ändrar du metoden som ska innehålla:
+1. I `MyHandler` klassändringen `OnReceive()` ändras metoden så att den innehåller:
 
     ```java
     public void onReceive(Context context, Bundle bundle) {
@@ -103,7 +103,7 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
         retrieveNotification(secureMessageId);
     }
     ```
-2. Lägg sedan till `retrieveNotification()` -metoden och ersätt plats `{back-end endpoint}` hållaren med backend-slutpunkten som hämtades när du distribuerade Server delen:
+2. Lägg sedan `retrieveNotification()` till metoden och `{back-end endpoint}` ersätt platshållaren med den slutpunkt som erhålls när du distribuerar backend:Then add the method, replacing the placeholder with the back-endpoint obtained while deploying your back-end:
 
     ```java
     private void retrieveNotification(final String secureMessageId) {
@@ -134,15 +134,15 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
     }
     ```
 
-Den här metoden anropar appens Server del för att hämta meddelande innehållet med hjälp av de autentiseringsuppgifter som lagras i delade inställningar och visar det som ett normalt meddelande. Meddelandet ser till att appens användare precis liknar alla andra push-meddelanden.
+Den här metoden anropar appens backend för att hämta meddelandeinnehållet med hjälp av de autentiseringsuppgifter som lagras i de delade inställningarna och visar det som ett vanligt meddelande. Meddelandet ser ut till appanvändaren precis som alla andra push-meddelanden.
 
-Det är bättre att hantera de fall då en egenskap för autentisering saknas eller avvisas av Server delen. Den specifika hanteringen av dessa fall beror främst på din mål användar upplevelse. Ett alternativ är att visa ett meddelande med en allmän prompt för användaren att autentisera sig för att hämta det faktiska meddelandet.
+Det är bättre att hantera fall av saknade autentisering header egendom eller avslag av backend. Den specifika hanteringen av dessa fall beror främst på din målgruppsupplevelse. Ett alternativ är att visa ett meddelande med en allmän uppmaning för användaren att autentisera för att hämta det faktiska meddelandet.
 
 ## <a name="run-the-application"></a>Kör programmet
 
-Utför följande åtgärder för att köra programmet:
+Så här kör du programmet:
 
-1. Kontrol lera att **AppBackend** har distribuerats i Azure. Om du använder Visual Studio kör du **AppBackend** Web API-programmet. En ASP.NET-webbsida visas.
-2. I Sol förmörkelse kör du appen på en fysisk Android-enhet eller emulatorn.
-3. Ange ett användar namn och lösen ord i Android-appens användar gränssnitt. Det kan vara valfri sträng, men de måste vara samma värde.
-4. I Android-appens användar gränssnitt klickar du på **Logga in**. Klicka sedan på **skicka push**.
+1. Kontrollera att **AppBackend** distribueras i Azure. Om du använder Visual Studio kör du **AppBackend** Web API-programmet. En ASP.NET webbsida visas.
+2. I Eclipse kör du appen på en fysisk Android-enhet eller emulatorn.
+3. Ange ett användarnamn och lösenord i Android-appens användargränssnitt. Dessa kan vara vilken sträng som helst, men de måste vara samma värde.
+4. Klicka på Logga in **i**Android-appgränssnittet . Klicka sedan på **Skicka push**.

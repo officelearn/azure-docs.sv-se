@@ -1,6 +1,6 @@
 ---
-title: Hybrid identity design - krav för innehållshantering Azure | Microsoft Docs
-description: Ger information om hur du fastställer kraven för innehållshantering i din verksamhet. Vanligtvis när en användare har sina egna enheter, kan de också ha flera autentiseringsuppgifter som ska alternerande beroende på program som de använder. Det är viktigt att skilja vilket innehåll skapades med personliga autentiseringsuppgifter från sådana som skapats med företagets autentiseringsuppgifter. ID-lösning bör kunna interagera med cloud services för att ge en sömlös upplevelse för slutanvändaren samtidigt se till att deras integritet och öka skyddet mot dataläckage.
+title: Hybrididentitetsdesign – innehållshanteringskrav Azure | Microsoft-dokument
+description: Ger insikt i hur du fastställer innehållshanteringskraven för ditt företag. Vanligtvis när en användare har sin egen enhet, kan de också ha flera autentiseringsuppgifter som kommer att alternerande enligt det program som de använder. Det är viktigt att skilja vilket innehåll som skapades med hjälp av personliga autentiseringsuppgifter jämfört med de som skapats med företagsautentiseringsuppgifter. Din identitetslösning bör kunna interagera med molntjänster för att ge slutanvändaren en sömlös upplevelse samtidigt som den säkerställer deras integritet och ökar skyddet mot dataläckage.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,56 +17,56 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64918447"
 ---
-# <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav för innehållshantering för din hybrididentitetslösning
-Förstå kraven för innehållshantering för ditt företag kan direkt påverka ditt beslut om vilken hybrididentitetslösning att använda. Genom spridningen av flera enheter och göra att användare kan ha sina egna enheter ([BYOD](https://aka.ms/byodcg)), företaget måste skydda sina egna data men den måste behålla användarens integritet intakta. Vanligtvis när en användare har sina egna enheter, kan de också ha flera autentiseringsuppgifter som ska alternerande beroende på program som de använder. Det är viktigt att skilja vilket innehåll skapades med personliga autentiseringsuppgifter från sådana som skapats med företagets autentiseringsuppgifter. ID-lösning bör kunna interagera med cloud services för att ge en sömlös upplevelse för slutanvändaren samtidigt se till att deras integritet och öka skyddet mot dataläckage. 
+# <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Fastställa innehållshanteringskrav för din hybrididentitetslösning
+Om du förstår innehållshanteringskraven för ditt företag kan det direkt påverka ditt beslut om vilken hybrididentitetslösning som ska användas. Med spridningen av flera enheter och användarnas förmåga att ta med sina egna enheter[(BYOD),](https://aka.ms/byodcg)måste företaget skydda sina egna data, men det måste också hålla användarens integritet intakt. Vanligtvis när en användare har sin egen enhet, kan de också ha flera autentiseringsuppgifter som kommer att alternerande enligt det program som de använder. Det är viktigt att skilja vilket innehåll som skapades med hjälp av personliga autentiseringsuppgifter jämfört med de som skapats med företagsautentiseringsuppgifter. Din identitetslösning bör kunna interagera med molntjänster för att ge slutanvändaren en sömlös upplevelse samtidigt som den säkerställer deras integritet och ökar skyddet mot dataläckage. 
 
-ID-lösning kan utnyttjas av olika tekniska kontroller för att tillhandahålla innehållshantering, enligt bilden nedan:
+Din identitetslösning kommer att utnyttjas av olika tekniska kontroller för att tillhandahålla innehållshantering som visas i figuren nedan:
 
-![Säkerhetskontroller](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![säkerhetskontroller](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
-**Säkerhetskontroller som kommer att utnyttja dina identitetshanteringssystem**
+**Säkerhetskontroller som kommer att utnyttja ditt identitetshanteringssystem**
 
-I allmänhet att innehållshantering krav utnyttja dina identitetshanteringssystem inom följande områden:
+I allmänhet kommer innehållshanteringskrav att utnyttja ditt identitetshanteringssystem inom följande områden:
 
 * Sekretess: identifiera användaren som äger en resurs och tillämpa lämpliga kontroller för att upprätthålla integriteten.
-* Dataklassificering: identifiera användaren eller gruppen och åtkomstnivå till ett objekt enligt dess klassificering. 
-* Data Leakage Protection: säkerhetskontroller som ansvarar för att skydda data för att undvika läckage måste interagera med ID-system för att verifiera användarens identitet. Detta är också viktigt för revision för spårning.
+* Dataklassificering: identifiera användaren eller gruppen och åtkomstnivån till ett objekt enligt dess klassificering. 
+* Data leakage protection: säkerhetskontroller som ansvarar för att skydda data för att undvika läckage måste interagera med identitetssystemet för att validera användarens identitet. Detta är också viktigt för verifiering spår syfte.
 
 > [!NOTE]
-> Läs [dataklassificering för användning i molnet](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) för mer information om metodtips och riktlinjer för klassificering av data.
+> Läs [dataklassificering för molnberedskap](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) för mer information om metodtips och riktlinjer för dataklassificering.
 > 
 > 
 
-När planera din hybrididentitetslösning kontrollerar du att följande frågor besvaras enligt organisationens krav:
+När du planerar din hybrididentitetslösning ska du se till att följande frågor besvaras enligt organisationens krav:
 
-* Har företaget säkerhetskontroller för att framtvinga datasekretess?
-  * Om Ja, kommer säkerhetskontrollerna som att kunna integrera med hybrididentitetslösning som du ska använda?
-* Använder företaget dataklassificering?
-  * Om Ja, kan den aktuella lösningen integreras med hybrididentitetslösning som du ska använda?
-* Har företaget för närvarande någon lösning för dataläckage? 
-  * Om Ja, kan den aktuella lösningen integreras med hybrididentitetslösning som du ska använda?
-* Behöver företaget att granska åtkomst till resurser?
-  * Om Ja, vilken typ av resurser?
-  * Om Ja, vilken nivå av information som krävs?
-  * Om Ja, där granskningsloggen måste finnas? Den lokala eller i molnet?
-* Behöver företaget att kryptera alla e-postmeddelanden som innehåller känsliga data (personnummer, kreditkortsnummer, osv.)
-* Behöver företaget att kryptera alla dokument/innehållet delas med externa affärspartner?
-* Behöver företaget att framtvinga företagets principer för vissa typer av e-postmeddelanden (gör inga svara alla, vidarebefordra inte)?
+* Har ditt företag säkerhetskontroller för att upprätthålla datasekretessen?
+  * Om ja, kommer säkerhetskontrollerna att kunna integreras med den hybrididentitetslösning som ni kommer att anta?
+* Använder ditt företag dataklassificering?
+  * Om ja, är den nuvarande lösningen kunna integrera med hybrid identitetslösning som du kommer att anta?
+* Har ditt företag för närvarande någon lösning för dataläckage? 
+  * Om ja, är den nuvarande lösningen kunna integrera med hybrid identitetslösning som du kommer att anta?
+* Behöver ditt företag granska åtkomsten till resurser?
+  * Om ja, vilken typ av resurser?
+  * Om ja, vilken informationsnivå är nödvändig?
+  * Om ja, där granskningsloggen måste finnas? Lokalt eller i molnet?
+* Behöver ditt företag kryptera e-postmeddelanden som innehåller känsliga data (SSN, kreditkortsnummer, etc.)?
+* Behöver ditt företag kryptera alla dokument/innehåll som delas med externa affärspartners?
+* Behöver ditt företag att genomdriva företagets policyer på vissa typer av e-postmeddelanden (inte svara alla, inte vidarebefordra)?
 
 > [!NOTE]
-> Se till att ner varje svar och försök förstå anledningen till svaret. [Definiera en strategi för Data Protection](plan-hybrid-identity-design-considerations-data-protection-strategy.md) tillgängliga alternativ och fördelar/nackdelar med varje alternativ.  Har besvarat frågor väljer du vilket alternativ som bäst passar din verksamhet behöver du.
+> Skriv ner varje svar och försök förstå anledningen till svaret. [Definiera dataskyddsstrategi](plan-hybrid-identity-design-considerations-data-protection-strategy.md) kommer att gå igenom de tillgängliga alternativen och fördelar / nackdelar med varje alternativ.  Genom att ha svarat på dessa frågor väljer du vilket alternativ som bäst passar dina affärsbehov.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-[Fastställa krav på åtkomstkontroll](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+[Fastställa åtkomstkontrollkrav](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
 
 ## <a name="see-also"></a>Se även
-[Översikt över design-överväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över designöverväganden](plan-hybrid-identity-design-considerations-overview.md)
 

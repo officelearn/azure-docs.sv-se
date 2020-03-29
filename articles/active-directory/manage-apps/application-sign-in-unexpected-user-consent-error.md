@@ -1,6 +1,6 @@
 ---
-title: Ett oväntat fel inträffade när du utför medgivande till ett program | Microsoft Docs
-description: Beskriver fel som kan uppstå under processen att samtycka till ett program och vad du kan göra om dem.
+title: Oväntat fel när du gör medgivande till ett program | Microsoft-dokument
+description: I artikeln beskrivs fel som kan uppstå under processen att godkänna ett program och vad du kan göra åt dem
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,66 +17,66 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65824947"
 ---
-# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ett oväntat fel inträffade när du utför medgivande till ett program
+# <a name="unexpected-error-when-performing-consent-to-an-application"></a>Oväntat fel när du gör medgivande till ett program
 
-Den här artikeln beskriver fel som kan uppstå under processen att samtycka till ett program. Om du felsöker oväntat medgivande frågor som inte innehåller några felmeddelanden, se [Autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+I den här artikeln beskrivs fel som kan uppstå under processen för att godkänna ett program. Om du felsöker oväntade medgivandemeddelanden som inte innehåller några felmeddelanden läser du [Autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Många program som integreras med Azure Active Directory kräver behörighet att komma åt andra resurser för att kunna fungera. När dessa resurser är också integrerat med Azure Active Directory, behörighet att komma åt dem begärs ofta med hjälp av gemensamma ramverket för medgivande. Kommandotolken medgivande visas, vilket vanligtvis sker första gången ett program som används men kan också inträffa om en efterföljande användning av programmet.
+Många program som integreras med Azure Active Directory kräver behörigheter för att komma åt andra resurser för att fungera. När dessa resurser också är integrerade med Azure Active Directory, begärs behörigheter för att komma åt dem ofta med hjälp av common consent framework. En medgivandefråga visas, som vanligtvis inträffar första gången ett program används men kan också uppstå vid en senare användning av programmet.
 
-Vissa villkor måste vara sant för en användare att godkänna de behörigheter som krävs för ett program. Om dessa villkor inte uppfylls, kan följande fel uppstå.
+Vissa villkor måste vara sanna för att en användare ska kunna godkänna de behörigheter som ett program kräver. Om dessa villkor inte uppfylls kan följande fel uppstå.
 
-## <a name="requesting-not-authorized-permissions-error"></a>Begär inte auktoriserad Behörighetsfel
-* **AADSTS90093:** &lt;clientAppDisplayName&gt; begär en eller flera behörigheter som du har inte behörighet för att bevilja. Kontakta en administratör som kan godkänna det här programmet för din räkning.
+## <a name="requesting-not-authorized-permissions-error"></a>Begär inte auktoriserat behörighetsfel
+* **AADSTS90093:** &lt;clientAppDisplayName&gt; begär en eller flera behörigheter som du inte har behörighet att bevilja. Kontakta en administratör som kan godkänna det här programmet för din räkning.
 
-Det här felet uppstår när en användare som inte är en företagsadministratör försöker använda ett program som begär behörigheter som bara en administratör kan ge. Det här felet kan lösas av en administratör bevilja åtkomst till programmet för organisationen.
+Det här felet uppstår när en användare som inte är företagsadministratör försöker använda ett program som begär behörigheter som bara en administratör kan bevilja. Det här felet kan lösas av en administratör som beviljar åtkomst till programmet på uppdrag av sin organisation.
 
-## <a name="policy-prevents-granting-permissions-error"></a>Princip förhindrar tillståndsbeviljande fel
-* **AADSTS90093:** En administratör för &lt;tenantDisplayName&gt; har angett en princip som hindrar dig från att bevilja &lt;namn på app&gt; de behörigheter som begärs. Kontakta en administratör för &lt;tenantDisplayName&gt;, som kan ge behörigheter till den här appen å dina vägnar.
+## <a name="policy-prevents-granting-permissions-error"></a>Princip förhindrar att behörighetsfel beviljas
+* **AADSTS90093:** En administratör &lt;för tenantDisplayName&gt; har angett en princip &lt;som&gt; hindrar dig från att bevilja namnet på appen de behörigheter som den begär. Kontakta en &lt;administratör för&gt;tenantDisplayName , som kan bevilja behörigheter till den här appen för din räkning.
 
-Det här felet uppstår när en företagsadministratör inaktiverar möjligheten för användare att samtycka till program och sedan en användare försöker använda ett program som kräver godkännande. Det här felet kan lösas av en administratör bevilja åtkomst till programmet för organisationen.
+Det här felet uppstår när en företagsadministratör inaktiverar möjligheten för användare att godkänna program, och sedan försöker en användare som inte är administratör att använda ett program som kräver samtycke. Det här felet kan lösas av en administratör som beviljar åtkomst till programmet på uppdrag av sin organisation.
 
-## <a name="intermittent-problem-error"></a>Problem med tillfälliga fel
-* **AADSTS90090:** Det verkar som om inloggningsprocessen påträffade ett tillfälligt problem spela in de behörigheter som du har försökt att bevilja till &lt;clientAppDisplayName&gt;. Försök igen senare.
+## <a name="intermittent-problem-error"></a>Återkommande problemfel
+* **AADSTS90090:** Det ser ut som inloggningsprocessen stött på ett återkommande problem registrera &lt;de behörigheter&gt;du försökte bevilja till clientAppDisplayName . försök igen senare.
 
-Det här felet indikerar att ett tillfälligt tjänsten på klientsidan problem har uppstått. Det kan lösas genom att försöka att ge samtycke för programmet igen.
+Det här felet indikerar att ett återkommande servicesidans problem har uppstått. Det kan lösas genom att försöka samtycka till programmet igen.
 
-## <a name="resource-not-available-error"></a>Resursen inte tillgänglig fel
-* **AADSTS65005:** Appen &lt;clientAppDisplayName&gt; begärt behörighet att komma åt en resurs &lt;resourceAppDisplayName&gt; som inte är tillgängligt. 
+## <a name="resource-not-available-error"></a>Resursen är inte tillgänglig fel
+* **AADSTS65005:** AppklientenAppDisplayName &lt;&gt; begärde behörigheter &lt;för åtkomst till&gt; en resursresursAppDisplayName som inte är tillgänglig. 
 
 Kontakta apputvecklaren.
 
-##  <a name="resource-not-available-in-tenant-error"></a>Resursen är inte tillgänglig i klient-fel
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; begär åtkomst till en resurs &lt;resourceAppDisplayName&gt; som inte är tillgängligt i din organisation &lt;tenantDisplayName &gt;. 
+##  <a name="resource-not-available-in-tenant-error"></a>Resursen är inte tillgänglig i klientfel
+* **AADSTS65005:** &lt;&gt; clientAppDisplayName begär åtkomst till &lt;en resursresursAppDisplayName&gt; som &lt;inte är&gt;tillgängligt i organisationen TenantDisplayName . 
 
-Kontrollera att den här resursen är tillgänglig eller kontakta en administratör för &lt;tenantDisplayName&gt;.
+Kontrollera att den här resursen &lt;är tillgänglig&gt;eller kontakta en administratör för tenantDisplayName .
 
-## <a name="permissions-mismatch-error"></a>Matchningsfel för behörigheter
-* **AADSTS65005:** Appen begärt medgivande till åtkomst till resursen &lt;resourceAppDisplayName&gt;. Den här begäran misslyckades eftersom det inte matchar hur appen var förkonfigurerade under registreringen. Kontakta app vendor.* *
+## <a name="permissions-mismatch-error"></a>Fel i behörigheterna matchar inte
+* **AADSTS65005:** Appen begärde samtycke till &lt;åtkomst till&gt;resursresursAppDisplayName . Den här begäran misslyckades eftersom den inte matchar hur appen förkonfigurerades under appregistreringen. Kontakta appleverantören.**
 
-De här felen som alla inträffar när en användare försöker att godkänna programmet begär behörighet att komma åt en resursprogram som inte kan hittas i organisationens katalog (klient). Den här situationen kan uppstå av flera skäl:
+Dessa fel uppstår när programmet en användare försöker samtycka till begär behörigheter för att komma åt ett resursprogram som inte finns i organisationens katalog (klient). Denna situation kan uppstå av flera skäl:
 
--   Klienten programutvecklaren har sitt program felaktigt konfigurerad, vilket gör att den att begära åtkomst till den ogiltiga resursen. I det här fallet måste programutvecklaren uppdatera konfigurationen av klientprogram för att lösa problemet.
+-   Klientprogramutvecklaren har konfigurerat sitt program felaktigt, vilket gör att den begär åtkomst till en ogiltig resurs. I det här fallet måste programutvecklaren uppdatera konfigurationen av klientprogrammet för att lösa problemet.
 
--   Ett huvudnamn för tjänsten som representerar målprogrammet för resursen finns inte i organisationen, eller fanns tidigare men har tagits bort. För att lösa problemet måste tjänstens huvudnamn för resursprogrammet etableras i organisationen så att klientprogrammet kan begära behörighet till den. Tjänstens huvudnamn kan etableras på flera olika sätt, beroende på vilken typ av program, inklusive:
+-   Ett tjänsthuvudnamn som representerar målresursprogrammet finns inte i organisationen eller finns tidigare men har tagits bort. För att lösa problemet måste ett tjänsthuvudnamn för resursprogrammet etableras i organisationen så att klientprogrammet kan begära behörigheter till det. Servicehuvudstaden kan etableras på flera olika sätt, beroende på vilken typ av program det rör sig om, bland annat:
 
     -   Skaffa en prenumeration för resursprogrammet (Microsoft publicerade program)
 
-    -   Medgivandedialogen resursprogrammet
+    -   Samtycke till resursprogrammet
 
-    -   Bevilja programbehörigheter via Azure portal
+    -   Bevilja programbehörigheter via Azure-portalen
 
-    -   Att lägga till programmet från Azure AD-Programgalleriet
+    -   Lägga till programmet från Azure AD Application Gallery
 
 ## <a name="next-steps"></a>Nästa steg 
 
-[Appar, behörigheter och godkännande i Azure Active Directory (v1-slutpunkt)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
+[Appar, behörigheter och medgivande i Azure Active Directory (v1-slutpunkt)](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)<br>
 
-[Omfattningar, behörigheter och godkännande i Azure Active Directory (v2.0-slutpunkt)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
+[Scope, behörigheter och medgivande i Azure Active Directory (v2.0-slutpunkten)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)
 
 

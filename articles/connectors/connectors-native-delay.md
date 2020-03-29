@@ -1,6 +1,6 @@
 ---
-title: Fördröj nästa åtgärd i arbets flöden
-description: Vänta på att köra nästa åtgärd i Logic app-arbetsflöden genom att använda fördröjningen eller fördröjningen tills åtgärder i Azure Logic Apps
+title: Fördröja nästa åtgärd i arbetsflöden
+description: Vänta med att köra nästa åtgärd i logikapparbetsflöden med hjälp av åtgärderna Fördröjning eller Fördröjning tills i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
@@ -8,84 +8,84 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 tags: connectors
 ms.openlocfilehash: 5348ade1ba6eec6cbd360849411b4520cb3c2b19
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74787344"
 ---
-# <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Fördröj körningen av nästa åtgärd i Azure Logic Apps
+# <a name="delay-running-the-next-action-in-azure-logic-apps"></a>Fördröja körningen av nästa åtgärd i Azure Logic Apps
 
-Om du vill att din Logic app ska vänta en stund innan du kör nästa åtgärd kan du lägga till den inbyggda **fördröjnings schema** åtgärden innan en åtgärd i din Logic app-arbetsflöde. Eller så kan du lägga till den inbyggda **fördröjningen tills schema** åtgärden väntar tills ett visst datum och en viss tidpunkt innan du kör nästa åtgärd. Mer information om inbyggda schema åtgärder och utlösare finns i [schemalägga och köra återkommande automatiserade uppgifter och arbets flöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Om du vill att logikappen ska vänta en viss tid innan du kör nästa åtgärd kan du lägga till den inbyggda **åtgärden Fördröjning - Schemalägg** innan en åtgärd i logikappens arbetsflöde. Du kan också lägga till den inbyggda **fördröjningen tills - Schemalägg** åtgärden för att vänta tills ett visst datum och en viss tid innan du kör nästa åtgärd. Mer information om de inbyggda Schemaåtgärderna och utlösare finns i [Schemalägga och köra återkommande automatiserade, uppgifter och arbetsflöden med Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
-* **Fördröjning**: vänta tills det angivna antalet tidsenheter, till exempel sekunder, minuter, timmar, dagar, veckor eller månader innan nästa åtgärd körs.
+* **Fördröjning**: Vänta på det angivna antalet tidsenheter, till exempel sekunder, minuter, timmar, dagar, veckor eller månader, innan nästa åtgärd körs.
 
-* **Fördröjning till**: vänta tills det angivna datumet och den angivna tiden innan nästa åtgärd körs.
+* **Fördröjning till**: Vänta tills det angivna datumet och tiden innan nästa åtgärd körs.
 
-Här följer några exempel på hur du kan använda dessa åtgärder:
+Här är några exempel sätt att använda dessa åtgärder:
 
-* Vänta till en veckodag och skicka en status uppdatering via e-post.
+* Vänta tills en veckodag för att skicka en statusuppdatering via e-post.
 
-* Fördröj ditt arbets flöde tills ett HTTP-anrop har slutförts innan du återupptar och hämtar data.
+* Fördröja arbetsflödet tills ett HTTP-samtal avslutas innan data återupptas och hämtas.
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte har en prenumeration kan du [registrera dig för ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Grundläggande kunskaper om [Logic Apps](../logic-apps/logic-apps-overview.md). Innan du kan använda en åtgärd måste din Logic app börja med en utlösare. Du kan använda valfri utlösare som du vill och lägga till andra åtgärder innan du lägger till en fördröjnings åtgärd. I det här avsnittet används en Office 365 Outlook-utlösare. Lär dig [hur du skapar din första Logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)om du inte har använt Logic Apps igen.
+* Grundläggande kunskaper om [logikappar](../logic-apps/logic-apps-overview.md). Innan du kan använda en åtgärd måste logikappen börja med en utlösare. Du kan använda vilken utlösare du vill ha och lägga till andra åtgärder innan du lägger till en fördröjningsåtgärd. I det här avsnittet används en Office 365 Outlook-utlösare. Om du inte har tidigare i logikappar kan du läsa om hur du [skapar din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-delay"></a>
 
-## <a name="add-the-delay-action"></a>Lägg till fördröjnings åtgärden
+## <a name="add-the-delay-action"></a>Lägg till åtgärden Fördröjning
 
-1. I Logic App Designer, under steget där du vill lägga till fördröjnings åtgärden, väljer du **nytt steg**.
+1. Välj **Nytt steg**under det steg där du vill lägga till fördröjningsåtgärden i Logic App Designer.
 
-   Om du vill lägga till fördröjnings åtgärden mellan stegen flyttar du pekaren över pilen som kopplar stegen. Välj plus tecknet (+) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till fördröjningsåtgärden mellan stegen flyttar du pekaren över pilen som kopplar stegen. Välj plustecknet (+) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. I rutan Sök anger du "fördröjning" som filter. I listan åtgärder väljer du den här åtgärden: **fördröjning**
+1. I sökrutan anger du "fördröjning" som filter. Välj den här åtgärden i åtgärdslistan: **Fördröj**
 
-   ![Lägg till åtgärden fördröjning](./media/connectors-native-delay/add-delay-action.png)
+   ![Lägg till åtgärden "Fördröjning"](./media/connectors-native-delay/add-delay-action.png)
 
-1. Ange hur lång tid som ska förflyta innan nästa åtgärd körs.
+1. Ange hur lång tid du ska vänta innan nästa åtgärd körs.
 
-   ![Ange hur lång tid det tar för fördröjningen](./media/connectors-native-delay/delay-time-intervals.png)
+   ![Ange tid för förseningen](./media/connectors-native-delay/delay-time-intervals.png)
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | Antal | count | Ja | Integer | Antalet tidsenheter som ska förskjutas |
-   | Enhet | processor | Ja | Sträng | Tidsenhet, till exempel: `Second`, `Minute`, `Hour`, `Day`, `Week`eller `Month` |
+   | Antal | count | Ja | Integer | Antalet tidsenheter som ska fördröjas |
+   | Enhet | unit | Ja | String | `Second`Tidsenheten, till exempel: `Minute` `Hour`, `Day` `Week`, , , eller`Month` |
    ||||||
 
-1. Lägg till andra åtgärder som du vill köra i arbets flödet.
+1. Lägg till andra åtgärder som du vill köra i arbetsflödet.
 
-1. När du är klar sparar du din Logic app.
+1. När du är klar sparar du logikappen.
 
 <a name="add-delay-until"></a>
 
-## <a name="add-the-delay-until-action"></a>Lägg till åtgärden fördröjning – till
+## <a name="add-the-delay-until-action"></a>Lägg till åtgärden Fördröjning tills
 
-1. I Logic App Designer, under steget där du vill lägga till fördröjnings åtgärden, väljer du **nytt steg**.
+1. Välj **Nytt steg**under det steg där du vill lägga till fördröjningsåtgärden i Logic App Designer.
 
-   Om du vill lägga till fördröjnings åtgärden mellan stegen flyttar du pekaren över pilen som kopplar stegen. Välj plus tecknet (+) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till fördröjningsåtgärden mellan stegen flyttar du pekaren över pilen som kopplar stegen. Välj plustecknet (+) som visas och välj sedan **Lägg till en åtgärd**.
 
-1. I rutan Sök anger du "fördröjning" som filter. I listan åtgärder väljer du den här åtgärden: **fördröjning tills**
+1. I sökrutan anger du "fördröjning" som filter. Välj den här åtgärden i åtgärdslistan: **Fördröja tills**
 
-   ![Lägg till åtgärden fördröj tills](./media/connectors-native-delay/add-delay-until-action.png)
+   ![Lägg till åtgärden "Fördröjning till"](./media/connectors-native-delay/add-delay-until-action.png)
 
-1. Ange slutdatum och slut tid för när du vill återuppta arbets flödet.
+1. Ange slutdatum och sluttid för när du vill återuppta arbetsflödet.
 
    ![Ange tidsstämpel för när fördröjningen ska avslutas](./media/connectors-native-delay/delay-until-timestamp.png)
 
    | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|-----------|----------|------|-------------|
-   | Tidsstämpel | tidsstämpel | Ja | Sträng | Slutdatum och slut tid för att återuppta arbets flödet med det här formatet: <p>ÅÅÅÅ-MM-DDThh: mm: ssZ <p>Om du till exempel vill ha 18 september 2017 vid 2:00 PM, anger du "2017-09-18T14:00:00Z". <p>**Obs:** Tids formatet måste följa [ISO 8601-datum](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) /tid-specifikationen i [UTC-datum](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en UTC- [förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Utan en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). |
+   | Tidsstämpel | timestamp | Ja | String | Slutdatum och sluttid för att återuppta arbetsflödet med det här formatet: <p>YYYY-MM-DDThh:mm:ssZ <p>Om du till exempel vill ha 18 september 2017 klockan 14:00 anger du "2017-09-18T14:00:00Z". <p>**Anm.:** Det här tidsformatet måste följa [datumtidsspecifikationen ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datumtidsformatet](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Utan en tidszon måste du lägga till bokstaven "Z" i slutet utan några blanksteg. Detta "Z" avser motsvarande [nautisk tid](https://en.wikipedia.org/wiki/Nautical_time). |
    ||||||
 
-1. Lägg till andra åtgärder som du vill köra i arbets flödet.
+1. Lägg till andra åtgärder som du vill köra i arbetsflödet.
 
-1. När du är klar sparar du din Logic app.
+1. När du är klar sparar du logikappen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa, schemalägga och köra återkommande uppgifter och arbets flöden med upprepnings utlösaren](../connectors/connectors-native-recurrence.md)
-* [Anslutningar för Logic Apps](../connectors/apis-list.md)
+* [Skapa, schemalägga och köra återkommande uppgifter och arbetsflöden med utlösaren Återkommande](../connectors/connectors-native-recurrence.md)
+* [Anslutningsappar för Logic Apps](../connectors/apis-list.md)

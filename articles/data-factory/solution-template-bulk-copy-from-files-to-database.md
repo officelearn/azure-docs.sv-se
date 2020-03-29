@@ -1,6 +1,6 @@
 ---
-title: Mass kopiering från filer till databas
-description: Lär dig hur du använder en lösnings mall för att kopiera data i bulk från Azure Data Lake Storage Gen2 till Azure Synapse Analytics/Azure SQL Database.
+title: Masskopiera från filer till databas
+description: Lär dig hur du använder en lösningsmall för att kopiera data i bulk från Azure Data Lake Storage Gen2 till Azure Synapse Analytics / Azure SQL Database.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -9,59 +9,59 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.openlocfilehash: ae250c7d15801789ad22955845cfa535ed91f2c1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75921144"
 ---
-# <a name="bulk-copy-from-files-to-database"></a>Mass kopiering från filer till databas
+# <a name="bulk-copy-from-files-to-database"></a>Masskopiera från filer till databas
 
-Den här artikeln beskriver en lösnings mall som du kan använda för att kopiera data i bulk från Azure Data Lake Storage Gen2 till Azure Synapse Analytics/Azure SQL Database.
+I den här artikeln beskrivs en lösningsmall som du kan använda för att kopiera data i bulk från Azure Data Lake Storage Gen2 till Azure Synapse Analytics / Azure SQL Database.
 
-## <a name="about-this-solution-template"></a>Om den här lösnings mal len
+## <a name="about-this-solution-template"></a>Om den här lösningsmallen
 
-Den här mallen hämtar filer från Azure Data Lake Storage Gen2 källa. Sedan upprepas den över varje fil i källan och filen kopieras till mål data lagret. 
+Den här mallen hämtar filer från Azure Data Lake Storage Gen2-källa. Därefter itererar den över varje fil i källan och kopierar filen till måldataarkivet. 
 
-Den här mallen stöder för närvarande endast kopiering av data i **DelimitedText** -format. Filer i andra data format kan också hämtas från käll data lagret, men de kan inte kopieras till mål data lagret.  
+För närvarande stöder den här mallen endast kopiering av data i **AvimitedText-format.** Filer i andra dataformat kan också hämtas från källdatalagret, men kan inte kopieras till måldatalagret.  
 
 Mallen innehåller tre aktiviteter:
-- **Hämta metadata** -aktivitet hämtar filer från Azure Data Lake Storage Gen2 och skickar dem *till efterföljande aktiviteter* .
-- Med en **förgrunds** aktivitet hämtas filer från aktiviteten *Hämta metadata* och upprepas varje fil till *kopierings* aktiviteten.
-- **Kopierings** aktiviteten finns i en *förgrunds* aktivitet för att kopiera varje fil från käll data lagret till mål data lagret.
+- **Hämta metadataaktivitet** hämtar filer från Azure Data Lake Storage Gen2 och skickar dem till efterföljande *ForEach-aktivitet.*
+- **ForEach-aktivitet** hämtar filer från aktiviteten *Hämta metadata* och itererar varje fil till *kopieringsaktiviteten.*
+- **Kopieringsaktivitet** finns i *ForEach-aktiviteten* för att kopiera varje fil från källdatalagret till måldatalagret.
 
 Mallen definierar följande två parametrar:
-- *SourceContainer* är sökvägen till rot behållaren där data kopieras från i Azure Data Lake Storage Gen2. 
-- *SourceDirectory* är katalog Sök vägen under rot behållaren där data kopieras från i din Azure Data Lake Storage Gen2.
+- *SourceContainer* är rotbehållarens sökväg där data kopieras från i din Azure Data Lake Storage Gen2. 
+- *SourceDirectory* är katalogsökvägen under rotbehållaren där data kopieras från i din Azure Data Lake Storage Gen2.
 
-## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
+## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösningsmallen
 
-1. Gå till mallen **Mass kopiering från filer till databas** . Skapa en **ny** anslutning till käll Gen2 Store. Tänk på att "GetMetadataDataset" och "SourceDataset" är referenser till samma anslutning av käll fil arkivet.
+1. Gå till **masskopiering från filer till databasmall.** Skapa en **ny** anslutning till käll-Gen2-arkivet. Tänk på att "GetMetadataDataset" och "SourceDataset" är referenser till samma anslutning av källfilarkivet.
 
-    ![Skapa en ny anslutning till käll data lagret](media/solution-template-bulk-copy-from-files-to-database/source-connection.png)
+    ![Skapa en ny anslutning till källdatalagret](media/solution-template-bulk-copy-from-files-to-database/source-connection.png)
 
-2. Skapa en **ny** anslutning till det data lager för mottagare som du kopierar data till.
+2. Skapa en **ny** anslutning till det sink-datalager som du kopierar data till.
 
-    ![Skapa en ny anslutning till data lagret för mottagare](media/solution-template-bulk-copy-from-files-to-database/destination-connection.png)
+    ![Skapa en ny anslutning till sink-datalagret](media/solution-template-bulk-copy-from-files-to-database/destination-connection.png)
     
 3. Välj **Använd den här mallen**.
 
     ![Använd den här mallen](media/solution-template-bulk-copy-from-files-to-database/use-template.png)
     
-4. Du ser en pipeline som skapats på det sätt som visas i följande exempel:
+4. Du skulle se en pipeline som skapats enligt följande exempel:
 
     ![Granska pipelinen](media/solution-template-bulk-copy-from-files-to-database/new-pipeline.png)
 
     > [!NOTE]
-    > Om du väljer **Azure Synapse Analytics (tidigare SQL DW)** som data mål i **steg 2** ovan, måste du ange en anslutning till Azure Blob Storage för mellanlagring, vilket krävs av SQL Data Warehouse PolyBase. När följande skärm bild visas kommer mallen automatiskt att generera en *lagrings Sök väg* för blob-lagringen. Kontrol lera om behållaren har skapats efter att pipelinen har körts.
+    > Om du väljer **Azure Synapse Analytics (tidigare SQL DW)** som datamål i **steg 2** som nämns ovan, måste du ange en anslutning till Azure Blob-lagring för mellanlagring, i enlighet med SQL Data Warehouse Polybase. Som följande skärmbild visar genererar mallen automatiskt en *lagringssökväg* för blob-lagring. Kontrollera om behållaren har skapats efter pipelinekörningen.
         
-    ![PolyBase-inställning](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
+    ![Polybasinställning](media/solution-template-bulk-copy-from-files-to-database/staging-account.png)
 
-5. Välj **Felsök**, ange **parametrarna**och välj sedan **Slutför**.
+5. Välj **Felsökning,** ange **parametrar**och välj sedan **Slutför**.
 
-    ![Klicka på * * Felsök * *](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
+    ![Klicka på **Felsökning**](media/solution-template-bulk-copy-from-files-to-database/debug-run.png)
 
-6. När pipeline-körningen har slutförts visas resultat som liknar följande exempel:
+6. När pipelinekörningen har slutförts visas resultat som liknar följande exempel:
 
     ![Granska resultatet](media/solution-template-bulk-copy-from-files-to-database/run-succeeded.png)
 

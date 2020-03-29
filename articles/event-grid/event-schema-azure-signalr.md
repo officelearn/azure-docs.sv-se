@@ -1,6 +1,6 @@
 ---
-title: Schema för Azure Event Grid Azure SignalR-händelse
-description: Beskriver de egenskaper som har angetts för Azure SignalR händelser med Azure Event Grid
+title: Azure Event Grid Azure SignalR-händelseschema
+description: Beskriver de egenskaper som tillhandahålls för Azure SignalR-händelser med Azure Event Grid
 services: event-grid
 author: chenyl
 ms.service: event-grid
@@ -8,29 +8,29 @@ ms.topic: reference
 ms.date: 06/11/2019
 ms.author: chenyl
 ms.openlocfilehash: 3b072ff2b680ad6d144c7441190ab2df9870f5d0
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67789077"
 ---
-# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid-Händelseschema för SignalR Service
+# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid-händelseschema för SignalR-tjänsten
 
-Den här artikeln innehåller egenskaperna och schemat för SignalR Service-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för SignalR-tjänsthändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-SignalR Service genererar följande händelsetyper:
+SignalR-tjänsten avger följande händelsetyper:
 
-| eventType | Beskrivning |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.SignalRService.ClientConnectionConnected | Utlöses när en klientanslutning ansluten. |
-| Microsoft.SignalRService.ClientConnectionDisconnected | Utlöses när en klientanslutning kopplas från. |
+| Microsoft.SignalRService.clientConnectionConnected | Utlöses när en klientanslutning är ansluten. |
+| Microsoft.SignalRService.clientConnectionDisconnected | Utlöses när en klientanslutning kopplades från. |
 
-## <a name="example-event"></a>Exempel-händelse
+## <a name="example-event"></a>Exempel händelse
 
-I följande exempel visar schemat för en klient anslutning anslutna händelse: 
+I följande exempel visas schemat för en klientanslutningsansluten händelse: 
 
 ```json
 [{
@@ -50,7 +50,7 @@ I följande exempel visar schemat för en klient anslutning anslutna händelse:
 }]
 ```
 
-Schemat för en anslutning frånkopplade klienthändelse liknar: 
+Schemat för en klientanslutning frånkopplad händelse är liknande: 
 
 ```json
 [{
@@ -71,32 +71,32 @@ Schemat för en anslutning frånkopplade klienthändelse liknar:
 }]
 ```
 
-## <a name="event-properties"></a>Egenskaper för händelse
+## <a name="event-properties"></a>Händelseegenskaper
 
-En händelse har följande översta data:
+En händelse har följande data på den högsta nivån:
 
-| Egenskap | Type | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| subject | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| subject | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
-| eventType | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
+| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
-| data | object | SignalR Service händelsedata. |
-| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| data | objekt | SignalR-tjänsthändelsedata. |
+| Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
-| Egenskap | Type | Beskrivning |
+| Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | timestamp | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| hubName | sträng | Hubben som klientanslutningen tillhör. |
+| hubName (hubName) | sträng | Navet som klientanslutningen tillhör. |
 | connectionId | sträng | Den unika identifieraren för klientanslutningen. |
-| userId | sträng | Användaridentifierare som definierats i anspråk. |
-| errorMessage | sträng | Felet som orsakar anslutningen kopplas från. |
+| userId | sträng | Användaridentifieraren som definierats i anspråk. |
+| Errormessage | sträng | Felet som gör att anslutningen kopplas från. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
+* En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).

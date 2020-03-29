@@ -1,6 +1,6 @@
 ---
-title: Använda verktyget Azure import/export | Microsoft Docs
-description: Lär dig hur du använder import/export-verktyget för att förbereda hård diskar för ett import jobb, reparera ett import jobb eller reparera ett export jobb.
+title: Använda verktyget för import/export av Azure | Microsoft-dokument
+description: Lär dig hur du använder import-/exportverktyget för att förbereda hårddiskar för ett importjobb, reparera ett importjobb eller reparera ett exportjobb.
 author: twooley
 services: storage
 ms.service: storage
@@ -9,27 +9,27 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 35236a95e691d6f7d0444a038e62116a684965a7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978450"
 ---
-# <a name="using-the-azure-importexport-tool"></a>Använda Azure import/export-verktyget
+# <a name="using-the-azure-importexport-tool"></a>Använda verktyget för import/export av Azure
 
-Verktyget Azure import/export (WAImportExport. exe) används för att skapa och hantera jobb för tjänsten Azure import/export, så att du kan överföra stora mängder data till eller från Azure-Blob Storage.
+Azure Import/Export Tool (WAImportExport.exe) används för att skapa och hantera jobb för Azure Import/Export-tjänsten, så att du kan överföra stora mängder data till eller från Azure Blob Storage.
 
-Den här dokumentationen är till för den senaste versionen av Azure import/export-verktyget. Information om hur du använder den klassiska distributions modellen finns i [använda Azure import/export-verktyget v1](storage-import-export-tool-how-to-v1.md).
+Den här dokumentationen är för den senaste versionen av Azure Import/Export Tool. Information om hur du använder den klassiska distributionsmodellen finns i [Använda Azure Import/Export Tool v1](storage-import-export-tool-how-to-v1.md).
 
 Följande artiklar visar hur du:  
 
-- Installera och konfigurera Azure import/export-verktyget.
-- Förbered dina hård diskar för ett jobb där du importerar data från dina enheter till Azure Blob Storage.
-- Granska status för ett jobb med kopiera loggfiler.
-- Reparera ett import jobb.
-- Reparera ett export jobb.
-- Felsök Azure import/export-verktyget.
+- Installera och konfigurera Verktyget för import/export av Azure.
+- Förbered dina hårddiskar för ett jobb där du importerar data från dina enheter till Azure Blob Storage.
+- Granska status för ett jobb med Kopiera loggfiler.
+- Reparera ett importjobb.
+- Reparera ett exportjobb.
+- Felsöka verktyget för import/export av Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera WAImportExport-verktyget](storage-import-export-tool-setup.md)
+* [Konfigurera verktyget WAImportExport](storage-import-export-tool-setup.md)

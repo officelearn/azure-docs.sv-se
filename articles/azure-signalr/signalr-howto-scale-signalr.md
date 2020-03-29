@@ -1,39 +1,39 @@
 ---
-title: Skala en instans av Azure SignalR service
-description: Lär dig hur du skalar en Azure SignalR service-instans för att lägga till eller minska kapaciteten genom Azure Portal eller Azure CLI.
+title: Skala en instans av Azure SignalR-tjänsten
+description: Lär dig hur du skalar en Azure SignalR-tjänstinstans för att lägga till eller minska kapaciteten, via Azure Portal eller Azure CLI.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
 ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75659295"
 ---
-# <a name="how-to-scale-an-azure-signalr-service-instance"></a>Hur skalar jag en Azure SignalR-tjänstinstans?
-Den här artikeln visar hur du skalar din instans av Azure SignalR-tjänsten. Det finns två scenarier för skalning. skala upp och skala ut.
+# <a name="how-to-scale-an-azure-signalr-service-instance"></a>Hur skalar du en Azure SignalR-tjänstinstans?
+Den här artikeln visar hur du skalar din instans av Azure SignalR-tjänsten. Det finns två scenarier för skalning, skala upp och skala ut.
 
-* [Skala upp](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): få fler enheter, anslutningar, meddelanden och mycket annat. Du skalar upp genom att ändra pris nivån från kostnads fri till standard.
-* [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): öka antalet signal enheter. Du kan skala ut till så många som 100 enheter.
+* [Skala upp](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Få fler enheter, anslutningar, meddelanden med mera. Du skalar upp genom att ändra prisnivån från gratis till standard.
+* [Skala ut](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Öka antalet SignalR-enheter. Du kan skala ut till så många som 100 enheter.
 
-Det tar några minuter att tillämpa skalnings inställningarna. I sällsynta fall kan det ta cirka 30 minuter att tillämpa. De kräver inte att du ändrar koden eller distribuerar om serverprogrammet.
+Skalningsinställningarna tar några minuter att tillämpa. I sällsynta fall kan det ta cirka 30 minuter att applicera. De kräver inte att du ändrar koden eller distribuerar om serverprogrammet.
 
-Information om prissättning och kapacitet för enskilda signaler-tjänster finns i [pris information för Azure SignalR service](https://azure.microsoft.com/pricing/details/signalr-service/).  
+Information om priser och kapacitet för enskilda SignalR-tjänster finns i [Azure SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Om du ändrar signalerar tjänsten från den **kostnads fria** nivån till **standard** -nivån eller vice versa, kommer IP-adressen för den offentliga tjänsten att ändras och det tar vanligt vis 30-60 minuter att sprida ändringen till DNS-servrar över hela Internet. Tjänsten kan vara oåtkomlig innan DNS uppdateras. Vi rekommenderar vanligt vis inte att ändra pris nivån för ofta.
+> Ändra SignalR-tjänst från **fri** nivå till **standardnivå** eller vice versa, public service IP kommer att ändras och det tar vanligtvis 30-60 minuter att sprida ändringen till DNS-servrar över hela Internet. Tjänsten kan inte nås innan DNS uppdateras. I allmänhet rekommenderas det inte att ändra din prisnivå för ofta.
 
 
-## <a name="scale-on-azure-portal"></a>Skala på Azure Portal
+## <a name="scale-on-azure-portal"></a>Skala på Azure-portalen
 
 1. Öppna [Azure-portalen](https://portal.azure.com) i webbläsaren.
 
-2. På sidan signaler-tjänst väljer du **skala**på menyn till vänster.
+2. Välj **Skala**på sidan SignalR-tjänst på sidan SignalR-tjänst .
    
-3. Välj din pris nivå och klicka sedan på **Välj**. Ange enhets antalet för **standard** nivån.
+3. Välj prisnivå och klicka sedan på **Välj**. Ange enhetsantalet för **standardnivå.**
    
     ![Skala på portalen](./media/signalr-howto-scale/signalr-howto-scale.png)
 
@@ -41,7 +41,7 @@ Information om prissättning och kapacitet för enskilda signaler-tjänster finn
 
 ## <a name="scale-using-azure-cli"></a>Skala med Azure CLI
 
-Det här skriptet skapar en ny signal tjänst resurs av **kostnads fri** nivå och en ny resurs grupp, och skalar upp till **standard** nivån. 
+Det här skriptet skapar en ny SignalR-tjänstresurs **för kostnadsfri** nivå och en ny resursgrupp och skalar den upp till **standardnivå.** 
 
 ```azurecli-interactive
 #!/bin/bash
@@ -77,17 +77,17 @@ Anteckna det faktiska namnet som genereras för den nya resursgruppen. Du använ
 
 [!INCLUDE [cli-script-clean-up](../../includes/cli-script-clean-up.md)]
 
-## <a name="compare-pricing-tiers"></a>Jämför pris nivåer
+## <a name="compare-pricing-tiers"></a>Jämför prisnivåer
 
-Detaljerad information, till exempel inkluderade meddelanden och anslutningar för varje pris nivå, finns i [pris information för SignalR-tjänster](https://azure.microsoft.com/pricing/details/signalr-service/).
+Detaljerad information, till exempel inkluderade meddelanden och anslutningar för varje prisnivå, finns i [Information om prissättning av SignalR-tjänst.](https://azure.microsoft.com/pricing/details/signalr-service/)
 
-En tabell med tjänst gränser, kvoter och begränsningar i varje nivå finns i [begränsningar för SignalR-tjänster](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
+En tabell över tjänstbegränsningar, kvoter och begränsningar på varje nivå finns i [Gränser för SignalR-tjänsten](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden har du lärt dig hur du skalar en instans av en enskild Signals-tjänst.
+I den här guiden har du lärt dig hur du skalar en enda SignalR-tjänstinstans.
 
-Flera slut punkter stöds också för skalnings-, horisontell partitionering-och kors regions scenarier.
+Flera slutpunkter stöds också för skalning, fragmentering och scenarier mellan regioner.
 
 > [!div class="nextstepaction"]
-> [skalnings signal tjänsten med flera instanser](./signalr-howto-scale-multi-instances.md)
+> [skala SignalR-tjänsten med flera instanser](./signalr-howto-scale-multi-instances.md)

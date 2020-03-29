@@ -1,6 +1,6 @@
 ---
-title: Övervaka förloppet för kodningsjobb med Azure portal
-description: Den här självstudien vägleder dig genom stegen för att granska dina framsteg för jobbet med hjälp av Azure portal.
+title: Övervaka kodning av jobbstatus med Azure-portalen
+description: Den här självstudien går igenom stegen för att övervaka dina jobbframsteg med hjälp av Azure-portalen.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64867225"
 ---
-# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Övervaka förloppet för kodningsjobb med Azure portal
+# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Övervaka kodning av jobbstatus med Azure-portalen
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Översikt
 
-När du kör jobb kräver ofta ett sätt att spåra jobbförloppet. 
+När du kör jobb behöver du ofta ett sätt att spåra jobbframsteg. 
 
 Klicka på **Inställningar** (överst på sidan) för att övervaka förloppet för kodningsjobbet och välj sedan **Jobb**.
 
@@ -39,7 +39,7 @@ Du kan klicka på jobbet för att se mer information.
 ![Jobb](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
 ## <a name="next-steps"></a>Nästa steg
-När din kodningsjobb är en, du kan publicera och spela upp dina tillgångar, enligt beskrivningen [här](media-services-portal-publish.md).
+När kodningsjobbet är ett kan du publicera och spela upp dina tillgångar enligt beskrivningen [här](media-services-portal-publish.md).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

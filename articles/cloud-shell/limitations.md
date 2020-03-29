@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Shell begränsningar | Microsoft Docs
-description: Översikt över begränsningar för Azure Cloud Shell
+title: Begränsningar för Azure Cloud Shell | Microsoft-dokument
+description: Översikt över begränsningar i Azure Cloud Shell
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
 ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74951487"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar för Azure Cloud Shell
@@ -27,13 +27,13 @@ Azure Cloud Shell har följande kända begränsningar:
 
 ## <a name="general-limitations"></a>Allmänna begränsningar
 
-### <a name="system-state-and-persistence"></a>System tillstånd och persistence
+### <a name="system-state-and-persistence"></a>Systemtillstånd och uthållighet
 
-Datorn som tillhandahåller Cloud Shell-sessionen är temporär och återvinns när sessionen är inaktiv i 20 minuter. Cloud Shell kräver att en Azure-filresurs monteras. Därför måste prenumerationen kunna konfigurera lagrings resurser för att få åtkomst till Cloud Shell. Andra överväganden är:
+Datorn som tillhandahåller din Cloud Shell-session är tillfällig och återvinns efter att sessionen är inaktiv i 20 minuter. Cloud Shell kräver att en Azure-filresurs monteras. Därför måste din prenumeration kunna konfigurera lagringsresurser för att komma åt Cloud Shell. Andra överväganden är:
 
-* Med monterad lagring behålls bara ändringar i `$Home` katalogen.
-* Azure-filresurser kan bara monteras inifrån din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
-  * Kör `env` i bash för att hitta din regions uppsättning som `ACC_LOCATION`.
+* Med monterad lagring sparas `$Home` endast ändringar i katalogen.
+* Azure-filresurser kan endast monteras inifrån din [tilldelade region](persisting-shell-storage.md#mount-a-new-clouddrive).
+  * I Bash, `env` kör för att `ACC_LOCATION`hitta din region som .
 
 ### <a name="browser-support"></a>Stöd för webbläsare
 
@@ -43,45 +43,45 @@ Cloud Shell stöder de senaste versionerna av Microsoft Edge, Microsoft Internet
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### <a name="for-a-given-user-only-one-shell-can-be-active"></a>För en specifik användare kan endast ett gränssnitt vara aktivt
+### <a name="for-a-given-user-only-one-shell-can-be-active"></a>För en viss användare kan endast ett skal vara aktivt
 
-Användare kan bara starta en typ av gränssnitt i taget, antingen **bash** eller **PowerShell**. Du kan dock ha flera instanser av bash eller PowerShell som körs samtidigt. Växling mellan bash eller PowerShell med hjälp av menyn leder till att Cloud Shell startas om, vilket avslutar befintliga sessioner. Du kan också köra bash i PowerShell genom att skriva `bash`, och du kan köra PowerShell inuti bash genom att skriva `pwsh`.
+Användare kan bara starta en typ av skal i taget, antingen **Bash** eller **PowerShell**. Du kan dock ha flera instanser av Bash eller PowerShell körs samtidigt. Om du byter mellan Bash eller PowerShell med hjälp av menyn startas Cloud Shell om, vilket avslutar befintliga sessioner. Alternativt kan du köra bash inuti PowerShell genom att `bash`skriva , och `pwsh`du kan köra PowerShell inuti bash genom att skriva .
 
 ### <a name="usage-limits"></a>Användningsgränser
 
-Cloud Shell är avsedd för interaktiva användnings fall. Det innebär att alla tids krävande sessioner som inte är interaktiva avslutas utan varning.
+Cloud Shell är avsett för interaktiva användningsfall. Därför avslutas alla långvariga icke-interaktiva sessioner utan förvarning.
 
-## <a name="bash-limitations"></a>Bash-begränsningar
+## <a name="bash-limitations"></a>Bash begränsningar
 
 ### <a name="user-permissions"></a>Användarbehörigheter
 
-Behörigheter anges som vanliga användare utan sudo-åtkomst. Alla installationer utanför din `$Home`s katalog sparas inte.
+Behörigheter anges som vanliga användare utan sudo-åtkomst. Någon installation `$Home` utanför katalogen sparas inte.
 
-### <a name="editing-bashrc-or-profile"></a>Redigera. bashrc eller $PROFILE
+### <a name="editing-bashrc-or-profile"></a>Redigera .bashrc eller $PROFILE
 
-Var försiktig när du redigerar. bashrc eller PowerShell $PROFILE-filen. Detta kan orsaka oväntade fel i Cloud Shell.
+Var försiktig när du redigerar .bashrc eller PowerShells $PROFILE-fil, och gör det kan orsaka oväntade fel i Cloud Shell.
 
 ## <a name="powershell-limitations"></a>PowerShell-begränsningar
 
-### <a name="azuread-module-name"></a>namn på `AzureAD` modul
+### <a name="azuread-module-name"></a>`AzureAD`modulnamn
 
-Namnet på `AzureAD` modulen är för närvarande `AzureAD.Standard.Preview`, modulen har samma funktioner.
+Modulnamnet `AzureAD` är `AzureAD.Standard.Preview`för närvarande , modulen ger samma funktionalitet.
 
-### <a name="sqlserver-module-functionality"></a>funktioner i `SqlServer` modul
+### <a name="sqlserver-module-functionality"></a>`SqlServer`modulfunktionalitet
 
-Den `SqlServer`-modul som ingår i Cloud Shell har bara för hands versions stöd för PowerShell Core. I synnerhet är `Invoke-SqlCmd` inte tillgängligt ännu.
+Modulen `SqlServer` som ingår i Cloud Shell har endast stöd för förhandsversioner för PowerShell Core. I synnerhet `Invoke-SqlCmd` är inte tillgänglig ännu.
 
-### <a name="default-file-location-when-created-from-azure-drive"></a>Standard fil Sök väg när den skapas från Azure Drive:
+### <a name="default-file-location-when-created-from-azure-drive"></a>Standardfilplats när den skapas från Azure-enheten:
 
-Med hjälp av PowerShell-cmdlets kan användarna inte skapa filer under Azure: Drive. När användare skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna som standard i `$HOME`. 
+Med PowerShell-cmdletar kan användare inte skapa filer under Azure:-enheten. När användare skapar nya filer med andra verktyg, till exempel vim eller nano, sparas filerna till `$HOME` som standard. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
-Om användaren kör ett kommando som skapar en fönster dialog ruta, ser ett fel meddelande, till exempel: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Om användaren kör ett kommando som skulle skapa en Windows-dialogruta `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`visas ett felmeddelande som: .
 
-### <a name="large-gap-after-displaying-progress-bar"></a>Stort mellanrum när förlopps indikatorn visas
+### <a name="large-gap-after-displaying-progress-bar"></a>Stort mellanrum efter att ha visat förloppsindikator
 
-Om användaren utför en åtgärd som visar en förlopps indikator, t. ex. en flik som slutförs medan den `Azure:` enheten, är det möjligt att markören inte är korrekt inställd och att ett mellanrum visas där förlopps indikatorn användes tidigare.
+Om användaren utför en åtgärd som visar ett förloppspel, `Azure:` till exempel en flik som slutförs i enheten, är det möjligt att markören inte är korrekt inställd och ett mellanrum visas där förloppsindikatorn tidigare.
 
 ## <a name="next-steps"></a>Nästa steg
 

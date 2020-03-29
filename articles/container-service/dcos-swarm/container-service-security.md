@@ -1,6 +1,6 @@
 ---
-title: FÖRÅLDRAD Behållar säkerhet i Azure Container Service
-description: Att tänka på när du skyddar Docker-behållare som distribuerats i Azure Container Service och relaterade Azure-tjänster.
+title: (FÖRÅLDRAD) Behållarsäkerhet i Azure Container Service
+description: Överväganden för att skydda Docker-behållare som distribueras i Azure Container Service och relaterade Azure-tjänster.
 author: sauryadas
 ms.service: container-service
 ms.topic: conceptual
@@ -8,13 +8,13 @@ ms.date: 03/28/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: d90d872175febf775e7d0892e133883f1a8ff8a2
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552400"
 ---
-# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>FÖRÅLDRAD Skydda Docker-behållare i Azure Container Service
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(FÖRÅLDRAD) Skydda Docker-behållare i Azure Container Service
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -53,7 +53,7 @@ När ett program har distribuerats i produktionsmiljön är det viktigt att regl
 ## <a name="host-level-container-isolation"></a>Containerisolering på värdnivå
 När en kund distribuerar containerprogram på Azure-resurser distribueras de på en prenumerationsnivå i resursgrupper och är inte konfigurerade för flera klientorganisationer. Det innebär att om en kund delar en prenumeration med andra, så går det inte att skapa några gränser mellan två distributioner i samma prenumeration. Det betyder i sin tur att det inte går att garantera säkerhet på containernivå. 
 
-Det är också viktigt att förstå att behållare delar värdens kernel och resurser (som i Azure Container Service är en virtuell Azure-dator i ett kluster). Av den anledningen måste containrar som körs i en produktionsmiljö köras i icke-privilegierat användarläge. Om en container körs med rotprivilegier kan hela miljön komprometteras. Med åtkomst på rotnivå i en container kan en hackare få åtkomst till alla rotprivilegier på värden. Det är också viktigt att containrar körs med skrivskyddade filsystem. Detta förhindrar att någon som har åtkomst till den komprometterade containern kan skriva skadliga skript till filsystemet och få tillgång till andra filer. På motsvarande sätt är det viktigt att begränsa de resurser (till exempel minne, processor och nätverkets bandbredd) som allokeras till en container. Detta bidrar till att förhindra hackare från ta upp-resurser och med illegala aktiviteter som kredit korts bedrägerier eller bit-/utvinnar utvinning, vilket kan förhindra att andra behållare körs på värden eller klustret.
+Det är också viktigt att förstå att behållare delar värdens kernel och resurser (som i Azure Container Service är en virtuell Azure-dator i ett kluster). Av den anledningen måste containrar som körs i en produktionsmiljö köras i icke-privilegierat användarläge. Om en container körs med rotprivilegier kan hela miljön komprometteras. Med åtkomst på rotnivå i en container kan en hackare få åtkomst till alla rotprivilegier på värden. Det är också viktigt att containrar körs med skrivskyddade filsystem. Detta förhindrar att någon som har åtkomst till den komprometterade containern kan skriva skadliga skript till filsystemet och få tillgång till andra filer. På motsvarande sätt är det viktigt att begränsa de resurser (till exempel minne, processor och nätverkets bandbredd) som allokeras till en container. Detta hjälper till att förhindra hackare från hogging resurser och bedriver olagliga aktiviteter såsom kreditkortsbedrägerier eller bit mynt gruvdrift, vilket kan hindra andra behållare från att köras på värden eller klustret.
 
 ## <a name="orchestrator-considerations"></a>Orkestreringsöverväganden
 

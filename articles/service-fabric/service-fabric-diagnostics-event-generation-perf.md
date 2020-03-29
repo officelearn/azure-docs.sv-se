@@ -1,84 +1,84 @@
 ---
-title: Prestanda övervakning av Azure Service Fabric
-description: Lär dig mer om prestanda räknare för övervakning och diagnostik av Azure Service Fabric-kluster.
+title: Prestandaövervakning av Azure Service Fabric
+description: Lär dig mer om prestandaräknare för övervakning och diagnostik av Azure Service Fabric-kluster.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464701"
 ---
 # <a name="performance-metrics"></a>Prestandamått
 
-Mått ska samlas in för att förstå klustrets prestanda samt de program som körs i det. För Service Fabric kluster rekommenderar vi att du samlar in följande prestanda räknare.
+Mått bör samlas in för att förstå prestanda för klustret samt de program som körs i det. För Service Fabric-kluster rekommenderar vi att du samlar in följande prestandaräknare.
 
 ## <a name="nodes"></a>Noder
 
-För datorerna i klustret kan du överväga att samla in följande prestanda räknare för att bättre förstå belastningen på varje dator och fatta lämpliga beslut om kluster skalning.
+För datorerna i klustret bör du överväga att samla in följande prestandaräknare för att bättre förstå belastningen på varje dator och fatta lämpliga beslut om klusterskalning.
 
-| Räknar kategori | Räknar namn |
+| Räknare kategori | Motnamn |
 | --- | --- |
-| Logisk Disk | Ledigt utrymme för logisk disk |
-| Fysisk disk (per disk) | Genomsnittlig längd på disk läsnings kön |
-| Fysisk disk (per disk) | Genomsnittlig längd på disk skrivnings kön |
-| Fysisk disk (per disk) | Medel s/disk läsning |
-| Fysisk disk (per disk) | Medel s/disk skrivning |
-| Fysisk disk (per disk) | Diskläsningar/sek |
-| Fysisk disk (per disk) | Disk – lästa byte/sek |
-| Fysisk disk (per disk) | Diskskrivningar/sek |
-| Fysisk disk (per disk) | Disk – skrivna byte/sek |
-| Minne | Tillgängliga megabyte |
-| PagingFile | Användning av% |
-| Processor (totalt) | Tid i procent för processor |
-| Process (per tjänst) | Tid i procent för processor |
-| Process (per tjänst) | Process-ID |
+| Logisk disk | Ledigt utrymme för logisk disk |
+| PhysicalDisk(per Disk) | Genomsnittlig kölängd för diskläsning |
+| PhysicalDisk(per Disk) | Genomsnittlig kö för diskskrivning |
+| PhysicalDisk(per Disk) | Genomsnittlig disk sek/läs |
+| PhysicalDisk(per Disk) | Genomsnittlig disk sek/skrivning |
+| PhysicalDisk(per Disk) | Diskläsningar/sek |
+| PhysicalDisk(per Disk) | Diskläs byte per sekund |
+| PhysicalDisk(per Disk) | Diskskrivningar per sekund |
+| PhysicalDisk(per Disk) | Byte för diskskrivning/sek |
+| Minne | Tillgängliga MBytes |
+| Växlingsfil | % användning |
+| Processor(totalt) | % processortid |
+| Process (per tjänst) | % processortid |
+| Process (per tjänst) | ID-process |
 | Process (per tjänst) | Privata byte |
-| Process (per tjänst) | Räkning av trådar |
+| Process (per tjänst) | Antal trådar |
 | Process (per tjänst) | Virtuella byte |
 | Process (per tjänst) | Sidmängd |
-| Process (per tjänst) | Arbets minne – privat |
-| Nätverks gränssnitt (alla instanser) | Byte recd |
-| Nätverks gränssnitt (alla instanser) | Skickade byte |
-| Nätverks gränssnitt (alla instanser) | Totalt antal byte |
-| Nätverks gränssnitt (alla instanser) | Kölängd för utdata |
-| Nätverks gränssnitt (alla instanser) | Utgående paket som ignorerats |
-| Nätverks gränssnitt (alla instanser) | Mottagna paket som tagits bort |
-| Nätverks gränssnitt (alla instanser) | Utgående paket fel |
-| Nätverks gränssnitt (alla instanser) | Mottagna paket-fel |
+| Process (per tjänst) | Arbetsset - Privat |
+| Nätverksgränssnitt (alla instanser) | Byte recd |
+| Nätverksgränssnitt (alla instanser) | Skickade byte |
+| Nätverksgränssnitt (alla instanser) | Totalt antal byte |
+| Nätverksgränssnitt (alla instanser) | Längd på utdatakö |
+| Nätverksgränssnitt (alla instanser) | Slutgående paket som ignorerats |
+| Nätverksgränssnitt (alla instanser) | Mottagna paket ignoreras |
+| Nätverksgränssnitt (alla instanser) | Utgående paket-fel |
+| Nätverksgränssnitt (alla instanser) | Mottagna paketfel |
 
-## <a name="net-applications-and-services"></a>.NET-program och-tjänster
+## <a name="net-applications-and-services"></a>.NET-program och -tjänster
 
 Samla in följande räknare om du distribuerar .NET-tjänster till klustret. 
 
-| Räknar kategori | Räknar namn |
+| Räknare kategori | Motnamn |
 | --- | --- |
 | .NET CLR-minne (per tjänst) | Process-ID |
-| .NET CLR-minne (per tjänst) | Totalt antal allokerade byte |
-| .NET CLR-minne (per tjänst) | Totalt antal reserverade byte |
-| .NET CLR-minne (per tjänst) | Antal byte i alla heapar |
-| .NET CLR-minne (per tjänst) | Heap-storlek för stora objekt |
-| .NET CLR-minne (per tjänst) | Antal GC-referenser |
-| .NET CLR-minne (per tjänst) | # Generation 0-samlingar |
-| .NET CLR-minne (per tjänst) | # Gen 1-samlingar |
-| .NET CLR-minne (per tjänst) | # Gen 2-samlingar |
-| .NET CLR-minne (per tjänst) | Tid i GC i procent |
+| .NET CLR-minne (per tjänst) | # Totalt genomförda byte |
+| .NET CLR-minne (per tjänst) | # Totalt reserverade byte |
+| .NET CLR-minne (per tjänst) | # Bytes i alla heaps |
+| .NET CLR-minne (per tjänst) | Stor objekthögstorlek |
+| .NET CLR-minne (per tjänst) | # GC Handtag |
+| .NET CLR-minne (per tjänst) | # Gen 0 Samlingar |
+| .NET CLR-minne (per tjänst) | # Gen 1 Samlingar |
+| .NET CLR-minne (per tjänst) | # Gen 2 Samlingar |
+| .NET CLR-minne (per tjänst) | % tid i GC |
 
-### <a name="service-fabrics-custom-performance-counters"></a>Service Fabric anpassade prestanda räknare
+### <a name="service-fabrics-custom-performance-counters"></a>Service Fabric anpassade prestandaräknare
 
-Service Fabric genererar en betydande mängd anpassade prestanda räknare. Om du har installerat SDK kan du se den omfattande listan på din Windows-dator i prestanda övervaknings programmet (Starta > prestanda övervakaren). 
+Service Fabric genererar en betydande mängd anpassade prestandaräknare. Om du har SDK installerat kan du se den omfattande listan på din Windows-dator i prestandaövervakaren (Start > Performance Monitor). 
 
-Om du använder Reliable Actors i de program som du distribuerar till klustret lägger du till räknare från `Service Fabric Actor` och `Service Fabric Actor Method` kategorier (se [Service Fabric Reliable Actors diagnostik](service-fabric-reliable-actors-diagnostics.md)).
+I de program som du distribuerar till klustret, om `Service Fabric Actor` du `Service Fabric Actor Method` använder Reliable Actors, lägger till räknare från och kategorier (se [Service Fabric Reliable Actors Diagnostics](service-fabric-reliable-actors-diagnostics.md)).
 
-Om du använder Reliable Services eller tjänstens fjärrstyrning har vi på samma sätt `Service Fabric Service` och `Service Fabric Service Method` räknar kategorier som du bör samla in räknare från, se [övervakning med service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md) och [Reliable Services-prestandaräknare](service-fabric-reliable-services-diagnostics.md#performance-counters). 
+Om du använder Reliable Services eller Service Remoting `Service Fabric Service` har vi på samma sätt och `Service Fabric Service Method` räknarkategorier som du bör samla in räknare från, se övervakning med [serviceåtermoting](service-fabric-reliable-serviceremoting-diagnostics.md) och tillförlitliga prestandaräknare för [tjänster.](service-fabric-reliable-services-diagnostics.md#performance-counters) 
 
-Om du använder pålitliga samlingar rekommenderar vi att du lägger till `Avg. Transaction ms/Commit` från `Service Fabric Transactional Replicator` för att samla in den genomsnittliga svars tiden per transaktions mått.
+Om du använder tillförlitliga samlingar `Avg. Transaction ms/Commit` rekommenderar `Service Fabric Transactional Replicator` vi att du lägger till från för att samla in den genomsnittliga genomförandesvarstiden per transaktionsmått.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [att generera händelser på plattforms nivå](service-fabric-diagnostics-event-generation-infra.md) i Service Fabric
-* Samla in prestanda mått via [Log Analytics agent](service-fabric-diagnostics-oms-agent.md)
+* Läs mer om [händelsegenerering på plattformsnivå](service-fabric-diagnostics-event-generation-infra.md) i Service Fabric
+* Samla in resultatmått via [Log Analytics-agent](service-fabric-diagnostics-oms-agent.md)

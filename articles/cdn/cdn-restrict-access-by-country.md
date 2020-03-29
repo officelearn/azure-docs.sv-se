@@ -1,6 +1,6 @@
 ---
-title: Begränsa Azure CDN-innehåll efter land/region | Microsoft Docs
-description: Lär dig mer om att begränsa åtkomst efter land/region till ditt Azure CDN-innehåll med hjälp av funktionen geo-filtrering.
+title: Begränsa Azure CDN-innehåll per land/region | Microsoft-dokument
+description: Lär dig hur du begränsar åtkomsten per land/region till ditt Azure CDN-innehåll med hjälp av geofiltreringsfunktionen.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,100 +15,100 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
 ms.openlocfilehash: 75c422d456f2509ce478e2609a6509f78a6eb31e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593420"
 ---
 # <a name="restrict-azure-cdn-content-by-countryregion"></a>Begränsa Azure CDN-innehåll efter land/region
 
 ## <a name="overview"></a>Översikt
-När en användare begär innehåll, som standard, hanteras innehållet oavsett var de användare som skickar begäran. Men i vissa fall kan du begränsa åtkomsten till innehållet efter land/region. Med den *geofiltreringen* funktion, kan du skapa regler för vissa sökvägar på CDN-slutpunkten att tillåta eller blockera innehåll i valda länder/regioner.
+När en användare begär ditt innehåll, som standard, visas innehållet oavsett var användaren gör begäran. I vissa fall kanske du vill begränsa åtkomsten till ditt innehåll efter land/region. Med *geofiltreringsfunktionen* kan du skapa regler för specifika sökvägar på CDN-slutpunkten för att tillåta eller blockera innehåll i valda länder/regioner.
 
 > [!IMPORTANT]
-> **Azure CDN Standard från Microsoft** profiler stöder inte sökvägsbaserad geo-filtrering.
+> **Azure CDN Standard från Microsoft-profiler** stöder inte sökvägsbaserad geofiltrering.
 > 
 
-## <a name="standard-profiles"></a>Standard-profiler
-Procedurerna i det här avsnittet avser **Azure CDN Standard från Akamai** och **Azure CDN Standard från Verizon** profiler endast. 
+## <a name="standard-profiles"></a>Standardprofiler
+Procedurerna i det här avsnittet är endast för **Azure CDN Standard från Akamai** och **Azure CDN Standard från** Verizon-profiler. 
 
-För **Azure CDN Premium från Verizon** profiler, måste du använda den **hantera** portalen för att aktivera geo-filtrering. Mer information finns i [Azure CDN Premium från Verizon profiler](#azure-cdn-premium-from-verizon-profiles).
+För **Azure CDN Premium från Verizon-profiler** måste du använda **hantera** portalen för att aktivera geofiltrering. Mer information finns i [Azure CDN Premium från Verizon-profiler](#azure-cdn-premium-from-verizon-profiles).
 
 ### <a name="define-the-directory-path"></a>Definiera katalogsökvägen
-För att komma åt funktionen geo-filtrering, Välj din CDN-slutpunkt i portalen och välj sedan **geofiltreringen** under inställningar i den vänstra menyn. 
+Om du vill komma åt geofiltreringsfunktionen väljer du CDN-slutpunkten i portalen och väljer sedan **Geofiltrering** under INSTÄLLNINGAR på menyn till vänster. 
 
-![Standard GEO-filtrering](./media/cdn-filtering/cdn-geo-filtering-standard.png)
+![Geofiltreringsstandard](./media/cdn-filtering/cdn-geo-filtering-standard.png)
 
-Från den **sökväg** anger den relativa sökvägen till den plats som användarna ska tillåtas eller nekas åtkomst. 
+I rutan **SÖKVÄG** anger du den relativa sökvägen till den plats där användare ska tillåtas eller nekas åtkomst till. 
 
-Du kan använda geo-filtrering för alla filer med en vanlig snedstreck (/) eller Välj specifika mappar genom att ange katalogsökvägar (till exempel */bilder/* ). Du kan också använda geo-filtrering för en enda fil (till exempel */pictures/city.png*). Flera regler tillåts; När du har angett en regel, visas en tom rad där du kan ange nästa regel.
+Du kan använda geofiltrering för alla dina filer med ett snedstreck (/) eller välja specifika mappar genom att ange katalogsökvägar (till exempel */pictures/*). Du kan också använda geofiltrering på en enda fil (till exempel */pictures/city.png*). Flera regler är tillåtna. När du har angett en regel visas en tom rad där du kan ange nästa regel.
 
-Till exempel är alla följande directory sökväg filter giltiga:   
+Alla följande katalogsökvägsfilter är till exempel giltiga:   
 */*                                 
-*/Photos/*      
-*/Photos/Strasbourg /*      
-*/Photos/Strasbourg/City.PNG*
+*/Foton/*     
+*/Bilder/Strasbourg/*     
+*/Bilder/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Definiera typ av åtgärd
 
-Från den **åtgärd** väljer **Tillåt** eller **blockera**: 
+Välj Tillåt eller Blockera i listan **ÅTGÄRD:** **Tillåt** eller **Blockera:** 
 
-- **Tillåt**: Endast användare från de angivna länder/regionerna får åtkomst till resurser som begärs från den rekursiva sökvägen.
+- **Tillåt**: Endast användare från angivna länder/regioner får åtkomst till tillgångar som begärs från den rekursiva sökvägen.
 
-- **Blockera**: Användare från de angivna länder/regionerna som nekas åtkomst till resurser som begärs från den rekursiva sökvägen. Om inga andra land/region filtreringsalternativ har konfigurerats för den platsen, kommer sedan alla andra användare att ges tillgång.
+- **Blockera**: Användare från angivna länder/regioner nekas åtkomst till de resurser som begärs från den rekursiva sökvägen. Om inga andra land-/regionfiltreringsalternativ har konfigurerats för den platsen tillåts alla andra användare åtkomst.
 
-Till exempel en geo-filtrering regel för blockering av sökvägen */foton/Strasbourg/* filtrerar följande filer:     
-*http:\//\<endpoint >.azureedge.net/Photos/Strasbourg/1000.jpg*
-*http:\//\<endpoint >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+En geofiltreringsregel för att blockera sökvägen */Bilder/Strasbourg/* filtrerar till exempel följande filer:     
+*\//http:\<slutpunkt>.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<slutpunkt>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
-### <a name="define-the-countriesregions"></a>Definiera de länder/regionerna
-Från den **LANDSKODER** väljer du de länder/regioner som du vill blockera eller tillåta för sökvägen. 
+### <a name="define-the-countriesregions"></a>Definiera länder/regioner
+Välj de länder/regioner som du vill blockera eller tillåta sökvägen i listan **LANDSKODER.** 
 
-När du har valt de länder/regionerna väljer **spara** att aktivera den nya regeln för geo-filtrering. 
+När du har valt länder/regioner väljer du **Spara** för att aktivera den nya geofiltreringsregeln. 
 
-![Geofiltreringsregler](./media/cdn-filtering/cdn-geo-filtering-rules.png)
+![Regler för geofiltrering](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### <a name="clean-up-resources"></a>Rensa resurser
-Om du vill ta bort en regel, markerar du den i listan på den **geofiltreringen** sidan och välj sedan **ta bort**.
+Om du vill ta bort en regel markerar du den i listan på sidan **Geofiltrering** och väljer sedan **Ta bort**.
 
 ## <a name="azure-cdn-premium-from-verizon-profiles"></a>Azure CDN Premium från Verizon-profiler
-För **för Azure CDN Premium från Verizon** användarprofiler, användargränssnittet för att skapa en regel för geo-filtrering skiljer sig:
+För **Azure CDN Premium från Verizon-profiler** är användargränssnittet för att skapa en geofiltreringsregel annorlunda:
 
-1. Från menyn högst upp i din Azure CDN-profil väljer **hantera**.
+1. Välj **Hantera**på den övre menyn i din Azure CDN-profil.
 
-2. Verizon-portalen väljer du **HTTP stora**och välj sedan **Landsfiltrering**.
+2. På Verizon-portalen väljer du **HTTP Large**och väljer sedan **Landsfiltrering**.
 
-    ![Standard GEO-filtrering](./media/cdn-filtering/cdn-geo-filtering-premium.png)
+    ![Geofiltreringsstandard](./media/cdn-filtering/cdn-geo-filtering-premium.png)
 
-3. Välj **Lägg till Filter för land**.
+3. Välj **Lägg till landsfilter**.
 
-    Den **steg ett:** visas.
+    Sidan **Steg ett:** visas.
 
-4. Ange katalogsökvägen, Välj **blockera** eller **Lägg till**och välj sedan **nästa**.
+4. Ange katalogsökvägen, välj **Blockera** eller **Lägg till**och välj sedan **Nästa**.
 
-    Den **steg två:** visas. 
+    Sidan **Steg två:** visas. 
 
-5. Välj en eller flera länder/regioner i listan och välj sedan **Slutför** att aktivera regeln. 
+5. Välj ett eller flera länder/regioner i listan och välj sedan **Slutför** för att aktivera regeln. 
     
-    Den nya regeln visas i tabellen på den **Landsfiltrering** sidan.
+    Den nya regeln visas i tabellen på sidan **Landsfiltrering.**
 
-    ![Geofiltreringsregler](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
+    ![Regler för geofiltrering](./media/cdn-filtering/cdn-geo-filtering-premium-rules.png)
 
 ### <a name="clean-up-resources"></a>Rensa resurser
-I landet/regionen filtrering tabellen, väljer du ikonen Ta bort bredvid en regel för att ta bort den eller redigeringsikonen för att ändra den.
+I tabellen lands-/regionfiltreringsregler markerar du borttagningsikonen bredvid en regel för att ta bort den eller redigeringsikonen för att ändra den.
 
 ## <a name="considerations"></a>Överväganden
-* Ändringar i konfigurationen av geo-filtrering gälla inte omedelbart:
-   * För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom tio minuter. 
+* Ändringar i geofiltreringskonfigurationen börjar inte gälla omedelbart:
+   * För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom 10 minuter. 
    * För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
    * För **Azure CDN Standard från Verizon**- och **Azure CDN Premium från Verizon**-profiler slutförs spridningen vanligtvis inom 10 minuter. 
  
-* Den här funktionen har inte stöd för jokertecken (till exempel *).
+* Den här funktionen stöder inte jokertecken (till exempel *).
 
-* Konfigurationen för geo-filtrering som är associerade med den relativa sökvägen är tillämpas rekursivt till denna sökväg.
+* Den geofiltreringskonfiguration som är associerad med den relativa sökvägen tillämpas rekursivt på sökvägen.
 
-* Endast en regel kan tillämpas på samma relativa sökväg. Det vill säga att du inte skapa flera filter för land/region som pekar på samma relativa sökväg. Eftersom land/region filter är rekursiv, kan en mapp ha flera filter för land/region. Med andra ord en undermapp till en tidigare konfigurerade mapp som kan tilldelas ett annat land/region-filter.
+* Endast en regel kan tillämpas på samma relativa sökväg. Det vill säga du kan inte skapa flera lands-/regionfilter som pekar på samma relativa sökväg. Men eftersom lands-/regionfilter är rekursiva kan en mapp ha flera lands-/regionfilter. Med andra ord kan en undermapp till en tidigare konfigurerad mapp tilldelas ett annat land/regionfilter.
 
-* Funktionen för geo-filtrering använder landskoder för att definiera de länder/regioner som en begäran tillåts eller blockeras för en skyddad katalog. Akamai och Verizon-profiler stöder de flesta av samma landskoder, finns men det några skillnader. Mer information finns i [Azure CDN landskoder](/previous-versions/azure/mt761717(v=azure.100)). 
+* Geofiltreringsfunktionen använder landskoder för att definiera de länder/regioner från vilka en begäran tillåts eller blockeras för en säker katalog. Även om Akamai och Verizon profiler stöder de flesta av samma land koder, det finns några skillnader. Mer information finns i [Azure CDN landskoder](/previous-versions/azure/mt761717(v=azure.100)). 
 

@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om Azure Media Services
+title: Vanliga frågor och svar i Azure Media Services
 description: Den här artikeln innehåller svar på vanliga frågor om Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -14,57 +14,57 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: bdb5a43ad6669bfcd6e93ef4e3bf1646314e4606
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705878"
 ---
-# <a name="media-services-v2-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v2
+# <a name="media-services-v2-frequently-asked-questions"></a>Media Services v2 vanliga frågor och svar
 
-Den här artikeln behandlar vanliga frågor som skapats av AMS-communityn (Azure Media Services).
+Den här artikeln tar upp vanliga frågor som tagits upp av användarcommunityn för Azure Media Services (AMS).
 
-## <a name="general-ams-faqs"></a>Vanliga frågor och svar om vanliga AMS
+## <a name="general-ams-faqs"></a>Allmänna vanliga frågor om AMS
 
-F: hur strömmar du till Apple iOS-enheter?
+F: Hur streamar du till Apple iOS-enheter?
 
-A: Lägg till "(format = M3U8-AAPL)"-sökvägen till "/manifest"-delen av URL: en för att tala om att den strömmande ursprungs servern returnerar HLS innehåll för användning på Apple iOS-enheter (mer information finns i [leverera innehåll](media-services-deliver-content-overview.md))
+S: lägg till sökvägen "(format=m3u8-aapl)" i delen "/Manifest" i webbadressen för att tala om för servern för strömmande ursprung att returnera HLS-innehåll för konsumtion på Apple iOS-inbyggda enheter (mer information finns [i leverera innehåll](media-services-deliver-content-overview.md))
 
-F: hur skalar du indexeringen?
+F: Hur skalar du indexering?
 
-A: de reserverade enheterna är desamma för kodnings-och indexerings uppgifter. Följ anvisningarna för [hur du skalar kodnings reserverade enheter](media-services-scale-media-processing-overview.md). **Observera** att indexerings prestanda inte påverkas av en reserverad enhets typ.
+S: De reserverade enheterna är desamma för kodnings- och indexeringsuppgifter. Följ instruktionerna om [Hur du skalar kodning reserverade enheter](media-services-scale-media-processing-overview.md). **Observera** att indexerarens prestanda inte påverkas av reserverad enhetstyp.
 
-F: Jag har laddat upp, kodat och publicerat en video. Vad skulle vara orsaken till att videon inte spelas upp när jag försöker strömma den?
+F: Jag laddade upp, kodade och publicerade en video. Vad skulle vara anledningen till att videon inte spelas upp när jag försöker streama den?
 
-A: en av de vanligaste orsakerna är att du inte har den slut punkt för direkt uppspelning som du försöker spela upp i **körnings** läge.  
+S: En av de vanligaste orsakerna är att du inte har den slutpunkt för direktuppspelning som du försöker spela upp i läget **Kör.**  
 
-F: kan jag göra en sammansättning i en Live-dataström?
+F: Kan jag skriva på en livestream?
 
-A: sammansättning på Live-dataströmmar finns för närvarande inte i Azure Media Services, vilket innebär att du måste skriva på datorn i förväg.
+S: Sammansättning i livestreamar erbjuds för närvarande inte i Azure Media Services, så du måste förkomla på datorn.
 
-F: kan jag använda Azure CDN med direkt uppspelning?
+F: Kan jag använda Azure CDN med livestreaming?
 
-A: Media Services stöder integrering med Azure CDN (mer information finns i [Hantera strömnings slut punkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)).  Du kan använda Direktsänd strömning med CDN. Azure Media Services tillhandahåller Smooth Streaming, HLS och MPEG-streck-utdata. Alla dessa format använder HTTP för att överföra data och få fördelar med HTTP-cachelagring. I Live streaming är faktiska video-och ljuddata indelade i fragment och de enskilda fragmenten får cachelagras i CDN. Endast data måste uppdateras är manifest data. CDN uppdaterar regelbundet manifest data.
+S: Media Services stöder integrering med Azure CDN (mer information finns [i Så här hanterar du slutpunkter för direktuppspelning i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)).  Du kan använda livestreaming med CDN. Azure Media Services tillhandahåller Smooth Streaming-, HLS- och MPEG-DASH-utdata. Alla dessa format använder HTTP för att överföra data och få fördelar med HTTP-cachelagring. I live streaming faktiska video / ljud data delas till fragment och denna enskilda fragment få cachelagrade i CDN. Endast data behöver uppdateras är manifestdata. CDN uppdaterar regelbundet manifestdata.
 
-F: stöder Azure Media Services lagring av avbildningar?
+F: Har Azure Media-tjänster stöd för lagring av avbildningar?
 
-A: om du bara vill lagra JPEG-eller PNG-bilder bör du behålla dem i Azure Blob Storage. Det finns ingen förmån att placera dem i ditt Media Services konto om du inte vill att de ska vara kopplade till dina video-eller ljud till gångar. Eller om du kanske behöver använda bilderna som överlägg i video kodaren. Media Encoder Standard har stöd för att täcka bilder ovanpå videor, och det är det som visar JPEG och PNG som stödda indataformat. Mer information finns i [skapa överlägg](media-services-advanced-encoding-with-mes.md#overlay).
+S: Om du bara vill lagra JPEG- eller PNG-avbildningar bör du behålla dem i Azure Blob Storage. Det finns ingen fördel med att placera dem i ditt Media Services-konto om du inte vill att de ska vara kopplade till dina video- eller ljudtillgångar. Eller om du kanske har ett behov av att använda bilderna som överlägg i videokodaren. Media Encoder Standard stöder överlagring av bilder ovanpå videor, och det är vad den listar JPEG och PNG som stöds indataformat. Mer information finns i [Skapa överlägg](media-services-advanced-encoding-with-mes.md#overlay).
 
-F: Hur kan jag kopiera till gångar från ett Media Services konto till ett annat?
+F: Hur kopierar jag tillgångar från ett Media Services-konto till ett annat?
 
-S: om du vill kopiera till gångar från ett Media Services konto till ett annat med hjälp av .NET använder du tillägget [IAsset. Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) som finns i lagrings platsen [Azure Media Services för .NET SDK-tillägg](https://github.com/Azure/azure-sdk-for-media-services-extensions/) . Mer information finns i [den här](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) forum tråden.
+S: Om du vill kopiera resurser från ett Media Services-konto till ett annat med .NET använder du [IAsset.Copy-tilläggsmetoden](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) som är tillgänglig i Azure [Media Services .NET SDK Extensions-databasen.](https://github.com/Azure/azure-sdk-for-media-services-extensions/) Mer information finns i [den här](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) forumtråden.
 
-F: vilka tecken som stöds för namngivning av filer när du arbetar med AMS?
+F: Vilka tecken stöds för att namnge filer när du arbetar med AMS?
 
-A: Media Services använder värdet för egenskapen IAssetFile.Name när URL: er för strömmande innehåll skapas (till exempel http://{AMSAccount}. ORIGIN. Media Services. Windows. net/{GUID}/{IAssetFile. name}/streamingParameters.) Därför är procent kodning inte tillåtet. Värdet för **namn** egenskapen får inte ha något av följande [%-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! * ' ();: @ & = + $,/?% # [] ". Det kan också finnas en "." för fil namns tillägget.
+S: Media Services använder värdet för egenskapen IAssetFile.Name när du skapar URL:er för direktuppspelningsinnehållet (till exempel http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Därför är procentkodning inte tillåtet. Värdet för egenskapen **Name** kan inte ha något av följande [procent-kodningsreservat tecken:](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)!*'();:@&=+$,/?%#[]". Dessutom kan det bara finnas en "." för filnamnstillägget.
 
-F: ansluter du med REST?
+F: Hur ansluter du med REST?
 
-A: information om hur du ansluter till AMS-API: et finns i [få åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+S: Information om hur du ansluter till AMS-API:et finns i [Komma åt Azure Media Services API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
-F: Hur kan jag rotera en video under kodnings processen?
+F: Hur roterar jag en video under kodningen?
 
-A: [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) stöder rotation efter vinkel på 90/180/270. Standard beteendet är "Auto", där det försöker att identifiera rotations-metadata i den inkommande MP4/MOV-filen och kompensera för det. Ta med följande **käll** element till en av de JSON-för inställningar som definieras [här](media-services-mes-presets-overview.md):
+S: [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) stöder rotation med vinklar på 90/180/270. Standardbeteendet är "Auto", där den försöker identifiera rotationsmetadata i den inkommande MP4/MOV-filen och kompensera för den. Inkludera följande **källelement** i en av de json-förinställningar som definieras [här:](media-services-mes-presets-overview.md)
 
     "Version": 1.0,
     "Sources": [

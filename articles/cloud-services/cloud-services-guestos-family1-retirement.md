@@ -1,6 +1,6 @@
 ---
-title: Påminnelse om gäst operativ system familj 1 | Microsoft Docs
-description: Innehåller information om när indragningen av Azure gäst operativ system familj 1 inträffade och hur du avgör om du påverkas
+title: Gäst OS familj 1 pension meddelande | Microsoft-dokument
+description: Ger information om när Azure Guest OS Family 1-pensioneringen inträffade och hur du tar reda på om du påverkas
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -10,29 +10,29 @@ ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68359579"
 ---
-# <a name="guest-os-family-1-retirement-notice"></a>Påminnelse om gäst operativ system familj 1
-Indragningen av OS-familjen 1 lanserades första den 1 juni 2013.
+# <a name="guest-os-family-1-retirement-notice"></a>Gäst OS Familj 1 pensionsvarning
+Pensioneringen av OS Family 1 tillkännagavs först den 1 juni 2013.
 
-**Sept 2, 2014** Azure gäst operativ systemet (gäst operativ system) Family 1. x, som baseras på operativ systemet Windows Server 2008, drogs tillbaka officiellt. Alla försök att distribuera nya tjänster eller uppgradera befintliga tjänster som använder Family 1 kommer att Miss lyckas med ett fel meddelande om att gäst operativ system familj 1 har dragits tillbaka.
+**den 2 september 2014** Azure Guest operativsystem (Guest OS) Family 1.x, som är baserat på operativsystemet Windows Server 2008, har officiellt dragits tillbaka. Alla försök att distribuera nya tjänster eller uppgradera befintliga tjänster med Family 1 misslyckas med ett felmeddelande som informerar dig om att Gästoperativsystemet Family 1 har dragits tillbaka.
 
-**3 November 2014** Utökat stöd för gäst operativ system familj 1 har avslut ATS och är helt tillbakadraget. Alla tjänster som fortfarande körs på familj 1 påverkas. Vi kan när som helst stoppa dessa tjänster. Det finns ingen garanti för att dina tjänster ska fortsätta att köras om du inte manuellt uppgraderar dem själv.
+**den 3 november 2014** Utökat stöd för Guest OS Family 1 slutade och det är helt pensionerad. Alla tjänster som fortfarande finns på Familj 1 kommer att påverkas. Vi kan stoppa dessa tjänster när som helst. Det finns ingen garanti för att dina tjänster kommer att fortsätta att köras om du inte uppgraderar dem manuellt själv.
 
-Om du har fler frågor kan du besöka [Cloud Services forum](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) eller [kontakta Azure](https://azure.microsoft.com/support/options/)-supporten.
+Om du har ytterligare frågor kan du besöka [Cloud Services-forumen](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) eller [kontakta Azure-supporten](https://azure.microsoft.com/support/options/).
 
-## <a name="are-you-affected"></a>Påverkas du?
-Cloud Services påverkas om något av följande gäller:
+## <a name="are-you-affected"></a>Är du påverkad?
+Dina molntjänster påverkas om något av följande gäller:
 
-1. Du har värdet "osFamily =" 1 "som anges explicit i filen ServiceConfiguration. cscfg för din moln tjänst.
-2. Du har inget värde för osFamily som anges explicit i filen ServiceConfiguration. cscfg för din moln tjänst. För närvarande använder systemet standardvärdet "1" i det här fallet.
-3. I Azure Portal listas ditt gäst operativ system familje värde som "Windows Server 2008".
+1. Du har värdet "osFamily = "1" som uttryckligen anges i filen ServiceConfiguration.cscfg för molntjänsten.
+2. Du har inget värde för osFamily som uttryckligen anges i filen ServiceConfiguration.cscfg för molntjänsten. För närvarande använder systemet standardvärdet "1" i det här fallet.
+3. Azure-portalen listar ditt familj för gästoperativsystem som "Windows Server 2008".
 
-Om du vill ta reda på vilka av dina moln tjänster som kör operativ system familjen kan du köra följande skript i Azure PowerShell, men du måste [konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) först. Mer information om skriptet finns i [Azure gäst operativ system familj 1 uttjänta: 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)juni.
+För att ta reda på vilka av dina molntjänster som körs vilken OS-familj du kan köra följande skript i Azure PowerShell, men du måste [konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs) först. Mer information om skriptet finns i [Azure Guest OS Family 1 End of Life: juni 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -44,28 +44,28 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Dina moln tjänster påverkas av OS-familj 1 om osFamily-kolumnen i skriptets utdata är tom eller innehåller en "1".
+Dina molntjänster påverkas av OS Family 1-avgång om osFamily-kolumnen i skriptutdatan är tom eller innehåller ett "1".
 
 ## <a name="recommendations-if-you-are-affected"></a>Rekommendationer om du påverkas
-Vi rekommenderar att du migrerar dina moln tjänst roller till en av de gäst operativ system familjer som stöds:
+Vi rekommenderar att du migrerar dina Cloud Service-roller till en av de gäst-OS-familjer som stöds:
 
-**Gäst operativ system familj 4. x** -Windows Server 2012 R2 *(rekommenderas)*
+**Gäst-OS-familjen 4.x** – Windows Server 2012 R2 *(rekommenderas)*
 
-1. Se till att ditt program använder SDK 2,1 eller senare med .NET Framework 4,0, 4,5 eller 4.5.1.
-2. Ange osFamily-attributet till "4" i filen ServiceConfiguration. cscfg och distribuera om moln tjänsten.
+1. Kontrollera att ditt program använder SDK 2.1 eller senare med .NET framework 4.0, 4.5 eller 4.5.1.
+2. Ange attributet osFamily till "4" i filen ServiceConfiguration.cscfg och distribuera om molntjänsten.
 
-**Gäst operativ system familj 3. x** -Windows Server 2012
+**Gäst-OS-familjen 3.x** – Windows Server 2012
 
-1. Se till att ditt program använder SDK 1,8 eller senare med .NET Framework 4,0 eller 4,5.
-2. Ange osFamily-attributet till "3" i filen ServiceConfiguration. cscfg och distribuera om din moln tjänst.
+1. Kontrollera att ditt program använder SDK 1.8 eller senare med .NET framework 4.0 eller 4.5.
+2. Ange attributet osFamily till "3" i filen ServiceConfiguration.cscfg och distribuera om molntjänsten.
 
-**Gäst operativ system familj 2. x** -Windows Server 2008 R2
+**Gäst-OS-familjen 2.x** - Windows Server 2008 R2
 
-1. Se till att ditt program använder SDK 1,3 och senare med .NET Framework 3,5 eller 4,0.
-2. Ange osFamily-attributet till "2" i filen ServiceConfiguration. cscfg och distribuera om din moln tjänst.
+1. Kontrollera att ditt program använder SDK 1.3 och högre med .NET framework 3.5 eller 4.0.
+2. Ange attributet osFamily till "2" i filen ServiceConfiguration.cscfg och distribuera om molntjänsten.
 
-## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>Utökat stöd för gäst operativ system familj 1 avslutad den 3 november 2014
-Moln tjänster på gäst operativ system familj 1 stöds inte längre. Migrera från familj 1 så snart som möjligt för att undvika avbrott i tjänsten.  
+## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>Utökad support för Gäst OS Family 1 avslutades 3 november 2014
+Molntjänster på Gäst OS-familjen 1 stöds inte längre. Migrera av familj 1 så snart som möjligt för att undvika avbrott i tjänsten.  
 
 ## <a name="next-steps"></a>Nästa steg
-Granska de senaste [versionerna av gäst operativ systemet](cloud-services-guestos-update-matrix.md).
+Granska de senaste [Gäst-OS-utgåvorna](cloud-services-guestos-update-matrix.md).

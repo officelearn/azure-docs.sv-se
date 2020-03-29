@@ -6,22 +6,22 @@ ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: f4c4f2a1c140e3d0f181c4fd55482056f9f91b62
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614323"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Så här anger du miljövariabler för tjänster i Service Fabric
 
 Den här artikeln visar hur du anger miljövariabler för en tjänst eller behållare i Service Fabric.
 
-## <a name="procedure-for-specifying-environment-variables-for-services"></a>Procedur för att ange miljövariabler för tjänster
+## <a name="procedure-for-specifying-environment-variables-for-services"></a>Förfarande för att ange miljövariabler för tjänster
 
-I det här exemplet anger du en miljö variabel för en behållare. Artikeln förutsätter att du redan har ett program-och tjänst manifest.
+I det här exemplet anger du en miljövariabel för en behållare. Artikeln förutsätter att du redan har ett program- och tjänstmanifest.
 
-1. Öppna filen ServiceManifest. xml.
-2. I `CodePackage`-elementet lägger du till ett nytt `EnvironmentVariables`-element och ett `EnvironmentVariable`-element för varje miljö variabel.
+1. Öppna filen ServiceManifest.xml.
+2. Lägg `CodePackage` till ett nytt `EnvironmentVariables` element `EnvironmentVariable` och ett element för varje miljövariabel i elementet.
 
     ```xml
     <CodePackage Name="MyCode" Version="CodeVersion1">
@@ -33,9 +33,9 @@ I det här exemplet anger du en miljö variabel för en behållare. Artikeln fö
     </CodePackage>
     ```
 
-   Miljövariabler kan åsidosättas i applikations manifestet.
+   Miljövariabler kan åsidosättas i programmanifestet.
 
-3. Om du vill åsidosätta miljövariablerna i applikations manifestet använder du `EnvironmentOverrides`-elementet.
+3. Om du vill åsidosätta miljövariablerna `EnvironmentOverrides` i programmanifestet använder du elementet.
 
     ```xml
       <ServiceManifestImport>
@@ -48,7 +48,7 @@ I det här exemplet anger du en miljö variabel för en behållare. Artikeln fö
 
 ## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Ange miljövariabler dynamiskt med Docker Compose
 
-Service Fabric har stöd för möjligheten att [använda Docker Compose för distribution](service-fabric-docker-compose.md#supported-compose-directives). Skapa filer kan käll miljövariabler från gränssnittet. Det här beteendet kan användas för att ersätta önskade miljö värden dynamiskt:
+Service Fabric stöder möjligheten att [använda Docker Compose for Deployment](service-fabric-docker-compose.md#supported-compose-directives). Skriv filer kan källmiljövariabler från skalet. Detta kan användas för att ersätta önskade miljövärden dynamiskt:
 
 ```yml
 environment:
@@ -56,6 +56,6 @@ environment:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om några av de grundläggande begreppen som beskrivs i den här artikeln finns i artikeln [hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
+Mer information om några av de grundläggande begrepp som beskrivs i den här artikeln finns i [artiklar om Hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
 
-Information om andra hanterings funktioner för appar som är tillgängliga i Visual Studio finns i [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Information om andra funktioner för apphantering som är tillgängliga i Visual Studio finns i [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).

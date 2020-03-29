@@ -1,5 +1,5 @@
 ---
-title: Hantera scheman för bandbredd på Azure Data Box Gateway | Microsoft Docs
+title: Hantera bandbreddsscheman på Azure Data Box Gateway | Microsoft-dokument
 description: Beskriver hur du använder Azure-portalen för att hantera bandbreddsscheman på din Azure Data Box Gateway.
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60755379"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Använda Azure-portalen för att hantera bandbreddsscheman på din Azure Data Box Gateway  
@@ -36,7 +36,7 @@ Lägg till en användare genom att följa de här instruktionerna på Azure-port
 1. I Azure-portalen för din Data Box Gateway går du till **Bandbredd**.
 2. Klicka på **+ Lägg till schema** i den högra rutan.
 
-    ![Klicka på Lägg till användare](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
+    ![Klicka på lägg till användare](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-1.png)
 
 3. I **Lägg till schema**: 
 
@@ -46,7 +46,7 @@ Lägg till en användare genom att följa de här instruktionerna på Azure-port
    4. Markera **Obegränsad** bandbredd om du inte vill begränsa upp- och nedladdningen. 
    5. Klicka på **Lägg till**.
 
-      ![Klicka på Lägg till användare](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Klicka på lägg till användare](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Ett schema skapas med de angivna parametrarna. Schemat visas sedan i listan över bandbreddsscheman i portalen.
 
@@ -84,4 +84,4 @@ Utför följande steg för att ta bort ett bandbreddsschema som är kopplat till
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [hanterar bandbredd](data-box-gateway-manage-bandwidth-schedules.md).
+- Lär dig att [hantera bandbredd](data-box-gateway-manage-bandwidth-schedules.md).

@@ -1,6 +1,6 @@
 ---
-title: Matchnings villkor i standard regel motorn för Azure CDN | Microsoft Docs
-description: Referens dokumentation för matchnings villkor i standard regel motorn för Azure Content Delivery Network (Azure CDN).
+title: Matcha villkor i standardregler motorn för Azure CDN | Microsoft-dokument
+description: Referensdokumentation för matchningsvillkor i standardreglersmotorn för Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
@@ -8,228 +8,228 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900184"
 ---
-# <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Matchnings villkor i standard regel motorn för Azure CDN
+# <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Matcha villkor i standardregler motorn för Azure CDN
 
-I [standard regel motorn](cdn-standard-rules-engine.md) för Azure Content Delivery Network (Azure CDN) består en regel av ett eller flera matchnings villkor och en åtgärd. Den här artikeln innehåller detaljerade beskrivningar av de matchnings villkor som du kan använda i standard regel motorn för Azure CDN.
+I [standardregelmotorn](cdn-standard-rules-engine.md) för Azure Content Delivery Network (Azure CDN) består en regel av ett eller flera matchningsvillkor och en åtgärd. Den här artikeln innehåller detaljerade beskrivningar av matchningsvillkoren som du kan använda i standardreglersmotorn för Azure CDN.
 
-Den första delen av en regel är ett matchnings villkor eller en uppsättning matchnings villkor. I standard regel motorn för Azure CDN kan varje regel ha upp till fyra matchnings villkor. Ett matchnings villkor identifierar vissa typer av begär Anden för vilka definierade åtgärder utförs. Om du använder flera matchnings villkor grupperas matchnings villkoren tillsammans med hjälp av och logik.
+Den första delen av en regel är ett matchningsvillkor eller en uppsättning matchningsvillkor. I standardregelmotorn för Azure CDN kan varje regel ha upp till fyra matchningsvillkor. Ett matchningsvillkor identifierar specifika typer av begäranden för vilka definierade åtgärder utförs. Om du använder flera matchningsvillkor grupperas matchningsvillkoren tillsammans med hjälp av AND-logiken.
 
-Du kan till exempel använda ett matchnings villkor för att:
+Du kan till exempel använda ett matchningsvillkor för att:
 
-- Filtrera förfrågningar baserat på en speciell IP-adress, land eller region.
-- Filtrera förfrågningar efter rubrik information.
-- Filtrera begär Anden från mobila enheter eller Skriv bords enheter.
+- Filtrera begäranden baserat på en specifik IP-adress, ett land eller en viss region.
+- Filtrera begäranden efter huvudinformation.
+- Filtrera begäranden från mobila enheter eller stationära enheter.
 
-## <a name="match-conditions"></a>Matchnings villkor
+## <a name="match-conditions"></a>Matchvillkor
 
-Följande matchnings villkor är tillgängliga för användning i standard regel motorn för Azure CDN. 
+Följande matchningsvillkor är tillgängliga att använda i standardreglersmotorn för Azure CDN. 
 
 ### <a name="device-type"></a>Enhetstyp 
 
-Identifierar förfrågningar som görs från en mobil enhet eller en stationär enhet.  
+Identifierar begäranden som görs från en mobil enhet eller en stationär enhet.  
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
 Operator | Värden som stöds
 ---------|----------------
-Lika med, inte lika med | Mobil, stationär
+Lika, inte lika med | Mobil, Stationär dator
 
 ### <a name="http-version"></a>HTTP-version
 
-Identifierar begär Anden baserat på HTTP-versionen av begäran.
+Identifierar begäranden baserat på HTTP-versionen av begäran.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
 Operator | Värden som stöds
 ---------|----------------
-Lika med, inte lika med | 2,0, 1,1, 1,0, 0,9, alla
+Lika, inte lika med | 2.0, 1.1, 1.0, 0.9, Alla
 
 ### <a name="request-cookies"></a>Begär cookies
 
-Identifierar förfrågningar baserat på cookie-information i inkommande begäran.
+Identifierar förfrågningar baserat på cookie-information i den inkommande begäran.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Cookiens namn | Operator | Cookie-värde | Skift läges omvandling
+Namn på cookie | Operator | Cookie-värde | Handlägga omformning
 ------------|----------|--------------|---------------
-Sträng | [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
+String | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Nyckelinformation
+#### <a name="key-information"></a>Viktig information
 
-- Du kan inte använda jokertecken (inklusive asterisker (\*)) när du anger ett cookie-namn. Du måste använda ett exakt cookie-namn.
-- Du kan bara ange ett enda cookie-namn per instans av matchnings villkoret.
-- Cookie-namn jämförelser är inte Skift läges känsliga.
-- Om du vill ange flera cookie-värden använder du ett enda blank steg mellan varje cookie-värde. 
-- Cookie-värden kan dra nytta av jokertecken.
-- Om ett jokertecken inte har angetts uppfyller det här matchnings villkoret bara en exakt matchning. Till exempel kommer "värde" att matcha "värde" men inte "värde1". 
+- Du kan inte använda jokerteckenvärden (inklusive\*asterisker ( )) när du anger ett cookie-namn. du måste använda ett exakt cookie-namn.
+- Du kan bara ange ett enda cookienamn per instans av det här matchningsvillkoret.
+- Jämförelser av cookienamn är skiftlägesokänsliga.
+- Om du vill ange flera cookievärden använder du ett enda blanksteg mellan varje cookie-värde. 
+- Cookie-värden kan dra nytta av jokerteckenvärden.
+- Om ett jokerteckenvärde inte har angetts uppfyller endast en exakt matchning detta matchningsvillkor. "Värde" matchar till exempel "Värde" men inte "Värde1". 
 
-### <a name="post-argument"></a>Publicera argument
+### <a name="post-argument"></a>Inlägg argument
 
-Identifierar begär Anden baserat på argument som definierats för metoden POST-begäran som används i begäran. 
+Identifierar begäranden baserat på argument som definierats för post-begäransmetoden som används i begäran. 
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Argumentnamn | Operator | Argumentvärde | Skift läges omvandling
+Argumentnamn | Operator | Argumentvärde | Handlägga omformning
 --------------|----------|----------------|---------------
-Sträng | [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
+String | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
 ### <a name="query-string"></a>Frågesträng
 
-Identifierar begär Anden som innehåller en speciell frågesträngparametern. Den här parametern har angetts till ett värde som matchar ett angivet mönster. Parametrar för frågesträng (till exempel **parameter = värde**) i URL: en för begäran avgör om det här villkoret är uppfyllt. Detta matchnings villkor identifierar en frågesträngparametern efter dess namn och accepterar ett eller flera värden för parametervärdet.
+Identifierar begäranden som innehåller en specifik frågesträngparameter. Den här parametern är inställd på ett värde som matchar ett visst mönster. Frågesträngparametrar (till exempel **parameter=värde)** i begäran URL avgöra om detta villkor är uppfyllt. Det här matchningsvillkoret identifierar en frågesträngparameter med dess namn och accepterar ett eller flera värden för parametervärdet.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | Frågesträng | Skift läges omvandling
+Operator | Frågesträng | Omformning av ärende
 ---------|--------------|---------------
-[Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
+[Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
 ### <a name="remote-address"></a>Fjärradress
 
-Identifierar förfrågningar baserat på beställarens plats eller IP-adress.
+Identifierar begäranden baserat på beställarens plats eller IP-adress.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
 Operator | Värden som stöds
 ---------|-----------------
-Alla | Gäller inte
-Geo-matchning | Landskod
-IP-matchning | IP-adress (blankstegsavgränsad)
-Inte alla | Gäller inte
-Ingen geo-matchning | Landskod
-Inte IP-matchning | IP-adress (blankstegsavgränsad)
+Alla | Ej tillämpligt
+Geo Match | Landskod
+IP-matchning | IP-adress (utrymmesavgränsad)
+Inte någon | Ej tillämpligt
+Inte Geo Match | Landskod
+Inte IP-matchning | IP-adress (utrymmesavgränsad)
 
-#### <a name="key-information"></a>Nyckelinformation
+#### <a name="key-information"></a>Viktig information
 
-- Använd CIDR-notering.
-- Om du vill ange flera IP-adresser och IP-adressblock använder du ett enda blank steg mellan värdena:
-  - **IPv4-exempel**: *1.2.3.4 10.20.30.40* matchar alla begär Anden som kommer från adressen 1.2.3.4 eller 10.20.30.40.
-  - **IPv6-exempel**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matchar alla begär Anden som kommer från adress 1:2:3:4:5:6:7:8 eller 10:20:30:40:50:60:70:80.
-- Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixets storlek. Exempel:
-  - **IPv4-exempel**: *5.5.5.64/26* matchar alla begär Anden som kommer från adresser 5.5.5.64 via 5.5.5.127.
-  - **IPv6-exempel**: *1:2:3:/48* matchar alla begär Anden som kommer från adresser 1:2:3:0:0:0:0:0 till och med 1:2: 3: FFFF: FFFF: FFFF: FFFF: FFFF.
+- Använd CIDR-notation.
+- Om du vill ange flera IP-adresser och IP-adressblock använder du ett enda blanksteg mellan värdena:
+  - **IPv4-exempel:** *1.2.3.4 10.20.30.40* matchar alla begäranden som kommer från adressen 1.2.3.4 eller 10.20.30.40.
+  - **IPv6-exempel**: *1:2:3:5:7:7:8 10:20:30:40:50:60:70:80* matchar alla begäranden som kommer från adressen 1:2:3:5:5:6:7:8 eller 10:20:30:40:50:60:70:80.
+- Syntaxen för ett IP-adressblock är bas-IP-adressen följt av ett snedstreck och prefixstorleken. Ett exempel:
+  - **IPv4-exempel:** *5.5.5.64/26* matchar alla begäranden som kommer från adresserna 5.5.5.64 till 5.5.5.127.
+  - **IPv6-exempel**: *1:2:3:/48* matchar alla förfrågningar som kommer från adresser 1:2:3:0:0:0:0:0 till 1:2:3:ffff:ffff:ffff:ffff:ffff:ffff.
 
 ### <a name="request-body"></a>Begärandetext
 
-Identifierar förfrågningar baserat på en speciell text som visas i bröd texten i begäran.
+Identifierar begäranden baserat på specifik text som visas i brödtexten i begäran.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | Begärandetext | Skift läges omvandling
+Operator | Begärandetext | Handlägga omformning
 ---------|--------------|---------------
-[Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
+[Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
 ### <a name="request-header"></a>Begärandehuvud
 
-Identifierar begär Anden som använder ett särskilt huvud i begäran.
+Identifierar begäranden som använder ett visst huvud i begäran.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Huvudnamn | Operator | Huvudvärde | Skift läges omvandling
+Huvudnamn | Operator | Huvudvärde | Handlägga omformning
 ------------|----------|--------------|---------------
-Sträng | [Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
+String | [Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
 ### <a name="request-method"></a>Metod för begäran
 
-Identifierar begär Anden som använder den angivna förfrågnings metoden.
+Identifierar begäranden som använder den angivna begäransmetoden.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
 Operator | Värden som stöds
 ---------|----------------
-Lika med, inte lika med | HÄMTA, POSTA, PLACERA, TA BORT, HUVUD, ALTERNATIV, SPÅRA
+Lika, inte lika med | FÅ, POSTA, SÄTTA, TA BORT, HUVUD, ALTERNATIV, SPÅRA
 
-#### <a name="key-information"></a>Nyckelinformation
+#### <a name="key-information"></a>Viktig information
 
-- Endast GET Request-metoden kan generera cachelagrat innehåll i Azure CDN. Alla andra metoder för begäran är proxy via nätverket. 
+- Endast GET-begäran metoden kan generera cachelagrat innehåll i Azure CDN. Alla andra begäransmetoder proxied genom nätverket. 
 
-### <a name="request-protocol"></a>Protokoll för begäran
+### <a name="request-protocol"></a>Protokoll för begär
 
-Identifierar begär Anden som använder det angivna protokoll som används.
+Identifierar begäranden som använder det angivna protokollet som används.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
 Operator | Värden som stöds
 ---------|----------------
-Lika med, inte lika med | HTTP, HTTPS
+Lika, inte lika med | HTTP, HTTPS
 
 ### <a name="request-url"></a>URL för begäran
 
-Identifierar begär Anden som matchar angiven URL.
+Identifierar begäranden som matchar den angivna URL:en.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | URL för begäran | Skift läges omvandling
+Operator | URL för begäran | Handlägga omformning
 ---------|-------------|---------------
-[Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
+[Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Nyckelinformation
+#### <a name="key-information"></a>Viktig information
 
-- När du använder det här regel villkoret ska du se till att inkludera protokoll information. Exempel: *https://www.\<yourdomain\>.com* .
+- När du använder det här regelvillkoret måste du inkludera protokollinformation. Till exempel: *https://www.\<yourdomain\>.com*.
 
-### <a name="url-file-extension"></a>URL-filtillägg
+### <a name="url-file-extension"></a>Filtillägg för URL
 
-Identifierar begär Anden som innehåller det angivna fil namns tillägget i fil namnet i den begärda URL: en.
-
-#### <a name="required-fields"></a>Obligatoriska fält
-
-Operator | Tillägg | Skift läges omvandling
----------|-----------|---------------
-[Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
-
-#### <a name="key-information"></a>Nyckelinformation
-
-- Inkludera inte en inledande period för tillägg. Använd till exempel *HTML* i stället för *. html*.
-
-### <a name="url-file-name"></a>URL-filnamn
-
-Identifierar begär Anden som innehåller det angivna fil namnet i begärd URL.
+Identifierar begäranden som innehåller det angivna filtillägget i filnamnet i den begärande URL:en.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | Filnamn | Skift läges omvandling
+Operator | Anknytning | Handlägga omformning
 ---------|-----------|---------------
-[Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
+[Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Nyckelinformation
+#### <a name="key-information"></a>Viktig information
 
-- Om du vill ange flera fil namn avgränsar du varje fil namn med ett enda blank steg. 
+- För förlängning ska du inte inkludera en inledande period. Använd till exempel *html* i stället för *.html*.
+
+### <a name="url-file-name"></a>Namn på URL-fil
+
+Identifierar begäranden som innehåller det angivna filnamnet i den begärande URL:en.
+
+#### <a name="required-fields"></a>Obligatoriska fält
+
+Operator | Filnamn | Handlägga omformning
+---------|-----------|---------------
+[Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
+
+#### <a name="key-information"></a>Viktig information
+
+- Om du vill ange flera filnamn avgränsar du varje filnamn med ett enda blanksteg. 
 
 ### <a name="url-path"></a>URL-sökväg
 
-Identifierar begär Anden som innehåller den angivna sökvägen i begär ande-URL: en.
+Identifierar begäranden som innehåller den angivna sökvägen i den begärande URL:en.
 
 #### <a name="required-fields"></a>Obligatoriska fält
 
-Operator | Värde | Skift läges omvandling
+Operator | Värde | Omformning av ärende
 ---------|-------|---------------
-[Lista med standard operatorer](#standard-operator-list) | Sträng, heltal | Ingen transformering, till versaler, till gemener
+[Standardoperatorlista](#standard-operator-list) | Sträng, Int | Ingen transformering, till versaler, till gemener
 
-#### <a name="key-information"></a>Nyckelinformation
+#### <a name="key-information"></a>Viktig information
 
-- Ett fil namns värde kan dra nytta av jokertecken. Varje fil namns mönster kan till exempel bestå av en eller flera asterisker (*), där varje asterisk matchar en sekvens med ett eller flera tecken.
+- Ett filnamnsvärde kan dra nytta av jokerteckenvärden. Varje filnamnsmönster kan till exempel bestå av en eller flera asterisker (*), där varje asterisk matchar en sekvens med ett eller flera tecken.
 
-## <a name="reference-for-rules-engine-match-conditions"></a>Referens för regel motorns matchnings villkor
+## <a name="reference-for-rules-engine-match-conditions"></a>Referens för regler motor match villkor
 
-### <a name="standard-operator-list"></a>Lista med standard operatorer
+### <a name="standard-operator-list"></a>Standardoperatorlista
 
-Följande operatorer är giltiga för regler som accepterar värden från standard operator listan:
+För regler som accepterar värden från standardoperatorlistan är följande operatorer giltiga:
 
 - Alla
-- Lika med 
-- Contains 
+- Är lika med 
+- Innehåller 
 - Börjar med 
-- slutar med 
+- Slutar med 
 - Mindre än
 - Mindre än eller lika med
 - Större än
 - Större än eller lika med
-- Inte alla
+- Inte någon
 - Innehåller inte
 - Börjar inte med 
 - Slutar inte med 
@@ -238,11 +238,11 @@ Följande operatorer är giltiga för regler som accepterar värden från standa
 - Inte större än
 - Inte större än eller lika med
 
-För numeriska operatorer som *mindre än* och *större än eller lika med*, baseras jämförelsen på längd. I det här fallet ska värdet i matchnings villkoret vara ett heltal som är lika med den längd som du vill jämföra. 
+För numeriska operatorer som *Mindre än* och *Större än eller lika med*baseras jämförelsen som används på längd. I det här fallet ska värdet i matchningsvillkoret vara ett heltal som är lika med den längd du vill jämföra. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azure CDN](cdn-overview.md)
-- [Motor referens för standard regler](cdn-standard-rules-engine-reference.md)
-- [Åtgärder i standard regel motorn](cdn-standard-rules-engine-actions.md)
-- [Använd HTTPS med standard regel motorn](cdn-standard-rules-engine.md)
+- [Referens för standardregelmotor](cdn-standard-rules-engine-reference.md)
+- [Åtgärder i standardregler motorn](cdn-standard-rules-engine-actions.md)
+- [Kräv HTTPS med hjälp av standardregelmotorn](cdn-standard-rules-engine.md)

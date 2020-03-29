@@ -1,62 +1,62 @@
 ---
-title: Felsöka anslutningar – Azure Database for PostgreSQL-enskild server
-description: Lär dig hur du felsöker anslutnings problem till Azure Database for PostgreSQL-enskild server.
-keywords: postgresql anslutning, anslutnings sträng, anslutnings problem, tillfälligt fel, anslutnings fel
+title: Felsöka anslutningar – Azure Database för PostgreSQL - Single Server
+description: Lär dig hur du felsöker anslutningsproblem till Azure Database för PostgreSQL - Single Server.
+keywords: postgresql-anslutning,anslutningssträng,anslutningsproblem,tillfälligt fel,anslutningsfel
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c74b819893133116b8ac6905988f3fe11220ed95
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770075"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Felsöka anslutnings problem till Azure Database for PostgreSQL-enskild server
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Felsöka anslutningsproblem till Azure Database för PostgreSQL - Single Server
 
-Anslutnings problem kan orsakas av olika saker, inklusive:
+Anslutningsproblem kan orsakas av en mängd olika saker, bland annat:
 
 * Brandväggsinställningar
-* Anslutnings-timeout
-* Felaktig inloggnings information
-* Max gränsen har nåtts för vissa Azure Database for PostgreSQL resurser
+* Time-out för anslutning
+* Felaktig inloggningsinformation
+* Maximal gräns som uppnåtts för vissa Azure-databas för PostgreSQL-resurser
 * Problem med tjänstens infrastruktur
-* Underhåll utförs i tjänsten
-* Compute-allokeringen av servern ändras genom att skala antalet virtuella kärnor eller flytta till en annan tjänst nivå
+* Underhåll som utförs i tjänsten
+* Beräkningsallokeringen av servern ändras genom att antalet virtuella kärnor skalas eller flyttas till en annan tjänstnivå
 
-I allmänhet kan anslutnings problem till Azure Database for PostgreSQL klassificeras på följande sätt:
+I allmänhet kan anslutningsproblem till Azure Database för PostgreSQL klassificeras enligt följande:
 
-* Tillfälliga fel (kort livs längd eller intermittent)
-* Beständiga eller icke-tillfälliga fel (fel som upprepas regelbundet)
+* Tillfälliga fel (kortlivade eller intermittenta)
+* Beständiga eller icke-tillfälliga fel (fel som regelbundet återkommer)
 
-## <a name="troubleshoot-transient-errors"></a>Felsök tillfälliga fel
+## <a name="troubleshoot-transient-errors"></a>Felsöka tillfälliga fel
 
-Tillfälliga fel uppstår när underhåll utförs, ett fel uppstår i systemet med maskin vara eller program vara, eller så ändrar du virtuella kärnor eller tjänst nivån på servern. Tjänsten Azure Database for PostgreSQL har inbyggd hög tillgänglighet och är utformad för att minimera dessa typer av problem automatiskt. Programmet förlorar dock sin anslutning till servern under en kort tids period på vanligt vis mindre än 60 sekunder. Vissa händelser kan ibland ta längre tid att undvika, till exempel när en stor transaktion orsakar en tids krävande återställning.
+Tillfälliga fel uppstår när underhåll utförs, systemet stöter på ett fel med maskinvaran eller programvaran eller du ändrar serverns virtuella kärnor eller tjänstnivå. Azure Database for PostgreSQL-tjänsten har inbyggd hög tillgänglighet och är utformad för att minska dessa typer av problem automatiskt. Programmet förlorar dock anslutningen till servern under en kort tidsperiod på normalt mindre än 60 sekunder som mest. Vissa händelser kan ibland ta längre tid att minska, till exempel när en stor transaktion orsakar en tidskrävande återställning.
 
-### <a name="steps-to-resolve-transient-connectivity-issues"></a>Steg för att lösa problem med tillfälliga anslutningar
+### <a name="steps-to-resolve-transient-connectivity-issues"></a>Åtgärder för att lösa tillfälliga anslutningsproblem
 
-1. Kontrol lera [instrument panelen för Microsoft Azures tjänsten](https://azure.microsoft.com/status) för eventuella kända avbrott som uppstod under den tid då felen rapporterades av programmet.
-2. Program som ansluter till en moln tjänst som Azure Database for PostgreSQL ska förvänta sig tillfälliga fel och implementera omprövnings logik för att hantera dessa fel i stället för att visa dem som program fel till användare. Granska [hanteringen av tillfälliga anslutnings fel för Azure Database for PostgreSQL](concepts-connectivity.md) för bästa praxis och design rikt linjer för att hantera tillfälliga fel.
-3. När en server närmar sig resurs begränsningarna kan det verka som om ett tillfälligt anslutnings problem uppstår. Se [begränsningar i Azure Database for PostgreSQL](concepts-limits.md).
-4. Om problem med anslutningen fortsätter eller om varaktigheten för programmet stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en dag, kan du skicka en support förfrågan till Azure genom att välja **få support** på support webbplatsen för [Azure](https://azure.microsoft.com/support/options) .
+1. Kontrollera [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) för alla kända avbrott som inträffade under den tid då felen rapporterades av programmet.
+2. Program som ansluter till en molntjänst som Azure Database for PostgreSQL bör förvänta sig tillfälliga fel och implementera logik för återförsök för att hantera dessa fel i stället för att visa dessa som programfel för användare. Granska [Hantering av tillfälliga anslutningsfel för Azure Database för PostgreSQL](concepts-connectivity.md) för metodtips och designriktlinjer för hantering av tillfälliga fel.
+3. När en server närmar sig sina resursgränser kan fel verka vara tillfälliga anslutningsproblem. Se [Begränsningar i Azure Database för PostgreSQL](concepts-limits.md).
+4. Om anslutningsproblemen fortsätter, eller om den varaktighet som ditt program stöter på felet överskrider 60 sekunder eller om du ser flera förekomster av felet under en viss dag, lämnar du in en Azure-supportbegäran genom att välja **Hämta support** på [Azure-supportwebbplatsen.](https://azure.microsoft.com/support/options)
 
 ## <a name="troubleshoot-persistent-errors"></a>Felsöka beständiga fel
 
-Om programmet inte kan ansluta till Azure Database for PostgreSQL, indikerar det vanligt vis ett problem med något av följande:
+Om programmet beständigt misslyckas med att ansluta till Azure Database för PostgreSQL, anger det vanligtvis ett problem med något av följande:
 
-* Konfiguration av Server brand vägg: kontrol lera att Azure Database for PostgreSQL Server-brandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
-* Konfiguration av klient brand väggen: brand väggen på klienten måste tillåta anslutningar till din databas server. IP-adresser och portar på den server som du inte kan tillåta måste vara tillåtna samt program namn som PostgreSQL i vissa brand väggar.
-* Användar fel: du kan ange anslutnings parametrar som inte har angetts, till exempel Server namnet i anslutnings strängen eller ett saknat *\@servername* -suffix i användar namnet.
+* Konfiguration av serverbrandvägg: Kontrollera att Azure Database for PostgreSQL-serverbrandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gateways.
+* Klientbrandväggskonfiguration: Brandväggen på klienten måste tillåta anslutningar till databasservern. IP-adresser och portar på servern som du inte kan tillåtas samt programnamn som PostgreSQL i vissa brandväggar.
+* Användarfel: Du kan ha felskrivna anslutningsparametrar, till exempel servernamnet i anslutningssträngen eller ett * \@saknat servernamnssuffix* i användarnamnet.
 
-### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
+### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Åtgärder för att lösa beständiga anslutningsproblem
 
-1. Konfigurera [brand Väggs regler](howto-manage-firewall-using-portal.md) som tillåter KLIENTens IP-adress. För temporär testning kan du konfigurera en brand Väggs regel med 0.0.0.0 som första IP-adress och använda 255.255.255.255 som sista IP-adress. Då öppnas servern med alla IP-adresser. Om detta löser problemet med anslutningen tar du bort den här regeln och skapar en brand Väggs regel för en lämplig, begränsad IP-adress eller ett IP-adressintervall.
-2. Kontrol lera att port 5432 är öppen för utgående anslutningar på alla brand väggar mellan klienten och Internet.
-3. Kontrol lera anslutnings strängen och andra anslutnings inställningar.
-4. Kontrol lera tjänstens hälso tillstånd på instrument panelen. Om du tror att det finns ett regionalt avbrott, se [Översikt över affärs kontinuitet med Azure Database for PostgreSQL](concepts-business-continuity.md) för att återställa till en ny region.
+1. Ställ in [brandväggsregler](howto-manage-firewall-using-portal.md) för att tillåta klient-IP-adressen. Endast för tillfälliga tester ställer du in en brandväggsregel med 0.0.0.0 som start-IP-adress och använder 255.255.255.255 som slut-IP-adress. Då öppnas servern för alla IP-adresser. Om detta löser anslutningsproblemet tar du bort den här regeln och skapar en brandväggsregel för en lämpligt begränsad IP-adress eller adressintervall.
+2. På alla brandväggar mellan klienten och Internet kontrollerar du att port 5432 är öppen för utgående anslutningar.
+3. Kontrollera anslutningssträngen och andra anslutningsinställningar.
+4. Kontrollera tjänstens hälsotillstånd på instrumentpanelen. Om du tror att det finns ett regionalt avbrott läser du [Översikt över affärskontinuitet med Azure Database för PostgreSQL](concepts-business-continuity.md) för steg att återställa till en ny region.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantering av tillfälliga anslutnings fel för Azure Database for PostgreSQL](concepts-connectivity.md)
+* [Hantering av tillfälliga anslutningsfel för Azure Database för PostgreSQL](concepts-connectivity.md)

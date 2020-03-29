@@ -1,6 +1,6 @@
 ---
-title: Realtidsstatistik i Azure CDN | Microsoft Docs
-description: Statistik i realtid ger data om prestanda för Azure CDN i realtid när du levererar innehåll till dina klienter.
+title: Statistik i realtid i Azure CDN | Microsoft-dokument
+description: Realtidsstatistik ger realtidsdata om prestanda för Azure CDN när du levererar innehåll till dina klienter.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -15,82 +15,82 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d56007e5a196a0857f3b69ac51f5e3b5a88c4f6e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593495"
 ---
-# <a name="real-time-stats-in-microsoft-azure-cdn"></a>Realtidsstatistik i Microsoft Azure CDN
+# <a name="real-time-stats-in-microsoft-azure-cdn"></a>Statistik i realtid i Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Översikt
-Det här dokumentet beskriver realtidsstatistik i Microsoft Azure CDN.  Den här funktionen tillhandahåller realtidsdata, t.ex bandbredd, cachelagringsstatus och samtidiga anslutningar till din CDN-profil när du levererar innehåll till dina klienter. På så sätt kan du kontinuerlig övervakning av hälsotillståndet för din tjänst när som helst, inklusive go live-händelser.
+Det här dokumentet förklarar statistik i realtid i Microsoft Azure CDN.  Den här funktionen tillhandahåller realtidsdata, till exempel bandbredd, cachestatus och samtidiga anslutningar till CDN-profilen när du levererar innehåll till dina klienter. Detta möjliggör kontinuerlig övervakning av hälsan hos din tjänst när som helst, inklusive go-live-evenemang.
 
-I följande diagram är tillgängliga:
+Följande diagram är tillgängliga:
 
-* [Bandwidth](#bandwidth)
+* [Bandbredd](#bandwidth)
 * [Statuskoder](#status-codes)
-* [Status för cachelagring](#cache-statuses)
+* [Cachestatus](#cache-statuses)
 * [Anslutningar](#connections)
 
-## <a name="accessing-real-time-stats"></a>Åtkomst till realtidsstatistik
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till din CDN-profil.
+## <a name="accessing-real-time-stats"></a>Komma åt statistik i realtid
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till din CDN-profil.
    
-    ![CDN-profilbladet](./media/cdn-real-time-stats/cdn-profile-blade.png)
-2. Från bladet för CDN-profil klickar du på den **hantera** knappen.
+    ![Cdn-profilblad](./media/cdn-real-time-stats/cdn-profile-blade.png)
+2. Klicka på knappen **Hantera** i CDN-profilbladet.
    
-    ![CDN-profilbladet hantera knappen](./media/cdn-real-time-stats/cdn-manage-btn.png)
+    ![Knappen Hantera CDN-profilblad](./media/cdn-real-time-stats/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
-3. Hovra över den **Analytics** och sedan hovra över den **statistik i realtid** utfällbar meny.  Klicka på **LOB-HTTP-** .
+3. Håll muspekaren över fliken **Analytics** och hovra sedan över **utfällningen av statistik i realtid.**  Klicka på **HTTP Large Object**.
    
-    ![CDN-hanteringsportalen](./media/cdn-real-time-stats/cdn-premium-portal.png)
+    ![CDN-hanteringsportal](./media/cdn-real-time-stats/cdn-premium-portal.png)
    
-    Realtidsstatistik diagram visas.
+    Statistikdiagrammen i realtid visas.
 
-Var och en av diagrammen visar statistik i realtid för det valda tidsintervall som startar när sidan läses in.  Diagrammen uppdateras automatiskt några sekunders mellanrum.  Den **uppdatera Graph** knapp, om sådan finns, rensar i diagrammet, därefter visas endast valda data.
+Var och en av diagrammen visar realtidsstatistik för det valda tidsintervallet, med början när sidan läses in.  Diagrammen uppdateras automatiskt med några sekunders mellanrum.  Knappen **Uppdatera diagram,** om sådan finns, rensar diagrammet, varefter den bara visar de markerade data.
 
 ## <a name="bandwidth"></a>Bandbredd
-![Bandbredd graph](./media/cdn-real-time-stats/cdn-bandwidth.png)
+![Diagram över bandbredd](./media/cdn-real-time-stats/cdn-bandwidth.png)
 
-Den **bandbredd** diagrammet visar mängden bandbredd som används för den aktuella plattformen via det valda tidsintervallet. Den skuggade delen av diagrammet anger bandbreddsanvändning. Den exakta mängden bandbredd som används för tillfället visas direkt under linjediagrammet.
+I diagrammet **Bandbredd** visas hur mycket bandbredd som används för den aktuella plattformen under det valda tidsintervallet. Den skuggade delen av diagrammet indikerar bandbreddsanvändning. Den exakta mängden bandbredd som för närvarande används visas direkt under linjediagrammet.
 
 ## <a name="status-codes"></a>Statuskoder
-![Kod statusdiagram](./media/cdn-real-time-stats/cdn-status-codes.png)
+![Diagram över statuskod](./media/cdn-real-time-stats/cdn-status-codes.png)
 
-Den **statuskoder** graph anger hur ofta vissa HTTP-svarskoder sker via det valda tidsintervallet.
-
-> [!TIP]
-> En beskrivning av varje alternativ för HTTP-status code finns i [Azure CDN HTTP-statuskoder](/previous-versions/azure/mt759238(v=azure.100)).
-> 
-> 
-
-En lista över HTTP-statuskoder visas direkt ovanför diagrammet. Den här listan anger varje statuskod som kan tas med i linjediagrammet och det aktuella antalet förekomster per sekund för den statuskoden. Som standard visas en rad för var och en av dessa statuskoder i diagrammet. Du kan dock välja att endast övervaka statuskoder som har särskild betydelse för din CDN-konfiguration. Om du vill göra detta måste markera de önskade statuskoder och avmarkera alla andra alternativ och klicka på **uppdatera Graph**. 
-
-Du kan dölja loggade data för en viss statuskod tillfälligt.  Klicka på den statuskod som du vill dölja i förklaringen nedan i diagrammet. Statuskoden ska vara dolda direkt från diagrammet. Om du klickar på den statuskoden igen kommer det alternativet som ska visas igen.
-
-## <a name="cache-statuses"></a>Status för cachelagring
-![Cachelagra statusar graph](./media/cdn-real-time-stats/cdn-cache-status.png)
-
-Den **Cachelagringsstatus** graph anger hur ofta vissa typer av cachelagring sker via det valda tidsintervallet. 
+Diagrammet **Statuskoder** anger hur ofta vissa HTTP-svarskoder förekommer under det valda tidsintervallet.
 
 > [!TIP]
-> En beskrivning av varje kod statusalternativet cache finns i [statuskoder för Azure CDN-cacheminnet](/previous-versions/azure/mt759237(v=azure.100)).
+> En beskrivning av varje HTTP-statuskodsalternativ finns i [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100)).
 > 
 > 
 
-En lista över cache statuskoder visas direkt ovanför diagrammet. Den här listan anger varje statuskod som kan tas med i linjediagrammet och det aktuella antalet förekomster per sekund för den statuskoden. Som standard visas en rad för var och en av dessa statuskoder i diagrammet. Du kan dock välja att endast övervaka statuskoder som har särskild betydelse för din CDN-konfiguration. Om du vill göra detta måste markera de önskade statuskoder och avmarkera alla andra alternativ och klicka på **uppdatera Graph**. 
+En lista med HTTP-statuskoder visas direkt ovanför diagrammet. Den här listan anger varje statuskod som kan inkluderas i linjediagrammet och det aktuella antalet förekomster per sekund för statuskoden. Som standard visas en rad för var och en av dessa statuskoder i diagrammet. Du kan dock välja att bara övervaka de statuskoder som har särskild betydelse för CDN-konfigurationen. Det gör du genom att kontrollera önskade statuskoder och avmarkera alla andra alternativ och sedan klicka på **Uppdatera diagram**. 
 
-Du kan dölja loggade data för en viss statuskod tillfälligt.  Klicka på den statuskod som du vill dölja i förklaringen nedan i diagrammet. Statuskoden ska vara dolda direkt från diagrammet. Om du klickar på den statuskoden igen kommer det alternativet som ska visas igen.
+Du kan tillfälligt dölja loggade data för en viss statuskod.  Klicka på den statuskod som du vill dölja i förklaringen direkt under diagrammet. Statuskoden döljs omedelbart från diagrammet. Om du klickar på statuskoden igen visas det alternativet igen.
+
+## <a name="cache-statuses"></a>Cachestatus
+![Diagram över cachestatus](./media/cdn-real-time-stats/cdn-cache-status.png)
+
+Diagrammet **Cachestatus** anger hur ofta vissa typer av cachestatusar förekommer under det valda tidsintervallet. 
+
+> [!TIP]
+> En beskrivning av varje cachestatuskodsalternativ finns i [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)).
+> 
+> 
+
+En lista över cachestatuskoder visas direkt ovanför diagrammet. Den här listan anger varje statuskod som kan inkluderas i linjediagrammet och det aktuella antalet förekomster per sekund för statuskoden. Som standard visas en rad för var och en av dessa statuskoder i diagrammet. Du kan dock välja att bara övervaka de statuskoder som har särskild betydelse för CDN-konfigurationen. Det gör du genom att kontrollera önskade statuskoder och avmarkera alla andra alternativ och sedan klicka på **Uppdatera diagram**. 
+
+Du kan tillfälligt dölja loggade data för en viss statuskod.  Klicka på den statuskod som du vill dölja i förklaringen direkt under diagrammet. Statuskoden döljs omedelbart från diagrammet. Om du klickar på statuskoden igen visas det alternativet igen.
 
 ## <a name="connections"></a>Anslutningar
-![Anslutningar graph](./media/cdn-real-time-stats/cdn-connections.png)
+![Diagram över anslutningar](./media/cdn-real-time-stats/cdn-connections.png)
 
-Det här diagrammet visar hur många anslutningar har upprättats till edgeservrar. Varje begäran för en tillgång som passerar genom våra CDN-resultat i en anslutning.
+Det här diagrammet visar hur många anslutningar som har upprättats till dina kantservrar. Varje begäran om en tillgång som passerar genom vår CDN resulterar i en anslutning.
 
-## <a name="next-steps"></a>Nästa steg
-* Håll dig informerad med [aviseringar i realtid i Azure CDN](cdn-real-time-alerts.md)
-* Gräv djupare med [avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
+## <a name="next-steps"></a>Efterföljande moment
+* Få meddelanden med [aviseringar i realtid i Azure CDN](cdn-real-time-alerts.md)
+* Djupare med [avancerade HTTP-rapporter](cdn-advanced-http-reports.md)
 * Analysera [användningsmönster](cdn-analyze-usage-patterns.md)
 

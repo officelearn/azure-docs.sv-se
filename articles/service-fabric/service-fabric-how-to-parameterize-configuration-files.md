@@ -1,27 +1,27 @@
 ---
 title: Parameterisera config-filer i Azure Service Fabric
-description: Lär dig hur du Parameterisera konfigurationsfiler i Service Fabric, en användbar teknik vid hantering av flera miljöer.
+description: Lär dig hur du parameteriserar konfigurationsfiler i Service Fabric, en användbar teknik när du hanterar flera miljöer.
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: mikhegn
 ms.openlocfilehash: 4e96a732cffd70b0a5c24e7ebafe214297a72720
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644638"
 ---
-# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Så här Parameterisera du konfigurationsfiler i Service Fabric
+# <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Parameterisera konfigurationsfiler i Service Fabric
 
-Den här artikeln visar hur du Parameterisera en konfigurations fil i Service Fabric.  Om du inte redan är bekant med de grundläggande begreppen för att hantera program i flera miljöer kan du läsa [hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
+I den här artikeln beskrivs hur duparariserar en konfigurationsfil i Service Fabric.  Om du inte redan är bekant med de grundläggande begreppen att hantera program för flera miljöer läser du [Hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
 
-## <a name="procedure-for-parameterizing-configuration-files"></a>Procedur för att parametriserade konfigurationsfiler
+## <a name="procedure-for-parameterizing-configuration-files"></a>Procedur för parameterisering av konfigurationsfiler
 
-I det här exemplet åsidosätter du ett konfigurations värde med hjälp av parametrarna i program distributionen.
+I det här exemplet åsidosätter du ett konfigurationsvärde med hjälp av parametrar i programdistributionen.
 
-1. Öppna filen *\<\PackageRoot\Config\Settings.xml->* i ditt tjänst projekt.
-1. Ange ett namn och värde för konfigurations parametern, till exempel cache-storlek som motsvarar 25, genom att lägga till följande XML:
+1. Öppna filen * \<MyService>\PackageRoot\Config\Settings.xml* i serviceprojektet.
+1. Ange ett namn och värde för konfigurationsparametern, till exempel cachestorlek som är lika med 25, genom att lägga till följande XML:
 
    ```xml
     <Section Name="MyConfigSection">
@@ -30,15 +30,15 @@ I det här exemplet åsidosätter du ett konfigurations värde med hjälp av par
    ```
 
 1. Spara och stäng filen.
-1. Öppna filen *\<> \ApplicationPackageRoot\ApplicationManifest.XML* .
-1. Deklarera en parameter och ett standardvärde i `Parameters`-elementet i filen ApplicationManifest. xml.  Vi rekommenderar att parameter namnet innehåller namnet på tjänsten (till exempel "fjärrtjänst").
+1. Öppna filen * \<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml.*
+1. Deklarera en parameter och standardvärde i elementet `Parameters` i filen ApplicationManifest.xml.  Vi rekommenderar att parameternamnet innehåller namnet på tjänsten (till exempel "MyService").
 
    ```xml
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. I avsnittet `ServiceManifestImport` i filen ApplicationManifest. XML lägger du till ett `ConfigOverrides`-och `ConfigOverride`-element, refererar till konfigurations paketet, avsnittet och parametern.
+1. I `ServiceManifestImport` avsnittet ApplicationManifest.xml lägger du `ConfigOverrides` `ConfigOverride` till ett och ett element som refererar till konfigurationspaketet, avsnittet och parametern.
 
    ```xml
     <ConfigOverrides>
@@ -53,9 +53,9 @@ I det här exemplet åsidosätter du ett konfigurations värde med hjälp av par
    ```
 
 > [!NOTE]
-> Om du lägger till en ConfigOverride väljer Service Fabric alltid program parametrarna eller standardvärdet som anges i applikations manifestet.
+> Om du lägger till en ConfigOverride väljer Service Fabric alltid de programparametrar eller standardvärdet som anges i programmanifestet.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Information om andra hanterings funktioner för appar som är tillgängliga i Visual Studio finns i [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Information om andra funktioner för apphantering som är tillgängliga i Visual Studio finns i [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).

@@ -1,6 +1,6 @@
 ---
-title: Skapa ett fullständigt domän namn för en virtuell Linux-dator i Azure Portal
-description: Lär dig hur du skapar ett fullständigt kvalificerat domän namn eller fullständigt domän namn för en Resource Manager-baserad virtuell dator i Azure Portal.
+title: Skapa FQDN för en virtuell Linux-dator i Azure-portalen
+description: Lär dig hur du skapar ett fullständigt kvalificerat domännamn, eller FQDN, för en Resource Manager-baserad virtuell dator i Azure-portalen.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,25 +16,25 @@ ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 256e1e60ec8f50df2faea64f31e88d00370b33c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458716"
 ---
-# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Skapa ett fullständigt kvalificerat domän namn i Azure Portal för en virtuell Linux-dator
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Skapa ett fullständigt kvalificerat domännamn i Azure-portalen för en Virtuell Linux-dator
 
-När du skapar en virtuell dator (VM) i [Azure Portal](https://portal.azure.com)skapas automatiskt en offentlig IP-resurs för den virtuella datorn. Du använder den här IP-adressen för att fjärrans luta till den virtuella datorn. Även om portalen inte skapar ett [fullständigt kvalificerat domän namn eller fullständigt domän namn](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)kan du lägga till en när den virtuella datorn har skapats. I den här artikeln beskrivs stegen för att skapa ett DNS-namn eller fullständigt domän namn.
+När du skapar en virtuell dator (VM) i [Azure-portalen](https://portal.azure.com)skapas en offentlig IP-resurs för den virtuella datorn automatiskt. Du använder den här IP-adressen för att fjärransluta till den virtuella datorn. Även om portalen inte skapar ett [fullständigt kvalificerat domännamn](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)eller FQDN kan du lägga till ett när den virtuella datorn har skapats. Den här artikeln visar stegen för att skapa ett DNS-namn eller FQDN.
 
-## <a name="create-a-fqdn"></a>Skapa ett fullständigt domän namn
-Den här artikeln förutsätter att du redan har skapat en virtuell dator. Om det behövs kan du [skapa en virtuell dator i portalen](quick-create-portal.md) eller [med Azure CLI](quick-create-cli.md). Följ de här stegen när den virtuella datorn är igång:
+## <a name="create-a-fqdn"></a>Skapa ett FQDN
+Den här artikeln förutsätter att du redan har skapat en virtuell dator. Om det behövs kan du [skapa en virtuell dator i portalen](quick-create-portal.md) eller med Azure [CLI](quick-create-cli.md). Följ dessa steg när den virtuella datorn är igång:
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-Du kan nu fjärrans luta till den virtuella datorn med hjälp av det här DNS-namnet, till exempel med `ssh azureuser@mydns.westus.cloudapp.azure.com`.
+Du kan nu fjärransluta till den virtuella `ssh azureuser@mydns.westus.cloudapp.azure.com`datorn med det här DNS-namnet, till exempel med .
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när den virtuella datorn har en offentlig IP-adress och ett DNS-namn kan du distribuera vanliga program ramverk eller tjänster, till exempel nginx, MongoDB, Docker osv.
+Nu när den virtuella datorn har ett offentligt IP- och DNS-namn kan du distribuera vanliga programramverk eller -tjänster som nginx, MongoDB, Docker osv.
 
-Du kan också läsa mer om att [använda Resource Manager](../../azure-resource-manager/management/overview.md) för att få tips om hur du skapar dina Azure-distributioner.
+Du kan också läsa mer om [hur du använder Resource Manager](../../azure-resource-manager/management/overview.md) för tips om hur du skapar dina Azure-distributioner.
 

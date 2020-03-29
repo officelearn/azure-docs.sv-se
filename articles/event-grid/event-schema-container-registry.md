@@ -1,6 +1,6 @@
 ---
-title: Händelseschema för Azure Event Grid Container Registry
-description: Beskriver de egenskaper som har angetts för Container Registry händelser med Azure Event Grid
+title: Händelseschema för Azure Event Grid Container-register
+description: Beskriver de egenskaper som tillhandahålls för containerregisterhändelser med Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
@@ -9,30 +9,30 @@ ms.topic: reference
 ms.date: 03/12/2019
 ms.author: spelluru
 ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345472"
 ---
-# <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-Händelseschema för Container Registry
+# <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-händelseschema för behållarregister
 
-Den här artikeln innehåller egenskaperna och schemat för Container Registry-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för containerregisterhändelser.En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Azure Container Registry genererar följande händelsetyper:
+Azure Container Registry avger följande händelsetyper:
 
-| eventType | Beskrivning |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.ContainerRegistry.ImagePushed | Utlöses när en bild skickas. |
+| Microsoft.ContainerRegistry.ImagePushed | Utlöses när en bild trycks in. |
 | Microsoft.ContainerRegistry.ImageDeleted | Utlöses när en bild tas bort. |
-| Microsoft.ContainerRegistry.ChartPushed | Utlöses när ett Helm-diagram skickas. |
+| Microsoft.ContainerRegistry.ChartPushed | Utlöses när ett Helm-diagram trycks in. |
 | Microsoft.ContainerRegistry.ChartDeleted | Utlöses när ett Helm-diagram tas bort. |
 
-## <a name="example-event"></a>Exempel-händelse
+## <a name="example-event"></a>Exempel händelse
 
-I följande exempel visar schemat för en avbildning som push-överfört händelse: 
+I följande exempel visas schemat för en skjuten bildhändelse: 
 
 ```json
 [{
@@ -65,7 +65,7 @@ I följande exempel visar schemat för en avbildning som push-överfört händel
 }]
 ```
 
-Schemat för en bild som tas bort händelsen liknar:
+Schemat för en borttagen bildhändelse är liknande:
 
 ```json
 [{
@@ -95,7 +95,7 @@ Schemat för en bild som tas bort händelsen liknar:
 }]
 ```
 
-Schemat för ett diagram som skickas händelsen liknar schemat för en avbildade pushade händelse, men de omfattar inte en begäran:
+Schemat för en skjuten diagramhändelse liknar schemat för en avbildad pushad händelse, men den innehåller inget begärandeobjekt:
 
 ```json
 [{
@@ -123,7 +123,7 @@ Schemat för ett diagram som skickas händelsen liknar schemat för en avbildade
 }]
 ```
 
-Schemat för ett diagram som har tagits bort händelsen liknar schemat för en avbildade borttagen händelse, men de omfattar inte en begäran:
+Schemat för en borttagen diagramhändelse liknar schemat för en borttagen händelse, men det innehåller inget begärandeobjekt:
 
 ```json
 [{
@@ -151,55 +151,55 @@ Schemat för ett diagram som har tagits bort händelsen liknar schemat för en a
 }]
 ```
 
-## <a name="event-properties"></a>Egenskaper för händelse
+## <a name="event-properties"></a>Händelseegenskaper
 
-En händelse har följande översta data:
+En händelse har följande data på den högsta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | string | Unik identifierare för händelsen. |
-| data | object | Händelsedata för BLOB storage. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
+| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | Händelsedata för bloblagring. |
+| Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| id | string | Händelse-ID. |
-| timestamp | string | Den tid då händelsen inträffade. |
-| action | string | Den åtgärd som omfattar den angivna händelsen. |
-| target | object | Målet för händelsen. |
-| request | object | Den begäran som skapade händelsen. |
+| id | sträng | Händelse-ID. |
+| timestamp | sträng | Den tidpunkt då händelsen inträffade. |
+| åtgärd | sträng | Åtgärden som omfattar den tillsynte händelsen. |
+| Mål | objekt | Målet för händelsen. |
+| Begäran | objekt | Begäran som genererade händelsen. |
 
 Målobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| mediaType | string | MIME-typ för det refererade objektet. |
-| size | heltal | Antal byte av innehållet. Samma som fältet längd. |
-| digest | string | Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen. |
-| length | heltal | Antal byte av innehållet. Samma som fältet. |
-| repository | string | Namnet på lagringsplatsen. |
-| tag | string | Taggnamnet. |
-| name | string | Diagrammets namn. |
-| version | string | Diagram-version. |
+| mediaType (mediaType) | sträng | MIME-typen för det refererade objektet. |
+| size | heltal | Antalet byte av innehållet. Samma som fältet Längd. |
+| digest | sträng | Sammanfattningen av innehållet, enligt definitionen i registret V2 HTTP API Specifikation. |
+| length | heltal | Antalet byte av innehållet. Samma som fältet Storlek. |
+| Databasen | sträng | Databasnamnet. |
+| tagg | sträng | Taggnamnet. |
+| namn | sträng | Diagrammets namn. |
+| version | sträng | Diagramversionen. |
 
-Begäranobjektet har följande egenskaper:
+Objektet för begäran har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| id | string | ID för begäran som initierade händelsen. |
-| addr | string | Den IP- eller värdnamn och möjligen porten för klientanslutningen som initierade händelsen. Det här värdet är RemoteAddr från vanlig http-begäran. |
-| host | string | Externt tillgängliga värdnamnet för registry-instans som den anges av http-rubriken på inkommande begäranden. |
-| method | string | Metoden för begäran som genererade händelsen. |
-| useragent | string | Användaren agent huvudet för begäran. |
+| id | sträng | ID:et för begäran som initierade händelsen. |
+| Addr | sträng | IP- eller värdnamnet och eventuellt port för klientanslutningen som initierade händelsen. Det här värdet är RemoteAddr från standard http-begäran. |
+| värd | sträng | Registerinstansens externt tillgängliga värdnamn, enligt vad som anges av http-värdhuvudet på inkommande begäranden. |
+| metod | sträng | Begäran metod som genererade händelsen. |
+| Useragent | sträng | Användaragenthuvudet för begäran. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
+* En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).

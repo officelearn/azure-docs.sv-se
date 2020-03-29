@@ -1,6 +1,6 @@
 ---
-title: Aktivera och Visa diagnostikloggar för Azure Data Lake Analytics
-description: Information om hur du ställer in och få åtkomst till diagnostikloggar för Azure Data Lake Analytics
+title: Aktivera och visa diagnostikloggar för Azure Data Lake Analytics
+description: Förstå hur du konfigurerar och får åtkomst till diagnostikloggar för Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
@@ -9,17 +9,17 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60616523"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Åtkomst till diagnostikloggar för Azure Data Lake Analytics
 
-Diagnostisk loggning kan du samla in granskningshistorik för dataåtkomst. De här loggarna ger information som:
+Med diagnostikloggning kan du samla in granskningsspår för dataåtkomst. Dessa loggar innehåller information som:
 
-* En lista över användare som har öppnat data.
+* En lista över användare som har åtkomst till data.
 * Hur ofta data används.
 * Hur mycket data lagras i kontot.
 
@@ -27,38 +27,38 @@ Diagnostisk loggning kan du samla in granskningshistorik för dataåtkomst. De h
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Öppna ditt Data Lake Analytics-konto och välj **diagnostikloggar** från den __övervakaren__ avsnittet. Välj sedan __slå på diagnostik__.
+2. Öppna ditt DataSjöanalyskonto och välj **Diagnostikloggar** i avsnittet __Bildskärm.__ Välj sedan __Aktivera diagnostik__.
 
-    ![Slå på diagnostik för att samla in granskning och begära loggar](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Aktivera diagnostik för att samla in gransknings- och begärandeloggar](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Från __diagnostikinställningar__, ange en __namn__ för den här loggningskonfiguration och välj sedan loggningsalternativen.
+3. Ange ett __namn__ för den här loggningskonfigurationen i __diagnostikinställningarna__och välj sedan loggningsalternativ.
 
-    ![Slå på diagnostik för att samla in granskning och begära loggar](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "aktivera diagnostikloggar")
+    ![Aktivera diagnostik för att samla in gransknings- och begärandeloggar](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Aktivera diagnostikloggar")
 
-   * Du kan välja att store/bearbeta data på tre olika sätt.
+   * Du kan välja att lagra/bearbeta data på tre olika sätt.
 
-     * Välj __arkivet till ett lagringskonto__ att lagra loggar i ett Azure storage-konto. Använd det här alternativet om du vill arkivera data. Om du väljer det här alternativet måste du ange ett Azure storage-konto för att spara loggarna till.
+     * Välj __Arkiv till ett lagringskonto__ för att lagra loggar i ett Azure-lagringskonto. Använd det här alternativet om du vill arkivera data. Om du väljer det här alternativet måste du ange ett Azure-lagringskonto för att spara loggarna till.
 
-     * Välj **Stream till en Händelsehubb** till stream loggdata till en Azure-Händelsehubb. Använd det här alternativet om du har en underordnad process-pipelinen som analyserar inkommande loggar i realtid. Om du väljer det här alternativet måste du ange information för Azure-Händelsehubben som du vill använda.
+     * Välj **Stream till en händelsehubb** om du vill strömma loggdata till en Azure Event Hub. Använd det här alternativet om du har en pipeline för bearbetning nedströms som analyserar inkommande loggar i realtid. Om du väljer det här alternativet måste du ange information om den Azure Event Hub som du vill använda.
 
-     * Välj __skicka till Log Analytics__ att skicka data till Azure Monitor-tjänsten. Använd det här alternativet om du vill använda Azure Monitor-loggar att samla in och analysera loggar.
-   * Ange om du vill hämta granskningsloggar eller begära loggar, eller bådadera.  En Begärandelogg samlar in varje API-begäran. En granskningslogg som registrerar alla åtgärder som utlöses av den API-begäran.
+     * Välj __Skicka till Logganalys om__ du vill skicka data till Azure Monitor-tjänsten. Använd det här alternativet om du vill använda Azure Monitor-loggar för att samla in och analysera loggar.
+   * Ange om du vill hämta granskningsloggar eller begärandeloggar eller båda.  En begäran logg fångar varje API-begäran. En granskningslogg registrerar alla åtgärder som utlöses av den API-begäran.
 
-   * För __arkivet till ett lagringskonto__, ange hur många dagar att behålla data.
+   * För __Arkiv till ett lagringskonto__anger du hur många dagar som ska lagras.
 
    * Klicka på __Spara__.
 
         > [!NOTE]
-        > Du måste välja __arkivet till ett lagringskonto__, __Stream till en Händelsehubb__ eller __skicka till Log Analytics__ innan du klickar på den __spara__ knappen.
+        > Du måste antingen välja __Arkiv till ett lagringskonto__, __Strömma till en händelsehubb__ eller __Skicka till Logganalys__ innan du klickar på __knappen Spara.__
 
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Använda Azure Storage-kontot som innehåller loggdata
 
-1. Öppna Azure Storage-kontot som används för Data Lake Analytics för loggning för att visa blobbehållare som innehåller loggningsdata, och klicka sedan på __Blobar__.
+1. Om du vill visa blob-behållarna som innehåller loggningsdata öppnar du Azure Storage-kontot som används för DataSjöanalys för loggning och klickar sedan på __Blobbar__.
 
-   * Behållaren **insights loggar granskning** innehåller granskningsloggar.
-   * Behållaren **insights-logs-begäranden** innehåller loggarna som begäran.
+   * Behållaren **insights-logs-audit** innehåller granskningsloggarna.
+   * Behållaren **insights-logs-requests** innehåller begärandeloggarna.
 
-2. Loggfilerna lagras i behållare, under följande filstruktur:
+2. I behållarna lagras loggarna under följande filstruktur:
 
         resourceId=/
           SUBSCRIPTIONS/
@@ -77,23 +77,23 @@ Diagnostisk loggning kan du samla in granskningshistorik för dataåtkomst. De h
                                     PT1H.json
 
    > [!NOTE]
-   > Den `##` posterna i sökvägen innehåller år, månad, dag och timme som loggen skapades. Data Lake Analytics skapar en fil varje timme, så `m=` alltid innehåller ett värde av `00`.
+   > Posterna `##` i sökvägen innehåller det år, månad, dag och timme då loggen skapades. DataSjöanalys skapar en fil varje `m=` timme, så `00`innehåller alltid värdet .
 
-    Exempelvis kan den fullständiga sökvägen till en granskningslogg:
+    Som ett exempel kan den fullständiga sökvägen till en granskningslogg vara:
 
         https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=04/m=00/PT1H.json
 
-    På samma sätt kan det vara den fullständiga sökvägen till en Begärandelogg:
+    På samma sätt kan den fullständiga sökvägen till en begärandelogg vara:
 
         https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKEANALYTICS/ACCOUNTS/mydatalakeanalytics/y=2016/m=07/d=18/h=14/m=00/PT1H.json
 
-## <a name="log-structure"></a>Log-struktur
+## <a name="log-structure"></a>Loggstruktur
 
-Gransknings- och begäran loggarna finns i ett strukturerat JSON-format.
+Gransknings- och begärandeloggarna är i ett strukturerat JSON-format.
 
-### <a name="request-logs"></a>Begära loggar
+### <a name="request-logs"></a>Begär loggar
 
-Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har en rotobjektet kallas **poster** som innehåller en matris med objekt i loggen.
+Här är en exempelpost i JSON-formaterad begäran logg. Varje blob har ett rotobjekt som kallas **poster** som innehåller en matris med loggobjekt.
 
     {
     "records":
@@ -123,34 +123,34 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
       ]
     }
 
-#### <a name="request-log-schema"></a>Begäran log schema
+#### <a name="request-log-schema"></a>Begär loggschema
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| time |String |Loggen tidsstämpel (i UTC) |
-| resourceId |String |Identifierare för den resurs som åtgärden tog placera på |
-| category |String |Loggkategori. Till exempel **begäranden**. |
-| operationName |String |Namnet på åtgärden som loggas. Till exempel GetAggregatedJobHistory. |
-| resultType |String |Status för åtgärden, till exempel 200. |
-| callerIpAddress |String |IP-adressen för klienten som gör begäran |
-| correlationId |String |Identifierare för loggen. Det här värdet kan användas för att gruppera en uppsättning relaterade poster. |
-| identity |Object |Den identitet som genereras i loggen |
-| properties |JSON |Finns i nästa avsnitt (begäran log egenskaper schema) för information |
+| time |String |Tidsstämpeln (i UTC) för loggen |
+| resourceId |String |Identifieraren för den resurs som operationen ägde rum på |
+| category |String |Loggkategorin. Till exempel **begäranden**. |
+| operationName |String |Namnet på den åtgärd som loggas. Till exempel GetAggregatedJobHistory. |
+| resultType |String |Status för operationen, till exempel 200. |
+| callerIpAddress |String |IP-adressen för den klient som gör begäran |
+| correlationId |String |Identifieraren för loggen. Det här värdet kan användas för att gruppera en uppsättning relaterade loggtransaktioner. |
+| identity |Objekt |Identiteten som genererade loggen |
+| properties |JSON |Mer information finns i nästa avsnitt (schema för egenskaper för begäran om loggegenskaper) |
 
-#### <a name="request-log-properties-schema"></a>Schemat för begäran log-egenskaper
+#### <a name="request-log-properties-schema"></a>Schema för begär loggegenskaper
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| HttpMethod |String |HTTP-metoden används för åtgärden. Till exempel få. |
-| `Path` |String |Sökvägen åtgärden utfördes på |
-| RequestContentLength |int |Innehållslängd HTTP-förfrågan |
-| ClientRequestId |String |Det ID som unikt identifierar den här begäran |
+| Mer från HttpMethod |String |DEN HTTP-metod som används för åtgärden. Till exempel GET. |
+| Sökväg |String |Den sökväg som operationen utfördes på |
+| RequestContentLength |int |Innehållslängden för HTTP-begäran |
+| KlientRequestId |String |Identifieraren som unikt identifierar den här begäran |
 | StartTime |String |Den tidpunkt då servern tog emot begäran |
-| EndTime |String |Den tid då servern skickade ett svar |
+| EndTime |String |Den tidpunkt då servern skickade ett svar |
 
 ### <a name="audit-logs"></a>Granskningsloggar
 
-Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en rotobjektet kallas **poster** som innehåller en matris med objekt i loggen.
+Här är en exempelpost i JSON-formaterad granskningslogg. Varje blob har ett rotobjekt som kallas **poster** som innehåller en matris med loggobjekt.
 
     {
     "records":
@@ -179,38 +179,38 @@ Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| time |String |Loggen tidsstämpel (i UTC) |
-| resourceId |String |Identifierare för den resurs som åtgärden tog placera på |
-| category |String |Loggkategori. Till exempel **Audit**. |
-| operationName |String |Namnet på åtgärden som loggas. Till exempel JobSubmitted. |
-| resultType |String |En understatus för jobbets status (operationName). |
-| resultSignature |String |Mer information om jobbets status (operationName). |
-| identity |String |Användaren som begärde igen. Till exempel susan@contoso.com. |
-| properties |JSON |Finns i nästa avsnitt (Granska loggen egenskaper schema) för information |
+| time |String |Tidsstämpeln (i UTC) för loggen |
+| resourceId |String |Identifieraren för den resurs som operationen ägde rum på |
+| category |String |Loggkategorin. Till exempel **Granska**. |
+| operationName |String |Namnet på den åtgärd som loggas. Till exempel JobSubmitted. |
+| resultType |String |En understatus för jobbstatusen (operationName). |
+| resultSignature |String |Ytterligare information om jobbstatus (operationName). |
+| identity |String |Användaren som begärde åtgärden. Till exempel susan@contoso.com. |
+| properties |JSON |Mer information finns i nästa avsnitt (schema för granskningsloggegenskaper) |
 
 > [!NOTE]
-> **resultType** och **resultSignature** innehåller information om resultatet av en åtgärd och bara innehålla ett värde om en åtgärd har slutförts. Till exempel som endast innehåller ett värde när **operationName** innehåller ett värde av **JobStarted** eller **JobEnded**.
+> **resultType** och **resultSignature** ger information om resultatet av en åtgärd och innehåller endast ett värde om en åtgärd har slutförts. De innehåller till exempel bara ett värde när **operationName** innehåller värdet **JobStarted** eller **JobEnded**.
 >
 >
 
-#### <a name="audit-log-properties-schema"></a>Granska loggen egenskaper schema
+#### <a name="audit-log-properties-schema"></a>Schema för egenskapsschema för granskningslogg
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| JobId |String |Det ID som jobbet har tilldelats |
-| Jobbnamn |String |Det namn som har angetts för jobbet |
-| JobRunTime |String |Körningen används för att behandla uppgiften |
-| SubmitTime |String |Tiden (i UTC) som jobbet har skickats |
-| StartTime |String |Den tid som jobbet började köras efter bidrag (i UTC) |
-| EndTime |String |Den tid som jobbet avslutades |
-| Parallellitet |String |Antalet Data Lake Analytics-enheter som begärdes för jobbets ärendet |
+| JobId |String |ID:et som tilldelats jobbet |
+| Jobbnamn |String |Namnet som angavs för jobbet |
+| JobbRunTime |String |Den körning som används för att bearbeta jobbet |
+| SkickaTid |String |Den tid (i UTC) som jobbet skickades |
+| StartTime |String |Den tid jobbet började köras efter inlämning (i UTC) |
+| EndTime |String |Tiden då jobbet avslutades |
+| Parallellitet |String |Antalet DataSjöanalysenheter som begärts för det här jobbet under inlämning |
 
 > [!NOTE]
-> **SubmitTime**, **StartTime**, **EndTime**, och **parallellitet** innehåller information om en åtgärd. Dessa poster endast innehåller ett värde om som åtgärden har startats eller har slutförts. Till exempel **SubmitTime** endast innehåller ett värde efter **operationName** har värdet **JobSubmitted**.
+> **SubmitTime**, **StartTime,** **EndTime**och **Parallelism** ger information om en åtgärd. Dessa transaktioner innehåller bara ett värde om åtgärden har startats eller slutförts. **SubmitTime** innehåller till exempel bara ett värde efter **att operationName** har värdet **JobSubmitted**.
 
 ## <a name="process-the-log-data"></a>Bearbeta loggdata
 
-Azure Data Lake Analytics innehåller ett exempel på hur du bearbetar och analysera loggdata. Du hittar exemplet i [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Analytics innehåller ett exempel på hur du bearbetar och analyserar loggdata. Du hittar provet [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)på .
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md)

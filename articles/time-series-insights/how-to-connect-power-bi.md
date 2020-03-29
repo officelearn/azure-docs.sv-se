@@ -1,6 +1,6 @@
 ---
-title: Anslut din miljö till Power BI-Azure Time Series Insights | Microsoft Docs
-description: Lär dig hur du ansluter Azure Time Series Insights till Power BI för att dela, rita och visa data i hela organisationen.
+title: Ansluta din miljö till Power BI – Azure Time Series Insights | Microsoft-dokument
+description: Lär dig hur du ansluter Azure Time Series Insights till Power BI för att dela, kartlägga och visa data i hela organisationen.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -9,141 +9,141 @@ ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.openlocfilehash: 22053bdc3a9836b76aa92303234a095cac6448ef
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75863850"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualisera data från Time Series Insights i Power BI
 
-Azure Time Series Insights är en plattform för att lagra, hantera, fråga och visualisera Time Series-data i molnet. [Power BI](https://powerbi.microsoft.com) är ett företags analys verktyg med omfattande visualiserings funktioner som gör att du kan dela insikter och resultat i hela organisationen. Båda tjänsterna kan nu integreras för att få det bästa av både Time Series Insights "inbyggda visualiserings funktioner" och Power BI.
+Azure Time Series Insights är en plattform för lagring, hantering, frågor och visualisering av tidsseriedata i molnet. [Power BI](https://powerbi.microsoft.com) är ett affärsanalysverktyg med omfattande visualiseringsfunktioner som gör att du kan dela insikter och resultat i hela organisationen. Båda tjänsterna kan nu integreras för att få ut det bästa av både Time Series Insights inneboende visualiseringsfunktioner och Power BI:s.
 
 Du lär dig följande:
 
-* Ansluta Time Series Insights till Power BI med hjälp av Cloud Connector
+* Anslut Time Series Insights till Power BI med molnkontakten
 * Skapa visuella objekt med dina data i Power BI
-* Publicera rapporten för att Power BI och dela den med resten av organisationen
+* Publicera rapporten i Power BI och dela med resten av organisationen
 
-I slutet får du lära dig hur du visualiserar Time Series-data via Azure Time Series Insights och förbättrar den med data visualiseringen stark och enkel delning av Power BI.
+I slutet får du lära dig att visualisera tidsseriedata via Azure Time Series Insights och förbättra dem med de starka datavisualiseringsfunktionerna och de enkla delningsfunktionerna i Power BI.
 
-Se till att du registrerar dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
+Se till att registrera dig för en [kostnadsfri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
 
 ## <a name="prerequisites"></a>Krav
 
-* Hämta och installera den senaste versionen av [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Ha eller skapa en [instans av Azure Time Series Insights för hands version](time-series-insights-update-how-to-manage.md)
+* Ladda ned och installera den senaste versionen av [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+* Har eller skapar en [förhandsversion av Azure Time Series Insights](time-series-insights-update-how-to-manage.md)
 
 > [!IMPORTANT]
-> Power BI Connector stöds för närvarande i Time Series Insights för hands versions förhands gransknings miljöer *som* har kon figurer ATS för **varmt lagring**.
+> Power BI-kontakten stöds för närvarande i Time Series Insights Preview *pay-as-you-go-miljöer som* konfigurerats för **Warm Store**.
 
-## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Anslut data från Time Series Insights till Power BI
+## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Ansluta data från Time Series Insights till Power BI
 
-Följ dessa steg om du vill ansluta din Time Series Insights-miljö till Power BI:
+Så här ansluter du time series insights-miljön till Power BI:
 
-1. Öppna Time Series Insights Explorer
-1. Exportera data som en fråga eller som rå data
-1. Öppna Power BI Desktop
-1. Läs in från anpassad fråga
+1. Utforskaren För öppna tidsserieinsikter
+1. Exportera data som en fråga eller som rådata
+1. Öppna Power BI-skrivbordet
+1. Läsa in från anpassad fråga
 
-### <a name="export-data-into-power-bi-desktop"></a>Exportera data till Power BI Desktop
+### <a name="export-data-into-power-bi-desktop"></a>Exportera data till Power BI-skrivbordet
 
 Så här kommer du igång:
 
-1. Öppna Time Series Insights Preview Explorer och granska dina data.
-1. När du har skapat en vy som du är nöjd med, navigerar du till List menyn **fler åtgärder** och väljer **Anslut till Power BI**.
+1. Öppna Förhandsgranskningsutforskaren för Time Series Insights och sortera dina data.
+1. När du har skapat en vy som du är nöjd med navigerar du till den **nedrullningsbara** menyn Fler åtgärder och väljer **Anslut till Power BI**.
 
-    [Exportera ![Time Series Insights för hands versions Utforskaren](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [![Förhandsversion av Utforskaren för Tidsseriestatistik](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
-1. Ange parametrarna i den här fliken:
+1. Ställ in parametrarna på den här fliken:
 
-   1. Ange en relativ tidsram att visa. Om du är nöjd med din befintliga vy lämnar du den som en **befintlig tidsram**.
+   1. Ange en relativ tidsram som ska visas. Om du är nöjd med din befintliga vy lämnar du den här som **befintlig tidsram**.
    
    1. Välj mellan **aggregerade** och **råa händelser**. 
    
        > [!NOTE]
-       > Du kan alltid aggregera dina data senare i Power BI, men du kan inte återgå till rå data efter AGG regering. 
+       > Du kan alltid aggregera dina data senare i Power BI, men du kan inte återgå till rådata efter aggregering. 
        
        > [!NOTE]
-       > Det finns en gräns för antal 100-K-händelser för rå data på händelse nivå.
+       > Det finns en 100 K-händelseräkningsgräns för raw event-nivådata.
 
-       [![ansluta](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
+       [![Ansluta](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. Om du inte har konfigurerat Time Series Insights-instansen för **varm lagring**visas en varning.
+   1. Om du inte har konfigurerat time series insights-instansen för **Warm Store**får du en varning.
 
-       [varning om ![varm lagring](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
+       [![Varning för varm butik](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > Du kan konfigurera din befintliga instans för **varm lagring** i Azure Portal.
+       > Du kan konfigurera din befintliga instans för **Warm Store** i Azure-portalen.
 
 1. Välj **Kopiera fråga till Urklipp**.
-1. Starta Power BI Desktop nu.
-1. I Power BI Desktop på fliken **Start** väljer du **Hämta data** i det övre vänstra hörnet och sedan **mer**.
+1. Starta nu Power BI Desktop.
+1. I Power BI Desktop på fliken **Start** väljer du **Hämta data** i det övre vänstra hörnet och sedan **Mer**.
 
-    [List rutan ![hem](media/how-to-connect-power-bi/power-bi-home-drop-down.png)](media/how-to-connect-power-bi/power-bi-home-drop-down.png#lightbox)
+    [![Rullgardinsmenyn för hemmet](media/how-to-connect-power-bi/power-bi-home-drop-down.png)](media/how-to-connect-power-bi/power-bi-home-drop-down.png#lightbox)
 
-1. Sök efter **Time Series Insights**, Välj **Azure Time Series Insights (beta)** och **Anslut**.
+1. Sök efter **Time Series Insights**, välj **Azure Time Series Insights (Beta)** och **anslut**sedan .
 
-    [![ansluta Power BI till Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
+    [![Anslut Insikter i Power BI till Tidsserie](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
 
-    Du kan också navigera till fliken **Azure** , välja **Azure Time Series Insights (beta)** och sedan **ansluta**.
+    Du kan också navigera till fliken **Azure,** välja **Azure Time Series Insights (Beta)** och sedan **anslut**.
     
-1. Dialog rutan meddelande visas med frågan om behörighet att ansluta till resurser från tredje part. Välj **Fortsätt**.
+1. En meddelandedialogruta visar att du ber om tillstånd att ansluta till resurser från tredje part. Välj **fortsätt**.
 
-    [![välja Skapa anpassad fråga](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
+    [![Välj Skapa anpassad fråga](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
 
-1. I list menyn under **data källa**väljer du **Skapa anpassad fråga**. Klistra in från Urklipp i det valfria fältet **anpassad fråga (valfritt)** nedan och tryck sedan på **OK**.
+1. I den nedrullningsliga menyn under **Datakälla**väljer du **Skapa anpassad fråga**. Klistra in från Urklipp i det **valfria anpassade frågefältet (valfritt)** nedan och tryck sedan på **OK**.
 
-    [![pass i den anpassade frågan och välj OK](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
+    [![Skicka den anpassade frågan och välj OK](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
-1. Data tabellen kommer nu att läsas in. Tryck på **load** för att läsa in i Power BI.
+1. Datatabellen läses nu in. Tryck **på Ladda** in i Power BI.
 
-    [![granska inlästa data i tabellen och välj load](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
+    [![Granska inlästa data i tabellen och välj Läs in](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
 
-Om du har slutfört de här stegen kan du gå vidare till nästa avsnitt.
+Om du har slutfört de här stegen går du vidare till nästa avsnitt.
 
 ## <a name="create-a-report-with-visuals"></a>Skapa en rapport med visuella objekt
 
-Nu när du har importerat data till Power BI är det dags att bygga en rapport med visuella objekt.
+Nu när du har importerat data till Power BI är det dags att skapa en rapport med visuella objekt.
 
-1. Kontrol lera att du har valt **rapportvyn** på vänster sida av fönstret.
+1. Kontrollera att du har markerat **rapportvyn** till vänster i fönstret.
 
-    [![Välj rapportvyn](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
+    [![Markera rapportvyn](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
-1.  Välj önskat visualiserings alternativ i kolumnen **visualiseringar** . Välj till exempel **linje diagram**. Ett tomt linje diagram läggs till på din arbets yta.
+1.  Välj ditt visuella objekt i kolumnen **Visualiseringar.** Välj till exempel **Linjediagram**. Detta kommer att lägga till ett tomt linjediagram på arbetsytan.
  
-1.  I listan **fält** väljer du **tidsstämpel** och drar den till fältet **axel** för att visa objekt längs X-axeln.
+1.  I listan **Fält** väljer du **Tidsstämpel** och drar den till fältet **Axel** för att visa objekt längs X-axeln.
 
-1.  Återigen, i listan **fält** , väljer du **TimeSeriesId** och drar den till fältet **värden** för att visa objekt utmed Y-axeln.
+1.  I listan **Fält** väljer du återigen **TimeSeriesId** och drar det till fältet **Värden** för att visa objekt längs Y-axeln.
 
-    [![skapa ett linje diagram](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
+    [![Skapa ett linjediagram](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.  Om du vill lägga till ett annat diagram på arbets ytan väljer du var som helst på arbets ytan utanför linje diagrammet och upprepar den här processen.
+1.  Om du vill lägga till ett annat diagram på arbetsytan markerar du var som helst på arbetsytan utanför linjediagrammet och upprepar den här processen.
 
-    [![skapa ytterligare diagram som ska delas](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
+    [![Skapa ytterligare diagram att dela](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 
-När du har skapat rapporten kan du publicera den till Power BI repor ting Services.
+När du har skapat rapporten kan du publicera den i Power BI Reporting Services.
 
 ## <a name="advanced-editing"></a>Avancerad redigering
 
-Om du redan har läst in en data uppsättning i Power BI men vill ändra frågan (till exempel parametrarna för datum/tid eller miljö-ID), kan du göra detta via Avancerad redigerare-funktionerna i Power BI. Läs mer i [Power BI-dokumentationen](https://docs.microsoft.com/power-bi/desktop-query-overview) .
+Om du redan har läst in en datauppsättning i Power BI men vill ändra frågan (till exempel parametrar för datum/tid eller miljö-ID) kan du göra detta via Power BI:s avancerade redigerarfunktioner. Mer information finns i [Power BI-dokumentationen.](https://docs.microsoft.com/power-bi/desktop-query-overview)
 
 Som en översikt:
 
-1. I Power BI Desktop väljer du **Redigera frågor**.
-1. Tryck på **avancerad redigerare**.
+1. Välj Redigera frågor **i**Power BI Desktop .
+1. Tryck **på Avancerad redigerare**.
 
-    [![redigera frågor i Avancerad redigerare](media/how-to-connect-power-bi/power-bi-advanced-query-editing.png)](media/how-to-connect-power-bi/power-bi-advanced-query-editing.png#lightbox)
+    [![Redigera frågor i den avancerade redigeraren](media/how-to-connect-power-bi/power-bi-advanced-query-editing.png)](media/how-to-connect-power-bi/power-bi-advanced-query-editing.png#lightbox)
 
 1. Ändra JSON-nyttolasten efter behov.
-1. Välj **Done** och **Stäng & Verkställ** i **Power Query redigerings fönstret**.
+1. Välj **Klar** och **stäng sedan & tillämpas** i Power Query **Editor-fönstret**.
 
-Gränssnittet visar nu de önskade ändringarna som du har använt.  
+Gränssnittet återspeglar nu de önskade ändringar du har tillämpat.  
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-* Läs om [Power BI anslutnings begrepp](https://docs.microsoft.com/power-bi/desktop-query-overview) för Azure Time Series Insights.
+* Läs om [Power BI-anslutningskoncept](https://docs.microsoft.com/power-bi/desktop-query-overview) för Azure Time Series Insights.
 
-* Läs mer om [Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Läs mer om [Power BI-skrivbordet](https://docs.microsoft.com/power-bi/desktop-query-overview).
 
-* Läs [Time Series Insights ga Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) och [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+* Läs [Time Series Insights GA Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-quickstart) och Time Series [Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).

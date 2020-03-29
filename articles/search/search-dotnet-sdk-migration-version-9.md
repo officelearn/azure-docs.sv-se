@@ -1,7 +1,7 @@
 ---
 title: Uppgradera till Azure Search .NET SDK version 9
 titleSuffix: Azure Cognitive Search
-description: Migrera kod till Azure Search .NET SDK version 9 från äldre versioner. Läs om vad som är nytt och vilka kod ändringar som krävs.
+description: Migrera kod till Azure Search .NET SDK version 9 från äldre versioner. Läs om vad som är nytt och vilka kodändringar som krävs.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -10,68 +10,68 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: fcc70267754f7e66f29dd1b855d3efb8b814e78b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793006"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Uppgradera till Azure Search .NET SDK version 9
 
-Om du använder version 7,0 – för hands version eller äldre av [Azure Search .NET SDK](https://aka.ms/search-sdk)hjälper den här artikeln dig att uppgradera ditt program till att använda version 9.
+Om du använder version 7.0-förhandsversion eller äldre av [Azure Search .NET SDK](https://aka.ms/search-sdk)hjälper den här artikeln dig att uppgradera programmet så att det använder version 9.
 
 > [!NOTE]
-> Om du vill använda version 8,0 – för hands version för att utvärdera funktioner som inte är allmänt tillgängliga än, kan du också följa anvisningarna i den här artikeln för att uppgradera till 8,0 – för hands version från tidigare versioner.
+> Om du vill använda version 8.0-förhandsversion för att utvärdera funktioner som ännu inte är allmänt tillgängliga kan du också följa instruktionerna i den här artikeln för att uppgradera till 8.0-förhandsversioner från tidigare versioner.
 
-En mer allmän genom gång av SDK inklusive exempel finns i [så här använder du Azure Search från ett .NET-program](search-howto-dotnet-sdk.md).
+En mer allmän genomgång av SDK:s exempel finns i [Så här använder du Azure Search från ett .NET-program](search-howto-dotnet-sdk.md).
 
-Version 9 av Azure Search .NET SDK innehåller många ändringar från tidigare versioner. Några av dessa är avbryter ändringar, men de bör bara kräva relativt mindre ändringar i koden. Se [steg för att uppgradera](#UpgradeSteps) för instruktioner om hur du ändrar din kod till att använda den nya SDK-versionen.
+Version 9 av Azure Search .NET SDK innehåller många ändringar från tidigare versioner. Vissa av dessa bryter ändringar, men de bör bara kräva relativt små ändringar av din kod. Se [Steg för att uppgradera](#UpgradeSteps) för instruktioner om hur du ändrar koden för att använda den nya SDK-versionen.
 
 > [!NOTE]
-> Om du använder version 4,0-Preview eller äldre bör du först uppgradera till version 5 och sedan uppgradera till version 9. Instruktioner finns i [Uppgradera till Azure Search .NET SDK version 5](search-dotnet-sdk-migration-version-5.md) .
+> Om du använder version 4.0-förhandsversion eller äldre bör du först uppgradera till version 5 och sedan uppgradera till version 9. Instruktioner [finns i Uppgradera till Azure Search .NET SDK version 5.](search-dotnet-sdk-migration-version-5.md)
 >
-> Din Azure Search tjänst instans stöder flera REST API versioner, inklusive den senaste. Du kan fortsätta att använda en version när den inte längre är den senaste, men vi rekommenderar att du migrerar din kod för att använda den senaste versionen. När du använder REST API måste du ange API-versionen i varje begäran via parametern API-version. När du använder .NET SDK fastställer den version av SDK som du använder motsvarande version av REST API. Om du använder en äldre SDK kan du fortsätta att köra koden utan ändringar även om tjänsten uppgraderas till att stödja en nyare API-version.
+> Din Azure Search-tjänstinstans stöder flera REST API-versioner, inklusive den senaste. Du kan fortsätta att använda en version när den inte längre är den senaste, men vi rekommenderar att du migrerar koden för att använda den senaste versionen. När du använder REST API måste du ange API-versionen i varje begäran via parametern api-version. När du använder .NET SDK avgör den version av SDK du använder motsvarande version av REST API.When using the .NET SDK, the version of the SDK you're using determines the corresponding version of the REST API. Om du använder en äldre SDK kan du fortsätta att köra koden utan ändringar även om tjänsten uppgraderas för att stödja en nyare API-version.
 
 <a name="WhatsNew"></a>
 
-## <a name="whats-new-in-version-9"></a>Vad är nytt i version 9
-Version 9 av Azure Search .NET SDK riktar sig till den senaste allmänt tillgängliga versionen av Azure Search REST API, särskilt 2019-05-06. Detta gör det möjligt att använda nya funktioner i Azure Search från ett .NET-program, inklusive följande:
+## <a name="whats-new-in-version-9"></a>Nyheter i version 9
+Version 9 av Azure Search .NET SDK riktar sig till den senaste allmänt tillgängliga versionen av AZURE Search REST API, särskilt 2019-05-06. Detta gör det möjligt att använda nya funktioner i Azure Search från ett .NET-program, inklusive följande:
 
-* [AI-anrikning](cognitive-search-concept-intro.md) är möjligheten att extrahera text från bilder, blobbar och andra ostrukturerade data källor – innehåll som gör det mer sökbart i ett Azure Search index.
-* Med stöd för [komplexa typer](search-howto-complex-data-types.md) kan du modellera nästan vilken KAPSLAd JSON-struktur som helst i ett Azure Search index.
-* [Funktionen Komplettera automatiskt](search-autocomplete-tutorial.md) innehåller ett alternativ till **föreslå** API för att implementera sökning efter typ av funktion. Autoavsluta "avslutar" ordet eller frasen som en användare skriver för närvarande.
-* [JsonLines tolknings läge](search-howto-index-json-blobs.md), en del av Azure Blob-indexering, skapar ett Sök dokument per JSON-entitet som skiljs åt av en ny rad.
+* [AI-anrikning](cognitive-search-concept-intro.md) är möjligheten att extrahera text från bilder, blobbar och andra ostrukturerade datakällor – vilket berikar innehållet så att det blir mer sökbart i ett Azure Search-index.
+* Stöd för [komplexa typer](search-howto-complex-data-types.md) kan du modellera nästan alla kapslade JSON-struktur i ett Azure Search-index.
+* [Komplettera automatiskt](search-autocomplete-tutorial.md) är ett alternativ till **föreslå** API för att implementera sök-som-du-typ beteende. Komplettera automatiskt "avslutar" det ord eller den fras som en användare för närvarande skriver.
+* [JsonLines tolkningsläge](search-howto-index-json-blobs.md), en del av Azure Blob-indexering, skapar ett sökdokument per JSON-entitet som är avgränsat med en nyrad.
 
-### <a name="new-preview-features-in-version-80-preview"></a>Nya för hands versions funktioner i version 8,0 – för hands version
-Version 8,0 – för hands version av Azure Search .NET SDK-mål API-version 2017-11-11 – för hands version. Den här versionen innehåller alla funktioner i version 9, plus:
+### <a name="new-preview-features-in-version-80-preview"></a>Nya förhandsgranskningsfunktioner i version 8.0-preview
+Version 8.0-förhandsversionen av Azure Search .NET SDK-mål API-version 2017-11-11-Preview. Denna version innehåller alla samma funktioner i version 9, plus:
 
-* [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) för service Side Encryption-at-rest är en ny förhands gransknings funktion. Förutom den inbyggda krypterings-vid-rest som hanteras av Microsoft kan du använda ett extra lager av kryptering där du är den enda ägaren av nycklarna.
+* [Kundhanterade krypteringsnycklar](search-security-manage-encryption-keys.md) för kryptering på mellanlag är en ny förhandsgranskningsfunktion. Förutom den inbyggda krypteringen i vila som hanteras av Microsoft kan du använda ytterligare ett krypteringslager där du är ensam ägare till nycklarna.
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Steg för att uppgradera
-Först uppdaterar du NuGet-referensen för `Microsoft.Azure.Search` med hjälp av NuGet Package Manager-konsolen eller genom att högerklicka på dina projekt referenser och välja "hantera NuGet-paket..." i Visual Studio.
+Uppdatera först din NuGet-referens för `Microsoft.Azure.Search` att använda antingen NuGet Package Manager Console eller genom att högerklicka på dina projektreferenser och välja "Hantera NuGet-paket..." i Visual Studio.
 
-När NuGet har laddat ned de nya paketen och deras beroenden kan du återskapa projektet. Beroende på hur koden är strukturerad kan den återskapas. I så fall är det dags att sätta igång!
+När NuGet har laddat ned de nya paketen och deras beroenden kan du återskapa projektet. Beroende på hur koden är strukturerad kan den återskapas. Om så är fallet, är du redo att gå!
 
-Om det inte går att bygga upp måste du åtgärda varje build-fel. Mer information om hur du löser de olika möjliga build-problemen finns i avsnittet om att lösa [ändringar i version 9](#ListOfChanges) .
+Om din version misslyckas måste du åtgärda varje byggfel. Mer information om hur du löser varje potentiellt byggfel [finns i Bryta ändringar i version 9.](#ListOfChanges)
 
-Du kan se ytterligare build-varningar relaterade till föråldrade metoder eller egenskaper. Varningarna innehåller instruktioner om vad som ska användas i stället för den föråldrade funktionen. Om ditt program exempelvis använder egenskapen `DataSourceType.DocumentDb`, ska du få en varning om att "den här medlemmen är föråldrad. Använd CosmosDb i stället.
+Du kan se ytterligare byggvarningar relaterade till föråldrade metoder eller egenskaper. Varningarna innehåller instruktioner om vad som ska användas i stället för den inaktuella funktionen. Om ditt program till `DataSourceType.DocumentDb` exempel använder egenskapen bör du få en varning om att "Den här medlemmen är inaktuell. Använd CosmosDb istället".
 
-När du har åtgärdat eventuella build-fel eller varningar kan du göra ändringar i programmet för att dra nytta av nya funktioner om du vill. Nya funktioner i SDK beskrivs i [Vad är nytt i version 9](#WhatsNew).
+När du har åtgärdat eventuella byggfel eller varningar kan du göra ändringar i ditt program för att dra nytta av nya funktioner om du vill. Nya funktioner i SDK [beskrivs](#WhatsNew)i Nyheter i version 9 .
 
 <a name="ListOfChanges"></a>
 
 ## <a name="breaking-changes-in-version-9"></a>Bryta ändringar i version 9
 
-Det finns flera större ändringar i version 9 som kan kräva kod ändringar förutom att återskapa ditt program.
+Det finns flera brytande ändringar i version 9 som kan kräva kodändringar förutom att återskapa ditt program.
 
 > [!NOTE]
-> Listan över ändringar nedan är inte fullständig. Vissa ändringar kommer troligen inte att resultera i build-fel, men är tekniskt avbrotts kraft eftersom de bryter mot binär kompatibilitet med sammansättningar som är beroende av tidigare versioner av Azure Search .NET SDK-sammansättningar. Sådana ändringar visas inte nedan. Återskapa ditt program när du uppgraderar till version 9 för att undvika eventuella binära kompatibilitetsproblem.
+> Listan över ändringar nedan är inte uttömmande. Vissa ändringar kommer sannolikt inte att resultera i byggfel, men bryter tekniskt eftersom de bryter binär kompatibilitet med sammansättningar som är beroende av tidigare versioner av Azure Search .NET SDK-sammansättningar. Sådana ändringar anges inte nedan. Återskapa ditt program när du uppgraderar till version 9 för att undvika binära kompatibilitetsproblem.
 
 ### <a name="immutable-properties"></a>Oföränderliga egenskaper
 
-De offentliga egenskaperna för flera modell klasser är nu oföränderliga. Om du behöver skapa anpassade instanser av dessa klasser för testning kan du använda de nya konstruktorerna för parametrar:
+De offentliga egenskaperna för flera modellklasser är nu oföränderliga. Om du behöver skapa anpassade instanser av dessa klasser för testning kan du använda de nya parameteriserade konstruktörerna:
 
   - `AutocompleteItem`
   - `DocumentSearchResult`
@@ -80,11 +80,11 @@ De offentliga egenskaperna för flera modell klasser är nu oföränderliga. Om 
   - `SearchResult`
   - `SuggestResult`
 
-### <a name="changes-to-field"></a>Ändra till fält
+### <a name="changes-to-field"></a>Ändringar i fält
 
-`Field`s klassen har ändrats nu, men den kan även representera komplexa fält.
+Klassen `Field` har ändrats nu när den också kan representera komplexa fält.
 
-Följande `bool` egenskaper kan nu ha värdet null:
+Följande `bool` egenskaper är nu nullable:
 
   - `IsFilterable`
   - `IsFacetable`
@@ -93,33 +93,33 @@ Följande `bool` egenskaper kan nu ha värdet null:
   - `IsRetrievable`
   - `IsKey`
 
-Detta beror på att dessa egenskaper måste vara `null` när det gäller komplexa fält. Om du har kod som läser dessa egenskaper måste det förberedas för att hantera `null`. Observera att alla andra egenskaper för `Field` alltid har varit och fortfarande kan vara null, och vissa av dem kommer också att `null` när det gäller komplexa fält – särskilt följande:
+Detta beror på att `null` dessa egenskaper nu måste vara i fråga om komplexa fält. Om du har kod som läser dessa egenskaper `null`måste den vara beredd att hantera . Observera att alla `Field` andra egenskaper har alltid varit och fortsätter att vara `null` nullable, och några av dessa kommer också att vara i fråga om komplexa fält - särskilt följande:
 
   - `Analyzer`
   - `SearchAnalyzer`
   - `IndexAnalyzer`
   - `SynonymMaps`
 
-Den parameter fri konstruktorn för `Field` har gjorts `internal`. Från och med nu kräver varje `Field` ett explicit namn och en datatyp vid tidpunkten för konstruktion.
+Parameterless konstruktor `Field` av `internal`har gjorts . Från och med `Field` nu kräver varje ett uttryckligt namn och datatyp vid tidpunkten för konstruktionen.
 
-### <a name="simplified-batch-and-results-types"></a>Förenklad batch-och resultat typer
+### <a name="simplified-batch-and-results-types"></a>Förenklade batch- och resultattyper
 
-I version 7,0 – för hands versionen och tidigare var de olika klasserna som inkapslade grupper av dokument strukturerade i parallella klass hierarkier:
+I version 7.0-förhandsversionen och tidigare har de olika klasser som kapslar in grupper av dokument strukturerats i parallella klasshierarkier:
 
-  -  `DocumentSearchResult` och `DocumentSearchResult<T>` ärvts från `DocumentSearchResultBase`
-  -  `DocumentSuggestResult` och `DocumentSuggestResult<T>` ärvts från `DocumentSuggestResultBase`
-  -  `IndexAction` och `IndexAction<T>` ärvts från `IndexActionBase`
-  -  `IndexBatch` och `IndexBatch<T>` ärvts från `IndexBatchBase`
-  -  `SearchResult` och `SearchResult<T>` ärvts från `SearchResultBase`
-  -  `SuggestResult` och `SuggestResult<T>` ärvts från `SuggestResultBase`
+  -  `DocumentSearchResult`och `DocumentSearchResult<T>` ärvt från`DocumentSearchResultBase`
+  -  `DocumentSuggestResult`och `DocumentSuggestResult<T>` ärvt från`DocumentSuggestResultBase`
+  -  `IndexAction`och `IndexAction<T>` ärvt från`IndexActionBase`
+  -  `IndexBatch`och `IndexBatch<T>` ärvt från`IndexBatchBase`
+  -  `SearchResult`och `SearchResult<T>` ärvt från`SearchResultBase`
+  -  `SuggestResult`och `SuggestResult<T>` ärvt från`SuggestResultBase`
 
-Härledda typer utan en generisk typ parameter är avsedda att användas i scenarier med dynamiskt typ och förutsätter användning av `Document`s typen.
+De härledda typerna utan en generisk typparameter var avsedda att användas `Document` i "dynamiskt skrivna" scenarier och antog användning av typen.
 
-Från och med version 8,0 – för hands version har bas klasserna och icke-generiska härledda klasser tagits bort. För dynamiskt skrivna scenarier kan du använda `IndexBatch<Document>`, `DocumentSearchResult<Document>`och så vidare.
+Från och med version 8.0-förhandsversionen har basklasserna och de icke-generiska härledda klasserna tagits bort. För dynamiskt skrivna scenarier kan `IndexBatch<Document>` `DocumentSearchResult<Document>`du använda , och så vidare.
  
-### <a name="removed-extensibleenum"></a>Tog bort ExtensibleEnum
+### <a name="removed-extensibleenum"></a>Borttagen ExtensibleEnum
 
-`ExtensibleEnum` Bask Lassen har tagits bort. Alla klasser som härleds från den är nu strukturer, till exempel `AnalyzerName`, `DataType`och `DataSourceType` till exempel. Deras `Create` metoder har också tagits bort. Du kan bara ta bort anrop till `Create` eftersom dessa typer är implicit konverterbara från strängar. Om detta resulterar i kompileringsfel kan du explicit anropa konverterings operatorn via databyte till disambiguate-typer. Du kan till exempel ändra kod så här:
+Basklassen `ExtensibleEnum` har tagits bort. Alla klasser som härleds från den är `AnalyzerName`nu `DataType`structs, till exempel , , och `DataSourceType` till exempel. Deras `Create` metoder har också tagits bort. Du kan bara `Create` ta bort samtal till eftersom dessa typer är implicit konvertibla från strängar. Om det resulterar i kompilatorfel kan du uttryckligen anropa konverteringsoperatorn via cast till disambiguate-typer. Du kan till exempel ändra kod så här:
 
 ```csharp
 var index = new Index()
@@ -133,7 +133,7 @@ var index = new Index()
 }
 ```
 
-till det här:
+till denna:
 
 ```csharp
 var index = new Index()
@@ -147,11 +147,11 @@ var index = new Index()
 }
 ```
 
-Egenskaper som hålls valfria värden av dessa typer skrivs nu explicit som null, så de fortsätter att vara valfria.
+Egenskaper som innehöll valfria värden för dessa typer skrivs nu uttryckligen som nullable så att de fortsätter att vara valfria.
 
-### <a name="removed-facetresults-and-hithighlights"></a>Tog bort FacetResults och HitHighlights
+### <a name="removed-facetresults-and-hithighlights"></a>Borttagna facetresults och hithighlights
 
-`FacetResults`-och `HitHighlights`s klasserna har tagits bort. Fasett-resultat skrivs nu som `IDictionary<string, IList<FacetResult>>` och visar högdagrar som `IDictionary<string, IList<string>>`. Ett snabbt sätt att lösa build-fel som introducerats av den här ändringen är att lägga till `using` alias överst i varje fil som använder de borttagna typerna. Exempel:
+`FacetResults` Klasserna `HitHighlights` och har tagits bort. Aspekt resultat är nu `IDictionary<string, IList<FacetResult>>` skrivit som `IDictionary<string, IList<string>>`och slå höjdpunkter som . Ett snabbt sätt att lösa byggfel som introducerades av den här ändringen är att lägga `using` till alias högst upp i varje fil som använder de borttagna typerna. Ett exempel:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;
@@ -160,30 +160,30 @@ using HitHighlights = System.Collections.Generic.IDictionary<string, System.Coll
 
 ### <a name="change-to-synonymmap"></a>Ändra till SynonymMap 
 
-`SynonymMap` konstruktorn har inte längre någon `enum`-parameter för `SynonymMapFormat`. Den här uppräkningen hade bara ett värde och var därför redundant. Om du ser build-fel som ett resultat av detta tar du bara bort referenser till parametern `SynonymMapFormat`.
+Konstruktorn `SynonymMap` har inte `enum` längre `SynonymMapFormat`någon parameter för . Denna uppräkning hade bara ett värde och var därför överflödig. Om du ser byggfel som ett resultat av detta `SynonymMapFormat` tar du bara bort referenser till parametern.
 
-### <a name="miscellaneous-model-class-changes"></a>Diverse ändringar i modell klass
+### <a name="miscellaneous-model-class-changes"></a>Diverse modellklassändringar
 
-Egenskapen `AutocompleteMode` för `AutocompleteParameters` kan inte längre vara null. Om du har kod som tilldelar den här egenskapen till `null`, kan du helt enkelt ta bort den och egenskapen kommer automatiskt att initieras till standardvärdet.
+Egenskapen `AutocompleteMode` `AutocompleteParameters` för är inte längre nullable. Om du har kod som `null`tilldelar den här egenskapen kan du helt enkelt ta bort den och egenskapen initieras automatiskt till standardvärdet.
 
-Ordningen på parametrarna till `IndexAction`-konstruktorn har ändrats nu när konstruktorn genereras automatiskt. I stället för att använda konstruktorn rekommenderar vi att du använder fabriks metoderna `IndexAction.Upload`, `IndexAction.Merge`och så vidare.
+Ordningen på parametrarna `IndexAction` till konstruktorn har ändrats nu när konstruktorn genereras automatiskt. Istället för att använda konstruktorn rekommenderar `IndexAction.Upload` `IndexAction.Merge`vi att du använder fabriksmetoderna , och så vidare.
 
-### <a name="removed-preview-features"></a>Borttagna för hands versions funktioner
+### <a name="removed-preview-features"></a>Borttagna förhandsgranskningsfunktioner
 
-Om du uppgraderar från version 8,0 – för hands version till version 9 bör du vara medveten om att kryptering med Kundhanterade nycklar har tagits bort eftersom den här funktionen fortfarande är i för hands version. Mer specifikt `EncryptionKey` egenskaperna för `Index` och `SynonymMap` har tagits bort.
+Om du uppgraderar från version 8.0-förhandsversionen till version 9 bör du tänka på att kryptering med kundhanterade nycklar har tagits bort eftersom den här funktionen fortfarande är i förhandsversion. Specifikt egenskaperna `EncryptionKey` hos `Index` och `SynonymMap` har tagits bort.
 
-Om programmet har ett hårt beroende av den här funktionen kommer du inte att kunna uppgradera till version 9 av Azure Search .NET SDK. Du kan fortsätta att använda version 8,0 – för hands version. Tänk dock på att **vi inte rekommenderar att du använder för hands versioner av SDK: er i produktions program**. För hands versions funktionerna är endast för utvärdering och kan ändras.
+Om ditt program har ett hårt beroende av den här funktionen kan du inte uppgradera till version 9 av Azure Search .NET SDK. Du kan fortsätta att använda version 8.0-preview. Tänk dock på att vi inte rekommenderar att **du använder förhandsgransknings-SDK:er i produktionsprogram**. Förhandsgranskningsfunktioner är endast till för utvärdering och kan komma att ändras.
 
 > [!NOTE]
-> Om du har skapat krypterade index eller synonym Maps med version 8,0 – för hands version av SDK, kan du fortfarande använda dem och ändra deras definitioner med hjälp av version 9 av SDK utan att påverka krypterings statusen negativt. Version 9 av SDK: n skickar inte `encryptionKey`-egenskapen till REST API, och därför kommer REST API inte att ändra resursens krypterings status. 
+> Om du har skapat krypterade index eller synonymkartor med version 8.0-förhandsversionen av SDK kan du fortfarande använda dem och ändra deras definitioner med version 9 av SDK utan att negativt påverka deras krypteringsstatus. Version 9 av SDK skickar `encryptionKey` inte egenskapen till REST API, och som ett resultat av rest API kommer inte att ändra krypteringsstatus för resursen. 
 
-### <a name="behavioral-change-in-data-retrieval"></a>Beteende ändring i data hämtning
+### <a name="behavioral-change-in-data-retrieval"></a>Beteendeförändring vid datahämtning
 
-Om du använder de "dynamiskt angivna" `Search`, `Suggest`eller `Get` API: er som returnerar instanser av typen `Document`, bör du vara medveten om att de nu deserialiserar tomma JSON-matriser till `object[]` i stället för `string[]`.
+Om du använder de "dynamiskt `Search`maskinskrivna" `Suggest`, `Get` eller API:er som returnerar förekomster av typen `Document`, `object[]` bör `string[]`du vara medveten om att de nu avserialisera tomma JSON-matriser till i stället för .
 
-## <a name="conclusion"></a>Sammanfattning
-Om du behöver mer information om hur du använder Azure Search .NET SDK, se [.net How-to](search-howto-dotnet-sdk.md).
+## <a name="conclusion"></a>Slutsats
+Om du behöver mer information om hur du använder Azure Search .NET SDK läser du [.NET How-to](search-howto-dotnet-sdk.md).
 
-Vi välkomnar din feedback om SDK. Om du stöter på problem kan du be oss om hjälp om [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Om du hittar en bugg kan du ange ett problem i [Azure .NET SDK GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/issues). Var noga med att ange din ärende rubrik med "[Azure Search]".
+Vi välkomnar din feedback på SDK. Om du stöter på problem, gärna be oss om hjälp på [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Om du hittar ett fel kan du lämna in ett problem i [Azure .NET SDK GitHub-databasen](https://github.com/Azure/azure-sdk-for-net/issues). Se till att prefixa din problemtitel med "[Azure Search]".
 
 Tack för att du använder Azure Search!

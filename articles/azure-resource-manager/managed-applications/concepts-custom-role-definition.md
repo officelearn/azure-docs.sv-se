@@ -1,32 +1,32 @@
 ---
-title: Översikt över anpassade roll definitioner
-description: Beskriver konceptet att skapa anpassade roll definitioner för hanterade program.
+title: Översikt över anpassade rolldefinitioner
+description: Beskriver konceptet att skapa anpassade rolldefinitioner för hanterade program.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 88e42fd9626276f6c77b46b33c138407f91d06ca
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75650765"
 ---
-# <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefakt för anpassad roll definition i Azure Managed Applications
+# <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Anpassad rolldefinitionsartefakt i Azure-hanterade program
 
-Anpassad roll definition är en valfri artefakt i hanterade program. Den används för att avgöra vilka behörigheter som det hanterade programmet behöver för att utföra sina funktioner.
+Anpassad rolldefinition är en valfri artefakt i hanterade program. Den används för att avgöra vilka behörigheter det hanterade programmet behöver för att utföra sina funktioner.
 
-Den här artikeln innehåller en översikt över den anpassade roll definitions artefakten och dess funktioner.
+Den här artikeln innehåller en översikt över den anpassade rolldefinitionsartefakten och dess funktioner.
 
-## <a name="custom-role-definition-artifact"></a>Artefakt för anpassad roll definition
+## <a name="custom-role-definition-artifact"></a>Artefakt för anpassad rolldefinition
 
-Du måste namnge den anpassade roll definitions definitionen artefakt customRoleDefinition. JSON. Placera den på samma nivå som createUiDefinition. JSON och mainTemplate. json i. zip-paketet som skapar en definition för ett hanterat program. Information om hur du skapar zip-paketet och publicerar en definition för hanterade program finns i [publicera en definition för ett hanterat program.](publish-managed-app-definition-quickstart.md)
+Du måste namnge den anpassade rolldefinitionsartefakten customRoleDefinition.json. Placera den på samma nivå som createUiDefinition.json och mainTemplate.json i ZIP-paketet som skapar en hanterad programdefinition. Mer information om hur du skapar ZIP-paketet och publicerar en hanterad programdefinition finns i [Publicera en hanterad programdefinition.](publish-managed-app-definition-quickstart.md)
 
-## <a name="custom-role-definition-schema"></a>Definitions schema för anpassad roll
+## <a name="custom-role-definition-schema"></a>Schema för anpassad rolldefinition
 
-Filen customRoleDefinition. JSON har en `roles` egenskap på översta nivån som är en matris med roller. Dessa roller är de behörigheter som det hanterade programmet behöver för att fungera. För närvarande tillåts bara inbyggda roller, men du kan ange flera roller. En roll kan refereras av ID: t för roll definitionen eller av roll namnet.
+Filen customRoleDefinition.json har en `roles` egenskap på den översta nivån som är en matris med roller. Dessa roller är de behörigheter som det hanterade programmet behöver för att fungera. För närvarande är endast inbyggda roller tillåtna, men du kan ange flera roller. En roll kan refereras av ID:t för rolldefinitionen eller av rollnamnet.
 
-Exempel-JSON för anpassad roll definition:
+Exempel på JSON för anpassad rolldefinition:
 
 ```json
 {
@@ -49,7 +49,7 @@ Exempel-JSON för anpassad roll definition:
 
 ## <a name="roles"></a>Roller
 
-En roll består av antingen en `$.properties.roleName` eller ett `id`:
+En roll består av `$.properties.roleName` antingen `id`a eller en:
 
 ```json
 {
@@ -61,9 +61,9 @@ En roll består av antingen en `$.properties.roleName` eller ett `id`:
 ```
 
 > [!NOTE]
-> Du kan använda antingen fältet `id` eller `roleName`. Endast en krävs. De här fälten används för att leta upp den roll definition som ska användas. Om båda anges används fältet `id`.
+> Du kan använda `id` `roleName` antingen fältet eller. Endast en krävs. Dessa fält används för att slå upp den rolldefinition som ska tillämpas. Om båda levereras `id` används fältet.
 
 |Egenskap|Krävs?|Beskrivning|
 |---------|---------|---------|
-|id|Ja|ID för den inbyggda rollen. Du kan använda det fullständiga ID: t eller bara GUID.|
-|roleName|Ja|Namnet på den inbyggda rollen.|
+|id|Ja|ID:et för den inbyggda rollen. Du kan använda det fullständiga ID:t eller bara GUID.You can use the full ID or just the GUID.|
+|rollNamn|Ja|Namnet på den inbyggda rollen.|

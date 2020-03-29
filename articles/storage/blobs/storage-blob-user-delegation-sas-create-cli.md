@@ -1,7 +1,7 @@
 ---
-title: Använd Azure CLI för att skapa en användar Delegerings-SAS för en behållare eller BLOB
+title: Använda Azure CLI för att skapa en SAS för användardelegering för en behållare eller blob
 titleSuffix: Azure Storage
-description: Lär dig hur du skapar en användar Delegerings-SAS med Azure Active Directory autentiseringsuppgifter med hjälp av Azure CLI.
+description: Lär dig hur du skapar en SAS för användardelegation med Azure Active Directory-autentiseringsuppgifter med hjälp av Azure CLI.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,39 +11,39 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75371997"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Skapa en SAS för användardelegering för en behållare eller blob med Azure CLI
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Den här artikeln visar hur du använder Azure Active Directory (Azure AD)-autentiseringsuppgifter för att skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI.
+Den här artikeln visar hur du använder Azure Active Directory (Azure AD) autentiseringsuppgifter för att skapa en användaredelegering SAS för en behållare eller blob med Azure CLI.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>Installera den senaste versionen av Azure CLI
 
-Kontrol lera att du har installerat den senaste versionen av Azure CLI för att använda Azure CLI för att skydda SAS med autentiseringsuppgifter för Azure AD. Mer information om hur du installerar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du vill använda Azure CLI för att skydda en SAS med Azure AD-autentiseringsuppgifter kontrollerar du först att du har installerat den senaste versionen av Azure CLI. Mer information om hur du installerar Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Om du vill skapa en användar Delegerings-SAS med Azure CLI kontrollerar du att du har installerat version 2.0.78 eller senare. Använd kommandot `az --version` för att kontrol lera den installerade versionen.
+Om du vill skapa en SAS för användardelegering med Azure CLI kontrollerar du att du har installerat version 2.0.78 eller senare. Om du vill kontrollera `az --version` den installerade versionen använder du kommandot.
 
-## <a name="sign-in-with-azure-ad-credentials"></a>Logga in med autentiseringsuppgifter för Azure AD
+## <a name="sign-in-with-azure-ad-credentials"></a>Logga in med Azure AD-autentiseringsuppgifter
 
-Logga in på Azure CLI med dina autentiseringsuppgifter för Azure AD. Mer information finns i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli).
+Logga in på Azure CLI med dina Azure AD-autentiseringsuppgifter. Mer information finns i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## <a name="assign-permissions-with-rbac"></a>Tilldela behörigheter med RBAC
 
-Om du vill skapa en användar Delegerings-SAS från Azure PowerShell måste det Azure AD-konto som används för att logga in på Azure CLI tilldelas en roll som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Med den här behörigheten kan Azure AD-kontot begära *användar Delegerings nyckeln*. Användar Delegerings nyckeln används för att signera användar Delegerings-SAS. Rollen som tillhandahåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** måste tilldelas på lagrings kontots nivå, resurs gruppen eller prenumerationen.
+Om du vill skapa en SAS för användardelegering från Azure PowerShell måste Azure AD-kontot som används för att logga in på Azure CLI tilldelas en roll som innehåller åtgärden **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Med den här behörigheten kan Azure AD-kontot begära *användardelegeringsnyckeln*. Användardelegeringsnyckeln används för att signera SAS för användardelegationen. Rollen som tillhandahåller åtgärden **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** måste tilldelas på lagringskontonivå, resursgruppen eller prenumerationen.
 
-Om du inte har tillräcklig behörighet för att tilldela RBAC-roller till ett säkerhets objekt i Azure AD kan du behöva be kontots ägare eller administratör att tilldela de nödvändiga behörigheterna.
+Om du inte har tillräcklig behörighet för att tilldela RBAC-roller till ett Azure AD-säkerhetsobjekt kan du behöva be kontoägaren eller administratören att tilldela nödvändiga behörigheter.
 
-I följande exempel tilldelas rollen **Storage BLOB data Contributor** , som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . Rollen är begränsad på lagrings kontots nivå.
+I följande exempel tilldelas rollen **Storage Blob Data Contributor,** som innehåller åtgärden **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey.** Rollen är begränsad på lagringskontots nivå.
 
-Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli-interactive
 az role assignment create \
@@ -52,23 +52,23 @@ az role assignment create \
     --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Mer information om de inbyggda roller som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** finns i [inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
+Mer information om de inbyggda rollerna som innehåller åtgärden **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** finns [i Inbyggda roller för Azure-resurser](../../role-based-access-control/built-in-roles.md).
 
-## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Använd Azure AD-autentiseringsuppgifter för att skydda en SAS
+## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Använda Azure AD-autentiseringsuppgifter för att skydda en SAS
 
-När du skapar en användar Delegerings-SAS med Azure CLI skapas den användar Delegerings nyckel som används för att signera SAS för dig implicit. Start tiden och den förfallo tid som du anger för SAS används också som start tid och förfallo tid för användar Delegerings nyckeln.
+När du skapar en SAS för användardelegering med Azure CLI skapas användardelegeringsnyckeln som används för att signera SAS implicit. Starttid och utgångstid som du anger för SAS används också som starttid och förfallotid för användardelegeringsnyckeln.
 
-Eftersom det maximala intervallet med vilken användar Delegerings nyckeln är giltigt är 7 dagar från start datumet, bör du ange en förfallo tid för SAS som ligger inom 7 dagar från start tiden. SAS är ogiltig när användar Delegerings nyckeln upphör att gälla, så en SAS med en förfallo tid på mer än 7 dagar är fortfarande bara giltig i 7 dagar.
+Eftersom det maximala intervallet som användardelegeringsnyckeln är giltig över är 7 dagar från startdatumet, bör du ange en utgångstid för SAS som är inom 7 dagar från starttiden. SAS är ogiltigt när användardelegeringsnyckeln har upphört att gälla, så en SAS med en förfallotid på mer än 7 dagar är fortfarande bara giltig i 7 dagar.
 
-När du skapar en användar Delegerings-SAS krävs `--auth-mode login` och `--as-user parameters`. Ange *inloggning* för parametern `--auth-mode` så att begär Anden som görs till Azure Storage auktoriseras med dina autentiseringsuppgifter för Azure AD. Ange parametern `--as-user` för att ange att den SAS som returneras ska vara en användar Delegerings-SAS.
+När du skapar en sas-för användardelegering krävs `--auth-mode login` och `--as-user parameters` krävs. Ange *inloggning* `--auth-mode` för parametern så att begäranden som görs till Azure Storage auktoriseras med dina Azure AD-autentiseringsuppgifter. Ange `--as-user` parametern för att ange att SAS som returneras ska vara en SAS-användardelegation.
 
-### <a name="create-a-user-delegation-sas-for-a-container"></a>Skapa en användar Delegerings-SAS för en behållare
+### <a name="create-a-user-delegation-sas-for-a-container"></a>Skapa en SAS för användardelegering för en behållare
 
-Om du vill skapa en användar Delegerings-SAS för en behållare med Azure CLI anropar du kommandot [AZ Storage container generate-SAS](/cli/azure/storage/container#az-storage-container-generate-sas) .
+Om du vill skapa en SAS för användardelegering för en behållare med Azure CLI anropar du kommandot [az storage container generate-sas.](/cli/azure/storage/container#az-storage-container-generate-sas)
 
-Behörigheter som stöds för en användar Delegerings-SAS i en behållare inkluderar Lägg till, skapa, ta bort, lista, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
+Behörigheter som stöds för en sas för användardelegering i en behållare är Lägg till, Skapa, Ta bort, Lista, Läsa och Skriva. Behörigheter kan anges var för sig eller kombineras. Mer information om dessa behörigheter finns i [Skapa en SAS för användardelegering](/rest/api/storageservices/create-user-delegation-sas).
 
-I följande exempel returneras en användar Delegerings-SAS-token för en behållare. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+I följande exempel returneras en SAS-token för användardelegering för en behållare. Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden:
 
 ```azurecli-interactive
 az storage container generate-sas \
@@ -80,19 +80,19 @@ az storage container generate-sas \
     --as-user
 ```
 
-Den användardefinierade SAS-token som returnerades ser ut ungefär så här:
+Den SAS-token för användardelegation som returneras påminner om:
 
 ```
 se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26T18%3A01%3A22Z&ske=2019-07-27T00%3A00%3A00Z&sks=b&skv=2018-11-09&sig=<signature>
 ```
 
-### <a name="create-a-user-delegation-sas-for-a-blob"></a>Skapa en användar Delegerings-SAS för en BLOB
+### <a name="create-a-user-delegation-sas-for-a-blob"></a>Skapa en SAS för användardelegering för en blob
 
-Om du vill skapa en användar Delegerings-SAS för en blob med Azure CLI anropar du kommandot [AZ Storage BLOB generate-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas) .
+Om du vill skapa en SAS för användardelegering för en blob med Azure CLI anropar du kommandot [az storage blob generate-sas.](/cli/azure/storage/blob#az-storage-blob-generate-sas)
 
-Behörigheter som stöds för en användar Delegerings-SAS på en BLOB inkluderar Lägg till, skapa, ta bort, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
+Behörigheter som stöds för en sas för användardelegering i en blob inkluderar Lägg till, Skapa, Ta bort, Läsa och Skriva. Behörigheter kan anges var för sig eller kombineras. Mer information om dessa behörigheter finns i [Skapa en SAS för användardelegering](/rest/api/storageservices/create-user-delegation-sas).
 
-Följande syntax returnerar en användar Delegerings-SAS för en blob. I exemplet anges `--full-uri` parameter, som returnerar BLOB-URI: n med SAS-token tillagda. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+Följande syntax returnerar en SAS för användardelegering för en blob. Exemplet anger parametern, `--full-uri` som returnerar blob URI med SAS-token bifogad. Kom ihåg att ersätta platshållarvärdena inom parentes med dina egna värden:
 
 ```azurecli-interactive
 az storage blob generate-sas \
@@ -106,7 +106,7 @@ az storage blob generate-sas \
     --full-uri
 ```
 
-Den användardefinierade SAS-URI: n som returnerades ser ut ungefär så här:
+Den användardelegation SAS URI som returneras liknar:
 
 ```
 https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-08-03&sp=rw&sv=2018-11-09&sr=b&skoid=<skoid>&sktid=<sktid>&skt=2019-08-02T2
@@ -114,13 +114,13 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 ```
 
 > [!NOTE]
-> En användar Delegerings-SAS har inte stöd för att definiera behörigheter med en lagrad åtkomst princip.
+> En SAS för användardelegering stöder inte att definiera behörigheter med en lagrad åtkomstprincip.
 
-## <a name="revoke-a-user-delegation-sas"></a>Återkalla en användar Delegerings-SAS
+## <a name="revoke-a-user-delegation-sas"></a>Återkalla en SAS för användardelegering
 
-Om du vill återkalla en användar Delegerings-SAS från Azure CLI anropar du kommandot [AZ Storage Account REVOKE-delegering-Keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) . Det här kommandot återkallar alla de användar Delegerings nycklar som är kopplade till det angivna lagrings kontot. Alla signaturer för delad åtkomst som är kopplade till nycklarna är ogiltiga.
+Om du vill återkalla en SAS för användardelegering från Azure CLI anropar du kommandot [az storage account revoke-delegation-keys.](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) Det här kommandot återkallar alla användardelegeringsnycklar som är associerade med det angivna lagringskontot. Alla signaturer för delad åtkomst som är associerade med dessa nycklar är ogiltiga.
 
-Kom ihåg att ersätta plats hållarnas värden inom vinkelparenteser med dina egna värden:
+Kom ihåg att ersätta platshållarvärden i vinkelparenteser med dina egna värden:
 
 ```azurecli-interactive
 az storage account revoke-delegation-keys \
@@ -129,9 +129,9 @@ az storage account revoke-delegation-keys \
 ```
 
 > [!IMPORTANT]
-> Både användar Delegerings nyckeln och RBAC-roll tilldelningar cachelagras av Azure Storage, så det kan uppstå en fördröjning mellan när du initierar återkallnings processen och när en befintlig användar Delegerings-SÄKERHETSASSOCIATIONER blir ogiltig.
+> Både användardelegeringsnyckeln och RBAC-rolltilldelningarna cachelagras av Azure Storage, så det kan finnas en fördröjning mellan när du initierar återkallningsprocessen och när en befintlig användaredelegering SAS blir ogiltig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en användar Delegerings-SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)
-- [Hämta åtgärd för användar Delegerings nyckel](/rest/api/storageservices/get-user-delegation-key)
+- [Skapa en SAS -för användardelegation (REST API)](/rest/api/storageservices/create-user-delegation-sas)
+- [Hämta åtgärden Nyckel för användardelegering](/rest/api/storageservices/get-user-delegation-key)

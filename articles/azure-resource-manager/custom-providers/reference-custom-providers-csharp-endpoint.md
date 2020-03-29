@@ -1,24 +1,24 @@
 ---
-title: RESTful slut C# punkts referens för anpassad Provider
-description: Innehåller grundläggande referens för en Azure-anpassad C# providers RESTful-slutpunkt. Slut punkten tillhandahålls via en Azure Function-app.
+title: Anpassad leverantör C# RESTful slutpunktsreferens
+description: Ger grundläggande referens för en Azure Custom Providers C# RESTful slutpunkt. Slutpunkten tillhandahålls via en Azure-funktionsapp.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6ecb22cb968e0d963242c8c2d5dd1a6cb24229c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651181"
 ---
-# <a name="custom-provider-c-restful-endpoint-reference"></a>RESTful slut C# punkts referens för anpassad Provider
+# <a name="custom-provider-c-restful-endpoint-reference"></a>Anpassad leverantör C# RESTful slutpunktsreferens
 
-Den här artikeln är en grundläggande referens för en anpassad C# providers RESTful-slutpunkt. Om du inte är bekant med Azure-anpassade leverantörer kan du läsa [Översikt över anpassade resurs leverantörer](overview.md).
+Den här artikeln är en grundläggande referens för en anpassad provider C# RESTful slutpunkt. Om du inte känner till Azure Custom Providers läser du [översikten över anpassade resursleverantörer](overview.md).
 
-## <a name="azure-function-app-restful-endpoint"></a>RESTful-slutpunkt för Azure Function-appen
+## <a name="azure-function-app-restful-endpoint"></a>Azure-funktionsapp RESTful slutpunkt
 
-Följande kod fungerar med en Azure Function-app. Information om hur du konfigurerar en Azure Function-app så att den fungerar med Azure-anpassade leverantörer finns i [självstudien om hur du konfigurerar Azure Functions för Azure-anpassade leverantörer](./tutorial-custom-providers-function-setup.md).
+Följande kod fungerar med en Azure-funktionsapp. Mer information om hur du konfigurerar en Azure-funktionsapp för att fungera med Azure Custom Providers finns [i självstudien om hur du konfigurerar Azure-funktioner för Azure Custom Providers](./tutorial-custom-providers-function-setup.md).
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -255,7 +255,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azures anpassade resurs leverantörer](overview.md)
-- [Självstudie: skapa en Azure-anpassad resurs leverantör och distribuera anpassade resurser](./create-custom-provider.md)
-- [Gör så här: lägga till anpassade åtgärder i Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [Referens: anpassad Resource cache-referens](proxy-cache-resource-endpoint-reference.md)
+- [Översikt över Azure Custom Resource Providers](overview.md)
+- [Självstudiekurs: Skapa en anpassad Azure-resursleverantör och distribuera anpassade resurser](./create-custom-provider.md)
+- [Så här lägger du till anpassade åtgärder i Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [Referens: Referens för anpassad resurscache](proxy-cache-resource-endpoint-reference.md)

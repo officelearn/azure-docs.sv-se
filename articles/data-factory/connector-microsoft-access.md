@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Microsoft Access-källor
-description: Lär dig hur du kopierar data från Microsoft Access-källor till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
+description: Lär dig hur du kopierar data från Microsoft Access-källor till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,54 +12,54 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
 ms.openlocfilehash: d6110065e28b8f179cd1d113107fb3508e1c3e44
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892552"
 ---
-# <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Kopiera data från och till Microsoft Access-datalager med hjälp av Azure Data Factory
+# <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Kopiera data från och till Microsoft Access-datalager med Azure Data Factory
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från ett Microsoft Access-data lager. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från ett Microsoft Access-datalager. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Den här Microsoft Access-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Microsoft Access-källan till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Microsoft Access-källa till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
 ## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här Microsoft Access-anslutningen måste du:
 
-- Konfigurera en egen värd Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
-- Installera Microsoft Access ODBC-drivrutinen för data lagret på den Integration Runtime datorn.
+- Konfigurera en självvärderad integrationskörning. Mer information finns i artikeln Integration Runtime för [självvärd.](create-self-hosted-integration-runtime.md)
+- Installera Microsoft Access ODBC-drivrutinen för datalagret på integrationskörningsdatorn.
 
 >[!NOTE]
->Microsoft Access 2016-versionen av ODBC-drivrutinen fungerar inte med den här anslutningen. Använd driv rutins version 2013 eller 2010 i stället.
+>Microsoft Access 2016-versionen av ODBC-drivrutinen fungerar inte med den här kopplingen. Använd drivrutinsversionen 2013 eller 2010 i stället.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Microsoft Access Connector.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Microsoft Access-anslutningsappen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för Microsoft Access-länkade tjänster:
+Följande egenskaper stöds för den länkade tjänsten i Microsoft Access:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **MicrosoftAccess** | Ja |
-| connectionString | ODBC-anslutningssträngen exklusive Credential-delen. Du kan ange anslutnings strängen eller använda system-DSN (data källans namn) som du ställer in på den Integration Runtime datorn (du behöver fortfarande ange Credential-delen i den länkade tjänsten).<br> Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` -konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) .| Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till data lagret för Microsoft Access.<br/>Tillåtna värden är: **Basic** och **Anonymous**. | Ja |
-| userName | Ange användar namn om du använder grundläggande autentisering. | Inga |
-| password | Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
-| credential | Delen autentiseringsuppgifter för den anslutnings sträng som anges i drivrutinsspecifika egenskaps värde format. Markera det här fältet som en SecureString. | Inga |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
+| Connectionstring | ODBC-anslutningssträngen exklusive autentiseringsuppgifter. Du kan ange anslutningssträngen eller använda systemet DSN (Data Source Name) som du ställer in på integrationskörningsdatorn (du måste fortfarande ange autentiseringsuppgifterna i den länkade tjänsten därefter).<br> Du kan också placera ett lösenord i `password` Azure Key Vault och hämta konfigurationen ur anslutningssträngen.Se [Store-autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) med mer information.| Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till Microsoft Access-datalagret.<br/>Tillåtna värden är: **Grundläggande** och **Anonym**. | Ja |
+| userName | Ange användarnamn om du använder grundläggande autentisering. | Inga |
+| password | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
+| credential | Åtkomstautentiseringsdelen av anslutningssträngen som anges i drivrutinsspecifikt egenskapsvärdeformat. Markera det här fältet som en SecureString. | Inga |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. En självvärdad integrationskörning krävs som nämns i [Förutsättningar](#prerequisites). |Ja |
 
 **Exempel:**
 
@@ -87,14 +87,14 @@ Följande egenskaper stöds för Microsoft Access-länkade tjänster:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Microsoft Access-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Microsoft Access-datauppsättningen.
 
-Följande egenskaper stöds för att kopiera data från Microsoft Access:
+Så här kopierar du data från Microsoft Access och följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **MicrosoftAccessTable** | Ja |
-| tableName | Namnet på tabellen i Microsoft Access. | Nej för källa (om "fråga" i aktivitets källan har angetts);<br/>Ja för mottagare |
+| typ | Datauppsättningens typegenskap måste anges till: **MicrosoftAccessTable** | Ja |
+| tableName | Namnet på tabellen i Microsoft Access. | Nej för källan (om "fråga" i aktivitetskällan anges).<br/>Ja för diskbänk |
 
 **Exempel**
 
@@ -116,16 +116,16 @@ Följande egenskaper stöds för att kopiera data från Microsoft Access:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Microsoft Access-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Microsoft Access-källa.
 
 ### <a name="microsoft-access-as-source"></a>Microsoft Access som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Microsoft Access-kompatibelt data lager:
+Om du vill kopiera data från Microsoft Access-kompatibelt datalager stöds följande egenskaper i avsnittet kopiera **aktivitetskälla:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **MicrosoftAccessSource** | Ja |
-| DocumentDB | Använd den anpassade frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **MicrosoftAccessSource** | Ja |
+| DocumentDB | Använd den anpassade frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om "tableName" i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -159,9 +159,9 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

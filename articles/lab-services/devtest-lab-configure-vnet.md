@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ett virtuellt nätverk i Azure DevTest Labs | Microsoft Docs
+title: Konfigurera ett virtuellt nätverk i Azure DevTest Labs | Microsoft-dokument
 description: Lär dig hur du konfigurerar ett befintligt virtuellt nätverk och undernät och använder dem i en virtuell dator med Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,59 +15,59 @@ ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6cf3d2f82c98a3caab47ff48a600316747932b72
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70390039"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Konfigurera ett virtuellt nätverk i Azure DevTest Labs
-Som förklaras i artikeln [lägga till en virtuell dator i ett labb](devtest-lab-add-vm.md), kan du ange ett konfigurerat virtuellt nätverk när du skapar en virtuell dator i ett labb. Du kan till exempel behöva komma åt dina Corpnet-resurser från dina virtuella datorer med hjälp av det virtuella nätverket som har kon figurer ATS med ExpressRoute eller VPN för plats till plats.
+Som förklaras i artikeln [Lägg till en virtuell dator i ett labb](devtest-lab-add-vm.md), när du skapar en virtuell dator i ett labb, kan du ange ett konfigurerat virtuellt nätverk. Du kan till exempel behöva komma åt corpnet-resurser från dina virtuella datorer med hjälp av det virtuella nätverket som konfigurerats med ExpressRoute eller plats-till-plats-VPN.
 
-I den här artikeln beskrivs hur du lägger till ditt befintliga virtuella nätverk i Labbets Virtual Network inställningar så att du kan välja när du skapar virtuella datorer.
+I den här artikeln beskrivs hur du lägger till det befintliga virtuella nätverket i labbets inställningar för virtuella nätverk så att det är tillgängligt att välja när du skapar virtuella datorer.
 
 > [!NOTE]
-> Mer information om kostnader som är associerade med Azure Virtual Network-tjänsten finns i [prissättning för azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
+> Mer information om kostnader som är associerade med Azure Virtual Network-tjänsten finns i [Priser för Azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
 
-## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Konfigurera ett virtuellt nätverk för ett labb med hjälp av Azure Portal
-Följande steg beskriver hur du lägger till ett befintligt virtuellt nätverk (och undernät) i ett labb så att det kan användas när du skapar en virtuell dator i samma labb. 
+## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>Konfigurera ett virtuellt nätverk för ett labb med Azure-portalen
+Följande steg går igenom att lägga till ett befintligt virtuellt nätverk (och undernät) i ett labb så att det kan användas när du skapar en virtuell dator i samma labb. 
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
-1. I listan med labb väljer du önskat labb. 
-1. Välj **konfiguration och principer**i Labbets huvud fönster.
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Välj **Alla tjänster**och välj sedan **DevTest Labs** i listan.
+1. Välj önskat labb i listan över labb. 
+1. I labbets huvudfönster väljer du **Konfiguration och principer**.
 
-    ![Få till gång till Labbets konfiguration och principer](./media/devtest-lab-configure-vnet/policies-menu.png)
-1. I avsnittet **externa resurser** väljer du **virtuella nätverk**. En lista över virtuella nätverk som har kon figurer ATS för det aktuella labbet visas samt det virtuella standard nätverk som har skapats för ditt labb. 
+    ![Få tillgång till labbets konfiguration och principer](./media/devtest-lab-configure-vnet/policies-menu.png)
+1. I avsnittet **EXTERNA RESURSER** väljer du **Virtuella nätverk**. En lista över virtuella nätverk som konfigurerats för det aktuella labbet visas samt det virtuella standardnätverk som skapats för labbet. 
 1. Välj **+ Lägg till**.
    
-    ![Lägg till ett befintligt virtuellt nätverk i labbet](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
-1. I fönstret **virtuellt nätverk** väljer du **[Välj virtuellt nätverk]** .
+    ![Lägga till ett befintligt virtuellt nätverk i labbet](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
+1. Välj **[Välj virtuellt nätverk]** i fönstret **Virtuellt nätverk** .
    
     ![Välj ett befintligt virtuellt nätverk](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
-1. I fönstret **Välj virtuellt nätverk** väljer du önskat virtuellt nätverk. En lista visas som visar alla virtuella nätverk som finns under samma region i prenumerationen som labbet.
-1. När du har valt ett virtuellt nätverk kommer du tillbaka till fönstret **virtuellt nätverk** . Välj under nätet i listan längst ned.
+1. Välj önskat virtuellt nätverk i fönstret **Välj virtuellt nätverk.** En lista visas som visar alla virtuella nätverk som finns under samma region i prenumerationen som labbet.
+1. När du har valt ett virtuellt nätverk returneras du till fönstret **Virtuellt nätverk.** Markera undernätet i listan längst ned.
 
-    ![Under näts lista](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
+    ![Lista över undernät](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
     
-    Rutan labb under nät visas.
+    Fönstret Lab-undernät visas.
 
-    ![Rutan labb under nät](./media/devtest-lab-configure-vnet/lab-subnet.png)
+    ![Fönstret Labbundernät](./media/devtest-lab-configure-vnet/lab-subnet.png)
      
-   - Ange ett **namn på labb under nätet**.
-   - Om du vill tillåta att ett undernät används i labb skapande av **virtuella datorer väljer du Använd i Skapa virtuell dator**.
-   - Om du vill aktivera en [delad offentlig IP-adress](devtest-lab-shared-ip.md)väljer du **aktivera delad offentlig IP**.
-   - Om du vill tillåta offentliga IP-adresser i ett undernät väljer du **Tillåt att offentlig IP skapas**.
-   - I fältet **maximalt antal virtuella datorer per användare** anger du maximalt antal virtuella datorer per användare för varje undernät. Lämna fältet tomt om du vill ha ett obegränsat antal virtuella datorer.
-1. Välj **OK** för att stänga fönstret labb under nät.
-1. Stäng fönstret virtuellt nätverk genom att välja **Spara** .
+   - Ange ett **labbundernätnamn**.
+   - Om du vill tillåta att ett undernät används i skapandet av virtuella datorer väljer du **Använd i skapandet av virtuella datorer**.
+   - Om du vill aktivera en [delad offentlig IP-adress](devtest-lab-shared-ip.md)väljer du **Aktivera delad offentlig IP**.
+   - Om du vill tillåta offentliga IP-adresser i ett undernät väljer du **Tillåt offentlig IP-generering**.
+   - I fältet **Maximalt antal virtuella datorer per användare** anger du de maximala virtuella datorerna per användare för varje undernät. Om du vill ha ett obegränsat antal virtuella datorer lämnar du det här fältet tomt.
+1. Stäng fönstret Lab-undernät genom att välja **OK.**
+1. Välj **Spara** om du vill stänga fönstret Virtuellt nätverk.
 
-Nu när det virtuella nätverket har kon figurer ATS kan du välja det när du skapar en virtuell dator. Information om hur du skapar en virtuell dator och anger ett virtuellt nätverk finns i artikeln [lägga till en virtuell dator i ett labb](devtest-lab-add-vm.md). 
+Nu när det virtuella nätverket är konfigurerat kan det väljas när du skapar en virtuell dator. Information om hur du skapar en virtuell dator och anger ett virtuellt nätverk finns i artikeln Lägga till [en virtuell dator i ett labb](devtest-lab-add-vm.md). 
 
-Azures [Virtual Network dokumentation](https://docs.microsoft.com/azure/virtual-network) innehåller mer information om hur du använder virtuella nätverk, inklusive hur du konfigurerar och hanterar ett VNet och ansluter det till ditt lokala nätverk.
+Azures [dokumentation för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network) innehåller mer information om hur du använder virtuella nätverk, inklusive hur du konfigurerar och hanterar ett virtuellt nätverk och ansluter det till ditt lokala nätverk.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-När du har lagt till önskat virtuellt nätverk i labbet är nästa steg att [lägga till en virtuell dator i labbet](devtest-lab-add-vm.md).
+När du har lagt till det önskade virtuella nätverket i labbet är nästa steg att lägga till [en virtuell dator i labbet](devtest-lab-add-vm.md).
 

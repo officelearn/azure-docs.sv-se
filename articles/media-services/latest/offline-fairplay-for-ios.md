@@ -1,8 +1,8 @@
 ---
-title: Offline-FairPlay strömning för iOS med Azure Media Services v3
-description: Det här avsnittet ger en översikt och visar hur du använder Azure Media Services för att dynamiskt Kryptera ditt HTTP Live Streaming (HLS)-innehåll med Apple FairPlay i offline-läge.
+title: Offline FairPlay Streaming för iOS med Azure Media Services v3
+description: Det här avsnittet ger en översikt och visar hur du använder Azure Media Services för att dynamiskt kryptera ditt HTTP Live Streaming (HLS) innehåll med Apple FairPlay i offlineläge.
 services: media-services
-keywords: HLS, DRM, FairPlay streaming (FPS), offline, iOS 10
+keywords: HLS, DRM, FairPlay Streaming (FPS), Offline, iOS 10
 documentationcenter: ''
 author: willzhan
 manager: steveng
@@ -16,64 +16,64 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
 ms.openlocfilehash: 70256046089a59df1de79b78124c5d60fde77080
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705946"
 ---
-# <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Offline-FairPlay strömning för iOS med Media Services v3
+# <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Offline FairPlay Streaming för iOS med Media Services v3
 
- Azure Media Services tillhandahåller en uppsättning välkända [innehålls skydds tjänster](https://azure.microsoft.com/services/media-services/content-protection/) som omfattar:
+ Azure Media Services tillhandahåller en uppsättning välutformade [innehållsskyddstjänster](https://azure.microsoft.com/services/media-services/content-protection/) som täcker:
 
 - Microsoft PlayReady
 - Google Widevine
     
-    Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
+    Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
 - Apple FairPlay
 - AES-128-kryptering
 
-Digital Rights Management (DRM)/Advanced Encryption Standard (AES) kryptering av innehåll utförs dynamiskt vid begäran om olika strömnings protokoll. DRM-Licens/AES-dekryptering av nyckel leverans tjänster tillhandahålls också av Media Services.
+DRM-kryptering (Digital Rights Management)/Advanced Encryption Standard (AES) av innehåll utförs dynamiskt på begäran av olika streamingprotokoll. DRM-licens/AES dekrypteringsnyckelleveranstjänster tillhandahålls också av Media Services.
 
-Förutom att skydda innehåll för online-direktuppspelning över olika strömnings protokoll, är offline-läge för skyddat innehåll också en ofta efterfrågad funktion. Stöd för offline-läge krävs i följande scenarier:
+Förutom att skydda innehåll för onlinestreaming via olika streamingprotokoll är offlineläge för skyddat innehåll också en ofta efterfrågad funktion. Stöd i offlineläge behövs för följande scenarier:
 
-* Uppspelning när Internet anslutning inte är tillgängligt, till exempel under resan.
-* Vissa innehålls leverantörer kan förhindra att DRM-licenser levereras bortom ett land/regions gräns. Om användarna vill titta på innehåll medan de reser utanför landet/regionen krävs offline-nedladdning.
-* I vissa länder/regioner är Internet tillgänglighet och/eller bandbredd fortfarande begränsad. Användarna kan välja att ladda ned för att kunna se innehåll i en upplösning som är tillräckligt hög för en tillfredsställande visnings upplevelse. I det här fallet är problemet vanligt vis inte nätverks tillgänglighet men begränsad nätverks bandbredd. OVP-providers (OTT)/online-video plattform () stöder offline-läge.
+* Uppspelning när internetanslutning inte är tillgängligt, till exempel under resan.
+* Vissa innehållsleverantörer kan inte tillåta leverans av DRM-licenser utanför ett lands/regions gräns. Om användarna vill titta på innehåll när de reser utanför landet/regionen behövs nedladdning offline.
+* I vissa länder/regioner är internettillgängligheten och/eller bandbredden fortfarande begränsad. Användare kan välja att ladda ner först för att kunna titta på innehåll i en upplösning som är tillräckligt hög för en tillfredsställande tittarupplevelse. I det här fallet är problemet vanligtvis inte nätverkstillgänglighet utan begränsad nätverksbandbredd. Over-the-top (OTT) / online video plattform (OVP) leverantörer begära offline-läge stöd.
 
-Den här artikeln beskriver stöd för FairPlay streaming (FPS) offline-läge som är riktad mot enheter som kör iOS 10 eller senare. Den här funktionen stöds inte för andra Apple-plattformar, till exempel Watch, tvOS eller Safari på macOS.
+Den här artikeln innehåller stöd för FairPlay Streaming (FPS) offlineläge som riktar sig till enheter som kör iOS 10 eller senare. Den här funktionen stöds inte för andra Apple-plattformar, till exempel watchOS, tvOS eller Safari på macOS.
 
 > [!NOTE]
-> Offline-DRM debiteras bara för att skapa en enskild begäran om en licens när du laddar ned innehållet. Eventuella fel faktureras inte.
+> Offline DRM faktureras endast för att göra en enda begäran om en licens när du hämtar innehållet. Eventuella fel faktureras inte.
 
 ## <a name="prerequisites"></a>Krav
 
-Innan du implementerar offline DRM för FairPlay på en iOS 10 +-enhet:
+Innan du implementerar offline DRM för FairPlay på en iOS 10+-enhet:
 
-* Granska innehålls skydd online för FairPlay: 
+* Granska innehållsskydd online för FairPlay: 
 
     - [Licenskrav för och konfiguration av Apple FairPlay](fairplay-license-overview.md)
     - [Använda dynamisk DRM-kryptering och tjänsten för licensleverans](protect-with-drm.md)
-    - Ett .NET-exempel som innehåller konfiguration av strömmande online-FPS: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
-* Hämta SDK: n för FPS från Apple Developer Network. SDK: n för FPS innehåller två komponenter:
+    - Ett .NET-exempel som innehåller konfiguration av fps-direktuppspelning online: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
+* Skaffa FPS SDK från Apple Developer Network. FPS SDK innehåller två komponenter:
 
-    - Server-SDK för FPS, som innehåller nyckel säkerhetsmodulen (KSM), klient exempel, en specifikation och en uppsättning test vektorer.
-    - Distributions paketet för FPS, som innehåller D-funktions specifikationen, tillsammans med anvisningar om hur du genererar ett FPS-certifikat, kundspecifik privat nyckel och en hemlig program nyckel. Apple utfärdar distributions paketet för FPS endast till licensierade innehålls leverantörer.
+    - FPS Server SDK, som innehåller KSM (Key Security Module), klientexempel, en specifikation och en uppsättning testvektorer.
+    - FPS Deployment Pack, som innehåller D-funktionsspecifikationen, tillsammans med instruktioner om hur du genererar FPS-certifikat, kundspecifik privat nyckel och Programhemlig nyckel. Apple utfärdar endast FPS Deployment Pack till licensierade innehållsleverantörer.
 * Klona https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git. 
 
-    Du måste ändra koden i [kryptera med DRM med .net](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) för att lägga till Fairplay-konfigurationer.  
+    Du måste ändra koden i [Kryptera med DRM med .NET](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) för att lägga till FairPlay-konfigurationer.  
 
-## <a name="configure-content-protection-in-azure-media-services"></a>Konfigurera innehålls skydd i Azure Media Services
+## <a name="configure-content-protection-in-azure-media-services"></a>Konfigurera innehållsskydd i Azure Media Services
 
-Gör följande i [GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) -metoden:
+Gör följande i metoden [GetOrCreateContentKeyPolicyAsync:](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189)
 
-Ta bort kommentaren till den kod som konfigurerar FairPlay-princip alternativet:
+Avkommentera koden som konfigurerar fairplay-principalternativet:
 
 ```csharp
 ContentKeyPolicyFairPlayConfiguration fairplayConfig = ConfigureFairPlayPolicyOptions();
 ```
 
-Du kan också ta bort kommentaren till koden som lägger till CBCS ContentKeyPolicyOption i listan över ContentKeyPolicyOptions
+Ta också bort kommentera koden som lägger till CBCS ContentKeyPolicyOption i listan över ContentKeyPolicyOptions
 
 ```csharp
 options.Add(
@@ -85,9 +85,9 @@ options.Add(
     });
 ```
 
-## <a name="enable-offline-mode"></a>Aktivera offline-läge
+## <a name="enable-offline-mode"></a>Aktivera offlineläge
 
-Om du vill aktivera offline-läge skapar du en anpassad StreamingPolicy och använder dess namn när du skapar en StreamingLocator i [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563).
+Om du vill aktivera offlineläge skapar du en anpassad StreamingPolicy och använder dess namn när du skapar en StreamingLocator i [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L563).
  
 ```csharp
 CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
@@ -116,24 +116,24 @@ CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()
 
 ```
 
-Nu är ditt Media Services-konto konfigurerat för att leverera FairPlay-licenser offline.
+Nu är ditt Media Services-konto konfigurerat för att leverera offline FairPlay-licenser.
 
 ## <a name="sample-ios-player"></a>Exempel på iOS-spelare
 
-Stöd för offline-läge i FPS är bara tillgängligt på iOS 10 och senare. Server-SDK: n för FPS (version 3,0 eller senare) innehåller dokumentet och exemplet för offline-läge för FPS. Mer specifikt innehåller Server-SDK för FPS (version 3,0 eller senare) följande två objekt som är relaterade till offline-läge:
+Stöd för FPS-offlineläge är endast tillgängligt på iOS 10 och senare. FPS Server SDK (version 3.0 eller senare) innehåller dokumentet och exemplet för offline-läge för FPS. I synnerhet innehåller FPS Server SDK (version 3.0 eller senare) följande två objekt som är relaterade till offlineläge:
 
-* Dokument: "offline-uppspelning med FairPlay streaming och HTTP Live Streaming". Apple, 14 september 2016. I FPS Server SDK version 4,0 är det här dokumentet sammanslaget i huvud-FPS-dokumentet.
-* Exempel kod: HLSCatalog-exempel (en del av Apples Server-SDK för FPS) för offline-läge för FPS i \FairPlay Streaming Server SDK version 3.1 \ Development\Client\ HLSCatalog_With_FPS \HLSCatalog\. I HLSCatalog-exempel appen används följande kod för att implementera offline-läges funktioner:
+* Dokument: "Offlineuppspelning med FairPlay Streaming och HTTP Live Streaming." Apple, 14 september 2016. I FPS Server SDK version 4.0 slås det här dokumentet samman till det viktigaste FPS-dokumentet.
+* Exempelkod: HLSCatalog-exempel (en del av Apples FPS Server SDK) för offline-FPS-läge i \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. I exempelappen HLSCatalog används följande kodfiler för att implementera funktioner i offlineläge:
 
-    - AssetPersistenceManager. SWIFT-kod fil: AssetPersistenceManager är huvud klassen i det här exemplet som visar hur du:
+    - AssetPersistenceManager.swift-kodfil: AssetPersistenceManager är huvudklassen i det här exemplet som visar hur du:
 
-        - Hantera nedladdning av HLS-strömmar, till exempel de API: er som används för att starta och avbryta hämtningar och ta bort befintliga till gångar från enheter.
-        - Övervaka hämtnings förloppet.
-    - AssetListTableViewController. SWIFT och AssetListTableViewCell. SWIFT-Koda filer: AssetListTableViewController är huvud gränssnittet i det här exemplet. Den innehåller en lista över till gångar som exemplet kan använda för att spela upp, Hämta, ta bort eller avbryta en nedladdning. 
+        - Hantera hämtning av HLS-strömmar, till exempel API:er som används för att starta och avbryta hämtningar och ta bort befintliga tillgångar från enheter.
+        - Övervaka hämtningsframsteget.
+    - AssetListTableViewController.swift och AssetListTableViewCell.swift kodfiler: AssetListTableViewController är det viktigaste gränssnittet för detta exempel. Den innehåller en lista över tillgångar som exemplet kan använda för att spela upp, ladda ned, ta bort eller avbryta en hämtning. 
 
-De här stegen visar hur du konfigurerar en iOS-spelare som körs. Förutsatt att du börjar med HLSCatalog-exemplet i FPS Server SDK-version 4.0.1 gör du följande kod ändringar:
+De här stegen visar hur du konfigurerar en iOS-spelare som körs. Om du utgår från HLSCatalog-exemplet i FPS Server SDK version 4.0.1 gör du följande kodändringar:
 
-I HLSCatalog\Shared\Managers\ContentKeyDelegate.swift implementerar du metoden `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` med hjälp av följande kod. Låt "drmUr" vara en variabel som tilldelats HLS-URL: en.
+Implementera metoden `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` med hjälp av följande kod i HLSCatalog\Shared\Managers\ContentKeyDelegate.swift. Låt "drmUr" vara en variabel som tilldelats HLS-URL:en.
 
 ```swift
     var ckcData: Data? = nil
@@ -166,7 +166,7 @@ I HLSCatalog\Shared\Managers\ContentKeyDelegate.swift implementerar du metoden `
     return ckcData
 ```
 
-Implementera metoden `requestApplicationCertificate()`i HLSCatalog\Shared\Managers\ContentKeyDelegate.swift. Den här implementeringen beror på om du bäddar in certifikatet (endast offentlig nyckel) med enheten eller är värd för certifikatet på webben. Följande implementering använder det värdbaserade program certifikatet som används i test exemplen. Låt "certUrl" vara en variabel som innehåller URL: en för applikations certifikatet.
+Implementera metoden `requestApplicationCertificate()`i HLSCatalog\Shared\Managers\ContentKeyDelegate.swift . Den här implementeringen beror på om du bäddar in certifikatet (endast offentlig nyckel) med enheten eller är värd för certifikatet på webben. I följande implementering används det värdbaserade programcertifikat som används i testexemplen. Låt "certUrl" vara en variabel som innehåller URL:en för programcertifikatet.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {
@@ -182,38 +182,38 @@ func requestApplicationCertificate() throws -> Data {
     }
 ```
 
-För det slutliga integrerade testet finns både video-URL: en och URL: en för program certifikatet i avsnittet "integrerat test".
+För det slutliga integrerade testet finns både video-URL:en och programcertifikat-URL:en i avsnittet "Integrerat test".
 
-Lägg till din test video-URL i HLSCatalog\Shared\Resources\Streams.plist. För innehålls nyckel-ID: t använder du URL: en för FairPlay licens hämtning med SKD-protokollet som unikt värde.
+Lägg till webbadressen till testvideon i HLSCatalog\Shared\Resources\Streams.plist. För innehållsnyckel-ID använder du url:en för FairPlay-licensförvärv med skd-protokollet som unikt värde.
 
-![Offline-FairPlay iOS app-strömmar](media/offline-fairplay-for-ios/offline-fairplay-ios-app-streams.png)
+![Offline FairPlay iOS Appströmmar](media/offline-fairplay-for-ios/offline-fairplay-ios-app-streams.png)
 
-Använd din egen test video-URL, FairPlay License Acquisition URL och URL för program certifikat om du har konfigurerat dem. Eller också kan du fortsätta till nästa avsnitt, som innehåller test exempel.
+Använd din egen testvideo-URL, Url för FairPlay-licensförvärv och URL för programcertifikat, om du har konfigurerat dem. Du kan också fortsätta till nästa avsnitt, som innehåller testprover.
 
 ## <a name="integrated-test"></a>Integrerat test
 
-Tre test exempel i Media Services som tar upp följande tre scenarier:
+Tre testexempel i Media Services täcker följande tre scenarier:
 
-* FPS-skyddad, med video, ljud och alternativt ljud spår
-* FPS-skyddad, med video och ljud, men utan alternativ ljud spår
-* FPS skyddas, med endast video och inget ljud
+* FPS-skyddad, med video-, ljud- och alternativt ljudspår
+* FPS skyddad, med video och ljud, men inget alternativt ljudspår
+* FPS skyddad, med endast video och inget ljud
 
-Du hittar dessa exempel på [den här demo webbplatsen](https://aka.ms/poc#22), med motsvarande program certifikat som finns i en Azure-webbapp.
-Med version 3 eller version 4-exemplet på Server-SDK: n för FPS, om en Master-spelnings lista innehåller alternativ ljud, i offlineläge spelar den bara ljud. Därför måste du randig det alternativa ljudet. De andra och tredje exemplen som listas tidigare fungerar med andra ord i onlineläge och offline-läge. Exemplet som visas först spelar bara ljud i offlineläge, medan direkt uppspelningen fungerar som den ska.
+Du hittar dessa exempel på den [här demowebbplatsen](https://aka.ms/poc#22), med motsvarande programcertifikat som finns i en Azure-webbapp.
+Med antingen version 3 eller version 4 exempel på FPS Server SDK, om en huvudspellista innehåller alternativt ljud, under offline-läge den spelar upp ljud bara. Därför måste du ta bort det alternativa ljudet. Med andra ord fungerar det andra och tredje exemplen som anges tidigare i online- och offlineläge. Exemplet som visas först spelar bara upp ljud i offlineläge, medan direktuppspelning online fungerar som det ska.
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-Följande vanliga frågor ger hjälp med fel sökning:
+Följande vanliga frågor ger hjälp med felsökning:
 
-- **Varför spelas bara ljud upp men inte video i offlineläge?** Det här beteendet verkar vara avsiktligt av exempel appen. När ett alternativt ljud spår finns (vilket är fallet för HLS) under offlineläge, är både iOS 10 och iOS 11 standardvärdet för det alternativa ljud spåret. För att kompensera det här beteendet för offline-läge för FPS tar du bort det alternativa ljud spåret från data strömmen. Om du vill göra detta på Media Services lägger du till det dynamiska manifest filtret "ljud-Only = false". Med andra ord slutar en HLS-URL med. ISM/manifest (format = M3U8-AAPL, endast ljud = falskt). 
-- **Varför spelar det fortfarande bara ljud utan video i offlineläge efter att jag lagt till endast ljud = falskt?** Beroende på cache nyckel designen för Content Delivery Network (CDN) kan innehållet cachelagras. Rensa cacheminnet.
-- **Stöds offline-läge för FPS även för iOS 11 förutom iOS 10?** Ja. Offline-läge för FPS stöds för iOS 10 och iOS 11.
-- **Varför kan jag inte hitta dokumentet "offline-uppspelning med FairPlay streaming och HTTP Live Streaming" i serverns SDK för FPS?** Eftersom FPS Server SDK version 4 har det här dokumentet slagits samman i programmerings guiden "FairPlay streaming".
-- **Vad är den nedladdade/offline-filstrukturen på iOS-enheter?** Den nedladdade fil strukturen på en iOS-enhet ser ut som på följande skärm bild. Mappen `_keys` lagrar hämtade FPS-licenser, med en lagrings fil för varje värd tjänst värd. Mappen `.movpkg` lagrar ljud-och video innehåll. Den första mappen med ett namn som slutar med ett streck följt av ett numeriskt objekt innehåller video innehåll. Det numeriska värdet är PeakBandwidth för video åter givningarna. Den andra mappen med ett namn som slutar med ett bindestreck följt av 0 innehåller ljud innehåll. Den tredje mappen med namnet "data" innehåller huvud spelnings listan för innehållet i FPS. Slutligen innehåller Boot. XML en fullständig beskrivning av innehållet i den `.movpkg` mappen. 
+- **Varför spelas bara ljud upp men inte video i offlineläge?** Det här beteendet verkar vara avsiktligt i exempelappen. När det finns ett alternativt ljudspår (vilket är fallet för HLS) i offlineläge, standard både iOS 10 och iOS 11 det alternativa ljudspåret. Om du vill kompensera för det här beteendet för FPS-offlineläge tar du bort det alternativa ljudspåret från strömmen. Om du vill göra detta på Media Services lägger du till det dynamiska manifestfiltret "endast ljud=false". Med andra ord slutar en HLS-URL med .ism/manifest(format=m3u8-aapl,audio-only=false). 
+- **Varför spelar den fortfarande upp ljud endast utan video i offlineläge efter att jag har lagt till ljud-only=false?** Beroende på utformningen av cdn-cachenyckeln (Content Delivery Network) kan innehållet cachelagras. Rensa cacheminnet.
+- **Stöds även FPS-offlineläge på iOS 11 utöver iOS 10?** Ja. FPS-offlineläge stöds för iOS 10 och iOS 11.
+- **Varför hittar jag inte dokumentet "Offlineuppspelning med FairPlay Streaming och HTTP Live Streaming" i FPS Server SDK?** Sedan FPS Server SDK version 4 har det här dokumentet slagits samman till "FairPlay Streaming Programming Guide".
+- **Vad är den nedladdade/offlinefilstrukturen på iOS-enheter?** Den nedladdade filstrukturen på en iOS-enhet ser ut som följande skärmbild. Mappen `_keys` lagrar nedladdade FPS-licenser, med en butiksfil för varje licenstjänstvärd. Mappen `.movpkg` lagrar ljud- och videoinnehåll. Den första mappen med ett namn som slutar med ett streck följt av ett numeriskt innehåller videoinnehåll. Det numeriska värdet är PeakBandwidth för videoåtergivningarna. Den andra mappen med ett namn som slutar med ett streck följt av 0 innehåller ljudinnehåll. Den tredje mappen med namnet "Data" innehåller huvudspellistan för FPS-innehållet. Slutligen ger boot.xml en fullständig `.movpkg` beskrivning av mappinnehållet. 
 
-![FairPlay iOS-exempel fil struktur](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
+![Offline FairPlay iOS-exempelappfilstruktur](media/offline-fairplay-for-ios/offline-fairplay-file-structure.png)
 
-En exempel-Boot. XML-fil:
+Ett exempel boot.xml-fil:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

@@ -1,8 +1,8 @@
 ---
-title: 'Azure AD Connect-synkronisering:  Om du ändrar kontot ADSync | Microsoft Docs'
-description: Det här avsnittet dokumentet beskriver krypteringsnyckeln och hur du lämna den när lösenordet har ändrats.
+title: 'Azure AD Connect-synkronisering: Ändra ADSync-tjänstkontot | Microsoft-dokument'
+description: I det här ämnesdokumentet beskrivs krypteringsnyckeln och hur du överger den när lösenordet har ändrats.
 services: active-directory
-keywords: Azure AD sync-tjänstkontot, lösenord
+keywords: Azure AD-synkroniseringstjänstkonto, lösenord
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -18,110 +18,110 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65139398"
 ---
-# <a name="changing-the-adsync-service-account-password"></a>Ändra lösenordet för ADSync-tjänsten
-Om du ändrar ADSync tjänstkontolösenord kan synkroniseringstjänsten inte kan starta korrekt förrän du har avbrutit krypteringsnyckeln och initierats ADSync tjänstkontolösenord. 
+# <a name="changing-the-adsync-service-account-password"></a>Ändra lösenordet för ADSync-tjänstkontot
+Om du ändrar ADSync-tjänstkontots lösenord kan synkroniseringstjänsten inte starta korrekt förrän du har övergett krypteringsnyckeln och initierat adsync-tjänstkontots lösenord. 
 
-Azure AD Connect, som en del av Synkroniseringstjänsterna använder en krypteringsnyckel för att lagra lösenord i AD DS-anslutningskontot och ADSync-tjänstkontot.  Dessa konton krypteras innan de lagras i databasen. 
+Azure AD Connect, som en del av Synkroniseringstjänsterna använder en krypteringsnyckel för att lagra lösenorden för AD DS Connector-kontot och ADSync-tjänstkontot.  Dessa konton krypteras innan de lagras i databasen. 
 
-Krypteringsnyckeln skyddas med [Windows DPAPI (Data Protection)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI skyddar den kryptering nyckeln med hjälp av den **ADSync tjänstkonto**. 
+Krypteringsnyckeln som används är skyddad med hjälp av [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI skyddar krypteringsnyckeln med **adsync-tjänstkontot**. 
 
-Om du vill ändra lösenordet för tjänstens du kan använda procedurerna i [avbryts ADSync kryptering tjänstkontonyckel](#abandoning-the-adsync-service-account-encryption-key) att åstadkomma detta.  De här procedurerna bör också användas om du vill lämna krypteringsnyckeln av någon anledning.
+Om du behöver ändra lösenordet för tjänstkontot kan du använda procedurerna för [att överge ADSync-tjänstkontots krypteringsnyckel](#abandoning-the-adsync-service-account-encryption-key) för att åstadkomma detta.  Dessa procedurer bör också användas om du behöver överge krypteringsnyckeln av någon anledning.
 
-## <a name="issues-that-arise-from-changing-the-password"></a>Problem som kan uppstå från att ändra lösenordet
-Det finns två saker som du kan göra när du ändrar tjänstkontolösenord.
+## <a name="issues-that-arise-from-changing-the-password"></a>Problem som uppstår vid ändring av lösenordet
+Det finns två saker som måste göras när du ändrar lösenordet för tjänstkontot.
 
-Först måste du ändra lösenordet under Windows Service Control Manager.  Tills problemet har lösts visas följande fel:
+Först måste du ändra lösenordet under Windows Service Control Manager.  Tills problemet är löst kommer du att se följande fel:
 
 
-- Om du försöker starta synkroniseringstjänsten i Windows Service Control Manager du får felet ”**Windows kunde inte starta tjänsten Microsoft Azure AD Sync på lokal dator**”. **Fel 1069: Tjänsten kunde inte startas på grund av ett inloggningsfel.** "
-- Under Windows Loggboken, systemhändelseloggen innehåller ett fel med **händelse-ID 7038** och meddelandet ”**ADSync-tjänsten kunde inte logga in precis som med aktuellt konfigurerat lösenord på grund av följande fel: Användarnamnet eller lösenordet är felaktigt.** "
+- Om du försöker starta synkroniseringstjänsten i Windows Service Control Manager visas felet "**Windows kunde inte starta tjänsten Microsoft Azure AD Sync på lokal dator**". **Fel 1069: Tjänsten startade inte på grund av ett inloggningsfel.**"
+- Under Windows Loggboken innehåller systemhändelseloggen ett fel med **händelse-ID 7038** och meddelandet "**ADSync-tjänsten kunde inte logga in som med det för närvarande konfigurerade lösenordet på grund av följande fel: Användarnamnet eller lösenordet är felaktigt.**"
 
-Dessutom vissa villkor, kan om lösenordet uppdateras, synkroniseringstjänsten inte längre hämta krypteringsnyckeln via DPAPI. Synkroniseringstjänsten kan inte dekryptera de lösenord som krävs för att synkronisera till och från lokala AD och Azure AD utan krypteringsnyckeln.
-Du ser fel som:
+För det andra, under särskilda förhållanden, om lösenordet uppdateras, kan synkroniseringstjänsten inte längre hämta krypteringsnyckeln via DPAPI. Utan krypteringsnyckeln kan synkroniseringstjänsten inte dekryptera de lösenord som krävs för att synkronisera till/från lokala AD och Azure AD.
+Du kommer att se fel som:
 
-- Under Windows Service Control Manager om du försöker starta synkroniseringstjänsten och det går inte att hämta krypteringsnyckeln misslyckas med felet ”<strong>Windows kunde inte starta Microsoft Azure AD Sync på lokal dator. Granska systemhändelseloggen för mer information. Om det är en icke-Microsoft-tjänst kan kontakta leverantören för tjänsten och referera till tjänstspecifik felkod-21451857952</strong>”.
-- Under Windows Loggboken, programmets händelselogg innehåller ett fel med **händelse-ID 6028** och felmeddelande *”server-krypteringsnyckeln kan inte nås”.*
+- Om du försöker starta synkroniseringstjänsten och inte kan hämta krypteringsnyckeln under Windows Service Control Manager, misslyckas den med fel "<strong>Windows kunde inte starta Microsoft Azure AD Sync på den lokala datorn. Mer information finns i systemhändelseloggen. Om detta är en tjänst som inte kommer från Microsoft kontaktar du serviceleverantören och hänvisar till tjänstspecifik felkod -21451857952</strong>."
+- Under Windows Loggboken innehåller programhändelseloggen ett fel med **händelse-ID 6028** och felmeddelandet *"Serverkrypteringsnyckeln kan inte nås".*
 
-För att säkerställa att du inte får de här felen, följer du procedurerna i [avbryts ADSync kryptering tjänstkontonyckel](#abandoning-the-adsync-service-account-encryption-key) när du ändrar lösenordet.
+För att säkerställa att du inte får dessa fel följer du procedurerna för [att överge ADSync-tjänstkontots krypteringsnyckel](#abandoning-the-adsync-service-account-encryption-key) när du ändrar lösenordet.
  
-## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Lämna ADSync kryptering tjänstkontonyckel
+## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Överger krypteringsnyckeln för ADSync-tjänstkonto
 >[!IMPORTANT]
->Följande procedurer gäller endast för Azure AD Connect version 1.1.443.0 eller senare.
+>Följande procedurer gäller endast för Azure AD Connect build 1.1.443.0 eller äldre.
 
-Använd följande procedurer för att lämna krypteringsnyckeln.
+Använd följande procedurer för att överge krypteringsnyckeln.
 
-### <a name="what-to-do-if-you-need-to-abandon-the-encryption-key"></a>Så här gör du om du vill lämna krypteringsnyckeln
+### <a name="what-to-do-if-you-need-to-abandon-the-encryption-key"></a>Så här gör du om du behöver överge krypteringsnyckeln
 
-Om du vill lämna krypteringsnyckeln kan du använda följande procedurer för att åstadkomma detta.
+Om du behöver överge krypteringsnyckeln använder du följande procedurer för att åstadkomma detta.
 
 1. [Stoppa synkroniseringstjänsten](#stop-the-synchronization-service)
 
-1. [Avbryt den befintliga krypteringsnyckeln](#abandon-the-existing-encryption-key)
+1. [Överge den befintliga krypteringsnyckeln](#abandon-the-existing-encryption-key)
 
-2. [Anger du lösenordet för kontot AD DS-koppling](#provide-the-password-of-the-ad-ds-connector-account)
+2. [Ange lösenordet för AD DS Connector-kontot](#provide-the-password-of-the-ad-ds-connector-account)
 
-3. [Initiera om lösenordet för tjänstkontot ADSync](#reinitialize-the-password-of-the-adsync-service-account)
+3. [Initiera lösenordet för ADSync-tjänstkontot](#reinitialize-the-password-of-the-adsync-service-account)
 
 4. [Starta synkroniseringstjänsten](#start-the-synchronization-service)
 
 #### <a name="stop-the-synchronization-service"></a>Stoppa synkroniseringstjänsten
-Du kan först stoppa tjänsten i Windows Service Control Manager.  Kontrollera att tjänsten inte körs vid försök att stoppa den.  Om den är, vänta tills den har slutförts och stoppa den.
+Först kan du stoppa tjänsten i Windows Service Control Manager.  Kontrollera att tjänsten inte körs när du försöker stoppa den.  Om det är, vänta tills den är klar och sedan stoppa den.
 
 
-1. Gå till Windows Service Control Manager (START → tjänster).
+1. Gå till Windows Service Control Manager (START → Tjänster).
 2. Välj **Microsoft Azure AD Sync** och klicka på Stoppa.
 
-#### <a name="abandon-the-existing-encryption-key"></a>Avbryt den befintliga krypteringsnyckeln
-Avbryt den befintliga krypteringsnyckeln så att du kan skapa den nya krypteringsnyckeln för:
+#### <a name="abandon-the-existing-encryption-key"></a>Överge den befintliga krypteringsnyckeln
+Överge den befintliga krypteringsnyckeln så att ny krypteringsnyckel kan skapas:
 
-1. Logga in på din Azure AD Connect-servern som administratör.
+1. Logga in på din Azure AD Connect-server som administratör.
 
 2. Starta en ny PowerShell-session.
 
-3. Navigera till mappen: `$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navigera till mappen:`$env:Program Files\Microsoft Azure AD Sync\bin\`
 
-4. Kör kommandot: `./miiskmu.exe /a`
+4. Kör kommandot:`./miiskmu.exe /a`
 
-![Azure AD Connect Sync kryptering viktiga verktyg](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
+![Azure AD Connect-krypteringsnyckelverktyg](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
-#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Anger du lösenordet för kontot AD DS-koppling
-Eftersom de befintliga lösenord som lagras i databasen kan inte längre dekrypteras så behöver du ge synkroniseringstjänsten lösenordet för kontot AD DS-anslutningen. Synkroniseringstjänsten krypterar lösenord med hjälp av den nya krypteringsnyckeln:
+#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Ange lösenordet för AD DS Connector-kontot
+Eftersom de befintliga lösenord som lagras i databasen inte längre kan dekrypteras måste du ange synkroniseringstjänsten lösenordet för AD DS Connector-kontot. Synkroniseringstjänsten krypterar lösenorden med den nya krypteringsnyckeln:
 
-1. Starta hanteraren för synkroniseringstjänsten (START → Synchronization Service).
-</br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
-2. Gå till den **kopplingar** fliken.
-3. Välj den **AD Connector** som motsvarar din lokala AD. Upprepa följande steg för var och en av dem om du har mer än en AD-koppling.
-4. Under **åtgärder**väljer **egenskaper**.
-5. I popup-dialogrutan Välj **Anslut till Active Directory-skog**:
-6. Ange lösenordet för AD DS-konto i den **lösenord** textrutan. Om du inte vet lösenordet, måste du ange den till ett känt värde innan du utför det här steget.
-7. Klicka på **OK** att spara det nya lösenordet och Stäng popup.
-![Azure AD Connect Sync kryptering viktiga verktyg](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
+1. Starta synkroniseringstjänsthanteraren (START → Synkroniseringstjänst).
+</br>![Synkronisera tjänsthanteraren](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
+2. Gå till fliken **Kontakter.**
+3. Välj den **AD-koppling** som motsvarar din lokala AD. Om du har mer än en AD-koppling upprepar du följande steg för var och en av dem.
+4. Välj **Egenskaper**under **Åtgärder**.
+5. Välj Anslut till Active **Directory Forest**i popup-dialogrutan:
+6. Ange lösenordet för AD DS-kontot i textrutan **Lösenord.** Om du inte känner till lösenordet måste du ange det till ett känt värde innan du utför det här steget.
+7. Klicka på **OK** om du vill spara det nya lösenordet och stänga popup-dialogrutan.
+![Azure AD Connect-krypteringsnyckelverktyg](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
-#### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Initiera om lösenordet för tjänstkontot ADSync
-Du kan inte direkt anger du lösenordet för Azure AD-tjänstkontot till synkroniseringstjänsten. I stället måste du använda cmdlet: en **Lägg till ADSyncAADServiceAccount** att initiera om Azure AD-tjänstkontot. Cmdlet: en återställer lösenordet för och gör det tillgängligt för synkroniseringstjänsten:
+#### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Initiera lösenordet för ADSync-tjänstkontot
+Du kan inte direkt ange lösenordet för Azure AD-tjänstkontot till synkroniseringstjänsten. I stället måste du använda cmdlet **Add-ADSyncAADServiceAccount** för att initiera om Azure AD-tjänstkontot. Cmdleten återställer kontolösenordet och gör det tillgängligt för synkroniseringstjänsten:
 
 1. Starta en ny PowerShell-session på Azure AD Connect-servern.
 2. Kör cmdlet `Add-ADSyncAADServiceAccount`.
-3. Ange autentiseringsuppgifter för Azure AD-Global administratör för Azure AD-klienten i popup-dialogrutan.
-![Azure AD Connect Sync kryptering viktiga verktyg](./media/how-to-connect-sync-change-serviceacct-pass/key7.png)
-4. Om det lyckas visas PowerShell-Kommandotolken.
+3. I popup-dialogrutan anger du Azure AD Global-administratörsautentiseringsuppgifterna för din Azure AD-klientorganisation.
+![Azure AD Connect-krypteringsnyckelverktyg](./media/how-to-connect-sync-change-serviceacct-pass/key7.png)
+4. Om det lyckas visas kommandotolken i PowerShell.
 
 #### <a name="start-the-synchronization-service"></a>Starta synkroniseringstjänsten
-Nu när synkroniseringstjänsten har åtkomst till krypteringsnyckeln och alla lösenord som behövs, du kan starta om tjänsten i Windows Service Control Manager:
+Nu när synkroniseringstjänsten har åtkomst till krypteringsnyckeln och alla lösenord som behövs kan du starta om tjänsten i Windows Service Control Manager:
 
 
-1. Gå till Windows Service Control Manager (START → tjänster).
+1. Gå till Windows Service Control Manager (START → Tjänster).
 2. Välj **Microsoft Azure AD Sync** och klicka på Starta om.
 
 ## <a name="next-steps"></a>Nästa steg
-**Översiktsavsnitt**
+**Avsnitt om översikt**
 
-* [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
+* [Synkronisering av Azure AD Connect: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

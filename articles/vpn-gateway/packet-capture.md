@@ -1,6 +1,6 @@
 ---
-title: 'Azure VPN Gateway: Konfigurera paket fångster'
-description: Lär dig mer om paket avbildnings funktioner som du kan använda på VPN-gatewayer.
+title: 'Azure VPN Gateway: Konfigurera paketinsamlingar'
+description: Lär dig mer om paketinspelningsfunktioner som du kan använda på VPN-gateways.
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
@@ -8,53 +8,53 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
 ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75353508"
 ---
-# <a name="configure-packet-captures-for-vpn-gateways"></a>Konfigurera paket avbildningar för VPN-gatewayer
+# <a name="configure-packet-captures-for-vpn-gateways"></a>Konfigurera paketinsamlingar för VPN-gateways
 
-Anslutnings-och prestandarelaterade problem är ofta komplexa och tar betydande tid och ansträngning för att bara minska orsaken till problemet. Möjligheten att fånga paket minskar avsevärt tiden för att begränsa problemet till vissa delar av nätverket, t. ex. om problemet finns på kund sidan av nätverket, på Azure-sidan av nätverket eller någonstans i mellan. När problemet har begränsats är det mycket mer effektivt att felsöka och vidta åtgärder.
+Anslutnings- och prestandarelaterade problem är ofta tider komplexa och tar avsevärd tid och ansträngning bara för att begränsa orsaken till problemet. Möjligheten att paketinsamling avsevärt bidrar till att minska tiden för att begränsa problemets omfattning till vissa delar av nätverket, till exempel om problemet finns på kundsidan av nätverket, Azure-sidan av nätverket eller någonstans däremellan. När problemet har begränsats är det mycket effektivare att felsöka och vidta korrigerande åtgärder.
 
-Det finns några vanliga tillgängliga verktyg för paket fångst. Att hämta relevanta paket avbildningar med hjälp av dessa verktyg är dock ofta besvärligt i synnerhet när du arbetar med stora volym trafik scenarier. Filtrerings funktioner som tillhandahålls av en VPN-gateway paket fångst blir en större differentiering. Du kan använda en VPN gateway-paket avbildning utöver de vanligaste verktygen för paket insamling.
+Det finns några allmänt tillgängliga verktyg för paketfångst. Men att få relevanta paketinsamlingar med hjälp av dessa verktyg är ofta gånger besvärligt, särskilt när man arbetar med hög volym trafikscenarier. Filtreringsfunktioner som tillhandahålls av en VPN-gateway paketfångst blir en viktig differentiator. Du kan använda en VPN-gateway paketfångst utöver allmänt tillgängliga paketinspelningsverktyg.
 
-## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Filtrerings funktioner för paket insamling i VPN gateway
+## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Filtrering av VPN-gateway-paketfiltrering
 
-Paket avbildningar för VPN gateway kan köras på gatewayen eller på en specifik anslutning beroende på kundernas behov. Du kan också köra paket fångster på flera tunnlar samtidigt. Du kan fånga enkel trafik, IKE-och ESP-trafik och interna paket tillsammans med filtrering på en VPN-gateway.
+VPN gateway-paketinsamlingar kan köras på gatewayen eller på en viss anslutning beroende på kundens behov. Du kan också köra paketinsamlingar på flera tunnlar samtidigt. Du kan fånga en- eller tvåriktad trafik, IKE- och ESP-trafik och inre paket tillsammans med filtrering på en VPN-gateway.
 
-Användning av 5 tupler-filter (käll under nät, mål under nät, källport, målport, protokoll) och TCP-flaggor (SYN, ACK, FIN, URG, PSH, per volym) är användbart när du isolerar problem med hög volym trafik.
+Använda 5 tupplar filter (källa undernät, mål undernät, källport, målport, protokoll) och TCP flaggor (SYN, ACK, FIN, URG, PSH, RST) är till hjälp när isolera problem på en hög volym trafik.
 
-Du kan bara använda ett alternativ per egenskap när du kör paket fångsten.
+Du kan bara använda ett alternativ per egenskap när du kör paketfångsten.
 
-## <a name="setup-packet-capture-using-powershell"></a>Konfigurera paket avbildning med PowerShell
+## <a name="setup-packet-capture-using-powershell"></a>Installera pakethämtning med PowerShell
 
-Se exemplen nedan för PowerShell-kommandon för att starta och stoppa paket fångster. Mer information om parameter alternativ (till exempel hur du skapar filter) finns i det här PowerShell- [dokumentet](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+Se exemplen nedan för PowerShell-kommandon för att starta och stoppa paketinsamlingar. Mer information om parameteralternativ (till exempel hur du skapar filter) finns i det här [PowerShell-dokumentet](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
-### <a name="start-packet-capture-for-a-vpn-gateway"></a>Starta paket fångst för en VPN-gateway
+### <a name="start-packet-capture-for-a-vpn-gateway"></a>Starta paketinsamling för en VPN-gateway
 
 ```azurepowershell-interactive
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Valfri parameter **– katalogen** kan användas för att tillämpa filter.
+Valfri parameter **-FilterData** kan användas för att använda filtret.
 
-### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Stoppa paket fångst för en VPN-gateway
+### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Stoppa pakethämtning för en VPN-gateway
 
 ```azurepowershell-interactive
 Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName" -SasUrl "YourSASURL"
 ```
 
-### <a name="start-packet-capture-for-a-vpn-gateway-connection"></a>Starta paket fångst för en VPN gateway-anslutning
+### <a name="start-packet-capture-for-a-vpn-gateway-connection"></a>Starta paketinsamling för en VPN-gatewayanslutning
 
 ```azurepowershell-interactive
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Valfri parameter **– katalogen** kan användas för att tillämpa filter.
+Valfri parameter **-FilterData** kan användas för att använda filtret.
 
-### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Stoppa paket fångst på en VPN gateway-anslutning
+### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Stoppa pakethämtning på en VPN-gatewayanslutning
 
 ```azurepowershell-interactive
 Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName" -SasUrl "YourSASURL"
@@ -62,10 +62,10 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 ## <a name="key-considerations"></a>Viktiga överväganden
 
-- Att köra paket dum par kan påverka prestandan. Kom ihåg att stoppa paket fångsten när det inte behövs.
-- Föreslagen minsta paket hämtnings tid är 600 sekunder. Att ha kortare hämtnings tid för paketet kanske inte ger fullständiga data på grund av synkroniseringsproblem mellan flera komponenter på sökvägen.
-- Paket insamlings data genereras i PCAP-format. Använd wireshark eller andra program som ofta är tillgängliga för att öppna PCAP-filer.
+- Att köra paketinfångningar kan påverka prestanda. Kom ihåg att stoppa paketfångsten när det inte behövs.
+- Den föreslagna minsta pakethämtningstiden är 600 sekunder. Om du har kortare varaktighet för paketinsamling kanske det inte ger fullständiga data på grund av synkroniseringsproblem mellan flera komponenter på sökvägen.
+- Datafiler för paketinsamling genereras i PCAP-format. Använd Wireshark eller andra allmänt tillgängliga program för att öppna PCAP-filer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om VPN Gateway finns i [about VPN gateway](vpn-gateway-about-vpngateways.md)
+Mer information om VPN Gateway finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md)

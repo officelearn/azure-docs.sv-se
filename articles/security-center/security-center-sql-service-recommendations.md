@@ -1,6 +1,6 @@
 ---
-title: Rekommendationer för data & lagring – Azure Security Center
-description: Det här dokumentet beskriver rekommendationer i Azure Security Center som hjälper dig att skydda dina data och Azure SQL-tjänsten och hålla dig informerad om säkerhets principer.
+title: Rekommendationer & lagring – Azure Security Center
+description: Det här dokumentet innehåller rekommendationer i Azure Security Center som hjälper dig att skydda dina data och Azure SQL-tjänst och hålla sig i enlighet med säkerhetsprinciper.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,60 +14,60 @@ ms.workload: na
 ms.date: 12/19/2019
 ms.author: memildin
 ms.openlocfilehash: 74ed55e1d460495bfa8d3d4c00bd37bb7f05260e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75552873"
 ---
-# <a name="protect-azure-data-and-storage-services"></a>Skydda Azure-data och lagrings tjänster
-När Azure Security Center identifierar potentiella säkerhets risker skapar den rekommendationer som vägleder dig genom processen att konfigurera de nödvändiga kontrollerna för att skärp och skydda dina resurser.
+# <a name="protect-azure-data-and-storage-services"></a>Skydda Azure-data- och lagringstjänster
+När Azure Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som hjälper dig att konfigurera de nödvändiga kontrollerna för att härda och skydda dina resurser.
 
-I den här artikeln förklaras **sidan data säkerhet** i avsnittet resurs säkerhet i Security Center.
+I den här artikeln **beskrivs sidan Datasäkerhet** i avsnittet resurssäkerhet i Security Center.
 
-En fullständig lista över de rekommendationer som du kan se på den här sidan finns i [rekommendationer för data och lagring](recommendations-reference.md#recs-datastorage).
+En fullständig lista över de rekommendationer som kan visas på den här sidan finns i [rekommendationer för data och lagring](recommendations-reference.md#recs-datastorage).
 
 
-## <a name="view-your-data-security-information"></a>Visa data säkerhets information
+## <a name="view-your-data-security-information"></a>Visa din datasäkerhetsinformation
 
-1. I avsnittet **resurs säkerhets hygien** klickar du på **data-och lagrings resurser**.
+1. Klicka på Data och **lagringsresurser**i avsnittet **Resurssäkerhetshygien** .
 
-    ![Data- och lagringsresurser](./media/security-center-monitoring/click-data.png)
+    ![Data & lagringsresurser](./media/security-center-monitoring/click-data.png)
 
-    Sidan **data säkerhet** öppnas med rekommendationer för data resurser.
+    Sidan **Datasäkerhet** öppnas med rekommendationer för dataresurser.
 
-    [![data resurser](./media/security-center-monitoring/sql-overview.png)](./media/security-center-monitoring/sql-overview.png#lightbox)
+    [![Dataresurser](./media/security-center-monitoring/sql-overview.png)](./media/security-center-monitoring/sql-overview.png#lightbox)
 
-    Från den här sidan kan du:
+    På sidan kan du:
 
-    * Klicka på fliken **Översikt** visar en lista över alla rekommendationer för data resurser som ska åtgärdas. 
-    * Klicka på varje flik och Visa rekommendationerna efter resurs typ.
+    * Klicka på fliken **Översikt** visar alla dataresursrekommendationer som ska åtgärdas. 
+    * Klicka på varje flik och visa rekommendationerna efter resurstyp.
 
     > [!NOTE]
-    > Mer information om lagrings kryptering finns i [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md).
+    > Mer information om lagringskryptering finns i [Azure Storage-kryptering för data i vila](../storage/common/storage-service-encryption.md).
 
 
-## <a name="remediate-a-recommendation-on-a-data-resource"></a>Åtgärda en rekommendation på en data resurs
+## <a name="remediate-a-recommendation-on-a-data-resource"></a>Åtgärda en rekommendation för en dataresurs
 
-1. Klicka på en resurs från någon av resurs flikarna. Informations sidan öppnas och visar de rekommendationer som ska åtgärdas.
+1. Klicka på en resurs på någon av resursflikarna. Informationssidan öppnas med en lista över de rekommendationer som ska åtgärdas.
 
     ![Resursinformation](./media/security-center-monitoring/sql-recommendations.png)
 
-2. Klicka på en rekommendation. Sidan rekommendation öppnas och visar åtgärds **stegen** för att implementera rekommendationen.
+2. Klicka på en rekommendation. Sidan Rekommendation öppnas och visar **stegen Reparation för** att implementera rekommendationen.
 
-   ![Reparationssteg](./media/security-center-monitoring/remediate1.png)
+   ![Åtgärder för reparation](./media/security-center-monitoring/remediate1.png)
 
-3. Klicka på **vidta åtgärd**. Sidan resurs inställningar visas.
+3. Klicka på **Vidta åtgärd**. Sidan resursinställningar visas.
 
     ![Aktivera rekommendation](./media/security-center-monitoring/remediate2.png)
 
-4. Följ **stegen för reparation** och klicka på **Spara**.
+4. Följ **stegen För reparation** och klicka på **Spara**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om rekommendationer som gäller för andra typer av Azure-resurser finns i följande avsnitt:
+Mer information om rekommendationer som gäller för andra Azure-resurstyper finns i följande avsnitt:
 
-* [Fullständig referens lista över Azure Security Center säkerhets rekommendationer](recommendations-reference.md)
+* [Fullständig referenslista över Säkerhetsrekommendationer för Azure Security Center](recommendations-reference.md)
 * [Skydda datorer och program i Azure Security Center](security-center-virtual-machine-protection.md)
 * [Skydda nätverket i Azure Security Center](security-center-network-recommendations.md)

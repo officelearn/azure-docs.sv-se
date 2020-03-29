@@ -1,93 +1,93 @@
 ---
 title: Felsöka System Center Data Protection Manager
-description: I den här artikeln hittar du lösningar på problem som kan uppstå när du använder System Center Data Protection Manager.
+description: I den här artikeln kan du hitta lösningar på problem som kan uppstå när du använder System Center Data Protection Manager.
 ms.topic: troubleshooting
 ms.date: 01/30/2019
 ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75664755"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Felsöka System Center Data Protection Manager
 
-I den här artikeln beskrivs lösningar för problem som kan uppstå när du använder Data Protection Manager.
+I den här artikeln beskrivs lösningar på problem som kan uppstå när du använder Data Protection Manager.
 
-Information om den senaste versionen av System Center Data Protection Manager finns i [System Center-dokumentationen](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Du kan lära dig mer om stöd för Data Protection Manager i [den här matrisen](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+De senaste versionsanteckningarna för System Center Data Protection Manager finns i [dokumentationen](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016)till System Center . Du kan läsa mer om stöd för Data Protection Manager i [den här matrisen](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-## <a name="error-replica-is-inconsistent"></a>Fel: repliken är inkonsekvent
+## <a name="error-replica-is-inconsistent"></a>Fel: Repliken är inkonsekvent
 
-En replik kan vara inkonsekvent av följande orsaker:
+En replik kan vara inkonsekvent av följande skäl:
 
-- Det gick inte att skapa repliken.
-- Det finns problem med ändrings journalen.
-- Filtret på volym nivå innehåller fel.
-- Käll datorn stängs av på oväntad sätt.
-- Synkroniseringsloggen är i flödes loggen.
-- Repliken är inkonsekvent.
-
-Lös problemet genom att utföra följande åtgärder:
-
-- Om du vill ta bort inkonsekvent status kör du konsekvens kontrollen manuellt eller schemalägger en daglig konsekvens kontroll.
-- Se till att du använder den senaste versionen av Microsoft Azure Backup Server och Data Protection Manager.
-- Se till att inställningen för **Automatisk konsekvens** är aktive rad.
-- Försök att starta om tjänsterna från kommando tolken. Använd kommandot `net stop dpmra` följt av `net start dpmra`.
-- Se till att du uppfyller kraven för nätverks anslutning och bandbredd.
-- Kontrol lera att käll datorn stängdes av på oväntad sätt.
-- Kontrol lera att disken är felfri och att det finns tillräckligt med utrymme för repliken.
-- Se till att det inte finns några dubbla säkerhets kopierings jobb som körs samtidigt.
-
-## <a name="error-online-recovery-point-creation-failed"></a>Fel: det gick inte att skapa en onlineåterställningspunkt
+- Skapande av repliker misslyckas.
+- Det finns problem med ändringsjournalen.
+- Bitmappen för volymnivåfilter innehåller fel.
+- Källmaskinen stängs av oväntat.
+- Synkroniseringsloggen svämmar över.
+- Repliken är verkligen inkonsekvent.
 
 Lös problemet genom att utföra följande åtgärder:
 
-- Se till att du använder den senaste versionen av Azure Backup agenten.
-- Försök att skapa en återställnings punkt manuellt i skydds aktivitets avsnittet.
-- Se till att du kör en konsekvens kontroll på data källan.
-- Se till att du uppfyller kraven för nätverks anslutning och bandbredd.
-- När replik data är i ett inkonsekvent tillstånd skapar du en disk återställnings punkt för den här data källan.
-- Kontrol lera att repliken finns och att den inte saknas.
-- Se till att repliken har tillräckligt med utrymme för att skapa USN-journalen (Update Sequence Number).
+- Om du vill ta bort den inkonsekventa statusen kör du konsekvenskontrollen manuellt eller schemalägger en daglig konsekvenskontroll.
+- Kontrollera att du använder den senaste versionen av Microsoft Azure Backup Server och Data Protection Manager.
+- Kontrollera att inställningen **Automatisk konsekvens** är aktiverad.
+- Försök att starta om tjänsterna från kommandotolken. Använd `net stop dpmra` kommandot följt `net start dpmra`av .
+- Kontrollera att du uppfyller kraven för nätverksanslutning och bandbredd.
+- Kontrollera om källmaskinen stängdes av oväntat.
+- Se till att disken är felfri och att det finns tillräckligt med utrymme för repliken.
+- Kontrollera att det inte finns några dubbla säkerhetskopieringsjobb som körs samtidigt.
 
-## <a name="error-unable-to-configure-protection"></a>Fel: det gick inte att konfigurera skydd
-
-Felet uppstår när Data Protection Manager servern inte kan kontakta den skyddade servern.
+## <a name="error-online-recovery-point-creation-failed"></a>Fel: Det gick inte att skapa återställningspunkt online
 
 Lös problemet genom att utföra följande åtgärder:
 
-- Se till att du använder den senaste versionen av Azure Backup agenten.
-- Se till att det finns anslutning (nätverk/brand vägg/proxy) mellan Data Protection Manager-servern och den skyddade servern.
-- Om du skyddar en SQL-Server måste du kontrol lera att inställningen för inaktive rad är aktive **rad i egenskapen** för **inloggnings egenskaper** > **NT instans\system** .
+- Se till att du använder den senaste versionen av Azure Backup-agenten.
+- Försök att manuellt skapa en återställningspunkt i skyddsaktivitetsområdet.
+- Se till att du kör en konsekvenskontroll av datakällan.
+- Kontrollera att du uppfyller kraven för nätverksanslutning och bandbredd.
+- När replikdata är i ett inkonsekvent tillstånd skapar du en diskåterställningspunkt för den här datakällan.
+- Kontrollera att repliken finns och inte saknas.
+- Kontrollera att repliken har tillräckligt med utrymme för att skapa journalen för uppdateringssekvensnummer (USN).
 
-## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Fel: servern är inte registrerad enligt vad som anges i valvets loggfil
+## <a name="error-unable-to-configure-protection"></a>Fel: Det gick inte att konfigurera skyddet
 
-Det här felet uppstår under återställnings processen för Data Protection Manager/Azure Backup-Server data. Valv referens filen som används i återställnings processen tillhör inte Recovery Services valvet för Data Protection Manager/Azure Backup-servern.
+Det här felet uppstår när dataskyddshanterarens server inte kan kontakta den skyddade servern.
+
+Lös problemet genom att utföra följande åtgärder:
+
+- Se till att du använder den senaste versionen av Azure Backup-agenten.
+- Kontrollera att det finns anslutning (nätverk/brandvägg/proxy) mellan dataskyddshanterarens server och den skyddade servern.
+- Om du skyddar en SQL-server kontrollerar du att egenskapen **Inloggningsegenskaper** > **NT AUTHORITY\SYSTEM** visar den **systeminställning som** är aktiverad.
+
+## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Fel: Servern har inte registrerats som angiven i arkivautentiseringsfilen
+
+Det här felet uppstår under återställningsprocessen för dataskyddshanteraren/Azure Backup-serverdata. Arkivautentiseringsfilen som används i återställningsprocessen tillhör inte Recovery Services-valvet för data protection manager/Azure Backup-servern.
 
 Lös problemet genom att utföra följande steg:
 
-1. Ladda ned valvet för valvet från Recovery Services valvet som Data Protection Manager/Azure Backup-servern är registrerad på.
-2. Försök att registrera servern med valvet genom att använda den senast nedladdade filen för valvets autentiseringsuppgifter.
+1. Hämta arkivautentiseringsfilen från Recovery Services-valvet som dataskyddshanteraren/Azure Backup-servern är registrerad på.
+2. Försök att registrera servern med valvet med hjälp av den senast nedladdade autentiseringsuppgifterna för valvet.
 
-## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Fel: inga återställnings bara data eller den valda servern är inte en Data Protection Manager-Server
+## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Fel: Inga återställningsbara data eller en vald server som inte är en Data Protection Manager-server
 
-Felet uppstår av följande orsaker:
+Det här felet uppstår av följande skäl:
 
-- Inga andra Data Protection Manager/Azure Backup-servrar registreras i Recovery Services-valvet.
-- Servrarna har inte överfört metadata.
-- Den valda servern är inte en Data Protection Manager/Azure Backup-Server.
+- Inga andra data protection manager/Azure Backup-servrar är registrerade i Recovery Services-valvet.
+- Servrarna har ännu inte laddat upp metadata.
+- Den valda servern är inte en Data Protection Manager/Azure Backup-server.
 
-När andra Data Protection Manager/Azure Backup-servrar registreras i Recovery Services-valvet utför du följande steg för att lösa problemet:
+När andra Data Protection Manager/Azure Backup-servrar är registrerade i Recovery Services-valvet utför du de här stegen för att lösa problemet:
 
-1. Se till att den senaste Azure Backups agenten är installerad.
-2. När du har säkerställt att den senaste agenten är installerad väntar du en dag innan du startar återställnings processen. Jobbet natt säkerhets kopiering överför metadata för alla skyddade säkerhets kopieringar till molnet. Säkerhets kopierings data är sedan tillgängliga för återställning.
+1. Kontrollera att den senaste Azure Backup-agenten är installerad.
+2. När du har försäkrat att den senaste agenten är installerad väntar du en dag innan du startar återställningsprocessen. Det nattliga säkerhetskopieringsjobbet överför metadata för alla skyddade säkerhetskopior till molnet. Säkerhetskopieringsdata är sedan tillgängliga för återställning.
 
-## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Fel: den angivna krypterings lösen frasen matchar inte lösen frasen för servern
+## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Fel: Förutsatt att krypteringslösenfras inte matchar lösenfras för servern
 
-Det här felet uppstår under krypterings processen när du återställer Data Protection Manager/Azure Backup-Server data. Krypterings lösen frasen som används i återställnings processen matchar inte serverns krypterings lösen fras. Därför kan agenten inte dekryptera data och återställningen Miss lyckas.
+Det här felet uppstår under krypteringsprocessen när datahanteringshanteraren/Azure Backup-serverdata återställs. Krypteringslösenfrasen som används i återställningsprocessen matchar inte serverns krypteringslösenfras. Agenten kan därför inte dekryptera data och återställningen misslyckas.
 
 > [!IMPORTANT]
-> Om du glömmer bort eller förlorar krypterings lösen frasen finns det inga andra metoder för att återskapa data. Det enda alternativet är att återskapa lösen frasen. Använd den nya lösen frasen för att kryptera framtida säkerhets kopierings data.
+> Om du glömmer eller förlorar krypteringslösenfrasen finns det inga andra metoder för att återställa data. Det enda alternativet är att återskapa lösenfrasen. Använd den nya lösenfrasen för att kryptera framtida säkerhetskopierade data.
 >
-> När du återställer data ska du alltid ange samma krypterings lösen fras som är kopplad till Data Protection Manager/Azure Backup-servern.
+> När du återställer data ska du alltid tillhandahålla samma krypteringslösenfras som är associerad med dataskyddshanteraren/Azure Backup-servern.
 >

@@ -1,6 +1,6 @@
 ---
-title: Azure Traffic Manager med Azure Site Recovery | Microsoft Docs
-description: Beskriver hur du använder Azure Traffic Manager med Azure Site Recovery för katastrofåterställning och migrering
+title: Azure Traffic Manager med Azure Site Recovery | Microsoft-dokument
+description: Beskriver hur du använder Azure Traffic Manager med Azure Site Recovery för haveriberedskap och migrering
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,114 +9,114 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 6c77cd43231d4596535c11564313a0fe90633cdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60947818"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager med Azure Site Recovery
 
-Med Azure Traffic Manager kan du styra distributionen av trafiken mellan slutpunkterna för din. En slutpunkt är en Internetansluten tjänst i eller utanför Azure.
+Med Azure Traffic Manager kan du styra distributionen av trafik mellan programslutpunkter. En slutpunkt är en Internetansluten tjänst i eller utanför Azure.
 
-Traffic Manager använder Domain Name System (DNS) för att dirigera klientbegäranden till den lämpligaste slutpunkten baserat på en trafikdirigeringsmetoden och hälsotillståndet för slutpunkterna. Traffic Manager tillhandahåller en uppsättning [trafikdirigeringsmetoder](../traffic-manager/traffic-manager-routing-methods.md) och [alternativ för slutpunktsövervakning](../traffic-manager/traffic-manager-monitoring.md) som passar olika programbehov och modeller för automatisk redundansväxling. Klienterna ansluter direkt till den valda slutpunkten. Traffic Manager är inte en proxy eller en gateway och den kan inte se den trafik som passerar mellan klienten och tjänsten.
+Traffic Manager använder DNS (Domain Name System) för att dirigera klientbegäranden till den lämpligaste slutpunkten, baserat på en trafikroutningsmetod och slutpunkternas hälsotillstånd. Traffic Manager tillhandahåller en uppsättning [trafikdirigeringsmetoder](../traffic-manager/traffic-manager-routing-methods.md) och [alternativ för slutpunktsövervakning](../traffic-manager/traffic-manager-monitoring.md) som passar olika programbehov och modeller för automatisk redundansväxling. Klienterna ansluter direkt till den valda slutpunkten. Traffic Manager är inte en proxy eller en gateway, och den ser inte trafiken som passerar mellan klienten och tjänsten.
 
-Den här artikeln beskrivs hur du kan kombinera Azure trafik Monitor intelligent routning med Azure Site Recoverys kraftfulla haveriberedskap och migreringsfunktioner.
+I den här artikeln beskrivs hur du kan kombinera Azure Traffic Monitors intelligenta routning med Azure Site Recoverys kraftfulla funktioner för haveriberedskap och migrering.
 
-## <a name="on-premises-to-azure-failover"></a>Lokalt till Azure-redundans
+## <a name="on-premises-to-azure-failover"></a>Lokal till Azure-redundans
 
-Överväg att för det första scenariot **företag A** som har alla dess infrastruktur som körs i sin lokala miljö. För kontinuitet och efterlevnad affärsskäl, **företag A** bestämmer sig för att använda Azure Site Recovery för att skydda sina program.
+I det första scenariot bör du tänka på **företag A** som har all sin programinfrastruktur som körs i sin lokala miljö. Av affärskontinuitets- och efterlevnadsskäl bestämmer **sig företag A** för att använda Azure Site Recovery för att skydda sina program.
 
-**Företag A** kör program med offentliga slutpunkter och vill att sömlöst omdirigera trafik till Azure i ett haveri. Den [prioritet](../traffic-manager/traffic-manager-configure-priority-routing-method.md) trafikdirigeringsmetoden i Azure Traffic Manager gör det möjligt för företag A du enkelt kan implementera det här mönstret för redundans.
+**Företag A** kör program med offentliga slutpunkter och vill ha möjlighet att sömlöst omdirigera trafik till Azure i en katastrofhändelse. Metoden [Prioriterad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) trafikdirigering i Azure Traffic Manager gör det möjligt för företag A att enkelt implementera det här redundansmönstret.
 
-Installationen är följande:
+Inställningen är följande:
 - **Företag A** skapar en [Traffic Manager-profil](../traffic-manager/traffic-manager-create-profile.md).
-- Med den **prioritet** routningsmetod, **företag A** skapar två slutpunkter – **primära** för on-premises och **redundans** för Azure. **Primär** är tilldelad prioritet 1 och **redundans** är tilldelad prioritet 2.
-- Eftersom den **primära** tjänstslutpunkten finns utanför Azure, slutpunkten har skapats som en [externa](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) slutpunkt.
-- Med Azure Site Recovery har Azure-webbplatsen inte några virtuella datorer eller program som körs före redundans. Därför den **redundans** slutpunkten skapas också som en **externa** slutpunkt.
-- Som standard dirigeras användartrafik till dina lokala program eftersom slutpunkten har högst prioritet som är associerade med den. Ingen trafik dirigeras till Azure om den **primära** slutpunkten är felfri.
+- Med hjälp av metoden Prioritetsdirigering skapar **företag A** två slutpunkter – **Primär** för lokala och **redundans** för Azure. **Priority** **Primär** tilldelas Prioritet 1 och **Redundans** tilldelas Prioritet 2.
+- Eftersom den **primära** slutpunkten finns utanför Azure skapas slutpunkten som en [extern](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) slutpunkt.
+- Med Azure Site Recovery har Azure-platsen inga virtuella datorer eller program som körs före redundans. Slutpunkten **för redundans** skapas därför också som en **extern** slutpunkt.
+- Som standard dirigeras användartrafik till det lokala programmet eftersom slutpunkten har högsta prioritet. Ingen trafik dirigeras till Azure om den **primära** slutpunkten är felfri.
 
-![På-lokalt till Azure före redundans](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-before.png)
+![Lokalt-till-Azure före redundans](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-before.png)
 
-I ett haveri företag A kan utlösa en [redundans](site-recovery-failover.md) till Azure och återställa dess program på Azure. När Azure Traffic Manager upptäcker att den **primära** slutpunkten inte längre är felfri, används automatiskt den **redundans** slutpunkten i DNS-svar och användarna ansluta till programmet återställas på Azure.
+I en katastrofhändelse kan företag A utlösa en [redundans](site-recovery-failover.md) till Azure och återställa sina program på Azure. När Azure Traffic Manager upptäcker att den **primära** slutpunkten inte längre är felfri, använder den automatiskt **redundansslutpunkten** i DNS-svaret och användare ansluter till programmet som återställs på Azure.
 
-![På-lokalt till Azure efter redundansväxling](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-after.png)
+![Lokalt-till-Azure efter redundans](./media/concepts-traffic-manager-with-site-recovery/on-premises-failover-after.png)
 
-Beroende på företagets krav, **företag A** kan välja ett högre eller lägre [avsökning frekvens](../traffic-manager/traffic-manager-monitoring.md) att växla mellan en lokal plats till Azure i ett haveri och se till att minimal avbrottstid för användare.
+Beroende på affärskrav kan **företag A** välja en högre eller lägre [utplaningsfrekvens](../traffic-manager/traffic-manager-monitoring.md) för att växla mellan lokalt till Azure i en katastrofhändelse och säkerställa minimal stilleståndstid för användare.
 
-När katastrofen finns **företag A** kan återställning efter fel från Azure till sin lokala miljö ([VMware](vmware-azure-failback.md) eller [Hyper-V](hyper-v-azure-failback.md)) med Azure Site Recovery. Nu när Traffic Manager upptäcker att den **primära** slutpunkten är felfri igen, det använder automatiskt den **primära** slutpunkten i dess DNS-svar.
+När katastrofen innesluts kan **företag A** återställas från Azure till sin lokala miljö ([VMware](vmware-azure-failback.md) eller [Hyper-V)](hyper-v-azure-failback.md)med Hjälp av Azure Site Recovery. Nu, när Traffic Manager upptäcker att den **primära** slutpunkten är felfri igen, använder den automatiskt den **primära** slutpunkten i sina DNS-svar.
 
-## <a name="on-premises-to-azure-migration"></a>Lokalt till Azure-migrering
+## <a name="on-premises-to-azure-migration"></a>Lokal till Azure-migrering
 
-Förutom haveriberedskap, Azure Site Recovery kan också [migreringar till Azure](migrate-overview.md). Med Azure Site Recoverys kraftfulla test växling kan utvärdera kunder programprestanda på Azure utan att påverka deras lokala miljö. Och när kunder är redo att migrera, kan de välja att migrera hela arbetsbelastningar tillsammans eller välja att migrera och skala gradvis.
+Förutom haveriberedskap möjliggör Azure Site Recovery också [migreringar till Azure](migrate-overview.md). Med hjälp av Azure Site Recoverys kraftfulla testväxlingsfunktioner kan kunder bedöma programprestanda på Azure utan att påverka deras lokala miljö. Och när kunderna är redo att migrera kan de välja att migrera hela arbetsbelastningar tillsammans eller välja att migrera och skala gradvis.
 
-Azure Traffic Manager [viktat](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) routningsmetod kan användas för att dirigera någon del av inkommande trafik till Azure när dirigera flesta till den lokala miljön. Den här metoden kan hjälpa dig att utvärdera skala prestanda som du kan fortsätta att öka vikten som tilldelats Azure när du migrerar mer och mer av dina arbetsbelastningar till Azure.
+Azure Traffic Manager's [Weighted](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) routing metod kan användas för att styra en del av inkommande trafik till Azure samtidigt styra majoriteten till den lokala miljön. Den här metoden kan hjälpa till att bedöma skalprestanda eftersom du kan fortsätta att öka vikten som tilldelats Azure när du migrerar mer och mer av dina arbetsbelastningar till Azure.
 
-Till exempel **företag B** väljer att migrera i faser, flyttar några av dess Programmiljö samtidigt som företaget behåller den rest lokalt. Under de första stegen när de flesta av miljön är på plats, tilldelas en större vikt till den lokala miljön. Traffic manager returnerar en slutpunkt som baseras på vikterna som tilldelats tillgängliga slutpunkter.
+**Företag B** väljer till exempel att migrera i faser, flytta en del av sin programmiljö samtidigt som resten behålls lokalt. Under de inledande stadierna när större delen av miljön är lokal, tilldelas en större vikt till den lokala miljön. Traffic Manager returnerar en slutpunkt baserat på vikter som tilldelats tillgängliga slutpunkter.
 
-![På-plats-till-Azure-migrering](./media/concepts-traffic-manager-with-site-recovery/on-premises-migration.png)
+![Lokal-till-Azure-migrering](./media/concepts-traffic-manager-with-site-recovery/on-premises-migration.png)
 
-Båda slutpunkterna är aktiva under migreringen, och de flesta av trafiken dirigeras till den lokala miljön. Medan migreringen utförs kan en större vikt kan tilldelas till slutpunkter i Azure och slutligen den lokala slutpunkten kan vara inaktiverade efter migreringen.
+Under migreringen är båda slutpunkterna aktiva och större delen av trafiken dirigeras till den lokala miljön. När migreringen fortsätter kan en större vikt tilldelas slutpunkten på Azure och slutligen kan den lokala slutpunkten inaktiveras efter migreringen.
 
-## <a name="azure-to-azure-failover"></a>Redundans i Azure-datorer
+## <a name="azure-to-azure-failover"></a>Azure till Azure redundans
 
-Överväg att för det här exemplet **företagets C** som har alla dess infrastruktur som kör Azure. För kontinuitet och efterlevnad affärsskäl, **företagets C** bestämmer sig för att använda Azure Site Recovery för att skydda sina program.
+I det här exemplet bör du tänka på **företag C** som har all sin programinfrastruktur som kör Azure. Av affärskontinuitets- och efterlevnadsskäl bestämmer **sig företag C** för att använda Azure Site Recovery för att skydda sina program.
 
-**Företagets C** kör program med offentliga slutpunkter och vill att sömlöst omdirigera trafik till en annan Azure-region i ett haveri. Den [prioritet](../traffic-manager/traffic-manager-configure-priority-routing-method.md) trafikdirigeringsmetoden tillåter **företagets C** du enkelt kan implementera det här mönstret för redundans.
+**Företag C** kör program med offentliga slutpunkter och vill ha möjlighet att sömlöst omdirigera trafik till en annan Azure-region i en katastrofhändelse. Med metoden [Prioriterad](../traffic-manager/traffic-manager-configure-priority-routing-method.md) trafikdirigering kan **företag C** enkelt implementera det här redundansmönstret.
 
-Installationen är följande:
-- **Företagets C** skapar en [Traffic Manager-profil](../traffic-manager/traffic-manager-create-profile.md).
-- Med den **prioritet** routningsmetod, **företagets C** skapar två slutpunkter – **primära** för källregionen (Azure Östasien) och **redundans** för återställningsregionen (Azure Sydostasien). **Primär** är tilldelad prioritet 1 och **redundans** är tilldelad prioritet 2.
-- Eftersom den **primära** tjänstslutpunkten finns i Azure, det kan vara som en [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints) slutpunkt.
-- Med Azure Site Recovery har recovery Azure-plats inte några virtuella datorer eller program som körs före redundans. Därför den **redundans** slutpunkt kan skapas som en [externa](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) slutpunkt.
-- Som standard dirigeras trafiken till region (Östasien) programmet eftersom slutpunkten har högst prioritet som är associerade med den. Ingen trafik dirigeras till återställningsregionen om den **primära** slutpunkten är felfri.
+Inställningen är följande:
+- **Företag C** skapar en [Traffic Manager-profil](../traffic-manager/traffic-manager-create-profile.md).
+- Med hjälp av metoden Prioritetsdirigering skapar **företag C** två slutpunkter – **Primär** för källregionen (Azure East Asia) och **Redundans** för återställningsregionen (Azure Sydostasien). **Priority** **Primär** tilldelas Prioritet 1 och **Redundans** tilldelas Prioritet 2.
+- Eftersom den **primära** slutpunkten finns i Azure kan slutpunkten vara som en [Azure-slutpunkt.](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints)
+- Med Azure Site Recovery har azure-platsen för återställning inte några virtuella datorer eller program som körs före redundans. Slutpunkten **för redundans** kan därför skapas som en [extern](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints) slutpunkt.
+- Som standard dirigeras användartrafik till källregion (Östasien) eftersom slutpunkten har högsta prioritet. Ingen trafik dirigeras till återställningsregionen om den **primära** slutpunkten är felfri.
 
-![Azure till Azure före redundans](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
+![Azure-till-Azure före redundans](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
 
-I ett haveri **företagets C** kan utlösa en [redundans](azure-to-azure-tutorial-failover-failback.md) och återställa dess program på Azure-region för återställning. När Azure Traffic Manager upptäcker att den primära slutpunkten inte längre är felfri, den använder automatiskt den **redundans** slutpunkten i DNS-svar och användarna ansluta till programmet återställas på recovery () Azure-region Sydostasien).
+I en katastrofhändelse kan **företag C** utlösa en [redundans](azure-to-azure-tutorial-failover-failback.md) och återställa sina program på Azure-regionen för återställning. När Azure Traffic Manager upptäcker att den primära slutpunkten inte längre är felfri, använder den automatiskt **redundansslutpunkten** i DNS-svaret och användare ansluter till programmet som återställs på återställnings-Azure-regionen (Sydostasien).
 
-![Azure till Azure efter redundansväxling](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
+![Azure-till-Azure efter redundans](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
 
-Beroende på företagets krav, **företagets C** kan välja ett högre eller lägre [avsökning frekvens](../traffic-manager/traffic-manager-monitoring.md) att växla mellan käll- och regioner och se till att minimal avbrottstid för användare.
+Beroende på affärskrav kan **företag C** välja en högre eller lägre [utplaningsfrekvens](../traffic-manager/traffic-manager-monitoring.md) för att växla mellan käll- och återställningsregioner och säkerställa minimal stilleståndstid för användarna.
 
-När katastrofen finns **företagets C** kan återställning efter fel från recovery Azure-region till källan med hjälp av Azure Site Recovery. Nu när Traffic Manager upptäcker att den **primära** slutpunkten är felfri igen, det använder automatiskt den **primära** slutpunkten i dess DNS-svar.
+När katastrofen innesluts kan **företag C** återställas från Azure-regionen för återställning till azure-källregionen med Azure Site Recovery. Nu, när Traffic Manager upptäcker att den **primära** slutpunkten är felfri igen, använder den automatiskt den **primära** slutpunkten i sina DNS-svar.
 
-## <a name="protecting-multi-region-enterprise-applications"></a>Skydda företagsprogram i flera regioner
+## <a name="protecting-multi-region-enterprise-applications"></a>Skydda företagsprogram med flera regioner
 
-Globala företag kan du ofta förbättra kundupplevelsen genom att skräddarsy programmen ska fungera regionala behov. Lokalisering och minskad fördröjning kan leda till programinfrastruktur delas upp i flera regioner. Företag är också bundna av regionala lagar i vissa områden och välja att isolera en del sin infrastruktur inom gränserna för regionala.  
+Globala företag förbättrar ofta kundupplevelsen genom att skräddarsy sina applikationer för att tillgodose regionala behov. Lokalisering och reditminskning kan leda till att programinfrastrukturen delas upp mellan regioner. Företagen är också bundna av regionala datalagar inom vissa områden och väljer att isolera en del av sin applikationsinfrastruktur inom regionala gränser.  
 
-Vi tar ett exempel där **företagets D** har delat dess slutpunkterna så att den stöder separat Tyskland och resten av världen. **Företag D** använder Azure Traffic Manager [geografisk](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) routningsmetod för att konfigurera detta. All trafik som kommer från Tyskland dirigeras till **slutpunkt 1** och all trafik som kommer från platser utanför Tyskland dirigeras till **slutpunkt 2**.
+Låt oss överväga ett exempel där **företag D** har delat sina programslutpunkter för att separat betjäna Tyskland och resten av världen. **Företag D** använder Azure Traffic Manager [geografiska](../traffic-manager/traffic-manager-configure-geographic-routing-method.md) routningsmetod för att ställa in detta. All trafik från Tyskland dirigeras till **endpoint 1** och all trafik som kommer från tyskland dirigeras till **slutpunkt 2**.
 
-Problem med den här konfigurationen är att om **slutpunkt 1** slutar fungera av någon anledning, det finns ingen omdirigering av trafik till **slutpunkt 2**. Trafik från Tyskland fortsätter att dirigeras till **slutpunkt 1** oavsett hälsotillståndet för slutpunkten, lämnar du tyska användare utan åtkomst till **företagets D**'s program. På samma sätt, om **slutpunkt 2** går offline, det finns ingen omdirigering av trafik till **slutpunkt 1**.
+Problemet med den här inställningen är att om **slutpunkt 1** slutar fungera av någon anledning, finns det ingen omdirigering av trafik till **slutpunkt 2**. Trafiken från Tyskland fortsätter att dirigeras till **endpoint 1** oavsett slutpunktens hälsa, vilket innebär att tyska användare inte har tillgång till **företag D:s**ansökan. Om **slutpunkt 2** kopplas från finns det ingen omdirigering av trafiken till **slutpunkt 1**.
 
-![Program i flera regioner innan](./media/concepts-traffic-manager-with-site-recovery/geographic-application-before.png)
+![Program i flera regioner tidigare](./media/concepts-traffic-manager-with-site-recovery/geographic-application-before.png)
 
-Att undvika detta problem och se till att programåterhämtning, **företagets D** använder [kapslade Traffic Manager-profiler](../traffic-manager/traffic-manager-nested-profiles.md) med Azure Site Recovery. I en kapslad profilinställningarna dirigeras trafik inte till enskilda slutpunkter, men i stället att andra Traffic Manager-profiler. Så fungerar här den här konfigurationen:
-- I stället för att använda geografisk routning med enskilda slutpunkter **företagets D** använder geografisk routning med Traffic Manager-profiler.
-- Varje underordnade Traffic Manager-profilen använder **prioritet** routning med en primär och en slutpunkt för återställning, därför kapsla **prioritet** routning inom **geografisk** routning.
-- Om du vill aktivera programåterhämtning, använder varje Arbetsdistribution Azure Site Recovery för redundansväxling till en återställningsregion baserat vid ett haveri.
-- När överordnat Traffic Manager tar emot en DNS-fråga, omdirigeras den till den relevanta underordnat Traffic Manager som svarar på frågan med en tillgänglig slutpunkt.
+För att undvika att stöta på det här problemet och säkerställa programåterhämtning använder **företag D** [kapslade Traffic Manager-profiler](../traffic-manager/traffic-manager-nested-profiles.md) med Azure Site Recovery. I en kapslad profilinställning dirigeras inte trafiken till enskilda slutpunkter, utan i stället till andra Traffic Manager-profiler. Så här fungerar den här inställningen:
+- I stället för att använda geografisk routning med enskilda slutpunkter använder **företag D** Geografisk routning med Traffic Manager-profiler.
+- Varje underordnad Traffic Manager-profil använder Prioritetsdirigering med en primär och en återställningsslutpunkt, därav kapsling **prioriterad** routning inom **geografisk** routning. **Priority**
+- För att aktivera programåterhämtning använder varje arbetsbelastningsdistribution Azure Site Recovery för att redundans till en återställningsregion som baseras i händelse av en katastrofhändelse.
+- När den överordnade Traffic Manager tar emot en DNS-fråga dirigeras den till relevant underordnad Trafikhanterare som svarar på frågan med en tillgänglig slutpunkt.
 
 ![Program i flera regioner efter](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-Till exempel om det inte går att slutpunkten i Tyskland, centrala, kan programmet snabbt återställas till nordöstra Tyskland. Den nya slutpunkten hanterar trafik från Tyskland med minimal avbrottstid för användare. På samma sätt kan driftstörningar slutpunkten i Europa, västra hanteras genom att återställa programbelastningen till Norra Europa, med Azure Traffic Manager hantering av DNS som omdirigerar till tillgänglig slutpunkt.
+Om slutpunkten i Tyskland Central till exempel misslyckas kan programmet snabbt återställas till Nordöstra Tyskland. Den nya slutpunkten hanterar trafik från Tyskland med minimal stilleståndstid för användare. På samma sätt kan ett slutpunktsstopp i Västeuropa hanteras genom att återställa programarbetsbelastningen till Norra Europa, med Azure Traffic Manager som hanterar DNS-omdirigeringar till den tillgängliga slutpunkten.
 
-Inställningarna ovan kan utökas med så många kombinationer av region och slutpunkt krävs. Traffic Manager kan upp till 10 nivåer av kapslade profiler och tillåter inte loopar i kapslade-konfigurationen.
+Ovanstående inställningar kan utökas så att den omfattar så många region- och slutpunktskombinationer som krävs. Traffic Manager tillåter upp till 10 nivåer av kapslade profiler och tillåter inte loopar inom den kapslade konfigurationen.
 
-## <a name="recovery-time-objective-rto-considerations"></a>Mål för återställningstid (RTO) överväganden
+## <a name="recovery-time-objective-rto-considerations"></a>Överväganden om återställningstid (RTO)
 
-I de flesta organisationer är hanteras att lägga till eller ändra DNS-poster av ett separat team eller av någon utanför organisationen. Detta gör uppgiften att ändra DNS-poster som är mycket svårt. Den tid det tar att uppdatera DNS-poster av andra team eller organisationer som hanterar DNS-infrastrukturen varierar mellan olika företag och påverkar RTO av programmet.
+I de flesta organisationer hanteras lägger till eller ändrar DNS-poster antingen av ett separat team eller av någon utanför organisationen. Detta gör uppgiften att ändra DNS-poster mycket utmanande. Den tid det tar att uppdatera DNS-poster av andra team eller organisationer som hanterar DNS-infrastruktur varierar från organisation till organisation och påverkar PROGRAMMETS RTO.
 
-Genom att använda Traffic Manager kan kan du frontload det arbete som krävs för DNS-uppdateringar. Ingen manuell eller skriptad åtgärd krävs vid tidpunkten för riktig redundansväxling. Den här metoden hjälper i Snabbväxling (och därmed minskar RTO) samt hur du undviker kostsamma tidskrävande DNS-ändringen fel i ett haveri. Med Traffic Manager, även steg för återställning efter fel är automatiserad, som annars skulle behöva hanteras separat.
+Genom att använda Traffic Manager kan du vidarebefordra det arbete som krävs för DNS-uppdateringar. Ingen manuell eller skriptåtgärd krävs vid tidpunkten för den faktiska redundansen. Den här metoden hjälper till att snabbt växla (och därmed sänka RTO) samt undvika kostsamma tidskrävande DNS-ändringsfel i en katastrofhändelse. Med Traffic Manager automatiseras även återställningssteget, vilket annars måste hanteras separat.
 
-Ange rätt [Kontrollintervall](../traffic-manager/traffic-manager-monitoring.md) genom grundläggande eller snabba intervallet health kan kontroller avsevärt påverkar RTO under redundans och minska stopptiden för användare.
+Om du ställer in rätt [avsökningsintervall](../traffic-manager/traffic-manager-monitoring.md) genom grundläggande eller snabba hälsokontroller kan rto-systemet minskas avsevärt och driftstoppet minskas för användarna.
 
-Du kan också optimera DNS Time to Live (TTL) värde för Traffic Manager-profilen. TTL-värde är det värde som en DNS-post ska cachelagras av en klient. För en post skulle DNS inte efterfrågas två gånger inom loppet av TTL-värde. Varje DNS-post har ett TTL-värde som är kopplade till den. Minska det här värdet resulterar i fler DNS-frågor till Traffic Manager, men du kan minska RTO genom att identifiera avbrott snabbare.
+Du kan dessutom optimera DNS Time to Live (TTL) för Traffic Manager-profilen. TTL är det värde som en DNS-post skulle cachelagras för av en klient. För en post skulle DNS inte efterfrågas två gånger inom TTL:s intervall. Varje DNS-post har en TTL associerad med den. Om du minskar det här värdet resulterar det i fler DNS-frågor till Traffic Manager, men kan minska RTO genom att upptäcka avbrott snabbare.
 
-TTL-värdet som klienten har erfarit också ökar inte om antalet DNS-matchare mellan klienten och den auktoritativa DNS-servern ökar. DNS-matchare ”count” TTL-värdet och endast skicka vidare ett TTL-värde som visar hur lång tid eftersom posten cachelagrades. Detta garanterar att DNS-posten hämtar uppdateras på klienten när TTL-värdet, oavsett antalet DNS-matchare i kedjan.
+Den TTL som klienten upplever ökar inte heller om antalet DNS-resolvers mellan klienten och den auktoritära DNS-servern ökar. DNS-resolvers "räkna ner" TTL och bara vidarebefordra ett TTL-värde som återspeglar den förflutna tiden sedan posten cachelagrades. Detta säkerställer att DNS-posten uppdateras på klienten efter TTL, oavsett antalet DNS-resolvers i kedjan.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om Traffic Manager [routningsmetoder](../traffic-manager/traffic-manager-routing-methods.md).
+- Läs mer om [Routningsmetoder för](../traffic-manager/traffic-manager-routing-methods.md)Trafikhanteraren .
 - Läs mer om [kapslade Traffic Manager-profiler](../traffic-manager/traffic-manager-nested-profiles.md).
-- Läs mer om [slutpunktsövervakning](../traffic-manager/traffic-manager-monitoring.md).
-- Läs mer om [återställningsplaner](site-recovery-create-recovery-plans.md) vill automatisera redundans i programmet.
+- Läs mer om övervakning av [slutpunkter](../traffic-manager/traffic-manager-monitoring.md).
+- Läs mer om [återställningsplaner](site-recovery-create-recovery-plans.md) för att automatisera programundans.

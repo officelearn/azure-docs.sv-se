@@ -1,33 +1,33 @@
 ---
-title: Uppdatera funktionens app-kod kontinuerligt med Azure DevOps
-description: Lär dig hur du konfigurerar en Azure DevOps-pipeline som är riktad mot Azure Functions.
+title: Uppdatera funktionsappkod kontinuerligt med Azure DevOps
+description: Lär dig hur du konfigurerar en Azure DevOps-pipeline som är inriktad på Azure Functions.
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 5e2fc8fb06248e2cdad9067c56647da6d9626b50
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255760"
 ---
-# <a name="continuous-delivery-by-using-azure-devops"></a>Kontinuerlig leverans med hjälp av Azure-DevOps
+# <a name="continuous-delivery-by-using-azure-devops"></a>Kontinuerlig leverans med hjälp av Azure DevOps
 
-Du kan distribuera din funktion automatiskt till en Azure Functions-app med hjälp av [Azure-pipeliner](/azure/devops/pipelines/).
+Du kan automatiskt distribuera din funktion till en Azure Functions-app med hjälp av [Azure Pipelines](/azure/devops/pipelines/).
 
-Du har två alternativ för att definiera din pipeline:
+Du har två alternativ för att definiera pipelinen:
 
-- **Yaml-fil**: en yaml-fil beskriver pipelinen. Filen kan ha ett build-steg-avsnitt och en version. YAML-filen måste finnas i samma lagrings platsen som appen.
-- **Mall**: mallar är färdiga uppgifter som skapar eller distribuerar din app.
+- **YAML-fil**: En YAML-fil beskriver pipelinen. Filen kan ha ett avsnittet byggsteg och ett utgivningsavsnitt. YAML-filen måste finnas i samma reppo som appen.
+- **Mall**: Mallar är färdiga uppgifter som skapar eller distribuerar din app.
 
 ## <a name="yaml-based-pipeline"></a>YAML-baserad pipeline
 
-Skapa en YAML-baserad pipeline genom att först skapa din app och sedan distribuera appen.
+Om du vill skapa en YAML-baserad pipeline skapar du först appen och distribuerar sedan appen.
 
-### <a name="build-your-app"></a>Bygg din app
+### <a name="build-your-app"></a>Skapa appen
 
-Hur du skapar din app i Azure-pipeliner beror på appens programmeringsspråk. Varje språk har specifika build-steg som skapar en distributions artefakt. En distributions artefakt används för att distribuera din Function-app i Azure.
+Hur du skapar din app i Azure Pipelines beror på appens programmeringsspråk. Varje språk har specifika byggsteg som skapar en distributionsartefakt. En distributionsartefakt används för att distribuera din funktionsapp i Azure.
 
 # <a name="c"></a>[C\#](#tab/csharp)
 
@@ -60,7 +60,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Du kan använda följande exempel för att skapa en YAML-fil för att skapa en JavaScript-app:
 
@@ -90,9 +90,9 @@ steps:
 
 # <a name="python"></a>[Python](#tab/python)
 
-Du kan använda något av följande exempel för att skapa en YAML-fil för att skapa en app för en speciell python-version. Python stöds bara för Function-appar som körs på Linux.
+Du kan använda något av följande exempel för att skapa en YAML-fil för att skapa en app för en viss Python-version. Python stöds endast för funktionsappar som körs på Linux.
 
-**Version 3,7**
+**Version 3.7**
 
 ```yaml
 pool:
@@ -121,7 +121,7 @@ steps:
     artifactName: 'drop'
 ```
 
-**Version 3,6**
+**Version 3.6**
 
 ```yaml
 pool:
@@ -150,9 +150,9 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Powershell](#tab/powershell)
 
-Du kan använda följande exempel för att skapa en YAML-fil för att paketera en PowerShell-app. PowerShell stöds endast för Windows-Azure Functions.
+Du kan använda följande exempel för att skapa en YAML-fil för att paketera en PowerShell-app. PowerShell stöds endast för Windows Azure-funktioner.
 
 ```yaml
 pool:
@@ -174,11 +174,11 @@ steps:
 
 ### <a name="deploy-your-app"></a>Distribuera din app
 
-Du måste inkludera något av följande YAML-exempel i din YAML-fil, beroende på värd operativ systemet.
+Du måste inkludera något av följande YAML-exempel i YAML-filen, beroende på värdoperativsystemet.
 
-#### <a name="windows-function-app"></a>Windows Function-app
+#### <a name="windows-function-app"></a>Windows-funktionsapp
 
-Du kan använda följande kodfragment för att distribuera en Windows Function-app:
+Du kan använda följande kodavsnitt för att distribuera en Windows-funktionsapp:
 
 ```yaml
 steps:
@@ -193,9 +193,9 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-#### <a name="linux-function-app"></a>Linux Function-app
+#### <a name="linux-function-app"></a>Linux-funktionsapp
 
-Du kan använda följande kodfragment för att distribuera en Linux Function-app:
+Du kan använda följande kodavsnitt för att distribuera en Linux-funktionsapp:
 
 ```yaml
 steps:
@@ -211,61 +211,61 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-## <a name="template-based-pipeline"></a>Mall-baserad pipeline
+## <a name="template-based-pipeline"></a>Mallbaserad pipeline
 
-Mallar i Azure DevOps är fördefinierade grupper av aktiviteter som skapar eller distribuerar en app.
+Mallar i Azure DevOps är fördefinierade grupper av uppgifter som skapar eller distribuerar en app.
 
-### <a name="build-your-app"></a>Bygg din app
+### <a name="build-your-app"></a>Skapa appen
 
-Hur du skapar din app i Azure-pipeliner beror på appens programmeringsspråk. Varje språk har specifika build-steg som skapar en distributions artefakt. En distributions artefakt används för att uppdatera din Function-app i Azure.
+Hur du skapar din app i Azure Pipelines beror på appens programmeringsspråk. Varje språk har specifika byggsteg som skapar en distributionsartefakt. En distributionsartefakt används för att uppdatera din funktionsapp i Azure.
 
-Om du vill använda inbyggda build-mallar när du skapar en ny versions pipeline väljer du **Använd den klassiska redigeraren** för att skapa en pipeline med hjälp av designer-mallar.
+Om du vill använda inbyggda byggmallar väljer du **Använd den klassiska redigeraren** för att skapa en pipeline med hjälp av designermallar när du skapar en ny byggpipeline.
 
-![Välj den klassiska redigeraren för Azure-pipelinen](media/functions-how-to-azure-devops/classic-editor.png)
+![Välj den klassiska redigeraren för Azure Pipelines](media/functions-how-to-azure-devops/classic-editor.png)
 
-När du har konfigurerat kodens källa söker du efter Azure Functions skapar mallar. Välj den mall som matchar ditt programmeringsspråk.
+När du har konfigurerat kodens källa söker du efter Azure Functions build-mallar. Välj den mall som matchar appspråket.
 
-![Välj en mall för Azure Functions version](media/functions-how-to-azure-devops/build-templates.png)
+![Välj en Azure Functions-byggmall](media/functions-how-to-azure-devops/build-templates.png)
 
-I vissa fall har build-artefakter en viss mappstruktur. Du kan behöva Markera kryss rutan **lägga rot Katalog namn för att arkivera sökvägar** .
+I vissa fall har byggartefakter en specifik mappstruktur. Du kan behöva markera kryssrutan **Prepend-rotmappnamn för att arkivera sökvägar.**
 
-![Alternativet att lägga namnet på rotmappen](media/functions-how-to-azure-devops/prepend-root-folder.png)
+![Alternativet att förbereda rotmappens namn](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### <a name="javascript-apps"></a>JavaScript-appar
 
-Om JavaScript-appen har ett beroende av inbyggda Windows-moduler måste du uppdatera agentens version till **värdbaserade VS2017**.
+Om JavaScript-appen är beroende av Windows-interna moduler måste du uppdatera agentpoolversionen till **Hosted VS2017**.
 
-![Uppdatera agentens pool version](media/functions-how-to-azure-devops/change-agent.png)
+![Uppdatera agentpoolversionen](media/functions-how-to-azure-devops/change-agent.png)
 
 ### <a name="deploy-your-app"></a>Distribuera din app
 
-När du skapar en ny versions pipeline kan du söka efter mallen för Azure Functions-versionen.
+När du skapar en ny versionspipeline söker du efter azure functions-versionsmallen.
 
-![Sök efter mallen för Azure Functions-versionen](media/functions-how-to-azure-devops/release-template.png)
+![Sök efter releasemallen för Azure Functions](media/functions-how-to-azure-devops/release-template.png)
 
-Distribution till en distributions plats stöds inte i versions mal len.
+Distribution till en distributionsplats stöds inte i versionsmallen.
 
-## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Skapa en pipeline för bygge med hjälp av Azure CLI
+## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Skapa en build pipeline med hjälp av Azure CLI
 
-Om du vill skapa en pipeline för bygge i Azure använder du [kommandot](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)`az functionapp devops-pipeline create`. Skapa pipeline skapas för att skapa och släppa alla kod ändringar som görs i din lagrings platsen. Kommandot genererar en ny YAML-fil som definierar pipelinen build och release och som sedan allokerar den till din lagrings platsen. Kraven för det här kommandot beror på var koden finns.
+Om du vill skapa en `az functionapp devops-pipeline create` byggpipeline i Azure använder du [kommandot](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). Build-pipelinen skapas för att skapa och släppa alla kodändringar som görs i din repo. Kommandot genererar en ny YAML-fil som definierar versionspipelinen och sedan genomför den till din repo. Förutsättningarna för det här kommandot beror på var koden finns.
 
-- Om din kod är i GitHub:
+- Om koden finns i GitHub:
 
-    - Du måste ha **Skriv** behörighet för din prenumeration.
+    - Du måste **write** ha skrivbehörighet för din prenumeration.
 
-    - Du måste vara projekt administratör i Azure DevOps.
+    - Du måste vara projektadministratör i Azure DevOps.
 
-    - Du måste ha behörighet att skapa en GitHub-PAT (personal Access token) som har tillräcklig behörighet. Mer information finns i [krav för GITHUB Pat-behörighet.](https://aka.ms/azure-devops-source-repos)
+    - Du måste ha behörighet att skapa en GitHub-token för personlig åtkomst (PAT) som har tillräcklig behörighet. Mer information finns i [behörighetskraven för GitHub PAT.](https://aka.ms/azure-devops-source-repos)
 
-    - Du måste ha behörighet att bekräfta till huvud grenen i din GitHub-lagringsplats så att du kan spara den automatiskt genererade YAML-filen.
+    - Du måste ha behörighet att binda till huvudgrenen i GitHub-databasen så att du kan arkivera den automatiskt skapade YAML-filen.
 
-- Om din kod är i Azure databaser:
+- Om koden finns i Azure Repos:
 
-    - Du måste ha **Skriv** behörighet för din prenumeration.
+    - Du måste **write** ha skrivbehörighet för din prenumeration.
 
-    - Du måste vara projekt administratör i Azure DevOps.
+    - Du måste vara projektadministratör i Azure DevOps.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [Azure Functions översikt](functions-overview.md).
-- Granska [Azure DevOps-översikten](/azure/devops/pipelines/).
+- Granska [översikten över Azure-funktioner](functions-overview.md).
+- Granska [översikten över Azure DevOps](/azure/devops/pipelines/).

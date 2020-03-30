@@ -1,6 +1,6 @@
 ---
-title: Lägg till din organisations sekretess information – Azure Active Directory | Microsoft Docs
-description: Anvisningar om hur du lägger till din organisations sekretess information till området Azure Active Directory-egenskaper.
+title: Lägg till organisationens sekretessinformation – Azure Active Directory | Microsoft-dokument
+description: Instruktioner om hur du lägger till organisationens sekretessinformation i området Egenskaper för Azure Active Directory.
 services: active-directory
 author: msaburnley
 manager: daveba
@@ -14,47 +14,47 @@ ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 95f1877ae630919ba7da5a851b5f8291ade2d165
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897578"
 ---
-# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Lägg till din organisations sekretess information med hjälp av Azure Active Directory
-Den här artikeln beskrivs hur en administratör kan lägga till sekretessrelaterade information till en organisations Azure Active Directory (Azure AD)-klient, via Azure portal.
+# <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Lägga till organisationens sekretessinformation med Azure Active Directory
+I den här artikeln beskrivs hur en klientadministratör kan lägga till sekretessrelaterad information till en organisations Azure Active Directory-klientorganisation (Azure AD) via Azure-portalen.
 
-Vi rekommenderar starkt att du lägger till både dina global sekretesskontakt och sekretesspolicyn för din organisation så att interna anställda och externa gäster kan granska dina principer. Eftersom sekretesspolicy unikt skapas och skräddarsydd för varje företag, rekommenderar vi du kontakta en jurist om du behöver hjälp.
+Vi rekommenderar starkt att du lägger till både din globala integritetskontakt och organisationens sekretesspolicy, så att dina interna anställda och externa gäster kan granska dina policyer. Eftersom sekretesspolicyer skapas och skräddarsys unikt för varje företag rekommenderar vi starkt att du kontaktar en advokat för hjälp.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="add-your-privacy-info-on-azure-ad"></a>Lägg till din sekretess-information i Azure AD
-Du lägger till din organisations sekretessinformation i den **egenskaper** område i Azure AD.
+## <a name="add-your-privacy-info-on-azure-ad"></a>Lägga till din sekretessinformation på Azure AD
+Du lägger till din organisations sekretessinformation i området **Egenskaper** i Azure AD.
 
-### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Få åtkomst till området för egenskaper och lägga till din sekretessinformation
+### <a name="to-access-the-properties-area-and-add-your-privacy-information"></a>Så här öppnar du området Egenskaper och lägger till din sekretessinformation
 
-1.  Logga in på Azure-portalen som en Innehavaradministratör.
+1.  Logga in på Azure-portalen som klientadministratör.
 
-2.  I det vänstra navigeringsfältet väljer **Azure Active Directory**, och välj sedan **egenskaper**.
+2.  I det vänstra navigeringsfältet väljer du **Azure Active Directory**och väljer sedan **Egenskaper**.
 
-    Den **egenskaper** området visas.
+    Området **Egenskaper** visas.
 
-    ![Azure AD-egenskaper området markering info sekretessområdet](media/active-directory-properties-area/properties-area.png)
+    ![Azure AD-egenskapsområdet som belyser området för sekretessinformation](media/active-directory-properties-area/properties-area.png)
 
-3.  Lägg till din sekretess-information för dina anställda:
+3.  Lägg till din sekretessinformation för dina anställda:
 
-    - **Teknisk kontakt.** Ange e-postadressen för personen att kontakta teknisk support i din organisation.
+    - **Teknisk kontakt.** Skriv e-postadressen för den person som ska kontaktas för teknisk support inom organisationen.
     
-    - **Global sekretesskontakt.** Ange e-postadress på kontaktpersonen för frågor om sekretess av personuppgifter. Den här personen finns också som Microsoft kontaktar om det finns en överträdelse av data. Om det finns ingen person som visas här, kontaktar Microsoft dina globala administratörer.
+    - **Global integritetskontakt.** Skriv e-postadressen för den person som ska kontaktas för frågor om personlig datasekretess. Den här personen är också den som Microsoft kontaktar om det finns ett dataintrång. Om det inte finns någon person i listan här kontaktar Microsoft dina globala administratörer.
 
-    - **URL till sekretesspolicy.** Ange en länk till din organisations dokument som beskriver hur din organisation hanterar både interna och externa gästens datasekretess.
+    - **Url till sekretesspolicyn.** Skriv länken till organisationens dokument som beskriver hur din organisation hanterar både intern och extern gästs datasekretess.
 
         >[!Important]
-        >Om du inte anger en anpassad sekretesspolicy eller din sekretesskontakt för, din externa gäster visas texten i den **granska behörigheter** rutan,  **< _ditt organisationsnamn_> tillhandahöll inte länkat till sina villkor som du kan granska**. Till exempel visas en gästanvändare det här meddelandet när de får en inbjudan att få åtkomst till en organisation via B2B-samarbete.
+        >Om du inte inkluderar din egen sekretesspolicy eller din integritetskontakt ser dina externa gäster text i rutan **Granskningsbehörigheter** som säger ** <att _ditt organisationsnamn_> inte har angett länkar till deras villkor som du kan granska.** En gästanvändare ser till exempel det här meddelandet när de får en inbjudan att komma åt en organisation via B2B-samarbete.
 
-        ![B2B-samarbete granska behörigheter box med meddelande](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
+        ![B2B Samarbetsgranskningsbehörigheterruta med meddelande](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
 4.  Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
-- [Inlösning av inbjudan Azure Active Directory B2B-samarbete](https://aka.ms/b2bredemption)
-- [Lägga till eller ändra profilinformationen för en användare i Azure Active Directory](active-directory-users-profile-azure-portal.md)
+- [Inlösen av Azure Active Directory B2B-samarbetsinbjudan](https://aka.ms/b2bredemption)
+- [Lägga till eller ändra profilinformation för en användare i Azure Active Directory](active-directory-users-profile-azure-portal.md)

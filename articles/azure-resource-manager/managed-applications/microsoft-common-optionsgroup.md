@@ -1,22 +1,22 @@
 ---
-title: OptionsGroup-GRÄNSSNITTs element
-description: Beskriver elementet Microsoft. Common. OptionsGroup UI för Azure Portal. Gör att användarna kan välja bland tillgängliga alternativ när de distribuerar ett hanterat program.
+title: Gränssnittselement för OptionsGroup
+description: I artikeln beskrivs användargränssnittselementet Microsoft.Common.OptionsGroup för Azure-portalen. Gör det möjligt för användare att välja bland tillgängliga alternativ när de distribuerar ett hanterat program.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652351"
 ---
-# <a name="microsoftcommonoptionsgroup-ui-element"></a>Elementet Microsoft. Common. OptionsGroup UI
+# <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup användargränssnittselement
 
-En markerings kontroll med en rad med tillgängliga alternativ.
+En markeringskontroll med en rad tillgängliga alternativ.
 
-## <a name="ui-sample"></a>UI-exempel
+## <a name="ui-sample"></a>Exempel på användargränssnitt
 
 ![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
 
@@ -54,11 +54,11 @@ En markerings kontroll med en rad med tillgängliga alternativ.
 
 ## <a name="remarks"></a>Anmärkningar
 
-- Etiketten för `constraints.allowedValues` är visnings texten för ett objekt och dess värde är utdata-värdet för elementet när det är markerat.
-- Om det här alternativet anges måste standardvärdet vara en etikett i `constraints.allowedValues`. Om inget värde anges är det första objektet i `constraints.allowedValues` markerat som standard. Standardvärdet är **Null**.
-- `constraints.allowedValues` måste ha minst ett objekt.
+- Etiketten för `constraints.allowedValues` är visningstexten för ett objekt och dess värde är utdatavärdet för elementet när det är markerat.
+- Om det anges måste standardvärdet vara `constraints.allowedValues`en etikett som finns i . Om inget anges markeras `constraints.allowedValues` det första objektet i som standard. Standardvärdet är **null**.
+- `constraints.allowedValues`måste ha minst en vara.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

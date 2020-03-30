@@ -1,21 +1,21 @@
 ---
-title: Rulla över ett Azure Service Fabric-kluster certifikat
-description: Lär dig hur du rullar över ett Service Fabric kluster certifikat som identifieras av certifikatets egna namn.
+title: Rulla över ett Azure Service Fabric-klustercertifikat
+description: Lär dig hur du överför ett Service Fabric-klustercertifikat som identifieras med certifikatets gemensamma namn.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451965"
 ---
-# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Manuellt återställa ett Service Fabric kluster certifikat
-När ett Service Fabric kluster certifikat snart går ut måste du uppdatera certifikatet.  Certifikat förnyelse är enkelt om klustret har [kon figurer ATS för att använda certifikat baserat på eget namn](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (i stället för tumavtryck).  Hämta ett nytt certifikat från en certifikat utfärdare med ett nytt förfallo datum.  Självsignerade certifikat har inte stöd för produktions Service Fabric kluster, för att inkludera certifikat som genereras under Azure Portal kluster skapande av arbets flöde. Det nya certifikatet måste ha samma egna namn som det äldre certifikatet. 
+# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Rulla över ett klustercertifikat för service fabric manuellt
+När ett service fabric-klustercertifikat är nära att löpa ut måste du uppdatera certifikatet.  Certifikatöverrullning är enkelt om [klustret har konfigurerats för att använda certifikat baserat på vanligt namn](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (i stället för tumavtryck).  Hämta ett nytt certifikat från en certifikatutfärdarmed ett nytt utgångsdatum.  Självsignerade certifikat stöder inte för kluster med produktionstjänst fabric, för att inkludera certifikat som genereras under arbetsflödet för att skapa Azure portal Cluster. Det nya certifikatet måste ha samma gemensamma namn som det äldre certifikatet. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Service Fabric klustret använder automatiskt det deklarerade certifikatet med längre fram till framtida förfallo datum. När mer än ett verifierat certifikat är installerat på värden. Ett bra tips är att använda en Resource Manager-mall för att etablera Azure-resurser. I icke-produktions miljö kan följande skript användas för att ladda upp ett nytt certifikat till ett nyckel valv och installerar sedan certifikatet på den virtuella datorns skal uppsättning: 
+Service Fabric-klustret använder automatiskt det deklarerade certifikatet ytterligare in i det framtida utgångsdatumet. när mer än ett verifiera certifikat är installerat på värden. En metod är att använda en Resource Manager-mall för att etablera Azure Resources. För icke-produktionsmiljö kan följande skript användas för att ladda upp ett nytt certifikat till ett nyckelvalv och sedan installera certifikatet på den virtuella datorns skalningsuppsättning: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -71,9 +71,9 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 ```
 
 >[!NOTE]
-> Beräknar att hemligheter för skalnings uppsättningar för virtuella datorer inte stöder samma resurs-ID för två separata hemligheter, eftersom varje hemlighet är en versions unik resurs. 
+> Beräknar Virtual Machine Scale Set Secrets stöder inte samma resurs-ID för två separata hemligheter, eftersom varje hemlighet är en version av unik resurs. 
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-* Lär dig mer om [kluster säkerhet](service-fabric-cluster-security.md).
-* [Uppdatera och hantera kluster certifikat](service-fabric-cluster-security-update-certs-azure.md)
+* Lär dig mer om [klustersäkerhet](service-fabric-cluster-security.md).
+* [Uppdatera och hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)

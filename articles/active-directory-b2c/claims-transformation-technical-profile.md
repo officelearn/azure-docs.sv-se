@@ -1,7 +1,7 @@
 ---
-title: Definiera en teknisk profil för anspråks omvandling
+title: Definiera en teknisk profil för anspråksomvandling
 titleSuffix: Azure AD B2C
-description: Definiera en teknisk profil för anspråks omvandling i en anpassad princip i Azure Active Directory B2C.
+description: Definiera en teknisk profil för anspråksomvandling i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,23 +12,23 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189794"
 ---
-# <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för anspråks omvandling i en Azure Active Directory B2C anpassad princip
+# <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för anspråksomvandling i en anpassad Azure Active Directory B2C-princip
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Med en teknisk profil för anspråk omvandling kan du anropa omvandlingar av utgående anspråk för att manipulera anspråks värden, validera anspråk eller ange standardvärden för en uppsättning utgående anspråk.
+Med en teknisk profil för anspråksomvandling kan du anropa omvandlingar av utdataanspråk för att manipulera anspråksvärden, validera anspråk eller ange standardvärden för en uppsättning utdataanspråk.
 
 ## <a name="protocol"></a>Protokoll
 
-Namnattributet **för** **protokoll** elementet måste anges till `Proprietary`. Attributet **hanterare** måste innehålla det fullständigt kvalificerade namnet på den protokoll hanterings sammansättning som används av Azure AD B2C: `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
+**Attributet Name** för **protokollelementet** måste `Proprietary`anges till . **Hantattributet** måste innehålla det fullständigt kvalificerade namnet på protokollhanterarsammansättningen `Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`som används av Azure AD B2C: .
 
-I följande exempel visas en teknisk profil för anspråks omvandling:
+I följande exempel visas en teknisk profil för anspråksomvandling:
 
 ```XML
 <TechnicalProfile Id="Facebook-OAUTH-UnLink">
@@ -37,9 +37,9 @@ I följande exempel visas en teknisk profil för anspråks omvandling:
   ...
 ```
 
-## <a name="output-claims"></a>Utgående anspråk
+## <a name="output-claims"></a>Utgående fordringar
 
-**OutputClaims** -elementet är obligatoriskt. Du bör ange minst ett utgående anspråk som returneras av den tekniska profilen. I följande exempel visas hur du ställer in standardvärden i utgående anspråk:
+**OutputClaims-elementet** är obligatoriskt. Du bör ange minst ett utdataanspråk som returneras av den tekniska profilen. I följande exempel visas hur du anger standardvärden i utdataanspråken:
 
 ```xml
 <OutputClaims>
@@ -48,9 +48,9 @@ I följande exempel visas en teknisk profil för anspråks omvandling:
 </OutputClaims>
 ```
 
-## <a name="output-claims-transformations"></a>Transformeringar av utgående anspråk
+## <a name="output-claims-transformations"></a>Omvandling av utdataanspråk
 
-**OutputClaimsTransformations** -elementet kan innehålla en samling av **OutputClaimsTransformation** -element som används för att modifiera anspråk eller skapa nya. Följande tekniska profil anropar omvandlingen av **RemoveAlternativeSecurityIdByIdentityProvider** -anspråk. Den här anspråks omvandlingen tar bort en social identifiering från samlingen av **AlternativeSecurityIds**. De utgående anspråken för den här tekniska profilen är **identityProvider2**, som är inställt på `facebook.com`och **AlternativeSecurityIds**, som innehåller listan över sociala identiteter som är associerade med användaren efter att Facebook.com identitet har tagits bort.
+**Elementet OutputClaimsTransformations** kan innehålla en samling **OutputClaimsTransformation-element** som används för att ändra anspråk eller generera nya. Följande tekniska profil anropar **omvandlingen av RemoveAlternativeSecurityIdByIdentityProvider.** Detta hävdar omvandling tar bort en social identifiera från insamling av **AlternativeSecurityIds**. Utdataanspråken för den här tekniska profilen är `facebook.com` **identityProvider2**, som är inställd på , och **AlternativeSecurityIds**, som innehåller listan över sociala identiteter som är associerade med den här användaren när facebook.com identitet har tagits bort.
 
 ```XML
 <ClaimsTransformations>
@@ -82,7 +82,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-Den tekniska profilen för anspråks omvandling gör att du kan köra en anspråks omvandling från varje användar resas Dirigerings steg. I följande exempel anropar Orchestration-steget ett av de tekniska profilerna för att ta bort länkar, till exempel **Unlink-Facebook-OAuth**. Den här tekniska profilen anropar **RemoveAlternativeSecurityIdByIdentityProvider**för anspråk omvandling, som genererar ett nytt **AlternativeSecurityIds2** -anspråk som innehåller en lista över sociala identiteter för användare, samtidigt som Facebook-identiteten tas bort från samlingarna.
+Med den tekniska profilen för anspråksomvandling kan du köra en anspråkstransformation från alla användarresors orkestreringssteg. I följande exempel anropar orchestration-steget en av de tekniska profilerna för ta bort länken, till exempel **Ta bort länken till Facebook-OAUTH**. Den här tekniska profilen anropar den tekniska profilen **RemoveAlternativeSecurityIdByIdentityProvider**, som genererar ett nytt **AlternativeSecurityIds2-anspråk** som innehåller listan över användarens sociala identiteter, samtidigt som Facebook-identiteten tas bort från samlingarna.
 
 ```XML
 <UserJourney Id="AccountUnLink">
@@ -104,11 +104,11 @@ Den tekniska profilen för anspråks omvandling gör att du kan köra en ansprå
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | Nej | För indata-och utgående anspråk anges om [anspråks matchning](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true`eller `false` (standard). Om du vill använda en anspråks lösare i den tekniska profilen ställer du in den på `true`. |
+| InkluderaClaimResolvingInClaimsHandling  | Inga | För indata- och utdataanspråk anger om [anspråksresolution](claim-resolver-overview.md) ingår i den tekniska profilen. Möjliga värden: `true` `false`  , eller (standard). Om du vill använda en anspråksmatchningsmatchare `true`i den tekniska profilen ställer du in den på . |
 
-## <a name="use-a-validation-technical-profile"></a>Använd en teknisk verifierings profil
+## <a name="use-a-validation-technical-profile"></a>Använda en teknisk verifieringsprofil
 
-En teknisk profil för anspråks omvandling kan användas för att validera information. I följande exempel ber den [självkontrollerade tekniska profilen](self-asserted-technical-profile.md) med namnet **LocalAccountSignUpWithLogonEmail** användaren att ange e-postmeddelandet två gånger och anropar sedan den [tekniska profilen](validation-technical-profile.md) med namnet **validate-email** för att verifiera e-postmeddelandena. Den tekniska profilen för **validerings-e-post** anropar **AssertEmailAreEqual** för anspråk och jämför de två **e-postmeddelandena** och **emailRepeat**och genererar ett undantag om de inte är lika enligt den angivna jämförelsen.
+En teknisk profil för anspråksomvandling kan användas för att validera information. I följande exempel, den [självpåstådda tekniska profilen](self-asserted-technical-profile.md) med namnet **LocalAccountSignUpWithLogonEmail** ber användaren att ange e-postmeddelandet två gånger, sedan ringer [validering teknisk profil](validation-technical-profile.md) med namnet **Validera-E-post** för att validera e-postmeddelanden. Den **validera-e-post** tekniska profilen anropar anspråk omvandling **AssertEmailAreEqual** att jämföra de två anspråk **e-post** och **emailRepeat**, och kasta ett undantag om de inte är lika enligt den angivna jämförelsen.
 
 ```XML
 <ClaimsTransformations>
@@ -124,7 +124,7 @@ En teknisk profil för anspråks omvandling kan användas för att validera info
 </ClaimsTransformations>
 ```
 
-Den tekniska profilen för anspråks omvandling anropar omvandlingen av **AssertEmailAreEqual** -anspråk, som förutsätter att e-postmeddelanden från användaren är desamma.
+Den tekniska profilen för anspråksomvandling anropar **AssertEmailAreEqual-anspråksomvandlingen,** som hävdar att e-postmeddelanden som tillhandahålls av användaren är samma.
 
 ```XML
 <TechnicalProfile Id="Validate-Email">
@@ -143,7 +143,7 @@ Den tekniska profilen för anspråks omvandling anropar omvandlingen av **Assert
 </TechnicalProfile>
 ```
 
-En självkontrollerad teknisk profil kan anropa den tekniska verifierings profilen och Visa fel meddelandet som anges i **UserMessageIfClaimsTransformationStringsAreNotEqual** metadata.
+En självbekrätorn teknisk profil kan anropa den tekniska profilen för validering och visa felmeddelandet som anges i **metadata för UserMessageIfClaimsTransformationStringsAreNotEqual.**
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">

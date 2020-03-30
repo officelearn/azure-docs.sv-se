@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 0014b67443797f45de51ec1bc459f71bde55cdc9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774437"
 ---
-I följande exempel visas hur du skapar en Exchange-anslutning på Equinix Internet Exchange i Seattle. Om du använder en annan leverantör och olika inställningar, ersätter du den informationen när du gör din begäran.
+I följande exempel visas hur du skapar en Exchange-anslutning på Equinix Internet Exchange i Seattle . Om du använder en annan leverantör och olika inställningar ersätter du den informationen när du gör din begäran.
 
-Använd PowerShell **-cmdlet New-AzPeeringExchangeConnectionObject** för att skapa PowerShell-anslutningsfel som ska användas för att generera den nya peering-begäran:
+Använd PowerShell cmdlet **New-AzPeeringExchangeConnectionObject** för att skapa PowerShell-anslutningsobjekt som ska användas för att generera den nya peering-begäran:
 
-Nedan visas ett exempel på hur du skapar en Exchange-anslutning:
+Nedan finns ett exempel för att skapa en Exchange-anslutning:
 
 ```powershell
 $connection1 = New-AzPeeringExchangeConnectionObject `
@@ -30,7 +30,7 @@ $connection1 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-Skapa en annan anslutning om du behöver redundans på den aktuella peering-platsen:
+Skapa en annan anslutning om du behöver redundans på viss peering-plats:
 
 ```powershell
 $connection2 = New-AzPeeringExchangeConnectionObject `
@@ -41,7 +41,7 @@ $connection2 = New-AzPeeringExchangeConnectionObject `
     -MaxPrefixesAdvertisedIPv6 2000 `
 ```
 
-PowerShell **-cmdlet New-AzPeering** kan användas för att skapa en ny Exchange-peering:
+PowerShell cmdlet **New-AzPeering** kan användas för att skapa en ny Exchange-peering:
 
 ```powershell
 $asn = Get-AzPeerAsn
@@ -54,7 +54,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Nedan visas ett exempel på ett svar när begäran kördes med hjälp av en anslutning:
+Nedan visas ett exempelsvar när begäran utfördes med en anslutning:
 
 ```powershell
 
@@ -73,10 +73,10 @@ Tags              : {}
 ```
 
 > [!IMPORTANT]
-> Microsoft kommer att påbörja etableringen av den begärda peering och `ConnectionState` visar förloppet.
-> Se [genom gången av Exchange-peering](../walkthrough-exchange-all.md) för etablering av relaterade steg.
+> Microsoft börjar etablera den begärda `ConnectionState` peering och kommer att återspegla förloppet.
+> Se genomgångsdokumentet [för Exchange-peerthr genom](../walkthrough-exchange-all.md) för etablering av relaterade steg.
 
-Du kan kontrol lera ConnectionState på det sätt som visas nedan:
+Du kan kontrollera ConnectionState som visas nedan:
 
 ```powershell
 

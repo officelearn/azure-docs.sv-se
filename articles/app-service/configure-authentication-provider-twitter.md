@@ -1,62 +1,62 @@
 ---
 title: Konfigurera Twitter-autentisering
-description: Lär dig hur du konfigurerar Twitter-autentisering som identitets leverantör för din App Service-app.
+description: Lär dig hur du konfigurerar Twitter-autentisering som identitetsleverantör för apptjänstappen.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
 ms.topic: article
 ms.date: 02/28/2020
 ms.custom: seodec18
 ms.openlocfilehash: 794f671b36b5aeb9f19cf5d80e488500cedb1098
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78207155"
 ---
-# <a name="configure-your-app-service-app-to-use-twitter-login"></a>Konfigurera din App Service-app att använda Twitter-inloggning
+# <a name="configure-your-app-service-app-to-use-twitter-login"></a>Konfigurera appen App Service så att den använder Twitter-inloggning
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Den här artikeln visar hur du konfigurerar Azure App Service att använda Twitter som autentiseringsprovider.
+Den här artikeln visar hur du konfigurerar Azure App Service för att använda Twitter som autentiseringsleverantör.
 
-För att kunna slutföra proceduren i den här artikeln behöver du ett Twitter-konto som har en verifierad e-postadress och ett telefonnummer. Om du vill skapa ett nytt Twitter-konto går du till [Twitter.com].
+För att slutföra proceduren i den här artikeln behöver du ett Twitter-konto som har en verifierad e-postadress och telefonnummer. Om du vill skapa ett nytt Twitter-konto går du till [twitter.com].
 
-## <a name="register"> </a>Registrera ditt program med Twitter
+## <a name="register-your-application-with-twitter"></a><a name="register"> </a>Registrera din ansökan med Twitter
 
-1. Logga in på [Azure Portal] och gå till ditt program. Kopiera din **URL**. Du använder den för att konfigurera din Twitter-app.
-1. Gå till webbplatsen för [Twitter-utvecklare] och logga in med dina Twitter-kontoautentiseringsuppgifter och välj **skapa en app**.
-1. Ange **appens namn** och **program beskrivningen** för den nya appen. Klistra in programmets **URL** i fältet **webbplats-URL** . I avsnittet **callback-URL: er** anger du HTTPS-URL: en för din app service-app och lägger till sökvägen `/.auth/login/twitter/callback`. Till exempel `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
-1. Längst ned på sidan skriver du minst 100 tecken i **berätta för oss hur den här appen ska användas**. Välj sedan **skapa**. Klicka på **skapa** igen i popup-fönstret. Programinformationen visas.
-1. Välj fliken **nycklar och åtkomst-token** .
+1. Logga in på [Azure-portalen] och gå till ditt program. Kopiera **webbadressen**. Du ska använda den för att konfigurera din Twitter-app.
+1. Gå till [webbplatsen för Twitter-utvecklare,] logga in med dina Twitter-kontouppgifter och välj **Skapa en app**.
+1. Ange **appens namn** och **programbeskrivningen** för den nya appen. Klistra in programmets **URL** i fältet **Webbadress.** I avsnittet **Motringningsadresser** anger du HTTPS-URL:en för `/.auth/login/twitter/callback`apptjänstappen och lägger till sökvägen . Till exempel `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Längst ned på sidan skriver du minst 100 tecken i **Berätta hur den här appen ska användas**och välj sedan **Skapa**. Klicka på **Skapa** igen i popup-programmet. Programinformationen visas.
+1. Välj fliken **Nycklar och åtkomsttokens.**
 
    Anteckna dessa värden:
    - API-nyckel
-   - Nyckel för API-hemlighet
+   - HEMLIG API-nyckel
 
    > [!NOTE]
-   > Nyckeln för API-hemlighet är en viktig säkerhets autentiseringsuppgift. Dela inte den här hemligheten med någon eller distribuera den med din app.
+   > API-hemlighetsnyckeln är en viktig säkerhetsautentiseringsautentisering. Dela inte denna hemlighet med någon eller distribuera den med din app.
 
-## <a name="secrets"> </a>Lägg till Twitter-information i ditt program
+## <a name="add-twitter-information-to-your-application"></a><a name="secrets"> </a>Lägg till Twitter-information i din ansökan
 
-1. Gå till ditt program i [Azure Portal].
-1. Välj **inställningar** > **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
+1. Gå till ditt program i [Azure-portalen].
+1. Välj **Inställningar** > **Autentisering /Auktorisering**och kontrollera att **apptjänstautentiseringen** är **på**.
 1. Välj **Twitter**.
-1. Klistra in `API key` och `API secret key` värden som du har fått tidigare.
+1. Klistra in `API key` `API secret key` de värden och som du fick tidigare.
 1. Välj **OK**.
 
-   ![Skärm bild av Twitter-inställningar för mobilapp][1]
+   ![Skärmbild av Twitter-inställningar för mobilapp][1]
 
-   Som standard tillhandahåller App Service autentisering, men begränsar inte tillåten åtkomst till webbplatsens innehåll och API: er. Du måste auktorisera användare i din app-kod.
+   Som standard tillhandahåller App Service autentisering men begränsar inte denuktoriserat åtkomsten till webbplatsens innehåll och API:er. Du måste auktorisera användare i din appkod.
 
-1. Valfritt Om du vill begränsa åtkomsten till din webbplats till enbart användare som autentiserats av Twitter, anger **du åtgärd som ska vidtas när förfrågan inte autentiseras** till **Twitter**. När du ställer in den här funktionen kräver appen att alla begär Anden ska autentiseras. Det omdirigerar också alla oautentiserade begär anden till Twitter för autentisering.
+1. (Valfritt) Om du vill begränsa åtkomsten till din webbplats till endast användare som autentiserats av Twitter anger du **åtgärder som ska vidtas när begäran inte autentiseras** på **Twitter**. När du ställer in den här funktionen kräver appen att alla begäranden ska autentiseras. Det omdirigerar också alla oautentiserade förfrågningar till Twitter för autentisering.
 
    > [!CAUTION]
-   > Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som har en offentligt tillgänglig start sida, som i många program med en enda sida. För sådana program **tillåts anonyma begär Anden (ingen åtgärd)** , så att appen manuellt startar själva autentiseringen. Mer information finns i [Authentication Flow](overview-authentication-authorization.md#authentication-flow).
+   > Att begränsa åtkomsten på det här sättet gäller alla samtal till din app, vilket kanske inte är önskvärt för appar som har en allmänt tillgänglig startsida, som i många ensidiga program. För sådana program kan **tillåt anonyma begäranden (ingen åtgärd)** att föredra så att appen startar själva autentiseringen manuellt. Mer information finns i [Autentiseringsflöde](overview-authentication-authorization.md#authentication-flow).
 
 1. Välj **Spara**.
 
 Du är nu redo att använda Twitter för autentisering i din app.
 
-## <a name="related-content"> </a>Nästa steg
+## <a name="next-steps"></a><a name="related-content"> </a>Nästa steg
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
@@ -67,7 +67,7 @@ Du är nu redo att använda Twitter för autentisering i din app.
 
 <!-- URLs. -->
 
-[Twitter-utvecklare]: https://go.microsoft.com/fwlink/p/?LinkId=268300
+[Twitter Utvecklare]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

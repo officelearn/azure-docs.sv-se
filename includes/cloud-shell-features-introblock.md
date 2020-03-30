@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: eef2c762c87a13c62eeb9b017ed43f54835ab16e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187682"
 ---
-Azure Cloud Shell är en webbläsarbaserad skalupplevelse att hantera och utveckla Azure-resurser.
+Azure Cloud Shell är ett webbläsarbaserat gränssnitt som gör det möjligt att hantera och utveckla Azure-resurser.
 
-Cloudshell erbjuder en webbläsare-tillgänglig, förkonfigurerade skalupplevelse för att hantera Azure-resurser utan att behöva installera, versionshantering, och underhålla en dator själv.
+Cloud Shell erbjuder en webbläsartillgänglig, förkonfigurerad skalupplevelse för hantering av Azure-resurser utan att installera, versionshantering och underhålla en dator själv.
 
-Cloudshell etablerar datorer på varje begäran och därmed enhetstillstånd beständig inte i alla sessioner. Eftersom Cloud Shell har skapats för interaktiva sessioner, gränssnitt automatiskt att upphöra efter 20 minuters inaktivitet för shell.
+Cloud Shell-avsättningar maskiner per begäran och som ett resultat av datortillstånd kommer inte att finnas kvar över sessioner. Eftersom Cloud Shell är byggt för interaktiva sessioner avslutas skal automatiskt efter 20 minuters skalinaktivitet.

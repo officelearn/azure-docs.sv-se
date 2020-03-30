@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory referens för att bryta ändringar | Microsoft Docs
-description: Lär dig mer om ändringar som gjorts i Azure AD-protokollen som kan påverka ditt program.
+title: Referens för att bryta ändringar i Azure Active Directory | Microsoft-dokument
+description: Lär dig mer om ändringar som gjorts i Azure AD-protokoll som kan påverka ditt program.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -13,166 +13,188 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 3/13/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c6ed72e5c94191411572c6ab67533141e2fe47d6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1248063c1b4c1b1e124ff671797450dd5c1b8727
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185811"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050175"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering? 
 
->Få meddelanden om uppdateringar på den här sidan. Lägg bara till [den här URL: en](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) i din RSS-feed läsare.
+>Få ett meddelande om uppdateringar av den här sidan. Lägg bara till [den här webbadressen](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) i rss-flödesläsaren.
 
-Autentiserings systemet ändrar och lägger till funktioner kontinuerligt för att förbättra kompatibiliteten för säkerhet och standarder. För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om följande uppgifter:
+Autentiseringssystemet ändrar och lägger till funktioner kontinuerligt för att förbättra efterlevnaden av säkerhet och standarder. Om du vill hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om följande information:
 
 - De senaste funktionerna
 - Kända problem
-- Protokoll ändringar
-- Inaktuell funktion
+- Ändringar av protokoll
+- Föråldrade funktioner
 
 > [!TIP] 
-> Den här sidan uppdateras regelbundet, så besök ofta. Om inget annat anges placeras ändringarna bara på plats för nyligen registrerade program.  
+> Den här sidan uppdateras regelbundet, så besök ofta. Om inget annat anges införs dessa ändringar endast för nyregistrerade ansökningar.  
 
-## <a name="upcoming-changes"></a>Kommande ändringar
+## <a name="upcoming-changes"></a>Kommande förändringar
 
-Inget schemalagt för tillfället.  Se nedan för de ändringar som finns i eller som kommer till produktion. 
+Ingen är planerad just nu.  Se nedan för de förändringar som är i eller kommer till produktion. 
+
+## <a name="march-2020"></a>Mars 2020 
+
+### <a name="user-passwords-will-be-restricted-to-256-characters"></a>Användarlösenord begränsas till 256 tecken.
+
+**Gäller från och med 13**mars 2020
+
+**Slutpunkter påverkas:** Både v1.0 och v2.0
+
+**Protokollet påverkas**: Alla användarflöden. 
+
+Användare med lösenord som är längre än 256 tecken som loggar in direkt på Azure AD (i motsats till ett federerat IDP som ADFS) kan inte logga in från och med den 13 mars 2020 och bli ombedda att återställa sitt lösenord i stället.  Administratörer kan få förfrågningar om att återställa användarnas lösenord. 
+
+Felet i inloggningsloggarna är AADSTS 50052: InvalidPasswordExceedsMaxLength
+
+Meddelande:`The password entered exceeds the maximum length of 256. Please reach out to your admin to reset the password.`
+
+Sanering:
+
+Användaren kan inte logga in eftersom deras lösenord överskrider den tillåtna maximala längden. De bör kontakta sin administratör för att återställa lösenordet. Om SSPR är aktiverat för sin klientorganisation kan de återställa sitt lösenord genom att följa länken "Glömt ditt lösenord".
+
+
 
 ## <a name="february-2020"></a>Februari 2020 
 
-### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Tomma fragment läggs till i varje HTTP-omdirigering från inloggnings slut punkten. 
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Tomma fragment läggs till i varje HTTP-omdirigering från inloggningsslutpunkten. 
 
-**Effektivt datum**: 8 februari 2020
+Gäller från och **med 8**februari 2020
 
-**Påverkade slut punkter**: både v 1.0 och v 2.0
+**Slutpunkter påverkas:** Både v1.0 och v2.0
 
-**Protokoll som påverkas**: OAuth-och OIDC-flöden som använder response_type = fråga – detta täcker [kod flödet för auktorisering](v2-oauth2-auth-code-flow.md) i vissa fall och det [implicita flödet](v2-oauth2-implicit-grant-flow.md). 
+**Protokoll påverkas:** OAuth och OIDC flöden som använder response_type =query - detta täcker [auktoriseringskoden flödet](v2-oauth2-auth-code-flow.md) i vissa fall, och det [implicita flödet](v2-oauth2-implicit-grant-flow.md). 
 
-När ett svar på autentisering skickas från login.microsoftonline.com till ett program via HTTP-omdirigering, läggs ett tomt fragment till i svars-URL: en.  Detta förhindrar en klass av omdirigerings attacker genom att se till att webbläsaren rensar alla befintliga fragment i autentiseringsbegäran.  Inga appar bör ha ett beroende på detta beteende. 
+När ett autentiseringssvar skickas från login.microsoftonline.com till ett program via HTTP-omdirigering lägger tjänsten till ett tomt fragment i svars-URL:en.  Detta förhindrar en klass av omdirigeringsattacker genom att se till att webbläsaren utplånar alla befintliga fragment i autentiseringsbegäran.  Inga appar bör ha ett beroende av det här beteendet. 
 
 
 ## <a name="august-2019"></a>Augusti 2019
 
-### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>Ifyllning av POST formulär kommer att tvingas mer strikta blank steg och citat tecken ignoreras
+### <a name="post-form-semantics-will-be-enforced-more-strictly---spaces-and-quotes-will-be-ignored"></a>POST form semantik kommer att verkställas striktare - utrymmen och citat kommer att ignoreras
 
-**Ikraftträdande datum**: 2 september 2019
+**Gäller från och med 2**september 2019
 
-**Påverkade slut punkter**: både v 1.0 och v 2.0
+**Slutpunkter påverkas:** Både v1.0 och v2.0
 
-**Protokoll som påverkas**: post överallt används ([klientautentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [auktoriseringskod inlösen](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)och [Refresh token inlösen](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Protokollet påverkas:** Anywhere POST används[(klientautentiseringsuppgifter,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) [auktoriseringskod inlösen,](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)och [uppdatera token inlösen)](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)
 
-Med början av veckan 9/2 verifieras autentiseringsbegäranden som använder POST-metoden med strängare HTTP-standarder.  Mer specifikt kommer blank steg och dubbla citat tecken (") inte längre att tas bort från begär ande formulär värden. De här ändringarna förväntas inte bryta några befintliga klienter och säkerställer att förfrågningar som skickas till Azure AD hanteras på ett tillförlitligt sätt varje gång. I framtiden (se ovan) planerar vi att även avvisa dubbla parametrar och ignorera strukturen i begär Anden. 
+Från och med veckan den 9/2 valideras autentiseringsbegäranden som använder POST-metoden med strängare HTTP-standarder.  Blanksteg och dubbelcitat (") tas inte längre bort från formulärvärden för begäran. Dessa ändringar förväntas inte bryta några befintliga klienter och säkerställer att begäranden som skickas till Azure AD hanteras på ett tillförlitligt sätt varje gång. I framtiden (se ovan) planerar vi att dessutom avvisa dubblettparametrar och ignorera strukturlistan i begäranden. 
 
 Exempel:
 
-I dag tolkas `?e=    "f"&g=h` likadant som `?e=f&g=h` – så `e` == `f`.  Med den här ändringen kommer den nu att tolkas så att `e` == `    "f"` – det är osannolikt att det är ett giltigt argument, och begäran skulle nu kunna utföras. 
+Idag `?e=    "f"&g=h` är tolkas identiskt `?e=f&g=h` som `e`  ==  `f`- så .  Med denna förändring skulle det nu tolkas så att `e`  ==  `    "f"` - detta är osannolikt att vara ett giltigt argument, och begäran skulle nu misslyckas. 
 
 
 ## <a name="july-2019"></a>Juli 2019
 
-### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Endast app-token för program med en enda klient utfärdas endast om klient programmet finns i resurs klienten
+### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>App-token för program med en klientorganisation utfärdas endast om klientappen finns i resursklienten
 
-**Gällande datum**: 26 juli 2019
+**Gäller från och med 26**juli 2019
 
-**Påverkade slut punkter**: både [v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) och [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Slutpunkter påverkas:** Både [v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) och [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
-**Protokoll som påverkas**: [klientautentiseringsuppgifter (endast app-token)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protokollet påverkas**: [Klientreferenser (endast apptoken)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-En säkerhets ändring förblev 26 i juli som ändrar det sätt på vilket endast app-token (via tilldelning av klientautentiseringsuppgifter) utfärdas. Tidigare har program tillåtits att hämta token för att anropa alla andra appar, oavsett närvaro i klienten eller roller som meddelats för programmet.  Det här beteendet har uppdaterats så att resurser (ibland kallade webb-API: er) är en enskild klient (standard) och att klient programmet måste finnas i resurs klienten.  Observera att det befintliga godkännandet mellan klienten och API: n fortfarande inte krävs, och apparna bör fortfarande utföra sina egna verifierings kontroller för att säkerställa att det finns ett `roles`-anspråk och innehåller det förväntade värdet för API: et.
+En säkerhetsändring gick live 26 juli som ändrar hur app-bara token (via klientautentiseringsbe beviljande) utfärdas. Tidigare kunde program hämta token för att anropa någon annan app, oavsett närvaro i klienten eller roller som godkänts för det programmet.  Detta har uppdaterats så att klientprogrammet måste finnas i resursklienten (ibland kallade webb-API:er) som ska vara en klient (standard).  Observera att befintligt medgivande mellan klienten och API:et fortfarande inte krävs, `roles` och appar bör fortfarande göra sina egna auktoriseringskontroller för att säkerställa att ett anspråk finns och innehåller det förväntade värdet för API:et.
 
-Fel meddelandet för det här scenariot är för närvarande tillstånd: 
+Felmeddelandet för det här scenariot lyder för närvarande: 
 
 `The service principal named <appName> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.`
 
-Du kan åtgärda det här problemet genom att använda administratörs medgivande för att skapa klient program tjänstens huvud namn i din klient organisation eller skapa den manuellt.  Detta krav garanterar att klienten har gett programmet behörighet att köras i klienten.  
+Om du vill åtgärda problemet använder du administratörssamtyckesupplevelsen för att skapa klientprogramtjänstens huvudnamn i din klientorganisation eller skapa det manuellt.  Det här kravet säkerställer att klienten har gett programmet behörighet att verka inom klienten.  
 
 #### <a name="example-request"></a>Exempelbegäran
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` i det här exemplet är resurs klienten (auktoritet) contoso.com, Resource-appen är en app med en klient som heter `gateway.contoso.com/api` för Contoso-klienten och klient programmet är `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  Om klient programmet har ett huvud namn för tjänsten i Contoso.com kan denna begäran fortsätta.  Om den inte gör det Miss känner dock begäran med ovanstående fel.  
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`I det här exemplet är resursklienten (myndigheten) contoso.com, resursappen `gateway.contoso.com/api` är en app med en klientorganisation som kallas för Contoso-klienten och klientappen är `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`.  Om klientappen har ett tjänsthuvudnamn inom Contoso.com kan den här begäran fortsätta.  Om den inte gör det, men då begäran kommer att misslyckas med felet ovan.  
 
-Om contoso Gateway-appen var ett program för flera innehavare, skulle begäran fortsätta oavsett vilken klient app som har ett huvud namn för tjänsten i Contoso.com.  
+Om Contoso gateway-appen var ett program med flera innehavare skulle begäran dock fortsätta oavsett vilken klientapp som har ett tjänsthuvudnamn inom Contoso.com.  
 
-### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Omdirigerings-URI: er kan nu innehålla parametrar för frågesträng
+### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Omdirigera URI:er kan nu innehålla frågesträngparametrar
 
-**Gällande datum**: 22 juli 2019
+**Gäller från och med 22**juli 2019
 
-**Påverkade slut punkter**: både v 1.0 och v 2.0
+**Slutpunkter påverkas:** Både v1.0 och v2.0
 
-**Protokoll som påverkas**: alla flöden
+**Protokoll som påverkas**: Alla flöden
 
-Azure AD-program kan nu registrera och använda omdirigerings-URI: er med statiska frågeparametrar (till exempel https://contoso.com/oauth2?idp=microsoft) för OAuth 2,0-begäranden per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2).  Dynamiska omdirigerings-URI: er är fortfarande förbjudna eftersom de utgör en säkerhets risk och det kan inte användas för att bevara tillståndsinformation i en autentiseringsbegäran – för den, använder du parametern `state`.
+Per [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)kan Azure AD-program nu registrera och använda omdirigerings-(svar) URI:er med statiska frågeparametrar (till exempel `https://contoso.com/oauth2?idp=microsoft`) för OAuth 2.0-begäranden.  Dynamiska omdirigerings-URI:er är fortfarande förbjudna eftersom de utgör en säkerhetsrisk, `state` och detta kan inte användas för att behålla tillståndsinformation över en autentiseringsbegäran - för det använder parametern.
 
-Den statiska Frågeparametern omfattas av sträng matchning för omdirigering av URI: er som andra delar av omdirigerings-URI: n – om ingen sträng registreras som matchar den URI-avkodade redirect_uri, kommer begäran att avvisas.  Om URI: n hittas i appens registrering, kommer hela strängen att användas för att omdirigera användaren, inklusive parametern för statisk fråga. 
+Den statiska frågeparametern är föremål för strängmatchning för omdirigerings-URI:er som alla andra delar av omdirigerings-URI- -om ingen sträng har registrerats som matchar den URI-avkodade redirect_uri, kommer begäran att avvisas.  Om URI finns i appregistreringen används hela strängen för att omdirigera användaren, inklusive den statiska frågeparametern. 
 
-Observera att i den här tiden (slutet av juli 2019), är app Registration-UX i Azure Portal fortfarande blockera frågeparametrar.  Du kan dock redigera applikations manifestet manuellt för att lägga till frågeparametrar och testa detta i appen.  
+Observera att vid denna tidpunkt (slutet av juli 2019) blockerar appregistrerings-UX i Azure-portalen fortfarande frågeparametrar.  Du kan dock redigera programmanifestet manuellt för att lägga till frågeparametrar och testa detta i appen.  
 
 
 ## <a name="march-2019"></a>Mars 2019
 
-### <a name="looping-clients-will-be-interrupted"></a>Loopar till klienter avbryts
+### <a name="looping-clients-will-be-interrupted"></a>Looping-klienter avbryts
 
-**Start datum**: 25 mars 2019
+**Gäller från och med 25**mars 2019
 
-**Påverkade slut punkter**: både v 1.0 och v 2.0
+**Slutpunkter påverkas:** Både v1.0 och v2.0
 
-**Protokoll som påverkas**: alla flöden
+**Protokoll som påverkas**: Alla flöden
 
-Klient program kan ibland vara felödande, vilket ger hundratals olika inloggnings begär Anden under en kort tids period.  Dessa förfrågningar kanske inte lyckas, men alla bidrar till dåliga användar upplevelser och förhöjda arbets belastningar för IDP, ökande svars tid för alla användare och minskad tillgänglighet för IDP.  Programmen körs utanför gränserna för normal användning och bör uppdateras så att de fungerar korrekt.  
+Klientprogram kan ibland missköter sig och utfärda hundratals av samma inloggningsbegäran under en kort tidsperiod.  Dessa begäranden kan eller inte lyckas, men de bidrar alla till dålig användarupplevelse och ökade arbetsbelastningar för IDP, vilket ökar svarstiden för alla användare och minskar tillgängligheten för IDP.  Dessa program fungerar utanför gränserna för normal användning, och bör uppdateras för att fungera korrekt.  
 
-Klienter som utfärdar dubbla förfrågningar flera gånger skickas ett `invalid_grant` fel: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`. 
+Klienter som utfärdar dubblettbegäranden `invalid_grant` flera `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`gånger skickas ett fel: . 
 
-De flesta klienter behöver inte ändra beteende för att undvika det här felet.  Det här felet påverkas bara av felkonfigurerade klienter (de utan cachelagring av token eller de som uppvisar prompterna redan).  Klienter spåras baserat på varje instans lokalt (via cookie) på följande faktorer:
+De flesta klienter behöver inte ändra beteende för att undvika det här felet.  Endast felkonfigurerade klienter (de utan tokencache eller de som redan uppvisar snabbloopar) påverkas av det här felet.  Klienter spåras per instans lokalt (via cookie) på följande faktorer:
 
-* Användar tips, om något
+* Användartips, om någon
 
-* Omfattningar eller resurs som begärs
+* Scope eller resurs som begärs
 
 * Klientorganisations-ID
 
 * Omdirigerings-URI
 
-* Svars typ och läge
+* Svarstyp och -läge
 
-Appar som utför flera förfrågningar (15 +) under en kort tids period (5 minuter) får ett `invalid_grant` fel som förklarar att de är slingor.  De token som begärs har tillräckligt lång livs längd per timme (minst 10 minuter, 60 minuter som standard), så upprepade begär Anden under den här tids perioden är onödigt.  
+Appar som gör flera begäranden (15+) på kort tid `invalid_grant` (5 minuter) får ett felmeddelande som förklarar att de loopar.  De token som begärs har tillräckligt långlivade livstider (minst 10 minuter, 60 minuter som standard), så upprepade begäranden under den här tidsperioden är onödiga.  
 
-Alla appar ska hantera `invalid_grant` genom att visa en interaktiv fråga i stället för att begära en token i bakgrunden.  För att undvika det här felet bör klienterna se till att de cachelagrar de token som de tar emot korrekt.
+Alla appar `invalid_grant` bör hantera genom att visa en interaktiv prompt, i stället för att tyst begära en token.  För att undvika det här felet bör klienter se till att de cacheställer de token de får på rätt sätt.
 
 
 ## <a name="october-2018"></a>Oktober 2018
 
-### <a name="authorization-codes-can-no-longer-be-reused"></a>Auktoriseringsregler kan inte längre återanvändas
+### <a name="authorization-codes-can-no-longer-be-reused"></a>Auktoriseringskoder kan inte längre återanvändas
 
-**Start datum**: 15 november 2018
+**Gäller från**och med 15 november 2018
 
-**Påverkade slut punkter**: både v 1.0 och v 2.0
+**Slutpunkter påverkas:** Både v1.0 och v2.0
 
-**Protokoll som påverkas**: [kod flöde](v2-oauth2-auth-code-flow.md)
+**Protokoll som påverkas**: [Kodflöde](v2-oauth2-auth-code-flow.md)
 
-Från och med 15 November 2018, att Azure AD sluta acceptera tidigare autentisering-koder för appar. Ändringen security hjälper dig att ta med Azure AD i enlighet med OAuth-specifikationen och tillämpas på både v1 och v2-slutpunkter.
+Från och med den 15 november 2018 slutar Azure AD att acceptera tidigare använda autentiseringskoder för appar. Den här säkerhetsändringen hjälper till att anpassa Azure AD till OAuth-specifikationen och kommer att tillämpas på både v1- och v2-slutpunkterna.
 
-Om din app återanvänder auktoriseringskoder för att hämta token för flera resurser, rekommenderar vi att du använda koden för att få en uppdateringstoken och sedan använda den uppdateringstoken för att hämta ytterligare token för andra resurser. Auktoriseringskoder kan bara användas en gång, men uppdateringstoken kan användas flera gånger i flera resurser. Alla nya appar som försöker återanvända en autentiseringsmetod under OAuth-kodfragmentet får ett invalid_grant fel.
+Om appen återanvänder auktoriseringskoder för att hämta token för flera resurser rekommenderar vi att du använder koden för att hämta en uppdateringstoken och sedan använda den uppdateringstoken för att hämta ytterligare token för andra resurser. Auktoriseringskoder kan bara användas en gång, men uppdateringstoken kan användas flera gånger över flera resurser. Alla nya appar som försöker återanvända en autentiseringskod under OAuth-kodflödet får ett invalid_grant fel.
 
-Mer information om uppdateringstoken finns i [Uppdatera åtkomsttoken](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Om du använder ADAL eller MSAL hanteras detta av biblioteket – Ersätt den andra instansen av "AcquireTokenByAuthorizationCodeAsync" med "AcquireTokenSilentAsync". 
+Mer information om uppdateringstoken finns i [Uppdatera åtkomsttoken](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Om du använder ADAL eller MSAL hanteras detta åt dig av biblioteket - ersätt den andra instansen av "AcquireTokenByAuthorizationCodeAsync" med "AcquireTokenSilentAsync". 
 
 ## <a name="may-2018"></a>Maj 2018
 
-### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Det går inte att använda ID-token för OBO-flödet
+### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>ID-token kan inte användas för OBO-flödet
 
-**Datum: den**1 maj 2018
+**Datum**: 1 maj 2018
 
-**Påverkade slut punkter**: både v 1.0 och v 2.0
+**Slutpunkter påverkas:** Både v1.0 och v2.0
 
-**Protokoll som påverkas**: implicit flöde och [på uppdrag av flöde](v2-oauth2-on-behalf-of-flow.md)
+**Protokoll som påverkas**: Implicit flöde och [förflödet](v2-oauth2-on-behalf-of-flow.md)
 
-Efter den 1 maj 2018 går det inte att använda id_tokens som kontroll i ett OBO flöde för nya program. Åtkomsttoken ska användas i stället för att skydda API: er, även mellan en klient och mellan nivån för samma program. Appar som registrerats före den 1 maj 2018 kommer att fortsätta att fungera och kunna utväxla id_tokens för en åtkomsttoken. Detta mönster anses dock inte vara en bästa praxis.
+Efter den 1 maj 2018 kan id_tokens inte användas som påstående i ett OBO-flöde för nya applikationer. Åtkomsttoken bör användas i stället för att skydda API:er, även mellan en klient och mellannivå i samma program. Appar som registrerats före den 1 maj 2018 fortsätter att fungera och kan utbyta id_tokens för en åtkomsttoken. Detta mönster anses dock inte vara en bästa praxis.
 
-För att undvika den här ändringen kan du göra följande:
+Om du vill gå runt den här ändringen kan du göra följande:
 
-1. Skapa ett webb-API för ditt program med ett eller flera omfång. Den här explicita start punkten ger bättre kornig kontroll och säkerhet.
-1. I appens manifest, i [Azure Portal](https://portal.azure.com) eller i [appens registrerings Portal](https://apps.dev.microsoft.com), kontrollerar du att appen tillåts utfärda åtkomsttoken via det implicita flödet. Detta styrs via `oauth2AllowImplicitFlow` nyckeln.
-1. När klient programmet begär en id_token via `response_type=id_token`ska du också begära en åtkomsttoken (`response_type=token`) för webb-API: et som skapats ovan. När du använder v 2.0-slutpunkten bör `scope` parameter se ut ungefär som `api://GUID/SCOPE`. På den v 1.0-slutpunkten bör `resource`-parametern vara app-URI för webb-API: et.
-1. Skicka denna åtkomsttoken till mellan nivån i stället för id_token.  
+1. Skapa ett webb-API för ditt program med ett eller flera scope. Denna uttryckliga ingång kommer att tillåta finare kornig kontroll och säkerhet.
+1. I appens manifest, i [Azure-portalen](https://portal.azure.com) eller [appregistreringsportalen,](https://apps.dev.microsoft.com)se till att appen tillåts utfärda åtkomsttoken via det implicita flödet. Detta styrs `oauth2AllowImplicitFlow` genom nyckeln.
+1. När klientprogrammet begär en id_token `response_type=id_token`via begär du`response_type=token`även en åtkomsttoken ( ) för webb-API:et som skapats ovan. När du använder v2.0-slutpunkten bör `scope` parametern alltså se ut ungefär som `api://GUID/SCOPE`. På v1.0-slutpunkten `resource` ska parametern vara appen URI för webb-API:et.
+1. Skicka den här åtkomsttoken till mellannivån i stället för id_token.  

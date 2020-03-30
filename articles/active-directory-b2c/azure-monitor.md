@@ -1,7 +1,7 @@
 ---
 title: Övervaka Azure AD B2C med Azure Monitor
 titleSuffix: Azure AD B2C
-description: Lär dig hur du loggar Azure AD B2C händelser med Azure Monitor med hjälp av delegerad resurs hantering.
+description: Lär dig hur du loggar Azure AD B2C-händelser med Azure Monitor med hjälp av delegerad resurshantering.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,82 +12,82 @@ ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
 ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190066"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Övervaka Azure AD B2C med Azure Monitor
 
-Använd Azure Monitor för att dirigera Azure Active Directory B2C (Azure AD B2C) inloggnings-och [gransknings](view-audit-logs.md) loggar till olika övervaknings lösningar. Du kan behålla loggarna för långsiktig användning eller integrera med SIEM-verktyg från tredje part för att få insikter om din miljö.
+Använd Azure Monitor för att dirigera Azure Active Directory B2C(Azure AD B2C) inloggnings- och [granskningsloggar](view-audit-logs.md) till olika övervakningslösningar. Du kan behålla loggarna för långvarig användning eller integrera med siem-verktyg (Security Information and Event Management) från tredje part för att få insikter i din miljö.
 
-Du kan dirigera logg händelser till:
+Du kan dirigera logghändelser till:
 
-* Ett Azure [Storage-konto](../storage/blobs/storage-blobs-introduction.md).
-* En Azure [Event Hub](../event-hubs/event-hubs-about.md) (och integrera med dina Splunk-och Sumo Logic-instanser).
-* En [Log Analytics arbets yta](../azure-monitor/platform/resource-logs-collect-workspace.md) (för att analysera data, skapa instrument paneler och avisering om vissa händelser).
+* Ett [Azure-lagringskonto](../storage/blobs/storage-blobs-introduction.md).
+* En [Azure-händelsenav](../event-hubs/event-hubs-about.md) (och integrera med dina Splunk- och Sumo Logic-instanser).
+* En [Log Analytics-arbetsyta](../azure-monitor/platform/resource-logs-collect-workspace.md) (för att analysera data, skapa instrumentpaneler och avisera specifika händelser).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra stegen i den här artikeln distribuerar du en Azure Resource Manager-mall med hjälp av modulen Azure PowerShell.
+Om du vill slutföra stegen i den här artikeln distribuerar du en Azure Resource Manager-mall med hjälp av Azure PowerShell-modulen.
 
-* [Azure PowerShell-modul](https://docs.microsoft.com/powershell/azure/install-az-ps) version 6.13.1 eller högre
+* [Azure PowerShell-modul](https://docs.microsoft.com/powershell/azure/install-az-ps) version 6.13.1 eller senare
 
-Du kan också använda [Azure Cloud Shell](https://shell.azure.com), som innehåller den senaste versionen av modulen Azure PowerShell.
+Du kan också använda [Azure Cloud Shell](https://shell.azure.com), som innehåller den senaste versionen av Azure PowerShell-modulen.
 
-## <a name="delegated-resource-management"></a>Delegerad resurs hantering
+## <a name="delegated-resource-management"></a>Delegerad resurshantering
 
-Azure AD B2C utnyttjar [Azure Active Directory övervakning](../active-directory/reports-monitoring/overview-monitoring.md). Om du vill aktivera *diagnostikinställningar* i Azure Active Directory i Azure AD B2C klienten använder du [delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md).
+Azure AD B2C utnyttjar [Azure Active Directory-övervakning](../active-directory/reports-monitoring/overview-monitoring.md). Om du vill aktivera *diagnostikinställningar* i Azure Active Directory i din Azure AD B2C-klient använder du [delegerad resurshantering](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-Du auktoriserar en användare eller grupp i Azure AD B2Cs katalogen ( **tjänst leverantören**) för att konfigurera Azure Monitor-instansen i klienten som innehåller din Azure-prenumeration ( **kunden**). För att skapa auktoriseringen distribuerar du en [Azure Resource Manager](../azure-resource-manager/index.yml) -mall till Azure AD-klienten som innehåller prenumerationen. I följande avsnitt får du stegvisa anvisningar genom processen.
+Du auktoriserar en användare eller grupp i din Azure AD B2C-katalog **(Tjänsteleverantören)** för att konfigurera Azure Monitor-instansen i klienten som innehåller din Azure-prenumeration **(Kunden**). Om du vill skapa auktoriseringen distribuerar du en [Azure Resource Manager-mall](../azure-resource-manager/index.yml) till din Azure AD-klient som innehåller prenumerationen. Följande avsnitt går igenom processen.
 
-## <a name="create-or-choose-resource-group"></a>Skapa eller Välj en resurs grupp
+## <a name="create-or-choose-resource-group"></a>Skapa eller välj resursgrupp
 
-Det här är resurs gruppen som innehåller mål Azure Storage-kontot, händelsehubben eller Log Analytics arbets yta för att ta emot data från Azure Monitor. Du anger resurs gruppens namn när du distribuerar Azure Resource Manager-mallen.
+Det här är resursgruppen som innehåller mål-Azure-lagringskontot, händelsehubben eller logganalysarbetsytan för att ta emot data från Azure Monitor. Du anger resursgruppsnamnet när du distribuerar Azure Resource Manager-mallen.
 
-[Skapa en resurs grupp](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) eller Välj en befintlig i den Azure Active Directory (Azure AD) som innehåller din Azure-prenumeration, *inte* den katalog som innehåller din Azure AD B2C-klient.
+[Skapa en resursgrupp](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) eller välj en befintlig i Azure Active Directory (Azure AD) som innehåller din Azure-prenumeration, *inte* katalogen som innehåller din Azure AD B2C-klient.
 
-I det här exemplet används en resurs grupp med namnet *Azure-AD-B2C-Monitor* i den *centrala regionen USA* .
+I det här exemplet används en resursgrupp med namnet *azure-ad-b2c-monitor* i regionen *Centrala USA.*
 
-## <a name="delegate-resource-management"></a>Delegera resurs hantering
+## <a name="delegate-resource-management"></a>Delegera resurshantering
 
-Sedan samlar du in följande information:
+Samla sedan in följande information:
 
-**Katalog-ID** för din Azure AD B2Cs katalog (även kallat klient-ID).
+**Katalog-ID** för din Azure AD B2C-katalog (kallas även klient-ID).
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som en användare med rollen *användar administratör* (eller högre).
-1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. Välj **Azure Active Directory**, Välj **Egenskaper**.
-1. Registrera **katalog-ID: t**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) som användare med rollen *Användaradministratör* (eller högre).
+1. Välj ikonen **Katalog + Prenumeration** i portalverktygsfältet och välj sedan den katalog som innehåller din Azure AD B2C-klient.
+1. Välj **Azure Active Directory**, välj **Egenskaper**.
+1. Registrera **katalog-ID**.
 
-**Objekt-ID** för den Azure AD B2C grupp eller användare som du vill ge *deltagar* behörighet till resurs gruppen som du skapade tidigare i katalogen som innehåller din prenumeration.
+**Objekt-ID** för Azure AD B2C-gruppen eller användaren som du vill ge *deltagarebehörighet* till resursgruppen som du skapade tidigare i katalogen som innehåller din prenumeration.
 
-För att förenkla hanteringen rekommenderar vi att du använder Azure AD-användargrupper *för varje* roll, så att du kan lägga till eller ta bort enskilda användare i gruppen i stället för att tilldela behörigheter direkt till den användaren. I den här genom gången lägger du till en användare.
+För att underlätta hanteringen rekommenderar vi *groups* att du använder Azure AD-användargrupper för varje roll, så att du kan lägga till eller ta bort enskilda användare i gruppen i stället för att tilldela behörigheter direkt till den användaren. I den här genomgången lägger du till en användare.
 
-1. Med **Azure Active Directory** fortfarande markerat i Azure Portal väljer du **användare**och väljer sedan en användare.
+1. När **Azure Active Directory** fortfarande är markerat i Azure-portalen väljer du **Användare**och väljer sedan en användare.
 1. Registrera användarens **objekt-ID**.
 
 ### <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall
 
-Om du vill publicera din Azure AD-klient ( **kunden**) skapar du en [Azure Resource Manager mall](../lighthouse/how-to/onboard-customer.md) för ditt erbjudande med följande information. Värdena för `mspOfferName` och `mspOfferDescription` visas när du visar erbjudande information på [sidan tjänst leverantörer](../lighthouse/how-to/view-manage-service-providers.md) i Azure Portal.
+Om du vill använda din Azure AD-klientorganisation **(kunden)** skapar du en [Azure Resource Manager-mall](../lighthouse/how-to/onboard-customer.md) för ditt erbjudande med följande information. `mspOfferName` Värdena `mspOfferDescription` och är synliga när du visar erbjudandeinformation på [sidan Tjänstleverantörer](../lighthouse/how-to/view-manage-service-providers.md) i Azure-portalen.
 
-| Fält   | Definition |
+| Field   | Definition |
 |---------|------------|
-| `mspOfferName`                     | Ett namn som beskriver den här definitionen. Till exempel *Azure AD B2C hanterade tjänster*. Det här värdet visas för kunden som titeln på erbjudandet. |
-| `mspOfferDescription`              | En kort beskrivning av ditt erbjudande. Till exempel kan *Azure Monitor i Azure AD B2C*.|
-| `rgName`                           | Namnet på den resurs grupp som du skapade tidigare i Azure AD-klienten. Till exempel *Azure-AD-B2C-Monitor*. |
-| `managedByTenantId`                | **Katalog-ID** för Azure AD B2C klient organisationen (även kallat klient-ID). |
-| `authorizations.value.principalId` | **Objekt-ID** för den B2C grupp eller användare som ska ha åtkomst till resurser i den här Azure-prenumerationen. I den här genom gången anger du användarens objekt-ID som du registrerade tidigare. |
+| `mspOfferName`                     | Ett namn som beskriver den här definitionen. Azure *AD B2C Managed Services*. Det här värdet visas för kunden som erbjudandetitel. |
+| `mspOfferDescription`              | En kort beskrivning av ditt erbjudande. Aktiverar till exempel *Azure Monitor i Azure AD B2C*.|
+| `rgName`                           | Namnet på resursgruppen som du skapar tidigare i din Azure AD-klientorganisation. Till exempel *azure-ad-b2c-monitor*. |
+| `managedByTenantId`                | **Katalog-ID** för din Azure AD B2C-klientorganisation (kallas även klient-ID). |
+| `authorizations.value.principalId` | **Objekt-ID** för B2C-gruppen eller användaren som har åtkomst till resurser i den här Azure-prenumerationen. För den här genomgången anger du användarens objekt-ID som du spelade in tidigare. |
 
-Ladda ned Azure Resource Manager mall och parameterstyrda filer:
+Hämta Mall- och parameterfilerna i Azure Resource Manager:
 
-- [rgDelegatedResourceManagement. JSON](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement. Parameters. JSON](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.json](https://raw.githubusercontent.com/Azure/Azure-Lighthouse-samples/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
-Sedan uppdaterar du parameter filen med de värden du registrerade tidigare. Följande JSON-kodfragment visar ett exempel på en fil med parametrar för Azure Resource Manager-mall. För `authorizations.value.roleDefinitionId`använder du det [inbyggda roll](../role-based-access-control/built-in-roles.md) svärdet för *rollen deltagare*`b24988ac-6180-42a0-ab88-20f7382dd24c`.
+Uppdatera sedan parameterfilen med de värden som du spelade in tidigare. Följande JSON-kodavsnitt visar ett exempel på en Azure Resource Manager-mallparametrarfil. Använd `authorizations.value.roleDefinitionId`det [inbyggda rollvärdet](../role-based-access-control/built-in-roles.md) för *rollen* `b24988ac-6180-42a0-ab88-20f7382dd24c`Deltagare för .
 
 ```JSON
 {
@@ -119,29 +119,29 @@ Sedan uppdaterar du parameter filen med de värden du registrerade tidigare. Fö
 }
 ```
 
-### <a name="deploy-the-azure-resource-manager-templates"></a>Distribuera Azure Resource Manager mallar
+### <a name="deploy-the-azure-resource-manager-templates"></a>Distribuera Azure Resource Manager-mallarna
 
-När du har uppdaterat parameter filen distribuerar du Azure Resource Manager-mallen till Azure-klienten som en distribution på prenumerations nivå. Eftersom det här är en distribution på prenumerations nivå kan den inte initieras i Azure Portal. Du kan distribuera med hjälp av Azure PowerShell-modulen eller Azure CLI. Metoden Azure PowerShell visas nedan.
+När du har uppdaterat din parameterfil distribuerar du Azure Resource Manager-mallen till Azure-klienten som en distribution på prenumerationsnivå. Eftersom det här är en distribution på prenumerationsnivå kan den inte initieras i Azure-portalen. Du kan distribuera med hjälp av Azure PowerShell-modulen eller Azure CLI. Azure PowerShell-metoden visas nedan.
 
-Logga in på katalogen som innehåller din prenumeration genom att använda [Connect-AzAccount](/powershell/azure/authenticate-azureps). Använd `-tenant`-flaggan för att tvinga autentisering till rätt katalog.
+Logga in på katalogen som innehåller din prenumeration med [Connect-AzAccount](/powershell/azure/authenticate-azureps). Använd `-tenant` flaggan för att tvinga autentisering till rätt katalog.
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
 ```
 
-Använd cmdleten [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) för att visa en lista över de prenumerationer som det aktuella kontot kan komma åt under Azure AD-klienten. Registrera ID: t för den prenumeration som du vill projicera i Azure AD B2C-klienten.
+Använd cmdleten [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) för att lista de prenumerationer som det aktuella kontot kan komma åt under Azure AD-klienten. Registrera ID:t för den prenumeration som du vill projicera i din Azure AD B2C-klientorganisation.
 
 ```PowerShell
 Get-AzSubscription
 ```
 
-Växla sedan till den prenumeration som du vill projicera till Azure AD B2C klient organisationen:
+Byt sedan till den prenumeration som du vill projicera till Azure AD B2C-klienten:
 
 ``` PowerShell
 Select-AzSubscription <subscription ID>
 ```
 
-Slutligen distribuerar du Azure Resource Manager mall och de parameter-filer som du laddade ned och uppdaterade tidigare. Ersätt värdena för `Location`, `TemplateFile`och `TemplateParameterFile` enligt detta.
+Distribuera slutligen Mallen och parameterfilerna i Azure Resource Manager som du hämtade och uppdaterade tidigare. Ersätt `Location` `TemplateFile` `TemplateParameterFile` värdena och värdena i enlighet med detta.
 
 ```PowerShell
 New-AzDeployment -Name "AzureADB2C" `
@@ -151,7 +151,7 @@ New-AzDeployment -Name "AzureADB2C" `
                  -Verbose
 ```
 
-Lyckad distribution av mallen ger utdata som liknar följande (utdata trunkerade för det kortfattat):
+En lyckad distribution av mallen ger utdata som liknar följande (utdata trunkeras för korthet):
 
 ```Console
 PS /usr/csuser/clouddrive> New-AzDeployment -Name "AzureADB2C" `
@@ -191,60 +191,60 @@ Parameters              :
 ...
 ```
 
-När du har distribuerat mallen kan det ta några minuter innan resurs projektionen har slutförts. Du kan behöva vänta några minuter (vanligt vis högst fem) innan du går vidare till nästa avsnitt för att välja prenumerationen.
+När du har distribuerat mallen kan det ta några minuter innan resursprojektionen har slutförts. Du kan behöva vänta några minuter (vanligtvis inte mer än fem) innan du går vidare till nästa avsnitt för att välja prenumerationen.
 
 ## <a name="select-your-subscription"></a>Välj din prenumeration
 
-När du har distribuerat mallen och väntat några minuter tills resurs projektionen har slutförts, associerar du din prenumeration till din Azure AD B2C katalog med följande steg.
+När du har distribuerat mallen och väntat några minuter på att resursprojektionen ska slutföras associerar du din prenumeration till din Azure AD B2C-katalog med följande steg.
 
-1. **Logga ut** från Azure Portal om du är inloggad. Detta och följande steg är gjorda för att uppdatera dina autentiseringsuppgifter i Portal sessionen.
-1. Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure AD B2C-administratörs konto.
-1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält.
+1. **Logga ut** från Azure-portalen om du för närvarande är inloggad. Detta och följande steg görs för att uppdatera dina autentiseringsuppgifter i portalsessionen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ditt administrativa Azure AD B2C-konto.
+1. Välj ikonen **Katalog + Prenumeration** i portalverktygsfältet.
 1. Välj den katalog som innehåller din prenumeration.
 
     ![Växla katalog](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
-1. Kontrol lera att du har valt rätt katalog och prenumeration. I det här exemplet är alla kataloger och prenumerationer markerade.
+1. Kontrollera att du har valt rätt katalog och prenumeration. I det här exemplet väljs alla kataloger och prenumerationer.
 
-    ![Alla kataloger som valts i katalog & prenumerations filter](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
+    ![Alla kataloger som valts i katalogfiltret & prenumeration](./media/azure-monitor/azure-monitor-portal-04-subscriptions-selected.png)
 
 ## <a name="configure-diagnostic-settings"></a>Konfigurera diagnostikinställningar
 
-Diagnostiska inställningar definierar var loggar och mått för en resurs ska skickas. Möjliga destinationer är:
+Diagnostikinställningar definierar var loggar och mått för en resurs ska skickas. Möjliga destinationer är:
 
-- [Azure Storage-konto](../azure-monitor/platform/resource-logs-collect-storage.md)
-- Lösningar för [Event Hub](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+- [Azure-lagringskonto](../azure-monitor/platform/resource-logs-collect-storage.md)
+- [Lösningar för eventhubbar.](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 - [Log Analytics-arbetsyta](../azure-monitor/platform/resource-logs-collect-workspace.md)
 
-Om du inte redan har gjort det skapar du en instans av din valda måltyp i resurs gruppen som du angav i [mallen Azure Resource Manager](#create-an-azure-resource-manager-template).
+Om du inte redan har gjort det skapar du en instans av den valda måltypen i resursgruppen som du angav i [Azure Resource Manager-mallen](#create-an-azure-resource-manager-template).
 
 ### <a name="create-diagnostic-settings"></a>Skapa diagnostikinställningar
 
-Du är redo att [skapa diagnostikinställningar](../active-directory/reports-monitoring/overview-monitoring.md) i Azure Portal.
+Du är redo att [skapa diagnostikinställningar](../active-directory/reports-monitoring/overview-monitoring.md) i Azure-portalen.
 
-Konfigurera övervaknings inställningar för Azure AD B2C aktivitets loggar:
+Så här konfigurerar du övervakningsinställningar för Azure AD B2C-aktivitetsloggar:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. Välj ikonen **Katalog + Prenumeration** i portalverktygsfältet och välj sedan den katalog som innehåller din Azure AD B2C-klient.
 1. Välj **Azure Active Directory**
 1. Under **Övervakning** väljer du **Diagnostikinställningar**.
-1. Om det finns befintliga inställningar på resursen visas en lista över inställningar som redan har kon figurer ATS. Välj antingen **Lägg till diagnostisk inställning** för att lägga till en ny inställning eller **Redigera** inställning för att redigera en befintlig. Varje inställning får inte ha fler än en av varje mål typ..
+1. Om det finns befintliga inställningar på resursen visas en lista över inställningar som redan har konfigurerats. Välj antingen **Lägg till diagnostikinställning** om du vill lägga till en ny inställning eller **redigera** inställningen för att redigera en befintlig. Varje inställning får inte ha mer än en av måltyperna..
 
-    ![Fönstret diagnostikinställningar i Azure Portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
+    ![Fönstret Inställningar för diagnostik i Azure Portal](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
-1. Ange ett namn för inställningen om det inte redan har en.
-1. Markera kryss rutan för varje mål för att skicka loggarna. Välj **Konfigurera** för att ange inställningarna enligt beskrivningen i följande tabell.
+1. Ge din inställning ett namn om den inte redan har ett.
+1. Markera rutan för varje mål för att skicka loggarna. Välj **Konfigurera om** du vill ange deras inställningar enligt beskrivningen i följande tabell.
 
     | Inställning | Beskrivning |
     |:---|:---|
-    | Arkivera till ett lagrings konto | Namn på lagrings konto. |
-    | Strömma till en Event Hub | Namn området där Event Hub skapas (om det här är din första gången strömnings loggar) eller strömmas till (om det redan finns resurser som är strömmande till den här namn rymden).
-    | Skicka till Log Analytics | Namn på arbets yta. |
+    | Arkivera till ett lagringskonto | Namn på lagringskonto. |
+    | Strömma till en händelsehubb | Namnområdet där händelsehubben skapas (om det här är första gången du direktuppspelar loggar) eller strömmas till (om det redan finns resurser som strömmar loggkategorin till det här namnområdet).
+    | Skicka till Log Analytics | Namn på arbetsyta. |
 
 1. Välj **AuditLogs** och **SignInLogs**.
 1. Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du lägger till och konfigurerar diagnostikinställningar i Azure Monitor finns i [Självstudier: samla in och analysera resurs loggar från en Azure-resurs](../azure-monitor/insights/monitor-azure-resource.md).
+Mer information om hur du lägger till och konfigurerar diagnostikinställningar i Azure Monitor finns i [Självstudiekurs: Samla in och analysera resursloggar från en Azure-resurs](../azure-monitor/insights/monitor-azure-resource.md).
 
-Information om hur du strömmar Azure AD-loggar till en Event Hub finns i [självstudie: strömma Azure Active Directory loggar till en Azure Event Hub](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+Information om hur du streamar Azure AD-loggar till en händelsehubb finns i [Självstudiekurs: Strömma Azure Active Directory-loggar till en Azure-händelsehubb](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

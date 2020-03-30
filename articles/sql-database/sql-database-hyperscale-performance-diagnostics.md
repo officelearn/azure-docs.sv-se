@@ -1,6 +1,6 @@
 ---
-title: Prestanda diagnostik i storskalig
-description: I den här artikeln beskrivs hur du felsöker storskaliga prestanda problem i Azure SQL Database.
+title: Prestandadiagnostik i hyperskala
+description: I den här artikeln beskrivs felsÃ¶kning av prestandaproblem i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -11,100 +11,100 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: 26bd6ddb9d8255b8e2510133fc4b6aa645f89f68
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75615068"
 ---
-# <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL-storskalig prestanda vid fel sökning av diagnostik
+# <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Felsökning av SQL-hyperskala-prestanda
 
-För att felsöka prestanda problem i en storskalig databas, är [allmänna prestanda justerings metoder](sql-database-monitor-tune-overview.md) i Azure SQL Database Compute-noden Start punkten för en prestanda undersökning. Men med tanke på den [distribuerade arkitekturen](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) för storskalighet har ytterligare diagnostik lagts till för att hjälpa dig. I den här artikeln beskrivs grundliga diagnostikdata.
+För att felsöka prestandaproblem i en hyperskala databas är [allmänna prestandajusteringsmetoder](sql-database-monitor-tune-overview.md) på Azure SQL-databasberäkningsnoden utgångspunkten för en prestandaundersökning. Med tanke på den [distribuerade arkitekturen](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) i Hyperscale har dock ytterligare diagnostik lagts till för att hjälpa till. I den här artikeln beskrivs hyperskalaspecifika diagnostikdata.
 
-## <a name="log-rate-throttling-waits"></a>Begränsning av logg hastighet väntar
+## <a name="log-rate-throttling-waits"></a>Logghastighetsbegränsning väntar
 
-Varje Azure SQL Database Service nivå har gränser för logg skapande hastighet som tillämpas via [styrning av logg hastighet](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). I hög skala är gränsen för logg skapande inställd på 100 MB/SEK, oavsett tjänst nivå. Det finns dock tillfällen då logg skapande frekvensen för den primära beräknings repliken måste begränsas för att upprätthålla återställnings service avtal. Den här begränsningen inträffar när en [sid Server eller en annan beräknings replik](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) är betydligt bakom att använda nya logg poster från logg tjänsten.
+Varje Azure SQL Database-tjänstnivå har logggenereringshastighetsgränser som tillämpas via [loggfrekvensstyrning](sql-database-resource-limits-database-server.md#transaction-log-rate-governance). I Hyperskala är logggenereringsgränsen för närvarande inställd på 100 MB/sek, oavsett servicenivå. Det finns dock tillfällen då logggenereringshastigheten på den primära beräkningsrepliken måste begränsas för att upprätthålla återställningsbara SLA:er. Den här begränsningen inträffar när en [sidserver eller en annan beräkningsreplik](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) ligger betydligt efter att nya loggposter från loggtjänsten tillämpas.
 
-Följande vänte typer (i [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) beskriver orsakerna till varför logg frekvensen kan begränsas på den primära beräknings repliken:
+Följande väntetyper (i [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/)) beskriver orsakerna till att logghastigheten kan begränsas på den primära beräkningsrepliken:
 
-|Wait-typ    |Beskrivning                         |
+|Typ av väntetyp    |Beskrivning                         |
 |-------------          |------------------------------------|
-|RBIO_RG_STORAGE        | Inträffar när en storskalig databas för att skapa en primär Compute-datornod begränsas på grund av en fördröjd logg användning på sidans Server (er).         |
-|RBIO_RG_DESTAGE        | Inträffar när en hastighet för databas skapande av en storskalig databas begränsas på grund av en fördröjd logg användning av den långsiktiga logg lagringen.         |
-|RBIO_RG_REPLICA        | Inträffar när en storskalig databas för beräkning av databasens logg skapande begränsas på grund av fördröjd logg användning av de läsbara sekundära replikerna.         |
-|RBIO_RG_LOCALDESTAGE   | Inträffar när en storskalig databas för beräkning av databasens logg skapande begränsas på grund av en fördröjd logg användning av logg tjänsten.         |
+|RBIO_RG_STORAGE        | Inträffar när en primär beräkningsnodsgenereringshastighet för hyperskaladatabasen begränsas på grund av fördröjd loggförbrukning på sidservern(erna).         |
+|RBIO_RG_DESTAGE        | Inträffar när en hyperskala databas beräkning nod logggenereringshastighet begränsas på grund av fördröjd loggförbrukning av den långsiktiga logglagring.         |
+|RBIO_RG_REPLICA        | Inträffar när en hyperskala databas beräkning nod logggenereringshastighet begränsas på grund av fördröjd loggförbrukning av läsbara sekundära repliker (s).         |
+|RBIO_RG_LOCALDESTAGE   | Inträffar när en hyperskala databas beräkning nod logggenereringshastighet begränsas på grund av fördröjd loggförbrukning av loggtjänsten.         |
 
-## <a name="page-server-reads"></a>Sid Server läsningar
+## <a name="page-server-reads"></a>Läser sidservern
 
-Beräknings replikerna cachelagrar inte en fullständig kopia av databasen lokalt. De data som är lokala för beräknings repliken lagras i bufferten (i minnet) och i den lokala RBPEX-cachen (elastisk buffertpooltillägget) som är partiell (icke-omfattande) cache för data sidor. Den här lokala RBPEX-cachen har storleks proportionellt till beräknings storlek och är tre gånger data bearbetnings skiktets minne. RBPEX liknar bufferten på så sätt att den innehåller data som används mest. Varje sida Server har å andra sidan en täcker RBPEX-cache för den del av databasen som hanteras.
+Beräkningsrepliker cachelagrar inte en fullständig kopia av databasen lokalt. De data som är lokala för beräkningsrepliken lagras i buffertpoolen (i minnet) och i den lokala RBPEX-cachen (Resilient Buffer Pool Extension) som är en partiell (icke-omfattande) cache av datasidor. Den här lokala RBPEX-cachen är dimensionerad proportionellt till beräkningsstorleken och är tre gånger så mycket minne som beräkningsnivån. RBPEX liknar buffertpoolen eftersom den har de data som används oftast. Varje sidserver, å andra sidan, har en täcker RBPEX cache för den del av databasen den upprätthåller.
  
-När en läsning utfärdas för en beräknings replik, och om data inte finns i bufferten eller lokalt RBPEX cache, utfärdas ett getPage-funktions anrop (pageId, LSN) och sidan hämtas från motsvarande sid Server. Läsningar från sid servrar är fjärrläsningar och är därför långsammare än att läsa från den lokala RBPEX. Vid fel sökning av IO-relaterade prestanda problem måste vi kunna se hur många IOs som gjorts via relativt långsamma fjärrside Server-läsningar.
+När en läsning utfärdas på en beräkningsreplik, om data inte finns i buffertpoolen eller den lokala RBPEX-cachen, utfärdas ett getPage(pageId, LSN) funktionsanrop och sidan hämtas från motsvarande sidserver. Läsningar från sidservrar är fjärrläsningar och är därmed långsammare än läsningar från den lokala RBPEX. Vid felsökning av IO-relaterade prestandaproblem måste vi kunna se hur många IOs som gjordes via relativt långsammare fjärrsökserver.
 
-Flera DMV: er och utökade händelser har kolumner och fält som anger antalet fjärrläsningar från en sid Server, som kan jämföras med det totala antalet läsningar. Query Store fångar även fjärrläsningar som en del av statistik för frågans körnings tid.
+Flera DMVs och utökade händelser har kolumner och fält som anger antalet fjärravläsningar från en sidserver, vilket kan jämföras med den totala läsningen. Frågearkivet fångar också fjärrläsningar som en del av frågekörningsstatistiken.
 
-- Kolumner för att rapportera sid Server läsningar är tillgängliga i DMV: er och katalogvyer, till exempel:
+- Kolumner för att rapportera sidserverläsningar är tillgängliga i dmvs-program för körning och katalogvyer, till exempel:
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
-    - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
-    - [sys. query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
-- Sid Server läsningar läggs till i följande utökade händelser:
+    - [sys.dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
+- Sidserverläsningar läggs till i följande utökade händelser:
     - sql_statement_completed
     - sp_statement_completed
     - sql_batch_completed
     - rpc_completed
     - scan_stopped
     - query_store_begin_persist_runtime_stat
-    - fråga – store_execution_runtime_info
-- ActualPageServerReads/ActualPageServerReadAheads läggs till i Query plan-XML för faktiska planer. Ett exempel:
+    - fråga-store_execution_runtime_info
+- ActualPageServerReads/ActualPageServerReadAheads läggs till i XML för frågeplan för faktiska planer. Ett exempel:
 
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 
 > [!NOTE]
-> För att visa dessa attribut i fönstret Egenskaper för frågeplan, krävs SSMS 18,3 eller senare.
+> Om du vill visa dessa attribut i frågeplanseegenskaperna krävs SSMS 18.3 eller senare.
 
-## <a name="virtual-file-stats-and-io-accounting"></a>Virtuell fil statistik och IO-redovisning
+## <a name="virtual-file-stats-and-io-accounting"></a>Virtuell fil statistik och IO redovisning
 
-I Azure SQL Database är [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF det främsta sättet att övervaka SQL Server IO. I/o-egenskaper i storskaliga är olika på grund av dess [distribuerade arkitektur](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). I det här avsnittet fokuserar vi på IO (läsningar och skrivningar) till datafiler som visas i den här DMF-filen. I stor skala motsvarar varje datafil som visas i den här DMF en fjärrwebbserver. RBPEX-cachen som nämns här är en lokal SSD-baserad cache, som är en icke-handelscache på beräknings repliken.
+I Azure SQL Database är [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF det primära sättet att övervaka SQL Server IO. IO-egenskaper i Hyperscale är olika på grund av dess [distribuerade arkitektur](sql-database-service-tier-hyperscale.md#distributed-functions-architecture). I det här avsnittet fokuserar vi på IO (läsningar och skrivningar) till datafiler som kan ses i denna DMF. I Hyperskala motsvarar varje datafil som är synlig i den här DMF en fjärrsidesserver. RBPEX-cachen som nämns här är en lokal SSD-baserad cache, som är en cache som inte täcker på beräkningsrepliken.
 
-### <a name="local-rbpex-cache-usage"></a>Lokal RBPEX-cache-användning
+### <a name="local-rbpex-cache-usage"></a>Lokal RBPEX-cacheanvändning
 
-Den lokala RBPEX-cachen finns på beräknings repliken på lokal SSD-lagring. Därför är i/o för denna cache snabbare än i/o mot fjärrservrar. För närvarande har [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) i en storskalig databas en särskild rad som rapporterar IO mot den lokala RBPEX-cachen på beräknings repliken. Den här raden har värdet 0 för både `database_id` och `file_id` kolumner. Frågan nedan returnerar t. ex. RBPEX användnings statistik sedan databasen startades.
+Lokal RBPEX-cache finns på beräkningsrepliken, på lokal SSD-lagring. Därför är IO mot den här cachen snabbare än IO mot fjärrsidesservrar. [Sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) i en hyperskaladatabas har för närvarande en särskild rad som rapporterar IO mot den lokala RBPEX-cachen på beräkningsrepliken. Den här raden har värdet `database_id` 0 för båda och `file_id` kolumner. Frågan nedan returnerar till exempel RBPEX-användningsstatistik sedan databasen startades.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
-Förhållandet mellan läsningar som gjorts på RBPEX till sammanställda läsningar på alla andra datafiler ger RBPEX för cache träff.
+Ett förhållande av läsningar som görs på RBPEX till aggregerade läsningar som görs på alla andra datafiler ger RBPEX-cachehitförhållande.
 
-### <a name="data-reads"></a>Data läsningar
+### <a name="data-reads"></a>Data läser
 
-- När läsningar utfärdas av SQL Server-motorn på en beräknings replik, kan de hanteras antingen av den lokala RBPEX-cachen eller av fjärrservrar, eller genom en kombination av de två om du läser flera sidor.
-- När beräknings repliken läser vissa sidor från en viss fil, till exempel file_id 1, om dessa data bara finns i den lokala RBPEX-cachen, är all i/o för detta Läs konto mot file_id 0 (RBPEX). Om en del av dessa data finns i den lokala RBPEX-cachen och en del finns på en fjärrserver, redovisas i/o till file_id 0 för den del som hanteras från RBPEX och den del som hanteras från fjärrservern redovisas mot file_id 1. 
-- Om en beräknings replik begär en sida vid en viss [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) från en sida Server, och om sidan Server inte har fångats upp till den begärda LSN, väntar läsningen på beräknings repliken tills sidan servern har hämtats innan sidan returneras till beräknings repliken. För all läsning från en sid server på Compute-repliken visas PAGEIOLATCH_ * wait-typ om den väntar på detta i/o. I den här vänte tiden inkluderar den här vänte tiden både tiden för att fånga upp den begärda sidan på sidan till den LSN som krävs, och hur lång tid det tar att överföra sidan från sidan server till beräknings repliken.
-- Stora läsningar som till exempel Read-Ahead görs ofta med ["punkt-samla in" läsningar](/sql/relational-databases/reading-pages/). Detta tillåter läsning av upp till 4 MB sidor i taget, och betraktas som en enda läsning i SQL Server motor. Men när data läses i RBPEX redovisas dessa läsningar som flera enskilda 8 KB-läsningar, eftersom buffert-och RBPEX alltid använder 8 KB-sidor. Resultatet är att antalet Läs-IOs som ses mot RBPEX kan vara större än det faktiska antalet IOs som utförs av motorn.
+- När läsningar utfärdas av SQL Server-motorn på en beräkningsreplik kan de betjänas antingen av den lokala RBPEX-cachen eller av fjärrsidesservrar, eller av en kombination av de två om de läser flera sidor.
+- När beräkningsrepliken läser vissa sidor från en viss fil, till exempel file_id 1, om dessa data finns enbart på den lokala RBPEX-cachen, redovisas all I/o för den här läsningen mot file_id 0 (RBPEX). Om någon del av dessa data finns i den lokala RBPEX-cachen, och en del finns på en fjärrsidesserver, redovisas IO mot file_id 0 för den del som betjänas från RBPEX, och den del som betjänas från fjärrsidesservern redovisas till file_id 1. 
+- När en beräkningsreplik begär en sida på en viss [LSN](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) från en sidserver, om sidservern inte har hunnit ikapp det LSN som begärts, väntar läsningen på beräkningsrepliken tills sidservern hinner ikapp innan sidan returneras till beräkningsrepliken. För alla läsningar från en sidserver på beräkningsrepliken visas PAGEIOLATCH_* vänta-typen om den väntar på den IO:an. I Hyperscale innehåller den här väntetiden både tid att komma ikapp den begärda sidan på sidservern till det LSN som krävs och den tid som krävs för att överföra sidan från sidservern till beräkningsrepliken.
+- Stora läsningar som read-ahead görs ofta med ["Scatter-Gather" Läser](/sql/relational-databases/reading-pages/). Detta gör att läsningar på upp till 4 MB sidor åt gången, betraktas som en enda läsning i SQL Server-motorn. Men när data som läses finns i RBPEX, dessa läsningar redovisas som flera enskilda 8 KB läser, eftersom buffertpoolen och RBPEX alltid använder 8 KB sidor. Som ett resultat kan antalet lästa IOs som ses mot RBPEX vara större än det faktiska antalet IOs som utförs av motorn.
 
-### <a name="data-writes"></a>Data skrivningar
+### <a name="data-writes"></a>Data skriver
 
-- Den primära beräknings repliken skriver inte direkt till sid servrar. I stället spelas logg poster från logg tjänsten upp på motsvarande sid servrar. 
-- Skrivningar som sker på beräknings repliken skrivs huvudsakligen till den lokala RBPEX (file_id 0). För skrivningar på logiska filer som är större än 8 KB, kommer varje Skriv åtgärd att översättas till flera 8 KB [-](/sql/relational-databases/writing-pages/)individuella SKRIVNINGAR till RBPEX eftersom BUFFERTPOOLTILLÄGGET och RBPEX alltid använder 8 KB sidor. Resultatet är att antalet skriv-IOs som ses mot RBPEX kan vara större än det faktiska antalet IOs som utförs av motorn.
-- Icke-RBPEX filer eller datafiler förutom file_id 0 som motsvarar sid servrar, visar även skrivningar. I den storskaliga tjänst nivån simuleras dessa skrivningar, eftersom beräknings replikerna aldrig skriver direkt till sid servrar. Skrivning av IOPS och data flöde redovisas som de inträffar på beräknings repliken, men svars tiden för datafiler som inte är file_id 0 återspeglar inte den faktiska svars tiden för sid Server skrivningar.
+- Den primära beräkningsrepliken skriver inte direkt till sidservrar. I stället spelas loggposter från loggtjänsten upp på motsvarande sidservrar. 
+- Skrivningar som sker på beräkningsrepliken skrivs huvudsakligen till den lokala RBPEX (file_id 0). För skrivningar på logiska filer som är större än 8 KB, med andra ord de som görs med [Gather-write,](/sql/relational-databases/writing-pages/)varje skrivåtgärd översätts till flera 8 KB enskilda skrivningar till RBPEX eftersom buffertpoolen och RBPEX alltid använder 8 KB sidor. Som ett resultat kan antalet skriv-IOs som ses mot RBPEX vara större än det faktiska antalet IOs som utförs av motorn.
+- Icke-RBPEX-filer, eller andra datafiler än file_id 0 som motsvarar sidservrar, visar också skrivningar. På tjänstnivån Hyperskala simuleras dessa skrivningar, eftersom beräkningsrepliker aldrig skriver direkt till sidservrar. Skriv IOPS och dataflöde redovisas när de inträffar på beräkningsrepliken, men svarstiden för andra datafiler än file_id 0 återspeglar inte den faktiska svarstiden för sidserverskrivningar.
 
-### <a name="log-writes"></a>Logg skrivningar
+### <a name="log-writes"></a>Logga skriver
 
-- Vid den primära beräkningen redovisas logg skrivningen för i file_id 2 av sys. dm_io_virtual_file_stats. En logg skrivning vid primär beräkning är en skrivning till loggens landnings zon.
-- Logg poster skärps inte på den sekundära repliken vid genomförande. I den storskaliga loggen tillämpas logg tjänsten på de sekundära replikerna asynkront. Eftersom logg skrivningar inte inträffar på sekundära repliker, är all redovisning av logg-IOs på de sekundära replikerna endast i spårnings syfte.
+- På den primära beräkningen redovisas en loggskrivning i file_id 2 i sys.dm_io_virtual_file_stats. En loggskrivning på primär beräkning är en skrivning till loggen Landing Zone.
+- Loggposter naas inte på den sekundära repliken vid en commit. I Hyperskala används loggen av loggtjänsten på de sekundära replikerna asynkront. Eftersom loggskrivningar faktiskt inte förekommer på sekundära repliker, är all redovisning av logg-IOs på de sekundära replikerna endast för spårningsändamål.
 
-## <a name="data-io-in-resource-utilization-statistics"></a>Data-i/o i statistik över resursutnyttjande
+## <a name="data-io-in-resource-utilization-statistics"></a>Data-I/O i resursanvändningsstatistik
 
-I en icke-storskalig databas rapporteras kombinerad läsning och skrivning av IOPS mot datafiler, i förhållande till antalet [resurs styrnings](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) data IOPS, i [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vyer i `avg_data_io_percent`-kolumnen. Samma värde rapporteras i portalen som _data IO-procent_. 
+I en icke-hyperskala databas rapporteras kombinerade läsa och skriva IOPS mot datafiler, i förhållande till iops-gränsen för [resursstyrningsdata,](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) i [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) och [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vyer i `avg_data_io_percent` kolumnen. Samma värde rapporteras i portalen som _data-IO-procent_. 
 
-I en storskalig databas rapporterar den här kolumnen om data-IOPS-användning i förhållande till gränsen för lokal lagring på beräknings replik, särskilt i/o mot RBPEX och `tempdb`. Ett värde på 100% i den här kolumnen visar att resurs styrning begränsar lokal lagrings-IOPS. Om detta korreleras med ett prestanda problem kan du justera arbets belastningen för att generera mindre IO eller öka databas tjänst målet för att öka resurs styrningens _maximala IOPS_ - [gräns](sql-database-vcore-resource-limits-single-databases.md). För resurs styrning av RBPEX-läsningar och skrivningar räknar systemet individuell 8 KB IOs, i stället för större IOs som kan utfärdas av SQL Server-motorn. 
+I en hyperskaladatabas rapporterar den här kolumnen dataanvändning av IOPS i förhållande till gränsen för `tempdb`lokal lagring endast på beräkningsreplik, särskilt IO mot RBPEX och . Värdet på 100 % i den här kolumnen anger att resursstyrning begränsar iops för lokal lagring. Om detta är korrelerat med ett prestandaproblem, justera arbetsbelastningen för att generera mindre IO, eller öka databastjänstmål för att öka gränsen för högsta _datadata IOPS_ [för](sql-database-vcore-resource-limits-single-databases.md)resursstyrning . För resursstyrning av RBPEX-läsningar och skrivningar räknar systemet enskilda 8 KB IOs, snarare än större IOs som kan utfärdas av SQL Server-motorn. 
 
-Data-i/o mot fjärrservrar har inte rapporter ATS i vyer för resursanvändning eller i portalen, men rapporteras i [sys. dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF, som tidigare nämnts.
+Data-I/O mot fjärrsidesservrar rapporteras inte i resursanvändningsvyer eller i portalen, men rapporteras i [DMF för sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) som nämnts tidigare.
 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- För vCore resurs gränser för en storskalig enkel databas, se [storskaliga vCore-gränser för service nivå](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
-- Azure SQL Database prestanda justering finns [i fråga om prestanda i Azure SQL Database](sql-database-performance-guidance.md)
-- För prestanda justering med hjälp av Query Store, se [prestanda övervakning med Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
-- Information om hur du övervakar skript för DMV finns i [övervaknings prestanda Azure SQL Database använda vyer för dynamisk hantering](sql-database-monitoring-with-dmvs.md)
+- För vCore-resursgränser för en hyperskala enkel databas se [Hyperscale service tier vCore Limits](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
+- Prestandajustering för Azure SQL Database finns [i Frågeprestanda i Azure SQL Database](sql-database-performance-guidance.md)
+- Prestandajustering med Query Store finns i [Prestandaövervakning med Frågearkivet](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
+- För DMV-övervakningsskript finns i [Övervaka prestanda Azure SQL Database med hjälp av dynamiska hanteringsvyer](sql-database-monitoring-with-dmvs.md)

@@ -1,5 +1,5 @@
 ---
-title: Felkoder i Azure Active Directory Portal | Microsoft Docs
+title: Felkoder i Azure Active Directory-portalen | Microsoft-dokument
 description: Referens för felkoder för inloggningsaktivitet.
 services: active-directory
 documentationcenter: ''
@@ -18,21 +18,21 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6b4e21a23ebc455653b4d5b22ac18023b533728c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190474"
 ---
-# <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
+# <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggningsaktivitetsrapport 
 
-Med den information som tillhandahålls av [rapporten med användar inloggningar](concept-sign-ins.md)hittar du svar på frågor som:
+Med informationen i [rapporten inloggningar](concept-sign-ins.md)för användare hittar du svar på frågor som:
 
-- Vem är inloggad i mitt program?
-- Vilka program var inloggade på?
+- Vem har loggat in på min ansökan?
+- Vilka ansökningar har loggats in på?
 - Vilka inloggningar misslyckades och varför?
 
-När en inloggning Miss lyckas visas en felkod som motsvarar felet. [Hitta beskrivningen av en felkod](https://login.microsoftonline.com/error).
+När en inloggning misslyckas visas en felkod som motsvarar felet. [Leta reda på beskrivningen för en felkod](https://login.microsoftonline.com/error).
 
 
 

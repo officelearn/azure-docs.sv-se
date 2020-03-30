@@ -5,17 +5,17 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 852a3b00e8513f9ce68c5aae54c974505d0c9af6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187841"
 ---
-1. Starta på en Mac **Nyckelhanterare**. I det vänstra navigeringsfältet under **kategori**öppnar **mina certifikat**. Hitta SSL-certifikatet som du hämtade i föregående avsnitt och lämna ut innehållet. Välj endast certifikatet (Välj inte den privata nyckeln). Sedan [exportera det](https://support.apple.com/kb/PH20122?locale=en_US).
-2. I den [Azure-portalen](https://portal.azure.com/)väljer **Bläddra bland alla** > **Apptjänster**. Sedan väljer Mobile Apps serverdel. 
-3. Under **inställningar**väljer **App Service Push**. Välj sedan namnet på din meddelandehubb. 
-4. Gå till **Apple Push Notification Services** > **överför certifikat**. Ladda upp .p12-filen som att välja rätt **läge** (beroende på om dina SSL-klientcertifikat från tidigare är produktions- eller sandbox). Spara ändringarna.
+1. Starta **Nyckelringsåtkomst på**din Mac . Öppna Mina certifikat under **Kategori**i det vänstra **navigeringsfältet**. Leta reda på DET SSL-certifikat som du hämtade i föregående avsnitt och visa sedan dess innehåll. Välj bara certifikatet (välj inte den privata nyckeln). Exportera [den sedan](https://support.apple.com/kb/PH20122?locale=en_US).
+2. I [Azure-portalen](https://portal.azure.com/)väljer du **Bläddra bland alla** > **App Services**. Välj sedan din bärbara mobilappars baksida. 
+3. Under **Inställningar**väljer du **App Service Push**. Välj sedan namnet på meddelandehubben. 
+4. Gå till**Uppladdningscertifikat för** **Apple Push Notification Services** > . Ladda upp .p12-filen och välj rätt **läge** (beroende på om klientens SSL-certifikat från tidigare är produktion eller sandlåda). Spara eventuella ändringar.
 
-Din tjänst har nu konfigurerats för att fungera med push-meddelanden på iOS.
+Tjänsten är nu konfigurerad för att fungera med push-meddelanden på iOS.
 
 [1]: ./media/app-service-mobile-apns-configure-push/mobile-push-notification-hub.png

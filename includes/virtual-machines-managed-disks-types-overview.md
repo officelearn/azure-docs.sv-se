@@ -9,55 +9,55 @@ ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 72d87142f9b9c1f7bcb2b02281851bd1e29bc9c8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78262678"
 ---
-Azure Managed disks erbjuder för närvarande fyra disk typer, och varje typ är riktad mot specifika kund scenarier.
+Azure-hanterade diskar erbjuder för närvarande fyra disktyper, varje typ är avsedd för specifika kundscenarier.
 
 ## <a name="disk-comparison"></a>Diskjämförelse
 
-Följande tabell innehåller en jämförelse av Ultra disks, Premium solid-state-hårddiskar (SSD), standard SSD och standard hård diskar (HDD) för hanterade diskar för att hjälpa dig att avgöra vad som ska användas.
+Följande tabell innehåller en jämförelse av ultradiskar, SSD(Premium Solid State Drives), standard-SSD och vanliga hårddiskar (HDD) för hanterade diskar som hjälper dig att bestämma vad du ska använda.
 
-|   | Ultra disk   | Premium SSD   | Standard SSD   | Standard HDD   |
+|   | Ultradisk   | Premium SSD   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |I/o-intensiva arbets belastningar, till exempel [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webb servrar, lätt använda företags program och utveckling/testning   |Säkerhets kopiering, icke-kritisk, ovanligt åtkomst   |
-|Största disk storlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
-|Maximalt data flöde   |2 000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Högsta IOPS   |160 000    |20,000   |6,000   |2,000   |
+|Scenario   |IO-intensiva arbetsbelastningar som [SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), top tier-databaser (till exempel SQL, Oracle) och andra transaktionstunga arbetsbelastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, företagsprogram med lätt användning och Dev/Test   |Säkerhetskopiering, icke-kritisk, lågfrekvent åtkomst   |
+|Maximal diskstorlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
+|Maximalt dataflöde   |2 000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Maximalt IOPS   |160 000    |20 000   |6 000   |2 000   |
 
-## <a name="ultra-disk"></a>Ultra disk
+## <a name="ultra-disk"></a>Ultradisk
 
-Azure Ultra disks levererar högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med Ultra disks är möjligheten att dynamiskt ändra diskens prestanda, tillsammans med dina arbets belastningar, utan att behöva starta om dina virtuella datorer (VM). Ultra disks lämpar sig för data intensiva arbets belastningar som SAP HANA, toppnivå databaser och transaktions krävande arbets belastningar. Ultra disks kan endast användas som data diskar. Vi rekommenderar att du använder Premium-SSD som OS-diskar.
+Azures ultradiskar tillhandahåller disklagring med ett snabbt dataflöde, hög IOPS och konsekvent snabba svarstider för virtuella Azure IaaS-datorer. Några ytterligare fördelar med ultradiskar inkluderar möjligheten att dynamiskt ändra diskens prestanda, tillsammans med dina arbetsbelastningar, utan att behöva starta om virtuella datorer (VM). Ultradiskar är lämpliga för dataintensiva arbetsbelastningar som SAP HANA, databaser på toppnivå och transaktionskrävande arbetsbelastningar. Ultradiskar kan endast användas som datadiskar. Vi rekommenderar att du använder Premium-SSD-diskar som operativsystemsdiskar.
 
 ### <a name="performance"></a>Prestanda
 
-När du etablerar en Ultra disk kan du oberoende konfigurera kapaciteten och diskens prestanda. Ultra disks har flera fasta storlekar, från 4 GiB upp till 64 TiB och en flexibel prestanda konfigurations modell som gör att du kan konfigurera IOPS och data flöde oberoende av varandra.
+När du etablerar en ultradisk kan du självständigt konfigurera diskens kapacitet och prestanda. Ultra diskar finns i flera fasta storlekar, allt från 4 GiB upp till 64 TiB, och har en flexibel prestanda konfiguration modell som låter dig självständigt konfigurera IOPS och dataflöde.
 
-Några viktiga funktioner i Ultra disks:
+Några viktiga funktioner för ultradiskar är:
 
-- Disk kapacitet: Ultra disks-kapacitet sträcker sig från 4 GiB upp till 64 TiB.
-- Disk IOPS: Ultra disks stöder IOPS-gränser på 300 IOPS/GiB, upp till högst 160 K IOPS per disk. Säkerställ att den valda disk-IOPS är mindre än den virtuella datorns IOPS-gräns för att uppnå den IOPS som du har allokerat. Lägsta garanterade IOPS per disk är 2 IOPS/GiB, med en total bas linje som är minst 100 IOPS. Om du till exempel har en 4 GiB Ultra-disk får du minst 100 IOPS i stället för åtta IOPS.
-- Disk data flöde: med Ultra disks är data flödes gränsen på en enskild disk 256 KiB/s för varje etablerad IOPS, upp till högst 2000 MBps per disk (där Mbit/s = 10 ^ 6 byte per sekund). Lägsta garanterade data flöde per disk är 4KiB/s för varje etablerad IOPS med en total bas linje som är minst 1 Mbit/s.
-- Ultra disks stöder justering av attribut för disk prestanda (IOPS och data flöde) vid körning utan att disken kopplas bort från den virtuella datorn. När en disk prestanda har ändrats på en disk kan det ta upp till en timme innan ändringen träder i kraft. Det finns en gräns för fyra åtgärder för storleks ändring under en 24-timmarsperiod. Det går att ändra storlek på en prestanda för att kunna köras på grund av brist på prestanda bandbredds kapacitet.
+- Diskkapacitet: Ultra diskkapacitet varierar från 4 GiB upp till 64 TiB.
+- Disk IOPS: Ultra diskar stöder IOPS-gränser på 300 IOPS/GiB, upp till maximalt 160 K IOPS per disk. För att uppnå IOPS som du har etablerat, se till att den valda disk-IOPS är mindre än VM IOPS-gränsen. Den minsta garanterade IOPS per disk är 2 IOPS/GiB, med en total baslinje minst 100 IOPS. Om du till exempel har en 4 GiB-ultradisk har du minst 100 IOPS i stället för åtta IOPS.
+- Diskdataflöde: Med ultradiskar är dataflödesgränsen för en enskild disk 256 KiB/s för varje etablerad IOPS, upp till maximalt 2000 MBps per disk (där MBps = 10^6 Byte per sekund). Det minsta garanterade dataflödet per disk är 4KiB/s för varje etablerad IOPS, med ett totalt baslinjeminimum på 1 MBps.
+- Ultra diskar stöd justera diskens prestandaattribut (IOPS och dataflöde) vid körning utan att koppla bort disken från den virtuella datorn. När en diskprestandaändringsåtgärd har utfärdats på en disk kan det ta upp till en timme innan ändringen börjar gälla. Det finns en gräns på fyra åtgärder för att ändra storlek på prestanda under ett 24-timmarsfönster. Det är möjligt att en funktion för att ändra storlek på prestanda misslyckas på grund av bristande kapacitet för bandbredd.
 
 ### <a name="disk-size"></a>Diskstorlek
 
-|Disk storlek (GiB)  |IOPS-hölje  |Data flödes gräns (Mbit/s)  |
+|Diskstorlek (GiB)  |IOPS-lock  |Genomströmningslock (MBps)  |
 |---------|---------|---------|
-|4     |1,200         |300         |
+|4     |1200         |300         |
 |8     |2,400         |600         |
-|16     |4,800         |1,200         |
-|32     |9 600         |2,000         |
-|64     |19 200         |2,000         |
-|128     |38 400         |2,000         |
-|256     |76 800         |2,000         |
-|512     |80,000         |2,000         |
-|1 024-65536 (storlekar i det här intervallet ökar i steg om 1 TiB)     |160 000         |2,000         |
+|16     |4 800         |1200         |
+|32     |9 600         |2 000         |
+|64     |19,200         |2 000         |
+|128     |38,400         |2 000         |
+|256     |76 800         |2 000         |
+|512     |80 000         |2 000         |
+|1 024-65 536 (storlekarna i detta intervall ökar i steg om 1 TiB)     |160 000         |2 000         |
 
-### <a name="ga-scope-and-limitations"></a>Allmän omfattning och begränsningar
+### <a name="ga-scope-and-limitations"></a>GA omfattning och begränsningar
 
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]

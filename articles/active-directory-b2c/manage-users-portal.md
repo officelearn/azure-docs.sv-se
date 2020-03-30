@@ -1,6 +1,6 @@
 ---
-title: Skapa & ta bort Azure AD B2C konsument användar konton i Azure Portal
-description: Lär dig hur du använder Azure Portal för att skapa och ta bort konsument användare i din Azure AD B2Cs katalog.
+title: Skapa & ta bort Azure AD B2C-konsumentanvändarkonton i Azure-portalen
+description: Lär dig hur du använder Azure-portalen för att skapa och ta bort konsumentanvändare i din Azure AD B2C-katalog.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,54 +11,54 @@ ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187227"
 ---
-# <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Använd Azure Portal för att skapa och ta bort konsument användare i Azure AD B2C
+# <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Använda Azure-portalen för att skapa och ta bort konsumentanvändare i Azure AD B2C
 
-Det kan finnas scenarier där du manuellt vill skapa konsument konton i din Azure Active Directory B2C-katalog (Azure AD B2C). Även om konsument konton i en Azure AD B2C katalog vanligt vis skapas när användarna registrerar sig för att använda ett av dina program, kan du skapa dem program mässigt och genom att använda Azure Portal. Den här artikeln fokuserar på Azure Portal metoden för att skapa och ta bort användare.
+Det kan finnas scenarier där du manuellt vill skapa konsumentkonton i din Azure Active Directory B2C -katalog (Azure AD B2C). Även om konsumentkonton i en Azure AD B2C-katalog oftast skapas när användare registrerar sig för att använda ett av dina program, kan du skapa dem programmässigt och med hjälp av Azure-portalen. Den här artikeln fokuserar på Azure-portalen metod för att skapa och ta bort användare.
 
-För att lägga till eller ta bort användare måste ditt konto tilldelas rollen *användar administratör* eller *Global administratör* .
+Om du vill lägga till eller ta bort användare måste ditt konto tilldelas *rollen Användaradministratör* eller *Global administratör.*
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="types-of-user-accounts"></a>Typer av användar konton
+## <a name="types-of-user-accounts"></a>Typer av användarkonton
 
-Enligt beskrivningen i [Översikt över användar konton i Azure AD B2C](user-overview.md)finns det tre typer av användar konton som kan skapas i en Azure AD B2C katalog:
+Som beskrivs i [Översikt över användarkonton i Azure AD B2C](user-overview.md)finns det tre typer av användarkonton som kan skapas i en Azure AD B2C-katalog:
 
 * Arbete
-* Välkommen
-* Kund
+* Gäst
+* Konsumenten
 
-Den här artikeln fokuserar på att arbeta med **konsument konton** i Azure Portal. Information om hur du skapar och tar bort arbets-och gäst konton finns i [lägga till eller ta bort användare med hjälp av Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
+Den här artikeln fokuserar på att arbeta med **konsumentkonton** i Azure-portalen. Information om hur du skapar och tar bort jobb- och gästkonton finns i [Lägga till eller ta bort användare med Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-## <a name="create-a-consumer-user"></a>Skapa en konsument användare
+## <a name="create-a-consumer-user"></a>Skapa en konsumentanvändare
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
-1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **katalog + prenumerationsfilter** på den övre menyn och välj sedan den katalog som innehåller din Azure AD B2C-klient.
+1. Välj Azure AD **B2C**på den vänstra menyn . Du kan också välja **Alla tjänster** och sök efter och välj Azure **AD B2C**.
 1. Under **Hantera** väljer du **Användare**.
 1. Välj **Ny användare**.
-1. Välj **skapa Azure AD B2C användare**.
-1. Välj en **inloggnings metod** och ange antingen en **e-** postadress eller ett **användar namn** för den nya användaren. Den inloggnings metod du väljer här måste matcha den inställning som du har angett för din Azure AD B2C klients *lokala konto* identitets leverantör (se **Hantera** > **identitets leverantörer** i din Azure AD B2C klient).
-1. Ange ett **namn** för användaren. Detta är vanligt vis användarens fullständiga namn (anges och efter namn).
-1. Valfritt Du kan **blockera inloggning** om du vill försena möjligheten för användaren att logga in. Du kan aktivera logga in senare genom att redigera användarens **profil** i Azure Portal.
-1. Välj Skapa lösen **ord automatiskt** eller **Låt mig skapa lösen ord**.
-1. Ange användarens **förnamn** och **efter namn**.
+1. Välj **Skapa Azure AD B2C-användare**.
+1. Välj en **inloggningsmetod** och ange antingen en **e-postadress** eller ett **användarnamn** för den nya användaren. Inloggningsmetoden som du väljer här måste matcha den inställning som du har angett för din Azure AD B2C-klientens identitetsprovider *för lokalt konto* (se **Hantera** > **identitetsleverantörer** i din Azure AD B2C-klient).
+1. Ange ett **namn** för användaren. Detta är vanligtvis användarens fullständiga namn (förnamn och efternamn).
+1. (Valfritt) Du kan **blockera inloggning** om du vill fördröja möjligheten för användaren att logga in. Du kan aktivera inloggning senare genom att redigera användarens **profil** i Azure-portalen.
+1. Välj **Automatiskt generera lösenord** eller Låt mig skapa **lösenord**.
+1. Ange användarens **förnamn** och **efternamn**.
 1. Välj **Skapa**.
 
-Om du inte har valt **blockera inloggning**kan användaren nu logga in med inloggnings metoden (e-post eller användar namn) som du har angett.
+Om du inte har valt **Blockera inloggning**kan användaren nu logga in med inloggningsmetoden (e-post eller användarnamn) som du har angett.
 
-## <a name="delete-a-consumer-user"></a>Ta bort en konsument användare
+## <a name="delete-a-consumer-user"></a>Ta bort en konsumentanvändare
 
-1. I Azure AD B2C katalog väljer du **användare**och väljer sedan den användare som du vill ta bort.
-1. Välj **ta bort**och sedan **Ja** för att bekräfta borttagningen.
+1. I din Azure AD B2C-katalog väljer du **Användare**och väljer sedan den användare som du vill ta bort.
+1. Välj **Ta bort**och sedan **Ja** för att bekräfta borttagningen.
 
-Mer information om hur du återställer en användare inom de första 30 dagarna efter borttagning, eller om du vill ta bort en användare permanent, finns i [återställa eller ta bort en nyligen borttagen användare med hjälp av Azure Active Directory](../active-directory/fundamentals/active-directory-users-restore.md).
+Mer information om hur du återställer en användare inom de första 30 dagarna efter borttagningen eller för att permanent ta bort en användare finns i [Återställa eller ta bort en nyligen borttagen användare med Azure Active Directory](../active-directory/fundamentals/active-directory-users-restore.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-För automatiserade scenarier för användar hantering, till exempel när du migrerar användare från en annan identitetsprovider till din Azure AD B2C katalog, se [Azure AD B2C:](user-migration.md)användarmigrering.
+För automatiserade användarhanteringsscenarier, till exempel migrera användare från en annan identitetsprovider till din Azure AD B2C-katalog, finns i [Azure AD B2C: User migration](user-migration.md).

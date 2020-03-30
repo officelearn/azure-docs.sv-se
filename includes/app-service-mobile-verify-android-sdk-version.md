@@ -5,24 +5,24 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 46cfb27b8bde95990d13ec4bca4e96f25cfe9dc5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187858"
 ---
-På grund av pågående utveckling kanske Android SDK-versionen som installerats i Android Studio inte matchar versionen i koden. Android SDK refereras till i den här självstudien är version 26, senast vid tidpunkten för skrivning. Öka versionsnumret som visas av nya versioner av SDK, och vi rekommenderar att du använder den senast tillgängliga versionen.
+På grund av pågående utveckling kanske Android SDK-versionen som är installerad i Android Studio inte matchar versionen i koden. Android SDK refereras i den här guiden är version 26, den senaste i skrivande stund. Versionsnumret kan öka när nya versioner av SDK visas, och vi rekommenderar att du använder den senaste tillgängliga versionen.
 
-Två symptom av versionskonflikt:
+Två symptom på version obalans är:
 
-- När du skapar eller återskapa projektet kan du få Gradle felmeddelanden som `Gradle sync failed: Failed to find target with hash string 'android-XX'`.
-- Android Standardobjekt i koden som ska matcha utifrån `import` instruktioner kan generera felmeddelanden.
+- När du skapar eller återskapar projektet kan du `Gradle sync failed: Failed to find target with hash string 'android-XX'`få Gradle-felmeddelanden som .
+- Standard-Android-objekt i kod `import` som ska matchas baserat på satser kan generera felmeddelanden.
 
-Om något av dessa visas kanske versionen av Android SDK: N installeras i Android Studio inte överensstämmer med SDK-målet för det hämta projektet. Kontrollera versionen genom att göra följande ändringar:
+Om något av dessa visas kanske versionen av Android SDK som är installerad i Android Studio inte matchar SDK-målet för det nedladdade projektet. Så här verifierar du versionen:
 
-1. I Android Studio klickar du på **verktyg** > **Android** > **SDK Manager**. Klicka för att installera den om du inte har installerat den senaste versionen av SDK-plattformen. Anteckna det lägre versionsnumret.
+1. I Android Studio klickar du på **Verktyg** > **Android** > **SDK Manager**. Om du inte har installerat den senaste versionen av SDK-plattformen klickar du för att installera den. Anteckna versionsnumret.
 
-2. På den **Projektutforskaren** fliken, under **Gradle-skripten**, öppna filen **build.gradle (modul: app)** . Se till att den **compileSdkVersion** och **targetSdkVersion** är inställda på SDK-version som är installerad. Den `build.gradle` se ut så här:
+2. Öppna filen **build.gradle (Modul: app)** under **Gradle-skript**på fliken **Projektutforskaren** . Kontrollera att **kompileringenSdkVersion** och **targetSdkVersion** är inställda på den senaste SDK-versionen installerad. Den `build.gradle` kan se ut så här:
 
     ```gradle
     android {

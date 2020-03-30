@@ -1,7 +1,7 @@
 ---
-title: Skapa konfigurationer från befintliga servrar – Azure Automation
+title: Skapa konfigurationer från befintliga servrar - Azure Automation
 description: Lär dig hur du skapar konfigurationer från befintliga servrar för Azure Automation.
-keywords: DSC, PowerShell, konfiguration, installation
+keywords: dsc,powershell,konfiguration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -11,40 +11,40 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: d888c8fd3bf7cd44c37e7225618bd197f419d275
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76030123"
 ---
 # <a name="create-configurations-from-existing-servers"></a>Skapa konfigurationer från befintliga servrar
 
-> Gäller för: Windows PowerShell 5,1
+> Gäller: Windows PowerShell 5.1
 
-Det kan vara en utmaning att skapa konfigurationer från befintliga servrar.
-Du kanske inte vill ha *alla* inställningar, bara de som du bryr dig om.
-Du måste även veta i vilken ordning inställningarna ska tillämpas för att konfigurationen ska kunna tillämpas.
+Att skapa konfigurationer från befintliga servrar kan vara en utmanande uppgift.
+Du kanske inte vill *ha alla* inställningar, bara de som du bryr dig om.
+Även då måste du veta i vilken ordning inställningarna måste tillämpas för att konfigurationen ska kunna tillämpas.
 
 > [!NOTE]
-> Den här artikeln hänvisar till en lösning som underhålls av communityn för öppen källkod.
+> Den här artikeln refererar till en lösning som underhålls av open source-communityn.
 > Support är endast tillgängligt i form av GitHub-samarbete, inte från Microsoft.
 
-## <a name="community-project-reversedsc"></a>Community-projekt: ReverseDSC
+## <a name="community-project-reversedsc"></a>Gemenskapsprojekt: ReverseDSC
 
-En community-baserad lösning med namnet [ReverseDSC](https://github.com/microsoft/reversedsc) har skapats för att fungera i det här avsnittet som startar SharePoint.
+En community-lösning med namnet [ReverseDSC](https://github.com/microsoft/reversedsc) har skapats för att fungera i det här området som startar SharePoint.
 
-Lösningen bygger på SharePointDSC- [resursen](https://github.com/powershell/sharepointdsc) och utökar den för att dirigera [insamlings information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) från befintliga SharePoint-servrar.
-Den senaste versionen har flera [extraherings lägen](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes) för att avgöra vilken nivå av information som ska inkluderas.
+Lösningen bygger på [SharePointDSC-resursen](https://github.com/powershell/sharepointdsc) och utökar den till att samordna [insamling av information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) från befintliga SharePoint-servrar.
+Den senaste versionen har flera [extraheringslägen](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes) för att avgöra vilken informationsnivå som ska inkluderas.
 
-Resultatet av att använda lösningen är att skapa [konfigurations data](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) som ska användas med konfigurations skript för SharePointDSC.
+Resultatet av att använda lösningen genererar [konfigurationsdata](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) som ska användas med SharePointDSC-konfigurationsskript.
 
-När datafilerna har genererats kan du använda dem med [DSC-konfigurations skript](/powershell/scripting/dsc/overview/overview) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+När datafilerna har genererats kan du använda dem med [DSC-konfigurationsskript](/powershell/scripting/dsc/overview/overview) för att generera MOF-filer och [ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.
 
-Om du vill testa ReverseDSC går du till [PowerShell-galleriet](https://www.powershellgallery.com/packages/ReverseDSC/) och laddar ned lösningen eller klickar på "Project site" för att visa [dokumentationen](https://github.com/Microsoft/sharepointDSC.reverse).
+Om du vill prova ReverseDSC besöker du [PowerShell-galleriet](https://www.powershellgallery.com/packages/ReverseDSC/) och hämtar lösningen eller klickar på "Projektplats" för att visa [dokumentationen](https://github.com/Microsoft/sharepointDSC.reverse).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview)
+- [Översikt över önskad tillståndskonfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [DSC-resurser](/powershell/scripting/dsc/resources/resources)
-- [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- [Konfigurera den lokala konfigurationshanteraren](/powershell/scripting/dsc/managing-nodes/metaconfig)

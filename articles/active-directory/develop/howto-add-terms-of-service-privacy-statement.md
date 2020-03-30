@@ -1,6 +1,6 @@
 ---
-title: Villkor för service och sekretess policy för appar | Azure
-description: Lär dig hur du kan konfigurera villkoren för tjänsten och sekretess policyn för registrerade appar för att använda Azure AD.
+title: Användarvillkor och sekretesspolicy för appar | Azure
+description: Lär dig hur du kan konfigurera användarvillkoren och sekretesspolicyn för appar som är registrerade för att använda Azure AD.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,62 +13,62 @@ ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78300017"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Gör så här: konfigurera villkor för service och sekretess policy för en app
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Så här konfigurerar du användarvillkor och sekretesspolicy för en app
 
-Utvecklare som skapar och hanterar appar som integreras med Azure Active Directory (Azure AD) och Microsoft-konton bör innehålla länkar till appens användnings villkor och sekretess policy. Användnings villkoren och sekretess policyn är tilldelad till användarna genom användar medgivande upplevelsen. De hjälper användarna att veta att de kan lita på din app. Villkoren för service och sekretess är särskilt viktiga för användare som använder appar för flera klient organisationer – appar som används av flera kataloger eller som är tillgängliga för alla Microsoft-konto.
+Utvecklare som skapar och hanterar appar som integreras med Azure Active Directory (Azure AD) och Microsoft-konton bör inkludera länkar till appens användarvillkor och sekretesspolicy. Villkoren för tjänsten och sekretesspolicyn visas för användarna genom användarsamtyckesupplevelsen. De hjälper användarna att veta att de kan lita på din app. Användarvillkoren och sekretesspolicyn är särskilt viktiga för appar med flera innehavare som används av flera kataloger eller som är tillgängliga för alla Microsoft-konton.
 
-Du ansvarar för att skapa användar villkoren för tjänsten och sekretess policyn för din app och för att tillhandahålla URL: erna till dessa dokument. För appar för flera klienter som inte kan tillhandahålla dessa länkar visas en avisering i användar medgivande för appen, vilket kan hindra användarna från att bli meddelad till din app.
+Du är ansvarig för att skapa användarvillkor och sekretessutdragsdokument för din app och för att tillhandahålla webbadresserna till dessa dokument. För appar med flera innehavare som inte tillhandahåller dessa länkar visar användarens medgivandeupplevelse för din app en avisering som kan avskräcka användare från att samtycka till din app.
 
 > [!NOTE]
-> * Appar för en enda klient visas inte en avisering.
-> * Om en eller båda av de två länkarna saknas visas en avisering i appen.
+> * Appar med en klient visar ingen avisering.
+> * Om en eller båda länkarna saknas visas en avisering i appen.
 
-## <a name="user-consent-experience"></a>Användar tillstånds upplevelse
+## <a name="user-consent-experience"></a>Erfarenhet av användarens medgivande
 
-I följande exempel visas användarnas medgivande när tjänst villkoren och sekretess policyn konfigureras och när dessa länkar inte har kon figurer ATS.
+Följande exempel visar användarmedgivandeupplevelsen när användarvillkoren och sekretesspolicyn är konfigurerade och när dessa länkar inte är konfigurerade.
 
-![Skärm dum par med och utan sekretess policy och tillhandahållna tjänster](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
+![Skärmdumpar med och utan en sekretesspolicy och användarvillkor som tillhandahålls](./media/howto-add-terms-of-service-privacy-statement/user-consent-exp-privacy-statement-terms-service.png)
 
-## <a name="formatting-links-to-the-terms-of-service-and-privacy-statement-documents"></a>Formatera länkar till villkoren för service och sekretess policy
+## <a name="formatting-links-to-the-terms-of-service-and-privacy-statement-documents"></a>Formatera länkar till villkoren för tjänst- och sekretesspolicydokument
 
-Innan du lägger till länkar till appens användar villkor och sekretess policys-dokument måste du kontrol lera att URL: erna följer dessa rikt linjer.
+Innan du lägger till länkar till appens användarvillkor och sekretesspolicydokument kontrollerar du att webbadresserna följer dessa riktlinjer.
 
 | Riktlinjer     | Beskrivning                           |
 |---------------|---------------------------------------|
 | Format        | Giltig URL                             |
 | Giltiga scheman | HTTP och HTTPS<br/>Vi rekommenderar HTTPS |
-| Max längd    | 2048 tecken                       |
+| Högsta längd    | 2048 tecken                       |
 
-Exempel: `https://myapp.com/terms-of-service` och `https://myapp.com/privacy-statement`
+Exempel: `https://myapp.com/terms-of-service` och`https://myapp.com/privacy-statement`
 
-## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Lägga till länkar till villkoren för tjänsten och sekretess policyn
+## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Lägga till länkar till användarvillkoren och sekretesspolicyn
 
-När tjänst villkoren och sekretess policyn är klara kan du lägga till länkar till dessa dokument i din app med någon av följande metoder:
+När användarvillkoren och sekretesspolicyn är klara kan du lägga till länkar till dessa dokument i appen med någon av följande metoder:
 
-* [Via Azure Portal](#azure-portal)
-* [Använda app Object JSON](#app-object-json)
+* [Via Azure-portalen](#azure-portal)
+* [Använda appobjektet JSON](#app-object-json)
 * [Använda Microsoft Graph API](#msgraph-rest-api)
 
-### <a name="azure-portal"></a>Använda Azure Portal
-Följ de här stegen i Azure Portal.
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Använda Azure-portalen
+Följ dessa steg i Azure-portalen.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Gå till avsnittet **app Registration** och välj din app.
-3. Öppna fönstret **varumärkes anpassning** .
-4. Fyll i URL **-fälten för användnings villkoren** och **URL: en för sekretess policy** .
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Navigera till avsnittet **Appregistreringar** och välj din app.
+3. Öppna **fönstret Branding.**
+4. Fyll i **adressvillkorens webbadress** och **url-fält för sekretesspolicyn.**
 5. Spara ändringarna.
 
-    ![App-egenskaperna innehåller URL: er för användnings villkor och sekretess policy](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Appegenskaper innehåller villkor för tjänst- och sekretesspolicyns webbadresser](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
-### <a name="app-object-json"></a>Använda app Object JSON
+### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>Använda appobjektet JSON
 
-Om du föredrar att ändra programobjekt-JSON direkt kan du använda manifest redigeraren i Azure Portal-eller program registrerings portalen för att ta med länkar till appens användnings villkor och sekretess policy.
+Om du föredrar att ändra appobjektet JSON direkt kan du använda manifestredigeraren i Azure-portalen eller programregistreringsportalen för att inkludera länkar till appens användarvillkor och sekretesspolicy.
 
 ```json
     "informationalUrls": { 
@@ -77,9 +77,9 @@ Om du föredrar att ändra programobjekt-JSON direkt kan du använda manifest re
     }
 ```
 
-### <a name="msgraph-rest-api"></a>Använda Microsoft Graph API
+### <a name="using-the-microsoft-graph-api"></a><a name="msgraph-rest-api"></a>Använda Microsoft Graph API
 
-Om du vill uppdatera alla dina appar program mässigt kan du använda Microsoft Graph-API: et för att uppdatera alla dina appar för att inkludera länkar till villkoren för service och sekretess policy.
+Om du vill uppdatera alla dina appar program på ett programmatiskt kan du använda Microsoft Graph API för att uppdatera alla dina appar så att de innehåller länkar till villkoren för tjänst- och sekretesspolicydokument.
 
 ```
 PATCH https://graph.microsoft.com/v1.0/applications/{application id}
@@ -96,5 +96,5 @@ PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 ```
 
 > [!NOTE]
-> * Var noga med att inte skriva över befintliga värden som du har tilldelat något av dessa fält: `supportUrl`, `marketingUrl`och `logoUrl`
+> * Var noga med att inte skriva över några befintliga värden som `supportUrl`du `marketingUrl`har tilldelat något av dessa fält: , och`logoUrl`
 > * Microsoft Graph API fungerar bara när du loggar in med ett Azure AD-konto. Personliga Microsoft-konton stöds inte.

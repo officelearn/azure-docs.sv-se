@@ -1,7 +1,7 @@
 ---
-title: Exempel på API Management-princip – Route-begäran baserat på meddelande textens storlek
+title: Exempel på API-hanteringsprincip - Flödesbegäran baserat på meddelandetextens storlek
 titleSuffix: Azure API Management
-description: Exempel på Azure API Management policy – visar hur du dirigerar förfrågningar baserat på deras storlek.
+description: Exempel på Azure API-hanteringsprincip - Visar hur du dirigerar begäranden baserat på storleken på deras kroppar.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 8cee2c13386a076f0321619754468cfc1e9fb31c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442433"
 ---
-# <a name="route-the-request-based-on-the-size-of-its-body"></a>Dirigera begäran baserat på dess text storlek
+# <a name="route-the-request-based-on-the-size-of-its-body"></a>Vidarebefordra begäran baserat på storleken på innehållet
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du dirigerar förfrågningar baserat på storleken på deras organ. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på Azure API-hanteringsprincip som visar hur du dirigerar begäranden baserat på storleken på deras kroppar. Om du vill ange eller redigera en principkod följer du stegen som beskrivs i [Ange eller redigerar en princip](../set-edit-policies.md). Mer om du vill se andra exempel finns i [principexempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
@@ -35,5 +35,5 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
++ [Policyexempel](../policy-samples.md)
 

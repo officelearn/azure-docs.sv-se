@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azures drift säkerhet | Microsoft Docs
-description: Den här artikeln ger en översikt över Azures drift säkerhet.
+title: Översikt över driftsäkerhet i Azure| Microsoft-dokument
+description: Den här artikeln innehåller en översikt över Azures driftsäkerhet.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -16,153 +16,153 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443871"
 ---
-# <a name="azure-operational-security-overview"></a>Översikt över Azures drift säkerhet
+# <a name="azure-operational-security-overview"></a>Översikt över Azure-driftsäkerhet
 
-[Azures drift säkerhet](/azure/security/fundamentals/operational-security) syftar på tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda data, program och andra till gångar i Microsoft Azure. Det är ett ramverk som införlivar den kunskap som du har fått via en rad olika funktioner som är unika för Microsoft. Dessa funktioner omfattar Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-programmet och djupgående medvetenhet om cybersäkerhet Threat landskap.
+[Azure-driftsäkerhet](/azure/security/fundamentals/operational-security) refererar till tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda deras data, program och andra resurser i Microsoft Azure. Det är ett ramverk som innehåller den kunskap som erhållits genom en mängd olika funktioner som är unika för Microsoft. Dessa funktioner omfattar Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-programmet och djup medvetenhet om cybersäkerhetshotlandskapet.
 
-## <a name="azure-management-services"></a>Hanterings tjänster för Azure
+## <a name="azure-management-services"></a>Azure-hanteringstjänster
 
-En IT-avdelning ansvarar för att hantera data Center infrastruktur, program och data, inklusive stabilitet och säkerhet för dessa system. Att få till gång till säkerhets insikter i ökande komplexa IT-miljöer kräver dock ofta att organisationer Cobble samman data från flera säkerhets-och hanterings system.
+Ett IT-driftteam ansvarar för att hantera datacenterinfrastruktur, program och data, inklusive stabiliteten och säkerheten för dessa system. Men för att få säkerhetsinsikter i ökande komplexa IT-miljöer krävs det ofta att organisationer snickrar ihop data från flera säkerhets- och hanteringssystem.
 
-[Microsoft Azure övervaka loggar](/azure/operations-management-suite/operations-management-suite-overview) är en molnbaserad IT-hanterings lösning som hjälper dig att hantera och skydda din lokala infrastruktur och moln infrastruktur. De viktigaste funktionerna tillhandahålls av följande tjänster som körs i Azure. Azure innehåller flera tjänster som hjälper dig att hantera och skydda din lokala infrastruktur och moln infrastruktur. Varje tjänst tillhandahåller en speciell hanterings funktion. Du kan kombinera tjänster för att uppnå olika hanterings scenarier. 
+[Microsoft Azure Monitor-loggar](/azure/operations-management-suite/operations-management-suite-overview) är en molnbaserad IT-hanteringslösning som hjälper dig att hantera och skydda din lokala infrastruktur och molninfrastruktur. Dess kärnfunktioner tillhandahålls av följande tjänster som körs i Azure. Azure innehåller flera tjänster som hjälper dig att hantera och skydda din lokala infrastruktur och molninfrastruktur. Varje tjänst tillhandahåller en specifik hanteringsfunktion. Du kan kombinera tjänster för att uppnå olika hanteringsscenarier. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](/azure/azure-monitor/overview) samlar in data från hanterade källor till centrala data lager. Dessa data kan omfatta händelser, prestanda data eller anpassade data som tillhandahålls via API: et. När data har samlats in är de tillgängliga för aviseringar, analyser och export.
+[Azure Monitor](/azure/azure-monitor/overview) samlar in data från hanterade källor i centrala datalager. Dessa data kan innehålla händelser, prestandadata eller anpassade data som tillhandahålls via API:et. När data har samlats in är den tillgänglig för aviseringar, analyser och export.
 
-Du kan konsolidera data från en mängd olika källor och kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Azure Monitor loggar avgränsar också tydligt data mängden från den åtgärd som vidtas för dessa data, så att alla åtgärder är tillgängliga för alla typer av data.
+Du kan konsolidera data från en mängd olika källor och kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Azure Monitor loggar också tydligt separerar insamlingen av data från de åtgärder som vidtagits på dessa data, så att alla åtgärder är tillgängliga för alla typer av data.
 
 ### <a name="automation"></a>Automation
 
-[Azure Automation](/azure/automation/automation-intro) ger dig möjlighet att automatisera de manuella, långvariga, fel känsliga och ofta återkommande uppgifter som utförs ofta i en moln-och företags miljö. Det sparar tid och ökar tillförlitligheten för administrativa uppgifter. Det kan även schemalägga att aktiviteterna ska utföras automatiskt med jämna mellanrum. Du kan automatisera processer med hjälp av Runbooks eller automatisera konfigurations hantering genom att använda önskad tillstånds konfiguration.
+[Azure Automation](/azure/automation/automation-intro) är ett sätt för dig att automatisera manuella, långvariga, felbenägna och ofta upprepade uppgifter som ofta utförs i en moln- och företagsmiljö. Det sparar tid och ökar tillförlitligheten i administrativa uppgifter. Det schemalägger även dessa uppgifter som ska utföras automatiskt med jämna mellanrum. Du kan automatisera processer genom att använda runbooks eller automatisera konfigurationshantering med hjälp av Önskad tillståndskonfiguration.
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Säkerhetskopiering
 
-[Azure Backup](/azure/backup/backup-introduction-to-azure-backup) är den Azure-baserade tjänsten som du kan använda för att säkerhetskopiera (eller skydda) och återställa data i Microsoft Cloud. Azure Backup ersätter din befintliga säkerhets kopierings lösning lokalt eller från en annan plats med en molnbaserad lösning som är tillförlitlig, säker och kostnads konkurrens kraftig.
+[Azure Backup](/azure/backup/backup-introduction-to-azure-backup) är den Azure-baserade tjänst som du kan använda för att säkerhetskopiera (eller skydda) och återställa dina data i Microsoft Cloud. Azure Backup ersätter din befintliga lokala eller off-site backup-lösning med en molnbaserad lösning som är tillförlitlig, säker och kostnadseffektiv.
 
-Azure Backup innehåller komponenter som du hämtar och distribuerar på lämplig dator eller server, eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Azure Recovery Services-valv i Azure.
+Azure Backup erbjuder komponenter som du hämtar och distribuerar på rätt dator eller server eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Azure Recovery Services-valv i Azure.
 
-Mer information finns i [tabellen Azure Backup-komponenter](/azure/backup/backup-overview#what-can-i-back-up).
+Mer information finns i [tabellen Azure Backup components](/azure/backup/backup-overview#what-can-i-back-up).
 
 ### <a name="site-recovery"></a>Site Recovery
 
-[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) ger affärs kontinuitet genom att dirigera replikeringen av lokala virtuella och fysiska datorer till Azure, eller till en sekundär plats. Om den primära platsen inte är tillgänglig växlar du över till den sekundära platsen så att användarna kan fortsätta att arbeta. Du växlar tillbaka när systemen återgår till arbets ordningen. Använd Azure Security Center för att utföra mer intelligent och effektiv hot identifiering.
+[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) ger affärskontinuitet genom att dirigera replikering av lokala virtuella och fysiska datorer till Azure eller till en sekundär plats. Om din primära webbplats inte är tillgänglig växlar du över till den sekundära platsen så att användarna kan fortsätta arbeta. Du misslyckas tillbaka när systemen återgår till funktionsdugligt skick. Använd Azure Security Center för att utföra mer intelligent och effektiv hotidentifiering.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-[Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-enable-sso-scenario) är en omfattande identitets tjänst som:
+[Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-enable-sso-scenario) är en omfattande identitetstjänst som:
 
--   Aktiverar identitets-och åtkomst hantering (IAM) som en moln tjänst.
--   Tillhandahåller central åtkomst hantering, enkel inloggning (SSO) och rapportering.
--   Stöder integrerad åtkomst hantering för [tusentals program](https://azure.microsoft.com/marketplace/active-directory/) på Azure Marketplace, inklusive Salesforce, Google Apps, Box och Concur.
+-   Aktiverar identitets- och åtkomsthantering (IAM) som en molntjänst.
+-   Tillhandahåller central åtkomsthantering, enkel inloggning (SSO) och rapportering.
+-   Stöder integrerad åtkomsthantering för [tusentals program](https://azure.microsoft.com/marketplace/active-directory/) på Azure Marketplace, inklusive Salesforce, Google Apps, Box och Concur.
 
-Azure AD innehåller också en fullständig uppsättning [funktioner för identitets hantering](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), inklusive följande:
+Azure AD innehåller också en komplett uppsättning [funktioner för identitetshantering,](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports)inklusive följande:
 
-- [Multi-Factor Authentication](/azure/multi-factor-authentication/multi-factor-authentication)
-- [Lösen ords hantering via självbetjäning](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
-- [Grupp hantering via självbetjäning](/azure/active-directory/active-directory-passwords-update-your-own-password)
+- [Multifaktorautentisering](/azure/multi-factor-authentication/multi-factor-authentication)
+- [Lösenordshantering via självbetjäning](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
+- [Grupphantering med självbetjäning](/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Hantering av privilegierade konton](/azure/active-directory/active-directory-privileged-identity-management-configure)
 - [Rollbaserad åtkomstkontroll](/azure/role-based-access-control/overview)
-- [Övervakning av program användning](/azure/active-directory/connect-health/active-directory-aadconnect-health)
+- [Övervakning av programanvändning](/azure/active-directory/connect-health/active-directory-aadconnect-health)
 - [Omfattande granskning](/azure/active-directory/active-directory-reporting-activity-audit-logs)
-- [Säkerhetsövervakning och aviseringar](/azure/operations-management-suite/oms-security-responding-alerts)
+- [Övervakning och avisering av säkerhet](/azure/operations-management-suite/oms-security-responding-alerts)
 
-Med Azure Active Directory har alla program som du publicerar för dina partner och kunder (företag eller konsumenter) samma funktioner för identitets-och åtkomst hantering. På så sätt kan du avsevärt minska dina drifts kostnader.
+Med Azure Active Directory har alla program som du publicerar för dina partner och kunder (företag eller konsumenter) samma funktioner för identitets- och åtkomsthantering. På så sätt kan du avsevärt minska dina driftskostnader.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](/azure/security-center/security-center-intro) hjälper dig att förhindra, identifiera och svara på hot med ökad insyn i (och kontroll över) säkerheten för dina Azure-resurser. Den ger integrerad säkerhetsövervakning och princip hantering i dina prenumerationer. Den hjälper till att upptäcka hot som annars kan gå vidare och fungerar med ett brett eko system med säkerhetslösningar.
+[Azure Security Center](/azure/security-center/security-center-intro) hjälper dig att förebygga, identifiera och svara på hot med ökad insyn i (och kontroll över) säkerheten för dina Azure-resurser. Det ger integrerad säkerhetsövervakning och principhantering över dina prenumerationer. Det hjälper till att upptäcka hot som annars skulle gå obemärkt förbi, och det fungerar med ett brett ekosystem av säkerhetslösningar.
 
-[Skydda data för virtuella datorer](/azure/security-center/security-center-linux-virtual-machine) i Azure genom att tillhandahålla insyn i den virtuella datorns säkerhets inställningar och övervakning av hot. Security Center kan övervaka dina virtuella datorer för:
+[Skydda virtuella datordata (VM)](/azure/security-center/security-center-linux-virtual-machine) i Azure genom att ge insyn i den virtuella datorns säkerhetsinställningar och övervakning för hot. Security Center kan övervaka dina virtuella datorer för:
 
-- Säkerhets inställningar för operativ systemet med de rekommenderade konfigurations reglerna.
+- Säkerhetsinställningar för operativsystemet med de rekommenderade konfigurationsreglerna.
 - Systemsäkerhet och viktiga uppdateringar som saknas.
-- Rekommendationer för Endpoint Protection.
-- Verifiering av disk kryptering.
+- Skyddsrekommendationer för slutpunktsskyddet.
+- Validering av diskkryptering.
 - Nätverksbaserade attacker.
 
-Security Center använder [RBAC (Role-Based Access Control)](/azure/role-based-access-control/role-assignments-portal). RBAC innehåller [inbyggda roller](../../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure.
+Security Center använder [rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC tillhandahåller [inbyggda roller](../../role-based-access-control/built-in-roles.md) som kan tilldelas användare, grupper och tjänster i Azure.
 
-Security Center utvärderar konfigurationen av dina resurser för att identifiera säkerhetsproblem och säkerhetsproblem. I Security Center visas endast information som rör en resurs när du har tilldelats rollen som ägare, deltagare eller läsare för den prenumeration eller resurs grupp som en resurs tillhör.
+Security Center utvärderar konfigurationen av dina resurser för att identifiera säkerhetsproblem och säkerhetsproblem. I Security Center visas endast information som är relaterad till en resurs när du har tilldelat rollen som ägare, deltagare eller läsare för den prenumeration eller resursgrupp som en resurs tillhör.
 
 >[!Note]
->Mer information om roller och tillåtna åtgärder i Security Center finns i [behörigheter i Azure Security Center](/azure/security-center/security-center-permissions).
+>Mer information om roller och tillåtna åtgärder i Security Center finns [i Behörigheter i Azure Security Center](/azure/security-center/security-center-permissions).
 
-Security Center använder Microsoft Monitoring Agent. Detta är samma agent som den Azure Monitor tjänsten använder. Data som samlas in från den här agenten lagras antingen i en befintlig Log Analytics [arbets yta](/azure/log-analytics/log-analytics-manage-access) som är kopplad till din Azure-prenumeration eller en ny arbets yta, med hänsyn till den virtuella datorns plats.
+Security Center använder Microsoft Monitoring Agent. Det här är samma agent som Azure Monitor-tjänsten använder. Data som samlas in från den här agenten lagras i antingen en befintlig Log [Analytics-arbetsyta](/azure/log-analytics/log-analytics-manage-access) som är associerad med din Azure-prenumeration eller en ny arbetsyta, med hänsyn till den virtuella datorns geolokalisering.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Prestanda problem i Cloud-appen kan påverka din verksamhet. Med flera sammankopplade komponenter och frekventa versioner kan degraderingen ske när som helst. Och om du utvecklar en app kan användarna vanligt vis upptäcka problem som du inte har hittat under testningen. Du bör känna till problemen direkt och du bör ha verktyg för att diagnostisera och åtgärda problemen.
+Prestandaproblem i molnappen kan påverka ditt företag. Med flera sammankopplade komponenter och frekventa versioner kan nedbrytningar inträffa när som helst. Och om du utvecklar en app upptäcker användarna vanligtvis problem som du inte hittade i testningen. Du bör veta om dessa frågor omedelbart, och du bör ha verktyg för att diagnostisera och åtgärda problemen.
 
-[Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) är ett grundläggande verktyg för övervakning av tjänster som körs på Azure. Det ger dig data på infrastruktur nivå om data flödet för en tjänst och omgivande miljö. Om du hanterar dina appar i Azure och bestämmer om du vill skala upp eller ned resurser, Azure Monitor är den plats där du vill starta.
+[Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) är ett grundläggande verktyg för att övervaka tjänster som körs på Azure. Det ger dig data på infrastrukturnivå om dataflödet för en tjänst och den omgivande miljön. Om du hanterar dina appar i Azure och bestämmer om du ska skala upp eller ned resurser är Azure Monitor platsen att börja på.
 
-Du kan också använda övervaknings data för att få djupgående insikter om ditt program. Den kunskapen kan hjälpa dig att förbättra programmets prestanda eller hanterbarhet, eller automatisera åtgärder som annars skulle kräva manuell åtgärd.
+Du kan också använda övervakningsdata för att få djupa insikter om ditt program. Den kunskapen kan hjälpa dig att förbättra programmets prestanda eller underhåll, eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
 
 Azure Monitor innehåller följande komponenter.
 
 ### <a name="azure-activity-log"></a>Azure-aktivitetslogg
 
-[Azure aktivitets loggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger inblick i de åtgärder som utfördes på resurser i din prenumeration. Det kallades tidigare "Gransknings logg" eller "drift logg", eftersom den rapporterar kontroll Plans händelser för dina prenumerationer.
+[Azure-aktivitetsloggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger insikt i de åtgärder som utfördes på resurser i din prenumeration. Det var tidigare känt som "Granskningslogg" eller "Operativ logg", eftersom den rapporterar kontrollplanshändelser för dina prenumerationer.
 
 ### <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
-[Azure Diagnostic-loggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) genereras av en resurs och ger omfattande, frekventa data om driften av resursen. Innehållet i de här loggarna varierar efter resurstyp.
+[Azure-diagnostikloggar](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) genereras av en resurs och tillhandahåller omfattande, frekventa data om driften av den resursen. Innehållet i dessa loggar varierar beroende på resurstyp.
 
-Windows Event System-loggar är en kategori av diagnostikloggar för virtuella datorer. BLOB-, tabell-och Queue-loggar är kategorier av diagnostikloggar för lagrings konton.
+Windows händelsesystemloggar är en kategori av diagnostikloggar för virtuella datorer. Blob- och tabellloggar är kategorier av diagnostikloggar för lagringskonton.
 
-Diagnostikloggar skiljer sig från [aktivitets loggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Aktivitets loggen ger inblick i de åtgärder som utfördes på resurser i din prenumeration. Diagnostikloggar ger insikter om åtgärder som din resurs utfört själv.
+Diagnostikloggar skiljer sig från [aktivitetsloggen](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Aktivitetsloggen ger insikt i de åtgärder som utfördes på resurser i din prenumeration. Diagnostikloggar ger insikt i åtgärder som din resurs utförde själv.
 
 ### <a name="metrics"></a>Mått
 
-Azure Monitor tillhandahåller telemetri som ger dig insyn i prestanda och hälsa för dina arbets belastningar i Azure. Den viktigaste typen av Azure-telemetridata är [måtten](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (kallas även prestanda räknare) som har genererats av de flesta Azure-resurser. Azure Monitor tillhandahåller flera olika sätt att konfigurera och använda dessa mått för övervakning och fel sökning.
+Azure Monitor tillhandahåller telemetri som ger dig insyn i prestanda och hälsa för dina arbetsbelastningar på Azure. Den viktigaste typen av Azure telemetridata är [måtten](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (även kallade prestandaräknare) som avges av de flesta Azure-resurser. Azure Monitor innehåller flera sätt att konfigurera och använda dessa mått för övervakning och felsökning.
 
-### <a name="azure-diagnostics"></a>Azure Diagnostics
+### <a name="azure-diagnostics"></a>Microsoft Azure Diagnostics
 
-Azure-diagnostik aktiverar insamling av diagnostikdata i ett distribuerat program. Du kan använda diagnostik-tillägget från olika källor. För närvarande finns stöd för [Azure Cloud Service-roller](/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtuella datorer](/azure/vs-azure-tools-configure-roles-for-cloud-service) som kör Microsoft Windows och [Azure Service Fabric](/azure/monitoring-and-diagnostics/azure-diagnostics).
+Azure Diagnostics möjliggör insamling av diagnostikdata för ett distribuerat program. Du kan använda tillägget Diagnostik från olika källor. För närvarande stöds [Azure-molntjänstroller,](/azure/vs-azure-tools-configure-roles-for-cloud-service) [virtuella Azure-datorer](/azure/vs-azure-tools-configure-roles-for-cloud-service) som kör Microsoft Windows och [Azure Service Fabric](/azure/monitoring-and-diagnostics/azure-diagnostics).
 
 ## <a name="azure-network-watcher"></a>Azure Network Watcher
 
-Kunderna skapar ett nätverk från slut punkt till slut punkt i Azure genom att dirigera och skriva enskilda nätverks resurser som virtuella nätverk, Azure ExpressRoute, Azure Application Gateway och belastningsutjämnare. Övervakning är tillgängligt på varje nätverks resurs.
+Kunder skapar ett heltäckande nätverk i Azure genom att orkestrera och komponera enskilda nätverksresurser som virtuella nätverk, Azure ExpressRoute, Azure Application Gateway och belastningsutjämnare. Övervakning är tillgänglig på var och en av nätverksresurserna.
 
-Slutpunkt-till-slutpunkt-nätverket kan ha komplexa konfigurationer och interaktioner mellan resurser. Resultatet är komplexa scenarier som kräver scenario-baserad övervakning via [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
+Det end-to-end-nätverket kan ha komplexa konfigurationer och interaktioner mellan resurser. Resultatet är komplexa scenarier som behöver scenariobaserad övervakning via [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview).
 
-Network Watcher fören klar övervakning och diagnostisering av ditt Azure-nätverk. Du kan använda verktyg för diagnostik och visualisering i Network Watcher för att:
+Network Watcher förenklar övervakning och diagnos av ditt Azure-nätverk. Du kan använda diagnostik- och visualiseringsverktygen i Network Watcher för att:
 
-- Ta fjärrpakets insamling på en virtuell Azure-dator.
-- Få insikter om din nätverks trafik genom att använda flödes loggar.
-- Diagnostisera Azure-VPN Gateway och anslutningar.
+- Ta fjärrpaketinsamlingar på en virtuell Azure-dator.
+- Få insikter om nätverkstrafiken med hjälp av flödesloggar.
+- Diagnostisera Azure VPN Gateway och anslutningar.
 
 Network Watcher har för närvarande följande funktioner:
 
-- [Topologi](/azure/network-watcher/network-watcher-topology-overview): innehåller en översikt över de olika samman kopplingarna och associationerna mellan nätverks resurser i en resurs grupp.
-- [Variabel paket fångst](/azure/network-watcher/network-watcher-packet-capture-overview): fångar in paket data i och ut ur en virtuell dator. Avancerade alternativ för filtrering och finjusterade kontroller, till exempel möjligheten att ange tid- och storleksbegränsningar, ger flexibilitet. Paket data kan lagras i ett BLOB-lager eller på den lokala disken i. Cap-format.
-- [Verifiera IP-flöde](/azure/network-watcher/network-watcher-ip-flow-verify-overview): kontrollerar om ett paket tillåts eller nekas baserat på paket parametrar med 5 tupel för flödes information (mål-IP, käll-IP, målport, källport och protokoll). Om en säkerhets grupp nekar paketet returneras den regel och grupp som nekade paketet.
-- [Nästa hopp](/azure/network-watcher/network-watcher-next-hop-overview): anger nästa hopp för paket som dirigeras i Azures nätverks infrastruktur resurs, så att du kan diagnostisera eventuella felkonfigurerade användardefinierade vägar.
-- [Vyn säkerhets grupp](/azure/network-watcher/network-watcher-security-group-view-overview): hämtar de effektiva och tillämpade säkerhets reglerna som tillämpas på en virtuell dator.
-- [NSG flödes loggar för nätverks säkerhets grupper](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): gör att du kan avbilda loggar som är relaterade till trafik som tillåts eller nekas av säkerhets reglerna i gruppen. Flödet definieras med 5-tuple-information: käll-IP, mål-IP, källport, mål Port och protokoll.
-- [Virtuell nätverksgateway och anslutnings fel sökning](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): ger möjlighet att felsöka virtuella nätverks-gatewayer och anslutningar.
-- [Begränsningar för nätverks prenumeration](/azure/network-watcher/network-watcher-monitoring-overview): gör att du kan visa användning av nätverks resurser mot gränser.
-- [Diagnostikloggar](/azure/network-watcher/network-watcher-monitoring-overview): tillhandahåller ett enda fönster för att aktivera eller inaktivera diagnostikloggar för nätverks resurser i en resurs grupp.
+- [Topologi](/azure/network-watcher/network-watcher-topology-overview): Ger en vy över de olika sammanlänkningarna och associationerna mellan nätverksresurser i en resursgrupp.
+- [Variabel paketfångst:](/azure/network-watcher/network-watcher-packet-capture-overview)Samlar in paketdata in och ut från en virtuell dator. Avancerade alternativ för filtrering och finjusterade kontroller, till exempel möjligheten att ange tid- och storleksbegränsningar, ger flexibilitet. Paketdata kan lagras i ett blob-arkivet eller på den lokala disken i .cap-format.
+- [IP-flöde verifiera:](/azure/network-watcher/network-watcher-ip-flow-verify-overview)Kontrollerar om ett paket tillåts eller nekas baserat på 5-tuppel paketparametrar för flödesinformation (mål-IP, käll-IP, målport, källport och protokoll). Om en säkerhetsgrupp nekar paketet returneras regeln och gruppen som nekade paketet.
+- [Nästa hopp:](/azure/network-watcher/network-watcher-next-hop-overview)Bestämmer nästa hopp för paket som dirigeras i Azure-nätverksinfrastrukturen, så att du kan diagnostisera eventuella felkonfigurerade användardefinierade vägar.
+- [Säkerhetsgruppsvyn](/azure/network-watcher/network-watcher-security-group-view-overview): Hämtar effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator.
+- [NSG-flödesloggar för nätverkssäkerhetsgrupper](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): Gör att du kan samla in loggar relaterade till trafik som tillåts eller nekas av säkerhetsreglerna i gruppen. Flödet definieras av 5-tuppelinformation: käll-IP, mål-IP, källport, målport och protokoll.
+- [Felsökning av virtuell nätverksgateway och anslutning](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Ger möjlighet att felsöka virtuella nätverksgateways och anslutningar.
+- [Begränsningar för nätverksprenumeration:](/azure/network-watcher/network-watcher-monitoring-overview)Gör att du kan visa användning av nätverksresurser mot gränser.
+- [Diagnostikloggar](/azure/network-watcher/network-watcher-monitoring-overview): Tillhandahåller en enda ruta för att aktivera eller inaktivera diagnostikloggar för nätverksresurser i en resursgrupp.
 
-Mer information finns i [konfigurera Network Watcher](/azure/network-watcher/network-watcher-create).
+Mer information finns i [Konfigurera network watcher](/azure/network-watcher/network-watcher-create).
 
-## <a name="cloud-service-provider-access-transparency"></a>Moln tjänst leverantörens åtkomst genomskinlighet
+## <a name="cloud-service-provider-access-transparency"></a>Åtkomst till molntjänstleverantör
 
-[Customer lockbox för Microsoft Azure](customer-lockbox-overview.md) är en tjänst som är integrerad i Azure Portal och som ger dig explicit kontroll i den sällsynta instansen när en Microsoft support-tekniker kan behöva åtkomst till dina data för att lösa ett problem.
-Det finns väldigt få instanser, till exempel en fel sökning av problem med fjärråtkomst, där en Microsoft Support-tekniker kräver förhöjd behörighet för att lösa det här problemet. I sådana fall använder Microsoft-tekniker just-in-Time-tjänsten som tillhandahåller begränsad tidsbegränsad auktorisering med begränsad till gång till tjänsten.  
-Även om Microsoft redan har fått kund medgivande för åtkomst, kan Customer Lockbox nu ge dig möjlighet att granska och godkänna eller avvisa sådana förfrågningar från Azure-portalen. Microsofts support tekniker kommer inte att beviljas åtkomst förrän du godkänner begäran.
+[Customer Lockbox för Microsoft Azure](customer-lockbox-overview.md) är en tjänst som är integrerad i Azure-portalen och som ger dig explicit kontroll i den sällsynta instansen när en Microsoft Support Engineer kan behöva åtkomst till dina data för att lösa ett problem.
+Det finns mycket få instanser, till exempel ett felsökningsfjärråtkomstproblem, där en Microsoft Support Engineer kräver förhöjda behörigheter för att lösa problemet. I sådana fall använder Microsoft-tekniker just-in-time-åtkomsttjänsten som ger begränsad, tidsbunden auktorisering med åtkomst begränsad till tjänsten.  
+Microsoft har alltid fått kundens medgivande för åtkomst, men Customer Lockbox ger dig nu möjlighet att granska och godkänna eller neka sådana begäranden från Azure Portal. Microsofts supporttekniker beviljas inte åtkomst förrän du godkänner begäran.
 
 ## <a name="standardized-and-compliant-deployments"></a>Standardiserade och kompatibla distributioner
 
-[Azure-ritningar](/azure/governance/blueprints/overview) aktiverar Cloud Architects och Central informations teknik grupper för att definiera en upprepnings bar uppsättning Azure-resurser som implementerar och följer en organisations standarder, mönster och krav.  
-Detta gör det möjligt för DevOps-team att snabbt bygga och sätta igång nya miljöer och lita på att de bygger dem med infrastruktur som upprätthåller organisationens efterlevnad.
-Ritningar ger ett deklarativ sätt att dirigera distributionen av olika resursfiler och andra artefakter som:
+[Azure Blueprints](/azure/governance/blueprints/overview) gör det möjligt för molnarkitekter och centrala it-grupper att definiera en repeterbar uppsättning Azure-resurser som implementerar och följer en organisations standarder, mönster och krav.  
+Detta gör det möjligt för DevOps-team att snabbt bygga och stå upp nya miljöer och lita på att de bygger dem med infrastruktur som upprätthåller organisationens efterlevnad.
+Skisser är ett deklarativt sätt att dirigera distributionen av olika resursmallar och andra artefakter, till exempel:
 
 - Rolltilldelningar
 - Principtilldelningar
@@ -171,25 +171,25 @@ Ritningar ger ett deklarativ sätt att dirigera distributionen av olika resursfi
 
 ## <a name="devops"></a>DevOps
 
-Innan [DevOps-program (Developer Operations)](https://www.visualstudio.com/learn/what-is-devops/) är det ansvarigt att samla in affärs krav för ett program och skriva kod. Sedan har ett separat frågor och svar testat programmet i en isolerad utvecklings miljö. Om kraven uppfylldes, utgjorde frågor och svar-teamet koden för att distribuera. Distributions teamen fragmenterades ytterligare i grupper som nätverk och databas. Varje gången ett program utlöstes via väggen till ett oberoende team lades Flask halsar till.
+Innan [Developer Operations (DevOps) applikationsutveckling,](https://www.visualstudio.com/learn/what-is-devops/) var team som ansvarar för att samla in affärskrav för ett program och skriva kod. Sedan testade ett separat QA-team programmet i en isolerad utvecklingsmiljö. Om kraven var uppfyllda släppte QA-teamet koden för åtgärder som ska distribueras. Distributionsteamen var ytterligare fragmenterade i grupper som nätverk och databas. Varje gång ett program "kastades över väggen" till ett oberoende team, la det flaskhalsar.
 
-DevOps gör det möjligt för team att leverera säkrare, högre kvalitets lösningar snabbare och mer billigt. Kunderna förväntar sig en dynamisk och tillförlitlig upplevelse vid användning av program vara och tjänster. Teamen måste snabbt iterera efter program uppdateringar och mäta effekten av uppdateringarna. De måste svara snabbt med nya utvecklings iterationer för att åtgärda problem eller tillhandahålla mer värde.  
+DevOps gör det möjligt för team att leverera säkrare lösningar av högre kvalitet snabbare och billigare. Kunderna förväntar sig en dynamisk och pålitlig upplevelse när de konsumerar programvara och tjänster. Team måste snabbt iterera på programuppdateringar och mäta effekterna av uppdateringarna. De måste svara snabbt med nya utvecklingsiterationer för att lösa problem eller ge mer värde.  
 
-Moln plattformarna som Microsoft Azure har tagit bort traditionella Flask halsar och hjälpte commoditize-infrastruktur. Program vara REIGNS i alla verksamheter som nyckel differentiering och faktor i affärs resultat. Ingen organisation, utvecklare eller IT-anställd kan eller bör undvika DevOps rörelse.
+Molnplattformar som Microsoft Azure har tagit bort traditionella flaskhalsar och hjälpt till att commoditize infrastruktur. Programvara regerar i varje företag som den viktigaste differentiator och faktor i affärsresultat. Ingen organisation, utvecklare eller IT-arbetare kan eller bör undvika DevOps-rörelsen.
 
-DevOps praktiserande läkare antar flera av följande metoder. Dessa metoder [omfattar personer](https://www.visualstudio.com/learn/what-is-devops-culture/) för att forma strategier baserat på affärs scenarier. Verktyg kan automatisera de olika metoderna.
+Mogna DevOps utövare anta flera av följande metoder. Dessa metoder [involverar människor](https://www.visualstudio.com/learn/what-is-devops-culture/) att bilda strategier baserat på affärsscenarier. Verktyg kan hjälpa till att automatisera de olika metoderna.
 
-- [Flexibla planerings-och projekt hanterings](https://www.visualstudio.com/learn/what-is-agile/) tekniker används för att planera och isolera arbete i Sprint, hantera teamets kapacitet och hjälpa teamen att snabbt anpassa sig till föränderliga affärs behov.
-- [Versions kontroll, vanligt vis med git](https://www.visualstudio.com/learn/what-is-git/), gör att team som finns var som helst i världen kan dela källan och integrera med program utvecklings verktyg för att automatisera lanserings pipelinen.
-- [Kontinuerlig integrering](https://www.visualstudio.com/learn/what-is-continuous-integration/) styr pågående sammanslagning och testning av kod, vilket leder till att hitta fel tidigt.  Andra förmåner omfattar mindre tid på att bekämpa sammanfognings problem och snabbt feedback för utvecklings team.
-- [Kontinuerlig leverans](https://www.visualstudio.com/learn/what-is-continuous-delivery/) av program varu lösningar till produktions-och test miljöer hjälper organisationer att snabbt åtgärda buggar och svara på föränderliga affärs behov.
-- [Övervakning](https://www.visualstudio.com/learn/what-is-monitoring/) av program som körs, inklusive produktions miljöer för program hälsa, samt kund användning – hjälper organisationer att bilda en hypotes och snabbt validera eller Visa strategier.  Omfattande data samlas in och lagras i olika loggnings format.
-- [Infrastruktur som kod (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) är en metod som möjliggör automatisering och validering av skapande och Teardown av nätverk och virtuella datorer för att hjälpa till med att leverera säkra, stabila program värd plattformar.
-- Arkitektur för [mikrotjänster](https://www.visualstudio.com/learn/what-are-microservices/) används för att isolera företags användnings fall till små återanvändbara tjänster.  Den här arkitekturen möjliggör skalbarhet och effektivitet.
+- [Agila planerings- och projektledningstekniker](https://www.visualstudio.com/learn/what-is-agile/) används för att planera och isolera arbetet i sprintar, hantera teamkapacitet och hjälpa team att snabbt anpassa sig till förändrade affärsbehov.
+- [Versionskontroll, vanligtvis med Git](https://www.visualstudio.com/learn/what-is-git/), gör det möjligt för team som finns var som helst i världen att dela källa och integrera med mjukvaruutvecklingsverktyg för att automatisera versionspipelinen.
+- [Kontinuerlig integrering](https://www.visualstudio.com/learn/what-is-continuous-integration/) driver pågående sammanslagning och testning av kod, vilket leder till att hitta defekter tidigt.  Andra fördelar är mindre tid slösas bort på att bekämpa sammanfogning frågor och snabb feedback för utvecklingsteam.
+- [Kontinuerlig leverans](https://www.visualstudio.com/learn/what-is-continuous-delivery/) av programvarulösningar till produktions- och testmiljöer hjälper organisationer att snabbt åtgärda fel och svara på ständigt föränderliga affärskrav.
+- [Övervakning](https://www.visualstudio.com/learn/what-is-monitoring/) av program som körs – inklusive produktionsmiljöer för programhälsa, samt kundanvändning – hjälper organisationer att bilda en hypotes och snabbt validera eller motbevisa strategier.  Omfattande data samlas in och lagras i olika loggningsformat.
+- [Infrastruktur som kod (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) är en praxis som gör det möjligt att automatisera och validera skapande och rivning av nätverk och virtuella datorer för att hjälpa till med att leverera säkra, stabila programvärdplattformar.
+- [Arkitekturen Mikrotjänster](https://www.visualstudio.com/learn/what-are-microservices/) används för att isolera affärsanvändningsfall till små återanvändningsbara tjänster.  Den här arkitekturen möjliggör skalbarhet och effektivitet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Säkerhet och granskning-lösningen finns i följande artiklar:
+Mer information om lösningen Säkerhet och granskning finns i följande artiklar:
 
 - [Säkerhet och efterlevnad](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Azure Security Center](/azure/security-center/security-center-intro)

@@ -1,6 +1,6 @@
 ---
-title: Begränsa data exfiltrering till Azure Storage – Azure CLI
-description: I den här artikeln får du lära dig hur du begränsar och begränsar virtuella nätverks data exfiltrering till Azure Storage resurser med tjänst slut punkts principer för virtuella nätverk med hjälp av Azure CLI.
+title: Begränsa dataexfiltration till Azure Storage - Azure CLI
+description: I den här artikeln får du lära dig hur du begränsar och begränsar virtuell nätverksdataexfiltration till Azure Storage-resurser med slutpunktsprinciper för virtuella nätverkstjänster med hjälp av Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: rdhillon
@@ -18,26 +18,26 @@ ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
 ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78271190"
 ---
-# <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Hantera data exfiltrering för att Azure Storage konton med tjänst slut punkts principer för virtuella nätverk med hjälp av Azure CLI
+# <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Hantera dataexfiltration till Azure Storage-konton med slutpunktsprinciper för virtuella nätverkstjänster med Hjälp av Azure CLI
 
-Med tjänst slut punkts principer för virtuella nätverk kan du tillämpa åtkomst kontroll på Azure Storage-konton inifrån ett virtuellt nätverk över tjänst slut punkter. Det här är en nyckel för att skydda dina arbets belastningar, hantera vilka lagrings konton som tillåts och var data exfiltrering tillåts.
+Med slutpunktsprinciper för virtuella nätverkstjänster kan du tillämpa åtkomstkontroll på Azure Storage-konton inifrån ett virtuellt nätverk över tjänstslutpunkter. Detta är en nyckel till att skydda dina arbetsbelastningar, hantera vilka lagringskonton som är tillåtna och var dataexfiltration är tillåtet.
 I den här artikeln kan du se hur du:
 
-* Skapa ett virtuellt nätverk och Lägg till ett undernät.
-* Aktivera tjänst slut punkt för Azure Storage.
-* Skapa två Azure Storage konton och Tillåt nätverks åtkomst till det från det undernät som skapades ovan.
-* Skapa en tjänst slut punkts princip för att endast tillåta åtkomst till ett av lagrings kontona.
-* Distribuera en virtuell dator (VM) till under nätet.
-* Bekräfta åtkomst till det tillåtna lagrings kontot från under nätet.
-* Bekräfta åtkomst nekas till det icke-tillåtna lagrings kontot från under nätet.
+* Skapa ett virtuellt nätverk och lägg till ett undernät.
+* Aktivera tjänstslutpunkt för Azure Storage.
+* Skapa två Azure Storage-konton och tillåt nätverksåtkomst till det från undernätet som skapats ovan.
+* Skapa en princip för tjänstslutpunkt för att endast tillåta åtkomst till ett av lagringskontona.
+* Distribuera en virtuell dator (VM) till undernätet.
+* Bekräfta åtkomst till det tillåtna lagringskontot från undernätet.
+* Bekräfta åtkomst nekas till det icke tillåtna lagringskontot från undernätet.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -45,7 +45,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Innan du skapar ett virtuellt nätverk måste du skapa en resurs grupp för det virtuella nätverket och alla andra resurser som skapas i den här artikeln. Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
+Innan du skapar ett virtuellt nätverk måste du skapa en resursgrupp för det virtuella nätverket och alla andra resurser som skapas i den här artikeln. Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*.
 
 ```azurecli-interactive
 az group create \
@@ -53,7 +53,7 @@ az group create \
   --location eastus
 ```
 
-Skapa ett virtuellt nätverk med ett undernät med [AZ Network VNet Create](/cli/azure/network/vnet).
+Skapa ett virtuellt nätverk med ett undernät med [az nätverk vnet skapa](/cli/azure/network/vnet).
 
 ```azurecli-interactive
 az network vnet create \
@@ -66,7 +66,7 @@ az network vnet create \
 
 ## <a name="enable-a-service-endpoint"></a>Aktivera en tjänstslutpunkt 
 
-I det här exemplet skapas en tjänst slut punkt för *Microsoft. Storage* för under nätets *privata*: 
+I det här exemplet skapas en tjänstslutpunkt för *Microsoft.Storage* för undernätet *Privat:* 
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -79,7 +79,7 @@ az network vnet subnet create \
 
 ## <a name="restrict-network-access-for-a-subnet"></a>Begränsa nätverksåtkomst för ett undernät
 
-Skapa en nätverks säkerhets grupp med [AZ Network NSG Create](/cli/azure/network/nsg). I följande exempel skapas en nätverks säkerhets grupp med namnet *myNsgPrivate*.
+Skapa en nätverkssäkerhetsgrupp med [az network nsg create](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNsgPrivate*.
 
 ```azurecli-interactive
 az network nsg create \
@@ -87,7 +87,7 @@ az network nsg create \
   --name myNsgPrivate
 ```
 
-Koppla nätverks säkerhets gruppen till det *privata* under nätet med [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet). I följande exempel associeras nätverks säkerhets gruppen *myNsgPrivate* till det *privata* under nätet:
+Associera nätverkssäkerhetsgruppen till det *privata* undernätet med [uppdatering av az-nätverksnätsnät](/cli/azure/network/vnet/subnet). I följande exempel associeras säkerhetsgruppen *myNsgPrivate-nätverk* till det *privata* undernätet:
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -97,7 +97,7 @@ az network vnet subnet update \
   --network-security-group myNsgPrivate
 ```
 
-Skapa säkerhets regler med [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule). Regeln nedan tillåter utgående åtkomst till de offentliga IP-adresser som tilldelats den Azure Storage tjänsten: 
+Skapa säkerhetsregler med [az network nsg-regel skapa](/cli/azure/network/nsg/rule). Regeln som följer tillåter utgående åtkomst till de offentliga IP-adresser som tilldelats Azure Storage-tjänsten: 
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -114,7 +114,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Varje nätverks säkerhets grupp innehåller flera [Standard säkerhets regler](security-overview.md#default-security-rules). Regeln nedan åsidosätter en standard säkerhets regel som tillåter utgående åtkomst till alla offentliga IP-adresser. Alternativet `destination-address-prefix "Internet"` nekar utgående åtkomst till alla offentliga IP-adresser. Den föregående regeln åsidosätter den här regeln, på grund av dess högre prioritet, vilket ger åtkomst till de offentliga IP-adresserna för Azure Storage.
+Varje nätverkssäkerhetsgrupp innehåller flera [standardsäkerhetsregler](security-overview.md#default-security-rules). Regeln som följer åsidosätter en standardsäkerhetsregel som tillåter utgående åtkomst till alla offentliga IP-adresser. Alternativet `destination-address-prefix "Internet"` nekar utgående åtkomst till alla offentliga IP-adresser. Den tidigare regeln åsidosätter den här regeln på grund av dess högre prioritet, vilket ger åtkomst till de offentliga IP-adresserna för Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -131,7 +131,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Följande regel tillåter att SSH-trafik inkommande till under nätet var som helst. Regeln åsidosätter en standardsäkerhetsregel som nekar all inkommande trafik från internet. SSH tillåts till under nätet så att anslutningen kan testas i ett senare steg.
+Följande regel tillåter SSH-trafik som kommer in till undernätet var som helst. Regeln åsidosätter en standardsäkerhetsregel som nekar all inkommande trafik från internet. SSH tillåts till undernätet så att anslutningen kan testas i ett senare steg.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -148,13 +148,13 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-## <a name="restrict-network-access-to-azure-storage-accounts"></a>Begränsa nätverks åtkomsten till Azure Storage konton
+## <a name="restrict-network-access-to-azure-storage-accounts"></a>Begränsa nätverksåtkomsten till Azure Storage-konton
 
-Det här avsnittet innehåller steg för att begränsa nätverks åtkomsten för ett Azure Storage konto från det tilldelade under nätet i ett virtuellt nätverk via tjänst slut punkt.
+I det här avsnittet visas steg för att begränsa nätverksåtkomsten för ett Azure Storage-konto från det angivna undernätet i ett virtuellt nätverk via tjänstslutpunkten.
 
-### <a name="create-a-storage-account"></a>skapar ett lagringskonto
+### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-Skapa två Azure Storage-konton med [AZ lagrings konto Create](/cli/azure/storage/account).
+Skapa två Azure-lagringskonton med [az storage-konto skapa](/cli/azure/storage/account).
 
 ```azurecli-interactive
 storageAcctName1="allowedstorageacc"
@@ -174,7 +174,7 @@ az storage account create \
   --kind StorageV2
 ```
 
-När lagrings kontona har skapats hämtar du anslutnings strängen för lagrings kontona till en variabel med [AZ lagrings konto show-Connection-String](/cli/azure/storage/account). Anslutnings strängen används för att skapa en fil resurs i ett senare steg.
+När lagringskontona har skapats hämtar du anslutningssträngen för lagringskontona till en variabel med [az storage-account show-connection-string](/cli/azure/storage/account). Anslutningssträngen används för att skapa en filresurs i ett senare steg.
 
 ```azurecli-interactive
 saConnectionString1=$(az storage account show-connection-string \
@@ -190,7 +190,7 @@ saConnectionString2=$(az storage account show-connection-string \
   --out tsv)
 ```
 
-<a name="account-key"></a>Visa innehållet i variabeln och anteckna värdet för **AccountKey** som returneras i utdata, eftersom det används i ett senare steg.
+<a name="account-key"></a>Visa innehållet i variabeln och notera värdet för **AccountKey** som returneras i utdata, eftersom det används i ett senare steg.
 
 ```azurecli-interactive
 echo $saConnectionString1
@@ -200,7 +200,7 @@ echo $saConnectionString2
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Skapa en filresurs i lagringskontot
 
-Skapa en fil resurs i lagrings kontot med [AZ Storage Share Create](/cli/azure/storage/share). I ett senare steg monteras den här fil resursen för att bekräfta nätverks åtkomsten till den.
+Skapa en filresurs i lagringskontot med [az storage share create](/cli/azure/storage/share). I ett senare steg är den här filresursen monterad för att bekräfta nätverksåtkomst till den.
 
 ```azurecli-interactive
 az storage share create \
@@ -214,9 +214,9 @@ az storage share create \
   --connection-string $saConnectionString2 > /dev/null
 ```
 
-### <a name="deny-all-network-access-to-the-storage-account"></a>Neka all nätverks åtkomst till lagrings kontot
+### <a name="deny-all-network-access-to-the-storage-account"></a>Neka all nätverksåtkomst till lagringskontot
 
-Som standard godkänner lagringskonton nätverksanslutningar från klienter i alla nätverk. Om du vill begränsa åtkomsten till valda nätverk ändrar du standard åtgärden till *neka* med [AZ Storage Account Update](/cli/azure/storage/account). När nätverks åtkomst nekas går det inte att komma åt lagrings kontot från något nätverk.
+Som standard godkänner lagringskonton nätverksanslutningar från klienter i alla nätverk. Om du vill begränsa åtkomsten till valda nätverk ändrar du standardåtgärden till *Neka* med [uppdatering av az-lagringskonto](/cli/azure/storage/account). När nätverksåtkomsten nekas är lagringskontot inte tillgängligt från något nätverk.
 
 ```azurecli-interactive
 az storage account update \
@@ -230,9 +230,9 @@ az storage account update \
   --default-action Deny
 ```
 
-### <a name="enable-network-access-from-virtual-network-subnet"></a>Aktivera nätverks åtkomst från undernät för virtuellt nätverk
+### <a name="enable-network-access-from-virtual-network-subnet"></a>Aktivera nätverksåtkomst från virtuellt nätverksundernät
 
-Tillåt nätverks åtkomst till lagrings kontot från det *privata* under nätet med [AZ lagrings konto nätverks regel Lägg till](/cli/azure/storage/account/network-rule).
+Tillåt nätverksåtkomst till lagringskontot från det *privata* undernätet med [ett az-lagringskontonätverksregeltillägg](/cli/azure/storage/account/network-rule).
 
 ```azurecli-interactive
 az storage account network-rule add \
@@ -248,13 +248,13 @@ az storage account network-rule add \
   --subnet Private
 ```
 
-## <a name="apply-policy-to-allow-access-to-valid-storage-account"></a>Använd princip för att tillåta åtkomst till ett giltigt lagrings konto
+## <a name="apply-policy-to-allow-access-to-valid-storage-account"></a>Tillämpa principen för att tillåta åtkomst till giltigt lagringskonto
 
-Azure Service Endpoint-principer är bara tillgängliga för Azure Storage. Därför kommer vi att aktivera tjänstens slut punkt för *Microsoft. Storage* i det här under nätet för den här exempel installationen.
+Azure Service Slutpunktsprinciper är endast tillgängliga för Azure Storage. Vi aktiverar därför tjänstslutpunkten för *Microsoft.Storage* i det här undernätet för den här exempelkonfigurationen.
 
-Tjänst slut punkts principer tillämpas via tjänst slut punkter. Vi börjar med att skapa en tjänst slut punkts princip. Vi kommer sedan att skapa princip definitionerna under den här principen för att Azure Storage konton ska vit listas för det här under nätet
+Tjänstslutpunktsprinciper tillämpas över tjänstslutpunkter. Vi börjar med att skapa en princip för tjänstslutpunkt. Vi skapar sedan principdefinitionerna under den här principen för Att Azure Storage-konton ska vitlistas för det här undernätet
 
-Skapa en princip för tjänst slut punkt
+Skapa en princip för tjänstslutpunkt
 
 ```azurecli-interactive
 az network service-endpoint policy create \
@@ -263,13 +263,13 @@ az network service-endpoint policy create \
   --location eastus
 ```
 
-Spara resurs-URI för det tillåtna lagrings kontot i en variabel. Innan du kör kommandot nedan ersätter du\<prenumerations- *id >* med det faktiska värdet för ditt PRENUMERATIONS-ID.
+Spara resurs-URI för det tillåtna lagringskontot i en variabel. Innan du kör kommandot nedan ersätter du * \<ditt prenumerations-ID>* med det faktiska värdet av ditt prenumerations-ID.
 
 ```azurecli-interactive
 $serviceResourceId="/subscriptions/<your-subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/allowedstorageacc"
 ```
 
-Skapa & Lägg till en princip definition för att tillåta ovanstående Azure Storage konto till tjänstens slut punkts princip
+Skapa & lägga till en principdefinition för att tillåta ovanstående Azure Storage-konto i tjänstslutpunktsprincipen
 
 ```azurecli-interactive
 az network service-endpoint policy-definition create \
@@ -280,7 +280,7 @@ az network service-endpoint policy-definition create \
   --service-resources $serviceResourceId
 ```
 
-Och uppdatera det virtuella nätverkets undernät så att det kopplas till den tjänst slut punkts princip som skapades i föregående steg
+Och uppdatera det virtuella nätverksundernätet för att associera den tjänstslutpunktsprincipen som skapades i föregående steg
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -291,13 +291,13 @@ az network vnet subnet update \
   --service-endpoint-policy mysepolicy
 ```
 
-## <a name="validate-access-restriction-to-azure-storage-accounts"></a>Verifiera åtkomst begränsning till Azure Storage konton
+## <a name="validate-access-restriction-to-azure-storage-accounts"></a>Validera åtkomstbegränsning till Azure Storage-konton
 
 ### <a name="create-the-virtual-machine"></a>Skapa den virtuella datorn
 
-Om du vill testa nätverks åtkomst till ett lagrings konto distribuerar du en virtuell dator till under nätet.
+Om du vill testa nätverksåtkomst till ett lagringskonto distribuerar du en virtuell dator till undernätet.
 
-Skapa en virtuell dator i det *privata* under nätet med [AZ VM Create](/cli/azure/vm). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Skapa en virtuell dator i det *privata* undernätet med [az vm create](/cli/azure/vm). Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -309,53 +309,53 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Det tar några minuter att skapa den virtuella datorn. När du har skapat den noterar du **publicIpAddress** i resultatet som returneras. Den här adressen används för att komma åt den virtuella datorn från Internet i ett senare steg.
+Det tar några minuter att skapa den virtuella datorn. När du har skapat det, ta del av **publicIpAddress** i utdata som returneras. Den här adressen används för att komma åt den virtuella datorn från Internet i ett senare steg.
 
 ### <a name="confirm-access-to-storage-account"></a>Bekräfta åtkomst till lagringskontot
 
-SSH till den virtuella *myVmPrivate* -datorn. Ersätt *\<publicIpAddress >* med den offentliga IP-adressen för din *myVmPrivate* -VM.
+SSH i *myVmPrivate* VM. Ersätt * \<publicIpAddress>* med den offentliga IP-adressen för din *virtuella myVmPrivate-dator.*
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-Skapa en mapp för en monterings punkt:
+Skapa en mapp för en monteringspunkt:
 
 ```bash
 sudo mkdir /mnt/MyAzureFileShare1
 ```
 
-Montera Azure-filresursen i den katalog som du skapade. Innan du kör kommandot nedan ersätter du *\<lagrings konto nyckel >* med värdet *AccountKey* från **$saConnectionString 1**.
+Montera Azure-filresursen till den katalog som du skapade. Innan du kör kommandot nedan ersätter du * \<lagrings-konto-nyckel>* med värdet *för AccountKey* från **$saConnectionString1**.
 
 ```bash
 sudo mount --types cifs //allowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare1 --options vers=3.0,username=allowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Du får `user@myVmPrivate:~$` prompten. Azure-filresursen har monterats på */mnt/MyAzureFileShare*.
+Du får `user@myVmPrivate:~$` uppmaningen. Filresursen i Azure har monterats på */mnt/MyAzureFileShare*.
 
 ### <a name="confirm-access-is-denied-to-storage-account"></a>Bekräfta att åtkomst till lagringskontot nekas
 
-Skapa en katalog för en monterings punkt från samma VM- *myVmPrivate*:
+Från samma virtuella dator *myVmPrivate*, skapa en katalog för en monteringspunkt:
 
 ```bash
 sudo mkdir /mnt/MyAzureFileShare2
 ```
 
-Försök att montera Azure-filresursen från lagrings kontots *notallowedstorageacc* till den katalog som du skapade. Den här artikeln förutsätter att du har distribuerat den senaste versionen av Ubuntu. Om du använder tidigare versioner av Ubuntu kan du läsa mer instruktioner om hur du monterar fil resurser i avsnittet [montera på Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . 
+Försök att montera Azure-filresursen från *lagringskontot som inte tillåtsstoracc* till den katalog som du skapade. Den här artikeln förutsätter att du har distribuerat den senaste versionen av Ubuntu. Om du använder tidigare versioner av Ubuntu läser du [Montera på Linux](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för ytterligare instruktioner om montering av filresurser. 
 
-Innan du kör kommandot nedan ersätter du *\<lagrings konto nyckel >* med värdet *AccountKey* från **$saConnectionString 2**.
+Innan du kör kommandot nedan ersätter du * \<lagrings-konto-nyckel>* med värdet *för AccountKey* från **$saConnectionString2**.
 
 ```bash
 sudo mount --types cifs //notallowedstorageacc.file.core.windows.net/my-file-share /mnt/MyAzureFileShare2 --options vers=3.0,username=notallowedstorageacc,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Åtkomst nekas och du får ett `mount error(13): Permission denied` fel eftersom det här lagrings kontot inte finns i listan över tillåtna tjänster för den tjänst slut punkts princip som vi tillämpade på under nätet. 
+Åtkomst nekas och du `mount error(13): Permission denied` får ett felmeddelande eftersom det här lagringskontot inte finns i listan över tjänstslutpunktsprincipen som vi tillämpade på undernätet. 
 
-Avsluta SSH-sessionen till den virtuella *myVmPublic* -datorn.
+Avsluta SSH-sessionen till *myVmPublic-virtuella* datorn.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs använder du [AZ Group Delete](/cli/azure) för att ta bort resurs gruppen och alla resurser den innehåller.
+När det inte längre behövs använder du [az-gruppborttagning](/cli/azure) för att ta bort resursgruppen och alla resurser som den innehåller.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
@@ -363,4 +363,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du tillämpat en tjänst slut punkt princip över en tjänst slut punkt för Azure Virtual Network för att Azure Storage. Du har skapat Azure Storage konton och begränsad nätverks åtkomst till endast vissa lagrings konton (och därmed nekade andra) från ett virtuellt nätverks under nät. Läs mer om principer för tjänst slut punkter i [Översikt över tjänst slut punkter](virtual-network-service-endpoint-policies-overview.md).
+I den här artikeln har du tillämpat en princip för tjänstslutpunkt över en Azure-slutpunkt för virtuella nätverkstjänsten på Azure Storage. Du skapade Azure Storage-konton och begränsad nätverksåtkomst till endast vissa lagringskonton (och därmed nekat andra) från ett virtuellt nätverksundernät. Mer information om tjänstslutpunktsprinciper finns i Översikt över principer för [tjänstslutpunkter](virtual-network-service-endpoint-policies-overview.md).

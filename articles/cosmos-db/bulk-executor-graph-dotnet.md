@@ -1,6 +1,6 @@
 ---
-title: Använd Graph-utförar .NET-bibliotek med Azure Cosmos DB Gremlin API
-description: Lär dig hur du använder bulk utförar-biblioteket för att importera graf-data i en Azure Cosmos DB Gremlin API-behållare.
+title: Använda graph bulk executor .NET-biblioteket med Azure Cosmos DB Gremlin API
+description: Lär dig hur du använder massutdelsutnämningsbiblioteket för att massivt importera grafdata till en Azure Cosmos DB Gremlin API-behållare.
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -9,28 +9,28 @@ ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
 ms.openlocfilehash: cf51d418a008d332bfcea01a7a9dc1a265116e29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442176"
 ---
-# <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
+# <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda graph bulk executor .NET-biblioteket för att utföra massåtgärder i Azure Cosmos DB Gremlin API
 
-Den här självstudien innehåller instruktioner om hur du använder Azure CosmosDBs utförar .NET-bibliotek för att importera och uppdatera diagram objekt till en Azure Cosmos DB Gremlin API-behållare. Den här processen använder graf-klassen i [bulk utförar-biblioteket](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) för att skapa hörn-och kant objekt program mässigt för att sedan infoga flera av dem per nätverks förfrågan. Det här beteendet kan konfigureras via bulk utförar-biblioteket för att göra optimal användning av både databas-och lokala minnes resurser.
+Den här självstudien innehåller instruktioner om hur du använder Azure CosmosDB:s massutdelservör .NET-bibliotek för att importera och uppdatera diagramobjekt till en Azure Cosmos DB Gremlin API-behållare. Den här processen använder klassen Graph i [massutfyllnadsbiblioteket](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) för att skapa Vertex- och Edge-objekt programmässigt för att sedan infoga flera av dem per nätverksbegäran. Det här beteendet kan konfigureras via massutförandeörsbiblioteket för att utnyttja både databasresurser och lokala minnesresurser på bästa sätt.
 
-Till skillnad från när du skickar Gremlin-frågor till en databas, där kommandot utvärderas och sedan körs en i taget, måste du i stället använda utförar för att skapa och validera objekten lokalt. När objekten har skapats gör biblioteket att du kan skicka diagramobjekt till databasen sekventiellt. Med den här metoden kan hastigheten för datainmatning bli upp till 100 gånger snabbare, vilket gör metoden utmärkt för initiala datamigreringar eller periodiska dataflyttningsåtgärder. Lär dig mer genom att besöka sidan GitHub i [Azure Cosmos DB Graph utförar exempel program](https://aka.ms/graph-bulkexecutor-sample).
+I motsats till att skicka Gremlin-frågor till en databas, där kommandot utvärderas och sedan körs en i taget, med hjälp av bulk executor biblioteket i stället kräver att skapa och validera objekt lokalt. När objekten har skapats gör biblioteket att du kan skicka diagramobjekt till databasen sekventiellt. Med den här metoden kan hastigheten för datainmatning bli upp till 100 gånger snabbare, vilket gör metoden utmärkt för initiala datamigreringar eller periodiska dataflyttningsåtgärder. Läs mer genom att besöka GitHub-sidan i [exempelprogrammet Azure Cosmos DB Graph-exekveringsutnämningsanordning](https://aka.ms/graph-bulkexecutor-sample).
 
 ## <a name="bulk-operations-with-graph-data"></a>Massåtgärder med diagramdata
 
-[Bulk utförar-biblioteket](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) innehåller ett `Microsoft.Azure.CosmosDB.BulkExecutor.Graph`-namnområde för att tillhandahålla funktioner för att skapa och importera diagram objekt. 
+[Massutnämnarbiblioteket](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` innehåller ett namnområde för att tillhandahålla funktioner för att skapa och importera diagramobjekt. 
 
 Följande process beskriver hur datamigrering kan användas för en Gremlin API-container:
 1. Hämta poster från datakällan.
 2. Konstruera `GremlinVertex`- och `GremlinEdge`-objekt från de erhållna posterna och lägg till dem i en `IEnumerable`-datastruktur. I den här delen av programmet bör logik för att identifiera och lägga till relationer implementeras, om datakällan inte är en diagramdatabas.
 3. Använd [Graph BulkImportAsync-metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?view=azure-dotnet) för att infoga diagramobjekt i samlingen.
 
-Den här mekanismen förbättrar effektiviteten för datamigrering jämfört med att använda en Gremlin-klient. Den här förbättringen uppstår eftersom infogande av data med Gremlin kräver att programmet skickar en fråga åt gången som måste verifieras, utvärderas och sedan köras för att skapa data. Bulk utförar-biblioteket hanterar verifieringen i programmet och skickar flera graf-objekt i taget för varje nätverks förfrågan.
+Den här mekanismen förbättrar effektiviteten för datamigrering jämfört med att använda en Gremlin-klient. Den här förbättringen uppstår eftersom infogande av data med Gremlin kräver att programmet skickar en fråga åt gången som måste verifieras, utvärderas och sedan köras för att skapa data. Massutrörbiblioteket hanterar valideringen i programmet och skickar flera diagramobjekt åt gången för varje nätverksbegäran.
 
 ### <a name="creating-vertices-and-edges"></a>Skapa hörn och kanter
 
@@ -73,7 +73,7 @@ catch (Exception e)
 }
 ```
 
-Mer information om parametrarna i bulk utförar-biblioteket finns i [avsnittet BulkImportData to Azure Cosmos DB](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
+Mer information om parametrarna för massutringsbiblioteket finns i [avsnittet MassImportDataData till Azure Cosmos DB](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
 
 Nyttolasten behöver instansieras till `GremlinVertex`- och `GremlinEdge`-objekt. Så här kan dessa objekt skapas:
 
@@ -109,18 +109,18 @@ e.AddProperty("customProperty", "value");
 ```
 
 > [!NOTE]
-> Verktyget för Mass utförar söker inte automatiskt efter befintliga formhörn innan kanterna läggs till. Det här måste verifieras i programmet innan du kör BulkImport-uppgifter.
+> Massutnämningsverktyget för körning söker inte automatiskt efter befintliga hörn innan du lägger till kanter. Det här måste verifieras i programmet innan du kör BulkImport-uppgifter.
 
 ## <a name="sample-application"></a>Exempelprogram
 
 ### <a name="prerequisites"></a>Krav
-* Visual Studio 2019 med arbets belastningen Azure Development. Du kan komma igång med [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) kostnads fritt.
-* En Azure-prenumeration. Du kan skapa [ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Du kan också skapa ett Cosmos Database-konto med [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
+* Visual Studio 2019 med Azure-utvecklingsarbetsbelastningen. Du kan komma igång med [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) utan kostnad.
+* En Azure-prenumeration. Du kan skapa [ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Alternativt kan du skapa ett Cosmos-databaskonto med [Prova Azure Cosmos DB utan](https://azure.microsoft.com/try/cosmosdb/) en Azure-prenumeration.
 * En Azure Cosmos DB Gremlin API-databas med en **obegränsad samling**. Den här guiden visar hur du kommer igång med [Azure Cosmos DB Gremlin API i .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).
 * Git. Mer information finns på [sidan för Git-nedladdningar](https://git-scm.com/downloads).
 
 ### <a name="clone-the-sample-application"></a>Klona exempelprogrammet
-I den här självstudien följer vi stegen för att komma igång med [Azure Cosmos DB graphs utförar-exempel](https://aka.ms/graph-bulkexecutor-sample) som finns på GitHub. Det här programmet består av en .NET-lösning som slumpmässigt genererar hörn- och kantobjekt och därefter kör massinfogningar till det angivna diagramdatabaskontot. För att hämta programmet kör du `git clone`-kommandot nedan:
+I den här självstudien följer vi stegen för att komma igång med att använda [azure Cosmos DB Graph bulk executor-exemplet](https://aka.ms/graph-bulkexecutor-sample) som finns på GitHub. Det här programmet består av en .NET-lösning som slumpmässigt genererar hörn- och kantobjekt och därefter kör massinfogningar till det angivna diagramdatabaskontot. För att hämta programmet kör du `git clone`-kommandot nedan:
 
 ```bash
 git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dotnet-getting-started.git
@@ -131,7 +131,7 @@ Den här lagringsplatsen innehåller GraphBulkExecutor-exemplet med följande fi
 Fil|Beskrivning
 ---|---
 `App.config`|Det här är där program- och databasspecifika parametrar anges. Den här filen ska först ändras för att ansluta till måldatabasen och -samlingarna.
-`Program.cs`| Den här filen innehåller logiken bakom skapandet av den `DocumentClient` samlingen, hantering av rensningar och sändning av Mass utförar-begäranden.
+`Program.cs`| Den här filen innehåller logiken bakom att skapa `DocumentClient` samlingen, hantera rensningar och skicka massutnrönaren.
 `Util.cs`| Den här filen innehåller en hjälpklass som innehåller logiken bakom att generera testdata och kontrollera om databasen och samlingarna finns.
 
 I `App.config`-filen är följande konfigurationsvärden som kan tillhandahållas:
@@ -155,6 +155,6 @@ Inställning|Beskrivning
 3. Utvärdera resultaten genom att köra frågor mot diagramdatabasen. Om `ShouldCleanupOnFinish`-alternativet är inställt på true (sant) tas databasen bort automatiskt.
 
 ## <a name="next-steps"></a>Nästa steg
-* Information om NuGet-paket och viktig information om utförar .NET-bibliotek finns i [UTFÖRAR SDK-information](sql-api-sdk-bulk-executor-dot-net.md). 
-* Kolla in [prestanda tipsen](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) för att ytterligare optimera användningen av Mass utförar.
+* Mer information om Nuget-paketinformation och viktig information om massutnämningscentralen .NET-bibliotek finns i [information om massutnredare av utförare av SDK](sql-api-sdk-bulk-executor-dot-net.md). 
+* Kolla in [prestandatips](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) för att ytterligare optimera användningen av bulk executor.
 * Läs [referensartikeln om BulkExecutor.Graph](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) för mer information om de klasser och metoder som definieras i den här namnrymden.

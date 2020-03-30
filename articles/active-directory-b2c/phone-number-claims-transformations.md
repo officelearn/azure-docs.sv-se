@@ -1,7 +1,7 @@
 ---
-title: Antal anspråk för telefonnummer i anpassade principer
+title: Telefonnummeranspråksomvandlingar i anpassade principer
 titleSuffix: Azure AD B2C
-description: Anpassad princip referens för inloggnings uppgifter för telefonnummer i Azure AD B2C.
+description: Anpassad principreferens för omvandling av telefonnummeranspråk i Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,30 +12,30 @@ ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183947"
 ---
-# <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiera anspråks omvandlingar för telefonnummer i Azure AD B2C
+# <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiera omvandlingar av telefonnummeranspråk i Azure AD B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln innehåller en referens och exempel på hur du kan använda anspråks omvandlingarna för ett identitets Miljös schema i Azure Active Directory B2C (Azure AD B2C). Mer information om anspråks omvandlingar i allmänhet finns i [ClaimsTransformations](claimstransformations.md).
+Den här artikeln innehåller referenser och exempel för hur du använder telefonnummeranspråksomvandlingarna i Identity Experience Framework-schemat i Azure Active Directory B2C (Azure AD B2C). Mer information om anspråksomvandlingar i allmänhet finns i [ClaimsTransformations](claimstransformations.md).
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="convertphonenumberclaimtostring"></a>ConvertPhoneNumberClaimToString
+## <a name="convertphonenumberclaimtostring"></a>KonverteraPhoneNumberClaimToString
 
-Konverterar en `phoneNumber` data typ till en `string` datatyp.
+Konverterar `phoneNumber` en datatyp `string` till en datatyp.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | phoneNumber |  ClaimType som ska konverteras till en sträng. |
-| OutputClaim | phoneNumberString | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
+| InputClaim | phoneNumber | phoneNumber |  Den ClaimType som ska konverteras till en sträng. |
+| OutputClaim | telefonNumberString | sträng | Den ClaimType som produceras efter att den här anspråksomvandlingen har anropats. |
 
-I det här exemplet konverteras cellPhoneNumber-anspråket med en värdetyp som värde typ `phoneNumber` till ett mobilt anspråk med en värdetyp `string`.
+I det här exemplet konverteras mobilnumnumber-anspråket med en värdetyp av `phoneNumber` `string`till ett mobiltelefonanspråk med en värdetyp av .
 
 ```XML
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
@@ -50,27 +50,27 @@ I det här exemplet konverteras cellPhoneNumber-anspråket med en värdetyp som 
 
 ### <a name="example"></a>Exempel
 
-- Inmatade anspråk:
-  - **telefonnummer**: + 11234567890 (telefonnummer)
-- Utgående anspråk:
-  - **phoneNumberString**: + 11234567890 (sträng)
+- Ingående anspråk:
+  - **phoneNumber**: +11234567890 (phoneNumber)
+- Utdataanspråk:
+  - **phoneNumberString**: +11234567890 (sträng)
 
 
-## <a name="convertstringtophonenumberclaim"></a>ConvertStringToPhoneNumberClaim
+## <a name="convertstringtophonenumberclaim"></a>KonverteraStringToPhoneNumberClaim
 
-Den här anspråks omvandlingen verifierar formatet för telefonnumret. Om det är i ett giltigt format ändrar du det till ett standardformat som används av Azure AD B2C. Om det angivna telefonnumret inte har ett giltigt format returneras ett fel meddelande.
+Den här anspråksomvandlingen validerar formatet på telefonnumret. Om den är i ett giltigt format ändrar du det till ett standardformat som används av Azure AD B2C. Om det angivna telefonnumret inte är i ett giltigt format returneras ett felmeddelande.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumberString | sträng |  Sträng anspråket för telefonnumret. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och landskod. Om indata-anspråks `country` anges, är telefonnumret i lokalt format (utan lands koden). |
-| InputClaim | ursprungslandet | sträng | Valfritt Sträng anspråket för lands koden för telefonnumret i ISO3166-format (ISO-3166-landskod). |
-| OutputClaim | outputClaim | phoneNumber | Resultatet av denna omvandling av anspråk. |
+| InputClaim | telefonNumberString | sträng |  Strängen anspråk för telefonnumret. Telefonnumret måste vara i internationellt format, komplett med en ledande "+" och landskod. Om inmatningsanspråk `country` anges är telefonnumret i lokalt format (utan landskoden). |
+| InputClaim | land | sträng | [Valfritt] Strängen anspråk för landskoden för telefonnumret i ISO3166-format (två bokstäver ISO-3166 landskod). |
+| OutputClaim | outputClaim | phoneNumber | Resultatet av denna anspråk omvandling. |
 
-Omvandlingen av **ConvertStringToPhoneNumberClaim** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md) eller [visnings kontroll](display-controls.md). **UserMessageIfClaimsTransformationInvalidPhoneNumber** -metadata för självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
+**ConvertStringToPhoneNumberClaim** hävdar omvandlingen utförs alltid från en [teknisk valideringsprofil](validation-technical-profile.md) som anropas av en [självpåförd teknisk profil](self-asserted-technical-profile.md) eller [visningskontroll](display-controls.md). **UserMessageIfClaimsTransformationInvalidPhoneNumber** självsäkra tekniska profilmetadata styr felmeddelandet som presenteras för användaren.
 
-![Diagram över sökväg för körning av fel meddelande](./media/phone-authentication/assert-execution.png)
+![Diagram över sökväg för körning av felmeddelande](./media/phone-authentication/assert-execution.png)
 
-Du kan använda den här anspråks omvandlingen för att se till att det angivna sträng anspråket är ett giltigt telefonnummer. Annars genereras ett fel meddelande. I följande exempel kontrol leras att **phoneString** -claimType faktiskt är ett giltigt telefonnummer och returnerar sedan telefonnumret i standardformatet för Azure AD B2C. Annars genereras ett fel meddelande.
+Du kan använda den här anspråksomvandlingen för att säkerställa att det angivna stränganspråket är ett giltigt telefonnummer. Om inte, genereras ett felmeddelande. I följande exempel kontrolleras att **phoneString** ClaimType verkligen är ett giltigt telefonnummer och returnerar sedan telefonnumret i standardformatet Azure AD B2C. Annars genereras ett felmeddelande.
 
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
@@ -84,7 +84,7 @@ Du kan använda den här anspråks omvandlingen för att se till att det angivna
 </ClaimsTransformation>
 ```
 
-Den självkontrollerade tekniska profilen som anropar den tekniska verifierings profilen som innehåller den här anspråks omvandlingen kan definiera fel meddelandet.
+Den självpåsterade tekniska profilen som anropar den tekniska profilen för validering som innehåller den här anspråksomvandlingen kan definiera felmeddelandet.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
@@ -97,40 +97,40 @@ Den självkontrollerade tekniska profilen som anropar den tekniska verifierings 
 
 ### <a name="example-1"></a>Exempel 1
 
-- Inmatade anspråk:
+- Ingående anspråk:
   - **phoneNumberString**: 033 456-7890
-  - **land**: dk
-- Utgående anspråk:
-  - **outputClaim**: + 450334567890
+  - **land**: DK
+- Utdataanspråk:
+  - **outputClaim**: +450334567890
 
 ### <a name="example-2"></a>Exempel 2
 
-- Inmatade anspråk:
-  - **phoneNumberString**: + 1 (123) 456-7890
-- Utgående anspråk:
-  - **outputClaim**: + 11234567890
+- Ingående anspråk:
+  - **telefonNumberString**: +1 (123) 456-7890
+- Utdataanspråk:
+  - **outputClaim**: +11234567890
 
 
-## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
+## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>FåNationalNumberAndCountryCodeFromPhoneNumberString
 
-Detta extraherar lands koden och det nationella numret från det inskickade anspråket och genererar ett undantag om det angivna telefonnumret inte är giltigt.
+Detta extraherar landskoden och det nationella numret från inmatningsanspråket och genererar eventuellt ett undantag om det angivna telefonnumret inte är giltigt.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | sträng | Telefonnumrets sträng anspråk. Telefonnumret måste vara i internationellt format, slutföras med en inledande "+"-och landskod. |
-| InputParameter | throwExceptionOnFailure | boolesk | Valfritt En parameter som anger om ett undantag genereras när telefonnumret är ogiltigt. Standardvärdet är false. |
-| InputParameter | countryCodeType | sträng | Valfritt En parameter som anger typen av landskod i utgående anspråk. Tillgängliga värden är **CallingCode** (den internationella anrops koden för ett land, t. ex. + 1) eller **ISO3166** (ISO-3166-landkoden med två bokstäver). |
-| OutputClaim | nationalNumber | sträng | Sträng anspråket för det nationella numret för telefonnumret. |
-| OutputClaim | countryCode | sträng | Sträng anspråket för telefonnumrets landskod. |
+| InputClaim | phoneNumber | sträng | Strängen anspråk på telefonnumret. Telefonnumret måste vara i internationellt format, komplett med en ledande "+" och landskod. |
+| InputParameter | throwExceptionOnFailure | boolean | [Valfritt] En parameter som anger om ett undantag genereras när telefonnumret inte är giltigt. Standardvärdet är falskt. |
+| InputParameter | landCodeType (landCodeType) | sträng | [Valfritt] En parameter som anger typen av landskod i utdataanspråket. Tillgängliga värden är **CallingCode** (den internationella samtalskoden för ett land, till exempel +1) eller **ISO3166** (landskoden med två bokstäver i ISO-3166). |
+| OutputClaim | nationellaNummer | sträng | Strängen anspråk på det nationella numret på telefonnumret. |
+| OutputClaim | countryCode (landsKod) | sträng | Strängen anspråk för landskoden för telefonnumret. |
 
 
-Om omvandlingen av **GetNationalNumberAndCountryCodeFromPhoneNumberString** -anspråk körs från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md) eller en [åtgärd för att Visa kontroll](display-controls.md#display-control-actions), styr **UserMessageIfPhoneNumberParseFailure** för självkontrollerad teknisk profil det fel meddelande som visas för användaren.
+Om **getnationalnumberandcountryCodeFromPhoneNumberString** anspråk omvandlingen utförs från en [validering teknisk profil](validation-technical-profile.md) som anropas av en [självpåförd teknisk profil](self-asserted-technical-profile.md) eller en åtgärd display [kontroll](display-controls.md#display-control-actions), då **UserMessageIfPhoneNumberParseFailure** självpåförda tekniska profil metadata styr felmeddelandet som presenteras för användaren.
 
-![Diagram över sökväg för körning av fel meddelande](./media/phone-authentication/assert-execution.png)
+![Diagram över sökväg för körning av felmeddelande](./media/phone-authentication/assert-execution.png)
 
-Du kan använda den här anspråks omvandlingen för att dela upp ett fullständigt telefonnummer i lands koden och det nationella numret. Om det angivna telefonnumret inte är giltigt kan du välja att utlösa ett fel meddelande.
+Du kan använda den här anspråksomvandlingen för att dela upp ett fullständigt telefonnummer i landskoden och det nationella numret. Om det angivna telefonnumret inte är giltigt kan du välja att skicka ett felmeddelande.
 
-I följande exempel försöker du dela telefonnumret i det nationella numret och lands koden. Om telefonnumret är giltigt kommer telefonnumret att åsidosättas av det nationella numret. Om telefonnumret inte är giltigt, genereras inget undantag och telefonnumret har fortfarande sitt ursprungliga värde.
+I följande exempel försöker du dela upp telefonnumret i nationellt nummer och landskod. Om telefonnumret är giltigt åsidosätts telefonnumret av det nationella numret. Om telefonnumret inte är giltigt genereras inte ett undantag och telefonnumret har fortfarande sitt ursprungliga värde.
 
 ```XML
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
@@ -148,7 +148,7 @@ I följande exempel försöker du dela telefonnumret i det nationella numret och
 </ClaimsTransformation>
 ```
 
-Den självkontrollerade tekniska profilen som anropar den tekniska verifierings profilen som innehåller den här anspråks omvandlingen kan definiera fel meddelandet.
+Den självpåsterade tekniska profilen som anropar den tekniska profilen för validering som innehåller den här anspråksomvandlingen kan definiera felmeddelandet.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
@@ -161,22 +161,22 @@ Den självkontrollerade tekniska profilen som anropar den tekniska verifierings 
 
 ### <a name="example-1"></a>Exempel 1
 
-- Inmatade anspråk:
-  - **telefonnummer**: + 49 (123) 456-7890
+- Ingående anspråk:
+  - **phoneNumber**: +49 (123) 456-7890
 - Indataparametrar:
   - **throwExceptionOnFailure**: falskt
   - **countryCodeType**: ISO3166
-- Utgående anspråk:
-  - **nationalNumber**: 1234567890
-  - **countryCode**: de
+- Utdataanspråk:
+  - **medborgareNummer**: 1234567890
+  - **countryCode**: DE
 
 ### <a name="example-2"></a>Exempel 2
 
-- Inmatade anspråk:
-  - **telefonnummer**: + 49 (123) 456-7890
+- Ingående anspråk:
+  - **phoneNumber**: +49 (123) 456-7890
 - Indataparametrar
   - **throwExceptionOnFailure**: falskt
   - **countryCodeType**: CallingCode
-- Utgående anspråk:
-  - **nationalNumber**: 1234567890
-  - **countryCode**: + 49
+- Utdataanspråk:
+  - **medborgareNummer**: 1234567890
+  - **countryCode**: +49

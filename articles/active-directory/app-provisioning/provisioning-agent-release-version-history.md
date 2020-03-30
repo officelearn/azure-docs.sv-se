@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect etablerings agent: versions historik | Microsoft Docs'
-description: Den här artikeln innehåller en lista över alla versioner av Azure AD Connect etablerings agenten och beskriver nya funktioner och problem som har åtgärd ATS
+title: 'Etablerande agent för Azure AD Connect: Versionsversionshistorik | Microsoft-dokument'
+description: I den här artikeln visas alla versioner av Azure AD Connect-etableringsagenten och nya funktioner och fasta problem beskrivs
 services: active-directory
 documentationcenter: ''
 author: cmmdesai
@@ -17,54 +17,54 @@ ms.subservice: app-provisioning
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 559bca4f5020cebe06be7f24f7af5ec2e94bec0e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183252"
 ---
-# <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Azure AD Connect etablerings agent: versions historik
-Den här artikeln innehåller versioner och funktioner i Azure Active Directory Connect etablerings agent som har släppts. Azure AD-teamet uppdaterar regelbundet etablerings agenten med nya funktioner och funktioner. Etablerings agenten uppdateras automatiskt när en ny version släpps. 
+# <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Etablerande agent för Azure AD Connect: Versionsversionshistorik
+I den här artikeln visas de versioner och funktioner i Azure Active Directory Connect-etableringsagenten som har släppts. Azure AD-teamet uppdaterar regelbundet etableringsagenten med nya funktioner och funktioner. Etableringsagenten uppdateras automatiskt när en ny version släpps. 
 
-Microsoft tillhandahåller direkt support för den senaste agent versionen och en version.
+Microsoft ger direkt stöd för den senaste agentversionen och en version tidigare.
 
 ## <a name="11960"></a>1.1.96.0
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 
-4 december 2019: släpps för hämtning
+4 december 2019: Släppt för nedladdning
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
-* Innehåller stöd för [Azure AD Connect moln etablering](../cloud-provisioning/what-is-cloud-provisioning.md) för att synkronisera användare, kontakt och grupp data från lokala Active Directory till Azure AD
+* Inkluderar stöd för [Azure AD Connect-molnetablering](../cloud-provisioning/what-is-cloud-provisioning.md) för synkronisering av användar-, kontakt- och gruppdata från lokala Active Directory till Azure AD
 
 
 ## <a name="11670"></a>1.1.67.0
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 
-9 september 2019: lanseras för automatisk uppdatering
+September 9, 2019: Släppt för automatisk uppdatering
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
-* Möjlighet att konfigurera ytterligare spårning och loggning för fel sökning av etablerings agent problem
-* Möjlighet att bara hämta de Azure AD-attribut som konfigureras i mappningen för att förbättra synkroniseringens prestanda
+* Möjlighet att konfigurera ytterligare spårning och loggning för felsökning av etableringsagentproblem
+* Möjlighet att hämta endast de Azure AD-attribut som är konfigurerade i mappningen för att förbättra prestanda för synkronisering
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
 
-* Ett fel har åtgärd ATS där agenten övergick i ett tillstånd som inte svarar om det uppstod problem med anslutnings fel i Azure AD
-* En bugg har åtgärd ATS som orsakade problem när binära data lästes från Azure Active Directory
-* Ett fel har åtgärd ATS där agenten inte kunde förnya förtroende med moln hybrid identitets tjänsten
+* Fixade ett fel där agenten gick in i ett tillstånd som inte svarade om det fanns problem med Azure AD-anslutningsfel
+* Åtgärdade ett fel som orsakade problem när binära data lästes från Azure Active Directory
+* Fixade ett fel där agenten inte kunde förnya förtroendet med molnhybrididentitetstjänsten
 
 ## <a name="11300"></a>1.1.30.0
 
-### <a name="release-status"></a>Versions status
+### <a name="release-status"></a>Versionsstatus
 
-23 januari 2019: släpps för hämtning
+23 januari 2019: Släppt för nedladdning
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
-* Förbättringar för etablerings agenten och anslutnings arkitekturen ger bättre prestanda, stabilitet och tillförlitlighet 
-* Förenklad konfiguration av konfigurations agenten med hjälp av UI-driven installations guide 
-* Stöd har lagts till för automatiska agent uppdateringar
+* Omarbetade etableringsagenten och anslutningsarkitekturen för bättre prestanda, stabilitet och tillförlitlighet 
+* Förenklad konfiguration för etableringsagent med hjälp av användargränssnittsstyrd installationsguide 
+* Lagt till stöd för automatiska agentuppdateringar
 

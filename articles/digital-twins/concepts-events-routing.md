@@ -1,6 +1,6 @@
 ---
-title: Dirigera händelser och meddelanden – Azure Digitals, dubblare | Microsoft Docs
-description: Översikt över routning av händelser och meddelanden till tjänst slut punkter med Azure Digitals
+title: Routningshändelser och -meddelanden – Azure Digital Twins | Microsoft-dokument
+description: Översikt över routningshändelser och meddelanden till tjänstslutpunkter med Azure Digital Twins
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,63 +9,63 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75862364"
 ---
-# <a name="routing-iot-events-and-messages"></a>Dirigera IoT-händelser och-meddelanden
+# <a name="routing-iot-events-and-messages"></a>Routning av IoT-händelser och meddelanden
 
-Sakernas Internets lösningar enhets ofta flera kraftfulla tjänster som omfattar lagring, analys och mycket annat. Den här artikeln beskriver hur du ansluter Azure Digitals dubbla appar till Azure Analytics-, AI-och lagrings tjänster för att ge dem djupare insikter och funktioner.
+Internet of Things-lösningar förenar ofta flera kraftfulla tjänster som inkluderar lagring, analys med mera. I den här artikeln beskrivs hur du ansluter Azure Digital Twins-appar till Azure Analytics-, AI- och lagringstjänster för att ge dem djupare insikter och funktioner.
 
-## <a name="route-types"></a>Flödes typer  
+## <a name="route-types"></a>Rutttyper  
 
-Azure Digital-dubbla finns på två sätt för att ansluta IoT-händelser med andra Azure-tjänster eller affärs program:
+Azure Digital Twins erbjuder två sätt att ansluta IoT-händelser till andra Azure-tjänster eller affärsprogram:
 
-* **Routning av Azure Digitals dubbla nätverks händelser**: ett objekt i den spatialdata som ändrar, telemetridata som tas emot eller en användardefinierad funktion som skapar ett meddelande baserat på fördefinierade villkor kan utlösa Azure Digitals dubbla händelser. Användare kan skicka dessa händelser till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus ämnen](https://azure.microsoft.com/services/service-bus/)eller [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) för ytterligare bearbetning.
+* **Routning av Azure Digital Twins-händelser:** Ett objekt i det rumsliga diagrammet som ändras, telemetridata som tas emot eller en användardefinierad funktion som skapar ett meddelande baserat på fördefinierade villkor kan utlösa Azure Digital Twins-händelser. Användare kan skicka dessa händelser till [Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/) [Azure Service Bus ämnen](https://azure.microsoft.com/services/service-bus/)eller Azure Event [Grid](https://azure.microsoft.com/services/event-grid/) för vidare bearbetning.
 
-* **Telemetri för routning av enhet**: förutom att dirigera händelser kan även Azure Digitals-enheter dirigera meddelanden om telemetri för enheter till Event Hubs för ytterligare insikter och analyser. Dessa typer av meddelanden bearbetas inte av digitala Azure-dubbla. Och de vidarebefordras endast till händelsehubben.
+* **Telemetri för routningsenhet:** Förutom routningshändelser kan Azure Digital Twins även dirigera meddelanden om rå enhetstelemetri till eventhubbar för ytterligare insikter och analyser. Dessa typer av meddelanden bearbetas inte av Azure Digital Twins. Och de vidarebefordras bara till eventhubben.
 
-Användare kan ange en eller flera utgående slut punkter för att skicka händelser eller vidarebefordra meddelanden. Händelser och meddelanden kommer att skickas till slut punkterna enligt dessa fördefinierade inställningar för routning. Med andra ord kan användarna ange en viss slut punkt för att ta emot diagram åtgärds händelser, en annan för att ta emot telemetri-händelser och så vidare.
+Användare kan ange en eller flera slutpunkter för utgående start för att skicka ut händelser eller vidarebefordra meddelanden. Händelser och meddelanden skickas till slutpunkterna enligt dessa fördefinierade routningsinställningar. Med andra ord kan användare ange en viss slutpunkt för att ta emot diagramåtgärdshändelser, en annan för att ta emot enhetstelemetrihändelser och så vidare.
 
-[![routning av Azure Digitals sammanflätade händelser](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
+[![Routning av Azure Digital Twins-händelser](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
-Routning till Event Hubs upprätthåller i vilken ordning telemetri-meddelanden ska skickas. De kommer då till slut punkten i samma ordning som de ursprungligen togs emot. 
+Routning till händelsehubbar upprätthåller den ordning i vilken telemetrimeddelanden skickas. Så de anländer till slutpunkten i samma sekvens som de ursprungligen togs emot. 
 
-Event Grid och Service Bus garanterar inte att slut punkterna tar emot händelser i samma ordning som de har inträffat. Händelse schemat innehåller dock en tidsstämpel som kan användas för att identifiera ordningen när händelserna kommer till slut punkten.
+Event Grid och Service Bus garanterar inte att slutpunkter kommer att ta emot händelser i samma ordning som de inträffade. Händelseschemat innehåller dock en tidsstämpel som kan användas för att identifiera ordern när händelserna anländer till slutpunkten.
 
-## <a name="route-implementation"></a>Väg implementering
+## <a name="route-implementation"></a>Ruttimplementering
 
-Azure Digitals dubbla tjänster har för närvarande stöd för följande **EndpointTypes**:
+Azure Digital Twins-tjänsten stöder för närvarande följande **EndpointTypes:**
 
-* **EventHub** är slut punkten för Event Hubs anslutnings strängen.
-* **Service Bus** är slut punkten för den Service Bus anslutnings strängen.
-* **EventGrid** är slut punkten för den Event Grid anslutnings strängen.
+* **EventHub** är slutpunkten för anslutningssträngen Event Hubs.
+* **ServiceBus** är slutpunkten för anslutningssträngen Service Bus.
+* **EventGrid** är slutpunkten för anslutningssträngen För händelserutnät.
 
-Azure Digital-dubbla är för närvarande stöd för följande **EventTypes** som skickas till den valda slut punkten:
+Azure Digital Twins stöder för närvarande följande **EventTypes** som ska skickas till den valda slutpunkten:
 
-* **DeviceMessages** är telemetri meddelanden som skickas från användarnas enheter och vidarebefordras av systemet.
-* **TopologyOperation** är en åtgärd som ändrar grafen eller metadata i grafen. Ett exempel är att lägga till eller ta bort en entitet, till exempel ett blank steg.
-* **SpaceChange** är en ändring i ett utrymmes beräknade värde som resulterar från ett meddelande om enhets telemetri.
-* **SensorChange** är en förändring i en sensors beräknade värde som resulterar från ett meddelande om enhets telemetri.
+* **DeviceMessages** är telemetrimeddelanden som skickas från användarnas enheter och vidarebefordras av systemet.
+* **TopologiOperation** är en åtgärd som ändrar diagrammet eller metadata i diagrammet. Ett exempel är att lägga till eller ta bort en entitet, till exempel ett blanksteg.
+* **SpaceChange** är en förändring i ett blankstegs beräknade värde som är resultatet av ett enhetstelemetrimeddelande.
+* **SensorChange** är en förändring i en sensors beräknade värde som är resultatet av ett enhetstelemetrimeddelande.
 * **UdfCustom** är ett anpassat meddelande från en användardefinierad funktion.
 
 > [!IMPORTANT]  
 > Alla **EndpointTypes** stöder inte alla **EventTypes**.
-> Granska följande tabell för de **EventTypes** som är tillåtna för varje **EndpointType**.
+> Granska följande tabell för de **EventTypes** som tillåts för varje **EndpointType**.
 
-|             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
+|             | DeviceMessages | TopologyOperation | SpaceChange (spacechange) | SensorÄnd av | UdfCustom (UdfCustom) |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
 | EventHub|     X          |         X         |     X       |      X       |   X       |
 | ServiceBus|              |         X         |     X       |      X       |   X       |
-| EventGrid|               |         X         |     X       |      X       |   X       |
+| EventGrid (På ett sätt som är fallet)|               |         X         |     X       |      X       |   X       |
 
 >[!NOTE]  
->För ytterligare information om hur du skapar slut punkter och exempel på händelsers schema, Läs utgångs- [och slut punkter](how-to-egress-endpoints.md).
+>Mer information om hur du skapar slutpunkter och exempel på händelsers schema finns i [Egress och slutpunkter](how-to-egress-endpoints.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs om du vill ha mer information om för hands versionen av Azure Digitals för [hands versions begränsningar.](concepts-service-limits.md)
+- Om du vill veta mer om azure digital twins preview gränser, läsa [Public preview service limits](concepts-service-limits.md).
 
-- Om du vill prova ett digitalt Azure-exempel kan du läsa [snabb starten för att hitta tillgängliga rum](quickstart-view-occupancy-dotnet.md).
+- Om du vill prova ett Azure Digital Twins-exempel läser du [snabbstarten för att hitta tillgängliga rum](quickstart-view-occupancy-dotnet.md).

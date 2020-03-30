@@ -1,77 +1,77 @@
 ---
-title: Förstå användningen av mobil program och användar beteende med Visual Studio App Center-och Azure-tjänster
-description: Lär dig mer om tjänsterna som App Center som hjälper dig att fatta smarta affärs beslut genom att förstå hur användare använder ditt mobila program.
-author: elamalani
+title: Förstå användning av mobila program och användarbeteende med Visual Studio App Center och Azure-tjänster
+description: Läs mer om tjänster som App Center som hjälper dig att fatta smarta affärsbeslut genom att förstå hur användarna använder ditt mobilapplikation.
+author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: ff25df55e8489819ca9400205cdea1b8ceb8bf80
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 4dc3cea4497c55dda0d8da2ca29201615dadff19
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454535"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241085"
 ---
-# <a name="analyze-and-understand-mobile-application-use"></a>Analysera och förstå användning av mobil program
-Hur bra är det att förstå hur dina användare använder dina program? Hur många aktiva användare har ditt program och hur ändras användningen över tid? Vilka funktioner använder de och vilka som används mest? Var är dessa användare baserade? Hur många användare använder den senaste versionen av programmet? Alla dessa frågor är viktiga att känna till för att göra din app till en lyckad verksamhet. Du måste samla in användnings data från dina appar för att kunna besvara dessa typer av användnings analys frågor.
+# <a name="analyze-and-understand-mobile-application-use"></a>Analysera och förstå användning av mobilappar
+Hur väl förstår du hur användarna använder dina program? Hur många aktiva användare har ditt program och hur förändras användningen med tiden? Vilka funktioner använder de, och vilka används mest? Var är dessa användare baserade? Hur många användare använder den senaste versionen av programmet? Alla dessa frågor är viktiga att förstå för att göra din app till ett framgångsrikt företag. För att besvara den typen av frågor om användningsanalys måste du samla in användningsdata från dina appar.
 
-Mer du tittar närmare på data, desto mer kan du se hur du kan förbättra ditt program och se till att användarna är nöjda. Det är viktigt att använda data för att hitta åtgärds bara insikter och hålla användare uppfyllda.
+Ju mer du tittar ner i data, desto mer kan du hitta sätt att förbättra ditt program och hålla dina användare nöjda. Det är viktigt att använda data för att hitta användbara insikter och hålla användarna nöjda.
 
-## <a name="importance-of-analytics"></a>Prioritet för analys
-- Förstå dina användare, hur de interagerar med ditt program och gör det möjligt för dem att finjustera ditt program och tillhandahålla fantastiska upplevelser för att växa din verksamhet.
-- Spåra användnings statistik för att fatta välgrundade beslut om hur du marknadsför ditt program och bättre betjänar dina kunder.
+## <a name="importance-of-analytics"></a>Betydelsen av analys
+- Förstå dina användare, hur de interagerar med ditt program och vad som för dem tillbaka för att finjustera ditt program och ge bra upplevelser för att få ditt företag att växa.
+- Spåra dina användningsmått för att fatta välgrundade beslut om hur du marknadsför ditt program och bättre betjäna dina kunder.
 - Mät programmets prestanda.
-- Lär dig vilka delar av ditt programs enhets värde och prestanda.
-- Få data drivna insikter om problem som rör omsättning och kvarhållning.
+- Ta reda på vilka delar av programmets enhetsvärde och prestanda.
+- Få datadrivna insikter i problem som rör omsättning och kvarhållning.
 
-Använd följande tjänster för att aktivera analys av mobil program.
+Använd följande tjänster för att aktivera mobilprogramanalys.
 
 ## <a name="visual-studio-app-center"></a>Visual Studio App Center
-Med [App Center Analytics](/appcenter/analytics/) kan du utöka mål gruppen genom att fokusera på det som är viktigt. Den erbjuder djupgående rapporter och insikter om användarsessioner, främsta enheter, OS-versioner och beteende analys. Skapa enkelt anpassade händelser för att spåra vad som helst med omfattande program analys.
+[Med App Center Analytics](/appcenter/analytics/) kan du öka målgruppen genom att fokusera på det som är viktigt. Det ger djup rapportering och insikter om användarsessioner, toppenheter, OS-versioner och beteendeanalys. Skapa enkelt anpassade händelser för att spåra allt med omfattande programanalyser.
 
    **Huvudfunktioner**
-   - Spåra användnings mönster, användar antagande och andra uppdrags mått kostnads fritt.
-   - Identifiera trender, användar beteende och engagemang genom anpassade händelser.
-   - Få färdiga Mät värden och detaljerade insikter om program användning (varje dag, varje vecka, varje månad), sessioner, enhets egenskaper och användar demografiska data på en enda instrument panel.
-   - Exportera alltid alla App Center Analytics-data till Azure för obegränsad kvarhållning. App Center Analytics stöder export till Azure Blob Storage och Azure Application insikter.
-   - Integrera med Azure Application insikter för ännu djupare insikter, till exempel kvarhållning, tratt-analys och kohorter.
-   - Kom igång på några minuter med hjälp av en SDK-integrering med en rad.
-   - Få plattforms stöd för iOS, Android, macOS, tvOS, Xamarin, reagera inbyggd, Unity och Cordova.
+   - Spåra användningsmönster, användaranvändning och andra engagemangsmått utan kostnad.
+   - Identifiera trender, användarbeteende och engagemang genom anpassade händelser.
+   - Hämta färdiga mått och detaljerade insikter om programanvändning (dagligen, veckovis, månadsvis), sessioner, enhetsegenskaper och användardemografi i en enda instrumentpanel.
+   - Exportera kontinuerligt alla Dina App Center Analytics-data till Azure för obegränsad kvarhållning. App Center Analytics stöder export till Azure Blob storage och Azure Application Insights.
+   - Integrera med Azure Application Insights för ännu djupare insikter, till exempel kvarhållning, trattanalys och kohorter.
+   - Använd enrads SDK-integrering för att komma igång inom några minuter.
+   - Få plattformsstöd för iOS, Android, macOS, tvOS, Xamarin, React Native, Unity och Cordova.
 
-   **Reference**
+   **Referenser**
    - [Registrera dig med App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-   - [Kom igång med App Center Analytics](/appcenter/analytics/)
+   - [Komma igång med App Center Analytics](/appcenter/analytics/)
 
 ## <a name="azure-monitor"></a>Azure Monitor
-Azure Monitor innehåller [Application Insights](/azure/azure-monitor/app/app-insights-overview)som innehåller verktyg för att samla in och analysera telemetri för att maximera prestanda och övervaka ditt mobila program. Du kan dra nytta av Application Insights genom att använda App Center analys för att konfigurera export till Application Insights. Application Insights kan fråga, segmentera, filtrera och analysera anpassad händelse telemetri från dina program, utöver de analys verktyg som App Center tillhandahåller.
+Azure Monitor innehåller [Application Insights](/azure/azure-monitor/app/app-insights-overview), som innehåller verktyg för att samla in och analysera telemetri för att maximera prestanda och övervaka ditt mobila program. Du kan dra nytta av Application Insights genom att använda App Center Analytics för att konfigurera export till Application Insights. Application Insights kan fråga, segmentera, filtrera och analysera den anpassade händelsetelemetrin från dina program, utöver de analysverktyg som App Center tillhandahåller.
 
 **Huvudfunktioner**
-   - Fråga din anpassade händelse-telemetri.
-   - Filtrera händelse-telemetri med kraftfulla segment funktioner.
-   - Analysera konverterings-, bevarande-och navigerings mönster i ditt program. Du kan använda:
-     - Trattar för att analysera och övervaka konverterings takt.
-     - Kvarhållning för att analysera hur bra ditt program behåller användare över tid.
-     - Arbets böcker som kombinerar visualiseringar och text till en delnings bara rapport.
-     - Kohorter för att namnge och spara vissa grupper av användare eller händelser så att de enkelt kan refereras från andra analys verktyg.
+   - Fråga den anpassade händelsetelemetrin.
+   - Filtrera händelsetelemetri med kraftfulla segmenteringsfunktioner.
+   - Analysera konverterings-, kvarhållnings- och navigeringsmönster i ditt program. Du kan använda:
+     - Trattar för att analysera och övervaka omräkningskurser.
+     - Kvarhållning för att analysera hur väl ditt program behåller användare över tid.
+     - Arbetsböcker för att kombinera visualiseringar och text till en delbar rapport.
+     - Kohorter för att namnge och spara specifika grupper av användare eller händelser så att de enkelt kan refereras från andra analysverktyg.
 
-**Reference**
-- [Azure-portalen](https://portal.azure.com/)
-- [Analysera ditt mobil program med App Center och Application Insights](/azure/azure-monitor/learn/mobile-center-quickstart)
-- [Använda App Center Analytics med Application Insights](/azure/azure-monitor/app/usage-overview)
+**Referenser**
+- [Azure-portal](https://portal.azure.com/)
+- [Analysera din mobilapplikation med App Center och Application Insights](/azure/azure-monitor/learn/mobile-center-quickstart)
+- [Använda App Center Analytics med application insights](/azure/azure-monitor/app/usage-overview)
 
 ## <a name="azure-playfab"></a>Azure PlayFab
-[Azure PlayFab](https://playfab.com/) erbjuder en komplett Server dels plattform med spel tjänster, real tids analys och LiveOps som du behöver för att skapa molnbaserade spel i världs klass. Dessa tjänster minskar barriärerna för att lansera spel utvecklare. De erbjuder både stora och små Studios kostnads effektiva utvecklings lösningar som skalar med sina spel. Tjänsterna kan hjälpa Studios att engagera, behålla och tjäna spelare. Med PlayFab kan utvecklare använda det intelligenta molnet för att bygga och hantera spel, analysera spel data och förbättra övergripande spel upplevelser.
+[Azure PlayFab](https://playfab.com/) erbjuder en komplett backend-plattform med speltjänster, realtidsanalys och LiveOps som du behöver för att skapa molnanslutna spel i världsklass. Dessa tjänster minskar hindren för lansering för spelutvecklare. De erbjuder både stora och små studior kostnadseffektiva utvecklingslösningar som skalar med sina spel. Tjänsterna kan hjälpa studior engagera, behålla och tjäna pengar på spelare. Med PlayFab kan utvecklare använda det intelligenta molnet för att bygga och driva spel, analysera speldata och förbättra de övergripande spelupplevelserna.
 
 **Huvudfunktioner**
-   - Övervaka instrument paneler i real tid.
-   - Utvärdera spelets prestanda via främsta mått.
-   - Granska sammanfattningar av spelets dagliga och månatliga prestanda genom autogenererade rapporter. Du kan visa rapporterna i Game Manager och låta dem hämtas eller levereras till din inkorg dagligen.
-   - Använd ett/B-test för att köra experiment och fastställa den optimala inställningen för en viss variabel.
-   - Använd segmentering för spelare för att definiera automatiska grupperingar av spelare.
+   - Övervaka instrumentpaneler i realtid.
+   - Utvärdera spelets resultat genom toppmått.
+   - Granska sammanfattningar av spelets dagliga och månatliga resultat genom automatiskt skapade rapporter. Du kan visa rapporterna i Game Manager och få dem nedladdade eller levererade till inkorgen dagligen.
+   - Använd A/B-testning för att köra experiment och bestämma den optimala inställningen för en viss variabel.
+   - Använd segmentering för spelare för att definiera automatiserade grupperingar av spelare.
     
-**Reference**
-- [PlayFab-portalen](https://developer.playfab.com/en-US/sign-up)
+**Referenser**
+- [PlayFab-portal](https://developer.playfab.com/en-US/sign-up)
 - [Analys](/gaming/playfab/#pivot=documentation&panel=analytics)
 - [Snabbstarter](/gaming/playfab/#pivot=documentation&panel=quickstarts) 

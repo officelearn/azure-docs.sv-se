@@ -1,7 +1,7 @@
 ---
-title: Utforma virtuella nätverk med NAT-gateway-resurser
+title: Utforma virtuella nätverk med NAT-gatewayresurser
 titleSuffix: Azure Virtual Network NAT
-description: Lär dig hur du utformar virtuella nätverk med NAT gateway-resurser.
+description: Lär dig hur du utformar virtuella nätverk med NAT-gatewayresurser.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -12,355 +12,311 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2020
+ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 3cc459b7f4b81b14f57bbb702f0b0d988654189f
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 48fd4b0e6f0351cd46fc4063785d961867637e0c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79298662"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80060638"
 ---
-# <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Utforma virtuella nätverk med NAT-gateway-resurser
+# <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Designa virtuella nätverk med NAT-gatewayresurser
 
-NAT-gateway-resurser ingår i [Virtual Network NAT](nat-overview.md) och tillhandahålla utgående Internet anslutning för ett eller flera undernät i ett virtuellt nätverk. Under nätet för de virtuella nätverks tillstånd som NAT-gatewayen ska användas för. NAT tillhandahåller käll Network Address Translation (SNAT) för ett undernät.  NAT-gateway-resurser anger vilka statiska IP-adresser som virtuella datorer använder när de skapar utgående flöden. Statiska IP-adresser kommer från offentliga IP-adressresurser, resurser för offentliga IP-prefix eller både och. En NAT-gateway-resurs kan använda upp till 16 statiska IP-adresser från båda.
+NAT-gatewayresurser är en del av [VIRTUAL Network NAT](nat-overview.md) och tillhandahåller utgående Internetanslutning för ett eller flera undernät i ett virtuellt nätverk. Undernätet för det virtuella nätverket anger vilka NAT-gateway som ska användas. NAT tillhandahåller SNAT (Source Network Address Translation) för ett undernät.  NAT-gatewayresurser anger vilka statiska IP-adresser virtuella datorer använder när utgående flöden skapas. Statiska IP-adresser kommer från offentliga IP-adressresurser, offentliga IP-prefixresurser eller båda. En NAT-gatewayresurs kan använda upp till 16 statiska IP-adresser från antingen.
 
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT för utgående till Internet">
+  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtuellt nätverk NAT för utgående till Internet">
 </p>
 
-*Bild: Virtual Network NAT för utgående till Internet*
+*Bild: Virtuellt nätverk NAT för utgående till Internet*
 
 ## <a name="how-to-deploy-nat"></a>Så här distribuerar du NAT
 
-Att konfigurera och använda NAT-gateway har avsiktligt gjort enkla:  
+Konfigurera och använda NAT gateway är avsiktligt enkelt:  
 
-NAT-gateway-resurs:
-- Skapa en regional eller zonindelade (zon isolerad) NAT-gateway-resurs,
+NAT-gatewayresurs:
+- Skapa en regional eller zonbaserad (zonosolerad) NAT-gatewayresurs,
 - Tilldela IP-adresser,
-- Ändra tids gräns för inaktivitet (valfritt).
+- Ändra timeout för inaktiv TCP -inaktivitet (valfritt).
 
 Virtuellt nätverk:
-- Konfigurera undernät för virtuellt nätverk för att använda en NAT-gateway.
+- Konfigurera det virtuella nätverksundernätet för att använda en NAT-gateway.
 
 Användardefinierade vägar är inte nödvändiga.
 
 ## <a name="resource"></a>Resurs
 
-Resursen är utformad för att vara enkel som du kan se från följande Azure Resource Manager exempel i ett mall-liknande format.  Det här mall-liknande-formatet visas här för att illustrera koncepten och strukturen.  Ändra exemplet för dina behov.  Det här dokumentet är inte avsett som en själv studie kurs.
+Resursen är utformad för att vara enkel som du kan se i följande Azure Resource Manager-exempel i ett mallliknande format.  Det här mallliknande formatet visas här för att illustrera begreppen och strukturen.  Ändra exemplet för dina behov.  Det här dokumentet är inte avsett som en självstudiekurs.
 
-I följande diagram visas skrivbara referenser mellan de olika Azure Resource Manager resurserna.  Pilen anger riktningen för referensen, från vilken den är skrivbar. Granska 
+Följande diagram visar skrivbara referenser mellan de olika Azure Resource Manager-resurserna.  Pilen visar referensens riktning och kommer från den plats där den kan skrivas. Granska 
 
 <p align="center">
-  <img src="media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT-objektmodellen">
+  <img src="media/nat-overview/flow-map.svg" width="256" title="NAT-objektmodell för virtuellt nätverk">
 </p>
 
-*Bild: Virtual Network NAT-objektmodellen*
+*Bild: NAT-objektmodell för virtuellt nätverk*
 
-NAT rekommenderas för de flesta arbets belastningar om du inte har ett speciellt beroende på [poolbaserade Load Balancer utgående anslutningar](../load-balancer/load-balancer-outbound-connections.md).  
+NAT rekommenderas för de flesta arbetsbelastningar om du inte har ett specifikt beroende av [poolbaserad utgående anslutning av belastningsutjämnaren](../load-balancer/load-balancer-outbound-connections.md).  
 
-Du kan migrera från vanliga scenarier för belastnings utjämning, inklusive [utgående regler](../load-balancer/load-balancer-outbound-rules-overview.md), till NAT-gateway. För att migrera, flytta resurserna för offentliga IP-adresser och offentliga IP-adresser från belastningsutjämnare till NAT-gateway. Nya IP-adresser för NAT gateway krävs inte. Offentlig standard-IP och prefix kan återanvändas så länge som summan inte överstiger 16 IP-adresser. Planera för migrering med avbrott i tjänsten i åtanke under över gången.  Du kan minimera avbrottet genom att automatisera processen. Testa migreringen i en mellanlagrings miljö först.  Under över gången påverkas inte inkommande ursprungliga flöden.
+Du kan migrera från standardscenarier för belastningsutjämnare, inklusive [utgående regler,](../load-balancer/load-balancer-outbound-rules-overview.md)till NAT-gateway. Om du vill migrera flyttar du de offentliga ip- och offentliga ip-prefixresurserna från belastningsutjämnads frontends till NAT-gatewayen. Nya IP-adresser för NAT-gateway krävs inte. Standard offentlig IP och prefix kan återanvändas så länge summan inte överstiger 16 IP-adresser. Planera för migrering med avbrott i tjänsten i åtanke under övergången.  Du kan minimera avbrottet genom att automatisera processen. Testa migreringen i en mellanlagringsmiljö först.  Under övergången påverkas inte inkommande ursprungsflöden.
 
-I följande exempel skapas en NAT gateway-resurs med namnet _myNATGateway_ i regionen _USA, östra 2, AZ 1_ med en tids gräns på _4 minuters_ inaktivitet. De angivna utgående IP-adresserna är:
-- En uppsättning offentliga IP-adressresurser _myIP1_ och _myIP2_ och 
-- En uppsättning offentliga IP-prefix resurser _myPrefix1_ och _myPrefix2_. 
+Följande exempel är ett utdrag från en Azure Resource Manager-mall.  Den här mallen distribuerar flera resurser, inklusive en NAT-gateway.  Mallen har följande parametrar i det här exemplet:
 
-Det totala antalet IP-adresser som anges av alla fyra IP-adressresurser får inte överstiga 16 IP-adresser totalt. Valfritt antal IP-adresser mellan 1 och 16 tillåts.
+- **natgatewayname** - Namnet på NAT-gatewayen.
+- **plats** - Azure-region där resursen finns.
+- **publicipname** - Namn på den utgående offentliga IP som är associerad med NAT-gatewayen.
+- **publicipprefixname** - Namn på det utgående offentliga IP-prefixet som är associerat med NAT-gatewayen.
+- **vnetname** - Namn på det virtuella nätverket.
+- **undernät** - Namnet på det undernät som är associerat med NAT-gatewayen.
 
-```json
-{
-"name": "myNATGateway",
-   "type": "Microsoft.Network/natGateways",
-   "apiVersion": "2018-11-01",
-   "location": "East US 2",
-   "sku": { "name": "Standard" },
-   "zones": [ "1" ],
-   "properties": {
-      "idleTimeoutInMinutes": 4, 
-      "publicIPPrefixes": [
-         {
-            "id": "ref to myPrefix1"
-         },
-         {
-            "id": "ref to myPrefix2"
-         }
-      ],
-      "publicIPAddresses": [
-         {
-            "id": "ref to myIP1"
-         },
-         {
-            "id": "ref to myIP2"
-         }
-      ]
-   }
-}
-```
+Det totala antalet IP-adresser som tillhandahålls av alla IP-adress- och prefixresurser får inte överstiga totalt 16 IP-adresser. Valfritt antal IP-adresser mellan 1 och 16 är tillåtet.
 
-När NAT-gateway-resursen har skapats kan den användas i ett eller flera undernät i ett virtuellt nätverk. Ange vilka undernät som använder denna NAT gateway-resurs. En NAT-gateway kan inte omfatta mer än ett virtuellt nätverk. Det är inte nödvändigt att tilldela samma NAT-gateway till alla undernät i ett virtuellt nätverk. Enskilda undernät kan konfigureras med olika NAT-gateway-resurser.
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="256-281":::
 
-Scenarier som inte använder tillgänglighets zoner är regionala (ingen zon har angetts). Om du använder tillgänglighets zoner kan du ange en zon för att isolera NAT till en speciell zon. Zon-redundans stöds inte. Granska NAT- [tillgänglighets zoner](#availability-zones).
+När NAT-gatewayresursen har skapats kan den användas i ett eller flera undernät i ett virtuellt nätverk. Ange vilka undernät som ska använda den här NAT-gatewayresursen. En NAT-gateway kan inte sträcka sig över mer än ett virtuellt nätverk. Det krävs inte att samma NAT-gateway tilldelas alla undernät i ett virtuellt nätverk. Enskilda undernät kan konfigureras med olika NAT-gatewayresurser.
 
+Scenarier som inte använder tillgänglighetszoner är regionala (ingen zon har angetts). Om du använder tillgänglighetszoner kan du ange en zon för att isolera NAT till en viss zon. Zonredundans stöds inte. Granska [NAT-tillgänglighetszoner](#availability-zones).
 
-```json
-{
-   "name": "myVNet",
-   "apiVersion": "2018-11-01",
-   "type": "Microsoft.Network/virtualNetworks",
-   "location": "myRegion", 
-   "properties": {
-      "addressSpace": {
-          "addressPrefixes": [
-           "192.168.0.0/16"
-          ]
-      },
-      "subnets": [
-         {
-            "name": "mySubnet1",
-            "properties": {
-               "addressPrefix": "192.168.0.0/24",
-               "natGateway": {
-                  "id": "ref to myNATGateway"
-               }
-            }
-         } 
-      ]
-   }
-}
-```
-NAT-gatewayer definieras med en egenskap i ett undernät i ett virtuellt nätverk. Flöden som skapats av virtuella datorer i under nätet _mySubnet1_ för virtuella nätverk _myVNet_ använder NAT-gatewayen. Alla utgående anslutningar använder de IP-adresser som är kopplade till _myNatGateway_ som käll-IP-adress.
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="225-255" highlight="239-251":::
 
+NAT-gateways definieras med en egenskap i ett undernät i ett virtuellt nätverk. Flöden som skapas av virtuella datorer i **undernätsundernät i** virtuellt nätverk **vnetname** använder NAT-gatewayen. Alla utgående anslutningar använder IP-adresserna som är associerade med **natgatewayname** som källa-IP-adress.
+
+Mer information om Azure Resource Manager-mallen som används i det här exemplet finns i:
+
+- [Snabbstart: Skapa en NAT-gateway - Resource Manager-mall](quickstart-create-nat-gateway-template.md)
+- [NAT för virtuellt nätverk](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm/)
 
 ## <a name="design-guidance"></a>Design vägledning
 
-Läs det här avsnittet för att bekanta dig med att tänka på när du utformar virtuella nätverk med NAT.  
+Läs det här avsnittet om du vill bekanta dig med överväganden för att utforma virtuella nätverk med NAT.  
 
-1. [Kostnads optimering](#cost-optimization)
-1. [Samexistens av inkommande och utgående](#coexistence-of-inbound-and-outbound)
+1. [Kostnadsoptimering](#cost-optimization)
+1. [Samexistens mellan inkommande och utgående](#coexistence-of-inbound-and-outbound)
 2. [Hantera grundläggande resurser](#managing-basic-resources)
 3. [Tillgänglighetszoner](#availability-zones)
 
 ### <a name="cost-optimization"></a>Kostnadsoptimering
 
-[Tjänst slut punkter](virtual-network-service-endpoints-overview.md) och [privat länk](../private-link/private-link-overview.md) är alternativ för att överväga att optimera kostnader. NAT behövs inte för de här tjänsterna. Trafik som riktas mot tjänst slut punkter eller privat länk bearbetas inte av det virtuella nätverkets NAT.  
+[Tjänstslutpunkter](virtual-network-service-endpoints-overview.md) och [privat länk](../private-link/private-link-overview.md) är alternativ att överväga för att optimera kostnaden. NAT behövs inte för dessa tjänster. Trafik som dirigeras till tjänstslutpunkter eller privat länk bearbetas inte av det virtuella nätverkets NAT.  
 
-Tjänst slut punkter binder Azure-tjänsteresurser till ditt virtuella nätverk och styr åtkomsten till dina Azure-tjänst resurser. När du till exempel använder Azure Storage ska du använda en tjänst slut punkt för lagring för att undvika att data som bearbetas NAT debiteras. Tjänstens slut punkter är kostnads fria.
+Tjänstslutpunkter binder Azure-tjänstresurser till ditt virtuella nätverk och styr åtkomsten till dina Azure-tjänstresurser. När du till exempel använder Azure-lagring använder du en tjänstslutpunkt för lagring för att undvika databehandlade NAT-avgifter. Tjänstslutpunkter är kostnadsfria.
 
-Privat länk exponerar Azure PaaS service (eller andra tjänster som är värdbaserade med privat länk) som en privat slut punkt i ett virtuellt nätverk.  Privat länk faktureras baserat på varaktighet och bearbetade data.
+Privat länk exponerar Azure PaaS-tjänst (eller andra tjänster som finns med privat länk) som en privat slutpunkt i ett virtuellt nätverk.  Privat länk faktureras baserat på varaktighet och data som bearbetas.
 
-Utvärdera om någon av eller båda dessa metoder passar bra för ditt scenario och använd vid behov.
+Utvärdera om någon eller båda av dessa metoder är en bra passform för ditt scenario och använda efter behov.
 
-### <a name="coexistence-of-inbound-and-outbound"></a>Samexistens av inkommande och utgående
+### <a name="coexistence-of-inbound-and-outbound"></a>Samexistens mellan inkommande och utgående
 
 NAT-gatewayen är kompatibel med:
 
- - Standard Load Balancer
+ - Standardbelastningsutjämnare
  - Offentlig standard-IP
- - Allmänt standard-IP-prefix
+ - Offentligt IP-standardprefix
 
-Börja med standard-SKU: er när du utvecklar en ny distribution.
-
-<p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtual Network NAT för utgående till Internet">
-</p>
-
-*Bild: Virtual Network NAT för utgående till Internet*
-
-Det enda Internet-utgående scenariot som tillhandahålls av NAT-gateway kan utökas med inkommande från Internet-funktioner. Varje resurs är medveten om i vilken riktning ett flöde har sitt ursprung. I ett undernät med NAT-gateway ersätts alla utgående till Internet-scenarier av NAT-gatewayen. Inkommande från Internet scenarier tillhandahålls av respektive resurs.
-
-#### <a name="nat-and-vm-with-instance-level-public-ip"></a>NAT och virtuell dator med offentlig IP på instans nivå
+När du utvecklar en ny distribution, börja med vanliga SKU: er.
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" width="300" title="Virtual Network NAT och virtuell dator med offentlig IP på instans nivå">
+  <img src="media/nat-overview/flow-direction1.svg" width="256" title="Virtuellt nätverk NAT för utgående till Internet">
 </p>
 
-*Bild: Virtual Network NAT och virtuell dator med offentlig IP på instans nivå*
+*Bild: Virtuellt nätverk NAT för utgående till Internet*
+
+Det endast internet-utgående scenariot som tillhandahålls av NAT-gatewayen kan utökas med inkommande från Internet-funktioner. Varje resurs är medveten om i vilken riktning ett flöde har sitt ursprung. I ett undernät med en NAT-gateway ersätts alla utgående till Internet-scenarier av NAT-gatewayen. Inkommande från Internet-scenarier tillhandahålls av respektive resurs.
+
+#### <a name="nat-and-vm-with-instance-level-public-ip"></a>NAT och VIRTUELL med offentlig IP-adress på instansnivå
+
+<p align="center">
+  <img src="media/nat-overview/flow-direction2.svg" width="300" title="NAT och virtuell dator med offentlig IP-adress på instansnivå">
+</p>
+
+*Bild: NAT och virtuell dator med offentlig IP-adress på instansnivå*
 
 | Riktning | Resurs |
 |:---:|:---:|
-| Inkommande | Virtuell dator med offentlig IP på instans nivå |
+| Inkommande | Virtuell dator med offentlig IP-adress på instansnivå |
 | Utgående | NAT Gateway |
 
-Den virtuella datorn kommer att använda NAT-gateway för utgående trafik.  Inkommande ursprungligt kommer inte att påverkas.
+VM använder NAT-gateway för utgående.  Inkommande ursprung påverkas inte.
 
-#### <a name="nat-and-vm-with-public-load-balancer"></a>NAT och virtuell dator med offentlig Load Balancer
+#### <a name="nat-and-vm-with-public-load-balancer"></a>NAT och VM med offentlig belastningsutjämnare
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" width="350" title="Virtual Network NAT och virtuell dator med offentlig Load Balancer">
+  <img src="media/nat-overview/flow-direction3.svg" width="350" title="NAT och virtuell dator med offentlig belastningsjämn">
 </p>
 
-*Bild: Virtual Network NAT och virtuell dator med offentlig Load Balancer*
+*Bild: NAT och virtuell dator med offentlig belastningsjämn utjämning*
 
 | Riktning | Resurs |
 |:---:|:---:|
-| Inkommande | offentlig Load Balancer |
+| Inkommande | offentliga belastningsutjämnaren |
 | Utgående | NAT Gateway |
 
-Eventuell utgående konfiguration från en belastnings Utjämnings regel eller utgående regler ersätts av NAT-gatewayen.  Inkommande ursprungligt kommer inte att påverkas.
+Alla utgående konfigurationer från en belastningsutjämningsregel eller utgående regler ersätts av NAT-gatewayen.  Inkommande ursprung påverkas inte.
 
-#### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>NAT och virtuell dator med offentlig IP på instans nivå och offentliga Load Balancer
+#### <a name="nat-and-vm-with-instance-level-public-ip-and-public-load-balancer"></a>NAT och VM med offentlig IP-adress på instansnivå och offentlig belastningsutjämnare
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" width="425" title="Virtual Network NAT och virtuell dator med offentlig IP på instans nivå och offentliga Load Balancer">
+  <img src="media/nat-overview/flow-direction4.svg" width="425" title="NAT och virtuell dator med offentlig IP-adress på instansnivå och offentlig belastningsutjämning">
 </p>
 
-*Bild: Virtual Network NAT och virtuell dator med offentlig IP på instans nivå och offentliga Load Balancer*
+*Bild: NAT och virtuell dator med offentlig IP-adress på instansnivå och offentlig belastningsutjämnare*
 
 | Riktning | Resurs |
 |:---:|:---:|
-| Inkommande | Virtuell dator med offentlig IP på instans nivå och offentlig Load Balancer |
+| Inkommande | Virtuell dator med offentlig IP-adress på instansnivå och offentlig belastningsutjämnare |
 | Utgående | NAT Gateway |
 
-Eventuell utgående konfiguration från en belastnings Utjämnings regel eller utgående regler ersätts av NAT-gatewayen.  Den virtuella datorn kommer också att använda NAT-gateway för utgående trafik.  Inkommande ursprungligt kommer inte att påverkas.
+Alla utgående konfigurationer från en belastningsutjämningsregel eller utgående regler ersätts av NAT-gatewayen.  Den virtuella datorn kommer också att använda NAT-gateway för utgående.  Inkommande ursprung påverkas inte.
 
 ### <a name="managing-basic-resources"></a>Hantera grundläggande resurser
 
-Standard Load Balancer, offentlig IP och offentliga IP-prefix är kompatibla med NAT-gateway. NAT-gatewayer körs i omfånget för ett undernät. Den grundläggande SKU: n för dessa tjänster måste distribueras i ett undernät utan NAT-gateway. Denna separation gör att båda SKU-varianterna kan finnas i samma virtuella nätverk.
+Standardbelastningsutjämnare, offentlig IP och offentligt IP-prefix är kompatibla med NAT-gateway. NAT-gateways fungerar inom ramen för ett undernät. Den grundläggande SKU:n för dessa tjänster måste distribueras i ett undernät utan en NAT-gateway. Den här separationen gör att båda SKU-varianterna kan samexistera i samma virtuella nätverk.
 
-NAT-gatewayer har företräde framför utgående scenarier i under nätet. En grundläggande belastningsutjämnare eller offentlig IP-adress (och en hanterad tjänst som skapats med dem) kan inte justeras med rätt översättningar. NAT-gatewayen tar kontroll över utgående trafik till Internet trafik på ett undernät. Inkommande trafik till grundläggande belastningsutjämnare och offentlig IP-adress är inte tillgänglig. Inkommande trafik till en grundläggande belastningsutjämnare och en offentlig IP-adress som kon figurer ATS på en virtuell dator är inte tillgänglig.
+NAT-gateways har företräde framför utgående scenarier för undernätet. Grundläggande belastningsutjämnare eller offentlig IP (och alla hanterade tjänster som skapats med dem) kan inte justeras med rätt översättningar. NAT-gatewayen tar kontroll över utgående till Internet-trafik i ett undernät. Inkommande trafik till grundläggande belastningsutjämnare och offentlig ip är inte tillgänglig. Inkommande trafik till en grundläggande belastningsutjämnare och, eller en offentlig ip som konfigurerats på en virtuell dator, är inte tillgänglig.
 
 ### <a name="availability-zones"></a>Tillgänglighetszoner
 
-Även om du inte har tillgänglighets zoner är NAT elastiskt och kan överleva flera infrastruktur komponents problem. När tillgänglighets zoner är en del av ditt scenario bör du konfigurera NAT för en speciell zon.  Kontroll Plans åtgärderna och data planet är begränsade till den angivna zonen. Ett annat haveri i en zon än där ditt scenario finns förväntas vara utan påverkan på NAT. Utgående trafik från virtuella datorer i samma zon kan inte utföras på grund av zon isolering.
+Även utan tillgänglighetszoner är NAT flexibel och kan överleva flera fel på infrastrukturkomponenter. När tillgänglighetszoner är en del av ditt scenario bör du konfigurera NAT för en viss zon.  Styrplanets operationer och dataplan är begränsade till den angivna zonen. Fel i en annan zon än där ditt scenario finns förväntas vara utan påverkan på NAT. Utgående trafik från virtuella datorer i samma zon misslyckas på grund av zonisolering.
 
 <p align="center">
-  <img src="media/nat-overview/az-directions.svg" width="425" title="Virtual Network NAT med tillgänglighets zoner">
+  <img src="media/nat-overview/az-directions.svg" width="425" title="NAT för virtuellt nätverk med tillgänglighetszoner">
 </p>
 
-*Bild: Virtual Network NAT med tillgänglighets zoner*
+*Bild: Nat för virtuellt nätverk med tillgänglighetszoner*
 
-En zon isolerad NAT gateway kräver att IP-adresser matchar zonen i NAT-gatewayen. NAT-gatewayens resurser med IP-adresser från en annan zon eller utan en zon stöds inte.
+En zon-isolerad NAT-gateway kräver IP-adresser för att matcha zonen för NAT-gatewayen. NAT-gatewayresurser med IP-adresser från en annan zon eller utan zon stöds inte.
 
-Virtuella nätverk och undernät är regionala och inte zonindelade justerade. En virtuell dator måste finnas i samma zon som NAT-gatewayen för ett zonindelade löfte av utgående anslutningar. Zon isolering skapas genom att skapa en zonindelade "stack" per tillgänglighets zon. Ett zonindelade löfte finns inte vid korsning av zoner i en zonindelade NAT-gateway eller med en regional NAT-gateway med zonindelade-VM: ar.
+Virtuella nätverk och undernät är regionala och inte zonbaserade justerade. En virtuell dator måste vara i samma zon som NAT-gatewayen för ett zonlöfte om utgående anslutningar. Zonisolering skapas genom att skapa en zonal "stack" per tillgänglighetszon. Ett zonlöfte finns inte när zoner för en zonindelnings-NAT-gateway eller använder en regional NAT-gateway med virtuella zonplaner.
 
-När du distribuerar skalnings uppsättningar för virtuella datorer som ska användas med NAT distribuerar du en zonindelade skalnings uppsättning i sitt eget undernät och kopplar den matchande zonens NAT-gateway till det under nätet. Om du använder zoner som spänner över skalnings uppsättningar (en skalnings uppsättning i två eller flera zoner) kommer NAT inte att tillhandahålla ett zonindelade löfte.  NAT stöder inte zon-redundans.  Endast regional eller zon isolering stöds.
+När du distribuerar skaluppsättningar för virtuella datorer som ska användas med NAT distribuerar du en zonskala som angetts på ett eget undernät och kopplar NAT-gatewayen för matchande zon till det undernätet. Om du använder skalningsuppsättningar som sträcker sig över zoner (en skalningsuppsättning i två eller flera zoner) ger NAT inget zonlöfte.  NAT stöder inte zonredundans.  Endast regional eller zonisolering stöds.
 
 <p align="center">
-  <img src="media/nat-overview/az-directions2.svg" width="425" title="zon – utsträckning Virtual Network NAT">
+  <img src="media/nat-overview/az-directions2.svg" width="425" title="zon-spänner över virtuellt nätverk NAT">
 </p>
 
-*Bild: zon – utsträckning Virtual Network NAT*
+*Bild: Zon-spanning virtuellt nätverk NAT*
 
-Egenskapen zoner är inte föränderligt.  Distribuera om NAT-gateway-resursen med den avsedda regionala eller zon inställningen.
+Egenskapen zoner kan inte stängas av.  Distribuera om NAT-gatewayresursen med den avsedda regional- eller zoninställningen.
 
 >[!NOTE] 
->IP-adresser som själva inte är zoner – redundanta om ingen zon anges.  Klient delen för en [standard Load Balancer är zon-redundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) om en IP-adress inte har skapats i en speciell zon.  Detta gäller inte för NAT.  Endast regional eller zon isolering stöds.
+>IP-adresser i sig är inte zonundant om ingen zon har angetts.  Klientdelen för en [standardbelastningsutjämnare är zonundant](../load-balancer/load-balancer-standard-availability-zones.md#frontend) om en IP-adress inte skapas i en viss zon.  Detta gäller inte NAT.  Endast regional eller zonisolering stöds.
 
-## <a name="source-network-address-translation"></a>Käll nätverks adress Översättning
+## <a name="source-network-address-translation"></a>Översättning av källnätverksadress
 
-Med käll Network Address Translation (SNAT) skrivs källan för ett flöde om till härstamma från en annan IP-adress.  Resurser för NAT-gateway använder en variant av SNAT som vanligt vis kallas port adress översättning (PAT). PAT skriver om käll-och käll porten. Med SNAT finns det ingen fast relation mellan antalet privata adresser och deras översatta offentliga adresser.  
+Översättning av källnätverksadress (SNAT) skriver om källan till ett flöde som kommer från en annan IP-adress.  NAT gateway-resurser använder en variant av SNAT som vanligtvis refereras till pat (portadressöversättning). PAT skriver om källadressen och källporten. Med SNAT finns det ingen fast relation mellan antalet privata adresser och deras översatta offentliga adresser.  
 
 ### <a name="fundamentals"></a>Grunder
 
-Nu ska vi titta på ett exempel på fyra flöden för att förklara det grundläggande konceptet.  NAT-gatewayen använder offentlig IP-adressresurs 65.52.0.2.
+Låt oss titta på ett exempel på fyra flöden för att förklara grundkonceptet.  NAT-gatewayen använder den offentliga IP-adressresursen 65.52.0.2.
 
-| Flöde | Käll tupel | Mål tupel |
+| Flöde | Källa tuple | Destinationstuppdepel |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-Dessa flöden kan se ut så här när PAT har ägt rum:
+Dessa flöden kan se ut så här efter PAT har ägt rum:
 
-| Flöde | Käll tupel | SNAT'ed-käll tupel | Mål tupel | 
+| Flöde | Källa tuple | SNAT'ed källa tuple | Destinationstuppdepel | 
 |:---:|:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
 | 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
 
-Målet kommer att se källan till flödet som 65.52.0.2 (SNAT-källans tupel) med den tilldelade porten som visas.  PAT som visas i tabellen ovan kallas även för port maskerad SNAT.  Flera privata källor är maskerade bakom en IP-adress och port.
+Målet ser källan till flödet som 65.52.0.2 (SNAT-källuppppelpel) med den tilldelade porten visad.  PAT som visas i föregående tabell kallas också port maskerad SNAT.  Flera privata källor maskeras bakom en IP och port.
 
-Ta inte ett beroende på det speciella sätt som käll portarna tilldelas.  Föregående är en illustration av det grundläggande konceptet.
+Ta inte ett beroende på det specifika sättet källportar tilldelas.  Föregående är en illustration av det grundläggande begreppet bara.
 
-SNAT som tillhandahålls av NAT skiljer sig från [Load Balancer](../load-balancer/load-balancer-outbound-connections.md) i flera olika delar.
+SNAT som tillhandahålls av NAT skiljer sig från [belastningsutjämnare](../load-balancer/load-balancer-outbound-connections.md) i flera avseenden.
 
 ### <a name="on-demand"></a>På begäran
 
-NAT tillhandahåller SNAT-portar på begäran för nya utgående trafik flöden. Alla tillgängliga SNAT-portar i lagret används av en virtuell dator på undernät som kon figurer ATS med NAT. 
+NAT tillhandahåller SNAT-portar på begäran för nya utgående trafikflöden. Alla tillgängliga SNAT-portar i lagret används av alla virtuella datorer på undernät som konfigurerats med NAT. 
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="Virtual Network NAT på begäran för utgående SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" width="550" title="Utgående SNAT för virtuellt nätverk på begäran">
 </p>
 
-*Bild: Virtual Network NAT på begäran för utgående SNAT*
+*Bild: Utgående SNAT för virtuellt nätverk på begäran*
 
-Alla IP-konfigurationer för en virtuell dator kan skapa utgående flöden vid behov.  I förväg allokeras planeringen per instans, inklusive överetablering per instans, vilket inte krävs.  
+Alla IP-konfigurationer för en virtuell dator kan skapa utgående flöden på begäran efter behov.  Pre-allokering, per instans planering inklusive per instans värsta fall överetablering, krävs inte.  
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Skillnader i utfalls scenarier">
+  <img src="media/nat-overview/exhaustion-threshold.svg" width="550" title="Skillnader i utmattningsscenarier">
 </p>
 
-*Bild: skillnader i utfalls scenarier*
+*Figur: Skillnader i utmattningsscenarier*
 
-När en SNAT-port släpps, är den tillgänglig för användning av alla virtuella datorer på undernät som kon figurer ATS med NAT.  Med allokering på begäran kan dynamiska och Divergent arbets belastningar på undernät använda SNAT-portar som de behöver.  Så länge som det finns SNAT-port inventeringen kommer SNAT-flöden att lyckas. SNAT-portens frekventa fläckar drar nytta av den större inventeringen i stället. SNAT-portar är inte kvar för virtuella datorer som inte aktivt behöver dem.
+När en SNAT-port har släppts är den tillgänglig för användning av alla virtuella datorer i undernät som konfigurerats med NAT.  Allokering på begäran gör att dynamiska och divergerande arbetsbelastningar på undernät kan använda SNAT-portar som de behöver.  Så länge det finns SNAT-portlager tillgängligt kommer SNAT-flöden att lyckas. SNAT port hotspots dra nytta av större lager istället. SNAT-portar lämnas inte oanvända för virtuella datorer som inte aktivt behöver dem.
 
 ### <a name="scaling"></a>Skalning
 
-NAT behöver tillräckligt med SNAT-port inventering för det fullständiga utgående scenariot. Skalning av NAT är i första hand en funktion i hanteringen av den delade, tillgängliga SNAT-port inventeringen. Tillräckligt med lager måste finnas för att åtgärda det utgående utgående flödet för alla undernät som är kopplade till en NAT-gateway-resurs.
+NAT behöver tillräckligt SNAT-portlager för det fullständiga utgående scenariot. Skalning NAT är främst en funktion för att hantera den delade, tillgängliga SNAT-portlagret. Det behövs tillräckligt lager för att hantera det utgående toppflödet för alla undernät som är kopplade till en NAT-gatewayresurs.
 
-SNAT mappar flera privata adresser till en offentlig adress och använder flera offentliga IP-adresser för skalning.
+SNAT mappar flera privata adresser till en offentlig adress och använder flera offentliga IP-adresser för att skala.
 
-En NAT-gateway-resurs kommer att använda 64 000 portar (SNAT-portar) för en offentlig IP-adress.  De här SNAT-portarna blir den tillgängliga inventeringen för mappningen av privata till offentliga flöden. Och om du lägger till fler offentliga IP-adresser ökar de tillgängliga Inventory SNAT-portarna. NAT-gatewayens resurser kan skala upp till 16 IP-adresser och 1 miljon SNAT-portar.  TCP och UDP är separata SNAT-port inventeringar och orelaterade.
+En NAT-gatewayresurs använder 64 000 portar (SNAT-portar) för en offentlig IP-adress.  Dessa SNAT-portar blir det tillgängliga lagret för den privata till offentliga flödesmappningen. Och om du lägger till fler offentliga IP-adresser ökar de tillgängliga SNAT-portarna för lager. NAT gateway-resurser kan skala upp till 16 IP-adresser och 1M SNAT-portar.  TCP och UDP är separata SNAT-portlager och orelaterade.
 
-NAT-gateway-resurser autentiseringsuppsättningarna åter användning av käll portar. I skalnings syfte bör du förutsätta att varje flöde kräver en ny SNAT-port och skala det totala antalet tillgängliga IP-adresser för utgående trafik.
+NAT gateway-resurser återanvänder opportunistiskt källportar. För skalning bör du anta att varje flöde kräver en ny SNAT-port och skala det totala antalet tillgängliga IP-adresser för utgående trafik.
 
 ### <a name="protocols"></a>Protokoll
 
-NAT-gatewayens resurser interagerar med IP-och IP-transportnivån för UDP-och TCP-flöden och är oberoende till program nivå nytto laster.  Andra IP-protokoll stöds inte.
+NAT gateway-resurser interagerar med IP- och IP-transporthuvuden för UDP- och TCP-flöden och är agnostiker till nyttolaster för programlager.  Andra IP-protokoll stöds inte.
 
 ### <a name="timers"></a>Timers
 
-Tids gränsen för inaktivitet kan justeras från 4 minuter (standard) till 120 minuter (2 timmar) för alla flöden.  Dessutom kan du återställa inaktiv timer med trafik i flödet.  Ett rekommenderat mönster för att uppdatera långa inaktiva anslutningar och slut punkts Live-identifiering är TCP keepalive.  TCP keepalive-poster visas som dubbla ack-filer till slut punkterna, är låga kostnader och är osynliga för program lagret.
+TCP-timeout för inaktiv kan justeras från 4 minuter (standard) till 120 minuter (2 timmar) för alla flöden.  Dessutom kan du återställa inaktiv timer med trafik på flödet.  Ett rekommenderat mönster för att uppdatera långa inaktiva anslutningar och identifiering av slutpunktsbesynlighet är TCP-keepalives.  TCP keepalives visas som dubbla AK:er till slutpunkterna, är låga omkostnader och osynliga för programlagret.
 
-Följande timers används för Port versionen av SNAT:
+Följande timers används för SNAT-portutgivning:
 
 | Timer | Värde |
 |---|---|
-| TCP RÄNTETRANS | 60 sekunder |
-| TCP-VARJE | 10 sekunder |
+| TCP FIN | 60 sekunder |
+| TCP-ert | 10 sekunder |
 | TCP halv öppen | 30 sekunder |
 
-En SNAT-port är tillgänglig för åter användning till samma mål-IP-adress och mål Port efter 5 sekunder.
+En SNAT-port är tillgänglig för återanvändning till samma mål-IP-adress och målport efter 5 sekunder.
 
 >[!NOTE] 
->Dessa timer-inställningar kan komma att ändras. Värdena används för att under lätta fel sökningen och du bör inte ta ett beroende på vissa timers just nu.
+>Dessa timerinställningar kan komma att ändras. Värdena tillhandahålls för felsökning och du bör inte vara beroende av specifika timers just nu.
 
 ## <a name="limitations"></a>Begränsningar
 
-- NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
-- IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med ett IPv6-prefix.
-- NSG Flow-loggning stöds inte när NAT används.
-- NAT kan inte omfatta flera virtuella nätverk.
+- NAT är kompatibelt med vanliga offentliga IP-, offentliga IP-prefix- och belastningsutjämnareresurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härleds från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har konfigurerats med NAT.
+- IPv4-adressfamilj stöds.  NAT interagerar inte med IPv6-adressfamiljen.  NAT kan inte distribueras i ett undernät med ett IPv6-prefix.
+- NSG-flödesloggning stöds inte när NAT.NSG flow logging isn't supported when using NAT.
+- NAT kan inte sträcka sig över flera virtuella nätverk.
 
 
 ## <a name="feedback"></a>Feedback
 
-Vi vill veta hur vi kan förbättra tjänsten. Föreslå och rösta på det vi ska bygga nästa på [UserVoice för NAT](https://aka.ms/natuservoice).
+Vi vill veta hur vi kan förbättra servicen. Föreslå och rösta om vad vi ska bygga nästa på [UserVoice för NAT](https://aka.ms/natuservoice).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [NAT för virtuella nätverk](nat-overview.md).
-* Lär dig mer om [mått och aviseringar för NAT gateway-resurser](nat-metrics.md).
-* Lär dig mer om att [Felsöka resurser för NAT-gateway](troubleshoot-nat.md).
-* Självstudie för att verifiera NAT-gateway
+* Lär dig mer om [NAT för virtuella nätverk](nat-overview.md).
+* Lär dig mer om [mått och aviseringar för NAT-gatewayresurser](nat-metrics.md).
+* Lär dig mer om [felsökning av NAT-gatewayresurser](troubleshoot-nat.md).
+* Självstudiekurs för att validera NAT Gateway
   - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)
-  - [PowerShell](tutorial-create-validate-nat-gateway-cli.md)
+  - [Powershell](tutorial-create-validate-nat-gateway-cli.md)
   - [Portal](tutorial-create-validate-nat-gateway-cli.md)
-* Snabb start för distribution av en NAT-gateway-resurs
+* Snabbstart för distribution av en NAT-gatewayresurs
   - [Azure CLI](./quickstart-create-nat-gateway-cli.md)
-  - [PowerShell](./quickstart-create-nat-gateway-powershell.md)
+  - [Powershell](./quickstart-create-nat-gateway-powershell.md)
   - [Portal](./quickstart-create-nat-gateway-portal.md)
   - [Mall](./quickstart-create-nat-gateway-template.md)
-* Lär dig mer om resurs-API för NAT-gateway
+* Lär dig mer om API för NAT-gateway-resurs
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
   - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [Powershell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 
-* Lär dig mer om [tillgänglighets zoner](../availability-zones/az-overview.md).
-* Läs mer om [standard Load Balancer](../load-balancer/load-balancer-standard-overview.md).
-* Lär dig mer om [tillgänglighets zoner och standard Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md).
+* Läs mer om [tillgänglighetszoner](../availability-zones/az-overview.md).
+* Läs mer om [standardbelastningsutjämnare](../load-balancer/load-balancer-standard-overview.md).
+* Lär dig mer om [tillgänglighetszoner och standardbelastningsutjämnare](../load-balancer/load-balancer-standard-availability-zones.md).
 
 

@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: e1cb1bec6273fa79315b9439bec1412622ebfe28
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774307"
 ---
-I följande exempel visas hur du skapar en 10Gbps Direct-peering på Seattle.
+I följande exempel visas hur du skapar en 10 Gbit/s direkt peering i Seattle.
 
-Använd PowerShell **-cmdlet New-AzPeeringDirectConnectionObject** för att skapa DirectConnections som ska användas i den nya peering-begäran.
+Använd PowerShell cmdlet **New-AzPeeringDirectConnectionObject** för att skapa DirectConnections som ska användas i den nya peering-begäran.
 
-Nedan visas ett exempel på hur du skapar en DirectConnection:
+Nedan finns ett exempel för att skapa en DirectConnection:
 
 ```powershell
 $connection1 = New-AzPeeringDirectConnectionObject `
@@ -32,9 +32,9 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> <index> för $peeringLocation [<index>] i exemplet ovan bör motsvara den peering-plats som du väljer
+> Den <index> för $peeringLocation[<index>] i ovanstående exempel bör motsvara peering plats som du väljer
 
-Skapa en annan anslutning om du behöver redundans på den aktuella peering-platsen:
+Skapa en annan anslutning om du behöver redundans på viss peering-plats:
 
 ```powershell
 $connection2 = New-AzPeeringDirectConnectionObject `
@@ -46,7 +46,7 @@ $connection2 = New-AzPeeringDirectConnectionObject `
     -BandwidthInMbps 10000
 ```
 
-Använd PowerShell **-cmdlet New-AzPeering** för att skapa en ny direkt peering. Det här kommandot kräver ASN-resurs-ID som kan hämtas som visas nedan.
+Använd PowerShell cmdlet **New-AzPeering** för att skapa en ny Direct-peering. Det här kommandot kräver ASN-resurs-ID som kan hämtas enligt nedan.
 
 
 ```powershell
@@ -60,7 +60,7 @@ New-AzPeering `
 ```
 &nbsp;
 
-Nedan visas ett exempel på ett svar när begäran har bearbetats:
+Nedan visas ett exempelsvar när begäran har bearbetats:
 
 ```powershell
 
@@ -78,4 +78,4 @@ Nedan visas ett exempel på ett svar när begäran har bearbetats:
     Tags                 : {}
 
 ```
-Observera att det faktiska prenumerations-ID: t visas i stället för **{subscriptionId}** i utdata ovan.
+Observera att i stället **för {subscriptionId}** i utdata ovan visas faktiskt prenumerations-ID.

@@ -1,64 +1,64 @@
 ---
-title: Aktivera SSL med sidvagn container
-description: Skapa en SSL-eller TLS-slutpunkt för en behållar grupp som körs i Azure Container Instances genom att köra nginx i en sidvagn-behållare
+title: Aktivera SSL med sidovagnsbehållare
+description: Skapa en SSL- eller TLS-slutpunkt för en behållargrupp som körs i Azure Container Instances genom att köra Nginx i en sidovagnsbehållare
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 524e997cf6c7c464cc352048b1abf4be119d2f37
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 43b39c7c13d6d5e52aae2ce1706e4880ab27d225
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460594"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294945"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Aktivera en SSL-slutpunkt i en sidvagn-behållare
+# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Aktivera en SSL-slutpunkt i en sidovagnsbehållare
 
-Den här artikeln visar hur du skapar en [behållar grupp](container-instances-container-groups.md) med en program behållare och en sidvagn-behållare som kör en SSL-Provider. Genom att konfigurera en behållar grupp med en separat SSL-slutpunkt aktiverar du SSL-anslutningar för ditt program utan att ändra program koden.
+Den här artikeln visar hur du skapar en [behållargrupp](container-instances-container-groups.md) med en programbehållare och en sidovagnsbehållare som kör en SSL-provider. Genom att konfigurera en behållargrupp med en separat SSL-slutpunkt aktiverar du SSL-anslutningar för ditt program utan att ändra programkoden.
 
-Du ställer in ett exempel på en behållar grupp bestående av två behållare:
-* En program behållare som kör en enkel webbapp med hjälp av den offentliga Microsoft [ACI-HelloWorld-](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) avbildningen. 
-* En sidvagn-behållare som kör den offentliga [nginx](https://hub.docker.com/_/nginx) -avbildningen som kon figurer ATS för att använda SSL. 
+Du kan ställa in en exempelbehållaregrupp som består av två behållare:
+* En programbehållare som kör en enkel webbapp med den offentliga Microsoft [aci-helloworld-avbildningen.](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 
+* En sidovagnsbehållare som kör den offentliga [Nginx-avbildningen,](https://hub.docker.com/_/nginx) konfigurerad för att använda SSL. 
 
-I det här exemplet exponerar behållar gruppen bara port 443 för nginx med dess offentliga IP-adress. Nginx dirigerar HTTPS-begäranden till den medföljande webbappen, som lyssnar internt på port 80. Du kan anpassa exemplet för behållar appar som lyssnar på andra portar. 
+I det här exemplet exponerar behållargruppen endast port 443 för Nginx med sin offentliga IP-adress. Nginx dirigerar HTTPS-begäranden till den medföljande webbappen, som lyssnar internt på port 80. Du kan anpassa exemplet för behållarappar som lyssnar på andra portar. 
 
-Se [Nästa steg](#next-steps) för andra metoder för att aktivera SSL i en behållar grupp.
+Se [Nästa steg](#next-steps) för andra metoder för att aktivera SSL i en behållargrupp.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här artikeln. Om du vill använda det lokalt rekommenderar vi version 2.0.55 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här artikeln. Om du vill använda den lokalt rekommenderas version 2.0.55 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-Om du vill konfigurera nginx som en SSL-Provider behöver du ett SSL-certifikat. Den här artikeln visar hur du skapar och konfigurerar ett självsignerat SSL-certifikat. För produktions scenarier bör du skaffa ett certifikat från en certifikat utfärdare.
+Om du vill konfigurera Nginx som SSL-leverantör behöver du ett SSL-certifikat. Den här artikeln visar hur du skapar och konfigurerar ett självsignerat SSL-certifikat. För produktionsscenarier bör du hämta ett certifikat från en certifikatutfärdar.
 
-Om du vill skapa ett självsignerat SSL-certifikat använder du [openssl](https://www.openssl.org/) -verktyget som finns i Azure Cloud Shell och många Linux-distributioner eller använder ett jämförbart klient verktyg i operativ systemet.
+Om du vill skapa ett självsignerat SSL-certifikat använder du [OpenSSL-verktyget](https://www.openssl.org/) som är tillgängligt i Azure Cloud Shell och många Linux-distributioner, eller använder ett jämförbart klientverktyg i operativsystemet.
 
-Skapa först en certifikat förfrågan (. CSR-fil) i en lokal arbets katalog:
+Skapa först en certifikatbegäran (.csr-fil) i en lokal arbetskatalog:
 
 ```console
 openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 ```
 
-Följ anvisningarna för att lägga till identifierings informationen. För eget namn anger du det värdnamn som är associerat med certifikatet. När du uppmanas att ange ett lösen ord trycker du på RETUR utan att skriva för att hoppa över tillägg av lösen ord.
+Följ anvisningarna för att lägga till identifieringsinformationen. Ange det värdnamn som är associerat med certifikatet för vanligt namn. När du uppmanas att ange ett lösenord trycker du på Retur utan att skriva för att hoppa över att lägga till ett lösenord.
 
-Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Exempel:
+Kör följande kommando för att skapa det självsignerade certifikatet (.crt-filen) från certifikatbegäran. Ett exempel:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
 ```
 
-Nu bör du se tre filer i katalogen: certifikat förfrågan (`ssl.csr`), den privata nyckeln (`ssl.key`) och det självsignerade certifikatet (`ssl.crt`). Du använder `ssl.key` och `ssl.crt` i senare steg.
+Du bör nu se tre filer i`ssl.csr`katalogen: certifikatbegäran ( ), den privata nyckeln (`ssl.key`) och det självsignerade certifikatet (`ssl.crt`). Du `ssl.key` använder `ssl.crt` och i senare steg.
 
-## <a name="configure-nginx-to-use-ssl"></a>Konfigurera nginx för att använda SSL
+## <a name="configure-nginx-to-use-ssl"></a>Konfigurera Nginx för att använda SSL
 
-### <a name="create-nginx-configuration-file"></a>Skapa konfigurations fil för nginx
+### <a name="create-nginx-configuration-file"></a>Skapa Nginx-konfigurationsfil
 
-I det här avsnittet skapar du en konfigurations fil för nginx för att använda SSL. Börja med att kopiera följande text till en ny fil med namnet `nginx.conf`. I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
+I det här avsnittet skapar du en konfigurationsfil för Nginx för att använda SSL. Börja med att kopiera följande text `nginx.conf`till en ny fil med namnet . I Azure Cloud Shell kan du använda Visual Studio-kod för att skapa filen i arbetskatalogen:
 
 ```console
 code nginx.conf
 ```
 
-I `location`, måste du ange `proxy_pass` med rätt port för din app. I det här exemplet ställer vi in port 80 för `aci-helloworld`-behållaren.
+I `location`, se `proxy_pass` till att ställa in med rätt port för din app. I det här exemplet anger vi `aci-helloworld` port 80 för behållaren.
 
 ```console
 # nginx Configuration File
@@ -122,9 +122,9 @@ http {
 }
 ```
 
-### <a name="base64-encode-secrets-and-configuration-file"></a>Base64-koda hemligheter och konfigurations fil
+### <a name="base64-encode-secrets-and-configuration-file"></a>Base64-koda hemligheter och konfigurationsfil
 
-Base64-koda konfigurations filen för nginx, SSL-certifikatet och SSL-nyckeln. I nästa avsnitt anger du det kodade innehållet i en YAML-fil som används för att distribuera behållar gruppen.
+Base64-koda Nginx-konfigurationsfilen, SSL-certifikatet och SSL-nyckeln. I nästa avsnitt anger du det kodade innehållet i en YAML-fil som används för att distribuera behållargruppen.
 
 ```console
 cat nginx.conf | base64 > base64-nginx.conf
@@ -132,19 +132,19 @@ cat ssl.crt | base64 > base64-ssl.crt
 cat ssl.key | base64 > base64-ssl.key
 ```
 
-## <a name="deploy-container-group"></a>Distribuera behållar grupp
+## <a name="deploy-container-group"></a>Distribuera behållargrupp
 
-Distribuera nu behållar gruppen genom att ange behållar konfigurationerna i en [yaml-fil](container-instances-multi-container-yaml.md).
+Distribuera nu behållargruppen genom att ange behållarkonfigurationerna i en [YAML-fil](container-instances-multi-container-yaml.md).
 
 ### <a name="create-yaml-file"></a>Skapa YAML-fil
 
-Kopiera följande YAML till en ny fil med namnet `deploy-aci.yaml`. I Azure Cloud Shell kan du använda Visual Studio Code för att skapa filen i din arbets katalog:
+Kopiera följande YAML till en `deploy-aci.yaml`ny fil med namnet . I Azure Cloud Shell kan du använda Visual Studio-kod för att skapa filen i arbetskatalogen:
 
 ```console
 code deploy-aci.yaml
 ```
 
-Ange innehållet i base64-kodade filer som anges under `secret`. Till exempel `cat` var och en av de base64-kodade filerna för att se dess innehåll. Under distributionen läggs de här filerna till i en [hemlig volym](container-instances-volume-secret.md) i behållar gruppen. I det här exemplet monteras den hemliga volymen till behållaren nginx.
+Ange innehållet i de base64-kodade filerna `secret`där det anges under . Till exempel `cat` var och en av de base64-kodade filerna för att se dess innehåll. Under distributionen läggs dessa filer till i en [hemlig volym](container-instances-volume-secret.md) i behållargruppen. I det här exemplet monteras den hemliga volymen på Nginx-behållaren.
 
 ```YAML
 api-version: 2018-10-01
@@ -191,29 +191,29 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-### <a name="deploy-the-container-group"></a>Distribuera behållar gruppen
+### <a name="deploy-the-container-group"></a>Distribuera behållargruppen
 
-Skapa en resurs grupp med kommandot [AZ Group Create](/cli/azure/group#az-group-create) :
+Skapa en resursgrupp med kommandot [az group create:](/cli/azure/group#az-group-create)
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westus
 ```
 
-Distribuera behållar gruppen med kommandot [AZ container Create](/cli/azure/container#az-container-create) och skicka yaml-filen som ett argument.
+Distribuera behållargruppen med kommandot [az container create](/cli/azure/container#az-container-create) och skicka YAML-filen som ett argument.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 ```
 
-### <a name="view-deployment-state"></a>Visa distributions status
+### <a name="view-deployment-state"></a>Visa distributionstillstånd
 
-Om du vill visa status för distributionen använder du följande [AZ container show](/cli/azure/container#az-container-show) -kommando:
+Om du vill visa tillståndet för distributionen använder du följande kommando [för az-behållarvisning:](/cli/azure/container#az-container-show)
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
 ```
 
-För att distributionen ska lyckas ser utdata ut ungefär så här:
+För en lyckad distribution liknar utdata följande:
 
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
@@ -223,23 +223,23 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 ## <a name="verify-ssl-connection"></a>Verifiera SSL-anslutning
 
-Använd webbläsaren för att navigera till behållar gruppens offentliga IP-adress. IP-adressen som visas i det här exemplet är `52.157.22.76`, så URL: en är **https://52.157.22.76** . Du måste använda HTTPS för att se programmet som körs, på grund av nginx-serverkonfigurationen. Försök att ansluta via HTTP Miss lyckas.
+Använd webbläsaren för att navigera till den offentliga IP-adressen för behållargruppen. IP-adressen som visas `52.157.22.76`i det här **https://52.157.22.76**exemplet är , så webbadressen är . Du måste använda HTTPS för att se programmet som körs på grund av Nginx-serverkonfigurationen. Försök att ansluta via HTTP misslyckas.
 
 ![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-containern](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Eftersom det här exemplet använder ett självsignerat certifikat och inte ett från en certifikat utfärdare, visar webbläsaren en säkerhets varning när du ansluter till platsen via HTTPS. Du kan behöva acceptera varningen eller ändra inställningarna för webbläsaren eller certifikatet för att gå vidare till sidan. Det här beteendet är förväntat.
+> Eftersom det här exemplet använder ett självsignerat certifikat och inte ett från en certifikatutfärdare, visar webbläsaren en säkerhetsvarning när du ansluter till webbplatsen via HTTPS. Du kan behöva acceptera varningen eller justera webbläsar- eller certifikatinställningarna för att gå vidare till sidan. Det här beteendet är förväntat.
 
 >
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln visar hur du konfigurerar en nginx-behållare för att aktivera SSL-anslutningar till en webbapp som körs i behållar gruppen. Du kan anpassa det här exemplet för appar som lyssnar på andra portar än port 80. Du kan också uppdatera konfigurations filen för nginx för att automatiskt omdirigera Server anslutningar på port 80 (HTTP) för att använda HTTPS.
+Den här artikeln visar hur du konfigurerar en Nginx-behållare för att aktivera SSL-anslutningar till en webbapp som körs i behållargruppen. Du kan anpassa det här exemplet för appar som lyssnar på andra portar än port 80. Du kan också uppdatera Nginx-konfigurationsfilen för att automatiskt omdirigera serveranslutningar på port 80 (HTTP) för att använda HTTPS.
 
-Den här artikeln använder nginx i den sidvagn, men du kan använda en annan SSL-Provider, till exempel [Caddy](https://caddyserver.com/).
+Medan den här artikeln använder Nginx i sidovagnen kan du använda en annan SSL-leverantör som [Caddy](https://caddyserver.com/).
 
-Om du distribuerar din behållar grupp i ett [virtuellt Azure-nätverk](container-instances-vnet.md)kan du överväga andra alternativ för att aktivera en SSL-slutpunkt för en server dels container instans, inklusive:
+Om du distribuerar din behållargrupp i ett [virtuellt Azure-nätverk](container-instances-vnet.md)kan du överväga andra alternativ för att aktivera en SSL-slutpunkt för en serverdelsbehållareinstans, inklusive:
 
-* [Azure Functions-proxyservrar](../azure-functions/functions-proxies.md)
+* [Azure-funktioner proxyservrar](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md) – se en exempel [distributions mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Azure Application Gateway](../application-gateway/overview.md) - se en [exempeldistributionsmall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

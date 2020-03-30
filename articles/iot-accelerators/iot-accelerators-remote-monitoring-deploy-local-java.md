@@ -1,6 +1,6 @@
 ---
-title: Distribuera fjärr styrnings lösningen lokalt – IntelliJ IDE – Azure | Microsoft Docs
-description: Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator med hjälp av IntelliJ för testning och utveckling.
+title: Distribuera fjärrövervakningslösning lokalt - IntelliJ IDE - Azure | Microsoft-dokument
+description: Den här programguiden visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator med IntelliJ för testning och utveckling.
 author: v-krghan
 manager: dominicbetts
 ms.author: v-krghan
@@ -9,58 +9,58 @@ services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73888814"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösnings acceleratorn för fjärr styrning lokalt – IntelliJ
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt - IntelliJ
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Den här artikeln visar hur du distribuerar lösnings acceleratorn för fjärrövervakning till din lokala dator för testning och utveckling. Du lär dig hur du kör mikrotjänsterna i IntelliJ. En lokal distribution av mikrotjänster kommer att använda följande moln tjänster: IoT Hub, Azure Cosmos DB, Azure streaming Analytics och Azure Time Series Insights.
+Den här artikeln visar hur du distribuerar lösningsacceleratorn för fjärrövervakning till din lokala dator för testning och utveckling. Du får lära dig hur du kör mikrotjänsterna i IntelliJ. En lokal mikrotjänstdistribution använder följande molntjänster: IoT Hub, Azure Cosmos DB, Azure Streaming Analytics och Azure Time Series Insights.
 
-Om du vill köra lösnings acceleratorn för fjärrövervakning i Docker på den lokala datorn läser [du distribuera lösnings Accelerator för fjärrövervakning lokalt Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
+Om du vill köra lösningen för fjärrövervakning i Docker på den lokala datorn läser [du Distribuera lösningsacceleratorn för fjärrövervakning lokalt - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill distribuera de Azure-tjänster som används av lösningen för fjärrövervakning, behöver du en aktiv Azure-prenumeration.
+Om du vill distribuera Azure-tjänster som används av lösningsacceleratorn för fjärrövervakning behöver du en aktiv Azure-prenumeration.
 
-Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-### <a name="machine-setup"></a>Dator konfiguration
+### <a name="machine-setup"></a>Installation av maskin
 
-För att slutföra den lokala distributionen behöver du följande verktyg installerade på den lokala utvecklings datorn:
+För att slutföra den lokala distributionen behöver du följande verktyg installerade på din lokala utvecklingsdator:
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [IntelliJ community-utgåva](https://www.jetbrains.com/idea/download/)
-* [IntelliJ Scala-plugin](https://plugins.jetbrains.com/plugin/1347-scala)
-* [IntelliJ SBT-plugin](https://plugins.jetbrains.com/plugin/5007-sbt)
-* [IntelliJ SBT utförar-plugin](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
+* [IntelliJ Gemenskapen Edition](https://www.jetbrains.com/idea/download/)
+* [IntelliJ Scala plugin](https://plugins.jetbrains.com/plugin/1347-scala)
+* [IntelliJ SBT plugin](https://plugins.jetbrains.com/plugin/5007-sbt)
+* [Plugin-program för IntelliJ SBT Executor](https://plugins.jetbrains.com/plugin/7247-sbt-executor)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node. js-V8](https://nodejs.org/)
+* [Node.js v8](https://nodejs.org/)
 
-Node. js-V8 är ett krav för de PC-CLI som skripten använder för att skapa Azure-resurser. Använd inte Node. js-v10.
+Node.js v8 är en förutsättning för PCS CLI som skripten använder för att skapa Azure-resurser. Använd inte Node.js v10.
 
 > [!NOTE]
-> IntelliJ IDE är tillgänglig för Windows och Mac.
+> IntelliJ IDE är tillgängligt för Windows och Mac.
 
-## <a name="download-the-source-code"></a>Ladda ned käll koden
+## <a name="download-the-source-code"></a>Ladda ner källkoden
 
-Käll kods databaserna för fjärrövervakning innehåller käll koden och de Docker-konfigurationsfiler som du behöver för att köra Docker-avbildningarna för mikrotjänster.
+Källkodsdatabaserna för fjärrövervakning innehåller källkoden och de Docker-konfigurationsfiler som du behöver för att köra dockeravbildningarna för mikrotjänster.
 
-Om du vill klona och skapa en lokal version av lagrings platsen använder du kommando rads miljön för att gå till en lämplig mapp på den lokala datorn. Kör sedan en av följande kommando uppsättningar för att klona Java-databasen:
+Om du vill klona och skapa en lokal version av databasen använder du kommandoradsmiljön för att gå till en lämplig mapp på den lokala datorn. Kör sedan en av följande uppsättningar kommandon för att klona Java-databasen:
 
-* Om du vill ladda ned den senaste versionen av Java mikroservice-implementeringar kör du följande kommando:
+* Om du vill hämta den senaste versionen av Java-implementeringarna för mikrotjänst kör du följande kommando:
 
   ```cmd/sh
   git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
   ```
 
-* Hämta de senaste undermodulerna genom att köra följande kommandon:
+* Om du vill hämta de senaste undermodulerna kör du följande kommandon:
 
    ```cmd/sh
    cd azure-iot-pcs-remote-monitoring-java
@@ -68,72 +68,72 @@ Om du vill klona och skapa en lokal version av lagrings platsen använder du kom
     ```
 
 > [!NOTE]
-> De här kommandona hämtar käll koden för alla mikrotjänster utöver de skript som du använder för att köra mikrotjänster lokalt. Du behöver inte käll koden för att köra mikrotjänster i Docker. Men käll koden är användbar om du senare planerar att ändra lösnings Accelerator och testa dina ändringar lokalt.
+> Dessa kommandon hämtar källkoden för alla mikrotjänster utöver de skript som du använder för att köra mikrotjänsterna lokalt. Du behöver inte källkoden för att köra mikrotjänsterna i Docker. Men källkoden är användbar om du senare planerar att ändra lösningsacceleratorn och testa ändringarna lokalt.
 
 ## <a name="deploy-the-azure-services"></a>Distribuera Azure-tjänsterna
 
-Även om den här artikeln visar hur du kör mikrotjänster lokalt, är de beroende av Azure-tjänster som körs i molnet. Använd följande skript för att distribuera Azure-tjänsterna. I skript exemplen förutsätter vi att du använder Java-lagringsplatsen på en Windows-dator. Om du arbetar i en annan miljö kan du justera Sök vägarna, fil namns tilläggen och Sök vägs avgränsarna på rätt sätt.
+Även om den här artikeln visar hur du kör mikrotjänsterna lokalt, beror de på Azure-tjänster som körs i molnet. Använd följande skript för att distribuera Azure-tjänsterna. Skriptexemplen förutsätter att du använder Java-databasen på en Windows-dator. Om du arbetar i en annan miljö justerar du sökvägarna, filnamnstilläggen och sökvägsavgränsarna på rätt sätt.
 
 ### <a name="create-new-azure-resources"></a>Skapa nya Azure-resurser
 
-Om du ännu inte har skapat de nödvändiga Azure-resurserna följer du dessa steg:
+Om du ännu inte har skapat de nödvändiga Azure-resurserna gör du så här:
 
-1. I kommando rads miljön går du till mappen **\services\scripts\local\launch** i din klonade kopia av lagrings platsen.
+1. I kommandoradsmiljön går du till mappen **\services\scripts\local\launch** i den klonade kopian av databasen.
 
-1. Kör följande kommandon för att installera **PC** CLI-verktyget och logga in på ditt Azure-konto:
+1. Kör följande kommandon för att installera **dators CLI-verktyget** och logga in på ditt Azure-konto:
 
     ```cmd
     npm install -g iot-solutions
     pcs login
     ```
 
-1. Kör skriptet **Start. cmd** . I skriptet uppmanas du att ange följande information:
+1. Kör **start.cmd-skriptet.** Skriptet uppmanar dig att ange följande information:
 
-   * Ett lösnings namn.
+   * Ett lösningsnamn.
    * Den Azure-prenumeration som ska användas.
-   * Platsen för det Azure-datacenter som ska användas.
+   * Platsen för Azure-datacentret som ska användas.
 
-   Skriptet skapar en resurs grupp i Azure som har ditt lösnings namn. Den här resurs gruppen innehåller de Azure-resurser som används av Solution Accelerator. Du kan ta bort den här resurs gruppen när du inte längre behöver motsvarande resurser.
+   Skriptet skapar en resursgrupp i Azure som har ditt lösningsnamn. Den här resursgruppen innehåller De Azure-resurser som lösningsacceleratorn använder. Du kan ta bort den här resursgruppen när du inte längre behöver motsvarande resurser.
 
-   Skriptet lägger också till en uppsättning miljövariabler på den lokala datorn. Varje variabel namn har prefixet **PCs**. De här miljövariablerna innehåller information som tillåter fjärr styrning att läsa konfigurations värden från en Azure Key Vault resurs.
+   Skriptet lägger också till en uppsättning miljövariabler på den lokala datorn. Varje variabelnamn har prefixet **PCS**. Dessa miljövariabler innehåller information som gör att fjärrövervakning kan läsa dess konfigurationsvärden från en Azure Key Vault-resurs.
 
    > [!TIP]
-   > När skriptet har slutförts sparas miljövariablerna i en fil med namnet **\<din startmapp\>\\. pc\\\<lösnings namn\>. kuvert**. Du kan använda dem för framtida distributioner av lösnings Accelerator. Observera att alla miljövariabler som angetts på den lokala datorn åsidosätter värdena i **tjänsterna\\skript\\lokal\\. miljö** när du kör **Docker-sammanställning**.
+   > När skriptet är klart sparas miljövariablerna i en fil som kallas ** \<\>\\lösningsnamnet\\\<\>.pcs .env**. Du kan använda dem för framtida distributioner av lösningsacceleratorer. Observera att alla miljövariabler som anges på den lokala datorn **åsidosätter\\\\\\** värdena i den lokala .env-filen för tjänster när du kör **docker-compose**.
 
-1. Stäng kommando rads miljön.
+1. Stäng kommandoradsmiljön.
 
-### <a name="use-existing-azure-resources"></a>Använd befintliga Azure-resurser
+### <a name="use-existing-azure-resources"></a>Använda befintliga Azure-resurser
 
-Om du redan har skapat de nödvändiga Azure-resurserna ställer du in motsvarande miljövariabler på den lokala datorn:
-* **PCS_KEYVAULT_NAME**: namnet på den Key Vault resursen.
+Om du redan har skapat de nödvändiga Azure-resurserna anger du motsvarande miljövariabler på den lokala datorn:
+* **PCS_KEYVAULT_NAME**: Namnet på resursen Key Vault.
 * **PCS_AAD_APPID**: Azure Active Directory (Azure AD) program-ID.
-* **PCS_AAD_APPSECRET**: Azure AD Application Secret.
+* **PCS_AAD_APPSECRET**: Hemligheten bakom Azure AD-programmet.
 
-Konfigurations värden kommer att läsas från den här Key Vault resursen. De här miljövariablerna kan sparas i **\<din startmapp\>\\. pc\\\<lösnings namn\>. miljö** fil från distributionen. Observera att miljövariabler som angetts på den lokala datorn åsidosätter värden i **tjänsterna\\skript\\lokal\\. miljö** när du kör **Docker-sammanställning**.
+Konfigurationsvärden läss från den här Key Vault-resursen. Dessa miljövariabler kan sparas i ** \<startmappen\>\\.pcs-lösningsnamnet\\\<\>.env-filen** från distributionen. Observera att miljövariabler som anges på din lokala dator åsidosätter värden i **\\tjänstskriptens\\lokala\\.env-fil** när du kör **docker-compose**.
 
-En del av konfigurationen som krävs av mikrotjänsten lagras i en instans av Key Vault som skapades vid den första distributionen. Motsvarande variabler i nyckel valvet bör ändras efter behov.
+En del av konfigurationen som behövs av mikrotjänsten lagras i en instans av Key Vault som skapades vid den första distributionen. Motsvarande variabler i nyckelvalvet bör ändras efter behov.
 
-## <a name="run-the-microservices"></a>Kör mikrotjänster
+## <a name="run-the-microservices"></a>Kör mikrotjänsterna
 
-I det här avsnittet ska du köra mikrotjänster för fjärr övervakning. Du kör:
+I det här avsnittet kör du mikrotjänsterna Fjärrövervakning. Du kör:
 
-* Webb gränssnittet internt.
-* Azure IoT Device simulering, auth och Azure Stream Analytics Manager-tjänster i Docker.
+* Webbgränssnittet internt.
+* Azure IoT-enhetssimulering, Auth och Azure Stream Analytics Manager-tjänsterna i Docker.
 * Mikrotjänsterna i IntelliJ.
 
-### <a name="run-the-device-simulation-service"></a>Kör enhets simulerings tjänsten
+### <a name="run-the-device-simulation-service"></a>Kör tjänsten Enhetssimulering
 
-Öppna ett nytt kommando tolks fönster. Kontrol lera att du har åtkomst till de miljövariabler som anges av skriptet **Start. cmd** i föregående avsnitt.
+Öppna ett nytt kommandotolksfönster. Kontrollera att du har åtkomst till de miljövariabler som anges av **start.cmd-skriptet** i föregående avsnitt.
 
-Kör följande kommando för att öppna Docker-behållaren för enhets simulerings tjänsten. Tjänsten simulerar enheter för fjärr styrnings lösningen.
+Kör följande kommando för att öppna Docker-behållaren för tjänsten Enhetssimulering. Tjänsten simulerar enheter för fjärrövervakningslösningen.
 
 ```cmd
 <path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd
 ```
 
-### <a name="run-the-auth-service"></a>Köra auth-tjänsten
+### <a name="run-the-auth-service"></a>Kör Auth-tjänsten
 
-Öppna ett nytt kommando tolks fönster och kör sedan följande kommando för att öppna Docker-behållaren för auth-tjänsten. Genom att använda den här tjänsten kan du hantera de användare som har behörighet att komma åt Azure IoT-lösningar.
+Öppna ett nytt kommandotolksfönster och kör sedan följande kommando för att öppna Docker-behållaren för Auth-tjänsten. Med den här tjänsten kan du hantera de användare som har behörighet att komma åt Azure IoT-lösningar.
 
 ```cmd
 <path_to_cloned_repository>\services\auth\scripts\docker\run.cmd
@@ -141,99 +141,99 @@ Kör följande kommando för att öppna Docker-behållaren för enhets simulerin
 
 ### <a name="run-the-stream-analytics-manager-service"></a>Kör tjänsten Stream Analytics Manager
 
-Öppna ett nytt kommando tolks fönster och kör sedan följande kommando för att öppna Docker-behållaren för tjänsten Stream Analytics Manager. Med den här tjänsten kan du hantera Stream Analytics-jobb. Sådan hantering omfattar inställning av jobb konfiguration och Start, stopp och övervakning av jobb status.
+Öppna ett nytt kommandotolksfönster och kör sedan följande kommando för att öppna Docker-behållaren för Tjänsten Stream Analytics Manager. Med den här tjänsten kan du hantera Stream Analytics-jobb. Sådan hantering omfattar att ange jobbkonfiguration och starta, stoppa och övervaka jobbstatus.
 
 ```cmd
 <path_to_cloned_repository>\services\asa-manager\scripts\docker\run.cmd
 ```
 
-### <a name="deploy-all-other-microservices-on-your-local-machine"></a>Distribuera alla andra mikrotjänster på den lokala datorn
+### <a name="deploy-all-other-microservices-on-your-local-machine"></a>Distribuera alla andra mikrotjänster på din lokala dator
 
-Följande steg visar hur du kör mikrotjänster för fjärr styrning i IntelliJ.
+Följande steg visar hur du kör mikrotjänsterna Fjärrövervakning i IntelliJ.
 
 #### <a name="import-a-project"></a>Importera ett projekt
 
 1. Öppna IntelliJ IDE.
-1. Välj **Importera projekt**.
-1. Välj **Azure-IoT-PCs-Remote-Monitoring-java\services\build.SBT**.
+1. Välj **Importera Projekt**.
+1. Välj **azure-iot-pcs-remote-monitoring-java\services\build.sbt**.
 
-#### <a name="create-run-configurations"></a>Skapa körnings konfigurationer
+#### <a name="create-run-configurations"></a>Skapa körningskonfigurationer
 
-1. Välj **kör** > **Redigera konfigurationer**.
-1. Välj **Lägg till ny konfiguration** > **SBT uppgift**.
-1. Ange **namn**och ange sedan **aktiviteter** som **Kör**.
-1. Välj **arbets katalog** baserat på den tjänst som du vill köra.
-1. Välj **tillämpa** > **OK** för att spara dina val.
-1. Skapa kör konfigurationer för följande webb tjänster:
-    * Webbtjänst (services\config)
-    * Webbtjänst (services\device-Telemetry)
-    * Webbtjänst (services\iothub-Manager)
-    * Webbtjänst (services\storage-adapter)
+1. Välj **Kör** > **redigeringskonfigurationer**.
+1. Välj **Lägg till ny konfiguration** > **sbt uppgift**.
+1. Ange **Namn**och **ange** aktiviteter som **körs**.
+1. Välj **arbetskatalogen** baserat på den tjänst du vill köra.
+1. Välj **Använd** > **OK** om du vill spara dina alternativ.
+1. Skapa körningskonfigurationer för följande webbtjänster:
+    * WebService (tjänster\config)
+    * WebService (tjänster\enhets-telemetri)
+    * WebService (tjänster\iothub-manager)
+    * WebService (tjänster\lagringskort)
 
-I följande bild visas ett exempel på hur du lägger till en konfiguration för en tjänst:
+Som ett exempel visar följande avbildning hur du lägger till en konfiguration för en tjänst:
 
-[![skärm bild av fönstret IntelliJ IDE Run/debug Configurations, som visar alternativet storageAdapter markerat i listan SBT tasks i den vänstra rutan och poster i rutorna namn, uppgifter, arbets katalog och VM-parametrar i den högra rutan.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
+[![Skärmbild av fönstret IntelliJ IDE-körning/felsökningskonfigurationer, som visar alternativet storageAdapter markerat i listan SBT-uppgifter i den vänstra rutan och poster i rutorna Namn, Uppgifter, Arbetskatalog och VIRTUELL i den högra rutan.](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 #### <a name="create-a-compound-configuration"></a>Skapa en sammansatt konfiguration
 
-1. Om du vill köra alla tjänster tillsammans väljer du **Lägg till ny konfiguration** > **sammansatt**.
-1. Ange **ett namn**och välj sedan **Lägg till SBT-aktiviteter**.
-1. Välj **tillämpa** > **OK** för att spara dina val.
+1. Om du vill köra alla tjänster tillsammans väljer du **Lägg till ny konfigurationssubstans** > **Compound**.
+1. Ange **Namn**och välj sedan **lägg till sbt-aktiviteter**.
+1. Välj **Använd** > **OK** om du vill spara dina alternativ.
 
-I följande bild visas ett exempel på hur du lägger till alla SBT-aktiviteter i en enda konfiguration:
+Som ett exempel visar följande bild hur du lägger till alla sbt-uppgifter i en enda konfiguration:
 
-[![skärm bild av fönstret IntelliJ IDE Run/debug Configurations, som visar alternativet AllServices markerat i den sammanslagna listan i det vänstra fönstret och alternativet SBT Task "deviceTelemetry" markerat i den högra rutan.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
+[![Skärmbild av fönstret IntelliJ IDE Run/Debug Configurations, som visar alternativet AllServices markerat i listan Sammansatta i den vänstra rutan och alternativet sbt Task 'deviceTelemetry' markerat i den högra rutan.](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-Välj **Kör** för att skapa och köra webb tjänsterna på den lokala datorn.
+Välj **Kör** för att skapa och köra webbtjänsterna på den lokala datorn.
 
-Varje webb tjänst öppnar ett kommando tolks fönster och webbläsarfönster. I kommando tolken visas utdata från den aktiva tjänsten. I webbläsarfönstret kan du övervaka statusen. Stäng inte kommando tolken Windows eller webb sidor eftersom de här åtgärderna stoppar webb tjänsten.
+Varje webbtjänst öppnar ett kommandotolksfönster och webbläsarfönster. I kommandotolken visas utdata från den tjänst som körs. I webbläsarfönstret kan du övervaka statusen. Stäng inte kommandotolksfönster eller webbsidor, eftersom dessa åtgärder stoppar webbtjänsten.
 
-Gå till följande URL: er för att få åtkomst till tjänsternas status:
+Om du vill komma åt tjänsternas status går du till följande webbadresser:
 
-* IoT-Hub Manager: [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Telemetri för enhet: [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* konfiguration: [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* Storage-adapter: [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* IoT-Hub Manager:[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
+* Enhet telemetri:[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
+* Config:[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
+* lagringsadapter:[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
 
-### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics jobbet
+### <a name="start-the-stream-analytics-job"></a>Starta Stream Analytics-jobbet
 
-Följ de här stegen för att starta Stream Analytics jobbet:
+Så här startar du Stream Analytics-jobbet:
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-1. Gå till **resurs gruppen** som har skapats för din lösning. Namnet på resurs gruppen är det namn som du valde för lösningen när du körde skriptet **Start. cmd** .
-1. Välj **Stream Analytics jobb** i listan över resurser.
-1. På sidan Stream Analytics jobb **Översikt** väljer du knappen **Start** och sedan **Starta** för att starta jobbet.
+1. Gå till den **resursgrupp** som skapats för din lösning. Namnet på resursgruppen är det namn du valde för din lösning när du körde **start.cmd-skriptet.**
+1. Välj **Stream Analytics-jobbet** i listan över resurser.
+1. På sidan Översikt **över** Stream Analytics-jobb väljer du **Start-knappen** och väljer sedan **Start** för att starta jobbet.
 
-### <a name="run-the-web-ui"></a>Kör webb gränssnittet
+### <a name="run-the-web-ui"></a>Kör webbgränssnittet
 
-I det här steget startar du webb gränssnittet. Öppna ett nytt kommando tolks fönster. Kontrol lera att du har åtkomst till de miljövariabler som anges av skriptet **Start. cmd** . Gå till mappen **webui** i din lokala kopia av lagrings platsen och kör sedan följande kommandon:
+I det här steget startar du webbgränssnittet. Öppna ett nytt kommandotolksfönster. Kontrollera att du har åtkomst till de miljövariabler som anges av **start.cmd-skriptet.** Gå till **webui-mappen** i den lokala kopian av databasen och kör sedan följande kommandon:
 
 ```cmd
 npm install
 npm start
 ```
 
-När **Start** kommandot har slutförts visar webbläsaren sidan på adressen [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Felen på den här sidan förväntas. Om du vill visa programmet utan fel utför du följande steg.
+När **startkommandot** är klart visar webbläsaren sidan [http://localhost:3000/dashboard](http://localhost:3000/dashboard)på adressen . Felen på den här sidan förväntas. Om du vill visa programmet utan fel slutför du följande steg.
 
-### <a name="configure-and-run-nginx"></a>Konfigurera och kör nginx
+### <a name="configure-and-run-nginx"></a>Konfigurera och köra Nginx
 
-Konfigurera en omvänd proxyserver som länkar webb programmet till mikrotjänster som körs på den lokala datorn:
+Konfigurera en omvänd proxyserver som länkar webbprogrammet till de mikrotjänster som körs på den lokala datorn:
 
-1. Kopiera filen **nginx. conf** från mappen **webui\scripts\localhost** i din lokala kopia av lagrings platsen till installations katalogen för **nginx\conf** .
-1. Kör nginx.
+1. Kopiera filen **nginx.conf** från mappen **webui\scripts\localhost** i den lokala kopian av databasen till installationskatalogen **nginx\conf.**
+1. Kör Nginx.
 
-Mer information om hur du kör nginx finns i [nginx för Windows](https://nginx.org/en/docs/windows.html).
+Mer information om hur du kör Nginx finns i [nginx för Windows](https://nginx.org/en/docs/windows.html).
 
-### <a name="connect-to-the-dashboard"></a>Ansluta till instrument panelen
+### <a name="connect-to-the-dashboard"></a>Anslut till instrumentpanelen
 
-Öppna instrument panelen för fjärrövervakning genom att gå till http://localhost:9000 i webbläsaren.
+Om du vill komma åt http://localhost:9000 instrumentpanelen för fjärrövervakningslösning går du till i webbläsaren.
 
 ## <a name="clean-up"></a>Rensa
 
-Undvik onödiga kostnader genom att ta bort moln tjänsterna från din Azure-prenumeration när du är klar med testet. Om du vill ta bort tjänsterna går du till [Azure Portal](https://ms.portal.azure.com)och tar bort resurs gruppen som skriptet **starta. cmd** skapade.
+Undvik onödiga debiteringar genom att ta bort molntjänsterna från din Azure-prenumeration när du har slutfört testningen. Om du vill ta bort tjänsterna går du till [Azure-portalen](https://ms.portal.azure.com)och tar bort resursgruppen som **start.cmd-skriptet** skapade.
 
-Du kan också ta bort den lokala kopian av lagrings platsen för fjärrövervakning som skapades när du klonade käll koden från GitHub.
+Du kan också ta bort den lokala kopian av databasen för fjärrövervakning som skapades när du klonade källkoden från GitHub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har distribuerat lösningen för fjärrövervakning är nästa steg att [utforska funktionerna i lösningens instrument panel](quickstart-remote-monitoring-deploy.md).
+Nu när du har distribuerat lösningen för fjärrövervakning är nästa steg att [utforska funktionerna på instrumentpanelen för lösningen](quickstart-remote-monitoring-deploy.md).

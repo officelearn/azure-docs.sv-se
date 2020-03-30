@@ -1,46 +1,46 @@
 ---
-title: Hantera IoT Central från Azure PowerShell | Microsoft Docs
+title: Hantera IoT Central från Azure PowerShell | Microsoft-dokument
 description: I den här artikeln beskrivs hur du skapar och hanterar dina IoT Central-program från Azure PowerShell.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/11/2020
-ms.topic: conceptual
+ms.date: 03/27/2020
+ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: 1598451ce184db5a25cac28870b70a446aef123c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 42d853c9cf53c1c6921fbd1816ec2298c9c3583e
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198828"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365538"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Hantera IoT Central från Azure PowerShell
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-I stället för att skapa och hantera IoT Central-program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) kan du använda [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) för att hantera dina program.
+I stället för att skapa och hantera IoT Central-program på Azure [IoT Central application manager-webbplatsen](https://aka.ms/iotcentral) kan du använda [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) för att hantera dina program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du föredrar att köra Azure PowerShell på den lokala datorn kan du läsa [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps). När du kör Azure PowerShell lokalt använder du cmdleten **Connect-AzAccount** för att logga in på Azure innan du provar cmdletarna i den här artikeln.
+Om du föredrar att köra Azure PowerShell på din lokala dator läser du [Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps). När du kör Azure PowerShell lokalt använder du cmdleten **Connect-AzAccount** för att logga in på Azure innan du provar cmdleterna i den här artikeln.
 
 > [!TIP]
-> Om du behöver köra PowerShell-kommandon i en annan Azure-prenumeration kan du läsa mer i [ändra den aktiva prenumerationen](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
+> Om du behöver köra dina PowerShell-kommandon i en annan Azure-prenumeration läser du [Ändra den aktiva prenumerationen](/powershell/azure/manage-subscriptions-azureps?view=azps-3.4.0#change-the-active-subscription).
 
 ## <a name="install-the-iot-central-module"></a>Installera IoT Central-modulen
 
-Kör följande kommando för att kontrol lera att [IoT Central-modulen](https://docs.microsoft.com/powershell/module/az.iotcentral/) är installerad i din PowerShell-miljö:
+Kör följande kommando för att kontrollera att [IoT Central-modulen](https://docs.microsoft.com/powershell/module/az.iotcentral/) är installerad i powershell-miljön:
 
 ```powershell
 Get-InstalledModule -name Az.I*
 ```
 
-Om listan över installerade moduler inte innehåller **AZ. IotCentral**kör du följande kommando:
+Om listan över installerade moduler inte innehåller **Az.IotCentral**kör du följande kommando:
 
 ```powershell
 Install-Module Az.IotCentral
@@ -48,7 +48,7 @@ Install-Module Az.IotCentral
 
 ## <a name="create-an-application"></a>Skapa ett program
 
-Använd cmdleten [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) för att skapa ett IoT Central-program i din Azure-prenumeration. Exempel:
+Använd cmdleten [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) för att skapa ett IoT Central-program i din Azure-prenumeration. Ett exempel:
 
 ```powershell
 # Create a resource group for the IoT Central application
@@ -64,27 +64,27 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -DisplayName "My Custom Display Name"
 ```
 
-Skriptet skapar först en resurs grupp i regionen USA, östra för programmet. I följande tabell beskrivs de parametrar som används med kommandot **New-AzIotCentralApp** :
+Skriptet skapar först en resursgrupp i regionen östra USA för programmet. I följande tabell beskrivs de parametrar som används med kommandot **New-AzIotCentralApp:**
 
 |Parameter         |Beskrivning |
 |------------------|------------|
-|ResourceGroupName |Resurs gruppen som innehåller programmet. Den här resurs gruppen måste redan finnas i din prenumeration. |
-|plats. |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i **Australien**, **Asien och Stillahavsområdet**, **Europa**eller **USA** geografiska områden.  |
-|Namn              |Namnet på programmet i Azure Portal. |
-|Underdomän         |Under domänen i programmets URL. I exemplet är programmets URL https://mysubdomain.azureiotcentral.com. |
-|Sku               |För närvarande kan du använda antingen **ST1** eller **ST2**. Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
-|Mall          | Den program mal len som ska användas. Mer information finns i följande tabell. |
-|displayName       |Namnet på programmet som det visas i användar gränssnittet. |
+|ResourceGroupName |Resursgruppen som innehåller programmet. Den här resursgruppen måste redan finnas i din prenumeration. |
+|Location |Som standard använder den här cmdleten platsen från resursgruppen. För närvarande kan du skapa en IoT Central ansökan i **Australien,** **Asien och Stillahavsområdet**, **Europa**, **USA,** **Storbritannien**och **Japan** geografiska områden. |
+|Namn              |Namnet på programmet i Azure-portalen. |
+|Underdomän         |Underdomänen i url:en för programmet. I exemplet är `https://mysubdomain.azureiotcentral.com`programmets URL . |
+|Sku               |För närvarande kan du använda antingen **ST1** eller **ST2**. Se [Azure IoT Central prissättning](https://azure.microsoft.com/pricing/details/iot-central/). |
+|Mall          | Programmallen som ska användas. Se tabellen nedan för mer information. |
+|DisplayName       |Namnet på programmet som visas i användargränssnittet. |
 
 [!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## <a name="view-your-iot-central-applications"></a>Visa dina IoT Central-program
 
-Använd cmdleten [Get-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Get-AzIotCentralApp) för att lista dina IoT Central-program och visa metadata.
+Använd [cmdleten Get-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Get-AzIotCentralApp) för att lista dina IoT Central-program och visa metadata.
 
 ## <a name="modify-an-application"></a>Ändra ett program
 
-Använd cmdleten [set-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/set-aziotcentralapp) för att uppdatera metadata för ett IoT Central program. Om du till exempel vill ändra visnings namnet för ditt program:
+Använd [cmdleten Set-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/set-aziotcentralapp) för att uppdatera metadata för ett IoT Central-program. Om du till exempel vill ändra visningsnamnet för ditt program:
 
 ```powershell
 Set-AzIotCentralApp -Name "myiotcentralapp" `
@@ -94,7 +94,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 ## <a name="remove-an-application"></a>Ta bort ett program
 
-Använd cmdleten [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) för att ta bort ett IoT Central-program. Exempel:
+Använd cmdleten [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) för att ta bort ett IoT Central-program. Ett exempel:
 
 ```powershell
 Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
@@ -103,7 +103,7 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du hanterar Azure IoT Central-program från Azure PowerShell, är det här det föreslagna nästa steg:
+Nu när du har lärt dig hur du hanterar Azure IoT Central-program från Azure PowerShell, här är det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
 > [Administrera ditt program](howto-administer.md)

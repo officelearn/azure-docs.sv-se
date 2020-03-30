@@ -2,25 +2,25 @@
 title: VMware-utvärderingsstöd i Azure Migrate
 description: Lär dig mer om stöd för VMware VM-utvärdering med Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 03d07adb6f19346901286bdae148f95e68290e4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/29/2020
+ms.openlocfilehash: e0172656d06075f89a7c3a06e8d4e9be94e6f5d0
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336881"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389315"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Supportmatris för VMware-bedömning 
 
-Den här artikeln sammanfattar förutsättningar och supportkrav för att bedöma virtuella datorer för VMware som förberedelse för migrering till Azure. Om du vill migrera virtuella virtuella datorer med VMware till Azure läser du [hjälpmatrisen för migreringsstöd](migrate-support-matrix-vmware-migration.md).
+Den här artikeln sammanfattar krav på förutsättningar och support när du bedömer virtuella VMware-datorer för migrering till Azure med hjälp av verktyget Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool). Om du vill migrera virtuella virtuella datorer med VMware till Azure läser du [hjälpmatrisen för migreringsstöd](migrate-support-matrix-vmware-migration.md).
 
-Du bedömer fysiska servrar med verktyget [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool) Du skapar ett Azure Migrate-projekt och lägger sedan till verktyget i projektet. När verktyget har lagts till distribuerar du [Azure Migrate-enheten](migrate-appliance.md). Installationen identifierar kontinuerligt lokala datorer och skickar datorns metadata och prestandadata till Azure. Efter datoridentifiering samlar du in identifierade datorer i grupper och kör en utvärdering för en grupp.
+Om du vill utvärdera virtuella datorer med VMware skapar du ett Azure Migrate-projekt och lägger sedan till serverbedömningsverktyget i projektet. När verktyget har lagts till distribuerar du [Azure Migrate-enheten](migrate-appliance.md). Installationen identifierar kontinuerligt lokala datorer och skickar datorns metadata och prestandadata till Azure. När identifieringen är klar samlar du identifierade datorer i grupper och kör en utvärdering för en grupp.
 
 ## <a name="limitations"></a>Begränsningar
 
 **Support** | **Detaljer**
 --- | ---
-**Projektbegränsningar** | Du kan skapa flera projekt i en Azure-prenumeration.<br/><br/> Du kan upptäcka och bedöma upp till 35 000 virtuella datorer i ett enda [projekt.](migrate-support-matrix.md#azure-migrate-projects) Ett projekt kan omfatta virtuella datorer med VMware, fysiska servrar och virtuella hyper-virtuella datorer, upp till bedömningsgränserna för varje.
+**Projektbegränsningar** | Du kan skapa flera projekt i en Azure-prenumeration.<br/><br/> Du kan upptäcka och bedöma upp till 35 000 virtuella datorer i ett enda [projekt.](migrate-support-matrix.md#azure-migrate-projects) Ett projekt kan också innehålla fysiska servrar och virtuella hyper-virtuella datorer, upp till bedömningsgränserna för varje.
 **Identifiering** | Azure Migrate-enheten kan identifiera upp till 10 000 virtuella virtuella datorer för VMware på en vCenter Server.
 **Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan bedöma upp till 35 000 virtuella datorer i en enda bedömning.
 
@@ -29,11 +29,11 @@ Du bedömer fysiska servrar med verktyget [Azure Migrate:Server Assessment.](mig
 
 ## <a name="application-discovery"></a>Programidentifiering
 
-Förutom att upptäcka datorer kan Azure Migrate: Server Assessment identifiera appar, roller och funktioner som körs på datorer. Genom att identifiera ditt applager kan du identifiera och planera en migreringsväg som är skräddarsydd för lokala arbetsbelastningar. 
+Förutom att upptäcka datorer kan Server Assessment identifiera appar, roller och funktioner som körs på datorer. Genom att identifiera ditt applager kan du identifiera och planera en migreringsväg som är skräddarsydd för lokala arbetsbelastningar. 
 
 **Support** | **Detaljer**
 --- | ---
-**Maskiner som stöds** | Appidentifiering stöds för närvarande endast för lokala virtuella datorer med startprogram.
+**Maskiner som stöds** | Appidentifiering stöds för närvarande endast för virtuella datorer med VMware.
 **Identifiering** | Appidentifiering är agentless. Den använder maskingästautentiseringsuppgifter och fjärråtkomsterar datorer med WMI- och SSH-anrop.
 **Stöd för virtuell dator** | Appidentifiering stöds för alla Windows- och Linux-versioner.
 **vCenter-autentiseringsuppgifter** | Appidentifiering behöver ett vCenter Server-konto med skrivskyddad åtkomst och privilegier aktiverade för virtuella datorer > gästoperationer.
@@ -58,7 +58,7 @@ Förutom att upptäcka datorer kan Azure Migrate: Server Assessment identifiera 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
 
-Azure Migrate använder [Azure Migrate-enheten](migrate-appliance.md) för identifiering och utvärdering. Apparaten för VMware distribueras med hjälp av en OVA-mall som importeras till vCenter Server. 
+Azure Migrate använder [Azure Migrate-enheten](migrate-appliance.md) för identifiering och utvärdering. Du kan distribuera enheten som en VMWare-vm med en OVA-mall, importerad till vCenter Server eller med ett [PowerShell-skript](deploy-appliance-script.md).
 
 - Läs mer om [apparatkrav](migrate-appliance.md#appliance---vmware) för VMware.
 - Läs mer om [webbadresser](migrate-appliance.md#url-access) som apparaten behöver komma åt.
@@ -77,7 +77,7 @@ ESXi-värdar (appidentifiering/agentlös beroendeanalys) | Om du vill göra [app
 
 **Krav** | **Detaljer**
 --- | --- 
-**Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget Azure Migrate: Server Assessment som lagts till i projektet.<br/><br/>  Du distribuerar beroendevisualisering när du har konfigurerat en Azure Migrate-installation för att identifiera dina lokala VMWare-datorer.<br/><br/> [Läs om hur du](create-manage-projects.md) skapar ett projekt för första gången.<br/> [Läs om hur du](how-to-assess.md) lägger till ett bedömningsverktyg i ett befintligt projekt.<br/> [Lär dig hur du](how-to-set-up-appliance-vmware.md) konfigurerar Azure Migrate-enheten för bedömning av virtuella datorer med VMware.
+**Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med serverbedömningsverktyget tillagt i projektet.<br/><br/>  Du distribuerar beroendevisualisering när du har konfigurerat en Azure Migrate-installation för att identifiera dina lokala VMWare-datorer.<br/><br/> [Läs om hur du](create-manage-projects.md) skapar ett projekt för första gången.<br/> [Läs om hur du](how-to-assess.md) lägger till ett bedömningsverktyg i ett befintligt projekt.<br/> [Lär dig hur du](how-to-set-up-appliance-vmware.md) konfigurerar Azure Migrate-enheten för bedömning av virtuella datorer med VMware.
 **Stöd för virtuell dator** | Stöds endast för virtuella datorer med VMware.
 **Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars).
 **Windows-konto** |  För beroendeanalys behöver Azure Migrate-enheten ett lokalt konto eller ett domänadministratörskonto för att komma åt virtuella windows-datorer.

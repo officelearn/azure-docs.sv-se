@@ -1,57 +1,57 @@
 ---
-title: Grupp utveckling på Kubernetes
+title: Teamutveckling på Kubernetes
 services: azure-dev-spaces
 ms.date: 01/22/2020
 ms.topic: quickstart
-description: Den här snabb starten visar hur du gör team Kubernetes-utveckling med behållare och mikrotjänster med Azure dev Spaces
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
+description: Den här snabbstarten visar hur du gör team Kubernetes utveckling med behållare och mikrotjänster med Azure Dev Spaces
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s
 manager: gwallace
 ms.openlocfilehash: 0fe177db420913e5d68807dd803df791653c0914
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78244947"
 ---
-# <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Snabb start: grupp utveckling på Kubernetes – Azure dev Spaces
+# <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Snabbstart: Grupputveckling på Kubernetes - Azure Dev Spaces
 
 I den här guiden får du lära dig hur du:
 
-- Konfigurera Azure dev Spaces i ett hanterat Kubernetes-kluster i Azure.
-- Distribuera ett stort program med flera mikrotjänster till ett dev-utrymme.
-- Testa en enskild mikrotjänst i ett isolerat dev-utrymme inom ramen för det fullständiga programmet.
+- Konfigurera Azure Dev Spaces på ett hanterat Kubernetes-kluster i Azure.
+- Distribuera ett stort program med flera mikrotjänster till ett utvecklingsutrymme.
+- Testa en enda mikrotjänst i ett isolerat utvecklingsutrymme inom ramen för det fullständiga programmet.
 
-![Grupp utveckling för Azure dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
+![Utveckling av Azure Dev Spaces-team](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
+- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free).
 - [Azure CLI installerat](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 3 är installerat][helm-installed].
+- [Helm 3 installerat][helm-installed].
 
-## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes service-kluster
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Skapa ett Azure Kubernetes-tjänstkluster
 
-Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resurs grupp med namnet *MyResourceGroup* och ett AKS-kluster som kallas *MyAKS*.
+Du måste skapa ett AKS-kluster i en [region som stöds][supported-regions]. Kommandona nedan skapar en resursgrupp som heter *MyResourceGroup* och ett AKS-kluster som heter *MyAKS*.
 
 ```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
-## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure Dev Spaces i AKS-klustret
 
-Använd kommandot `use-dev-spaces` för att aktivera dev Spaces i ditt AKS-kluster och följa anvisningarna. Kommandot nedan aktiverar dev Spaces i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett dev-utrymme som heter *dev*.
+Använd `use-dev-spaces` kommandot för att aktivera dev spaces i AKS-klustret och följ anvisningarna. Kommandot nedan aktiverar Dev Spaces i *MyAKS-klustret* i gruppen *MyResourceGroup* och skapar ett dev-utrymme som kallas *dev*.
 
 > [!NOTE]
-> Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
+> Kommandot `use-dev-spaces` kommer också att installera Azure Dev Spaces CLI om det inte redan är installerat. Du kan inte installera AZURE Dev Spaces CLI i Azure Cloud Shell.
 
 ```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
 ```
 
-## <a name="get-sample-application-code"></a>Hämta exempel program kod
+## <a name="get-sample-application-code"></a>Hämta exempelprogramkod
 
-I den här artikeln använder du [exempel programmet Azure dev Spaces Bike sharing](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) för att demonstrera användningen av Azure dev Spaces.
+I den här artikeln använder du [exempelprogrammet Azure Dev Spaces Bike Sharing](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) för att demonstrera med Azure Dev Spaces.
 
 Klona programmet från GitHub och gå till programmets katalog:
 
@@ -62,7 +62,7 @@ cd dev-spaces/samples/BikeSharingApp/
 
 ## <a name="retrieve-the-hostsuffix-for-dev"></a>Hämta HostSuffix för *utveckling*
 
-Använd kommandot `azds show-context` för att Visa HostSuffix för *dev*.
+Använd `azds show-context` kommandot för att visa HostSuffix för *dev*.
 
 ```cmd
 $ azds show-context
@@ -72,24 +72,24 @@ Name                ResourceGroup     DevSpace  HostSuffix
 MyAKS               MyResourceGroup   dev       fedcab0987.eus.azds.io
 ```
 
-## <a name="update-the-helm-chart-with-your-hostsuffix"></a>Uppdatera Helm-diagrammet med din HostSuffix
+## <a name="update-the-helm-chart-with-your-hostsuffix"></a>Uppdatera Helm-diagrammet med ditt HostSuffix
 
-Öppna [Charts/Values. yaml](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml) och Ersätt alla instanser av `<REPLACE_ME_WITH_HOST_SUFFIX>` med HostSuffix-värdet som du hämtade tidigare. Spara ändringarna och Stäng filen.
+Öppna [diagram/values.yaml](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/charts/values.yaml) och ersätt `<REPLACE_ME_WITH_HOST_SUFFIX>` alla förekomster av med värdet HostSuffix som du hämtade tidigare. Spara ändringarna och stäng filen.
 
-## <a name="run-the-sample-application-in-kubernetes"></a>Kör exempel programmet i Kubernetes
+## <a name="run-the-sample-application-in-kubernetes"></a>Kör exempelprogrammet i Kubernetes
 
-Kommandona för att köra exempel programmet på Kubernetes är en del av en befintlig process och har inget beroende av Azure dev Spaces-verktyg. I det här fallet är Helm det verktyg som används för att köra det här exempel programmet, men andra verktyg kan användas för att köra hela programmet i ett namn område i ett kluster. Helm-kommandona är riktade mot dev-utrymmet som heter *dev* som du skapade tidigare, men detta dev-utrymme är också ett Kubernetes-namnområde. Detta innebär att dev-rymder kan riktas mot andra verktyg på samma sätt som andra namn områden.
+Kommandona för att köra exempelprogrammet på Kubernetes är en del av en befintlig process och har inget beroende av Azure Dev Spaces-verktyg. I det här fallet är Helm det verktyg som används för att köra det här exempelprogrammet, men andra verktyg kan användas för att köra hela programmet i ett namnområde i ett kluster. Helm-kommandona riktar in sig på det dev-utrymme som heter *dev-området* som du skapade tidigare, men det här utvecklingsutrymmet är också ett Kubernetes-namnområde. Därför kan utvecklingsutrymmen vara inriktade på andra verktyg som är samma som andra namnområden.
 
-Du kan använda Azure dev Spaces för grupp utveckling när ett program körs i ett kluster oavsett vilka verktyg som används för att distribuera det.
+Du kan använda Azure Dev Spaces för teamutveckling när ett program körs i ett kluster oavsett vilket verktyg som används för att distribuera det.
 
-Använd kommandot `helm install` för att konfigurera och installera exempel programmet på klustret.
+Använd `helm install` kommandot för att konfigurera och installera exempelprogrammet i klustret.
 
 ```cmd
 cd charts/
 helm install bikesharingsampleappsampleapp . --dependency-update --namespace dev --atomic
 ```
 
-Det kan ta flera minuter att slutföra kommandot `helm install`. När exempel programmet har installerats på klustret och eftersom du har aktiverat dev Spaces i klustret, använder du kommandot `azds list-uris` för att visa URL: erna för exempel programmet i den aktuella *utvecklings* gruppen.
+Kommandot `helm install` kan ta flera minuter att slutföra. När exempelprogrammet har installerats i klustret och eftersom du har `azds list-uris` dev spaces aktiverat i klustret använder du kommandot för att visa URL:erna för exempelprogrammet i *dev* som för närvarande är markerat.
 
 ```cmd
 $ azds list-uris
@@ -99,22 +99,22 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Navigera till *bikesharingweb* -tjänsten genom att öppna den offentliga URL: en från kommandot `azds list-uris`. I exemplet ovan är den offentliga URL: en för *bikesharingweb* -tjänsten `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Välj *Aurelia Briggs (kund)* som användare. Kontrol lera att du ser texten *Hi-Aurelia Briggs | Logga ut* överst.
+Navigera till *bikesharingweb-tjänsten* genom att `azds list-uris` öppna den offentliga webbadressen från kommandot. I exemplet ovan är `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`den offentliga URL:en för *bikesharingweb-tjänsten* . Välj *Aurelia Briggs (kund)* som användare. Kontrollera att du ser texten *Hej Aurelia Briggs | Logga ut* högst upp.
 
-![Exempel program för Azure dev Spaces-cykel delning](media/quickstart-team-development/bikeshare.png)
+![Exempelprogram för azure dev spaces-cykeldelning](media/quickstart-team-development/bikeshare.png)
 
-## <a name="create-child-dev-spaces"></a>Skapa underordnade dev-utrymmen
+## <a name="create-child-dev-spaces"></a>Skapa underordnade utvecklingsutrymmen
 
-Använd kommandot `azds space select` för att skapa två underordnade utrymmen under *dev*:
+Använd `azds space select` kommandot för att skapa två underordnade blanksteg under *dev:*
 
 ```cmd
 azds space select -n dev/azureuser1 -y
 azds space select -n dev/azureuser2 -y
 ```
 
-Kommandona ovan skapar två underordnade utrymmen under *dev* med namnet *azureuser1* och *azureuser2*. Dessa två underordnade utrymmen representerar distinkta dev Spaces för utvecklare *azureuser1* och *azureuser2* som ska användas för att göra ändringar i exempel programmet.
+Ovanstående kommandon skapar två underordnade utrymmen under *dev* med namnet *azureuser1* och *azureuser2*. Dessa två underordnade utrymmen representerar olika utvecklingsutrymmen för utvecklare *azureuser1* och *azureuser2* att använda för att göra ändringar i exempelprogrammet.
 
-Använd kommandot `azds space list` för att visa en lista över alla dev Spaces och bekräfta *dev/azureuser2* är markerat.
+Använd `azds space list` kommandot för att lista alla dev spaces och bekräfta *dev/azureuser2* har valts.
 
 ```cmd
 $ azds space list
@@ -126,7 +126,7 @@ $ azds space list
 *  dev/azureuser2  True
 ```
 
-Använd `azds list-uris` för att visa URL: erna för exempel programmet i det valda utrymmet som är *dev/azureuser2*.
+Använd `azds list-uris` för att visa URL:er för exempelprogrammet i det markerade utrymmet som är *dev/azureuser2*.
 
 ```cmd
 $ azds list-uris
@@ -136,13 +136,13 @@ http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Bekräfta att URL: erna som visas av `azds list-uris`-kommandot har *azureuser2. s. dev* -prefixet. Det här prefixet bekräftar att det aktuella utrymmet som valts är *azureuser2*, vilket är underordnat en *dev*.
+Bekräfta att url:erna `azds list-uris` som visas av kommandot har prefixet *azureuser2.s.dev.* Det här prefixet bekräftar att det valda aktuella utrymmet är *azureuser2*, vilket är underordnad *dev*.
 
-Navigera till *bikesharingweb* -tjänsten för *dev/azureuser2* dev-utrymmet genom att öppna den offentliga URL: en från kommandot `azds list-uris`. I exemplet ovan är den offentliga URL: en för *bikesharingweb* -tjänsten `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Välj *Aurelia Briggs (kund)* som användare. Kontrol lera att du ser texten *Hi-Aurelia Briggs | Logga ut* överst.
+Navigera till *bikesharingweb-tjänsten* för *dev/azureuser2-utvecklingsutrymmet* genom `azds list-uris` att öppna den offentliga URL:en från kommandot. I exemplet ovan är `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`den offentliga URL:en för *bikesharingweb-tjänsten* . Välj *Aurelia Briggs (kund)* som användare. Kontrollera att du ser texten *Hej Aurelia Briggs | Logga ut* högst upp.
 
 ## <a name="update-code"></a>Uppdatera kod
 
-Öppna *BikeSharingWeb/Components/header. js* med en text redigerare och ändra texten i [span-elementet med `userSignOut` className](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/components/Header.js#L16).
+Öppna *BikeSharingWeb/components/Header.js* med en textredigerare och ändra texten i [span-elementet med `userSignOut` className](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/components/Header.js#L16).
 
 ```html
 <span className="userSignOut">
@@ -150,11 +150,11 @@ Navigera till *bikesharingweb* -tjänsten för *dev/azureuser2* dev-utrymmet gen
 </span>
 ```
 
-Spara ändringarna och Stäng filen.
+Spara ändringarna och stäng filen.
 
-## <a name="build-and-run-the-updated-bikesharingweb-service-in-the-devazureuser2-dev-space"></a>Skapa och kör den uppdaterade bikesharingweb-tjänsten i dev */azureuser2* -dev-rymden
+## <a name="build-and-run-the-updated-bikesharingweb-service-in-the-devazureuser2-dev-space"></a>Skapa och kör den uppdaterade bikesharingweb-tjänsten i *dev/azureuser2* dev space
 
-Navigera till *BikeSharingWeb/* Directory och kör kommandot `azds up`.
+Navigera till *bikesharingweb/-katalogen* `azds up` och kör kommandot.
 
 ```cmd
 $ cd ../BikeSharingWeb/
@@ -168,18 +168,18 @@ Service 'bikesharingweb' port 80 (http) is available at http://localhost:54256
 ...
 ```
 
-Det här kommandot skapar och kör *bikesharingweb* -tjänsten i dev */azureuser2 dev-* ytan. Den här tjänsten körs utöver *bikesharingweb* -tjänsten som körs i *dev* och används endast för begär Anden med URL-prefixet *azureuser2. s* . Mer information om hur routning fungerar mellan över-och underordnade dev-Spaces finns i [så här fungerar Azure dev Spaces och har kon figurer ATS](how-dev-spaces-works.md).
+Det här kommandot skapar och kör *bikesharingweb-tjänsten* i *dev/azureuser2* dev space. Den här tjänsten körs utöver *bikesharingweb-tjänsten* som körs i *dev* och används endast för begäranden med *azureuser2.s* URL-prefix. Mer information om hur routning fungerar mellan överordnade och underordnade utvecklingsutrymmen finns i [Så här fungerar Azure Dev Spaces och konfigureras](how-dev-spaces-works.md).
 
-Navigera till *bikesharingweb* -tjänsten för *dev/azureuser2* dev-utrymmet genom att öppna den offentliga URL: en som visas i utdata från kommandot `azds up`. Välj *Aurelia Briggs (kund)* som användare. Kontrol lera att den uppdaterade texten finns i det övre högra hörnet. Du kan behöva uppdatera sidan eller rensa webbläsarens cacheminne om du inte omedelbart ser den här ändringen.
+Navigera till *bikesharingweb-tjänsten* för *dev/azureuser2-utvecklingsutrymmet* genom att öppna `azds up` den offentliga URL:en som visas i kommandots utdata. Välj *Aurelia Briggs (kund)* som användare. Kontrollera att du ser den uppdaterade texten i det övre högra hörnet. Du kan behöva uppdatera sidan eller rensa webbläsarens cacheminne om du inte omedelbart ser den här ändringen.
 
-![Azure dev Spaces cykel delning exempel program uppdaterat](media/quickstart-team-development/bikeshare-update.png)
+![Exempelprogrammet Azure Dev Spaces Bike Sharing har uppdaterats](media/quickstart-team-development/bikeshare-update.png)
 
 > [!NOTE]
-> När du navigerar till tjänsten när du kör `azds up`, visas även spårning av HTTP-begäranden i utdata från kommandot `azds up`. De här spårningarna kan hjälpa dig att felsöka och felsöka tjänsten. Du kan inaktivera dessa spårningar med `--disable-http-traces` när du kör `azds up`.
+> När du navigerar till `azds up`tjänsten när du kör visas http-begäran `azds up` spårningar också i utdata från kommandot. Dessa spår kan hjälpa dig att felsöka och felsöka din tjänst. Du kan inaktivera dessa `--disable-http-traces` spårningar när du kör `azds up`.
 
-## <a name="verify-other-dev-spaces-are-unchanged"></a>Kontrol lera att andra dev-rymder är oförändrade
+## <a name="verify-other-dev-spaces-are-unchanged"></a>Kontrollera att andra dev spaces är oförändrade
 
-Tryck på *CTRL + c*om `azds up` kommandot fortfarande körs.
+Om `azds up` kommandot fortfarande körs trycker du på *Ctrl+c*.
 
 ```cmd
 $ azds list-uris --all
@@ -193,9 +193,9 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/               Available
 http://dev.gateway.fedcab0987.eus.azds.io/                      Available
 ```
 
-Navigera till *dev* -versionen av *bikesharingweb* i webbläsaren, Välj *Aurelia Briggs (kund)* som användare och kontrol lera att du ser den ursprungliga texten i det övre högra hörnet. Upprepa dessa steg med *utvecklings-/azureuser1-* URL: en. Observera att ändringarna endast tillämpas på *dev/azureuser2-* versionen av *bikesharingweb*. Den här isoleringen av förändringar i *dev/azureuser2* gör att *azureuser2* kan göra ändringar utan att påverka *azureuser1*.
+Navigera till *dev-versionen* av *bikesharingweb* i din webbläsare, välj *Aurelia Briggs (kund)* som användare och kontrollera att du ser den ursprungliga texten i det övre högra hörnet. Upprepa dessa steg med *dev/azureuser1-URL:en.* Observera att ändringarna endast tillämpas på *dev/azureuser2-versionen* av *bikesharingweb*. Den här isoleringen av ändringar *i dev/azureuser2* gör det möjligt för *azureuser2* att göra ändringar utan att påverka *azureuser1*.
 
-Om du vill att dessa ändringar ska reflekteras i *utvecklings* *-och dev-/azureuser1*bör du följa teamets befintliga arbets flöde eller CI/CD-pipeline. Det här arbets flödet kan till exempel innebära att du genomför din ändring av versions kontroll systemet och distribuerar uppdateringen med hjälp av en CI/CD-pipeline eller verktyg som Helm.
+Om du vill att dessa ändringar ska återspeglas i *dev* och *dev/azureuser1*bör du följa teamets befintliga arbetsflöde eller CI/CD-pipeline. Det här arbetsflödet kan till exempel innebära att du ändrar din versionskontrollsystem och distribuerar uppdateringen med hjälp av en CI/CD-pipeline eller verktyg, till exempel Helm.
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 

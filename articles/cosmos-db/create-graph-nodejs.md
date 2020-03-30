@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 7ab259886409610fc89c35f4c96c9babb977b44d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e6456c79dbce1f8bb874ce4c88b932e592235a82
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061869"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80244434"
 ---
-# <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Snabb start: bygga ett Node. js-program med hjälp av Azure Cosmos DB Gremlin API-konto
+# <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Snabbstart: Skapa ett Node.js-program med hjälp av Azure Cosmos DB Gremlin API-konto
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
@@ -23,14 +23,14 @@ ms.locfileid: "77061869"
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
-> * [PHP](create-graph-php.md)
+> * [Php](create-graph-php.md)
 >  
 
-I den här snabb starten skapar och hanterar du ett Azure Cosmos DB Gremlin (Graph) API-konto från Azure Portal och lägger till data med hjälp av en Node. js-app som klonas från GitHub. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
+I den här snabbstarten skapar och hanterar du ett Azure Cosmos DB Gremlin -API-konto (diagram) från Azure-portalen och lägger till data med hjälp av en Node.js-app som klonats från GitHub. Azure Cosmos DB är en databastjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckelvärde- och diagramdatabaser med globala distributions- och vågräta skalfunktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- [Node. js-0.10.29 +](https://nodejs.org/).
+## <a name="prerequisites"></a>Krav
+- Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Node.js 0.10.29+](https://nodejs.org/).
 - [Git](https://git-scm.com/downloads).
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -71,7 +71,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
 Följande kodfragment är alla hämtade från filen *app.js*.
 
-Den här konsol appen använder [Gremlin Node. js](https://www.npmjs.com/package/gremlin) -drivrutinen med öppen källkod.
+Den här konsolappen använder [drivrutinen för Gremlin Node.js](https://www.npmjs.com/package/gremlin) med öppen källkod.
 
 * Gremlin-klienten skapas.
 
@@ -94,7 +94,7 @@ Den här konsol appen använder [Gremlin Node. js](https://www.npmjs.com/package
 
     ```
 
-  Konfigurationerna finns i *config. js*, som vi redigerar i [följande avsnitt](#update-your-connection-string).
+  Konfigurationerna är alla i *config.js*, som vi redigerar i [följande avsnitt](#update-your-connection-string).
 
 * En serie funktioner har definierats för att köra olika Gremlin-åtgärder. Detta är en av dem:
 
@@ -148,15 +148,15 @@ Den här konsol appen använder [Gremlin Node. js](https://www.npmjs.com/package
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-1. Öppna filen *config. js* . 
+1. Öppna *config.js-filen.* 
 
-2. I *config. js*fyller du i `config.endpoint`-nyckeln med **Gremlin slut punkts** värde från **översikts** sidan för ditt Cosmos DB-konto i Azure Portal. 
+2. I *config.js*fyller `config.endpoint` du i nyckeln med **gremlin-slutpunktsvärdet** från **översiktssidan** för ditt Cosmos DB-konto i Azure-portalen. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
-    ![Visa och kopiera en åtkomst nyckel på sidan Azure Portal, översikt](./media/create-graph-nodejs/gremlin-uri.png)
+    ![Visa och kopiera en åtkomstnyckel i Azure-portalen, översiktssidan](./media/create-graph-nodejs/gremlin-uri.png)
 
-3. I *config. js*fyller du i värdet config. PrimaryKey med värdet **primär nyckel** på sidan **nycklar** i ditt Cosmos DB konto i Azure Portal. 
+3. I *config.js*fyller du i värdet config.primaryKey med värdet **Primärnyckel** från sidan **Nycklar** på ditt Cosmos DB-konto i Azure-portalen. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
@@ -164,12 +164,12 @@ Den här konsol appen använder [Gremlin Node. js](https://www.npmjs.com/package
 
 4. Ange databasens namn och grafvärdet (containern) för config.database och config.collection. 
 
-Här är ett exempel på hur din färdiga *config. js* -fil ska se ut:
+Här är ett exempel på hur filen *config.js* ska se ut:
 
 ```javascript
 var config = {}
 
-// Note that this must not have HTTPS or the port number
+// Note that this must include the protocol (HTTPS:// for .NET SDK URI or wss:// for Gremlin Endpoint) and the port number
 config.endpoint = "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"; 
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"
@@ -180,7 +180,7 @@ module.exports = config;
 
 ## <a name="run-the-console-app"></a>Kör konsolappen
 
-1. Öppna ett terminalfönster och ändra (via `cd` kommando) till installations katalogen för *Package. JSON* -filen som ingår i projektet.
+1. Öppna ett terminalfönster och `cd` ändra (via kommando) till installationskatalogen för *filen package.json* som ingår i projektet.
 
 2. Kör `npm install` att installera nödvändiga npm-moduler, inklusive `gremlin`.
 
@@ -206,7 +206,7 @@ Prova att slutföra `g.V()` med `.has('firstName', 'Thomas')` för att testa fil
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapar en graf med Datautforskaren och kör en Node. js-app för att lägga till data i grafen. Nu kan du skapa mer komplexa frågor och implementera kraftfull logik för grafbläddring med Gremlin. 
+I den här artikeln lärde du dig hur du skapar ett Azure Cosmos DB-konto, skapar ett diagram med hjälp av Data Explorer och kör en Node.js-app för att lägga till data i diagrammet. Nu kan du skapa mer komplexa frågor och implementera kraftfull logik för grafbläddring med Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Fråga med hjälp av Gremlin](tutorial-query-graph.md)

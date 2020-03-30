@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187018"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -16,18 +16,18 @@ ms.locfileid: "67187018"
 
 ## <a name="managing-table-entities"></a>Hantera tabellentiteter
 
-Nu när du har en tabell kan vi titta på hur du hanterar enheter, eller rader i tabellen. 
+Nu när du har en tabell ska vi titta på hur du hanterar entiteter eller rader i tabellen. 
 
-Entiteter kan ha upp till 255 egenskaper, inklusive tre Systemegenskaper: **PartitionKey**, **RowKey**, och **tidsstämpel**. Du är ansvarig för infogar och uppdaterar värdena för **PartitionKey** och **RowKey**. Servern hanterar värde för **tidsstämpel**, vilket kan inte ändras. Tillsammans i **PartitionKey** och **RowKey** identifiera varje entitet i en tabell.
+Entiteter kan ha upp till 255 egenskaper, inklusive tre systemegenskaper: **PartitionKey**, **RowKey**och **Timestamp**. Du ansvarar för att infoga och uppdatera värdena för **PartitionKey** och **RowKey**. Servern hanterar värdet för **Tidsstämpel**, som inte kan ändras. Tillsammans identifierar **PartitionKey** och **RowKey** unikt varje entitet i en tabell.
 
-* **PartitionKey**: Anger den partition som entiteten lagras i.
-* **RowKey**: Identifierar enheten inom partitionen.
+* **PartitionKey**: Bestämmer den partition som entiteten lagras i.
+* **RowKey**: Identifierar unikt entiteten i partitionen.
 
 Du kan definiera upp till 252 anpassade egenskaper för en entitet. 
 
-### <a name="add-table-entities"></a>Lägg till tabellentiteter
+### <a name="add-table-entities"></a>Lägga till tabellentiteter
 
-Lägg till entiteter i en tabell med **Lägg till AzTableRow**. De här exemplen använder partitionsnycklar med värden `partition1` och `partition2`, och radnycklar lika med delstater. Egenskaperna i varje entitet är `username` och `userid`. 
+Lägg till entiteter i en tabell med **Add-AzTableRow**. I de här exemplen används partitionsnycklar med värden `partition1` och `partition2`, och radtangenter som är lika med tillståndsförkortningar. Egenskaperna i varje `username` entitet är och `userid`. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -55,12 +55,12 @@ Add-AzTableRow `
     -rowKey ("TX") -property @{"username"="Steven";"userid"=4}
 ```
 
-### <a name="query-the-table-entities"></a>Fråga tabellentiteter
+### <a name="query-the-table-entities"></a>Fråga tabellenheter
 
-Du kan fråga entiteter i en tabell med hjälp av den **Get-AzTableRow** kommando.
+Du kan fråga entiteterna i en tabell med kommandot **Get-AzTableRow.**
 
 > [!NOTE]
-> Cmdletarna **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**, och  **Get-AzureStorageTableRowByCustomFilter** är föråldrade och tas bort i en framtida version-uppdatering.
+> Cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**och **Get-AzureStorageTableRowByCustomFilter** är inaktuella och tas bort i en framtida versionsuppdatering.
 
 #### <a name="retrieve-all-entities"></a>Hämta alla entiteter
 
@@ -70,27 +70,27 @@ Get-AzTableRow -table $cloudTable | ft
 
 Det här kommandot ger resultat som liknar följande tabell:
 
-| userid | username | partition | rowkey |
+| userid | användarnamn | Partition | radnyckel |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | CA |
-| 3 | Christine | Partition1 | WA |
+| 1 | Chris | partition1 | CA |
+| 3 | Christine | partition1 | WA |
 | 2 | Jessie | partition2 | NM |
 | 4 | Steven | partition2 | TX |
 
-#### <a name="retrieve-entities-for-a-specific-partition"></a>Hämta entiteter för en specifik partition
+#### <a name="retrieve-entities-for-a-specific-partition"></a>Hämta entiteter för en viss partition
 
 ```powershell
 Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 ```
 
-Resultatet liknar följande tabell:
+Resultaten liknar följande tabell:
 
-| userid | username | partition | rowkey |
+| userid | användarnamn | Partition | radnyckel |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | CA |
-| 3 | Christine | Partition1 | WA |
+| 1 | Chris | partition1 | CA |
+| 3 | Christine | partition1 | WA |
 
-#### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Hämta entiteter för ett specifikt värde i en viss kolumn
+#### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Hämta entiteter för ett visst värde i en viss kolumn
 
 ```powershell
 Get-AzTableRow -table $cloudTable `
@@ -99,16 +99,16 @@ Get-AzTableRow -table $cloudTable `
     -operator Equal
 ```
 
-Den här frågan returnerar en post.
+Den här frågan hämtar en post.
 
-|Fältet|value|
+|fält|värde|
 |----|----|
 | userid | 1 |
-| username | Chris |
-| PartitionKey | Partition1 |
+| användarnamn | Chris |
+| PartitionKey | partition1 |
 | RowKey      | CA |
 
-#### <a name="retrieve-entities-using-a-custom-filter"></a>Hämta entiteter med hjälp av ett anpassat filter 
+#### <a name="retrieve-entities-using-a-custom-filter"></a>Hämta entiteter med ett anpassat filter 
 
 ```powershell
 Get-AzTableRow `
@@ -116,20 +116,20 @@ Get-AzTableRow `
     -customFilter "(userid eq 1)"
 ```
 
-Den här frågan returnerar en post.
+Den här frågan hämtar en post.
 
-|Fältet|value|
+|fält|värde|
 |----|----|
 | userid | 1 |
-| username | Chris |
-| PartitionKey | Partition1 |
+| användarnamn | Chris |
+| PartitionKey | partition1 |
 | RowKey      | CA |
 
-### <a name="updating-entities"></a>Uppdaterar entiteter 
+### <a name="updating-entities"></a>Uppdatera entiteter 
 
-Det finns tre steg för att uppdatera entiteter. Först måste du hämta entiteten att ändra. Därefter kontrollera ändringen. Det tredje genomför ändringen med hjälp av **uppdatering AzTableRow**.
+Det finns tre steg för att uppdatera entiteter. Hämta först entiteten för att ändra. För det andra, gör ändringen. För det tredje, begå ändringen med **Update-AzTableRow**.
 
-Uppdatera entiteten med användarnamn = ”Jessie” om du vill ha användarnamn = 'Jessie2'. Det här exemplet visar också ett annat sätt att skapa ett anpassat filter med hjälp av .NET-typerna.
+Uppdatera entiteten med användarnamn = 'Jessie' för att ha användarnamn = 'Jessie2'. I det här exemplet visas också ett annat sätt att skapa ett anpassat filter med .NET-typer.
 
 ```powershell
 # Create a filter and get the entity to be updated.
@@ -151,22 +151,22 @@ Get-AzTableRow -table $cloudTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
-Jessie2 posten visas i resultaten.
+Resultaten visar Jessie2-posten.
 
-|Fältet|value|
+|fält|värde|
 |----|----|
 | userid | 2 |
-| username | Jessie2 |
+| användarnamn | Jessie2 (på andra) |
 | PartitionKey | partition2 |
 | RowKey      | NM |
 
-### <a name="deleting-table-entities"></a>Ta bort tabellenheter
+### <a name="deleting-table-entities"></a>Ta bort tabellentiteter
 
 Du kan ta bort en entitet eller alla entiteter i tabellen.
 
-#### <a name="deleting-one-entity"></a>Tar bort en entitet
+#### <a name="deleting-one-entity"></a>Ta bort en entitet
 
-Om du vill ta bort en enda enhet, hämta en referens till entiteten och skicka det till **Remove-AzTableRow**.
+Om du vill ta bort en enskild entitet hämtar du en referens till den entiteten och rör den till **Remove-AzTableRow**.
 
 ```powershell
 # Set filter.
@@ -186,7 +186,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 #### <a name="delete-all-entities-in-the-table"></a>Ta bort alla entiteter i tabellen
 
-Om du vill ta bort alla entiteter i tabellen, hämta dem och skicka resultaten till remove-cmdlet. 
+Om du vill ta bort alla entiteter i tabellen hämtar du dem och piper resultaten till den bort ta bort cmdleten. 
 
 ```powershell
 # Get all rows and pipe the result into the remove cmdlet.

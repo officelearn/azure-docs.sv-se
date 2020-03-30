@@ -1,20 +1,19 @@
 ---
-title: Optimera din molninvestering med Azure Cost Management | Microsoft Docs
+title: Optimera din molninvestering med Azure Cost Management
 description: Den här artikeln hjälper dig att få ut det mesta möjliga av dina molninvesteringar, minska kostnaderna och utvärdera var pengarna spenderas.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383529"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80157219"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Så här optimerar du din molninvestering med Azure Cost Management
 
@@ -116,7 +115,7 @@ Mer information finns på sidan med [priskalkylatorn för Azure](https://azure.m
 
 Azure Migrate är en tjänst som bedömer din organisations aktuella arbetsbelastningar i lokala datacenter. Du får en inblick i vad du kan behöva från en Azure-ersättningslösning. Först analyserar Migrate dina lokala datorer för att avgöra om migreringen är möjlig. Sedan rekommenderar den VM-storlekar i Azure för att maximera prestanda. Slutligen skapar den en kostnadsuppskattning för en Azure-baserad lösning.
 
-Mer information finns på sidan om [Azure Migrate](../../site-recovery/migrate-overview.md).
+Mer information finns på sidan om [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
 
 ## <a name="analyze-and-manage-your-costs"></a>Analysera och hantera kostnader
 
@@ -125,6 +124,11 @@ Håll dig informerad om hur din organisations kostnader utvecklas över tid. Anv
 ### <a name="organize-and-tag-your-resources"></a>Organisera och tagga resurser
 
 Organisera resurser utifrån kostnad. När du skapar prenumerationer och resursgrupper bör du tänka på de team som ansvarar för tillhörande kostnader. Kontrollera att din rapportering tar hänsyn till organisationen. Prenumerationer och resursgrupper tillhandahåller lämpliga kategorier för att organisera och tillskriva utgifter i organisationen. Taggar är ett bra sätt att tillskriva kostnader. Du kan använda taggar som ett filter. Och du kan använda dem för att gruppera när du analyserar data och undersöker kostnader. Kunder med Enterprise-avtal kan även skapa avdelningar och placera prenumerationer under dem. Kostnadsbaserad organisering i Azure hjälper till att hålla relevanta personer i din organisation ansvariga för att minska respektive teams utgifter.
+
+Titta på videon om [hur du granskar taggningsprinciper med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) och lär dig mer om de verktyg som du kan använda för att kräva skalbar resurstaggning inom organisationen.
+
+>[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
+
 
 ### <a name="use-cost-analysis"></a>Använda kostnadsanalys
 

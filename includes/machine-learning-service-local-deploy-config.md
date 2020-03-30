@@ -2,23 +2,23 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: c288ea4a2c62999f27b3f07c39df40dae7ab1426
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 60c754aeec3157abee02eb136dcf148c440d8da0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926964"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477280"
 ---
-Posterna i `deploymentconfig.json` dokument översikt till parametrarna för [LocalWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
+Posterna i `deploymentconfig.json` dokumentöversikten till parametrarna för [LocalWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för metoden:
 
-| JSON-entitet | Metod parameter | Beskrivning |
+| JSON-enhet | Parametern Metod | Beskrivning |
 | ----- | ----- | ----- |
-| `computeType` | Ej tillämpligt | Beräkningsmålet. Värdet måste vara `local`för lokala mål. |
-| `port` | `port` | Den lokala porten där tjänstens HTTP-slutpunkt ska exponeras. |
+| `computeType` | Ej tillämpligt | Beräkningsmålet. För lokala mål måste `local`värdet vara . |
+| `port` | `port` | Den lokala port som tjänstens HTTP-slutpunkt ska exponeras på. |
 
-Denna JSON är en exempel distributions konfiguration för användning med CLI:
+Detta JSON är ett exempel distributionskonfiguration för användning med CLI:
 
 ```json
 {

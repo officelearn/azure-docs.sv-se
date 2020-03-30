@@ -8,20 +8,18 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 717bf922ac600242892d86ad6b58d80b36a0710e
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 3d0bd5d6403264ae6c71b43468b61930bcf6b86c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299535"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79504370"
 ---
-För Premium-SSD, standard-SSD och standard-HDD: t har endast följande regioner stöd för Kundhanterade nycklar:
+För premium-SSD-enheter, standard-SSD-enheter och vanliga hårddiskar stöder endast följande regioner kundhanterade nycklar:
 
-- Tillgänglig som ett GA-erbjudande i USA, västra USA 2, södra centrala USA, Storbritannien, södra regioner.
-- Tillgängligt som en offentlig för hands version i regionerna västra centrala USA, östra USA 2, centrala Kanada och Europa, norra.
+- Tillgänglig som ett GA-erbjudande i de offentliga regionerna och Azure Government-regionerna.
 
-
-För Ultra disks stöder endast följande regioner Kundhanterade nycklar som ett GA-erbjudande:
+För ultradiskar stöder endast följande regioner kundhanterade nycklar som ga-erbjudande:
 
 - USA, östra
 - USA, västra 2

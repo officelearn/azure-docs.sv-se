@@ -1,7 +1,7 @@
 ---
-title: 'Linjär regression: modulreferens'
+title: 'Linjär regression: Modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen linjär regression i Azure Machine Learning för att skapa en linjär Regressions modell för användning i en pipeline.
+description: Lär dig hur du använder modulen Linjär regression i Azure Machine Learning för att skapa en linjär regressionsmodell för användning i en pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,137 +9,137 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 602553637e21b17aa4f9bc7402753af024c697c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912797"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477569"
 ---
-# <a name="linear-regression-module"></a>Linjär Regressions modul
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+# <a name="linear-regression-module"></a>Linjär regressionsmodul
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
 
-Använd den här modulen för att skapa en linjär Regressions modell för användning i en pipeline.  Linjär regression försöker upprätta en linjär relation mellan en eller flera oberoende variabler och ett numeriskt resultat, eller en beroende variabel. 
+Använd den här modulen om du vill skapa en linjär regressionsmodell för användning i en pipeline.  Linjär regression försöker upprätta en linjär relation mellan en eller flera oberoende variabler och ett numeriskt resultat eller en beroende variabel. 
 
-Du använder den här modulen för att definiera en linjär Regressions metod och sedan träna en modell med hjälp av en etikettad data uppsättning. Den tränade modellen kan sedan användas för att göra förutsägelser.
+Du använder den här modulen för att definiera en linjär regressionsmetod och sedan träna en modell med hjälp av en märkt datauppsättning. Den tränade modellen kan sedan användas för att göra förutsägelser.
 
 ## <a name="about-linear-regression"></a>Om linjär regression
 
-Linjär regression är en gemensam statistisk metod som har antagits i maskin inlärning och förbättrats med många nya metoder för att anpassa linjen och mäta fel. I den mest grundläggande meningen refererar regression till förutsägelse av ett numeriskt mål. Linjär regression är fortfarande ett bra val när du vill ha en enkel modell för en grundläggande förutsägelse aktivitet. Linjär regression tenderar också att arbeta bra på högdimensionella, glesa data uppsättningar som saknar komplexitet.
+Linjär regression är en vanlig statistisk metod som har antagits i maskininlärning och förbättrats med många nya metoder för montering av linjen och mätfel. I den mest grundläggande bemärkelsen refererar regression till förutsägelse av ett numeriskt mål. Linjär regression är fortfarande ett bra val när du vill ha en enkel modell för en grundläggande prediktiv uppgift. Linjär regression tenderar också att fungera bra på högdimensionella, glesa datamängder som saknar komplexitet.
 
-Azure Machine Learning stöder en mängd Regressions modeller, förutom linjär regression. Termen "regression" kan dock tolkas löst och vissa typer av regressioner som tillhandahålls i andra verktyg stöds inte.
+Azure Machine Learning stöder en mängd olika regressionsmodeller, förutom linjär regression. Termen "regression" kan dock tolkas löst och vissa typer av regression som tillhandahålls i andra verktyg stöds inte.
 
-+ Det klassiska Regressions problemet omfattar en enda oberoende variabel och en beroende variabel. Detta kallas *enkel regression*.  Den här modulen stöder enkel regression.
++ Det klassiska regressionsproblemet innebär en enda oberoende variabel och en beroende variabel. Detta kallas *enkel regression*.  Den här modulen stöder enkel regression.
 
-+ *Flera linjära regressioner* omfattar två eller flera oberoende variabler som bidrar till en enda beroende variabel. Problem där flera indata används för att förutsäga ett enda numeriskt resultat kallas även *multivarierad linjär regression*.
++ *Flera linjär regression* innebär två eller flera oberoende variabler som bidrar till en enda beroende variabel. Problem där flera indata används för att förutsäga ett enda numeriskt resultat kallas också *multivariat linjär regression*.
 
-    Den **linjära Regressions** modulen kan lösa de här problemen, som kan de flesta av de andra Regressions modulerna.
+    Den **linjära regressionsmodulen** kan lösa dessa problem, liksom de flesta andra regressionsmoduler.
 
-+ *Regression med flera etiketter* är uppgiften att förutsäga flera beroende variabler i en enda modell. I multilabel-regressionen kan ett exempel tilldelas flera olika etiketter. (Detta skiljer sig från uppgiften att förutsäga flera nivåer inom en enskild klass variabel.)
++ *Regression med flera etiketter* är uppgiften att förutsäga flera beroende variabler i en enda modell. I logistisk regression med flera etiketter kan till exempel ett exempel tilldelas flera olika etiketter. (Detta skiljer sig från uppgiften att förutsäga flera nivåer inom en enda klassvariabel.)
 
     Den här typen av regression stöds inte i Azure Machine Learning. Om du vill förutsäga flera variabler skapar du en separat elev för varje utdata som du vill förutsäga.
 
-I år har statistiker utvecklat avancerade metoder för regression. Detta gäller även för linjär regression. Den här modulen stöder två metoder för att mäta fel och passar Regressions linjen: vanliga minsta kvadratmetoden och tonings brantaste.
+I åratal har statistiker utvecklat allt mer avancerade metoder för regression. Detta gäller även för linjär regression. Den här modulen stöder två metoder för att mäta fel och passa regressionslinjen: vanlig minsta kvadratmetod och gradientnedstigning.
 
-- **Tonings brantaste** är en metod som minimerar mängden fel i varje steg i modell inlärnings processen. Det finns många variationer i gradient-brantaste och dess optimering för olika inlärnings problem har för stor ATS. Om du väljer det här alternativet för **lösnings metoden**kan du ange en rad olika parametrar för att kontrol lera steg storleken, inlärnings hastigheten och så vidare. Det här alternativet stöder även användning av en integrerad parameter svepning.
+- **Gradient descent** är en metod som minimerar mängden fel vid varje steg i modellen utbildningsprocessen. Det finns många variationer på gradient nedstigning och dess optimering för olika inlärningsproblem har studerats utförligt. Om du väljer det här alternativet för **lösningsmetod**kan du ställa in en mängd olika parametrar för att styra stegstorlek, inlärningsfrekvens och så vidare. Det här alternativet stöder också användning av ett integrerat parametervep.
 
-- **Vanliga minsta kvadratmetoden** är en av de oftast använda teknikerna i linjär regression. Till exempel är minsta kvadratmetoden den metod som används i Analysis ToolPak för Microsoft Excel.
+- **Vanliga minsta kvadrater** är en av de vanligaste teknikerna i linjär regression. Minsta kvadrater är till exempel den metod som används i Analysis Toolpak för Microsoft Excel.
 
-    Vanliga minsta kvadratmetoden avser funktionen förlust, som beräknar fel som summan av kvadraten av avståndet från det faktiska värdet till den förväntade linjen, och passar modellen genom att minimera kvadratvärdet. Den här metoden förutsätter en stark linjär relation mellan indata och den beroende variabeln.
+    Vanliga minsta kvadrater refererar till förlustfunktionen, som beräknar felet som summan av kvadraten av avståndet från det faktiska värdet till den förväntade linjen, och passar modellen genom att minimera det fyrkantiga felet. Den här metoden förutsätter ett starkt linjärt förhållande mellan indata och den beroende variabeln.
 
 ## <a name="configure-linear-regression"></a>Konfigurera linjär regression
 
-Den här modulen stöder två metoder för att anpassa en Regressions modell med olika alternativ:
+Den här modulen stöder två metoder för montering av en regressionsmodell, med olika alternativ:
 
-+ [Anpassa en Regressions modell med minsta möjliga kvadratmetoden](#create-a-regression-model-using-ordinary-least-squares)
++ [Montera en regressionsmodell med vanliga minsta rutor](#create-a-regression-model-using-ordinary-least-squares)
 
-    För små data uppsättningar är det bäst att välja vanliga minsta kvadratmetoden. Detta bör ge liknande resultat till Excel.
+    För små datamängder är det bäst att välja vanliga minsta kvadrater. Detta bör ge liknande resultat som Excel.
     
-+ [Skapa en Regressions modell med brantaste för online-gradient](#create-a-regression-model-using-online-gradient-descent)
++ [Skapa en regressionsmodell med hjälp av gradientnedstigning online](#create-a-regression-model-using-online-gradient-descent)
 
-    Gradient-brantaste är en bättre förlust funktion för modeller som är mer komplexa eller som har för lite utbildnings data som har fått antalet variabler.
+    Gradient descent är en bättre förlustfunktion för modeller som är mer komplexa, eller som har för lite träningsdata med tanke på antalet variabler.
 
-### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Skapa en Regressions modell med minsta möjliga kvadratmetoden
+### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Skapa en regressionsmodell med vanliga minsta kvadrater
 
-1. Lägg till modulen **linjär Regressions modell** i din pipeline i designern.
+1. Lägg till modulen **Linjär regressionsmodell** i pipelinen i designern.
 
-    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra sedan modulen **linjär Regressions modell** till din pipeline.
+    Du hittar den här modulen i kategorin **Maskininlärning.** Expandera **Initiera modell,** expandera **Regression**och dra sedan modulen **Linjär regressionsmodell** till pipelinen.
 
-2. I rutan **Egenskaper** går du till List rutan **lösnings metod** och väljer **vanliga minsta kvadratmetoden**. Det här alternativet anger den beräknings metod som används för att hitta Regressions linjen.
+2. Välj **Vanliga minsta kvadrater**i listrutan **Lösningsmetod** i fönstret **Egenskaper** . Det här alternativet anger beräkningsmetoden som används för att hitta regressionsraden.
 
-3. I **L2-regulariseringshastigheten vikt**anger du det värde som ska användas som vikt för L2-regulariseringshastigheten. Vi rekommenderar att du använder ett värde som inte är noll för att undvika överanpassning.
+3. I **L2-legaliseringsvikt**skriver du det värde som ska användas som vikt för L2-legalisering. Vi rekommenderar att du använder ett värde som inte är noll för att undvika övermontering.
 
-     Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     Mer information om hur legalisering påverkar modellmontering finns i den här artikeln: [L1 och L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
-4. Välj alternativet, **Inkludera spärr villkor**, om du vill visa villkoret för skärningen.
+4. Välj alternativet **Inkludera skärningspunktsterm**om du vill visa termen för skärningspunkten.
 
-    Avmarkera det här alternativet om du inte behöver granska Regressions formeln.
+    Avmarkera det här alternativet om du inte behöver granska regressionsformeln.
 
-5. Du kan ange ett värde för att dirigera den slumpmässiga nummer generatorn som används av modellen om du vill använda **slumpmässig numrering**.
+5. För **slumptalsfrö**kan du eventuellt skriva ett värde för att dirigera slumptalsgeneratorn som används av modellen.
 
-    Att använda ett Seed-värde är användbart om du vill behålla samma resultat för olika körningar av samma pipeline. Annars är standardvärdet att använda ett värde från system klockan.
-
-
-7. Lägg till modulen [träna modell](./train-model.md) i din pipeline och Anslut en etikettad data uppsättning.
-
-8. Köra en pipeline.
-
-### <a name="results-for-ordinary-least-squares-model"></a>Resultat för vanlig minsta kvadratmetoden
-
-När utbildningen är klar:
+    Det är användbart att använda ett frövärde om du vill behålla samma resultat i olika körningar av samma pipeline. Annars är standardinställningen att använda ett värde från systemklockan.
 
 
-+ Om du vill göra förutsägelser ansluter du den tränade modellen till [Poäng modellens](./score-model.md) modul, tillsammans med en data uppsättning med nya värden. 
+7. Lägg till modulen [Tågmodell](./train-model.md) i pipelinen och anslut en märkt datauppsättning.
+
+8. Skicka pipelinen.
+
+### <a name="results-for-ordinary-least-squares-model"></a>Resultat för vanlig minsta kvadratmodell
+
+Efter träningen är klar:
 
 
-### <a name="create-a-regression-model-using-online-gradient-descent"></a>Skapa en Regressions modell med brantaste för online-gradient
++ Om du vill göra förutsägelser ansluter du den tränade modellen till modulen [Poängmodell,](./score-model.md) tillsammans med en datauppsättning med nya värden. 
 
-1. Lägg till modulen **linjär Regressions modell** i din pipeline i designern.
 
-    Du hittar den här modulen i kategorin **Machine Learning** . Expandera **initiera modell**, expandera **regression**och dra modulen **linjär Regressions modell** till din pipeline
+### <a name="create-a-regression-model-using-online-gradient-descent"></a>Skapa en regressionsmodell med hjälp av gradientnedstigning online
 
-2. I rutan **Egenskaper** i list rutan **lösnings metod** väljer du brantaste för **online-toning** som den beräknings metod som används för att hitta Regressions linjen.
+1. Lägg till modulen **Linjär regressionsmodell** i pipelinen i designern.
 
-3. För **skapa utbildare-läge**anger du om du vill träna modellen med en fördefinierad uppsättning parametrar, eller om du vill optimera modellen med hjälp av en parameter rensning.
+    Du hittar den här modulen i kategorin **Maskininlärning.** Expandera **Initiera modell,** expandera **Regression**och dra modulen **Linjär regressionsmodell** till pipelinen
 
-    + **Enskild parameter**: om du vet hur du vill konfigurera ett linjärt Regressions nätverk kan du ange en viss uppsättning värden som argument.
+2. I listrutan **Lösningsmetod** i fönstret **Lösningsmetod** väljer du **Onlinegraderingsneddragning** som beräkningsmetod som används för att hitta regressionsraden.
+
+3. För **Skapa trainer-läge**anger du om du vill träna modellen med en fördefinierad uppsättning parametrar eller om du vill optimera modellen med hjälp av ett parametervep.
+
+    + **Enkel parameter:** Om du vet hur du vill konfigurera det linjära regressionsnätverket kan du ange en specifik uppsättning värden som argument.
     
-    + **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.  
+    + **Parameterintervall:** Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra ett parametervep. Välj ett intervall med värden som du vill iterera över, och [Tune Model Hyperparameters itererar](tune-model-hyperparameters.md) över alla möjliga kombinationer av de inställningar du angav för att bestämma de hyperparametrar som ger optimalt resultat.  
 
    
-4. För **inlärnings frekvens**anger du den inledande inlärnings takten för Stochastic gradient brantaste optimering.
+4. För **inlärningshastighet**anger du den ursprungliga inlärningshastigheten för den stokastiska lutningsnedstigningsoptimeraren.
 
-5. Ange ett värde som anger hur många gånger algoritmen ska iterera genom exempel i **antal utbildnings epoker**. För data uppsättningar med ett litet antal exempel bör det här talet vara stort för att uppnå konvergens.
+5. För **Antal utbildningsepoker**skriver du ett värde som anger hur många gånger algoritmen ska iterera genom exempel. För datamängder med ett litet antal exempel bör detta antal vara stort för att nå konvergens.
 
-6. **Normaliserings funktioner**: om du redan har normaliserat numeriska data som används för att träna modellen kan du avmarkera det här alternativet. Som standard normaliserar modulen alla numeriska indata till ett intervall mellan 0 och 1.
+6. **Normalisera funktioner**: Om du redan har normaliserat de numeriska data som används för att träna modellen kan du avmarkera det här alternativet. Som standard normaliserar modulen alla numeriska indata till ett intervall mellan 0 och 1.
 
     > [!NOTE]
     > 
-    > Kom ihåg att använda samma normaliserings metod för nya data som används för poängsättning.
+    > Kom ihåg att tillämpa samma normaliseringsmetod på nya data som används för bedömning.
 
-7. I **L2-regulariseringshastigheten vikt**anger du det värde som ska användas som vikt för L2-regulariseringshastigheten. Vi rekommenderar att du använder ett värde som inte är noll för att undvika överanpassning.
+7. I **L2-legaliseringsvikt**skriver du det värde som ska användas som vikt för L2-legalisering. Vi rekommenderar att du använder ett värde som inte är noll för att undvika övermontering.
 
-    Mer information om hur regulariseringshastigheten påverkar modell anpassning finns i den här artikeln: [L1-och L2-regulariseringshastigheten för Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
-
-
-9. Välj alternativet för att **minska inlärnings**takten om du vill att inlärnings takten ska minska allteftersom iterationer fortskrider.  
-
-10. Du kan ange ett värde för att dirigera den slumpmässiga nummer generatorn som används av modellen om du vill använda **slumpmässig numrering**. Att använda ett Seed-värde är användbart om du vill behålla samma resultat för olika körningar av samma pipeline.
+    Mer information om hur legalisering påverkar modellmontering finns i den här artikeln: [L1 och L2 Regularization for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
 
-12. Lägg till en etikettad data uppsättning och en av inlärnings modulerna.
+9. Välj alternativet **Minska inlärningsfrekvensen**om du vill att inlärningsfrekvensen ska minska allteftersom iterationer fortskrider.  
 
-    Om du inte använder en parameter rensning använder du modulen [träna modell](train-model.md) .
+10. För **slumptalsfrö**kan du eventuellt skriva ett värde för att dirigera slumptalsgeneratorn som används av modellen. Det är användbart att använda ett frövärde om du vill behålla samma resultat i olika körningar av samma pipeline.
 
-13. Köra en pipeline.
 
-### <a name="results-for-online-gradient-descent"></a>Resultat för brantaste för online-toning
+12. Lägg till en märkt datauppsättning och en av utbildningsmodulerna.
 
-När utbildningen är klar:
+    Om du inte använder ett parametervep använder du modulen [Tågmodell.](train-model.md)
 
-+ Om du vill göra förutsägelser ansluter du den tränade modellen till [Poäng modellens](./score-model.md) modul, tillsammans med nya indata.
+13. Skicka pipelinen.
+
+### <a name="results-for-online-gradient-descent"></a>Resultat för gradientnedstigning online
+
+Efter träningen är klar:
+
++ Om du vill göra förutsägelser ansluter du den tränade modellen till modulen [Poängmodell](./score-model.md) tillsammans med nya indata.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

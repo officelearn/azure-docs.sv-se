@@ -1,119 +1,119 @@
 ---
-title: Azure Service Fabric tillstånds känslig Reliable Services-diagnostik
-description: Diagnostiska funktioner för tillstånds känsliga Reliable Services i Azure Service Fabric
+title: Azure Service Fabric Stateful Reliable Services diagnostik
+description: Diagnostikfunktioner för tillståndskänsliga tillförlitliga tjänster i Azure Service Fabric
 author: dkkapur
 ms.topic: conceptual
 ms.date: 8/24/2018
 ms.author: dekapur
 ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282268"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnostisk funktionalitet för tillståndskänsliga Reliable Services
-Azure Service Fabric tillstånds känslig Reliable Services StatefulServiceBase-klassen genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) -händelser som kan användas för att felsöka tjänsten, ge insikter om hur körningen fungerar och hjälp med fel sökning.
+Klassen Azure Service Fabric Stateful Reliable Services StatefulServiceBase avger [EventSource-händelser](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) som kan användas för att felsöka tjänsten, ge insikter om hur körningen fungerar och hjälp med felsökning.
 
 ## <a name="eventsource-events"></a>EventSource-händelser
-EventSource namn för den tillstånds känsliga Reliable Services StatefulServiceBase-klassen är "Microsoft-ServiceFabric-Services". Händelser från den här händelse källan visas i fönstret [diagnostik-händelser](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) när tjänsten [felsöks i Visual Studio](service-fabric-debugging-your-application.md).
+EventSource-namnet för klassen Stateful Reliable Services StatefulServiceBase är "Microsoft-ServiceFabric-Services". Händelser från den här händelsekällan visas i fönstret [Diagnostikhändelser](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) när tjänsten [avsöks i Visual Studio](service-fabric-debugging-your-application.md).
 
-Exempel på verktyg och tekniker som hjälper dig att samla in och/eller Visa EventSource-händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md)och [Microsoft TraceEvent-biblioteket](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Exempel på verktyg och tekniker som hjälper till att samla in och/eller visa EventSource-händelser är [PerfView,](https://www.microsoft.com/download/details.aspx?id=28567) [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md)och [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Händelser
-| Händelsenamn | Händelse-ID | Nivå | Händelse Beskrivning |
+| Händelsenamn | Händelse-ID | Nivå | Händelsebeskrivning |
 | --- | --- | --- | --- |
-| StatefulRunAsyncInvocation |1 |Information |Genereras när service RunAsync-aktiviteten startas |
-| StatefulRunAsyncCancellation |2 |Information |Genereras när service RunAsync-aktiviteten avbryts |
-| StatefulRunAsyncCompletion |3 |Information |Genereras när service RunAsync-uppgiften är färdig |
-| StatefulRunAsyncSlowCancellation |4 |Varning |Genereras när RunAsync-aktiviteten tar för lång tid för att slutföra annullering |
-| StatefulRunAsyncFailure |5 |Fel |Genereras när RunAsync-aktiviteten genererar ett undantag |
+| TillståndskänsligaRunAsyncInkall |1 |Information |Utges när tjänsten RunAsync-aktiviteten startas |
+| TillståndskänsligaRunAsyncCancellation |2 |Information |Utges när tjänsten RunAsync-aktiviteten avbryts |
+| Tillståndskänsliga 2010-00-2018 |3 |Information |Utges när tjänsten RunAsync-aktiviteten är klar |
+| TillståndskänsligaRunasyncSlowKanacellation |4 |Varning |Ut när tjänsten RunAsync-uppgiften tar för lång tid att slutföra annulleringen |
+| TillståndskänsligaRunAsyncFailure |5 |Fel |Ut när tjänsten RunAsync-aktiviteten genererar ett undantag |
 
 ## <a name="interpret-events"></a>Tolka händelser
-StatefulRunAsyncInvocation-, StatefulRunAsyncCompletion-och StatefulRunAsyncCancellation-händelser är användbara för service Writer för att förstå livs cykeln för en tjänst, samt tids inställningen för när en tjänst startar, avbryter eller slutförs. Den här informationen kan vara användbar vid fel sökning av tjänst problem eller förståelse för tjänste livs cykeln.
+StatefulRunAsyncInvocation, StatefulRunAsyncCompletion och StatefulRunAsyncCancellation händelser är användbara för tjänstförfattaren för att förstå livscykeln för en tjänst, samt tidpunkten för när en tjänst startar, avbryter eller avslutas. Den här informationen kan vara användbar när du felsöker tjänstproblem eller förstå tjänstens livscykel.
 
-Service Writers bör stå nära uppmärksamhet på StatefulRunAsyncSlowCancellation-och StatefulRunAsyncFailure-händelser eftersom de indikerar problem med tjänsten.
+Service författare bör ägna stor uppmärksamhet åt StatefulRunAsyncSlowCancellation och StatefulRunAsyncFailure händelser eftersom de anger problem med tjänsten.
 
-StatefulRunAsyncFailure genereras när en tjänst RunAsync ()-aktivitet genererar ett undantag. Ett undantags fel tyder vanligt vis på ett fel eller en bugg i tjänsten. Dessutom orsakar undantaget att tjänsten Miss fungerar, så den flyttas till en annan nod. Den här åtgärden kan vara dyr och kan fördröja inkommande begär Anden medan tjänsten flyttas. Service Writers bör avgöra orsaken till undantaget och, om möjligt, minimera det.
+StatefulRunAsyncFailure avges när aktiviteten RunAsync() genererar ett undantag. Vanligtvis indikerar ett undantag som genereras ett fel eller ett fel i tjänsten. Dessutom medför undantaget att tjänsten misslyckas, så den flyttas till en annan nod. Den här åtgärden kan vara dyr och kan fördröja inkommande begäranden medan tjänsten flyttas. Service författare bör fastställa orsaken till undantaget och, om möjligt, mildra den.
 
-StatefulRunAsyncSlowCancellation genereras när en begäran om att avbryta en RunAsync-aktivitet tar längre tid än fyra sekunder. När en tjänst tar för lång tid att avbryta, påverkar det att tjänsten kan startas om snabbt på en annan nod. Det här scenariot kan påverka tjänstens övergripande tillgänglighet.
+StatefulRunAsyncSlowCancellation avges när en annulleringsbegäran för körningens asynkronisering tar längre tid än fyra sekunder. När en tjänst tar för lång tid att slutföra avbokningen påverkar det tjänstens förmåga att snabbt startas om på en annan nod. Det här scenariot kan påverka tjänstens övergripande tillgänglighet.
 
 ## <a name="performance-counters"></a>Prestandaräknare
-Reliable Services runtime definierar följande prestanda räknar kategorier:
+Körningen Tillförlitliga tjänster definierar följande prestandaräknarekategorier:
 
 | Kategori | Beskrivning |
 | --- | --- |
-| Service Fabric transaktionell replikerare |Räknare som är speciella för Azure Service Fabric-transaktionell replikerare |
-| Service Fabric TStore |Räknare som är speciella för Azure Service Fabric-TStore |
+| Transaktionsreplikator för servicevävnad |Räknare som är specifika för Transactiontor för Azure Service Fabric |
+| Service Tyg TStore |Räknare som är specifika för Azure Service Fabric TStore |
 
-Service Fabric transaktionell replikerare används av den [pålitliga tillstånds hanteraren](service-fabric-reliable-services-reliable-collections-internals.md) för att replikera transaktioner inom en angiven uppsättning [repliker](service-fabric-concepts-replica-lifecycle.md).
+Service Fabric Transactional Replicator används av [Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md) för att replikera transaktioner inom en viss uppsättning [repliker](service-fabric-concepts-replica-lifecycle.md).
 
-Service Fabric TStore är en komponent som används i [pålitliga samlingar](service-fabric-reliable-services-reliable-collections-internals.md) för att lagra och hämta nyckel/värde-par.
+Service Fabric TStore är en komponent som används i [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections-internals.md) för att lagra och hämta nyckelvärdespar.
 
-[Windows prestanda övervaknings](https://technet.microsoft.com/library/cc749249.aspx) programmet som är tillgängligt som standard i Windows-operativsystemet kan användas för att samla in och Visa prestanda räknar data. [Azure-diagnostik](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestanda räknar data och ladda upp den till Azure-tabeller.
+Windows [Performance Monitor-programmet](https://technet.microsoft.com/library/cc749249.aspx) som är tillgängligt som standard i Operativsystemet Windows kan användas för att samla in och visa prestandaräkna data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) är ett annat alternativ för att samla in prestandaräknardata och överföra dem till Azure-tabeller.
 
-### <a name="performance-counter-instance-names"></a>Instans namn för prestanda räknare
-Ett kluster som har ett stort antal pålitliga tjänster eller Reliable service-partitioner har ett stort antal instanser av prestanda räknaren för transaktionell replikering. Detta är också fallet för TStore prestanda räknare, men multipliceras också med antalet Reliable-ordlistor och tillförlitliga köer som används. Instans namn för prestanda räknaren kan hjälpa till att identifiera den angivna [partitionen](service-fabric-concepts-partitioning.md), tjänst repliken och tillstånds leverantören, om TStore, som prestanda räknar instansen är associerad med.
+### <a name="performance-counter-instance-names"></a>Namn på prestandaräknareinstans
+Ett kluster som har ett stort antal tillförlitliga tjänster eller tillförlitliga tjänstpartitioner har ett stort antal transaktionella replikatorprestandaräknarinstanser. Detta är också fallet för TStore-prestandaräknare, men multipliceras också med antalet tillförlitliga ordlistor och tillförlitliga köer som används. Namn på prestandaräknareinstans kan hjälpa dig att identifiera den specifika [partitionen,](service-fabric-concepts-partitioning.md)tjänstrepliken och tillståndsprovidern när det gäller TStore, som prestandaräkringsinstansen är associerad med.
 
-#### <a name="service-fabric-transactional-replicator-category"></a>Service Fabric typ av transaktionell replikerare
-För kategorin `Service Fabric Transactional Replicator`är räknar instans namnen i följande format:
+#### <a name="service-fabric-transactional-replicator-category"></a>Kategori Transactional Replicator för service fabric
+För kategorin `Service Fabric Transactional Replicator`är räknarinstansnamnen i följande format:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras via [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) med format specificeraren "D".
+*ServiceFabricPartitionId* är strängrepresentationen av partitions-ID för Tjänst fabric som prestandaräkringsinstansen är associerad med. Partitions-ID är ett GUID och dess [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) strängrepresentation genereras igenom med formatspecificeraren "D".
 
-*ServiceFabricReplicaId* är det ID som är kopplat till en specifik replik av en tillförlitlig tjänst. Replik-ID: t ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra prestanda räknar instanser som genereras av samma partition. Mer information om repliker och deras roll i pålitliga tjänster finns [här](service-fabric-concepts-replica-lifecycle.md).
+*ServiceFabricReplicaId* är ID som är associerat med en viss replik av en tillförlitlig tjänst. Replik-ID ingår i prestanda räknarinstansnamnet för att säkerställa dess unika och undvika konflikt med andra prestandaräknarinstanser som genereras av samma partition. Mer information om repliker och deras roll i tillförlitliga tjänster finns [här](service-fabric-concepts-replica-lifecycle.md).
 
-Följande räknar instans namn är typiskt för en räknare i kategorin `Service Fabric Transactional Replicator`:
+Följande räknarinstansnamn är typiskt `Service Fabric Transactional Replicator` för en räknare under kategorin:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571`
 
-I föregående exempel är `00d0126d-3e36-4d68-98da-cc4f7195d85e` sträng representationen av Service Fabric partitions-ID: t och `131652217797162571` är replik-ID.
+I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är strängrepresentationen av partitions-ID:t för tjänstinfrastruktur och `131652217797162571` replik-ID.
 
-#### <a name="service-fabric-tstore-category"></a>Service Fabric TStore-kategori
-För kategorin `Service Fabric TStore`är räknar instans namnen i följande format:
+#### <a name="service-fabric-tstore-category"></a>Service Fabric TStore kategori
+För kategorin `Service Fabric TStore`är räknarinstansnamnen i följande format:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:StateProviderId_PerformanceCounterInstanceDifferentiator_StateProviderName`
 
-*ServiceFabricPartitionId* är sträng representationen av Service Fabric partitions-ID: t som prestanda räknar instansen är associerad med. Partitions-ID: t är ett GUID och dess sträng representation genereras via [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) med format specificeraren "D".
+*ServiceFabricPartitionId* är strängrepresentationen av partitions-ID för Tjänst fabric som prestandaräkringsinstansen är associerad med. Partitions-ID är ett GUID och dess [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) strängrepresentation genereras igenom med formatspecificeraren "D".
 
-*ServiceFabricReplicaId* är det ID som är kopplat till en specifik replik av en tillförlitlig tjänst. Replik-ID: t ingår i prestanda räknarens instans namn för att säkerställa dess unika värde och undvika konflikter med andra prestanda räknar instanser som genereras av samma partition. Mer information om repliker och deras roll i pålitliga tjänster finns [här](service-fabric-concepts-replica-lifecycle.md).
+*ServiceFabricReplicaId* är ID som är associerat med en viss replik av en tillförlitlig tjänst. Replik-ID ingår i prestanda räknarinstansnamnet för att säkerställa dess unika och undvika konflikt med andra prestandaräknarinstanser som genereras av samma partition. Mer information om repliker och deras roll i tillförlitliga tjänster finns [här](service-fabric-concepts-replica-lifecycle.md).
 
-*StateProviderId* är det ID som är kopplat till en tillstånds leverantör i en tillförlitlig tjänst. ID för tillstånds leverantören ingår i instans namnet för prestanda räknaren för att skilja en TStore från en annan.
+*StateProviderId* är ID som är associerat med en tillståndsprovider inom en tillförlitlig tjänst. Tillståndsprovider-ID ingår i prestandaräknarens förekomstnamn för att skilja en TStore från en annan.
 
-*PerformanceCounterInstanceDifferentiator* är ett DIFFERENTIERINGS-ID som är kopplat till en prestanda räknar instans i en tillstånds leverantör. Den här differentieringen ingår i namnet på prestanda räknar instansen för att säkerställa dess unika värde och undvika konflikter med andra prestanda räknar instanser som genererats av samma tillstånds leverantör.
+*PerformanceCounterInstanceDifferentiator* är ett särskiljande ID som är associerat med en prestandaräknareinstans inom en tillståndsprovider. Den här differentiatorn ingår i prestandaräknarens instansnamn för att säkerställa dess unika och undvika konflikt med andra prestandaräknarinstanser som genereras av samma tillståndsprovider.
 
-*StateProviderName* är namnet som associeras med en tillstånds leverantör i en tillförlitlig tjänst. Namnet på tillstånds leverantören ingår i namnet på prestanda räknarens instans för att användarna enkelt ska kunna identifiera vilket tillstånd det tillhandahåller.
+*StateProviderName* är namnet som är associerat med en tillståndsprovider inom en tillförlitlig tjänst. Tillståndsproviderns namn ingår i prestandaräknarens förekomstnamn för användare att enkelt identifiera vilket tillstånd det ger.
 
-Följande räknar instans namn är typiskt för en räknare i kategorin `Service Fabric TStore`:
+Följande räknarinstansnamn är typiskt `Service Fabric TStore` för en räknare under kategorin:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337_urn:MyReliableDictionary/dataStore`
 
-I föregående exempel är `00d0126d-3e36-4d68-98da-cc4f7195d85e` sträng representationen av Service Fabric partitions-ID: t `131652217797162571` är replik-ID: t, `142652217797162571` är ID för tillstånds leverantören och `1337` är instansen av prestanda räknaren instans. `urn:MyReliableDictionary/dataStore` är namnet på den tillstånds leverantör som lagrar data för samlingen med namnet `urn:MyReliableDictionary`.
+I föregående exempel `00d0126d-3e36-4d68-98da-cc4f7195d85e` är strängrepresentationen av partitions-ID för Service Fabric, `131652217797162571` är replik-ID, `142652217797162571` är tillståndsprovider-ID och `1337` är differentieraren för prestandaräknareinstans. `urn:MyReliableDictionary/dataStore`är namnet på den tillståndsprovider som `urn:MyReliableDictionary`lagrar data för samlingen med namnet .
 
-### <a name="transactional-replicator-performance-counters"></a>Prestanda räknare för transaktionell replikering
+### <a name="transactional-replicator-performance-counters"></a>Prestandaräknare för transaktionsrepliktor
 
-Reliable Services runtime genererar följande händelser under kategorin `Service Fabric Transactional Replicator`
+Körningen Tillförlitliga tjänster avger följande `Service Fabric Transactional Replicator` händelser under kategorin
 
- Namn på räknare | Beskrivning |
+ Räknarens namn | Beskrivning |
 | --- | --- |
-| BEGIN TXN-åtgärder/SEK | Antalet nya Skriv transaktioner som skapas per sekund.|
-| TXN-åtgärder/SEK | Antalet åtgärder för att lägga till/uppdatera/ta bort i Reliable Collections per sekund.|
-| Logg tömnings byte/SEK | Antalet byte som rensas till disken av transaktionell replikering per sekund |
-| Begränsade åtgärder/SEK | Antalet åtgärder som avvisats varje sekund av transaktionell replikering på grund av begränsning. |
-| Genomsnittlig transaktion i MS/commit | Genomsnittlig bekräftelse latens per transaktion i millisekunder |
-| Genomsnittlig svars tid för tömning (MS) | Genomsnittlig varaktighet för disk tömnings åtgärder som initieras av transaktionell replikerare i millisekunder |
+| Påbörja Txn-operationer/sek | Antalet nya skrivtransaktioner som skapas per sekund.|
+| Txn-operationer/sek | Antalet åtgärder för att lägga till/uppdatera/ta bort utförs på tillförlitliga samlingar per sekund.|
+| Logga inspolningsbyten per sekund | Antalet byte som spolas till disken av transaktionsreplikatorn per sekund |
+| Begränsade operationer/sek | Antalet åtgärder som avvisats varje sekund av transaktionsreplikatorn på grund av begränsning. |
+| Genomsnittlig transaktion ms/commit | Genomsnittlig genomförandefördröjning per transaktion i millisekunder |
+| Genomsnittlig färg latens (ms) | Genomsnittlig varaktighet för diskrutningsåtgärder som initierats av transaktionsreplikator i millisekunder |
 
-### <a name="tstore-performance-counters"></a>TStore prestanda räknare
+### <a name="tstore-performance-counters"></a>TStore-prestandaräknare
 
-Reliable Services runtime genererar följande händelser under kategorin `Service Fabric TStore`
+Körningen Tillförlitliga tjänster avger följande `Service Fabric TStore` händelser under kategorin
 
- Namn på räknare | Beskrivning |
+ Räknarens namn | Beskrivning |
 | --- | --- |
-| Objektantal | Antalet objekt i arkivet.|
-| Diskstorlek | Den totala disk storleken, i byte, för en kontroll punkts fil för arkivet.|
-| Skrivna byte för kontroll punkts fil/SEK | Antalet skrivna byte per sekund för den senaste kontroll punkts filen.|
-| Kopiera disk överförings byte/SEK | Antalet Disk byte som lästs (på den primära repliken) eller skrivits (på en sekundär replik) per sekund under en lagrings kopia.|
+| Antal objekt | Antalet artiklar i butiken.|
+| Diskstorlek | Den totala diskstorleken, i byte, av kontrollpunktsfiler för arkivet.|
+| Skrivbyte för kontrollpunktsfil/sek | Antalet byte som skrivs per sekund för den senaste kontrollpunktsfilen.|
+| Kopiera byte för disköverföring per sekund | Antalet diskbyte som läss (på den primära repliken) eller skrivits (på en sekundär replik) per sekund under en butikskopia.|
 
 ## <a name="next-steps"></a>Nästa steg
-[EventSource-providers i PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+[EventSource-leverantörer i PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

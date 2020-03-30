@@ -1,7 +1,7 @@
 ---
-title: 'Förbearbeta text: modulreferens'
+title: 'Förprocesstext: Modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen för Förbearbetad text i Azure Machine Learning för att rensa och förenkla text.
+description: Lär dig hur du använder modulen Förprocesstext i Azure Machine Learning för att rensa och förenkla text.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,82 +9,82 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: a8938eba0f7af995086ab1e2baba41aee7dc6330
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153816"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477501"
 ---
 # <a name="preprocess-text"></a>Förbearbeta text
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
 
-Använd modulen för **Förbearbetad text** för att rensa och förenkla text. Det stöder följande vanliga text bearbetnings åtgärder:
+Använd modulen **Förprocesstext** för att rensa och förenkla texten. Den stöder dessa vanliga textbehandlingsåtgärder:
 
-* Borttagning av stopp-ord
-* Använda reguljära uttryck för att söka efter och ersätta specifika mål strängar
-* Lemmatisering, som konverterar flera relaterade ord till ett enda kanoniskt format
-* Fall normalisering
-* Borttagning av vissa klasser av tecken, t. ex. siffror, specialtecken och sekvenser av upprepade tecken, till exempel "AAAA"
-* Identifiering och borttagning av e-post och webb adresser
+* Borttagning av stoppord
+* Använda reguljära uttryck för att söka efter och ersätta specifika målsträngar
+* Lemmatization, som konverterar flera relaterade ord till en enda kanonisk form
+* Normalisering av skiftläge
+* Borttagning av vissa teckenklasser, till exempel tal, specialtecken och sekvenser av upprepade tecken som "aaaa"
+* Identifiering och borttagning av e-post och webbadresser
 
-Modulen för **Förbearbetad text** stöder för närvarande bara engelska.
+**Förprocesstextmodulen** stöder för närvarande endast engelska.
 
-## <a name="configure-text-preprocessing"></a>Konfigurera text förbehandling  
+## <a name="configure-text-preprocessing"></a>Konfigurera förbearbetning av text  
 
-1.  Lägg till modulen för **Förbearbetad text** i din pipeline i Azure Machine Learning. Du kan hitta den här modulen under **textanalys**.
+1.  Lägg till **förprocesstextmodulen** i pipelinen i Azure Machine Learning. Du hittar den här modulen under **Textanalys**.
 
-1. Anslut en data uppsättning som har minst en kolumn som innehåller text.
+1. Anslut en datauppsättning som har minst en kolumn som innehåller text.
 
-1. Välj språk i list rutan **språk** .
+1. Välj språk i listrutan **Språk.**
 
-1. **Text kolumn att rensa**: Välj den kolumn som du vill Förbearbeta.
+1. **Textkolumn att rengöra**: Markera den kolumn som du vill förbearbeta.
 
-1. **Ta bort stopp ord**: Välj det här alternativet om du vill använda en fördefinierad stoppord-lista i text kolumnen. 
+1. **Ta bort stoppord:** Markera det här alternativet om du vill använda en fördefinierad stopword-lista på textkolumnen. 
 
-    Stoppord-listor är språk beroende och anpassningsbara.
+    Stopword-listor är språkberoende och anpassningsbara.
 
-1. **Lemmatisering**: Välj det här alternativet om du vill att ord ska visas i deras kanoniska form. Det här alternativet är användbart för att minska antalet unika förekomster av andra liknande tokens.
+1. **Lemmatisering**: Välj det här alternativet om du vill att ord ska representeras i sin kanoniska form. Det här alternativet är användbart för att minska antalet unika förekomster av annars liknande texttoken.
 
-    Lemmatisering-processen är mycket språk beroende...
+    Lemmatization-processen är mycket språkberoende..
 
-1. **Identifiera meningar**: Välj det här alternativet om du vill att modulen ska infoga en ord avgränsnings markering när du utför analysen.
+1. **Identifiera meningar:** Välj det här alternativet om du vill att modulen ska infoga en meningsgränsmarkering när du utför analyser.
 
-    I den här modulen används en serie med tre pipe-tecken `|||` för menings avslutning.
+    Den här modulen använder `|||` en serie med tre pipe-tecken för att representera meningsslutavslutaren.
 
-1. Utför valfria Sök-och-ersätt-åtgärder med hjälp av reguljära uttryck.
+1. Utför valfria sök- och ersättningsåtgärder med reguljära uttryck.
 
-    * **Anpassat reguljärt uttryck**: definiera texten som du söker efter.
-    * **Anpassad ersättnings sträng**: definiera ett enda ersättnings värde.
+    * **Anpassat reguljärt uttryck**: Definiera den text du söker efter.
+    * **Anpassad ersättningssträng**: Definiera ett enda ersättningsvärde.
 
-1. **Normalisera versaler till gemener**: Välj det här alternativet om du vill konvertera ASCII-versaler till gemener.
+1. **Normalisera skiftläge till gemener**: Välj det här alternativet om du vill konvertera ASCII-versaler till deras gemener.
 
-    Om tecknen inte är normaliserade, betraktas samma ord i versaler och gemener som två olika ord.
+    Om tecknen inte normaliseras betraktas samma ord med versaler och gemener som två olika ord.
 
-1. Du kan också ta bort följande typer av tecken eller tecken serier från texten för bearbetade utdata:
+1. Du kan också ta bort följande typer av tecken eller teckensekvenser från den bearbetade utdatatexten:
 
-    * **Ta bort tal**: Välj det här alternativet om du vill ta bort alla numeriska tecken för det angivna språket. Identifierings nummer är domän beroende och språk beroende. Om numeriska tecken är en viktig del av ett känt ord, kan det hända att antalet inte tas bort.
+    * **Ta bort tal:** Välj det här alternativet om du vill ta bort alla numeriska tecken för det angivna språket. Identifieringsnummer är domänberoende och språkberoende. Om numeriska tecken är en integrerad del av ett känt ord kanske talet inte tas bort.
     
-    * **Ta bort specialtecken**: Använd det här alternativet om du vill ta bort icke-alfanumeriska specialtecken.
+    * **Ta bort specialtecken**: Använd det här alternativet om du vill ta bort eventuella icke-alfanumeriska specialtecken.
     
-    * **Ta bort duplicerade tecken**: Välj det här alternativet om du vill ta bort extra tecken i sekvenser som upprepas för fler än två gånger. En sekvens som "AAAAA" skulle till exempel minskas till "AA".
+    * **Ta bort dubbletttecken:** Välj det här alternativet om du vill ta bort extra tecken i alla sekvenser som upprepas i mer än två gånger. En sekvens som "aaaaa" skulle till exempel reduceras till "aa".
     
-    * **Ta bort e-post adresser**: Välj det här alternativet om du vill ta bort en sekvens med formatet `<string>@<string>`.  
-    * **Ta bort webb adresser**: Välj det här alternativet om du vill ta bort en sekvens som innehåller följande URL-prefix: `http`, `https`, `ftp``www`
+    * **Ta bort e-postadresser:** Välj det `<string>@<string>`här alternativet om du vill ta bort en sekvens i formatet .  
+    * **Ta bort webbadresser:** Välj det här alternativet om du `http`vill `https` `ftp`ta bort alla sekvenser som innehåller följande URL-prefix: , ,`www`
     
-1. **Expandera verb**: det här alternativet gäller endast för språk som använder verb-kontrakt. för närvarande endast på engelska. 
+1. **Expandera verbsammandragningar**: Det här alternativet gäller endast språk som använder verbsammandragningar. för närvarande endast på engelska. 
 
-    Genom att välja det här alternativet kan du till exempel ersätta frasen *"Behåll inte där* *".*
+    Genom att välja det här alternativet kan du till exempel ersätta frasen *"skulle inte stanna där"* med *"skulle inte stanna där".*
 
-1. **Normalisera omvända snedstreck till snedstreck**: Välj det här alternativet om du vill mappa alla instanser av `\\` `/`.
+1. **Normalisera omvänt snedstreck till snedstreck:** Välj det `\\` `/`här alternativet om du vill mappa alla förekomster av till .
 
-1. **Dela tokens på specialtecken**: Välj det här alternativet om du vill dela upp ord på tecken som `&`, `-`och så vidare. Det här alternativet kan också minska de särskilda tecknen när de upprepas mer än två gånger. 
+1. **Dela token på specialtecken:** Välj det här alternativet om `&`du `-`vill bryta ord på tecken som , och så vidare. Det här alternativet kan också minska specialtecken när det upprepas mer än två gånger. 
 
-    Strängen `MS---WORD` skulle till exempel delas upp i tre tokens, `MS`, `-`och `WORD`.
+    `MS---WORD` Strängen skulle till exempel delas upp `MS`i `-`tre `WORD`token, , och .
 
-1. Köra en pipeline.
+1. Skicka pipelinen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -1,24 +1,24 @@
 ---
 title: Skydda ett kluster i Windows med hjälp av certifikat
-description: Säker kommunikation i ett fristående eller lokalt kluster i Azure Service Fabric, samt mellan klienter och klustret.
+description: Säker kommunikation inom ett Azure Service Fabric fristående eller lokalt kluster, samt mellan klienter och klustret.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: 5a18f957dfb7143f403d5ac30ea184023021f12c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75613932"
 ---
-# <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows med hjälp av X. 509-certifikat
-Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noderna i det fristående Windows-klustret. Det beskriver också hur du autentiserar klienter som ansluter till det här klustret med hjälp av X. 509-certifikat. Autentisering garanterar att endast behöriga användare kan komma åt klustret och distribuerade program och utföra hanterings uppgifter. Certifikat säkerhet ska vara aktiverat på klustret när klustret skapas.  
+# <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows med X.509-certifikat
+I den här artikeln beskrivs hur du skyddar kommunikationen mellan de olika noderna i ditt fristående Windows-kluster. Den beskriver också hur du autentiserar klienter som ansluter till det här klustret med hjälp av X.509-certifikat. Autentisering säkerställer att endast behöriga användare kan komma åt klustret och de distribuerade programmen och utföra hanteringsuppgifter. Certifikatsäkerhet bör aktiveras i klustret när klustret skapas.  
 
-Mer information om kluster säkerhet, till exempel nod-till-nod-säkerhet, klient-till-nod-säkerhet och rollbaserad åtkomst kontroll finns i [kluster säkerhets scenarier](service-fabric-cluster-security.md).
+Mer information om klustersäkerhet, till exempel nod-till-nodsäkerhet, klient-till-nodsäkerhet och rollbaserad åtkomstkontroll, finns i [Klustersäkerhetsscenarier](service-fabric-cluster-security.md).
 
 ## <a name="which-certificates-do-you-need"></a>Vilka certifikat behöver du?
-Börja med genom att [Ladda ned Service Fabric för Windows Server-paketet](service-fabric-cluster-creation-for-windows-server.md#download-the-service-fabric-for-windows-server-package) till en av noderna i klustret. I det hämtade paketet hittar du en ClusterConfig. X509. MultiMachine. JSON-fil. Öppna filen och granska säkerhets avsnittet i avsnittet Egenskaper:
+Börja med [genom att hämta Service Fabric för Windows Server-paketet](service-fabric-cluster-creation-for-windows-server.md#download-the-service-fabric-for-windows-server-package) till en av noderna i klustret. I det hämtade paketet hittar du en ClusterConfig.X509.MultiMachine.json-fil. Öppna filen och granska avsnittet för säkerhet under egenskapsavsnittet:
 
 ```JSON
 "security": {
@@ -106,31 +106,31 @@ Börja med genom att [Ladda ned Service Fabric för Windows Server-paketet](serv
 },
 ```
 
-I det här avsnittet beskrivs de certifikat som du behöver för att skydda ditt fristående Windows-kluster. Ange värdet för ClusterCredentialType till _X509_om du anger ett kluster certifikat. Om du anger ett Server certifikat för externa anslutningar anger du ServerCredentialType till _X509_. Även om det inte är obligatoriskt rekommenderar vi att du har båda dessa certifikat för ett korrekt skyddat kluster. Om du anger dessa värden till *X509*måste du också ange motsvarande certifikat eller Service Fabric genererar ett undantag. I vissa fall kanske du bara vill ange _ClientCertificateThumbprints_ eller _ReverseProxyCertificate_. I dessa scenarier behöver du inte ange _ClusterCredentialType_ eller _ServerCredentialType_ till _X509_.
+I det här avsnittet beskrivs de certifikat som du behöver för att skydda ditt fristående Windows-kluster. Om du anger ett klustercertifikat anger du värdet för ClusterCredentialType till _X509_. Om du anger ett servercertifikat för externa anslutningar anger du ServerCredentialType till _X509_. Även om det inte är obligatoriskt rekommenderar vi att du har båda dessa certifikat för ett korrekt skyddat kluster. Om du anger dessa värden till *X509*måste du också ange motsvarande certifikat eller Service Fabric genererar ett undantag. I vissa fall kanske du bara vill ange _ClientCertificateThumbprints_ eller _ReverseProxyCertificate_. I dessa fall behöver du inte ange _ClusterCredentialType_ eller _ServerCredentialType_ till _X509_.
 
 
 > [!NOTE]
-> Ett [tumavtryck](https://en.wikipedia.org/wiki/Public_key_fingerprint) är den primära identiteten för ett certifikat. Information om hur du tar reda på tumavtrycket för de certifikat som du skapar finns i [Hämta ett tumavtryck för ett certifikat](https://msdn.microsoft.com/library/ms734695.aspx).
+> Ett [tumavtryck](https://en.wikipedia.org/wiki/Public_key_fingerprint) är certifikatets primära identitet. Information om hur du visar tumavtrycket för de certifikat som du skapar finns i [Hämta ett tumavtryck för ett certifikat](https://msdn.microsoft.com/library/ms734695.aspx).
 > 
 > 
 
-I följande tabell visas de certifikat som du behöver i kluster konfigurationen:
+I följande tabell visas de certifikat som du behöver i klusterkonfigurationen:
 
-| **CertificateInformation-inställning** | **Beskrivning** |
+| **Inställningar för CertificateInformation** | **Beskrivning** |
 | --- | --- |
-| ClusterCertificate |Rekommenderas för en test miljö. Detta certifikat krävs för att skydda kommunikationen mellan noderna i ett kluster. Du kan använda två olika certifikat, en primär och en sekundär, för uppgradering. Ange tumavtrycket för det primära certifikatet i avsnittet tumavtryck och det sekundära i ThumbprintSecondary-variablerna. |
-| ClusterCertificateCommonNames |Rekommenderas för en produktions miljö. Detta certifikat krävs för att skydda kommunikationen mellan noderna i ett kluster. Du kan använda ett eller två kluster certifikats gemensamma namn. CertificateIssuerThumbprint motsvarar tumavtrycket för utfärdaren av det här certifikatet. Om mer än ett certifikat med samma egna namn används kan du ange flera utfärdare tumavtrycken.|
-| ClusterCertificateIssuerStores |Rekommenderas för en produktions miljö. Det här certifikatet motsvarar utfärdaren av kluster certifikatet. Du kan ange utfärdarens nätverks namn och motsvarande Arkiv namn under det här avsnittet i stället för att ange utfärdarens tumavtryck under ClusterCertificateCommonNames.  Detta gör det enkelt att förnya kluster utfärdarens certifikat. Flera utfärdare kan anges om fler än ett kluster certifikat används. En tom IssuerCommonName whitelists alla certifikat i motsvarande butiker som anges under X509StoreNames.|
-| ServerCertificate |Rekommenderas för en test miljö. Det här certifikatet presenteras för klienten när det försöker ansluta till det här klustret. För enkelhetens skull kan du välja att använda samma certifikat för ClusterCertificate och ServerCertificate. Du kan använda två olika Server certifikat, en primär och en sekundär, för uppgradering. Ange tumavtrycket för det primära certifikatet i avsnittet tumavtryck och det sekundära i ThumbprintSecondary-variablerna. |
-| ServerCertificateCommonNames |Rekommenderas för en produktions miljö. Det här certifikatet presenteras för klienten när det försöker ansluta till det här klustret. CertificateIssuerThumbprint motsvarar tumavtrycket för utfärdaren av det här certifikatet. Om mer än ett certifikat med samma egna namn används kan du ange flera utfärdare tumavtrycken. För enkelhetens skull kan du välja att använda samma certifikat för ClusterCertificateCommonNames och ServerCertificateCommonNames. Du kan använda ett eller två vanliga Server certifikat namn. |
-| ServerCertificateIssuerStores |Rekommenderas för en produktions miljö. Det här certifikatet motsvarar utfärdaren av Server certifikatet. Du kan ange utfärdarens nätverks namn och motsvarande Arkiv namn under det här avsnittet i stället för att ange utfärdarens tumavtryck under ServerCertificateCommonNames.  Detta gör det enkelt att förnya Server utfärdarens certifikat. Flera utfärdare kan anges om fler än ett Server certifikat används. En tom IssuerCommonName whitelists alla certifikat i motsvarande butiker som anges under X509StoreNames.|
-| ClientCertificateThumbprints |Installera den här uppsättningen certifikat på de autentiserade klienterna. Du kan ha ett antal olika klient certifikat installerade på de datorer som du vill tillåta åtkomst till klustret. Ange tumavtrycket för varje certifikat i den CertificateThumbprint-variabeln. Om du anger IsAdmin till *True*, kan klienten med det här certifikatet som är installerad på den utföra administratörs hanterings aktiviteter i klustret. Om IsAdmin är *false*kan klienten med det här certifikatet endast utföra åtgärderna för användar åtkomst behörighet, vanligt vis skrivskyddad. Mer information om roller finns i [rollbaserad Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
-| ClientCertificateCommonNames |Ange ett eget namn för det första klient certifikatet för CertificateCommonName. CertificateIssuerThumbprint är tumavtrycket för utfärdaren av det här certifikatet. Mer information om vanliga namn och utfärdaren finns i [arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). |
-| ClientCertificateIssuerStores |Rekommenderas för en produktions miljö. Det här certifikatet motsvarar utfärdaren av klient certifikatet (både administratörs-och icke-admin-roller). Du kan ange utfärdarens nätverks namn och motsvarande Arkiv namn under det här avsnittet i stället för att ange utfärdarens tumavtryck under ClientCertificateCommonNames.  Detta gör det enkelt att förnya klient utfärdarens certifikat. Flera utfärdare kan anges om fler än ett klient certifikat används. En tom IssuerCommonName whitelists alla certifikat i motsvarande butiker som anges under X509StoreNames.|
-| ReverseProxyCertificate |Rekommenderas för en test miljö. Det här valfria certifikatet kan anges om du vill skydda den [omvända proxyn](service-fabric-reverseproxy.md). Kontrol lera att reverseProxyEndpointPort har angetts i nodeTypes om du använder det här certifikatet. |
-| ReverseProxyCertificateCommonNames |Rekommenderas för en produktions miljö. Det här valfria certifikatet kan anges om du vill skydda den [omvända proxyn](service-fabric-reverseproxy.md). Kontrol lera att reverseProxyEndpointPort har angetts i nodeTypes om du använder det här certifikatet. |
+| Klustercertifiera |Rekommenderas för en testmiljö. Det här certifikatet krävs för att skydda kommunikationen mellan noderna i ett kluster. Du kan använda två olika certifikat, en primär och en sekundär, för uppgradering. Ange tumavtrycket för det primära certifikatet i avsnittet Tumavtryck och det sekundära i tumavtryckssekrevantumablerna. |
+| ClusterCertificateCommonNames |Rekommenderas för en produktionsmiljö. Det här certifikatet krävs för att skydda kommunikationen mellan noderna i ett kluster. Du kan använda ett eller två vanliga namn i klustercertifikatet. CertificateIssuerThumbprint motsvarar tumavtrycket för utfärdaren av detta certifikat. Om mer än ett certifikat med samma gemensamma namn används kan du ange flera tumavtryck för utfärdare.|
+| ClusterCertificateIssuerStores |Rekommenderas för en produktionsmiljö. Det här certifikatet motsvarar utfärdaren av klustercertifikatet. Du kan ange utfärdarens gemensamma namn och motsvarande butiksnamn under det här avsnittet i stället för att ange ut utfärdarens tumavtryck under ClusterCertificateCommonNames.  Detta gör det enkelt att rulla över klusterutfärdarecertifikat. Flera utfärdare kan anges om mer än ett klustercertifikat används. En tom IssuerCommonName vitlistar alla certifikat i motsvarande butiker som anges under X509StoreNames.|
+| ServerCertificate |Rekommenderas för en testmiljö. Det här certifikatet visas för klienten när det försöker ansluta till det här klustret. För enkelhetens skull kan du välja att använda samma certifikat för ClusterCertificate och ServerCertificate. Du kan använda två olika servercertifikat, en primär och en sekundär, för uppgradering. Ange tumavtrycket för det primära certifikatet i avsnittet Tumavtryck och det sekundära i tumavtryckssekrevantumablerna. |
+| ServerCertificateCommonNames |Rekommenderas för en produktionsmiljö. Det här certifikatet visas för klienten när det försöker ansluta till det här klustret. CertificateIssuerThumbprint motsvarar tumavtrycket för utfärdaren av detta certifikat. Om mer än ett certifikat med samma gemensamma namn används kan du ange flera tumavtryck för utfärdare. För enkelhetens skull kan du välja att använda samma certifikat för ClusterCertificateCommonNames och ServerCertificateCommonNames. Du kan använda ett eller två vanliga servercertifikatnamn. |
+| ServerCertificateIssuerStores |Rekommenderas för en produktionsmiljö. Det här certifikatet motsvarar utfärdaren av servercertifikatet. Du kan ange utfärdarens gemensamma namn och motsvarande butiksnamn under det här avsnittet i stället för att ange utfärdartumavtrycket under ServerCertificateCommonNames.  Detta gör det enkelt att rulla över serverutfärdarecertifikat. Flera utfärdare kan anges om mer än ett servercertifikat används. En tom IssuerCommonName vitlistar alla certifikat i motsvarande butiker som anges under X509StoreNames.|
+| ClientCertificateThumbprints |Installera den här uppsättningen certifikat på de autentiserade klienterna. Du kan ha ett antal olika klientcertifikat installerade på de datorer som du vill tillåta åtkomst till klustret. Ange tumavtrycket för varje certifikat i variabeln CertificateThumbprint. Om du anger IsAdmin till *true*kan klienten med det här certifikatet vara installerat på den utföra administratörshanteringsaktiviteter i klustret. Om IsAdmin är *falskt*kan klienten med det här certifikatet utföra de åtgärder som endast tillåts för användaråtkomsträttigheter, vanligtvis skrivskyddad. Mer information om roller finns i [Rollbaserad åtkomstkontroll (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac). |
+| ClientCertificateCommonNames |Ange det gemensamma namnet på det första klientcertifikatet för CertificateCommonName. CertificateIssuerThumbprint är tumavtrycket för utfärdaren av det här certifikatet. Mer information om vanliga namn och utfärdaren finns i [Arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). |
+| ClientCertificateIssuerStores |Rekommenderas för en produktionsmiljö. Det här certifikatet motsvarar utfärdaren av klientcertifikatet (både administratörs- och icke-administratörsroller). Du kan ange utfärdarens gemensamma namn och motsvarande butiksnamn under det här avsnittet i stället för att ange ut utfärdarens tumavtryck under ClientCertificateCommonNames.  Detta gör det enkelt att rulla över klientutfärdarecertifikat. Flera utfärdare kan anges om mer än ett klientcertifikat används. En tom IssuerCommonName vitlistar alla certifikat i motsvarande butiker som anges under X509StoreNames.|
+| OmvändProxyCertificate |Rekommenderas för en testmiljö. Det här valfria certifikatet kan anges om du vill skydda [din omvända proxy](service-fabric-reverseproxy.md). Kontrollera att reverseProxyEndpointPort anges i nodeTypes om du använder det här certifikatet. |
+| ReverseProxyCertificateCommonNames |Rekommenderas för en produktionsmiljö. Det här valfria certifikatet kan anges om du vill skydda [din omvända proxy](service-fabric-reverseproxy.md). Kontrollera att reverseProxyEndpointPort anges i nodeTypes om du använder det här certifikatet. |
 
-Här är ett exempel på en kluster konfiguration där klustret, servern och klient certifikat har angetts. För kluster/Server/reverseProxy certifikat kan inte tumavtrycket och det egna namnet konfigureras tillsammans för samma certifikat typ.
+Här är ett exempel kluster konfiguration där klustret, servern och klientcertifikat har angetts. För kluster-/server-/reverseProxy-certifikat kan tumavtrycket och det gemensamma namnet inte konfigureras tillsammans för samma certifikattyp.
 
  ```JSON
  {
@@ -241,30 +241,30 @@ Här är ett exempel på en kluster konfiguration där klustret, servern och kli
 }
  ```
 
-## <a name="certificate-rollover"></a>Certifikat förnyelse
-När du använder ett certifikats eget namn i stället för ett tumavtryck kräver inte certifikat förnyelse en uppgradering av kluster konfigurationen. Se till att den nya listan över tumavtryck är överlappande med den gamla listan för utfärdares tumavtryck för uppgraderingar. Du måste först göra en konfigurations uppgradering med den nya utfärdarens tumavtrycken och sedan installera de nya certifikaten (både kluster-/Server certifikat och utfärdarens certifikat) i arkivet. Behåll det gamla utfärdarcertifikatet i certifikat arkivet i minst två timmar efter att du har installerat det nya utfärdarens certifikat.
-Om du använder utfärdare av utfärdare måste ingen konfigurations uppgradering utföras för förnyelse av certifikat utfärdare. Installera det nya utfärdarens certifikat med ett senare förfallo datum i motsvarande certifikat Arkiv och ta bort det gamla utfärdarcertifikatet efter några timmar.
+## <a name="certificate-rollover"></a>Överrullning av certifikat
+När du använder ett vanligt certifikatnamn i stället för ett tumavtryck kräver certifikatöverrullning inte en uppgradering av klusterkonfigurationen. För uppgraderingar av utfärdare av tumavtryck kontrollerar du att den nya tumavtryckslistan skär med den gamla listan. Du måste först uppgradera konfigurationen med de nya svarvarnaven och sedan installera de nya certifikaten (både kluster-/servercertifikat och utfärdarcertifikat) i arkivet. Behåll det gamla utfärdarcertifikatet i certifikatarkivet i minst två timmar efter installation av det nya utfärdarcertifikatet.
+Om du använder utfärdararkiv behöver ingen konfigurationsuppgradering utföras för överrullning av utfärdarcertifikat. Installera det nya utfärdarcertifikatet med ett senare utgångsdatum i motsvarande certifikatarkiv och ta bort det gamla utfärdarcertifikatet efter några timmar.
 
-## <a name="acquire-the-x509-certificates"></a>Hämta X. 509-certifikaten
-För att skydda kommunikationen i klustret måste du först skaffa X. 509-certifikat för klusternoderna. För att begränsa anslutning till det här klustret till auktoriserade datorer/användare måste du dessutom hämta och installera certifikat för klient datorerna.
+## <a name="acquire-the-x509-certificates"></a>Skaffa X.509-certifikaten
+För att skydda kommunikationen i klustret måste du först hämta X.509-certifikat för klusternoderna. Om du vill begränsa anslutningen till det här klustret till auktoriserade datorer/användare måste du dessutom hämta och installera certifikat för klientdatorerna.
 
-För kluster som kör produktions arbets belastningar använder du ett [certifikat för certifikat utfärdare (ca)](https://en.wikipedia.org/wiki/Certificate_authority)-signerat X. 509-certifikat för att skydda klustret. Mer information om hur du hämtar dessa certifikat finns i [så här hämtar du ett certifikat](https://msdn.microsoft.com/library/aa702761.aspx).
+För kluster som kör produktionsarbetsbelastningar använder du ett [certifikatutfärdare -signerat](https://en.wikipedia.org/wiki/Certificate_authority)X.509-certifikat för att skydda klustret. Mer information om hur du skaffar dessa certifikat finns i [Så här skaffar du ett certifikat](https://msdn.microsoft.com/library/aa702761.aspx).
 
-För kluster som du använder i test syfte kan du välja att använda ett självsignerat certifikat.
+För kluster som du använder för teständamål kan du välja att använda ett självsignerat certifikat.
 
-## <a name="optional-create-a-self-signed-certificate"></a>Valfritt: skapa ett självsignerat certifikat
-Ett sätt att skapa ett självsignerat certifikat som kan skyddas på rätt sätt är att använda skriptet CertSetup. ps1 i mappen Service Fabric SDK i katalogen C:\Program\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Redigera den här filen om du vill ändra standard namnet för certifikatet. (Leta efter värdet CN = ServiceFabricDevClusterCert.) Kör det här skriptet som `.\CertSetup.ps1 -Install`.
+## <a name="optional-create-a-self-signed-certificate"></a>Valfritt: Skapa ett självsignerat certifikat
+Ett sätt att skapa ett självsignerat certifikat som kan skyddas korrekt är att använda skriptet CertSetup.ps1 i mappen Service Fabric SDK i katalogen C:\Program Files\Microsoft SDK\Service Fabric\ClusterSetup\Secure. Redigera den här filen om du vill ändra standardnamnet på certifikatet. (Leta efter värdet CN=ServiceFabricDevClusterCert.) Kör skriptet `.\CertSetup.ps1 -Install`som .
 
-Exportera certifikatet till en PFX-fil med ett skyddat lösen ord. Hämta först tumavtrycket för certifikatet. 
-1. Från **Start** -menyn, kör **Hantera dator certifikat**. 
+Exportera nu certifikatet till en PFX-fil med ett skyddat lösenord. Först får du tumavtrycket av certifikatet. 
+1. Kör **Hantera datorcertifikat på** **Start-menyn** . 
 
-2. Gå till den **lokala personliga** -mappen och leta upp det certifikat som du skapade. 
+2. Gå till mappen **Lokal dator\Personlig** och leta reda på certifikatet som du har skapat. 
 
-3. Dubbelklicka på certifikatet för att öppna det, Välj fliken **information** och rulla ned till fältet **tumavtryck** . 
+3. Dubbelklicka på certifikatet för att öppna det, välj fliken **Information** och rulla ned till **tumavtrycksfältet.** 
 
-4. Ta bort blank stegen och kopiera tumavtrycket till följande PowerShell-kommando. 
+4. Ta bort blankstegen och kopiera tumavtrycksvärdet till följande PowerShell-kommando. 
 
-5. Ändra `String` värde till ett lämpligt säkert lösen ord för att skydda det och kör följande i PowerShell:
+5. Ändra `String` värdet till ett lämpligt säkert lösenord för att skydda det och kör följande i PowerShell:
 
    ```powershell   
    $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
@@ -278,21 +278,21 @@ Exportera certifikatet till en PFX-fil med ett skyddat lösen ord. Hämta först
    Write-Host $cert.ToString($true)
    ```
 
-Alternativt, om du har en Azure-prenumeration, följer du stegen i [skapa ett Service Fabric kluster med Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
+Alternativt, om du har en Azure-prenumeration, följ stegen i [Skapa ett Service Fabric-kluster med hjälp av Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
 ## <a name="install-the-certificates"></a>Installera certifikaten
-När du har certifikat kan du installera dem på klusternoderna. Dina noder måste ha det senaste Windows PowerShell 3. x installerat på dem. Upprepa de här stegen på varje nod för både kluster-och Server certifikat och eventuella sekundära certifikat.
+När du har certifikat kan du installera dem på klusternoderna. Noderna måste ha den senaste Windows PowerShell 3.x installerad på dem. Upprepa dessa steg på varje nod för både kluster- och servercertifikat och eventuella sekundära certifikat.
 
-1. Kopiera. pfx-filen eller filerna till noden.
+1. Kopiera PFX-filen eller filerna till noden.
 
-2. Öppna ett PowerShell-fönster som administratör och ange följande kommandon. Ersätt *$PSWD* med det lösen ord som du använde för att skapa det här certifikatet. Ersätt *$PfxFilePath* med den fullständiga sökvägen till. pfx som kopieras till den här noden.
+2. Öppna ett PowerShell-fönster som administratör och ange följande kommandon. Ersätt *$pswd* med det lösenord som du använde för att skapa certifikatet. Ersätt *$PfxFilePath* med den fullständiga sökvägen till PFX som kopierats till den här noden.
    
     ```powershell
     $pswd = "1234"
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Ange nu åtkomst kontroll för det här certifikatet så att Service Fabric processen, som körs under nätverks tjänst kontot, kan använda det genom att köra följande skript. Ange tumavtrycket för certifikatet och **nätverks tjänsten** för tjänst kontot. Du kan kontrol lera att åtkomst kontrol listorna för certifikatet är korrekta genom att öppna certifikatet i **Start** > **Hantera dator certifikat** och titta på **alla aktiviteter** > **hantera privata nycklar**.
+3. Ange nu åtkomstkontrollen för det här certifikatet så att Service Fabric-processen, som körs under Network Service-kontot, kan använda den genom att köra följande skript. Ange tumavtrycket för certifikatet och **NÄTTJÄNSTEN** för tjänstkontot. Du kan kontrollera att ACL:erna i certifikatet är korrekta genom att öppna certifikatet i **Starta** > **hantera datorcertifikat** och titta på **Alla uppgifter** > **hantera privata nycklar**.
    
     ```powershell
     param
@@ -329,16 +329,16 @@ När du har certifikat kan du installera dem på klusternoderna. Dina noder mås
     # Observe the access rights currently assigned to this certificate
     get-acl $keyFullPath| fl
     ```
-4. Upprepa föregående steg för varje server certifikat. Du kan också använda de här stegen för att installera klient certifikat på de datorer som du vill tillåta åtkomst till klustret.
+4. Upprepa föregående steg för varje servercertifikat. Du kan också använda dessa steg för att installera klientcertifikaten på de datorer som du vill tillåta åtkomst till klustret.
 
-## <a name="create-the-secure-cluster"></a>Skapa ett säkert kluster
-När du har konfigurerat säkerhets avsnittet i filen ClusterConfig. X509. MultiMachine. JSON kan du fortsätta till avsnittet [skapa kluster](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) för att konfigurera noderna och skapa det fristående klustret. Kom ihåg att använda filen ClusterConfig. X509. MultiMachine. JSON när du skapar klustret. Kommandot kan till exempel se ut så här:
+## <a name="create-the-secure-cluster"></a>Skapa det säkra klustret
+När du har konfigurerat säkerhetsavsnittet i filen ClusterConfig.X509.MultiMachine.json kan du gå vidare till avsnittet [Skapa kluster](service-fabric-cluster-creation-for-windows-server.md#create-the-cluster) för att konfigurera noderna och skapa det fristående klustret. Kom ihåg att använda filen ClusterConfig.X509.MultiMachine.json när du skapar klustret. Kommandot kan till exempel se ut så här:
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-När du har konfigurerat det fristående fristående Windows-klustret och har konfigurerat de autentiserade klienterna för att ansluta till den, följer du stegen i avsnittet [Anslut till ett kluster med hjälp av PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) för att ansluta till den. Ett exempel:
+När du har lyckats köra det säkra fristående Windows-klustret och har konfigurerat de autentiserade klienterna för att ansluta till det följer du stegen i avsnittet [Anslut till ett kluster med PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) för att ansluta till det. Ett exempel:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
@@ -348,14 +348,14 @@ Connect-ServiceFabricCluster $ConnectArgs
 Du kan sedan köra andra PowerShell-kommandon för att arbeta med det här klustret. Du kan till exempel köra [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) för att visa en lista över noder i det här säkra klustret.
 
 
-Om du vill ta bort klustret ansluter du till noden i klustret där du laddade ned Service Fabric-paketet, öppnar en kommando rad och går till mappen Package. Kör nu följande kommando:
+Om du vill ta bort klustret ansluter du till noden i klustret där du hämtade Service Fabric-paketet, öppnar en kommandorad och går till paketmappen. Kör nu följande kommando:
 
 ```powershell
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 > [!NOTE]
-> Felaktig certifikat konfiguration kan förhindra att klustret kommer igång under distributionen. Om du vill själv diagnostisera säkerhets problem kan du titta i Loggboken grupp **program och tjänst loggar** > **Microsoft-Service Fabric**.
+> Felaktig certifikatkonfiguration kan förhindra att klustret kommer upp under distributionen. Om du vill själv diagnostisera säkerhetsproblem tittar du i Gruppen **Loggbokens program och tjänster loggar** > **Microsoft-Service Fabric**.
 > 
 > 
 

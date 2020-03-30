@@ -9,20 +9,20 @@ ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c1b5560e16b68565c37365ac9c2cba217d9b1b90
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187175"
 ---
-Du kan kontrollera att anslutningen har utförts med hjälp av cmdleten ”Get-AzureVNetConnection”.
+Du kan kontrollera att anslutningen lyckades med cmdleten Get-AzureVNetConnection.
 
-1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Namnet på det virtuella nätverket måste vara inom citattecken om det innehåller blanksteg.
+1. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Namnet på det virtuella nätverket måste vara inom citationstecken om det innehåller blanksteg.
 
    ```azurepowershell
    Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
    ```
-2. Visa värdena när cmdlet:en har slutförts. I exemplet nedan anslutning status visas som ”ansluten” och du kan se ingående och utgående byte.
+2. Visa värdena när cmdlet:en har slutförts. I exemplet nedan visas anslutningstillståndet som "Ansluten" och du kan se ingående och utgående byte.
 
         ConnectivityState         : Connected
         EgressBytesTransferred    : 181664

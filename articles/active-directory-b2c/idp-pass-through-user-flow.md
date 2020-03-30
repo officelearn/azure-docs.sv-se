@@ -1,7 +1,7 @@
 ---
-title: Skicka en åtkomsttoken via ett användar flöde till din app
+title: Skicka en åtkomsttoken via ett användarflöde till din app
 titleSuffix: Azure AD B2C
-description: Lär dig hur du skickar en åtkomsttoken för OAuth 2,0-identitets leverantörer som ett anspråk i ett användar flöde i Azure Active Directory B2C.
+description: Lär dig hur du skickar en åtkomsttoken för OAuth 2.0-identitetsleverantörer som ett anspråk i ett användarflöde i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,43 +12,43 @@ ms.date: 08/17/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187796"
 ---
-# <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via ett användar flöde till ditt program i Azure Active Directory B2C
+# <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via ett användarflöde till ditt program i Azure Active Directory B2C
 
-Ett [användar flöde](user-flow-overview.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När resan startar får Azure AD B2C en [åtkomsttoken från identitets](tokens-overview.md) leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du aktiverar ett anspråk i ditt användar flöde för att skicka token till de program som du registrerar i Azure AD B2C.
+Ett [användarflöde](user-flow-overview.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av ditt program en möjlighet att registrera dig eller logga in med en identitetsprovider. När färden startar får Azure AD B2C en [åtkomsttoken](tokens-overview.md) från identitetsprovidern. Azure AD B2C använder den token för att hämta information om användaren. Du aktiverar ett anspråk i ditt användarflöde för att skicka token till de program som du registrerar i Azure AD B2C.
 
-Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för [OAuth 2,0](authorization-code-flow.md) -identitets leverantörer, som innehåller [Facebook](identity-provider-facebook.md) och [Google](identity-provider-google.md). För alla andra identitets leverantörer returneras anspråket tomt.
+Azure AD B2C stöder för närvarande endast att skicka åtkomsttoken för [OAuth 2.0-identitetsleverantörer,](authorization-code-flow.md) som inkluderar [Facebook](identity-provider-facebook.md) och [Google](identity-provider-google.md). För alla andra identitetsleverantörer returneras anspråket tomt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Ditt program måste använda ett [v2-användar flöde](user-flow-versions.md).
-* Ditt användar flöde har kon figurer ATS med en identitets leverantör för OAuth 2,0.
+* Ditt program måste använda ett [v2-användarflöde](user-flow-versions.md).
+* Ditt användarflöde konfigureras med en OAuth 2.0-identitetsprovider.
 
 ## <a name="enable-the-claim"></a>Aktivera anspråket
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
+2. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerationsfilter** i den övre menyn och välj den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-4. Välj **användar flöden (principer)** och välj sedan ditt användar flöde. Till exempel **B2C_1_signupsignin1**.
+4. Välj **Användarflöden (principer)** och välj sedan ditt användarflöde. Till exempel **B2C_1_signupsignin1**.
 5. Välj **Programanspråk**.
-6. Aktivera **åtkomst till token för identitets leverantör** .
+6. Aktivera anspråket **åtkomsttoken för identitetsprovider.**
 
-    ![Aktivera åtkomst till token för identitets leverantör](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
+    ![Aktivera anspråk på åtkomsttoken för identitetsprovider](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
 
-7. Spara användar flödet genom att klicka på **Spara** .
+7. Klicka på **Spara** om du vill spara användarflödet.
 
-## <a name="test-the-user-flow"></a>Testa användar flödet
+## <a name="test-the-user-flow"></a>Testa användarflödet
 
-När du testar dina program i Azure AD B2C kan det vara praktiskt att använda den Azure AD B2C token som returneras till `https://jwt.ms` för att granska anspråk i det.
+När du testar dina program i Azure AD B2C kan det vara bra `https://jwt.ms` att ha Azure AD B2C-token returnerad för att granska anspråken i den.
 
-1. På sidan Översikt i användar flödet väljer du **Kör användar flöde**.
-2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token i exemplet nedan ska **svars-URL:** en Visa `https://jwt.ms`.
-3. Klicka på **Kör användar flöde**och logga in med dina autentiseringsuppgifter för kontot. Du bör se åtkomsttoken för identitets leverantören i **idp_access_token** -anspråket.
+1. På sidan Översikt för användarflödet väljer du **Kör användarflöde**.
+2. För **Ansökan**väljer du det program som du tidigare har registrerat. Om du vill se token i exemplet `https://jwt.ms`nedan ska **svars-URL:en** visa .
+3. Klicka på **Kör användarflöde**och logga sedan in med dina kontouppgifter. Du bör se åtkomsttoken för **idp_access_token** identitetsprovidern i idp_access_token-anspråket.
 
     Du bör se något som liknar följande exempel:
 
@@ -56,4 +56,4 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att använda d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer i [Översikt över Azure AD B2C tokens](tokens-overview.md).
+Läs mer i [översikten över Azure AD B2C-tokens](tokens-overview.md).

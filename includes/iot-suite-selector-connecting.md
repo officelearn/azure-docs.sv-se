@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187779"
 ---
 > [!div class="op_single_selector"]
@@ -23,59 +23,59 @@ ms.locfileid: "67187779"
 > * [Node.js på Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
 > * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
-I den här självstudien får du implementera en **kylaggregat** enhet som skickar följande telemetri till den fjärrövervakning [lösningsaccelerator](../articles/iot-accelerators/about-iot-accelerators.md):
+I den här självstudien implementerar du en **Chiller-enhet** som skickar följande telemetri till [lösningsacceleratorn](../articles/iot-accelerators/about-iot-accelerators.md)för fjärrövervakning:
 
 * Temperatur
-* Hög belastning
+* Tryck
 * Fuktighet
 
-För enkelhetens skull genererar koden exempelvärden telemetri för den **kylaggregat**. Du kan utöka exemplet genom att ansluta riktiga sensorer till enheten och skicka riktig telemetri.
+För enkelhetens skull genererar koden exempeltelemetrivärden för **kylaren**. Du kan utöka provet genom att ansluta riktiga sensorer till enheten och skicka riktig telemetri.
 
-Exemplet enheten också:
+Exempelenheten också:
 
-* Skickar metadata till lösningen att beskriva dess funktioner.
-* Svarar på åtgärder som utlöses från den **enheter** sidan i lösningen.
-* Svarar på ändringar i konfigurationen skicka från den **enheter** sidan i lösningen.
+* Skickar metadata till lösningen för att beskriva dess funktioner.
+* Svarar på åtgärder som utlöses från sidan **Enheter** i lösningen.
+* Svarar på konfigurationsändringar som skickas från sidan **Enheter** i lösningen.
 
-Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
+Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du kan skriva kod för enheten, distribuerar lösningsacceleratorn för fjärrövervakning och lägga till en ny riktig enhet i lösningen.
+Innan du skriver någon kod för enheten kan du distribuera lösningsacceleratorn för fjärrövervakning och lägga till en ny riktig enhet i lösningen.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuera lösningsacceleratorn för fjärrövervakning
 
-Den **kylaggregat** enheten som du skapar i den här självstudien skickar data till en instans av den [fjärrövervakning](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) lösningsaccelerator. Om du inte redan har etablerat lösningsacceleratorn för fjärrövervakning i ditt Azure-konto, se [distribuerar lösningsacceleratorn för fjärrövervakning](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
+Den **chiller-enhet** som du skapar i den här självstudien skickar data till en instans av lösningsacceleratorn [för fjärrövervakning.](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md) Om du inte redan har etablerat lösningsacceleratorn för fjärrövervakning i ditt Azure-konto läser [du Distribuera lösningsacceleratorn för fjärrövervakning](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
 
-När distributionsprocessen för lösningen för fjärrövervakning är klar klickar du på **starta** att öppna instrumentpanelen för lösningen i din webbläsare.
+När distributionsprocessen för lösningen för fjärrövervakning är klar klickar du på **Starta** för att öppna lösningsinstrumentpanelen i webbläsaren.
 
 ![Instrumentpanelen för lösningen](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Lägga till din enhet i lösningen för fjärrövervakning
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Lägga till enheten i lösningen för fjärrövervakning
 
 > [!NOTE]
-> Om du har redan lagt till en enhet i din lösning, kan du hoppa över det här steget. Nästa steg kräver dock enhetens anslutningssträng. Du kan hämta anslutningssträngen för en enhet från den [Azure-portalen](https://portal.azure.com) eller med hjälp av den [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI-verktyget.
+> Om du redan har lagt till en enhet i din lösning kan du hoppa över det här steget. Nästa steg kräver dock enhetens anslutningssträng. Du kan hämta en enhets anslutningssträng från [Azure-portalen](https://portal.azure.com) eller använda az [iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI-verktyget.
 
-För en enhet att ansluta till lösningsaccelerator kan identifiera den sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara enhetens anslutningssträng som innehåller de här autentiseringsuppgifterna när du lägger till enheten i lösningen. Du kan inkludera enhetens anslutningssträng i klientprogrammet senare i den här självstudien.
+För att en enhet ska kunna ansluta till lösningsacceleratorn måste den identifiera sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara enhetsanslutningssträngen som innehåller dessa autentiseringsuppgifter när du lägger till enheten i lösningen. Du inkluderar enhetsanslutningssträngen i klientprogrammet senare i den här självstudien.
 
-Om du vill lägga till en enhet till din fjärrövervakningslösning utför du följande steg på den **Device Explorer** sidan i lösningen:
+Om du vill lägga till en enhet i lösningen för fjärrövervakning slutför du följande steg på sidan **Enhetsutforskaren** i lösningen:
 
-1. Välj **+ ny enhet**, och välj sedan **verkliga** som den **enhetstyp**:
+1. Välj **+ Ny enhet**och välj sedan **Real** som **enhetstyp:**
 
     ![Lägga till en riktig enhet](media/iot-suite-selector-connecting/devicesprovision.png)
 
-1. Ange **fysiska kylaggregat** som enhetens ID. Välj den **symmetrisk nyckel** och **generera nycklar automatiskt** alternativ:
+1. Ange **fysisk kylmaskin** som enhets-ID. Välj alternativ för **symmetrisk nyckel** och **generera tangenter automatiskt:**
 
-    ![Välj alternativ för enhet](media/iot-suite-selector-connecting/devicesoptions.png)
+    ![Välj enhetsalternativ](media/iot-suite-selector-connecting/devicesoptions.png)
 
-1. Välj **gäller**. Skriv ned den **enhets-ID**, **primärnyckel**, och **Connection string primärnyckel** värden:
+1. Välj **Använd**. Anteckna sedan primärnyckelvärdena **för enhets-ID,** **primärnyckel**och **anslutningssträng:**
 
     ![Hämta autentiseringsuppgifter](media/iot-suite-selector-connecting/credentials.png)
 
-Du har nu lagt till en riktig enhet att lösningsacceleratorn för fjärrövervakning och anges dess enhetens anslutningssträng. I följande avsnitt kan du implementera klientprogram som använder enhetens anslutningssträng för att ansluta till din lösning.
+Du har nu lagt till en riktig enhet i lösningsacceleratorn för fjärrövervakning och noterat dess enhetsanslutningssträng. I följande avsnitt implementerar du klientprogrammet som använder enhetsanslutningssträngen för att ansluta till din lösning.
 
-Klientprogrammet implementerar inbyggt **kylaggregat** enhetsmodell. En enhetsmodell för solution accelerator anger följande om en enhet:
+Klientprogrammet implementerar den inbyggda chiller-enhetsmodellen. **Chiller** En lösningsacceleratorenhetsmodell anger följande om en enhet:
 
-* Egenskaperna enheten rapporterar till lösningen. Till exempel en **kylaggregat** enheten rapporterar information om den inbyggda programvaran och placering.
-* Typer av telemetri som enheten skickar till lösningen. Till exempel en **kylaggregat** enheten skickar temperatur, fuktighet och värden för tryck.
-* De metoder som du kan schemalägga från lösningen ska köras på enheten. Till exempel en **kylaggregat** enheten måste implementera **omstart**, **FirmwareUpdate**, **EmergencyValveRelease**, och  **IncreasePressure** metoder.
+* Egenskaperna som enheten rapporterar till lösningen. En **kylare** rapporterar till exempel information om dess inbyggda programvara och plats.
+* De typer av telemetri som enheten skickar till lösningen. En **kylmaskinsenhet** skickar till exempel temperatur-, fuktighets- och tryckvärden.
+* De metoder som du kan schemalägga från lösningen för att köras på enheten. En **kylmaskinsenhet** måste till exempel implementera metoder för **Omstart**, **FirmwareUpdate**, **EmergencyValveRelease**och **IncreasePressure.**

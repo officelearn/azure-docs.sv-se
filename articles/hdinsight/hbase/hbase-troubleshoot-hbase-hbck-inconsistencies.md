@@ -1,6 +1,6 @@
 ---
-title: HBase hbck returnerar inkonsekvenser i Azure HDInsight
-description: HBase hbck returnerar inkonsekvenser i Azure HDInsight
+title: hbase hbck returnerar inkonsekvenser i Azure HDInsight
+description: hbase hbck returnerar inkonsekvenser i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,27 +8,27 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
 ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887333"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scenario: `hbase hbck` kommandot returnerar inkonsekvenser i Azure HDInsight
 
-Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
+I den här artikeln beskrivs felsökningssteg och möjliga lösningar för problem när du interagerar med Azure HDInsight-kluster.
 
-## <a name="issue-region-is-not-in-hbasemeta"></a>Problem: regionen är inte i `hbase:meta`
+## <a name="issue-region-is-not-in-hbasemeta"></a>Problem: Regionen är inte i`hbase:meta`
 
-Region XXX on HDFS, men visas inte i `hbase:meta` eller distribueras på någon region Server.
+Region xxx på HDFS, men `hbase:meta` inte listad i eller distribuerad på någon regionserver.
 
 ### <a name="cause"></a>Orsak
 
-Sig.
+Varierar.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
-1. Korrigera meta-tabellen genom att köra:
+1. Åtgärda metatabellen genom att köra:
 
     ```
     hbase hbck -ignorePreCheckPermission –fixMeta
@@ -41,17 +41,17 @@ Sig.
     ```
 ---
 
-## <a name="issue-region-is-offline"></a>Problem: regionen är offline
+## <a name="issue-region-is-offline"></a>Problem: Regionen är offline
 
-Regionen XXX har inte distribuerats på någon RegionServer. Det innebär att regionen är i `hbase:meta`, men offline.
+Region xxx har inte distribuerats på någon RegionServer. Det innebär att `hbase:meta`regionen är i , men offline.
 
 ### <a name="cause"></a>Orsak
 
-Sig.
+Varierar.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
-Ta med regioner online genom att köra:
+Ta regioner online genom att köra:
 
 ```
 hbase hbck -ignorePreCheckPermission –fixAssignment
@@ -59,15 +59,15 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 ---
 
-## <a name="issue-regions-have-the-same-startend-keys"></a>Problem: regionerna har samma start-/slut nycklar
+## <a name="issue-regions-have-the-same-startend-keys"></a>Problem: Regioner har samma start-/slutnycklar
 
 ### <a name="cause"></a>Orsak
 
-Sig.
+Varierar.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
-Sammanfoga de överlappande regionerna manuellt. Gå till avsnittet HBase HMaster Web UI Table, Välj den tabell länk som har problemet. Du kommer att se start nyckel/slut nyckel för varje region som tillhör tabellen. Sammanfoga sedan de överlappande regionerna. I HBase-gränssnittet, gör `merge_region 'xxxxxxxx','yyyyyyy', true`. Ett exempel:
+Sammanfoga de överlappande områdena manuellt. Gå till tabellen för HBase HMaster Web UI, välj tabelllänken som har problemet. Du kommer att se startnyckeln/slutnyckeln för varje region som tillhör tabellen. Slå sedan samman dessa överlappande regioner. Gör `merge_region 'xxxxxxxx','yyyyyyy', true`i HBase-skalet . Ett exempel:
 
 ```
 RegionA, startkey:001, endkey:010,
@@ -77,36 +77,36 @@ RegionB, startkey:001, endkey:080,
 RegionC, startkey:010, endkey:080.
 ```
 
-I det här scenariot måste du sammanfoga regiona-och RegionC och få en region med samma nyckel intervall som RegionB, och sedan sammanfoga RegionB och region. xxxxxxx och Yyyyyy är hash-strängen i slutet av varje region namn. Var noga med att inte slå samman två diskontinuerliga regioner. Efter varje sammanslagning, t. ex. sammanfoga A och C, kommer HBase att starta en komprimering på region. Vänta tills komprimeringen har slutförts innan du gör en annan sammanslagning med region. Du hittar komprimerings statusen på den region Server sidan i HBase HMaster UI.
+I det här fallet måste du slå samman RegionA och RegionC och få RegionD med samma nyckelintervall som RegionB och sedan slå samman RegionB och RegionD. xxxxxxx och yyyyyy är hashsträngen i slutet av varje regionnamn. Var försiktig här för att inte slå samman två diskontinuerliga regioner. Efter varje sammanslagning, som sammanfoga A och C, startar HBase en komprimering på RegionD. Vänta tills komprimeringen är klar innan du gör en ny sammanslagning med RegionD. Du hittar kompakteringsstatusen på den regionserversidan i HBase HMaster UI.
 
 ---
 
-## <a name="issue-cant-load-regioninfo"></a>Problem: det går inte att läsa in `.regioninfo`
+## <a name="issue-cant-load-regioninfo"></a>Problem: Det går inte att läsa in`.regioninfo`
 
-Det går inte att läsa in `.regioninfo` för region `/hbase/data/default/tablex/regiony`.
+Det går `.regioninfo` inte `/hbase/data/default/tablex/regiony`att läsa in för region .
 
 ### <a name="cause"></a>Orsak
 
-Detta beror troligen på att regionen är delvis borttagen när RegionServer kraschar eller omstarter av virtuella datorer. För närvarande är Azure Storage ett flat BLOB File-System och vissa fil åtgärder är inte atomiska.
+Detta beror troligen på att region partiell borttagning när RegionServer kraschar eller vm startar om. Azure Storage är för närvarande ett platt blob-filsystem och vissa filåtgärder är inte atomära.
 
-### <a name="resolution"></a>Upplösning
+### <a name="resolution"></a>Lösning
 
 Rensa de återstående filerna och mapparna manuellt:
 
-1. Kör `hdfs dfs -ls /hbase/data/default/tablex/regiony` för att kontrol lera vilka mappar/filer som finns kvar under den.
+1. Kör `hdfs dfs -ls /hbase/data/default/tablex/regiony` för att kontrollera vilka mappar/filer som fortfarande finns under den.
 
 1. Kör `hdfs dfs -rmr /hbase/data/default/tablex/regiony/filez` för att ta bort alla underordnade filer/mappar
 
-1. Kör `hdfs dfs -rmr /hbase/data/default/tablex/regiony` för att ta bort mappen region.
+1. Kör `hdfs dfs -rmr /hbase/data/default/tablex/regiony` för att ta bort regionmappen.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
 
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
+* Få svar från Azure-experter via [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen. Ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en supportbegäran från [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **Stöd** i menyraden eller öppna **supporthubben Hjälp +.** Mer detaljerad information finns i [Så här skapar du en Azure-supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerationshantering och faktureringssupport ingår i din Microsoft Azure-prenumeration och teknisk support tillhandahålls via en av [Azure-supportplanerna](https://azure.microsoft.com/support/plans/).

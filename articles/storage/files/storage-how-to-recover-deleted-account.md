@@ -1,6 +1,6 @@
 ---
-title: Återställa ett borttaget lagrings konto
-description: Lär dig hur du återställer ett borttaget lagrings konto
+title: Så här återställer du ett borttaget lagringskonto
+description: Läs om hur du återställer ett borttaget lagringskonto
 author: todmccoy
 manager: dcscontentpm
 ms.service: storage
@@ -11,35 +11,35 @@ ms.subservice: files
 services: storage
 tags: ''
 ms.openlocfilehash: 05465d4a03335ac607ba8981116c66fd6dac9416
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78252636"
 ---
-# <a name="how-to-recover-a-deleted-storage-account"></a>Återställa ett borttaget lagrings konto
+# <a name="how-to-recover-a-deleted-storage-account"></a>Så här återställer du ett borttaget lagringskonto
 
-Azure Storage ger data återhämtning via automatiserade repliker, men förhindrar inte användare eller program kod från att skada data, oavsett om de är oavsiktligt eller skadligt. Att bevara data åter givningen under instanser av program eller användar fel kräver mer avancerade tekniker, till exempel att kopiera data till en sekundär lagrings plats med en Gransknings logg.
+Azure Storage ger dataåtersåtersåtare genom automatiserade repliker, men hindrar inte användare eller programkod från att skada data, oavsett om de är oavsiktligt eller uppsåtligt. För att upprätthålla dataåtergivningen under instanser av program- eller användarfel krävs mer avancerade tekniker, till exempel att kopiera data till en sekundär lagringsplats med en granskningslogg.
 
-Följande tabell innehåller en översikt över omfånget för lagrings konto återställning beroende på en replikerings strategi.
+I följande tabell ges översikt över omfattningen av återställning av lagringskonto beroende på replikeringsstrategin.
 
-| |LRS|ZRS|GRS|RA-GRS|
+| |LRS|ZRS|GRS|RA - GRS|
 |---|---|---|---|---|
-|Lagrings konto Azure Resource Manager|Ja|Ja|Ja|Ja|
-|Klassiskt lagrings konto|Ja|Ja|Ja|Ja|
+|Azure Resource Manager för lagringskonto|Ja|Ja|Ja|Ja|
+|Klassiska lagringskonto|Ja|Ja|Ja|Ja|
 
-Samla in följande information och skicka en supportbegäran till Microsoft Support:
+Samla in följande information och lämna in en supportbegäran med Microsoft Support:
 
 * Lagringskontots namn
-* Datum för borttagning
-* Lagrings konto region
-* Hur togs lagrings kontot bort?
-* Vilken metod tog bort lagrings kontot? (Portal, PowerShell osv.)
+* Datum för radering
+* Region för lagringskonto
+* Hur togs lagringskontot bort?
+* Vilken metod tog bort lagringskontot? (Portal, PowerShell, etc.)
 
 Viktiga punkter
 
-* Det kan vanligt vis ta upp till 15 dagar från borttagningen av lagrings tjänsten att utföra skräp insamling, så återställning av lagrings konton kan inte återställas med ett service avtal.
-* Microsoft Support kommer att försöka återställa containern/kontot på bästa möjliga sätt och kan inte garantera återställningen.
+* Det kan i allmänhet ta upp till 15 dagar från borttagningstillfället för lagringstjänsten att utföra skräpinsamling, så lagringskonton kan inte återställas med ett serviceavtal.
+* Microsoft Support försöker återställa behållaren/kontot på bästa sätt och kan inte garantera återställningen.
 
 > [!NOTE]
-> Återställningen kanske inte lyckas om kontot har återskapats. Om du redan har skapat om kontot måste du ta bort det innan återställningen kan utföras.
+> Återställningen kanske inte lyckas om kontot har återskapats. Om du redan har återskapat kontot måste du ta bort det först innan återställningen kan göras.

@@ -1,5 +1,5 @@
 ---
-title: Oracle Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning | Microsoft Docs
+title: Oracle Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning | Microsoft-dokument
 description: DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645852"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning
@@ -29,7 +29,7 @@ ms.locfileid: "75645852"
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
-[1114181]: https://launchpad.support.sap.com/#/notes/1114181
+[1114181]:https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
@@ -38,7 +38,7 @@ ms.locfileid: "75645852"
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]: https://launchpad.support.sap.com/#/notes/1597355
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
@@ -54,23 +54,23 @@ ms.locfileid: "75645852"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2039619]: https://launchpad.support.sap.com/#/notes/2039619
-[2069760]: https://launchpad.support.sap.com/#/notes/2069760
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2069760]:https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2171857]: https://launchpad.support.sap.com/#/notes/2171857
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2171857]:https://launchpad.support.sap.com/#/notes/2171857
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -307,215 +307,215 @@ ms.locfileid: "75645852"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-Det här dokumentet omfattar flera olika områden att tänka på när du distribuerar Oracle Database för SAP-arbetsbelastningar i Azure IaaS. Innan du läser det här dokumentet rekommenderar vi att du läser [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). Vi rekommenderar också att du läser andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Det här dokumentet täcker flera olika områden att tänka på när du distribuerar Oracle Database för SAP-arbetsbelastning i Azure IaaS. Innan du läser det här dokumentet rekommenderar vi att du läser [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md). Vi rekommenderar också att du läser andra guider i [SAP-arbetsbelastningen i Azure-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
-Du hittar information om Oracle-versioner och motsvarande OS-versioner som stöds för att köra SAP på Oracle på Azure i SAP NOTE [2039619].
+Du hittar information om Oracle-versioner och motsvarande OS-versioner som stöds för att köra SAP på Oracle på Azure i SAP Note [2039619].
 
 Allmän information om hur du kör SAP Business Suite på Oracle finns på [SAP på Oracle](https://www.sap.com/community/topic/oracle.html).
-Oracle-programvaran stöds av Oracle för att köras på Microsoft Azure. För ytterligare information om allmänt stöd för Windows Hyper-V och Azure, se [vanliga frågor och svar om Oracle och Microsoft Azure](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle-programvara stöds av Oracle för att köras på Microsoft Azure. Mer information om allmän support för Windows Hyper-V och Azure finns i vanliga frågor och [svar om Oracle och Microsoft Azure](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>SAP-anteckningar som är relevanta för Oracle, SAP och Azure 
 
 Följande SAP-anteckningar är relaterade till SAP på Azure.
 
-| Antecknings nummer | Titel |
+| Antecknar numrerar | Titel |
 | --- | --- |
-| [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
-| [2015553] |SAP på Microsoft Azure: stöd för krav |
-| [1999351] |Felsöka utökad Azure-övervakning för SAP |
-| [2178632] |Nyckel övervaknings mått för SAP på Microsoft Azure |
-| [2191498] |SAP på Linux med Azure: förbättrad övervakning |
-| [2039619] |SAP-program på Microsoft Azure som använder Oracle Database: produkter och versioner som stöds |
-| [2243692] |Linux på Microsoft Azure (IaaS) virtuell dator: SAP-licens problem |
-| [2069760] |Oracle Linux 7. x SAP-installation och uppgradering |
-| [1597355] |Rekommendation för växlings utrymme för Linux |
-| [2171857] |Oracle Database 12C-stöd för fil system på Linux |
-| [1114181] |Oracle Database 11g-stöd för fil system på Linux |
+| [1928533] |SAP-program på Azure: Produkter som stöds och Azure VM-typer |
+| [2015553] |SAP på Microsoft Azure: Supportkrav |
+| [1999351] |Felsöka förbättrad Azure-övervakning för SAP |
+| [2178632] |Viktiga övervakningsmått för SAP på Microsoft Azure |
+| [2191498] |SAP på Linux med Azure: Förbättrad övervakning |
+| [2039619] |SAP-program på Microsoft Azure med Oracle-databasen: Produkter och versioner som stöds |
+| [2243692] |Linux på Microsoft Azure (IaaS) VM: SAP-licensproblem |
+| [2069760] |Oracle Linux 7.x SAP installation och uppgradering |
+| [1597355] |Rekommendation om växlingsutrymme för Linux |
+| [2171857] |Oracle Database 12c - filsystem stöd på Linux |
+| [1114181] |Oracle Database 11g - filsystem stöd på Linux |
 
-De exakta konfigurationer och funktioner som stöds av Oracle och SAP på Azure finns dokumenterade i SAP Obs [#2039619](https://launchpad.support.sap.com/#/notes/2039619).
+De exakta konfigurationer och funktioner som stöds av Oracle och SAP på Azure dokumenteras i SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619).
 
-Windows och Oracle Linux är de enda operativ system som stöds av Oracle och SAP på Azure. De vanligaste SLES-och RHEL Linux-distributionerna stöds inte för distribution av Oracle-komponenter i Azure. Oracle-komponenter innehåller Oracle Database klienten, som används av SAP-program för att ansluta till Oracle-DBMS. 
+Windows och Oracle Linux är de enda operativsystem som stöds av Oracle och SAP på Azure. De ofta använda SLES- och RHEL Linux-distributionerna stöds inte för distribution av Oracle-komponenter i Azure. Oracle-komponenter inkluderar Oracle Database-klienten, som används av SAP-program för att ansluta mot Oracle DBMS. 
 
-Undantag, enligt SAP Obs [#2039619](https://launchpad.support.sap.com/#/notes/2039619), är SAP-komponenter som inte använder Oracle Database-klienten. Sådana SAP-komponenter är SAP: s fristående kö, Message Server, köa replikerings tjänster, webdispatchor och SAP Gateway.  
+Undantag, enligt SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619), är SAP-komponenter som inte använder Oracle Database-klienten. Sådana SAP-komponenter är SAP:s fristående kö, meddelandeserver, Enqueue replication-tjänster, WebDispatcher och SAP Gateway.  
 
-Även om du kör dina Oracle-DBMS-och SAP-programinstanser på Oracle Linux kan du köra dina SAP-centrala tjänster på SLES eller RHEL och skydda dem med ett pacemaker-baserat kluster. Pacemaker som ett ramverk med hög tillgänglighet stöds inte på Oracle Linux.
+Även om du kör dina Oracle DBMS- och SAP-programinstanser på Oracle Linux kan du köra dina SAP Central Services på SLES eller RHEL och skydda dem med ett Pacemaker-baserat kluster. Pacemaker som ett ramverk med hög tillgänglighet stöds inte på Oracle Linux.
 
-## <a name="specifics-for-oracle-database-on-windows"></a>Information om Oracle Database i Windows
+## <a name="specifics-for-oracle-database-on-windows"></a>Specifika för Oracle-databas i Windows
 
-### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-windows"></a>Konfigurations rikt linjer för Oracle för SAP-installationer i virtuella Azure-datorer i Windows
+### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-windows"></a>Riktlinjer för Oracle-konfiguration för SAP-installationer i virtuella Azure-datorer i Windows
 
-I enlighet med hand boken för SAP-installationen bör Oracle-relaterade filer inte installeras eller finnas i system driv rutinen för en virtuell dators OS-disk (enhet c:). Virtuella datorer av varierande storlekar kan stödja ett varierande antal anslutna diskar. Färre typer av virtuella datorer kan ha stöd för ett mindre antal anslutna diskar. 
+I enlighet med SAP-installationshandboken bör Oracle-relaterade filer inte installeras eller finnas i systemdrivrutinen för en virtuell dators OS-disk (enhet c:). Virtuella datorer av varierande storlek kan stödja ett varierande antal anslutna diskar. Mindre typer av virtuella datorer kan stödja ett mindre antal anslutna diskar. 
 
-Om du har mindre virtuella datorer rekommenderar vi att du installerar/hittar Oracle Home, Stage, "saptrace", "saparch", "sapbackup", "sapcheck" eller "sapreorg" i OS-disken. Dessa delar av Oracle DBMS-komponenter är inte intensiva i I/O och I/O-genomflöde. Det innebär att operativ system disken kan hantera i/O-kraven. Standard storleken på OS-disken är 127 GB. 
+Om du har mindre virtuella datorer rekommenderar vi att du installerar/lokaliserar Oracle hem, scenen, "saptrace", "saparch", "sapbackup", "sapcheck" eller "sapreorg" i OS-disken. Dessa delar av Oracle DBMS-komponenter är inte intensiva på I/O- och I/O-dataflöde. Det innebär att OS-disken kan hantera I/O-kraven. Standardstorleken på OS-disken är 127 GB. 
 
-Om det inte finns tillräckligt med ledigt utrymme kan disken [ändra storlek](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) till 2048 GB. Oracle Database och gör om-loggfiler måste lagras på separata data diskar. Det finns ett undantag för det tillfälliga Oracle-datatabellområdet. Tempfiles kan skapas på D:/ (icke-beständig enhet). Icke-permanent D:\ enheten erbjuder också bättre I/O-latens och data flöde (med undantag för virtuella datorer i A-serien). 
+Om det inte finns tillräckligt med ledigt utrymme kan disken [storlekas upp](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) till 2048 GB. Oracle Database och göra om loggfiler måste lagras på separata datadiskar. Det finns ett undantag för Oracles tillfälliga tablespace. Tempfiles kan skapas på D:/ (icke-beständig enhet). Den icke-beständiga D:\ enheten erbjuder också bättre I/O-svarstid och dataflöde (med undantag för virtuella datorer i A-serien). 
 
-För att fastställa rätt utrymme för tempfiles kan du kontrol lera storleken på tempfiles på befintliga system.
+Om du vill bestämma rätt utrymme för tempfilerna kan du kontrollera storleken på tempfiles på befintliga system.
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
-Endast Oracle med enkel instans med NTFS-formaterade diskar stöds. Alla databasfiler måste lagras på fil systemet NTFS på Managed Disks (rekommenderas) eller på virtuella hård diskar. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) eller [Azure Managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Endast Oracle med en instans som använder NTFS-formaterade diskar stöds. Alla databasfiler måste lagras i NTFS-filsystemet på hanterade diskar (rekommenderas) eller på virtuella hårddiskar. Dessa diskar är monterade på den virtuella Azure-datorn och baseras på [Azure-sidblobblagring](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) eller [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
-Vi rekommenderar starkt att du använder [Azure Managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Vi rekommenderar också starkt att du använder [Premium-SSD](../../windows/disks-types.md) för dina Oracle Database-distributioner.
+Vi rekommenderar starkt att du använder [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Vi rekommenderar också starkt att du använder [premium-SSD:er](../../windows/disks-types.md) för distributioner av Oracle-databaser.
 
-Nätverks enheter eller fjär resurser som Azure File Services stöds inte för Oracle Database-filer. Mer information finns här:
+Nätverksenheter eller fjärrresurser som Azure-filtjänster stöds inte för Oracle Database-filer. Mer information finns i:
 
 - [Introduktion till Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
-- [Bevara anslutningar till Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Spara anslutningar till Microsoft Azure-filer](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-Om du använder diskar som är baserade på Azure Page Blob Storage eller Managed Disks, gäller instruktionerna i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) även för distributioner med Oracle Database.
+Om du använder diskar som baseras på Azure-sidblobblagring eller hanterade diskar gäller satser i [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md) även för distributioner med Oracle-databas.
 
-Kvoter på IOPS-dataflöde för Azure-diskar finns. Det här konceptet beskrivs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). De exakta kvoterna beror på vilken VM-typ som du använder. En lista över VM-typer med deras kvoter finns i [storlekar för virtuella Windows-datorer i Azure][virtual-machines-sizes-windows].
+Det finns kvoter för IOPS-dataflöde för Azure-diskar. Det här konceptet förklaras i [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md). De exakta kvoterna beror på vilken vm-typ du använder. En lista över vm-typer med sina kvoter finns på [Storlekar för virtuella Windows-datorer i Azure][virtual-machines-sizes-windows].
 
-Information om vilka typer av virtuella Azure-datorer som stöds finns i SAP anmärkning [1928533].
+Information om vilka typer av virtuella datorer som stöds finns i SAP Note [1928533].
 
-Den lägsta konfigurationen är följande: 
+Minsta konfiguration är följande: 
 
-| Komponent | Disk | Cachning | Lagringspool |
+| Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle\<SID > \origlogaA & mirrlogB | Premium | Inget | Krävs inte |
-| \oracle\<SID > \origlogaB & mirrlogA | Premium | Inget | Krävs inte |
-| \oracle\<SID > \sapdata1... m | Premium | Skrivskyddad | Kan användas |
+| \oracle\<SID>\origlogaA & mirrlogB | Premium | Inget | Krävs inte |
+| \oracle\<SID>\origlogaB & mirrlogA | Premium | Inget | Krävs inte |
+| \oracle\<SID>\sapdata1... N | Premium | Skrivskyddad | Kan användas |
 | \oracle\<SID>\oraarch | Standard | Inget | Krävs inte |
-| Oracle Home, saptrace,... | OS-disk | | Krävs inte |
+| Oracle Hem, saptrace, ... | OS-disk | | Krävs inte |
 
 
-Diskar som väljs för att vara värd för online-återupprepnings loggar bör drivas av IOPs-krav Det går att lagra alla sapdata1... n (register namn) på en enda monterad disk så länge storlek, IOPS och data flöde uppfyller kraven. 
+Diskar val för hosting online gör om loggar bör drivas av IOPs krav. Det är möjligt att lagra alla sapdata1... n (tablespaces) på en enda monterad disk så länge storleken, IOPS och dataflödet uppfyller kraven. 
 
-Prestanda konfigurationen är följande:
+Prestandakonfigurationen är följande:
 
-| Komponent | Disk | Cachning | Lagringspool |
+| Komponent | Disk | Caching | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle\<SID > \origlogaA | Premium | Inget | Kan användas  |
+| \oracle\<SID>\origlogaA | Premium | Inget | Kan användas  |
 | \oracle\<SID>\origlogaB | Premium | Inget | Kan användas |
-| \oracle\<SID > \mirrlogAB | Premium | Inget | Kan användas |
+| \oracle\<SID>\mirrlogAB | Premium | Inget | Kan användas |
 | \oracle\<SID>\mirrlogBA | Premium | Inget | Kan användas |
-| \oracle\<SID > \sapdata1... m | Premium | Skrivskyddad | Rekommenderad  |
+| \oracle\<SID>\sapdata1... N | Premium | Skrivskyddad | Rekommenderas  |
 | \oracle\SID\sapdata(n+1)* | Premium | Inget | Kan användas |
 | \oracle\<SID>\oraarch* | Premium | Inget | Krävs inte |
-| Oracle Home, saptrace,... | OS-disk | Krävs inte |
+| Oracle Hem, saptrace, ... | OS-disk | Krävs inte |
 
-\* (n + 1): värdbaserade SYSTEM-, TEMP-och UNDO-datatabeller. I/O-mönstret för system-och Undo-datatabeller skiljer sig från andra register utrymmen som är värdar för program data. Ingen cachelagring är det bästa alternativet för systemets prestanda och återställa tabell utrymmen.
+*(n+1): värd för tablespaces SYSTEM, TEMP och UNDO. I/O-mönstret för tabellutrymmen system och ångra skiljer sig från andra tabellutrymmen som är värdar för programdata. Ingen cachelagring är det bästa alternativet för prestanda för tabellutrymmena System och Ångra.
 
-\* oraarch: lagringspoolen är inte nödvändig från en prestanda punkt i vyn. Den kan användas för att få mer utrymme.
+* oraarch: lagring pool är inte nödvändigt ur prestandasynpunkt. Det kan användas för att få mer utrymme.
 
-Om det krävs mer IOPS rekommenderar vi att du använder Windows-lagringspooler (endast tillgängligt i Windows Server 2012 och senare) för att skapa en stor logisk enhet över flera monterade diskar. Den här metoden fören klar administrations omkostnader för att hantera disk utrymmet och hjälper dig att undvika att distribuera filer manuellt över flera monterade diskar.
+Om fler IOPS krävs rekommenderar vi att du använder Windows Storage Pools (endast tillgängligt i Windows Server 2012 och senare) för att skapa en stor logisk enhet över flera monterade diskar. Den här metoden förenklar administrationen för att hantera diskutrymmet och hjälper dig att undvika att manuellt distribuera filer över flera monterade diskar.
 
 
 #### <a name="write-accelerator"></a>Skrivningsaccelerator
-Svars tiden för virtuella datorer i Azure M-serien kan minskas med faktorer jämfört med Azure Premium Storage. Aktivera Azure-Skrivningsaccelerator för diskarna (VHD: er) baserat på Azure-Premium Storage som används för att skapa om loggfiler. Mer information finns i [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+För virtuella Azure M-seriens virtuella datorer kan svarstiden för skrivning i onlineomformulärloggarna minskas med faktorer jämfört med Azure Premium Storage. Aktivera Azure Write Accelerator för diskarna (VHDs) baserat på Azure Premium Storage som används för online-om-loggfiler. Mer information finns i [Skrivaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
-### <a name="backuprestore"></a>Säkerhets kopiering/återställning
-För säkerhets kopierings-/återställnings funktioner stöds SAP BR *-verktygen för Oracle på samma sätt som de är på Windows Server standard operativ system. Oracle Recovery Manager (RMAN) stöds också för säkerhets kopiering till disk och återställning från disk.
+### <a name="backuprestore"></a>Säkerhetskopiera/återställa
+För säkerhetskopierings-/återställningsfunktioner stöds SAP BR*Tools för Oracle på samma sätt som de finns på vanliga Windows Server-operativsystem. Oracle Recovery Manager (RMAN) stöds också för säkerhetskopior till disk och återställer från disk.
 
-Du kan också använda Azure Backup för att köra en programkonsekvent säkerhets kopiering av virtuella datorer. I artikeln [Planera infrastrukturen för säkerhets kopiering av virtuella datorer i Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) förklaras hur Azure Backup använder Windows VSS-funktionen för att köra programkonsekventa säkerhets kopieringar. De Oracle-DBMS-versioner som stöds i Azure av SAP kan utnyttja VSS-funktionen för säkerhets kopiering. Mer information finns i dokumentationen för Oracle-dokumentation [grundläggande koncept för säkerhets kopiering och återställning av databasen med VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
+Du kan också använda Azure Backup för att köra en programkonsekvent VM-säkerhetskopiering. I artikeln [Planera säkerhetskopieringsinfrastruktur för virtuella datorer i Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) beskrivs hur Azure Backup använder Windows VSS-funktionen för att köra programkonsekventa säkerhetskopior. Oracle DBMS-versionerna som stöds på Azure av SAP kan utnyttja VSS-funktionen för säkerhetskopior. Mer information finns i Oracle-dokumentationen [Grundläggande begrepp för säkerhetskopiering och återställning av databaser med VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
 
 
 ### <a name="high-availability"></a>Hög tillgänglighet
-Oracle data Guard stöds för hög tillgänglighet och katastrof återställning. För att uppnå automatisk redundans i data Guard måste du använda snabb starts växling (FSFA). Observatören (FSFA) utlöser redundansväxlingen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration.
+Oracle Data Guard stöds för hög tillgänglighet och katastrofåterställning. För att uppnå automatisk redundans i Data Guard måste du använda Snabbstarts redundans (FSFA). Observatören (FSFA) utlöser redundansen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration.
 
-Mer information om haveri beredskap för Oracle-databaser i Azure finns i [haveri beredskap för en Oracle Database 12C-databas i en Azure-miljö](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+Mer information om haveriberedskap för Oracle-databaser i Azure finns i [Haveriberedskap för en Oracle Database 12c-databas i en Azure-miljö](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 ### <a name="accelerated-networking"></a>Snabbare nätverk
-För Oracle-distributioner i Windows rekommenderar vi att du påskyndade nätverket enligt beskrivningen i [Azure accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Överväg även rekommendationer som görs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). 
-### <a name="other"></a>Övrigt
-[Överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle Database, inklusive Azures tillgänglighets uppsättningar och SAP-övervakning.
+För Oracle-distributioner i Windows rekommenderar vi starkt accelererade nätverk enligt beskrivningen i [Azure-accelererade nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Tänk också på de rekommendationer som görs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md). 
+### <a name="other"></a>Annat
+[Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md) beskriver andra viktiga begrepp relaterade till distributioner av virtuella datorer med Oracle-databas, inklusive Azure-tillgänglighetsuppsättningar och SAP-övervakning.
 
-## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Information om Oracle Database på Oracle Linux
-Oracle-programvaran stöds av Oracle för att köras på Microsoft Azure med Oracle Linux som gäst operativ system. Mer information om allmänt stöd för Windows Hyper-V och Azure finns i [vanliga frågor och svar om Azure och Oracle](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Detaljer för Oracle-databas på Oracle Linux
+Oracle-programvara stöds av Oracle för att köras på Microsoft Azure med Oracle Linux som gäst-OS. Mer information om allmän support för Windows Hyper-V och Azure finns i [vanliga frågor och svar om Azure och Oracle](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
-Det finns även stöd för det speciella scenariot SAP-program som utnyttjar Oracle-databaser. Informationen beskrivs i nästa del av dokumentet.
+Det specifika scenariot med SAP-program som utnyttjar Oracle-databaser stöds också. Detaljer diskuteras i nästa del av dokumentet.
 
-### <a name="oracle-version-support"></a>Stöd för Oracle-version
-Information om vilka Oracle-versioner och motsvarande OS-versioner som stöds för att köra SAP på Oracle på Azure Virtual Machines finns i SAP NOTE [2039619].
+### <a name="oracle-version-support"></a>Support för Oracle-versionen
+Information om vilka Oracle-versioner och motsvarande OS-versioner som stöds för att köra SAP på Oracle på virtuella Azure-datorer finns i SAP Note [2039619].
 
-Allmän information om hur du kör SAP Business Suite på Oracle finns på [sidan SAP på Oracle community](https://www.sap.com/community/topic/oracle.html).
+Allmän information om hur du kör SAP Business Suite på Oracle finns på [SAP på Oracles communitysida](https://www.sap.com/community/topic/oracle.html).
 
-### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux"></a>Konfigurations rikt linjer för Oracle för SAP-installationer i virtuella Azure-datorer i Linux
+### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux"></a>Riktlinjer för Oracle-konfiguration för SAP-installationer i virtuella Azure-datorer på Linux
 
-I enlighet med SAP-installations handböcker bör Oracle-relaterade filer inte installeras eller finnas i system driv rutiner för en virtuell dators start disk. Varierande storlekar för virtuella datorer stöder ett varierande antal anslutna diskar. Färre typer av virtuella datorer kan ha stöd för ett mindre antal anslutna diskar. 
+I enlighet med SAP-installationshandböcker bör Oracle-relaterade filer inte installeras eller placeras i systemdrivrutiner för en virtuell dators startdiskett. Varierande storlekar på virtuella datorer stöder ett varierande antal anslutna diskar. Mindre typer av virtuella datorer kan stödja ett mindre antal anslutna diskar. 
 
-I det här fallet rekommenderar vi att du installerar/hittar Oracle Home, Stage, saptrace, saparch, sapbackup, sapcheck eller sapreorg till Start disk. Dessa delar av Oracle DBMS-komponenter är inte intensiva i I/O och I/O-genomflöde. Det innebär att operativ system disken kan hantera i/O-kraven. Standard storleken på OS-disken är 30 GB. Du kan expandera start disken med hjälp av Azure Portal, PowerShell eller CLI. När Start disken har expanderats kan du lägga till ytterligare en partition för Oracle-binärfiler.
+I det här fallet rekommenderar vi att du installerar/lokaliserar Oracle hem, arrangerar, saptrace, saparch, sapbackup, sapcheck eller sapreorg för att starta disken. Dessa delar av Oracle DBMS-komponenter är inte intensiva på I/O- och I/O-dataflöde. Det innebär att OS-disken kan hantera I/O-kraven. Standardstorleken på OS-disken är 30 GB. Du kan expandera startdisken med hjälp av Azure-portalen, PowerShell eller CLI. När startdisken har utökats kan du lägga till ytterligare en partition för Oracle-binärfiler.
 
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
 
-Fil systemet för ext4, xfs eller Oracle ASM stöds för Oracle Database-filer på Azure. Alla databasfiler måste lagras i dessa fil system baserat på VHD: er eller Managed Disks. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure Managed disks](../../windows/managed-disks-overview.md).
+Filsystemen för ext4, xfs eller Oracle ASM stöds för Oracle Database-filer på Azure. Alla databasfiler måste lagras på dessa filsystem baserat på virtuella hårddiskar eller hanterade diskar. Dessa diskar är monterade på den virtuella Azure-datorn och baseras på [Azure-sidblobblagring](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure Managed Disks](../../windows/managed-disks-overview.md).
 
-För Oracle Linux UEK-kärnor krävs minst UEK version 4 för att stödja [Azure Premium-SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching).
+För Oracle Linux UEK-kärnor krävs minst UEK version 4 för att stödja [Azure premium SSD.For](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-caching)Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support Azure premium SSDs .
 
-Vi rekommenderar starkt att du använder [Azure Managed disks](../../windows/managed-disks-overview.md). Vi rekommenderar också att du använder [Azure Premium-SSD](../../windows/disks-types.md) för dina Oracle Database-distributioner.
+Vi rekommenderar starkt att du använder [Azure-hanterade diskar](../../windows/managed-disks-overview.md). Det rekommenderas också starkt att använda [Azure premium SSD:er](../../windows/disks-types.md) för dina Oracle-databasdistributioner.
 
-Nätverks enheter eller fjär resurser som Azure File Services stöds inte för Oracle Database-filer. Mer information finns i: 
+Nätverksenheter eller fjärrresurser som Azure-filtjänster stöds inte för Oracle Database-filer. Mer information finns i följande: 
 
 - [Introduktion till Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
-- [Bevara anslutningar till Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Spara anslutningar till Microsoft Azure-filer](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-Om du använder diskar som är baserade på Azure Page Blob Storage eller Managed Disks, gäller de instruktioner som gjorts i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) även för distributioner med Oracle Database.
+Om du använder diskar som baseras på Azure-sidblobblagring eller hanterade diskar gäller de satser som görs i [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md) även för distributioner med Oracle-databas.
 
- Kvoter på IOPS-dataflöde för Azure-diskar finns. Det här konceptet beskrivs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). De exakta kvoterna beror på vilken VM-typ som används. En lista över VM-typer med deras kvoter finns i [storlekar för virtuella Linux-datorer i Azure][virtual-machines-sizes-linux].
+ Det finns kvoter för IOPS-dataflöde för Azure-diskar. Det här konceptet förklaras i [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md). De exakta kvoterna beror på vilken vm-typ som används. En lista över typer av virtuella datorer med sina kvoter finns [i Storlekar för virtuella Linux-datorer i Azure][virtual-machines-sizes-linux].
 
-Information om vilka typer av virtuella Azure-datorer som stöds finns i SAP anmärkning [1928533].
+Information om vilka typer av virtuella datorer som stöds finns i SAP Note [1928533].
 
-Lägsta konfiguration:
+Minsta konfiguration:
 
-| Komponent | Disk | Cachning | Tar bort |
+| Komponent | Disk | Caching | Strippning* |
 | --- | ---| --- | --- |
-| /Oracle/\<SID >/origlogaA & mirrlogB | Premium | Inget | Krävs inte |
-| /Oracle/\<SID >/origlogaB & mirrlogA | Premium | Inget | Krävs inte |
-| /Oracle/\<SID >/sapdata1... m | Premium | Skrivskyddad | Kan användas |
-| /Oracle/\<SID >/oraarch | Standard | Inget | Krävs inte |
-| Oracle Home, saptrace,... | OS-disk | | Krävs inte |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | Inget | Krävs inte |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | Inget | Krävs inte |
+| /oracle/\<SID>/sapdata1... N | Premium | Skrivskyddad | Kan användas |
+| /oracle/\<SID>/oraarch | Standard | Inget | Krävs inte |
+| Oracle Hem, saptrace, ... | OS-disk | | Krävs inte |
 
-\* Ta bort: LVM rand eller MDADM med RAID0
+*Strippning: LVM-rand eller MDADM med RAID0
 
-Disk valet för att vara värd för Oracle: s online-återupprepnings loggar bör drivas av IOPS-krav. Det går att lagra alla sapdata1... n (register utrymmen) på en enda monterad disk så länge volymen, IOPS och data flödet uppfyller kraven. 
+Diskvalet för hosting Oracles online gör om loggar bör drivas av IOPS krav. Det är möjligt att lagra alla sapdata1... n (tablespaces) på en enda monterad disk så länge volymen, IOPS och dataflödet uppfyller kraven. 
 
-Prestanda konfiguration:
+Prestandakonfiguration:
 
-| Komponent | Disk | Cachning | Tar bort |
+| Komponent | Disk | Caching | Strippning* |
 | --- | ---| --- | --- |
-| /Oracle/\<SID >/origlogaA | Premium | Inget | Kan användas  |
-| /Oracle/\<SID >/origlogaB | Premium | Inget | Kan användas |
-| /Oracle/\<SID >/mirrlogAB | Premium | Inget | Kan användas |
-| /Oracle/\<SID >/mirrlogBA | Premium | Inget | Kan användas |
-| /Oracle/\<SID >/sapdata1... m | Premium | Skrivskyddad | Rekommenderad  |
-| /Oracle/\<SID >/sapdata (n + 1) * | Premium | Inget | Kan användas |
-| /Oracle/\<SID >/oraarch * | Premium | Inget | Krävs inte |
-| Oracle Home, saptrace,... | OS-disk | Krävs inte |
+| /oracle/\<SID>/origlogaA | Premium | Inget | Kan användas  |
+| /oracle/\<SID>/origlogaB | Premium | Inget | Kan användas |
+| /oracle/\<SID>/mirrlogAB | Premium | Inget | Kan användas |
+| /oracle/\<SID>/mirrlogBA | Premium | Inget | Kan användas |
+| /oracle/\<SID>/sapdata1... N | Premium | Skrivskyddad | Rekommenderas  |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | Inget | Kan användas |
+| /oracle/\<SID>/oraarch* | Premium | Inget | Krävs inte |
+| Oracle Hem, saptrace, ... | OS-disk | Krävs inte |
 
-\* Ta bort: LVM rand eller MDADM med RAID0
+*Strippning: LVM-rand eller MDADM med RAID0
 
-\* (n + 1): värdbaserade SYSTEM-, TEMP-och UNDO-datatabeller: I/O-mönstret för system-och Undo-datatabeller skiljer sig från andra register som är värdar för program data. Ingen cachelagring är det bästa alternativet för systemets prestanda och återställa tabell utrymmen.
+*(n+1):hosting SYSTEM,TEMP och UNDO tablespaces: I/O-mönstret för tabellutrymmen system och ångra skiljer sig från andra tabellutrymmen som är värdar för programdata. Ingen cachelagring är det bästa alternativet för prestanda för tabellutrymmena System och Ångra.
 
-\* oraarch: lagringspoolen är inte nödvändig från en prestanda punkt i vyn.
+* oraarch: lagring pool är inte nödvändigt ur prestandasynpunkt.
 
 
-Om det krävs mer IOPS rekommenderar vi att du använder LVM (Logical Volume Manager) eller MDADM för att skapa en stor logisk volym över flera monterade diskar. Mer information finns i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) gällande rikt linjer och pekare om hur man utnyttjar LVM eller MDADM. Med den här metoden kan du förenkla administrationen av disk utrymmet och hjälpa dig att undvika att distribuera filer manuellt över flera monterade diskar.
+Om fler IOPS krävs rekommenderar vi att du använder LVM (Logisk volymhanterare) eller MDADM för att skapa en stor logisk volym över flera monterade diskar. Mer information finns i [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md) när det gäller riktlinjer och pekare om hur du kan utnyttja LVM eller MDADM. Den här metoden förenklar administrationen av hanteringen av diskutrymmet och hjälper dig att undvika att manuellt distribuera filer över flera monterade diskar.
 
 
 #### <a name="write-accelerator"></a>Skrivningsaccelerator
-När du använder Azure-Skrivningsaccelerator för virtuella datorer i Azure M-serien kan svars tiderna för att skriva till online-serien minskas med faktorer jämfört med Azure Premium Storage prestanda. Aktivera Azure-Skrivningsaccelerator för diskarna (VHD: er) baserat på Azure-Premium Storage som används för att skapa om loggfiler. Mer information finns i [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+För virtuella Azure M-seriens virtuella datorer kan svarstiden för att skriva in i onlineomformulär loggarna minskas med faktorer jämfört med Azure Premium Storage-prestanda. Aktivera Azure Write Accelerator för diskarna (VHDs) baserat på Azure Premium Storage som används för online-om-loggfiler. Mer information finns i [Skrivaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
-### <a name="backuprestore"></a>Säkerhets kopiering/återställning
-För säkerhets kopierings-/återställnings funktioner stöds SAP BR *-verktygen för Oracle på samma sätt som på datorer utan operativ system och Hyper-V. Oracle Recovery Manager (RMAN) stöds också för säkerhets kopiering till disk och återställning från disk.
+### <a name="backuprestore"></a>Säkerhetskopiera/återställa
+För säkerhetskopierings-/återställningsfunktioner stöds SAP BR*Tools for Oracle på samma sätt som de finns på bar metall och Hyper-V. Oracle Recovery Manager (RMAN) stöds också för säkerhetskopior till disk och återställer från disk.
 
-Mer information om hur du kan använda Azure Backup-och återställnings tjänster för att säkerhetskopiera och återställa Oracle-databaser finns i [säkerhetskopiera och återställa en Oracle Database 12C-databas på en virtuell Azure Linux-dator](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery).
+Mer information om hur du kan använda Azure Backup and Recovery-tjänster för säkerhetskopiering och återställning av Oracle-databaser finns i [Säkerhetskopiera och återställa en Oracle Database 12c-databas på en virtuell Azure Linux-dator](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery).
 
 ### <a name="high-availability"></a>Hög tillgänglighet
-Oracle data Guard stöds för hög tillgänglighet och katastrof återställning. För att uppnå automatisk redundans i data Guard måste du använda snabb starts växling (FSFA). FSFA (observatörs funktioner) utlöser redundansväxlingen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration. Mer information finns i [implementera Oracle data Guard på en virtuell Azure Linux-dator](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
+Oracle Data Guard stöds för hög tillgänglighet och katastrofåterställning. För att uppnå automatisk redundans i Data Guard måste du använda Snabbstarts redundans (FSFA). Observatörsfunktionen (FSFA) utlöser redundansen. Om du inte använder FSFA kan du bara använda en manuell redundanskonfiguration. Mer information finns i [Implementera Oracle Data Guard på en virtuell Azure Linux-dator](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
 
 
-Katastrof återställnings aspekter för Oracle-databaser i Azure presenteras i artikeln [haveri beredskap för en Oracle Database 12C-databas i en Azure-miljö](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
+Katastrofåterställningsaspekter för Oracle-databaser i Azure presenteras i artikeln [Disaster recovery for an Oracle Database 12c database in an Azure environment](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 ### <a name="accelerated-networking"></a>Snabbare nätverk
-Stöd för Azure-accelererat nätverk i Oracle Linux medföljer Oracle Linux 7 uppdatering 5 (Oracle Linux 7,5). Om du inte kan uppgradera till den senaste versionen av Oracle Linux 7,5 kan det finnas en lösning med hjälp av RHCK (RedHat Compatible kernel) i stället för Oracle UEK-kärnan. 
+Stöd för Azure Accelerated Networking i Oracle Linux tillhandahålls med Oracle Linux 7 Update 5 (Oracle Linux 7.5). Om du inte kan uppgradera till den senaste Oracle Linux 7.5-versionen kan det finnas en lösning med hjälp av RedHat Compatible Kernel (RHCK) i stället för Oracle UEK-kärnan. 
 
-Användning av RHEL-kärnan i Oracle Linux stöds enligt SAP Obs!- [#1565179](https://launchpad.support.sap.com/#/notes/1565179). För Azure-accelererade nätverk måste den minsta RHCKL kernel-versionen vara 3.10.0-862.13.1. el7. Om du använder UEK-kärnan i Oracle Linux tillsammans med Azure- [accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)måste du använda Oracle UEK kernel version 5.
+Att använda RHEL-kärnan i Oracle Linux stöds enligt SAP Note [#1565179](https://launchpad.support.sap.com/#/notes/1565179). För Azure Accelerated Networking måste den minsta RHCKL-kärnversionen vara 3.10.0-862.13.1.el7. Om du använder UEK-kärnan i Oracle Linux tillsammans med [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)måste du använda Oracle UEK kernel version 5.
 
 Om du distribuerar virtuella datorer från en avbildning som inte baseras på Azure Marketplace måste du kopiera ytterligare konfigurationsfiler till den virtuella datorn genom att köra följande kod: 
 <pre><code># Copy settings from GitHub to the correct place in the VM
@@ -523,5 +523,5 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Övrigt
-[Överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle Database, inklusive Azures tillgänglighets uppsättningar och SAP-övervakning.
+### <a name="other"></a>Annat
+[Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](dbms_guide_general.md) beskriver andra viktiga begrepp relaterade till distributioner av virtuella datorer med Oracle-databas, inklusive Azure-tillgänglighetsuppsättningar och SAP-övervakning.

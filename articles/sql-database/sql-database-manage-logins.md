@@ -1,6 +1,6 @@
 ---
-title: Inloggningar och användare
-description: Lär dig mer om hur Azure SQL Database och Azure Synapse Analytics autentiserar användare för åtkomst med hjälp av inloggningar och användar konton och använder roller och explicita behörigheter för att auktorisera inloggningar och användare för att utföra åtgärder i databaser samt på server nivå.
+title: Auktorisera åtkomst till server och databas med hjälp av inloggningar och användarkonton
+description: Lär dig mer om hur Azure SQL Database och Azure Synapse Analytics autentiserar användare för åtkomst med hjälp av inloggningar och användarkonton. Lär dig också hur du databasroller och explicita behörigheter för att auktorisera inloggningar och användare att utföra åtgärder och frågedata.
 keywords: sql database-säkerhet, hantering av databassäkerhet, inloggningssäkerhet, databassäkerhet, databasåtkomst
 services: sql-database
 ms.service: sql-database
@@ -11,144 +11,154 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/12/2020
-ms.openlocfilehash: 7c70d5dd19ec0495fe09152b5653363ad369347c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/23/2020
+ms.openlocfilehash: 98c15fe11b64e8c177e60a2ea1eb7c50eaf69353
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79268917"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124824"
 ---
-# <a name="granting-database-access-and-authorization-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Bevilja databas åtkomst och auktorisering till SQL Database och Azure Synapse Analytics med hjälp av inloggningar och användar konton
+# <a name="authorizing-database-access-to-authenticated-users-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Auktorisera databasåtkomst till autentiserade användare till SQL Database och Azure Synapse Analytics med hjälp av inloggningar och användarkonton
 
-Autentiserad åtkomst till databaser i Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) hanteras med hjälp av inloggningar och användar konton. [**Autentisering**](sql-database-security-overview.md#authentication) är en process för att bevisa att användaren är den som han eller hon ansöker.
+I den här artikeln får du lära dig mer om:
 
-- En inloggning är ett enskilt konto i huvud databasen
-- Ett användar konto är ett enskilt konto i valfri databas och behöver inte associeras med en inloggning
+- Alternativ för att konfigurera Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) för att göra det möjligt för användare att utföra administrativa uppgifter och komma åt data som lagras i dessa databaser.
+- Åtkomst- och auktoriseringskonfigurationen efter att först ha skapat en ny Azure SQL-databas
+- Så här lägger du till inloggningar och användarkonton i huvuddatabasen och användarkonton och ger sedan dessa konton administratörsbehörighet
+- Så här lägger du till användarkonton i användardatabaser, antingen kopplade till inloggningar eller som inneslutna användarkonton
+- Konfigurera användarkonton med behörigheter i användardatabaser med hjälp av databasroller och explicita behörigheter
 
 > [!IMPORTANT]
-> Databaser i Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) kallas kollektivt i resten av den här artikeln som Azure SQL Database (för enkelhetens skull).
+> Databaser i Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) kallas gemensamt i resten av den här artikeln som antingen databaser eller som Azure SQL (för enkelhetens skull).
 
-En databas användare ansluter till en Azure SQL-databas med ett användar konto och autentiseras med hjälp av någon av följande två metoder:
+## <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 
-- [SQL-autentisering](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication), som består av ett inloggnings namn eller användar konto namn och tillhör ande lösen ord som lagras i Azure SQL Database.
-- [Azure Active Directory autentisering](sql-database-aad-authentication.md), som använder inloggnings uppgifter som lagras i Azure Active Directory
+[**Autentisering**](sql-database-security-overview.md#authentication) är processen att bevisa att användaren är den de påstår sig vara. En användare ansluter till en databas med ett användarkonto.
+När en användare försöker ansluta till en databas tillhandahåller de ett användarkonto och en autentiseringsinformation. Användaren autentiseras med någon av följande två autentiseringsmetoder:
 
-Behörighet att komma åt data och utföra olika åtgärder i Azure SQL Database hanteras med databas roller och explicita behörigheter. [**Auktorisering**](sql-database-security-overview.md#authorization) syftar på de behörigheter som tilldelats en användare inom en Azure SQL Database och avgör vad användaren får göra. Auktoriseringen styrs av ditt användar kontos databas [roll medlemskap](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) och [behörigheter på objekt nivå](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Ett bra tips är att du ska ge användare så få behörigheter som möjligt.
+- [SQL-autentisering](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
-I den här artikeln lär du dig att:
+  Med den här autentiseringsmetoden skickar användaren ett användarkontonamn och associerat lösenord för att upprätta en anslutning. Det här lösenordet lagras i huvuddatabasen för användarkonton som är länkade till en inloggning eller lagras i databasen som innehåller användarkontot för användarkonton som inte är länkade till en inloggning.
+- [Azure Active Directory-autentisering](sql-database-aad-authentication.md)
 
-- Åtkomst-och auktoriserings konfigurationen efter att en ny Azure SQL Database har skapats
-- Hur du lägger till inloggningar och användar konton i huvud databasen och användar kontona och sedan tilldelar de här kontona administratörs behörighet
-- Hur du lägger till användar konton i användar databaser, antingen kopplade till inloggningar eller som inneslutna användar konton
-- Konfigurera användar konton med behörigheter i användar databaser genom att använda databas roller och explicita behörigheter
+  Med den här autentiseringsmetoden skickar användaren ett användarkontonamn och begär att tjänsten använder den autentiseringsuppgifter som lagras i Azure Active Directory.
 
-## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Befintliga inloggningar och användar konton när du har skapat en ny databas
+**Inloggningar och användare**: I Azure SQL kan ett användarkonto i en databas associeras med en inloggning som lagras i huvuddatabasen eller vara ett användarnamn som lagras i en enskild databas.
 
-När du skapar din första Azure SQL Database-distribution anger du en Administratörs inloggning och ett kopplat lösen ord för inloggningen. Det här administratörs kontot kallas **Server administratör**. Följande konfiguration av inloggningar och användare i huvud databasen och användar databaser sker under distributionen:
+- En **inloggning** är ett enskilt konto i huvuddatabasen, till vilket ett användarkonto i en eller flera databaser kan länkas till. Med en inloggning lagras autentiseringsuppgifterna för användarkontot med inloggningen.
+- Ett **användarkonto** är ett enskilt konto i en databas som kan vara men inte behöver länkas till en inloggning. Med ett användarkonto som inte är länkat till en inloggning lagras autentiseringsuppgifterna med användarkontot.
 
-- En SQL-inloggning med administratörs behörighet skapas med det inloggnings namn som du har angett. En [inloggning](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) är ett enskilt användar konto för inloggning till SQL Database.
-- Den här inloggningen beviljas fullständig administratörs behörighet för alla databaser som en [huvud server nivå](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). Den här inloggningen har alla tillgängliga behörigheter inom SQL Database och kan inte begränsas. I en hanterad instans läggs den här inloggningen till i den [fasta Server rollen sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (den här rollen finns inte med en eller flera databaser i en pool).
-- Ett [användar konto](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) med namnet `dbo` skapas för den här inloggningen i varje användar databas. [Dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) -användaren har alla databas behörigheter i databasen och är mappad till den `db_owner` fasta databas rollen. Ytterligare fasta databas roller beskrivs längre fram i den här artikeln.
+[**Auktorisering**](sql-database-security-overview.md#authorization) för åtkomst till data och utföra olika åtgärder hanteras med hjälp av databasroller och explicita behörigheter. Auktorisering refererar till de behörigheter som tilldelats en användare och avgör vad användaren får göra. Auktorisering kontrolleras av [användarkontots databasrollmedlemskap](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) och [behörigheter på objektnivå](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Ett bra tips är att du ska ge användare så få behörigheter som möjligt.
 
-Om du vill identifiera administratörs kontona för din SQL-Server öppnar du Azure Portal och navigerar till fliken **Egenskaper** för din SQL server eller SQL Database.
+## <a name="existing-logins-and-user-accounts-after-creating-a-new-database"></a>Befintliga inloggningar och användarkonton när du har skapat en ny databas
+
+När du skapar din första Azure SQL-distribution anger du en administratörsinloggning och ett associerat lösenord för den inloggningen. Det här administrativa kontot kallas **Serveradministratör**. Följande konfiguration av inloggningar och användare i huvud- och användardatabaserna sker under distributionen:
+
+- En SQL-inloggning med administratörsbehörighet skapas med det inloggningsnamn du angav. En [inloggning](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) är ett enskilt användarkonton för att logga in på SQL Database.
+- Den här inloggningen beviljas fullständig administratörsbehörighet för alla databaser som [huvudnamn på servernivå](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). Den här inloggningen har alla tillgängliga behörigheter i SQL Database och kan inte begränsas. I en hanterad instans läggs den här inloggningen till i [rollen fast server i sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (den här rollen finns inte med enstaka eller poolade databaser).
+- Ett [användarkonto](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) `dbo` som anropas skapas för den här inloggningen i varje användardatabas. [Dbo-användaren](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) har alla databasbehörigheter i databasen och `db_owner` mappas till den fasta databasrollen. Ytterligare fasta databasroller beskrivs senare i den här artikeln.
+
+Om du vill identifiera administratörskontona för en databas öppnar du Azure-portalen och navigerar till fliken **Egenskaper** för servern eller den hanterade instansen.
 
 ![SQL-serveradministratörer](media/sql-database-manage-logins/sql-admins.png)
 
+![SQL-serveradministratörer](media/sql-database-manage-logins/sql-admins2.png)
+
 > [!IMPORTANT]
-> Inloggnings namnet för administratören kan inte ändras efter att det har skapats. Om du vill återställa lösen ordet för den logiska Server administratören går du till [Azure Portal](https://portal.azure.com), klickar på **SQL-servrar**, väljer servern i listan och klickar sedan på **Återställ lösen ord**. Om du vill återställa lösen ordet för en hanterad instans Server går du till Azure Portal, klickar på instansen och sedan på **Återställ lösen ord**. Du kan också använda PowerShell eller Azure CLI.
+> Det går inte att ändra administratörsinloggningsnamnet när det har skapats. Om du vill återställa lösenordet för den logiska serveradministratören går du till [Azure-portalen,](https://portal.azure.com)klickar på **SQL-servrar,** väljer servern i listan och klickar sedan på **Återställ lösenord**. Om du vill återställa lösenordet för en server med hanterade instanser går du till Azure-portalen, klickar på instansen och klickar på **Återställ lösenord**. Du kan också använda PowerShell eller Azure CLI.
 
-## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Skapa ytterligare inloggningar och användare med administratörs behörighet
+## <a name="create-additional-logins-and-users-having-administrative-permissions"></a>Skapa ytterligare inloggningar och användare med administratörsbehörighet
 
-I det här läget konfigureras SQL Database bara för åtkomst med hjälp av en enda SQL-inloggning och ett användar konto. Om du vill skapa ytterligare inloggningar med fullständig eller delvis administratörs behörighet har du följande alternativ (beroende på ditt distributions läge):
+Nu är din Azure SQL-instans endast konfigurerad för åtkomst med hjälp av en enda SQL-inloggning och användarkonto. Om du vill skapa ytterligare inloggningar med fullständig eller partiell administratörsbehörighet har du följande alternativ (beroende på distributionsläget):
 
-- **Skapa ett Azure Active Directory administratörs konto med fullständig administratörs behörighet**
+- **Skapa ett Azure Active Directory-administratörskonto med fullständig administratörsbehörighet**
 
-  Aktivera Azure Active Directory autentisering och skapa en Azure AD-Administratörs inloggning. Ett Azure Active Directory konto kan konfigureras som administratör av SQL Database-distributionen med fullständig administratörs behörighet. Det här kontot kan vara ett individuellt konto eller ett konto för säkerhets grupp. En Azure AD-administratör **måste** konfigureras om du vill använda Azure AD-konton för att ansluta till SQL Database. Detaljerad information om hur du aktiverar Azure AD-autentisering för alla SQL Database distributions typer finns i följande artiklar:
+  Aktivera Azure Active Directory-autentisering och skapa en Azure AD-administratörsinloggning. Ett Azure Active Directory-konto kan konfigureras som administratör för SQL Database-distributionen med fullständiga administratörsbehörigheter. Det här kontot kan vara antingen ett enskilt konto eller ett säkerhetsgruppkonto. En Azure AD-administratör **måste** konfigureras om du vill använda Azure AD-konton för att ansluta till SQL Database. Detaljerad information om hur du aktiverar Azure AD-autentisering för alla distributionstyper i SQL Database finns i följande artiklar:
 
-  - [Använd Azure Active Directory autentisering för autentisering med SQL](sql-database-aad-authentication.md)
+  - [Använda Azure Active Directory-autentisering för autentisering med SQL](sql-database-aad-authentication.md)
   - [Konfigurera och hantera Azure Active Directory-autentisering med SQL](sql-database-aad-authentication-configure.md)
 
-- **I en hanterad instans distribution skapar du SQL-inloggningar med fullständig administratörs behörighet**
+- **Skapa SQL-inloggningar med fullständig administratörsbehörighet i en distribution av hanterade instanser**
 
-  - Skapa ytterligare en SQL Server inloggning i den hanterade instansen
-  - Lägg till inloggningen till den [fasta Server rollen sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) med hjälp av instruktionen [Alter Server Role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) . Den här inloggningen kommer att ha fullständig administratörs behörighet.
-  - Du kan också skapa en [Azure AD-inloggning](sql-database-aad-authentication-configure.md?tabs=azure-powershell#new-azure-ad-admin-functionality-for-mi) med hjälp av syntaxen för att <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning</a> .
+  - Skapa ytterligare en SQL Server-inloggning i den hanterade instansen
+  - Lägg till inloggningen till [sysadmin-rollen med](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) hjälp av [UTTRYCKET ALTER SERVER ROLE.](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) Den här inloggningen har fullständiga administratörsbehörighet.
+  - Du kan också skapa en [Azure AD-inloggning](sql-database-aad-authentication-configure.md?tabs=azure-powershell#new-azure-ad-admin-functionality-for-mi) med hjälp av syntaxen <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">SKAPA INLOGGNING.</a>
 
-- **Skapa SQL-inloggningar med begränsade administrativa behörigheter i en enskild eller pool distribution**
+- **Skapa SQL-inloggningar med begränsad administratörsbehörighet i en enda eller poolad distribution**
 
-  - Skapa ytterligare en SQL-inloggning i huvud databasen för en databas distribution med en enskild databas eller en hanterad instans distribution
-  - Skapa ett användar konto i huvud databasen som är associerad med den nya inloggningen
-  - Lägg till användar kontot i `dbmanager`, `loginmanager`s rollen eller båda i `master`-databasen med hjälp av instruktionen [Alter Server Role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (för Azure Synapse Analytics använder du [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) -instruktionen).
+  - Skapa ytterligare en SQL-inloggning i huvuddatabasen för en enda eller poolad databasdistribution eller en distribution av hanterade instanser
+  - Skapa ett användarkonto i huvuddatabasen som är associerad med den här nya inloggningen
+  - Lägg till användarkontot `dbmanager`i `loginmanager` rollen , eller `master` båda i databasen med hjälp av [ALTER SERVER ROLE-satsen](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (för Azure Synapse Analytics använder du sp_addrolemember-satsen). [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)
 
   > [!NOTE]
-  > `dbmanager`-och `loginmanager`-roller gäller **inte** för distributioner av hanterade instanser.
+  > `dbmanager`och `loginmanager` roller gäller **inte** hanterade instansdistributioner.
 
-  Medlemmar i dessa [särskilda huvud databas roller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) för enskilda databaser eller databaser i pooler gör det möjligt för användarna att skapa och hantera databaser eller skapa och hantera inloggningar. I databaser som skapats av en användare som är medlem i rollen `dbmanager`, mappas medlemmen till den `db_owner` fasta databas rollen och kan logga in på och hantera databasen med hjälp av `dbo` användar kontot. De här rollerna har inga uttryckliga behörigheter utanför Master-databasen.
+  Medlemmar i dessa [särskilda huvuddatabasroller](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) för enskilda eller poolade databaser gör det möjligt för användarna att ha behörighet att skapa och hantera databaser eller att skapa och hantera inloggningar. I databaser som skapats av en `dbmanager` användare som är medlem i `db_owner` rollen mappas medlemmen till den `dbo` fasta databasrollen och kan logga in på och hantera databasen med hjälp av användarkontot. Dessa roller har inga explicita behörigheter utanför huvuddatabasen.
 
   > [!IMPORTANT]
-  > Du kan inte skapa ytterligare en SQL-inloggning med fullständig administratörs behörighet i en databas med en eller flera databaser.
+  > Du kan inte skapa ytterligare en SQL-inloggning med fullständiga administratörsbehörigheter i en enda eller poolad databas.
 
-## <a name="create-accounts-for-non-administrator-users"></a>Skapa konton för användare som inte är administratörer
+## <a name="create-accounts-for-non-administrator-users"></a>Skapa konton för användare som inte är administratörsanvändare
 
-Du kan skapa konton för icke-administratörer på något av två sätt:
+Du kan skapa konton för icke-administrativa användare med någon av två metoder:
 
 - **Skapa en inloggning**
 
-  Skapa en SQL-inloggning i huvud databasen. Skapa sedan ett användar konto i varje databas som användaren behöver åtkomst till och koppla användar kontot till den inloggningen. Den här metoden rekommenderas när användaren måste ha åtkomst till flera databaser och du vill synkronisera lösen orden. Den här metoden har dock komplicerade metoder när de används med geo-replikering eftersom inloggningen måste skapas på både den primära servern och de sekundära servrarna. Mer information finns i [Konfigurera och hantera Azure SQL Database säkerhet för geo-återställning eller redundans](sql-database-geo-replication-security-config.md).
-- **Skapa ett användar konto**
+  Skapa en SQL-inloggning i huvuddatabasen. Skapa sedan ett användarkonto i varje databas som användaren behöver åtkomst till och koppla användarkontot till den inloggningen. Den här metoden är att föredra när användaren måste komma åt flera databaser och du vill behålla lösenorden synkroniserade. Den här metoden har dock komplexitet när den används med geo-replikering eftersom inloggningen måste skapas på både den primära servern och de sekundära servrarna. Mer information finns i [Konfigurera och hantera Azure SQL Database-säkerhet för geo-återställning eller redundans](sql-database-geo-replication-security-config.md).
+- **Skapa ett användarkonto**
 
-  Skapa ett användar konto i databasen som en användare behöver åtkomst till (kallas även för en [innesluten användare](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+  Skapa ett användarkonto i databasen som en användare behöver åtkomst till (kallas även en [innesluten användare).](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)
 
-  - Med en databas med en eller flera databaser kan du alltid skapa den här typen av användar konto.
-  - Med en hanterad instans databas som inte stöder [Azure AD server-huvudobjekt](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)kan du bara skapa den här typen av användar konto i en [innesluten databas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Med hanterad instans som stöder [Azure AD server-huvudobjekt](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)kan du skapa användar konton för att autentisera till den hanterade instansen utan att databas användare måste skapas som en innesluten databas användare.
+  - Med en enda eller poolad databas kan du alltid skapa den här typen av användarkonto.
+  - Med en hanterad instansdatabas som inte stöder [Azure AD-serverhuvudnamn](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)kan du bara skapa den här typen av användarkonto i en [innesluten databas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Med hanterad instans som stöder [Azure AD-serverhuvudnamn](sql-database-aad-authentication-configure.md?tabs=azure-powershell#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)kan du skapa användarkonton för att autentisera till den hanterade instansen utan att databasanvändare behöver skapas som en innesluten databasanvändare.
 
-  Med den här metoden lagras informationen om användarautentisering i varje databas och replikeras till geo-replikerade databaser automatiskt. Men om samma konto finns i flera databaser och du använder SQL-autentisering måste du synkronisera lösen orden manuellt. Om en användare har ett konto i olika databaser med olika lösen ord, kan det dessutom bli problem med att komma ihåg lösen orden.
+  Med den här metoden lagras användarautentiseringsinformationen i varje databas och replikeras automatiskt till geo-replikerade databaser. Om samma konto finns i flera databaser och du använder SQL-autentisering måste du behålla lösenorden synkroniserade manuellt. Om en användare har ett konto i olika databaser med olika lösenord kan det dessutom bli ett problem att komma ihåg dessa lösenord.
 
 > [!IMPORTANT]
-> Om du vill skapa inneslutna användare som är mappade till Azure AD-identiteter måste du vara inloggad med ett Azure AD-konto som är en administratör i SQL Database. I en hanterad instans kan en SQL-inloggning med `sysadmin` behörigheter också skapa en Azure AD-inloggning eller användare.
+> Om du vill skapa inneslutna användare som mappas till Azure AD-identiteter måste du vara inloggad med ett Azure AD-konto som är administratör i SQL-databasen. I hanterad instans kan `sysadmin` en SQL-inloggning med behörigheter också skapa en Azure AD-inloggning eller användare.
 
-Exempel som visar hur du skapar inloggningar och användare finns i:
+Exempel på hur du skapar inloggningar och användare finns i:
 
-- [Skapa inloggning för en eller flera databaser i en pool](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
-- [Skapa inloggning för hanterad instans databas](https://docs.microsoft.com/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
-- [Skapa inloggning för Azure Synapse Analytics-databasen](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
+- [Skapa inloggning för enstaka eller poolade databaser](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1)
+- [Skapa inloggning för databas med hanterade instanser](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current#examples-2)
+- [Skapa inloggning för Azure Synapse Analytics-databas](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azure-sqldw-latest#examples-3)
 - [Skapa användare](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql#examples)
-- [Skapa Azure AD-inkluderade användare](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
+- [Skapa Azure AD-inneslutna användare](sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)
 
 > [!TIP]
-> En säkerhets kurs som innehåller information om hur du skapar SQL Server en innesluten användare i en databas med en eller flera databaser finns i [Självstudier: skydda en databas med en eller flera databaser](sql-database-security-tutorial.md).
+> En säkerhetsstudiekurs som innehåller hur SQL Server skapas som användare i en enda eller poolad databas finns i [Självstudiekurs: Skydda en enda eller poolad databas](sql-database-security-tutorial.md).
 
-## <a name="using-fixed-and-custom-database-roles"></a>Använda fasta och anpassade databas roller
+## <a name="using-fixed-and-custom-database-roles"></a>Använda fasta och anpassade databasroller
 
-När du har skapat ett användar konto i en databas, antingen baserat på en inloggning eller som en innesluten användare, kan du ge användaren behörighet att utföra olika åtgärder och komma åt data i en viss databas. Du kan använda följande metoder för att auktorisera åtkomst:
+När du har skapat ett användarkonto i en databas, antingen baserat på en inloggning eller som en innesluten användare, kan du auktorisera användaren att utföra olika åtgärder och komma åt data i en viss databas. Du kan använda följande metoder för att auktorisera åtkomst:
 
-- **Fasta databas roller**
+- **Fasta databasroller**
 
-  Lägg till användar kontot till en [fast databas roll](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles). Det finns 9 fasta databas roller, var och en med en definierad uppsättning behörigheter. De vanligaste fasta databas rollerna är: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**och **db_denydatareader**. **db_owner** används ofta för att endast ge fullständig behörighet till några användare. De andra fasta databasrollerna är användbara för att snabbt få en enkel databas i utveckling, men de rekommenderas inte för de flesta produktionsdatabaserna. **Db_datareader** den fasta databas rollen ger till exempel Läs behörighet till alla tabeller i databasen, vilket är mer än vad som är absolut nödvändigt.
+  Lägg till användarkontot i en [fast databasroll](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles). Det finns 9 fasta databasroller, var och en med en definierad uppsättning behörigheter. De vanligaste fasta databasrollerna är: **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**och **db_denydatareader**. **db_owner** används ofta för att endast ge fullständig behörighet till några användare. De andra fasta databasrollerna är användbara för att snabbt få en enkel databas i utveckling, men de rekommenderas inte för de flesta produktionsdatabaserna. Den **db_datareader** fasta databasrollen ger till exempel läsåtkomst till varje tabell i databasen, vilket är mer än vad som är absolut nödvändigt.
 
-  - Så här lägger du till en användare till en fast databas roll:
+  - Så här lägger du till en användare i en fast databasroll:
 
-    - Använd instruktionen [Alter Role](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) i Azure SQL Database. Exempel finns i [ändra roll exempel](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql#examples)
-    - Azure Synapse Analytics använder du [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) -instruktionen. Exempel finns i [sp_addrolemember exempel](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
+    - Använd [uttrycket ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) i Azure SQL Database. Exempel på exempel finns i [EXEMPEL PÅ ÄNDRA ROLL](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql#examples)
+    - Azure Synapse Analytics använder du sp_addrolemember-satsen. [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) Exempel på finns [i sp_addrolemember exempel](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql).
 
-- **Anpassad databas roll**
+- **Anpassad databasroll**
 
-  Skapa en anpassad databas roll med instruktionen [skapa roll](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql) . Med en anpassad roll kan du skapa egna användardefinierade databas roller och samtidigt ge varje roll minst de behörigheter som krävs för affärs behovet. Du kan sedan lägga till användare i den anpassade rollen. När en användare är medlem i flera roller sammanställs behörigheterna för alla.
+  Skapa en anpassad databasroll med hjälp av [CREATE ROLE-satsen.](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql) Med en anpassad roll kan du skapa egna användardefinierade databasroller och noggrant ge varje roll de lägsta behörigheter som krävs för affärsbehovet. Du kan sedan lägga till användare i den anpassade rollen. När en användare är medlem i flera roller sammanställs behörigheterna för alla.
 - **Bevilja behörigheter direkt**
 
-  Bevilja användar kontots [behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) direkt. Det finns över 100 behörigheter som individuellt kan beviljas eller nekas i SQL Database. Många av de här behörigheterna är kapslade. Till exempel inkluderar `UPDATE`-behörighet på ett schema `UPDATE`-behörighet för alla tabeller i schemat. Som i de flesta andra behörighetssystem åsidosätter ett nekande av en behörighet en beviljad. På grund av den kapslade karaktären och antalet behörigheter kan det krävas noggranna studier för att designa ett behörighetssystem som korrekt skyddar databasen. Börja med listan över behörigheter på [Behörigheter (Databasmotor)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) och granska den [stora bilden](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) med behörigheter.
+  Bevilja [användarkontobehörigheterna](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) direkt. Det finns över 100 behörigheter som individuellt kan beviljas eller nekas i SQL Database. Många av de här behörigheterna är kapslade. Till exempel inkluderar `UPDATE`-behörighet på ett schema `UPDATE`-behörighet för alla tabeller i schemat. Som i de flesta andra behörighetssystem åsidosätter ett nekande av en behörighet en beviljad. På grund av den kapslade karaktären och antalet behörigheter kan det krävas noggranna studier för att designa ett behörighetssystem som korrekt skyddar databasen. Börja med listan över behörigheter på [Behörigheter (Databasmotor)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) och granska den [stora bilden](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) med behörigheter.
 
 ## <a name="using-groups"></a>Använda grupper
 
-Effektiv åtkomst hantering använder behörigheter som tilldelats Active Directory säkerhets grupper och fasta eller anpassade roller i stället för enskilda användare.
+Effektiv åtkomsthantering använder behörigheter som tilldelats Active Directory-säkerhetsgrupper och fasta eller anpassade roller i stället för för enskilda användare.
 
-- När du använder Azure Active Directory autentisering ska du ange Azure Active Directory användare i en Azure Active Directory säkerhets grupp. Skapa en oberoende databasanvändare för gruppen. Placera en eller flera databas användare i en anpassad databas roll med vissa behörigheter som är lämpliga för den gruppen av användare.
+- När du använder Azure Active Directory-autentisering placerar du Azure Active Directory-användare i en Azure Active Directory-säkerhetsgrupp. Skapa en oberoende databasanvändare för gruppen. Placera en eller flera databasanvändare i en anpassad databasroll med specifika behörigheter som är lämpliga för den gruppen av användare.
 
-- När du använder SQL-autentisering skapar du inneslutna databas användare i databasen. Placera en eller flera databas användare i en anpassad databas roll med vissa behörigheter som är lämpliga för den gruppen av användare.
+- När du använder SQL-autentisering, skapa innehöll databasanvändare i databasen. Placera en eller flera databasanvändare i en anpassad databasroll med specifika behörigheter som är lämpliga för den gruppen av användare.
 
   > [!NOTE]
-  > Du kan också använda grupper för icke-inneslutna databas användare.
+  > Du kan också använda grupper för icke-inneslutna databasanvändare.
 
 Du bör bekanta dig med följande funktioner som kan användas för att begränsa eller utöka behörigheter:
 

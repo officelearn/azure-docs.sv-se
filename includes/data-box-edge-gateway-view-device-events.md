@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: 0d47137e3149563903d4adcaaf34e72ddad043f7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187792"
 ---
-Vidta följande steg i Azure portal för att visa en enhetshändelse.
+Gör följande i Azure-portalen för att visa en enhetshändelse.
 
-1. I Azure-portalen går du till din Data Box-Edge / Data Box Gateway-resursen och gå sedan till **övervakning > enhetshändelser**.
-2. Välj en händelse och visa mer information. Vidta lämpliga åtgärder att lösa aviseringstillståndet.
+1. Gå till resursen Data Box Edge/ Data Box Gateway i Azure-portalen och gå sedan till **Övervakning > enhetshändelser**.
+2. Välj en händelse och visa aviseringsinformationen. Vidta lämpliga åtgärder för att lösa varningsvillkoret.
 
-    ![Välj händelse och visa information](media/data-box-edge-gateway-view-device-events/view-device-events.png)
+    ![Välj händelse- och visningsinformation](media/data-box-edge-gateway-view-device-events/view-device-events.png)

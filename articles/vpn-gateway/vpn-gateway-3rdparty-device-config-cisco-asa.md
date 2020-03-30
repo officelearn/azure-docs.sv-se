@@ -1,6 +1,6 @@
 ---
-title: Exempel på konfiguration för anslutning av Cisco ASA-enheter till Azure VPN-gatewayer
-description: Den här artikeln innehåller en exempel konfiguration för att ansluta Cisco ASA-enheter till Azure VPN-gatewayer.
+title: Exempelkonfiguration för anslutning av Cisco ASA-enheter till Azure VPN-gateways
+description: Den här artikeln innehåller en exempelkonfiguration för anslutning av Cisco ASA-enheter till Azure VPN-gateways.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
@@ -8,116 +8,116 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75778090"
 ---
-# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempel på konfiguration: Cisco ASA-enhet (IKEv2/No BGP)
-Den här artikeln innehåller exempel på konfigurationer för att ansluta Cisco adaptiv Security-enheter (ASA) till Azure VPN-gatewayer. Exemplet gäller Cisco ASA-enheter som kör IKEv2 utan Border Gateway Protocol (BGP). 
+# <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exempelkonfiguration: Cisco ASA-enhet (IKEv2/no BGP)
+Den här artikeln innehåller exempelkonfigurationer för anslutning av Cisco Adaptive Security Appliance (ASA) enheter till Azure VPN-gateways. Exemplet gäller Cisco ASA-enheter som kör IKEv2 utan BGP (Border Gateway Protocol). 
 
-## <a name="device-at-a-glance"></a>En snabb enhet
+## <a name="device-at-a-glance"></a>Enheten i korthet
 
 |                        |                                   |
 | ---                    | ---                               |
-| Enhets leverantör          | Cisco                             |
+| Enhetsleverantör          | Cisco                             |
 | Enhetsmodell           | ASA                               |
-| Mål version         | 8,4 och senare                     |
+| Målversion         | 8.4 och senare                     |
 | Testad modell           | ASA 5505                          |
 | Testad version         | 9.2                               |
 | IKE-version            | IKEv2                             |
 | BGP                    | Inga                                |
-| Azure VPN gateway-typ | Routning-baserad VPN-gateway           |
+| Azure VPN-gatewaytyp | Ruttbaserad VPN-gateway           |
 |                        |                                   |
 
 > [!NOTE]
-> Exempel konfigurationen ansluter en Cisco ASA-enhet till en Azure **Route-baserad** VPN-gateway. Anslutningen använder en anpassad IPsec/IKE-princip med alternativet **UsePolicyBasedTrafficSelectors** enligt beskrivningen i [den här artikeln](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+> Exempelkonfigurationen ansluter en Cisco ASA-enhet till en **Azure-dirigerarbaserad VPN-gateway.** Anslutningen använder en anpassad IPsec/IKE-princip med alternativet **UsePolicyBasedTrafficSelectors,** enligt beskrivningen i [den här artikeln](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 >
-> Exemplet kräver att ASA-enheter använder **IKEv2** -principen med åtkomst listbaserade konfigurationer, inte VTI-baserade. Kontakta din VPN-enhets specifikationer för att kontrol lera att IKEv2-principen stöds på dina lokala VPN-enheter.
+> Exemplet kräver att ASA-enheter använder **IKEv2-principen** med åtkomstlistebaserade konfigurationer, inte VTI-baserade. Kontakta dina SPECIFIKATIONER för VPN-enhetsleverantörer för att kontrollera att IKEv2-principen stöds på dina lokala VPN-enheter.
 
 
-## <a name="vpn-device-requirements"></a>Krav för VPN-enhet
-Azure VPN-gatewayer använder standard-IPsec/IKE-protokollsviten för att upprätta VPN-tunnlar för plats-till-plats (S2S). De detaljerade parametrarna för IPsec/IKE-protokollet och standardkrypteringsalgoritmerna för Azure VPN-gatewayer finns i [om VPN-enheter](vpn-gateway-about-vpn-devices.md).
+## <a name="vpn-device-requirements"></a>Krav på VPN-enhet
+Azure VPN-gateways använder standardprotokollpaketen för IPsec/IKE för att upprätta S2S-tunnlar (Site-to-Site). Detaljerade IPsec/IKE-protokollparametrar och standardkryptografiska algoritmer för Azure VPN-gateways finns i [Om VPN-enheter](vpn-gateway-about-vpn-devices.md).
 
 > [!NOTE]
-> Du kan också ange en exakt kombination av krypteringsalgoritmer och nyckel styrkor för en speciell anslutning, enligt beskrivningen i [om kryptografiska krav](vpn-gateway-about-compliance-crypto.md). Om du anger en exakt kombination av algoritmer och nyckel längder, måste du använda motsvarande specifikationer på VPN-enheterna.
+> Du kan också ange en exakt kombination av kryptografiska algoritmer och nyckelstyrkor för en viss anslutning, enligt beskrivningen i [Om kryptografiska krav](vpn-gateway-about-compliance-crypto.md). Om du anger en exakt kombination av algoritmer och tangentstyrkor, se till att använda motsvarande specifikationer på dina VPN-enheter.
 
-## <a name="single-vpn-tunnel"></a>Enskild VPN-tunnel
+## <a name="single-vpn-tunnel"></a>Enkel VPN-tunnel
 Den här konfigurationen består av en enda S2S VPN-tunnel mellan en Azure VPN-gateway och en lokal VPN-enhet. Du kan också konfigurera BGP över VPN-tunneln.
 
-![Enkel VPN-tunnel för S2S](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
+![Enstaka S2S VPN-tunnel](./media/vpn-gateway-3rdparty-device-config-cisco-asa/singletunnel.png)
 
-Steg-för-steg-instruktioner för att skapa Azure-konfigurationer finns i [konfiguration av enskild VPN-tunnel](vpn-gateway-3rdparty-device-config-overview.md#singletunnel).
+Stegvisa instruktioner för att skapa Azure-konfigurationerna finns i [Installationsprogrammet för enkel VPN-tunnel](vpn-gateway-3rdparty-device-config-overview.md#singletunnel).
 
 ### <a name="virtual-network-and-vpn-gateway-information"></a>Information om virtuellt nätverk och VPN-gateway
 I det här avsnittet visas parametrarna för exemplet.
 
 | **Parametern**                | **Värde**                    |
 | ---                          | ---                          |
-| Prefix för virtuella nätverks adresser        | 10.11.0.0/16<br>10.12.0.0/16 |
-| IP för Azure VPN-gateway         | Azure_Gateway_Public_IP      |
+| Prefix för virtuell nätverksadress        | 10.11.0.0/16<br>10.12.0.0/16 |
+| Azure VPN-gateway IP         | Azure_Gateway_Public_IP      |
 | Lokala adressprefix | 10.51.0.0/16<br>10.52.0.0/16 |
-| IP för lokal VPN-enhet    | OnPrem_Device_Public_IP     |
-| * ASN för BGP för virtuella nätverk                | 65010                        |
-| * Azure BGP peer IP           | 10.12.255.30                 |
-| * On-premises BGP ASN         | 65050                        |
-| * Lokal BGP peer-IP     | 10.52.255.254                |
+| Lokal IP-enhet för VPN-enhet    | OnPrem_Device_Public_IP     |
+| * Virtuellt nätverk BGP ASN                | 65010                        |
+| * Azure BGP-peer-IP           | 10.12.255.30                 |
+| * Lokala BGP ASN         | 65050                        |
+| * Lokal BGP-peer IP     | 10.52.255.254                |
 |                              |                              |
 
-\* valfri parameter för endast BGP.
+\*Valfri parameter endast för BGP.
 
 ### <a name="ipsecike-policy-and-parameters"></a>IPsec/IKE-princip och parametrar
-I följande tabell visas de IPsec/IKE-algoritmer och parametrar som används i exemplet. Kontakta VPN-enhetens specifikationer för att kontrol lera vilka algoritmer som stöds för dina VPN-enheters modeller och versioner av inbyggd program vara.
+I följande tabell visas IPsec/IKE-algoritmer och parametrar som används i exemplet. Kontakta specifikationerna för DIN VPN-enhet för att verifiera de algoritmer som stöds för dina VPN-enhetsmodeller och versioner av den fasta programvaran.
 
 | **IPsec/IKEv2**  | **Värde**                            |
 | ---              | ---                                  |
 | IKEv2-kryptering | AES256                               |
 | IKEv2 Integrity  | SHA384                               |
 | DH-grupp         | DHGroup24                            |
-| * IPsec-kryptering | AES256                               |
-| * IPsec-integritet  | SHA1                                 |
+| * IPsec Kryptering | AES256                               |
+| * IPsec Integritet  | SHA1                                 |
 | PFS-grupp        | PFS24                                |
 | QM SA-livstid   | 7 200 sekunder                         |
 | Trafikväljare | UsePolicyBasedTrafficSelectors $True |
-| I förväg delad nyckel   | PreSharedKey                         |
+| I förväg delad nyckel   | PreSharedKey (PreSharedKey)                         |
 |                  |                                      |
 
-\* på vissa enheter måste IPsec-integritet vara ett null-värde när IPsec-krypteringsalgoritmen är AES-GCM.
+\*På vissa enheter måste IPsec Integrity vara ett null-värde när IPsec-krypteringsalgoritmen är AES-GCM.
 
-### <a name="asa-device-support"></a>ASA-enhetens support
+### <a name="asa-device-support"></a>Stöd för ASA-enheter
 
-* Stöd för IKEv2 kräver ASA version 8,4 och senare.
+* Stöd för IKEv2 kräver ASA version 8.4 och senare.
 
-* Stöd för DH-grupp och PFS-grupp utöver grupp 5 kräver ASA version 9. x.
+* Stöd för DH Group och PFS Group utöver grupp 5 kräver ASA version 9.x.
 
-* Stöd för IPsec-kryptering med AES-GCM och IPsec-integritet med SHA-256, SHA-384 eller SHA-512 kräver ASA version 9. x. Det här support kravet gäller för nyare ASA-enheter. Vid publicerings tillfället stöder inte ASA-modellerna 5505, 5510, 5520, 5540, 5550 och 5580 dessa algoritmer. Kontakta VPN-enhetens specifikationer för att kontrol lera vilka algoritmer som stöds för dina VPN-enheters modeller och versioner av inbyggd program vara.
+* Stöd för IPsec-kryptering med AES-GCM och IPsec Integrity med SHA-256, SHA-384 eller SHA-512 kräver ASA version 9.x. Detta supportkrav gäller för nyare ASA-enheter. Vid tidpunkten för offentliggörandet stöder ASA-modellerna 5505, 5510, 5520, 5540, 5550 och 5580 inte dessa algoritmer. Kontakta specifikationerna för DIN VPN-enhet för att verifiera de algoritmer som stöds för dina VPN-enhetsmodeller och versioner av den fasta programvaran.
 
 
-### <a name="sample-device-configuration"></a>Exempel på enhets konfiguration
-Skriptet innehåller ett exempel som baseras på konfigurationen och parametrarna som beskrivs i föregående avsnitt. Konfigurationen av S2S VPN-tunnel består av följande delar:
+### <a name="sample-device-configuration"></a>Exempel på enhetskonfiguration
+Skriptet innehåller ett exempel som baseras på konfigurationen och parametrarna som beskrivs i föregående avsnitt. S2S VPN-tunnelkonfiguration består av följande delar:
 
-1. Gränssnitt och vägar
-2. Åtkomst listor
-3. IKE-princip och parametrar (fas 1 eller huvud läge)
-4. IPsec-princip och parametrar (fas 2 eller snabb läge)
-5. Andra parametrar, t. ex. TCP MSS ihopfogning
+1. Gränssnitt och rutter
+2. Åtkomstlistor
+3. IKE-policy och parametrar (fas 1 eller huvudläge)
+4. IPsec-princip och parametrar (fas 2 eller snabbläge)
+5. Andra parametrar, till exempel TCP MSS-fastspänning
 
 > [!IMPORTANT]
-> Utför följande steg innan du använder exempel skriptet. Ersätt plats hållarnas värden i skriptet med enhets inställningarna för din konfiguration.
+> Slutför följande steg innan du använder exempelskriptet. Ersätt platshållarvärdena i skriptet med enhetsinställningarna för konfigurationen.
 
-* Ange gränssnitts konfigurationen för både inifrån och utanför gränssnitt.
-* Identifiera vägarna för dina inifrån/privata och externa/offentliga nätverk.
-* Se till att alla namn och princip nummer är unika på enheten.
-* Se till att de kryptografiska algoritmerna stöds på enheten.
-* Ersätt följande **plats hållarnas värden** med de faktiska värdena för din konfiguration:
-  - Utanför gränssnittets namn: **utanför**
+* Ange gränssnittskonfigurationen för både interna och externa gränssnitt.
+* Identifiera rutterna för dina interna/privata och externa/offentliga nätverk.
+* Se till att alla namn och principnummer är unika på enheten.
+* Kontrollera att de kryptografiska algoritmerna stöds på enheten.
+* Ersätt följande **platshållarvärden** med faktiska värden för konfigurationen:
+  - Namn utanför gränssnittet: **utanför**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
   - IKE: **Pre_Shared_Key**
-  - Namn på virtuella nätverk och lokala nätverksgateway: **VNetName** och **LNGName**
-  - **Prefix** för virtuella nätverk och lokala nätverks adresser
-  - Lämpliga **nätmasker**
+  - Namn på virtuellt nätverk och lokalt nätverk gateway: **VNetName** och **LNGName**
+  - Prefix för virtuellt **prefixes** nätverk och lokalt nätverk
+  - Rätt **nätmasker**
 
 #### <a name="sample-script"></a>Exempelskript
 
@@ -272,28 +272,28 @@ sysopt connection tcpmss 1350
 !
 ```
 
-## <a name="simple-debugging-commands"></a>Enkla fel söknings kommandon
+## <a name="simple-debugging-commands"></a>Enkla felsökningskommandon
 
-Använd följande ASA-kommandon för fel söknings syfte:
+Använd följande ASA-kommandon för felsökning:
 
-* Visa IPsec eller IKE säkerhets Association (SA):
+* Visa säkerhetsassociationen IPsec eller IKE (SA):
     ```
     show crypto ipsec sa
     show crypto ikev2 sa
     ```
 
-* Ange fel söknings läge:
+* Ange felsökningsläge:
     ```
     debug crypto ikev2 platform <level>
     debug crypto ikev2 protocol <level>
     ```
-    `debug`-kommandon kan generera avsevärda utdata i-konsolen.
+    Kommandona `debug` kan generera betydande utdata på konsolen.
 
 * Visa de aktuella konfigurationerna på enheten:
     ```
     show run
     ```
-    Använd `show` under kommandon för att lista vissa delar av enhets konfigurationen, till exempel:
+    Använd `show` underkommittéer för att lista specifika delar av enhetskonfigurationen, till exempel:
     ```
     show run crypto
     show run access-list
@@ -301,4 +301,4 @@ Använd följande ASA-kommandon för fel söknings syfte:
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du konfigurerar aktiva anslutningar mellan lokala nätverk och VNet-till-VNet finns i [Konfigurera aktiva VPN-gatewayer](vpn-gateway-activeactive-rm-powershell.md).
+Mer om du vill konfigurera aktiva aktiva korslokala och VNet-till-VNet-anslutningar finns i [Konfigurera aktiva VPN-gateways](vpn-gateway-activeactive-rm-powershell.md).

@@ -1,6 +1,6 @@
 ---
-title: Läs frågor om repliker
-description: Azure SQL Database ger möjlighet att belastningsutjämna skrivskyddade arbets belastningar med hjälp av kapaciteten hos skrivskyddade repliker – som kallas Läs utskalning.
+title: Läsa frågor på repliker
+description: Azure SQL Database ger möjlighet att läsa skrivskyddade arbetsbelastningar med skrivskyddad arbetsbelastning med hjälp av kapaciteten för skrivskyddade repliker - som kallas Lässkalning.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,49 +12,49 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
 ms.openlocfilehash: 1a1b9907cd931716949d92d948a7d541fd2d5057
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78206953"
 ---
-# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Använd skrivskyddade repliker för att belastningsutjämna skrivskyddade arbets belastningar för frågor
+# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Använd skrivskyddade repliker för att belastningsutjämna skrivskyddade frågearbetsbelastningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Som en del av [arkitekturen för hög tillgänglighet](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)etablerades varje databas på tjänst nivån Premium och affärskritisk automatiskt med en primär replik och flera sekundära repliker. De sekundära replikerna är etablerade med samma beräknings storlek som den primära repliken. Med funktionen **Läs skalbarhet** kan du belastningsutjämna SQL Database skrivskyddade arbets belastningar med kapaciteten hos en av de skrivskyddade replikerna i stället för att dela Skriv-och skriv repliken. Det här gör att den skrivskyddade arbetsbelastningen isoleras från den huvudsakliga läs/skriv-arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för program som innehåller logiskt åtskilda skrivskyddade arbets belastningar, till exempel analys. På tjänst nivåerna Premium och Affärskritisk kan program få prestanda för delar med denna ytterligare kapacitet utan extra kostnad.
+Som en del av [arkitekturen Hög tillgänglighet](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)etableras varje databas på tjänstnivån Premium och Affärskritisk automatiskt med en primär replik och flera sekundära repliker. De sekundära replikerna etableras med samma beräkningsstorlek som den primära repliken. Med **funktionen Lässkalning** kan du läsa sql-databas-arbetsbelastningar med skrivskyddad med hjälp av kapaciteten för en av skrivskyddade repliker i stället för att dela läs-skriv-repliken. Det här gör att den skrivskyddade arbetsbelastningen isoleras från den huvudsakliga läs/skriv-arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för program som innehåller logiskt separerade skrivskyddade arbetsbelastningar, till exempel analyser. På premium- och affärskritiska tjänstnivåer kan program få prestandafördelar med den här ytterligare kapaciteten utan extra kostnad.
 
-Funktionen för **Läs skalning** är också tillgänglig i den storskaliga tjänst nivån när minst en sekundär replik skapas. Flera sekundära repliker kan användas om skrivskyddade arbets belastningar kräver fler resurser än vad som är tillgängligt på en sekundär replik. Hög tillgänglighets arkitekturen för nivåerna Basic, standard och Generell användning omfattar inte några repliker. Funktionen för **Läs skalning** är inte tillgänglig i dessa tjänst nivåer.
+**Funktionen Lässkalning** är också tillgänglig på tjänstnivån Hyperskala när minst en sekundär replik skapas. Flera sekundära repliker kan användas om skrivskyddade arbetsbelastningar kräver mer resurser än tillgängliga på en sekundär replik. Tjänstnivåerna Hög tillgänglighet för tjänstnivåer basic, standard och allmänt ändamål innehåller inga repliker. **Funktionen Lässkalning** är inte tillgänglig på dessa tjänstnivåer.
 
-Följande diagram illustrerar det med hjälp av en Affärskritisk databas.
+Följande diagram illustrerar det med hjälp av en affärskritisk databas.
 
-![Skrivskyddade repliker](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
+![Readonly repliker](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-Funktionen Läs skalning är aktive rad som standard på nya Premium-, Affärskritisk-och storskaliga databaser. För storskaliga skapas en sekundär replik som standard för nya databaser. Om SQL-anslutningssträngen har kon figurer ATS med `ApplicationIntent=ReadOnly`, kommer programmet att omdirigeras av gatewayen till en skrivskyddad replik av databasen. Information om hur du använder `ApplicationIntent`-egenskapen finns i [Ange program avsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Funktionen Lässkalning är aktiverad som standard på nya Premium-, affärskritiska och hyperskalade databaser. För Hyperscale skapas en sekundär replik som standard för nya databaser. Om SQL-anslutningssträngen `ApplicationIntent=ReadOnly`är konfigurerad med omdirigeras programmet av gatewayen till en skrivskyddad replik av databasen. Information om hur du `ApplicationIntent` använder egenskapen finns i [Ange programavsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-Om du vill säkerställa att programmet ansluter till den primära repliken, oavsett `ApplicationIntent` inställningen i SQL-anslutningssträngen, måste du explicit inaktivera Läs-och utskalning när du skapar databasen eller när du ändrar konfigurationen. Om du till exempel uppgraderar din databas från standard-eller Generell användning-nivån till Premium, Affärskritisk eller nivån på den storskaliga nivån och vill se till att alla dina anslutningar fortsätter att gå till den primära repliken inaktiverar du Läs-och utskalning. Mer information om hur du inaktiverar det finns i [Aktivera och inaktivera Läs skalning](#enable-and-disable-read-scale-out).
+Om du vill vara medveten om att programmet ansluter `ApplicationIntent` till den primära repliken oavsett inställningen i SQL-anslutningssträngen, måste du uttryckligen inaktivera lässkalning när du skapar databasen eller när du ändrar dess konfiguration. Om du till exempel uppgraderar databasen från standard- eller generell nivå till Premium-, affärskritisk- eller hyperskala-nivå och vill vara säker på att alla dina anslutningar fortsätter att gå till den primära repliken inaktiverar du Lässkalning. Mer information om hur du inaktiverar den finns i [Aktivera och inaktivera Lässkalning](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> Frågor för data lager, utökade händelser och SQL-profiler stöds inte på skrivskyddade repliker.
+> Frågedatalagring, utökade händelser och SQL Profiler-funktioner stöds inte på skrivskyddade repliker.
 
 ## <a name="data-consistency"></a>Datakonsekvens
 
-En av fördelarna med repliker är att replikerna alltid är i ett transaktions konsekvent tillstånd, men vid olika tidpunkter kan det uppstå en liten fördröjning mellan olika repliker. Läs skalbarhet stöder konsekvens på sessionsläge. Det innebär att om den skrivskyddade sessionen återansluter efter ett anslutnings fel på grund av otillgänglig replik, kan den omdirigeras till en replik som inte är 100% uppdaterad med den skrivskyddade repliken. Om ett program skriver data med hjälp av en Read-Write-session och läser den direkt med en skrivskyddad session, är det möjligt att de senaste uppdateringarna inte visas direkt på repliken. Svars tiden orsakas av en åtgärd för att göra en asynkron transaktions logg.
+En av fördelarna med repliker är att replikerna alltid är i transaktionskonsekvent tillstånd, men vid olika tidpunkter kan det finnas några små svarstid mellan olika repliker. Läs Scale-Out stöder konsekvens på sessionsnivå. Det innebär att om skrivskyddad session återansluter efter ett anslutningsfel som orsakas av repliken otillgänglighet, kan det omdirigeras till en replik som inte är 100% up-to-date med läs-skriva replika. På samma sätt, om ett program skriver data med hjälp av en läs-skriv-session och omedelbart läser den med hjälp av en skrivskyddad session, är det möjligt att de senaste uppdateringarna inte omedelbart visas på repliken. Svarstiden orsakas av en asynkron transaktionslogg.
 
 > [!NOTE]
-> Replikeringsfördröjning i regionen är låga och den här situationen är sällsynt.
+> Replikeringsfördydnadsligheter i regionen är låga och den här situationen är sällsynt.
 
-## <a name="connect-to-a-read-only-replica"></a>Anslut till en skrivskyddad replik
+## <a name="connect-to-a-read-only-replica"></a>Ansluta till en skrivskyddad replik
 
-När du aktiverar Läs skalning för en databas, anger alternativet `ApplicationIntent` i anslutnings strängen som klienten tillhandahåller om anslutningen dirigeras till Skriv repliken eller till en skrivskyddad replik. Om värdet `ApplicationIntent` är `ReadWrite` (standardvärdet) dirigeras anslutningen till databasens Skriv-och skriv replik. Detta är identiskt med det befintliga beteendet. Om `ApplicationIntent`-värdet är `ReadOnly`dirigeras anslutningen till en skrivskyddad replik.
+När du aktiverar Lässkalning för `ApplicationIntent` en databas avgör alternativet i anslutningssträngen som tillhandahålls av klienten om anslutningen dirigeras till skrivrepliken eller till en skrivskyddad replik. Om `ApplicationIntent` värdet är `ReadWrite` (standardvärdet) dirigeras anslutningen till databasens läs-skriv-replik. Detta är identiskt med befintligt beteende. Om `ApplicationIntent` värdet `ReadOnly`är dirigeras anslutningen till en skrivskyddad replik.
 
-Följande anslutnings sträng ansluter till exempel klienten till en skrivskyddad replik (ersätter objekten i vinkelparenteser med rätt värden för din miljö och släpper vinkelparenteser):
+Följande anslutningssträng ansluter till exempel klienten till en skrivskyddad replik (ersätter objekten i vinkelparenteserna med rätt värden för din miljö och släpper vinkelparenteserna):
 
 ```sql
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-Någon av följande anslutnings strängar ansluter klienten till en skrivskyddad replik (ersätter objekten i vinkelparenteser med rätt värden för din miljö och släpper vinkelparenteser):
+Någon av följande anslutningssträngar ansluter klienten till en skrivreplik (ersätter objekten i vinkelparenteserna med rätt värden för din miljö och släpper vinkelparenteserna):
 
 ```sql
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
@@ -62,67 +62,67 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>Kontrol lera att en anslutning är till en skrivskyddad replik
+## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>Kontrollera att en anslutning är till en skrivskyddad replik
 
-Du kan kontrol lera om du är ansluten till en skrivskyddad replik genom att köra följande fråga. Den kommer att returnera READ_ONLY när du är ansluten till en skrivskyddad replik.
+Du kan kontrollera om du är ansluten till en skrivskyddad replik genom att köra följande fråga. Den returneras READ_ONLY när den är ansluten till en skrivskyddad replik.
 
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 > [!NOTE]
-> Endast en av AlwaysON-replikerna kan nås av de skrivskyddade sessionerna.
+> Vid varje given tidpunkt är endast en av AlwaysON-replikerna tillgänglig för ReadOnly-sessionerna.
 
-## <a name="monitoring-and-troubleshooting-read-only-replica"></a>Övervakning och fel sökning av skrivskyddad replik
+## <a name="monitoring-and-troubleshooting-read-only-replica"></a>Övervaka och felsöka skrivskyddad replik
 
-När du är ansluten till en skrivskyddad replik kan du komma åt prestanda måtten med hjälp av `sys.dm_db_resource_stats` DMV. Använd `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` och `sys.dm_exec_sql_text` DMV: er för att få åtkomst till statistik för Frågeregler.
-
-> [!NOTE]
-> DMV-`sys.resource_stats` i den logiska huvud databasen returnerar CPU-användning och lagrings data för den primära repliken.
-
-## <a name="enable-and-disable-read-scale-out"></a>Aktivera och inaktivera Läs skalning
-
-Läs skalning är aktiverat som standard på Premium-, Affärskritisk-och Scale service-nivåer. Läs-och utskalning kan inte aktive ras på tjänst nivåerna Basic, standard eller Generell användning. Läs skalning är inaktiverat automatiskt på storskaliga databaser som kon figurer ATS med 0 repliker.
-
-Du kan inaktivera och återaktivera Läs skala på enskilda databaser och elastiska pooler i Premium-eller Affärskritisk tjänst nivå med hjälp av följande metoder.
+När du är ansluten till en skrivskyddad replik kan du komma åt prestandamåtten `sys.dm_db_resource_stats` med hjälp av DMV. Använd data för frågeplan `sys.dm_exec_query_stats` `sys.dm_exec_query_plan` för `sys.dm_exec_sql_text` att komma åt frågeplanstatistik.
 
 > [!NOTE]
-> Möjligheten att inaktivera Läs skalning tillhandahålls för bakåtkompatibilitet.
+> DMV `sys.resource_stats` i den logiska huvuddatabasen returnerar CPU-användning och lagringsdata för den primära repliken.
+
+## <a name="enable-and-disable-read-scale-out"></a>Aktivera och inaktivera lässkalning
+
+Lässkalning är aktiverat som standard på tjänstnivåer för Premium, Affärskritiska och Hyperskala. Lässkalning kan inte aktiveras på tjänstnivåer för grundläggande, standard eller allmänt syfte. Lässkalning inaktiveras automatiskt på hyperskaladatabaser som konfigurerats med 0 repliker.
+
+Du kan inaktivera och återaktivera lässkalning på enskilda databaser och elastiska pooldatabaser på premium- eller affärskritisk tjänstnivå med hjälp av följande metoder.
+
+> [!NOTE]
+> Möjligheten att inaktivera Lässkalning tillhandahålls för bakåtkompatibilitet.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Du kan hantera inställningen för Läs skalning på bladet **Konfigurera** databas.
+Du kan hantera inställningen För lässkalning på bladet **Konfigurera** databas.
 
 ### <a name="powershell"></a>PowerShell
 
 > [!IMPORTANT]
-> PowerShell-modulen Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
+> PowerShell Azure Resource Manager (RM) stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. AzureRM-modulen fortsätter att ta emot buggfixar fram till åtminstone december 2020.  Argumenten för kommandona i Az-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az).
 
-Hantering av Läs-och utskalning i Azure PowerShell kräver Azure PowerShells versionen december 2016 eller senare. Den senaste PowerShell-versionen finns i [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+För att hantera lässkalning i Azure PowerShell krävs Azure PowerShell-versionen i december 2016 eller nyare. Den senaste PowerShell-versionen finns i [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Du kan inaktivera eller återaktivera Läs skalning i Azure PowerShell genom att anropa cmdleten [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) och skicka in det önskade värdet – `Enabled` eller `Disabled` – för parametern `-ReadScale`.
+Du kan inaktivera eller återaktivera Lässkalning i Azure PowerShell genom att anropa cmdleten [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) och skicka in önskat värde – `Enabled` eller `Disabled` – för `-ReadScale` parametern.
 
-Så här inaktiverar du Läs skala ut i en befintlig databas (ersätter objekten i vinkelparenteser med rätt värden för din miljö och släpper vinkelparenteser):
+Så här inaktiverar du utskalning av avläsning på en befintlig databas (ersätter objekten i vinkelparenteserna med rätt värden för din miljö och släpper vinkelparenteserna):
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled
 ```
 
-Så här inaktiverar du Läs skala i en ny databas (ersätter objekten i vinkelparenteser med rätt värden för din miljö och släpper vinkelparenteser):
+Så här inaktiverar du utskalning av avläsning på en ny databas (ersätter objekten i vinkelparenteserna med rätt värden för din miljö och släpper vinkelparenteserna):
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled -Edition Premium
 ```
 
-Så här återaktiverar du Läs skalan för en befintlig databas (ersätter objekten inom vinkelparenteser med rätt värden för din miljö och släpper vinkelparenteser):
+Så här aktiverar du om avläsningen i en befintlig databas (ersätter objekten i vinkelparenteserna med rätt värden för din miljö och släpper vinkelparenteserna):
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Enabled
 ```
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
-Om du vill skapa en databas med Läs skala inaktive rad, eller ändra inställningen för en befintlig databas, använder du följande metod med egenskapen `readScale` inställd på `Enabled` eller `Disabled` som i nedanstående exempel förfrågan.
+Om du vill skapa en databas med inaktiverad utskalning av läsning eller `readScale` ändra inställningen `Enabled` `Disabled` för en befintlig databas använder du följande metod med egenskapen inställd på eller som i exempelbegäran nedan.
 
 ```rest
 Method: PUT
@@ -134,19 +134,19 @@ Body: {
 }
 ```
 
-Mer information finns i [databaser-skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Mer information finns i [Databaser - Skapa eller Uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-tempdb-on-read-only-replica"></a>Använda TempDB på skrivskyddad replik
 
-TempDB-databasen replikeras inte till skrivskyddade repliker. Varje replik har en egen version av TempDB-databasen som skapas när repliken skapas. Det säkerställer att TempDB kan uppdateras och kan ändras under frågekörningen. Om din skrivskyddade arbets belastning är beroende av att använda TempDB-objekt bör du skapa dessa objekt som en del av frågans skript.
+TempDB-databasen replikeras inte till skrivskyddade repliker. Varje replik har sin egen version av TempDB-databasen som skapas när repliken skapas. Det säkerställer att TempDB kan uppdateras och kan ändras under frågekörningen. Om din skrivskyddade arbetsbelastning är beroende av att använda TempDB-objekt bör du skapa dessa objekt som en del av frågeskriptet.
 
-## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Använda Läs-och utskalning med geo-replikerade databaser
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Använda Lässkalning med geo-replikerade databaser
 
-Om du använder Läs utskalning för att belastningsutjämna skrivskyddade arbets belastningar i en databas som är geo-replikerad (till exempel som medlem i en grupp för växling vid fel) ser du till att Läs utskalning är aktiverat på både den primära och den geo-replikerade sekundära databasen. Med den här konfigurationen kan du se till att samma belastnings Utjämnings upplevelse fortsätter när programmet ansluter till den nya primära efter redundansväxlingen. Om du ansluter till den geo-replikerade sekundära databasen med Läs skalning aktive rad, kommer sessionerna med `ApplicationIntent=ReadOnly` att dirigeras till en av replikerna på samma sätt som vi dirigerar anslutningar till den primära databasen.  Sessionerna utan `ApplicationIntent=ReadOnly` dirigeras till den primära repliken av den geo-replikerade sekundära, som också är skrivskyddad. Eftersom den geo-replikerade sekundära databasen har en annan slut punkt än den primära databasen, behövde tidigare åtkomst till den sekundära databasen inte ange `ApplicationIntent=ReadOnly`. `sys.geo_replication_links` DMV visar `secondary_allow_connections=2` (alla klient anslutningar tillåts) för att säkerställa bakåtkompatibilitet.
+Om du använder Lässkalning för att läsa skrivskyddade arbetsbelastningar för belastningsutjämnad i en databas som är georeplikerad (till exempel som medlem i en redundansgrupp) kontrollerar du att avläsningskalning är aktiverat på både de primära och de geo-replikerade sekundära databaserna. Den här konfigurationen säkerställer att samma belastningsutjämningsupplevelse fortsätter när ditt program ansluter till den nya primära efter redundansen. Om du ansluter till den geo-replikerade sekundära databasen med lässkala aktiverad dirigeras dina sessioner med `ApplicationIntent=ReadOnly` till en av replikerna på samma sätt som vi dirigerar anslutningar i den primära databasen.  Sessionerna `ApplicationIntent=ReadOnly` utan dirigeras till den primära repliken för den georepnad sekundära, som också är skrivskyddad. Eftersom geo-replikerad sekundär databas har en annan slutpunkt än den primära databasen, historiskt `ApplicationIntent=ReadOnly`för att komma åt den sekundära det inte var skyldig att ställa in . För att säkerställa `sys.geo_replication_links` bakåtkompatibilitet `secondary_allow_connections=2` visar DMV (alla klientanslutningar är tillåtna).
 
 > [!NOTE]
-> Resursallokering (Round-Robin) och annan belastningsutjämnad routning mellan de lokala replikerna av den sekundära databasen stöds inte.
+> Round-robin eller någon annan belastningsbalanserad routning mellan de lokala replikerna i den sekundära databasen stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om SQL Database skalnings erbjudande finns i [storskalig Service Tier](./sql-database-service-tier-hyperscale.md).
+- Information om SQL Database Hyperscale-erbjudande finns i [Hyperskala-tjänstnivå](./sql-database-service-tier-hyperscale.md).

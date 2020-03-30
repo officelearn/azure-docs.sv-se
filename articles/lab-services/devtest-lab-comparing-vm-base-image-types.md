@@ -1,6 +1,6 @@
 ---
-title: Jämföra anpassade bilder och formler i DevTest Labs | Microsoft Docs
-description: Läs mer om skillnaderna mellan anpassade bilder och formler som VM-baser så att du kan avgöra vilken som bäst passar din miljö.
+title: Jämföra anpassade bilder och formler i DevTest Labs | Microsoft-dokument
+description: Lär dig mer om skillnaderna mellan anpassade bilder och formler som VM-baser så att du kan bestämma vilken som passar din miljö bäst.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,44 +15,44 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: ae7556eda817b9eb7be84f9d4a23ea91d3d5440d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64680303"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Jämföra anpassade bilder och formler i DevTest Labs
-Båda [anpassade avbildningar](devtest-lab-create-template.md) och [formler](devtest-lab-manage-formulas.md) kan användas som grund för [skapas nya virtuella datorer](devtest-lab-add-vm.md). Dock viktiga skillnaden mellan anpassade bilder och formler är att en anpassad avbildning är helt enkelt en avbildning baserat på en virtuell Hårddisk, medan en formel är en avbildning baserat på en virtuell Hårddisk *förutom* förkonfigurerade inställningar – till exempel VM-storlek, virtuellt nätverk undernät och artefakter. Dessa förkonfigurerade inställningar är inställda med standardvärden som kan åsidosättas när den virtuella datorn skapas. Den här artikeln förklarar några av (personal) och nackdelarna (nackdelar) till att använda anpassade bilder med hjälp av formler.
+Både [anpassade bilder](devtest-lab-create-template.md) och [formler](devtest-lab-manage-formulas.md) kan användas som baser för skapade nya virtuella [datorer](devtest-lab-add-vm.md). Den viktigaste skillnaden mellan anpassade bilder och formler är dock att en anpassad avbildning helt enkelt är en bild baserad på en virtuell hårddisk, medan en formel är en bild baserad på en virtuell hårddisk utöver förkonfigurerade inställningar – *till* exempel VM-storlek, virtuellt nätverk, undernät och artefakter. Dessa förkonfigurerade inställningar ställs in med standardvärden som kan åsidosättas när den virtuella datorn skapas. I den här artikeln beskrivs några av fördelarna (för-) och nackdelar (nackdelar) med att använda anpassade bilder jämfört med att använda formler.
 
-## <a name="custom-image-pros-and-cons"></a>Anpassad avbildning- och nackdelar
-Anpassade avbildningar är en statisk, kan ändras sätt att skapa virtuella datorer från en önskad miljö. 
+## <a name="custom-image-pros-and-cons"></a>Anpassade bild för-och nackdelar
+Anpassade bilder är ett statiskt, oföränderligt sätt att skapa virtuella datorer från en önskad miljö. 
 
-**Experter**
+**Fördelar**
 
-* Det går snabbt att etablering av virtuella datorer från en anpassad avbildning som ingenting ändras när den virtuella datorn startas från avbildningen. Med andra ord, finns det inga inställningar tillämpas som den anpassade avbildningen är bara en bild utan inställningar. 
+* VM-etablering från en anpassad avbildning är snabb eftersom ingenting ändras efter att den virtuella datorn har spunnits upp från avbildningen. Med andra ord finns det inga inställningar att använda eftersom den anpassade bilden bara är en bild utan inställningar. 
 * Virtuella datorer som skapas från en enda anpassad avbildning är identiska.
 
 **Nackdelar**
 
-* Om du behöver uppdatera någon aspekt av den anpassade avbildningen måste du återskapa avbildningen.  
+* Om du behöver uppdatera någon aspekt av den anpassade avbildningen måste bilden återskapas.  
 
-## <a name="formula-pros-and-cons"></a>Formeln- och nackdelar
-Formler är ett dynamiskt sätt att skapa virtuella datorer från önskad konfigurationsinställningarna.
+## <a name="formula-pros-and-cons"></a>Formel för-och nackdelar
+Formler är ett dynamiskt sätt att skapa virtuella datorer från önskad konfiguration/inställningar.
 
-**Experter**
+**Fördelar**
 
-* Förändringar i miljön kan hämtas direkt via artefakter. Till exempel om du vill att en virtuell dator som installeras med de senaste nyheterna från din releasepipeline eller registrera den senaste koden från din lagringsplats, kan du bara ange en artefakt som distribuerar de senaste nyheterna eller registreras senaste koden i formeln tillsammans med en mål-bas bild. Varje gång den här formeln används för att skapa virtuella datorer, är den senaste bits/koden distribueras/registrerad till den virtuella datorn. 
-* Formler kan definiera standardinställningar som anpassade avbildningar inte kan tillhandahålla – till exempel VM-storlekar och inställningar för virtuella nätverk. 
-* Inställningarna sparas i en formel visas som standardvärden, men kan ändras när den virtuella datorn skapas. 
+* Förändringar i miljön kan fångas i farten via artefakter. Om du till exempel vill ha en virtuell dator installerad med de senaste bitarna från versionspipelinen eller registrera den senaste koden från databasen, kan du helt enkelt ange en artefakt som distribuerar de senaste bitarna eller registrerar den senaste koden i formeln tillsammans med en målbas Bild. När den här formeln används för att skapa virtuella datorer distribueras/anordrass/anordras de senaste bitarna/koden till den virtuella datorn. 
+* Formler kan definiera standardinställningar som anpassade avbildningar inte kan tillhandahålla , till exempel vm-storlekar och inställningar för virtuella nätverk. 
+* Inställningarna som sparas i en formel visas som standardvärden, men kan ändras när den virtuella datorn skapas. 
 
 **Nackdelar**
 
-* Skapa en virtuell dator från en formel kan det ta längre tid än att skapa en virtuell dator från en anpassad avbildning.
+* Det kan ta längre tid att skapa en virtuell dator från en formel än att skapa en virtuell dator från en anpassad avbildning.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Relaterade blogginlägg
-* [Anpassade avbildningar eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+* [Anpassade bilder eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 
 ## <a name="next-steps"></a>Nästa steg
-- [DevTest Labs vanliga frågor och svar](devtest-lab-faq.md)
+- [Vanliga frågor och svar om DevTest Labs](devtest-lab-faq.md)

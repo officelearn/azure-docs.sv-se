@@ -1,6 +1,6 @@
 ---
-title: Bästa metoder
-description: Lär dig metod tips och vanliga fel söknings scenarier för din app som körs i Azure App Service.
+title: Metodtips
+description: Lär dig metodtips och vanliga felsökningsscenarier för din app som körs i Azure App Service.
 author: dariagrigoriu
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
 ms.topic: article
@@ -8,40 +8,40 @@ ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
 ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75768494"
 ---
-# <a name="best-practices-for-azure-app-service"></a>Bästa metoder för Azure App Service
-I den här artikeln sammanfattas metod tips för hur du använder [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
+# <a name="best-practices-for-azure-app-service"></a>Metodtips för Azure App Service
+I den här artikeln sammanfattas metodtips för användning av [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
 
-## <a name="colocation"></a>Samordning
-När Azure-resurser skriver en lösning som en webbapp och en databas finns i olika regioner, kan den ha följande effekter:
+## <a name="colocation"></a><a name="colocation"></a>Samlokalisering
+När Azure-resurser som utgör en lösning, till exempel en webbapp och en databas, finns i olika regioner, kan den ha följande effekter:
 
-* Ökad svars tid i kommunikationen mellan resurser
-* Penning kostnader för utgående data överföring mellan regioner enligt vad som anges på [sidan med priser för Azure](https://azure.microsoft.com/pricing/details/data-transfers).
+* Ökad latens i kommunikationen mellan resurser
+* Monetära avgifter för utgående dataöverföring mellan regioner som anges på [azure-prissidan](https://azure.microsoft.com/pricing/details/data-transfers).
 
-Samplacering i samma region är bäst för Azure-resurser som skriver en lösning, till exempel en webbapp och en databas eller ett lagrings konto som används för att lagra innehåll eller data. När du skapar resurser måste du kontrol lera att de finns i samma Azure-region, om du inte har specifika affärs-eller design skäl för att de inte ska vara det. Du kan flytta en App Service-app till samma region som din databas genom att använda den [App Service kloning-funktionen](app-service-web-app-cloning.md) som för närvarande är tillgänglig för Premium App Service plan-appar.   
+Samlokalisering i samma region är bäst för Azure-resurser som utgör en lösning som en webbapp och en databas eller ett lagringskonto som används för att lagra innehåll eller data. När du skapar resurser, se till att de är i samma Azure-region om du inte har specifika affärs- eller designorsak för dem att inte vara. Du kan flytta en App Service-app till samma region som databasen med hjälp av [appen Tjänst kloningsfunktion](app-service-web-app-cloning.md) som för närvarande är tillgänglig för Premium App Service Plan-appar.   
 
-## <a name="memoryresources"></a>När appar förbrukar mer minne än förväntat
-När du märker att en app förbrukar mer minne än vad som förväntas via övervakning eller tjänst rekommendationer, bör du tänka på [App Service funktionen för automatisk återställning](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Ett av alternativen för funktionen automatisk återställning tar anpassade åtgärder baserat på ett minnes tröskelvärde. Åtgärder sträcker sig från e-postaviseringar till undersökning via minnes dumpning till skydd på plats genom att återvinna arbets processen. Automatisk återställning kan konfigureras via Web. config och via ett eget användar gränssnitt enligt beskrivningen i det här blogg inlägget för [webbplats tillägget app service support](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
+## <a name="when-apps-consume-more-memory-than-expected"></a><a name="memoryresources"></a>När appar förbrukar mer minne än förväntat
+När du märker att en app förbrukar mer minne än förväntat enligt övervaknings- eller tjänstrekommendationer bör du tänka på [funktionen Automatisk läkning av apptjänsten](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Ett av alternativen för funktionen Automatisk läkning är att vidta anpassade åtgärder baserat på ett minneströskel. Åtgärder sträcker sig över spektrumet från e-postmeddelanden till undersökning via minnesdump till begränsning på plats genom att återvinna arbetsprocessen. Automatisk läkning kan konfigureras via web.config och via ett användarvänligt gränssnitt som beskrivs på i detta blogginlägg för [App Service Support Site Extension](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
 
-## <a name="CPUresources"></a>När appar förbrukar mer processor än förväntat
-När du märker att en app förbrukar mer processor än förväntat eller upplever upprepade CPU-toppar som anges via övervakning eller tjänst rekommendationer, kan du överväga att skala upp eller skala ut App Service plan. Om ditt program är tillstånds känsligt är skala upp det enda alternativet, men om ditt program är tillstånds löst ger du större flexibilitet och bättre skalnings möjligheter. 
+## <a name="when-apps-consume-more-cpu-than-expected"></a><a name="CPUresources"></a>När appar förbrukar mer CPU än förväntat
+När du märker att en app förbrukar mer cpu än förväntat eller får upprepade CPU-toppar som indikeras via övervaknings- eller tjänstrekommendationer, överväg att skala upp eller skala ut App Service-planen. Om ditt program är tillståndskänsligt är uppskalning det enda alternativet, medan om ditt program är tillståndslöst, ger skalning ut dig mer flexibilitet och potential i högre skala. 
 
-För mer information om "tillstånds känsliga" vs "tillstånds lösa" program kan du titta på den här videon: [planera ett skalbart program på flera nivåer på Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för App Service skalning och automatisk skalning finns i [skala en webbapp i Azure App Service](manage-scale-up.md).  
+Om du vill ha mer information om "tillståndskänsliga" eller "tillståndslösa" program kan du titta på den här videon: [Planera ett skalbart heltäckande program på Azure App Service](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Mer information om alternativ för apptjänstskalning och automatisk skalning finns [i Skala en webbapp i Azure App Service](manage-scale-up.md).  
 
-## <a name="socketresources"></a>När socket-resurserna är uttömda
-En vanlig orsak till att använda utgående TCP-anslutningar är att använda klient bibliotek, som inte implementeras för att återanvända TCP-anslutningar eller när ett protokoll på högre nivå, till exempel HTTP-Keep-Alive, inte används. Läs dokumentationen för varje bibliotek som refereras av apparna i App Services plan för att säkerställa att de konfigureras eller nås i koden för effektiv åter användning av utgående anslutningar. Följ även vägledningen för biblioteks dokumentation för att skapa och släppa eller rensa för att undvika läckage av anslutningar. Även om granskning av sådana klient bibliotek pågår, kan påverkan minskas genom att skala ut till flera instanser.
+## <a name="when-socket-resources-are-exhausted"></a><a name="socketresources"></a>När socketresurserna är
+En vanlig orsak till utmattning utgående TCP-anslutningar är användningen av klientbibliotek, som inte implementeras för återanvändning av TCP-anslutningar, eller när ett protokoll på högre nivå som HTTP - Keep-Alive inte används. Granska dokumentationen för vart och ett av biblioteken som refereras av apparna i apptjänstplanen för att säkerställa att de är konfigurerade eller används i koden för effektiv återanvändning av utgående anslutningar. Följ också bibliotekets dokumentationsvägledning för korrekt skapande och frisläppning eller rensning för att undvika läckageanslutningar. Även om sådana klientbiblioteksundersökningar pågår kan påverkan minskas genom att skala ut till flera instanser.
 
-### <a name="nodejs-and-outgoing-http-requests"></a>Node. js och utgående HTTP-begäranden
-När du arbetar med Node. js och många utgående HTTP-begäranden är det viktigt att hantera HTTP-Keep-Alive. Du kan använda [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) -`npm`-paketet för att göra det enklare i din kod.
+### <a name="nodejs-and-outgoing-http-requests"></a>Nod.js och utgående http-begäranden
+När du arbetar med Node.js och många utgående http-förfrågningar är det viktigt att hantera HTTP - Keep-Alive. Du kan använda [agentkeepalive paketet](https://www.npmjs.com/package/agentkeepalive) `npm` för att göra det lättare i din kod.
 
-Hantera alltid `http` svar, även om du inte gör något i hanteraren. Om du inte hanterar svaret korrekt kommer ditt program att fastna så småningom, eftersom det inte finns några fler socketar tillgängliga.
+Hantera alltid `http` svaret, även om du inte gör något i handläggaren. Om du inte hanterar svaret på rätt sätt fastnar ditt program så småningom eftersom inga fler sockets är tillgängliga.
 
-Till exempel när du arbetar med `http`-eller `https`-paketet:
+Till exempel när du `http` `https` arbetar med eller paketet:
 
 ```javascript
 const request = https.request(options, function(response) {
@@ -49,29 +49,29 @@ const request = https.request(options, function(response) {
 });
 ```
 
-Om du kör på App Service i Linux på en dator med flera kärnor, är det en annan metod att använda PM2 för att starta flera Node. js-processer för att köra programmet. Du kan göra det genom att ange ett start kommando till din behållare.
+Om du kör på App Service på Linux på en dator med flera kärnor är en annan bästa praxis att använda PM2 för att starta flera Node.js-processer för att köra ditt program. Du kan göra det genom att ange ett startkommando till din behållare.
 
-Till exempel för att starta fyra instanser:
+Så här startar du till exempel fyra instanser:
 
 ```
 pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ```
 
-## <a name="appbackup"></a>När säkerhets kopieringen av appen inte startar
-De två vanligaste orsakerna till varför det inte går att säkerhetskopiera appar: ogiltiga lagrings inställningar och ogiltig databas konfiguration. Dessa fel inträffar vanligt vis när det finns ändringar i lagrings-eller databas resurser, eller ändringar för att få åtkomst till dessa resurser (till exempel uppdaterade autentiseringsuppgifter för den databas som valts i säkerhets kopierings inställningarna). Säkerhets kopieringar körs vanligt vis enligt ett schema och kräver åtkomst till lagring (för att placera de säkerhetskopierade filerna) och databaser (för att kopiera och läsa innehåll som ska ingå i säkerhets kopian). Resultatet av att det inte går att få åtkomst till någon av dessa resurser är konsekventa säkerhets kopierings problem. 
+## <a name="when-your-app-backup-starts-failing"></a><a name="appbackup"></a>När appsäkerhetskopiorna börjar misslyckas
+De två vanligaste orsakerna till att säkerhetskopiering av appar misslyckas är: ogiltiga lagringsinställningar och ogiltig databaskonfiguration. Dessa fel inträffar vanligtvis när det finns ändringar i lagrings- eller databasresurser, eller ändringar för hur du kommer åt dessa resurser (till exempel autentiseringsuppgifter som uppdaterats för den databas som valts i inställningarna för säkerhetskopiering). Säkerhetskopior körs vanligtvis enligt ett schema och kräver åtkomst till lagring (för utmatning av säkerhetskopierade filer) och databaser (för kopiering och läsning av innehåll som ska ingå i säkerhetskopian). Resultatet av att inte komma åt någon av dessa resurser skulle vara konsekvent säkerhetskopieringsfel. 
 
-När säkerhets kopierings felen inträffar granskar du de senaste resultaten för att förstå vilken typ av haveri som inträffar. Granska och uppdatera lagrings inställningarna som används i säkerhets kopierings konfigurationen för att få åtkomst till lagrings problem. Granska och uppdatera anslutnings strängarna som en del av appens inställningar för databas åtkomst problem. Fortsätt sedan att uppdatera säkerhets kopierings konfigurationen för att lägga till nödvändiga databaser på rätt sätt. Mer information om säkerhets kopiering av appar finns [i Säkerhetskopiera en webbapp i Azure App Service](manage-backup.md).
+När säkerhetskopieringsfel inträffar granskar du de senaste resultaten för att förstå vilken typ av fel som inträffar. Om du vill ha fel vid lagringsåtkomst granskar och uppdaterar du lagringsinställningarna som används i säkerhetskopieringskonfigurationen. För fel på databasåtkomst granskar och uppdaterar du anslutningssträngarna som en del av appinställningarna. fortsätt sedan att uppdatera konfigurationen för säkerhetskopiering så att den korrekt inkluderar de nödvändiga databaserna. Mer information om appsäkerhetskopior finns [i Säkerhetskopiera en webbapp i Azure App Service](manage-backup.md).
 
-## <a name="nodejs"></a>När nya Node. js-appar distribueras till Azure App Service
-Azure App Service standard konfiguration för Node. js-appar är avsedd att bäst passa behoven hos de vanligaste apparna. Om konfigurationen för Node. js-appen skulle dra nytta av anpassad justering för att förbättra prestandan eller optimera resursanvändningen för processor-/minnes-/nätverks resurser, se [metod tips och fel söknings guide för Node-program på Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Den här artikeln beskriver de iisnode-inställningar som du kan behöva konfigurera för Node. js-appen, beskriver de olika scenarier eller problem som din app kan vara riktade till och visar hur du kan åtgärda problemen.
+## <a name="when-new-nodejs-apps-are-deployed-to-azure-app-service"></a><a name="nodejs"></a>När nya Node.js-appar distribueras till Azure App Service
+Standardkonfigurationen för Azure App Service för Node.js-appar är avsedd att bäst passa behoven hos de vanligaste apparna. Om konfigurationen för node.js-appen skulle dra nytta av anpassad justering för att förbättra prestanda eller optimera resursanvändningen för CPU/minne/nätverksresurser läser du [Metodtips och felsökningsguide för nodprogram i Azure App Service](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). I den här artikeln beskrivs de iisnodinställningar som du kan behöva konfigurera för node.js-appen, beskrivs de olika scenarier eller problem som appen kan ställas inför och hur du åtgärdar dessa problem.
 
 
 ## <a name="next-steps"></a>Efterföljande moment
-Mer information om bästa praxis finns i [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) för att ta reda på vilka metod tips som är lämpliga för din resurs.
+Mer information om metodtips finns i [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) för att ta reda på användbara metodtips som är specifika för din resurs.
 
-- Navigera till din webbapp i [Azure Portal](https://portal.azure.com).
-- Klicka på **diagnostisera och lös problem** i det vänstra navigerings fönstret, som öppnar App Service Diagnostics.
-- Välj Start sida för **bästa praxis** .
-- Klicka på **metod tips för tillgänglighets & prestanda** eller **bästa praxis för optimal konfiguration** för att visa appens aktuella tillstånd med avseende på dessa metod tips.
+- Navigera till din webbapp i [Azure-portalen](https://portal.azure.com).
+- Klicka på **Diagnostisera och lösa problem** i vänster navigering, som öppnar App Service Diagnostics.
+- Välj startsida **för bästa praxis.**
+- Klicka på **Metodtips för tillgänglighet & prestanda** eller **metodtips för optimal konfiguration om** du vill visa appens aktuella tillstånd när det gäller de här metodtipsen.
 
-Du kan också använda den här länken för att direkt öppna App Service diagnostik för resursen: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+Du kan också använda den här länken för att `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`direkt öppna App Service Diagnostics för din resurs: .

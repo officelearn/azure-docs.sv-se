@@ -1,53 +1,53 @@
 ---
-title: Aktivitet med flera steg för att bygga, testa & korrigerings avbildning
-description: Introduktion till aktiviteter med flera steg, en funktion i ACR-aktiviteter i Azure Container Registry som innehåller uppgiftsbaserade arbets flöden för att skapa, testa och korrigera behållar avbildningar i molnet.
+title: Flera steg uppgift att bygga, testa & patch bild
+description: Introduktion till uppgifter i flera steg, en funktion i ACR-uppgifter i Azure Container Registry som tillhandahåller uppgiftsbaserade arbetsflöden för att skapa, testa och korrigera behållaravbildningar i molnet.
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399697"
 ---
-# <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Kör åtgärder för att skapa, testa och korrigera flera steg i ACR-aktiviteter
+# <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Köra flerstegsuppbyggnads-, test- och korrigeringsuppgifter i ACR-uppgifter
 
-Med aktiviteter i flera steg utökas funktionerna för att bygga och push-funktionen i ACR-aktiviteter med multi-Steps, multi-container-baserade arbets flöden. Använd aktiviteter i flera steg för att bygga och skicka flera bilder i serie eller parallellt. Kör sedan dessa bilder som kommandon i en enda uppgifts körning. Varje steg definierar en behållar avbildnings version eller push-åtgärd och kan även definiera körningen av en behållare. Varje steg i en multi-Step-aktivitet använder en behållare som dess körnings miljö.
+Multistegsuppgifter utökar acr-uppgifternas enhetsuppbyggnad och push-funktioner med flera steg, flera behållarbaserade arbetsflöden. Använd multistegsuppgifter för att skapa och skicka flera bilder, i serie eller parallellt. Kör sedan dessa bilder som kommandon i en enda aktivitetskörning. Varje steg definierar en behållaravbildnings- eller push-åtgärd och kan också definiera körningen av en behållare. Varje steg i en aktivitet i flera steg använder en behållare som körningsmiljö.
 
 > [!IMPORTANT]
-> Om du tidigare har skapat uppgifter under förhands granskningen med kommandot `az acr build-task` måste dessa aktiviteter återskapas med hjälp av kommandot [AZ ACR Task][az-acr-task] .
+> Om du tidigare skapade uppgifter i förhandsversionen med kommandot `az acr build-task` behöver de uppgifterna skapas på nytt med hjälp av kommandot [az acr task][az-acr-task].
 
-Du kan till exempel köra en uppgift med steg som automatiserar följande logik:
+Du kan till exempel köra en aktivitet med steg som automatiserar följande logik:
 
-1. Bygg en webb program avbildning
-1. Kör behållaren för webb program
-1. Bygg en test avbildning av webb program
-1. Kör test behållaren för webb program som utför tester mot den program behållare som körs
-1. Om testerna passerar skapar du ett Helm-diagram Arkiv paket
-1. Utföra en `helm upgrade` med det nya Helm-diagrammets Arkiv paket
+1. Skapa en avbildning av webbprogram
+1. Kör behållaren för webbprogram
+1. Skapa en testavbildning för webbprogram
+1. Kör testbehållaren för webbprogram som utför tester mot programbehållaren som körs
+1. Om testerna går igenom, bygga ett Helm-diagramarkivpaket
+1. Utföra `helm upgrade` ett med det nya Helm-diagramarkivpaketet
 
-Alla steg utförs i Azure, vilket avlastar arbetet till Azures beräknings resurser och frigör dig från infrastruktur hantering. Förutom ditt Azure Container Registry betalar du bara för de resurser du använder. Mer information om priser finns i avsnittet **behållar version** i [Azure Container Registry prissättning][pricing].
+Alla steg utförs i Azure, avlastning arbetet till Azures beräkningsresurser och befria dig från infrastrukturhantering. Förutom ditt Azure-behållarregister betalar du bara för de resurser du använder. Information om priser finns i avsnittet **Container Build** i [prissättningen för Azure Container-registret][pricing].
 
 
-## <a name="common-task-scenarios"></a>Vanliga uppgifts scenarier
+## <a name="common-task-scenarios"></a>Vanliga aktivitetsscenarier
 
-Flera steg-uppgifter möjliggör scenarier som följande logik:
+Aktiviteter i flera steg möjliggör scenarier som följande logik:
 
-* Bygg, tagga och pusha en eller flera behållar avbildningar i serie eller parallellt.
-* Kör och hämta enhets test och kod täcknings resultat.
-* Kör och avbilda funktionella tester. ACR-aktiviteter stöder körning av fler än en behållare som kör en serie begär Anden mellan dem.
-* Utföra uppgiftsbaserade körningar, inklusive förskotts steg i en behållar avbildnings version.
-* Distribuera en eller flera behållare med din favorit distributions motor till mål miljön.
+* Skapa, tagga och skicka en eller flera behållaravbildningar, i serie eller parallellt.
+* Kör och samla in enhetstest- och kodtäckningsresultat.
+* Kör och fånga funktionstester. ACR-uppgifter stöder körning av mer än en behållare och kör en serie begäranden mellan dem.
+* Utför uppgiftsbaserad körning, inklusive steg före/efter för en behållaravbildning.
+* Distribuera en eller flera behållare med din favoritdistributionsmotor till din målmiljö.
 
-## <a name="multi-step-task-definition"></a>Aktivitets definition för flera steg
+## <a name="multi-step-task-definition"></a>Aktivitetsdefinition i flera steg
 
-En aktivitet med flera steg i ACR-aktiviteter definieras som en serie steg i en YAML-fil. Varje steg kan ange beroenden när ett eller flera föregående steg har slutförts. Följande steg typer är tillgängliga:
+En aktivitet i flera steg i ACR-uppgifter definieras som en serie steg i en YAML-fil. Varje steg kan ange beroenden för att slutföra ett eller flera tidigare steg. Följande uppgiftsstegstyper är tillgängliga:
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): Bygg en eller flera behållar avbildningar med hjälp av välbekant `docker build` syntax i serie eller parallellt.
-* [`push`](container-registry-tasks-reference-yaml.md#push): push-genererade avbildningar till ett behållar register. Privata register som Azure Container Registry stöds, som är den offentliga Docker-hubben.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): kör en behållare, så att den kan fungera som en funktion inom kontexten för aktiviteten som körs. Du kan skicka parametrar till behållarens `[ENTRYPOINT]`och ange egenskaper som t. ex. kuvert, från koppling och andra välbekanta `docker run`s parametrar. Med hjälp av den `cmd` stegtyp kan du utföra enhets-och funktions testning med körning av samtidiga behållare.
+* [`build`](container-registry-tasks-reference-yaml.md#build): Skapa en eller flera `docker build` behållaravbildningar med välbekant syntax, serie eller parallellt.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Skicka in byggda avbildningar till ett behållarregister. Privata register som Azure Container Registry stöds, liksom den offentliga Docker Hub.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Kör en behållare, så att den kan fungera som en funktion inom ramen för den pågående aktiviteten. Du kan skicka parametrar till `[ENTRYPOINT]`behållarens och ange egenskaper som env, koppla från och andra välbekanta `docker run` parametrar. Stegtypen `cmd` möjliggör enhets- och funktionstestning, med samtidig körning av behållare.
 
-Följande kodfragment visar hur du kan kombinera dessa steg typer för uppgifter. Aktiviteter med flera steg kan vara så enkla som att skapa en enda avbildning från en Dockerfile och överföra till registret, med en YAML-fil som liknar:
+Följande kodavsnitt visar hur du kombinerar dessa stegtyper för aktiviteter. Flerstegsuppgifter kan vara så enkla som att skapa en enda avbildning från en Dockerfile och skicka till registret, med en YAML-fil som liknar:
 
 ```yml
 version: v1.1.0
@@ -56,7 +56,7 @@ steps:
   - push: ["$Registry/hello-world:$ID"]
 ```
 
-Eller mer komplex, t. ex. denna fiktiva definition av flera steg, som innehåller steg för build-, test-, Helm-paket och Helm-distribution (behållar registret och konfigurationen av Helm-lagringsplatsen visas inte):
+Eller mer komplex, till exempel den här fiktiva flerstegsdefinitionen som innehåller steg för bygg-, test-, helm-paket och helm deploy (containerregistry och Helm-databaskonfiguration visas inte):
 
 ```yml
 version: v1.1.0
@@ -79,21 +79,21 @@ steps:
   - cmd: $Registry/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image=$Registry/helloworld:$ID
 ```
 
-Se [exempel på uppgifter](container-registry-tasks-samples.md) för yaml-filer och Dockerfiles för flera steg i flera olika scenarier.
+Se [uppgiftsexempel](container-registry-tasks-samples.md) för YAML-filer och Dockerfiler i flera steg i flera scenarier.
 
-## <a name="run-a-sample-task"></a>Köra en exempel aktivitet
+## <a name="run-a-sample-task"></a>Köra en exempelaktivitet
 
-Aktiviteter har stöd för både manuell körning, kallas "snabb körning" och automatisk körning vid git-incheckning eller bas avbildnings uppdatering.
+Uppgifter stöder både manuell körning, så kallad "snabbkörning" och automatisk körning på Git commit eller basavbildningsuppdatering.
 
-Om du vill köra en uppgift definierar du först uppgiftens steg i en YAML-fil och kör sedan Azure CLI-kommandot [AZ ACR Run][az-acr-run].
+Om du vill köra en uppgift definierar du först aktivitetens steg i en YAML-fil och kör sedan Azure CLI-kommandot [az acr run][az-acr-run].
 
-Här är ett exempel på ett Azure CLI-kommando som kör en uppgift med en exempel aktivitet YAML-fil. Stegen bygger och skickar sedan en avbildning. Uppdatera `\<acrName\>` med namnet på ditt eget Azure Container Registry innan du kör kommandot.
+Här är ett exempel på Azure CLI-kommando som kör en uppgift med hjälp av en EXEMPELuppgift YAML-fil. Dess steg bygga och sedan driva en bild. Uppdatera `\<acrName\>` med namnet på ditt eget Azure-behållarregister innan du kör kommandot.
 
 ```azurecli
 az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
-När du kör uppgiften ska utdata Visa förloppet för varje steg som definierats i YAML-filen. I följande utdata visas stegen som `acb_step_0` och `acb_step_1`.
+När du kör aktiviteten ska utdata visa förloppet för varje steg som definieras i YAML-filen. I följande utdata visas `acb_step_0` stegen `acb_step_1`som och .
 
 ```azurecli
 az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
@@ -146,15 +146,15 @@ The following dependencies were found:
 Run ID: yd14 was successful after 19s
 ```
 
-Mer information om automatiserade versioner av Git-incheckning eller bas avbildnings uppdatering finns i artikeln [Automatisera avbildnings versioner](container-registry-tutorial-build-task.md) och [bas avbildnings uppdatering bygger](container-registry-tutorial-base-image-update.md) på självstudier.
+Mer information om automatiska versioner av Git commit eller basavbildningsuppdatering finns i [självstudieartiklarna Automatisera avbildning och](container-registry-tutorial-build-task.md) [Grundläggande avbildningsuppdatering](container-registry-tutorial-base-image-update.md) bygger självstudieartiklar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan hitta aktiviteter med flera steg och exempel här:
+Du hittar aktivitetsreferens och exempel i flera steg här:
 
-* [Uppgifts referens](container-registry-tasks-reference-yaml.md) – uppgifts typer, egenskaper och användning.
-* Exempel på [aktiviteter](container-registry-tasks-samples.md) – exempel `task.yaml` och Docker-filer för flera scenarier, enkla att komplexa.
-* [Cmd-lagrings platsen](https://github.com/AzureCR/cmd) – en samling behållare som kommandon för ACR-uppgifter.
+* [Aktivitetsreferens](container-registry-tasks-reference-yaml.md) - Stegtyper för uppgift, deras egenskaper och användning.
+* [Uppgiftsexempel](container-registry-tasks-samples.md) - Exempel- `task.yaml` och Docker-filer för flera scenarier, enkla till komplexa.
+* [Cmd repo](https://github.com/AzureCR/cmd) - En samling behållare som kommandon för ACR-uppgifter.
 
 <!-- IMAGES -->
 

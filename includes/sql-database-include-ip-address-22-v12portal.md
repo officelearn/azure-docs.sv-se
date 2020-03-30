@@ -1,7 +1,7 @@
 ---
 title: Brandväggsregler på servernivå
 description: Brandväggsregler på servernivå
-keywords: SQL-anslutning, anslutningssträng
+keywords: sql-anslutning,anslutningssträng
 services: sql-database
 author: dalechen
 manager: craigg
@@ -11,33 +11,33 @@ ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
 ms.openlocfilehash: 8d0f9899dbb7599340b8d15ca010a0157011fb9e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187422"
 ---
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. I listan till vänster, Välj **alla tjänster**.
+2. Välj **Alla tjänster**i listan till vänster .
 
 3. Bläddra och välj **SQL-servrar**.
 
     ![Hitta din Azure SQL Database-server i portalen][b21-FindServerInPortal]
-5. Börja skriva namnet på servern i textrutan filter. Raden visas.
+5. Börja skriva namnet på servern i textrutan för filtret. Din rad visas.
 
-6. Välj raden för din server. Ett blad för servern visas.
+6. Markera raden för servern. Ett blad för servern visas.
 
-7. På din serverbladet och välj **inställningar**.
+7. Välj **Inställningar**på serverbladet .
 
-8. Välj **brandväggen**.
+8. Välj **Brandvägg**.
 
-    ![Välj Inställningar > brandvägg][b31-SettingsFirewallNavig]
-9. Välj **Lägg till klient IP**. Skriv ett namn för din nya regel i den första textrutan.
+    ![Välj inställningar > brandvägg][b31-SettingsFirewallNavig]
+9. Välj **Lägg till klient-IP**. Skriv ett namn på den nya regeln i den första textrutan.
 
-10. Ange de låga och höga IP-adressvärdena för intervallet som du vill aktivera.
+10. Skriv in de låga och höga IP-adressvärdena för det intervall som du vill aktivera.
 
-    * Det kan vara praktiskt att ha lågt värde slutet med **.0** och sluta med hög värdet **.255**.
+    * Det kan vara praktiskt att ha det låga värdet med **0,0** och det höga värdet med **0,255**.
 
 11. Välj **Spara**.
 

@@ -1,7 +1,7 @@
 ---
-title: Distribuera modeller till beräknings instanser
+title: Distribuera modeller för att beräkna instanser
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du distribuerar dina Azure Machine Learning modeller som en webb tjänst med hjälp av beräknings instanser.
+description: Lär dig hur du distribuerar dina Azure Machine Learning-modeller som en webbtjänst med hjälp av beräkningsinstanser.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,58 +11,58 @@ author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
 ms.openlocfilehash: afbd9950c31bc1c40b01ec0aaf3d2bfffb8a6b94
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78398252"
 ---
-# <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell för att Azure Machine Learning beräknings instanser
+# <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuera en modell till Azure Machine Learning-beräkningsinstanser
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webb tjänst på din Azure Machine Learning beräknings instans. Använd beräknings instanser om något av följande villkor är uppfyllt:
+Lär dig hur du använder Azure Machine Learning för att distribuera en modell som en webbtjänst på din Azure Machine Learning-beräkningsinstans. Använd beräkningsinstanser om något av följande villkor är sant:
 
-- Du behöver att snabbt distribuera och verifiera din modell.
+- Du måste snabbt distribuera och validera din modell.
 - Du testar en modell som är under utveckling.
 
 > [!TIP]
-> Att distribuera en modell från en Jupyter Notebook på en beräknings instans till en webb tjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den lokala datorn beräknings instansen. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
+> Distribuera en modell från en Jupyter Notebook på en beräkningsinstans, till en webbtjänst på samma virtuella dator är en _lokal distribution_. I det här fallet är den "lokala" datorn beräkningsinstansen. Mer information om distributioner finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- En Azure Machine Learning-arbetsyta med en beräknings instans som körs. Mer information finns i [installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
+- En Azure Machine Learning-arbetsyta med en beräkningsinstans som körs. Mer information finns i [Installationsmiljö och arbetsyta](tutorial-1st-experiment-sdk-setup.md).
 
-## <a name="deploy-to-the-compute-instances"></a>Distribuera till beräknings instanserna
+## <a name="deploy-to-the-compute-instances"></a>Distribuera till beräkningsinstanserna
 
-En exempel-anteckningsbok som visar lokala distributioner ingår i din beräknings instans. Använd följande steg för att läsa in den bärbara datorn och distribuera modellen som en webb tjänst på den virtuella datorn:
+En exempel anteckningsbok som visar lokala distributioner ingår i din beräkningsinstans. Gör så här för att läsa in anteckningsboken och distribuera modellen som en webbtjänst på den virtuella datorn:
 
-1. Välj dina Azure Machine Learning beräknings instanser från [Azure Machine Learning Studio](https://ml.azure.com).
+1. Välj dina Azure Machine Learning-beräkningsinstanser från [Azure Machine Learning Studio.](https://ml.azure.com)
 
-1. Öppna under katalogen `samples-*` och öppna `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Kör antecknings boken när den är öppen.
+1. Öppna `samples-*` underkatalogen och öppna `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`sedan . Kör anteckningsboken när den är öppen.
 
-    ![Skärm bild av den lokala tjänsten som körs på antecknings boken](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
+    ![Skärmbild av den lokala tjänsten som körs på anteckningsbok](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
 
-1. Antecknings boken visar den URL och port som tjänsten körs på. Till exempel `https://localhost:6789`. Du kan också köra cellen som innehåller `print('Local service port: {}'.format(local_service.port))` för att Visa porten.
+1. Anteckningsboken visar webbadressen och porten som tjänsten körs på. Till exempel `https://localhost:6789`. Du kan också köra `print('Local service port: {}'.format(local_service.port))` cellen som innehåller för att visa porten.
 
-    ![Skärm bild av den aktiva porten för den lokala tjänsten](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
+    ![Skärmbild av den lokala serviceporten som körs](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service-port.png)
 
-1. Använd `https://localhost:<local_service.port>` URL för att testa tjänsten från en beräknings instans. Om du vill testa från en fjärran sluten klient hämtar du den offentliga URL: en för tjänsten som körs på beräknings instansen. Den offentliga URL: en kan fastställas med hjälp av följande formel. 
-    * VM för virtuell dator: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
-    * Beräknings instans: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
+1. Om du vill testa tjänsten från `https://localhost:<local_service.port>` en beräkningsinstans använder du URL:en. Om du vill testa från en fjärrklient hämtar du den offentliga URL:en för tjänsten som körs på beräkningsinstansen. Den offentliga URL:en kan bestämmas med hjälp av följande formel. 
+    * Bärbar dator `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`VM: . 
+    * Beräkningsinstans: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
 
     Exempel: 
-    * VM för virtuell dator: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
-    * Beräknings instans: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
+    * Virtuell dator för bärbara datorer:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Beräkningsinstans:`https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## <a name="test-the-service"></a>Testa tjänsten
 
-Använd följande kod för att skicka exempel data till den aktiva tjänsten. Ersätt värdet för `service_url` med URL: en från föregående steg:
+Om du vill skicka exempeldata till den tjänst som körs använder du följande kod. Ersätt värdet `service_url` för med URL:en från föregående steg:
 
 > [!NOTE]
-> Vid autentisering till en distribution på beräknings instansen görs autentiseringen med hjälp av Azure Active Directory. Anropet till `interactive_auth.get_authentication_header()` i kod exemplet autentiserar dig med AAD, och returnerar en rubrik som sedan kan användas för att autentisera till tjänsten på beräknings instansen. Mer information finns i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md#interactive-authentication).
+> När du autentiserar till en distribution på beräkningsinstansen görs autentiseringen med Azure Active Directory. Anropet `interactive_auth.get_authentication_header()` till i exempelkoden autentiserar dig med AAD och returnerar ett huvud som sedan kan användas för att autentisera till tjänsten på beräkningsinstansen. Mer information finns i [Konfigurera autentisering för Azure Machine Learning-resurser och arbetsflöden](how-to-setup-authentication.md#interactive-authentication).
 >
-> När du autentiserar till en distribution på Azure Kubernetes service eller Azure Container Instances, används en annan autentiseringsmetod. Mer information finns i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md#web-service-authentication).
+> När du autentiserar till en distribution på Azure Kubernetes Service eller Azure Container Instances används en annan autentiseringsmetod. Mer information om finns i [Konfigurera autentisering för Azure Machine Learning-resurser och arbetsflöden](how-to-setup-authentication.md#web-service-authentication).
 
 ```python
 import requests
@@ -94,9 +94,9 @@ print("prediction:", resp.text)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
-* [Distributions fel sökning](how-to-troubleshoot-deployment.md)
-* [Skydda Azure Machine Learning webb tjänster med SSL](how-to-secure-web-service.md)
-* [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
-* [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
+* [Distribuera en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
+* [Felsökning av distribution](how-to-troubleshoot-deployment.md)
+* [Säkra Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
+* [Använda en ML-modell som distribueras som en webbtjänst](how-to-consume-web-service.md)
+* [Övervaka dina Azure Machine Learning-modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

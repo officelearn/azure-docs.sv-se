@@ -9,22 +9,22 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 7316dba7559c4a50e94771d69ce03bac51c0f3c2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774541"
 ---
-Gå till [portalen](https://portal.azure.com/) i en webbläsare och logga in med ditt Azure-konto.
+Från en webbläsare navigerar du till [portalen](https://portal.azure.com/) och loggar in med ditt Azure-konto.
 
-Om du har flera prenumerationer och behöver växla prenumerationer:
+Om du har flera prenumerationer och behöver byta prenumerationer:
 
-1. Klicka på knappen profil och välj sedan **Växla katalog**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Välj växel katalog](../media/choose-subscription-2.png)
-
-1. Välj en prenumeration som du vill använda för peering-konfiguration.
+1. Klicka på profilknappen och välj sedan **Växla katalog**.
 
     > [!div class="mx-imgBorder"]
-    > ![Välj prenumerations](../media/choose-subscription-3.png)
+    > ![Välj växelkatalog](../media/choose-subscription-2.png)
+
+1. Välj en prenumeration som du vill använda för peering-uppsättning.
+
+    > [!div class="mx-imgBorder"]
+    > ![Välj prenumeration](../media/choose-subscription-3.png)

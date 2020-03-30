@@ -5,33 +5,33 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: sngun
 ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187094"
 ---
-**1. Hur kommer kunderna att meddelas om retiring SDK?**
+**1. Hur kommer kunderna att meddelas om den avgående SDK?**
 
-Microsoft meddelar 12 månaders förhandsinformation i slutet av stödet för retiring SDK för att underlätta en smidig övergång till en SDK som stöds. Dessutom kan kunderna meddelas via olika kommunikation kanaler – hanteringsportalen för Azure Developer Center, blogginlägg, och direkt kommunikation till tilldelade tjänstadministratörer.
+Microsoft kommer att tillhandahålla 12 månaders förhandsmeddelande till slutet av stödet för den avgående SDK för att underlätta en smidig övergång till en SDK som stöds. Vidare meddelas kunder via olika kommunikationskanaler – Azure Management Portal, Developer Center, blogginlägg och direktkommunikation till tilldelade tjänstadministratörer.
 
-**2. Kunder kan skapa program med hjälp av en ”ska” dras tillbaka Azure Cosmos DB SDK under 12-månadersperioden?** 
+**2. Kan kunder skapa program som använder en "att vara" pensionerad Azure Cosmos DB SDK under 12-månadersperioden?** 
 
-Ja, kunder har fullständig åtkomst att skapa, distribuera och ändra de program som använder ”ska” dras tillbaka Azure Cosmos DB SDK under respittiden 12 månader. Under respittiden 12 månaders bör kunder migrera till en nyare version som stöds av Azure Cosmos DB SDK efter behov.
+Ja, kunder har fullständig åtkomst till författare, distribuera och ändra program med hjälp av "to-be" pensionerade Azure Cosmos DB SDK under 12 månaders respitperiod. Under respitperioden på 12 månader rekommenderas kunder att migrera till en nyare version av Azure Cosmos DB SDK som är lämplig.
 
-**3. Kan kunder skapa och ändra program som använder en pensionerad Azure Cosmos DB SDK efter den 12 månaders meddelande?**
+**3. Kan kunder skapa och ändra program med hjälp av en pensionerad Azure Cosmos DB SDK efter 12 månaders meddelandeperiod?**
 
-SDK: N kommer att dras tillbaka efter meddelandeperiod 12 månader. Åtkomst till Azure Cosmos DB genom att ett program med hjälp av en pensionerad SDK tillåts inte av Azure Cosmos DB-plattformen. Dessutom kan tillhandahåller Microsoft inte kundsupport om tillbakadragna SDK.
+Efter 12 månaders anmälningsperiod kommer SDK att dras tillbaka. Åtkomst till Azure Cosmos DB av ett program som använder en pensionerad SDK tillåts inte av Azure Cosmos DB-plattformen. Dessutom kommer Microsoft inte att tillhandahålla kundsupport på den pensionerade SDK.
 
-**4. Vad händer med kunden kör program som använder Azure Cosmos DB SDK-versionen stöds inte?**
+**4. Vad händer med kundens program som körs utan stöd azure cosmos DB SDK-version?**
 
-Alla försök att ansluta till Azure Cosmos DB-tjänsten med en pensionerad SDK-version har gjort avvisas. 
+Alla försök som görs för att ansluta till Azure Cosmos DB-tjänsten med en pensionerad SDK-version kommer att avvisas. 
 
-**5. Nya funktionerna och egenskaperna tillämpas på alla icke-dras tillbaka SDK: er?**
+**5. Kommer nya funktioner att tillämpas på alla icke-pensionerade SDK:er?**
 
-Nya funktioner läggs endast till nya versioner. Om du använder en äldre, icke-dras tillbaka, version av SDK: N dina förfrågningar till Azure Cosmos DB kommer fortfarande att fungera som tidigare, men du har inte åtkomst till alla nya funktioner.  
+Nya funktioner och funktioner kommer endast att läggas till i nya versioner. Om du använder en gammal, icke-pensionerad, version av SDK dina förfrågningar till Azure Cosmos DB kommer fortfarande att fungera som tidigare men du kommer inte att ha tillgång till några nya funktioner.  
 
-**6. Vad gör jag om jag inte kan uppdatera mitt program innan ett slutdatum?**
+**6. Vad ska jag göra om jag inte kan uppdatera min ansökan före ett mellanbeskärningsdatum?**
 
-Vi rekommenderar att du uppgraderar till den senaste SDK så tidigt som möjligt. När en SDK har taggats för pensioner har du 12 månader att uppdatera ditt program. Om, oavsett orsak, du inte kan slutföra din programuppdateringen inom denna period och sedan kontakta den [Cosmos DB-teamet](mailto:askcosmosdb@microsoft.com) och begära deras hjälp före slutdatumet.
+Vi rekommenderar att du uppgraderar till den senaste SDK så tidigt som möjligt. När en SDK har taggats för pensionering har du 12 månader på dig att uppdatera ditt program. Om du av någon anledning inte kan slutföra din programuppdatering inom den här tidsramen kontaktar du [Cosmos DB Team](mailto:askcosmosdb@microsoft.com) och begär deras hjälp före slutdatumet.
 

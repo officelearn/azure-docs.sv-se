@@ -1,6 +1,6 @@
 ---
-title: Gränser och kvoter IoT Plug and Play Preview | Microsoft Docs
-description: Förstå de gränser, kvoter och begränsningar som gäller när du använder IoT Plug and Play Preview.
+title: Förhandsgranskning av begränsningar och kvoter IoT Plug and Play | Microsoft-dokument
+description: Förstå de gränser, kvoter och begränsning som gäller när du använder IoT Plug and Play Preview.
 author: miagdp
 ms.author: miag
 ms.date: 12/26/2019
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75531385"
 ---
-# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT Plug and Play för hands versioner, kvoter och begränsningar
+# <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>IoT Plug and Play Preview gränser, kvoter och begränsningar
 
-I den här artikeln beskrivs de IoT-Plug and Play gränser, kvoter och begränsningar som gäller för den offentliga för hands versionen. Det finns befintliga [IoT Hub kvoter och begränsning](../iot-hub/iot-hub-devguide-quotas-throttling.md) som också gäller.
+I den här artikeln beskrivs de IoT Plug- och Play-specifika gränser, kvoter och begränsning som gäller i den offentliga förhandsversionen. Det finns befintliga [IoT Hub-kvoter och begränsning](../iot-hub/iot-hub-devguide-quotas-throttling.md) som också gäller.
 
 ## <a name="iot-hub"></a>IoT Hub
 
-För den allmänt tillgängliga för hands versionen gäller följande gränser och kvoter för en IoT-hubb:
+För den offentliga förhandsversionen gäller följande begränsningar och kvoter för en IoT-hubb:
 
-| Begränsningar, begränsningar och begränsning | Värde | Anteckningar |
+| Begränsningar, begränsningar och gasreglage | Värde | Anteckningar |
 |-----|-----|-----|
-| Antalet enhets kapacitets modeller (DCMs) eller gränssnitt som kan registreras per hubb | 1500 ||
+| Antal enhetsfunktioner (DCMs) eller gränssnitt som kan registreras per hubb | 1500 ||
 | Maximalt antal gränssnitt som kan registreras per enhet | 40 ||
-| Maximalt antal DCMs som kan registreras per enhet | 1 ||
-| Maximal storlek för gränssnitt/DCM-fil | 512 tecken ||
-| Maximal storlek för ett gränssnitts namn | 256 tecken ||
-| Maximal storlek för ett egenskaps namn  | 64 byte, 7 nivåer i djup (och den första nivån är reserverad för `$iotin`) | Tillåtna tecken: a-z, A-Z, 0-9 (inte som det första tecknet) och under streck. |
-| Maximal storlek för ett egenskaps värde | 512 byte ||
-| Maximal storlek för kommando namn | 100 byte ||
-| Enhetens dubbla storlek | Samma som [IoT Hub gränser](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Lösnings-API-anrop över SKU (oavsett enheter) | 100 begäran per sekund ||
+| Maximalt antal DCM:er som kan registreras per enhet | 1 ||
+| Maximal storlek på gränssnitt/DCM-fil | 512 tecken ||
+| Maximal storlek på ett gränssnittsnamn | 256 tecken ||
+| Maximal storlek på ett egenskapsnamn  | 64 byte, 7 nivåer på djupet (och `$iotin`den första nivån är reserverad för) | Tillåtna tecken: a-z, A-Ö, 0-9 (inte som det första tecknet) och understreck. |
+| Maximal storlek för ett egenskapsvärde | 512 byte ||
+| Maximal storlek för ett kommandonamn | 100 byte ||
+| Enhetens dubbla storlek | Samma som [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
+| Lösning API-anrop över SKU (oavsett enheter) | 100 begäran/sekund ||
 
-## <a name="model-repository"></a>Modell databas
+## <a name="model-repository"></a>Modelldatabas
 
-För den allmänt tillgängliga för hands versionen gäller följande gränser och kvoter för en modell lagrings plats:
+För den offentliga förhandsversionen gäller följande begränsningar och kvoter för en modelldatabas:
 
-| Begränsningar, begränsningar och begränsning| Värde |
+| Begränsningar, begränsningar och gasreglage| Värde |
 |-----|-----|
-| Antal företags modell databaser per Azure Active Directory klient | 1 |
-| Antal auktoriseringsregler per modell databas | 10  |
-| Antal modeller (DCMs eller gränssnitt) per organisations modell databas| 1500  |
-| Antalet modeller (DCMs eller gränssnitt) i den offentliga modell databasen per Azure Active Directory klient| 1500  |
-| Antalet DCMs eller gränssnitt som tas bort i en företags modell databas | 10 frågor per sekund (frågor per sekund)|
-| Antal modell databaser som skapas/uppdateras av en klient| 1 FRÅGOR PER SEKUND |
-| Antal auktoriseringsregler som skapas/uppdateras/tas bort i en modell databas | 1 FRÅGOR PER SEKUND|
-| Antalet DCMs som skapas i en företags modell databas | 10 FRÅGOR PER SEKUND |
-| Antal gränssnitt som skapas i en företags modell databas | 10 FRÅGOR PER SEKUND|
-| Antalet DCMs som skapas i den offentliga modell databasen | 10 FRÅGOR PER SEKUND|
-| Antal gränssnitt som skapas i den offentliga modellens lagrings plats | 10 FRÅGOR PER SEKUND|
+| Antal företagsmodelldatabaser per Azure Active Directory-klient | 1 |
+| Antal auktoriseringsnycklar per modelldatabas | 10  |
+| Antal modeller (DCMs eller gränssnitt) per företagsmodelldatabas| 1500  |
+| Antal modeller (DCMs eller gränssnitt) i den offentliga modelldatabasen per Azure Active Directory-klient| 1500  |
+| Antal DCMs eller gränssnitt som tas bort i en företagsmodelldatabas | 10 frågor per sekund (QPS)|
+| Antal modelldatabaser som skapas/uppdateras av en klient| 1 QPS (1 QPS) |
+| Antal auktoriseringsnycklar som skapas/uppdateras/tas bort i en modelldatabas | 1 QPS (1 QPS)|
+| Antal DCM:er som skapas i en företagsmodelldatabas | 10 QPS (10 QPS) |
+| Antal gränssnitt som skapas i en företagsmodelldatabas | 10 QPS (10 QPS)|
+| Antal dcms som skapas i den offentliga modelldatabasen | 10 QPS (10 QPS)|
+| Antal gränssnitt som skapas i den offentliga modelldatabasen | 10 QPS (10 QPS)|
 
-## <a name="parser-library"></a>Parsar bibliotek
+## <a name="parser-library"></a>Parserbibliotek
 
-Parsar biblioteket följer de gränser som gäller för det [digitala, dubbla definitions språket](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+Tolkbiblioteket följer de gränser som gäller för det [digitala tvillingdefinitionsspråket](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ett förslag till nästa steg är att lära dig hur du [ansluter till och interagerar med en IoT plug and Play-enhet](./howto-develop-solution.md).
+Ett förslag på nästa steg är att lära sig att [ansluta till och interagera med en IoT Plug and Play-enhet](./howto-develop-solution.md).

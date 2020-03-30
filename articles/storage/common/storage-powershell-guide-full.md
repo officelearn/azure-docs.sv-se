@@ -1,6 +1,6 @@
 ---
-title: Använda Azure PowerShell med Azure Storage | Microsoft Docs
-description: Lär dig hur du använder Azure PowerShell-cmdletar för Azure Storage.
+title: Använda Azure PowerShell med Azure Storage | Microsoft-dokument
+description: Lär dig hur du använder Azure PowerShell-cmdlets för Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,38 +9,38 @@ ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: d2404ee58f5f44fbe5625f267e6d1c504d0bd237
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465104"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Använda Azure PowerShell med Azure Storage
 
-Azure PowerShell används för att skapa och hantera Azure-resurser från kommando raden i PowerShell eller i skript. För Azure Storage delas dessa cmdlets in i två kategorier – kontroll planet och data planet. Kontroll Plans-cmdletarna används för att hantera lagrings kontot – för att skapa lagrings konton, ange egenskaper, ta bort lagrings konton, rotera åtkomst nycklar och så vidare. Data Plans-cmdletarna används för att hantera data som lagras *i* lagrings kontot. Du kan till exempel Ladda upp blobar, skapa fil resurser och lägga till meddelanden i en kö.
+Azure PowerShell används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. För Azure Storage kan dessa cmdlets delas in i två kategorier – kontrollplanet och dataplanet. Kontrollplans cmdlets används för att hantera lagringskontot - för att skapa lagringskonton, ange egenskaper, ta bort lagringskonton, rotera åtkomstnycklarna och så vidare. Dataplans cmdlets används för att hantera data som lagras *i* lagringskontot. Till exempel ladda upp blobbar, skapa filresurser och lägga till meddelanden i en kö.
 
-Den här instruktions artikeln täcker vanliga åtgärder med hjälp av hanterings plan-cmdletar för att hantera lagrings konton. Lär dig att:
+Den här how-to artikeln täcker vanliga åtgärder med hjälp av hanteringsplan cmdlets för att hantera lagringskonton. Lär dig att:
 
 > [!div class="checklist"]
-> * Lista lagrings konton
-> * Hämta en referens till ett befintligt lagrings konto
+> * Lista lagringskonton
+> * Hämta en referens till ett befintligt lagringskonto
 > * Skapa ett lagringskonto
-> * Ange egenskaper för lagrings konto
-> * Hämta och återskapa åtkomst nycklarna
-> * Skydda åtkomsten till ditt lagrings konto
-> * Aktivera Lagringsanalys
+> * Ange egenskaper för lagringskonto
+> * Hämta och återskapa åtkomstnycklarna
+> * Skydda åtkomsten till ditt lagringskonto
+> * Aktivera lagringsanalys
 
-Den här artikeln innehåller länkar till flera andra PowerShell-artiklar för lagring, till exempel hur du aktiverar och får åtkomst till Lagringsanalys, hur du använder data Plans-cmdletar och hur du kommer åt Azures oberoende moln, till exempel Kina, tyska och myndigheter Kunde.
+Den här artikeln innehåller länkar till flera andra PowerShell-artiklar för lagring, till exempel hur du aktiverar och får åtkomst till Storage Analytics, hur du använder dataplans cmdlets och hur du kommer åt Azure-oberoende moln som China Cloud, German Cloud och Government Moln.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här övningen kräver Azure PowerShell-modulen AZ version 0,7 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
+Den här övningen kräver Azure PowerShell-modulen Az version 0.7 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
-I den här övningen kan du skriva kommandona i ett vanligt PowerShell-fönster eller använda [Windows POWERSHELL Ise (Integrated Scripting Environment)](/powershell/scripting/components/ise/exploring-the-windows-powershell-ise) och skriva kommandona i en redigerare. testa sedan ett eller flera kommandon i taget när du går igenom exemplen. Du kan markera de rader som du vill köra och klicka på Kör markerade för att bara köra dessa kommandon.
+I den här övningen kan du skriva kommandona i ett vanligt PowerShell-fönster, eller använda [ISE (Windows PowerShell Integrated Scripting Environment)](/powershell/scripting/components/ise/exploring-the-windows-powershell-ise) och skriva kommandona i en redigerare och sedan testa ett eller flera kommandon i taget när du går igenom exemplen. Du kan markera de rader som du vill köra och klicka på Kör markerat för att bara köra dessa kommandon.
 
-Mer information om lagrings konton finns i [Introduktion till lagring](storage-introduction.md) och [Azure Storage-konton](storage-create-storage-account.md).
+Mer information om lagringskonton finns i [Introduktion till lagring](storage-introduction.md) och Om [Azure-lagringskonton](storage-create-storage-account.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -50,21 +50,21 @@ Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och följ
 Connect-AzAccount
 ```
 
-## <a name="list-the-storage-accounts-in-the-subscription"></a>Visa en lista över lagrings kontona i prenumerationen
+## <a name="list-the-storage-accounts-in-the-subscription"></a>Lista lagringskontona i prenumerationen
 
-Kör cmdleten [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) för att hämta listan över lagrings konton i den aktuella prenumerationen.
+Kör cmdleten [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) för att hämta listan över lagringskonton i den aktuella prenumerationen.
 
 ```powershell
 Get-AzStorageAccount | Select StorageAccountName, Location
 ```
 
-## <a name="get-a-reference-to-a-storage-account"></a>Hämta en referens till ett lagrings konto
+## <a name="get-a-reference-to-a-storage-account"></a>Hämta en referens till ett lagringskonto
 
-Sedan behöver du en referens till ett lagrings konto. Du kan antingen skapa ett nytt lagrings konto eller hämta en referens till ett befintligt lagrings konto. I följande avsnitt visas båda metoderna.
+Därefter behöver du en referens till ett lagringskonto. Du kan antingen skapa ett nytt lagringskonto eller få en referens till ett befintligt lagringskonto. I följande avsnitt visas båda metoderna.
 
-### <a name="use-an-existing-storage-account"></a>Använd ett befintligt lagrings konto
+### <a name="use-an-existing-storage-account"></a>Använda ett befintligt lagringskonto
 
-Om du vill hämta ett befintligt lagrings konto behöver du namnet på resurs gruppen och namnet på lagrings kontot. Ange variablerna för dessa två fält och Använd sedan cmdleten [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) .
+Om du vill hämta ett befintligt lagringskonto behöver du namnet på resursgruppen och namnet på lagringskontot. Ange variablerna för dessa två fält och använd sedan cmdleten [Get-AzStorageAccount.](/powershell/module/az.storage/Get-azStorageAccount)
 
 ```powershell
 $resourceGroup = "myexistingresourcegroup"
@@ -74,11 +74,11 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName
 ```
 
-Nu har du $storageAccount som pekar på ett befintligt lagrings konto.
+Nu har du $storageAccount, vilket pekar på ett befintligt lagringskonto.
 
 ### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-Följande skript visar hur du skapar ett allmänt lagrings konto med hjälp av [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). När du har skapat kontot hämtar du dess kontext, som kan användas i efterföljande kommandon i stället för att ange autentiseringen med varje anrop.
+Följande skript visar hur du skapar ett allmänt lagringskonto med [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). När du har skapat kontot hämtar du dess kontext, som kan användas i efterföljande kommandon i stället för att ange autentiseringen för varje samtal.
 
 ```powershell
 # Get list of locations and select one.
@@ -103,43 +103,43 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-Skriptet använder följande PowerShell-cmdletar:
+Skriptet använder följande PowerShell-cmdlets:
 
-*   [Get-AzLocation](/powershell/module/az.resources/get-azlocation) – hämtar en lista över giltiga platser. Exemplet använder `eastus` för plats.
+*   [Get-AzLocation](/powershell/module/az.resources/get-azlocation) – hämtar en lista över giltiga platser. Exemplet används `eastus` för plats.
 
-*   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) – skapar en ny resurs grupp. En resurs grupp är en logisk behållare där dina Azure-resurser distribueras och hanteras. Oss kallas för `teststoragerg`.
+*   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) – skapar en ny resursgrupp. En resursgrupp är en logisk behållare där dina Azure-resurser distribueras och hanteras. Vår heter `teststoragerg`.
 
-*   [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) – skapar lagrings kontot. Exemplet använder `testpshstorage`.
+*   [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) – skapar lagringskontot. I exemplet `testpshstorage`används .
 
-SKU-namnet anger typ av replikering för lagrings kontot, t. ex. LRS (lokalt redundant lagring). Mer information om replikering finns i [Azure Storage replikering](storage-redundancy.md).
+SKU-namnet anger typen av replikering för lagringskontot, till exempel LRS (Lokalt redundant lagring). Mer information om replikering finns i [Azure Storage Replication](storage-redundancy.md).
 
 > [!IMPORTANT]
-> Namnet på ditt lagrings konto måste vara unikt i Azure och måste vara i gemener. Information om namngivning av konventioner och begränsningar finns i [namngivning och referens av behållare, blobbar och metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
+> Namnet på ditt lagringskonto måste vara unikt i Azure och måste vara gemener. Namnkonventioner och begränsningar finns i [Namngivning och referera behållare, blobbar och metadata](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
 >
 
-Nu har du ett nytt lagrings konto och en referens till det.
+Nu har du ett nytt lagringskonto och en referens till det.
 
-## <a name="manage-the-storage-account"></a>Hantera lagrings kontot
+## <a name="manage-the-storage-account"></a>Hantera lagringskontot
 
-Nu när du har en referens till ett nytt lagrings konto eller ett befintligt lagrings konto visar följande avsnitt några av de kommandon som du kan använda för att hantera ditt lagrings konto.
+Nu när du har en referens till ett nytt lagringskonto eller ett befintligt lagringskonto visas några av de kommandon som du kan använda för att hantera ditt lagringskonto i följande avsnitt.
 
-### <a name="storage-account-properties"></a>Egenskaper för lagrings konto
+### <a name="storage-account-properties"></a>Egenskaper för lagringskonto
 
-Om du vill ändra inställningarna för ett lagrings konto använder du [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Även om du inte kan ändra platsen för ett lagrings konto eller resurs gruppen där det finns, kan du ändra många av de andra egenskaperna. Nedan visas några av de egenskaper som du kan ändra med hjälp av PowerShell.
+Om du vill ändra inställningarna för ett lagringskonto använder du [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Du kan inte ändra platsen för ett lagringskonto eller resursgruppen där det finns, men du kan ändra många av de andra egenskaperna. I följande lista visas några av de egenskaper som du kan ändra med PowerShell.
 
-* Den **anpassade domän** som har tilldelats lagrings kontot.
+* Den **anpassade domän** som tilldelats lagringskontot.
 
-* **Taggarna** som har tilldelats lagrings kontot. Taggar används ofta för att kategorisera resurser i fakturerings syfte.
+* **Taggarna** som tilldelats lagringskontot. Taggar används ofta för att kategorisera resurser för faktureringsändamål.
 
-* **SKU: n** är replikeringsinställningarna för lagrings kontot, till exempel LRS för lokalt redundant lagring. Du kan till exempel ändra från standard\_LRS till standard\_GRS eller standard\_RAGRS. Observera att du inte kan ändra standard\_ZRS, standard\_GZRS, standard\_RAGZRS eller Premium\_LRS till andra SKU: er eller ändra andra SKU: er till dessa.
+* **SKU** är replikeringsinställningen för lagringskontot, till exempel LRS för lokalt redundant lagring. Du kan till exempel\_ändra från Standard\_LRS\_till Standard GRS eller Standard RAGRS. Observera att du inte\_kan ändra Standard\_ZRS,\_Standard GZRS,\_Standard RAGZRS eller Premium LRS till andra SKU:er eller ändra andra SKU:er till dessa.
 
-* **Åtkomst nivån** för Blob Storage-konton. Värdet för åtkomst nivån är inställt **på frekvent** eller låg frekvent, och gör att **du kan minimera**kostnaden genom att välja åtkomst nivån som motsvarar hur du använder lagrings kontot. Mer information finns i [lagrings nivåerna frekvent, låg frekvent och Arkiv lag](../blobs/storage-blob-storage-tiers.md)ring.
+* **Åtkomstnivån** för Blob-lagringskonton. Värdet för åtkomstnivån är inställt **på frekvent** eller **lågfrekvent**och gör att du kan minimera din kostnad genom att välja den åtkomstnivå som stämmer överens med hur du använder lagringskontot. Mer information finns i [Hot-, cool- och arkivlagringsnivåer](../blobs/storage-blob-storage-tiers.md).
 
 * Tillåt endast HTTPS-trafik.
 
-### <a name="manage-the-access-keys"></a>Hantera åtkomst nycklar
+### <a name="manage-the-access-keys"></a>Hantera åtkomstnycklarna
 
-Ett Azure Storage konto levereras med två konto nycklar. Hämta nycklarna med [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey). I det här exemplet hämtas den första nyckeln. Använd `Value[1]` i stället för `Value[0]`för att hämta den andra.
+Ett Azure Storage-konto levereras med två kontonycklar. Om du vill hämta nycklarna använder du [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey). Det här exemplet hämtar den första nyckeln. Om du vill hämta `Value[1]` den `Value[0]`andra använder du i stället för .
 
 ```powershell
 $storageAccountKey = `
@@ -156,100 +156,100 @@ New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -KeyName key1
 ```
 
-Om du vill återskapa den andra nyckeln använder du `key2` som nyckel namn i stället för `key1`.
+Om du vill återskapa `key2` den andra nyckeln `key1`använder du som nyckelnamn i stället för .
 
-Återskapa en av dina nycklar och hämta det sedan igen för att se det nya värdet.
+Återskapa en av dina nycklar och hämta den sedan igen för att se det nya värdet.
 
 > [!NOTE]
-> Du bör utföra noggrann planering innan du återskapar nyckeln för ett produktions lagrings konto. Om du återskapar en eller båda nycklarna inkommer åtkomsten för alla program som använder den nyckel som återskapades. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](storage-account-keys-manage.md).
+> Du bör utföra noggrann planering innan du återskapar nyckeln för ett produktionslagringskonto. Om du återskapar en eller båda nycklarna blir åtkomsten för alla program som använder nyckeln som har återskapats. Mer information finns i [Hantera åtkomstnycklar för lagringskonto](storage-account-keys-manage.md).
 
 
 ### <a name="delete-a-storage-account"></a>Ta bort ett lagringskonto
 
-Om du vill ta bort ett lagrings konto använder du [Remove-AzStorageAccount](/powershell/module/az.storage/Remove-azStorageAccount).
+Om du vill ta bort ett lagringskonto använder du [Remove-AzStorageAccount](/powershell/module/az.storage/Remove-azStorageAccount).
 
 ```powershell
 Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
 > [!IMPORTANT]
-> När du tar bort ett lagrings konto raderas även alla resurser som lagras i kontot. Om du tar bort ett konto av misstag kan du anropa supporten direkt och öppna ett ärende för att återställa lagrings kontot. Återställning av dina data är inte garanterat, men det fungerar ibland. Skapa inte ett nytt lagrings konto med samma namn som det gamla tills support ärendet har lösts.
+> När du tar bort ett lagringskonto tas även alla tillgångar som lagras i kontot bort. Om du tar bort ett konto av misstag ringer du supporten omedelbart och öppnar en biljett för att återställa lagringskontot. Återställning av dina data är inte garanterad, men det fungerar ibland. Skapa inte ett nytt lagringskonto med samma namn som det gamla förrän supportbiljetten har lösts.
 >
 
-### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Skydda ditt lagrings konto med virtuella nätverk och brand väggar
+### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Skydda ditt lagringskonto med virtuella nätverk och brandväggar
 
-Som standard är alla lagrings konton tillgängliga för alla nätverk som har åtkomst till Internet. Du kan dock konfigurera nätverks regler så att endast program från vissa virtuella nätverk får åtkomst till ett lagrings konto. Mer information finns i [konfigurera Azure Storage brand väggar och virtuella nätverk](storage-network-security.md).
+Som standard är alla lagringskonton tillgängliga för alla nätverk som har åtkomst till Internet. Du kan dock konfigurera nätverksregler så att program från specifika virtuella nätverk endast tillåter att program från specifika virtuella nätverk får åtkomst till ett lagringskonto. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](storage-network-security.md).
 
-Artikeln visar hur du hanterar dessa inställningar med hjälp av följande PowerShell-cmdletar:
-* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+Artikeln visar hur du hanterar dessa inställningar med hjälp av följande PowerShell-cmdlets:
+* [Tillägg-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
 * [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
-* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
+* [Ta bort-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
-## <a name="use-storage-analytics"></a>Använd Storage Analytics
+## <a name="use-storage-analytics"></a>Använda lagringsanalys
 
-[Azure-lagringsanalys](storage-analytics.md) består av [Lagringsanalys mått](/rest/api/storageservices/about-storage-analytics-metrics) och [Lagringsanalys loggning](/rest/api/storageservices/about-storage-analytics-logging).
+[Azure Storage Analytics](storage-analytics.md) består av [Lagringsanalysmått](/rest/api/storageservices/about-storage-analytics-metrics) och [Lagringsanalysloggning](/rest/api/storageservices/about-storage-analytics-logging).
 
-**Lagringsanalys mått** används för att samla in mått för dina Azure Storage-konton som du kan använda för att övervaka hälso tillståndet för ett lagrings konto. Mått kan aktive ras för blobbar, filer, tabeller och köer.
+**Storage Analytics-mått** används för att samla in mått för dina Azure-lagringskonton som du kan använda för att övervaka hälsotillståndet för ett lagringskonto. Mått kan aktiveras för blobbar, filer, tabeller och köer.
 
-**Lagringsanalys loggning** sker på Server sidan och du kan registrera information för både lyckade och misslyckade förfrågningar till ditt lagrings konto. Med dessa loggar kan du se information om Läs-, skriv-och borttagnings åtgärder mot dina tabeller, köer och blobbar samt orsakerna till misslyckade förfrågningar. Det går inte att logga in för Azure Files.
+**Storage Analytics Loggning** sker på serversidan och gör att du kan registrera information för både lyckade och misslyckade begäranden till ditt lagringskonto. Med de här loggarna kan du se information om läs-, skriv- och borttagningsåtgärder mot tabeller, köer och blobbar samt orsakerna till misslyckade begäranden. Loggning är inte tillgängligt för Azure-filer.
 
-Du kan konfigurera övervakning med hjälp av [Azure Portal](https://portal.azure.com), PowerShell eller program mässigt med hjälp av lagrings klient biblioteket.
+Du kan konfigurera övervakning med hjälp av [Azure-portalen,](https://portal.azure.com)PowerShell eller programmässigt med hjälp av lagringsklientbiblioteket.
 
 > [!NOTE]
-> Du kan aktivera minut analys med hjälp av PowerShell. Den här funktionen är inte tillgänglig i portalen.
+> Du kan aktivera minutanalys med PowerShell. Den här funktionen är inte tillgänglig i portalen.
 >
 
-* Information om hur du aktiverar och visar lagrings mått data med hjälp av PowerShell finns i [Storage Analytics-mått](storage-analytics-metrics.md).
+* Mer information om hur du aktiverar och visar lagringsmåttdata med PowerShell finns i [Mätvärden för lagringsanalys](storage-analytics-metrics.md).
 
-* Information om hur du aktiverar och hämtar lagrings loggnings data med hjälp av PowerShell finns i [så här aktiverar du lagrings loggning med PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) och [söker efter logg data för lagrings loggning](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
+* Mer information om hur du aktiverar och hämtar lagringsloggningsdata med PowerShell finns i [Så här aktiverar du Lagringsloggning med Hjälp av PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) och Söker efter [loggdata för lagringsloggning](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
 
-* Detaljerad information om hur du använder lagrings mått och lagrings loggning för att felsöka lagrings problem finns i [övervakning, diagnostisering och fel sökning Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+* Detaljerad information om hur du använder lagringsmått och lagringsloggning för att felsöka lagringsproblem finns i [Övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="manage-the-data-in-the-storage-account"></a>Hantera data i lagrings kontot
+## <a name="manage-the-data-in-the-storage-account"></a>Hantera data i lagringskontot
 
-Nu när du förstår hur du hanterar ditt lagrings konto med PowerShell kan du använda följande artiklar för att lära dig hur du får åtkomst till data objekt i lagrings kontot.
+Nu när du förstår hur du hanterar ditt lagringskonto med PowerShell kan du använda följande artiklar för att lära dig hur du kommer åt dataobjekten i lagringskontot.
 
 * [Hantera blobbar med PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
-* [Så här hanterar du filer med PowerShell](../files/storage-how-to-use-files-powershell.md)
+* [Hantera filer med PowerShell](../files/storage-how-to-use-files-powershell.md)
 * [Hantera köer med PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [Utföra Azure Table Storage-åtgärder med PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
+* [Utföra Azure Table-lagringsåtgärder med PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
 
-Azure Cosmos DB Tabell-API innehåller Premium funktioner för tabell lagring, till exempel nyckel färdig global distribution, låg latens läsningar och skrivningar, automatisk sekundär indexering och dedikerat data flöde.
+Azure Cosmos DB Table API innehåller premiumfunktioner för tabelllagring, till exempel totalenal distribution, läsningar och skrivningar med låg latens, automatisk sekundär indexering och dedikerat dataflöde.
 
-* Mer information finns i [Azure Cosmos DB tabell-API](../../cosmos-db/table-introduction.md).
+* Mer information finns i [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md).
 
-## <a name="independent-cloud-deployments-of-azure"></a>Oberoende moln distributioner av Azure
+## <a name="independent-cloud-deployments-of-azure"></a>Oberoende molndistributioner av Azure
 
-De flesta människor använder Azures offentliga moln för sin globala Azure-distribution. Det finns också några oberoende distributioner av Microsoft Azure av suveränitets skäl och så vidare. Dessa oberoende distributioner kallas "miljöer". Det här är tillgängliga miljöer:
+De flesta använder Azure Public Cloud för sin globala Azure-distribution. Det finns också några oberoende distributioner av Microsoft Azure på grund av suveränitet och så vidare. Dessa oberoende distributioner kallas "miljöer". Dessa är de tillgängliga miljöerna:
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-* [Azure Kina 21Vianet-moln som drivs av 21Vianet i Kina](http://www.windowsazure.cn/)
-* [Azure German Cloud](../../germany/germany-welcome.md)
+* [Azure China 21Vianet Cloud drivs av 21Vianet i Kina](http://www.windowsazure.cn/)
+* [Azure tyska molnet](../../germany/germany-welcome.md)
 
-Information om hur du kommer åt dessa moln och deras lagring med PowerShell finns i [Hantera lagring i Azures oberoende moln med PowerShell](storage-powershell-independent-clouds.md).
+Information om hur du kommer åt dessa moln och deras lagring med PowerShell finns [i Hantera lagring i Azure-oberoende moln med PowerShell](storage-powershell-independent-clouds.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du har skapat en ny resurs grupp och ett lagrings konto för den här övningen kan yous ta bort alla till gångar som du har skapat genom att ta bort resurs gruppen. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet tar den bort det lagrings konto som skapats och själva resurs gruppen.
+Om du har skapat en ny resursgrupp och ett lagringskonto för den här övningen kan du ta bort alla tillgångar som du har skapat genom att ta bort resursgruppen. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet tas det skapade lagringskontot och resursgruppen bort.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-Den här instruktions artikeln täcker vanliga åtgärder med hjälp av hanterings plan-cmdletar för att hantera lagrings konton. Du har lärt dig att:
+Den här how-to artikeln täcker vanliga åtgärder med hjälp av hanteringsplan cmdlets för att hantera lagringskonton. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Lista lagrings konton
-> * Hämta en referens till ett befintligt lagrings konto
+> * Lista lagringskonton
+> * Hämta en referens till ett befintligt lagringskonto
 > * Skapa ett lagringskonto
-> * Ange egenskaper för lagrings konto
-> * Hämta och återskapa åtkomst nycklarna
-> * Skydda åtkomsten till ditt lagrings konto
-> * Aktivera Lagringsanalys
+> * Ange egenskaper för lagringskonto
+> * Hämta och återskapa åtkomstnycklarna
+> * Skydda åtkomsten till ditt lagringskonto
+> * Aktivera lagringsanalys
 
-Den här artikeln innehåller även referenser till flera andra artiklar, t. ex. hur du hanterar data objekt, hur du aktiverar Lagringsanalys och hur du kommer åt Azures oberoende moln, till exempel Kina, tyska, molnet och myndighets moln. Här följer några relaterade artiklar och resurser för referens:
+Den här artikeln innehåller också referenser till flera andra artiklar, till exempel hur du hanterar dataobjekt, hur du aktiverar Lagringsanalys och hur du kommer åt Azure-oberoende moln som China Cloud, German Cloud och Government Cloud. Här är några fler relaterade artiklar och resurser som referens:
 
-* [PowerShell-cmdletar för Azure Storage Control plan](/powershell/module/az.storage/)
-* [PowerShell-cmdletar för Azure Storage data plan](/powershell/module/azure.storage/)
+* [Azure Storage-kontrollplan PowerShell-cmdlets](/powershell/module/az.storage/)
+* [Azure Storage-dataplan PowerShell-cmdlets](/powershell/module/azure.storage/)
 * [Windows PowerShell-referens](/powershell/scripting/overview)

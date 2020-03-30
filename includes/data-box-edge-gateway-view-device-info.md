@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187803"
 ---
-1. [Ansluta till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
-2. Använd den `Get-HcsApplianceInfo` att hämta information för din enhet.
+1. [Anslut till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
+2. Använd `Get-HcsApplianceInfo` för att få information för din enhet.
 
-    I följande exempel visas användningen av denna cmdlet:
+    I följande exempel visas användningen av den här cmdleten:
 
     ```
     [10.100.10.10]: PS>Get-HcsApplianceInfo
@@ -43,16 +43,16 @@ ms.locfileid: "67187803"
     IsRegistered                  : False
     ```
 
-    Här är en tabell som sammanställer några av de viktiga enhetsinformationen:
+    Här är en tabell som sammanfattar några av de viktiga enhetsinformation:
     
     | Parameter                             | Beskrivning                                                                                                                                                  |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    | FriendlyName                   | Det egna namnet på enheten som konfigurerats via det lokala webbgränssnittet under distributionen av enheten. Det egna namnet för standard är enhetens serienummer.  |   |
-    | serialNumber                   | Enhetens serienummer är ett unikt nummer som tilldelas på fabriken.                                                                             |   |
-    | Modell                          | Modell för din Data Box Edge eller Data Box-Gateway-enhet. Modellen är virtuella för Data Box-Gateway och fysiska för Data Box Edge.                   |   |
-    | FriendlySoftwareVersion        | Eget strängen som motsvarar enhetens programvaruversion. För ett system som kör preview är eget programvaruversionen Data Box Edge 1902. |   |
-    | HcsVersion                     | Programvaruversion HCS som körs på din enhet. Exempelvis är HCS programvaruversionen för Data Box Edge 1902 1.4.771.324.            |   |
-    | LocalCapacityInMb              | Totalt antal lokal kapacitet för enheten i megabit.                                                                                                        |   |
-    | IsRegistered                   | Det här värdet anger om enheten har aktiverats med tjänsten.                                                                                         |   |
+    | FriendlyName                   | Det egna namnet på enheten som konfigurerats via det lokala webbgränssnittet under enhetsdistributionen. Standardnamnet är enhetens serienummer.  |   |
+    | Serienummer                   | Enhetens serienummer är ett unikt nummer som tilldelats på fabriken.                                                                             |   |
+    | Modell                          | Modellen för enheten Data Box Edge eller Data Box Gateway. Modellen är virtuell för Data Box Gateway och fysisk för Data Box Edge.                   |   |
+    | FriendlySoftwareVersion        | Den vänliga strängen som motsvarar enhetens programvaruversion. För ett system som kör förhandsversion, skulle den vänliga programvaruversionen vara Data Box Edge 1902. |   |
+    | HcsVersion (HcsVersion)                     | HCS-programvaruversionen som körs på enheten. Till exempel är HCS-programvaruversionen som motsvarar Data Box Edge 1902 1.4.771.324.            |   |
+    | LocalCapacityInMb              | Den totala lokala kapaciteten för enheten i Megabits.                                                                                                        |   |
+    | Ärregistrerad                   | Det här värdet anger om enheten är aktiverad med tjänsten.                                                                                         |   |
 
 

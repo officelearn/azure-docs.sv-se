@@ -5,23 +5,23 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187296"
 ---
-Det är viktigt att det finns två sätt att konfigurera en tillgänglighetsgruppslyssnare i Azure. Hur skiljer sig åt i typ av Azure belastningsutjämnare som du använder när du skapar lyssnaren. I följande tabell beskrivs skillnaderna:
+Det är viktigt att inse att det finns två sätt att konfigurera en tillgänglighetsgruppavlyssnare i Azure. Hur skiljer sig i vilken typ av Azure belastningsutjämnare du använder när du skapar lyssnaren. I följande tabell beskrivs skillnaderna:
 
-| Typ av belastningsutjämnare | Implementering | Använd när: |
+| Typ av belastningsutjämning | Implementering | Använd när: |
 | --- | --- | --- |
-| **Externt** |Använder den *offentliga virtuella IP-adressen* av Molntjänsten som är värd för virtuella datorer (VM). |Du behöver åtkomst till lyssnaren från utanför det virtuella nätverket, inklusive från Internet. |
-| **Intern** |Använder en *intern belastningsutjämnare* med en privat adress för lyssnaren. |Du kan öppna lyssnaren endast från inom samma virtuella nätverk. Den här åtkomsten innehåller plats-till-plats-VPN i hybridsituationer. |
+| **Externa** |Använder den *offentliga virtuella IP-adressen* för molntjänsten som är värd för virtuella datorer.Uses the public virtual IP address of the cloud service that hosts the virtual machines (VMs). |Du måste komma åt lyssnaren utanför det virtuella nätverket, inklusive från Internet. |
+| **Intern** |Använder en *intern belastningsutjämnare* med en privat adress för lyssnaren. |Du kan bara komma åt lyssnaren från samma virtuella nätverk. Den här åtkomsten inkluderar VPN från plats till plats i hybridscenarier. |
 
 > [!IMPORTANT]
-> För en lyssnare som använder du cloud Services offentlig VIP (extern belastningsutjämnare), så länge klienten, lyssnaren och databaser finns i samma Azure-region, tillkommer kostnader för utgående trafik. I annat fall alla data som returneras via lyssnaren anses utgående trafik och den debiteras enligt normal dataöverföring under. 
+> För en lyssnare som använder molntjänstens offentliga VIP (extern belastningsutjämnare), så länge klienten, lyssnaren och databaserna finns i samma Azure-region, ådrar du dig inte utgående avgifter. Annars betraktas alla data som returneras via lyssnaren som utgående och debiteras vid normala dataöverföringshastigheter. 
 > 
 > 
 
-En ILB kan endast konfigureras på virtuella nätverk med regional omfattning. Befintliga virtuella nätverk som har konfigurerats för en tillhörighetsgrupp kan inte använda en ILB. Mer information finns i [översikt över intern belastningsutjämnare](../articles/load-balancer/load-balancer-internal-overview.md).
+En ILB kan bara konfigureras i virtuella nätverk med ett regionalt scope. Befintliga virtuella nätverk som har konfigurerats för en tillhörighetsgrupp kan inte använda en ILB. Mer information finns i [Översikt över intern belastningsutjämnare](../articles/load-balancer/load-balancer-internal-overview.md).
 

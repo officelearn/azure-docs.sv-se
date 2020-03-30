@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: eded2d6a9f2c270a2b3ccca296277b0a016733fd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67188030"
 ---
 1. Öppna projektet i Android Studio.
 
-2. I **Projektutforskaren** Android Studio, öppna den `ToDoActivity.java` filen och Lägg till följande importuttryck:
+2. Öppna **Project Explorer** filen i `ToDoActivity.java` Project Explorer i Android Studio och lägg till följande importsatser:
 
     ```java
     import java.util.concurrent.ExecutionException;
@@ -27,7 +27,7 @@ ms.locfileid: "67188030"
     import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
     ```
 
-3. Lägg till följande metod för att den **ToDoActivity** klass:
+3. Lägg till följande metod i klassen **ToDoActivity:**
 
     ```java
     // You can choose any unique number here to differentiate auth providers from each other. Note this is the same code at login() and onActivityResult().
@@ -59,12 +59,12 @@ ms.locfileid: "67188030"
     }
     ```
 
-    Den här koden skapar en metod för att hantera autentiseringsprocessen Google. En dialogruta visas ID för den autentiserade användaren. Du kan bara fortsätta på en lyckad autentisering.
+    Den här koden skapar en metod för att hantera Googles autentiseringsprocess. I en dialogruta visas den autentiserade användarens ID. Du kan bara fortsätta med en lyckad autentisering.
 
     > [!NOTE]
-    > Om du använder en identitetsprovider än Google, ändrar du värdet som skickas till den **inloggning** metod till något av följande värden: _MicrosoftAccount_, _Facebook_, _Twitter_, eller _windowsazureactivedirectory_.
+    > Om du använder en annan identitetsleverantör än Google ändrar du värdet som skickas till **inloggningsmetoden** till något av följande värden: _MicrosoftAccount_, _Facebook_, _Twitter_eller _windowsazureactivedirectory_.
 
-4. I den **onCreate** metoden Lägg till följande rad med kod efter den kod som skapar en instans av den `MobileServiceClient` objekt.
+4. I **metoden onCreate** lägger du till följande kodrad efter `MobileServiceClient` koden som instansierar objektet.
 
     ```java
     authenticate();
@@ -72,7 +72,7 @@ ms.locfileid: "67188030"
 
     Det här anropet startar autentiseringsprocessen.
 
-5. Flytta återstående kod efter `authenticate();` i den **onCreate** metod för att en ny **createTable** metod:
+5. Flytta den återstående `authenticate();` koden efter i **metoden onCreate** till en ny **createTable-metod:**
 
     ```java
     private void createTable() {
@@ -92,7 +92,7 @@ ms.locfileid: "67188030"
     }
     ```
 
-6. Lägg till följande kodavsnitt för att säkerställa att omdirigeringen fungerar som förväntat, `RedirectUrlActivity` till `AndroidManifest.xml`:
+6. Om du vill vara medveten om omdirigering fungerar som förväntat lägger du till följande utdrag i: `RedirectUrlActivity` `AndroidManifest.xml`
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity">
@@ -106,7 +106,7 @@ ms.locfileid: "67188030"
     </activity>
     ```
 
-7. Lägg till `redirectUriScheme` till `build.gradle` på din Android-App.
+7. Lägg `redirectUriScheme` `build.gradle` till i din Android-applikation.
 
     ```gradle
     android {
@@ -123,7 +123,7 @@ ms.locfileid: "67188030"
     }
     ```
 
-8. Lägg till `com.android.support:customtabs:23.0.1` i beroenden i din `build.gradle`:
+8. Lägg `com.android.support:customtabs:23.0.1` till beroendena `build.gradle`i din:
 
     ```gradle
     dependencies {
@@ -132,9 +132,9 @@ ms.locfileid: "67188030"
     }
     ```
 
-9. Från den **kör** -menyn klickar du på **kör app** att starta programmet och logga in med din valda identitetsprovider.
+9. På **Kör-menyn** klickar du på **Kör-appen** för att starta appen och logga in med din valda identitetsleverantör.
 
 > [!WARNING]
-> URL-schema som tidigare nämnts är skiftlägeskänsligt. Se till att alla förekomster av `{url_scheme_of_you_app}` används på samma sätt.
+> Url-schemat som nämns är skiftlägeskänsligt. Se till att `{url_scheme_of_you_app}` alla förekomster av användning samma fall.
 
-När du har loggat in, appen bör köras utan fel och du ska kunna skicka frågor till backend-tjänsten och gör uppdateringar till data.
+När du har loggat in ska appen köras utan fel och du bör kunna fråga backend-tjänsten och göra uppdateringar av data.

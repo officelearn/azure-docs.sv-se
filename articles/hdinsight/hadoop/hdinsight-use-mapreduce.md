@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 238f37cc1e8cbc8d3260693181d6e54ac5f592f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435707"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Använda MapReduce i Apache Hadoop på HDInsight
@@ -21,13 +21,13 @@ Lär dig hur du kör MapReduce-jobb på HDInsight-kluster.
 
 ## <a name="example-data"></a>Exempeldata
 
-HDInsight innehåller olika exempel data uppsättningar som lagras i `/example/data`-och `/HdiSamples`-katalogen. Dessa kataloger finns i standard lagrings utrymmet för klustret. I det här dokumentet använder vi `/example/data/gutenberg/davinci.txt`-filen. Den här filen innehåller antecknings böckerna för Leonardo da Vinci.
+HDInsight ger olika exempel datauppsättningar, `/example/data` `/HdiSamples` som lagras i och katalogen. Dessa kataloger finns i standardlagringen för klustret. I det här dokumentet `/example/data/gutenberg/davinci.txt` använder vi filen. Denna fil innehåller anteckningsböcker av Leonardo da Vinci.
 
-## <a name="example-mapreduce"></a>Exempel MapReduce
+## <a name="example-mapreduce"></a>Exempel mapreduce
 
-Ett exempel på MapReduce ord räknings program ingår i ditt HDInsight-kluster. Det här exemplet finns på `/example/jars/hadoop-mapreduce-examples.jar` på standard lagrings utrymmet för klustret.
+Ett exempel MapReduce ordräkningsprogram ingår i ditt HDInsight-kluster. Det här exemplet `/example/jars/hadoop-mapreduce-examples.jar` finns på standardlagringen för klustret.
 
-Följande Java-kod är källan till det MapReduce-program som finns i `hadoop-mapreduce-examples.jar`-filen:
+Följande Java-kod är källan till MapReduce-programmet `hadoop-mapreduce-examples.jar` som finns i filen:
 
 ```java
 package org.apache.hadoop.examples;
@@ -101,17 +101,17 @@ public class WordCount {
 }
 ```
 
-Instruktioner för att skriva egna MapReduce-program finns i [utveckla Java MapReduce-program för HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
+Instruktioner för att skriva dina egna MapReduce-program finns i [Utveckla Java MapReduce-program för HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
 
 ## <a name="run-the-mapreduce"></a>Kör MapReduce
 
-HDInsight kan köra HiveQL-jobb med olika metoder. Använd följande tabell för att bestämma vilken metod som passar dig bäst. Följ sedan länken för en genom gång.
+HDInsight kan köra HiveQL-jobb med hjälp av olika metoder. Använd följande tabell för att bestämma vilken metod som är rätt för dig och följ sedan länken för en genomgång.
 
-| **Använd detta**... | **...Om du vill göra detta** |  ...from detta **klientoperativsystem** |
+| **Använd denna**... | **... för att göra detta** |  ... från det här **klientoperativsystemet** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Använda Hadoop-kommandot via **SSH** |Linux, UNIX, Mac OS X eller Windows |
-| [Klammerparentes](apache-hadoop-use-mapreduce-curl.md) |Skicka jobbet via en fjärr anslutning med hjälp av **rest** |Linux, UNIX, Mac OS X eller Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Skicka jobbet via en fjärr anslutning med hjälp av **Windows PowerShell**  |Windows |
+| [Ssh](apache-hadoop-use-mapreduce-ssh.md) |Använd kommandot Hadoop via **SSH** |Linux, Unix, Mac OS X eller Windows |
+| [Curl](apache-hadoop-use-mapreduce-curl.md) |Skicka jobbet på distans med **REST** |Linux, Unix, Mac OS X eller Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Skicka jobbet på distans med hjälp av **Windows PowerShell**  |Windows |
 
 ## <a name="next-steps"></a>Nästa steg
 

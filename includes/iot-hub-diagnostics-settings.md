@@ -9,53 +9,53 @@ ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 3778ec2fac13aee29ce361402a535ca70fd56c33
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75750698"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Aktivera loggning med diagnostikinställningar
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb.
 
 2. Välj **diagnostikinställningar**.
 
-3. Välj **slå på diagnostik**.
+3. Välj **Aktivera diagnostik**.
 
    ![Slå på diagnostik](./media/iot-hub-diagnostics-settings/turnondiagnostics.png)
 
-4. Ge diagnostikinställningar ett namn.
+4. Ge diagnostikinställningarna ett namn.
 
-5. Välj var du vill skicka loggarna. Du kan välja en valfri kombination av de tre alternativen:
+5. Välj var du vill skicka loggarna. Du kan välja valfri kombination av de tre alternativen:
 
    * Arkivera till ett lagringskonto
    * Strömma till en händelsehubb
    * Skicka till Log Analytics
 
-6. Välj vilka åtgärder som du vill övervaka och aktivera loggar för dessa åtgärder. De åtgärder som diagnostikinställningar kan rapportera om är:
+6. Välj vilka åtgärder du vill övervaka och aktivera loggar för dessa åtgärder. De åtgärder som diagnostikinställningarna kan rapportera om är:
 
    * Anslutningar
-   * Telemetri för enhet
-   * Meddelanden från moln till enhet
-   * Enhets identitets åtgärder
-   * Filöverföringar
+   * Enhetstelemetri
+   * Meddelanden från molnet till enheten
+   * Åtgärder för enhetsidentitet
+   * Filuppladdningar
    * Meddelanderoutning
-   * Dubbla åtgärder från moln till enhet
-   * Dubbla åtgärder från enhet till moln
-   * Dubbla åtgärder
-   * Jobb åtgärder
+   * Dubbla operationer mellan molnet och enheten
+   * Dubbla åtgärder mellan enheter och moln
+   * Dubbla operationer
+   * Jobboperationer
    * Direkta metoder  
-   * Distribuerad spårning (för hands version)
+   * Distribuerad kalkering (förhandsgranskning)
    * Konfigurationer
-   * Enhets strömmar
-   * Enhets mått
+   * Enhetsströmmar
+   * Enhetsmått
 
 6. Spara de nya inställningarna. 
 
-Använd följande kod om du vill aktivera diagnostikinställningar med PowerShell:
+Om du vill aktivera diagnostikinställningar med PowerShell använder du följande kod:
 
 ```azurepowershell
 Connect-AzAccount
@@ -63,4 +63,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-Nya inställningarna träder i kraft i cirka 10 minuter. Därefter visas loggar i det konfigurerade lagrings målet på bladet **Inställningar för diagnostik** . Mer information om hur du konfigurerar diagnostik finns i [samla in och använda loggdata från dina Azure-resurser](../articles/azure-monitor/platform/platform-logs-overview.md).
+Nya inställningar träder i kraft om cirka 10 minuter. Därefter visas loggar i det konfigurerade arkiveringsmålet på **diagnostikinställningsbladet.** Mer information om hur du konfigurerar diagnostik finns i [Samla in och använda loggdata från dina azure-resurser](../articles/azure-monitor/platform/platform-logs-overview.md).

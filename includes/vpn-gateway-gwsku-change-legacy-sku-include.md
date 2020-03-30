@@ -9,13 +9,13 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187223"
 ---
-Om du arbetar med Resource Manager-distributionsmodellen kan ändra du till den nya gatewayen SKU: er. När du byter från en äldre gateway-SKU till en ny SKU du ta bort den befintliga VPN-gatewayen och skapa en ny VPN-gateway.
+Om du arbetar med resurshanterarens distributionsmodell kan du ändra till de nya gateway-SKU:erna. När du byter från en äldre gateway SKU till en ny SKU tar du bort den befintliga VPN-gatewayen och skapar en ny VPN-gateway.
 
 Arbetsflöde:
 
@@ -29,7 +29,7 @@ Arbetsflöde:
 
 Överväganden:
 
-* Om du vill flytta till de nya SKU: er, måste din VPN-gateway vara i Resource Manager-distributionsmodellen.
-* Om du har en klassiska VPN-gateway, måste du fortsätta med de äldre äldre SKU: erna för denna gateway, men du kan ändra storlek mellan äldre SKU: er. Du kan inte ändra till de nya SKU: er.
-* Du har stilleståndstid för anslutningar när du byter från en äldre SKU till en ny SKU.
-* När du byter till en ny gateway-SKU, offentliga IP-adress för VPN-gateway kommer att ändras. Detta gäller även om du anger samma offentliga IP-adressobjektet som du använde tidigare.
+* Om du vill flytta till de nya SKU:erna måste din VPN-gateway finnas i resurshanterarens distributionsmodell.
+* Om du har en klassisk VPN-gateway måste du fortsätta att använda de äldre äldre SKU:erna för den gatewayen, men du kan ändra storlek på mellan de äldre SKU:erna. Du kan inte ändra till de nya SKU:erna.
+* Du kommer att ha anslutningsstopp när du byter från en äldre SKU till en ny SKU.
+* När du byter till en ny gateway SKU ändras den offentliga IP-adressen för din VPN-gateway. Detta händer även om du anger samma offentliga IP-adressobjekt som du använde tidigare.

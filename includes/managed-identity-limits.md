@@ -10,13 +10,13 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187752"
 ---
-| Category | Gräns |
+| Kategori | Gräns |
 | --- | --- |
-| Användare som tilldelats hanterade identiteter | <ul><li>När du skapar användarspecifika hanterade identiteter stöds endast alfanumeriska tecken (0-9, a-z och A-Z) och bindestreck (-). För att tilldelningen till en virtuell dator eller skalnings uppsättning för virtuella datorer ska fungera korrekt är namnet begränsat till 24 tecken.</li><li>Om du använder tillägget hanterad identitet för virtuell dator är den tillåtna gränsen 32 användare tilldelade hanterade identiteter. Utan tillägget hanterad identitet för virtuella datorer är den gräns som stöds 512 användare tilldelade identiteter.</li>|
+| Användartilldelade hanterade identiteter | <ul><li>När du skapar användartilldelade hanterade identiteter stöds endast alfanumeriska tecken (0-9, a-z och A-Z) och bindestrecket (-). För att tilldelningen till en virtuell dator eller skala för virtuell dator ska fungera korrekt är namnet begränsat till 24 tecken.</li><li>Om du använder tillägget för den hanterade identitetens virtuella dator är gränsen för 32 användartilldelade hanterade identiteter som stöds. Utan tillägget för den hanterade identitetens virtuella dator är gränsen 512 användartilldelade identiteter som stöds.</li>|
 
